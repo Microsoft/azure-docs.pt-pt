@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827526"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371210"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -56,7 +56,7 @@ Um tempo de integração Azure pode:
 
 - Executar fluxos de dados em Azure 
 - Executar atividade de cópia entre lojas de dados em nuvem
-- Despachar as seguintes atividades de transformação na rede pública: Databricks Notebook/ Jar/ Atividade python, atividade de HIVE HDInsight, atividade do PORCO HDInsight, atividade hdInsight MapReduce, atividade hdInsight Spark, atividade de streaming HDInsight, atividade de machine learning batch execution, atividade de machine learning update resource, atividade de procedimento armazenado, atividade U-SQL de Data Lake Analytics, atividade personalizada .NET, atividade web, atividade de lookup e atividade de Get Metadas.
+- Despachar as seguintes atividades de transformação em rede pública: Databricks Notebook/ Jar/ Python atividade, Atividade de Hive HDInsight, atividade do Porco HDInsight, atividade de HDInsight MapReduce, atividade hdInsight Spark, atividade de streaming HDInsight, Azure Machine Learning Studio (clássico) Atividade de execução de lote, atividade de Azure Machine Learning Studio (clássico) A atividade de Recurso de atualização, atividade de procedimento armazenado, atividade U-SQL de Data Lake Analytics, atividade personalizada .NET, atividade web, atividade de Lookup e atividade de Metudos.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede de IR do Azure
 
@@ -79,7 +79,7 @@ Para obter informações sobre a criação e configuração de um Azure IR, cons
 Os runtimes de integração autoalojados podem:
 
 - Executar a atividade de cópia entre arquivos de dados na cloud e um arquivo de dados numa rede privada.
-- Envio das seguintes atividades de transformação contra recursos computativos em instalações ou Rede Virtual Azure: atividade de HIVE HDInsight (BYOC-Bring Your Own Cluster), hdInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Atividades de atualização de aprendizagem automática, atividade do procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada (funciona em Azure Batch) , Atividade de procura e obter atividade de metadados.
+- Envio das seguintes atividades de transformação contra recursos computativos em instalações ou Rede Virtual Azure: atividade de HIVE HDInsight (BYOC-Bring Your Own Cluster), atividade de PORCO HDInsight (BYOC), atividade de HDInsight MapReduce (BYOC), atividade de HDInsight Spark Spark (BYOC), atividade de streaming HDInsight (BYOC), Azure Machine Learning Studio (classic) Batch Execution activity, Azure Machine Learning Studio (clássico) Atualização de atividades de recursos, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics , atividade personalizada (corre em Azure Batch), atividade de procura e obter atividade de metadados.
 
 > [!NOTE] 
 > Utilize o tempo de integração auto-hospedado para suportar lojas de dados que requerem o seu próprio motorista, como SAP Hana, MySQL, etc.  Para mais informações, consulte [as lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

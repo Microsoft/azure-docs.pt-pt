@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: f9080d13c4358a03b3f13ffcf346af42e49c47c6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689461"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148372"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Como o desconto de reserva do Azure é aplicado ao Azure Dedicated Host
 
@@ -36,17 +36,16 @@ Se tiver dúvidas ou precisar de ajuda,  [crie um pedido de suporte](https://go
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-- [O que são as reservas do Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [O que são as reservas do Azure?](./save-compute-costs-reservations.md)
 
-- [Utilizar o Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Utilizar o Azure Dedicated Host](../../virtual-machines/dedicated-hosts.md)
 
 - [Preços do Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Gerir reservas do Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Gerir reservas do Azure](./manage-reserved-vm-instance.md)
 
-- [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Compreender a utilização de reservas na sua subscrição Pay As You Go](./understand-reserved-instance-usage.md)
 
-- [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Compreender a utilização de reservas na inscrição Enterprise](./understand-reserved-instance-usage-ea.md)
 
-- [Compreender a utilização de reservas nas subscrições do CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [Compreender a utilização de reservas nas subscrições do CSP](/partner-center/azure-reservations)

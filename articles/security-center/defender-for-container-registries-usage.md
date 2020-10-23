@@ -1,18 +1,18 @@
 ---
 title: Como utilizar o Azure Defender para registos de contentores
-description: Saiba como utilizar o Azure Defender para registos de contentores para digitalizar imagens nos seus registos
+description: Saiba como utilizar o Azure Defender para registos de contentores para digitalizar imagens linux nos seus registos hospedados em Linux
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532606"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370547"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Utilize o Azure Defender para registos de contentores para digitalizar as suas imagens para obter vulnerabilidades
 
@@ -28,22 +28,21 @@ Quando o scanner reporta vulnerabilidades ao Centro de Segurança, o Centro de S
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|**Azure Defender para registos de contentores** é faturado como mostrado [na página de preços](security-center-pricing.md)|
-|Registos e imagens suportados:|![Sim, ](./media/icons/yes-icon.png) registos ACR hospedados em Linux que são acessíveis a partir da internet pública e fornecem acesso à concha.<br>![Sem ](./media/icons/no-icon.png) registos ACR hospedados pelo Windows.<br>![Sem ](./media/icons/no-icon.png) registos 'Privados' - O Centro de Segurança exige que os seus registos sejam acessíveis a partir da internet pública. O Security Center não pode atualmente ligar-se ou digitalizar registos com acesso limitado com uma firewall, um ponto final de serviço ou pontos finais privados, como o Azure Private Link.<br>![Nenhuma ](./media/icons/no-icon.png) imagem super minimalista, como [imagens de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas uma aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO.|
-|Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Registos e imagens suportados:|Imagens linux em registos ACR acessíveis a partir da internet pública com acesso a conchas|
+|Registos e imagens não suportados:|Imagens do Windows<br>Registos "privados"<br>Registos com acesso limitado com firewall, ponto final de serviço ou pontos finais privados, tais como Azure Private Link<br>Imagens super minimalistas como imagens [de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "distroless" que contêm apenas uma aplicação e suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO|
+|Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](../container-registry/container-registry-roles.md)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificar vulnerabilidades em imagens nos registos de contentores do Azure 
 
-1. Para permitir a verificação de vulnerabilidades de imagens armazenadas no registo do contentor Azure baseado em recursos Azure:
+Para permitir a verificação de vulnerabilidades de imagens armazenadas no registo do contentor Azure baseado em recursos Azure:
 
-    1. Ative **o Azure Defender para registos de contentores** para a sua subscrição.
+1. Ative **o Azure Defender para registos de contentores** para a sua subscrição. O Centro de Segurança está agora pronto para digitalizar imagens nos seus registos.
 
-        O Centro de Segurança está agora pronto para digitalizar imagens nos seus registos.
-
-        >[!NOTE]
-        > Esta funcionalidade é carregada por imagem.
+    >[!NOTE]
+    > Esta funcionalidade é carregada por imagem.
 
 1. As imagens são ativadas em cada impulso ou importação, e se a imagem tiver sido puxada nos últimos 30 dias. 
 

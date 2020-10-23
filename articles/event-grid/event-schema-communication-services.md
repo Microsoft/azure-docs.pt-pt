@@ -4,12 +4,12 @@ description: Este artigo descreve como usar os Serviços de Comunicação Azure 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347575"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145818"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Serviços de Comunicação Azure como fonte de rede de eventos
 
@@ -23,7 +23,7 @@ Este artigo fornece as propriedades e esquema para eventos dos Serviços de Comu
 
 ### <a name="available-event-types"></a>Tipos de eventos disponíveis
 
-A grelha de eventos utiliza [subscrições de eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para encaminhar mensagens de evento para assinantes. 
+A grelha de eventos utiliza [subscrições de eventos](./concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. 
 
 A Azure Communication Services emite os seguintes tipos de eventos:
 
@@ -45,7 +45,7 @@ A Azure Communication Services emite os seguintes tipos de eventos:
 
 ## <a name="event-subjects"></a>Temas do evento
 
-O `subject` campo de todos os eventos de Serviços de Comunicação identifica o utilizador, número de telefone ou entidade que é alvo do evento. Prefixos comuns são usados para permitir a [simples filtragem da grelha de evento.](https://docs.microsoft.com/azure/event-grid/event-filtering)
+O `subject` campo de todos os eventos de Serviços de Comunicação identifica o utilizador, número de telefone ou entidade que é alvo do evento. Prefixos comuns são usados para permitir a [simples filtragem da grelha de evento.](./event-filtering.md)
 
 | Prefixo do sujeito                              | Entidade de Serviço de Comunicação |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Esta secção contém um exemplo de como seriam esses dados para cada evento.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](https://docs.microsoft.com/azure/event-grid/overview)
-* Para uma introdução aos conceitos de grelha de eventos Azure, consulte [Conceitos em Grelha de Eventos?](https://docs.microsoft.com/azure/event-grid/concepts)
-* Para uma introdução ao Azure Event Grid SystemTopics, consulte [tópicos do Sistema na Grelha de Eventos Azure?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* Para uma introdução à Grelha de Eventos Azure, veja [o que é a Grade de Eventos?](./overview.md)
+* Para uma introdução aos conceitos de grelha de eventos Azure, consulte [Conceitos em Grelha de Eventos?](./concepts.md)
+* Para uma introdução ao Azure Event Grid SystemTopics, consulte [tópicos do Sistema na Grelha de Eventos Azure?](./system-topics.md)

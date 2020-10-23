@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e93827278fb501bc6d857d3cb39f9e0ba24d5d0a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552244"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Diretório Ativo Azure com Base de Competências
 
@@ -134,11 +134,11 @@ Para configurar o Azure AD com base de competências, execute os seguintes passo
 
 3. Na página de **autenticação,** selecione Single Sign-On como **SAML 2**.
 
-    ![O single](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![A screenshot mostra a página de autenticação com SAML 2 selecionada para Sing Sign-on.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. Na Página de **Autenticação,** Execute os seguintes passos:
 
-    ![O single](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![A screenshot mostra a página de Autenticação onde pode introduzir os valores descritos.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. Clique no botão **de metadados IdP** de atualização ao lado da opção **Status** e cole o conteúdo do Metadadata XML que descarregou a partir do portal Azure na caixa de texto especificada.
 

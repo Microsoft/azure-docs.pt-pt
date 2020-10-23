@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 5344354c05547d6d2a5e2762c70a97cc4222c464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4995f813bbfe7ef368f83085cdd61ab97fa330e8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552361"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108529"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integre a Qlik Sense Enterprise com o Azure Ative Directory
 
@@ -136,7 +136,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
     > [!NOTE]
     > Antes de enviar os metadados IdP para o servidor Qlik Sense, o ficheiro precisa de ser editado para remover informações para garantir o funcionamento adequado entre o servidor Azure AD e Qlik Sense.
 
-    ![Rio QlikSense][qs24]
+    ![A screenshot mostra uma janela visual studio code com o ficheiro Federação Metadados X M L.][qs24]
 
     a. Abra o ficheiro FederationMetaData.xml, que descarregou do portal Azure num editor de texto.
 
@@ -150,19 +150,19 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 3. No QMC, clique no item do menu **Virtual Proxies.**
 
-    ![Rio QlikSense][qs6]
+    ![A screenshot mostra proxies virtuais selecionados a partir do SISTEMA CONFIGURAR.][qs6]
 
 4. Na parte inferior do ecrã, clique no botão **Criar novo.**
 
-    ![Rio QlikSense][qs7]
+    ![A screenshot mostra a nova opção Criar.][qs7]
 
 5. Aparece o ecrã de edição por procuração virtual.  No lado direito do ecrã encontra-se um menu para tornar visíveis as opções de configuração.
 
-    ![Rio QlikSense][qs9]
+    ![A screenshot mostra identificação selecionada a partir de Propriedades.][qs9]
 
 6. Com a opção de menu identificação verificada, insira as informações de identificação para a configuração de procuração virtual Azure.
 
-    ![Rio QlikSense][qs8]  
+    ![A screenshot mostra editar a secção de identificação de procuração virtual onde pode introduzir os valores descritos.][qs8]  
 
     a. O campo **Descrição** é um nome amigável para a configuração de procuração virtual.  Insira um valor para uma descrição.
 
@@ -174,7 +174,7 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 7. Clique na opção do menu autenticação para torná-lo visível.  O ecrã de autenticação aparece.
 
-    ![Rio QlikSense][qs10]
+    ![A screenshot mostra editar a secção de autenticação por procuração virtual onde pode introduzir os valores descritos.][qs10]
 
     a. O modo de **acesso anónimo** determina se os utilizadores anónimos podem aceder ao Qlik Sense através do proxy virtual.  A opção predefinida é Nenhum utilizador anónimo.
 
@@ -196,55 +196,55 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 8. Clique na opção **de menu LOAD BALANCING** para torná-lo visível.  Aparece o ecrã de equilíbrio de carga.
 
-    ![Rio QlikSense][qs11]
+    ![O Screenshot mostra o ecrã de edição de procuração virtual para BALANCEAMENTO DE CARGA, onde pode selecionar Adicionar novo nó de servidor.][qs11]
 
 9. Clique no botão de nó do novo servidor do **servidor,** selecione o nó do motor ou os nós que o Qlik Sense enviará sessões para efeitos de equilíbrio de carga e clique no botão **Adicionar.**
 
-    ![Rio QlikSense][qs12]
+    ![A screenshot mostra os nós do servidor Add para carregar o equilíbrio no botão de diálogo onde pode adicionar servidores.][qs12]
 
 10. Clique na opção de menu Avançado para torná-lo visível. O ecrã avançado aparece.
 
-    ![Rio QlikSense][qs13]
+    ![A screenshot mostra o ecrã virtual proxy Advanced edit.][qs13]
 
     A lista de anfitriões permite que os nomes hospedeiros sejam aceites ao ligar-se ao servidor Qlik Sense.  **Introduza o nome de anfitrião que os utilizadores especificarão ao ligar-se ao servidor Qlik Sense.** O nome anfitrião é o mesmo valor que o anfitrião uri da SAML sem o https://.
 
 11. Clique no botão **Aplicar.**
 
-    ![Rio QlikSense][qs14]
+    ![A imagem mostra o botão Aplicar.][qs14]
 
 12. Clique em OK para aceitar a mensagem de aviso que os proxies ligados ao proxy virtual serão reiniciados.
 
-    ![Rio QlikSense][qs15]
+    ![A screenshot mostra as alterações de Aplicação à mensagem de confirmação de procuração virtual.][qs15]
 
 13. No lado direito do ecrã, aparece o menu de itens associados.  Clique na opção **menu Proxies.**
 
-    ![Rio QlikSense][qs16]
+    ![A screenshot mostra Proxies selecionados a partir de itens associados.][qs16]
 
 14. O ecrã de procuração aparece.  Clique no botão **Link** na parte inferior para ligar um proxy ao representante virtual.
 
-    ![Rio QlikSense][qs17]
+    ![A imagem mostra o botão Link.][qs17]
 
 15. Selecione o nó de procuração que irá suportar esta ligação de procuração virtual e clique no botão **Link.**  Após a ligação, o representante será listado sob os proxies associados.
 
-    ![Rio QlikSense][qs18]
+    ![A screenshot mostra serviços de procuração selecionados.][qs18]
   
-    ![Rio QlikSense][qs19]
+    ![A screenshot mostra proxies associados na caixa de diálogo de itens associados por procuração virtual.][qs19]
 
 16. Após cerca de cinco a dez segundos, aparecerá a mensagem QMC refresh.  Clique no botão **Refresh QMC.**
 
-    ![Rio QlikSense][qs20]
+    ![A screenshot mostra a mensagem A sua sessão terminou.][qs20]
 
 17. Quando o QMC atualizar, clique no item do menu **Virtual proxies.** A nova entrada virtual de procuração SAML está listada na tabela do ecrã.  Clique apenas na entrada de procuração virtual.
 
-    ![Rio QlikSense][qs51]
+    ![A screenshot mostra proxies virtuais com uma única entrada.][qs51]
 
 18. Na parte inferior do ecrã, o botão de metadados DE descarregamento SP será ativado.  Clique no botão **de metadados DE descarregamento SP** para guardar os metadados num ficheiro.
 
-    ![Rio QlikSense][qs52]
+    ![A screenshot mostra o botão de metadados Download S P.][qs52]
 
 19. Abra o ficheiro de metadados sp.  Observe a entrada **de ENTIDADEID** e a entrada **do Serviço de Afirmação.**  Estes valores são equivalentes ao **Identificador**, **Assine no URL** e o URL de **resposta** na configuração da aplicação AD Azure. Cole estes valores na secção **Qlik Sense Enterprise Domain e URLs** na configuração da aplicação AD Azure se não estiverem em correspondência, então deve substituí-los no assistente de configuração da App AD Azure.
 
-    ![Rio QlikSense][qs53]
+    ![O Screenshot mostra um editor de texto simples com um EntityDescriptor com entidadeID e AssertionConsumerService chamados.][qs53]
 
 ### <a name="create-qlik-sense-enterprise-test-user"></a>Criar utilizador de teste Qlik Sense Enterprise
 

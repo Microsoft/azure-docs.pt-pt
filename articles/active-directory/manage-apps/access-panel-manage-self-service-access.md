@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f0021ee53e972dacfdadb3e488498a3fc4ad0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181719"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372468"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como utilizar o acesso a aplicações self-service
 
@@ -67,4 +67,4 @@ Estas aprovações suportam apenas fluxos de trabalho de homologação únicas, 
 -   Se o acesso à aplicação de self-service foi recentemente configurado, tente entrar e sair novamente nas My Apps do utilizador após alguns minutos para ver se as alterações de acesso ao autosserviço apareceram.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)
+[Configurar o Azure Active Directory para gestão de grupo personalizada](../enterprise-users/groups-self-service-management.md)

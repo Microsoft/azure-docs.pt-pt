@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602674"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441135"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Para a Azure SQL Database e Azure Synapse Analytics, o protetor TDE é definido 
 > Para aqueles que usam O TDE gerido pelo serviço que gostariam de começar a usar o TDE gerido pelo cliente, os dados permanecem encriptados durante o processo de comutação, e não há tempo de inatividade nem reencriminação dos ficheiros da base de dados. Mudar de uma chave gerida pelo serviço para uma chave gerida pelo cliente só requer a reencriminação do DEK, que é uma operação rápida e online.
 
 > [!NOTE]
-> Para fornecer aos clientes do Azure SQL duas camadas de encriptação de dados em repouso, a encriptação da infraestrutura (utilizando o algoritmo de encriptação AES-256) com as teclas geridas pela plataforma está a ser lançada. Isto fornece uma camada de encriptação de adição em repouso juntamente com TDE com chaves geridas pelo cliente, que já está disponível. Neste momento, os clientes devem solicitar acesso a esta capacidade. Se estiver interessado nesta capacidade, AzureSQLDoubleEncryptionAtRest@service.microsoft.com contacte.
+> Para fornecer aos clientes do Azure SQL duas camadas de encriptação de dados em repouso, a encriptação da infraestrutura (utilizando o algoritmo de encriptação AES-256) com as teclas geridas pela plataforma está a ser lançada. Isto fornece uma camada de encriptação de adição em repouso juntamente com TDE com chaves geridas pelo cliente, que já está disponível. Para a Base de Dados EL azul e instância gerida, todas as bases de dados, incluindo a base de dados principal e outras bases de dados do sistema, serão encriptadas quando a encriptação da infraestrutura for ligada. Neste momento, os clientes devem solicitar acesso a esta capacidade. Se estiver interessado nesta capacidade, AzureSQLDoubleEncryptionAtRest@service.microsoft.com contacte.
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Benefícios do TDE gerido pelo cliente
 

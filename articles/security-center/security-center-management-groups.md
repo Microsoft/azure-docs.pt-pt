@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440783"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339735"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ganhe visibilidade em todo o inquilino para o Azure Security Center
 Este artigo explica como gerir a postura de segurança da sua organização em escala, aplicando políticas de segurança a todas as subscrições da Azure ligadas ao seu inquilino Azure Ative Directory.
@@ -33,10 +33,10 @@ O grupo de gestão de raiz é criado automaticamente quando faz qualquer uma das
 2. Criar um grupo de gestão através de uma chamada API.
 3. Criar um grupo de gestão com a PowerShell.
 
-Para uma visão detalhada dos grupos de gestão, consulte o Artigo De Organizar os seus recursos com o artigo [dos grupos de gestão Azure.](../azure-resource-manager/management-groups-overview.md)
+Para uma visão detalhada dos grupos de gestão, consulte o Artigo De Organizar os seus recursos com o artigo [dos grupos de gestão Azure.](../governance/management-groups/overview.md)
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Criar um grupo de gestão no portal Azure
-Pode organizar subscrições em grupos de gestão e aplicar as suas políticas de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Embora os grupos de gestão não sejam necessários para embarcar no Security Center, é altamente recomendado que crie pelo menos um grupo de gestão para que o grupo de gestão de raiz seja criado. Após a criação do grupo, todas as subscrições sob o seu inquilino AZure AD estarão ligadas a ele. Para obter instruções para o PowerShell e mais informações, consulte [Criar grupos de gestão para gestão de recursos e organizações.](../azure-resource-manager/management-groups-create.md)
+Pode organizar subscrições em grupos de gestão e aplicar as suas políticas de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as políticas aplicadas ao grupo de gestão. Embora os grupos de gestão não sejam necessários para embarcar no Security Center, é altamente recomendado que crie pelo menos um grupo de gestão para que o grupo de gestão de raiz seja criado. Após a criação do grupo, todas as subscrições sob o seu inquilino AZure AD estarão ligadas a ele. Para obter instruções para o PowerShell e mais informações, consulte [Criar grupos de gestão para gestão de recursos e organizações.](../governance/management-groups/create-management-group-portal.md)
 
  
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).

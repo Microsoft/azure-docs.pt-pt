@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977566"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206089"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Que tecnologias e serviços da Azure pode usar para criar soluções IoT?
 
@@ -61,7 +61,7 @@ Pode simplificar ainda mais a forma como cria o código incorporado para os seus
 
 [O Azure IoT Edge](../iot-edge/about-iot-edge.md) permite-lhe descarregar partes da sua carga de trabalho IoT dos seus serviços de nuvem Azure para os seus dispositivos. O IoT Edge pode reduzir a latência na sua solução, reduzir a quantidade de dados que os seus dispositivos trocam com a nuvem e ativar cenários off-line. Pode gerir dispositivos IoT Edge da IoT Central e alguns aceleradores de solução.
 
-[A Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) é uma plataforma de aplicação segura e de alto nível com funcionalidades de comunicação e segurança incorporadas para dispositivos ligados à Internet. Inclui uma unidade de microcontrolador segura, um sistema operativo personalizado baseado em Linux e um serviço de segurança baseado na nuvem que fornece segurança contínua e renovável.
+[A Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) é uma plataforma de aplicação segura e de alto nível com funcionalidades de comunicação e segurança incorporadas para dispositivos ligados à Internet. Inclui uma unidade de microcontrolador segura, um sistema operativo personalizado baseado em Linux e um serviço de segurança baseado na nuvem que fornece segurança contínua e renovável.
 
 ### <a name="cloud-connectivity"></a>Conectividade em nuvem
 
@@ -76,7 +76,7 @@ O IoT Hub é um componente central dos aceleradores de solução e pode usá-lo 
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Colmatar o fosso entre os mundos físico e digital
 
-[Azure Digital Twins](../digital-twins/about-digital-twins.md) é um serviço IoT que lhe permite modelar um ambiente físico. Usa um gráfico de inteligência espacial para modelar as relações entre pessoas, espaços e dispositivos. Ao corelatar dados em todos os mundos digital e físico, pode criar soluções contextualmente conscientes.
+[Azure Digital Twins](../digital-twins/overview.md) é um serviço IoT que lhe permite modelar um ambiente físico. Usa um gráfico de inteligência espacial para modelar as relações entre pessoas, espaços e dispositivos. Ao corelatar dados em todos os mundos digital e físico, pode criar soluções contextualmente conscientes.
 
 A Iot Central utiliza gémeos digitais para sincronizar dispositivos e dados no mundo real com os modelos digitais que permitem aos utilizadores monitorizar e gerir esses dispositivos conectados.
 
@@ -84,7 +84,7 @@ A Iot Central utiliza gémeos digitais para sincronizar dispositivos e dados no 
 
 Os dispositivos IoT normalmente geram grandes quantidades de dados de séries de tempo, tais como leituras de temperatura dos sensores. [O Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) pode ligar-se a um hub IoT, ler o fluxo de telemetria dos seus dispositivos, armazenar esses dados e permitir-lhe consultar e visualizar.
 
-[O Azure Maps](/azure/azure-maps) é uma coleção de serviços geoespaciais que utilizam dados de mapeamento frescos para fornecer contexto geográfico preciso a aplicações web e móveis. Pode utilizar uma API REST, um controlo JavaScript baseado na Web ou um SDK Android para construir as suas aplicações.
+[O Azure Maps](../azure-maps/index.yml) é uma coleção de serviços geoespaciais que utilizam dados de mapeamento frescos para fornecer contexto geográfico preciso a aplicações web e móveis. Pode utilizar uma API REST, um controlo JavaScript baseado na Web ou um SDK Android para construir as suas aplicações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: Definir o âmbito para a descoberta VMware VM com Azure Migrate
 description: Descreve como definir o âmbito de descoberta para a avaliação e migração de VMware VMware com Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919731"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314034"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Definir o âmbito de descoberta para VMware VMs
 
@@ -21,7 +21,7 @@ Quando configurar o aparelho, ele liga-se ao servidor vCenter e inicia a descobe
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Se ainda não criou uma conta de utilizador vCenter que a Azure Migrate utiliza para a descoberta, faça-o agora para [avaliação](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) ou [migração sem agentes.](tutorial-prepare-vmware.md#assign-permissions-to-an-account)
+Se ainda não criou uma conta de utilizador vCenter que a Azure Migrate utiliza para a descoberta, faça-o agora para [avaliação](./tutorial-discover-vmware.md#prepare-vmware) ou [migração sem agentes.](./migrate-support-matrix-vmware-migration.md#agentless-migration)
 
 
 ## <a name="assign-permissions-and-roles"></a>Atribuir permissões e funções

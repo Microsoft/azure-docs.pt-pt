@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019568"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152183"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos finais IoT Hub
 
@@ -95,7 +95,7 @@ Para os limites do número de pontos finais que pode adicionar, consulte [quotas
 
 Numa solução IoT, fica um *gateway de campo* entre os seus dispositivos e os seus pontos finais IoT Hub. Está tipicamente localizado perto dos seus dispositivos. Os seus dispositivos comunicam diretamente com o gateway de campo utilizando um protocolo suportado pelos dispositivos. O gateway de campo liga-se a um ponto final do IoT Hub usando um protocolo que é suportado pelo IoT Hub. Um gateway de campo pode ser um dispositivo de hardware dedicado ou um computador de baixa potência que executa software de gateway personalizado.
 
-Você pode usar [Azure IoT Edge](/azure/iot-edge/) para implementar um gateway de campo. O IoT Edge oferece funcionalidades como comunicações multiplexing de vários dispositivos para a mesma ligação IoT Hub.
+Você pode usar [Azure IoT Edge](../iot-edge/index.yml) para implementar um gateway de campo. O IoT Edge oferece funcionalidades como comunicações multiplexing de vários dispositivos para a mesma ligação IoT Hub.
 
 ## <a name="next-steps"></a>Passos seguintes
 

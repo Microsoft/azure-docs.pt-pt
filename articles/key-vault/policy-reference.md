@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para o Cofre-Chave
 description: Lista definições de política incorporadas para Key Vault. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7fbff7f4f8bc9f7c60c68325073d90b1cd27cedb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7b197ce26ddfd7356948f80dd00bfa4c6bca0a4
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822098"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309985"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Definições incorporadas da Política Azure para o Cofre-Chave
 

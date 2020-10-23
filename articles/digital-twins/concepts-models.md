@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019023"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440795"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -230,7 +230,7 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja como gerir os modelos com as APIs digitalTwinsModels:
+Veja como gerir os modelos com as APIs digitalTwinModels:
 * [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
 
 Ou, saiba como os gémeos digitais são criados com base em modelos:

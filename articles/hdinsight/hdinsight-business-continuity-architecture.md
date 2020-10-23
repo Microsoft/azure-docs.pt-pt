@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856437"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207585"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight arquiteturas de continuidade de negócios
 
@@ -57,6 +57,8 @@ Numa primária ativa com arquitetura *secundária a pedido,* as aplicações esc
 Numa *primária ativa com suporte secundário,* as aplicações escrevem para a região primária ativa, enquanto um aglomerado secundário de espera diminuiu em modo de leitura apenas durante as operações normais. Durante as operações normais, pode optar por descarregar operações de leitura específicas da região para secundárias.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Colmeia e arquitetura de consulta interativa":::
+
+Para obter mais informações sobre a replicação da Colmeia e as amostras de código refere-se [a replicação da Colmeia Apache em clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## <a name="apache-spark"></a>Apache Spark
 

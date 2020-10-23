@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877099"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328884"
 ---
-# <a name="configure-device-redirections"></a>Configurar reorientações de dispositivos
+# <a name="configure-device-redirections"></a>Configurar redirecionamentos de dispositivo
 
 Configurar as reorientações de dispositivos para o ambiente de ambiente de trabalho virtual do Windows permite-lhe utilizar impressoras, dispositivos USB, microfones e outros dispositivos periféricos na sessão remota. Algumas reorientações do dispositivo requerem alterações nas propriedades do Protocolo de Ambiente de Trabalho Remoto (RDP) e nas definições de Política de Grupo.
 
@@ -50,7 +50,10 @@ Desafie a seguinte propriedade RDP para configurar a reorientação da câmara:
 - `camerastoredirect:s:*` redireciona todas as câmaras.
 - `camerastoredirect:s:` desativa a reorientação da câmara.
 
-Também pode redirecionar câmaras específicas usando uma lista de interfaces KSCATEGORY_VIDEO_CAMERA deslimitadas em pontos, tais como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
+>[!NOTE]
+>Mesmo que a `camerastoredirect:s:` propriedade esteja desativada, as câmaras locais podem ser redirecionadas através da `devicestoredirect:s:` propriedade. Para desativar totalmente o conjunto de reorientações da câmara `camerastoredirect:s:` e definir ou definir algum `devicestoredirect:s:` subconjunto de dispositivos de ficha e reprodução que não incluam nenhuma câmara.
+
+Também pode redirecionar câmaras específicas usando uma lista de interfaces KSCATEGORY_VIDEO_CAMERA deslimitadas em pontos, tais como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
 
 ### <a name="clipboard-redirection"></a>Reorientação da área de transferência
 

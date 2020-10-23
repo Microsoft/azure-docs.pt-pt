@@ -1,6 +1,6 @@
 ---
-title: Como atualizar a monitorização dinâmica da conformidade regulamentar no seu painel de conformidade regulamentar do Azure Security Center Microsoft Docs
-description: Atualizar os seus pacotes de conformidade regulamentar
+title: Utilização do painel de conformidade regulamentar no Azure Security Center
+description: Saiba como adicionar e remover as normas regulamentares do painel de conformidade regulamentar no Centro de Segurança
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078107"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342200"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulamentar
 
 O Azure Security Center compara continuamente a configuração dos seus recursos com requisitos em padrões, regulamentos e referências da indústria. O **painel de conformidade regulamentar** fornece informações sobre a sua postura de conformidade com base na forma como está a cumprir controlos e requisitos específicos de conformidade.
 
 
-## <a name="overview-of-compliance-packages"></a>Visão geral dos pacotes de conformidade
+## <a name="overview-of-compliance-packages"></a>Descrição geral dos pacotes de conformidade
 
 As normas do setor, as normas regulamentares e os parâmetros de referência estão representados no Security Center como *pacotes de conformidade.*  Cada pacote é uma iniciativa definida na Política Azure. Para ver os dados de conformidade mapeados como avaliações no seu painel de instrumentos, adicione um pacote de conformidade ao seu grupo de gestão ou subscrição dentro da página de política de **Segurança.** (Saiba mais sobre a Política Azure e iniciativas em [Trabalhar com políticas de segurança](tutorial-security-policy.md).)
 
@@ -41,7 +41,7 @@ A Microsoft também segue os próprios padrões regulamentares e melhora automat
 
 Pode adicionar padrões como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, e Azure CIS 1.1.0 (novo) - uma representação mais completa do Azure CIS 1.1.0. 
 
-Além disso, pode adicionar **Azure Security Benchmark**, as diretrizes específicas da Microsoft para segurança e conformidade com base em quadros comuns de conformidade. (Saiba[mais sobre o Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+Além disso, pode adicionar **Azure Security Benchmark**, as diretrizes específicas da Microsoft para segurança e conformidade com base em quadros comuns de conformidade. (Saiba[mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).)
 
 As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis. 
 
@@ -116,6 +116,6 @@ Neste artigo, aprendeu a **adicionar pacotes de conformidade** para monitorizar 
 
 Para outros materiais relacionados, consulte os seguintes artigos: 
 
-- [Referência de Segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Referência de Segurança do Azure](../security/benchmarks/introduction.md)
 - [Painel de conformidade regulamentar do centro de segurança](security-center-compliance-dashboard.md)
 - [Trabalhar com políticas de segurança](tutorial-security-policy.md)

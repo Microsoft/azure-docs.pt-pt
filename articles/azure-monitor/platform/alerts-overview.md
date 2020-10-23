@@ -4,12 +4,12 @@ description: Visão geral do alerta em Azure. Alertas, alertas clássicos e a in
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317145"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108801"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -84,7 +84,7 @@ Os seguintes estados de alerta são apoiados.
 
 *O estado de alerta* é diferente e independente da condição do *monitor.* O estado de alerta é definido pelo utilizador. A condição do monitor é definida pelo sistema. Quando um alerta dispara, o estado do monitor do alerta é definido para *'disparado',* e quando a condição subjacente que causou o alerta para o incêndio se apaga, a condição do monitor está definida para *"resolvida".* 
 
-O estado de alerta não é alterado até que o utilizador o altere. Saiba [como alterar o estado dos seus alertas e grupos inteligentes.](https://aka.ms/managing-alert-smart-group-states)
+O estado de alerta não é alterado até que o utilizador o altere. Saiba [como alterar o estado dos seus alertas e grupos inteligentes.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
 ## <a name="alerts-experience"></a>Experiência alerta 
 A página de Alertas predefinidos fornece um resumo dos alertas que são criados dentro de um determinado intervalo de tempo. Apresenta os alertas totais para cada gravidade, com colunas que identificam o número total de alertas em cada estado para cada gravidade. Selecione qualquer uma das severidades para abrir a página [Todos os Alertas](#all-alerts-page) filtrado por essa gravidade.
@@ -167,7 +167,7 @@ Ao selecionar um alerta, esta página fornece detalhes do alerta e permite-lhe a
 
 A página de detalhes do alerta inclui as seguintes secções:
 
-| Section | Descrição |
+| Section | Description |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Enumera cada ação tomada pelo alerta e quaisquer alterações feitas ao alerta. Atualmente limitado a alterações de estado. |
@@ -181,7 +181,7 @@ O consumo e a gestão de casos de alerta exigem que o utilizador tenha as funç�
 
 É melhor consultar programáticamente os alertas gerados contra a sua subscrição. As consultas podem ser para criar vistas personalizadas fora do portal Azure, ou para analisar os seus alertas para identificar padrões e tendências.
 
-Pode consultar os alertas gerados contra as suas subscrições, utilizando a [API de Gestão de Alerta](https://aka.ms/alert-management-api) ou utilizando o [Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) e a [API de Recursos](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)REST.
+Pode consultar os alertas gerados contra as suas subscrições, utilizando a [API de Gestão de Alerta](/rest/api/monitor/alertsmanagement/alerts) ou utilizando o [Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) e a [API de Recursos](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)REST.
 
 O Recurso Graph REST API for Resources permite-lhe consultar casos de alerta em escala. O Gráfico de Recursos é recomendado quando tem de gerir os alertas gerados em muitas subscrições. 
 
@@ -200,16 +200,16 @@ Também pode ver o resultado desta consulta de Gráfico de Recurso no portal com
 
 Pode consultar os alertas para os seus campos [essenciais.](alerts-common-schema-definitions.md#essentials)
 
-Utilize a [API de Gestão de Alertas](https://aka.ms/alert-management-api) PARA obter mais informações sobre alertas específicos, incluindo os seus campos [de contexto de alerta.](alerts-common-schema-definitions.md#alert-context)
+Utilize a [API de Gestão de Alertas](/rest/api/monitor/alertsmanagement/alerts) PARA obter mais informações sobre alertas específicos, incluindo os seus campos [de contexto de alerta.](alerts-common-schema-definitions.md#alert-context)
 
 ## <a name="smart-groups"></a>Grupos inteligentes
 
-Os grupos inteligentes são agregações de alertas baseados em algoritmos de aprendizagem automática, que podem ajudar a reduzir o ruído de alerta e a ajuda na resolução de problemas. [Saiba mais sobre os Grupos Inteligentes](https://aka.ms/smart-groups) e [como gerir os seus grupos inteligentes.](https://aka.ms/managing-smart-groups)
+Os grupos inteligentes são agregações de alertas baseados em algoritmos de aprendizagem automática, que podem ajudar a reduzir o ruído de alerta e a ajuda na resolução de problemas. [Saiba mais sobre os Grupos Inteligentes](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) e [como gerir os seus grupos inteligentes.](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre Grupos Inteligentes](https://aka.ms/smart-groups)
+- [Saiba mais sobre Grupos Inteligentes](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Conheça os grupos de ação](./action-groups.md)
-- [Gerir as suas instâncias de alerta em Azure](https://aka.ms/managing-alert-instances)
-- [Gestão de Grupos Inteligentes](https://aka.ms/managing-smart-groups)
+- [Gerir as suas instâncias de alerta em Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Gestão de Grupos Inteligentes](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Saiba mais sobre os preços dos alertas do Azure](https://azure.microsoft.com/pricing/details/monitor/)

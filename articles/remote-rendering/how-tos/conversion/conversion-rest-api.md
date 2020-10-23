@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87985619"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201788"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utilizar a API REST do modelo de conversão
 
@@ -54,7 +54,7 @@ Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome de ca
 #### <a name="request-body"></a>Corpo do pedido
 
 > [!NOTE]
-> Tudo em baixo `input.folderPath` será recuperado para realizar a conversão no Azure. Se `input.folderPath` não for especificado, todo o conteúdo do recipiente será recuperado. Todas as bolhas e pastas que são recuperadas devem ter [nomes de ficheiros válidos do Windows](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
+> Tudo em baixo `input.folderPath` será recuperado para realizar a conversão no Azure. Se `input.folderPath` não for especificado, todo o conteúdo do recipiente será recuperado. Todas as bolhas e pastas que são recuperadas devem ter [nomes de ficheiros válidos do Windows](/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -91,7 +91,7 @@ O organismo de pedido é o mesmo que na chamada de criação REST acima, mas a e
 > Estes tokens SAS URI são as cordas de consulta e não o URI completo. 
 
 > [!NOTE]
-> Tudo em baixo `input.folderPath` será recuperado para realizar a conversão no Azure. Se `input.folderPath` não for especificado, todo o conteúdo do recipiente será recuperado. Todas as bolhas e pastas que são recuperadas devem ter [nomes de ficheiros válidos do Windows](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
+> Tudo em baixo `input.folderPath` será recuperado para realizar a conversão no Azure. Se `input.folderPath` não for especificado, todo o conteúdo do recipiente será recuperado. Todas as bolhas e pastas que são recuperadas devem ter [nomes de ficheiros válidos do Windows](/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {

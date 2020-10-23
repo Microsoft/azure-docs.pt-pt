@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482805"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164572"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configure um grupo de disponibilidade para o SQL Server em Azure VM (portal Azure - Pré-visualização)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Utilize o portal Azure para configurar um grupo de disponibilidade (Pré-visualização) para O Servidor SQL em Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo descreve como usar o [portal Azure](https://portal.azure.com) para configurar um grupo de disponibilidade para SQL Server em VMs Azure. 
 
 Utilize o portal Azure para criar um novo cluster ou a bordo de um cluster existente e, em seguida, crie o grupo de disponibilidade, ouvinte e equilibrador de carga interno. 
 
-   > [!NOTE]
-   > Esta funcionalidade encontra-se atualmente em pré-visualização e a ser implementada para que, se a região desejada não estiver disponível, volte a verificar em breve. 
+Esta funcionalidade encontra-se em pré-visualização. 
+
+Embora este artigo utilize o portal Azure para configurar o ambiente de grupo de disponibilidade, também é possível fazê-lo utilizando [o PowerShell ou o Azure CLI](availability-group-az-commandline-configure.md), [os modelos Azure Quickstart,](availability-group-quickstart-template-configure.md)ou [Manualmente](availability-group-manually-configure-tutorial.md) também. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -80,7 +81,7 @@ Se ainda não tiver um cluster existente, crie-o utilizando o portal Azure com e
 
 Se já tiver um cluster configurado no seu ambiente VM do SQL Server, pode embarcar a partir do portal Azure.
 
-Para o fazer, siga estes passos:
+Para tal, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o seu recurso [de máquinas virtuais SQL.](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
@@ -97,7 +98,7 @@ Para o fazer, siga estes passos:
 
 ## <a name="create-availability-group"></a>Criar grupo de disponibilidade
 
-Depois de o seu cluster ter sido criado ou a bordo, crie o grupo de disponibilidade utilizando o portal Azure. Para o fazer, siga estes passos:
+Depois de o seu cluster ter sido criado ou a bordo, crie o grupo de disponibilidade utilizando o portal Azure. Para tal, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o seu recurso [de máquinas virtuais SQL.](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
@@ -177,7 +178,7 @@ Pode **adicionar mais réplicas** ao grupo de disponibilidade, **configurar o Ou
 
 ## <a name="remove-cluster"></a>Remover o aglomerado
 
-Remova todos os VMs do SQL Server do cluster para destruí-lo e, em seguida, remova os metadados de cluster do fornecedor de recursos SQL VM. Pode fazê-lo utilizando a versão mais recente do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou PowerShell. 
+Remova todos os VMs do SQL Server do cluster para destruí-lo e, em seguida, remova os metadados de cluster do fornecedor de recursos SQL VM. Pode fazê-lo utilizando a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli) ou PowerShell. 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85984856"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103752"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando REST API
 > [!div class="op_single_selector"]
@@ -82,11 +82,10 @@ Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as
          -F refresh_token=<REFRESH-TOKEN>
     ```
 
-Para obter mais informações sobre a autenticação de utilizador interativa, veja [Fluxo de concessão de códigos de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+Para obter mais informações sobre a autenticação de utilizador interativa, veja [Fluxo de concessão de códigos de autorização](/previous-versions/azure/dn645542(v=azure.100)).
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a usar a autenticação de serviço-a-serviço para autenticar com a Azure Data Lake Storage Gen1 usando a REST API. Agora pode olhar para os seguintes artigos que falam sobre como usar a API REST para trabalhar com a Azure Data Lake Storage Gen1.
 
 * [Operações de gestão de conta na Data Lake Storage Gen1 utilizando a API REST](data-lake-store-get-started-rest-api.md)
 * [Operações de dados em Data Lake Storage Gen1 usando REST API](data-lake-store-data-operations-rest-api.md)
-

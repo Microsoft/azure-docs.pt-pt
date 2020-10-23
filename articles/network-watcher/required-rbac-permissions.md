@@ -1,5 +1,5 @@
 ---
-title: Permissões RBAC necessárias para usar capacidades
+title: Permissões Azure RBAC necessárias para usar capacidades
 titleSuffix: Azure Network Watcher
 description: Saiba quais as permissões de controlo de acesso baseadas em funções do Azure necessárias para trabalhar com as capacidades do Observador de Rede.
 services: network-watcher
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: de345578b2cade18d126a113937f2eede8e8157e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e048729aa1d37a63678451525f8f37612c8c464
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497312"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426745"
 ---
-# <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções necessárias para utilizar as capacidades do Network Watcher
+# <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseadas em funções Azure necessárias para utilizar as capacidades do Observador de Rede
 
 O controlo de acesso baseado em funções (Azure RBAC) permite-lhe atribuir apenas as ações específicas aos membros da sua organização que necessitam para completar as suas responsabilidades atribuídas. Para utilizar as capacidades do Network Watcher, a conta com a qual inicia sessão no Azure, deve ser atribuída ao [Proprietário,](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner) [Contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor)ou [colaborador da Rede,](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) ou atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que seja atribuída às ações listadas para cada capacidade do Observador de Rede nas secções que se seguem. Para saber mais sobre as capacidades do Network Watcher, veja [o que é o Network Watcher?](network-watcher-monitoring-overview.md)
 

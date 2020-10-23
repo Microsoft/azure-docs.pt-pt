@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113076"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371958"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Resolver problemas do servidor de configuração
 
@@ -63,7 +63,7 @@ Este erro ocorre quando o serviço não consegue ler dados da ligação de trans
 
 Para resolver falhas de descoberta do vCenter, adicione o servidor vCenter às definições de procuração da lista byPass. 
 
-- Descarregue a ferramenta PsExec [daqui](https://aka.ms/PsExec) para aceder ao conteúdo do utilizador do Sistema.
+- Descarregue a ferramenta PsExec [daqui](/sysinternals/downloads/psexec) para aceder ao conteúdo do utilizador do Sistema.
 - Abra o Internet Explorer no conteúdo do utilizador do sistema executando a seguinte linha de comando psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Adicione as definições de procuração no IE e reinicie o serviço tmanssvc.
 - Para configurar as definições de procuração dra, executar cd C:\Program Files\Microsoft Azure Site Recovery Provider
@@ -163,16 +163,16 @@ A atualização do servidor de configuração falha quando determinados serviço
 Para identificar o problema, navegue para C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile no servidor de configuração. Se encontrar os seguintes erros, utilize os passos abaixo para resolver o problema: 
 
 ```output
-2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-2018-06-28 14:28:12.944   Stopping svagents service.
-2018-06-28 14:31:32.949   Unable to stop svagents service.
-2018-06-28 14:31:32.949   Stopping svagents service.
-2018-06-28 14:34:52.960   Unable to stop svagents service.
-2018-06-28 14:34:52.960   Stopping svagents service.
-2018-06-28 14:38:12.971   Unable to stop svagents service.
-2018-06-28 14:38:12.971   Rolling back the install changes.
-2018-06-28 14:38:12.971   Upgrade has failed.
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
 ```
 
 Para resolver o problema:
@@ -194,7 +194,7 @@ Tem permissões insuficientes para criar uma aplicação no Azure Ative Director
 
 Para resolver o problema, inscreva-se no portal Azure e faça um dos seguintes:
 
-- Solicite a função de Desenvolvedor de Aplicações na AAD. Para obter mais informações sobre a função de Desenvolvedor de aplicações, consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Solicite a função de Desenvolvedor de Aplicações na AAD. Para obter mais informações sobre a função de Desenvolvedor de aplicações, consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/roles/permissions-reference.md).
 - Verifique se o Utilizador pode criar a bandeira da **aplicação** está definido como *verdadeiro* no AAD. Para mais informações, consulte [Como: Utilize o portal para criar uma aplicação AD AZure e um responsável de serviços que possa aceder aos recursos.](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>O servidor de processo/Alvo Principal não consegue comunicar com o servidor de configuração 
@@ -258,4 +258,3 @@ Este problema pode ocorrer quando o tempo do sistema está incorreto.
 Para resolver o problema:
 
 Descreva a hora correta no computador e redoça a placa. 
- 

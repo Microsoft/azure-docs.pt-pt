@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083026"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104755"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalize um ponto final HTTP em Funções Azure
 
@@ -37,7 +37,7 @@ Por predefinição, a função de gatilho HTTP está configurada para aceitar qu
 
 1. Utilize as definições do gatilho HTTP conforme especificado na tabela seguinte.
 
-    | Campo | Valor da amostra | Descrição |
+    | Campo | Valor da amostra | Description |
     |---|---|---|
     | Modelo de rota | /hello | Determina qual a rota utilizada para invocar esta função |
     | Nível de autorização | Anónimo | Opcional: torna a sua função acessível sem uma chave de API |
@@ -75,7 +75,7 @@ Na próxima secção, irás emergir a tua API através de um representante. Os P
 Um proxy pode apontar para qualquer recurso HTTP, como, por exemplo:
 - Funções do Azure 
 - Aplicações API no [Serviço de Aplicações Azure](../app-service/overview.md)
-- Contentores do docker no [Serviço de Aplicações no Linux](../app-service/containers/app-service-linux-intro.md)
+- Contentores do docker no [Serviço de Aplicações no Linux](../app-service/overview.md#app-service-on-linux)
 - Qualquer outra API alojada
 
 Para saber mais sobre proxies, veja [Trabalhar com os Proxies de Funções do Azure].

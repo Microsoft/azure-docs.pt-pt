@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507678"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424692"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize a cloudSimple Private Cloud para instalar o Oracle RAC
 
@@ -79,7 +79,7 @@ Cada máquina virtual Oracle está configurada com vários discos para o sistema
 * A partilha está definida para **Não partilhar.**
 * A redundância é definida no armazenamento utilizando políticas vSAN.  
 
-![Configuração do grupo de discos de dados oracle RAC](media/oracle-vm-os-disks.png)
+![Diagrama que mostra a configuração física do disco Oracle RAC OS.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Configuração do disco de dados
 
@@ -148,7 +148,7 @@ A área de recuperação rápida (FRA) é um sistema de ficheiros gerido pelo gr
 * Os discos devem ser configurados como um grupo de discos ASM.  
 * O despedimento da ASM está definido para o despedimento **externo.**
 
-![Configuração do grupo de discos de voto Oracle RAC](media/oracle-vm-fra-disks.png)
+![Diagrama que mostra a configuração do grupo de discos de voto Oracle RAC.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Implementar cloudSimple nuvem privada vSphere cluster
 
@@ -220,7 +220,7 @@ A Oracle utiliza o disco partilhado para armazenar os ficheiros de dados, regist
 9. Para partilha, especifique **multi-escritor.**
 10. Para o nó do dispositivo virtual, selecione o novo controlador SCSI que foi criado no passo 2.
 
-    ![Criar discos no primeiro VM](media/oracle-rac-new-hard-disk.png)
+    ![Screenshot que realça os campos necessários para criar discos no primeiro VM.](media/oracle-rac-new-hard-disk.png)
 
 Repita os passos 2 - 10 para todos os novos discos necessários para os ficheiros de dados, registos e redo ficheiros de registo da Oracle.
 

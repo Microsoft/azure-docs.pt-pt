@@ -24,26 +24,14 @@
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Criar um Bot de FAQ com o Azure Bot Service
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
-    - name: Testar com o ficheiro batch
-      href: Quickstarts/batch-testing.md
 - name: Conceitos
   items:
     - name: Planear a sua base de dados de conhecimento
       href: Concepts/plan.md
     - name: Planear recursos do Criador de FAQ
       href: Concepts/azure-resources.md
-    - name: Estruturar uma base de dados de conhecimento
-      items:
-        - name: Para idiomas
-          href: Concepts/design-language-culture.md
-        - name: Para aplicações de cliente
-          href: Concepts/integration-with-other-applications.md
     - name: Origens de dados e conteúdo
-      items:
-        - name: Importar a partir de origens de dados
-          href: Concepts/knowledge-base.md
-        - name: Tipos de conteúdo importados
-          href: Concepts/content-types.md
+      href: Concepts/data-sources-and-content.md
     - name: Processo do Classificador
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -58,22 +46,14 @@
 - name: Guias de procedimentos
   items:
     - name: Gerir os recursos do Azure
-      items:
-        - name: Gerir recursos
-          href: How-To/set-up-qnamaker-service-azure.md
-          displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: Colaborar
-          href: How-To/collaborate-knowledge-base.md
-        - name: Ativar a aprendizagem ativa
-          href: How-To/use-active-learning.md
-        - name: Alterar resposta predefinida
-          href: How-To/change-default-answer.md
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: Gerir a aplicação Criador de FAQ
+      href: How-To/manage-qna-maker-app.md
     - name: Gerir base de dados de conhecimento
       items:
         - name: Criar uma base de dados de conhecimento
           href: How-To/manage-knowledge-bases.md
-        - name: Seleção de idioma
-          href: How-To/language-knowledge-base.md
         - name: Adicionar conversa
           href: How-to/chit-chat-knowledge-base.md
         - name: Migrar para uma nova base de dados de conhecimento
@@ -102,7 +82,7 @@
       href: Overview/language-support.md
     - name: Limites
       href: limits.md
-    - name: Controlo de acesso baseado em funções (RBAC)
+    - name: Controlo de acesso baseado em funções do Azure (RBAC do Azure)
       href: Concepts/role-based-access-control.md
     - name: Aprendizagem ativa
       href: Concepts/active-learning-suggestions.md
@@ -115,6 +95,8 @@
     - name: Adicionar ficheiros do SharePoint protegidos
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+    - name: Alterar resposta predefinida
+      href: How-To/change-default-answer.md
     - name: Configuração do serviço
       href: reference-app-service.md
     - name: Conteúdo e formatos de dados
@@ -181,6 +163,8 @@
               href: 'https://rubygems.org/gems/azure_cognitiveservices_qnamaker'
 - name: Recursos
   items:
+    - name: Opções de suporte e ajuda
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Disponibilidade Regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Conformidade
@@ -189,10 +173,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços e limites
       href: 'https://aka.ms/qnamaker-pricing'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/578689-qna-maker-api'
     - name: Pesquisa
       href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
     - name: Blogue

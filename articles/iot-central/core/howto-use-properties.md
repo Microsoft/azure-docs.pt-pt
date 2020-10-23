@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999757"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123788"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilize propriedades numa solução Azure IoT Central
 
@@ -45,7 +45,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Unidade            | Uma unidade para o valor da propriedade, como **mph,** **%** ou ** &deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de visualização para utilização em painéis e formulários.                                                                                                                                                                                    |
 | Comentário         | Quaisquer comentários sobre a capacidade da propriedade.                                                                                                                                                                                        |
-| Description     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
+| Descrição     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
 
 As propriedades também podem ser definidas numa interface num modelo de dispositivo, como mostrado aqui:
 
@@ -152,7 +152,7 @@ O código que se segue mostra a definição de um tipo de propriedade Object. Es
 
 Por padrão, as propriedades são apenas de leitura. Propriedades apenas de leitura significam que o dispositivo reporta atualizações do valor da propriedade para a sua aplicação Azure IoT Central. A sua aplicação Azure IoT Central não pode definir o valor de uma propriedade só de leitura.
 
-A Azure IoT Central utiliza gémeos de dispositivos para sincronizar os valores de propriedade entre o dispositivo e a aplicação Azure IoT Central. Os valores de propriedade do dispositivo usam propriedades reportadas pelo dispositivo twin. Para mais informações, consulte [os gémeos do dispositivo.](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins)
+A Azure IoT Central utiliza gémeos de dispositivos para sincronizar os valores de propriedade entre o dispositivo e a aplicação Azure IoT Central. Os valores de propriedade do dispositivo usam propriedades reportadas pelo dispositivo twin. Para mais informações, consulte [os gémeos do dispositivo.](../../iot-hub/tutorial-device-twins.md)
 
 O seguinte corte de um modelo de capacidade do dispositivo mostra a definição de um tipo de propriedade apenas de leitura:
 
@@ -242,7 +242,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 * `av` é o número de versão enviado para o dispositivo.
 * `ad` é uma descrição do string de opção.
 
-| Valor | Etiqueta | Description |
+| Valor | Etiqueta | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso. |
@@ -250,7 +250,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 | `'ac': 5xx` | Erro | O dispositivo sofreu um erro inesperado ao processar a alteração solicitada. |
 
 
-Para obter mais informações sobre os gémeos do dispositivo, consulte [configurar os seus dispositivos a partir de um serviço de back-end](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Para obter mais informações sobre os gémeos do dispositivo, consulte [configurar os seus dispositivos a partir de um serviço de back-end](../../iot-hub/tutorial-device-twins.md).
 
 Quando o operador define uma propriedade escrita na aplicação Azure IoT Central, a aplicação utiliza um dispositivo de propriedade dupla desejada para enviar o valor para o dispositivo. Em seguida, o dispositivo responde utilizando uma propriedade reportada por gémeos do dispositivo. Quando a Azure IoT Central recebe o valor da propriedade reportada, atualiza a vista da propriedade com um estado de **Aceito.**
 

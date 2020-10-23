@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192638"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148722"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de descarregamento de ficheiros grandes com Azure CDN
 
@@ -44,10 +44,10 @@ Depois de o pedaço chegar à borda do CDN, é em cache e imediatamente servido 
 
 Para obter mais informações sobre o pedido byte-range, consulte [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-O CDN caches qualquer pedaço à medida que são recebidos. Todo o ficheiro não precisa de ser colocado na cache do CDN. Os pedidos subsequentes para o ficheiro ou intervalos de byte são servidos a partir da cache CDN. Se nem todos os pedaços estiverem em cache no CDN, a prefetch é utilizada para solicitar pedaços da origem. Esta otimização baseia-se na capacidade do servidor de origem de suportar pedidos de alcance byte; se o servidor de origem não suporta pedidos de alcance byte, esta otimização não é eficaz. 
+O CDN caches qualquer pedaço à medida que são recebidos. Todo o ficheiro não precisa de ser colocado na cache do CDN. Os pedidos subsequentes para o ficheiro ou intervalos de byte são servidos a partir da cache CDN. Se nem todos os pedaços estiverem em cache no CDN, a prefetch é utilizada para solicitar pedaços da origem. Esta otimização baseia-se na capacidade do servidor de origem de suportar pedidos de alcance byte; se o servidor de origem não suportar pedidos de alcance byte, os pedidos de descarregamento de dados superiores a 8mb falharão. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condições para a otimização de ficheiros grandes
-As grandes funcionalidades de otimização de ficheiros para **O Azure CDN Standard da Microsoft** são ligadas por padrão quando utiliza o tipo geral de otimização de entrega web. Não há limites no tamanho máximo do ficheiro.
+Não há limites no tamanho máximo do ficheiro.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Otimize para entrega de grandes ficheiros com Azure CDN da Verizon

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212250"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425742"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Criar fontes de identidade vCenter para utilizar o Ative Directory
 
@@ -61,9 +61,9 @@ Utilize as informações na tabela seguinte ao configurar o seu domínio Ative D
 | **Nome de domínio** | FQDN do domínio, por exemplo, example.com. Não forneça os seus dados pessoais (IP) nem mais, por favor, nem mais, por favor, nem mais, por favor, nem mais, por favor, |
 | **Pseudónimo de domínio** | O nome NetBIOS de domínio. Adicione o nome NetBIOS do domínio Ative Directory como pseudónimo da fonte de identidade se estiver a utilizar autenticações SSPI. |
 | **Base DN para grupos** | O nome distinto da base para grupos. |
-| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato  `ldap://hostname:port`   ou  `ldaps://hostname:port` . A porta é tipicamente 389 para ligações LDAP e 636 para ligações LDAPS. Para as implementações do controlador multi-domínio do Ative Directory, a porta é tipicamente 3268 para LDAP e 3269 para LDAPS.<br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar  `ldaps://`   no URL LDAP primário ou secundário. |
+| **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Utilize o formato `ldap://hostname:port` ou `ldaps://hostname:port` . A porta é tipicamente 389 para ligações LDAP e 636 para ligações LDAPS. Para as implementações do controlador multi-domínio do Ative Directory, a porta é tipicamente 3268 para LDAP e 3269 para LDAPS.<br><br>É necessário um certificado que estabeleça confiança para o ponto final LDAPS do servidor Ative Directory quando utilizar `ldaps://` no URL LDAP primário ou secundário. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP controlador de domínio secundário que é utilizado para falha. |
-| **Escolha o certificado** | Se pretender utilizar LDAPS com o seu Servidor LDAP do Diretório Ativo ou fonte de identidade do Servidor OpenLDAP, um botão de certificado Escolha aparece depois de escrever  `ldaps://`   na caixa de texto URL. Não é necessária uma URL secundária. |
+| **Escolha o certificado** | Se pretender utilizar LDAPS com o seu Servidor LDAP do Diretório Ativo ou fonte de identidade do Servidor OpenLDAP, um botão de certificado Escolha aparece depois de escrever `ldaps://` na caixa de texto URL. Não é necessária uma URL secundária. |
 | **Nome de Utilizador** | ID de um utilizador no domínio que tem um mínimo de acesso apenas de leitura à Base DN para utilizadores e grupos. |
 | **Palavra-passe** | Palavra-passe do utilizador que é especificado pelo Nome de Utilizador. |
 
@@ -127,7 +127,7 @@ Após a ligação da rede ser estabelecida, siga os passos no [Add On-Premises A
 
 6. Selecione **Ative Directory como um Servidor LDAP** e clique em **Seguinte**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Screenshot que realça o Ative Directory como uma opção LDAP Server.](media/OnPremAD04.png)
 
 7. Especifique os parâmetros de origem de identidade para o seu ambiente e clique em **Seguinte**.
 

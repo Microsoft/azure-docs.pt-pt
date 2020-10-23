@@ -3,12 +3,12 @@ title: Começar e criar um laboratório de Azure Lab Services dentro de equipas
 description: Aprenda a começar e crie um laboratório de Azure Lab Services dentro das equipas.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092142"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217087"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Começar e criar um laboratório de serviços de laboratório dentro de equipas
 
@@ -24,6 +24,9 @@ Aqui está o fluxo de trabalho típico quando se utiliza o Azure Lab Services de
 1. Um [criador de conta de laboratório adiciona outros utilizadores](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) ao papel de Criador de **Laboratório.** Por exemplo, o criador/administrador da conta de laboratório adiciona educadores ao papel de Criador de **Laboratório** para que possam criar laboratórios para as suas aulas.
 1. Depois, os educadores criam laboratórios, pré-configuram o modelo VM e publicam o laboratório para a prestação de VM's a todos na equipa.
 1. Uma vez publicado o laboratório, é atribuído um VM a todos os membros da equipa no seu primeiro login para a Azure Lab Services, quer clicando no separador que contém **a App de Serviços de Laboratório Azure** dentro de Equipas (SSO) quer acedendo ao site de [laboratórios.](https://labs.azure.com) Os utilizadores podem então utilizar o VM para fazer o trabalho de aula e os trabalhos de casa.
+
+> [!IMPORTANT]
+> Os Serviços Azure Lab só podem ser utilizados dentro de Equipas se as contas de laboratório forem criadas no mesmo inquilino que as Equipas.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>Adicione a app Azure Lab Services como separador a uma Equipa
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005756"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172806"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de colocação para serviços de tecidos de serviço
 As políticas de colocação são regras adicionais que podem ser usadas para governar a colocação de serviços em alguns cenários específicos e menos comuns. Alguns exemplos desses cenários são:
@@ -20,6 +20,7 @@ As políticas de colocação são regras adicionais que podem ser usadas para go
 - O seu ambiente abrange várias áreas de controlo geopolítico ou legal, ou qualquer outro caso em que tenha limites políticos que precisa para impor
 - Existem considerações de desempenho de comunicação ou latência devido a grandes distâncias ou utilização de ligações de rede mais lentas ou menos fiáveis
 - Você precisa manter certas cargas de trabalho collocadas como um melhor esforço, seja com outras cargas de trabalho ou na proximidade dos clientes
+- Você precisa de vários casos apátridas de uma partição em um único nó
 
 A maioria destes requisitos alinha-se com a disposição física do cluster, representada como os domínios de falha do cluster. 
 
@@ -29,6 +30,7 @@ As políticas avançadas de colocação que ajudam a resolver estes cenários s�
 2. Domínios necessários
 3. Domínios preferenciais
 4. Embalagem de réplica desativação
+5. Permitir múltiplas instâncias apátridas no nó
 
 A maioria dos seguintes controlos poderia ser configurado através de propriedades de nó e restrições de colocação, mas alguns são mais complicados. Para simplificar as coisas, o Service Fabric Cluster Resource Manager fornece estas políticas adicionais de colocação. As políticas de colocação são configuradas numa base de instância de serviço por nome. Também podem ser atualizados dinamicamente.
 
@@ -122,6 +124,42 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 Agora, seria possível utilizar estas configurações para serviços num cluster que não foi geograficamente abrangedo? Podias, mas não há uma boa razão também. As configurações de domínio necessárias, inválidas e preferenciais devem ser evitadas, a menos que os cenários as exijam. Não faz sentido tentar forçar uma determinada carga de trabalho a funcionar numa única prateleira, ou preferir algum segmento do seu cluster local em vez de outro. Diferentes configurações de hardware devem ser espalhadas por domínios de avaria e manuseadas através de restrições normais de colocação e propriedades de nó.
+
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>Colocação de múltiplos casos apátridas de uma partição em nó único
+A política de colocação **AllowMultipleStatelessInstancesOnNode** permite a colocação de múltiplos casos apátridas de uma partição num único nó. Por predefinição, várias instâncias de uma única partição não podem ser colocadas num nó. Mesmo com um serviço -1, não é possível escalar o número de casos para além do número de nós no cluster, para um serviço nomeado. Esta política de colocação remove esta restrição e permite que o InstanceCount seja especificado acima da contagem de nós.
+
+Se já viu uma mensagem de saúde como " `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion` " então você atingiu esta condição ou algo parecido. 
+
+Ao especificar a `AllowMultipleStatelessInstancesOnNode` política do serviço, o InstanceCount pode ser definido para além do número de nós no cluster.
+
+Código:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> A política de colocação está atualmente em pré-visualização e por trás da definição do `EnableUnsupportedPreviewFeatures` cluster. Uma vez que esta é uma funcionalidade de pré-visualização por enquanto, definir o config de pré-visualização impede que o cluster seja atualizado de/para. Por outras palavras, terá de criar um novo cluster para experimentar a funcionalidade.
+>
+
+> [!NOTE]
+> Atualmente, a política só é suportada para serviços apátridas com [modo de ativação de pacote de serviços](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess .
+>
+
+> [!WARNING]
+> A política não é suportada quando utilizada com pontos finais estáticos. A utilização de ambos em conjunto pode levar a um aglomerado pouco saudável, uma vez que múltiplas instâncias no mesmo nó tentam ligar-se à mesma porta, e não podem surgir. 
+>
+
+> [!NOTE]
+> A utilização de um valor elevado de [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) com esta política de colocação pode levar a atualizações de aplicações presas. Por exemplo, se tiver um cluster de cinco nós e definir InstanceCount=10, terá duas instâncias em cada nó. Se definir MinInstanceCount=9, uma tentativa de atualização de aplicações pode ficar presa; com MinInstanceCount=8, isto pode ser evitado.
+>
 
 ## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre serviços de configuração, [Saiba mais sobre a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)

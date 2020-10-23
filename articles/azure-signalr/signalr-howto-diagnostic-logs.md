@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85132019"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151066"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Registos de recursos para o Serviço Azure SignalR
 
@@ -20,8 +20,8 @@ Este tutorial discute quais são os registos de recursos do Serviço Azure Signa
 ## <a name="prerequisites"></a>Pré-requisitos
 Para ativar registos de recursos, precisará de um lugar para armazenar os seus dados de registo. Este tutorial utiliza a Azure Storage e Log Analytics.
 
-* [Armazenamento Azure](../azure-monitor/platform/resource-logs-collect-storage.md) - Retém registos de recursos para auditoria de política, análise estática ou backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
+* [Armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) - Retém registos de recursos para auditoria de política, análise estática ou backup.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurar registos de recursos para um serviço Azure SignalR
 

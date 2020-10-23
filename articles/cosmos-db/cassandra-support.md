@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803505"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107492"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -49,7 +49,7 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 | blob  | Sim |
 | boolean  | Sim |
 | counter  | Sim |
-| date  | Sim |
+| data  | Sim |
 | decimal  | Sim |
 | double  | Sim |
 | float  | Sim |
@@ -141,7 +141,7 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 | CRIAR AGREGADO | Não | 
 | CRIAR ÍNDICE PERSONALIZADO (SASI) | Não |
 | CREATE INDEX | Sim (sem [especificar o nome do índice](cassandra-secondary-index.md), e índices em chaves de agrupamento ou recolha completa de FROZEN não suportada) |
-| CRIAR FUNÇÃO | Não |
+| CREATE FUNCTION | Não |
 | CRIAR KEYSPACE (definições de replicação ignoradas) | Sim |
 | CRIAR VISTA MATERIALIZADA | Não |
 | CREATE TABLE | Sim |
@@ -151,24 +151,25 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 | CREATE USER (Deprecado em Apache Cassandra nativo) | Não |
 | DELETE | Sim |
 | EXCLUIR (transações leves com IF CONDITION)| Sim |
+| DISTINCT | Não |
 | AGREGADO DE DROP | Não |
-| FUNÇÃO DE QUEDA | Não |
+| DROP FUNCTION | Não |
 | DROP INDEX | Sim |
 | DROP KEYSPACE | Sim |
 | VISTA MATERIALIZADA GOTA | Não |
 | PAPEL DE DROP | Não |
-| MESA DE LANÇAMENTO | Sim |
+| DROP TABLE | Sim |
 | DETONADOR DE QUEDA | Não | 
 | TIPO DE GOTA | Sim |
 | UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | Não |
-| CONCESSÃO | Não |
+| GRANT | Não |
 | INSERT | Sim |
 | INSIRA (transações leves com IF CONDITION)| Sim |
 | PERMISSÕES DE LISTA | Não |
 | FUNÇÕES DE LISTA | Não |
 | UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | Não |
-| REVOGAÇÃO | Não |
-| SELECIONAR | Sim |
+| REVOKE | Não |
+| SELECT | Sim |
 | SELECT (transações leves com IF CONDITION)| Não |
 | UPDATE | Sim |
 | ATUALIZAÇÃO (transações leves com IF CONDITION)| Não |

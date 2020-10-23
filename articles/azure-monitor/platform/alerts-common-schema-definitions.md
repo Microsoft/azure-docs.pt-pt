@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330881"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105996"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
-Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para o Azure Monitor, incluindo as de webhooks, Azure Logic Apps, Azure Functions e Azure Automation. 
+Este artigo descreve as [definições comuns de esquema de alerta](./alerts-common-schema.md) para o Azure Monitor, incluindo as de webhooks, Azure Logic Apps, Azure Functions e Azure Automation. 
 
 Qualquer instância de alerta descreve o recurso que foi afetado e a causa do alerta. Estes casos são descritos no esquema comum nas seguintes secções:
 * **Essenciais**: Um conjunto de campos padronizados, comuns em todos os tipos de alerta, que descrevem em que recurso o alerta está ligado, juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). 
@@ -541,5 +541,5 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [esquema de alerta comum.](https://aka.ms/commonAlertSchemaDocs)
-- Saiba [como criar uma aplicação lógica que utilize o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md) 
+- Saiba mais sobre o [esquema de alerta comum.](./alerts-common-schema.md)
+- Saiba [como criar uma aplicação lógica que utilize o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md)

@@ -3,12 +3,12 @@ title: Suporte de avaliação VMware em Azure Migrate
 description: Saiba mais sobre o suporte para a avaliação de VMware VM com avaliação do servidor Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667797"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315799"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
@@ -117,4 +117,4 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja as](best-practices-assessment.md) melhores práticas para criar avaliações.
-- Prepare-se para a avaliação [da VMware.](tutorial-prepare-vmware.md)
+- Prepare-se para a avaliação [da VMware.](./tutorial-discover-vmware.md)

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964690"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221201"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
 
@@ -35,11 +35,11 @@ Para que os seus modelos sejam candidatos à implantação, devem cumprir os seg
 ## <a name="process"></a>Processo
 Uma vez migrados os modelos do Hub que são candidatos à implantação, pode encontrá-los indo para a página **Definições** para o seu espaço de trabalho e percorrendo até ao final da página onde verá uma secção **de Treinos de Hub de Tradutor Não Suportado.**  Esta secção só aparece se tiver projetos que satisfaçam os pré-requisitos acima mencionados.
 
-![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Screenshot que destaca a secção de Treinos do Hub de Tradutor Não Suportado.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 Dentro da página de seleção de Formação de Centros de Tradutor não **suportados,** o **separador de treinos não solicitado** contém modelos elegíveis para implantação.  Selecione os modelos que pretende implementar e envie um pedido.   Antes do prazo de implementação de 30 de abril, pode selecionar quantos modelos desejar para a implementação.
  
-![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Screenshot que mostra o separador de treinos não requested.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 Uma vez apresentado, o modelo deixará de estar disponível no separador **treinos Não Solicitados** e aparecerá no separador **formações solicitados.**  Pode ver os treinos solicitados a qualquer momento.
 

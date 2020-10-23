@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568017"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280806"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas em Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Ter uma boa cardinalidade das suas chaves de partição é essencial para qualqu
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Métricas de desempenho do Cosmos DB no portal Azure":::
 
-Uma distribuição de produção desigual pode causar divisórias *quentes,* o que pode resultar em pedidos acelerados e pode exigir repartição. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partition-data.md).
+Uma distribuição de produção desigual pode causar divisórias *quentes,* o que pode resultar em pedidos acelerados e pode exigir repartição. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinar a distribuição de armazenamento através de divisórias
 
@@ -71,7 +71,7 @@ Pode raírar a causa da chave de partição que está a distorcer a distribuiç�
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Métricas de desempenho do Cosmos DB no portal Azure":::
 
-Depois de identificar qual a chave de partição que está a causar a distorção na distribuição, poderá ter de repartir o seu recipiente com uma chave de partição mais distribuída. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partition-data.md).
+Depois de identificar qual a chave de partição que está a causar a distorção na distribuição, poderá ter de repartir o seu recipiente com uma chave de partição mais distribuída. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partitioning-overview.md).
 
 ## <a name="compare-data-size-against-index-size"></a>Compare o tamanho dos dados com o tamanho do índice
 

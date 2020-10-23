@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8c8e7539b888141a22e92378d78282edd1ce6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326142"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208027"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -95,7 +95,7 @@ Se um salto é vermelho, significa que faz parte de pelo menos um caminho pouco 
 O NPM usa um mecanismo probabilístico para atribuir probabilidades de falhas a cada caminho de rede, segmento de rede e o lúpulo de rede constituinte com base no número de caminhos insalubres dos quais fazem parte. À medida que os segmentos de rede e o lúpulo se tornam parte de um maior número de caminhos insalubres, a probabilidade de falha associada a eles aumenta. Este algoritmo funciona melhor quando você tem muitos nós com o agente NPM ligados uns aos outros, uma vez que isso aumenta os pontos de dados para calcular as probabilidades de falha.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Como posso criar alertas no NPM?
-A criação de alertas a partir do NPM UI está atualmente a falhar devido a um problema. Por favor, crie alertas manualmente.
+Atualmente, a criação de alertas da NPM UI está a falhar devido a um problema conhecido. Por favor, [crie alertas manualmente.](../platform/alerts-log.md)
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quais são as consultas padrão de Log Analytics para alertas
 Consulta do monitor de desempenho

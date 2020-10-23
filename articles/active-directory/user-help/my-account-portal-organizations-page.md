@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005076"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370343"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gerir organizações a que tem acesso no portal Minha Conta
 
@@ -30,7 +30,7 @@ A página **organizações** do portal **My Account** ajuda-o a gerir as organiz
 - **Outras organizações.** As outras organizações são qualquer grupo em que se inscreveu anteriormente usando o seu trabalho ou conta escolar. Pode deixar qualquer uma destas organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem atualizar as informações da organização acedidas por uma conta de trabalho ou escola. Se é um administrador que procura informações sobre o grupo e a gestão do utilizador para os seus colaboradores e outras utilizações, consulte a [documentação de gestão de utilizadores](../users-groups-roles/index.yml)da Enterprise .
+>Este artigo destina-se a utilizadores que tentem atualizar as informações da organização acedidas por uma conta de trabalho ou escola. Se é um administrador que procura informações sobre o grupo e a gestão do utilizador para os seus colaboradores e outras utilizações, consulte a [documentação de gestão de utilizadores](../enterprise-users/index.yml)da Enterprise .
 
 ## <a name="view-your-organizations"></a>Ver as suas organizações
 

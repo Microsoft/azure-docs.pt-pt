@@ -12,18 +12,18 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072310"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152137"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do IoT Hub usando a Grade de Eventos para desencadear ações
 
 O Hub IoT do Azure integra-se no Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos a jusante. Configure as aplicações empresariais para escutar eventos do Hub IoT para que possa reagir a eventos críticos de forma fiável, dimensionável e segura.Por exemplo, crie uma aplicação que atualiza uma base de dados, cria um pedido de trabalho e envia uma notificação por e-mail sempre que um novo dispositivo IoT é registado no hub IoT.
 
-[A azure Event Grid](../event-grid/overview.md) é um serviço de encaminhamento de eventos totalmente gerido que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [Azure Logic Apps,](../logic-apps/logic-apps-what-are-logic-apps.md)e pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](../event-grid/overview.md).
+[A azure Event Grid](../event-grid/overview.md) é um serviço de encaminhamento de eventos totalmente gerido que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [Azure Logic Apps,](../logic-apps/logic-apps-overview.md)e pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](../event-grid/overview.md).
 
 ![Arquitetura Azure Event Grid](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
@@ -184,13 +184,13 @@ O tema ioT Events utiliza o formato:
 devices/{deviceId}
 ```
 
-O Event Grid também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isto permite-lhe escolher quais os eventos que são entregues com base em conteúdos da mensagem de telemetria. Consulte [a filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para ver exemplos. Para filtrar o corpo da mensagem de telemetria, deve definir o conteúdoType para **aplicação/json** e conteúdoEncoding para **UTF-8** nas propriedades do [sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagem . Ambas as propriedades são insensíveis.
+O Event Grid também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isto permite-lhe escolher quais os eventos que são entregues com base em conteúdos da mensagem de telemetria. Consulte [a filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para ver exemplos. Para filtrar o corpo da mensagem de telemetria, deve definir o conteúdoType para **aplicação/json** e conteúdoEncoding para **UTF-8** nas propriedades do [sistema](./iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagem . Ambas as propriedades são insensíveis.
 
 Para eventos não telemetria como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem da Grelha de Evento pode ser utilizada ao criar a subscrição. Para eventos de telemetria, além da filtragem na Grade de Eventos, os utilizadores também podem filtrar os gémeos do dispositivo, as propriedades da mensagem e o corpo através da consulta de encaminhamento de mensagens. 
 
 Quando subscreve eventos de telemetria através da Grade de Eventos, o IoT Hub cria uma rota de mensagem padrão para enviar mensagens de dispositivo tipo fonte de dados para a Grade de Eventos. Para obter mais informações sobre o encaminhamento de mensagens, consulte [o encaminhamento de mensagens IoT Hub](iot-hub-devguide-messages-d2c.md). Esta rota será visível no portal no âmbito do IoT Hub > Message Roting. Apenas uma rota para a Grade de Eventos é criada independentemente do número de subscrições EG criadas para eventos de telemetria. Assim, se precisar de várias subscrições com filtros diferentes, pode utilizar o operador de OR nestas consultas na mesma rota. A criação e eliminação da rota é controlada através da subscrição de eventos de telemetria via Event Grid. Não é possível criar ou eliminar uma rota para a Grade de Eventos utilizando o Encaminhamento de Mensagens IoT Hub.
 
-Para filtrar mensagens antes de os dados de telemetria serem enviados, pode atualizar a sua [consulta de encaminhamento](iot-hub-devguide-routing-query-syntax.md). Note que a consulta de encaminhamento só pode ser aplicada ao corpo da mensagem se o corpo for JSON. Também deve definir o conteúdoType para **aplicação/json** e conteúdoEncoding para **UTF-8** nas propriedades do [sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens .
+Para filtrar mensagens antes de os dados de telemetria serem enviados, pode atualizar a sua [consulta de encaminhamento](iot-hub-devguide-routing-query-syntax.md). Note que a consulta de encaminhamento só pode ser aplicada ao corpo da mensagem se o corpo for JSON. Também deve definir o conteúdoType para **aplicação/json** e conteúdoEncoding para **UTF-8** nas propriedades do [sistema](./iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens .
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações dos eventos de dispositivos ligados e desligados
 

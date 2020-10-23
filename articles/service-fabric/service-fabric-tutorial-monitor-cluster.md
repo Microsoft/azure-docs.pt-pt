@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020121"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331996"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorize um cluster de tecido de serviço em Azure
 
@@ -57,7 +57,7 @@ Selecione o **serviço de recursosFabric (mysfomsworkspace)**.
 
 Em **Visão Geral** vê-se azulejos sob a forma de um gráfico para cada uma das soluções ativadas, incluindo uma para Tecido de Serviço. Clique no gráfico **de Tecido de Serviço** para continuar na solução Service Fabric Analytics.
 
-![Solução de Tecido de Serviço](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Screenshot que mostra o gráfico de Tecido de Serviço.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 A imagem a seguir mostra a página inicial da solução Service Fabric Analytics. Esta página inicial fornece uma visão instantânea do que está a acontecer no seu cluster.
 

@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761231"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126195"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Os preços dos Serviços de Comunicação Azure baseiam-se num modelo pay-as-you-go sem taxas antecipadas. Só será cobrado pelo seu consumo e uso dos serviços.
+Os preços dos Serviços de Comunicação Azure baseiam-se geralmente num modelo de pagamento.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chamada de voz/vídeo e partilha de ecrã
 
@@ -84,6 +79,16 @@ Rose vê as mensagens e começa a conversar. Entretanto, o Casey recebe uma cham
 ## <a name="price"></a>Preço 
 
 Os serviços de telefonia têm preços por minuto, enquanto os SMS têm preços por mensagem. O preço é determinado pelo tipo e localização do número que está a utilizar, bem como pelo destino das suas chamadas e mensagens SMS.
+
+### <a name="telephone-number-leasing"></a>Locação de números de telefone
+
+As taxas de locação de números de telefone são cobradas antecipadamente e, em seguida, repetem-se mensalmente:
+
+|Tipo de número   |Taxa mensal   |
+|--------------|-----------|
+|Local (Estados Unidos)     |$1/mo        |
+|Portagem gratuita (Estados Unidos) |$2/mo |
+
 
 ### <a name="telephone-calling"></a>Chamada telefónica
 

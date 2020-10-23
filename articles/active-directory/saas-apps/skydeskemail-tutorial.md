@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71150ea5ba7d6f25b07a9afaa1f1dc60adcb3e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72aaa1a19ef5a375ec1ee6c2938f64cb37aac139
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518739"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Ative Directory com o SkyDesk Email
 
@@ -126,32 +126,32 @@ Para configurar o Azure AD single sign-on com SkyDesk Email, execute os seguinte
 
 1. No menu em cima, clique em **Configuração**e selecione **Org**.
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![A screenshot mostra Org selecionado a partir do menu Configuração.](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
 1. Clique em **Domínios** a partir do painel esquerdo.
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![A screenshot mostra domínios selecionados do Painel de Controlo.](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
 1. Clique em **Adicionar Domínio**.
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![A screenshot mostra Add Domain selecionado.](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
 1. Insira o nome de Domínio e, em seguida, verifique o Domínio.
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![A screenshot mostra o separador 'Adicionar Domínio' onde pode introduzir o seu domínio.](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
 1. Clique na **autenticação SAML** a partir do painel esquerdo.
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![A screenshot mostra a autenticação SAML selecionada do Painel de Controlo.](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
 1. Na página de diálogo de **autenticação SAML,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![A screenshot mostra a caixa de diálogo detalhes de autenticação SAML onde pode introduzir os valores descritos.](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
     > Para utilizar a autenticação baseada em SAML, deve ter **verificado o domínio** ou a configuração do URL do **portal.** Pode definir o URL do portal com o nome único.
 
-    ![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
+    ![A screenshot mostra o Portal U R L onde introduz o nome.](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
     a. Na caixa de texto **url de login,** cole o valor do URL de **login,** que copiou do portal Azure.
 
@@ -222,7 +222,7 @@ Nesta secção, cria-se um utilizador chamado Britta Simon no SkyDesk Email.
 
 Clique no Acesso ao **Utilizador** a partir do painel esquerdo no SkyDesk Email e, em seguida, insira o seu nome de utilizador.
 
-![Configurar Sign-On Individuais](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+![A screenshot mostra o Acesso ao Utilizador selecionado do Painel de Controlo.](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
 > Se precisar de criar utilizadores a granel, tem de contactar a equipa de suporte do [Cliente de Email SkyDesk.](https://www.skydesk.jp/apps/support/)

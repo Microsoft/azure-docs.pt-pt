@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001041"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341911"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) com nós de computação confidencial usando Azure CLI (pré-visualização)
 
@@ -27,11 +27,11 @@ Neste quickstart, você aprenderá a implementar um cluster Azure Kubernetes Ser
 ### <a name="deployment-pre-requisites"></a>Pré-requisitos de implantação
 
 1. Tenha uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar
-1. Tenha a versão Azure CLI 2.0.64 ou posteriormente instalada e configurada na sua máquina de implantação (Corra  `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Tenha a versão Azure CLI 2.0.64 ou posteriormente instalada e configurada na sua máquina de implantação (Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [extensão mínima de pré-visualização aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) versão 0.4.62 
-1. Tenha um mínimo de seis núcleos DCSv2 disponíveis na sua subscrição para uso. Por predefinição, a quota de núcleos VM para a computação confidencial por assinatura Azure 8 núcleos. Se planeia providenciar um cluster que exija mais de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instruções para aumentar o bilhete de aumento de quota
+1. Tenha um mínimo de seis núcleos **DC <x> s-v2** disponíveis na sua subscrição para uso. Por predefinição, a quota de núcleos VM para a computação confidencial por assinatura Azure 8 núcleos. Se planeia providenciar um cluster que exija mais de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instruções para aumentar o bilhete de aumento de quota
 
-### <a name="confidential-computing-node-features"></a>Características confidenciais do nó de computação
+### <a name="confidential-computing-node-features-dcxs-v2"></a>Características confidenciais do nó de computação (DC <x> s-v2)
 
 1. Nóiro operário Linux suportando apenas contentores Linux
 1. Máquinas Virtuais Ubuntu Generation 2 18.04
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-O comando acima deve providenciar um novo cluster AKS com piscinas de nó DCSv2 e instalar automaticamente dois conjuntos de daemon - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+O comando acima deve providenciar um novo cluster AKS com piscinas de nó **DC <x> s-v2** e instalar automaticamente dois conjuntos de daemon - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Obtenha as credenciais para o seu cluster AKS usando o comando az aks get-credentials:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Verifique se os nóns são criados corretamente e os conjuntos de daemon relacionados com SGX estão a funcionar em piscinas de nónóias DCSv2 utilizando cápsulas kubectl get & comando dos nosdes como mostrado abaixo:
+Verifique se os nóns são criados corretamente e os conjuntos de daemon relacionados com SGX estão a funcionar em piscinas de nó ** <x> s-v2 DC** usando cápsulas kubectl get & comando dos nosdes como mostrado abaixo:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -119,6 +119,8 @@ Vá à [secção hello world da](#hello-world) secção de implantação do Encl
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
 
+![Criação de cluster DCSV2 AKS](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
+
 ## <a name="adding-confidential-computing-node-to-existing-aks-cluster"></a>Adicionar nó de computação confidencial ao cluster AKS existente<a id="existing-cluster"></a>
 
 Esta secção pressupõe que já tem um cluster AKS em funcionamento que satisfaz os critérios indicados na secção de pré-requisitos.
@@ -128,9 +130,12 @@ Em primeiro lugar, permite ativar os addons AKS relacionados com a computação 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Agora adicione uma piscina de nó DCSv2 ao cluster
-
-```azurecli-interactive
+Agora adicione uma piscina de nó ** <x> s-v2 DC** ao cluster
+    
+> [!NOTE]
+> Para utilizar a capacidade de computação confidencial, o seu cluster AKS existente precisa de ter no mínimo um conjunto de nós baseado em **DC <x> s-v2** VM SKU. Saiba mais sobre a computação confidencial DCsv2 VMs SKU's aqui [disponível SKUs e regiões apoiadas.](virtual-machine-solutions.md)
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added
@@ -220,7 +225,7 @@ Hello world from the enclave
 Enclave called into host to print: Hello World!
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover as piscinas de nó associados ou eliminar o cluster AKS, utilize os comandos abaixo:
 

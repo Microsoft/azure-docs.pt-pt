@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83651021"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427253"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
 
@@ -118,7 +118,7 @@ Os passos seguintes mostram como obter o ID do router lógico de Tier0 DR para o
 
 3. Abra uma sessão de SSH para o endereço IP de gestão do Edge VM. Executar o comando com o ```get logical-router``` nome **de** utilizador e palavra-passe **CloudSimple 123!**
 
-    ![obter saída de router lógica](media/l2vpn-fetch03.png)
+    ![Screenshot que mostra uma sessão SSH aberta.](media/l2vpn-fetch03.png)
 
 4. Se não vir uma entrada 'DR-Provider-LR', complete os seguintes passos.
 
@@ -132,7 +132,7 @@ Os passos seguintes mostram como obter o ID do router lógico de Tier0 DR para o
 
 7. Volte a executar o `get logical-router` comando na sessão SSH do Edge VM. É apresentado o UUID do router lógico "DR-Provider-LR". Tome nota do UUID, que é necessário ao configurar o L2VPN.
 
-    ![obter saída de router lógica](media/l2vpn-fetch06.png)
+    ![Screenshot que mostra o UUID para o router lógico.](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Pegue o ID de comutador lógico necessário para l2VPN
 
@@ -430,7 +430,7 @@ Antes de implementar, verifique se as suas regras de firewall no local permitem 
 
 2. Vá à pasta com todos os ficheiros extraídos. Selecione todos os vmdks (NSX-l2t-client-large.mf e NSX-l2t-client-large.ovf para tamanho de aparelho grande ou NSX-l2t-client-Xlarge.mf e NSX-l2t-client-xlarge.ovf para tamanho extra grande do aparelho). Clique em **Seguinte**.
 
-    ![Selecione ](media/l2vpn-deploy-client02.png) ![ modelo De selecionar modelo](media/l2vpn-deploy-client03.png)
+    ![Selecione o modelo ](media/l2vpn-deploy-client02.png) ![ Screenshot que mostra os ficheiros vmdks selecionados.](media/l2vpn-deploy-client03.png)
 
 3. Insira um nome para o cliente autónomo NSX-T e clique em **Seguinte**.
 

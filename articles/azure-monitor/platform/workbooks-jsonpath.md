@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2411d9257b1083cb2bcbfcad289813a6c062dff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081394"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143573"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Como usar o JSONPath para transformar dados da JSON em livros
 
@@ -22,7 +22,7 @@ Os livros de trabalho são capazes de consultar dados de muitas fontes. Alguns p
 
 JSONPath é uma linguagem de consulta para JSON que é semelhante a XPath para XML. Tal como o XPath, o JSONPath permite a extração e filtração de dados fora da estrutura JSON.
 
-Ao utilizar a transformação JSONPath, os autores do livro são capazes de converter JSON numa estrutura de mesa. A tabela pode então ser usada para traçar [visualizações de livros.](workbooks-visualizations.md)
+Ao utilizar a transformação JSONPath, os autores do livro são capazes de converter JSON numa estrutura de mesa. A tabela pode então ser usada para traçar [visualizações de livros.](./workbooks-overview.md#visualizations)
 
 ## <a name="using-jsonpath"></a>Utilização do JSONPath
 

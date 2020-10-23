@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5a0a040d80911b086561213bd0884ed67545c618
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920794"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122828"
 ---
 ::: zone target = "docs"
 
@@ -124,7 +124,7 @@ O tempo de conclusão desta operação depende do tamanho dos dados e da velocid
  
 1. Copie os dados para ambos os nós do dispositivo através das interfaces de dados de 40 Gbps em paralelo.
 
-    - Se estiver a utilizar um sistema anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - Se estiver a utilizar um sistema anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - Para o anfitrião NFS, utilize o comando `cp` ou `rsync` para copiar os dados.
 2. Ligue-se às partilhas no dispositivo através do caminho:`\\<IP address of your device>\ShareName`. Para obter as credenciais de acesso às partilhas, aceda à página **Ligar e copiar** na IU da Web local do Data Box Heavy.
 3. Confirme que os nomes das partilhas e das pastas e os dados cumprem as diretrizes descritas nos [Limites de serviços do Armazenamento do Microsoft Azure e do Data Box Heavy](data-box-heavy-limits.md).

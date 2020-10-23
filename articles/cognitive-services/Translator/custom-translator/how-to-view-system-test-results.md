@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509690"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220861"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
@@ -70,12 +70,12 @@ Para solicitar uma implantação:
 
 2. Para um modelo treinado com sucesso, mostra o botão "Implementar", se não for implantado.
 
-    ![Implementar modelo](media/how-to/how-to-deploy-model.png)
+    ![Screenshot que realça o botão Implementar para implantar um modelo.](media/how-to/how-to-deploy-model.png)
 
 3.  Clique em Implementar.
 4.  Selecione **Implementar** para a região(s) onde pretende que o seu modelo seja implantado e clique em Guardar. Pode selecionar **Implementar** para várias regiões.
 
-    ![Implementar modelo](media/how-to/how-to-deploy-model-regions.png)
+    ![Screenshot que mostra onde pode implementar ou desaplorar um modelo.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Pode ver o estado do seu modelo na coluna "Status".
 
@@ -90,7 +90,7 @@ Para atualizar as definições de implementação:
 
 2. Para um modelo implantado com sucesso, mostra um botão **De atualização.**
 
-    ![Implementar modelo](media/how-to/how-to-update-undeploy-model.png)
+    ![Screenshot que realça o botão 'Actualizar' para atualizar as definições de implementação.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Selecione **Atualizar**.
 4.  Selecione **Implementar** ou **Não ser utilizado** para a região(s) onde pretende que o seu modelo seja implantado ou não utilizado, depois clique em **Guardar**.

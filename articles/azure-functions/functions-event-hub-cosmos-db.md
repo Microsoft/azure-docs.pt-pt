@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ba15047d04d3af25518e8c55a50c55bcacf9037
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372455"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103939"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Crie uma função em Java com um gatilho do Event Hub e uma ligação de saída DB Azure Cosmos
 
@@ -30,7 +30,7 @@ Neste tutorial, você:
 
 Para completar este tutorial, tem de ter o seguinte instalado:
 
-* [Java Development Kit](https://aka.ms/azure-jdks), versão 8
+* [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), versão 8
 * [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 * [Azure CLI](/cli/azure/install-azure-cli) se preferir não usar Cloud Shell
 * [Azure Funções Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) versão 2.6.666 ou superior
@@ -436,7 +436,7 @@ As suas funções funcionam agora em Azure e continuam a acumular dados no seu A
 
 ![Lâmina de desempenho de insights de aplicação](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não precisar dos recursos do Azure criados neste tutorial, pode utilizar o comando abaixo para os eliminar:
 

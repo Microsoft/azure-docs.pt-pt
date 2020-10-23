@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 253621fe257a0b1a1b3bdaa2578fd7df10b03f73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f3eae2a21c902b49b8e76fcb45e45577231e8b9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528598"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Diretório Ativo Azure com o Rollbar
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com rollbar, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações de súmis de domínio e URLs únicas](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite o URL: `https://saml.rollbar.com`
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD com rollbar, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Informações de súmis de domínio e URLs únicas](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://rollbar.com/<accountname>/saml/login/azure/`
 
@@ -134,15 +134,15 @@ Para configurar o Azure AD com rollbar, execute os seguintes passos:
 
 1. Clique nas **Definições** de Perfil no canto superior direito e, em seguida, clique nas **definições de Nome de Conta**.
 
-    ![Configuração](./media/rollbar-tutorial/general.png)
+    ![A screenshot mostra as definições de nome de conta selecionadas a partir de Definições de Perfil.](./media/rollbar-tutorial/general.png)
 
 1. Clique em **Fornecedor de Identidade** em SEGURANÇA.
 
-    ![Configuração](./media/rollbar-tutorial/configure1.png)
+    ![A screenshot mostra o Fornecedor de Identidade selecionado em SEGURANÇA.](./media/rollbar-tutorial/configure1.png)
 
 1. Na secção **SAML Identity Provider,** execute os seguintes passos:
 
-    ![Configuração](./media/rollbar-tutorial/configure2.png)
+    ![A screenshot mostra o Fornecedor de Identidade SAML onde pode introduzir os valores descritos.](./media/rollbar-tutorial/configure2.png)
 
     a. Selecione **AZURE** a partir do **dropdown do Fornecedor de Identidade SAML.**
 
@@ -152,7 +152,7 @@ Para configurar o Azure AD com rollbar, execute os seguintes passos:
 
 1. Depois de clicar no botão de salvamento, o ecrã será assim:
 
-    ![Configuração](./media/rollbar-tutorial/configure3.png)
+    ![A screenshot mostra os resultados na página do Fornecedor de Identidade SAML.](./media/rollbar-tutorial/configure3.png)
 
     > [!NOTE]
     > Para completar o passo seguinte, deve primeiro adicionar-se como utilizador à aplicação Rollbar em Azure.
@@ -233,11 +233,11 @@ Para permitir que os utilizadores Azure AD inscrevam-se no Rollbar, devem ser ap
 
 1. Clique **em Convidar Membros da Equipa**.
 
-    ![Convidar pessoas](./media/rollbar-tutorial/user2.png)
+    ![A screenshot mostra a opção de membros da equipa de convite selecionados.](./media/rollbar-tutorial/user2.png)
 
 1. Na caixa de texto, insira o nome do utilizador como ** \@ brittasimon contoso.com** e o clique **Add/Invite**.
 
-    ![Convidar pessoas](./media/rollbar-tutorial/user3.png)
+    ![A screenshot mostra Add/Invite Members com um endereço fornecido.](./media/rollbar-tutorial/user3.png)
 
 1. O utilizador recebe um convite e depois de o aceitar são criados no sistema.
 

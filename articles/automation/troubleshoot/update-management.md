@@ -5,12 +5,12 @@ services: automation
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070338"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217223"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -45,7 +45,7 @@ Este erro pode ocorrer pelas seguintes razões:
 
 * Aceda à [configuração da Rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais endereços e portas devem ser autorizados para que a Gestão de Atualização funcione.  
 
-* Verifique se há problemas de configuração de âmbito. [A configuração](../update-management/update-mgmt-scope-configuration.md) do âmbito determina quais as máquinas configuradas para a Gestão de Atualização. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [Ativar as máquinas no espaço de trabalho.](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)
+* Verifique se há problemas de configuração de âmbito. [A configuração](../update-management/scope-configuration.md) do âmbito determina quais as máquinas configuradas para a Gestão de Atualização. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de definir a configuração de âmbito para direcionar as máquinas. Para saber mais sobre a configuração do âmbito, consulte [Ativar as máquinas no espaço de trabalho.](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)
 
 * Remova a configuração do trabalhador seguindo os passos no [Remove the Hybrid Runbook Worker de um computador Windows no local](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [remova o Trabalhador de Runbook Híbrido de um computador Linux no local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker).
 
@@ -63,13 +63,13 @@ As atualizações superseded não são recusadas nos Serviços de Atualização 
 
 Quando uma atualização supereduada se tornar 100% não aplicável, deverá alterar o estado de aprovação dessa atualização para `Declined` a WSUS. Para alterar o estado de aprovação de todas as suas atualizações:
 
-1. Na conta Automation, selecione **Update Management** para visualizar o estado da máquina. Consulte [avaliações de atualização de ver.](../update-management/update-mgmt-view-update-assessments.md)
+1. Na conta Automation, selecione **Update Management** para visualizar o estado da máquina. Consulte [avaliações de atualização de ver.](../update-management/view-update-assessments.md)
 
 2. Verifique a atualização superedificada para se certificar de que não é 100% aplicável.
 
 3. No servidor WSUS as máquinas reportam a [recusar a atualização](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
-4. Selecione **Computadores** e, na coluna **Compliance,** force um rescan para o cumprimento. Ver [Gerir atualizações para VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
+4. Selecione **Computadores** e, na coluna **Compliance,** force um rescan para o cumprimento. Ver [Gerir atualizações para VMs](../update-management/manage-updates-for-vm.md).
 
 5. Repita os passos acima para outras atualizações superadas.
 
@@ -112,9 +112,9 @@ Este problema pode ser causado por problemas de configuração locais ou por con
 
 4. Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
 
-5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração do âmbito. A [configuração](../update-management/update-mgmt-scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização.
+5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração do âmbito. A [configuração](../update-management/scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização.
 
-6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazê-lo, consulte [Ativar as máquinas no espaço de trabalho.](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)
+6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazê-lo, consulte [Ativar as máquinas no espaço de trabalho.](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)
 
 7. No seu espaço de trabalho, faça esta consulta.
 
@@ -190,11 +190,11 @@ Se a sua subscrição não estiver configurada para o fornecedor de recursos Aut
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Máquinas não disponíveis ou não marcadas corretamente quando o horário executado
 
-Utilize o seguinte procedimento se a sua subscrição estiver configurada para o fornecedor de recursos Automation, mas executar o crono de atualização com os [grupos dinâmicos especificados](../update-management/update-mgmt-groups.md) perdeu algumas máquinas.
+Utilize o seguinte procedimento se a sua subscrição estiver configurada para o fornecedor de recursos Automation, mas executar o crono de atualização com os [grupos dinâmicos especificados](../update-management/configure-groups.md) perdeu algumas máquinas.
 
 1. No portal Azure, abra a conta Automation e selecione **Gestão de Atualização.**
 
-2. Verifique o [histórico de Gestão de Atualização](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) para determinar a hora exata em que a implementação da atualização foi executada.
+2. Verifique o [histórico de Gestão de Atualização](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) para determinar a hora exata em que a implementação da atualização foi executada.
 
 3. Para máquinas que suspeite ter sido perdidas pela Update Management, utilize o Azure Resource Graph (ARG) para [localizar as alterações da máquina](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
 
@@ -230,7 +230,7 @@ O portal Azure apenas exibe máquinas para as quais tenha acesso de escrita num 
 
 Siga os passos abaixo para saber se as suas consultas estão a funcionar corretamente.
 
-1. Executar uma consulta ARG formatada como mostrado abaixo na lâmina do explorador de gráfico de recurso no portal Azure. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualização. Consulte [grupos dinâmicos de utilização com Gestão de Atualização](../update-management/update-mgmt-groups.md).
+1. Executar uma consulta ARG formatada como mostrado abaixo na lâmina do explorador de gráfico de recurso no portal Azure. Esta consulta imita os filtros selecionados quando criou o grupo dinâmico em Gestão de Atualização. Consulte [grupos dinâmicos de utilização com Gestão de Atualização](../update-management/configure-groups.md).
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -303,7 +303,7 @@ Update
 
 #### <a name="communication-with-automation-account-blocked"></a>Comunicação com a conta Automation bloqueada
 
-Vá à [Rede planejando](../update-management/update-mgmt-overview.md#ports) saber quais endereços e portas devem ser autorizados para a Gestão de Atualização funcionar.
+Vá à [Rede planejando](../update-management/overview.md#ports) saber quais endereços e portas devem ser autorizados para a Gestão de Atualização funcionar.
 
 #### <a name="duplicate-computer-name"></a>Nome de computador duplicado
 
@@ -389,9 +389,9 @@ Este erro pode ocorrer por um dos seguintes motivos:
 
 ### <a name="resolution"></a>Resolução
 
-Quando aplicável, utilize [grupos dinâmicos](../update-management/update-mgmt-groups.md) para as suas implementações de atualização. Além disso, pode dar os seguintes passos.
+Quando aplicável, utilize [grupos dinâmicos](../update-management/configure-groups.md) para as suas implementações de atualização. Além disso, pode dar os seguintes passos.
 
-1. Verifique se a sua máquina ou servidor satisfaz os [requisitos.](../update-management/update-mgmt-overview.md#client-requirements)
+1. Verifique se a sua máquina ou servidor satisfaz os [requisitos.](../update-management/overview.md#client-requirements)
 2. Verifique a conectividade com o Trabalhador de Runbook Híbrido utilizando o agente híbrido Runbook Worker. Para saber mais sobre o resolução de [problemas, consulte os problemas do agente de atualização troubleshoot](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Cenário: As atualizações são instaladas sem implantação
@@ -487,11 +487,11 @@ A janela de manutenção predefinida para atualizações é de 120 minutos. Pode
 
 ### <a name="resolution"></a>Resolução
 
-Para entender por que isto ocorreu durante uma atualização executada após o início com sucesso, [verifique a saída](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) de trabalho da máquina afetada durante a execução. Pode encontrar mensagens de erro específicas das suas máquinas que possa pesquisar e tomar medidas.  
+Para entender por que isto ocorreu durante uma atualização executada após o início com sucesso, [verifique a saída](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) de trabalho da máquina afetada durante a execução. Pode encontrar mensagens de erro específicas das suas máquinas que possa pesquisar e tomar medidas.  
 
 Edite quaisquer implementações de atualização programadas e aumente a janela de manutenção.
 
-Para obter mais informações sobre janelas de manutenção, consulte [as atualizações da Instalação](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment).
+Para obter mais informações sobre janelas de manutenção, consulte [as atualizações da Instalação](../update-management/deploy-updates.md#schedule-an-update-deployment).
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>Cenário: Máquina mostra como "Não avaliada" e mostra uma exceção hresult
 
@@ -522,7 +522,7 @@ Se vir um HRESULT, clique duas vezes na exceção exibida a vermelho para ver to
 |Exceção  |Resolução ou ação  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Procure o código de erro relevante na [lista de códigos de erro de atualização](https://support.microsoft.com/help/938205/windows-update-error-code-list) do Windows para encontrar detalhes adicionais sobre a causa da exceção.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Estes indicam problemas de conectividade de rede. Certifique-se de que a sua máquina tem conectividade de rede para a Gestão de Atualização. Consulte a secção [de planeamento](../update-management/update-mgmt-overview.md#ports) da rede para obter uma lista de portas e endereços necessários.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Estes indicam problemas de conectividade de rede. Certifique-se de que a sua máquina tem conectividade de rede para a Gestão de Atualização. Consulte a secção [de planeamento](../update-management/overview.md#ports) da rede para obter uma lista de portas e endereços necessários.        |
 |`0x8024001E`| A operação de atualização não foi concluída porque o serviço ou o sistema estavam a desligar-se.|
 |`0x8024002E`| O serviço de atualização do Windows está desativado.|
 |`0x8024402C`     | Se estiver a utilizar um servidor WSUS, certifique-se de que os valores de registo para `WUServer` e `WUStatusServer` sob a  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tecla de registo especificam o servidor WSUS correto.        |
@@ -556,9 +556,9 @@ Causas possíveis:
 
 ### <a name="resolution"></a>Resolução
 
-Se ocorrerem falhas durante uma atualização após o início com sucesso, [verifique a saída](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) de trabalho da máquina afetada durante a execução. Pode encontrar mensagens de erro específicas das suas máquinas que possa pesquisar e tomar medidas. A Atualização De Gestão requer que o gestor de pacotes seja saudável para implementações de atualização bem sucedidas.
+Se ocorrerem falhas durante uma atualização após o início com sucesso, [verifique a saída](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) de trabalho da máquina afetada durante a execução. Pode encontrar mensagens de erro específicas das suas máquinas que possa pesquisar e tomar medidas. A Atualização De Gestão requer que o gestor de pacotes seja saudável para implementações de atualização bem sucedidas.
 
-Se patches específicos, pacotes ou atualizações forem vistos imediatamente antes do trabalho falhar, pode tentar [excluir](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) estes itens da próxima implementação da atualização. Para recolher informações de registo a partir da Atualização do Windows, consulte [os ficheiros de registo do Windows Update](/windows/deployment/update/windows-update-logs).
+Se patches específicos, pacotes ou atualizações forem vistos imediatamente antes do trabalho falhar, pode tentar [excluir](../update-management/deploy-updates.md#schedule-an-update-deployment) estes itens da próxima implementação da atualização. Para recolher informações de registo a partir da Atualização do Windows, consulte [os ficheiros de registo do Windows Update](/windows/deployment/update/windows-update-logs).
 
 Se não conseguir resolver um problema de correção, faça uma cópia do ficheiro **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** e preserve-o para efeitos de resolução de problemas antes do início da próxima atualização.
 
@@ -568,7 +568,7 @@ Se não conseguir resolver um problema de correção, faça uma cópia do fichei
 
 Experimente executar as atualizações diretamente na máquina. Se a máquina não conseguir aplicar as atualizações, consulte a [lista de potenciais erros no guia de resolução de problemas](#hresult).
 
-Se as atualizações forem executadas localmente, tente remover e reinstalar o agente na máquina seguindo as orientações no [Remove a VM da Update Management](../update-management/update-mgmt-remove-vms.md).
+Se as atualizações forem executadas localmente, tente remover e reinstalar o agente na máquina seguindo as orientações no [Remove a VM da Update Management](../update-management/remove-vms.md).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sei que as atualizações estão disponíveis, mas não mostram como estão disponíveis nas minhas máquinas.
 
@@ -588,7 +588,7 @@ Muitas vezes, as atualizações são substituídas por outras. Para obter mais i
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Instalar atualizações por classificação no Linux
 
-A implementação de atualizações no Linux por classificação ("atualizações críticas e de segurança") tem limitações importantes, sobretudo para o CentOS. Estas limitações estão documentadas na [página de visão geral da Gestão](../update-management/update-mgmt-overview.md#linux)de Atualização .
+A implementação de atualizações no Linux por classificação ("atualizações críticas e de segurança") tem limitações importantes, sobretudo para o CentOS. Estas limitações estão documentadas na [página de visão geral da Gestão](../update-management/overview.md#linux)de Atualização .
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602 está constantemente desaparecido
 

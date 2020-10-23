@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657217"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363730"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeie uma implementação de autosserviço do Azure Ative Directory
 
@@ -154,14 +154,14 @@ São necessárias as seguintes definições para ativar o SSPR juntamente com os
 | **Propriedades SSPR** | Redefinição da palavra-passe de autosserviço ativada | **Grupo selecionado** para piloto / **Todos** para produção |
 | **Métodos de autenticação** | Métodos de autenticação necessários para registar | Sempre 1 mais do que o necessário para reset |
 |   | Métodos de autenticação necessários para repor | Um ou dois |
-| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Sim |
+| **Inscrição** | Exigir que os utilizadores se registem ao iniciar sessão | Yes |
 |   | Número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação | 90 - 180 dias |
-| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Sim |
-|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Sim |
-| **Personalização** | Personalizar link helpdesk | Sim |
+| **Notificações** | Notificar os utilizadores sobre reposições de palavras-passe | Yes |
+|   | Notificar todos os administradores quando outros administradores repõem as palavras-passe deles | Yes |
+| **Personalização** | Personalizar link helpdesk | Yes |
 |   | E-mail de ajuda personalizada ou URL | Site de suporte ou endereço de e-mail |
-| **Integração no local** | Descreva palavras-passe para a AD no local | Sim |
-|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Sim |
+| **Integração no local** | Descreva palavras-passe para a AD no local | Yes |
+|   | Permitir que os utilizadores desbloqueiem a conta sem redefinir a palavra-passe | Yes |
 
 ### <a name="sspr-properties"></a>Propriedades SSPR
 
@@ -313,7 +313,7 @@ A Azure AD pode fornecer informações adicionais sobre o seu desempenho SSPR at
 Pode utilizar relatórios pré-construídos no portal Azure para medir o desempenho da SSPR. Se você estiver devidamente licenciado, também pode criar consultas personalizadas. Para obter mais informações, consulte [opções de reporte para a gestão de passwords Azure AD](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  Você deve ser [um administrador global](../users-groups-roles/directory-assign-admin-roles.md), e você deve optar por estes dados para ser recolhido para a sua organização. Para optar, deve visitar o separador Reportar ou os registos de auditoria no Portal Azure pelo menos uma vez. Até lá, os dados não são recolhidos para a sua organização.
+>  Você deve ser [um administrador global](../roles/permissions-reference.md), e você deve optar por estes dados para ser recolhido para a sua organização. Para optar, deve visitar o separador Reportar ou os registos de auditoria no Portal Azure pelo menos uma vez. Até lá, os dados não são recolhidos para a sua organização.
 
 Os registos de auditoria para o registo e o reset da palavra-passe estão disponíveis durante 30 dias. Se a auditoria de segurança dentro da sua corporação necessitar de uma retenção mais longa, os registos precisam de ser exportados e consumidos numa ferramenta SIEM como [Azure Sentinel,](../../sentinel/connect-azure-active-directory.md)Splunk ou ArcSight.
 

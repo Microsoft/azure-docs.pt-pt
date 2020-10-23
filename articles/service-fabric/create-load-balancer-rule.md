@@ -3,12 +3,12 @@ title: Criar uma regra do balançador de carga Azure para um cluster
 description: Configure um Balançador de Carga Azure para abrir portas para o seu cluster de tecido de serviço Azure.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 049afb88b5552c92294180069b54d49574a410fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e09c7b0b3e2bfa5a5ff834e243f5098cbbd947b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259049"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319888"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas de um cluster do Service Fabric
 
@@ -60,7 +60,7 @@ O comando Azure CLI tem alguns parâmetros descritos na tabela seguinte:
 
 
 >[!NOTE]
->Para obter mais informações sobre como criar um equilibrador de carga com o Azure CLI, consulte [Criar um equilibrador de carga com o Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
+>Para obter mais informações sobre como criar um equilibrador de carga com o Azure CLI, consulte [Criar um equilibrador de carga com o Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 No que diz respeito ao `New-AzLoadBalancerRuleConfig` comando, `-FrontendPort` representa a porta que o equilibrador de carga expõe para ligações externas, e `-BackendPort` representa a porta que a aplicação de tecido de serviço está a ouvir.
 
 >[!NOTE]
->Para obter mais informações sobre como criar um equilibrador de carga com PowerShell, consulte [Criar um equilibrador de carga com PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
+>Para obter mais informações sobre como criar um equilibrador de carga com PowerShell, consulte [Criar um equilibrador de carga com PowerShell](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

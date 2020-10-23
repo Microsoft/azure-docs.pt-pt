@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976226"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424335"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway VPN
 
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configure um gateway SKU
 
-#### <a name="azure-portal"></a>Portal do Azure
+**Portal do Azure**
 
 Se utilizar o portal Azure para criar um gateway de rede virtual Do Gestor de Recursos, pode selecionar o gateway SKU utilizando o dropdown. As opções que lhe são apresentadas correspondem ao tipo Gateway e ao tipo VPN que seleciona.
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 O exemplo powerShell seguinte especifica como `-GatewaySku` VpnGw1. Ao utilizar o PowerShell para criar um gateway, primeiro tem de criar a configuração IP e, em seguida, utilizar uma variável para se referir a ela. Neste exemplo, a variável de configuração é $gwipconfig.
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>CLI do Azure
+**CLI do Azure**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ Se tiver uma porta de entrada VPN e quiser utilizar um SKU de gateway diferente,
 3. Não **é possível** redimensionar de SKUs básicos/standard/highperformance para SKUs VPNGw. Em vez disso, tens de [mudar](#change) para os novos SKUs.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Para redimensionar uma porta de entrada
+
+**Portal do Azure**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 

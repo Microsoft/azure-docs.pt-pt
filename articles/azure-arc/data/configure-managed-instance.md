@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f687923f1185d848c2c4f2f40d949c71a7743d65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940633"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311129"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Configure Azure Arc permitiu que o SQL gerissem a instância
 
@@ -22,11 +22,11 @@ Este artigo explica como configurar a Azure Arc permitiu que o SQL gerisse a oco
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="configure-resources-for-azure-arc-enabled-sql-managed-instance"></a>Configure Recursos para Azure Arc habilitado SQL Gestd Instance
+## <a name="configure-resources"></a>Configure recursos
 
-### <a name="configure-using-azdata"></a>Configure usando azdata
+### <a name="configure-using-azure-data-cli-azdata"></a>Configurar usando [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
-Pode editar a configuração de Azure Arc ativado SQL Managed Instances com o `azdata` CLI. Executar o seguinte comando para ver opções de configuração. 
+Pode editar a configuração de Azure Arc ativado SQL Managed Instances com o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] . Executar o seguinte comando para ver opções de configuração. 
 
 ```
 azdata arc sql mi edit --help

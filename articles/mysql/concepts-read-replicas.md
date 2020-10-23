@@ -1,17 +1,17 @@
 ---
-title: Leia réplicas - Base de Dados Azure para MySQL.
+title: Ler réplicas - Azure Database for MySQL
 description: 'Saiba mais sobre réplicas lidas na Base de Dados Azure para o MySQL: escolher regiões, criar réplicas, ligar-se a réplicas, monitorizar a replicação e parar a replicação.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876554"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151177"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -38,7 +38,7 @@ Como as réplicas são apenas de leitura, não reduzem diretamente os encargos d
 A funcionalidade de réplica de leitura utiliza a replicação assíncronea mySQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
 > [!IMPORTANT]
-> A base de dados Azure para o MySQL utiliza registo binário baseado em **ROW.** Se faltar uma chave primária à mesa, todas as linhas da tabela são digitalizadas para operações de DML. Isto causa um maior atraso de replicação. Para garantir que a réplica é capaz de acompanhar as alterações na origem, recomendamos geralmente adicionar uma chave primária nas tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se já tiver uma.
+> A Base de Dados do Azure para MySQL utiliza o registo binário baseado em **LINHA**. Se a sua tabela não tiver uma chave primária, todas as linhas da tabela são analisadas à procura de operações DML. Tal causa um aumento no atraso da replicação. Para garantir que a réplica seja capaz de acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar ou recriar o servidor de réplica, se já tiver um.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Pode criar uma réplica de leitura numa região diferente do seu servidor de origem. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
@@ -50,7 +50,7 @@ Pode ter um servidor de origem em qualquer [Base de Dados Azure para a região m
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
 Pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor de origem está localizado. As regiões de réplica universal apoiadas incluem:
 
-Austrália Leste, Austrália Sudeste, Eua Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
+Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Eua Central, Leste Asiático, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa Central, Eua Central Do Sul, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões de réplica universal, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor de origem. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
@@ -128,6 +128,26 @@ Uma vez que tenha decidido que quer falhar para uma réplica,
     
 Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
+## <a name="global-transaction-identifier-gtid"></a>Identificador global de transações (GTID)
+
+O identificador de transações globais (GTID) é um identificador único criado com cada transação comprometida num servidor de origem e está desligado por padrão na Base de Dados Azure para o MySQL. O GTID é suportado nas versões 5.7 e 8.0 e apenas em servidores que suportam o armazenamento até 16 TB. Para saber mais sobre o GTID e como é usado na replicação, consulte a replicação do MySQL com documentação [GTID.](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html)
+
+O MySQL suporta dois tipos de transações: transações GTID (identificadas com GTID) e transações anónimas (não têm um GTID atribuído)
+
+Os seguintes parâmetros do servidor estão disponíveis para configurar o GTID: 
+
+|**Parâmetro do servidor**|**Descrição**|**Valor Predefinido**|**Valores**|
+|--|--|--|--|
+|`gtid_mode`|Indica se os GTIDs são usados para identificar transações. As alterações entre modos só podem ser feitas um passo de cada vez por ordem ascendente (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: As transações novas e de replicação devem ser anónimas <br> `OFF_PERMISSIVE`: As novas transações são anónimas. As transações replicadas podem ser transações anónimas ou GTID. <br> `ON_PERMISSIVE`: As novas transações são transações GTID. As transações replicadas podem ser transações anónimas ou GTID. <br> `ON`: Ambas as transações novas e replicadas devem ser transações GTID.|
+|`enforce_gtid_consistency`|Reforça a consistência gtid permitindo a execução de apenas as declarações que podem ser registadas de forma transacionalmente segura. Este valor deve ser definido `ON` antes de permitir a replicação do GTID. |`OFF`|`OFF`: Todas as transações são permitidas para violar a consistência GTID.  <br> `ON`: Nenhuma transação é permitida para violar a consistência GTID. <br> `WARN`: Todas as transações são permitidas para violar a consistência GTID, mas um aviso é gerado. | 
+
+> [!NOTE]
+> Uma vez ativado o GTID, não é possível desligá-lo. Se precisar de desligar o GTID, contacte o suporte. 
+
+Para ativar o GTID e configurar o comportamento de consistência, atualize os `gtid_mode` parâmetros e `enforce_gtid_consistency` os parâmetros do servidor utilizando o [portal Azure](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)ou [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+Se o GTID estiver ativado num servidor de origem `gtid_mode` (= ON), as réplicas recém-criadas também terão GTID ativado e utilizam a replicação GTID. Para manter a replicação consistente, não é possível atualizar `gtid_mode` na fonte ou no servidor de réplicas.
+
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
 ### <a name="pricing-tiers"></a>Escalões de preço
@@ -178,9 +198,18 @@ O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-vari
 
 Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
+### <a name="gtid"></a>GTID
+
+O GTID é suportado em:
+- Versões MySQL 5.7 e 8.0 
+- Servidores que suportam o armazenamento até 16 TB. Consulte o artigo [do nível de preços](concepts-pricing-tiers.md#storage) para a lista completa das regiões que suportam 16 armazenamentos de TB. 
+
+GTID está desligado por defeito. Uma vez ativado o GTID, não é possível desligá-lo. Se precisar de desligar o GTID, contacte o suporte. 
+
+Se o GTID estiver ativado num servidor de origem, as réplicas recém-criadas também terão GTID ativada e utilizam a replicação GTID. Para manter a replicação consistente, não é possível atualizar `gtid_mode` na fonte ou no servidor de réplicas.
+
 ### <a name="other"></a>Outro
 
-- Os identificadores globais de transações (GTID) não são suportados.
 - A criação de uma réplica de uma réplica não é suportada.
 - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações.
 - Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.

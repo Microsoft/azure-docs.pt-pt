@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940784"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320239"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Utilize o Azure Data Studio para gerir o seu grupo de servidores de hiperescala Pós-Escala PósgreSQL
 
@@ -28,7 +28,7 @@ Este artigo descreve como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Instalar azdata, Azure Data Studio e Azure CLI](install-client-tools.md)
-- Instale no Azure Data Studio as extensões **Azure Data CLI** e **Azure Arc** e **PostgreSQL**
+- Instale em Azure Data Studio as **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** extensões E **Azure Arc** e **PostgreSQL**
 - Criar o [Controlador de Dados do Arco Azul](create-data-controller-using-azdata.md)
 - Lançar Azure Data Studio
 
@@ -61,9 +61,8 @@ A vista do painel postgreSQL:
 
 Que apresenta vários dashboards listados no lado esquerdo do painel:
 
-- **Visão geral:** Exibe informações sumárias sobre o seu caso como nome, ID de assinatura Azure, configuração, versão do motor de base de dados, pontos finais para Grafana e Kibana...
+- **Visão geral:** Exibe informações sumárias sobre o seu caso como nome, nome de utilizador pós-SQL, ID de assinatura Azure, configuração, versão do motor de base de dados, pontos finais para Grafana e Kibana...
 - **Cadeias de ligação:** Exibe várias cordas de ligação que poderá necessitar de se ligar ao seu exemplo postgreSQL como psql, Node.js, PHP, Ruby...
-- **Propriedades:** Exibe várias propriedades como nome de utilizador pós-SQL, grupo de recursos associados para o recurso sombra...
 - **Diagnosticar e resolver problemas:** É a página de aterragem onde você vai encontrar vários recursos que o ajudarão a resolver o seu caso à medida que expandimos os cadernos de resolução de problemas
 - **Novo pedido de apoio:** É a página de aterragem a partir da qual poderá solicitar assistência dos nossos serviços de apoio a partir do anúncio de Pré-Visualização Pública.
 

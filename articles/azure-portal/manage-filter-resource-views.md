@@ -3,15 +3,15 @@ title: Ver e filtrar informações sobre recursos do Azure
 description: Filtre informações e use diferentes pontos de vista para entender melhor os seus recursos Azure.
 author: mgblythe
 ms.service: azure-portal
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6185e1c4042110f446337c1b2c2904fefdae7a9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650408"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280241"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Ver e filtrar informações sobre recursos do Azure
 
@@ -53,7 +53,7 @@ Para eliminar uma vista:
 
 ## <a name="summarize-resources-with-visuals"></a>Resumir recursos com visuais
 
-As opiniões que analisámos até agora foram _pontos de vista_da lista, mas também existem _visões sumárias_ que incluem visuais. Você pode guardar e usar estas vistas assim como você pode listar vistas. Os filtros persistem entre os dois tipos de vistas. Existem vistas padrão, como a vista **de localização** mostrada abaixo, bem como pontos de vista relevantes para serviços específicos, como a vista **de estado** para máquinas virtuais.
+As opiniões que analisámos até agora foram _pontos de vista_da lista, mas também existem _visões sumárias_ que incluem visuais. Você pode guardar e usar estas vistas assim como você pode listar vistas. Os filtros persistem entre os dois tipos de vistas. Existem vistas padrão, como a vista **de localização** mostrada abaixo, bem como pontos de vista relevantes para serviços específicos, como a vista de **estado** para o armazenamento Azure.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Vista do portal Azure de todos os recursos":::
 

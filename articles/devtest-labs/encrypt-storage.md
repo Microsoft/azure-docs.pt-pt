@@ -3,12 +3,12 @@ title: Criptografe uma conta de armazenamento Azure usada por um laboratório em
 description: Saiba como configurar a encriptação de um armazenamento Azure usado por um laboratório em Azure DevTest Labs
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433595"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149310"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Encriptar armazenamento Azure usado por um laboratório em Azure DevTest Labs
 Todos os laboratórios criados na Azure DevTest Labs são criados com uma conta de armazenamento Azure associada. A conta de armazenamento é utilizada para os seguintes fins: 
@@ -36,13 +36,13 @@ Todos os laboratórios criados na Azure DevTest Labs são criados com uma conta 
 ## <a name="encrypt-the-lab-storage-account"></a>Criptografe a conta de armazenamento de laboratório
 O Azure Storage encripta automaticamente os seus dados quando estes são persistidos na nuvem. A encriptação do Azure Storage protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](../storage/common/storage-service-encryption.md).
 
-Os dados na conta de armazenamento do laboratório são encriptados com uma **chave gerida pela Microsoft.** Pode confiar nas teclas geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves para a conta de armazenamento do laboratório, pode especificar uma **chave gerida pelo cliente** com o Azure Key Vault para usar para encriptar/desencriptar dados no armazenamento blob e nos Ficheiros Azure. Para obter mais informações sobre as chaves geridas pelo cliente, consulte [utilize as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Azure Storage](../storage/common/encryption-customer-managed-keys.md).
+Os dados na conta de armazenamento do laboratório são encriptados com uma **chave gerida pela Microsoft.** Pode confiar nas teclas geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves para a conta de armazenamento do laboratório, pode especificar uma **chave gerida pelo cliente** com o Azure Key Vault para usar para encriptar/desencriptar dados no armazenamento blob e nos Ficheiros Azure. Para obter mais informações sobre as chaves geridas pelo cliente, consulte [utilize as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Azure Storage](../storage/common/customer-managed-keys-overview.md).
 
 Para saber como configurar chaves geridas pelo cliente para encriptação de armazenamento Azure, consulte os seguintes artigos: 
 
-- [Portal do Azure](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [CLI do Azure](../storage/common/storage-encryption-keys-cli.md)
+- [Portal do Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [CLI do Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 
 ## <a name="manage-the-azure-blob-storage-life-cycle"></a>Gerir o ciclo de vida de armazenamento Azure Blob
@@ -101,8 +101,6 @@ Por exemplo, a seguinte regra é usada para definir uma regra de expiração de 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber como configurar chaves geridas pelo cliente para encriptação de armazenamento Azure, consulte os seguintes artigos: 
 
-- [Portal do Azure](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [CLI do Azure](../storage/common/storage-encryption-keys-cli.md)
-
-
+- [Portal do Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [CLI do Azure](../storage/common/customer-managed-keys-configure-key-vault.md)

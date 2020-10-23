@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 40484521ecdc32e2e279ddf1b68ddcd4b1d7bc9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057489"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427578"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
-É comum que os desenvolvedores que trabalham com a Azure Digital Twins escrevam uma aplicação de cliente para interagir com a sua instância do serviço Azure Digital Twins. Este tutorial focado no programador proporciona uma introdução à programação contra o serviço Azure Digital Twins, utilizando a [biblioteca de clientes Azure IoT Digital Twin para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Acompanha-o através da escrita de uma aplicação de cliente de consola C# passo a passo, começando do zero.
+É comum que os desenvolvedores que trabalham com a Azure Digital Twins escrevam uma aplicação de cliente para interagir com a sua instância do serviço Azure Digital Twins. Este tutorial focado no programador proporciona uma introdução à programação contra o serviço Azure Digital Twins, utilizando o [Azure Digital Twins SDK para .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Acompanha-o através da escrita de uma aplicação de cliente de consola C# passo a passo, começando do zero.
 
 > [!div class="checklist"]
 > * Criar projeto
 > * Começar com o código do projeto   
 > * Amostra de código completa
-> * Limpar recursos
+> * Limpar os recursos
 > * Passos seguintes
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -58,7 +58,7 @@ dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
-A primeira dependência é a [biblioteca de clientes Azure IoT Digital Twin para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). A segunda dependência fornece ferramentas para ajudar na autenticação contra o Azure.
+A primeira dependência é a [Azure Digital Twins SDK para .NET](https://www.nuget.org/packages/Azure.DigitalTwins.Core). A segunda dependência fornece ferramentas para ajudar na autenticação contra o Azure.
 
 Mantenha a janela de comando aberta, pois continuará a usá-la durante todo o tutorial.
 
@@ -104,40 +104,21 @@ Em seguida, irá adicionar código a este ficheiro para preencher alguma funcion
 
 A primeira coisa que a sua aplicação terá de fazer é autenticar contra o serviço Azure Digital Twins. Em seguida, pode criar uma classe de cliente de serviço para aceder às funções SDK.
 
-Para autenticar, necessita de três peças de informação:
-* O *ID do Diretório (inquilino)* para a sua subscrição
-* O *ID da Aplicação (cliente)* criado quando configura a instância Azure Digital Twins mais cedo
-* O *nome anfitrião* da sua instância Azure Digital Twins
+Para autenticar, precisa do *nome de anfitrião* da sua instância Azure Digital Twins.
 
->[!TIP]
-> Se não conhece o seu *ID do Diretório (inquilino),* pode obtê-lo executando este comando em [Azure Cloud Shell:](https://shell.azure.com)
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desa cota o valor do `adtInstanceUrl` seu *anfitrião de*instância Azure Digital Twins, `clientId` para o seu *ID de aplicação,* e `tenantId` para o seu *ID do Diretório*.
+Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desabine o valor do `adtInstanceUrl` seu exemplo Azure Digital Twins *anfitriãoName*.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 Guarde o ficheiro. 
 
-Note que este exemplo usa uma credencial de navegador interativo:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-Este tipo de credencial fará com que uma janela do navegador abra, pedindo-lhe que forneça as suas credenciais Azure. 
-
 >[!NOTE]
-> Para obter informações sobre outros tipos de credenciais, consulte a documentação das [bibliotecas de autenticação da plataforma de identidade da Microsoft.](../active-directory/develop/reference-v2-libraries.md)
+> Este exemplo utiliza um `DefaultAzureCredential` para autenticação. Para obter informações sobre outros tipos de credenciais, consulte a documentação para as [bibliotecas de autenticação da plataforma de identidade](../active-directory/develop/reference-v2-libraries.md)da Microsoft, ou o artigo da Azure Digital Twins sobre a [autenticação de aplicações do cliente.](how-to-authenticate-client.md)
 
 Na sua janela de comando, execute o código com este comando: 
 
@@ -285,12 +266,18 @@ A partir de agora, o tutorial irá embrulhar todas as chamadas para métodos de 
 
 Agora que fez o upload de um modelo para Azure Digital Twins, pode usar esta definição de modelo para criar **gémeos digitais.** [Gémeos digitais](concepts-twins-graph.md) são exemplos de um modelo, e representam as entidades dentro do seu ambiente de negócios — coisas como sensores numa quinta, quartos num edifício ou luzes num carro. Esta secção cria alguns gémeos digitais com base no modelo que carregou anteriormente.
 
-Adicione uma nova `using` declaração no topo, pois necessitará do serializer incorporado .NET Json `System.Text.Json` em:
+Adicione estas novas `using` declarações no topo, uma vez que esta amostra de código utiliza o serializer incorporado .NET Json em `System.Text.Json` , e o espaço de nome do `Serialization` [Azure Digital Twins SDK para .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [LINK MODIFICADO PARA PRÉ-VISUALIZAÇÃO]:
 
 ```csharp
 using System.Text.Json;
 using Azure.DigitalTwins.Core.Serialization;
 ```
+
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` não é necessário trabalhar com gémeos digitais e relações; é um espaço de nome opcional que pode ajudar a colocar dados no formato certo. Algumas alternativas à sua utilização incluem:
+>* Cordas concatenating para formar um objeto JSON
+>* Usando um analisador JSON gosta `System.Text.Json` de construir um objeto JSON dinamicamente
+>* Modelar os seus tipos personalizados em C#, instantaneamente e serializá-los em cordas
 
 Em seguida, adicione o seguinte código ao fim do `Main` método para criar e inicializar três gémeos digitais com base neste modelo.
 
@@ -320,13 +307,10 @@ Note que não se comete nenhum erro quando os gémeos são criados pela segunda 
 
 Em seguida, pode criar **relações** entre os gémeos que criou, para ligá-los a um **gráfico gémeo.** [Os gráficos gémeos](concepts-twins-graph.md) são usados para representar todo o seu ambiente.
 
-Para ser capaz de criar relacionamentos, você precisará do espaço de `Azure.DigitalTwins.Core.Serialization` nome. Acrescentou isto ao projeto mais cedo com esta `using` declaração:
-
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
+Para ajudar a criar relacionamentos, esta amostra de código usa o `Azure.DigitalTwins.Core.Serialization` espaço de nome. Adicionou isto ao projeto mais cedo na secção [*Criar gémeos digitais.*](#create-digital-twins)
 
 Adicione um novo método estático à `Program` classe, por baixo do `Main` método:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +332,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Em seguida, adicione o seguinte código ao fim do `Main` método para ligar para o `CreateRelationship` código:
+Em seguida, adicione o seguinte código ao fim do `Main` método, para ligar para o `CreateRelationship` método e usar o código que acabou de escrever:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -455,11 +440,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();
@@ -552,7 +536,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
  
 O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
  

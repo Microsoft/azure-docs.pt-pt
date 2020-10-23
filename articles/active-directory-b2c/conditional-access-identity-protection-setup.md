@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5554cfcde9aba1b0e5c9c8b60e2e6a7e9a8ba378
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271565"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309776"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurar proteção de identidade e acesso condicional em Azure AD B2C
 
@@ -41,10 +41,12 @@ As seguintes deteções de risco são atualmente suportadas para a Azure AD B2C:
 |Tipo de deteção de risco  |Descrição  |
 |---------|---------|
 | Viagem atípica     | Inscreva-se a partir de uma localização atípica com base nas recentes insusagens do utilizador.        |
-|Endereço IP anónimo     | Inscreva-se a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores)        |
+|Endereço IP anónimo     | Inscreva-se a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores).        |
+|Endereço IP ligado a malware     | Inscreva-se a partir de um endereço IP ligado a malware.         |
 |Propriedades de inícios de sessão desconhecidos     | Inscreva-se com propriedades que não vimos recentemente para o utilizador dado.        |
-|Endereço IP ligado a malware     | Inscreva-se a partir de um endereço IP ligado a malware         |
-|Inteligência de ameaça Azure AD     | Fontes internas e externas da Microsoft identificaram um padrão de ataque conhecido        |
+|Admin confirmou utilizador comprometido    | Um administrador indicou que um utilizador foi comprometido.             |
+|Spray de senha     | Inscreva-se através de um ataque de spray de senha.      |
+|Inteligência de ameaça Azure AD     | Fontes internas e externas da Microsoft identificaram um padrão de ataque conhecido.        |
 
 ## <a name="view-risk-events-for-your-azure-ad-b2c-tenant"></a>Veja eventos de risco para o seu inquilino Azure AD B2C
 

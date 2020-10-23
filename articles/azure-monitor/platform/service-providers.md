@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921097"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143859"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de monitores Azure para Prestadores de Serviços
 
@@ -35,7 +35,7 @@ Nesta arquitetura, é implantado um espaço de trabalho no arrendatário do clie
 
 Existem duas formas de os administradores de prestadores de serviços terem acesso a um espaço de trabalho log analytics num inquilino do cliente:
 
-- Um cliente pode adicionar utilizadores individuais do prestador de serviços como [utilizadores convidados do Azure Ative Directory (B2B)](../../active-directory/b2b/what-is-b2b.md). Os administradores do prestador de serviços terão de subscrever o diretório de cada cliente no portal Azure para poderem aceder a estes espaços de trabalho. Isto também requer que os clientes gerem o acesso individual para cada administrador de prestador de serviços.
+- Um cliente pode adicionar utilizadores individuais do prestador de serviços como [utilizadores convidados do Azure Ative Directory (B2B)](../../active-directory/external-identities/what-is-b2b.md). Os administradores do prestador de serviços terão de subscrever o diretório de cada cliente no portal Azure para poderem aceder a estes espaços de trabalho. Isto também requer que os clientes gerem o acesso individual para cada administrador de prestador de serviços.
 - Para uma maior escalabilidade e flexibilidade, os prestadores de serviços podem utilizar a capacidade [delegada](../../lighthouse/concepts/azure-delegated-resource-management.md) de gestão de recursos do [Azure Lighthouse](../../lighthouse/overview.md) para aceder ao inquilino do cliente. Com este método, os administradores do prestador de serviços estão incluídos num grupo de utilizadores AD AZure no arrendatário do prestador de serviços, e este grupo tem acesso durante o processo de embarque para cada cliente. Estes administradores podem então aceder aos espaços de trabalho de cada cliente a partir do seu próprio inquilino prestador de serviços, em vez de terem de aceder individualmente ao inquilino de cada cliente. O acesso aos espaços de trabalho do Log Analytics dos seus clientes reduz desta forma o trabalho exigido do lado do cliente, podendo facilitar a recolha e análise de dados em vários clientes geridos pelo mesmo prestador de serviços através de ferramentas como [os Livros de Trabalho do Monitor Azure.](./workbooks-overview.md) Para obter mais informações, consulte [os recursos do cliente do Monitor em escala.](../../lighthouse/how-to/monitor-at-scale.md)
 
 As vantagens da arquitetura distribuída são:
@@ -81,7 +81,7 @@ Existem duas opções para implementar registos numa localização central:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Automatizar a criação e configuração de espaços de trabalho usando [modelos de Gestor de Recursos](template-workspace-configuration.md)
+* Automatizar a criação e configuração de espaços de trabalho usando [modelos de Gestor de Recursos](../samples/resource-manager-workspace.md)
 
 * Automatizar a criação de espaços de trabalho utilizando [o PowerShell](./powershell-workspace-configuration.md)
 

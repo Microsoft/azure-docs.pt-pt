@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 723546d6a997d895c1a1df39b558aabb797d0a11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f93457edc4276422eb97b56c90b83ad6a19a65
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545102"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126897"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>Tutorial: Azure Ative Directory integração única (SSO) com SolarWinds Orion
 
@@ -144,19 +144,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Inicie sessão no SolarWinds Orion e vá às **Definições**  ->  **Todas as Definições**.
 
-    ![ Configuração SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![A screenshot mostra todas as definições selecionadas a partir de Definições.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. Na secção contas do **utilizador,** selecione **Configuração SAML**.
 
-    ![ Configuração SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+    ![Screenshot mostrar configuração SAML selecionada a partir de contas de utilizador.](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
 
 1. Clique no **FORNECEDOR DE IDENTIDADE ADD**.
 
-    ![ Configuração SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+    ![A screenshot mostra a configuração SAML onde pode selecionar O FORNECEDOR DE IDENTIDADE ADD.](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
 
 1. Execute os seguintes passos na página **'Adicionar Fornecedor de Identidade':**
 
-    ![ Configuração SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+    ![A screenshot mostra a página 'Adicionar Fornecedor de Identidade' onde pode introduzir os valores descritos.](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
 
     a. Vá ao **separador Configurar.**
 
@@ -174,25 +174,25 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Inicie sessão no website da Orion SolarWinds e vá às **Definições**  ->  **Todas as Definições**.
 
-    ![ SolarWinds Orion cria utilizador de teste ](./media/solarwinds-orion-tutorial/settings.png)
+    ![A screenshot mostra todas as definições selecionadas a partir de Definições.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. Na secção **contas de utilizador,** selecione **Gerir contas**.
 
-    ![ SolarWinds Orion cria utilizador de teste ](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![Screenshot mostrar configuração SAML selecionada.](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. No separador **CONTAS INDIVIDUAIS,** clique em **ADD NEW ACCOUNT**.
 
-    ![ SolarWinds Orion cria utilizador de teste ](./media/solarwinds-orion-tutorial/create-user.png)
+    ![Screenshot mostra ADD NEW ACCOUNT selecionado em Contas de Gestão.](./media/solarwinds-orion-tutorial/create-user.png)
 
 1. Selecione o tipo de conta, que precisa para criar utilizadores ou grupos individuais SAML.
 
-    ![ SolarWinds Orion cria utilizador de teste ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+    ![Screenshot mostra Adicionar Conta Nova onde pode selecionar o tipo de conta.](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
 1.  Na caixa de texto **name ID,** insira o nome que deve coincidir com o nome de utilizador ou nome de grupo exatamente como em Azure AD.
 
 1.  Clique em **Seguinte** e, em seguida, envie a página.
 
-    ![ SolarWinds Orion cria utilizador de teste ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![Screenshot mostra Adicionar Nova Conta onde pode introduzir o nome I D de Azure A D.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## <a name="test-sso"></a>Teste SSO 
 

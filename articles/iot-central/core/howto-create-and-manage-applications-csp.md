@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653354"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123118"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Criar e gerir uma aplicação Azure IoT Central a partir do portal CSP
 
@@ -63,7 +63,7 @@ Uma vez que a Azure IoT Central tem o contexto de que veio gerir o cliente que s
 
 Um inquilino do Azure Ative Directory contém identidades de utilizador, credenciais e outras informações organizacionais. As subscrições multiple Azure podem ser associadas a um único inquilino do Azure Ative Directory.
 
-Para saber mais, consulte [o Diretório Ativo Azure.](https://docs.microsoft.com/azure/active-directory/)
+Para saber mais, consulte [o Diretório Ativo Azure.](../../active-directory/index.yml)
 
 ## <a name="azure-subscription"></a>Subscrição do Azure
 
@@ -71,7 +71,7 @@ Uma subscrição do Azure permite-lhe criar instâncias de serviços do Azure. O
 
 Se não tiver uma subscrição do Azure, pode criar uma no Microsoft Partner Center. Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
 
-Para saber mais, consulte [as assinaturas Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+Para saber mais, consulte [as assinaturas Azure](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="location"></a>Localização
 

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097529"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461078"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -40,16 +40,15 @@ Também precisa de completar os seguintes itens como parte da configuração pr�
 
 Para ligar uma instância Azure Digital Twins a Logic Apps neste artigo, terá de ter a **instância Azure Digital Twins** já configurada. 
 
-Em primeiro lugar, crie uma instância Azure Digital Twins e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal Azure).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
-Neste tutorial, você precisará de vários valores a partir de quando configurar o seu caso. Se precisar de voltar a recolher estes valores, utilize os links abaixo para as secções correspondentes no artigo de configuração para os encontrar no [portal Azure](https://portal.azure.com).
-* Nome **_de anfitrião_** de exemplo de Azure Digital Twins[(encontre no portal)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
-* Aplicação de registo de aplicações AD AZure **_(cliente) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
-* Diretório de registo de aplicativoS Azure **_AD (inquilino) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
+Para autenticar o conector, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
+* Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino) ID (encontre_** [no portal Azure).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 
 ### <a name="get-app-registration-client-secret"></a>Obtenha o segredo do cliente de registo de aplicativos
 
-Também terá de criar um segredo de **_Cliente_** para o seu registo de aplicações AZure AD. Para isso, navegue para a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Selecione o seu registo na lista para abrir os seus detalhes. 
+Também terá de criar um segredo de **_Cliente_** para o seu registo de aplicações AZure AD. Para isso, navegue para a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Selecione a sua inscrição que criou na secção anterior da lista, de forma a abrir os seus detalhes. 
 
 Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do cliente.*
 
@@ -67,7 +66,7 @@ Agora, verifique se o segredo do cliente está visível na página _de segredos 
 
 Este artigo utiliza Apps Lógicas para atualizar um gémeo na sua instância Azure Digital Twins. Para prosseguir, deve adicionar pelo menos um gémeo no seu caso. 
 
-Pode adicionar gémeos utilizando as [APIs DigitalTwins,](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para obter passos detalhados sobre como criar gémeos utilizando estes métodos, consulte [*Como-a-fazer: Gerir gémeos digitais*](how-to-manage-twin.md).
+Pode adicionar gémeos utilizando as [APIs DigitalTwins,](/rest/api/digital-twins/dataplane/twins)a [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para obter passos detalhados sobre como criar gémeos utilizando estes métodos, consulte [*Como-a-fazer: Gerir gémeos digitais*](how-to-manage-twin.md).
 
 Vai precisar da **_identificação de_** um gémeo no seu caso que criou.
 
@@ -201,7 +200,7 @@ Pode ser-lhe pedido que faça sedús com as suas credenciais Azure para se ligar
 Na nova caixa *DigitalTwinsAdd,* preencha os campos da seguinte forma:
 * _id_: Preencha o *ID Twin* do gémeo digital no seu caso que gostaria que a App Lógica atualizasse.
 * _twin_: Este campo é onde você vai entrar no corpo que o pedido de API escolhido requer. Para *o DigitalTwinsUpdate,* este corpo está na forma do código JSON Patch. Para saber mais sobre a estruturação de um JSON Patch para atualizar o seu gémeo, consulte a [Atualização de uma](how-to-manage-twin.md#update-a-digital-twin) secção digital twin de *How-to: Manage digital twins*.
-* _versão api_: A versão API mais recente. Na pré-visualização pública atual, este valor é *2020-05-31-pré-visualização*
+* _versão api_: A versão API mais recente. Atualmente, este valor é *2020-10-31*.
 
 Hit *Save* in the Logic Apps Designer.
 

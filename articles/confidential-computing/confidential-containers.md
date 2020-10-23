@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 528b843e24e1d63e4822c253b3636ef490e8fe8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997807"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122208"
 ---
 # <a name="confidential-containers"></a>Contentores confidenciais
 
@@ -67,7 +67,7 @@ As implementações de Scone em nós de computação confidencial com AKS são t
 
 ### <a name="anjuna"></a>Anjuna
 
-[A Anjuna](https://www.anjuna.io/) fornece software de plataforma SGX que lhe permite executar contentores não modificados em AKS. Leia mais sobre **a próxima** funcionalidade e o fluxo do utilizador [aqui](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+[A Anjuna](https://www.anjuna.io/) fornece software de plataforma SGX que lhe permite executar contentores não modificados em AKS. Saiba mais sobre a funcionalidade e confira [aqui](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)as aplicações da amostra.
 
 Começa com uma amostra redis Cache e aplicação personalizada Python [aqui](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
 

@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292921"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425785"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Referência da API do Cloud Partner Portal
 
 > [!NOTE]
 > As APIs do Portal do Parceiro Cloud estão integradas e continuarão a trabalhar no Partner Center. A transição introduz pequenas mudanças. Reveja as [Alterações às APIs de CPP](#changes-to-cpp-apis-after-the-migration-to-partner-center) listadas neste documento para garantir que o seu código continua a funcionar após a transição para o Partner Center. As APIs de CPP só devem ser utilizadas para produtos já integrados antes da transição para o Partner Center; novos produtos devem utilizar APIs de submissão do Partner Center.
 
-As APIs do Portal cloud Partner REST permitem a recuperação programática e manipulação de cargas de trabalho, ofertas e perfis de editores. As APIs utilizam o controlo de acesso baseado em funções (RBAC) para impor permissões corretas no momento do processamento.
+As APIs do Portal cloud Partner REST permitem a recuperação programática e manipulação de cargas de trabalho, ofertas e perfis de editores. As APIs usam o controlo de acesso baseado em funções Azure (Azure RBAC) para impor permissões corretas no momento do processamento.
 
 Esta referência fornece os detalhes técnicos para as APIs do Portal do Parceiro cloud REST. As amostras de carga útil neste documento são apenas para referência e estão sujeitas a alterações à medida que a nova funcionalidade é adicionada.
 

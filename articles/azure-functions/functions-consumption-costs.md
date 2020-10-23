@@ -3,12 +3,12 @@ title: Estimativa dos custos do plano de consumo em Funções Azure
 description: Saiba como estimar melhor os custos que poderá incorrer ao executar a sua aplicação de função num plano de Consumo em Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207763"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168121"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
 
@@ -50,7 +50,7 @@ Ao estimar os custos globais da sua aplicação de função e serviços conexos,
 | Custo relacionado | Descrição |
 | ------------ | ----------- |
 | **Conta de armazenamento** | Cada aplicação de função requer que tenha uma conta de [Armazenamento Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)para fins gerais associada, que é [faturada separadamente](https://azure.microsoft.com/pricing/details/storage/). Esta conta é utilizada internamente pelo tempo de execução de Funções, mas também pode usá-la para desímes de armazenamento e encadernações. Se não tiver uma conta de armazenamento, uma é criada para si quando a aplicação de função é criada. Para saber mais, consulte os [requisitos da conta de Armazenamento.](storage-considerations.md#storage-account-requirements)|
-| **Application Insights** | As funções dependem do [Application Insights](../azure-monitor/app/app-insights-overview.md) para proporcionar uma experiência de monitorização de alto desempenho para as suas aplicações de função. Embora não seja necessário, deve [ativar a integração de Insights de Aplicação](functions-monitoring.md#enable-application-insights-integration). Todos os meses são incluídos dados de telemetria gratuitos. Para saber mais, consulte [a página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). |
+| **Application Insights** | As funções dependem do [Application Insights](../azure-monitor/app/app-insights-overview.md) para proporcionar uma experiência de monitorização de alto desempenho para as suas aplicações de função. Embora não seja necessário, deve [ativar a integração de Insights de Aplicação](configure-monitoring.md#enable-application-insights-integration). Todos os meses são incluídos dados de telemetria gratuitos. Para saber mais, consulte [a página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Largura de banda de rede** | Não se paga a transferência de dados entre os serviços da Azure na mesma região. No entanto, pode incorrer em custos para transferências de dados de saída para outra região ou fora de Azure. Para saber mais, consulte [os detalhes dos preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/). |
 
 ## <a name="behaviors-affecting-execution-time"></a>Comportamentos que afetam o tempo de execução
@@ -61,13 +61,15 @@ Os seguintes comportamentos das suas funções podem ter impacto no tempo de exe
 
 + **Execução assíncrona**: O tempo que a sua função aguarda pelos resultados de um pedido de assínio `await` (em C#) é contado como tempo de execução. O cálculo gb-segundo baseia-se no tempo de início e fim da função e na utilização da memória durante esse período. O que está a acontecer ao longo desse tempo em termos de atividade da CPU não é contabilizado no cálculo. Poderá reduzir os custos durante as operações assíncronos utilizando [funções duradouras.](durable/durable-functions-overview.md) Não estás cobrado pelo tempo que passa nas esperas em funções de orquestrador.
 
-## <a name="view-execution-data"></a>Ver dados de execução
+## <a name="viewing-cost-related-data"></a>Visualização de dados relacionados com os custos
 
 Na [sua fatura,](../cost-management-billing/understand/download-azure-invoice.md)pode consultar os dados relacionados com o custo das **Execuções Totais - Funções** e **Tempo de Execução - Funções,** juntamente com os custos reais cobrados. No entanto, estes dados da fatura são um agregado mensal para um período de faturação anterior. 
 
+### <a name="function-app-level-metrics"></a>Métricas de nível de aplicação de função
+
 Para entender melhor o impacto de custos das suas funções, pode utilizar o Azure Monitor para visualizar métricas relacionadas com os custos atualmente geradas pelas suas aplicações de função. Pode utilizar o [explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) no portal [Azure] ou NAS DERES PARA obter estes dados.
 
-### <a name="monitor-metrics-explorer"></a>Explorador de métricas de monitorização
+#### <a name="monitor-metrics-explorer"></a>Explorador de métricas de monitorização
 
 Utilize [o explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) para visualizar dados relacionados com o custo para as aplicações de função do seu plano de consumo num formato gráfico. 
 
@@ -101,7 +103,7 @@ Como o número de unidades de execução é muito maior do que a contagem de exe
 
 Este gráfico mostra um total de 1,11 mil milhões `Function Execution Units` consumidos num período de duas horas, medido em MB-milissegundos. Para converter em GB-segundos, divida por 1024000. Neste exemplo, a aplicação de função consumiu `1110000000 / 1024000 = 1083.98` GB-segundos. Pode pegar neste valor e multiplicar-se pelo preço atual do tempo de execução na página de preços da [página de preços das Funções][pricing page], o que lhe dá o custo destas duas horas, assumindo que já utilizou quaisquer subsídios gratuitos de tempo de execução. 
 
-### <a name="azure-cli"></a>CLI do Azure
+#### <a name="azure-cli"></a>CLI do Azure
 
 O [CLI Azure](/cli/azure/) tem comandos para recuperar métricas. Pode utilizar o CLI a partir de um ambiente de comando local ou diretamente do portal utilizando [a Azure Cloud Shell](../cloud-shell/overview.md). Por exemplo, o comando [de lista de métricas az monitor aguis](/cli/azure/monitor/metrics#az-monitor-metrics-list) retorna os dados de hora em hora durante o mesmo período de tempo utilizado anteriormente.
 
@@ -192,47 +194,13 @@ Este comando devolve uma carga JSON que se parece com o seguinte exemplo:
 ```
 Esta resposta em particular mostra que, a partir `2019-09-11T21:46` `2019-09-11T23:18` de, a aplicação consumiu 11100000000 MB-milissegundos (1083,98 GB-segundos).
 
-## <a name="determine-memory-usage"></a>Determinar o uso da memória
+### <a name="function-level-metrics"></a>Métricas de nível de função
 
 As unidades de execução de funções são uma combinação do tempo de execução e do uso da sua memória, o que torna difícil a compreensão do uso da memória. Os dados de memória não são uma métrica atualmente disponível através do Azure Monitor. No entanto, se pretender otimizar o uso da memória da sua app, pode utilizar os dados do contador de desempenho recolhidos pela App Insights.  
 
-Se ainda não o fez, [ative o Application Insights na sua aplicação de função.](functions-monitoring.md#enable-application-insights-integration) Com esta integração ativada, pode [consultar estes dados de telemetria no portal](functions-monitoring.md#query-telemetry-data).  
+Se ainda não o fez, [ative o Application Insights na sua aplicação de função.](configure-monitoring.md#enable-application-insights-integration) Com esta integração ativada, pode [consultar estes dados de telemetria no portal](analyze-telemetry-data.md#query-telemetry-data). 
 
-Em **Monitorização**, selecione **Logs (Analytics)**, em seguida, copie a seguinte consulta de telemetria e cole-a na janela de consulta e selecione **Executar**. Esta consulta devolve o uso total da memória em cada tempo amostrado.
-
-```
-performanceCounters
-| where name == "Private Bytes"
-| project timestamp, name, value
-```
-
-Os resultados parecem ser o seguinte exemplo:
-
-| \[timetamp UTC\]          | name          | valor       |
-|----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14 \. 947 AM | Bytes privados | 209,932,288 |
-| 9/12/2019, 1:06:14 \. 994 AM | Bytes privados | 212,189,184 |
-| 9/12/2019, 1:06:30 \. 010 | Bytes privados | 231,714,816 |
-| 9/12/2019, 1:07:15 \. 040 AM | Bytes privados | 210,591,744 |
-| 9/12/2019, 1:12:16 \. 285 AM | Bytes privados | 216,285,184 |
-| 9/12/2019, 1:12:31 \. 376 AM | Bytes privados | 235,806,720 |
-
-## <a name="function-level-metrics"></a>Métricas de nível de função
-
-O Azure Monitor rastreia métricas ao nível do recurso, que para funções é a aplicação de função. A integração de Insights de Aplicação emite métricas por função. Aqui está um exemplo de consulta de análise para obter a duração média de uma função:
-
-```
-customMetrics
-| where name contains "Duration"
-| extend averageDuration = valueSum / valueCount
-| summarize averageDurationMilliseconds=avg(averageDuration) by name
-```
-
-| name                       | médiaDurationMilliseconds |
-|----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16 \. 087                     |
-| FilaTrigger MaxDurationMs | 90 \. 249                     |
-| FilaTrigger MinDurationMs | 8 \. 522                      |
+[!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596560"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424782"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída Azure Stream Analytics para Azure Cosmos DB  
-O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para a implementação desta configuração.
+O Azure Stream Analytics pode visar [a Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para a saída JSON, permitindo o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento abrange algumas boas práticas para a implementação desta configuração. Recomendamos que descreva o seu trabalho para o nível de compatibilidade 1.2 ao utilizar o Azure Cosmos DB como saída.
 
 Se não está familiarizado com a Azure Cosmos DB, consulte a documentação do [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para começar. 
 
@@ -137,3 +137,17 @@ Se uma falha transitória, indisponibilidade de serviço ou estrangulamento acon
 - NotFound (código de erro HTTP 404)
 - Proibido (código de erro HTTP 403)
 - BadRequest (código de erro HTTP 400)
+
+## <a name="common-issues"></a>Problemas comuns
+
+1. Uma restrição de índice única é adicionada à recolha e os dados de saída do Stream Analytics violam esta restrição. Certifique-se de que os dados de saída do Stream Analytics não violam constrangimentos únicos ou eliminam constrangimentos. Para mais informações, consulte [as principais restrições únicas em Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. A `PartitionKey` coluna não existe.
+
+3. A `Id` coluna não existe.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md) 
+* [Saída Azure Stream Analytics para Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Azure Stream Analytics divisória de saída de bolha personalizada](stream-analytics-custom-path-patterns-blob-storage-output.md)

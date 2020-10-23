@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446460"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131467"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 
-O controlo de custos é um elemento essencial para maximizar o valor do seu investimento na cloud. Existem vários cenários em que a visibilidade de custos, os relatórios e a orquestração baseada em custos são fundamentais para as operações de negócios continuadas. As [APIs de Gestão de Custos do Azure](https://docs.microsoft.com/rest/api/consumption/) fornecem um conjunto de APIs que suportam cada um destes cenários. As APIs fornecem detalhes de utilização e permitem que veja os custos ao nível da instância granular.
+O controlo de custos é um elemento essencial para maximizar o valor do seu investimento na cloud. Existem vários cenários em que a visibilidade de custos, os relatórios e a orquestração baseada em custos são fundamentais para as operações de negócios continuadas. As [APIs de Gestão de Custos do Azure](/rest/api/consumption/) fornecem um conjunto de APIs que suportam cada um destes cenários. As APIs fornecem detalhes de utilização e permitem que veja os custos ao nível da instância granular.
 
-Os orçamentos são normalmente utilizados como parte do controlo de custos. Os orçamentos podem ser delimitados no Azure. Por exemplo, pode restringir a vista do orçamento com base na subscrição, nos grupos de recursos ou numa coleção de recursos. Além de utilizar a API de orçamentos para ser notificado por e-mail quando é atingido um limiar de orçamento, pode utilizar os [grupos de ação do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para acionar um conjunto de ações orquestradas resultantes de um evento de orçamento.
+Os orçamentos são normalmente utilizados como parte do controlo de custos. Os orçamentos podem ser delimitados no Azure. Por exemplo, pode restringir a vista do orçamento com base na subscrição, nos grupos de recursos ou numa coleção de recursos. Além de utilizar a API de orçamentos para ser notificado por e-mail quando é atingido um limiar de orçamento, pode utilizar os [grupos de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) para acionar um conjunto de ações orquestradas resultantes de um evento de orçamento.
 
 Um cliente que executa uma carga de trabalho não crítica pode recorrer a um cenário de orçamentos comum quando quer gerir a utilização em função do orçamento e também obter um custo previsível quando olha para a fatura mensal. Este cenário requer uma orquestração baseada nos custos dos recursos que fazem parte do ambiente do Azure. Neste cenário, é definido um orçamento mensal de 1000 $ para a subscrição. Além disso, são definidos limiares de notificação para acionar algumas orquestrações. Este cenário começa com um limiar de custos de 80%, o que irá encerrar todas as VMs no grupo de recursos **Opcional**. Em seguida, no limiar de custos a 100%, serão encerradas todas as instâncias de VM.
 
@@ -35,7 +35,7 @@ As ações incluídas neste tutorial permitem-lhe:
 
 ## <a name="create-an-azure-automation-runbook"></a>Criar um Runbook de Automatização do Azure
 
-A [Automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) é um serviço que permite gerar scripts para a maioria das tarefas de gestão de recursos e executar essas tarefas de acordo com a agenda ou a pedido. Como parte deste cenário, vai criar um [runbook de Automatização do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-types) que será utilizado para encerrar as VMs. Vai utilizar o runbook gráfico [Encerrar VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da [galeria](https://docs.microsoft.com/azure/automation/automation-runbook-gallery) para criar este cenário. Ao importar este runbook para a sua conta do Azure e ao publicá-lo, pode encerrar as VMs quando for atingido um limiar de orçamento.
+A [Automatização do Azure](../../automation/automation-intro.md) é um serviço que permite gerar scripts para a maioria das tarefas de gestão de recursos e executar essas tarefas de acordo com a agenda ou a pedido. Como parte deste cenário, vai criar um [runbook de Automatização do Azure](../../automation/automation-runbook-types.md) que será utilizado para encerrar as VMs. Vai utilizar o runbook gráfico [Encerrar VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da [galeria](../../automation/automation-runbook-gallery.md) para criar este cenário. Ao importar este runbook para a sua conta do Azure e ao publicá-lo, pode encerrar as VMs quando for atingido um limiar de orçamento.
 
 ### <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -49,7 +49,7 @@ A [Automatização do Azure](https://docs.microsoft.com/azure/automation/automat
 
 ### <a name="import-the-stop-azure-v2-vms-runbook"></a>Importar o runbook Encerrar VMs do Azure V2
 
-Com um [runbook de Automatização do Azure](https://docs.microsoft.com/azure/automation/automation-runbook-types), importe o runbook gráfico [Encerrar VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da galeria.
+Com um [runbook de Automatização do Azure](../../automation/automation-runbook-types.md), importe o runbook gráfico [Encerrar VMs do Azure V2](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) da galeria.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com as credenciais da sua conta do Azure.
 1. Abra a Conta de automatização ao selecionar **Todos os serviços** > **Contas de Automatização**. Em seguida, selecione a Conta de Automatização.
@@ -60,7 +60,7 @@ Com um [runbook de Automatização do Azure](https://docs.microsoft.com/azure/au
 1. Quando o runbook concluir o processo de importação, selecione **Editar** para apresentar o editor do runbook gráfico e a opção de publicação.  
     ![Azure – Editar runbook gráfico](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Selecione **Publicar** para publicar o runbook e, em seguida, **Sim** quando lhe for pedido. Quando publica um runbook, substitui qualquer versão publicada existente pela versão de rascunho. Neste caso, ainda não tem uma versão publicada porque acabou de criar o runbook.
-    Para obter mais informações sobre como publicar um runbook, veja [Criar um runbook gráfico](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
+    Para obter mais informações sobre como publicar um runbook, veja [Criar um runbook gráfico](../../automation/learn/automation-tutorial-runbook-graphical.md).
 
 ## <a name="create-webhooks-for-the-runbook"></a>Criar webhooks para o runbook
 
@@ -91,7 +91,7 @@ Agora, concluiu a configuração da Automatização do Azure. Pode testar os web
 
 ## <a name="create-an-azure-logic-app-for-orchestration"></a>Criar uma Aplicação Lógica do Azure para a orquestração
 
-O Logic Apps ajuda a criar, agendar e automatizar os processos como fluxos de trabalho, para que possa integrar aplicações, dados, sistemas e serviços em empresas ou organizações. Neste cenário, a [Aplicação Lógica](https://docs.microsoft.com/azure/logic-apps/) que criar fará um pouco mais do que simplesmente chamar o webhook de automatização criado anteriormente.
+O Logic Apps ajuda a criar, agendar e automatizar os processos como fluxos de trabalho, para que possa integrar aplicações, dados, sistemas e serviços em empresas ou organizações. Neste cenário, a [Aplicação Lógica](../../logic-apps/index.yml) que criar fará um pouco mais do que simplesmente chamar o webhook de automatização criado anteriormente.
 
 Os orçamentos podem ser configurados para acionar uma notificação quando é atingido um limiar especificado. Pode indicar vários limiares cujas notificações irá receber e a Aplicação Lógica demonstrará a capacidade de executar diferentes ações com base no limiar atingido. Neste exemplo, vai configurar um cenário em que obtém duas notificações; a primeira notificação é para quando atingir 80% do orçamento e a segunda notificação é para quando atingir 100% do orçamento. A aplicação lógica será utilizada para encerrar todas as VMs no grupo de recursos. Primeiro, o limiar **Opcional** será atingido aos 80% e, em seguida, será atingido o segundo limiar, que fará com que todas as VMs na subscrição sejam encerradas.
 
@@ -122,11 +122,11 @@ Depois de o Azure implementar a aplicação lógica, o **Estruturador de Aplica�
 Todas as aplicações lógicas têm de iniciar com um acionador, que é desencadeado quando um evento específico acontece ou quando uma condição específica é cumprida. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica que inicia e executa o fluxo de trabalho. As ações são todos os passos que ocorrem após o acionador.
 
 1. Em **Modelos **, na área** Estruturador de Aplicações Lógicas **, escolha** Aplicação Lógica em Branco**.
-1. Adicione um [acionador](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) ao introduzir “pedido http” na caixa de pesquisa do **Estruturador de Aplicações Lógicas** para localizar e selecionar o acionador chamado **Pedido – Quando um pedido HTTP é recebido**.  
+1. Adicione um [acionador](../../logic-apps/logic-apps-overview.md#logic-app-concepts) ao introduzir “pedido http” na caixa de pesquisa do **Estruturador de Aplicações Lógicas** para localizar e selecionar o acionador chamado **Pedido – Quando um pedido HTTP é recebido**.  
     ![Azure – Aplicação lógica – Acionador HTTP](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. Selecione **Novo passo** > **Adicionar uma ação**.  
     ![Azure – Novo passo – Adicionar uma ação](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. Procure “analisar JSON” na caixa de pesquisa do **Estruturador do Logic Apps** para localizar e selecionar a [ação](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) **Operações de Dados – Analisar JSON**.  
+1. Procure “analisar JSON” na caixa de pesquisa do **Estruturador do Logic Apps** para localizar e selecionar a [ação](../../logic-apps/logic-apps-overview.md#logic-app-concepts) **Operações de Dados – Analisar JSON**.  
     ![Azure – Aplicação lógica – Adicionar ação analisar JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. Insira “Payload” como o nome do **Conteúdo** do payload Analisar JSON ou utilize a etiqueta “Corpo” do conteúdo dinâmico.
 1. Selecione a opção **Utilizar payload de exemplo para gerar esquema** na caixa **Analisar JSON**.  
@@ -311,7 +311,7 @@ Em seguida, vai configurar o **Postman** para criar um orçamento ao chamar as A
     ```
 1. Prima **Enviar** para enviar o pedido.
 
-Agora tem todas as partes necessárias para chamar a [API de orçamentos](https://docs.microsoft.com/rest/api/consumption/budgets). A referência da API de orçamentos tem detalhes adicionais sobre os pedidos específicos, incluindo:
+Agora tem todas as partes necessárias para chamar a [API de orçamentos](/rest/api/consumption/budgets). A referência da API de orçamentos tem detalhes adicionais sobre os pedidos específicos, incluindo:
 
 - **budgetname** – suporta vários orçamentos.  Os nomes dos orçamentos têm de ser exclusivos.
 - **categoria** – tem de ser **Custo** ou **Utilização**. A API suporta orçamentos de custos e de utilização.

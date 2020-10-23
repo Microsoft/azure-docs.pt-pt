@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23811f379f8738e3fe9f162e23627d0c3c457621
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82598475"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367504"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -20,7 +20,7 @@ Estamos a introduzir algumas alterações importantes para apoiar um acesso mais
 
 ## <a name="what-is-changing"></a>O que está a mudar?
 
-Anteriormente, os segredos poderiam ser obtidos através da API HDInsight por utilizadores de clusters que possuíssem [as funções](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)de Proprietário, Colaborador ou Leitor RBAC , uma vez que estavam disponíveis para qualquer pessoa com `*/read` a permissão. Os segredos são definidos como valores que poderiam ser usados para obter um acesso mais elevado do que o papel de um utilizador deve permitir. Estes incluem valores como credenciais de gateway de cluster HTTP, chaves de conta de armazenamento e credenciais de base de dados.
+Anteriormente, os segredos poderiam ser obtidos através da API HDInsight por utilizadores de clusters que possuíssem as funções de Proprietário, Colaborador ou Leitor [Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), uma vez que estavam disponíveis para qualquer pessoa com `*/read` a permissão. Os segredos são definidos como valores que poderiam ser usados para obter um acesso mais elevado do que o papel de um utilizador deve permitir. Estes incluem valores como credenciais de gateway de cluster HTTP, chaves de conta de armazenamento e credenciais de base de dados.
 
 A partir de 3 de setembro de 2019, o acesso a estes segredos exigirá a `Microsoft.HDInsight/clusters/configurations/action` permissão, o que significa que já não podem ser acedidos pelos utilizadores com a função Reader. As funções que têm esta permissão são o Colaborador, o Proprietário, e a nova função do Operador de Cluster HDInsight (mais sobre isso abaixo).
 
@@ -136,12 +136,12 @@ Atualização para a [versão 1.0.0](https://search.maven.org/artifact/com.micro
 
 ### <a name="sdk-for-go"></a>SDK para ir
 
-Atualize para a [versão 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) ou mais tarde do HDInsight SDK para Go. Podem ser necessárias modificações mínimas de código se estiver a utilizar um método afetado por estas alterações:
+Atualize para a [versão 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight) ou mais tarde do HDInsight SDK para Go. Podem ser necessárias modificações mínimas de código se estiver a utilizar um método afetado por estas alterações:
 
-- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get)**deixarão de devolver parâmetros sensíveis** como chaves de armazenamento (core-site) ou credenciais HTTP (gateway).
-    - Para recuperar todas as configurações, incluindo parâmetros sensíveis, [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) utilize-a para a frente.Note que os utilizadores com a função 'Reader' não poderão utilizar este método. Isto permite o controlo granular sobre o qual os utilizadores podem aceder a informações sensíveis para um cluster. 
-    - Para obter apenas credenciais de gateway HTTP, use [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings) .
-- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) está agora precotado e foi substituído por [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
+- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Get)**deixarão de devolver parâmetros sensíveis** como chaves de armazenamento (core-site) ou credenciais HTTP (gateway).
+    - Para recuperar todas as configurações, incluindo parâmetros sensíveis, [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.List) utilize-a para a frente.Note que os utilizadores com a função 'Reader' não poderão utilizar este método. Isto permite o controlo granular sobre o qual os utilizadores podem aceder a informações sensíveis para um cluster. 
+    - Para obter apenas credenciais de gateway HTTP, use [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.GetGatewaySettings) .
+- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Update) está agora precotado e foi substituído por [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
 
 ### <a name="azhdinsight-powershell"></a>Az.HDInsight PowerShell
 Atualize a [versão 2.0.0](https://www.powershellgallery.com/packages/Az) ou posterior do Az PowerShell para evitar interrupções.  Podem ser necessárias modificações mínimas de código se estiver a utilizar um método afetado por estas alterações.
@@ -183,7 +183,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-Em alternativa, pode utilizar o portal Azure para adicionar a atribuição de função de cluster hdInsight a um utilizador. Consulte a documentação, [Gerencie o acesso aos recursos do Azure utilizando o RBAC e o portal Azure - Adicione uma atribuição de funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+Em alternativa, pode utilizar o portal Azure para adicionar a atribuição de função de cluster hdInsight a um utilizador. Consulte a documentação, [adicione ou remova as atribuições de funções Azure utilizando o portal Azure - Adicione uma atribuição de função](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
 ## <a name="faq"></a>FAQ
 

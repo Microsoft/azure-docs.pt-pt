@@ -11,16 +11,16 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258919"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216536"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
 
-Este tutorial mostra-lhe como utilizar o Azure Ative Directory B2C (Azure AD B2C) para se inscrever e inscrever-se nos utilizadores numa aplicação de uma página (SPA).
+Este tutorial mostra-lhe como utilizar o Azure Ative Directory B2C (Azure AD B2C) para se inscrever e inscrever-se nos utilizadores numa aplicação de uma página única (SPA) utilizando o fluxo de subvenção implícito OAuth 2.0.
 
 Neste tutorial, o primeiro de uma série em duas partes:
 
@@ -39,7 +39,7 @@ O [próximo tutorial](tutorial-single-page-app-webapi.md) da série permite a pa
 Você precisa dos seguintes recursos Azure AD B2C em vigor antes de continuar com os passos neste tutorial:
 
 * [Inquilino Azure AD B2C](tutorial-create-tenant.md)
-* [Inscrição registada](tutorial-register-applications.md) no seu inquilino
+* [Aplicação registada](tutorial-register-spa.md) no seu inquilino (utilizar opções de fluxo implícitas)
 * [Fluxos de utilizador criados](tutorial-create-user-flows.md) no seu inquilino
 
 Além disso, precisa do seguinte no seu ambiente de desenvolvimento local:
@@ -60,7 +60,7 @@ Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a no
 1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
 1. Selecione **registos de Aplicações**, selecione o **separador aplicações Próprias** e, em seguida, selecione a aplicação *webapp1.*
 1. Na **Web**, selecione a ligação **Add URI,** insira `http://localhost:6420` .
-1. Em **Implicit Grant**, selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** e, em seguida, selecione **Save**.
+1. Em **Implicit Grant**, selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** se ainda não estiver selecionado e, em seguida, selecione **Save**.
 1. Selecione **Descrição geral**.
 1. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de uma página única.
 

@@ -3,12 +3,12 @@ title: Configure uma galeria de imagens partilhada em Azure DevTest Labs Microso
 description: Saiba como configurar uma galeria de imagens partilhada em Azure DevTest Labs, que permite aos utilizadores aceder a imagens a partir de uma localização partilhada enquanto criam recursos laboratoriais.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271044"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327982"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurar uma galeria de imagem partilhada no Azure DevTest Labs
 A DevTest Labs agora suporta a funcionalidade [Da Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md) Permite que os utilizadores de laboratório acedam a imagens a partir de um local partilhado enquanto criam recursos laboratoriais. Também ajuda a construir estrutura e organização em torno das suas imagens VM geridas por medida. A Galeria de Imagens Partilhadas suporta:
@@ -16,7 +16,7 @@ A DevTest Labs agora suporta a funcionalidade [Da Galeria de Imagens Partilhadas
 - Replicação global gerida de imagens
 - Veragem e agrupamento de imagens para uma gestão mais fácil
 - Disponibilize as suas imagens com contas de Armazenamento Redundante (ZRS) em regiões que suportam zonas de disponibilidade. O ZRS oferece uma melhor resiliência contra falhas zonais.
-- Partilha entre subscrições, e até mesmo entre inquilinos, utilizando o controlo de acesso baseado em funções (RBAC).
+- Partilha entre subscrições, e até mesmo entre inquilinos, usando o controlo de acesso baseado em funções Azure (Azure RBAC).
 
 Para mais informações, consulte [a documentação da Galeria de Imagens Partilhadas.](../virtual-machines/windows/shared-image-galleries.md) 
  

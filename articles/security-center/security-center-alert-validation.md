@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971613"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340823"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -36,7 +36,7 @@ Depois de instalado o agente do Centro de Segurança no seu computador, siga est
 1. Aguarde 5 a 10 minutos e abra os Alertas do Centro de Segurança. Deve aparecer um alerta.
 
 > [!NOTE]
-> Ao rever este alerta de teste para windows, certifique-se de que o campo **de auditoria de argumentos ativado** é **verdadeiro**. Se for **falso,** então tem de permitir a auditoria de argumentos de linha de comando. Para o ativar, utilize o seguinte comando:
+> Ao rever este alerta de teste para windows, certifique-se de que o campo **de auditoria de argumentos ativado** é **verdadeiro**. Se for **falso,** então tem de permitir a auditoria de argumentos de linha de comando. Para a ativar, utilize o seguinte comando: 
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre a defesa dos seus nódoas e aglomerados Kube
 ## <a name="next-steps"></a>Passos seguintes
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
-* [Validação da deteção de ameaças de cofre de chave Azure no Centro de Segurança Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
+* [Validar a Deteção de Ameaças do Azure Key Vault no Centro de Segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Gerir e responder aos alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) - Aprenda a gerir os alertas e responda a incidentes de segurança no Centro de Segurança.
 * [Segurança monitorização de saúde no Azure Security Center](security-center-monitoring.md) - Saiba como monitorizar a saúde dos seus recursos Azure.
-* [Compreender os alertas de segurança no Azure Security Center](security-center-alerts-type.md) - Conheça os diferentes tipos de alertas de segurança.
+* [Compreender os alertas de segurança no Azure Security Center](./security-center-alerts-overview.md) - Conheça os diferentes tipos de alertas de segurança.

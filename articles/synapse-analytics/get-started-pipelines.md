@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 3bda70fab431037637d68eaaebbc37e8ca1d098d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 10/16/2020
+ms.openlocfilehash: 42d2ac6cf6592f8e22b0a66aee84c3436d466572
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093570"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329888"
 ---
 # <a name="orchestrate-with-pipelines"></a>Orquestrar com oleodutos
 
@@ -25,15 +25,15 @@ Neste tutorial, você vai aprender como orquestrar oleodutos e atividades usando
 
 Você pode orquestrar uma grande variedade de tarefas em Azure Synapse.
 
-1. No Estúdio Synapse, vá ao centro **de Orchestrate.**
+1. No Synapse Studio, vá ao centro **de Integração.**
 1. Selecione **+**  >  **Pipeline** para criar um novo oleoduto.
 1. Vá ao centro **De Desenvolvimento** e selecione um dos cadernos que criou anteriormente.
-1. Arraste o caderno para o oleoduto.
+1. Arraste esse caderno para o oleoduto **(Nota:** Adicione os módulos de importação passo no caderno conforme especificado no [documento](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace) que são necessários durante o funcionamento do gasoduto)
 1. No oleoduto, **selecione Adicionar gatilho**  >  **Novo/editar**.
-1. No **Seletor**Trigger , selecione **Novo**e, em seguida, em **recorrência,** desacorda o gatilho a cada 1 hora.
-1. Selecione **OK**.
-1. Selecione **Publicar Tudo**. O oleoduto funciona a cada hora.
-1. Para fazer o gasoduto funcionar agora, sem esperar pela próxima hora, **selecione Adicionar gatilho**  >  **Novo/editar**.
+1. Em **Escolha o gatilho**, selecione **New**, e desacorda a **Recorrência** para "a cada 1 hora".
+1. Selecione **OK**. 
+1. Selecione **Publicar Tudo**.
+1. Para fazer o gasoduto funcionar imediatamente, sem esperar pela próxima hora, **selecione Adicione o gatilho**  >  **agora**.
 
 
 

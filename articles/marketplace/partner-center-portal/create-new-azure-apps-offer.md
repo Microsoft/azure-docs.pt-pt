@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710724"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428212"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -202,7 +202,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 3. Ligações úteis
 4. Capturas de ecrã
 
-#### <a name="name"></a>Nome
+#### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -328,16 +328,16 @@ Uma vez criado, verá os nomes do seu plano, IDs, tipo de plano, disponibilidade
 
 ### <a name="create-new-plan"></a>Criar novo plano
 
-***ID do plano*** – Criar um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no URL do produto.  Utilize apenas caracteres minúsculos, alfanuméricos, traços ou sublinhados. Um máximo de 50 caracteres são permitidos para este iD do plano. Este ID não pode ser modificado após a seleção criar.
+**_ID plano_*_ – Criar um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no URL do produto.  Utilize apenas caracteres minúsculos, alfanuméricos, traços ou sublinhados. Um máximo de 50 caracteres são permitidos para este iD do plano. Este ID não pode ser modificado após a seleção criar.
 
-***Nome do*** plano – Os clientes verão este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome de oferta único para cada plano nesta oferta. O nome do plano é usado para diferenciar planos de software que podem fazer parte da mesma oferta (por exemplo, nome de oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
+_*_Nome do_*_ plano – Os clientes verão este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome de oferta único para cada plano nesta oferta. O nome do plano é usado para diferenciar planos de software que podem fazer parte da mesma oferta (por exemplo, nome de oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Configuração do plano
 
 Este separador permite definir a configuração de alto nível para o tipo de plano, quer reutilie os pacotes de outro plano, e quais as nuvens em que o plano deve estar disponível. As suas respostas neste separador afetarão quais os campos apresentados em outros separadores para o mesmo plano.
 
 #### <a name="plan-type"></a>Tipo de plano
-Selecione o tipo de plano para a sua oferta. Um plano **de modelo de solução** é gerido inteiramente pelo cliente. Um plano **de aplicação gerido** permite aos editores gerir a aplicação em nome do cliente. Para mais informações, consulte [os planos de aplicação do Azure](#types-of-azure-application-plans).
+Selecione o tipo de plano para a sua oferta. A _*Modelo de solução** o plano é gerido inteiramente pelo cliente. Um plano **de aplicação gerido** permite aos editores gerir a aplicação em nome do cliente. Para mais informações, consulte [os planos de aplicação do Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Reutilizar a configuração técnica
 
@@ -508,7 +508,7 @@ Especifique um ponto final https Webhook para receber notificações sobre todas
 
 Selecione esta opção para especificar quais as ações que os clientes podem executar nos recursos geridos, além das `*/read` " ações " que estão disponíveis por padrão.
 
-Enuse as ações adicionais que pretende permitir que o seu cliente realize aqui, separadas por pontos de e vírgão.  Para obter mais informações, consulte [Understanding negar atribuições para recursos Azure](../../role-based-access-control/deny-assignments.md). Para as ações disponíveis, consulte [as operações do fornecedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
+Enuse as ações adicionais que pretende permitir que o seu cliente realize aqui, separadas por pontos de e vírgão.  Para obter mais informações, consulte [Understanding negar atribuições para recursos Azure](../../role-based-access-control/deny-assignments.md). Para as ações disponíveis, consulte [as operações do fornecedor de recursos Azure.](../../role-based-access-control/resource-provider-operations.md) Por exemplo, permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas.
 
 #### <a name="global-azure--azure-government-cloud"></a>Global Azure / Azure Government Cloud
 
@@ -518,7 +518,7 @@ Indique quem deve ter acesso à gestão a esta aplicação gerida em cada nuvem 
 
 **Autorizações** – Adicione o ID do objeto Azure Ative Do utilizador, grupo ou aplicação que pretende ser autorizado ao grupo de recursos geridos. Identifique o utilizador pelo seu ID principal, que pode ser encontrado na lâmina de utilizadores do [Azure Ative Directory no portal Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada principal, selecione uma das funções incorporadas AZure da lista (Proprietário ou Contribuinte). A função selecionada descreverá as permissões que o principal terá sobre os recursos na subscrição do cliente. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md). Para obter mais informações sobre o controlo de acesso baseado em funções (RBAC), consulte [Começar com o RBAC no portal Azure](../../role-based-access-control/overview.md).
+Para cada principal, selecione uma das funções incorporadas AZure da lista (Proprietário ou Contribuinte). A função selecionada descreverá as permissões que o principal terá sobre os recursos na subscrição do cliente. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md). Para obter mais informações sobre o controlo de acesso baseado em funções Azure (Azure RBAC), consulte [O Que é Azure RBAC](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Embora possa adicionar até 100 autorizações por nuvem, é geralmente mais fácil criar um grupo de utilizadores do Ative Directory e especificar o seu ID no "ID principal". Isto permitir-lhe-á adicionar mais utilizadores ao grupo de gestão após a implementação do plano e reduzir a necessidade de atualizar o plano apenas para adicionar mais autorizações.

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "88526623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Diretório Ativo Azure com o Workspot Control
@@ -103,20 +103,20 @@ Para configurar o Azure AD com o Workspot Control, siga estes passos:
     ![Domínio de controlo de depósitos de trabalho e informações únicas de assinatura](common/idp-intiated.png)
 
     1. Na caixa de texto do **identificador,** introduza um URL no seguinte padrão:<br/>
-    ***https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/metadados***
+    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/metadados_*_
 
-    1. Na caixa de texto **URL de resposta,** introduza um URL no seguinte padrão:<br/>
-    ***https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/assertion***
+    1. Na caixa de texto URL * de _ *resposta,* introduza um URL no seguinte padrão: <br/> 
+    * *_https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/assertion_*_
 
-5. Se pretender configurar a aplicação no modo iniciado pelo SP, selecione **Definir URLs adicionais**.
+5. Se pretender configurar a aplicação no modo iniciado pelo SP, selecione _*Seturls adicionais**.
 
     ![Domínio de controlo de depósitos de trabalho e informações únicas de assinatura](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto URL de entrada de **url,** introduza um URL no seguinte padrão:<br/>
-    ***https://<<i></i> INSTANCENAME>-saml.workspot.com/***
+    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/_*_
 
     > [!NOTE]
-    > Estes valores não são reais. Substitua estes valores pelo identificador real, URL de resposta e URL de inscrição. Contacte a equipa de suporte do [Cliente do Controle de Workspot](mailto:support@workspot.com) para obter estes valores. Ou também pode consultar os padrões na secção **de Configuração SAML Básica** do portal Azure.
+    > Estes valores não são reais. Substitua estes valores pelo identificador real, URL de resposta e URL de inscrição. Contacte a equipa de suporte do [Cliente do Controle de Workspot](mailto:support@workspot.com) para obter estes valores. Ou também pode consultar os padrões na secção _*Configuração BÁSICA SAML** do portal Azure.
 
 6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar **Certificado (Base64)** das opções disponíveis de acordo com os seus requisitos. Guarde para o seu computador.
 

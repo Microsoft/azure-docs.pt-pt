@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 0fda407a916ca43ed36fa567374752bbb7a49a80
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998956"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314791"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
 
@@ -26,7 +26,7 @@ Este artigo ensina-o a usar a Azure Machine Learning para implementar um modelo 
 Inferência, ou pontuação de modelos, é a fase em que o modelo implantado é usado para fazer previsões. A utilização de GPUs em vez de CPUs oferece vantagens de desempenho em cálculos altamente paralizáveis.
 
 > [!IMPORTANT]
-> Para implementações de serviço web, a inferência gpu só é suportada no Serviço Azure Kubernetes. Para inferência utilizando um __pipeline de aprendizagem automática,__ as GPUs são suportadas apenas no Azure Machine Learning Compute. Para obter mais informações sobre a utilização de gasodutos ML, consulte [as previsões do lote de execução](how-to-use-parallel-run-step.md). 
+> Para implementações de serviço web, a inferência gpu só é suportada no Serviço Azure Kubernetes. Para inferência utilizando um __pipeline de aprendizagem automática,__ as GPUs são suportadas apenas no Azure Machine Learning Compute. Para obter mais informações sobre a utilização de gasodutos ML, consulte [Tutorial: Construa um pipeline Azure Machine Learning para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Embora os códigos neste artigo utilizem um modelo TensorFlow, pode aplicar a informação a qualquer quadro de aprendizagem automática que suporte GPUs.

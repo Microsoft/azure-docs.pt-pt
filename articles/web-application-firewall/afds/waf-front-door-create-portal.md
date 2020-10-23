@@ -7,18 +7,18 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba344c3b1570c041e1602bdfcde1b3a4055dc396
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602222"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132759"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de Firewall de aplicação web na porta frontal do Azure usando o portal Azure
 
 Este tutorial mostra-lhe como criar uma política básica de Firewall de Aplicação Web (WAF) e aplicá-la a um anfitrião frontal na Azure Front Door.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma política de WAF
@@ -42,7 +42,7 @@ Em primeiro lugar, crie uma política de WAF básica com o Conjunto de Regras Pa
     | Grupo de recursos          |Selecione o nome do grupo de recursos da porta da frente.|
     | Nome da política             |Insira um nome único para a sua política WAF.|
 
-   ![Criar uma política de WAF](../media/waf-front-door-create-portal/basic.png)
+   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
 
 3. No separador **Associação** da página **política 'Criar uma política DA WAF',** selecione adicionar **frontend,** introduza as seguintes definições e, em seguida, selecione **Adicionar**:
 
@@ -62,21 +62,21 @@ Em primeiro lugar, crie uma política de WAF básica com o Conjunto de Regras Pa
 Quando cria uma política WAF, pela política padrão de WAF está no modo **deteção.** No modo **deteção,** a WAF não bloqueia quaisquer pedidos, em vez disso, os pedidos correspondentes às regras WAF são registados nos registos WAF.
 Para ver o WAF em ação, pode alterar as definições de modo de **Deteção** para **Prevenção**. No modo **prevenção,** os pedidos que correspondam às regras definidas no Conjunto de Regras Predefinidas (DRS) são bloqueados e registados nos registos WAF.
 
- ![Alterar o modo de política DAA](../media/waf-front-door-create-portal/policy.png)
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
 
 ### <a name="custom-rules"></a>Regras personalizadas
 
 Pode criar uma regra personalizada selecionando a **regra personalizada De** acordo com a secção de **regras personalizadas.** Isto lança a página de configuração de regras personalizadas. Abaixo está um exemplo de configuração de uma regra personalizada para bloquear um pedido se a cadeia de consulta contiver **blockme**.
 
-![Regras personalizadas](../media/waf-front-door-create-portal/customquerystring2.png)
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
 
 ### <a name="default-rule-set-drs"></a>Conjunto de regras predefinidos (DRS)
 
 O Conjunto de Regras Predefinidas geridos pelo Azure é ativado por padrão. Para desativar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, selecione a caixa de **verificação** à frente do número de regras e selecione **Desativar** o separador acima. Para alterar tipos de ações para regras individuais dentro do conjunto de regras, selecione a caixa de verificação à frente do número de regra e, em seguida, selecione o separador **de ação Change** acima.
 
- ![Alterar conjunto de regras WAF](../media/waf-front-door-create-portal/managed2.png)
+ :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, remova o grupo de recursos e todos os recursos relacionados.
 

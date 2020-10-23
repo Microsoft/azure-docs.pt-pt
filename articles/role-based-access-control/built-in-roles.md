@@ -9,18 +9,18 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: f5d5b4f801dd406518a6ba516bf2e38e01cb96ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db16ba415e609827f6b775840f153489702ecca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275273"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370564"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
 [O controlo de acesso baseado em funções (Azure RBAC)](overview.md) tem várias funções incorporadas Azure que pode atribuir aos utilizadores, grupos, diretores de serviços e identidades geridas. As atribuições de papéis são a forma como controlas o acesso aos recursos da Azure. Se as funções incorporadas não corresponderem às necessidades específicas da sua organização, pode criar os seus [próprios papéis personalizados Azure.](custom-roles.md)
 
-Este artigo lista os papéis incorporados do Azure, que estão sempre a evoluir. Para obter as funções mais recentes, utilize a lista [de definição de funções Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az](/cli/azure/role/definition#az-role-definition-list). Se estiver à procura de funções de administrador para o Azure Ative Directory (Azure AD), consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Este artigo lista os papéis incorporados do Azure, que estão sempre a evoluir. Para obter as funções mais recentes, utilize a lista [de definição de funções Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az](/cli/azure/role/definition#az-role-definition-list). Se estiver à procura de funções de administrador para o Azure Ative Directory (Azure AD), consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/roles/permissions-reference.md).
 
 A tabela seguinte fornece uma breve descrição e a identificação única de cada papel incorporado. Clique no nome da função para ver a lista de `Actions` , , e para cada `NotActions` `DataActions` `NotDataActions` papel. Para obter informações sobre o que estas ações significam e como se aplicam aos aviões de gestão e dados, consulte as definições de [funções do Understand Azure](role-definitions.md).
 
@@ -678,7 +678,7 @@ Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. [
 }
 ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 
 ### <a name="cdn-endpoint-contributor"></a>Colaborador de Ponto Final cdn
@@ -7252,7 +7252,7 @@ Permite criar novos laboratórios sob as suas contas do Azure Lab. [Saiba mais](
 }
 ```
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Contribuinte componente de insights de aplicação

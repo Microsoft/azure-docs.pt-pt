@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080203"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150161"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no Azure App Service
-Este artigo descreve a funcionalidade comum do sistema operativo de base que está disponível para todas as aplicações do Windows em execução no [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui acesso a ficheiros, redes e registos e registos e registos e eventos de diagnóstico. 
+Este artigo descreve a funcionalidade comum do sistema operativo de base que está disponível para todas as aplicações do Windows em execução no [Azure App Service](./overview.md). Esta funcionalidade inclui acesso a ficheiros, redes e registos e registos e registos e eventos de diagnóstico. 
 
 > [!NOTE] 
 > [As aplicações Linux](overview.md#app-service-on-linux) no Serviço de Aplicações funcionam nos seus próprios contentores. Não é permitido acesso ao sistema operativo hospedeiro, tem acesso à raiz do recipiente. Da mesma forma, para [aplicações em execução em contentores windows,](quickstart-custom-container.md?pivots=container-windows)tem acesso administrativo ao contentor, mas sem acesso ao sistema operativo anfitrião. 
@@ -126,4 +126,3 @@ O Serviço de Aplicações não fornece acesso remoto ao ambiente de trabalho à
 ## <a name="more-information"></a>Mais informações
 
 Caixa de [areia do Azure App Service](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - A informação mais atualizada sobre o ambiente de execução do Serviço de Aplicações. Esta página é mantida diretamente pela equipa de desenvolvimento do Serviço de Aplicações.
-

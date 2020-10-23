@@ -4,12 +4,12 @@ description: Este artigo mostra-lhe como autenticar o acesso aos recursos do Eve
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270105"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332438"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado (SAS)
 A assinatura de acesso partilhado (SAS) dá-lhe controlo granular sobre o tipo de acesso que concede aos clientes que têm a assinatura de acesso partilhado. Aqui estão alguns dos controlos que pode definir num SAS: 
@@ -183,7 +183,7 @@ Cada cliente do Event Hubs é atribuído um token único, que é enviado para o 
 
 Todos os tokens são atribuídos com chaves SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os clientes não estão cientes da chave, o que impede os clientes de fabricarem fichas. Os clientes operam com as mesmas fichas até expirarem.
 
-Por exemplo, para definir as regras de autorização que se resumem apenas ao envio/publicação para Os Centros de Eventos, é necessário definir uma regra de autorização de envio. Isto pode ser feito a um nível de espaço de nome ou dar mais âmbito granular a uma determinada entidade (instância de centros de eventos ou um tópico). Um cliente ou uma aplicação que seja alargada a esse acesso granular é chamado, editor do Event Hubs. Para o fazer, siga estes passos:
+Por exemplo, para definir as regras de autorização que se resumem apenas ao envio/publicação para Os Centros de Eventos, é necessário definir uma regra de autorização de envio. Isto pode ser feito a um nível de espaço de nome ou dar mais âmbito granular a uma determinada entidade (instância de centros de eventos ou um tópico). Um cliente ou uma aplicação que seja alargada a esse acesso granular é chamado, editor do Event Hubs. Para tal, siga estes passos:
 
 1. Crie uma chave SAS na entidade que pretende publicar para atribuir o âmbito **de envio.** Para mais informações, consulte [as políticas de autorização de acesso partilhado.](authorize-access-shared-access-signature.md#shared-access-authorization-policies)
 2. Gere um token SAS com um prazo de validade para um editor específico utilizando a chave gerada no passo 1.
@@ -222,7 +222,7 @@ Para autenticar aplicações de back-end que consomem a partir dos dados gerados
 Consulte os seguintes artigos:
 
 - [Autorizar a utilização de SAS](authenticate-shared-access-signature.md)
-- [Autorizar a utilização do controlo de acesso de base de funções (RBAC)](authenticate-shared-access-signature.md)
+- [Autorizar a utilização do controlo de acesso baseado em funções Azure (Azure RBAC)](authenticate-shared-access-signature.md)
 - [Saiba mais sobre os Centros de Eventos](event-hubs-about.md)
 
 Consulte os seguintes artigos relacionados:

@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte de backup do Azure quando faz cópias de segurança que estão a executar o agente Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332683"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173524"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente Microsoft Azure Recovery Services (MARS)
 
@@ -67,14 +67,14 @@ E a estes endereços IP:
 
 O acesso a todos os endereços URLs e IP listados acima utiliza o protocolo HTTPS na porta 443.
 
-Ao fazer o backup de ficheiros e pastas a partir de VMs Azure usando o Agente MARS, a rede virtual Azure também precisa de ser configurada para permitir o acesso. Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).* Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
+Ao fazer o backup de ficheiros e pastas a partir de VMs Azure usando o Agente MARS, a rede virtual Azure também precisa de ser configurada para permitir o acesso. Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](../virtual-network/network-security-groups-overview.md#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).* Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
 
 1. Em **Todos os Serviços,** vá aos **grupos de segurança da Rede** e selecione o grupo de segurança da rede.
 2. Selecione **regras de segurança de saída** em **Definições**.
-3. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
+3. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 4. **Selecione Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
 
 ### <a name="azure-expressroute-support"></a>Suporte Azure ExpressRoute
 
@@ -130,14 +130,14 @@ Os sistemas operativos devem ser de 64 bits e devem estar a executar os mais rec
 
 **Sistema operativo** | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
-Windows 8.1 (Enterprise, Pro)| Sim |Não | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
-Windows 8 (Enterprise, Pro) | Sim | Não | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |- .NET 4.5 <br> -Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0 <br> - Serviço e Gestão de Imagem de Implantação (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
-Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows 10 (Enterprise, Pro, Home) | Yes | No |  Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| Yes |No | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | Yes | No | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0 <br> - Serviço e Gestão de Imagem de Implantação (DISM.exe)
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Mais recente compatível Microsoft VC++ Redistributável <br> - Consola de Gestão da Microsoft (MMC) 3.0
 
 Para obter mais informações, consulte [os sistemas operativos MABS e DPM suportados.](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)
 
@@ -151,9 +151,9 @@ Para ambientes no local ou ambientes hospedados, onde não é possível atualiza
 
 | **Sistema Operativo**                                       | **Ficheiros/pastas** | **Estado do sistema** | **Requisitos de software/módulo**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sim               | Não                 | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo |
-| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim               | Sim                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Sim               | Não                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) <br>  - Base virtual do Servidor 2005 + KB KB948515 |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | No                 | Verifique a versão do servidor correspondente para obter os requisitos de software/módulo |
+| Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes               | Yes                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | Yes               | No                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatível Microsoft VC++ Redistributável <br>  - Consola de Gestão da Microsoft (MMC) 3.0 <br>  - Serviço e Gestão de Imagem de Implantação (DISM.exe) <br>  - Base virtual do Servidor 2005 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limites de backup
 

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047646"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311691"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 
@@ -19,7 +19,7 @@ Este artigo fornece informações sobre questões conhecidas associadas à Azure
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"400 Erro do Cliente: Mau Pedido" na Cloud Shell
 
-Os comandos em Cloud Shell podem falhar intermitentemente com o erro "400 Erro do Cliente: Mau Pedido para url: http://localhost:50342/oauth2/token " seguido de traço de pilha completa.
+Os comandos em Cloud Shell em execução *https://shell.azure.com* podem falhar intermitentemente com o erro "400 Erro do Cliente: Mau Pedido para url: http://localhost:50342/oauth2/token ", seguido de traço de pilha completa.
 
 Especificamente para a Azure Digital Twins, isto afeta os seguintes grupos de comando:
 * `az dt route`
@@ -30,7 +30,11 @@ Especificamente para a Azure Digital Twins, isto afeta os seguintes grupos de co
 
 Isto pode ser resolvido repetindo o `az login` comando em Cloud Shell e completando os passos de login subsequentes. Depois disto, deve ser capaz de refazer o comando.
 
-Uma solução alternativa é [instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão.
+Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o seu trabalho cloud Shell a partir daí:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista do portal Azure com o ícone 'Cloud Shell' em destaque, e a Cloud Shell aparecendo na parte inferior da janela do portal":::
+
+Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão.
 
 ### <a name="possible-causes"></a>Possíveis causas
 

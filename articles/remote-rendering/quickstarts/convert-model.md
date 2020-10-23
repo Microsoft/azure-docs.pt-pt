@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91652453"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281351"
 ---
-# <a name="quickstart-convert-a-model-for-rendering"></a>Quickstart: Converter um modelo para renderização
+# <a name="quickstart-convert-a-model-for-rendering"></a>Início Rápido: Converter um modelo para composição
 
 Em [Quickstart: Rendere um modelo com Unidade,](render-model.md)aprendeu a usar o projeto de amostra de Unidade para tornar um modelo incorporado. Este guia mostra como converter os seus próprios modelos.
 
@@ -27,7 +27,7 @@ Vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Quickstart Completo: Rendere um modelo com Unidade](render-model.md)
-* Instalar Azure PowerShell [(documentação)](https://docs.microsoft.com/powershell/azure/)
+* Para a conversão utilizando o script PowerShell: Instale a Azure PowerShell [(documentação)](/powershell/azure/)
   * Abrir um PowerShell com direitos de administração
   * Corra: `Install-Module -Name Az -AllowClobber`
 
@@ -108,12 +108,21 @@ Deve agora ter dois recipientes de armazenamento de bolhas:
 
 ## <a name="run-the-conversion"></a>Executar a conversão
 
+Existem três formas distintas de desencadear uma conversão de modelo:
+
+### <a name="1-conversion-via-the-arrt-tool"></a>1. Conversão através da ferramenta ARRT
+
+Existe uma [ferramenta baseada em UI chamada ARRT](./../samples/azure-remote-rendering-asset-tool.md) para iniciar conversões e interagir com o resultado renderizado.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "Screenshot arrt")
+
+### <a name="2-conversion-via-a-powershell-script"></a>2. Conversão através de um script PowerShell
+
 Para facilitar a chamada do serviço de conversão de ativos, fornecemos um script de utilidade. Está localizado na pasta *Scripts* e chama-se **Conversion.ps1**.
 
 Em particular, este guião
 
 1. envia todos os ficheiros num dado diretório do disco local para o recipiente de armazenamento de entrada
-1. chama [a API de conversão de ativos](../how-tos/conversion/conversion-rest-api.md) que irá recuperar os dados do recipiente de armazenamento de entrada e iniciar uma conversão que devolverá um ID de conversão
+1. chama [a conversão do ativo REST API,](../how-tos/conversion/conversion-rest-api.md)que irá recuperar os dados do recipiente de armazenamento de entrada e iniciar uma conversão, que devolverá um ID de conversão
 1. poll the conversion status API with the retrieved conversion ID until the conversion process terminates with success or fail
 1. recupera uma ligação com o ativo convertido no armazenamento de saída
 
@@ -147,13 +156,13 @@ O script lê a sua configuração a partir do ficheiro *Scripts\arrconfig.jsem*.
 A configuração dentro do grupo **accountSettings** (ID de conta e chave) deve ser preenchida análoga às credenciais no [Render um modelo com arranque rápido da Unidade](render-model.md).
 
 Dentro do grupo **de activosConversionSettings,** certifique-se de alterar **o grupo de recursos**, **blobInputContainerName**e **blobOutputContainerName,** como acima visto.
-Note que o valor **arrtutorialstorage** precisa de ser substituído pelo nome único que escolheu durante a criação da conta de armazenamento.
+Note que o valor para **a arrtutorialstorage** precisa de ser substituído pelo nome único que escolheu durante a criação da conta de armazenamento.
 
-Altere **o LocalAssetDirectoryPath** para apontar para o diretório do seu disco que contém o modelo que pretende converter. Tenha cuidado para escapar adequadamente às costas (" \\ ") no caminho utilizando duplos backslashes (" \\ \\ ").
+Altere **o LocalAssetDirectoryPath** para apontar para o diretório do seu disco, que contém o modelo que pretende converter. Tenha cuidado para escapar adequadamente às costas (" \\ ") no caminho utilizando duplos backslashes (" \\ \\ ").
 
 Todos os dados do caminho dado no **LocalAssetDirectoryPath** serão enviados para o **blobInputContainerName** blob recipiente blob sob um subpato dado pelo **inputFolderPath**. Assim, na configuração de exemplo acima do conteúdo do diretório "D: \\ \\ tmp robot" será enviado para o recipiente blob "arrinput" da conta de armazenamento "arrtutorialstorage" no caminho "robotConversion". Os ficheiros já existentes serão substituídos.
 
-Altere **o inputAssetPath** para o caminho do modelo a converter - o caminho é relativo ao LocalAssetDirectoryPath. Use "/" em vez de \\ " como separador do caminho. Assim, para um ficheiro "robot.fbx" que está localizado diretamente em "D: \\ \\ tmp robot" use "robot.fbx".
+Altere **o inputAssetPath** para o caminho do modelo a converter - o caminho é relativo ao LocalAssetDirectoryPath. Use "/" em vez de \\ " como separador do caminho. Assim, para um ficheiro "robot.fbx", que está localizado diretamente em "D: \\ \\ tmp robot", use "robot.fbx".
 
 Uma vez convertido o modelo, este será devolvido ao recipiente de armazenamento dado pelo **blobOutputContainerName**. Um subpata pode ser especificado fornecendo a **saída opcionalFolderPath**. No exemplo acima, o "robot.arrAsset" resultante será copiado para o recipiente de bolhas de saída em "convertido/robô".
 
@@ -166,7 +175,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> Caso a sua organização tenha mais do que uma subscrição, poderá necessitar de especificar os argumentos do SubscriptionId e do Inquilino. Encontre detalhes na [documentação Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Mude para o `azure-remote-rendering\Scripts` diretório e execute o script de conversão:
 
@@ -175,6 +184,13 @@ Mude para o `azure-remote-rendering\Scripts` diretório e execute o script de co
 ```
 
 Devia ver algo assim: ![Conversion.ps1](./media/successful-conversion.png)
+
+### <a name="3-conversion-via-api-calls"></a>3. Conversão através de chamadas API
+
+Tanto o C# como a API C++ fornecem um ponto de entrada para interagir com o serviço:
+* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
+* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Insira novo modelo na Quickstart Sample App
 

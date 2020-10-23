@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82983079"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131841"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Firewall de aplicação web de resolução de problemas (WAF) para gateway de aplicação Azure
 
@@ -174,7 +174,7 @@ Com a ajuda do [Fiddler,](https://www.telerik.com/fiddler)inspeciona os pedidos 
 
 Neste exemplo, pode ver-se que o campo onde a corda *1=1* foi inserida é chamado **texto1**.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot do Progress Telerik Fiddler Web Debugger. No separador Raw, 1 = 1 é visível após o nome text1." border="false":::
 
 Este é um campo que pode excluir. Para saber mais sobre listas de exclusão, consulte os limites de [tamanho do pedido de firewall da web e listas de exclusão.](application-gateway-waf-configuration.md#waf-exclusion-lists) Pode excluir a avaliação neste caso configurando a seguinte exclusão:
 
@@ -299,7 +299,7 @@ A segunda (regra 942130) é a interessante. Pode ver nos detalhes que correspond
 
 O Violinista é uma ferramenta útil mais uma vez para encontrar nomes de cabeçalho de pedido. Na imagem seguinte, pode ver os cabeçalhos para este pedido GET, que inclui *o Tipo de Conteúdo,* *User-Agent,* e assim por diante.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot do Progress Telerik Fiddler Web Debugger. As listas de separadores Raw solicitam detalhes do cabeçalho como a ligação, o tipo de conteúdo e o agente de utilizador." border="false":::
 
 Outra forma de ver os cabeçalhos de pedido e resposta é olhar para dentro das ferramentas de desenvolvimento do Chrome. Pode premir F12 ou click -> **Inspect**  ->  **Developer Tools**, e selecionar o separador **'Rede'.** Carregue uma página web e clique no pedido que pretende inspecionar.
 

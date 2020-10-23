@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a1c679ca5a7ff08a4d2490f94548b34e4db49f4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56696f138fbf58993e990e263d2fa8e490672bb6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106302"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Criar e providenciar um dispositivo IoT Edge simulado com um TPM virtual no Windows
 
@@ -73,7 +73,7 @@ Dispositivo simulado e guias individuais de inscrição:
 
 Após a criação da inscrição individual, guarde o valor do ID de **inscrição.** Utilize este valor quando configurar o tempo de execução IoT Edge.
 
-## <a name="install-the-iot-edge-runtime"></a>Instale o tempo de execução IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do IoT Edge
 
 O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Os seus componentes funcionam em contentores e permitem-lhe colocar recipientes adicionais no dispositivo para que possa executar código na borda. Instale o tempo de funcionamento do IoT Edge no dispositivo que está a executar o TPM simulado.
 
@@ -97,7 +97,7 @@ Uma vez instalado o tempo de funcionamento no seu dispositivo, configuure o disp
    Deploy-IoTEdge
    ```
 
-1. Neste ponto, a saída pode levá-lo a reiniciar. Em caso afirmativo, reinicie já o seu dispositivo. Assim que o seu dispositivo estiver pronto, volte a executar o PowerShell como administrador.
+1. Neste ponto, os dispositivos IoT Core podem reiniciar automaticamente. Os dispositivos Windows 10 ou Windows Server podem levar-lhe a reiniciar. Em caso afirmativo, reinicie já o seu dispositivo. Assim que o seu dispositivo estiver pronto, volte a executar o PowerShell como administrador.
 
 1. O comando **Initialize-IoTEdge** configura o tempo de funcionamento do IoT Edge na sua máquina. O comando não tem disposição manual com recipientes Windows. Utilize a `-Dps` bandeira para utilizar o Serviço de Provisionamento de Dispositivos em vez de provisionamento manual.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92b9d3c51a9240b7dfc0f8e815735f0e1ecd4dd3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968315"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363611"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Reporting options for Azure AD password management (Opções para os relatórios da gestão de palavras-passe do Azure AD)
 
@@ -27,7 +27,7 @@ Após a implementação, muitas organizações querem saber como ou se a palavra
 As seguintes perguntas podem ser respondidas pelos relatórios existentes no [portal Azure:](https://portal.azure.com/)
 
 > [!NOTE]
-> Você deve ser [um administrador global](../users-groups-roles/directory-assign-admin-roles.md), e você deve optar por estes dados para ser recolhido em nome da sua organização. Para optar, deve visitar o **separador Reportar** ou os registos de auditoria pelo menos uma vez. Até lá, os dados não são recolhidos para a sua organização.
+> Você deve ser [um administrador global](../roles/permissions-reference.md), e você deve optar por estes dados para ser recolhido em nome da sua organização. Para optar, deve visitar o **separador Reportar** ou os registos de auditoria pelo menos uma vez. Até lá, os dados não são recolhidos para a sua organização.
 >
 
 * Quantas pessoas se registaram para reposição de passwords?

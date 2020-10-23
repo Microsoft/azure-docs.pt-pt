@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317349"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364427"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 
@@ -130,7 +130,7 @@ Por exemplo:
 ]
 ```
 
-Pode utilizar o ponto final de Instância PostgreSQL para ligar ao grupo de servidores de hiperescala PostgreSQL a partir da sua ferramenta preferida:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+Pode utilizar o ponto final de Instância PostgreSQL para ligar ao grupo de servidores de hiperescala PostgreSQL a partir da sua ferramenta preferida:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
 Se estiver a utilizar um Azure VM para testar, siga as instruções abaixo:
 
@@ -138,7 +138,7 @@ Se estiver a utilizar um Azure VM para testar, siga as instruções abaixo:
 
 Quando estiver a utilizar uma máquina virtual Azure, o endereço IP do ponto final não mostrará o endereço IP _público._ Para localizar o endereço IP público, utilize o seguinte comando:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -148,7 +148,7 @@ Também poderá ser necessário expor a porta do grupo de servidores De Hiperesc
 
 Para definir uma regra, precisará saber o nome do seu NSG. Determina o NSG utilizando o comando abaixo:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -156,7 +156,7 @@ Uma vez que tenha o nome do NSG, pode adicionar uma regra de firewall usando o s
 
 Substitua o valor do parâmetro --destination-port-ranges abaixo pelo número de porta que obteve do comando 'azdata arc postgres server list' acima.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -169,7 +169,7 @@ Abra o Azure Data Studio e ligue-se ao seu caso com o endereço IP do ponto fina
 
 Lembre-se, se estiver a utilizar um VM Azure necessitará do endereço IP _público_ que está acessível através do seguinte comando:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

@@ -3,12 +3,12 @@ title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979160"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370173"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -105,7 +105,7 @@ Os agentes de pré-visualização (versão 0.11 e inferior) também requerem ace
 |`agentserviceapi.azure-automation.net`|Configuração de Convidado|
 |`*-agentservice-prod-1.azure-automation.net`|Configuração de Convidado|
 
-Para obter uma lista de endereços IP para cada tag/região de serviço, consulte o ficheiro JSON - [Gamas IP Azure e Tags de Serviço – Nuvem Pública.](https://www.microsoft.com/download/details.aspx?id=56519) A Microsoft publica atualizações semanais contendo cada Serviço Azure e as gamas IP que utiliza. Para mais informações, [reveja as etiquetas de serviço.](../../virtual-network/security-overview.md#service-tags)
+Para obter uma lista de endereços IP para cada tag/região de serviço, consulte o ficheiro JSON - [Gamas IP Azure e Tags de Serviço – Nuvem Pública.](https://www.microsoft.com/download/details.aspx?id=56519) A Microsoft publica atualizações semanais contendo cada Serviço Azure e as gamas IP que utiliza. Para mais informações, [reveja as etiquetas de serviço.](../../virtual-network/network-security-groups-overview.md#service-tags)
 
 Os URLs na tabela anterior são necessários para além das informações do intervalo de endereços IP da Marca de Serviço, uma vez que a maioria dos serviços não tem atualmente um registo de Marca de Serviço. Como tal, os endereços IP estão sujeitos a alterações. Se forem necessários intervalos de endereços IP para a sua configuração de firewall, então a Tag de Serviço **AzureCloud** deve ser utilizada para permitir o acesso a todos os serviços Azure. Não desative a monitorização de segurança ou a inspeção destes URLs, permitindo-os como se fosse outro tráfego de Internet.
 
@@ -122,17 +122,17 @@ Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
 Azure CLI:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 Também pode registar os fornecedores de recursos no portal Azure seguindo os passos no [portal Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
@@ -183,7 +183,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Nome |Valor predefinido |Descrição |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -203,7 +203,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Durante a desinstalação do agente, os seguintes artefactos não são removidos.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * *%ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent e subdiretórios
     * %ProgramData%\GuestConfig
 
@@ -245,7 +245,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Nome |Valor predefinido |Descrição |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938428"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460976"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar Azure DB para PostgreSQL - Servidor Único para Azure DB para PostgreSQL - Servidor Único online usando DMS através do portal Azure
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar/Atualizar Azure DB para PostgreSQL - Servidor Único a Azure DB para PostgreSQL - Servidor Único online usando DMS através do portal Azure
 
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma [Base de Dados Azure para postgresQL - Instância de servidor único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) para a mesma versão ou versão diferente da Base de Dados Azure para pós-SQL - Instância de servidor único ou base de dados Azure para PostgreSQL - Servidor Flexível com tempo de inatividade mínimo. Neste tutorial, migra a base de dados de **amostras de DVD Rental** de uma Base de Dados Azure para PostgreSQL v10 para Azure Database for PostgreSQL - Single Server utilizando a atividade de migração on-line no Azure Database Migration Service.
 
@@ -47,7 +47,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, precisa de:
 
 * Verifique [o estado dos cenários de migração suportados pelo Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status) para combinações de migrações e versões suportadas. 
-* Uma base de dados Azure existente para a versão 10 [do PostgreSQL](https://docs.microsoft.com/azure/postgresql/) e posterior instância com a base **de dados de aluguer de DVD.** O Serviço de Migração da Base de Dados Azure não suporta a migração do Azure DB para postgreSQL 9.5 ou 9.6.
+* Uma base de dados Azure existente para a versão 10 [do PostgreSQL](https://docs.microsoft.com/azure/postgresql/) e posterior instância com a base **de dados de aluguer de DVD.** 
 
     Note também que a base de dados Azure alvo para a versão PostgreSQL deve ser igual ou mais tarde à versão PostgreSQL no local. Por exemplo, o PostgreSQL 10 pode migrar para a Base de Dados Azure para PostgreSQL 10, ou 11, mas não para a Base de Dados Azure para PostgreSQL 9.6.
 
@@ -258,7 +258,18 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 * Selecione **Executar a migração**.
 
-    A janela de atividade de migração aparece, e o **estado** da atividade deve atualizar para mostrar como **Backup em Progresso**.
+A janela de atividade de migração aparece, e o **estado** da atividade deve atualizar para mostrar como **Backup em Progresso**. Pode encontrar o seguinte erro ao atualizar a partir de Azure DB para PostgreSQL 9.5 ou 9.6:
+
+**Um cenário relatou um erro desconhecido. 28000: sem entrada pg_hba.conf para a ligação de replicação do hospedeiro "40.121.141.121", utilizador "sr"**
+
+Isto porque o PostgreSQL não tem privilégios adequados para criar artefactos de replicação lógica necessários. Para ativar os privilégios necessários, pode fazer o seguinte:
+
+1. Abra as definições de "Garantia de ligação" para a fonte Azure DB para o servidor PostgreSQL a partir do qual está a tentar migrar/atualizar.
+2. Adicione uma nova regra de firewall com um nome que termina com "_replrule" e adicione o endereço IP da mensagem de erro aos campos IP e IP inicial. Para o exemplo de erro acima -
+> Nome da regra de firewall = sr_replrule; Ip inicial = 40.121.141.121; Fim IP = 40.121.141.121
+
+3. Clique em guardar e deixe a alteração completa. 
+4. Re-tentar a atividade do DMS. 
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 

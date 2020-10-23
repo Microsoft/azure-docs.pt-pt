@@ -1,18 +1,18 @@
 ---
-title: Papéis e permissões Azure
+title: Funções e permissões de registo
 description: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) e a gestão de identidade e acesso (IAM) para fornecer permissões de grãos finos aos recursos num registo de contentores Azure.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661389"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207959"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registo de Contentores de Azure
 
-O serviço de registo de contentores Azure suporta um conjunto de [funções Azure incorporadas](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões a um registo de contentores Azure. Utilize [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/index.yml) para atribuir permissões específicas aos utilizadores, principais de serviços ou outras identidades que necessitem de interagir com um registo. Também pode definir [funções personalizadas](#custom-roles) com permissões de grãos finos para um registo para diferentes operações.
+O serviço de registo de contentores Azure suporta um conjunto de [funções Azure incorporadas](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões a um registo de contentores Azure. Utilize [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/index.yml) para atribuir permissões específicas aos utilizadores, principais de serviço ou outras identidades que necessitem de interagir com um registo, por exemplo, para puxar ou empurrar imagens de contentores. Também pode definir [funções personalizadas](#custom-roles) com permissões de grãos finos para um registo para diferentes operações.
 
 | Função/Permissão       | [Gestor de Recursos de Acesso](#access-resource-manager) | [Criar/apagar registo](#create-and-delete-registry) | [Imagem de empurrar](#push-image) | [Imagem de puxar](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Mudar políticas](#change-policies) |   [Assinar imagens](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -24,13 +24,19 @@ O serviço de registo de contentores Azure suporta um conjunto de [funções Azu
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## <a name="assign-roles"></a>Atribuir funções
+
+Consulte [passos para adicionar uma atribuição](../role-based-access-control/role-assignments-steps.md) de papel para etapas de alto nível para adicionar uma atribuição de papel a um utilizador, grupo, principal de serviço ou identidade gerida existente. Pode utilizar o portal Azure, O Azure CLI ou outras ferramentas Azure.
+
+Ao criar um principal de serviço, também configura o seu acesso e permissões aos recursos da Azure, como um registo de contentores. Para um script de exemplo utilizando o Azure CLI, consulte [a autenticação do Registo do Contentor Azure com os principais serviços](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## <a name="differentiate-users-and-services"></a>Diferenciar utilizadores e serviços
 
 Sempre que as permissões são aplicadas, a melhor prática é fornecer o conjunto mais limitado de permissões para uma pessoa, ou serviço, para realizar uma tarefa. Os seguintes conjuntos de permissões representam um conjunto de capacidades que podem ser usadas por humanos e serviços sem cabeça.
 
 ### <a name="cicd-solutions"></a>Soluções CI/CD
 
-Ao automatizar `docker build` comandos a partir de soluções CI/CD, precisa de `docker push` capacidades. Para estes cenários de serviço sem cabeça, sugerimos atribuir o papel **de AcrPush.** Esta função, ao contrário do papel mais amplo **do Contribuinte,** impede que a conta realize outras operações de registo ou aceda ao Gestor de Recursos Azure.
+Ao automatizar `docker build` comandos a partir de soluções CI/CD, precisa de `docker push` capacidades. Para estes cenários de serviço sem cabeça, recomendamos a atribuição do papel **AcrPush.** Esta função, ao contrário do papel mais amplo **do Contribuinte,** impede que a conta realize outras operações de registo ou aceda ao Gestor de Recursos Azure.
 
 ### <a name="container-host-nodes"></a>Nódoas de hospedeiro de contentores
 

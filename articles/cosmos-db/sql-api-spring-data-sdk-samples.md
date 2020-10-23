@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: adbec15e252a7b5cbd55f1b571d55455fb313a01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa9a78342cf64461d85d7542c7ed8a69186906b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348722"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275115"
 ---
 # <a name="azure-cosmos-db-sql-api-spring-data-azure-cosmos-db-v3-examples"></a>Azure Cosmos DB SQL API: Dados de primavera Azure Cosmos DB v3 exemplos
 
@@ -101,7 +101,7 @@ mvn spring-boot:run
 ```
 
 ## <a name="document-crud-examples"></a>Documentos EXEMPLOS CRUD
-O ficheiro [de amostras](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) mostra como executar as seguintes tarefas. Para saber mais sobre os documentos da Azure Cosmos antes de executar as [seguintes amostras, consulte Trabalhar com bases de dados, contentores e artigos conceptuais.](databases-containers-items.md)
+O ficheiro [de amostras](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/springexamples/quickstart/sync/SampleApplication.java) mostra como executar as seguintes tarefas. Para saber mais sobre os documentos da Azure Cosmos antes de executar as [seguintes amostras, consulte Trabalhar com bases de dados, contentores e artigos conceptuais.](account-databases-containers-items.md)
 
 | Tarefa | Referência da API |
 | --- | --- |

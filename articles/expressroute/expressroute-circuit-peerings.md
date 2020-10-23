@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566505"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202349"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute circuits and peering (Circuitos e peering do ExpressRoute)
 
@@ -70,7 +70,7 @@ Cada espreitamento requer sessões de BGP separadas (um par para cada tipo de es
 
 ## <a name="expressroute-health"></a><a name="health"></a>Estado de funcionamento do ExpressRoute
 
-Os circuitos ExpressRoute podem ser monitorizados para disponibilidade, conectividade com VNets e utilização de largura de banda utilizando [o Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
+Os circuitos ExpressRoute podem ser monitorizados para disponibilidade, conectividade com VNets e utilização de largura de banda utilizando [o Network Performance Monitor](../networking/network-monitoring-overview.md) (NPM).
 
 O NPM monitoriza a saúde do Azure private peering e microsoft peering. Consulte o nosso [posto](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) para mais informações.
 

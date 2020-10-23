@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1454be235c98e5348d1b57028d988252191ad270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c522ae70314a5f9bf691e935f1f171cd66c938b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528051"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122386"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Tutorial: Azure Ative Directory integração única (SSO) com SKYSITE
 
@@ -88,15 +88,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação SKYSITE espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 1. Além de acima, a aplicação SKYSITE espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
     a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
-    ![image](./media/skysite-tutorial/config01.png)
+    ![A Screenshot mostra as reclamações do Utilizador com a opção de adicionar uma nova reclamação.](./media/skysite-tutorial/config01.png)
 
-    ![image](./media/skysite-tutorial/config02.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](./media/skysite-tutorial/config02.png)
 
     b. Selecione **Todos os Grupos** da lista de rádio.
 
@@ -148,11 +148,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Clique em **Definições** no lado superior direito da página e, em seguida, navegue para a **definição de Conta**.
 
-    ![Configuração](./media/skysite-tutorial/config03.png)
+    ![A screenshot mostra a definição de conta selecionada a partir de Definições.](./media/skysite-tutorial/config03.png)
 
 5. Mude para o separador **'SSO'** de assinatura única, execute os seguintes passos:
 
-    ![Configuração](./media/skysite-tutorial/config04.png)
+    ![A screenshot mostra o sinal único no separador onde pode introduzir os valores descritos.](./media/skysite-tutorial/config04.png)
 
     a. No sinal do Fornecedor de Identidade na caixa de texto **URL,** cole o valor do URL de acesso ao **Utilizador,** que copiou a partir do separador **propriedades** no portal Azure.
 

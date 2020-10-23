@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389569"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340228"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Fichas de configuração no Azure Ative Directory B2C
 
@@ -23,7 +23,7 @@ Neste artigo, aprende-se a configurar a [vida e a compatibilidade de um símbolo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Crie um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e se inscrevam na sua aplicação.
+[Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir que os utilizadores se inscrevam e iniciem sessão na sua aplicação.
 
 ## <a name="configure-jwt-token-lifetime"></a>Configurar a vida útil simbólica da JWT
 
@@ -41,6 +41,9 @@ Pode configurar a vida útil do símbolo em qualquer fluxo de utilizador.
 
 8. Clique em **Guardar**.
 
+> [!NOTE]
+> As aplicações de uma página única que utilizam o fluxo de código de autorização com O PKCE têm sempre um prazo de vida útil de 24 horas. [Saiba mais sobre as implicações de segurança dos tokens de atualização no navegador.](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)
+
 ## <a name="configure-jwt-token-compatibility"></a>Configure compatibilidade simbólica JWT
 
 1. Selecione **fluxos de utilizador (políticas)**.
@@ -51,6 +54,17 @@ Pode configurar a vida útil do símbolo em qualquer fluxo de utilizador.
     ![Definições de propriedade de compatibilidade token no portal Azure](./media/configure-tokens/token-compatibility.png)
 
 5. Clique em **Guardar**.
+
+## <a name="provide-optional-claims-to-your-app"></a>Fornecer reclamações opcionais à sua app
+
+As reclamações da aplicação são valores que são devolvidos ao pedido. Atualize o fluxo do utilizador para conter as reclamações desejadas.
+
+1. Selecione **fluxos de utilizador (políticas)**.
+1. Abra o fluxo de utilizador que criou anteriormente.
+1. Selecione **Afirmações de aplicação**.
+1. Escolha as reclamações e atributos que deseja enviar de volta para a sua aplicação.
+1. Clique em **Guardar**.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

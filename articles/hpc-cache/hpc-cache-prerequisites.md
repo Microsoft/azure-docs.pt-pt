@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612987"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344020"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -65,7 +65,7 @@ Se necessitar apenas de acesso ao armazenamento Blob, pode utilizar o servidor D
 
 Um servidor DNS simples também pode ser usado para carregar as ligações do cliente de equilíbrio entre todos os pontos de montagem de cache disponíveis.
 
-Saiba mais sobre as redes virtuais Azure e as configurações do servidor DNS na [resolução name para recursos em redes virtuais Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Saiba mais sobre as redes virtuais Azure e as configurações do servidor DNS na [resolução name para recursos em redes virtuais Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Permissões
 
@@ -73,7 +73,7 @@ Verifique estes pré-requisitos relacionados com a permissão antes de começar 
 
 * A instância de cache precisa de ser capaz de criar interfaces de rede virtuais (NICs). O utilizador que criar a cache deve ter privilégios suficientes na subscrição para criar NICs.
 
-* Se utilizar o armazenamento Blob, a Cache Azure HPC necessita de autorização para aceder à sua conta de armazenamento. Utilize o controlo de acesso baseado em funções (RBAC) para dar acesso à cache ao seu armazenamento Blob. São necessárias duas funções: Contribuidor de Conta de Armazenamento e Contribuinte de Dados blob de armazenamento.
+* Se utilizar o armazenamento Blob, a Cache Azure HPC necessita de autorização para aceder à sua conta de armazenamento. Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para dar acesso à cache ao seu armazenamento Blob. São necessárias duas funções: Contribuidor de Conta de Armazenamento e Contribuinte de Dados blob de armazenamento.
 
   Siga as instruções em [Adicionar os alvos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para adicionar as funções.
 
@@ -110,7 +110,7 @@ Se utilizar um sistema de armazenamento NFS (por exemplo, um sistema NAS de hard
 
 Mais informações estão incluídas na [configuração do Troubleshoot NAS e nos problemas de alvo de armazenamento NFS](troubleshoot-nas.md).
 
-* **Conectividade de rede:** O Cache Azure HPC necessita de acesso de rede de alta largura de banda entre a sub-rede de cache e o centro de dados do sistema NFS. [Recomenda-se o ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou acesso semelhante. Se utilizar uma VPN, poderá ser necessário configurá-lo para fixar o SSS TCP a 1350 para se certificar de que os grandes pacotes não estão bloqueados. Leia [as restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para ajudar a resolver as definições de VPN.
+* **Conectividade de rede:** O Cache Azure HPC necessita de acesso de rede de alta largura de banda entre a sub-rede de cache e o centro de dados do sistema NFS. [Recomenda-se o ExpressRoute](../expressroute/index.yml) ou acesso semelhante. Se utilizar uma VPN, poderá ser necessário configurá-lo para fixar o SSS TCP a 1350 para se certificar de que os grandes pacotes não estão bloqueados. Leia [as restrições de tamanho do pacote VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) para ajudar a resolver as definições de VPN.
 
 * **Acesso portuário:** A cache precisa de acesso a portas TCP/UDP específicas no seu sistema de armazenamento. Diferentes tipos de armazenamento têm diferentes requisitos portuários.
 

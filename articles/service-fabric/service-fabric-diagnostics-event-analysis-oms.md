@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257660"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329564"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análise e visualização de eventos com registos do Azure Monitor
  Os registos do Azure Monitor recolhem e analisam a telemetria a partir de aplicações e serviços alojados na nuvem e fornecem ferramentas de análise para o ajudar a maximizar a sua disponibilidade e desempenho. Este artigo descreve como executar consultas nos registos do Azure Monitor para obter insights e resolver problemas do que está a acontecer no seu cluster. As seguintes questões comuns são abordadas:
@@ -42,7 +42,7 @@ Em `Summary` , você verá azulejos sob a forma de um gráfico para cada uma das
 
 A imagem a seguir mostra a página inicial da solução Service Fabric Analytics. Esta página inicial fornece uma visão instantânea do que está a acontecer no seu cluster.
 
-![Solução de Tecido de Serviço](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Screenshot que mostra a página inicial da solução Service Fabric Analytics.](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  Se você ativou diagnósticos sobre a criação de cluster, você pode ver eventos para 
 

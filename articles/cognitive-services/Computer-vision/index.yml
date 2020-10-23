@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 37a5a85fab739cca5983f7c858845dcdef3bc307
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 34c084623d1c5d44d359f06ba30a8773889d841c
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91971970"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92371227"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -168,7 +168,5 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: UserVoice
-      url: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-    - text: Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - text: Opções de suporte e ajuda
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

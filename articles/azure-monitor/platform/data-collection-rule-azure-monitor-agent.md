@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd29bfafe2d37b6a34031e6962cc27bfff0006c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108019"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configure a recolha de dados para o agente Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde devem ser enviados. Este artigo descreve como criar uma regra de recolha de dados para recolher dados de máquinas virtuais usando o agente Azure Monitor.
@@ -64,8 +64,8 @@ Clique **em Adicionar Fonte de Dados** e, em seguida, **Reveja + crie** para rev
 ## <a name="createusingrestapi"></a>Criar com a API REST
 Siga os passos abaixo para criar um DCR e associações utilizando a API REST. 
 1.Crie manualmente o ficheiro DCR utilizando o formato JSON mostrado no [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
-2.Criar a regra utilizando a [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
-3.Criar uma associação para cada máquina virtual à regra de recolha de dados utilizando a [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
+2.Criar a regra utilizando a [API REST](/rest/api/monitor/datacollectionrules/create#examples).
+3.Criar uma associação para cada máquina virtual à regra de recolha de dados utilizando a [API REST](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Passos seguintes
 

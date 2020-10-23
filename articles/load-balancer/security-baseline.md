@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940332"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425280"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Linha de base de segurança Azure para O Balançador de Carga Azure
 
@@ -104,7 +104,7 @@ Utilize a funcionalidade de Endurecimento de Rede Adaptativa do Centro de Segura
 
 - [Proteção contra ameaças no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/threat-protection)
 
-- [Proteja as suas portas de gestão com acesso just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Proteger as portas de gestão com acesso just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
 - [Endurecimento de rede adaptativa no Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
 
@@ -402,7 +402,7 @@ Inventário Papéis pré-definidos e incorporados para determinados recursos com
 
 **Orientação**: Utilize o Azure RBAC para controlar o acesso aos seus recursos do Balancer de Carga.
 
-- [Como configurar o RBAC em Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Como configurar o Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -544,7 +544,7 @@ Implemente recomendações do Security Center como uma base de configuração se
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
-- [Recomendações de segurança - um guia de referência](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Recomendações de segurança: um guia de referência](https://docs.microsoft.com/azure/security-center/recommendations-reference)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -616,7 +616,7 @@ Marque subscrições usando tags e crie um sistema de nomeação para identifica
 
 - [Alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

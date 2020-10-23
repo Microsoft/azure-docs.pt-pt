@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093757"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367742"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. Pode configurar até 2.000 grupos de ação numa subscrição.
@@ -67,7 +67,7 @@ De **acordo com os detalhes do exemplo:**
 
     c. **Detalhes**: Com base no tipo de notificação selecionado, insira um endereço de e-mail, número de telefone, etc.
     
-    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
+    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
 
     ![O separador Notificações](./media/action-groups/action-group-2-notifications.png)
     
@@ -83,7 +83,7 @@ De **acordo com os detalhes do exemplo:**
 
     c. **Detalhes**: Com base no tipo de ação, introduza um webhook URI, app Azure, conexão ITSM ou livro de automação. Para a AÇÃO ITSM, especifique ainda o **Produto de Trabalho** e outros campos que a sua ferramenta ITSM necessita.
     
-    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](https://aka.ms/commonAlertSchemaDocs)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
+    d. **Esquema comum de alerta**: Pode optar por ativar o esquema comum de [alerta,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta do Monitor Azure.
     
     ![O separador Ações](./media/action-groups/action-group-3-actions.png)
 
@@ -157,7 +157,7 @@ A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory pa
 2. Ative os Grupos de Ação para utilizar a sua aplicação AD Azure.
 
     > [!NOTE]
-    > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para executar este script.
+    > Você deve ser um membro da função de [Administrador de Aplicação AD Azure](../../active-directory/roles/permissions-reference.md#available-roles) para executar este script.
     
     - Modifique a chamada de Connect-AzureAD do script PowerShell para usar o seu ID do inquilino Azure.
     - Modifique a variável $myAzureADApplicationObjectId do script PowerShell para utilizar o ID do objeto da sua aplicação AD Azure.
@@ -321,4 +321,3 @@ A utilização **da Tag de Serviço** para o ActionGroup ajuda a minimizar a com
 * Saiba mais sobre [a limitação da taxa](./alerts-rate-limiting.md) em alertas.
 * Obtenha uma [visão geral dos alertas de registo de atividades](./alerts-overview.md)e aprenda a receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de saúde do serviço for publicada](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

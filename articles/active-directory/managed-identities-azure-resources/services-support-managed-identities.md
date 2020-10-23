@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072174"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426437"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -41,6 +41,16 @@ Consulte a seguinte lista para configurar a identidade gerida para a Gestão API
 
 - [Modelo Azure Resource Manager](../../api-management/api-management-howto-use-managed-service-identity.md)
 
+### <a name="azure-app-configuration"></a>Configuração da Aplicação Azure
+
+| Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não Disponível | Não Disponível |
+| Utilizador atribuído | ![Disponível][check] | ![Disponível][check]  | Não Disponível  | Não Disponível |
+
+Consulte a seguinte lista para configurar a identidade gerida para a configuração da aplicação Azure (nas regiões onde disponível):
+
+- [CLI do Azure](../../azure-app-configuration/overview-managed-identity.md)
 
 ### <a name="azure-app-service"></a>Serviço de Aplicações do Azure
 
@@ -170,7 +180,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as funções 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Modelo Azure Resource Manager](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### <a name="azure-iot-hub"></a>Hub IoT do Azure
+### <a name="azure-iot-hub"></a>Azure IoT Hub
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -309,7 +319,7 @@ Consulte a seguinte lista para configurar a identidade gerida para as máquinas 
 | Utilizador atribuído | [Disponível em regiões apoiadas](../../virtual-machines/windows/image-builder-overview.md#regions) | Não Disponível | Não Disponível | Não Disponível |
 
 Para aprender a configurar a identidade gerida para O Azure VM Image Builder (em regiões onde disponível), consulte a visão geral do [Construtor de Imagens](../../virtual-machines/windows/image-builder-overview.md#permissions).
-### <a name="azure-signalr-service"></a>Serviço SignalR do Azure
+### <a name="azure-signalr-service"></a>Serviço Azure SignalR
 
 Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -367,7 +377,7 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha | `https://database.cloudapi.de/` | ![Disponível][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Disponível][check] |
 
-### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
+### <a name="azure-event-hubs"></a>Azure Event Hubs
 
 | Cloud | ID do Recurso | Estado |
 |--------|------------|:-:|

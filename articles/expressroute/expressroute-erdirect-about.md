@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566403"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202161"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
@@ -73,7 +73,7 @@ O ExpressRoute Direct suporta cenários maciços de ingestão de dados no armaze
     * Deve adicionar a etiqueta VLAN exterior (STAG) com base no ID VLAN especificado pela Microsoft - *aplicável apenas no QinQ*
     * Deve suportar várias sessões de BGP (VLANs) por porta e dispositivo
     * Conectividade IPv4 e IPv6. *Para o IPv6 não será criada nenhuma sub-interface adicional. O endereço IPv6 será adicionado à sub-interface existente.* 
-    * Opcional: [Suporte de deteção de encaminhamento bidirecional (BFD),](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) que é configurado por padrão em todos os pares privados nos circuitos ExpressRoute
+    * Opcional: [Suporte de deteção de encaminhamento bidirecional (BFD),](./expressroute-bfd.md) que é configurado por padrão em todos os pares privados nos circuitos ExpressRoute
 
 ## <a name="vlan-tagging"></a>Marcação VLAN
 

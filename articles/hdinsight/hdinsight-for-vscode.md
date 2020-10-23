@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/07/2020
+ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c9a610eb30b33adb82cebda74e99c37f84dacf9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530158"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319525"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -75,7 +75,7 @@ Antes de poder submeter scripts aos seus clusters a partir do Código do Estúdi
 
 1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Azure: Iniciar Sedura**:
 
-    ![Ferramentas de hive spark & para login visual studio code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
+   ![Ferramentas de hive spark & para login visual studio code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 2. Siga as instruções de inscrição para iniciar seduca. Depois de conectado, o nome da sua conta Azure aparece na barra de estado na parte inferior da janela Visual Studio Code.  
 
@@ -115,8 +115,10 @@ Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache
 3. Insira o ponto final genérico da Livy. Por exemplo: http \: //10.172.41.42:18080.
 
 4. Selecione o tipo de autorização **Básico** ou **Nenhum**.  Se selecionar **Basic**:  
-    &emsp;a. Insira o seu nome de utilizador Ambari; o padrão é **administrador.**  
-    &emsp;b. Insira a sua senha Ambari.
+   
+   1. Insira o seu nome de utilizador Ambari; o padrão é **administrador.**  
+
+   2. Insira a sua senha Ambari.
 
 5. Rever a vista **DE SAÍDA** para verificação.
 
@@ -128,7 +130,7 @@ Pode ligar um cluster normal utilizando um nome de utilizador gerido por [Apache
 
 3. Reveja a vista **OUTPUT.** Esta vista mostra o seu cluster (ou clusters) ligados e todos os clusters sob a sua assinatura Azure:
 
-    ![Desafine uma configuração de cluster padrão](./media/hdinsight-for-vscode/list-cluster-result1.png)
+   ![Desafine uma configuração de cluster padrão](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>Desafine o cluster predefinido
 
@@ -154,9 +156,9 @@ Com spark & Hive Tools for Visual Studio Code, pode submeter consultas interativ
 
 3. Copie e cole o seguinte código no seu ficheiro Hive e, em seguida, guarde-o:
 
-    ```hiveql
-    SELECT * FROM hivesampletable;
-    ```
+   ```hiveql
+   SELECT * FROM hivesampletable;
+   ```
 
 4. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
@@ -166,9 +168,9 @@ Com spark & Hive Tools for Visual Studio Code, pode submeter consultas interativ
 
    ![Resultado interativo da consulta da Colmeia Apache](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - **Painel de resultados:** Pode guardar todo o resultado como ficheiro CSV, JSON ou Excel para um caminho local ou apenas selecionar várias linhas.
+   - **Painel de resultados:** Pode guardar todo o resultado como ficheiro CSV, JSON ou Excel para um caminho local ou apenas selecionar várias linhas.
 
-    - **Painel DE MENSAGEÇÕES:** Quando seleciona um número **de Linha,** salta para a primeira linha do script de execução.
+   - **Painel DE MENSAGEÇÕES:** Quando seleciona um número **de Linha,** salta para a primeira linha do script de execução.
 
 ## <a name="submit-interactive-pyspark-queries"></a>Submeter consultas interativas pySpark
 
@@ -197,61 +199,74 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
         print(sortedCollection[i])
    ```
 
-4. O pedido de instalação do núcleo PySpark é apresentado no canto inferior direito da janela. Pode clicar no botão **Instalar** para proceder às instalações do PySpark; ou clique no botão **Saltar** para saltar este passo.
+4. O pedido de instalação do núcleo PySpark/Synapse Pyspark é apresentado no canto inferior direito da janela. Pode clicar no botão **Instalar** para proceder às instalações PySpark/Synapse Pyspark; ou clique no botão **Saltar** para saltar este passo.
 
    ![A screenshot mostra uma opção para saltar a instalação PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. Se precisar de o instalar mais tarde, pode navegar para definições de preferência de **ficheiro**  >  **Preference**  >  , em seguida,**desmarque** **a visão Hdin: Ative a instalação Skip Pyspark** nas definições. 
+5. Se precisar de o instalar mais **File**tarde, pode navegar para  >  Definições**de Preferência**  >  de Ficheiros , em seguida,**desmarque** **a configuração HDInsight: Ative a instalação Skip Pyspark** nas definições. 
     
     ![A screenshot mostra a opção de Ativar a Instalação Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Se a instalação for bem sucedida no passo 4, a caixa de mensagens "PySpark instalada com sucesso" é exibida no canto inferior direito da janela. Clique no botão **Recarregar** para recarregar a janela.
-    ![pyspark instalado com sucesso](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
+   ![pyspark instalado com sucesso](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-8. Selecione todo o código, clique com o direito no editor de scripts e selecione **Spark: PySpark Interactive** para submeter a consulta. Ou, use o atalho Ctrl+Alt+I.
+7. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Python: Selecione Intérprete para iniciar o Jupyter Server**.
+
+   ![selecione intérprete para iniciar o servidor jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
+
+8. Selecione a opção python abaixo.
+
+   ![escolher a opção abaixo](./media/hdinsight-for-vscode/choose-the-below-option.png)
+    
+9. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** ou use o atalho de teclado **Shift + Ctrl + P** e **introduza Developer: Reload Window**.
+
+   ![janela de recarga](./media/hdinsight-for-vscode/reload-window.png)
+
+10. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
+
+11. Selecione todo o código, clique com o direito no editor de scripts e selecione **Spark: PySpark Interactive / Synapse: Pyspark Interactive** para submeter a consulta. 
 
     ![menu de contexto interativo pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark**, e o código será executado com sucesso. As ferramentas também permitem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
+12. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark / Synapse Pyspark**, e o código será executado com sucesso. Se quiser mudar para o kernel Synapse Pyspark, é encorajado a desativação das definições automáticas no portal Azure. Caso contrário, pode demorar muito tempo a acordar o cluster e a definir o núcleo de sinapse pela primeira vez. Se as ferramentas também permitirem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
 
-   ![pyspark janela interativa python](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+    ![pyspark janela interativa python](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-10. Introduza **%%info**e, em seguida, pressione Shift+Enter para ver as informações de trabalho (opcional):
+13. Introduza **%%info**e, em seguida, pressione Shift+Enter para ver as informações de trabalho (opcional):
 
     ![pyspark interactive view informações de trabalho](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 A ferramenta também suporta a consulta **Spark SQL:**
 
-   ![pyspark resultado da visão interativa](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+  ![pyspark resultado da visão interativa](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
 
 ### <a name="perform-interactive-query-in-py-file-using-a--comment"></a>Realize consulta interativa em ficheiro PY usando um comentário #%%
 
 1. Adicione **#%%** antes do código Py para obter experiência de caderno.
 
-    ![adicionar #%%](./media/hdinsight-for-vscode/run-cell.png)
+   ![adicionar #%%](./media/hdinsight-for-vscode/run-cell.png)
 
-2. Clique em **Run Cell**. Após alguns momentos, os resultados da Python Interactive aparecem num novo separador.
+2. Clique em **Run Cell**. Após alguns momentos, os resultados da Python Interactive aparecem num novo separador. Clique no PySpark para mudar o núcleo para PySpark/Synapse PySpark, em seguida, clique novamente em **Run Cell** e o código será executado com sucesso.
 
    ![executar resultados celulares](./media/hdinsight-for-vscode/run-cell-get-results.png)
-
-   > [!NOTE]  
-   > Quando o núcleo ou as configurações estiverem estragados, utilize o **Python: Selecione Intérprete para iniciar** o comando do servidor Jupyter e reinicie o **kernel do IPython,** em seguida, recarregue o VSCode, pode ser resolvido.
 
 ## <a name="leverage-ipynb-support-from-python-extension"></a>Alavancagem suporte IPYNB da extensão Python
 
 1. Pode criar um Bloco de Notas Jupyter por comando a partir da Paleta de Comando ou criando um novo ficheiro .ipynb no seu espaço de trabalho. Para mais informações, consulte [Trabalhar com cadernos Jupyter no Código do Estúdio Visual](https://code.visualstudio.com/docs/python/jupyter-support)
 
-2. Clique no PySpark para mudar o kernel para **PySpark**e, em seguida, clique em **Run Cell**, depois de um tempo, o resultado será exibido.
+2. Clique no botão **de célula Executar,** siga as instruções para **definir a piscina de faíscas predefinitivamente** (encoraje fortemente a definir o cluster/piscina predefinido sempre antes de abrir um portátil) e, em seguida, **recarregar** a janela.
+
+   ![definir a piscina de faísca padrão e recarregar](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
+
+3. Clique no PySpark para mudar o kernel para **PySpark / Synapse Pyspark**, e, em seguida, clique em **Run Cell**, depois de um tempo, o resultado será exibido.
 
    ![executar resultados ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
 > [!NOTE]
->
->A versão >da Senhora Deputada =2020.5.78807 não é apoiada nesta extensão é uma [questão conhecida.](#known-issues)
+> A versão >da Senhora Deputada =2020.5.78807 não é apoiada nesta extensão é uma [questão conhecida.](#known-issues)
 
 ## <a name="submit-pyspark-batch-job"></a>Submeter trabalho de lote PySpark
 
@@ -261,36 +276,36 @@ A ferramenta também suporta a consulta **Spark SQL:**
 
 3. Copiar e colar o seguinte código no ficheiro do script:
 
-    ```python
-    from __future__ import print_function
-    import sys
-    from operator import add
-    from pyspark.sql import SparkSession
-    if __name__ == "__main__":
-        spark = SparkSession\
-            .builder\
-            .appName("PythonWordCount")\
-            .getOrCreate()
-    
-        lines = spark.read.text('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv').rdd.map(lambda r: r[0])
-        counts = lines.flatMap(lambda x: x.split(' '))\
-                    .map(lambda x: (x, 1))\
-                    .reduceByKey(add)
-        output = counts.collect()
-        for (word, count) in output:
-            print("%s: %i" % (word, count))
-        spark.stop()
-    ```
+   ```python
+   from __future__ import print_function
+   import sys
+   from operator import add
+   from pyspark.sql import SparkSession
+   if __name__ == "__main__":
+       spark = SparkSession\
+           .builder\
+           .appName("PythonWordCount")\
+           .getOrCreate()
+   
+       lines = spark.read.text('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv').rdd.map(lambda r: r[0])
+       counts = lines.flatMap(lambda x: x.split(' '))\
+                  .map(lambda x: (x, 1))\
+                   .reduceByKey(add)
+       output = counts.collect()
+       for (word, count) in output:
+           print("%s: %i" % (word, count))
+       spark.stop()
+   ```
 
 4. [Ligue-se](#connect-to-an-azure-account) à sua conta Azure ou ligue um cluster se ainda não o fez.
 
-5. Clique com o botão direito no editor de scripts e, em seguida, selecione **Spark: PySpark Batch**, ou use o atalho do teclado Ctrl+Alt+H.
+5. Clique com o botão direito no editor de script e, em seguida, selecione **Spark: PySpark Batch**, ou **Synapse: PySpark Batch****.
 
-6. Selecione um cluster para submeter o seu trabalho PySpark para:
+6. Selecione um cluster/piscina de faíscas para submeter o seu trabalho PySpark para:
 
    ![Submeter saída de resultado de trabalho python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Depois de submeter um trabalho python, os registos de submissão aparecem na janela **OUTPUT** no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
+Depois de submeter um trabalho python, os registos de submissão aparecem na janela **OUTPUT** no Código do Estúdio Visual. O URL spark UI e o URL de UI de fio também são mostrados. Se submeter o trabalho de lote a uma piscina Apache Spark, o URL UI da história da faísca e o URL UI da Aplicação de Emprego de Faísca também são mostrados. Pode abrir o URL num navegador web para rastrear o estado do trabalho.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integre-se com o HdInsight Identity Broker (HIB)
 
@@ -306,62 +321,66 @@ Para executar um trabalho pySpark interativo, você pode seguir os passos normai
 
 Para executar uma função de lote PySpark, pode seguir os passos normais para submeter o trabalho ao cluster HDInsight ESP com ID Broker (HIB). Consulte o [trabalho de lote PySpark](#submit-pyspark-batch-job) para obter mais instruções.
 
-
 ## <a name="apache-livy-configuration"></a>Configuração Apache Livy
 
 A configuração [Apache Livy](https://livy.incubator.apache.org/) é suportada. Pode configurá-lo no **.VSCode\settings.jsarquivado na** pasta do espaço de trabalho. Atualmente, a configuração livy apenas suporta o script Python. Para mais informações, consulte [Livy README.](https://github.com/cloudera/livy/blob/master/README.rst )
 
 <a id="triggerlivyconf"></a>**Como desencadear a configuração da Livy**
 
-Método 1  
+### <a name="method-1"></a>Método 1  
+
 1. A partir da barra de menu, navegue para **definições**  >  **de preferências**  >  **de ficheiros**.
 2. Na caixa **de definições de pesquisa,** insira **HDInsight Job Submission: Livy Conf**.  
 3. Selecione **Editar em settings.js** para obter o resultado de pesquisa relevante.
 
-Método 2 Enviar um ficheiro e notar que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.jsem**.
+### <a name="method-2"></a>Método 2
 
-+ As definições do projeto:
+Envie um ficheiro e note que a `.vscode` pasta é automaticamente adicionada à pasta de trabalho. Pode ver a configuração Livy selecionando **.vscode\settings.jsem**.
 
-    ![Configuração HDInsight Apache Livy](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
+- As definições do projeto:
 
-    >[!NOTE]
-    >Para o **controlador Configurações demória** e **executorMessor,** defina o valor e a unidade. Por exemplo: 1g ou 1024m.
+  ![Configuração HDInsight Apache Livy](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
-+ Configurações livy suportadas:
+  >[!NOTE]
+  >Para o **controlador Configurações demória** e **executorMessor,** defina o valor e a unidade. Por exemplo: 1g ou 1024m.
 
-    **POST /lotes** Corpo de pedido
+- Configurações livy suportadas:
 
-    | name | descrição | tipo |
-    | --- | --- | --- |
-    | file | Ficheiro que contém o pedido de execução | Caminho (obrigatório) |
-    | proxyUser | Utilizador a personificar ao executar o trabalho | Cadeia |
-    | nome de classeName | Aplicação Java/Spark classe principal | Cadeia |
-    | args | Argumentos de linha de comando para a aplicação | Lista de cordas |
-    | frascos | Frascos para serem usados nesta sessão | Lista de cordas | 
-    | pyFiles | Ficheiros Python a serem usados nesta sessão | Lista de cordas |
-    | ficheiros | Ficheiros a serem usados nesta sessão | Lista de cordas |
-    | motoristaMemory | Quantidade de memória para usar para o processo do condutor | Cadeia |
-    | driverCores | Número de núcleos para utilizar para o processo do condutor | int |
-    | executorMemory | Quantidade de memória para utilizar por processo executor | Cadeia |
-    | executorCores | Número de núcleos para utilizar para cada executor | int |
-    | numExecutors | Número de executores para lançar para esta sessão | int |
-    | arquivos | Arquivos a serem usados nesta sessão | Lista de cordas |
-    | fila | Nome da fila YARN a submeter| Cadeia |
-    | name | Nome desta sessão | Cadeia |
-    | conf | Propriedades de configuração de faíscas | Mapa de key=val |
+  **POST /lotes**
+  
+  **Corpo de pedido**
 
-    Corpo de resposta O objeto do Lote criado.
+  | name | descrição | tipo |
+  | --- | --- | --- |
+  | file | Ficheiro que contém o pedido de execução | Caminho (obrigatório) |
+  | proxyUser | Utilizador a personificar ao executar o trabalho | String |
+  | nome de classeName | Aplicação Java/Spark classe principal | String |
+  | args | Argumentos de linha de comando para a aplicação | Lista de cordas |
+  | frascos | Frascos para serem usados nesta sessão | Lista de cordas | 
+  | pyFiles | Ficheiros Python a serem usados nesta sessão | Lista de cordas |
+  | ficheiros | Ficheiros a serem usados nesta sessão | Lista de cordas |
+  | motoristaMemory | Quantidade de memória para usar para o processo do condutor | String |
+  | driverCores | Número de núcleos para utilizar para o processo do condutor | int |
+  | executorMemory | Quantidade de memória para utilizar por processo executor | String |
+  | executorCores | Número de núcleos para utilizar para cada executor | int |
+  | numExecutors | Número de executores para lançar para esta sessão | int |
+  | arquivos | Arquivos a serem usados nesta sessão | Lista de cordas |
+  | fila | Nome da fila YARN a submeter| String |
+  | name | Nome desta sessão | String |
+  | conf | Propriedades de configuração de faíscas | Mapa de key=val |
 
-    | name | descrição | tipo |
-    | --- | ---| --- |
-    | ID | ID de sessão | int |
-    | appId | ID de aplicação desta sessão | Cadeia |
-    | appInfo | Informação detalhada da aplicação | Mapa de key=val |
-    | log | Linhas de registo | Lista de cordas |
-    | state |Estado do lote | Cadeia |
+  **Corpo de resposta** O objeto lote criado.
 
-    > [!NOTE]
-    > O livy config atribuído é apresentado no painel de saída quando submete o script.
+  | name | descrição | tipo |
+  | --- | ---| --- |
+  | ID | ID de sessão | int |
+  | appId | ID de aplicação desta sessão | String |
+  | appInfo | Informação detalhada da aplicação | Mapa de key=val |
+  | log | Linhas de registo | Lista de cordas |
+  | state |Estado do lote | String |
+
+  > [!NOTE]
+  > O livy config atribuído é apresentado no painel de saída quando submete o script.
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>Integre com Azure HDInsight do Explorer
 
@@ -388,15 +407,16 @@ Pode visualizar a Tabela de Colmeia nos seus clusters diretamente através do ex
    Pode guardar todo o resultado como um ficheiro CSV, JSON ou Excel para um caminho local, ou apenas selecionar várias linhas.
 
 - Painel de mensagens
-   1. Quando o número de filas na tabela é superior a 100, vê-se a seguinte mensagem: "As primeiras 100 linhas são exibidas para a mesa da Colmeia."
-   2. Quando o número de filas na tabela é inferior ou igual a 100, vê-se a seguinte mensagem: "São exibidas 60 linhas para a mesa da Colmeia".
-   3. Quando não há conteúdo na mesa, vê-se a seguinte mensagem: `0 rows are displayed for Hive table.` "
 
-        >[!NOTE]
-        >
-        >No Linux, instale xclip para ativar os dados da tabela de cópias.
-        >
-        >![Spark & Hive para código de estúdio visual em Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+  1. Quando o número de filas na tabela é superior a 100, vê-se a seguinte mensagem: "As primeiras 100 linhas são exibidas para a mesa da Colmeia."
+  2. Quando o número de filas na tabela é inferior ou igual a 100, vê-se a seguinte mensagem: "São exibidas 60 linhas para a mesa da Colmeia".
+  3. Quando não há conteúdo na mesa, vê-se a seguinte mensagem: `0 rows are displayed for Hive table.` "
+
+     >[!NOTE]
+     >
+     >No Linux, instale xclip para ativar os dados da tabela de cópias.
+     >
+     >![Spark & Hive para código de estúdio visual em Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 
 ## <a name="additional-features"></a>Características adicionais
 
@@ -413,7 +433,7 @@ Spark & Hive for Visual Studio Code também suporta as seguintes funcionalidades
 
 ## <a name="reader-only-role"></a>Papel apenas para o leitor
 
-Os utilizadores que recebem o papel apenas para o leitor para o cluster não podem submeter empregos ao cluster HDInsight, nem ver a base de dados da Hive. Contacte o administrador de cluster para atualizar a sua função para [**Operador de Cluster HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) no [portal Azure](https://ms.portal.azure.com/). Se tiver credenciais Ambari válidas, pode ligar manualmente o cluster utilizando as seguintes orientações.
+Os utilizadores que recebem o papel apenas para o leitor para o cluster não podem submeter empregos ao cluster HDInsight, nem ver a base de dados da Hive. Contacte o administrador de cluster para atualizar a sua função para [**Operador de Cluster HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) no [portal Azure](https://portal.azure.com/). Se tiver credenciais Ambari válidas, pode ligar manualmente o cluster utilizando as seguintes orientações.
 
 ### <a name="browse-the-hdinsight-cluster"></a>Navegue no cluster HDInsight  
 
@@ -432,11 +452,11 @@ Ao submeter o trabalho a um cluster HDInsight, é solicitado a ligar o cluster s
 
    ![Ferramentas de colmeia de & faísca para senha de código do estúdio visual](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
 
-  > [!NOTE]
-  >
-  >Pode utilizar `Spark / Hive: List Cluster` para verificar o cluster ligado:
-  >
-  >![Ferramentas de hive & para leitor de código de estúdio visual ligado](./media/hdinsight-for-vscode/list-cluster-result1.png)
+   > [!NOTE]
+   >
+   >Pode utilizar `Spark / Hive: List Cluster` para verificar o cluster ligado:
+   >
+   >![Ferramentas de hive & para leitor de código de estúdio visual ligado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
 
@@ -467,6 +487,7 @@ Submeta um trabalho a um cluster HDInsight usando data lake storage gen2. É-lhe
 A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
 ## <a name="known-issues"></a>Problemas Conhecidos
+
 ### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>ms-python >=versão 2020.5.78807 não é suportado nesta extensão 
 
 "Falhou em ligar-me ao caderno do Jupyter." é uma edição conhecida para a versão python >=2020.5.78807. Recomenda-se que os utilizadores utilizem a versão **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** da ms-python para evitar este problema.

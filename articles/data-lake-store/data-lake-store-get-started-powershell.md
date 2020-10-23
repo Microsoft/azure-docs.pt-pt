@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ba51c96e3195f75a0ccf49baded67737f4665615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 485b14f85d68290c5447c885b9bc4974318f7952
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077743"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103735"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Começa com o Azure Data Lake Storage Gen1 usando a Azure PowerShell
 
@@ -36,7 +36,7 @@ Saiba como usar o Azure PowerShell para criar uma conta Azure Data Lake Storage 
 
 ## <a name="authentication"></a>Autenticação
 
-Este artigo utiliza uma abordagem de autenticação mais simples com a Data Lake Storage Gen1, onde é solicitado que introduza as suas credenciais de conta Azure. O nível de acesso à conta e sistema de ficheiros data lake é então regido pelo nível de acesso do utilizador registado. No entanto, existem outras abordagens para autenticar com a Data Lake Storage Gen1, que são a autenticação do utilizador final ou a autenticação de serviço-a-serviço. Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
+Este artigo utiliza uma abordagem de autenticação mais simples com a Data Lake Storage Gen1, onde é solicitado que introduza as suas credenciais de conta Azure. O nível de acesso à conta e sistema de ficheiros data lake é então regido pelo nível de acesso do utilizador registado. No entanto, existem outras abordagens para autenticar com a Data Lake Storage Gen1, que são a autenticação do utilizador final ou a autenticação de serviço-a-serviço. Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
 

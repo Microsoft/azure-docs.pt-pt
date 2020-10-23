@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589015"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427028"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitorização e alerta para Azure Key Vault
 
@@ -53,7 +53,7 @@ Uma vez que tenha começado a usar o cofre chave para armazenar os seus segredos
 3. Selecione **métricas** em **monitorização** 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-1.png)
+> ![Screenshot que realça a opção Métricas na secção de Monitorização.](../media/alert-1.png)
 
 4. Atualize o título da tabela para o que pretende ver no seu painel de instrumentos. 
 5. Selecione o âmbito. Neste exemplo, selecionaremos um único cofre de chaves. 
@@ -61,7 +61,7 @@ Uma vez que tenha começado a usar o cofre chave para armazenar os seus segredos
 7. Atualize o intervalo de tempo para as Últimas 24 Horas e atualize a granularidade temporal para 1 minuto. 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-2.png)
+> ![Screenshot que mostra a métrica de Availablility do Cofre Geral.](../media/alert-2.png)
 
 8. Repita os passos acima para as métricas de Saturação de Abóbada e Serviço API. Selecione **Pin to Dashboard** para guardar as suas métricas num painel de instrumentos. 
 
@@ -71,19 +71,19 @@ Uma vez que tenha começado a usar o cofre chave para armazenar os seus segredos
 9. Para monitorizar todos os tipos de operações no cofre da chave, utilize a Métrica total de **acessos de API de serviço** e selecione **Aplicar A Divisão por Tipo de Atividade**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-3.png)
+> ![Screenshot que mostra o botão De Divisão de Aplicação.](../media/alert-3.png)
 
 10. Para monitorizar os códigos de erro no cofre da chave, utilize a Métrica **de Resultados da API de Serviço Total** e selecione Aplicar A Divisão por Tipo de **Atividade**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-4.png)
+> ![Screenshot que mostra a métrica de Resultados da API do Serviço Total selecionado.](../media/alert-4.png)
 
 Agora vai ter um painel que se parece com isto. Pode clicar nos 3 pontos no topo direito de cada azulejo e pode reorganizar e redimensionar os azulejos conforme precisar. 
 
 Assim que guardar e publicar o dashboard, criará um novo recurso na sua subscrição Azure. Poderá vê-lo a qualquer momento, procurando por "dashboard partilhado". 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-5.png)
+> ![Screenshot que mostra o painel publicado.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Como configurar alertas no seu Cofre de Chaves 
 
@@ -101,20 +101,20 @@ Um grupo de ação é uma lista configurável de notificações e propriedades.
 3. Selecione **Ações de Gestão**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-6.png)
+> ![Screenshot que realça o botão 'Gerir acções'.](../media/alert-6.png)
 
 4. Selecione **+ Adicionar Grupo de Ação**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-7.png)
+> ![Screenshot que realça o botão + Add Action Group.](../media/alert-7.png)
 
 5. Escolha o **Tipo de Ação** para o seu Grupo de Ação. Neste exemplo, criaremos um alerta de e-mail.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-8.png)
+> ![Screenshot que destaca os campos necessários para adicionar um grupo de ação.](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-9.png)
+> ![Screenshot que mostra o que é necessário para adicionar um e-mail ou alerta de mensagem SMS.](../media/alert-9.png)
 
 6. Clique em **OK** na parte inferior da página. Criou com sucesso um grupo de ação. 
 
@@ -125,12 +125,12 @@ Agora que configuraste um grupo de ação, vamos configurar os limiares de alert
 1. Selecione o seu recurso de cofre chave no portal Azure e **selecione Alertas** em **Monitorização**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-10.png)
+> ![Screenshot que mostra a opção menu Alertas na secção De Monitorização.](../media/alert-10.png)
 
 2. Selecione **nova regra de alerta**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-11.png)
+> ![Screenshot que mostra o botão + Regra de Alerta Novo.](../media/alert-11.png)
 
 3. Selecione o âmbito da sua regra de alerta. Pode selecionar um único cofre ou vários. 
 
@@ -138,7 +138,7 @@ Agora que configuraste um grupo de ação, vamos configurar os limiares de alert
 > Por favor, note que quando estiver a selecionar vários cofres para o âmbito dos seus alertas, todos os cofres selecionados devem estar na mesma região. Terá de configurar regras de alerta separadas para cofres em diferentes regiões. 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-12.png)
+> ![Screenshot que mostra como pode selecionar um cofre.](../media/alert-12.png)
 
 4. Selecione as condições para os seus alertas. Pode escolher qualquer um dos seguintes sinais e definir a sua lógica de alerta. A equipa key Vault recomenda configurar os seguintes limiares de alerta. 
 
@@ -149,13 +149,13 @@ Agora que configuraste um grupo de ação, vamos configurar os limiares de alert
     + Códigos de erro totais superiores à média (Limiar Dinâmico) 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-13.png)
+> ![Screenshot que mostra onde seleciona condições para alertas.](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Exemplo 1: Configurar um limiar de alerta estático para a latência
 
 Selecione **a latência geral da API** como o nome de sinal
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-14.png)
+> ![Screenshot que mostra o nome de sinal de latência da API de serviço geral.](../media/alert-14.png)
 
 Consulte os seguintes parâmetros de configuração.
 
@@ -168,14 +168,14 @@ Consulte os seguintes parâmetros de configuração.
 + Selecione **Feito**  
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-15.png)
+> ![Screenshot que realça a lógica de alerta configurada.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Exemplo 2: Configurar um limiar de alerta dinâmico para a saturação do cofre 
 
 Quando utilizar um alerta dinâmico, poderá ver dados históricos do cofre-chave que selecionou. A área azul representa o uso médio do seu cofre chave. A área vermelha mostra picos que teriam desencadeado um alerta desde que outros critérios na configuração de alerta sejam cumpridos. Os pontos vermelhos mostram casos de violações em que os critérios para o alerta foram cumpridos durante a janela de tempo agregada. Pode alertar para o fogo depois de um certo número de violações dentro de um tempo definido. Se não pretender incluir dados passados, existe uma opção para excluir dados antigos abaixo em configurações avançadas. 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-16.png)
+> ![Screenshot que mostra um gráfico da saturação geral do cofre.](../media/alert-16.png)
 
 Consulte os seguintes parâmetros de configuração.
 
@@ -194,12 +194,12 @@ Consulte os seguintes parâmetros de configuração.
 5. Adicione o grupo de ação que configuraste
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-18.png)
+> ![Screenshot que mostra como adicionar um grupo de ação.](../media/alert-18.png)
 
 6. Ativar o alerta e atribuir uma gravidade
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-19.png)
+> ![Screenshot que mostra onde ativar o alerta e atribuir uma gravidade.](../media/alert-19.png)
 
 7. Criar o alerta 
 
@@ -211,4 +211,4 @@ Parabéns, criou agora com sucesso um painel de monitorização e alertas config
 ### <a name="example-email-alert"></a>Exemplo alerta de e-mail 
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot do portal Azure](../media/alert-20.png)
+> ![Screenshot que destaca as informações necessárias para configurar um alerta de e-mail.](../media/alert-20.png)

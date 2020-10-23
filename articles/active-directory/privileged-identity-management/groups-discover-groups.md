@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68795033d36ad0bcb36b7cd81cea0d848ecd5113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049014"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367844"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Trazer grupos de acesso privilegiados (pré-visualização) para a Gestão de Identidade Privilegiada
 
@@ -27,7 +27,7 @@ No Azure Ative Directory (Azure AD), pode atribuir funções integradas a Azure 
 
 ## <a name="identify-groups-to-manage"></a>Identificar grupos para gerir
 
-Pode criar um grupo atribuível a funções em Azure AD, conforme descrito na [Criação de um grupo atribuível a funções no Azure Ative Directory](../users-groups-roles/roles-groups-create-eligible.md). Tem de ser proprietário do grupo para o colocar sob gestão com Gestão de Identidade Privilegiada.
+Pode criar um grupo atribuível a funções em Azure AD, conforme descrito na [Criação de um grupo atribuível a funções no Azure Ative Directory](../roles/groups-create-eligible.md). Tem de ser proprietário do grupo para o colocar sob gestão com Gestão de Identidade Privilegiada.
 
 1. [Inscreva-se no Azure AD](https://aad.portal.azure.com) com permissões de função de Administrador de Função Privilegiada.
 1. Selecione **Grupos** e, em seguida, selecione o grupo atribuível a funções que pretende gerir em PIM. Pode pesquisar e filtrar a lista.

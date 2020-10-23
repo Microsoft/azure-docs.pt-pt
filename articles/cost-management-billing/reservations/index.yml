@@ -11,12 +11,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 04/30/2020
-  ms.openlocfilehash: 32d332ccf707b28d98494748130037f8cf6f87e3
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 0942b7236af96df7703feae1e5da06883e19d066
+  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89669414"
+  ms.lasthandoff: 10/17/2020
+  ms.locfileid: "92150846"
 landingContent:
 - title: Comprar reservas
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
     - text: Trocas e reembolsos das reservas
       url: exchange-and-refund-azure-reservations.md
     - text: Comprar uma reserva com pagamentos mensais
-      url: monthly-payments-reservations.md
+      url: ./prepare-buy-reservation.md
   - linkListType: how-to-guide
     links:
     - text: Renovar reservas
@@ -41,7 +41,7 @@ landingContent:
     - text: BD do Cosmos
       url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
     - text: SQL Database
-      url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      url: ../../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
     - text: Azure Data Explorer
       url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
     - text: Azure Databricks

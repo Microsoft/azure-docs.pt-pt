@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096339"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370445"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking em Azure VM recuperação de desastres
 
@@ -29,7 +29,7 @@ Saiba como a Recuperação do Site proporciona recuperação de desastres para [
 
 O diagrama a seguir retrata um ambiente típico de Azure, para aplicações em execução em VMs Azure:
 
-![ambiente cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagrama que retrata um ambiente típico de Azure para aplicações em execução em VMs Azure.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Se estiver a utilizar a Azure ExpressRoute ou uma ligação VPN da sua rede no local para a Azure, o ambiente é o seguinte:
 
@@ -41,8 +41,8 @@ Normalmente, as redes são protegidas utilizando firewalls e grupos de seguranç
 > A utilização de um representante autenticado para controlar a conectividade da rede não é suportada pela Recuperação do Site, e a replicação não pode ser ativada.
 
 >[!NOTE]
-> A filtragem baseada em endereços IP não deve ser realizada para controlar a conectividade de saída.
-> Os endereços IP de recuperação do local de Azure não devem ser adicionados na tabela de encaminhamento Azure para controlar a conectividade de saída.
+>- A filtragem baseada em endereços IP não deve ser realizada para controlar a conectividade de saída.
+>- Os endereços IP de recuperação do local de Azure não devem ser adicionados na tabela de encaminhamento Azure para controlar a conectividade de saída.
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Requerida autorização e autenticação para os URL
 Ao utilizar o NSG para controlar a conectividade de saída, estas etiquetas de serviço precisam de ser permitidas.
 
 - Para as contas de armazenamento na região de origem:
-    - Crie uma regra NSG baseada em [serviço de armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.
+    - Crie uma regra NSG baseada em [serviço de armazenamento](../virtual-network/network-security-groups-overview.md#service-tags) para a região de origem.
     - Permitir estes endereços para que os dados possam ser escritos na conta de armazenamento de cache, a partir do VM.
-- Criar uma regra NSG baseada em etiquetas de [serviço Azure Ative (AAD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD
+- Criar uma regra NSG baseada em etiquetas de [serviço Azure Ative (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) para permitir o acesso a todos os endereços IP correspondentes ao AAD
 - Crie uma regra NSG baseada em tags do EventsHub para a região alvo, permitindo o acesso à monitorização da Recuperação do Local.
 - Crie uma regra NSG baseada em etiquetas de serviço AzureSiteRecovery para permitir o acesso ao serviço de Recuperação de Locais em qualquer região.
 - Crie uma regra NSG baseada em etiquetas AzureKeyVault. Isto é necessário apenas para permitir a replicação de máquinas virtuais ativadas por ADE via portal.

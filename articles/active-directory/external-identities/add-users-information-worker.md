@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba9a227956e7879a7c0f49e0534146fa01a49759
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909745"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442223"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores da sua organização podem convidar utilizadores convidados para uma aplicação
 
@@ -28,7 +28,7 @@ Depois de um utilizador convidado ter sido adicionado ao diretório em Azure AD,
  - Configure a app para self-service e atribua o grupo à app
 
 > [!NOTE]
-> Este artigo descreve como configurar a gestão de self-service para galerias e aplicações baseadas em SAML que adicionou ao seu inquilino AZure AD. Também pode [configurar grupos microsoft 365 self-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para que os seus utilizadores possam gerir o acesso aos seus próprios grupos Microsoft 365. Para obter mais formas de os utilizadores partilharem ficheiros e aplicações do Office com utilizadores [convidados, consulte o acesso do Hóspede em grupos microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [ficheiros share SharePoint ou pastas](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> Este artigo descreve como configurar a gestão de self-service para galerias e aplicações baseadas em SAML que adicionou ao seu inquilino AZure AD. Também pode [configurar grupos microsoft 365 self-service](../users-groups-roles/groups-self-service-management.md) para que os seus utilizadores possam gerir o acesso aos seus próprios grupos Microsoft 365. Para obter mais formas de os utilizadores partilharem ficheiros e aplicações do Office com utilizadores [convidados, consulte o acesso do Hóspede em grupos microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [ficheiros share SharePoint ou pastas](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Convide um utilizador convidado para uma aplicação do Painel de Acesso
 
@@ -75,7 +75,7 @@ Depois de uma aplicação ser configurada para self-service, os proprietários d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A gestão de aplicativos self-service requer alguma configuração inicial por um Administrador Global e um administrador AD Azure. Como parte desta configuração, irá configurar a app para self-service e atribuir um grupo à app que o proprietário da aplicação pode gerir. Também pode configurar o grupo para permitir que qualquer pessoa solicite a adesão, mas requer a aprovação do proprietário do grupo. (Saiba mais sobre [a gestão do grupo self-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+A gestão de aplicativos self-service requer alguma configuração inicial por um Administrador Global e um administrador AD Azure. Como parte desta configuração, irá configurar a app para self-service e atribuir um grupo à app que o proprietário da aplicação pode gerir. Também pode configurar o grupo para permitir que qualquer pessoa solicite a adesão, mas requer a aprovação do proprietário do grupo. (Saiba mais sobre [a gestão do grupo self-service](../users-groups-roles/groups-self-service-management.md).) 
 
 > [!NOTE]
 > Não é possível adicionar utilizadores convidados a um grupo dinâmico ou a um grupo sincronizado com o Ative Directory no local.
@@ -105,8 +105,8 @@ A gestão de aplicativos self-service requer alguma configuração inicial por u
 2. No painel de navegação, selecione **Azure Ative Directory**.
 3. Em **Gestão**, selecione **Aplicações da Empresa**Todas as  >  **aplicações**.
 4. Na lista de candidaturas, encontre e abra a aplicação.
-5. Em **Manage**, selecione **Single sign-on**e configurar o pedido de inscrição única. (Para mais detalhes, consulte [como gerir um único s-on para aplicações empresariais](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
-6. Em **Manage**, selecione **Self-service**e crie acesso a aplicativos de self-service. (Para mais detalhes, consulte [como utilizar o acesso a aplicativos self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+5. Em **Manage**, selecione **Single sign-on**e configurar o pedido de inscrição única. (Para mais detalhes, consulte [como gerir um único s-on para aplicações empresariais](../manage-apps/view-applications-portal.md).)
+6. Em **Manage**, selecione **Self-service**e crie acesso a aplicativos de self-service. (Para mais detalhes, consulte [como utilizar o acesso a aplicativos self-service](../manage-apps/access-panel-manage-self-service-access.md).) 
 
     > [!NOTE]
     > Para a definição **Para que grupo deve ser adicionado os utilizadores atribuídos?** Selecione o grupo que criou na secção anterior.

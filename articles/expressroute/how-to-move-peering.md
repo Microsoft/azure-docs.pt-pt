@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
-ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401423"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206293"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Mover um peering público para o peering da Microsoft)
 
@@ -31,7 +31,7 @@ Para se ligar ao olho da Microsoft, é necessário configurar e gerir o NAT. O s
 > [!Warning]
 > O conjunto IP do NAT anunciado para a Microsoft não deve ser anunciado à Internet. Tal irá interromper a conectividade a outros serviços Microsoft.
 
-Consulte [o encaminhamento assimétrico com vários caminhos](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) de rede para ressalvas de encaminhamento assimétrico antes de configurar o olhar da Microsoft.
+Consulte [o encaminhamento assimétrico com vários caminhos](./expressroute-asymmetric-routing.md) de rede para ressalvas de encaminhamento assimétrico antes de configurar o olhar da Microsoft.
 
 * Se estiver a utilizar o espreitamento público e tiver atualmente regras de rede IP para endereços IP públicos que são utilizados para aceder ao [Azure Storage](../storage/common/storage-network-security.md) ou [à Base de Dados Azure SQL,](../azure-sql/database/vnet-service-endpoint-rule-overview.md)tem de se certificar de que o pool NAT IP configurado com o estojo da Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento Azure ou a conta Azure SQL.<br>
 * Para se deslocar para a Microsoft sem tempo de inatividade, utilize os passos deste artigo na ordem em que são apresentados.

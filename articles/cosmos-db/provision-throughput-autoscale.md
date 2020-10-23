@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570731"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282103"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contentores e bases de dados da Azure Cosmos com produção de escala automática
 
@@ -85,6 +85,6 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 * Reveja as [FAQ de escala automática.](autoscale-faq.md)
 * Saiba como escolher entre a [produção manual e autoescala.](how-to-choose-offer.md)
 * Saiba como providenciar a [produção de autoescalação numa base de dados ou contentor Azure Cosmos](how-to-provision-autoscale-throughput.md).
-* Saiba mais sobre [a partição](partition-data.md) em Azure Cosmos DB.
+* Saiba mais sobre [a partição](partitioning-overview.md) em Azure Cosmos DB.
 
 

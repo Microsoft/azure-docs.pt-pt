@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395167"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331554"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
 Este artigo fornece uma descrição geral sobre o que significa mover um circuito Azure ExpressRoute do modelo de implementação clássica Azure Resource Manager.
@@ -85,7 +85,7 @@ Esta secção descreve o que é suportado para circuitos ExpressRoute:
 Esta secção descreve o que não é suportado para circuitos ExpressRoute:
 
 * Gerir o ciclo de vida de um circuito ExpressRoute do modelo de implementação clássica.
-* Suporte para Controlo de Acesso Baseado em Funções (RBAC) para o modelo de implementação clássica. Não pode executar controlos RBAC para um circuito no modelo de implementação clássica. Qualquer administrador/coadministrador da subscrição pode associar ou desassociar redes virtuais ao circuito.
+* Suporte de controlo de acesso baseado em funções (Azure RBAC) para o modelo de implementação clássico. Não é possível realizar controlos Azure RBAC para um circuito no modelo clássico de implantação. Qualquer administrador/coadministrador da subscrição pode associar ou desassociar redes virtuais ao circuito.
 
 ## <a name="configuration"></a>Configuração
 Siga as instruções descritas em [Mover um circuito ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](expressroute-howto-move-arm.md).

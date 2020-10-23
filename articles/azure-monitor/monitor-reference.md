@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435410"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461809"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorizado pelo Azure Monitor?
 Este artigo descreve as diferentes aplicações e serviços que são monitorizados pelo Azure Monitor. 
@@ -61,7 +61,7 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Active Directory B2C | Não | Não | Não |  |
 |Active Directory Domain Services | Não | Sim | Não |  |
 |Registo de atividades | Não | Sim | Não | |
-|Proteção Avançada Contra Ameaças | Não | Não | Não |  |
+|Advanced Threat Protection | Não | Não | Não |  |
 |Assistente | Não | Não | Não |  |
 |AI Builder | Não | Não | Não |  |
 |Analysis Services | Sim | Sim | Não |  |
@@ -138,21 +138,21 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Open Datasets | Não | Não | Não |  |
 |Política | Não | Não | Não |  |
 |Power BI Embedded | Sim | Sim | Não |  |
-|Ligação Privada | Não | Não | Não |  |
+|Private Link | Não | Não | Não |  |
 |Plataforma de Comunicação de Spool de Projeto | Não | Não | Não |  |
 |Red Hat OpenShift | Não | Não | Não |  |
 |Cache de Redis | Sim | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
-|Gráfico de Recursos | Não | Não | Não |  |
+|Resource Graph | Não | Não | Não |  |
 |Resource Manager | Não | Não | Não |  |
 |Pesquisa de Varejo - por Bing | Não | Não | Não |  |
 |Pesquisa | Sim | Sim | Não |  |
 |Service Bus | Sim | Sim | Não |  |
 |Service Fabric | Não | Sim | Não | Agente necessário para monitorizar o sistema operativo dos hóspedes e os fluxos de trabalho.  |
 |Portal de Inscrição | Não | Não | Não |  |
-|Site Recovery | Não | Sim | Não |  |
+|Recuperação de sites | Não | Sim | Não |  |
 |Serviço cloud de primavera | Não | Não | Não |  |
 |Azure Synapse Analytics | Sim | Sim | Não |  |
-|SQL Database | Sim | Sim | Não |  |
+|Base de Dados SQL | Sim | Sim | Não |  |
 |SQL Server Stretch Database | Sim | Sim | Não |  |
 |Pilha | Não | Não | Não |  |
 |Armazenamento | Sim | Não | [Sim](insights/storage-insights-overview.md) |  |
@@ -170,13 +170,26 @@ A tabela que se segue lista os serviços Azure e os dados que recolhem no Azure 
 |Gateway de VPN | Sim | Sim | Não |  |
 |Windows Virtual Desktop | Não | Não | Não |  |
 
+## <a name="virtual-machine-agents"></a>Agentes de máquina virtual
+A tabela que se segue lista os agentes que podem recolher dados do sistema operativo dos hóspedes das máquinas virtuais e enviar dados para o Monitor. Cada agente pode recolher dados diferentes e enviá-lo para Métricas ou Registos no Azure Monitor. 
+
+Consulte [a visão geral dos agentes do Azure Monitor](platform/agents-overview.md) para obter mais informações sobre os dados que cada agente pode recolher.
+
+| Agente |  Métricas | Registos |
+|:---|:---|:---|:---|
+| [Agente do Monitor Azure (pré-visualização)](platform/azure-monitor-agent-overview.md) | Sim | Sim |
+| [Agente do Log Analytics](platform/log-analytics-agent.md) | Não | Sim|
+| [Extensão de diagnóstico](platform/diagnostics-extension-overview.md) | Sim | Não |
+| [Agente telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Sim | Não |
+| [Agente de Dependência](insights/vminsights-enable-overview.md) | Não | Sim |
+
 
 ## <a name="product-integrations"></a>Integrações de produtos
 Os serviços e soluções na tabela seguinte armazenam os seus dados num espaço de trabalho do Log Analytics para que possa ser analisado com outros dados de registo recolhidos pelo Azure Monitor.
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automatização do Azure](../automation/index.yml) | Gerir as atualizações do sistema operativo e rastrear as alterações nos computadores Windows e Linux. Ver [Change Tracking](../automation/change-tracking.md) and Update [Management](../automation/update-management/update-mgmt-overview.md). |
+| [Automatização do Azure](../automation/index.yml) | Gerir as atualizações do sistema operativo e rastrear as alterações nos computadores Windows e Linux. Ver [Change Tracking](../automation/change-tracking/overview.md) and Update [Management](../automation/update-management/update-mgmt-overview.md). |
 | [Proteção de Informação Azure ](/azure/information-protection/) | Classifique e proteja opcionalmente documentos e e-mails. Consulte [a Central de Informação para Proteção de Informações Azure](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro de Segurança do Azure](../security-center/index.yml) | Recolher e analisar eventos de segurança e realizar análises de ameaças. Ver [recolha de dados no Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Consulte [as fontes de dados do Connect](../sentinel/connect-data-sources.md). |

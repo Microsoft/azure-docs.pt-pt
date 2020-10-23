@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372362"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132300"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -180,7 +180,7 @@ Os seguintes âmbitos são suportados para CPSs com clientes com um Contrato de 
 
 Apenas os utilizadores com as funções *Administrador global* e *Agente de administrador* podem gerir e ver os custos para contas de faturação, perfis de faturação e clientes diretamente no inquilino do Azure do parceiro. Para obter mais informações sobre as funções do centro de parceiros, veja [Assign users roles and permissions](/partner-center/permissions-overview) (Atribuir funções e permissões de utilizadores).
 
-O Azure Cost Management apenas suporta clientes de parceiros CSP se os clientes tiverem um Contrato de Cliente Microsoft. Para clientes com suporte de CSP que não tenham ainda um Contrato de Cliente Microsoft, veja [Centro de Parceiros](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+O Azure Cost Management apenas suporta clientes de parceiros CSP se os clientes tiverem um Contrato de Cliente Microsoft. Para clientes com suporte de CSP que não tenham ainda um Contrato de Cliente Microsoft, veja [Centro de Parceiros](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Os grupos de gestão nos âmbitos CSP não possuem suporte para o Cost Management. Se tiver uma subscrição CSP e definir o âmbito para um grupo de gestão na análise de custos, verá um erro semelhante a:
 

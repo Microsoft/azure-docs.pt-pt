@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331204"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362404"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -73,7 +73,7 @@ Neste projeto, você definirá o público que irá consumir e monitorizar relat�
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas.](https://aka.ms/deploymentplans) Além disso, certifique-se de que as funções das partes interessadas no projeto são bem compreendidas documentando as partes interessadas e os seus contributos e contas do projeto.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas.](../fundamentals/active-directory-deployment-plans.md) Além disso, certifique-se de que as funções das partes interessadas no projeto são bem compreendidas documentando as partes interessadas e os seus contributos e contas do projeto.
 
 ### <a name="plan-communications"></a>Planear as comunicações
 
@@ -133,7 +133,7 @@ Saiba como [instalar e utilizar vistas de análise de registos para registos de 
 
 Os registos de encaminhamento para um centro de eventos Azure permitem a integração com ferramentas SIEM de terceiros. Esta integração permite-lhe combinar dados de registo de atividade Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. 
 
-Saiba como [transmitir registos a um hub de eventos](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Saiba como [transmitir registos a um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Plan Operations and Security for Azure AD reporting and monitoring
 
@@ -151,7 +151,7 @@ As seguintes funções podem ler relatórios Azure AD:
 
 * Leitor de Relatórios
 
-Saiba mais sobre [as funções administrativas do Azure Ad](../users-groups-roles/directory-assign-admin-roles.md).
+Saiba mais sobre [as funções administrativas do Azure Ad](../roles/permissions-reference.md).
 
 *Aplique sempre o conceito de privilégios mínimos para reduzir o risco de um compromisso de conta.* Considere implementar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) para garantir ainda mais a sua organização.
 

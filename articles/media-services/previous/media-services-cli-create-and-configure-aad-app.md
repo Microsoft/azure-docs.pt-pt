@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: ceb01c97ec50f4e2a7aa146448c3da662d4314ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258355"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427239"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Use o Azure CLI para criar uma app AD Azure e configurá-la para aceder à API dos Media Services
 
@@ -67,7 +67,7 @@ Por exemplo, pode ser um dos seguintes níveis:
 
 Para mais informações, consulte [Criar um diretor de serviço Azure com o CLI Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Consulte também [o Controlo de Acesso Role-Based com a interface da linha de comando Azure.](../../role-based-access-control/role-assignments-cli.md) 
+Consulte também [adicionar ou remover atribuições de funções Azure utilizando O Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

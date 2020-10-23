@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1922ea9afd69366e534049f5a7a350cf39e52dee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760206"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371584"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Links na página não funcionam para uma aplicação de Procuração de Aplicação
 
@@ -37,7 +37,7 @@ Há três formas de resolver esta questão. As escolhas abaixo estão listadas e
     Se alterar o URL interno mas não quiser alterar a página de aterragem para os utilizadores, altere o URL da página inicial para o URL interno previamente publicado. Isto pode ser feito indo para "Azure Ative Directory" - &gt; Registos de Aplicações - &gt; selecione a aplicação - &gt; Branding. Na secção de marca, vê o campo "HOME Page URL", que pode ajustar para ser a página de aterragem desejada. Se ainda estiver a utilizar as antigas inscrições da App, o separador propriedades mostraria os detalhes do "URL de página inicial". 
     
     > [!IMPORTANT]
-    > Para escoar as alterações acima, você precisa de direitos para modificar objetos de aplicação em Azure AD. O utilizador precisa de ser atribuído função [de Administrador de Aplicação](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificação de aplicação em Azure AD ao utilizador.
+    > Para escoar as alterações acima, você precisa de direitos para modificar objetos de aplicação em Azure AD. O utilizador precisa de ser atribuído função [de Administrador de Aplicação](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) que concede direitos de modificação de aplicação em Azure AD ao utilizador.
     >
 
 2.  Se as suas aplicações utilizarem nomes de domínio totalmente qualificados (FQDNs), utilize [domínios personalizados](application-proxy-configure-custom-domain.md) para publicar as suas aplicações. Esta funcionalidade permite que o mesmo URL seja utilizado tanto internamente como externamente.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c0d3ece75d15ae07091f613348389f845ec74ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262520"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425915"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Aceder à API de Serviços de Multimédia do Azure com a autenticação do Azure AD 
 
@@ -29,7 +29,7 @@ ms.locfileid: "89262520"
 
 A Azure Media Services API é uma API RESTful. Pode usá-lo para realizar operações em recursos de mídia utilizando uma API REST ou utilizando SDKs de clientes disponíveis. A Azure Media Services oferece um cliente de Media Services SDK para a Microsoft .NET. Para obter autorização para aceder aos recursos dos Serviços de Multimédia e à API dos Serviços de Multimédia, primeiro tem de se autenticar. 
 
-Os Serviços de Comunicação Social suportam [a autenticação baseada em Azure Ative Directory (Azure AD).](../../active-directory/fundamentals/active-directory-whatis.md) O serviço Azure Media REST exige que o utilizador ou aplicação que faz os pedidos de API REST tenha a função **de Contribuinte** ou **Proprietário** para aceder aos recursos. Para mais informações, consulte [Começar com Role-Based Controlo de Acesso no portal Azure.](../../role-based-access-control/overview.md)  
+Os Serviços de Comunicação Social suportam [a autenticação baseada em Azure Ative Directory (Azure AD).](../../active-directory/fundamentals/active-directory-whatis.md) O serviço Azure Media REST exige que o utilizador ou aplicação que faz os pedidos de API REST tenha a função **de Contribuinte** ou **Proprietário** para aceder aos recursos. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).  
 
 Este documento apresenta uma visão geral de como aceder à API dos Serviços de Mídia utilizando ASE REST ou .NET.
 
@@ -153,7 +153,7 @@ Os seguintes artigos são visão geral dos conceitos de autenticação AZure AD:
 
 - [Cenários de autenticação abordados pela Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
 - [Adicionar, atualizar ou remover uma aplicação no Azure AD](../../active-directory/develop/quickstart-register-app.md)
-- [Configure e gere Role-Based Controlo de Acesso utilizando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

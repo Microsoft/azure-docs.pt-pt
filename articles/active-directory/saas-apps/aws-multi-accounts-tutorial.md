@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
-ms.date: 08/07/2020
+ms.topic: tutorial
+ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713442"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -28,12 +28,10 @@ A integração da Amazon Web Services (AWS) com a Azure AD proporciona-lhe os se
 - Pode permitir que os seus utilizadores se inscrevam automaticamente nos Serviços Web da Amazon (AWS) (Sign-on Único) com as suas contas AD Azure.
 - Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, veja o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-
-![O diagrama mostra Azure A D com uma aplicação W S ligada a três contas A W S através de I D P iniciado S S O.](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Por favor, note que ligar uma aplicação AWS a todas as suas contas AWS não é a nossa abordagem recomendada. Em vez disso, recomendamos que utilize [esta](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem para configurar várias instâncias da conta AWS para várias instâncias de aplicações AWS em Azure AD. Só deve utilizar esta abordagem se tiver poucas Contas e Funções AWS, este modelo não é escalável à medida que as contas e funções AWS dentro destas contas crescem. Esta abordagem não utiliza a funcionalidade de importação de AWS Role utilizando o Provisioning do Utilizador Azure AD, pelo que tem de adicionar/atualizar/eliminar manualmente as funções. Para outras limitações nesta abordagem, consulte os detalhes abaixo.
+> Por favor, note que ligar uma aplicação AWS a todas as suas contas AWS não é a nossa abordagem recomendada. Em vez disso, recomendamos que utilize [esta](./amazon-web-service-tutorial.md) abordagem para configurar várias instâncias da conta AWS para várias instâncias de aplicações AWS em Azure AD. Só deve utilizar esta abordagem se tiver poucas Contas e Funções AWS, este modelo não é escalável à medida que as contas e funções AWS dentro destas contas crescem. Esta abordagem não utiliza a funcionalidade de importação de AWS Role utilizando o Provisioning do Utilizador Azure AD, pelo que tem de adicionar/atualizar/eliminar manualmente as funções. Para outras limitações nesta abordagem, consulte os detalhes abaixo.
 
 **Por favor, note que não recomendamos a utilização desta abordagem por seguintes razões:**
 
@@ -65,13 +63,12 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
 * Amazon Web Services (AWS) suporta **SP e IDP** iniciado SSO
-* Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar Serviços Web amazon (AWS) da galeria
 
 Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é necessário adicionar a Amazon Web Services (AWS) da galeria à sua lista de aplicações geridas para o SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -80,7 +77,7 @@ Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é nece
 
 1. Assim que a aplicação for adicionada, vá à página **Propriedades** e copie o **ID do objeto.**
 
-    ![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
+    ![ID de objeto](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
@@ -90,7 +87,7 @@ Para um único sign-on funcionar, o Azure AD precisa de saber o que o utilizador
 
 Na Amazon Web Services (AWS), atribua o valor do nome de **utilizador** em Azure AD como o valor do nome de **utilizador** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD com a Amazon Web Services (AWS), você precisa completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com a Amazon Web Services (AWS), execute os seguintes passos:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
 2. **[Configure o Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
@@ -102,7 +99,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 **Para configurar o Azure AD um único sinal de acesso com a Amazon Web Services (AWS), execute os seguintes passos:**
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações da **Amazon Web Services (AWS),** selecione **Single sign-on**.
+1. No portal Azure, na página de integração de aplicações da **Amazon Web Services (AWS),** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -122,7 +119,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome  | Atributo de origem  | Espaço de Nomes |
+    | Name  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
@@ -186,6 +183,9 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Configurar papéis de Sign-On único][16]
 
+    > [!NOTE]
+    > O comprimento combinado da Role ARN e do prestador de SAML ARN para uma função importada deve ser de 240 caracteres ou menos.
+
 1. Na página **'Criar' função,** execute os seguintes passos:  
 
     ![Configure a Confiança Sign-On Única][19]
@@ -204,7 +204,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Na secção **Adicionar tags (opcional),** execute os seguintes passos:
 
-    ![A screenshot mostra o painel de tags Add onde pode adicionar pares de valor de teclas.](./media/aws-multi-accounts-tutorial/config2.png)
+    ![Adicionar etiquetas](./media/aws-multi-accounts-tutorial/config2.png)
 
     a. Na caixa de texto **chave,** insira o nome-chave para ex: Azureadtest.
 
@@ -235,7 +235,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Crie novos grupos com o mesmo nome que o IAM Roles criados anteriormente e anotar os **IDs** de objeto destes novos grupos.
 
-    ![A screenshot mostra onde introduzir a conta I D no painel de visão geral. ](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+    ![Selecione Acesso ao Administrador1](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Assine a partir da conta AWS atual e faça login com outra conta onde pretende configurar um único sinal com Azure AD.
 
@@ -247,7 +247,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Clique nas funções para copiar valores **de Role ARN** e **Entidades Fidedignas.** Você precisa destes valores para todos os papéis que você precisa para criar em Azure AD.
 
-    ![A screenshot mostra o painel resumo com o separador de relações trust selecionado.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
+    ![Configuração de funções2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-role-summary.png)
 
 1. Execute o passo acima para todas as funções em todas as contas e guarde todas elas em formato **Role ARN,Entidades Fidedignas** num bloco de notas.
 
@@ -257,11 +257,11 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     b. Precisa de permissões suficientes para criar os papéis. Clique em **modificar permissões** para obter as permissões necessárias.
 
-    ![A screenshot mostra a janela de autenticação do Explorador de gráficos com um link de permissões modificar.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+    ![Caixa de diálogo microsoft graph explorer1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
     c. Selecione as permissões seguintes da lista (se ainda não as tiver) e clique em "Modificar permissões" 
 
-    ![A screenshot mostra três permissões selecionadas: Diretório.AccessAsUser.All, Diretório.Read.All e Diretório.ReadWrite.All.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+    ![Caixa de diálogo microsoft graph explorer2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
     d. Isto irá pedir-lhe para iniciar sessão de novo e aceitar o consentimento. Depois de aceitar o consentimento, inicia sessão no Microsoft Graph Explorer novamente.
 
@@ -271,17 +271,17 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     Se estiver a usar vários diretórios, então pode usar o seguinte padrão, que tem o seu domínio principal nele  `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![A screenshot mostra GET, beta e Run Query selecionados.](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-
+    ![Caixa de diálogo microsoft Graph Explorer3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
+  
     f. Da lista de diretores de serviços recolhidos, obtenha o que precisa para modificar. Também pode utilizar o Ctrl+F para pesquisar a aplicação a partir de todos os ServicePrincipals listados. Pode utilizar a seguinte consulta utilizando o **ID do Objeto Principal** de Serviço que copiou da página Azure AD Properties para chegar ao respetivo Principal de Serviço.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    ![A screenshot mostra usando a consulta para obter o objeto principal de serviço.](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    ![Caixa de diálogo microsoft graph explorer4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
     exemplo, Extrair a propriedade appRoles do objeto principal do serviço.
 
-    ![A screenshot mostra detalhes do objeto principal do serviço.](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    ![Caixa de diálogo microsoft graph explorer5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
     h. Agora precisa de gerar novas funções para a sua aplicação. 
 
@@ -331,7 +331,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     j. Volte para o Microsoft Graph Explorer e altere o método de **GET** para **PATCH**. Remeje o objeto principal de serviço para ter funções desejadas atualizando a propriedade appRoles semelhante à acima mostrada no exemplo. Clique **em 'Executar' para** executar a operação de correção. Uma mensagem de sucesso confirma a criação do papel para a sua aplicação Amazon Web Services.
 
-    ![A screenshot mostra o Graph Explorer com o método Patch selecionado.](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Caixa de diálogo microsoft Graph Explorer6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Depois de o Diretor de Serviço ser corrigido com mais funções, pode atribuir Utilizadores/Grupos às respetivas funções. Isto pode ser feito indo ao portal e navegando para a aplicação Amazon Web Services. Clique no separador **Utilizadores e Grupos** na parte superior.
 
@@ -339,14 +339,14 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Assim que os Grupos forem criados, selecione o grupo e atribua à aplicação.
 
-    ![Screenshot mostra Adicionar Atribuição com utilizadores e grupos selecionados para abrir o painel de Utilizadores e grupos.](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+    ![Configurar único Sign-On Adicionar1](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
     > [!Note]
     > Os grupos aninhados não são apoiados na atribuição de grupos.
 
 1. Para atribuir a função ao grupo, selecione a função e clique no botão **Atribuir** na parte inferior da página.
 
-    ![Screenshot mostra Add Assignment com um grupo selecionado.](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
+    ![Configurar único Sign-On Add2](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
     > [!Note]
     > Por favor, note que precisa de refrescar a sua sessão no portal Azure para ver novas funções.
@@ -357,21 +357,17 @@ Nesta secção, testa a configuração de inscrição única AZure AD utilizando
 
 Quando clicar no azulejo amazon Web Services (AWS) no Painel de Acesso, deverá obter a página de aplicação da Amazon Web Services (AWS) com opção de selecionar o papel.
 
-![A screenshot mostra a página de aplicação A W S, onde pode selecionar uma função.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
+![Teste um único sinal-on1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
 Também pode verificar a resposta da SAML para ver as funções serem passadas como reivindicações.
 
-![A screenshot mostra parte de uma resposta SAML com valores de atributo.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
+![Teste de sinal único 2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../active-directory-saas-access-panel-introduction.md)
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Passos seguintes
 
-* [Como configurar o provisionamento utilizando APIs de Gráfico de MS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
-* [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [Como proteger a Amazon Web Services (AWS) com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/protect-aws)
+Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

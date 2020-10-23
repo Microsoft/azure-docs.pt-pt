@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bfeafdea149cd41ea35562c2ff4b9e67a99b95d0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058527"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461265"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -42,10 +42,10 @@ Também pode exercer APIs de controlo do plano interagindo com as Gémeas Digita
 ## <a name="overview-data-plane-apis"></a>Visão geral: APIs do plano de dados
 
 As APIs do plano de dados são as APIs Azure Digital Twins usadas para gerir os elementos dentro da sua instância Azure Digital Twins. Incluem operações como criar rotas, carregar modelos, criar relacionamentos e gerir gémeos. Podem ser amplamente divididos nas seguintes categorias:
-* **DigitalTwinsModels** - A categoria DigitalTwinsModels contém APIs para gerir os [modelos](concepts-models.md) num caso Azure Digital Twins. As atividades de gestão incluem upload, validação, recuperação e eliminação de modelos da autoria em DTDL.
+* **DigitalTwinModels** - A categoria DigitalTwinModels contém APIs para gerir os [modelos](concepts-models.md) num caso Azure Digital Twins. As atividades de gestão incluem upload, validação, recuperação e eliminação de modelos da autoria em DTDL.
 * **DigitalTwins** - A categoria DigitalTwins contém as APIs que permitem aos desenvolvedores criar, modificar e eliminar [gémeos digitais](concepts-twins-graph.md) e as suas relações num exemplo de Azure Digital Twins.
 * **Consulta** - A categoria de Consulta permite que os desenvolvedores [encontrem conjuntos de gémeos digitais no gráfico gémeo](how-to-query-graph.md) entre relacionamentos.
-* **EventRoutes** - A categoria EventRoutes contém APIs para [encaminhar dados,](concepts-route-events.md)através do sistema e para serviços a jusante.
+* **Rotas de Eventos** - A categoria Rotas de Eventos contém APIs para [encaminhar dados,](concepts-route-events.md)através do sistema e para serviços a jusante.
 
 A versão API do plano de dados mais atual para pré-visualização pública é _**2020-10-31**_.
 
@@ -56,14 +56,15 @@ Para utilizar as APIs do plano de dados:
 * Pode utilizar o **.NET (C#)** SDK. Para utilizar o .NET SDK...
    - pode ver e adicionar o pacote do NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - você pode encontrar a fonte SDK, incluindo uma pasta de amostras, em GitHub: [Azure IoT Digital Twins biblioteca cliente para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - pode ver a [documentação de referência do SDK.](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview)
+   - pode ver a [documentação de referência do SDK.](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview)
    - pode ver informações detalhadas e exemplos de utilização continuando na secção [.NET (C#) SDK (plano de dados)](#net-c-sdk-data-plane) deste artigo.
-* Pode utilizar o **JavaScript** SDK. Para utilizar o JavaScript SDK...
-   - pode ver e instalar o pacote a partir de npm: [Biblioteca de clientes Azure Azure Digital Twins para JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
-   - pode ver a [documentação de referência do SDK.](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)
 * Pode usar o **Java** SDK. Para usar o Java SDK...
    - pode ver e instalar a embalagem a partir de Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - você pode encontrar a fonte SDK em GitHub: [Azure IoT Digital Twins biblioteca de clientes para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - você pode ver a [documentação de referência SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
+* Pode utilizar o **JavaScript** SDK. Para utilizar o JavaScript SDK...
+   - pode ver e instalar o pacote a partir de npm: [Biblioteca de clientes Azure Azure Digital Twins para JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
+   - pode ver a [documentação de referência do SDK.](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)
 * Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [*Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
 
 Também pode exercitar APIs de plano de data interagindo com a Azure Digital Twins através do [CLI](how-to-use-cli.md).
@@ -95,8 +96,9 @@ Autenticar contra o serviço:
 
 ```csharp
 // Authenticate against the service and create a client
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 ```
 
 Faça upload de um modelo e modelos de lista:

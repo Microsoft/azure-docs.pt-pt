@@ -1,27 +1,20 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/27/2020
+ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89052463"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92328449"
 ---
-Pode criar um VNet com o modelo de implementação do Gestor de Recursos e o portal Azure seguindo estes passos. Para obter mais informações sobre redes virtuais, consulte [a visão geral da Rede Virtual.](../articles/virtual-network/virtual-networks-overview.md)
-
->[!NOTE]
->Ao utilizar uma rede virtual como parte de uma arquitetura de premissas cruzadas, certifique-se de coordenar com o seu administrador de rede no local para esculpir uma gama de endereços IP que pode usar especificamente para esta rede virtual. Se existir uma gama de endereços duplicada em ambos os lados da ligação VPN, o tráfego será desviado de forma inesperada. Além disso, se pretender ligar esta rede virtual a outra rede virtual, o espaço de endereço não pode sobrepor-se à outra rede virtual. Planeie a configuração da sua rede em conformidade.
->
->
-
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Nos **recursos de pesquisa, serviço e docs (G+/)**, escreva *rede virtual.*
 

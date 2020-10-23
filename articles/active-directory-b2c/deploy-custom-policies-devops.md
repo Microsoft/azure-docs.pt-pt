@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388685"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363934"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar políticas personalizadas com gasodutos Azure
 
@@ -33,7 +33,7 @@ Existem três passos primários necessários para permitir que os gasodutos Azur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Inquilino Azure AD B2C,](tutorial-create-tenant.md)e credenciais para um utilizador no diretório com a função [de Administrador de Política B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Políticas personalizadas](custom-policy-get-started.md) enviadas para o seu inquilino
 * [Aplicação de gestão](microsoft-graph-get-started.md) registada no seu inquilino com a Política de Permissão da API do Microsoft Graph.ReadWrite.TrustFramework *Policy.ReadWrite.TrustFramework*
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), e acesso a um [projeto Azure DevOps Services][devops-create-project]
@@ -131,7 +131,7 @@ Com o seu repositório inicializado e povoado com os seus ficheiros de política
 1. Selecione o separador **Variáveis.**
 1. Adicione as seguintes variáveis sob **variáveis pipeline** e desa estalem os seus valores conforme especificado:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | `clientId` | **Identificação do pedido (cliente)** do pedido que registou anteriormente. |
     | `clientSecret` | O valor do segredo do **cliente** que criou anteriormente. <br /> Altere o tipo variável para **segredo** (selecione o ícone de bloqueio). |
@@ -151,7 +151,7 @@ Em seguida, adicione uma tarefa para implementar um ficheiro de política.
     * **Versão de tarefa**: 2.*
     * **Nome do visor**: O nome da política que esta tarefa deve carregar. Por exemplo, *B2C_1A_TrustFrameworkBase.*
     * **Tipo**: Caminho de arquivo
-    * **Caminho do guião**: Selecione a elipse ***(... ),*** navegue para a pasta *Scripts* e, em seguida, selecione o ficheiro *DeployToB2C.ps1.*
+    * **Caminho do guião**: Selecione a elipse (**_..._* _), navegue para a pasta _Scripts* e, em seguida, selecione o ficheiro *DeployToB2C.ps1.*
     * **Argumentos:**
 
         Introduza os seguintes **valores**para Argumentos . `{alias-name}`Substitua-o pelo pseudónimo especificado na secção anterior.

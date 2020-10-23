@@ -9,12 +9,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277192"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131212"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Application Gateway e o Azure Security Center
 
@@ -44,7 +44,7 @@ Se não tiver um Gateway de aplicações existente, ou quiser criar um novo, cli
 
 Se tiver um gateway de aplicações existente, pode escolhê-lo sob **a solução existente**
 
-![Página para adicionar uma firewall de aplicação web][4]
+![Screenshot da página Adicionar uma firewall de aplicação web. Sob a solução existente, é visível um gateway de aplicação.][4]
 
 Adicionar uma aplicação web a uma porta de entrada de aplicação através do Security Center não adiciona o recurso como membro do pool backend. Isto deve ser feito diretamente no recurso de gateway de aplicação.
 
@@ -62,7 +62,7 @@ Clique **na aplicação Link** para abrir **aplicações de link,** aqui é-lhe 
 
 O Centro de Segurança rastreia as aplicações adicionadas a um gateway de aplicação como um recurso protegido.  Monitoriza a saúde deste recurso e garante que está protegido por uma porta de aplicação. O próximo passo é adicionar o IP privado, IP público ou NIC da sua máquina virtual ao pool backend do gateway de aplicações. Até que isto seja feito, é apresentada uma recomendação adicional de proteção da **aplicação finalização** até que o recurso seja adicionado.
 
-![Página para adicionar uma firewall de aplicação web][5]
+![Screenshot da página de proteção da aplicação Finalizar, com uma aplicação visível. O texto explica quais os passos a tomar para proteger a aplicação.][5]
 
 ## <a name="security-alerts"></a>Alertas de Segurança
 

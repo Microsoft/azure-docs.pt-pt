@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742082"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332013"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -120,10 +120,6 @@ O Centro de Segurança ajuda-o a limitar a exposição a ataques de força bruta
 ### <a name="protect-data-services"></a>Proteger serviços de dados
 
 O Security Center inclui capacidades que o ajudam a executar a classificação automática dos seus dados em Azure SQL. Também pode obter avaliações de potenciais vulnerabilidades em todos os serviços Azure SQL e Storage, e recomendações para como atenuá-las.
-
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Proteja as cargas de trabalho em nuvem de IoT e híbridas
-
-O Defender for IoT (Internet of Things) simplifica a proteção híbrida da carga de trabalho, proporcionando visibilidade e controlo unificados, prevenção adaptativa de ameaças e proteção e resposta inteligente de ameaças através de cargas de trabalho que funcionam no limite, no local, em Azure, e em outras nuvens. Para mais informações, consulte [Defender para IoT](../defender-for-iot/index.yml).
 
 ## <a name="get-secure-faster"></a>Fique seguro mais rápido
 

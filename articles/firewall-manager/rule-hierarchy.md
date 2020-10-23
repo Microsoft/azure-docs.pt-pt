@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893720"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331741"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Use a política de Firewall Azure para definir uma hierarquia de regras
 
@@ -21,7 +21,7 @@ Os administradores de segurança precisam de gerir firewalls e garantir o cumpri
 A política da Azure Firewall permite-lhe definir uma hierarquia de regras e impor o cumprimento:
 
 - Fornece uma estrutura hierárquica para sobrepor uma política de base central em cima de uma política de equipa de aplicação de crianças. A política de base tem uma prioridade maior e corre antes da política infantil.
-- Utilize uma definição de controlo de acesso personalizado baseado em funções (RBAC) para evitar a remoção inadvertida de políticas de base e fornecer acesso seletivo a grupos de recolha de regras dentro de um grupo de subscrição ou de recursos. 
+- Utilize uma definição de função personalizada Azure para evitar a remoção inadvertida de políticas de base e fornecer acesso seletivo a grupos de recolha de regras dentro de um grupo de subscrição ou de recursos. 
 
 ## <a name="solution-overview"></a>Descrição geral da solução
 
@@ -153,7 +153,7 @@ Repita este procedimento para as outras políticas de firewall.
 
 ### <a name="summary"></a>Resumo
 
-A Política de Firewall com o RBAC personalizado agora fornece acesso seletivo a grupos de recolha de regras de política de firewall.
+Firewall Policy com funções personalizadas agora fornece acesso seletivo a grupos de recolha de regras de política de firewall.
 
 Os utilizadores não têm permissões para:
 - Elimine a política de Firewall ou firewall Azure.

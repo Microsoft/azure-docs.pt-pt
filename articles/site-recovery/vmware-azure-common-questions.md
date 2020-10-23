@@ -3,12 +3,12 @@ title: Questões comuns sobre recuperação de desastres VMware com recuperaçã
 description: Obtenha respostas a perguntas comuns sobre a recuperação de desastres de VMware VMs para Azure utilizando a Recuperação do Site Azure.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89054976"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359803"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
 
@@ -75,7 +75,7 @@ A Recuperação do Site está certificada para a ISO 27001:2013 e 27018, HIPAA e
 
 Utilize a [calculadora de preços](https://aka.ms/asr_pricing_calculator) para estimar os custos durante a utilização da Recuperação do Local.
 
-Para uma estimativa detalhada dos custos, executar a ferramenta de planejador de implementação para [VMware](https://aka.ms/siterecovery_deployment_planner) e utilizar o [relatório de estimativa de custos](https://aka.ms/asr_DP_costreport).
+Para uma estimativa detalhada dos custos, executar a ferramenta de planejador de implementação para [VMware](./site-recovery-deployment-planner.md) e utilizar o [relatório de estimativa de custos](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Existe alguma diferença de custo entre a replicação para o armazenamento ou diretamente para discos geridos?
 
@@ -112,9 +112,9 @@ A Recuperação do Site replica VMware VMs e servidores físicos para discos ger
 
 ### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>Posso replicar novas máquinas nas contas de armazenamento?
 
-N.º A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
+Não. A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
 
-A replicação de novos VMs numa conta de armazenamento só está disponível utilizando o PowerShell[(az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) ou a API REST (versão 2018-01-10 ou 2016-08-10). [Aprenda](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) a configurar a replicação utilizando os comandos PowerShell.
+A replicação de novos VMs numa conta de armazenamento só está disponível utilizando o PowerShell[(az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) ou a API REST (versão 2018-01-10 ou 2016-08-10). [Aprenda](./vmware-azure-disaster-recovery-powershell.md) a configurar a replicação utilizando os comandos PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Quais são os benefícios de replicar discos geridos?
 
@@ -131,7 +131,7 @@ Sim, pode [facilmente alterar o tipo de disco gerido](../virtual-machines/window
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Posso mudar a replicação de discos geridos para discos não geridos?
 
-N.º Mudar de gerido para não gerido não é suportado.
+Não. Mudar de gerido para não gerido não é suportado.
 
 ## <a name="replication"></a>Replicação
 
@@ -176,7 +176,7 @@ Para a replicação de VMware para Azure, pode modificar o tamanho do disco de V
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Posso migrar máquinas no local para um novo servidor vCenter sem afetar a replicação em curso?
 
-N.º Uma mudança de VMware Vcenter ou migração terá impacto na replicação contínua. Configurar a Recuperação do Local com o novo servidor vCenter e ativar novamente a replicação para máquinas.
+Não. Uma mudança de VMware Vcenter ou migração terá impacto na replicação contínua. Configurar a Recuperação do Local com o novo servidor vCenter e ativar novamente a replicação para máquinas.
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Posso replicar-me numa conta de armazenamento de cache ou alvo que tenha uma rede virtual (com firewalls Azure) configurada?
 
@@ -190,7 +190,7 @@ A recuperação do site gera pontos de recuperação consistentes a cada 5 minut
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>A minha versão do agente de serviços de mobilidade ou servidor de configuração é antiga, e a minha atualização falhou. O que posso fazer?
 
-A Recuperação do Site segue o modelo de suporte N-4. [Saiba mais](https://aka.ms/asr_support_statement) sobre como fazer upgrade a partir de versões muito antigas.
+A Recuperação do Site segue o modelo de suporte N-4. [Saiba mais](./service-updates-how-to.md#support-statement-for-azure-site-recovery) sobre como fazer upgrade a partir de versões muito antigas.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Onde posso encontrar as notas de lançamento e atualizações para a Recuperação do Site Azure?
 
@@ -198,11 +198,11 @@ A Recuperação do Site segue o modelo de suporte N-4. [Saiba mais](https://aka.
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Onde posso encontrar informações de atualização para a recuperação de desastres para Azure?
 
-[Saiba mais sobre o upgrade.](https://aka.ms/asr_vmware_upgrades)
+[Saiba mais sobre o upgrade.](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure)
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>Preciso de reiniciar as máquinas de origem para cada atualização?
 
-Recomenda-se um reboot, mas não obrigatório para cada atualização. [Saiba mais](https://aka.ms/asr_vmware_upgrades).
+Recomenda-se um reboot, mas não obrigatório para cada atualização. [Saiba mais](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## <a name="configuration-server"></a>Servidor de configuração
 
@@ -234,7 +234,7 @@ Recomendamos que [crie o VM do servidor de configuração](vmware-azure-deploy-c
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar-se em mais de uma região?
 
-N.º Para se replicar em mais de uma região, precisa de um servidor de configuração em cada região.
+Não. Para se replicar em mais de uma região, precisa de um servidor de configuração em cada região.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Posso hospedar um servidor de configuração em Azure?
 
@@ -246,7 +246,7 @@ Embora seja possível, o Azure VM que executa o servidor de configuração preci
 
 - Pode encontrar as últimas informações de atualização na página de atualizações do [Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 - Pode descarregar a versão mais recente do portal. Ou, pode descarregar a versão mais recente do servidor de configuração diretamente do [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-- Se a sua versão for mais de quatro versões mais antigas do que a versão atual, consulte a [declaração de suporte](https://aka.ms/asr_support_statement) para obter orientação de atualização.
+- Se a sua versão for mais de quatro versões mais antigas do que a versão atual, consulte a [declaração de suporte](./service-updates-how-to.md#support-statement-for-azure-site-recovery) para obter orientação de atualização.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>Devo fazer o reforço do servidor de configuração?
 
@@ -266,15 +266,15 @@ Sim. Descarregue o instalador MySQL e coloque-o na pasta C:\Temp\ASRSetup. Quand
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Posso usar o VM do servidor de configuração para qualquer outra coisa?
 
-N.º Utilize o VM apenas para o servidor de configuração.
+Não. Utilize o VM apenas para o servidor de configuração.
 
 ### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Posso clonar um servidor de configuração e usá-lo para orquestração?
 
-N.º Crie um novo servidor de configuração para evitar problemas de registo.
+Não. Crie um novo servidor de configuração para evitar problemas de registo.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Posso alterar o cofre no qual o servidor de configuração está registado?
 
-N.º Depois de um cofre estar associado ao servidor de configuração, não pode ser alterado. [Saiba](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) como registar um servidor de configuração com um cofre diferente.
+Não. Depois de um cofre estar associado ao servidor de configuração, não pode ser alterado. [Saiba](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) como registar um servidor de configuração com um cofre diferente.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Posso usar o mesmo servidor de configuração para a recuperação de desastres tanto de VMware vMs como de servidores físicos?
 

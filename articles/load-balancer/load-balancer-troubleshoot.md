@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801925"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314819"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -30,6 +30,12 @@ Quando a conectividade do Balanceador de Carga não está disponível, os sintom
 - Os VMs por trás do Balanceador de Carga não estão a responder ao tráfego na porta configurada
 
 Quando os clientes externos para os VMs de backend passarem pelo equilibrador de carga, o endereço IP dos clientes será utilizado para a comunicação. Certifique-se de que o endereço IP dos clientes é adicionado à lista de autorizações da NSG. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>Sintoma: Sem conectividade de saída dos Balanceadores de Carga Internos Padrão (ILB)
+
+**Validação e resolução**
+
+Os ILBs standard são **seguros por defeito**. Os ILBs básicos permitiram a ligação à internet através de um endereço IP público *oculto.* Isto não é recombatido para cargas de trabalho de produção, uma vez que o endereço IP não é estático nem bloqueado através de NSGs que possui. Se mudou recentemente de um ILB Básico para um ILB padrão, deve criar um IP público explicitamente através da configuração [outbound](egress-only.md) que bloqueia o IP através de NSGs. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: VMs por trás do Balanceador de Carga não estão respondendo a sondas de saúde
 Para que os servidores de backend participem no conjunto do balançador de carga, devem passar a verificação da sonda. Para obter mais informações sobre sondas de saúde, consulte [as sondas Understanding Load Balancer](load-balancer-custom-probe-overview.md). 
@@ -151,6 +157,17 @@ Se decidir abrir um caso de apoio, recolhê as seguintes informações para uma 
 - Utilize a PSPing de um dos VMs de backend dentro da VNet para testar a resposta da porta da sonda (exemplo: psping 10.0.0.4:3389) e resultados recorde. 
 - Se não for recebida qualquer resposta nestes testes de ping, faça um rastreio de Netsh simultâneo no VM de backend e no VM de teste VNet enquanto corre PsPing, então pare o rastreio de Netsh. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>Sintoma: Balanceador de carga em estado de falha 
+
+**Resolução**
+
+- Assim que identificar o recurso que está em estado de falha, vá ao [Azure Resource Explorer](https://resources.azure.com/) e identifique o recurso neste estado. 
+- Atualize o toggle no canto superior direito para Ler/Escrever.
+- Clique em Editar para obter o recurso em estado falhado.
+- Clique em PUT seguido por GET para garantir que o estado de provisionamento foi atualizado para Sucesso.
+- Em seguida, pode prosseguir com outras ações, uma vez que o recurso está fora do estado falhado.
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).

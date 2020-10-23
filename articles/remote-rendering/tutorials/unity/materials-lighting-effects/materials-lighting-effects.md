@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021073"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203250"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Tutorial: Materiais de refinação, iluminação e efeitos
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Fornecer feedback visual ao utilizador é uma parte importante da experiência do utilizador em qualquer aplicação. A renderização remota Azure fornece mecanismos de feedback visual através de [sobreposições de estado hierárquicos](../../../overview/features/override-hierarchical-state.md). As sobreposições hierárquicas do estado são implementadas com componentes ligados a instâncias locais de modelos. Aprendemos a criar estes casos locais em [Sincronizar o gráfico de objetos remotos na hierarquia da Unidade.](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy)
 
-Primeiro, vamos criar um invólucro em torno do componente [**HierarchicalStateOverrideComponent.**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) O **HierarchicalStateOverrideComponent** é o script local que controla as sobreposições na entidade remota. Os [**Ativos Tutoriais**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) incluem uma classe base abstrata chamada **BaseEntityOverrideController,** que vamos estender para criar o invólucro.
+Primeiro, vamos criar um invólucro em torno do componente [**HierarchicalStateOverrideComponent.**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) O **HierarchicalStateOverrideComponent** é o script local que controla as sobreposições na entidade remota. Os [**Ativos Tutoriais**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) incluem uma classe base abstrata chamada **BaseEntityOverrideController,** que vamos estender para criar o invólucro.
 
 1. Crie um novo script chamado **EntityOverrideController** e substitua o seu conteúdo pelo seguinte código:
 

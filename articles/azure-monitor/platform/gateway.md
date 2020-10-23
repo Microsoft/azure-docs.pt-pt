@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305215"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107781"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
 
@@ -141,7 +141,7 @@ Para instalar um gateway utilizando o assistente de configuração, siga estes p
    ![Screenshot da configuração para o proxy gateway](./media/gateway/gateway-wizard02.png)
 
 1. Se não tiver o Microsoft Update ativado, a página do Microsoft Update aparece e pode optar por ativer. Faça uma seleção e, em seguida, selecione **Next**. Caso contrário, avance para o passo seguinte.
-1. Na página **'Pasta destino',** ou sai da pasta padrão C:\Program Files\OMS Gateway ou insira o local onde pretende instalar o gateway. e selecione **Seguinte**.
+1. Na página **'Pasta destino',** ou sai da pasta padrão C:\Program Files\OMS Gateway ou insira o local onde pretende instalar o gateway. Em seguida, selecione **Seguinte**.
 1. Na página **Pronto para instalar,** selecione **Instalar**. Se o Controlo da Conta do Utilizador solicitar a sua instalação, selecione **Sim**.
 1. Depois de terminar a configuração, **selecione Acabamento**. Para verificar se o serviço está em funcionamento, abra o snap-in do services.msc e verifique se o **OMS Gateway** aparece na lista de serviços e que o seu estado está **em execução**.
 
@@ -201,12 +201,12 @@ Para aprender a desenhar e implementar um cluster de equilíbrio de carga de red
 
     ![Gestor de equilíbrio de carga de rede – Adicionar anfitrião ao cluster: Connect](./media/gateway/nlb03.png) 
 
-### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
+### <a name="azure-load-balancer"></a>Azure Load Balancer
 
 Para aprender a desenhar e implementar um Equilibrador de Carga Azure, veja [o que é o Equilibr de Carga Azure?](../../load-balancer/load-balancer-overview.md) Para implantar um equilibrador de carga básico, siga os passos descritos neste [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluindo os passos descritos na secção **Criar servidores de back-end**.   
 
 > [!NOTE]
-> Configurar o Balançador de Carga Azure utilizando o **SKU Básico,** requer que as máquinas virtuais Azure pertençam a um Conjunto de Disponibilidade. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de máquinas virtuais do Windows em Azure.](../../virtual-machines/windows/manage-availability.md) Para adicionar máquinas virtuais existentes a um conjunto de disponibilidade, consulte o Conjunto de [Disponibilidade VM do Gestor de Recursos do Azure.](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)
+> Configurar o Balançador de Carga Azure utilizando o **SKU Básico,** requer que as máquinas virtuais Azure pertençam a um Conjunto de Disponibilidade. Para saber mais sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de máquinas virtuais do Windows em Azure.](../../virtual-machines/manage-availability.md) Para adicionar máquinas virtuais existentes a um conjunto de disponibilidade, consulte o Conjunto de [Disponibilidade VM do Gestor de Recursos do Azure.](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)
 > 
 
 Após a criação do equilibrador de carga, é necessário criar um pool de backend, que distribui o tráfego por um ou mais servidores de gateway. Siga os passos descritos na secção de artigos de arranque rápido [Crie recursos para o equilibrador de carga](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -389,4 +389,3 @@ Para obter ajuda, selecione o ícone de ponto de interrogação no canto superio
 ## <a name="next-steps"></a>Passos seguintes
 
 [Adicione fontes de dados](./agent-data-sources.md) para recolher dados de fontes conectadas e armazenar os dados no seu espaço de trabalho Log Analytics.
-

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2018
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116366"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131756"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a mudança de senha usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -38,7 +38,7 @@ Complete os passos em [Começar com políticas personalizadas no Ative Directory
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
@@ -179,7 +179,7 @@ Ao testar as suas aplicações em Azure AD B2C, pode ser útil ter o token AD B2
 
 1. Abre a política que mudaste. Por exemplo, *B2C_1A_profile_edit_password_change.*
 2. Para **Candidatura**, selecione a sua candidatura que já se registou anteriormente. Para ver o símbolo, a **URL de resposta** deve mostrar `https://jwt.ms` .
-3. Clique em **Executar agora**. Inscreva-se com o acouunt que criou anteriormente. Deve agora ter a oportunidade de alterar a palavra-passe.
+3. Clique em **Executar agora**. Faça o s.a.S. Inscreva-se na conta que criou anteriormente. Deve agora ter a oportunidade de alterar a palavra-passe.
 
 ## <a name="next-steps"></a>Passos seguintes
 

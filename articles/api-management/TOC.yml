@@ -62,8 +62,6 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
-        - name: Controlos de segurança incorporados
-          href: api-management-security-controls.md
     - name: Subscrições
       href: api-management-subscriptions.md
     - name: Versões
@@ -80,6 +78,8 @@
       href: self-hosted-gateway-overview.md
     - name: Observabilidade
       href: observability.md
+    - name: CI/CD com modelos do ARM
+      href: devops-api-development-templates.md
 - name: Guias de procedimentos
   items:
     - name: Definir APIs
@@ -158,6 +158,8 @@
       items:
         - name: Compreender o portal do programador
           href: api-management-howto-developer-portal.md
+        - name: Migrar do portal preterido para o novo portal do programador
+          href: developer-portal-deprecated-migration.md
         - name: Autenticar com o Azure AD
           href: api-management-howto-aad.md
         - name: Autenticar com o Azure AD B2C
@@ -168,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Ativar suporte OAuth da consola
           href: api-management-howto-oauth2.md
-        - name: Portal legado - personalizar o portal
+        - name: Portal preterido – personalizar o portal
           href: api-management-customize-styles.md
-        - name: Portal legado – modificar páginas e esquemas
+        - name: Portal preterido – modificar páginas e esquemas
           href: api-management-modify-content-layout.md
-        - name: Portal legado - personalizar com modelos
+        - name: Portal preterido – personalizar com modelos
           href: api-management-developer-portal-templates.md
-    - name: Modelos do portal legado
+    - name: Modelos do portal preterido
       items:
         - name: Referência do modelo de dados
           href: api-management-template-data-model-reference.md

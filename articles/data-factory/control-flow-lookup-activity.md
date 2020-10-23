@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044076"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425697"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
 
@@ -59,7 +59,7 @@ A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados 
 Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
 conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Sim
-source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Yes
+source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
 firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
 
 > [!NOTE]
@@ -72,7 +72,7 @@ firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas.
 
 O resultado da procura é devolvido na `output` secção do resultado da execução da atividade.
 
-* **Quando `firstRowOnly` definido para `true` (predefinido)**, o formato de saída é como mostrado no código seguinte. O resultado da procura está sob uma `firstRow` chave fixa. Para utilizar o resultado em atividades subsequentes, utilize o padrão de  `@{activity('LookupActivity').output.firstRow.table` .
+* **Quando `firstRowOnly` definido para `true` (predefinido)**, o formato de saída é como mostrado no código seguinte. O resultado da procura está sob uma `firstRow` chave fixa. Para utilizar o resultado em atividades subsequentes, utilize o padrão de  `@{activity('LookupActivity').output.firstRow.table}` .
 
     ```json
     {

@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449001"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340024"
 ---
-# <a name="understanding-just-in-time-jit-vm-access"></a>Compreensão do acesso ao VM just-in-time (JIT)
+# <a name="understanding-just-in-time-jit-vm-access"></a>Compreensão do acesso just-in-time (JIT) à VM
 
 Esta página explica os princípios por trás da funcionalidade de acesso vm do Azure Security Center (JIT) e a lógica por trás da recomendação.
 
@@ -40,14 +40,14 @@ Para resolver este dilema, o Azure Security Center oferece JIT. Com o JIT, pode 
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Como o JIT opera com grupos de segurança de rede e firewall Azure
 
-Quando ativa o acesso em VM a tempo, pode selecionar as portas do VM para as quais o tráfego de entrada será bloqueado. O Security Center garante que existem regras de "negar todo o tráfego de entrada" para as suas portas selecionadas no [grupo de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) da rede (NSG) e nas [regras do Azure Firewall](https://docs.microsoft.com/azure/firewall/rule-processing). Estas regras restringem o acesso aos portos de gestão dos seus VMs Azure e defendem-nos de ataques. 
+Quando ativa o acesso em VM a tempo, pode selecionar as portas do VM para as quais o tráfego de entrada será bloqueado. O Security Center garante que existem regras de "negar todo o tráfego de entrada" para as suas portas selecionadas no [grupo de segurança](../virtual-network/network-security-groups-overview.md#security-rules) da rede (NSG) e nas [regras do Azure Firewall](../firewall/rule-processing.md). Estas regras restringem o acesso aos portos de gestão dos seus VMs Azure e defendem-nos de ataques. 
 
 Se já existem outras regras para os portos selecionados, então as regras existentes têm prioridade sobre as novas regras de "negar todo o tráfego de entrada". Se não existirem regras existentes nas portas selecionadas, as novas regras têm prioridade máxima no NSG e no Azure Firewall.
 
-Quando um utilizador solicita o acesso a um VM, o Security Center verifica se o utilizador tem permissões [de controlo de acesso baseado em funções (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para esse VM. Se o pedido for aprovado, o Security Center configura os NSGs e a Azure Firewall para permitir o tráfego de entrada nas portas selecionadas a partir do endereço IP relevante (ou alcance), durante o tempo especificado. Após o tempo ter expirado, o Centro de Segurança restaura os NSGs aos estados anteriores. As ligações já estabelecidas não são interrompidas.
+Quando um utilizador solicita o acesso a um VM, o Security Center verifica se o utilizador tem permissões [de controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) para esse VM. Se o pedido for aprovado, o Security Center configura os NSGs e a Azure Firewall para permitir o tráfego de entrada nas portas selecionadas a partir do endereço IP relevante (ou alcance), durante o tempo especificado. Após o tempo ter expirado, o Centro de Segurança restaura os NSGs aos estados anteriores. As ligações já estabelecidas não são interrompidas.
 
 > [!NOTE]
-> O JIT não suporta VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
+> O JIT não suporta VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](../firewall-manager/overview.md).
 
 
 

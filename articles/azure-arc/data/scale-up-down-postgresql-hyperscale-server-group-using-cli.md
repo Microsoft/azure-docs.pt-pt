@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285320"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148045"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Dimensione para cima e para baixo uma base de dados de Azure para o grupo de servidores de hiperescala PostgreSQL usando CLI (azdata ou kubectl)
 
@@ -25,7 +25,7 @@ Há momentos em que poderá ter de alterar as características ou a definição 
 - Escalar para cima ou para baixo o número de vCores que cada um dos nós coordenador ou operário usa
 - Escalar para cima ou para baixo a memória que cada um dos nós coordenador ou operário usa
 
-Este guia explica-lhe como escalar vCore e/ou memória.
+Este guia explica como escalar vCore e/ou memória.
 
 Escalar para cima ou para baixo as definições vCore ou memória do seu grupo de servidor significa que tem a possibilidade de definir um mínimo e/ou um máximo para cada uma das definições vCore e memória. Se pretender configurar o seu grupo de servidor para utilizar um número específico de vCore ou uma quantidade específica de memória, definirá as definições de min iguais às definições máximas.
 
@@ -185,5 +185,4 @@ Para reduzir o grupo de servidor executa o mesmo comando, mas define valores inf
 
 - [Aumentar horizontalmente o grupo de servidores de Hyperscale da Base de Dados do Azure para PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuração de armazenamento e conceitos de armazenamento de Kubernetes](storage-configuration.md)
-- [Expansão das reclamações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

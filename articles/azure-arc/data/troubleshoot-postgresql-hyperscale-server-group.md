@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570003"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320221"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Resolução de problemas Grupos de servidores de hiperescala postgresQL
 Este artigo descreve algumas técnicas que pode utilizar para resolver problemas no seu grupo de servidor. Além deste artigo, pode querer ler como usar [Kibana](monitor-grafana-kibana.md) para pesquisar os registos ou usar [Grafana](monitor-grafana-kibana.md) para visualizar métricas sobre o seu grupo de servidores. 
@@ -51,13 +51,13 @@ Por exemplo, vamos resolver um grupo de servidores de hiperescala PostgreSQL que
 
 ### <a name="install-tools"></a>Instalar ferramentas
 
-Instale o Azure Data Studio `kubectl` e na máquina cliente que está a usar para executar o caderno no `azdata` Azure Data Studio. Para isso, siga as instruções na [Instalação de ferramentas do cliente](install-client-tools.md)
+Instale o Azure Data Studio `kubectl` e na máquina cliente que está a usar para executar o caderno no [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Azure Data Studio. Para isso, siga as instruções na [Instalação de ferramentas do cliente](install-client-tools.md)
 
 ### <a name="update-the-path-environment-variable"></a>Atualizar a variável ambiente PATH
 
 Certifique-se de que estas ferramentas podem ser invocadas de qualquer lugar desta máquina cliente. Por exemplo, numa máquina cliente Do Windows, atualize a variável ambiente do sistema PATH e adicione a pasta na qual instalou kubectl.
 
-### <a name="sign-in-with-azdata"></a>Inscreva-se com `azdata`
+### <a name="sign-in-with-azure-data-cli-azdata"></a>Inscreva-se com [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 Inicie súm em seu Arc Data Controller a partir desta máquina de cliente e antes de lançar Azure Data Studio. Para isso, executar um comando como:
 

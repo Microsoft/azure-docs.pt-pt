@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361909"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368388"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicione ou remova atribuições de funções Azure para utilizadores convidados externos usando o portal Azure
 
@@ -183,7 +183,7 @@ Os utilizadores convidados têm permissões restritas de diretório. Por exemplo
 
 ![O utilizador convidado não pode navegar nos utilizadores num diretório](./media/role-assignments-external-users/directory-no-users.png)
 
-Se um utilizador convidado precisar de privilégios adicionais no diretório, pode atribuir um papel de diretório ao utilizador convidado. Se realmente deseja que um utilizador convidado tenha acesso de leitura total ao seu diretório, pode adicionar o utilizador convidado ao papel [de Leitores](../active-directory/users-groups-roles/directory-assign-admin-roles.md) de Diretório em Azure AD. Para obter mais informações, consulte [permissões de concessão a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory](../active-directory/b2b/add-guest-to-role.md).
+Se um utilizador convidado precisar de privilégios adicionais no diretório, pode atribuir um papel de diretório ao utilizador convidado. Se realmente deseja que um utilizador convidado tenha acesso de leitura total ao seu diretório, pode adicionar o utilizador convidado ao papel [de Leitores](../active-directory/roles/permissions-reference.md) de Diretório em Azure AD. Para obter mais informações, consulte [permissões de concessão a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Atribuir papel de Leitores de Diretório](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ Os utilizadores convidados têm permissões restritas de diretório. Mesmo que u
 
 ![O utilizador convidado não pode navegar nos princípios de segurança para atribuir funções](./media/role-assignments-external-users/directory-no-browse.png)
 
-Se o utilizador convidado souber o nome exato de alguém no diretório, pode conceder acesso. Se realmente deseja que um utilizador convidado tenha acesso de leitura total ao seu diretório, pode adicionar o utilizador convidado ao papel [de Leitores](../active-directory/users-groups-roles/directory-assign-admin-roles.md) de Diretório em Azure AD. Para obter mais informações, consulte [permissões de concessão a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory](../active-directory/b2b/add-guest-to-role.md).
+Se o utilizador convidado souber o nome exato de alguém no diretório, pode conceder acesso. Se realmente deseja que um utilizador convidado tenha acesso de leitura total ao seu diretório, pode adicionar o utilizador convidado ao papel [de Leitores](../active-directory/roles/permissions-reference.md) de Diretório em Azure AD. Para obter mais informações, consulte [permissões de concessão a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>O utilizador convidado não pode registar aplicações ou criar princípios de serviço
 
-Os utilizadores convidados têm permissões restritas de diretório. Se um utilizador convidado precisar de ser capaz de registar aplicações ou criar princípios de serviço, pode adicionar o utilizador convidado à função [de Desenvolvedor de Aplicações](../active-directory/users-groups-roles/directory-assign-admin-roles.md) em Azure AD. Para obter mais informações, consulte [permissões de concessão a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory](../active-directory/b2b/add-guest-to-role.md).
+Os utilizadores convidados têm permissões restritas de diretório. Se um utilizador convidado precisar de ser capaz de registar aplicações ou criar princípios de serviço, pode adicionar o utilizador convidado à função [de Desenvolvedor de Aplicações](../active-directory/roles/permissions-reference.md) em Azure AD. Para obter mais informações, consulte [permissões de concessão a utilizadores de organizações parceiras no seu inquilino Azure Ative Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![O utilizador convidado não pode registar aplicações](./media/role-assignments-external-users/directory-access-denied.png)
 

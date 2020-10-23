@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea69f1e634c66bff98462d41f3eeef19f8e15eb0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553619"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Ative Directory com Procore SSO
 
@@ -121,11 +121,11 @@ Para configurar o Azure AD com o Procore SSO, execute os seguintes passos:
 
 2. A partir da queda da caixa de ferramentas, clique no **Administrador** para abrir a página de definições SSO.
 
-    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![A screenshot mostra o site da empresa Procore com o Diretório selecionado.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Cole os valores nas caixas como descrito abaixo...
 
-    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![A screenshot mostra a caixa de diálogo Add a Person.](./media/procoresso-tutorial/procore_setting_admin.png) 
 
     a. Na caixa de texto **URL de sinal único no emitente,** cole o valor do **Identificador AD AD Azure** que copiou a partir do portal Azure.
 
@@ -195,11 +195,11 @@ Siga os passos abaixo para criar um utilizador de teste Procore no lado Procore 
 
 2. A partir da queda da caixa de ferramentas, clique no **Diretório** para abrir a página do diretório da empresa.
 
-    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![O Screenshot mostra o site da empresa Procore com o Diretório selecionado a partir da caixa de ferramentas.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Clique em **Adicionar a Opção Pessoa** para abrir o formulário e introduzir executar as seguintes opções -
 
-    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_user_add.png)
+    ![A screenshot mostra o Add a Person to Boylan Construction onde pode introduzir informações do utilizador.](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. Na caixa de texto **Name Name,** escreva o primeiro nome do utilizador como **Britta**.
 
@@ -213,11 +213,11 @@ Siga os passos abaixo para criar um utilizador de teste Procore no lado Procore 
 
 4. Verifique e atualize os detalhes para o contacto recém-adicionado.
 
-    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_user_check.png)
+    ![A screenshot mostra uma página de edição onde pode verificar as definições do utilizador.](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Clique em **Salvar e Enviar Convite** (se for necessário um convite por correio) ou **Guardar** (Guardar diretamente) para completar o registo do utilizador.
     
-    ![Configurar Sign-On Individuais](./media/procoresso-tutorial/Procore_user_save.png)
+    ![A screenshot mostra as Definições de Projeto Atuais onde pode guardar e enviar convite.](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

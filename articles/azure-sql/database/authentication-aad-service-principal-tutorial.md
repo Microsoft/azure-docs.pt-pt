@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444185"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367725"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure
 
@@ -65,7 +65,7 @@ Neste tutorial, ficará a saber como:
     Para mais informações, consulte o comando [Set-AzSqlServer.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)
 
     > [!IMPORTANT]
-    > Se for criada uma Identidade AD Azure para o servidor lógico Azure SQL, a permissão [**dos Leitores**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) de Diretório deve ser concedida à identidade. Vamos passar por este passo na secção seguinte. **Não** salte este passo pois a autenticação AZure AD deixará de funcionar.
+    > Se for criada uma Identidade AD Azure para o servidor lógico Azure SQL, a permissão [**dos Leitores**](../../active-directory/roles/permissions-reference.md#directory-readers) de Diretório deve ser concedida à identidade. Vamos passar por este passo na secção seguinte. **Não** salte este passo pois a autenticação AZure AD deixará de funcionar.
 
     - Se usou o comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) com o parâmetro `AssignIdentity` para uma nova criação de servidor SQL no passado, terá de executar o comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) posteriormente como um comando separado para ativar esta propriedade no tecido Azure.
 
@@ -287,7 +287,7 @@ Uma vez criado um principal de serviço em Azure AD, crie o utilizador na Base d
     GO
     ```
 
-    Deve ver uma saída semelhante:
+    Deverá ver um resultado semelhante a:
 
     ```output
     name    type    type_desc   appId

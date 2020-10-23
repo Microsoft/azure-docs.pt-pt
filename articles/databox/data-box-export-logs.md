@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494490"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147952"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Encomendas de exportação pesadas
 
@@ -25,7 +25,7 @@ O quadro seguinte mostra um resumo das etapas da encomenda de exportação da Ca
 
 | Fase de encomenda de exportação da Caixa de Dados       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar encomenda               | [Configurar o controlo de acesso na ordem via RBAC](#set-up-access-control-on-the-order) <br> [Ativar o registo verboso na ordem](#enable-verbose-log-in-the-order)                                                    |
+| Criar encomenda               | [Configurar o controlo de acesso na encomenda via Azure RBAC](#set-up-access-control-on-the-order) <br> [Ativar o registo verboso na ordem](#enable-verbose-log-in-the-order)                                                    |
 | Encomenda processada            | [Acompanhe a encomenda](#track-the-order) através <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por e-mail</ul> |
 | Configurar dispositivo              | Acesso de credenciais de dispositivo registado em [registos de atividade](#query-activity-logs-during-setup)              |
 | Cópia de dados do dispositivo        | [Rever registos de cópias](#copy-log) <br> [Reveja os registos verbose](#verbose-log) antes de copiar dados            |
@@ -46,7 +46,7 @@ Para restringir o acesso a uma encomenda, pode:
 - Atribua um papel a um nível de encomenda. O utilizador só tem essas permissões, tal como definidas pelas funções para interagir apenas com essa encomenda específica da Caixa de Dados e nada mais.
 - Atribuir uma função ao nível do grupo de recursos, o utilizador tem acesso a todas as encomendas da Caixa de Dados dentro de um grupo de recursos.
 
-Para obter mais informações sobre a utilização sugerida do RBAC, consulte [as melhores práticas para o Azure RBAC](../role-based-access-control/best-practices.md).
+Para obter mais informações sobre a utilização sugerida do Azure RBAC, consulte [as melhores práticas para o Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Ativar o registo verboso na ordem
 
@@ -124,12 +124,12 @@ Aqui está uma saída de amostra quando o registo de *cópia* sofre erros e algu
 
 Tem as seguintes opções para exportar esses ficheiros: 
 
-- Pode transferir os ficheiros que não puderam ser copiados pela rede. 
-- Se o seu tamanho de dados for maior do que a capacidade do dispositivo utilizável, então ocorre uma cópia parcial e todos os ficheiros que não foram copiados estão listados neste registo. Pode utilizar este registo como um XML de entrada para criar uma nova encomenda de Caixa de Dados e, em seguida, copiar sobre estes ficheiros.
+- Pode transferir os ficheiros que não foi possível copiar através da rede. 
+- Se o tamanho dos dados for superior à capacidade utilizável do dispositivo, ocorre uma cópia parcial e todos os ficheiros que não foram copiados são listados neste registo. Pode utilizar este registo como XML de entrada para criar uma nova encomenda do Data Box e, em seguida, copiar esses ficheiros.
 
 ### <a name="verbose-log"></a>Log verbose
 
-O *registo verboso* contém uma lista de todos os ficheiros que foram exportados com sucesso da conta de Armazenamento Azure. O registo também contém o tamanho do ficheiro e a computação checkum.
+O *registo verboso* contém uma lista de todos os ficheiros exportados com êxito da conta do Armazenamento do Azure. O registo também contém o tamanho dos ficheiros e o cálculo da soma de verificação.
 
 O registo verbose tem as informações no seguinte formato:
 

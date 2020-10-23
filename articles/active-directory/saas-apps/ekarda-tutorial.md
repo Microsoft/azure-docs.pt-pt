@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: cfd7a007c8f26a96d929026e231cb412cdc70279
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440886"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454197"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Azure Ative Directory integração única (SSO) com ekarda
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar ekarda com Azure Ative Directory (
 * Permita que os seus utilizadores sejam automaticamente inscritos na ekarda utilizando as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, veja [o que é um único sign-on (SSO)?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, veja [o que é um único sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Ekarda apoia SSO iniciado pelo SP e iniciado pelo IDP.
 * A ekarda suporta o fornecimento de utilizadores just-in-time.
-* Depois de configurar ekarda, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar ekarda, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Controlo de Aplicações de Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-ekarda-from-the-gallery"></a>Adicione ekarda da galeria
 
@@ -168,14 +168,14 @@ Nesta secção, um utilizador chamado B.Simon é criado em ekarda. A ekarda supo
 
 Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
 
-Quando selecionar o azulejo ekarda no portal My Apps, deverá ser automaticamente inscrito no site ekarda para o qual configura sSO. Para obter mais informações sobre o portal My Apps, consulte [Introdução ao portal My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo ekarda no portal My Apps, deverá ser automaticamente inscrito no site ekarda para o qual configura sSO. Para obter mais informações sobre o portal My Apps, consulte [Introdução ao portal My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](./tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 * [Experimente ekarda com Azure AD](https://aad.portal.azure.com/)
 * Utilize a [solução eCard da empresa da Ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) para providenciar qualquer número do seu pessoal para enviar eCards, marcados com o logótipo da sua empresa, aos seus clientes e colegas. Saiba mais sobre [o provisionamento da Ekarda como solução SSO](https://support.ekarda.com/#SSO-Implementation).
-* [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [Como proteger a Ekarda com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+* [Como proteger a Ekarda com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

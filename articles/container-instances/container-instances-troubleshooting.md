@@ -4,12 +4,12 @@ description: Saiba como resolver problemas comuns quando implementar, executar o
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260741"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148612"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -198,7 +198,7 @@ Na criação inicial, os recipientes Windows podem não ter conectividade de ent
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível ligar-se à API subjacente ou executar contentores privilegiados
 
-As instâncias do contentor Azure não expõem o acesso direto à infraestrutura subjacente que acolhe grupos de contentores. Isto inclui o acesso à API docker que funciona no hospedeiro do contentor e executa recipientes privilegiados. Se necessitar de interação com o Docker, consulte a [documentação de referência REST](https://aka.ms/aci/rest) para ver o que a API suporta. Se faltar alguma coisa, submeta um pedido nos [fóruns de feedback](https://aka.ms/aci/feedback)da ACI .
+As instâncias do contentor Azure não expõem o acesso direto à infraestrutura subjacente que acolhe grupos de contentores. Isto inclui o acesso à API docker que funciona no hospedeiro do contentor e executa recipientes privilegiados. Se necessitar de interação com o Docker, consulte a [documentação de referência REST](/rest/api/container-instances/) para ver o que a API suporta. Se faltar alguma coisa, submeta um pedido nos [fóruns de feedback](https://aka.ms/aci/feedback)da ACI .
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>O endereço IP do grupo de contentores pode não estar acessível devido a portas incompatíveis
 

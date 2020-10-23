@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192543"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148987"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgue um ponto final Azure CDN
 ## <a name="overview"></a>Descrição geral
@@ -69,7 +69,7 @@ Este tutorial leva-o a purgar ativos de todos os nós de um ponto final.
     ![Botão de purga](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Os pedidos de purga demoram aproximadamente 10 minutos a processar com **a Azure CDN da Microsoft,** aproximadamente 2 minutos com **a Azure CDN da Verizon** (standard e premium), e aproximadamente 10 segundos com a **Azure CDN da Akamai.**  A Azure CDN tem um limite de 50 pedidos simultâneos de purga em qualquer momento ao nível do perfil. 
+> Os pedidos de purga demoram aproximadamente 10 minutos a processar com **a Azure CDN da Microsoft,** aproximadamente 2 minutos com **a Azure CDN da Verizon** (standard e premium), e aproximadamente 10 segundos com a **Azure CDN da Akamai.**  A Azure CDN tem um limite de 100 pedidos de purga simultânea em qualquer momento ao nível do perfil. 
 > 
 > 
 

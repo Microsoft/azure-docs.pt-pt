@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760311"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206457"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Faça upload de dados de faturação para a Azure e veja-os no portal Azure
 
@@ -30,7 +30,7 @@ No futuro, haverá dois modos em que poderá executar os seus serviços de dados
 - **Indiretamente ligado** - Não existe ligação direta ao Azure. Os dados são enviados para a Azure apenas através de um processo de exportação/upload. Todas as implementações de serviços de dados Azure Arc funcionam neste modo hoje em pré-visualização.
 - **Conectado diretamente** - Neste modo, haverá uma dependência do Arco Azure que permitiu que o serviço Kubernetes fornecesse uma ligação direta entre a Azure e o cluster Kubernetes em que os serviços de dados ativados pelo Arco Azure estão a funcionar. Isto irá permitir-lhe mais capacidades e também permitir-lhe-á utilizar o portal Azure e o CLI Azure para gerir os seus serviços de dados habilitados a Azure Arc, tal como gere os seus serviços de dados em Azure PaaS.  Este modo de conectividade ainda não está disponível na pré-visualização, mas será em breve.
 
-Pode ler mais sobre a diferença entre os [modos de conectividade](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
+Pode ler mais sobre a diferença entre os [modos de conectividade](./connectivity.md).
 
 No modo indireto ligado, os dados de faturação são periodicamente exportados para fora do controlador de dados do Arco Azure para um ficheiro seguro e depois enviados para Azure e processados.  No próximo modo ligado diretamente, os dados de faturação serão automaticamente enviados para a Azure aproximadamente 1/hora para dar uma visão quase em tempo real sobre os custos dos seus serviços. O processo de exportação e upload dos dados no modo indiretamente conectado também pode ser automatizado usando scripts ou podemos construir um serviço que o fará por si.
 
@@ -135,11 +135,11 @@ Também pode exportar periodicamente, automaticamente, dados de utilização e f
 
 Siga estes passos para criar um trabalho de exportação de faturação:
 
-1. Clique em Exportações à esquerda.
-1. Clique em Adicionar.
+1. Clique em **Exportações** à esquerda.
+1. Clique em **Adicionar**.
 1. Insira um nome e frequência de exportação e clique em Seguinte.
-1. Opte por criar uma nova conta de armazenamento ou criar uma nova e preencha o formulário para especificar a conta de armazenamento, o contentor e o caminho do diretório para exportar os ficheiros de dados de faturação para e clicar em Seguinte.
-1. Clique em Criar.
+1. Opte por criar uma nova conta de armazenamento ou utilize uma existente e preencha o formulário para especificar a conta de armazenamento, o contentor e o caminho do diretório para exportar os ficheiros de dados de faturação para e clicar em Seguinte.
+1. Clique em **Criar**.
 
 Os ficheiros de exportação de dados de faturação estarão disponíveis em aproximadamente 4 horas e serão exportados no horário especificado ao criar o trabalho de exportação de faturação.
 
@@ -156,7 +156,7 @@ Pode validar os ficheiros de dados de faturação no portal Azure.
 5. Clique no recipiente especificado ao criar o trabalho de exportação de faturação acima.
 6. Clique na pasta especificada ao criar o trabalho de exportação de faturação acima.
 7. Desabraça as pastas e ficheiros gerados e clique num dos ficheiros .csv gerados.
-8. Clique no botão Descarregar que irá guardar o ficheiro para a pasta Downloads local.
+8. Clique no botão **Descarregar** que irá guardar o ficheiro para a pasta Downloads local.
 9. Abra o ficheiro utilizando um visualizador de ficheiros .csv, como o Excel.
 10. Filtrar os resultados para mostrar apenas as linhas com o **Tipo de Recurso**  =  `Microsoft.AzureData/<data service resource type` .
 11. Verá o número de horas em que o caso foi utilizado no atual período de 24 horas na coluna UsageQuantity.

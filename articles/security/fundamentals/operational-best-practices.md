@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 2c949447635ccdf4cf36acec43a09c1104b9fdd4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943871"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280027"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -53,7 +53,7 @@ Certifique-se de que a sua equipa de operações de segurança recebe notificaç
 No portal de inscrição Azure, pode garantir que as informações de contacto da administração incluem detalhes que notificam as operações de segurança. As informações de contacto são um endereço de e-mail e número de telefone.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organize assinaturas Azure em grupos de gestão
-Se a sua organização tiver muitas subscrições, poderá precisar de uma forma de gerir o acesso, as políticas e a conformidade dessas subscrições. [Os grupos de gestão Azure](/azure/governance/management-groups/create) fornecem um nível de âmbito acima das subscrições. Organiza subscrições em contentores chamados grupos de gestão e aplica as suas condições de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão.
+Se a sua organização tiver muitas subscrições, poderá precisar de uma forma de gerir o acesso, as políticas e a conformidade dessas subscrições. [Os grupos de gestão Azure](/azure/governance/management-groups/create) fornecem um nível de âmbito acima das subscrições. Estes permitem-lhe organizar as subscrições em contentores chamados "grupos de gestão" e aplicar as suas condições de governação aos grupos de gestão. Todas as subscrições num grupo de gestão herdam automaticamente as condições aplicadas ao grupo de gestão.
 
 Você pode construir uma estrutura flexível de grupos de gestão e subscrições em um diretório. Cada diretório recebe um único grupo de gestão de alto nível chamado grupo de gestão de raiz. Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. O grupo de gestão de raízes permite que as políticas globais e atribuições de funções Azure sejam aplicadas ao nível do diretório.
 
@@ -122,7 +122,7 @@ A pontuação segura, que se baseia nos controlos do Center for Internet Securit
 **Detalhe**: Utilize [o Monitor Azure para recolher e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).
 
 **Melhores práticas**: Acelere os seus processos de investigação e caça e reduza os falsos positivos integrando as capacidades de Deteção e Resposta de Pontos Finais (EDR) na sua investigação de ataque.   
-**Detalhe**: [Ative a integração ATP do Microsoft Defender](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) através da sua política de segurança do Security Center. Considere usar Azure Sentinel para caçar ameaças e resposta a incidentes.
+**Detalhe**: [Ativar o Microsoft Defender para integração de Endpoint](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) através da sua política de segurança do Security Center. Considere usar Azure Sentinel para caçar ameaças e resposta a incidentes.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Monitorar monitorização de rede baseada em cenários
 Os clientes constroem uma rede de ponta a ponta no Azure, combinando recursos de rede como uma rede virtual, ExpressRoute, Application Gateway e equilibradores de carga. A monitorização está disponível em cada um dos recursos da rede.
@@ -221,7 +221,7 @@ Para obter mais informações, consulte [Criar e gerir políticas para impor o c
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco AD
 A grande maioria das falhas de segurança ocorre quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos de aprendizagem automática adaptativa e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado deteção de [risco.](../../active-directory/reports-monitoring/concept-risk-events.md) As deteções de risco são registadas nos relatórios de segurança da AZure. Para mais informações, leia sobre os [utilizadores em relatório](../../active-directory/reports-monitoring/concept-user-at-risk.md) de segurança de risco e o [relatório de segurança de entradas de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:

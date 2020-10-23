@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482572"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165558"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Gerar mapa de calor de humidade do solo
 
@@ -54,7 +54,7 @@ Uma vez que tenha ligado a sua conta de sensores ao Azure FarmBeats, tem de atri
 2.  Selecione **MyFarm**  >  **Add Devices**.
 3.  A janela **Add Devices** exibe. Selecione qualquer dispositivo que esteja ligado aos sensores de humidade do solo para a sua quinta.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Screenshot que mostra o ecrã de Add Devices.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Selecione **Dispositivos de Adicionar**.     
 
@@ -70,7 +70,7 @@ Este passo é criar um emprego ou uma operação de longa duração que gere o m
 6.  Na Medida de **Sensor**de Humidade do **Solo Select,** insira a medida que pretende utilizar para o mapa.
     Para encontrar a medida do sensor, nos **Sensores,** selecione qualquer sensor de humidade do solo. Nas **propriedades sensoriais,** utilize o valor **do Nome da Medida.**
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Screenshot que mostra o ecrã de humidade do solo.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  Selecione **'Gerar Mapas'.**

@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015981"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122965"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorizar a conectividade do dispositivo com a CLI do Azure
 
@@ -22,11 +22,11 @@ ms.locfileid: "90015981"
 
 Utilize a extensão Azure CLI IoT para ver mensagens que os seus dispositivos estão a enviar para a IoT Central e observe alterações no dispositivo twin. Pode utilizar esta ferramenta para depurar e observar problemas de conectividade do dispositivo e diagnosticar problemas de mensagens do dispositivo que não cheguem à nuvem ou dispositivos que não respondam a alterações gémeas.
 
-[Visite a referência de extensões do Azure CLI para mais detalhes](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Visite a referência de extensões do Azure CLI para mais detalhes](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Azure CLI instalado e é a versão 2.7.0 ou superior. Verifique a versão do seu Azure CLI em funcionamento `az --version` . Saiba como instalar e atualizar a partir dos [docs Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
++ Azure CLI instalado e é a versão 2.7.0 ou superior. Verifique a versão do seu Azure CLI em funcionamento `az --version` . Saiba como instalar e atualizar a partir dos [docs Azure CLI](/cli/azure/install-azure-cli)
 + Uma conta de trabalho ou escola em Azure, adicionada como utilizador numa aplicação IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Instale a extensão IoT Central

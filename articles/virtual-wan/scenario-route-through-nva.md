@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976260"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424762"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
@@ -41,16 +41,16 @@ A seguinte matriz de conectividade, resume os fluxos suportados neste cenário:
 
 | De             | Para:|   *Porta-vozes da NVA*|*NVA VNets*|*VNets não-NVA*|*Ramos*|
 |---|---|---|---|---|---|
-| **Porta-vozes da NVA**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **NVA VNets**    | &#8594; |   Estático |      X   |        X     |      X    |
-| **VNets não-NVA**| &#8594; |   Estático |      X   |        X     |      X    |
-| **Ramos**     | &#8594; |   Estático |      X   |        X     |      X    |
+| **Porta-vozes da NVA**   | &#8594; | Sobre nVA VNet | Peering | Sobre nVA VNet | Sobre nVA VNet |
+| **NVA VNets**    | &#8594; | Peering | Direct | Direct | Direct |
+| **VNets não-NVA**| &#8594; | Sobre nVA VNet | Direct | Direct | Direct |
+| **Ramos**     | &#8594; | Sobre nVA VNet | Direct | Direct | Direct |
 
-Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente por VIRTUAL WAN, e "Estática" significa que a conectividade é fornecida por WAN virtual usando rotas estáticas. Considere o seguinte:
+Cada uma das células da matriz de conectividade descreve como um VNet ou ramo (o lado "De" do fluxo, os cabeçalhos de linha na tabela) comunica com um destino VNet ou ramo (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela). "Direto" significa que a conectividade é fornecida de forma nativa por PARTE Virtual, "Peering" significa que a conectividade é fornecida por uma Rota User-Defined no VNet, "Over NVA VNet" significa que a conectividade atravessa a NVA implantada no VNet NVA. Considere o seguinte:
 
 * Os porta-vozes da NVA não são geridos pela Virtual WAN. Como resultado, os mecanismos com os quais comunicarão a outros VNets ou ramos são mantidos pelo utilizador. A conectividade com o VNet NVA é fornecida por um peering VNet, e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve cobrir conectividade com a Internet, com outros raios, e para sucursais
 * Os VNets NVA saberão dos seus próprios porta-vozes da NVA, mas não sobre os porta-vozes da NVA ligados a outros VNets NVA. Por exemplo, na Tabela 1, o VNet 2 sabe sobre o VNet 5 e o VNet 6, mas não sobre outros porta-vozes como o VNet 7 e o VNet 8. É necessária uma rota estática para injetar os prefixos de outros porta-vozes em VNets NVA
-* Da mesma forma, os balcões e os VNets não-NVA não saberão de nenhum porta-voz da NVA, uma vez que os porta-vozes da NVA não estão ligados aos hubs da VWAN. Como resultado, também aqui serão necessárias rotas estáticas.
+* Da mesma forma, os balcões e os VNets não-NVA não saberão de nenhum NVA falado, uma vez que os porta-vozes da NVA não estão ligados aos hubs virtuais do WAN. Como resultado, também aqui serão necessárias rotas estáticas.
 
 Tendo em conta que os porta-vozes da NVA não são geridos pela VIRTUAL WAN, todas as outras linhas apresentam o mesmo padrão de conectividade. Como resultado, uma única tabela de rotas (a predefinida) fará:
 

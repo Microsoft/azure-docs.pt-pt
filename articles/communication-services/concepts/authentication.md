@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939608"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202961"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar para serviços de comunicação Azure
 
@@ -33,7 +33,7 @@ A tabela que se segue descreve quais as opções de autenticação suportadas pe
 
 Cada opção de autorização é brevemente descrita abaixo:
 
-- **Acesso Autenticação chave** para operações de SMS e Administração. A autenticação da chave de acesso é adequada para aplicações em execução num ambiente de serviço de confiança. Para autenticar com uma chave de acesso, um cliente gera um [código de autenticação de método baseado em haxixe (HMAC) e inclui-o](https://en.wikipedia.org/wiki/HMAC) no `Authorization` cabeçalho de cada pedido HTTP. Para mais informações, consulte [Autenticar com uma chave de acesso.](#authenticate-with-an-access-key)
+- **Acesso Autenticação chave** para operações de SMS e Administração. A autenticação da chave de acesso é adequada para aplicações em execução num ambiente de serviço de confiança. Para autenticar com uma chave de acesso, um cliente gera um [código de autenticação de mensagem baseado em haxixe (HMAC) e inclui-o](https://en.wikipedia.org/wiki/HMAC) no `Authorization` cabeçalho de cada pedido HTTP. Para mais informações, consulte [Autenticar com uma chave de acesso.](#authenticate-with-an-access-key)
 - **Autenticação do Token de acesso ao utilizador** para chat e chamada. As fichas de acesso ao utilizador permitem que as aplicações do seu cliente autentem diretamente contra os Serviços de Comunicação Azure. Estes tokens são gerados num serviço de fornecimento de fichas do lado do servidor que cria. São então fornecidos a dispositivos clientes que usam o símbolo para inicializar as bibliotecas de clientes Chat e Call. Para mais informações, consulte [Authenticate com um Token de Acesso ao Utilizador.](#authenticate-with-a-user-access-token)
 
 ## <a name="authenticate-with-an-access-key"></a>Autenticar com uma chave de acesso
@@ -192,5 +192,5 @@ A `refreshProactively` opção permite-lhe decidir como vai gerir o ciclo de vid
 > [!div class="nextstepaction"]
 > [Criação de fichas de acesso ao utilizador](../quickstarts/access-tokens.md)
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 - [Conheça a arquitetura do cliente e do servidor](../concepts/client-and-server-architecture.md)

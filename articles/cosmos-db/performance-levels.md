@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020886"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281042"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retiring the S1, S2, and S3 performance levels (Os níveis de desempenho S1, S2 e S3 vão ser preteridos)
 
@@ -82,7 +82,7 @@ Assumindo que tem 10 coleções S1, 1 GB de armazenamento para cada um, na regi�
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>E se eu precisar de mais de 20 GB de armazenamento?
 
-Quer tenha uma coleção com nível de desempenho S1, S2 ou S3, ou tenha uma única coleção de divisórias, todas elas com 20 GB de armazenamento disponíveis, pode utilizar a ferramenta de migração de dados DB do Azure Cosmos para migrar os seus dados para uma recolha dividida com armazenamento praticamente ilimitado. Para obter informações sobre os benefícios de uma coleção dividida, consulte [partição e dimensionamento em Azure Cosmos DB](sql-api-partition-data.md). 
+Quer tenha uma coleção com nível de desempenho S1, S2 ou S3, ou tenha uma única coleção de divisórias, todas elas com 20 GB de armazenamento disponíveis, pode utilizar a ferramenta de migração de dados DB do Azure Cosmos para migrar os seus dados para uma recolha dividida com armazenamento praticamente ilimitado. Para obter informações sobre os benefícios de uma coleção dividida, consulte [partição e dimensionamento em Azure Cosmos DB](partitioning-overview.md). 
 
 <a name="change-before"></a>
 
@@ -132,6 +132,6 @@ Os clientes da EA estarão protegidos pelo preço até ao final do seu contrato 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre preços e gestão de dados com a Azure Cosmos DB, explore estes recursos:
 
-1.  [Dados de partilha em Cosmos DB](sql-api-partition-data.md). Compreenda a diferença entre um único recipiente de partição e recipientes divididos, bem como dicas sobre a implementação de uma estratégia de partição para escalar sem problemas.
+1.  [Dados de partilha em Cosmos DB](partitioning-overview.md). Compreenda a diferença entre um único recipiente de partição e recipientes divididos, bem como dicas sobre a implementação de uma estratégia de partição para escalar sem problemas.
 2.  [Preços do Cosmos DB.](https://azure.microsoft.com/pricing/details/cosmos-db/) Saiba mais sobre o custo do fornecimento de produção e armazenamento consumista.
 3.  [Unidades de solicitação](request-units.md). Compreenda o consumo de produção para diferentes tipos de operação, por exemplo Ler, Escrever, Consultar.

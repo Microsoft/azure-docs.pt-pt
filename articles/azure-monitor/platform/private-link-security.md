@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802230"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461435"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utilizar o Azure Private Link para se ligar em segurança a redes do Azure Monitor
 
@@ -41,6 +41,9 @@ Azure Monitor Private Link Scope é um recurso de agrupamento para ligar um ou m
 ## <a name="planning-based-on-your-network"></a>Planeamento com base na sua rede
 
 Antes de configurar os seus recursos AMPLS, considere os seus requisitos de isolamento de rede. Avalie o acesso das suas redes virtuais à internet pública e as restrições de acesso de cada um dos seus recursos do Azure Monitor (isto é, componentes de Application Insights e espaços de trabalho Log Analytics).
+
+> [!NOTE]
+> As redes Hub-and-Spoke, ou qualquer outra topologia de redes vigiadas, podem configurar uma Ligação Privada entre o hub (principal) VNet e os recursos relevantes do Azure Monitor, em vez de criar uma Ligação Privada em cada VNet. Isto faz sentido especialmente se os recursos do Azure Monitor utilizados por estas redes forem partilhados. No entanto, se quiser permitir que cada VNet aceda a um conjunto separado de recursos de monitorização, crie uma Ligação Privada a um AMPLS dedicado para cada rede.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Avaliar quais redes virtuais devem ligar-se a uma Ligação Privada
 
@@ -232,7 +235,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para utilizar experiências do portal Azure Monitor, como Application Insights e Log Analytics, é necessário permitir que as extensões do portal Azure e do Azure Monitor sejam acessíveis nas redes privadas. Adicione [tags](../../firewall/service-tags.md) de serviço **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**e **AzureFrontdoor.Frontend** à sua firewall.
+Para utilizar experiências do portal Azure Monitor, como Application Insights e Log Analytics, é necessário permitir que as extensões do portal Azure e do Azure Monitor sejam acessíveis nas redes privadas. Adicione [etiquetas](../../firewall/service-tags.md) de serviço **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty**e **AzureFrontdoor.Frontend** ao seu Grupo de Segurança de Rede.
 
 ### <a name="programmatic-access"></a>Acesso programático
 

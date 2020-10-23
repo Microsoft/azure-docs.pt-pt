@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005934"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371380"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
@@ -33,7 +33,7 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 
 * Um domínio Azure Ative Directory (Azure AD).
 
-    Se não tiver um domínio AD Azure, crie este domínio com a sua subscrição Azure. Para obter mais informações, consulte [Gerir nomes de domínio personalizados no seu AD AZure](../../active-directory/users-groups-roles/domains-manage.md)
+    Se não tiver um domínio AD Azure, crie este domínio com a sua subscrição Azure. Para obter mais informações, consulte [Gerir nomes de domínio personalizados no seu AD AZure](../../active-directory/enterprise-users/domains-manage.md)
 
 * Um utilizador no seu domínio Azure AD com uma função **de administrador de aplicação.** Utilizará este membro ao ligar a sua conta de Indexer de Vídeo ao Azure.
 
@@ -47,7 +47,7 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 
     Utilizará este membro ao ligar a sua conta de Indexer de Vídeo ao Azure.
 
-    Este utilizador deve ser membro na sua subscrição Azure com uma função **Proprietário,** ou tanto as funções **de Administrador de Contribuinte** e De Acesso ao **Utilizador.** Um utilizador pode ser adicionado duas vezes, com duas funções. Uma vez com o Contribuinte e uma vez com o Administrador de Acesso ao Utilizador.
+    Este utilizador deve ser membro na sua subscrição Azure com uma função **Proprietário,** ou tanto as funções **de Administrador de Contribuinte** e De Acesso ao **Utilizador.** Um utilizador pode ser adicionado duas vezes, com duas funções. Uma vez com o Contribuinte e uma vez com o Administrador de Acesso ao Utilizador. Para mais informações, consulte [ver o acesso que um utilizador tem aos recursos da Azure.](https://docs.microsoft.com/azure/role-based-access-control/check-access)
 
     ![controlo de acessos](./media/create-account/access-control-iam.png)
 

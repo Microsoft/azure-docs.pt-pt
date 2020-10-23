@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398651"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367997"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute com recuperação do local de Azure
 
@@ -37,7 +37,7 @@ Certifique-se de que os [requisitos de rede](vmware-azure-configuration-server-r
 
 Caso utilize procuração no local e deseje utilizar o ExpressRoute para tráfego de replicação, tem de configurar a lista de bypass Proxy nos Servidores de Configuração e servidores de processos. Siga os passos abaixo:
 
-- Descarregue a ferramenta PsExec [daqui](https://aka.ms/PsExec) para aceder ao contexto do utilizador do Sistema.
+- Descarregue a ferramenta PsExec [daqui](/sysinternals/downloads/psexec) para aceder ao contexto do utilizador do Sistema.
 - Abra o Internet Explorer no contexto do utilizador do sistema executando a seguinte linha de comando psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Adicionar definições de procuração em IE
 - Na lista de bypass, adicione o URL de armazenamento Azure *.blob.core.windows.net

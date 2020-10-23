@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564904"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132079"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de sugestão de iD numa política personalizada do Azure Ative Directory B2C
 
@@ -87,13 +87,13 @@ Os seguintes metadados são relevantes quando se utilizam a chave simétrica.
 | issuer | Sim | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor deve ser idêntico ao `iss` pedido no âmbito da reclamação simbólica da JWT. | 
 | IdTokenAudience | Sim | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` alegação com a alegação simbólica do JWT. | 
 
-Os seguintes metadados são relevantes quando se utiliza uma chave simétrica. 
+Os seguintes metadados são relevantes quando se utiliza uma chave assimétrica. 
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | METADADOS| Sim | Um URL que aponta para um documento de configuração do emitente simbólico, que também é conhecido como um ponto final de configuração bem conhecido do OpenID.   |
 | issuer | Não | Identifica o serviço de fichas de segurança (emitente simbólico). Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `iss` reclamação dentro da reclamação simbólica do JWT. |  
-| IdTokenAudience | Não | Identifica o destinatário pretendido do token. Este valor pode ser usado para substituir o valor configurado nos metadados, e deve ser idêntico à `aud` reclamação dentro da reclamação simbólica do JWT. |  
+| IdTokenAudience | Não | Identifica o destinatário pretendido do token. Deve ser idêntico à `aud` alegação com a alegação simbólica do JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -219,7 +219,7 @@ O seguinte perfil técnico valida o token e extrai as reclamações. Altere o me
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

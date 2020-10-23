@@ -1,6 +1,6 @@
 ---
 title: Implementar exemplo do Unity no HoloLens
-description: Quickstart que mostra como colocar a amostra de Unidade nos HoloLens
+description: Início rápido que mostra como obter o exemplo do Unity no HoloLens
 author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
@@ -12,55 +12,55 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2020
 ms.locfileid: "88796804"
 ---
-# <a name="quickstart-deploy-unity-sample-to-hololens"></a>Quickstart: Implementar a amostra de unidade para hololens
+# <a name="quickstart-deploy-unity-sample-to-hololens"></a>Início Rápido: Implementar exemplo do Unity no HoloLens
 
-Este quickstart cobre como implementar e executar a aplicação de amostra de arranque rápido para Unidade para um HoloLens 2.
+Este início rápido mostra como implementar e executar a aplicação de início rápido de exemplo do Unity num HoloLens 2.
 
-Neste arranque rápido aprenderá a:
+Neste início rápido, vai aprender a:
 
 > [!div class="checklist"]
 >
->* Construa o aplicativo de amostra de arranque rápido para HoloLens
->* Desloque a amostra para o dispositivo
->* Executar a amostra no dispositivo
+>* Compilar a aplicação de início rápido de exemplo para o HoloLens
+>* Implementar o exemplo no dispositivo
+>* Executar o exemplo no dispositivo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Neste quickstart vamos implementar o projeto de amostra da [Quickstart: Render um modelo com Unidade.](render-model.md)
+Neste início rápido, vamos implementar o projeto de exemplo de [Início rápido: Compor um modelo com o Unity](render-model.md).
 
-Certifique-se de que as suas credenciais são guardadas corretamente com a cena e que pode ligar-se a uma sessão dentro do editor da Unidade.
+Confirme que as suas credenciais estão corretamente guardadas com a cena e que se pode ligar a uma sessão a partir do editor do Unity.
 
-## <a name="build-the-sample-project"></a>Construir o projeto de amostra
+## <a name="build-the-sample-project"></a>Compilar o projeto de exemplo
 
-1. Abrir *definições de construção de > de ficheiros*.
-1. Alterar *plataforma* para **plataforma universal do Windows**
-1. Definir *dispositivo alvo* para **HoloLens**
-1. Definir *Arquitetura* para **ARM64**
-1. Definir *tipo de construção* para **projeto D3D**\
-    ![Configurações de construção](./media/unity-build-settings.png)
-1. Selecione **Mudar para plataforma**
-1. Ao pressionar **Build** (ou 'Construir e Executar'), será solicitado que selecione alguma pasta onde a solução deve ser armazenada
-1. Abra o **gerado Quickstart.sln** com Visual Studio
-1. Alterar a configuração para **Release** e **ARM64**
-1. Mude o modo de depuração para **Máquina Remota**\
-    ![Configuração de solução](media/unity-deploy-config.png)
+1. Abra *File > Build Settings* (Ficheiro > Definições de Criação).
+1. Altere *Platform* (Plataforma) para **Universal Windows Platform** (Plataforma Universal do Windows)
+1. Defina *Target Device* (Dispositivo de Destino) como **HoloLens**
+1. Defina *Architecture* (Arquitetura) como **ARM64**
+1. Defina *Build Type* (Tipo de Compilação) como **D3D Project**\ (Projeto D3D)
+    ![Definições da compilação](./media/unity-build-settings.png)
+1. Selecione **Switch to Platform** (Mudar para Plataforma)
+1. Quando premir **Build** (Compilar) ou "Build And Run" ("Compilar e Executar"), é-lhe pedido que selecione uma pasta na qual a solução pode ser armazenada
+1. Abra o **Quickstart.sln** gerado com o Visual Studio
+1. Altere a configuração para **Release** (Versão) e **ARM64**
+1. Mude o modo do depurador para **Remote Machine**\ (Máquina Remota)
+    ![Configuração da solução](media/unity-deploy-config.png)
 1. Compilar a solução
-1. Para o projeto 'Quickstart', vá à *Properties > Debugging*
-    1. Certifique-se de que a configuração *Desbloqueia*
-    1. Definir *Debugger para lançar* para máquina **remota**
-    1. Alterar *nome da máquina* para o IP dos seus **HoleLens**
+1. No projeto "Quickstart", aceda a *Properties > Debugging* (Propriedades > Depuração)
+    1. Confirme que a configuração *Release* (Versão) está ativa
+    1. Defina *Debugger to Launch* (Depurador para Iniciar) como **Remote Machine** (Máquina Remota)
+    1. Altere *Machine Name* (Nome da Máquina) para o **IP do HoleLens**
 
-## <a name="launch-the-sample-project"></a>Lançar o projeto de amostra
+## <a name="launch-the-sample-project"></a>Iniciar o projeto de exemplo
 
-1. Ligue os HoloLens com um cabo USB ao seu PC.
-1. Inicie o Debugger no Visual Studio (F5). Irá implantar automaticamente a aplicação no dispositivo.
+1. Ligue o HoloLens com um cabo USB ao seu computador.
+1. Inicie o Depurador no Visual Studio (F5). A aplicação é implementada automaticamente no dispositivo.
 
-A aplicação da amostra deve ser lançada e, em seguida, iniciar uma nova sessão. Passado algum tempo, a sessão está pronta e o modelo renderizado remotamente aparecerá à sua frente.
-Se quiser lançar a amostra uma segunda vez mais tarde, também pode encontrá-la no menu inicial holoLens agora.
+A aplicação de exemplo deverá ser iniciada; em seguida, inicie uma sessão nova. Ao fim de alguns instantes, a sessão fica pronta e o modelo composto remotamente aparece à sua frente.
+Se quiser iniciar o exemplo uma segunda vez mais tarde, agora também pode aceder ao mesmo no menu de início do HoloLens.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-No próximo quickstart, vamos dar uma olhada na conversão de um modelo personalizado.
+No próximo início rápido, vamos ver como converter um modelo personalizado.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Converter um modelo para renderização](convert-model.md)
+> [Início Rápido: Converter um modelo para composição](convert-model.md)

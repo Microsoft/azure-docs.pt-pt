@@ -3,12 +3,12 @@ title: Obtenha dados de conformidade com a política
 description: Avaliações e efeitos da Política Azure determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320427"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenha dados de conformidade dos recursos da Azure
 
@@ -156,6 +156,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
     "status": "Succeeded"
 }
 ```
+
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Digitalização de avaliação a pedido - Código do Estúdio Visual
+
+A extensão da Política Azure para o código Visual Studio é capaz de executar uma verificação de avaliação para um recurso específico. Esta digitalização é um processo sincronizado, ao contrário dos métodos Azure PowerShell e REST.
+Para mais detalhes e etapas, consulte [a avaliação a pedido com a extensão do Código VS](./extension-for-vscode.md#on-demand-evaluation-scan).
 
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 

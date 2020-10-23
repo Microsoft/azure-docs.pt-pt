@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758545"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131144"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adicionar ou atualizar um cartão de crédito do Azure
 
@@ -32,7 +32,7 @@ Com um Contrato de Cliente Microsoft, os métodos de pagamento estão associados
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Gerir cartões de crédito para uma subscrição do Azure
 
-As secções seguintes aplicam-se aos clientes que tenham uma conta de faturação do Programa Microsoft Online Services. Saiba como [verificar o tipo de conta de faturação](#check-the-type-of-your-account). Se o seu tipo de conta de faturação for o Programa Microsoft Online Services, os métodos de pagamento estão associados a subscrições individuais do Azure. Se obtiver um erro depois de adicionar o cartão de crédito, veja [Cartão de crédito recusado na inscrição do Azure](/azure/cost-management-billing/manage/troubleshoot-declined-card).
+As secções seguintes aplicam-se aos clientes que tenham uma conta de faturação do Programa Microsoft Online Services. Saiba como [verificar o tipo de conta de faturação](#check-the-type-of-your-account). Se o seu tipo de conta de faturação for o Programa Microsoft Online Services, os métodos de pagamento estão associados a subscrições individuais do Azure. Se obtiver um erro depois de adicionar o cartão de crédito, veja [Cartão de crédito recusado na inscrição do Azure](./troubleshoot-declined-card.md).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Alterar o cartão de crédito de uma subscrição adicionando um novo cartão de crédito
 

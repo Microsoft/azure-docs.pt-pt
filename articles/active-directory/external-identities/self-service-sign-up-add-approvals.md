@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165255"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441628"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicione um fluxo de trabalho de aprovação personalizado à inscrição de self-service
 
@@ -29,7 +29,7 @@ Este artigo dá um exemplo de como integrar-se com um sistema de aprovação. Ne
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registar um pedido para o seu sistema de aprovação
 
-Tem de registar o seu sistema de aprovação como uma aplicação no seu inquilino Azure AD para que possa autenticar com a Azure AD e ter permissão para criar utilizadores. Saiba mais sobre [o básico de autenticação e autorização para o Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+Tem de registar o seu sistema de aprovação como uma aplicação no seu inquilino Azure AD para que possa autenticar com a Azure AD e ter permissão para criar utilizadores. Saiba mais sobre [o básico de autenticação e autorização para o Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
 2. Ao abrigo **dos serviços Azure,** selecione **Azure Ative Directory**.
@@ -263,14 +263,14 @@ A `userMessage` resposta é apresentada ao utilizador, por exemplo:
 
 ## <a name="user-account-creation-after-manual-approval"></a>Criação de conta de utilizador após aprovação manual
 
-Após obter aprovação manual, o sistema de aprovação personalizado cria uma conta [de utilizador](https://docs.microsoft.com/graph/azuread-users-concept-overview) utilizando o [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). A forma como o seu sistema de aprovação prevê a conta de utilizador depende do fornecedor de identidade que foi utilizado pelo utilizador.
+Após obter aprovação manual, o sistema de aprovação personalizado cria uma conta [de utilizador](/graph/azuread-users-concept-overview) utilizando o [Microsoft Graph](/graph/use-the-api). A forma como o seu sistema de aprovação prevê a conta de utilizador depende do fornecedor de identidade que foi utilizado pelo utilizador.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>Para um utilizador federado do Google ou facebook
 
 > [!IMPORTANT]
 > O sistema de aprovação deve verificar explicitamente que `identities` , e que se encontram `identities[0]` `identities[0].issuer` presentes e que `identities[0].issuer` equivalem a 'facebook' ou 'google' para utilizar este método.
 
-Se o seu utilizador se inscreve com uma conta google ou Facebook, pode utilizar a [API de criação de Utilizador.](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http)
+Se o seu utilizador se inscreve com uma conta google ou Facebook, pode utilizar a [API de criação de Utilizador.](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0)
 
 1. O sistema de aprovação recebe o pedido HTTP do fluxo do utilizador.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Para um utilizador federado do Azure Ative Directory
 
-Se um utilizador entrar com uma conta federada do Azure Ative Directory, deve utilizar o [convite API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) para criar o utilizador e, em seguida, opcionalmente, a [API de atualização](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) do utilizador para atribuir mais atributos ao utilizador.
+Se um utilizador entrar com uma conta federada do Azure Ative Directory, deve utilizar o [convite API](/graph/api/invitation-post?view=graph-rest-1.0) para criar o utilizador e, em seguida, opcionalmente, a [API de atualização](/graph/api/user-update?view=graph-rest-1.0) do utilizador para atribuir mais atributos ao utilizador.
 
 1. O sistema de aprovação recebe o pedido HTTP do fluxo do utilizador.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>Passos seguintes
 
 - Começa com as [nossas amostras de quickstart da Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Check-out o [autosserviço de inscrição para utilizadores convidados com amostra de aprovação manual](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Check-out o [autosserviço de inscrição para utilizadores convidados com amostra de aprovação manual](code-samples-self-service-sign-up.md#custom-approval-workflows).

@@ -4,16 +4,16 @@ description: Como autenticar dispositivos a jusante ou dispositivos de folha par
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046728"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151387"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -21,13 +21,13 @@ Num cenário transparente de gateway, os dispositivos a jusante (por vezes chama
 
 Existem três passos gerais para estabelecer uma ligação transparente de gateway bem sucedida. Este artigo abrange o segundo passo:
 
-1. Configure o dispositivo gateway como um servidor para que os dispositivos a jusante possam ligar-se a ele de forma segura. Configurar o portal para receber mensagens de dispositivos a jusante e encaminhá-las para o destino adequado. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para funcionar como um gateway transparente.](how-to-create-transparent-gateway.md)
+1. Configure o dispositivo gateway como um servidor para que os dispositivos a jusante possam ligar-se a ele de forma segura. Configurar o portal para receber mensagens de dispositivos a jusante e encaminhá-las para o destino adequado. Para esses passos, consulte [configurar um dispositivo IoT Edge para funcionar como um gateway transparente](how-to-create-transparent-gateway.md).
 2. **Crie uma identidade do dispositivo para o dispositivo a jusante para que possa autenticar com o IoT Hub. Configure o dispositivo a jusante para enviar mensagens através do dispositivo gateway.**
-3. Ligue o dispositivo a jusante ao dispositivo gateway e comece a enviar mensagens. Para obter mais informações, consulte [ligar um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).
+3. Ligue o dispositivo a jusante ao dispositivo gateway e comece a enviar mensagens. Para esses passos, consulte [Ligar um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).
 
 Os dispositivos a jusante podem autenticar-se com o IoT Hub utilizando um dos três métodos: chaves simétricas (por vezes designadas como chaves de acesso partilhadas), certificados auto-assinados X.509 ou Certificados assinados pela X.509 .Ca. Os passos de autenticação são semelhantes aos passos utilizados para configurar qualquer dispositivo não-IoT-Edge com IoT Hub, com pequenas diferenças para declarar a relação gateway.
 
-Os passos deste artigo mostram o fornecimento manual do dispositivo. O fornecimento automático de dispositivos a jusante com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) não é suportado.
+O fornecimento automático de dispositivos a jusante com o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) não é suportado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,10 +42,16 @@ Este artigo refere-se ao *nome de anfitrião gateway* em vários pontos. O nome 
 Escolha como pretende que o seu dispositivo a jusante autente com o IoT Hub:
 
 * [Autenticação de chave simétrica](#symmetric-key-authentication): O IoT Hub cria uma chave que coloca no dispositivo a jusante. Quando o dispositivo autenticar, o IoT Hub verifica se as duas teclas coincidem. Não é necessário criar certificados adicionais para utilizar a autenticação de chaves simétricas.
+
+  Este método é mais rápido de começar se estiver a testar gateways num cenário de desenvolvimento ou teste.
+
 * [X.509 autenticação auto-assinada](#x509-self-signed-authentication): Por vezes chamada de autenticação de impressão digital, porque partilha a impressão digital do certificado X.509 do dispositivo com o IoT Hub.
+
+  A autenticação de certificados é recomendada para dispositivos em cenários de produção.
+
 * [Autenticação assinada por X.509 CA](#x509-ca-signed-authentication): Carrequim o certificado de CA raiz para ioT Hub. Quando os dispositivos apresentam o seu certificado X.509 para autenticação, o IoT Hub verifica se pertence a uma cadeia de confiança assinada pelo mesmo certificado de CA raiz.
 
-Depois de registar o seu dispositivo com um destes três métodos, continue até à secção seguinte para [Recuperar e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para o seu dispositivo a jusante.
+  A autenticação de certificados é recomendada para dispositivos em cenários de produção.
 
 ### <a name="symmetric-key-authentication"></a>Autenticação de chave simétrica
 
@@ -59,17 +65,15 @@ Quando criar a nova identidade do dispositivo, forneça as seguintes informaçõ
 
 * Selecione **a tecla simétrica** como o tipo de autenticação.
 
-* Selecione **Definir um dispositivo-mãe** e selecionar o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. Este passo permite [capacidades offline](offline-capabilities.md) para o seu dispositivo a jusante. Podes sempre mudar o pai mais tarde.
+* Selecione **Definir um dispositivo-mãe** e selecionar o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. Podes sempre mudar o pai mais tarde.
 
    ![Criar iD do dispositivo com chave simétrica no portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) completar a mesma operação. O exemplo a seguir cria um novo dispositivo IoT com autenticação chave simétrica e atribui um dispositivo-mãe:
+Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) completar a mesma operação. O exemplo a seguir utiliza o comando [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com autenticação de chave simétrica e atribuir um dispositivo-mãe:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
-
-Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos e gestão dos pais/filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo az iot hub.](/cli/azure/ext/azure-iot/iot/hub/device-identity)
 
 Em seguida, [recupere e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para que o seu dispositivo saiba ligar através do seu gateway.
 
@@ -104,7 +108,7 @@ Para a autenticação auto-assinada X.509, por vezes referida como autenticaçã
    * Forneça o **ID** do dispositivo que corresponda ao nome do sujeito dos certificados do seu dispositivo.
    * Selecione **X.509 Auto-Assinado** como o tipo de autenticação.
    * Cole as cordas hexadémicas que copiou dos certificados primários e secundários do seu dispositivo.
-   * Selecione **Definir um dispositivo-mãe** e escolher o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. É necessário um dispositivo-mãe para a autenticação X.509 de um dispositivo a jusante.
+   * Selecione **Definir um dispositivo-mãe** e escolher o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. Podes sempre mudar o pai mais tarde.
 
    ![Criar ID do dispositivo com X.509 auto-assinado no portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -120,13 +124,11 @@ Para a autenticação auto-assinada X.509, por vezes referida como autenticaçã
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para completar a mesma operação de criação de dispositivos. O exemplo a seguir cria um novo dispositivo IoT com autenticação auto-assinada X.509 e atribui um dispositivo-mãe:
+Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para completar a mesma operação de criação de dispositivos. O exemplo a seguir utiliza o comando [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com a autenticação auto-assinada X.509 e atribui um dispositivo-mãe:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
-
-Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos, geração de certificados e gestão dos pais e filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo az iot hub.](/cli/azure/ext/azure-iot/iot/hub/device-identity)
 
 Em seguida, [recupere e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para que o seu dispositivo saiba ligar através do seu gateway.
 
@@ -150,7 +152,7 @@ Esta secção baseia-se nas instruções detalhadas no artigo do IoT Hub [Config
 
    1. Adicione um novo dispositivo. Forneça um nome minúsculo para **identificação**do dispositivo e escolha o tipo de autenticação **X.509 CA Assinado**.
 
-   2. Desementa um dispositivo dos pais. Para dispositivos a jusante, selecione **Definir um dispositivo-mãe** e escolha o dispositivo de gateway IoT Edge que fornecerá a ligação ao Hub IoT.
+   2. Desementa um dispositivo dos pais. Selecione **Definir um dispositivo-mãe** e escolha o dispositivo de gateway IoT Edge que fornecerá a ligação ao Hub IoT.
 
 4. Crie uma cadeia de certificados para o seu dispositivo a jusante. Use o mesmo certificado de CA de raiz que fez para o IoT Hub para fazer esta cadeia. Utilize o mesmo ID do dispositivo minúsculo que deu à identidade do seu dispositivo no portal.
 
@@ -166,13 +168,11 @@ Esta secção baseia-se nas instruções detalhadas no artigo do IoT Hub [Config
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para completar a mesma operação de criação de dispositivos. O exemplo a seguir cria um novo dispositivo IoT com autenticação assinada por X.509 CA e atribui um dispositivo-mãe:
+Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para completar a mesma operação de criação de dispositivos. O exemplo a seguir utiliza o comando [az iot hub de identidade de dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com a autenticação assinada X.509 CA e atribui um dispositivo-mãe:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
-
-Para obter mais informações, consulte o conteúdo de referência do Azure CLI para comandos [de identidade de dispositivo az iot hub.](/cli/azure/ext/azure-iot/iot/hub/device-identity)
 
 Em seguida, [recupere e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para que o seu dispositivo saiba ligar através do seu gateway.
 
@@ -213,4 +213,4 @@ Utilizará esta cadeia de ligação modificada no próximo artigo da série tran
 
 Neste momento, tem um dispositivo IoT Edge registado com o seu hub IoT e configurado como um gateway transparente. Também tem um dispositivo a jusante registado no seu hub IoT e aponta para o seu dispositivo gateway.
 
-Os passos deste artigo configuram o seu dispositivo a jusante para autenticar no IoT Hub. Em seguida, é necessário configurar o seu dispositivo a jusante para confiar no dispositivo gateway e conectá-lo de forma segura. Continue para o próximo artigo na série de gateway transparente, [Ligue um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).
+Em seguida, é necessário configurar o seu dispositivo a jusante para confiar no dispositivo gateway e conectá-lo de forma segura. Continue para o próximo artigo na série de gateway transparente, [Ligue um dispositivo a jusante a um gateway Azure IoT Edge](how-to-connect-downstream-device.md).

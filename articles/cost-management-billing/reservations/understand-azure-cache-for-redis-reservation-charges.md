@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4b5f77742d3b2611fd7baf5880b9f8fed047aa86
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213271"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147322"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Como é aplicado o desconto de reserva à Cache do Azure para Redis
 
-Depois de comprar capacidade reservada da Cache do Azure para Redis, o desconto de reserva é aplicado automaticamente às instâncias de caches que correspondam aos atributos e à quantidade da reserva. As reservas só abrangem os custos de computação da Cache do Azure para Redis. É-lhe cobrada uma taxa normal de armazenamento e rede. A capacidade reservada só está disponível para caches de [escalão premium](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
+Depois de comprar capacidade reservada da Cache do Azure para Redis, o desconto de reserva é aplicado automaticamente às instâncias de caches que correspondam aos atributos e à quantidade da reserva. As reservas só abrangem os custos de computação da Cache do Azure para Redis. É-lhe cobrada uma taxa normal de armazenamento e rede. A capacidade reservada só está disponível para caches de [escalão premium](//azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
@@ -30,7 +30,7 @@ O desconto de reserva da Cache do Azure para Redis é aplicado às caches de hor
 
 Os exemplos seguintes mostram como o desconto da capacidade reservada da Cache do Azure para Redis se aplica em função do número de caches que comprou de e quando as mesmas estão em execução.
 
-* **Exemplo 1**: Compra capacidade reservada da Cache do Azure para Redis para uma cache de 6 GB. Se estiver a executar uma cache de 13 GB que corresponda aos restantes atributos da reserva, é-lhe cobrado o preço pay as you go por 7 GB da utilização de computação da Cache do Azure para Redis e obtém o desconto de reserva para uma hora da utilização de computação de cache de 6 GB.
+**Exemplo 1**: Compra capacidade reservada da Cache do Azure para Redis para uma cache de 6 GB. Se estiver a executar uma cache de 13 GB que corresponda aos restantes atributos da reserva, é-lhe cobrado o preço pay as you go por 7 GB da utilização de computação da Cache do Azure para Redis e obtém o desconto de reserva para uma hora da utilização de computação de cache de 6 GB.
 
 Nos outros exemplos, pressuponha que a capacidade reservada da Cache do Azure para Redis que comprou é para uma cache de 26 GB e que o resto dos atributos de reserva correspondem à cache em execução.
 
@@ -40,7 +40,7 @@ Nos outros exemplos, pressuponha que a capacidade reservada da Cache do Azure pa
 
 * **Exemplo 4**: Executa apenas uma cache de 26 GB das 13:00 às 13:45. Executa outra cache de 26 GB das 13:30 às 14:00. É-lhe cobrado o preço pay-as-you-go pela sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação durante o resto do tempo.
 
-Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](/azure/billing/billing-understand-reserved-instance-usage-ea).
+Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

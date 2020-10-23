@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0ccab295d39e463d4b6d1e764862678469fba751
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776413"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278366"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Quickstart: Construa uma app DB D3 da Spring Data Cosmos para gerir dados API API AZURE Cosmos DB SQL
 
@@ -23,7 +23,7 @@ ms.locfileid: "91776413"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [SDK v4 de Java](create-sql-api-java.md)
-> * [Dados da primavera v3](create-sql-api-spring-data.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -52,9 +52,9 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
 
 *A estrutura de uma conta de Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* Cosmos DB contém zero ou mais *bases de dados,* uma base *de dados* (DB) contém zero ou mais *contentores*, e um *recipiente* contém zero ou mais itens, como mostra o diagrama abaixo:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta Azure Cosmos" border="false":::
 
-Pode ler mais sobre bases de dados, contentores e itens [aqui.](databases-containers-items.md) Algumas propriedades importantes são definidas ao nível do recipiente, entre *elas a chave de produção* e *partição.* 
+Pode ler mais sobre bases de dados, contentores e itens [aqui.](account-databases-containers-items.md) Algumas propriedades importantes são definidas ao nível do recipiente, entre *elas a chave de produção* e *partição.* 
 
 A produção prevista é medida nas Unidades de Pedido *(RUs)* que têm um preço monetário e constituem um fator determinante substancial no custo de exploração da conta. A produção a provisionada pode ser selecionada em granularidade por contentor ou granularidade por base de dados, no entanto, a especificação de produção ao nível do contentor é normalmente preferível. Pode ler mais sobre o fornecimento de produção [aqui.](set-throughput.md)
 

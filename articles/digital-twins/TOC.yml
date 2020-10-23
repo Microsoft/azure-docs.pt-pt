@@ -37,6 +37,8 @@
       href: concepts-route-events.md
     - name: Segurança para soluções Azure Digital Twins
       href: concepts-security.md
+    - name: Elevada disponibilidade e recuperação após desastre
+      href: concepts-high-availability-disaster-recovery.md
 - name: Guias de procedimentos
   items:
     - name: Implementação
@@ -53,6 +55,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Escrever o código de autenticação da aplicação
           href: how-to-authenticate-client.md
+        - name: Criar um registo de aplicação
+          href: how-to-create-app-registration.md
         - name: Mover uma instância para uma região diferente
           href: how-to-move-regions.md
     - name: Conceber modelos
@@ -130,7 +134,7 @@
             - name: Swagger
               href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins'
             - name: SDK de .NET (C#) - NuGet
-              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/'
             - name: SDK de .NET (C#) - referência
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
             - name: SDK de .NET (C#) - origem
@@ -161,14 +165,16 @@
               href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
             - name: SDK de .NET (C#) - origem
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
-            - name: SDK de JavaScript - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
-            - name: SDK de JavaScript - referência
-              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
             - name: SDK de Java - Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
             - name: SDK de Java - referência
               href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
+            - name: SDK de Java - origem
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
+            - name: SDK de JavaScript - npm
+              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+            - name: SDK de JavaScript - referência
+              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
     - name: CLI do Digital Twins
       items:
         - name: Referência da CLI do Digital Twins
@@ -191,7 +197,7 @@
       items:
         - name: Serviço de simulador de dispositivo
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
-        - name: Exemplos do Azure Digital Twins
+        - name: Amostras completas do Azure Digital Twins
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Explorador do Azure Digital Twins (exemplo)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
@@ -199,10 +205,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Exemplo de integração do DPS e do Hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Swaggers Personalizados do Azure Digital Twins
-          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Amostra de integração com o SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+        - name: Swaggers personalizados do Azure Digital Twins para o conector do Logic Apps
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Ferramentas do Azure
       items:
         - name: Azure Cloud Shell

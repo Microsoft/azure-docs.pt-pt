@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964473"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366484"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planeie uma implementação de autenticação multi-factor Azure
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Para planear a sua estratégia de política de acesso condicional, que determinará quando são necessários MFA e outros controlos, consulte as [políticas comuns de acesso condicional](../conditional-access/concept-conditional-access-policy-common.md).
 
-É importante que evite ser inadvertidamente trancado fora do seu inquilino AZure AD. Pode atenuar o impacto desta inadvertida falta de acesso administrativo [criando duas ou mais contas de acesso de emergência no seu inquilino](../users-groups-roles/directory-emergency-access.md) e excluindo-as da sua política de Acesso Condicional.
+É importante que evite ser inadvertidamente trancado fora do seu inquilino AZure AD. Pode atenuar o impacto desta inadvertida falta de acesso administrativo [criando duas ou mais contas de acesso de emergência no seu inquilino](../roles/security-emergency-access.md) e excluindo-as da sua política de Acesso Condicional.
 
 ### <a name="create-conditional-access-policy"></a>Criar política de acesso condicional
 

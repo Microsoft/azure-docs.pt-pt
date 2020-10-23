@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e844904f236e9d81404a3481af9349ac8881085
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761163"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310442"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança Azure para Service Bus
 
@@ -62,7 +62,7 @@ Utilize o Azure Security Center e siga as recomendações de proteção da rede 
 
 - [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
 
-- [Inteligência integrada do Centro de Segurança Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Inteligência integrada do Centro de Segurança Azure](../security-center/azure-defender.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -111,7 +111,7 @@ Também pode construir definições de política personalizadas se as definiçõ
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Política Azure Built-in para o espaço de nomes de autocarros de serviço](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
+- [Política Azure Built-in para o espaço de nomes de autocarros de serviço](./policy-reference.md#azure-service-bus-messaging)
 
 - [Amostras da Política Azure para networking](../governance/policy/samples/built-in-policies.md#network)
 
@@ -129,7 +129,7 @@ Utilize qualquer uma das definições de política incorporadas do Azure relacio
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas Tags. 
 
-- [Como criar e usar Tags](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md) 
 
 - [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md) 
 
@@ -143,7 +143,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com o Azure Service Bus. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -177,7 +177,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como ativar definições de diagnóstico para ônibus de serviço Azure](service-bus-diagnostic-logs.md)
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -231,9 +231,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Papéis incorporados para a Azure Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -311,7 +311,7 @@ Também pode construir definições de política personalizadas se as definiçõ
 
 **Orientação**: Utilize relatórios de segurança do Azure Ative Directory e monitoriem para detetar quando ocorrem atividades suspeitas ou inseguras no ambiente. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
 
-- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
@@ -347,7 +347,7 @@ Também pode construir definições de política personalizadas se as definiçõ
 
 Adicionalmente, rode regularmente a assinatura de acesso partilhado do seu service bus.
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure AD reportando](../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -363,7 +363,7 @@ Adicionalmente, rode regularmente a assinatura de acesso partilhado do seu servi
 
 Pode agilizar este processo criando definições de diagnóstico para contas de utilizadores AZure E envio de registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Em seguida, no Azure Monitor pode configurar os alertas de registo desejados para determinadas ações que ocorrem nos registos.
 
-- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Autorizar o acesso aos recursos do Service Bus utilizando o Azure Ative Directory](authenticate-application.md)
 
@@ -375,7 +375,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize as funcionalidades de Proteção de Identidade do Azure Ative Directory e funcionalidades de deteção de riscos para configurar respostas automatizadas para detetar ações suspeitas relacionadas com os recursos ativados pelo seu Service Bus. Deve permitir respostas automatizadas através do Azure Sentinel para implementar as respostas de segurança da sua organização.
 
-- [Como ver a Azure AD a entrar em risco](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -403,7 +403,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize etiquetas em recursos relacionados com o seu Service Bus para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
-- [Como criar e usar Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -413,11 +413,11 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Implementar assinaturas separadas e grupos de gestão para desenvolvimento, teste e produção. Os espaços de nome do Service Bus devem ser separados por redes virtuais com pontos finais privados configurados e marcados adequadamente.
 
-- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e utilizar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e utilizar tags](../azure-resource-manager/management/tag-resources.md)
 
 - [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
@@ -437,7 +437,7 @@ A Microsoft gere a infraestrutura subjacente à Azure Service Bus e implementou 
 
 - [Permitir o acesso aos espaços de nomes do Azure Service Bus através de pontos finais privados](private-link-service.md)
 
-- [Compreender grupos de segurança de rede e tags de serviço](/azure/virtual-network/security-overview)
+- [Compreender grupos de segurança de rede e tags de serviço](../virtual-network/network-security-groups-overview.md)
 
 - [Compreender a proteção de dados do cliente em Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -507,7 +507,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 - [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -527,11 +527,11 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize etiquetas, grupos de gestão e subscrições separadas, se for caso disso, para organizar e rastrear espaços de nomes do Azure Service Bus e recursos conexos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
-- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -574,7 +574,7 @@ Também pode construir definições de política personalizadas se as definiçõ
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -603,9 +603,9 @@ Também pode construir definições de política personalizadas se as definiçõ
 
 Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.ServiceBus" para criar políticas personalizadas para auditar ou impor configurações.
 
-- [Políticas Azure Built-in para Service Bus ](/azure/service-bus-messaging/policy-samples)
+- [Políticas Azure Built-in para Service Bus ](./policy-reference.md)
 
-- [Como ver pseudónimos disponíveis da Política Azure](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -653,7 +653,7 @@ Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.ServiceBus" 
 
 - [Configure chaves geridas pelo cliente para o Service Bus](configure-customer-managed-key.md)
 
-- [Como criar um Cofre-Chave](/azure/key-vault/quick-create-portal)
+- [Como criar um Cofre-Chave](../key-vault/secrets/quick-create-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -731,7 +731,7 @@ Certifique-se de cópias de segurança automáticas regulares dos seus Segredos 
 
 - [Como configurar chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso](configure-customer-managed-key.md)
 
-- [Como restaurar chaves chave do cofre em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -741,7 +741,7 @@ Certifique-se de cópias de segurança automáticas regulares dos seus Segredos 
 
 **Orientação**: Ative a eliminação suave no Cofre da Chave para proteger as chaves contra a eliminação acidental ou maliciosa. O Azure Service Bus requer chaves geridas pelo cliente para ter Soft Delete e Não Purgar configurados.
 
-- [Como permitir a eliminação suave no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a eliminação suave no Cofre de Chaves](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Configurar um cofre com chaves](../event-hubs/configure-customer-managed-key.md)
 
@@ -775,7 +775,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -843,5 +843,5 @@ Utilize a funcionalidade de automatização de fluxos de trabalho Azure Security
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

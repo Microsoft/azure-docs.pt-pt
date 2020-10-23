@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613934"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425558"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar Tableau Online para fornecimento automático de utilizadores
 
@@ -98,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
    * Na caixa **de domínio,** preencha o subdomínio com base no passo 6.
 
-   * Na caixa **de nome de utilizador Admin,** preencha o nome de utilizador da conta de administração no seu Inquilino Clarizen. Um exemplo é admin@contoso.com.
+   * Na caixa **de nome de utilizador Admin,** preencha o nome de utilizador da conta de administração no seu Tableau Online Tenant. Um exemplo é admin@contoso.com.
 
    * Na caixa **de palavra-passe Admin,** preencha a palavra-passe da conta de administração que corresponde ao nome de utilizador de administração.
 

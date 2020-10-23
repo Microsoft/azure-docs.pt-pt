@@ -2,13 +2,13 @@
 title: Identidades geridas para recursos Azure com Service Bus
 description: Este artigo descreve como usar identidades geridas para aceder a entidades do Azure Service Bus (filas, tópicos e subscrições).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079863"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425523"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos recursos do Azure Service Bus
 [As identidades geridas para os recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) são uma funcionalidade cross-Azure que lhe permite criar uma identidade segura associada à implementação sob a qual o seu código de aplicação é executado. Em seguida, pode associar essa identidade a funções de controlo de acesso que concedem permissões personalizadas para aceder a recursos específicos do Azure de que a sua aplicação necessita.
@@ -45,7 +45,7 @@ Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmb
 
 A lista a seguir descreve os níveis em que pode aceder aos recursos do Service Bus, começando pelo âmbito mais restrito:
 
-- **Fila,** **tópico**, ou **subscrição**: A atribuição de funções aplica-se à entidade específica do Service Bus. Atualmente, o portal Azure não suporta a atribuição de utilizadores/grupos/identidades geridas às funções de Service Bus Azure ao nível da subscrição. Aqui está um exemplo de utilização do comando Azure CLI: [az-role-assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para atribuir uma identidade a um papel de Service Bus Azure: 
+- **Fila,** **tópico**, ou **subscrição**: A atribuição de funções aplica-se à entidade específica do Service Bus. Atualmente, o portal Azure não suporta a atribuição de utilizadores/grupos/identidades geridas às funções de Service Bus Azure ao nível da subscrição. Aqui está um exemplo de utilização do comando Azure CLI: [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) para atribuir uma identidade a um papel de Service Bus Azure: 
 
     ```azurecli
     az role assignment create \
@@ -91,6 +91,9 @@ Assim que a aplicação for criada, siga estes passos:
 
 Uma vez ativada esta definição, é criada uma nova identidade de serviço no seu Azure Ative Directory (Azure AD) e configurada no anfitrião do Serviço de Aplicações.
 
+> [!NOTE]
+> Quando utilizar uma identidade gerida, a cadeia de ligação deve estar no formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity` .
+
 Agora, atribua esta identidade de serviço a um papel no âmbito exigido nos seus recursos de Service Bus.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Atribuir funções de Azure utilizando o portal Azure
@@ -114,8 +117,10 @@ Para atribuir uma função a um espaço de nomes de Service Bus, navegue para o 
 
 Uma vez atribuído o papel, a aplicação web terá acesso às entidades do Service Bus sob o âmbito definido. 
 
-### <a name="run-the-app"></a>Executar a aplicação
 
+
+
+### <a name="run-the-app"></a>Executar a aplicação
 Agora, modifique a página predefinição da aplicação ASP.NET que criou. Pode utilizar o código de aplicação web a partir [deste repositório GitHub.](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)  
 
 A página Default.aspx é a sua página de aterragem. O código pode ser encontrado no ficheiro Default.aspx.cs. O resultado é uma aplicação web mínima com alguns campos de entrada, e com botões **de envio** e **receção** que se conectam ao Service Bus para enviar ou receber mensagens.

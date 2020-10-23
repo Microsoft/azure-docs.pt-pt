@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88782741"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365532"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide os utilizadores convidados e atribua funções de recursos da Azure na Gestão de Identidade Privilegiada
 
@@ -67,7 +67,7 @@ Para se certificar de que pode convidar os hóspedes para a sua organização, d
 
 Utilizando a Gestão de Identidade Privilegiada, pode convidar um hóspede e torná-lo elegível para um papel de recurso Azure.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que seja membro da função de Administrador de [Função Privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) ou [administrador de utilizador.](../users-groups-roles/directory-assign-admin-roles.md#user-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que seja membro da função de Administrador de [Função Privilegiada](../roles/permissions-reference.md#privileged-role-administrator) ou [administrador de utilizador.](../roles/permissions-reference.md#user-administrator)
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.**
 

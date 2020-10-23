@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5126159f2f9e5761b5f6a073972935101bc03210
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946353"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174060"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup do servidor SQL em VMs Azure
 
@@ -41,7 +41,7 @@ Pode utilizar o Azure Backup para fazer backup nas bases de dados do SQL Server 
 * Todos os tipos de backup (full/diferencial/log) e modelos de recuperação (simples/full/granel) são suportados.
 * Os tipos de backup completos e completos e completos são suportados para bases de dados **só de leitura.**
 * A compressão nativa SQL é suportada se for ativada explicitamente pelo utilizador na política de backup. O Azure Backup substitui os padrãos de nível de instância com a cláusula COMPRESSION/NO_COMPRESSION, dependendo do valor deste controlo tal como definido pelo utilizador.
-* TDE - a cópia de segurança da base de dados ativada é suportada. Para restaurar uma base de dados encriptada TDE para outro SqL Server, é necessário restaurar primeiro [o certificado no servidor de destino](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compressão de backup para bases de dados ativadas pelo TDE para o SQL Server 2016 e versões mais recentes estão disponíveis, mas com menor tamanho de transferência, como explicado [aqui.](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)
+* TDE - a cópia de segurança da base de dados ativada é suportada. Para restaurar uma base de dados encriptada TDE para outro SqL Server, é necessário restaurar primeiro [o certificado no servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compressão de backup para bases de dados ativadas pelo TDE para o SQL Server 2016 e versões mais recentes estão disponíveis, mas com menor tamanho de transferência, como explicado [aqui.](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)
 * As operações de backup e restauro para bases de dados de espelhos e imagens de bases de dados não são suportadas.
 * SQL Server **Failover Cluster Instance (FCI)** não é suportado.
 * Utilizar mais de uma solução de backup para fazer backup da sua instância autónoma do SQL Server ou SQL Sempre no grupo de disponibilidade pode levar a falhas de backup. Abstenha-se de fazê-lo. O backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também pode levar a falhas de backup.
@@ -94,6 +94,6 @@ Diferencial | Primário
 Registar |  Secundária
 Copy-Only Cheio |  Secundária
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [fazer o back up de uma base de dados](backup-azure-sql-database.md) do SQL Server que está a funcionar num VM Azure.

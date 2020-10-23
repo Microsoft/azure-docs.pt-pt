@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53b7fed17ba4ef2000b905b202286338cd461ed
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551477"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Diretório Ativo Azure com o HubSpot
 
@@ -28,7 +28,7 @@ Integrar o HubSpot com a Azure AD dá-lhe os seguintes benefícios:
 * Os utilizadores podem ser automaticamente inscritos no HubSpot com as suas contas AD Azure (súm numa única sação).
 * Pode gerir as suas contas num local central, o portal Azure.
 
-Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [um único sinal de acesso às aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [um único sinal de acesso às aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -257,6 +257,6 @@ Depois de configurar um único sôs-on, quando selecionar o **HubSpot** no porta
 
 Para saber mais, reveja estes artigos:
 
-- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Inscrição única para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](./tutorial-list.md)
+- [Inscrição única para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

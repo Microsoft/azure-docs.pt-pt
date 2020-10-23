@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: fbab2bbaa47090ff4bd7fb99495912bd1f645b61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758146"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458188"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Tutorial: Integre o single sign-on do Azure AD com o Conector SAML, orquestrador de identidade Maverics
 
@@ -158,14 +158,14 @@ Pode configurar um cofre de chaves Azure utilizando o portal Azure ou o Azure CL
 
 **Utilizar o portal do Azure**
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. [Criar um novo cofre de chaves.](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault)
-1. [Adicione os segredos ao cofre das chaves.](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
-1. [Registe uma candidatura com Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [Autorizar uma aplicação a usar um segredo.](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)
+1. [Criar um novo cofre de chaves.](../../key-vault/secrets/quick-create-portal.md#create-a-vault)
+1. [Adicione os segredos ao cofre das chaves.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
+1. [Registe uma candidatura com Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [Autorizar uma aplicação a usar um segredo.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
 
 **Utilizar a CLI do Azure**
 
-1. Abra o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)e, em seguida, insira o seguinte comando:
+1. Abra o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)e, em seguida, insira o seguinte comando:
 
     ```shell
     az login

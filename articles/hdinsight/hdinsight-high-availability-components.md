@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842585"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424518"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
 
 De forma a proporcionar-lhe os níveis ideais de disponibilidade para os seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura única para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes desta arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes Apache standard que são implantados para suportar serviços específicos. Este artigo explica a arquitetura do modelo de serviço HA em HDInsight, como a HDInsight suporta o failover para os serviços HA, e as melhores práticas para recuperar de outras interrupções de serviço.
- 
+
 > [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
->
+> Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 
@@ -62,7 +59,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela seguinte e
 | Apache Livy | Cabeçano ativo | Spark | Permite uma interação fácil com um cluster Spark sobre uma interface REST |
 
 >[!Note]
-> Os clusters HDInsight Enterprise Security Package (ESP) atualmente apenas fornecem ao servidor Ambari alta disponibilidade.
+> Os clusters HDInsight Enterprise Security Package (ESP) atualmente apenas fornecem ao servidor Ambari alta disponibilidade. O Servidor de Linha do Tempo de Aplicação, o Job History Server e o Livy estão todos a funcionar apenas em headnode0 e não falham em fazer frente a frente quando o Ambari falha. A base de dados da linha de tempo da aplicação também está no headnode0 e não no servidor Ambari SQL.
 
 ### <a name="architecture"></a>Arquitetura
 

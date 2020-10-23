@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249472"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368609"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar os empregos da Apache Spark (pré-visualização) no Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ As versões Spark anteriores usam RDDs para dados abstratos, Spark 1.3 e 1.6 int
 
 A faísca suporta muitos formatos, tais como csv, json, xml, parquet, orc e avro. A faísca pode ser estendida para suportar muitos mais formatos com fontes de dados externas - para mais informações, consulte [os pacotes Apache Spark](https://spark-packages.org).
 
-O melhor formato para desempenho é o parquet com *compressão snappy,* que é o padrão em Spark 2.x. O Parquet armazena dados em formato colunar, e está altamente otimizado em Spark. Além disso, embora *a compressão snappy* possa resultar em ficheiros maiores do que a compressão gzip. Devido à natureza splittable desses ficheiros, eles vão descomprimir mais rapidamente]
+O melhor formato para desempenho é o parquet com *compressão snappy,* que é o padrão em Spark 2.x. O Parquet armazena dados em formato colunar, e está altamente otimizado em Spark. Além disso, embora *a compressão snappy* possa resultar em ficheiros maiores do que a compressão gzip. Devido à natureza splittable desses ficheiros, eles vão descomprimir mais rapidamente.
 
 ## <a name="use-the-cache"></a>Utilizar a cache
 
@@ -77,7 +77,7 @@ Apache Spark in Azure Synapse usa YARN [Apache Hadoop YARN,](https://hadoop.apac
 Para endereçar mensagens 'fora da memória', tente:
 
 * Reveja o DAG Management Shuffles. Reduzir por dados de origem de redução do lado do mapa, pré-partição (ou baldear), maximizar as baralhadas individuais e reduzir a quantidade de dados enviados.
-* Prefere `ReduceByKey` com o seu limite de memória fixa a , que fornece `GroupByKey` agregações, janelas e outras funções, mas tem um limite de memória sem limites.
+* Prefere `ReduceByKey` com o seu limite de memória fixa a , que fornece `GroupByKey` agregações, janelas e outras funções, mas tem um limite de memória ilimitado.
 * Prefere, `TreeReduce` que trabalha mais nos executores ou divisórias, para , que faz todo o trabalho no `Reduce` motorista.
 * Alavancar dataFrames em vez dos objetos RDD de nível inferior.
 * Criar ComplexTypes que englobam ações, como "Top N", várias agregações ou operações de janela.
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Afinação de Faíscas Apache](https://spark.apache.org/docs/latest/tuning.html)
+- [Afinação de Faíscas Apache](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [Como realmente sintonizar os seus apache spark jobs para que eles funcionem](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Kryo Serialização](https://github.com/EsotericSoftware/kryo)

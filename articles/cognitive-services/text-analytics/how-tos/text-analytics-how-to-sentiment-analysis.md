@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930293"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166935"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
 
@@ -23,7 +23,7 @@ A funcionalidade de Análise de Sentimento da API de Text Analytics avalia os re
 
 Após o envio de um pedido de análise de sentimento, a API devolve rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento.
 
-A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-visualização. Para mais informações, consulte [as línguas apoiadas.](../text-analytics-supported-languages.md)
+A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-visualização. Para obter mais informações, veja os [Idiomas suportados](../text-analytics-supported-languages.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e funcionalidades de Análise de Sentimento
 
@@ -36,7 +36,7 @@ A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-vi
 | [Recipiente Docker](text-analytics-how-to-install-containers.md) baseado em Linux | X  |  |
 | Mineração de opinião                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Pontuação e rotulagem de sentimentos
+## <a name="sentiment-scoring-and-labeling"></a>Pontuação e rotulagem de sentimentos
 
 A Análise de Sentimento na V3 aplica rótulos de sentimento ao texto, que são devolvidos a um nível de frase e documento, com uma pontuação de confiança para cada um. 
 
@@ -51,7 +51,7 @@ Os rótulos são *positivos,* *negativos*e *neutros.* Ao nível do documento, a 
 
 Os resultados de confiança variam de 1 a 0. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Para cada documento ou para cada frase, as pontuações previstas associadas aos rótulos (positivos, negativos e neutros) somam até 1.
 
-### <a name="opinion-mining"></a>Mineração de opinião
+## <a name="opinion-mining"></a>Mineração de opinião
 
 A mineração de opinião é uma característica da Análise do Sentimento, a partir da versão 3.1-preview.1. Também conhecida como Análise de Sentimento baseada em Aspetos no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com aspetos (como os atributos de produtos ou serviços) em texto.
 

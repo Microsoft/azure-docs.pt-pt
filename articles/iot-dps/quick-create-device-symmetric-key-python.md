@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528602"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426381"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Quickstart: Provision a um dispositivo Python com chaves simétricas
 
-Neste arranque rápido, você aprenderá a providenciar uma máquina de desenvolvimento Windows como um dispositivo para um hub IoT usando Python. Este dispositivo utilizará uma chave simétrica para autenticar com uma instância do Serviço de Provisionamento de Dispositivos (DPS) para ser atribuído a um hub IoT. O dispositivo autenticado será reconhecido pela DPS com base numa inscrição individual e atribuído a um hub IoT. O código de amostra do [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) será utilizado para o fornecimento do dispositivo. 
+Neste arranque rápido, você aprenderá a providenciar uma máquina de desenvolvimento Windows como um dispositivo para um hub IoT usando Python. Este dispositivo utilizará uma chave simétrica e uma inscrição individual para autenticar com uma instância do Serviço de Provisionamento de Dispositivos (DPS) para ser atribuído a um hub IoT. O código de amostra do [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) será utilizado para o fornecimento do dispositivo. 
 
 Embora este artigo demonstre o provisionamento com uma inscrição individual, você também pode usar grupos de inscrição. Há algumas diferenças na utilização de grupos de inscrição. Por exemplo, deve utilizar uma chave de dispositivo derivada com um ID de registo único para o dispositivo. Embora os grupos de inscrições de chave simétrica não estejam limitados a dispositivos legados, o artigo [Como aprovisionar dispositivos legados com o atestado de chave simétrica](how-to-legacy-device-symm-key.md) fornece um exemplo de grupo de inscrições. Para obter mais informações, veja [Inscrições em grupo para o Atestado de Chave Simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
@@ -174,7 +174,7 @@ O código de provisionamento entrará em contacto com a instância DPS com base 
 >
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender continuar a trabalhar e explorar a amostra do cliente do dispositivo, não limpe os recursos criados neste quickstart. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos criados por este arranque rápido.
 

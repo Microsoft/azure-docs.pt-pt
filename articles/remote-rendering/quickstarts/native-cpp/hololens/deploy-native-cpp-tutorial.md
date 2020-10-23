@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892665"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207279"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Quickstart: Implementar a amostra nativa C++ para hololens
 
 Este quickstart abrange como implementar e executar a aplicação tutorial nativa C++ num HoloLens 2.
 
-Neste arranque rápido aprenderá a:
+Neste início rápido, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Deve ser instalado o seguinte software:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * A mais recente versão do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+* [Ferramentas de Estúdio Visual para Realidade Mista.](/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
   * **Desenvolvimento de desktop com C++**
   * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * GIT [(download)](https://git-scm.com/downloads)
@@ -87,9 +87,9 @@ Agora a aplicação pode ser compilada.
 
 ## <a name="launch-the-application"></a>Iniciar a aplicação
 
-1. Ligue os HoloLens com um cabo USB ao seu PC.
+1. Ligue o HoloLens com um cabo USB ao seu computador.
 1. Ligue os HoloLens e espere até que o menu inicial apareça.
-1. Inicie o Debugger no Visual Studio (F5). Irá implantar automaticamente a aplicação no dispositivo.
+1. Inicie o Depurador no Visual Studio (F5). A aplicação é implementada automaticamente no dispositivo.
 
 A aplicação da amostra deve ser lançada e deve aparecer um painel de texto que o informe sobre o estado atual da aplicação. O estado na hora do arranque é iniciar uma nova sessão ou ligar-se a uma sessão existente. Após o carregamento do modelo ter terminado, o modelo do motor incorporado aparece na sua posição de cabeça. Em termos de oclusão, o modelo do motor interage corretamente com o cubo de fiação que é renderizado localmente.
 

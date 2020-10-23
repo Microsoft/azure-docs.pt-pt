@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231357"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340517"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Monte o aglomerado
 
@@ -20,6 +20,7 @@ Este tutorial ensina-o a montar clientes NFS no cluster Azure FXT Edge Filer. Os
 Este tutorial ensina:
 
 > [!div class="checklist"]
+>
 > * Estratégias para equilibrar os clientes em toda a gama de endereços IP voltados para o cliente
 > * Como construir um caminho de montagem a partir de um endereço IP virado para o cliente e junção de espaço de nome
 > * Que argumentos usar num comando de montagem
@@ -108,6 +109,6 @@ Para garantir uma montagem de cliente sem emenda, passe estas definições e arg
 
 Depois de ter clientes montados, pode testar o seu fluxo de trabalho e começar com o seu cluster.
 
-Se precisar de mover dados para um novo ficheiro de núcleo de nuvem, aproveite a estrutura da cache utilizando a ingestão de dados paralelos. Algumas estratégias são descritas em [Mover dados para um cluster vFXT.](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest) (Avere vFXT for Azure é um produto baseado na nuvem que utiliza tecnologia de caching muito semelhante ao Azure FXT Edge Filer.)
+Se precisar de mover dados para um novo ficheiro de núcleo de nuvem, aproveite a estrutura da cache utilizando a ingestão de dados paralelos. Algumas estratégias são descritas em [Mover dados para um cluster vFXT.](../avere-vfxt/avere-vfxt-data-ingest.md) (Avere vFXT for Azure é um produto baseado na nuvem que utiliza tecnologia de caching muito semelhante ao Azure FXT Edge Filer.)
 
 Leia [o estado do hardware do Monitor Azure FXT Edge Filer](fxt-monitor.md) se precisar de resolver problemas de hardware.

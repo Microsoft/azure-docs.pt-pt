@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471861"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424134"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre O Observador de Redes Azure
 O serviço [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -55,7 +55,7 @@ Visite [a página de preços](https://azure.microsoft.com/pricing/details/networ
 Pode ver a mais recente disponibilidade regional na [página de disponibilidade do Serviço Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Que permissões são necessárias para utilizar o Network Watcher?
-Consulte a lista de [permissões do RBAC necessárias para utilizar o Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Para a implementação de recursos, necessita de permissões de colaboradores para o NetworkWatcherRG (ver abaixo).
+Consulte a lista de [permissões Azure RBAC necessárias para utilizar o Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Para a implementação de recursos, necessita de permissões de colaboradores para o NetworkWatcherRG (ver abaixo).
 
 ### <a name="how-do-i-enable-network-watcher"></a>Como posso ativar o Observador de Rede?
 O serviço Network Watcher é [ativado automaticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) para cada subscrição.
@@ -80,6 +80,14 @@ O Network Watcher apenas precisa de ser ativado uma vez para uma subscrição pa
 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Como posso gerir o Recurso do Observador de Rede? 
 O recurso Network Watcher representa o serviço de backend para Network Watcher e é totalmente gerido pelo Azure. Os clientes não precisam de o gerir. Operações como o movimento não são suportadas no recurso. No entanto, [o recurso pode ser eliminado.](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal) 
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade de serviços e redundância 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>A zona de serviço do Observador de Rede é resistente? 
+Sim. O serviço Network Watcher é resistente à zona por defeito. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Como posso configurar o serviço Network Watcher para ser resistente à zona? 
+Não é necessária nenhuma configuração do cliente para permitir a resiliência da zona. A resiliência da zona para os recursos do Network Watcher está disponível por padrão e gerida pelo próprio serviço. 
 
 ## <a name="nsg-flow-logs"></a>Registos de fluxo NSG
 

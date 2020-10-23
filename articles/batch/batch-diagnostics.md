@@ -4,12 +4,12 @@ description: Grave e analise os eventos de registo de diagnóstico para recursos
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848692"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108104"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
 
@@ -105,7 +105,7 @@ Para criar uma nova definição de diagnóstico no portal Azure, siga os passos 
 6. **Selecione ServiceLog**, **AllMetrics,** ou ambos.
 7. **Selecione Guardar** para criar a definição de diagnóstico.
 
-Também pode [ativar a recolha através do Azure Monitor no portal Azure](../azure-monitor/platform/diagnostic-settings.md) para configurar definições de diagnóstico, utilizando um [modelo de Gestor de Recursos](../azure-monitor/platform/diagnostic-settings-template.md), ou com a Azure PowerShell ou o Azure CLI. Para mais informações, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
+Também pode [ativar a recolha através do Azure Monitor no portal Azure](../azure-monitor/platform/diagnostic-settings.md) para configurar definições de diagnóstico, utilizando um [modelo de Gestor de Recursos](../azure-monitor/samples/resource-manager-diagnostic-settings.md), ou com a Azure PowerShell ou o Azure CLI. Para mais informações, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Aceder a registos de diagnósticos no armazenamento
 

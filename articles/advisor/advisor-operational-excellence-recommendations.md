@@ -3,12 +3,12 @@ title: Melhorar a excelência operacional com o Conselheiro
 description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelência operacional para as suas subscrições Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077393"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122624"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
 
@@ -53,6 +53,12 @@ A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e geri
 **Impor *VMs de auditoria que não utilizem discos geridos*.**
 
 **Ativar *herdar uma etiqueta de grupos de recursos*.** Esta política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos principal quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação.
+
+O Advisor recomenda algumas políticas individuais do Azure que ajudam os clientes a alcançar a excelência operacional, adotando as melhores práticas. Se um cliente decidir atribuir uma apólice recomendada, então suprimiremos a recomendação. Se o cliente decidir remover a apólice mais tarde, então o Advisor continuará a suprimir a recomendação porque interpretamos a sua remoção como um sinal forte do seguinte:
+
+1.  O cliente removeu a apólice porque, apesar da recomendação do Advisor, não se aplica ao seu caso de utilização específico. 
+2.  O cliente está ciente e familiarizado com a política após a sua atribuição e remoção, e pode atribuí-la ou removê-la novamente, se necessário, se se tornar mais tarde relevante para o seu caso de utilização. Se o cliente achar que é do seu interesse atribuir novamente a mesma apólice, pode fazê-lo na Azure Policy sem exigir uma recomendação no Advisor. Por favor, note que esta lógica se aplica especificamente à recomendação política na categoria Excelência Operacional. Estas regras não se aplicam às recomendações de segurança.  
+
 
 ## <a name="no-validation-environment-enabled"></a>Nenhum ambiente de validação ativado
 O Azure Advisor determina que não tem um ambiente de validação ativado na subscrição atual. Ao criar as suas piscinas hospedeiras, selecionou \" o ambiente Nº \" para \" validação no \" separador propriedades. Ter pelo menos um pool de anfitriões com um ambiente de validação habilitado garante a continuidade do negócio através de implementações de serviços de desktop virtual do Windows com deteção precoce de potenciais problemas. [Saiba mais](../virtual-desktop/create-validation-host-pool.md)

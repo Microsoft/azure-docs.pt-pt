@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 65b31bd39c85ea9073bb9415b9829df12b7d9e35
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976016"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171575"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -691,6 +691,10 @@ Para confirmar que a fonte de dados foi adicionada ao servidor JBoss, SSH no seu
 O Serviço de Aplicações permite que os utilizadores escolham a versão principal do JVM, como Java 8 ou Java 11, bem como a versão menor, como 1.8.0_232 ou 11.0.5. Também pode optar por ter a versão menor automaticamente atualizada à medida que novas versões menores ficam disponíveis. Na maioria dos casos, os locais de produção devem utilizar versões JVM menores. Isto evitará interrupções inesperadas durante uma pequena versão de atualização automática.
 
 Se optar por fixar a versão menor, terá de atualizar periodicamente a versão menor JVM no site. Para garantir que a sua aplicação é executado na versão menor mais recente, crie uma ranhura de encenação e incremente a versão menor no site de preparação. Uma vez confirmada a aplicação que funciona corretamente na nova versão menor, pode trocar as ranhuras de encenação e produção.
+
+## <a name="jboss-eap-hardware-options"></a>Opções de hardware JBoss EAP
+
+O JBoss EAP só está disponível nas opções de hardware Premium e Isolada. Os clientes que criaram um site EAP JBoss num nível gratuito, partilhado, básico ou standard durante a pré-visualização pública devem escalar até ao nível de hardware Premium ou Isolado para evitar comportamentos inesperados.
 
 ## <a name="java-runtime-statement-of-support"></a>Declaração de apoio em tempo de execução de Java
 

@@ -2,17 +2,18 @@
 author: mikebudzynski
 ms.service: api-management
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: b4c8e9b07905e954879e5b65adbaae765fc41c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44de30438d59252a431bf37ac6919a9bc186c8ed
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73176483"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315741"
 ---
 > [!NOTE]
-> Este conteúdo de documentação é sobre o portal de desenvolvedores legado. Consulte os seguintes artigos para conteúdos sobre o novo portal de desenvolvedores:
+> Este conteúdo de documentação é sobre o portal de desenvolvedores preced. Pode continuar a usá-lo, como de costume, até à sua reforma em outubro de 2023, altura em que será removido de todos os serviços de Gestão da API. O portal precedido só receberá atualizações críticas de segurança. Consulte os seguintes artigos para mais detalhes:
 > 
-> - [Visão geral do portal de desenvolvimento da AZure API Management](..\articles\api-management\api-management-howto-developer-portal.md)
-> - [Aceda e personalize o portal de desenvolvimento gerido (tutorial)](..\articles\api-management\api-management-howto-developer-portal-customize.md)
+> - [Saiba como migrar para o novo portal de desenvolvimento](../articles/api-management/developer-portal-deprecated-migration.md)
+> - [Azure API Management novo portal de desenvolvimento](../articles/api-management/api-management-howto-developer-portal.md)
+> - [Aceder e personalizar o novo portal do programador](../articles/api-management/api-management-howto-developer-portal-customize.md)

@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081003"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123342"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os seus dados Azure IoT Central num painel power BI
 
@@ -27,7 +27,7 @@ Utilize a Solução Power BI para O Azure IoT Central V3 para criar um poderoso 
 - Filtrar para baixo para os dados enviados por dispositivos específicos
 - Ver os dados mais recentes da telemetria numa tabela
 
-Esta solução configura um pipeline que lê dados da sua conta de armazenamento [Desporte Desporte Azure](howto-export-data-blob-storage.md) Blob. O oleoduto utiliza funções Azure, Azure Data Factory e Azure SQL Database para processar e transformar os dados. pode visualizar e analisar os dados num relatório Power BI que descarrega como um ficheiro PBIX. Todos os recursos são criados na sua subscrição Azure, para que possa personalizar cada componente de acordo com as suas necessidades.
+Esta solução configura um pipeline que lê dados da sua conta de armazenamento [Desporte Desporte Azure](./howto-export-data.md) Blob. O oleoduto utiliza funções Azure, Azure Data Factory e Azure SQL Database para processar e transformar os dados. pode visualizar e analisar os dados num relatório Power BI que descarrega como um ficheiro PBIX. Todos os recursos são criados na sua subscrição Azure, para que possa personalizar cada componente de acordo com as suas necessidades.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ A configuração da solução requer os seguintes recursos:
 - Power BI Pro (se quiser partilhar o painel com outros).
 
 > [!NOTE]
-> Se estiver a utilizar uma aplicação IoT Central da versão 2, consulte [visualizar e analisar os dados do Azure IoT Central num dashboard Power BI](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) no site de documentação das versões anteriores.
+> Se estiver a utilizar uma aplicação IoT Central da versão 2, consulte [visualizar e analisar os dados do Azure IoT Central num dashboard Power BI](/previous-versions/azure/iot-central/core/howto-connect-powerbi) no site de documentação das versões anteriores.
 
 ## <a name="install"></a>Instalar
 

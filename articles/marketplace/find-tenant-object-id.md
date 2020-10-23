@@ -6,12 +6,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: c35e42aaf5e4bd31a54f807969c3671ecc5668ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db09943085cb7934bca5d7f2dc24ba692613ee19
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814512"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426896"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Encontre iD do inquilino, ID de objeto e detalhes da associação de parceiros
 

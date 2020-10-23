@@ -190,7 +190,7 @@ groups:
     title: Ir
   - id: programming-language-ruby
     title: Ruby
-- id: programming-languages-set-seventeen
+- id: programming-languages-set-twenty-five
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação ou CLI
   pivots:
@@ -834,10 +834,30 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Páginas do portal do Centro de Segurança
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: Sistema operativo/Consola
+  prompt: Escolha um sistema operativo e uma consola
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS e Linux
+  - id: client-operating-system-windows-command
+    title: Shell de comandos do Windows
+  - id: client-operating-system-powershell
+    title: PowerShell
+- id: ad-quickstart-one
+  title: Linguagens de programação
+  prompt: Escolher uma linguagem de programação
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 metadata:
-  ms.openlocfilehash: 0aaa233c097bbd87f7b1b7df6e931d5fa768821f
-  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+  ms.openlocfilehash: 3f1202aacc0b73aec013fcee98948695aecbcb9a
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92055584"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92368779"

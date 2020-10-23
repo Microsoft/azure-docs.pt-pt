@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982497"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368252"
 ---
 # <a name="list-azure-role-definitions"></a>Lista Azure definições de função
 
 Uma definição de papel é uma coleção de permissões que podem ser realizadas, tais como ler, escrever e apagar. Normalmente chama-se papel. [O controlo de acesso baseado em funções (Azure RBAC)](overview.md) tem mais de 120 [funções incorporadas](built-in-roles.md) ou pode criar as suas próprias funções personalizadas. Este artigo descreve como listar as funções incorporadas e personalizadas que pode usar para conceder acesso aos recursos da Azure.
 
-Para ver a lista de funções de administrador para o Diretório Ativo Azure, consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Para ver a lista de funções de administrador para o Diretório Ativo Azure, consulte [permissões de função de administrador no Diretório Ativo Azure](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -356,7 +356,7 @@ Para listar definições de funções, utilize as [Definições de Função - Li
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de definição de funções.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Descrição |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Lista definições de funções para o âmbito especificado e quaisquer subscópios. |
     > | `$filter=type+eq+'{type}'` | Lista definições de funções do tipo especificado. Tipo de papel pode ser `CustomRole` ou `BuiltInRole` . . |

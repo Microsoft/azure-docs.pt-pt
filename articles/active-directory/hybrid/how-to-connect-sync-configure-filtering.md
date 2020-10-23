@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319984"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457967"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho microsoft 365, como Exchange Online e Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
@@ -127,7 +127,7 @@ Para definir o filtro de domínio, faça os seguintes passos:
 3.  **Selecione Personalizar Opções de Sincronização** e clique em **Seguinte**.
 4.  Introduzir as credenciais do Azure AD
 5.  No ecrã **de Diretórios Conectados** clique em **Seguinte**.
-6.  Na página de **filtragem Do Domínio e da UM** clique em **Refresh**.  Novos domínios iii agora aparecem e domínios apagados desaparecerão.
+6.  Na página de **filtragem Do Domínio e da UM** clique em **Refresh**.  Novos domínios aparecerão agora e os domínios apagados desaparecerão.
    ![Partições](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Atualizar os perfis de execução

@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: daf3b6c36b191f52f0d7ac7638ef59695325f541
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a7937745e839b54d9ee7b6f056d10ff627e191d3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078549"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327336"
 ---
-# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Tutorial: Criar um anfitrião Azure Bastion e ligar-se a um Windows VM através de um browser
+# <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Tutorial: Configurar Bastião e ligar-se a um Windows VM através de um browser
 
 Este tutorial mostra-lhe como se conectar a uma máquina virtual através do seu navegador usando Azure Bastion e o portal Azure. No portal Azure, implementa Bastion para a sua rede virtual. Depois de implementar o Bastion, liga-se a um VM através do seu endereço IP privado utilizando o portal Azure. O seu VM não necessita de um endereço IP público ou de um software especial. Uma vez prestado o serviço, a experiência RDP/SSH está disponível para todas as máquinas virtuais na mesma rede virtual. Para mais informações sobre Azure Bastion, veja [o que é Azure Bastion?](bastion-overview.md)
 
@@ -77,7 +77,7 @@ Esta secção ajuda-o a criar o objeto de bastião no seu VNet. Isto é necessá
 
 [!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine os seus recursos utilizando os seguintes passos:
 

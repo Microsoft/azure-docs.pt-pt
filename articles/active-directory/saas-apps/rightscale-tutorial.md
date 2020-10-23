@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 75c0542764e94ae57379fa225b4e064a58da3af1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f071a66fef632afe9e54fecfa253e4604679baa2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553381"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Tutorial: Integração do Diretório Ativo Azure com Rightscale
 
@@ -99,11 +99,11 @@ Para configurar o Azure AD single sign-on com Rightscale, execute os seguintes p
 
 4. Na secção **De Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure.
 
-    ![Informações de assinatura única de domínio e URLs de escala de direito](common/preintegrated.png)
+    ![A screenshot mostra a página básica de configuração SAML.](common/preintegrated.png)
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Informações de assinatura única de domínio e URLs de escala de direito](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://login.rightscale.com/`
 
@@ -127,32 +127,31 @@ Para configurar o Azure AD single sign-on com Rightscale, execute os seguintes p
 
 2. No menu em cima, clique no **separador Definições** e selecione **'Sign-On' único**.
 
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![A screenshot mostra single Sign-On selecionados a partir de Definições.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
 3. Clique no **novo** botão para adicionar **os seus Fornecedores de Identidade SAML**.
 
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![O Screenshot mostra os novos botões selecionados para adicionar um Fornecedor de Identidade SAML.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
 4. Na caixa de texto do **Display Name,** insira o nome da empresa.
 
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![A imagem mostra onde introduz um nome de exibição.](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Selecione **Permitir sSO iniciado em RightScale usando uma sugestão de descoberta** e inserir o seu nome de **domínio** na caixa de texto abaixo.
 
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![A screenshot mostra onde pode especificar um Método de Login.](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Cole o valor do URL de **Login** que copiou do portal Azure para **o PONTO Final SSO SAML** em RightScale.
 
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![A screenshot mostra onde pode introduzir um PONTO FINAL S S O.](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Cole o valor do **Identificador AD Azure** que copiou do portal Azure para **a ENTIDADE SAMLID** em RightScale.
 
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![A screenshot mostra onde pode introduzir uma Entidade SAML I D.](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Clique no botão **Browser** para fazer o upload do certificado que descarregou a partir do portal Azure.
 
-
-    ![Configurar Sign-On Individuais](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![A screenshot mostra onde pode especificar o seu Certificado de Assinatura SAML.](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Clique em **Guardar**.
 

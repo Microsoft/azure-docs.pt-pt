@@ -3,12 +3,12 @@ title: Matriz de suporte DPM do MABS & System Center
 description: Este artigo resume o suporte de backup do Azure quando utiliza o Microsoft Azure Backup Server (MABS) ou o System Center DPM para fazer backup nas instalações e recursos VM Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332700"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276959"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
 
@@ -60,7 +60,7 @@ O DPM/MABS pode ser implantado como resumido na tabela seguinte.
 
 **Implementação** | **Suporte** | **Detalhes**
 --- | --- | ---
-**Implantados no local** | Servidor físico<br/><br/>VM do Hyper-V<br/><br/> VMware VM | Se o DPM/MABS for instalado como VMware VM, apenas faz o back up VMware VMs e as cargas de trabalho que estão a funcionar nesses VMs.
+**Implantados no local** | Servidor físico<br/><br/>VM do Hyper-V<br/><br/> VMware VM | Consulte a [matriz de proteção](backup-mabs-protection-matrix.md) para mais detalhes. 
 **Implantado como um VM Azure Stack** | Apenas MABS | O DPM não pode ser usado para apoiar os VMs da Azure Stack.
 **Implantado como um VM Azure** | Protege VMs e cargas de trabalho azure que estão a funcionar nesses VMs | DPM/MABS a funcionar em Azure não pode voltar atrás nas máquinas do local.
 
@@ -146,7 +146,7 @@ Para obter mais informações, consulte os [requisitos de encaminhamento Express
 
 A conectividade com o serviço de backup Azure é necessária para que as cópias de segurança funcionem corretamente, e a subscrição do Azure deve estar ativa. A tabela seguinte mostra o comportamento se estas duas coisas não ocorrerem.
 
-**MABS para Azure** | **Subscrição** | **Cópia de segurança/Restauro**
+**MABS para Azure** | **Subscrição** | **Backup/Restaurar**
 --- | --- | ---
 Ligada | Ativa | Volte ao disco DPM/MABS.<br/><br/> De volta a Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar de Azure.
 Ligada | Expirado/desprovisionado | Sem cópia de segurança no disco ou no Azure.<br/><br/> Se a subscrição expirar, pode restaurar a partir do disco ou do Azure.<br/><br/> Se a subscrição for desativada, não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são eliminados.

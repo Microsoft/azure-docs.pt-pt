@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570516"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148533"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -37,7 +37,7 @@ Sim. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe vulnerabilidade de segurança à procura de imagens em ACR?
 
-Sim. Consulte a documentação do [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sim. Consulte a documentação do [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como posso configurar Kubernetes com registo de contentores Azure?
 
@@ -56,7 +56,7 @@ Para obter credenciais usando o Azure CLI:
 az acr credential show -n myRegistry
 ```
 
-Usando a Azure PowerShell:
+Com o Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
@@ -259,7 +259,7 @@ A quarentena de imagem é atualmente uma característica de pré-visualização 
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Como posso permitir o acesso anónimo?
 
-A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Se tiver algum [mapa de âmbito (utilizador) ou recursos simbólicos](https://aka.ms/acr/repo-permissions) no seu registo, por favor, apague-os antes de levantar um bilhete de apoio (os mapas de âmbito do sistema podem ser ignorados). Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Se tiver algum [mapa de âmbito (utilizador) ou recursos simbólicos](./container-registry-repository-scoped-permissions.md) no seu registo, por favor, apague-os antes de levantar um bilhete de apoio (os mapas de âmbito do sistema podem ser ignorados). Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
 > Apenas as APIs necessárias para retirar uma imagem conhecida podem ser acedidas anonimamente. Nenhuma outra APIs para operações como lista de tags ou lista de repositórios está acessível anonimamente.
@@ -443,7 +443,7 @@ Entre em contato com o administrador de rede ou verifique a configuração e con
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Porque é que o meu pedido de puxar ou empurrar falha com uma operação proibida?
 
 Eis alguns cenários em que as operações podem ser proibidas:
-* Os registos clássicos já não são suportados. Por favor, atualize para um [nível de serviço](https://aka.ms/acr/skus) suportado usando [a atualização az acr](/cli/azure/acr#az-acr-update) ou o portal Azure.
+* Os registos clássicos já não são suportados. Por favor, atualize para um [nível de serviço](./container-registry-skus.md) suportado usando [a atualização az acr](/cli/azure/acr#az-acr-update) ou o portal Azure.
 * A imagem ou repositório talvez bloqueado para que não possa ser apagado ou atualizado. Pode utilizar o comando [de repositório az acr show](./container-registry-image-lock.md) para visualizar os atributos atuais.
 * Algumas operações são proibidas se a imagem estiver em quarentena. Saiba mais sobre [a quarentena.](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)
 * O seu registo pode ter atingido o [limite de armazenamento.](container-registry-skus.md#service-tier-features-and-limits)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793325"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150580"
 ---
 # <a name="troubleshooting-message-routing"></a>Encaminhamento de mensagens de resolução de problemas
 
@@ -42,7 +42,7 @@ Todas as [métricas do IoT Hub relacionadas](iot-hub-devguide-endpoints.md) com 
 Observe os [registos de diagnóstico](iot-hub-monitor-resource-health.md#routes) das **rotas** para obter mais informações sobre as [operações](#operation-names) de encaminhamento e ponto final ou identificar erros e [código de erro](#common-error-codes) relevante para entender melhor o problema. Por exemplo, o nome de operação **RouteEvaluationError** no registo indica que a rota não pôde ser avaliada devido a um problema com o formato de mensagem. Utilize as dicas fornecidas para os nomes de [operação específicos](#operation-names) para mitigar o problema. Quando um evento é registado como um erro, o registo também fornecerá mais informações sobre o porquê da avaliação ter falhado. Por exemplo, se o nome da operação for **EndpointUnhealthy,** um código de [erro](#common-error-codes) de 403004 indica que o ponto final ficou sem espaço.
 
 #### <a name="the-health-of-the-endpoint"></a>A saúde do ponto final
-Utilize a API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de [saúde](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos finais. A *API get Endpoint Health* também fornece informações sobre a última vez que uma mensagem foi enviada com sucesso para o ponto final, o [último erro conhecido](#last-known-errors-for-iot-hub-routing-endpoints), última vez de erro conhecido e a última tentativa de envio para este ponto final. Utilize a possível mitigação prevista para o [último erro específico conhecido](#last-known-errors-for-iot-hub-routing-endpoints).
+Utilize a API REST [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de [saúde](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos finais. A *API get Endpoint Health* também fornece informações sobre a última vez que uma mensagem foi enviada com sucesso para o ponto final, o [último erro conhecido](#last-known-errors-for-iot-hub-routing-endpoints), última vez de erro conhecido e a última tentativa de envio para este ponto final. Utilize a possível mitigação prevista para o [último erro específico conhecido](#last-known-errors-for-iot-hub-routing-endpoints).
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>De repente parei de receber mensagens no ponto final embutido.
 
@@ -52,9 +52,9 @@ Para resolver este problema, analise o seguinte.
 Uma vez criada uma rota, os dados param de fluir para o ponto final incorporado, a menos que seja criada uma rota para esse ponto final. Para garantir que as mensagens continuam a fluir para o ponto final incorporado se for adicionada uma nova rota, configure uma rota para o ponto final dos *eventos.* 
 
 #### <a name="was-the-fallback-route-disabled"></a>A rota do Fallback foi desativada?
-A rota de retorno envia todas as mensagens que não satisfazem as condições de consulta em qualquer uma das rotas existentes para os [Hubs incorporados em Eventos](iot-hub-devguide-messages-read-builtin.md) (mensagens/eventos), que são compatíveis com os Centros de [Eventos.](https://docs.microsoft.com/azure/event-hubs/) Se o encaminhamento de mensagens estiver ligado, pode ativar a capacidade da rota de recuo. Se não houver rotas para o ponto de entrada embutido e uma rota de retorno estiver ativada, apenas mensagens que não correspondam a quaisquer condições de consulta nas rotas serão enviadas para o ponto de finalidade incorporado. Além disso, se todas as rotas existentes forem eliminadas, a rota de retorno deve ser ativada para receber todos os dados no ponto de extremidade incorporado.
+A rota de retorno envia todas as mensagens que não satisfazem as condições de consulta em qualquer uma das rotas existentes para os [Hubs incorporados em Eventos](iot-hub-devguide-messages-read-builtin.md) (mensagens/eventos), que são compatíveis com os Centros de [Eventos.](../event-hubs/index.yml) Se o encaminhamento de mensagens estiver ligado, pode ativar a capacidade da rota de recuo. Se não houver rotas para o ponto de entrada embutido e uma rota de retorno estiver ativada, apenas mensagens que não correspondam a quaisquer condições de consulta nas rotas serão enviadas para o ponto de finalidade incorporado. Além disso, se todas as rotas existentes forem eliminadas, a rota de retorno deve ser ativada para receber todos os dados no ponto de extremidade incorporado.
 
-Pode ativar/desativar a rota de recuo na lâmina de encaminhamento de mensagens de >portal Azure. Também pode utilizar o Azure Resource Manager para [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para utilizar um ponto final personalizado para a rota de retorno.
+Pode ativar/desativar a rota de recuo na lâmina de encaminhamento de mensagens de >portal Azure. Também pode utilizar o Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para utilizar um ponto final personalizado para a rota de retorno.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Últimos erros conhecidos para pontos finais de encaminhamento IoT Hub
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619464"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332200"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisão e catálogo de novos inquilinos usando a aplicação por padrão SaaS inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Ao implementar uma aplicação para um inquilino, a app e a base de dados são a
 
 Embora a app e base de dados de cada inquilino estejam totalmente isoladas, vários cenários de gestão e análise podem funcionar entre inquilinos.  Por exemplo, a aplicação de uma alteração de esquema para uma nova versão do pedido requer alterações no esquema de cada base de dados de inquilinos. Os cenários de reporte e análise podem também exigir acesso a todas as bases de dados dos inquilinos, independentemente do local onde são implantados.
 
-   ![padrão app-por-inquilino](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Diagrama que mostra como usar um catálogo de inquilinos com a aplicação por padrão de inquilino.](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
 O catálogo de inquilinos contém um mapeamento entre um identificador de inquilinos e uma base de dados de inquilinos, permitindo que um identificador seja resolvido para um servidor e nome de base de dados.  Na app Wingtip SaaS, o identificador de inquilinos é calculado como um haxixe do nome do inquilino, embora outros esquemas possam ser usados.  Embora as aplicações autónomas não precisem do catálogo para gerir ligações, o catálogo pode ser usado para estender outras ações a um conjunto de bases de dados de inquilinos. Por exemplo, a Consulta Elástica pode usar o catálogo para determinar o conjunto de bases de dados através das quais as consultas são distribuídas para reporte de inquilinos cruzados.
 

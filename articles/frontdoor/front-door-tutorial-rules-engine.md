@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031930"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278121"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Tutorial: Configurar o seu motor de regras
 
@@ -58,7 +58,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Configure o motor das regras em Azure CLI
 
-1. Se ainda não o fez, instale [o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Adicione a extensão "porta da frente":- extensão az adicionar --nome porta-frente. Em seguida, faça login e mude para a sua conta az de subscrição -- subscrição <name_or_Id>.
+1. Se ainda não o fez, instale [o Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Adicione a extensão "porta da frente":- extensão az adicionar --nome porta-frente. Em seguida, faça login e mude para a sua conta az de subscrição -- subscrição <name_or_Id>.
 
 1. Comece por criar um Motor de Regras - este exemplo mostra uma regra com uma ação baseada no cabeçalho e uma condição de correspondência. 
 
@@ -96,7 +96,7 @@ Neste tutorial, ficará a saber como:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true)   
+Para mais informações, uma lista completa dos comandos do MOTOR de Regras AFD pode ser consultada [aqui.](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest)   
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

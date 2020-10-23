@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826751"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453934"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integre o Azure Ative Directy com o E Sales Manager Remix
 
@@ -263,7 +263,7 @@ Nesta secção, testa a configuração de um único sinal de acesso Azure AD uti
 
 Quando selecionar o azulejo E Sales Manager Remix no Painel de Acesso, deverá ser assinado automaticamente na aplicação E Sales Manager Remix.
 
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/active-directory-saas-access-panel-introduction.md) 
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md) 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -283,4 +283,3 @@ Para obter mais informações sobre o Painel de Acesso, consulte [Introdução a
 [201]: ./media/esalesmanagerremix-tutorial/tutorial_general_201.png
 [202]: ./media/esalesmanagerremix-tutorial/tutorial_general_202.png
 [203]: ./media/esalesmanagerremix-tutorial/tutorial_general_203.png
-

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567100"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327897"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Pacote de segurança da empresa para Azure HDInsight
 
@@ -20,7 +20,7 @@ Enterprise Security é um pacote opcional que pode adicionar no seu cluster HDIn
 
 * Integração com Diretório Ativo para autenticação.
 
-    No passado, criou clusters HDInsight com utilizador de administração local e utilizador local de SSH. O utilizador administrativo local pode aceder a todos os ficheiros, pastas, tabelas e colunas.  Com o Pacote de Segurança Empresarial, permite o controlo de acesso baseado em funções, integrando o HDInsight com os seus Serviços de Domínio do Diretório Ativo Azure.
+    No passado, criou clusters HDInsight com utilizador de administração local e utilizador local de SSH. O utilizador administrativo local pode aceder a todos os ficheiros, pastas, tabelas e colunas.  Com o Pacote de Segurança Empresarial, você ativa o controlo de acesso baseado em funções Azure, integrando HDInsight com os seus Serviços de Domínio do Diretório Ativo Azure.
 
     Para obter mais informações, consulte:
 

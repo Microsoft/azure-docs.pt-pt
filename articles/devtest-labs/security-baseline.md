@@ -3,12 +3,12 @@ title: Linha de Base de Segurança Azure para Azure DevTest Labs
 description: Linha de Base de Segurança Azure para Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398328"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207296"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de Base de Segurança Azure para Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Para obter mais informações, consulte [Criar configurações de diagnóstico p
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recolher registos de segurança dos sistemas operativos
 **Orientação:** As máquinas virtuais Azure DevTest Labs (VMs) são criadas e propriedade do cliente. Então, é responsabilidade da organização monitorizá-lo. Pode utilizar o Azure Security Center para monitorizar o sistema operativo computacional. Os dados recolhidos pelo Security Center do sistema operativo incluem o tipo e versão de SISTEMA, OS (Registos de Eventos do Windows), processos de execução, nome da máquina, endereços IP e registados no utilizador. O Agente Descodudo de Log também recolhe ficheiros de despejo de acidentes.
 
-Para obter mais informações, veja os artigos seguintes: 
+Para obter mais informações, veja os seguintes artigos: 
 
 - [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Compreender a recolha de dados do Centro de Segurança Azure](../security-center/security-center-enable-data-collection.md)
@@ -73,7 +73,7 @@ Para obter mais informações, consulte o seguinte artigo: [Como definir parâme
 ### <a name="26-monitor-and-review-logs"></a>2.6: Monitor e revisão de Registos
 **Orientação:** Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho do Log Analytics. Faça consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights com base nos dados de registo de atividade que podem ter sido recolhidos para Azure DevTest Labs.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/diagnostic-settings.md)
 - [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
@@ -264,7 +264,7 @@ Pode agilizar este processo criando Definições de Diagnóstico para contas de 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 **Orientação:** Utilize etiquetas para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
-- [Como criar e usar tags](../azure-resource-manager/resource-group-using-tags.md)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -273,10 +273,10 @@ Pode agilizar este processo criando Definições de Diagnóstico para contas de 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 **Orientação:** Implementar subscrições ou grupos de gestão separados para desenvolvimento, teste e produção. As instâncias Azure DevTest Labs devem ser separadas por rede/sub-rede virtuais e marcadas adequadamente. 
 
-- [Como criar subscrições adicionais do Azure](../billing/billing-create-subscription.md)
-- [Como criar grupos de gestão](../governance/management-groups/create.md)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
+- [Como criar grupos de gestão](../governance/management-groups/create-management-group-portal.md)
 - [Como configurar uma rede virtual para a DevTest Labs](devtest-lab-configure-vnet.md)
-- [Como criar e usar tags](../azure-resource-manager/resource-group-using-tags.md)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 - [Como criar e usar tags para DevTest Labs](devtest-lab-add-tag.md)
 
 **Monitorização do Centro de Segurança Azure:** Atualmente não disponível
@@ -380,7 +380,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos recursos subjacentes que s
 **Orientação:** Utilize o Azure Update Management para garantir que as atualizações de segurança mais recentes são instaladas nos seus VMs Windows e Linux alojados nos Laboratórios DevTest. Para os VMs do Windows, certifique-se de que o Windows Update foi ativado e definido para atualizar automaticamente. Esta definição não está atualmente disponível para configurar através da DevTest Labs, no entanto a administração de administração/subscrição de laboratório pode configurar esta definição nos VMs de computação subjacentes na sua subscrição. 
 
 - [Como configurar a Gestão de Atualização para VMs em Azure](../automation/update-management/update-mgmt-overview.md)
-- [Compreenda as políticas de segurança do Azure monitorizadas pelo Security Center](../security-center/security-center-policy-definitions.md)
+- [Compreenda as políticas de segurança do Azure monitorizadas pelo Security Center](../security-center/policy-reference.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -444,7 +444,7 @@ Como administrador de subscrição, também pode utilizar a solução Azure Upda
 **Orientação:** Use marcação, grupos de gestão e assinaturas separadas, e laboratórios separados, se for caso disso, para organizar e rastrear laboratórios e recursos relacionados com laboratórios. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados rapidamente da subscrição.
 
 - [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
-- [Como criar Grupos de Gestão](../governance/management-groups/create.md)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 - [Como criar um laboratório usando devTest Labs](devtest-lab-create-lab.md)
 - [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 - [Como configurar tags para um laboratório](devtest-lab-add-tag.md)
@@ -493,7 +493,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 **Orientação:** A Azure Automation fornece controlo total durante a implantação, operações e desmantelamento de cargas de trabalho e recursos. Como administrador de subscrição, poderá utilizar o Change Tracking para identificar todos os softwares instalados em VMs hospedados em DevTest Labs. Pode implementar o seu próprio processo ou utilizar a Configuração do Estado da Automação Azure para remover software não autorizado.
 
 - [Uma introdução à Automatização do Azure](../automation/automation-intro.md)
-- [Acompanhe as mudanças no seu ambiente com a solução Change Tracking](../automation/change-tracking.md)
+- [Acompanhe as mudanças no seu ambiente com a solução Change Tracking](../automation/change-tracking/overview.md)
 - [Visão geral da configuração do estado da Azure Automation](../automation/automation-dsc-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Não Disponível
@@ -517,7 +517,7 @@ Além de utilizar o Change Tracking para monitorização de aplicações de soft
 
 Consulte os seguintes artigos: 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
-- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/not-allowed-resource-types.md)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure:** Sim, é o seu
 
@@ -559,7 +559,7 @@ Consulte os seguintes artigos:
 - [Configure a rede virtual para DevTest Labs](devtest-lab-configure-vnet.md)
 - [Visão geral do Azure Firewall](../firewall/overview.md)
 - [Visão geral do Firewall de Aplicação Web](../web-application-firewall/overview.md)
-- [Descrição geral da segurança de rede](../virtual-network/security-overview.md)
+- [Descrição geral da segurança de rede](../virtual-network/network-security-groups-overview.md)
 - [Visão geral da Rede Virtual Azure]()
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md) (Organizar os recursos com os grupos de gestão do Azure)
 - [Guia de decisão de subscrição](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
@@ -581,7 +581,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 - [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 - [Tutorial: Criar e gerir políticas para impor o cumprimento](../governance/policy/tutorials/create-and-manage.md)
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -591,7 +591,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 **Orientação:** Use recomendações do Azure Security Center para manter as configurações de segurança em todos os recursos de computação subjacentes criados como parte da DevTest Labs. Além disso, pode utilizar imagens personalizadas do sistema operativo ou configuração do Estado da Automação Azure ou artefactos da DevTest Labs para estabelecer a configuração de segurança do sistema operativo exigido pela sua organização.
 
 - [Como monitorizar as recomendações do Centro de Segurança Azure](../security-center/security-center-recommendations.md)
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 - [Visão geral da configuração do estado da Azure Automation](../automation/automation-dsc-overview.md)
 - [Faça upload de um VHD e use-o para criar novos VMs windows em Azure](../virtual-machines/windows/upload-generalized-managed.md)
 - [Criar um Linux VM a partir de um disco personalizado com o Azure CLI](../virtual-machines/linux/upload-vhd.md)
@@ -617,7 +617,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 
 Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela Microsoft são geridas e mantidas pela Microsoft.
 
-- [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Visão geral da configuração do estado da Azure Automation](../automation/automation-dsc-overview.md)
 - [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [Como criar uma fábrica de imagem em DevTest Labs](image-factory-create.md)
@@ -629,8 +629,8 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Armazenar de forma segura a configuração dos recursos Azure
 **Orientação:** Utilize devOps Azure para armazenar e gerir de forma segura o seu código como políticas Azure personalizadas, modelos de Gestor de Recursos Azure e scripts de Configuração do Estado Desejado. Para aceder aos recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se estiverem integrados com Azure DevOps.
 
-- [Tutorial de Azure Repos Git](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
-- [Sobre permissões e grupos](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Tutorial de Azure Repos Git](/azure/devops/repos/git/gitworkflow)
+- [Sobre permissões e grupos](/azure/devops/organizations/security/about-permissions?tabs=preview-page&view=azure-devops)
 - [Integração entre Azure DevTest Labs e fluxo de trabalho Azure DevOps](devtest-lab-dev-ops.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
@@ -681,7 +681,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementar monitorização automatizada de configuração para sistemas operativos
 **Orientação:** Utilize o Centro de Segurança Azure para efetuar as verificações de linha de base para as definições de SO e Docker para contentores.
 
-- [Compreender as recomendações do contentor do Centro de Segurança do Azure](../security-center/security-center-container-recommendations.md)
+- [Compreender as recomendações do contentor do Centro de Segurança do Azure](../security-center/container-security.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -692,7 +692,7 @@ Além disso, as imagens de máquina virtual do Azure Marketplace publicadas pela
 
 - [Configurar identidade gerida para implantar ambientes do Gestor de Recursos Azure em Laboratórios DevTest](use-managed-identities-environments.md)
 - [Configurar identidade gerida para implantar máquinas virtuais em Laboratórios DevTest](enable-managed-identities-lab-vms.md)
-- [Como criar um cofre chave](../key-vault/quick-create-portal.md)
+- [Como criar um cofre chave](../key-vault/secrets/quick-create-portal.md)
 - [Como autenticar para o Cofre de Chaves](../key-vault/general/authentication.md)
 - [Como atribuir uma política de acesso ao Cofre de Chaves](../key-vault/general/assign-access-policy-portal.md)
 
@@ -828,7 +828,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 Além disso, marque claramente as subscrições (para ex. produção, não-prod) usando tags e criar um sistema de nomeação para identificar e categorizar claramente os recursos Azure, especialmente aqueles que processam dados sensíveis. É da sua responsabilidade priorizar a reparação de alertas com base na criticidade dos recursos e ambiente do Azure onde ocorreu o incidente.
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
-- [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
+- [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure:** Sim, é o seu
 

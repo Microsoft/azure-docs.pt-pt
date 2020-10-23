@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358292"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148752"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Improve performance by compressing files in Azure CDN (Comprimir ficheiros na CDN do Azure para melhorar o desempenho)
 A compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiros e aumentar o desempenho da carga de página, reduzindo o tamanho de um ficheiro antes de ser enviado do servidor. A compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência mais responsiva para os seus utilizadores.
@@ -112,6 +112,8 @@ Estes perfis suportam as seguintes codificações de compressão:
 Se o pedido suportar mais de um tipo de compressão, a compressão brotli tem precedência.
 
 Quando um pedido de um ativo especifica a compressão gzip e o pedido resulta numa falha de cache, a Azure CDN executa a compressão gzip do ativo diretamente no servidor POP. Depois, o ficheiro comprimido é servido a partir da cache.
+
+Se a origem utilizar a Codificação de Transferências Chunked (CTE) para enviar dados comprimidos para o CDN POP, então os tamanhos de resposta superiores a 8MB não são suportados. 
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>Azure CDN dos perfis verizon
 

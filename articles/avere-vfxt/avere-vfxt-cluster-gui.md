@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505618"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342438"
 ---
 # <a name="access-the-vfxt-cluster"></a>Aceder ao cluster vFXT
 
@@ -27,7 +27,7 @@ Há dois passos básicos:
 > [!NOTE]
 > Este artigo pressupõe que definiu um endereço IP público no controlador de cluster ou em outro VM dentro da rede virtual do seu cluster. Este artigo descreve como usar esse VM como hospedeiro para aceder ao cluster. Se estiver a utilizar uma VPN ou ExpressRoute para acesso virtual à rede, salte para [Ligar ao Painel de Controlo avere.](#connect-to-the-avere-control-panel-in-a-browser)
 
-Antes de ligar, certifique-se de que o par de chaves SSH público/privado que utilizou ao criar o controlador de cluster está instalado na sua máquina local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou [linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se precisar de ajuda. Se utilizar uma palavra-passe em vez de uma chave pública, será solicitado a introduzi-la quando ligar.
+Antes de ligar, certifique-se de que o par de chaves SSH público/privado que utilizou ao criar o controlador de cluster está instalado na sua máquina local. Leia a documentação das chaves SSH para [Windows](../virtual-machines/linux/ssh-from-windows.md) ou [linux](../virtual-machines/linux/mac-create-ssh-keys.md) se precisar de ajuda. Se utilizar uma palavra-passe em vez de uma chave pública, será solicitado a introduzi-la quando ligar.
 
 ## <a name="create-an-ssh-tunnel"></a>Criar um túnel SSH
 

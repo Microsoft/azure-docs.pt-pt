@@ -3,16 +3,15 @@ title: Criar consulta & Azure Data Lake Analytics - PowerShell
 description: Utilize o Azure PowerShell para criar uma conta do Azure Data Lake Analytics e submeta uma tarefa de U-SQL.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61177d1338be30ae14ccea3ff94c5e0e554aa331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a05231bc971737a08d74ad04150e5449dfc792
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077335"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220946"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics com o Azure PowerShell
 
@@ -26,12 +25,12 @@ Saiba como utilizar o Azure PowerShell para criar contas do Azure Data Lake Anal
 
 Antes de começar este tutorial, tem de ter as seguintes informações:
 
-* **Uma conta do Azure Data Lake Analytics**. Consulte [Introdução ao Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+* **Uma conta do Azure Data Lake Analytics**. Consulte [Introdução ao Data Lake Analytics](./data-lake-analytics-get-started-portal.md).
 * **Uma estação de trabalho com o Azure PowerShell**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/).
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Este tutorial pressupõe que já esteja familiarizado com a utilização do Azure PowerShell. Em especial, precisa de saber como iniciar sessão no Azure. Se precisar de ajuda, consulte [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introdução ao Azure PowerShell).
+Este tutorial pressupõe que já esteja familiarizado com a utilização do Azure PowerShell. Em especial, precisa de saber como iniciar sessão no Azure. Se precisar de ajuda, consulte [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) (Introdução ao Azure PowerShell).
 
 Iniciar sessão com um nome de subscrição:
 
@@ -125,7 +124,7 @@ Transfira o ficheiro de saída com `Export-AdlStoreItem`.
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * Para ver o mesmo tutorial, utilizando outras ferramentas, clique nos seletores de separador no topo da página.
 * Para saber mais sobre U-SQL, consulte [Introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

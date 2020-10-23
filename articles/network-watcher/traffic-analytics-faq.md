@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87479851"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426545"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -58,7 +58,7 @@ Para verificar as funções atribuídas a um utilizador para uma subscrição:
 
 3. Para listar todas as funções atribuídas a um utilizador especificado, utilize **o Get-AzRoleAssignment -SignInName [e-mail do utilizador] - Inclua os administradores da Classe.** 
 
-Se não estiver a ver nenhuma saída, contacte o respetivo administrador de subscrição para ter acesso à execução dos comandos. Para obter mais detalhes, consulte [Gerir o controlo de acesso baseado em funções com a Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Se não estiver a ver nenhuma saída, contacte o respetivo administrador de subscrição para ter acesso à execução dos comandos. Para obter mais detalhes, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Em que regiões de Azure está disponível a Traffic Analytics?

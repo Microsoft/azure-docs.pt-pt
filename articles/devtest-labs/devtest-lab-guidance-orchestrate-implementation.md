@@ -4,12 +4,12 @@ description: Este artigo fornece orientações para orquestrar a implementação
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480852"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330619"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
 Este artigo fornece uma abordagem recomendada para a rápida implantação e implementação da Azure DevTest Labs. A imagem a seguir enfatiza o processo global como orientação prescritiva, observando a flexibilidade para apoiar vários requisitos e cenários da indústria.
@@ -36,7 +36,7 @@ Uma vez que a topologia da rede está em vigor, o primeiro/laboratório piloto p
 
 1. Crie um ambiente inicial da DevTest Labs.
 2. Determine imagens e tamanhos VM admissíveis para uso com laboratório. Decida se as imagens personalizadas podem ser enviadas para a Azure para uso com a DevTest Labs.
-3. Acesso seguro ao laboratório criando controlos iniciais de acesso à base de funções (RBAC) para o laboratório (proprietários de laboratório e utilizadores de laboratório). Recomendamos que utilize contas de diretório ativo sincronizadas com o Azure Ative Directory para identidade com a DevTest Labs.
+3. Acesso seguro ao laboratório criando o controlo inicial de acesso baseado em funções (Azure RBAC) para o laboratório (proprietários de laboratório e utilizadores de laboratório). Recomendamos que utilize contas de diretório ativo sincronizadas com o Azure Ative Directory para identidade com a DevTest Labs.
 4. Configure a DevTest Labs para usar políticas como horários, gestão de custos, VMs reclamados, imagens personalizadas ou fórmulas.
 5. Estabeleça um repositório online como Azure Repos/Git.
 6. Decida-se sobre a utilização de repositórios públicos ou privados ou a combinação de ambos. Organize modelos JSON para implementações e sustentação a longo prazo.

@@ -3,12 +3,12 @@ title: Conceitos de DevTest Labs Microsoft Docs
 description: Aprenda os conceitos básicos da DevTest Labs, e como pode facilitar a criação, gestão e monitorização de máquinas virtuais Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283848"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327863"
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
 ## <a name="overview"></a>Descrição geral
@@ -56,7 +56,7 @@ As políticas ajudam a controlar os custos no seu laboratório. Por exemplo, pod
 As tampas são um mecanismo para minimizar o desperdício no seu laboratório. Por exemplo, pode definir uma tampa para restringir o número de VMs que podem ser criados por utilizador, ou em laboratório.
 
 ## <a name="security-levels"></a>Níveis de segurança
-O acesso à segurança é determinado pelo controlo de acesso baseado em funções Azure (Azure RBAC). Para entender como o acesso funciona, ajuda a entender as diferenças entre uma permissão, um papel e um âmbito definido pelo RBAC.
+O acesso à segurança é determinado pelo controlo de acesso baseado em funções Azure (Azure RBAC). Para entender como o acesso funciona, ajuda a entender as diferenças entre uma permissão, um papel e um âmbito definido pelo Azure RBAC.
 
 * Permissão - Uma permissão é um acesso definido a uma ação específica (por exemplo, acesso de leitura a todas as máquinas virtuais).
 * Função - Um papel é um conjunto de permissões que podem ser agrupadas e atribuídas a um utilizador. Por exemplo, a *função do proprietário* da subscrição tem acesso a todos os recursos dentro de uma subscrição.

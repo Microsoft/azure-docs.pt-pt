@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057897"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371756"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -81,7 +81,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 | | Sincronização de Dados | Replicação Transacional |
 |---|---|---|
 | **Vantagens** | - Suporte ativo<br/>- Biducional entre as instalações e a Base de Dados Azure SQL | - Menor latência<br/>- Consistência transacional<br/>- Reutilização da topologia existente após a migração <br/>-Suporte a exemplos geridos Azure SQL |
-| **Desvantagens** | - 5 min ou mais de latência<br/>- Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
+| **Desvantagens** | - 5 min de frequência mínima entre sincronizações<br/>- Sem consistência transacional<br/>- Maior impacto no desempenho | - Não pode publicar na Base de Dados Azure SQL <br/>- Alto custo de manutenção |
 
 ## <a name="get-started"></a>Introdução 
 
@@ -109,7 +109,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 
 Uma vez que o Data Sync é baseado no gatilho, a consistência transacional não é garantida. A Microsoft garante que todas as alterações são feitas eventualmente e que o Data Sync não causa perda de dados.
 
-### <a name="performance-impact"></a>Impacto de desempenho
+### <a name="performance-impact"></a>Impacto no desempenho
 
 Data Sync utiliza inserção, atualização e elimina os gatilhos para rastrear as alterações. Cria tabelas laterais na base de dados do utilizador para o rastreio de alterações. Estas atividades de rastreio de alterações têm impacto na carga de trabalho da sua base de dados. Avalie o seu nível de serviço e atualize se necessário.
 
@@ -135,6 +135,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 - Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binário, varbinário, imagem, xml.
 - Tenha cuidado quando utilizar os seguintes tipos de dados como chave primária, porque a precisão suportada é apenas para a segunda: hora, data, data 2, datatimeoff.
 - Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), suporte quadrado esquerdo ([) ou suporte quadrado direito (]).
+- Um nome de mesa não pode conter caracteres imprimíveis: ! " # $ % ' ( ) * + -
 - A autenticação do Diretório Ativo Azure não é suportada.
 - Se houver tabelas com o mesmo nome mas esquemas diferentes (por exemplo, dbo.clientes e vendas.clientes) apenas uma das tabelas pode ser adicionada em sincronização.
 - Colunas com User-Defined Tipos de Dados não são suportadas
@@ -165,7 +166,7 @@ O Data Sync não consegue sincronizar apenas colunas de leitura ou geradas pelo 
 | Tabelas em um grupo de sincronização                                          | 500                    | Criar vários grupos de sincronização |
 | Colunas em uma mesa em um grupo de sincronização                              | 1000                   |                             |
 | Tamanho da linha de dados em uma mesa                                        | 24 Mb                  |                             |
-| Intervalo de sincronização mínimo                                           | 5 Minutos              |                             |
+| Intervalo de frequência de sincronização mínima                                 | 5 Minutos              |                             |
 
 > [!NOTE]
 > Pode haver até 30 pontos finais num único grupo de sincronização se houver apenas um grupo de sincronização. Se houver mais de um grupo de sincronização, o número total de pontos finais em todos os grupos de sincronização não pode exceder 30. Se uma base de dados pertence a vários grupos de sincronização, é contada como vários pontos finais, não um.

@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: O que é o Início de Sessão Único (SSO)?
       href: what-is-single-sign-on.md
+    - name: Novidades no Docs?
+      href: whats-new-docs.md
 - name: Guias de Início Rápido
   expanded: true
   items:
@@ -61,6 +63,8 @@
           href: plan-sso-deployment.md
         - name: Opções de início de sessão único
           href: sso-options.md
+        - name: SSO baseado em OIDC
+          href: configure-oidc-single-sign-on.md
         - name: SAML-based SSO (SSO baseado no SAML)
           href: configure-saml-single-sign-on.md
         - name: SSO baseado em palavra-passe
@@ -218,6 +222,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Resolver problemas de início de sessão único baseado em SAML
           href: troubleshoot-saml-based-sso.md
+        - name: Depurar o início de sessão único baseado em SAML
+          href: debug-saml-sso-issues.md
         - name: Resolver problemas de início de sessão do utilizador
           items:
             - name: Pedido de consentimento inesperado
@@ -230,12 +236,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problema ao iniciar sessão numa aplicação da Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problema de início de sessão único federado – aplicação que não está na galeria
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problema de início de sessão único federado – aplicação da galeria
+            - name: Problema com o início de sessão único
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problema com aplicações com programação personalizada
-              href: application-sign-in-problem-custom-dev.md
         - name: Resolver problemas das aplicações no local
           items:
             - name: Resolução de problemas de proxy da aplicação

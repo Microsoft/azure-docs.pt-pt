@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016132"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145359"
 ---
 # <a name="building-a-conditional-access-policy"></a>Construção de uma política de acesso condicional
 
 Como explicado no artigo [O que é Acesso Condicional](overview.md), uma política de acesso condicional é uma declaração se-então, de atribuições e **controlos** de **acesso**. Uma política de acesso condicional reúne sinais, para tomar decisões e impor políticas organizacionais.
 
-Como é que uma organização cria estas políticas? O que é necessário?
+Como é que uma organização cria estas políticas? O que é necessário? Como são aplicados?
 
 ![Acesso Condicional (Sinais + Decisões + Execução = Políticas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+As políticas de acesso condicional múltiplas podem aplicar-se a um utilizador individual a qualquer momento. Neste caso, todas as políticas que se aplicam devem ser satisfeitas. Por exemplo, se uma política requer a autenticação de vários fatores (MFA) e outra requer um dispositivo conforme, deve completar o MFA e utilizar um dispositivo em conformidade. Todas as atribuições são logicamente **ANDed.** Se tiver mais do que uma missão configurada, todas as atribuições devem estar satisfeitas para desencadear uma apólice.
+
+Todas as políticas são aplicadas em duas fases:
+
+- Fase 1: Recolher detalhes da sessão 
+   - Recolha detalhes da sessão, como a localização da rede e a identidade do dispositivo que serão necessários para a avaliação de políticas. 
+   - A fase 1 da avaliação das políticas ocorre para políticas e políticas ativadas [apenas](concept-conditional-access-report-only.md)no modo de relatório .
+- Fase 2: Execução 
+   - Utilize os detalhes da sessão recolhidos na fase 1 para identificar quaisquer requisitos que não tenham sido cumpridos. 
+   - Se houver uma política que esteja configurada para bloquear o acesso, com o controlo da subvenção por bloco, a aplicação da lei parará aqui e o utilizador será bloqueado. 
+   - O utilizador será solicitado a preencher os requisitos adicionais de controlo de subvenções que não foram satisfeitos durante a fase 1 na seguinte ordem, até que a política esteja satisfeita:  
+      - Autenticação multifator 
+      - Política de proteção de aplicativos/aplicativos de cliente aprovado 
+      - Dispositivo gerido (junção AD AD compatível ou híbrido) 
+      - Termos de utilização 
+      - Controlos personalizados  
+   - Uma vez cumpridos todos os controlos de subvenção, aplique controlos de sessão (App Enforcado, Microsoft Cloud App Security e Token Lifetime) 
+   - A fase 2 da avaliação das políticas ocorre para todas as políticas ativadas. 
 
 ## <a name="assignments"></a>Atribuições
 

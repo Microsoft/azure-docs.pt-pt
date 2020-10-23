@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713787"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341248"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -135,7 +135,7 @@ O Azure Security Center utiliza o agente Log Analytics – este é o mesmo agent
 
 ### <a name="agent"></a>Agente
 
-Quando o fornecimento automático é ativado na política de segurança, o agente Log Analytics (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)é instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center alavancará o agente instalado atual. O processo do agente foi concebido para não ser invasivo e ter um impacto muito mínimo no desempenho do VM.
+Quando o fornecimento automático é ativado na política de segurança, o agente Log Analytics (para [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux)](../azure-monitor/learn/quick-collect-linux-computer.md)é instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center alavancará o agente instalado atual. O processo do agente foi concebido para não ser invasivo e ter um impacto muito mínimo no desempenho do VM.
 
 O agente Log Analytics para Windows requer a utilização da porta TCP 443. Veja o [artigo Resolução de Problemas](security-center-troubleshooting-guide.md) para mais detalhes.
 
@@ -217,7 +217,7 @@ O exemplo seguinte mostra uma atividade suspeita de RDP em curso:
 
 ![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-Esta página mostra informações detalhadas acerca da hora em que ocorreu o ataque, o nome do anfitrião de origem, a VM visada e também lhe disponibiliza passos de recomendação. Em algumas circunstâncias, a informação de origem do ataque pode estar vazia. Leia [Informações da Origem em Falta nos Alertas do Centro de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) para obter mais informações acerca deste tipo de comportamento.
+Esta página mostra informações detalhadas acerca da hora em que ocorreu o ataque, o nome do anfitrião de origem, a VM visada e também lhe disponibiliza passos de recomendação. Em algumas circunstâncias, a informação de origem do ataque pode estar vazia. Leia [Informações da Origem em Falta nos Alertas do Centro de Segurança do Azure](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) para obter mais informações acerca deste tipo de comportamento.
 
 Uma vez identificado o sistema comprometido, pode executar uma [Automatização de Fluxo de Trabalho](workflow-automation.md) que foi previamente criada. Trata-se de uma coleção de procedimentos que podem ser executados a partir do Centro de Segurança uma vez desencadeados por um alerta.
 
@@ -233,6 +233,6 @@ Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para sab
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
-* [Monitorizar soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
+* [Monitorizar soluções de parceiros com o Azure Security Center](./security-center-partner-integration.md) — Saiba como monitorizar o estado de saúde das soluções do seu parceiro.
 * [Azure Security Center FAQ](faq-general.md) — Encontre perguntas frequentes sobre a utilização do serviço.
-* [Blog da Azure Security](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade da Azure.
+* [Blog da Azure Security](/archive/blogs/azuresecurity/) — Encontre posts de blog sobre segurança e conformidade da Azure.

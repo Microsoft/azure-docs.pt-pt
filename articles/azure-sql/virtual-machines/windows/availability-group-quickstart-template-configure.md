@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293577"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168001"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utilize modelos de arranque rápido Azure para configurar um grupo de disponibilidade para O SQL Server em Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ Este artigo descreve como utilizar os modelos de arranque rápido do Azure para 
    | &nbsp; | &nbsp; |
 
 Outras partes da configuração do grupo de disponibilidade devem ser feitas manualmente, tais como a criação do grupo de disponibilidade e a criação do equilibrador de carga interno. Este artigo fornece a sequência de passos automatizados e manuais.
+
+Embora este artigo utilize os modelos Azure Quickstart para configurar o ambiente de grupo de disponibilidade, também é possível fazê-lo utilizando o [portal Azure](availability-group-azure-portal-configure.md), [PowerShell ou o Azure CLI,](availability-group-az-commandline-configure.md)ou [manualmente](availability-group-manually-configure-tutorial.md) também. 
  
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -102,6 +104,9 @@ Crie manualmente o grupo de disponibilidade como normalmente faria, utilizando [
 > *Não* crie um ouvinte neste momento, porque o modelo de arranque rápido de configuração de **101-vm-aglistener** faz isso automaticamente no passo 4. 
 
 ## <a name="create-load-balancer"></a>Criar um balanceador de carga
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 O ouvinte do grupo Always On está disponível requer uma instância interna do Balançador de Carga Azure. O equilibrador de carga interno fornece um endereço IP "flutuante" para o ouvinte do grupo de disponibilidade que permite uma maior falha e reconexão. Se os VMs do Servidor SQL de um grupo de disponibilidade fizerem parte do mesmo conjunto de disponibilidade, pode utilizar um equilibrador de carga Básico. Caso contrário, é necessário utilizar um equilibrador de carga Standard. 
 
 > [!IMPORTANT]

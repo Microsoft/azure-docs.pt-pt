@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16412e6949bd6bf3d9496b33a900a0331bd1e9fb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537740"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278158"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Utilizar a ferramenta de Migração de dados para migrar os dados para o Azure Cosmos DB
 
@@ -351,7 +351,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a name="import-to-the-sql-api-bulk-import"></a><a id="SQLBulkTarget"></a>Importar para a API de SQL (Importação em Volume)
 
-O importador em Volume do Azure Cosmos DB permite importar de qualquer uma das opções de origem disponíveis, utilizando um procedimento armazenado do Azure Cosmos DB para eficiência. A ferramenta suporta a importação para um recipiente Azure Cosmos de uma única partição. Também suporta a importação de fragmentos, através do qual os dados são divididos em mais de um recipiente Azure Cosmos de uma única partição. Para obter mais informações sobre a criação de partições de dados, veja [Partitioning and scaling in Azure Cosmos DB](partition-data.md) (Criar partições e dimensionar no Azure Cosmos DB). A ferramenta cria, executa e, em seguida, elimina o procedimento armazenado das coleções de destino.  
+O importador em Volume do Azure Cosmos DB permite importar de qualquer uma das opções de origem disponíveis, utilizando um procedimento armazenado do Azure Cosmos DB para eficiência. A ferramenta suporta a importação para um recipiente Azure Cosmos de uma única partição. Também suporta a importação de fragmentos, através do qual os dados são divididos em mais de um recipiente Azure Cosmos de uma única partição. Para obter mais informações sobre a criação de partições de dados, veja [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md) (Criar partições e dimensionar no Azure Cosmos DB). A ferramenta cria, executa e, em seguida, elimina o procedimento armazenado das coleções de destino.  
 
 :::image type="content" source="./media/import-data/documentdbbulk.png" alt-text="Captura de ecrã das opções de origem de ficheiro JSON - ferramentas de migração de bases de dados":::
 
@@ -410,7 +410,7 @@ O importador em Volume do Azure Cosmos DB inclui as seguintes opções avançada
 
 ## <a name="import-to-the-sql-api-sequential-record-import"></a><a id="SQLSeqTarget"></a>Importar para a API de SQL (Importação de Registos Sequenciais)
 
-O importador de registos sequenciais Azure Cosmos DB permite-lhe importar de uma opção de origem disponível numa base record-by-record. Poderá escolher esta opção se estiver a importar para uma coleção existente que atingiu a quota de procedimentos armazenados. A ferramenta suporta a importação para um único (único-partição e multipartições) recipiente Azure Cosmos. Também suporta a importação de fragmentos, através do qual os dados são divididos em mais de uma única partição ou multi-partição do recipiente Azure Cosmos. Para obter mais informações sobre a criação de partições de dados, veja [Partitioning and scaling in Azure Cosmos DB](partition-data.md) (Criar partições e dimensionar no Azure Cosmos DB).
+O importador de registos sequenciais Azure Cosmos DB permite-lhe importar de uma opção de origem disponível numa base record-by-record. Poderá escolher esta opção se estiver a importar para uma coleção existente que atingiu a quota de procedimentos armazenados. A ferramenta suporta a importação para um único (único-partição e multipartições) recipiente Azure Cosmos. Também suporta a importação de fragmentos, através do qual os dados são divididos em mais de uma única partição ou multi-partição do recipiente Azure Cosmos. Para obter mais informações sobre a criação de partições de dados, veja [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md) (Criar partições e dimensionar no Azure Cosmos DB).
 
 :::image type="content" source="./media/import-data/documentdbsequential.png" alt-text="Captura de ecrã das opções de origem de ficheiro JSON - ferramentas de migração de bases de dados":::
 

@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421463"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275758"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -167,7 +167,7 @@ Para adicionar uma condição de reclamação:
 3. Selecione o(s) grupo(s) a que o utilizador deve pertencer. Pode selecionar até 50 grupos únicos em todas as reclamações para uma determinada aplicação. 
 4. Selecione a **Fonte** onde a reclamação vai recuperar o seu valor. Pode selecionar um atributo de utilizador a partir do atributo de origem ou aplicar uma transformação no atributo do utilizador antes de emissão como uma reclamação.
 
-A ordem pela qual se adiciona as condições são importantes. A Azure AD avalia as condições de cima para baixo para decidir qual o valor a emitir na reclamação. 
+A ordem pela qual se adiciona as condições são importantes. A Azure AD avalia as condições de cima para baixo para decidir qual o valor a emitir na reclamação. O último valor que corresponda à expressão será emitido na reclamação.
 
 Por exemplo, Britta Simon é uma utilizadora convidada do inquilino contoso. Ela pertence a outra organização que também usa Azure AD. Dada a configuração abaixo para a aplicação Fabrikam, quando Britta tentar entrar em Fabrikam, a plataforma de identidade da Microsoft avaliará as condições da seguinte forma.
 

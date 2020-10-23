@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549981"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Diretório Ativo Azure com a Kontiki
 
@@ -28,7 +28,7 @@ Integrar a Kontiki com a Azure AD dá-lhe os seguintes benefícios:
 * Os utilizadores podem ser automaticamente inscritos na Kontiki com as suas contas AD Azure (súm numa única sação).
 * Pode gerir as suas contas num local central, o portal Azure.
 
-Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [um único sinal de acesso às aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [um único sinal de acesso às aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -186,6 +186,6 @@ Depois de configurar um único sôs-on, quando selecionar **Kontiki** no portal 
 
 Para saber mais, reveja estes artigos:
 
-- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Inscrição única para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](./tutorial-list.md)
+- [Inscrição única para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

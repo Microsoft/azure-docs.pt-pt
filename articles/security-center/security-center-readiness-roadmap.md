@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314492"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342336"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de prontidão do Centro de Segurança Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -59,9 +59,9 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
 Utilize os seguintes recursos para ajudá-lo a gerir alertas de segurança e proteger os seus recursos.
 
 Artigos    
-- [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-- [Proteger a sua rede no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-- [Proteger o serviço SQL do Azure e os dados no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](./security-center-monitoring.md)
+- [Proteger a sua rede no Centro de Segurança do Azure](./security-center-network-recommendations.md)
+- [Proteger o serviço SQL do Azure e os dados no Centro de Segurança do Azure](./security-center-remediate-recommendations.md)
 
 
 Vídeo    
@@ -77,7 +77,7 @@ Vídeos
 * [Responder rapidamente a ameaças com a operação e investigação de segurança de próxima geração](https://youtu.be/e8iFCz5RM4g)
 
 Artigos    
-* [Utilizar o Centro de Segurança do Azure para responder a um incidente](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
+* [Utilizar o Centro de Segurança do Azure para responder a um incidente](./tutorial-security-incident.md)
 * [Automatizar resposta com automatização de fluxo de trabalho](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Defesa de cloud avançada
@@ -91,8 +91,8 @@ Vídeos
 * [Centro de Segurança do Azure - Controlos de Aplicação Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
-* [Gerir o acesso à máquina virtual utilizando o tempo justo](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-* [Controlos de Aplicação Adaptáveis do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Gerir o acesso à máquina virtual utilizando o tempo justo](./security-center-just-in-time.md)
+* [Controlos de Aplicação Adaptáveis do Centro de Segurança do Azure](./security-center-adaptive-application.md)
 
 ## <a name="hands-on-activities"></a>Atividades práticas
 
@@ -101,17 +101,17 @@ Artigos
 * [Manual de Procedimentos do Centro de Segurança do Azure: Alertas de Segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Página de Documentação do Centro de Segurança](https://docs.microsoft.com/azure/security-center/)
-* [Página de Documentação da API REST do Centro de Segurança](https://msdn.microsoft.com/library/mt704034.aspx)
-* [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)
+* [Página de Documentação do Centro de Segurança](./index.yml)
+* [Página de Documentação da API REST do Centro de Segurança](/previous-versions/azure/reference/mt704034(v=azure.100))
+* [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure](./faq-general.md)
 * [Página de Preços do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/)
-* [Melhores práticas da segurança de identidade](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-* [Melhores práticas de segurança de rede](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
-* [Recomendações PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Melhores práticas da segurança de identidade](../security/fundamentals/identity-management-best-practices.md)
+* [Melhores práticas de segurança de rede](../security/fundamentals/network-best-practices.md)
+* [Recomendações PaaS](../security/fundamentals/paas-deployments.md)
 * [Conformidade](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Os clientes de log analytics podem agora usar o Azure Security Center para proteger as suas cargas de trabalho em nuvem híbrida](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Os clientes de log analytics podem agora usar o Azure Security Center para proteger as suas cargas de trabalho em nuvem híbrida](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
 
 ## <a name="community-resources"></a>Recursos da Comunidade
 
 * [UserVoice do Centro de Segurança](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Q&Uma página para o Centro de Segurança](https://docs.microsoft.com/answers/topics/azure-security-center.html)
+* [Q&Uma página para o Centro de Segurança](/answers/topics/azure-security-center.html)

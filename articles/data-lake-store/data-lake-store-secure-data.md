@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574148"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370700"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Proteger dados armazenados no Azure Data Lake Storage Gen1
-A obtenção de dados na Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Tanto o controlo de acesso baseado em funções (RBAC) como as listas de controlo de acesso (ACLs) devem ser definidos de forma a permitir o acesso total aos dados dos utilizadores e dos grupos de segurança.
+A obtenção de dados na Azure Data Lake Storage Gen1 é uma abordagem em três etapas.  Tanto o controlo de acesso baseado em funções Azure (Azure RBAC) como as listas de controlo de acesso (ACLs) devem ser definidos para permitir o acesso total aos dados dos utilizadores e grupos de segurança.
 
 1. Comece por criar grupos de segurança no Azure Ative Directory (Azure AD). Estes grupos de segurança são utilizados para implementar o controlo de acesso baseado em funções Azure (Azure RBAC) no portal Azure. Para mais informações, consulte [a Azure RBAC.](../role-based-access-control/role-assignments-portal.md)
 2. Atribua os grupos de segurança AZure AD à conta da Data Lake Storage Gen1. Isto controla o acesso à conta de Data Lake Storage Gen1 a partir do portal e operações de gestão a partir do portal ou APIs.
@@ -39,7 +39,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 Para obter instruções sobre como criar grupos de segurança Azure AD e como adicionar utilizadores ao grupo, consulte [a Managing groups in Azure Ative Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
-> Pode adicionar tanto os utilizadores como outros grupos a um grupo em Azure AD utilizando o portal Azure. No entanto, para adicionar um principal de serviço a um grupo, utilize [o módulo PowerShell da Azure AD](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+> Pode adicionar tanto os utilizadores como outros grupos a um grupo em Azure AD utilizando o portal Azure. No entanto, para adicionar um principal de serviço a um grupo, utilize [o módulo PowerShell da Azure AD](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs
@@ -68,7 +68,7 @@ Quando atribui utilizadores ou grupos de segurança às contas da Data Lake Stor
     Para operações de dados, as permissões individuais do sistema de ficheiros definem o que os utilizadores podem fazer. Portanto, um utilizador com uma função Reader só pode ver as definições administrativas associadas à conta, mas pode potencialmente ler e escrever dados com base nas permissões do sistema de ficheiros que lhes são atribuídas. As permissões do sistema de ficheiros De armazenamento de dados Gen1 são descritas no [Grupo de Segurança Desemtribuída como ACLs ao sistema de ficheiros Azure Data Lake Storage Gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Apenas a função **Proprietário** permite automaticamente o acesso ao sistema de ficheiros. O **Contribuinte**, **Leitor,** e todas as outras funções requerem ACLs para permitir qualquer nível de acesso a pastas e ficheiros.  A função **Proprietário** fornece permissões de ficheiros e pastas super-utilizadores que não podem ser ultrapassadas através de ACLs. Para obter mais informações sobre como as políticas do RBAC mapeiam o acesso aos dados, consulte [o RBAC para gestão de conta.](data-lake-store-security-overview.md#rbac-for-account-management)
+    > Apenas a função **Proprietário** permite automaticamente o acesso ao sistema de ficheiros. O **Contribuinte**, **Leitor,** e todas as outras funções requerem ACLs para permitir qualquer nível de acesso a pastas e ficheiros.  A função **Proprietário** fornece permissões de ficheiros e pastas super-utilizadores que não podem ser ultrapassadas através de ACLs. Para obter mais informações sobre como as políticas do Azure RBAC mapeiam o acesso aos dados, consulte [o Azure RBAC para gestão de conta.](data-lake-store-security-overview.md#azure-rbac-for-account-management)
 
 4. Se pretender adicionar um grupo/utilizador que não esteja listado na lâmina de **permissões Adicionar,** pode convidá-los digitando o seu endereço de e-mail na caixa de texto **Select** e, em seguida, selecionando-os da lista.
    
@@ -147,7 +147,7 @@ Quando remove os ACLs do grupo de segurança de um sistema de ficheiros Data Lak
    
     ![Screenshot da lâmina Access com a opção de Engenharia de Dados chamada e a lâmina de detalhes de acesso com a opção Remover chamada.](./media/data-lake-store-secure-data/adl.remove.acl.png "Atribuir permissões ao grupo")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Use Azure Data Lake Analytics com data lake storage gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

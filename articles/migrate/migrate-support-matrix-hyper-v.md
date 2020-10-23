@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliação do servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318182"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331979"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -63,7 +63,7 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 **Dispositivo** | **Ligação**
 --- | ---
 **Aparelho** | Ligações de entrada na porta TCP 3389 para permitir ligações remotas de ambiente de trabalho ao aparelho.<br/><br/> Ligações de entrada na porta 44368 para aceder remotamente à aplicação de gestão do aparelho utilizando o URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Ligações de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para Azure Migrate.
-**Hospedeiro/cluster hiper-V** | Ligação de entrada na porta WinRM 5985 (HTTP) para retirar metadados e dados de desempenho para VMs hiper-V usando uma sessão de Modelo de Informação Comum (CIM).
+**Hospedeiro/cluster hiper-V** | Ligação de entrada na porta WinRM 5985 (HTTP) ou 5986 (HTTPS) para retirar metadados e dados de desempenho para VMs hiper-V usando uma sessão de Modelo de Informação Comum (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise de dependência baseados em agentes
 
@@ -83,4 +83,4 @@ O quadro seguinte resume os requisitos portuários para avaliação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Preparar para avaliação de VM hiper-V](tutorial-prepare-hyper-v.md)
+[Preparar para avaliação de VM hiper-V](./tutorial-discover-hyper-v.md)

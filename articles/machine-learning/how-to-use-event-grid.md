@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362521"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428436"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
@@ -62,7 +62,7 @@ Estes eventos são publicados através da Azure Event Grid. Utilizando o portal 
 
 Ao configurar os seus eventos, pode aplicar filtros apenas para acionar dados específicos do evento. No exemplo abaixo, para eventos alterados de estado de execução, pode filtrar por tipos de execução. O evento só dispara quando os critérios são cumpridos. Consulte o esquema de grelha de [eventos Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) para saber mais sobre os dados do evento que pode filtrar. 
 
-As subscrições de eventos de aprendizagem automática Azure estão protegidas pelo controlo de acesso baseado em funções (RBAC). Apenas [o colaborador ou proprietário](how-to-assign-roles.md#default-roles) de um espaço de trabalho pode criar, atualizar e eliminar subscrições de eventos.  Os filtros podem ser aplicados a subscrições de eventos durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) da subscrição do evento ou posteriormente. 
+As subscrições de eventos de aprendizagem automática Azure estão protegidas pelo controlo de acesso baseado em funções Azure (Azure RBAC). Apenas [o colaborador ou proprietário](how-to-assign-roles.md#default-roles) de um espaço de trabalho pode criar, atualizar e eliminar subscrições de eventos.  Os filtros podem ser aplicados a subscrições de eventos durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) da subscrição do evento ou posteriormente. 
 
 
 1. Vá ao portal Azure, selecione uma nova subscrição ou uma existente. 

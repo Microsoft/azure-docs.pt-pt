@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
-ms.openlocfilehash: ef6e49c98c5b6c38e8a3d47b911ceafc22ddf735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2af446c222691784d8f108c78ff2c018cabee107
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551139"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453693"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exponenthr"></a>Tutorial: Azure Ative Directory integração única (SSO) com a ExponentHR
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o ExponentHR com o Azure Ative Dir
 * Permita que os seus utilizadores sejam automaticamente inscritos no ExponentHR com as suas contas AD AZure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -124,21 +124,20 @@ Para configurar um único sign-on no lado **ExponentHR,** você precisa enviar o
 
 ### <a name="create-exponenthr-test-user"></a>Criar utilizador de teste ExponentHR
 
-Nesta secção, cria-se um utilizador chamado B.Simon in ExponentHR. Trabalhe com a [equipa de suporte da ExponentHR](mailto:support@exponenthr.com) para adicionar os utilizadores na plataforma ExponentHR. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in ExponentHR. Trabalhe com a [equipa de suporte da ExponentHR](mailto:support@exponenthr.com) para adicionar os utilizadores na plataforma ExponentHR. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo ExponentHR no Painel de Acesso, deverá ser automaticamente inscrito no ExponentHR para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo ExponentHR no Painel de Acesso, deverá ser automaticamente inscrito no ExponentHR para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o ExponentHR com a Azure AD](https://aad.portal.azure.com/)
-

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889144"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208231"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -26,7 +26,7 @@ Neste arranque rápido, você vai aprender a ser rapidamente capaz de ver e moni
 
 ## <a name="get-visualization"></a>Obter visualização
 
-Para visualizar e analisar o que está a acontecer no seu ambiente, em primeiro lugar, dê uma olhada no painel de visão geral para ter uma ideia da postura de segurança da sua organização. Pode clicar em cada elemento destes azulejos para perfurar até aos dados brutos a partir dos quais são criados. Para ajudá-lo a reduzir o ruído e minimizar o número de alertas que tem de rever e investigar, a Azure Sentinel usa uma técnica de fusão para correlacionar alertas em incidentes. **incidentes** são grupos de alertas relacionados que juntos criam um incidente acccionável que você pode investigar e resolver.
+Para visualizar e analisar o que está a acontecer no seu ambiente, em primeiro lugar, dê uma olhada no painel de visão geral para ter uma ideia da postura de segurança da sua organização. Pode clicar em cada elemento destes azulejos para perfurar até aos dados brutos a partir dos quais são criados. Para ajudá-lo a reduzir o ruído e minimizar o número de alertas que tem de rever e investigar, a Azure Sentinel usa uma técnica de fusão para correlacionar alertas em incidentes. **Incidentes** são grupos de alertas relacionados que juntos criam um incidente acccionável que você pode investigar e resolver.
 
 - No portal Azure, selecione Azure Sentinel e, em seguida, selecione o espaço de trabalho que pretende monitorizar.
 
@@ -44,7 +44,7 @@ O corpo principal da página de visão geral dá uma visão de um olhar sobre o 
 
    ![Mapa de tráfego malicioso](./media/qs-get-visibility/map.png)
 
-- **Incidentes recentes**: Para ver os seus incidentes recentes, a sua gravidade e o número de alertas associados ao incidente. Se vires como um pico repentino num tipo específico de alerta, pode significar que há um ataque ativo atualmente em curso. Por exemplo, se tiver um pico repentino de 20 eventos Pass-the-hash do Microsoft Defender for Identity (ex-Azure ATP), é possível que alguém esteja atualmente a tentar atacá-lo.
+- **Incidentes recentes**: Para ver os seus incidentes recentes, a sua gravidade e o número de alertas associados ao incidente. Se vires um pico repentino num tipo específico de alerta, pode significar que há um ataque ativo atualmente em curso. Por exemplo, se tiver um pico repentino de 20 eventos Pass-the-hash do Microsoft Defender for Identity (ex-Azure ATP), é possível que alguém esteja atualmente a tentar atacá-lo.
 
 - **Anomalias na origem**dos dados : Os analistas de dados da Microsoft criaram modelos que procuram constantemente os dados das suas fontes de dados para anomalias. Se não houver anomalias, nada é mostrado. Se forem detetadas anomalias, deve mergulhar profundamente nelas para ver o que aconteceu. Por exemplo, clique no pico na Atividade Azure. Pode clicar em **Gráfico** para ver quando o pico aconteceu e, em seguida, filtrar as atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
 

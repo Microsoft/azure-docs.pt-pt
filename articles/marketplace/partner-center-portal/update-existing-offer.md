@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650106"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276053"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no mercado comercial
 
@@ -67,7 +67,7 @@ Agora que escondeu o plano com o preço antigo, crie uma cópia desse plano com 
 
 1. No Partner Center, volte à **visão geral do Plano.**
 2. **Selecione Criar novo plano.** Introduza um **ID do plano** e um **nome de Plano**e, em seguida, selecione **Criar**.
-1. Para reutilizar a configuração técnica do plano que ocultou, selecione a caixa **de verificação de configuração técnica de Reutilização.** Leia [a visão geral do plano](azure-vm-create-offer.md#plan-overview) para saber mais.
+1. Para reutilizar a configuração técnica do plano que ocultou, selecione a caixa **de verificação de configuração técnica de Reutilização.** Leia [Criar planos para uma oferta de VM](../azure-vm-create-plans.md) para saber mais.
     > [!IMPORTANT]
     > Se selecionar **Este plano reutiliza a configuração técnica de outro plano,** não poderá deixar de vender o plano dos pais mais tarde. Não use esta opção se quiser parar de vender o plano dos pais.
 3. Complete todas as secções necessárias para o novo plano, incluindo o novo preço.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167611"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278191"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API cassandra em Azure Cosmos DB
 
@@ -79,11 +79,11 @@ Os registos de diagnóstico são explicados no artigo de [registo de diagnóstic
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>O mapa principal da chave primária para o conceito chave de partição de Azure Cosmos DB?
 
-Sim, a chave de partição é usada para colocar a entidade no local certo. Em Azure Cosmos DB, é usado para encontrar a partição lógica certa que está armazenada numa partição física. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partition-data.md) O takeaway essencial aqui é que uma divisória lógica não deve passar do limite de 20 GB.
+Sim, a chave de partição é usada para colocar a entidade no local certo. Em Azure Cosmos DB, é usado para encontrar a partição lógica certa que está armazenada numa partição física. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partitioning-overview.md) O takeaway essencial aqui é que uma divisória lógica não deve passar do limite de 20 GB.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>O que acontece quando recebo uma notificação de que uma divisória está cheia?
 
-Azure Cosmos DB é um sistema baseado em acordo de nível de serviço (SLA). Proporciona uma escala ilimitada, com garantias de latência, produção, disponibilidade e consistência. Este armazenamento ilimitado baseia-se na escala horizontal dos dados, utilizando a partição como conceito-chave. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partition-data.md)
+Azure Cosmos DB é um sistema baseado em acordo de nível de serviço (SLA). Proporciona uma escala ilimitada, com garantias de latência, produção, disponibilidade e consistência. Este armazenamento ilimitado baseia-se na escala horizontal dos dados, utilizando a partição como conceito-chave. O conceito de partição é bem explicado na Partição e escala no artigo [DB do Azure Cosmos.](partitioning-overview.md)
 
 Deve aderir ao limite de 20 GB no número de entidades ou itens por partição lógica. Para garantir que a sua aplicação se escasseia bem, recomendamos que *não* crie uma divisória quente armazenando todas as informações numa única partição e consultando-a. Este erro só pode vir se os seus dados forem distorcidos: ou seja, tem muitos dados para uma chave de partição (mais de 20 GB). Pode encontrar a distribuição de dados utilizando o portal de armazenamento. A forma de corrigir este erro é recriar a tabela e escolher uma chave primária granular (chave de partição), que permita uma melhor distribuição dos dados.
 
@@ -169,7 +169,7 @@ Pode adicionar quantas regiões quiser para a conta e controlo onde pode falhar,
 
 ### <a name="does-the-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>A API Cassandra indexa todos os atributos de uma entidade por defeito?
 
-N.º A API cassandra suporta [índices secundários,](cassandra-secondary-index.md)que se comportam de forma semelhante à De Apache Cassandra. A API não indexa todos os atributos por defeito.  
+Não. A API cassandra suporta [índices secundários,](cassandra-secondary-index.md)que se comportam de forma semelhante à De Apache Cassandra. A API não indexa todos os atributos por defeito.  
 
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Posso usar a nova Cassandra API SDK localmente com o emulador?

@@ -3,12 +3,12 @@ title: Domínios do evento na grelha de eventos Azure
 description: Este artigo descreve como usar os domínios de eventos para gerir o fluxo de eventos personalizados para as suas várias organizações empresariais, clientes ou aplicações.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86114368"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328832"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios do evento para gerir tópicos da Grelha de Eventos
 
@@ -37,13 +37,13 @@ Também lhe dá um único ponto final, ao qual pode publicar todos os eventos do
 
 ## <a name="access-management"></a>Gestão de acesso
 
-Com um domínio, obtém-se uma autorização de grão fino e controlo de autenticação sobre cada tópico através do controlo de acesso baseado em funções (RBAC) da Azure. Pode utilizar estas funções para restringir cada inquilino na sua candidatura apenas aos tópicos a que deseja conceder-lhes acesso.
+Com um domínio, obtém-se uma autorização de grão fino e controlo de autenticação sobre cada tópico através do controlo de acesso baseado em funções Azure (Azure RBAC). Pode utilizar estas funções para restringir cada inquilino na sua candidatura apenas aos tópicos a que deseja conceder-lhes acesso.
 
-O RBAC em domínios de eventos funciona da mesma forma que funciona o controlo de [acesso gerido](security-authorization.md) no resto da Grade de Eventos e Azure. Use o RBAC para criar e impor definições de funções personalizadas em domínios de eventos.
+O Azure RBAC em domínios de eventos funciona da mesma forma que funciona o controlo de [acesso gerido](security-authorization.md) no resto da Grade de Eventos e Azure. Use o Azure RBAC para criar e impor definições de funções personalizadas em domínios de eventos.
 
 ### <a name="built-in-roles"></a>Construído em papéis
 
-Event Grid tem duas definições de função incorporadas para tornar o RBAC mais fácil para trabalhar com domínios de eventos. Estes papéis são **EventGrid EventSubscription Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)**. Atribui estas funções a utilizadores que necessitem de subscrever tópicos no domínio do evento. Você traça a atribuição de papel apenas para o tópico que os utilizadores precisam subscrever.
+Event Grid tem duas definições de papel incorporadas para tornar o Azure RBAC mais fácil para trabalhar com domínios de eventos. Estes papéis são **EventGrid EventSubscription Contributor (Preview)** e **EventGrid EventSubscription Reader (Preview)**. Atribui estas funções a utilizadores que necessitem de subscrever tópicos no domínio do evento. Você traça a atribuição de papel apenas para o tópico que os utilizadores precisam subscrever.
 
 Para obter informações sobre estas funções, consulte [as funções incorporadas para a Grade de Eventos.](security-authorization.md#built-in-roles)
 

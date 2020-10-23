@@ -101,8 +101,10 @@
   items:
     - name: Integração de aplicações
       items:
-        - name: Registar uma aplicação
+        - name: Registar uma aplicação Web
           href: tutorial-register-applications.md
+        - name: Registar uma aplicação de página única (SPA)
+          href: tutorial-register-spa.md
         - name: Registar um fornecedor de serviços SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
@@ -180,7 +182,7 @@
           href: basic-age-gating.md
         - name: Definir atributos personalizados
           href: user-flow-custom-attributes.md
-        - name: Conectores de API
+        - name: Conectores de API (pré-visualização)
           items:
             - name: Descrição geral
               href: api-connectors-overview.md

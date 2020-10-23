@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: baf80e3d543bee455dd8dfa5bc09bc5bf43c3453
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3ad0da1f910556c172c519faf953d4075647955
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947367"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109056"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Criar e eliminar pontos finais privados num cluster Azure Stream Analytics
 
 Pode ligar os trabalhos do Azure Stream Analytics em execução num cluster a recursos de entrada e saída que estão atrás de uma firewall ou de uma Rede Virtual (VNet) do Azure. Primeiro, crie um ponto final privado para um recurso, como o Hub de Eventos do Azure ou a Base de Dados SQL do Azure, no cluster do Stream Analytics. Em seguida, aprove a ligação do ponto final privado de entrada ou saída.
 
-Depois de aprovar a ligação, qualquer trabalho em execução no cluster do Stream Analytics terá acesso ao recurso através do ponto final privado. Este artigo mostra como criar e eliminar pontos finais privados num cluster do Stream Analytics.
+Uma vez aprovada a ligação, qualquer trabalho em execução no seu cluster Stream Analytics pode aceder ao recurso através do ponto final privado. Este artigo mostra como criar e eliminar pontos finais privados num cluster do Stream Analytics.
 
 ## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Criar ponto final privado no cluster Stream Analytics
 

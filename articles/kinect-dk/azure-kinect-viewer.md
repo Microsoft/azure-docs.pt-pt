@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azul, cinect, sensor, espectador, visualização, profundidade, rgb, cor, imu, áudio, microfone, nuvem de ponto
-ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f411de5854d516586dc64701cca729c692ce40e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277486"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166110"
 ---
 # <a name="azure-kinect-viewer"></a>Espectador Azure Kinect
 
@@ -36,7 +36,7 @@ O espectador pode funcionar em dois modos: com dados ao vivo do sensor ou a part
 
 Lançar a aplicação em execução `k4aviewer.exe` .
 
-![Verificação da versão do firmware do dispositivo utilizando o espectador](./media/how-to-guides/open-viewer.png)
+![Screenshot que mostra a aplicação do espectador lançado.](./media/how-to-guides/open-viewer.png)
 
 ### <a name="use-the-viewer-with-live-data"></a>Use o espectador com dados ao vivo
 

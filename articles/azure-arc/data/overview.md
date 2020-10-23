@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948142"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316976"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>O que são serviços de dados habilitados a Azure Arc (pré-visualização)?
 
@@ -41,7 +41,7 @@ O Azure Arc também fornece outros benefícios em nuvem, como a rápida implanta
 
 ## <a name="unified-management"></a>Gestão unificada
 
-Utilizando ferramentas familiares como o portal Azure, o Azure Data Studio e o Azure Data CLI, pode agora obter uma visão unificada de todos os seus ativos de dados implantados com o Azure Arc. Você é capaz não só de ver e gerir uma variedade de bases de dados relacionais em todo o seu ambiente e Azure, mas também obter registos e telemetria de Kubernetes APIs para analisar a capacidade e saúde subjacentes à infraestrutura. Além de ter a análise de registos localizada e a monitorização do desempenho, pode agora aproveitar o Azure Monitor para obter informações operacionais abrangentes em toda a sua propriedade.
+Utilizando ferramentas familiares como o portal Azure, Azure Data Studio, e o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] , pode agora obter uma visão unificada de todos os seus ativos de dados implantados com Azure Arc. Você é capaz não só de ver e gerir uma variedade de bases de dados relacionais em todo o seu ambiente e Azure, mas também obter registos e telemetria de Kubernetes APIs para analisar a capacidade e saúde subjacentes à infraestrutura. Além de ter a análise de registos localizada e a monitorização do desempenho, pode agora aproveitar o Azure Monitor para obter informações operacionais abrangentes em toda a sua propriedade.
 
 ## <a name="disconnected-scenario-support"></a>Suporte de cenário desligado
 

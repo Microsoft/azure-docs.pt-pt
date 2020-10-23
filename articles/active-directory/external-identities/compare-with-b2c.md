@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08623e6d69ac4db1790c1e9b46089f0c72c0526d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf57e60fc05d579365d459e4a5d5288c2ca52bb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87906126"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442155"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>O que são identidades externas no Diretório Ativo Azure?
 
@@ -31,7 +31,7 @@ As identidades externas do AD AZure focam-se menos na relação de um utilizador
 
 - **Desenvolver aplicativos destinados a outros inquilinos da AD Azure (inquilino único ou multi-inquilino)**. Ao desenvolver aplicações para Azure AD, você pode direcionar os utilizadores de uma única organização (inquilino único), ou utilizadores de qualquer organização que já tenha um inquilino AZURE AD (chamado aplicações multi-inquilinos). Estas aplicações multi-inquilinos são registadas uma vez por si no seu próprio AD Azure, mas podem ser usadas por qualquer utilizador AZure AD de qualquer organização sem qualquer trabalho adicional da sua parte.
 
-- **Desenvolver aplicativos com rótulo branco para consumidores e clientes (Azure AD B2C)**. Se você é um negócio ou desenvolvedor que cria aplicações viradas para o cliente, você pode escalar para consumidores, clientes ou cidadãos usando um Azure AD B2C. Os desenvolvedores podem usar o Azure AD como o sistema de identidade completo para a sua aplicação, ao mesmo tempo que deixam os clientes iniciar súmpi com uma identidade que já estabeleceram (como o Facebook ou o Gmail). Com o Azure AD B2C, pode personalizar e controlar completamente a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis ao utilizarem as suas aplicações. Para mais informações, consulte a [documentação Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/).
+- **Desenvolver aplicativos com rótulo branco para consumidores e clientes (Azure AD B2C)**. Se você é um negócio ou desenvolvedor que cria aplicações viradas para o cliente, você pode escalar para consumidores, clientes ou cidadãos usando um Azure AD B2C. Os desenvolvedores podem usar o Azure AD como o sistema de identidade completo para a sua aplicação, ao mesmo tempo que deixam os clientes iniciar súmpi com uma identidade que já estabeleceram (como o Facebook ou o Gmail). Com o Azure AD B2C, pode personalizar e controlar completamente a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis ao utilizarem as suas aplicações. Para mais informações, consulte a [documentação Azure AD B2C](../../active-directory-b2c/index.yml).
 
 ## <a name="compare-external-identities-solutions"></a>Comparar soluções de Identidades Externas
 
@@ -45,13 +45,13 @@ A tabela abaixo apresenta uma comparação detalhada dos vários cenários que p
 | Os utilizadores externos são geridos no seu próprio diretório, isolados do diretório onde a aplicação foi registada.    | Os utilizadores externos são geridos no mesmo diretório que os colaboradores, mas anotados especialmente. Podem ser geridos da mesma forma que os empregados, podem ser adicionados aos mesmos grupos, e assim por diante.    | Os utilizadores externos são geridos no diretório de aplicações. São geridos separadamente do diretório de empregados e parceiros da organização (se houver).  |
 | Um único sinal: SSO para todas as aplicações ligadas a Ad Azure é suportado.          | Um único sinal: SSO para todas as aplicações ligadas a Ad Azure é suportado. Por exemplo, pode fornecer acesso a aplicações microsoft 365 ou no local, e a outras aplicações SaaS como Salesforce ou Workday.    | SSO para aplicações de propriedade de clientes dentro dos inquilinos Azure AD B2C é suportado. SSO para o Microsoft 365 ou para outras aplicações microsoft SaaS não é suportado.    |
 | Ciclo de vida do cliente: Gerido pela organização do utilizador.      | Ciclo de vida do parceiro: gerido pelo anfitrião/organização que convida.    | Ciclo de vida do cliente: gerido automaticamente ou gerido pela aplicação.      |
-| Política de segurança e conformidade: Gerido pela organização de acolhimento/convite (por exemplo, com [políticas de Acesso Condicional).](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)           | Política de segurança e conformidade: Gerido pela organização de acolhimento/convite (por exemplo, com [políticas de Acesso Condicional).](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access) | Política de segurança e conformidade: geridas pela aplicação.        |
+| Política de segurança e conformidade: Gerido pela organização de acolhimento/convite (por exemplo, com [políticas de Acesso Condicional).](./conditional-access.md)           | Política de segurança e conformidade: Gerido pela organização de acolhimento/convite (por exemplo, com [políticas de Acesso Condicional).](./conditional-access.md) | Política de segurança e conformidade: geridas pela aplicação.        |
 | Branding: É utilizada a marca de organização de anfitriões/convidativos.   | Branding: É utilizada a marca de organização de anfitriões/convidativos.    | Imagem corporativa: gerida pela aplicação. Geralmente, tende a ser personalizada com base no produto, com a organização a desvanecer no fundo.   |
-| Mais [informações: Gerir identidade em aplicações multi-inquilinos,](https://docs.microsoft.com/azure/architecture/multitenant-identity/) [Como-a-Guia](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant) | Mais informações: [Mensagem de blogue](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentação](what-is-b2b.md)                   | Mais informações: [Página do produto](https://azure.microsoft.com/services/active-directory-b2c/), [Documentação](https://docs.microsoft.com/azure/active-directory-b2c/)       |
+| Mais [informações: Gerir identidade em aplicações multi-inquilinos,](/azure/architecture/multitenant-identity/) [Como-a-Guia](../develop/howto-convert-app-to-be-multi-tenant.md) | Mais informações: [Mensagem de blogue](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentação](what-is-b2b.md)                   | Mais informações: [Página do produto](https://azure.microsoft.com/services/active-directory-b2c/), [Documentação](../../active-directory-b2c/index.yml)       |
 
 Proteja e gere clientes e parceiros para além dos seus limites organizacionais com identidades externas Azure AD.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- [Acerca do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview)
+- [Acerca do Azure AD B2C](../../active-directory-b2c/overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 02b9adcb72b4d26a19b6514d19ce94a70a2415ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6a7784d052a03971fad84c90cdd70cd16b4a872
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534222"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Diretório Ativo Azure com Sprinklr
 
@@ -136,11 +136,11 @@ Para configurar o Azure AD com Sprinklr, execute os seguintes passos:
 
 1. Clique **em +Adicionar 'Único Sinal' Ons**.
 
-    ![Sign-ons únicos](./media/sprinklr-tutorial/ic782909.png "Sign-Ons única")
+    ![A screenshot mostra o botão Adicionar Único Sinal Ons.](./media/sprinklr-tutorial/ic782909.png "Sign-Ons única")
 
 1. No **único sinal na** página, execute os seguintes passos:
 
-    ![Sign-ons únicos](./media/sprinklr-tutorial/ic782910.png "Sign-Ons única")
+    ![A screenshot mostra o Sinal Único na página onde pode introduzir os valores descritos.](./media/sprinklr-tutorial/ic782910.png "Sign-Ons única")
 
     a. Na caixa de texto **Name,** digite um nome para a sua configuração (por exemplo: *WAADSSOTest).*
 
@@ -225,11 +225,11 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. Vá para **gerir \> os utilizadores** de clientes a partir do painel esquerdo.
 
-    ![Definições](./media/sprinklr-tutorial/ic782914.png "Definições")
+    ![A screenshot mostra o botão Adicionar Utilizador em Definições/Utilizadores.](./media/sprinklr-tutorial/ic782914.png "Definições")
 
 1. Clique em **Adicionar Utilizador**.
 
-    ![Definições](./media/sprinklr-tutorial/ic782915.png "Definições")
+    ![A screenshot mostra a caixa de diálogo do utilizador Editar onde pode introduzir os valores descritos.](./media/sprinklr-tutorial/ic782915.png "Definições")
 
 1. No diálogo do **utilizador Editar,** execute os seguintes passos:
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/17/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 01fdaa95dd396e5545b65bada2a9d6410169230b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 789bd2f62673e7faf562d3a407bf2f0a4fd861bf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052465"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125497"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>Início Rápido: introdução ao Azure Data Box para exportar dados do Azure
 
@@ -28,7 +28,7 @@ Antes de começar:
 
 * Certifique-se de que a subscrição que utiliza para o serviço Data Box é de um dos tipos seguintes:
   * Microsoft Enterprise Agreement (EA). Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-  * Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+  * Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 * Certifique-se de que tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box.
@@ -96,7 +96,7 @@ Este passo demora entre 5 a 7 minutos.
 
 O tempo de conclusão desta operação depende do tamanho dos dados e da velocidade da rede.
 
-1. Se estiver a utilizar um sistema anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy. Para o anfitrião NFS, utilize o comando `cp` ou `rsync` para copiar os dados. Para obter mais informações sobre como utilizar o Robocopy para copiar dados, aceda a [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. Se estiver a utilizar um sistema anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy. Para o anfitrião NFS, utilize o comando `cp` ou `rsync` para copiar os dados. Para obter mais informações sobre como utilizar o Robocopy para copiar dados, aceda a [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Ligue-se às partilhas de dispositivos e comece a copiar os dados para o computador anfitrião.
 <!-- 1. Connect to the device shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box. --> 
 

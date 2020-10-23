@@ -4,12 +4,12 @@ description: Monitorização de desempenho de aplicações sem código para apli
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537662"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215268"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Azure Monitor Application Insights
 
@@ -164,9 +164,10 @@ Se tiver algumas métricas JMX que esteja interessado em capturar:
 }
 ```
 
-Também pode definir as métricas JMX utilizando a variável `APPLICATIONINSIGHTS_JMX_METRICS` ambiente.
+Os valores métricos JMX numéricos e boolean são suportados. As métricas boolean jMX são mapeadas `0` para falso, e `1` para verdade.
 
-Este conteúdo variável do ambiente deve ser um dado json correspondente à estrutura acima referida, por exemplo. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
+[//]: # "NOTA: Não documentar APPLICATIONINSIGHTS_JMX_METRICS aqui"
+[//]: # "json incorporado no env var é confuso, e deve ser documentado apenas para cenário de anexação sem código"
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluindo métricas do Actuador de Bota de Mola)
 

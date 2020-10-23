@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284885"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168482"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -310,7 +310,7 @@ Para consultar o estado do dispositivo GPU, SSH para o VM e executar o utilitár
 
 Se o controlador estiver instalado, verá uma saída semelhante à seguinte. Note que **a GPU-Util** mostra 0% a menos que esteja atualmente a executar uma carga de trabalho gpu no VM. A versão do seu condutor e os detalhes da GPU podem ser diferentes dos apresentados.
 
-![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+![Screenshot que mostra a saída quando o estado do dispositivo GPU é questionado.](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Servidor X11

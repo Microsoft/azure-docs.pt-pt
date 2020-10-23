@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/30/2020
-  ms.openlocfilehash: fce9674e9ad21f51344b3ea249849e1474c40ee4
-  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+  ms.date: 10/16/2020
+  ms.openlocfilehash: 28011d2f3bbbb838f0de9a66c98845d968620fb1
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92054836"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92314188"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -63,8 +63,10 @@ landingContent:
       url: ./tutorials/create-and-manage.md
     - text: Utilizar a extensão do VS Code
       url: ./how-to/extension-for-vscode.md
-    - text: Criar fluxos de trabalho de Política como Código
+    - text: Criar fluxos de trabalho do Azure Policy como Código
       url: ./concepts/policy-as-code.md
+    - text: Implementar o Azure Policy como Código com o GitHub
+      url: ./tutorials/policy-as-code-github.md
   - linkListType: deploy
     links:
     - text: Índice de exemplos de política
@@ -89,9 +91,9 @@ landingContent:
     links:
     - text: Conformidade Regulamentar
       url: ./concepts/regulatory-compliance.md
-    - text: Política para Kubernetes
+    - text: Azure Policy para o Kubernetes
       url: ./concepts/policy-for-kubernetes.md
-    - text: Política para VMs
+    - text: Azure Policy para VMs
       url: ./concepts/guest-configuration.md
 - title: Analisar e Remediar recursos
   linkLists:

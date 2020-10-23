@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527144"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132810"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
 Os orçamentos no Cost Management ajudam-no a planear e a gerar a responsabilidade organizacional. Com os orçamentos, pode contribuir para os serviços do Azure que consome ou subscrever durante um período específico. Ajudam-no a informar os outros sobre os custos para que possam proativamente gerir os custos e para monitorizar o progresso dos custos ao longo do tempo. Quando os limiares orçamentais que criou são excedidos, apenas são acionadas as notificações. Nenhum dos seus recursos é afetado e o consumo não será suspenso. Pode utilizar os orçamentos para comparar e acompanhar as despesas enquanto analisa os custos.
 
-Os dados dos custos e da utilização estão normalmente disponíveis dentro de 8-24 horas e os orçamentos são avaliados em relação a estes custos a cada 12 a 14 horas. Confirme que se familiariza com as especificidades das [Atualizações de dados dos custos e da utilização](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Quando um limiar do orçamento é atingido, são normalmente enviadas notificações por e-mail num prazo de uma hora após a avaliação.
+Os dados dos custos e da utilização estão normalmente disponíveis dentro de 8-24 horas e os orçamentos são avaliados em relação a estes custos a cada 12 a 14 horas. Confirme que se familiariza com as especificidades das [Atualizações de dados dos custos e da utilização](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando um limiar do orçamento é atingido, são normalmente enviadas notificações por e-mail num prazo de uma hora após a avaliação.
 
 Os orçamentos são repostos automaticamente no final de um período (mensal, trimestral ou anual) com a mesma quantidade de orçamento quando seleciona uma data de expiração no futuro. Uma vez que os orçamentos são repostos com a mesma quantidade de orçamento, tem de criar orçamentos separados quando os montantes orçamentados diferirem para períodos futuros.
 
@@ -72,7 +72,7 @@ As seguintes permissões, ou âmbitos, do Azure são suportadas por subscrição
 - Contribuidor e contribuidor do Cost Management: podem criar, modificar ou eliminar os orçamentos deles. Pode modificar a quantidade de orçamento para orçamentos criados por outros utilizadores.
 - Leitor e leitor do Cost Management: podem ver os orçamentos para os quais têm permissões.
 
-Para obter mais informações sobre a atribuição da permissão para os dados do Cost Management, veja [Atribuir acesso aos dados do Cost Management](../../cost-management/assign-access-acm-data.md).
+Para obter mais informações sobre a atribuição da permissão para os dados do Cost Management, veja [Atribuir acesso aos dados do Cost Management](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -104,7 +104,7 @@ Com base nos campos escolhidos no orçamento até agora, é mostrado um gráfico
 
 Depois de configurar o montante do orçamento, selecione **Seguinte** para configurar os alertas do orçamento. Os orçamentos requerem, no mínimo, um limiar de custo (% do orçamento) e um endereço de e-mail correspondente. Pode incluir, opcionalmente, até cinco limiares e cinco endereços de e-mail num único orçamento. Quando um limiar do orçamento é atingido, são normalmente enviadas notificações por e-mail num prazo de uma hora após a avaliação.
 
-Se quiser receber e-mails, adicione azure-noreply@microsoft.com à sua lista de remetentes aprovados para que os e-mails não vão para a sua pasta de e-mail de lixo. Para obter mais informações sobre as notificações, veja [Utilizar alertas de custos](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+Se quiser receber e-mails, adicione azure-noreply@microsoft.com à sua lista de remetentes aprovados para que os e-mails não vão para a sua pasta de e-mail de lixo. Para obter mais informações sobre as notificações, veja [Utilizar alertas de custos](./cost-mgt-alerts-monitor-usage-spending.md).
 
 No exemplo abaixo, é gerado um alerta por e-mail quando 90% do orçamento for atingido. Se criar um orçamento com a API de Orçamentos, também poderá atribuir funções a pessoas para receberem alertas. A atribuição de funções a pessoas não é suportada no portal do Azure. Para obter mais informações sobre a API de orçamentos do Azure, veja [Budgets API](/rest/api/consumption/budgets) (API de Orçamentos). Se quiser que um alerta de e-mail seja enviado num idioma diferente, veja [Regiões suportadas para e-mails de alerta de orçamento](manage-automation.md#supported-locales-for-budget-alert-emails).
 
@@ -112,7 +112,7 @@ Os limites de alerta suportam um intervalo entre 0,01 e 1000% do limiar do orça
 
 ![Exemplo a mostrar as condições de alertas](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Após criar um orçamento, este é apresentado na análise de custos. A visualização do orçamento em relação à sua tendência de despesas é um dos primeiros passos quando começa a [analisar os custos e as despesas](../../cost-management/quick-acm-cost-analysis.md).
+Após criar um orçamento, este é apresentado na análise de custos. A visualização do orçamento em relação à sua tendência de despesas é um dos primeiros passos quando começa a [analisar os custos e as despesas](./quick-acm-cost-analysis.md).
 
 ![Orçamento e custos de exemplo mostrados na análise de custos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

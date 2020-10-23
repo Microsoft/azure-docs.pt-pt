@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 4ef19b1fc8f0d503f1a35c60afd1faec2a548ca4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5cb4e3dd4145319361a2494ee346c0d2696edf45
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681996"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148303"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Como um desconto de reserva é aplicado à Base de Dados do Azure para MySQL
 
@@ -30,7 +30,7 @@ O desconto da capacidade reservada da Base de Dados do Azure para MySQL é aplic
 
 Os exemplos seguintes mostram como o desconto da capacidade reservada da Base de Dados do Azure para MySQL se aplica em função do número de núcleos que comprou e quando os mesmos estão em execução.
 
-* **Exemplo 1**: Compra uma capacidade reservada da Base de Dados do Azure para MySQL para 8 vCore. Se estiver a executar um servidor da Base de Dados do Azure para MySQL de 16 vCore que corresponda ao resto dos atributos da reserva, é-lhe cobrado o preço pay as you go para 8 vCore da utilização de computação do seu servidor MySQL e recebe o desconto de reserva para uma hora de utilização de computação do servidor MySQL de 8 vCore.</br>
+**Exemplo 1**: Compra uma capacidade reservada da Base de Dados do Azure para MySQL para 8 vCore. Se estiver a executar um servidor da Base de Dados do Azure para MySQL de 16 vCore que corresponda ao resto dos atributos da reserva, é-lhe cobrado o preço pay as you go para 8 vCore da utilização de computação do seu servidor MySQL e recebe o desconto de reserva para uma hora de utilização de computação do servidor MySQL de 8 vCore.</br>
 
 Para o resto destes exemplos, assuma que a capacidade reservada da Base de Dados do Azure para MySQL que comprou é para uma Base de Dados do Azure para MySQL de 16 vCore e que o resto dos atributos da reserva correspondem aos servidores MySQL em execução.
 
@@ -40,7 +40,7 @@ Para o resto destes exemplos, assuma que a capacidade reservada da Base de Dados
 
 * **Exemplo 4**: Executa um servidor da Base de Dados do Azure para MySQL de 16 vCore das 13:00 às 13:45. Executa outro servidor da Base de Dados do Azure para MySQL de 16 vCore das 13:30 às 14:00. É-lhe cobrado o preço pay-as-you-go pela sobreposição de 15 minutos. O desconto de reserva aplica-se à utilização de computação durante o resto do tempo.
 
-Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Para compreender e ver a aplicação das Reservas do Azure em relatórios de utilização da faturação, veja [Compreender a utilização das reservas do Azure](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

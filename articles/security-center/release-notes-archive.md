@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289808"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339803"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -28,6 +28,50 @@ Esta página fornece-lhe informações sobre:
 - Novas funcionalidades
 - Correções de erros
 - Funcionalidade preterida
+
+
+## <a name="april-2020"></a>Abril de 2020
+
+As atualizações em abril incluem:
+- [Pacotes de conformidade dinâmicos estão agora geralmente disponíveis](#dynamic-compliance-packages-are-now-generally-available)
+- [Recomendações de identidade agora incluídas no free tier do Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Pacotes de conformidade dinâmicos estão agora geralmente disponíveis
+
+O painel de conformidade regulamentar do Azure Security Center inclui agora **pacotes de conformidade dinâmicos** (agora geralmente disponíveis) para acompanhar normas adicionais da indústria e regulamentares.
+
+Pacotes de conformidade dinâmicos podem ser adicionados ao seu grupo de subscrição ou gestão a partir da página de política de segurança do Centro de Segurança. Quando você tem bordo um padrão ou benchmark, o padrão aparece no seu painel de conformidade regulamentar com todos os dados de conformidade associados mapeados como avaliações. Um relatório resumo de qualquer uma das normas que foram a bordo estará disponível para download.
+
+Agora, pode adicionar padrões como:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official and UK NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (novo)** (que é uma representação mais completa do Azure CIS 1.1.0)
+
+Além disso, adicionámos recentemente o **Azure Security Benchmark**, as diretrizes específicas para segurança e conformidade da Microsoft para as melhores práticas de segurança e conformidade baseadas em quadros comuns de conformidade. As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis.  
+ 
+Saiba mais sobre [a personalização do conjunto de normas no seu painel de conformidade regulamentar.](update-regulatory-compliance-packages.md)
+
+
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Recomendações de identidade agora incluídas no free tier do Azure Security Center
+
+Recomendações de segurança para identidade e acesso no free tier do Azure Security Center estão agora geralmente disponíveis. Isto faz parte do esforço para tornar gratuita a gestão da postura de segurança na nuvem (CSPM). Até agora, estas recomendações só estavam disponíveis no nível normal de preços.
+
+Exemplos de recomendações de identidade e acesso incluem:
+
+- "A autenticação multifactor deve ser ativada em contas com permissões do proprietário na sua subscrição."
+- "Um máximo de três proprietários deve ser designado para a sua assinatura."
+- "As contas precotados devem ser removidas da sua subscrição."
+
+Se tiver subscrições no nível de preços gratuitos, as suas pontuações seguras serão impactadas por esta alteração, uma vez que nunca foram avaliadas pela sua identidade e segurança de acesso.
+
+Saiba mais sobre [recomendações de identidade e acesso.](recommendations-reference.md#recs-identity)
+
+Saiba mais sobre [a monitorização da identidade e do acesso.](security-center-identity-access.md)
+
 
 
 ## <a name="march-2020"></a>Março de 2020
@@ -49,7 +93,7 @@ Todos os programas de segurança incluem vários fluxos de trabalho para respost
 
 Para obter mais informações sobre as capacidades automáticas e manuais do Centro de Segurança para executar os seus fluxos de trabalho, consulte [a automatização do fluxo de trabalho.](workflow-automation.md)
 
-Saiba mais sobre [a criação de Aplicações Lógicas.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+Saiba mais sobre [a criação de Aplicações Lógicas.](../logic-apps/logic-apps-overview.md)
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integração do Centro de Segurança Azure com o Windows Admin Center
@@ -170,7 +214,7 @@ Hoje estamos a introduzir uma nova capacidade no Security Center que permite aos
 
 Para obter mais informações sobre as capacidades automáticas e manuais do Centro de Segurança para executar os seus fluxos de trabalho, consulte [a automatização do fluxo de trabalho.](workflow-automation.md)
 
-Para aprender a criar Aplicações Lógicas, consulte [as Aplicações Lógicas Azure.](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+Para aprender a criar Aplicações Lógicas, consulte [as Aplicações Lógicas Azure.](../logic-apps/logic-apps-overview.md)
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>Quick Fix para recursos a granel geralmente disponíveis
@@ -226,9 +270,9 @@ As aplicações que são instaladas em máquinas virtuais podem muitas vezes ter
 
 O apoio do Azure Security Center à proteção de ameaças e avaliação de vulnerabilidade para DBs SQL em execução em IaaS VMs está agora em pré-visualização.
 
-A [Avaliação da vulnerabilidade](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) é um serviço fácil de configurar que pode detetar, controlar e ajudar a corrigir potenciais vulnerabilidades da base de dados. Ele fornece visibilidade na sua postura de segurança como parte da pontuação segura do Azure e inclui os passos para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
+A [Avaliação da vulnerabilidade](../azure-sql/database/sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode detetar, controlar e ajudar a corrigir potenciais vulnerabilidades da base de dados. Ele fornece visibilidade na sua postura de segurança como parte da pontuação segura do Azure e inclui os passos para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
 
-[A proteção avançada de ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar o seu servidor SQL. Monitoriza continuamente a sua base de dados para atividades suspeitas e fornece alertas de segurança orientados para a ação em padrões de acesso a bases de dados anómalas. Estes alertas fornecem detalhes de atividades suspeitas e ações recomendadas para investigar e mitigar a ameaça.
+[A proteção avançada de ameaças](../azure-sql/database/threat-detection-overview.md) deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar o seu servidor SQL. Monitoriza continuamente a sua base de dados para atividades suspeitas e fornece alertas de segurança orientados para a ação em padrões de acesso a bases de dados anómalas. Estes alertas fornecem detalhes de atividades suspeitas e ações recomendadas para investigar e mitigar a ameaça.
 
 
 ### <a name="support-for-custom-policies-preview"></a>Suporte para políticas personalizadas (pré-visualização)
@@ -302,7 +346,7 @@ Quando ativa o JIT para os seus VMs, cria uma política que determina a proteç�
 
 Os pedidos estão registados no Registo de Atividades do Azure, para que possa monitorizar e auditar facilmente o acesso. A página just-in-time também ajuda a identificar rapidamente os VM existentes que têm JIT ativado e VMs onde JIT é recomendado.
 
-[Saiba mais sobre a Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
+[Saiba mais sobre a Azure Firewall](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Remediação de um único clique para aumentar a sua postura de segurança (pré-visualização)

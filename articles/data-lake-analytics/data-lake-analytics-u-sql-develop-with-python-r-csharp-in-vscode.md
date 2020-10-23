@@ -1,18 +1,17 @@
 ---
 title: Executar empregos U-SQL em Python, R e C# - Azure Data Lake Analytics
 description: Aprenda a usar códigos com Python, R e C# para submeter trabalho no Lago de Dados Azure.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: devx-track-python
-ms.openlocfilehash: 673c8db0b7c6d3d8658d2d3b6cfd7e00f3d7d986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6066bd6ec2a4c986ae17ad0cce3e7f6f73b21e7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876211"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219977"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics em Código de Estúdio Visual
 Aprenda a usar o Código do Estúdio Visual (VSCode) para escrever o código Python, R e C# atrás com o U-SQL e submeta empregos ao serviço Azure Data Lake. Para obter mais informações sobre as ferramentas do Lago de Dados Azure para VSCode, consulte [as ferramentas do Lago de Dados Azure para código de estúdio visual.](data-lake-analytics-data-lake-tools-for-vscode.md)
@@ -183,4 +182,4 @@ Um ficheiro por trás de código é um ficheiro C# associado a um único script 
 * [Começar com data lake analytics usando PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Começar com data lake analytics usando o portal Azure](data-lake-analytics-get-started-portal.md)
 * [Utilize ferramentas do Data Lake para o Estúdio Visual para o desenvolvimento de aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
-* [Use o catálogo Data Lake Analytics (U-SQL)](data-lake-analytics-use-u-sql-catalog.md)
+* [Use o catálogo Data Lake Analytics (U-SQL)](./data-lake-analytics-u-sql-get-started.md)

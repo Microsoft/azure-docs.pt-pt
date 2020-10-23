@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 4314a52488473bcacd4aa62a0e8f44d88d2b75f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 311ce7edc617b02e62f4e4fefc7393318f99a1a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681605"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148278"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Compreender de que forma o desconto do plano de reserva do software Red Hat Linux Enterprise é aplicado ao Azure
 
@@ -53,7 +53,7 @@ Nomes do marketplace do portal do Azure:
 Para saber mais sobre as reservas, veja os seguintes artigos:
 
 - [O que são as reservas do Azure](save-compute-costs-reservations.md)
-- [Efetuar o pré-pagamento dos planos do software Red Hat com as reservas do Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Efetuar o pré-pagamento dos planos do software Red Hat com as reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerir reservas do Azure](manage-reserved-vm-instance.md)
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)

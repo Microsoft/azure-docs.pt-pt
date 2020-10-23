@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001642"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317212"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 e todos os SPs | O Azure oferece todo o apoio. | Preparad
 Windows Server 2012 e todos os SPs | O Azure oferece todo o apoio. | Preparado para o Azure
 Windows Server 2008 R2 e todos os SPs | O Azure oferece todo o apoio.| Preparado para o Azure
 Windows Server 2008 (32 bits e 64 bits) | O Azure oferece todo o apoio. | Preparado para o Azure
-Windows Server 2003, 2003 R2 | Fora de suporte e precisa de um Acordo de [Apoio Personalizado (CSA)](https://aka.ms/WSosstatement) para apoio em Azure. | Condicionalmente pronto para o Azure, considere atualizar o SO antes de migrar para Azure.
+Windows Server 2003, 2003 R2 | Fora de suporte e precisa de um Acordo de [Apoio Personalizado (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) para apoio em Azure. | Condicionalmente pronto para o Azure, considere atualizar o SO antes de migrar para Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Sem apoio. A máquina pode arrancar em Azure, mas nenhum suporte de SO é fornecido pela Azure. | Sem condições para o Azure, recomenda-se atualizar o SO antes de migrar para Azure.
 Windows Cliente 7, 8 e 10 | O Azure fornece suporte apenas com [subscrição do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente preparado para o Azure
 Windows 10 Pro Desktop | A Azure fornece suporte com [direitos de hospedagem multitenant.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente preparado para o Azure

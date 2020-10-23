@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5d5f46c4f078038b91881000cf8a6b67000683e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078634"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109141"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutorial: Configurar filtros de rota para a Microsoft a espreitar utilizando o portal Azure
 
@@ -126,7 +126,7 @@ Para separar um circuito do filtro de rota, clique com o botão direito no circu
 :::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Screenshot que mostra a página do filtro Rota":::
 
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode eliminar um filtro de rota selecionando o botão **Eliminar.** Certifique-se de que o filtro Rota não está associado a nenhum circuito antes de o fazer.
 

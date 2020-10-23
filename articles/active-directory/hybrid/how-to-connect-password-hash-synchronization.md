@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652068"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458056"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações de que precisa de sincronizar as suas palavras-passe de utilizador de uma instância do Ative Directory no local para uma instância do Azure Ative Directory (Azure AD) baseada na nuvem.
@@ -109,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-Uma vez ativado, o AZure AD não vai a cada utilizador sincronizado para remover o `DisablePasswordExpiration` valor do atributo PasswordPolicies. Em vez disso, o valor é definido `None` para durante a próxima sincronização de palavra-passe para cada utilizador quando alterar a sua palavra-passe no AD no local.  
+Uma vez ativado, o AZure AD não vai a cada utilizador sincronizado para remover o `DisablePasswordExpiration` valor do atributo PasswordPolicies. Em vez disso, o `DisablePasswordExpiration` valor é removido da PasswordPolicies durante a próxima sincronização de haxixe de palavra-passe para cada utilizador, após a sua próxima alteração de palavra-passe no AD no local.
 
 Recomenda-se ativar o EnforceCloudPasswordPolicyForPasswordSyncedUsers, antes de permitir a sincronização de haxixe de palavra-passe, de modo a que a sincronização inicial dos hashes de palavra-passe não adicione o `DisablePasswordExpiration` valor ao atributo PasswordPolicies para os utilizadores.
 

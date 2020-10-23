@@ -3,12 +3,12 @@ title: Regras de acesso a firewall
 description: Configure as regras de acesso a um registo de contentores Azure por trás de uma firewall, permitindo o acesso à API ("whitelisting") API e nomes de domínio de ponto final de dados ou intervalos de endereço IP específicos de serviço.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246984"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148517"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configure regras para aceder a um registo de contentores Azure atrás de uma firewall
 
@@ -113,7 +113,7 @@ Procure a região específica, como **Storage.AustraliaCentral.**
 
 ## <a name="allow-access-by-service-tag"></a>Permitir o acesso por etiqueta de serviço
 
-Numa rede virtual Azure, utilize regras de segurança de rede para filtrar o tráfego de um recurso como uma máquina virtual para um registo de contentores. Para simplificar a criação das regras da rede Azure, utilize a etiqueta de [serviço](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry** . Uma etiqueta de serviço representa um grupo de prefixos de endereço IP para aceder a um serviço Azure globalmente ou por região de Azure. A etiqueta é automaticamente atualizada quando os endereços mudam. 
+Numa rede virtual Azure, utilize regras de segurança de rede para filtrar o tráfego de um recurso como uma máquina virtual para um registo de contentores. Para simplificar a criação das regras da rede Azure, utilize a etiqueta de [serviço](../virtual-network/network-security-groups-overview.md#service-tags) **AzureContainerRegistry** . Uma etiqueta de serviço representa um grupo de prefixos de endereço IP para aceder a um serviço Azure globalmente ou por região de Azure. A etiqueta é automaticamente atualizada quando os endereços mudam. 
 
 Por exemplo, crie uma regra de grupo de segurança de rede de saída com destino **AzureContainerRegistry** para permitir o tráfego a um registo de contentores Azure. Para permitir o acesso à etiqueta de serviço apenas numa região específica, especifique a região no seguinte formato: **AzureContainerRegistry**. [nome*da região].*
 
@@ -183,7 +183,7 @@ Se precisar de aceder ao Microsoft Container Registry (MCR) por detrás de uma f
 
 * Conheça as [melhores práticas do Azure para a segurança da rede](../security/fundamentals/network-best-practices.md)
 
-* Saiba mais sobre [grupos de segurança](../virtual-network/security-overview.md) numa rede virtual Azure
+* Saiba mais sobre [grupos de segurança](../virtual-network/network-security-groups-overview.md) numa rede virtual Azure
 
 * Saiba mais sobre a criação [do Private Link](container-registry-private-link.md) para um registo de contentores
 

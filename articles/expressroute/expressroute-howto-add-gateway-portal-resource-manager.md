@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91761837"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando o portal Azure
@@ -71,7 +71,7 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
     | --------| ----- |
     | Subscrição | Verifique se a subscrição correta está selecionada. |
     | Grupo de Recursos | O grupo de recursos será automaticamente escolhido assim que selecionar a rede virtual. | 
-    | Nome | Diga o seu portal. Isto não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de porta de entrada que estás a criar.|
+    | Name | Diga o seu portal. Isto não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de porta de entrada que estás a criar.|
     | Região | Altere o campo **Região** para indicar o local onde está localizada a sua rede virtual. Se a localização não estiver a apontar para a região onde está a sua rede virtual, a rede virtual não aparecerá no dropdown 'Escolha uma rede virtual'. |
     | Tipo de gateway | Selecione **ExpressRoute**|
     | SKU | Selecione o gateway SKU a partir do dropdown. |

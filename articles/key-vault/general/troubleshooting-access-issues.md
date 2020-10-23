@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3110e02c2c4cb8b254e80a55997577db95ba1be0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075659"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125257"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
 
@@ -51,7 +51,7 @@ A aplicação também precisa de pelo menos uma função de Gestão de Identidad
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Como posso recolocar o Key Vault com o modelo ARM sem eliminar as políticas de acesso existentes?
 
-Atualmente, a reafectação do Key Vault elimina qualquer política de acesso no Key Vault e substitui-a pela política de acesso no modelo ARM. Não existe uma opção incremental para as políticas de acesso ao Cofre chave. Para preservar as políticas de acesso no Key Vault, é necessário ler as políticas de acesso existentes no Key Vault e preencher o modelo ARM com essas políticas para evitar eventuais interrupções de acesso.
+Atualmente, a reafectação do Key Vault elimina qualquer política de acesso no Key Vault e substitui-a pela política de acesso no modelo ARM. Não existe uma opção incremental para as políticas de acesso ao Cofre chave. Para preservar as políticas de acesso no Key Vault, é necessário ler as políticas de acesso existentes no Key Vault e preencher o modelo ARM com essas políticas para evitar falhas de acesso.
 
 Outra opção que pode ajudar neste cenário é usar as funções do RBAC como alternativa às políticas de acesso. Com o RBAC, pode voltar a implantar o cofre de chaves sem especificar novamente a apólice. Pode ler mais esta solução [aqui.](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337454"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367470"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como: Configurar e permitir políticas de risco
 
@@ -45,7 +45,7 @@ A escolha de um limiar **elevado** reduz o número de vezes que uma política é
 
 ## <a name="exclusions"></a>Exclusões
 
-Todas as políticas permitem excluir utilizadores como o [acesso de emergência ou contas de administrador de break-glass](../users-groups-roles/directory-emergency-access.md). As organizações podem determinar que precisam de excluir outras contas de políticas específicas baseadas na forma como as contas são utilizadas. Todas as exclusões devem ser revistas regularmente para ver se ainda são aplicáveis.
+Todas as políticas permitem excluir utilizadores como o [acesso de emergência ou contas de administrador de break-glass](../roles/security-emergency-access.md). As organizações podem determinar que precisam de excluir outras contas de políticas específicas baseadas na forma como as contas são utilizadas. Todas as exclusões devem ser revistas regularmente para ver se ainda são aplicáveis.
 
 As localizações de rede fidedignas configuradas são [usadas](../conditional-access/location-condition.md) pela Proteção de Identidade em algumas deteções de risco para reduzir falsos positivos.
 

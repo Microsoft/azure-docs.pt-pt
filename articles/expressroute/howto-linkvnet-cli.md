@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 41bb72ba4c220a0dd2ebb93f2bd313a15d108faa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9dda384e2ef30808559d10012dea2909b2af0fd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856284"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206939"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute utilizando o CLI
 
@@ -26,7 +26,7 @@ Este tutorial mostra-lhe como ligar redes virtuais (VNets) aos circuitos Azure E
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 > 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > - Ligue uma rede virtual na mesma subscrição a um circuito
 > - Ligar uma rede virtual de uma subscrição diferente a um circuito
@@ -35,13 +35,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Precisa da versão mais recente da interface de linha de comando (CLI). Para mais informações, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Precisa da versão mais recente da interface de linha de comando (CLI). Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 * Reveja os [pré-requisitos,](expressroute-prerequisites.md) [requisitos de encaminhamento](expressroute-routing.md)e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 * Deve ter um circuito ExpressRoute ativo. 
   * Siga as instruções para [criar um circuito ExpressRoute](howto-circuit-cli.md) e tenha o circuito ativado pelo seu fornecedor de conectividade. 
   * Certifique-se de que tem o Azure a espreitar para o seu circuito. Consulte o artigo [de encaminhamento de configuração](howto-routing-cli.md) para obter instruções de encaminhamento. 
   * Certifique-se de que o espreitamento privado do Azure está configurado. O perspção BGP entre a sua rede e a Microsoft deve ser estabelecido para que possa ativar a conectividade de ponta a ponta.
-  * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criado e totalmente a provisionado. Siga as instruções para [configurar uma porta de rede virtual para o ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Certifique-se de que utiliza `--gateway-type ExpressRoute` .
+  * Certifique-se de que tem uma rede virtual e um gateway de rede virtual criado e totalmente a provisionado. Siga as instruções para [configurar uma porta de rede virtual para o ExpressRoute](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md). Certifique-se de que utiliza `--gateway-type ExpressRoute` .
 * Pode ligar até 10 redes virtuais a um circuito Standard ExpressRoute. Todas as redes virtuais devem estar na mesma região geopolítica quando utilizarem um circuito ExpressRoute padrão. 
 * Um único VNet pode ser ligado a até quatro circuitos ExpressRoute. Utilize o seguinte processo para criar um novo objeto de ligação para cada circuito ExpressRoute a que está a ligar. Os circuitos ExpressRoute podem estar na mesma subscrição, subscrições diferentes ou uma mistura de ambos.
 * Se ativar o addon premium ExpressRoute, pode ligar redes virtuais fora da região geopolítica do circuito ExpressRoute. O addon premium também lhe permitirá ligar mais de 10 redes virtuais ao seu circuito ExpressRoute, dependendo da largura de banda escolhida. Consulte as [FAQ](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
@@ -168,7 +168,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não necessitar da ligação ExpressRoute, a partir da subscrição onde se encontra o gateway, utilize o `az network vpn-connection delete` comando para remover a ligação entre o gateway e o circuito.
 

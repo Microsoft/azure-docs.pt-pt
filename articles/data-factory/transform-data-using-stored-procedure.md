@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d62619fe2641ec1aded39650b47b53cf4269d8b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484736"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368881"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transforme os dados utilizando a atividade do Procedimento Armazenado do SqL Server na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -70,12 +70,12 @@ A tabela a seguir descreve estas propriedades JSON:
 
 | Propriedade                  | Descrição                              | Obrigatório |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome da atividade                     | Sim      |
-| descrição               | Texto que descreve para que a atividade é usada | Não       |
-| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
-| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics** ou **SQL Server** registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
-| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
-| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | Não       |
+| name                      | Nome da atividade                     | Yes      |
+| descrição               | Texto que descreve para que a atividade é usada | No       |
+| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Yes      |
+| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics** ou **SQL Server** registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
+| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Yes      |
+| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Mapeamento do tipo de dados de parâmetro
 O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory que mapeia para o tipo de dados na fonte de dados que está a usar. Pode encontrar os mapeamentos do tipo de dados para a sua fonte de dados na área dos conectores. Alguns exemplos são
@@ -102,5 +102,5 @@ Veja os seguintes artigos que explicam como transformar dados de outras formas:
 * [Atividade de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade de Faísca](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
-* [Atividade de execução de Bach de Aprendizagem Automática](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (clássico) Atividade de execução de lote](transform-data-using-machine-learning.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a criar e configurar cofres dos Serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981485"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171629"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos Serviços de Recuperação
 
@@ -35,7 +35,7 @@ O Azure Backup manuseia automaticamente o armazenamento para o cofre. Tem de esp
    - Recomendamos que, se estiver a utilizar o Azure como ponto final de armazenamento de backup primário, continue a utilizar a definição **geo-redundante** padrão.
    - Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure.
    - Saiba mais sobre [a redundância geo](../storage/common/storage-redundancy.md#geo-redundant-storage) e [local.](../storage/common/storage-redundancy.md#locally-redundant-storage)
-   - Se necessitar de disponibilidade de dados sem tempo de inatividade numa região, garantindo residência de dados, então escolha [armazenamento redundante de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - Se necessitar de disponibilidade de dados sem tempo de inatividade numa região, garantindo residência de dados, então escolha [armazenamento redundante de zona](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >As definições de replicação de armazenamento para o cofre não são relevantes para a cópia de segurança da partilha de ficheiros Azure, uma vez que a solução atual é baseada em instantâneos e não há dados transferidos para o cofre. As imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com reserva.

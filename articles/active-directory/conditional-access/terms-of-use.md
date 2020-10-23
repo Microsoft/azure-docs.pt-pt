@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085914"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366501"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Termos de utilização do Diretório Ativo Azure
 
@@ -44,7 +44,7 @@ Os termos de utilização da AD AZure têm as seguintes capacidades:
 - Exija que os colaboradores ou hóspedes aceitem os seus termos de utilização antes de registar informações de segurança na Autenticação Multi-Factor (MFA) do Azure.
 - Exija que os colaboradores aceitem os seus termos de utilização antes de registarem informações de segurança no reset da palavra-passe de autosserviço Azure AD (SSPR).
 - Atuais termos gerais de utilização para todos os utilizadores da sua organização.
-- Apresentar termos de utilização específicos com base em atributos do utilizador (ex. médicos por oposição a enfermeiros ou colaboradores nacionais por oposição a colaboradores internacionais, uma distinção feita através da utilização de [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md)).
+- Apresentar termos de utilização específicos com base em atributos do utilizador (ex. médicos por oposição a enfermeiros ou colaboradores nacionais por oposição a colaboradores internacionais, uma distinção feita através da utilização de [grupos dinâmicos](../enterprise-users/groups-dynamic-membership.md)).
 - Apresentar termos específicos de utilização ao aceder a aplicações de impacto de alto negócio, como a Salesforce.
 - Termos de utilização atuais em diferentes línguas.
 - Indique quem aceitou ou não os seus termos de uso.
@@ -255,10 +255,10 @@ Aqui está uma lista das plataformas e software suportados.
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
-> | **Aplicação nativa** | Sim | Sim | Sim |  |
-> | **Microsoft Edge** | Sim | Sim | Sim |  |
-> | **Internet Explorer** | Sim | Sim | Sim |  |
-> | **Cromado (com extensão)** | Sim | Sim | Sim |  |
+> | **Aplicação nativa** | Yes | Yes | Yes |  |
+> | **Microsoft Edge** | Yes | Yes | Yes |  |
+> | **Internet Explorer** | Yes | Yes | Yes |  |
+> | **Cromado (com extensão)** | Yes | Yes | Yes |  |
 
 Os termos de utilização por dispositivo têm os seguintes constrangimentos:
 
@@ -392,4 +392,3 @@ R: Os termos de utilização utilizam os seguintes pontos finais para a autentic
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Exigir que os termos de uso sejam aceites antes de aceder a aplicações na nuvem](require-tou.md)
-- [Melhores práticas para acesso condicional no Diretório Ativo Azure](best-practices.md)

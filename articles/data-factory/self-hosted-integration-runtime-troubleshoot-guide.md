@@ -2,17 +2,17 @@
 title: Resolução de problemas de integração auto-acolagem na Azure Data Factory
 description: Saiba como resolver problemas de integração auto-hospedados na Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
-ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.author: lle
+ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069480"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427220"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -616,6 +616,40 @@ Abaixo o exemplo mostra como seria um bom cenário.
     ![Fluxo de trabalho de aperto de mão TCP 4](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Receber e-mail para atualizar a configuração da rede para permitir a comunicação com novos endereços IP
+
+#### <a name="email-notification-from-microsoft"></a>Notificação de e-mail da Microsoft
+
+Pode receber abaixo a notificação por e-mail, que recomenda que atualize a configuração da rede para permitir a comunicação com novos endereços IP para Azure Data Factory até 8 de novembro de 2020:
+
+   ![Notificação por e-mail](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="how-to-determine-if-you-are-impacted-by-this-notification"></a>Como determinar se é afetado por esta notificação
+
+Esta notificação tem impacto nos seguintes cenários:
+##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Cenário 1: Comunicação de saída do Self-hosted Integration Runtime a decorrer nas instalações por trás do firewall corporativo
+Como determinar se é impactado:
+- Não é afetado se estiver a definir regras de firewall com base em nomes FQDN utilizando a abordagem descrita neste documento: [configuração de firewall e permitir a configuração da lista para endereço ip](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- No entanto, é impactado se estiver explicitamente a listar os IPs de saída na sua firewall corporativa.
+
+Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar a sua configuração de rede para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
+
+##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Cenário 2: Comunicação de saída do Self-hosted Integration Runtime em execução em um Azure VM dentro do cliente gerido rede virtual Azure
+Como determinar se é impactado:
+- Verifique se tem alguma regra NSG de saída na sua rede privada que contenha tempo de execução de integração auto-hospedado. Se não houver restrições de saída, então não há impacto.
+- Se tiver restrições de regras de saída, verifique se utiliza ou não a etiqueta de serviço. Se utilizar a etiqueta de serviço, então não precisa de alterar ou adicionar nada, uma vez que as novas gamas IP estão na etiqueta de serviço existente. 
+ ![Verificação de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- No entanto, é impactado se estiver explicitamente a listar endereços IP de saída na definição de regras NSG na rede virtual Azure.
+
+Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar as regras NSG na sua configuração de rede virtual Azure para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
+
+##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Cenário 3: Comunicação de saída do SSIS Integration Runtime na rede virtual Azure gerida pelo cliente
+- Verifique se tem alguma regra NSG de saída na sua rede privada que contenha tempo de execução de integração SSIS. Se não houver restrições de saída, então não há impacto.
+- Se tiver restrições de regras de saída, verifique se utiliza ou não a etiqueta de serviço. Se utilizar a etiqueta de serviço, então não precisa de alterar ou adicionar nada, uma vez que as novas gamas IP estão na etiqueta de serviço existente.
+- No entanto, é impactado se estiver explicitamente a listar o endereço IP de saída na definição das suas regras NSG na rede virtual Azure.
+
+Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar as regras NSG na sua configuração de rede virtual Azure para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
+
 ## <a name="self-hosted-ir-sharing"></a>Partilha do IR Autoalojado
 
 ### <a name="share-self-hosted-ir-from-a-different-tenant-is-not-supported"></a>Share AUTO-hospedado IR de um inquilino diferente não é apoiado 
@@ -635,7 +669,7 @@ Para obter mais ajuda na resolução de problemas, experimente os seguintes recu
 
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

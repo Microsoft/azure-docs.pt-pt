@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/06/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798062"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282535"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Use coleções no portal My Apps
 
@@ -32,7 +32,7 @@ As coleções são diferentes vistas de aplicações que vê no portal **My Apps
 
 A lista de coleções no portal **My Apps** não pode apresentar uma chamada **All Apps**, que tem todas as aplicações a que tem acesso:
 
-![Todas as aplicações página no portal My Apps](media/my-applications-portal-workspaces/my-apps-all.png)
+![Todas as aplicações página no portal My Apps](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
 Qualquer outra coleção que veja nesta lista foi criada pelo seu administrador e partilhada consigo. Pode escolher uma dessas coleções para ver um conjunto mais alargado de aplicações, como *o Support* no seguinte exemplo:
 

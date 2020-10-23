@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587638"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461027"
 ---
 # <a name="understand-event-data"></a>Compreender os dados do evento
 
@@ -103,7 +103,7 @@ As notificações do ciclo de vida são desencadeadas quando:
 
 Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto. |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -189,7 +189,7 @@ Aqui está outro exemplo de um gémeo digital. Este baseia-se num [modelo](conce
 
 Aqui estão os campos no corpo de uma notificação de mudança de borda.
 
-| Nome    | Valor |
+| Name    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto |
 | `source` | Nome do exemplo das Gémeas Digitais Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -202,7 +202,7 @@ Aqui estão os campos no corpo de uma notificação de mudança de borda.
 
 #### <a name="body-details"></a>Detalhes do corpo
 
-O corpo é a carga útil de uma relação, também em formato JSON. Utiliza o mesmo formato que um `GET` pedido de relacionamento através da [API DigitalTwins](how-to-use-apis-sdks.md). 
+O corpo é a carga útil de uma relação, também em formato JSON. Utiliza o mesmo formato que um `GET` pedido de relacionamento através da [API DigitalTwins](/rest/api/digital-twins/dataplane/twins). 
 
 "Atualizar uma relação" significa que as propriedades da relação mudaram. 
 
@@ -245,7 +245,7 @@ Aqui está um exemplo de uma notificação de relacionamento de criar ou excluir
 
 Aqui estão os campos no corpo de uma notificação digital de mudança de gémeos.
 
-| Nome    | Valor |
+| Name    | Valor |
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um balcão mantido pelo serviço. `source` + `id` é único para cada evento distinto |
 | `source` | Nome do hub IoT ou exemplo de Azure Digital Twins, como *myhub.azure-devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*

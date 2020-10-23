@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6cbda4067e98c16ea26f3436b5f65e696549462
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708480"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370309"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
@@ -251,6 +251,18 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Como os ambientes python funcionam com parâmetros de pipeline
+
+Como discutido anteriormente em [Configure o ambiente do treino, o](#configure-the-training-runs-environment)estado ambiente e as dependências da biblioteca Python são especificados usando um `Environment` objeto. Geralmente, pode especificar uma existente `Environment` referindo-se ao seu nome e, opcionalmente, uma versão:
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+No entanto, se optar por utilizar `PipelineParameter` objetos para definir dinamicamente variáveis em tempo de execução para os seus passos de pipeline, não pode utilizar esta técnica de se referir a uma existente `Environment` . Em vez disso, se pretender utilizar `PipelineParameter` objetos, tem de definir `environment` o campo do objeto para um `RunConfiguration` `Environment` objeto. É da sua responsabilidade assegurar que tal um `Environment` tem as suas dependências em pacotes externos python devidamente definidos.
+
 ### <a name="use-a-dataset"></a>Utilize um conjunto de dados 
 
 Conjuntos de dados criados a partir do armazenamento de Azure Blob, Ficheiros Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database for PostgreSQL podem ser usados como entrada para qualquer passo de pipeline. Pode escrever saída para um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)ou se pretender escrever dados para uma loja de dados específica utilizar [o PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
@@ -337,6 +349,8 @@ Quando se faz um oleoduto pela primeira vez, a Azure Machine Learning:
 ![Diagrama de executar uma experiência como um oleoduto](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 Para mais informações, consulte a referência da [classe Experiment.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)
+
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>Utilize parâmetros de gasoduto para argumentos que mudam no tempo de inferência
 
 ## <a name="view-results-of-a-pipeline"></a>Ver resultados de um oleoduto
 

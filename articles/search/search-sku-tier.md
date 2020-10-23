@@ -1,23 +1,23 @@
 ---
-title: Escolha um nível de preços ou SKU
+title: Escolha um nível de preços
 titleSuffix: Azure Cognitive Search
-description: 'A Azure Cognitive Search pode ser aprovisionada nestes SKUs: Gratuito, Básico e Standard, e a Standard está disponível em várias configurações de recursos e níveis de capacidade.'
+description: 'A Azure Cognitive Search pode ser aprovisionada nestes níveis: Gratuito, Básico e Standard, e a Standard está disponível em várias configurações de recursos e níveis de capacidade.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948090"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101278"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
-Quando cria um serviço de Pesquisa Cognitiva Azure, [é criado](search-create-service-portal.md) um recurso a um nível de preços (ou SKU) que é fixado para o tempo de vida do serviço. Os níveis incluem Free, Basic, Standard e Storage Optimized. Standard e Storage Optimized estão disponíveis com várias configurações e capacidades.
+Quando cria um serviço de Pesquisa Cognitiva Azure, [é criado](search-create-service-portal.md) um recurso a um nível de preços que é fixado para o tempo de vida do serviço. Os níveis incluem Free, Basic, Standard e Storage Optimized. Standard e Storage Optimized estão disponíveis com várias configurações e capacidades.
 
 A maioria dos clientes começa com o nível Free para que possam avaliar o serviço. Após a avaliação, é comum criar um segundo serviço num dos níveis mais altos para desenvolvimento e implantação de produção.
 
@@ -27,15 +27,15 @@ A tabela a seguir descreve restrições de características relacionadas com o n
 
 | Funcionalidade | Limitações |
 |---------|-------------|
-| [indexadores](search-indexer-overview.md) | Os indexantes não estão disponíveis no S3 HD. |
+| [indexadores](search-indexer-overview.md) | Os indexantes não estão disponíveis no S3 HD.  |
 | [Melhoramento de IA](search-security-manage-encryption-keys.md) | Funciona no nível Livre, mas não é recomendado. |
 | [Chaves de encriptação geridas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível no nível Livre. |
 | [Acesso a firewall IP](service-configure-firewall.md) | Não disponível no nível Livre. |
-| [Integração com Azure Private Link](service-create-private-endpoint.md) | Não disponível no nível Livre. |
+| [Ponto final privado (integração com a Azure Private Link)](service-create-private-endpoint.md) | Para ligações de entrada a um serviço de pesquisa, não está disponível no nível Gratuito. Para ligações de saída por indexadores a outros recursos Azure, não disponível em Free ou S3 HD. Para indexadores que usam skillsets, não disponíveis em Free, Basic, S1 ou S3 HD.|
 
 A maioria das funcionalidades estão disponíveis em todos os níveis, incluindo funcionalidades gratuitas, mas funcionalidades intensivas de recursos podem não funcionar bem a menos que lhe dê capacidade suficiente. Por exemplo, [o enriquecimento](cognitive-search-concept-intro.md) de IA tem habilidades de longa duração que o tempo de serviço livre, a menos que o conjunto de dados seja pequeno.
 
-## <a name="tiers-skus"></a>Níveis (SKUs)
+## <a name="tiers"></a>Escalões
 
 Os níveis são diferenciados por:
 
@@ -158,7 +158,7 @@ Para determinar o tamanho de um índice, tem que [construir um.](search-what-is-
 Para a pesquisa completa de texto, a estrutura de dados primários é uma estrutura [de índice invertida,](https://en.wikipedia.org/wiki/Inverted_index) que tem características diferentes dos dados de origem. Para um índice invertido, o tamanho e a complexidade são determinados pelo conteúdo, não necessariamente pela quantidade de dados que se alimenta nele. Uma grande fonte de dados com alta redundância poderia resultar num índice menor do que um conjunto de dados menor que contém conteúdo altamente variável. Portanto, raramente é possível inferir o tamanho do índice com base no tamanho do conjunto de dados original.
 
 > [!NOTE] 
-> Mesmo estimando necessidades futuras de índices e armazenamento pode parecer adivinhação, vale a pena fazê-lo. Se a capacidade de um nível se revelar demasiado baixa, terá de providenciar um novo serviço a um nível mais elevado e, em seguida, [recarregar os seus índices](search-howto-reindex.md). Não há um upgrade no lugar de um serviço de um SKU para outro.
+> Mesmo estimando necessidades futuras de índices e armazenamento pode parecer adivinhação, vale a pena fazê-lo. Se a capacidade de um nível se revelar demasiado baixa, terá de providenciar um novo serviço a um nível mais elevado e, em seguida, [recarregar os seus índices](search-howto-reindex.md). Não há um upgrade no lugar de um serviço de um nível para outro.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Estimativa com o nível Livre

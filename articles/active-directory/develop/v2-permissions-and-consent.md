@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842687"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365855"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -54,13 +54,13 @@ Uma aplicação solicita mais frequentemente estas permissões especificando os 
 
 A plataforma de identidade da Microsoft suporta dois tipos de permissões: **permissões delegadas** e **permissões de aplicação.**
 
-* **As permissões delegadas** são utilizadas por apps que tenham um utilizador inscrito presente. Para estas aplicações, o utilizador ou um administrador consente com as permissões que a aplicação solicita, e a aplicação é delegada permissão para agir como utilizador inscrito ao então fazer chamadas para o recurso-alvo. Algumas permissões delegadas podem ser consentidas por utilizadores não administrativos, mas algumas permissões privilegiadas mais elevadas requerem [o consentimento do administrador](#admin-restricted-permissions). Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **As permissões delegadas** são utilizadas por apps que tenham um utilizador inscrito presente. Para estas aplicações, o utilizador ou um administrador consente com as permissões que a aplicação solicita, e a aplicação é delegada permissão para agir como utilizador inscrito ao então fazer chamadas para o recurso-alvo. Algumas permissões delegadas podem ser consentidas por utilizadores não administrativos, mas algumas permissões privilegiadas mais elevadas requerem [o consentimento do administrador](#admin-restricted-permissions). Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../roles/permissions-reference.md).
 
 * **As permissões de aplicação** são utilizadas por apps que funcionam sem a presença de um utilizador inscrito; por exemplo, aplicativos que funcionam como serviços de fundo ou daemons.  As permissões de pedido só podem ser [consentidas por um administrador.](#requesting-consent-for-an-entire-tenant)
 
 _Permissões eficazes_ são as permissões que a sua aplicação terá ao efetivo pedidos para o recurso-alvo. É importante entender a diferença entre as permissões delegadas e as permissões de aplicação que a sua aplicação é concedida e as suas permissões efetivas ao fazer chamadas para o recurso-alvo.
 
-- Para permissões delegadas, as _permissões efetivas_ da sua app serão a intersecção menos privilegiada das permissões delegadas que a app foi concedida (por consentimento) e os privilégios do utilizador atualmente inscrito. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+- Para permissões delegadas, as _permissões efetivas_ da sua app serão a intersecção menos privilegiada das permissões delegadas que a app foi concedida (por consentimento) e os privilégios do utilizador atualmente inscrito. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../roles/permissions-reference.md).
 
    Por exemplo, assuma que a sua aplicação foi concedida ao _Utilizador.ReadWrite.Toda a_ permissão delegada. Esta permissão concede nominalmente permissão à aplicação para ler e atualizar o perfil de todos os utilizadores de uma organização. Se o utilizador com sessão iniciada for administrador global, a aplicação poderá atualizar o perfil de todos os utilizadores da organização. No entanto, se o utilizador inscrito não estiver numa função de administrador, a sua aplicação poderá atualizar apenas o perfil do utilizador inscrito. Não poderá atualizar os perfis dos outros utilizadores da organização porque o utilizador em cujo nome tem permissão para agir não tem esses privilégios.
 

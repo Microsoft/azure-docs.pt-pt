@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227717"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309159"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança Azure para tecido de serviço
 
@@ -78,7 +78,7 @@ Considere implementar o Azure Web Application Firewall (WAF) em frente a aplica�
 
 * [Como configurar a proteção DDoS](../virtual-network/manage-ddos-protection.md)
 
-* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/threat-protection.md)
+* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/azure-defender.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -488,7 +488,7 @@ Pode agilizar este processo criando Definições de Diagnóstico para contas de 
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 * [Compreenda a encriptação em repouso em Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Como configurar chaves de encriptação geridas pelo cliente](../storage/common/storage-encryption-keys-portal.md)
+* [Como configurar chaves de encriptação geridas pelo cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Ativar encriptação de disco para os nóns de cluster de tecido de serviço Azure no Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Utilize uma solução de terceiros para realizar avaliações de vulnerabilidade
 
 * [Induzir o caos controlado nos clusters de tecido de serviço](./service-fabric-controlled-chaos.md)
 
-* [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Como implementar recomendações de avaliação de vulnerabilidade do Azure Security Center](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -698,7 +698,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Se estiver a utilizar chaves geridas pelo cliente, certifique-se de Soft-Delete 
 
 * [Encriptação do Armazenamento do Azure em repouso](../storage/common/storage-service-encryption.md)
 
-* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -1074,7 +1074,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 * [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-* [Utilizar etiquetas para organizar os seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
+* [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

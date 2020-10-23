@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258440"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215965"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
 
@@ -31,7 +31,7 @@ Os seguintes tokens são utilizados em comunicação com a Azure AD B2C:
 
 - *ID token* - Um JWT que contém alegações que pode usar para identificar utilizadores na sua aplicação. Este token é enviado de forma segura em pedidos HTTP para comunicação entre dois componentes da mesma aplicação ou serviço. Pode usar as reclamações num token de identificação como quiser. São normalmente utilizados para exibir informações sobre contas ou para tomar decisões de controlo de acesso numa aplicação. As fichas de identificação estão assinadas, mas não são encriptadas. Quando a sua aplicação ou API recebe um token de ID, deve validar a assinatura para provar que o token é autêntico. A sua aplicação ou API também deve validar algumas reclamações no token para provar que é válida. Dependendo dos requisitos do cenário, as reclamações validadas por uma aplicação podem variar, mas a sua aplicação deve realizar algumas validações de reclamações comuns em todos os cenários.
 - *Token de acesso* - Um JWT que contém alegações que pode usar para identificar as permissões concedidas às suas APIs. Os tokens de acesso estão assinados, mas não são encriptados. Os tokens de acesso são usados para fornecer acesso a APIs e servidores de recursos.  Quando a sua API recebe um token de acesso, deve validar a assinatura para provar que o token é autêntico. A sua API também deve validar algumas reclamações no token para provar que é válida. Dependendo dos requisitos do cenário, as reclamações validadas por uma aplicação podem variar, mas a sua aplicação deve realizar algumas validações de reclamações comuns em todos os cenários.
-- *Refresh tokens* - Refresh tokens são usados para adquirir novos tokens de ID e tokens de acesso num fluxo OAuth 2.0. Fornecem à sua aplicação acesso a recursos a longo prazo em nome dos utilizadores sem que seja necessário interação com esses utilizadores. As fichas de atualização são opacas à sua aplicação. São emitidas pela Azure AD B2C e só podem ser inspecionadas e interpretadas pela Azure AD B2C. São de longa duração, mas a sua candidatura não deve ser escrita com a expectativa de que um token de atualização dure um determinado período de tempo. As fichas de atualização podem ser invalidadas a qualquer momento por uma variedade de razões. A única maneira de a sua aplicação saber se um token de atualização é válido é tentar resgatá-lo fazendo um pedido simbólico ao Azure AD B2C. Quando você resgatar um token de atualização para um novo token, você recebe um novo token de atualização na resposta simbólica. Guarde o novo token de atualização. Substitui o token de atualização que usou anteriormente no pedido. Esta ação ajuda a garantir que as suas fichas de atualização permaneçam válidas durante o maior tempo possível.
+- *Refresh tokens* - Refresh tokens são usados para adquirir novos tokens de ID e tokens de acesso num fluxo OAuth 2.0. Fornecem à sua aplicação acesso a recursos a longo prazo em nome dos utilizadores sem que seja necessário interação com esses utilizadores. As fichas de atualização são opacas à sua aplicação. São emitidas pela Azure AD B2C e só podem ser inspecionadas e interpretadas pela Azure AD B2C. São de longa duração, mas a sua candidatura não deve ser escrita com a expectativa de que um token de atualização dure um determinado período de tempo. As fichas de atualização podem ser invalidadas a qualquer momento por uma variedade de razões. A única maneira de a sua aplicação saber se um token de atualização é válido é tentar resgatá-lo fazendo um pedido simbólico ao Azure AD B2C. Quando você resgatar um token de atualização para um novo token, você recebe um novo token de atualização na resposta simbólica. Guarde o novo token de atualização. Substitui o token de atualização que usou anteriormente no pedido. Esta ação ajuda a garantir que as suas fichas de atualização permaneçam válidas durante o maior tempo possível. Note que as aplicações de uma página que utilizam o fluxo de código de autorização com PKCE têm sempre um prazo de vida útil de 24 horas. [Saiba mais sobre as implicações de segurança dos tokens de atualização no navegador.](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser)
 
 ## <a name="endpoints"></a>Pontos Finais
 
@@ -50,7 +50,7 @@ As reclamações em fichas de identificação não são devolvidas em nenhuma or
 
 A tabela que se segue lista as alegações que pode esperar em fichas de identificação e fichas de acesso emitidas pela Azure AD B2C.
 
-| Nome | Afirmação | Valor de exemplo | Descrição |
+| Name | Afirmação | Valor de exemplo | Descrição |
 | ---- | ----- | ------------- | ----------- |
 | Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário pretendido do token. Para Azure AD B2C, o público é o ID da aplicação. A sua aplicação deve validar este valor e rejeitar o token se não corresponder. O público é sinónimo de recurso. |
 | Emissor | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de símbolos de segurança (STS) que constrói e devolve o token. Identifica também o diretório em que o utilizador foi autenticado. A sua aplicação deverá validar a alegação do emitente para garantir que o token provém do ponto final apropriado. |

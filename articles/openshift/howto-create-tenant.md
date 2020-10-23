@@ -6,16 +6,22 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469988"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221167"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Crie um inquilino Azure AD para Azure Red Hat OpenShift
 
-O Microsoft Azure Red Hat OpenShift requer um inquilino [do Azure Ative Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) no qual criar o seu cluster. Um *inquilino* é um exemplo dedicado do Azure AD que uma organização ou programador de aplicações recebe quando criam uma relação com a Microsoft ao inscreverem-se no Azure, Microsoft Intune ou Microsoft 365. Cada inquilino da AZure AD é distinto e separado de outros inquilinos da AD Azure e tem o seu próprio trabalho e identidades escolares e registos de aplicações.
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 será retirado a 30 de junho de 2022. O apoio à criação de novos clusters Azure Red Hat OpenShift 3.11 continua até 30 de novembro de 2020. Após a reforma, os restantes clusters Azure Red Hat OpenShift 3.11 serão encerrados para evitar vulnerabilidades de segurança.
+> 
+> Siga este guia para [criar um cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Se tiver questões específicas, [contacte-nos.](mailto:arofeedback@microsoft.com)
+
+O Microsoft Azure Red Hat OpenShift requer um inquilino [do Azure Ative Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) no qual criar o seu cluster. Um *inquilino* é um exemplo dedicado do Azure AD que uma organização ou programador de aplicações recebe quando criam uma relação com a Microsoft ao inscreverem-se no Azure, Microsoft Intune ou Microsoft 365. Cada inquilino da AZure AD é distinto e separado de outros inquilinos da AD Azure e tem o seu próprio trabalho e identidades escolares e registos de aplicações.
 
 Se ainda não tem um inquilino da AD Azure, siga estas instruções para criar um.
 

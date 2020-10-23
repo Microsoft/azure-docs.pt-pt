@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992862"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366331"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -220,7 +220,7 @@ Criar uma política para cada app não é eficiente e leva a uma administração
 
 ### <a name="set-up-emergency-access-accounts"></a>Criar contas de acesso de emergência
 
-Se configurar mal uma apólice, pode bloquear as organizações fora do portal Azure. Atenuar o impacto do bloqueio acidental do administrador através da criação de [duas](../users-groups-roles/directory-emergency-access.md) ou mais contas de acesso de emergência na sua organização.
+Se configurar mal uma apólice, pode bloquear as organizações fora do portal Azure. Atenuar o impacto do bloqueio acidental do administrador através da criação de [duas](../roles/security-emergency-access.md) ou mais contas de acesso de emergência na sua organização.
 
 * Crie uma conta de utilizador dedicada à administração de políticas e excluída de todas as suas políticas.
 
@@ -291,11 +291,7 @@ O diretório ativo Azure permite-lhe criar [localizações nomeadas.](location-c
 
 ### <a name="plan-your-policy-deployment"></a>Planeie a sua implementação de políticas
 
-Quando novas políticas estiverem prontas para o seu ambiente, certifique-se de que revê cada política antes de a lançar para evitar resultados indesejáveis. Consulte a seguinte documentação para compreender informações importantes sobre como as políticas são aplicadas e como evitar problemas
-
-* [O que deve saber](best-practices.md)
-
-* [O que deve evitar fazer](best-practices.md)
+Quando novas políticas estiverem prontas para o seu ambiente, certifique-se de que revê cada política antes de a lançar para evitar resultados indesejáveis.
 
 ## <a name="common-policies"></a>Políticas comuns
 
@@ -462,10 +458,6 @@ A condição de localização de uma política de CA permite-lhe ligar as defini
 ### <a name="terms-of-use"></a>Termos de utilização
 
 Antes de aceder a determinadas aplicações em nuvem no seu ambiente, pode obter o consentimento dos utilizadores aceitando os seus Termos de Utilização (ToU). Siga este [Quickstart para criar Termos de Utilização](require-tou.md).
-
-### <a name="classic-policies"></a>Políticas clássicas
-
-No [portal Azure,](https://portal.azure.com/)pode encontrar as suas políticas de CA no âmbito do Azure Ative Directory > Security > Acesso Condicional. A sua organização também pode ter políticas de CA mais antigas não criadas usando esta página. Estas políticas são conhecidas como políticas clássicas. Recomendamos que [considere migrar estas políticas clássicas no portal Azure.](best-practices.md)
 
 ## <a name="troubleshoot-conditional-access"></a>Resolver problemas de acesso condicional
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 127f05298483dcf155000c2eda8f590fc069a1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2d7c1c0245649fdb7eed1033a953b8cc3933626
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909566"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442121"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração Azure AD B2B
 A colaboração B2B do Azure Ative Directory (Azure AD) está atualmente sujeita às limitações descritas neste artigo.
@@ -28,13 +28,13 @@ Com o Azure AD B2B, pode impor a autenticação de vários fatores na organizaç
 Nos fluxos de colaboração B2B, adicionamos os utilizadores ao diretório e atualizamo-los dinamicamente durante a redenção de convites, atribuição de aplicações, e assim por diante. As atualizações e as gravações normalmente acontecem num só diretório e devem ser replicadas em todos os casos. A replicação é concluída assim que todas as instâncias forem atualizadas. Por vezes, quando o objeto é escrito ou atualizado num caso e a chamada para recuperar este objeto é para outra instância, podem ocorrer latências de replicação. Se isso acontecer, refresque ou retentou ajudar. Se está a escrever uma app usando a nossa API, então as retração com algum back-off são uma boa prática defensiva para aliviar esta questão.
 
 ## <a name="azure-ad-directories"></a>Diretórios AD de Azure
-O Azure AD B2B está sujeito aos limites do diretório de serviçoS Azure AD. Para obter detalhes sobre o número de diretórios que um utilizador pode criar e o número de diretórios a que um utilizador ou utilizador convidado pode pertencer, consulte [os limites e restrições de serviço AD AZure](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+O Azure AD B2B está sujeito aos limites do diretório de serviçoS Azure AD. Para obter detalhes sobre o número de diretórios que um utilizador pode criar e o número de diretórios a que um utilizador ou utilizador convidado pode pertencer, consulte [os limites e restrições de serviço AD AZure](../users-groups-roles/directory-service-limits-restrictions.md).
 
 ## <a name="national-clouds"></a>Clouds nacionais
-[Nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) são casos fisicamente isolados de Azure. A colaboração B2B não é suportada através das fronteiras nacionais da nuvem. Por exemplo, se o seu inquilino Azure estiver na nuvem global e pública, não pode convidar um utilizador cuja conta está numa nuvem nacional. Para colaborar com o utilizador, peça-lhes outro endereço de e-mail ou crie uma conta de utilizador membro para eles no seu diretório.
+[Nuvens nacionais](../develop/authentication-national-cloud.md) são casos fisicamente isolados de Azure. A colaboração B2B não é suportada através das fronteiras nacionais da nuvem. Por exemplo, se o seu inquilino Azure estiver na nuvem global e pública, não pode convidar um utilizador cuja conta está numa nuvem nacional. Para colaborar com o utilizador, peça-lhes outro endereço de e-mail ou crie uma conta de utilizador membro para eles no seu diretório.
 
 ## <a name="azure-us-government-clouds"></a>Nuvens do Governo dos EUA Azure
-Dentro da nuvem do Governo dos EUA, a colaboração B2B é apoiada entre inquilinos que estão dentro da nuvem do Governo dos EUA e que ambos apoiam a colaboração B2B. Os inquilinos do Governo dos EUA que apoiam a colaboração B2B também podem colaborar com utilizadores sociais usando contas da Microsoft ou do Google. Se convidar um utilizador para fora destes grupos (por exemplo, se o utilizador estiver num inquilino que não faça parte da nuvem do Governo dos EUA ou ainda não apoiar a colaboração B2B), o convite falhará ou o utilizador não poderá resgatar o convite. Para mais informações sobre outras limitações, consulte [as Variações Azure Ative Directory Premium P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+Dentro da nuvem do Governo dos EUA, a colaboração B2B é apoiada entre inquilinos que estão dentro da nuvem do Governo dos EUA e que ambos apoiam a colaboração B2B. Os inquilinos do Governo dos EUA que apoiam a colaboração B2B também podem colaborar com utilizadores sociais usando contas da Microsoft ou do Google. Se convidar um utilizador para fora destes grupos (por exemplo, se o utilizador estiver num inquilino que não faça parte da nuvem do Governo dos EUA ou ainda não apoiar a colaboração B2B), o convite falhará ou o utilizador não poderá resgatar o convite. Para mais informações sobre outras limitações, consulte [as Variações Azure Ative Directory Premium P1 e P2](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
 ### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Como posso saber se a colaboração B2B está disponível no meu inquilino do Governo Azure US?
 Para saber se o seu inquilino em nuvem do Governo dos EUA Azure apoia a colaboração B2B, faça o seguinte:

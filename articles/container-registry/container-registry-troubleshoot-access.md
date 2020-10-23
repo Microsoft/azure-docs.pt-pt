@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743374"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148467"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -103,7 +103,7 @@ Links relacionados:
 
 ### <a name="configure-service-access"></a>Configure acesso ao serviço
 
-Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
+Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
 
 * Azure DevOps Services 
 * Azure Container Instances
@@ -113,7 +113,7 @@ Se for necessário aceder ou integração destes serviços Azure com o seu regis
 
 Links relacionados:
 
-* [Digitalização da imagem do registo do contentor Azure pelo Centro de Segurança](../security-center/azure-container-registry-integration.md)
+* [Digitalização da imagem do registo do contentor Azure pelo Centro de Segurança](../security-center/defender-for-container-registries-introduction.md)
 * Fornecer [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
 * [Configurar regras públicas de rede IP](container-registry-access-selected-networks.md)
 * [Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link](container-registry-private-link.md)
@@ -138,7 +138,5 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
   * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md) 
   * [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
-* [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/products/)
+* [Perguntas e Respostas da Microsoft](/answers/products/)
 * [Abrir um pedido de suporte](https://azure.microsoft.com/support/create-ticket/)
-
-

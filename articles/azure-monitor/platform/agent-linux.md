@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013751"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332506"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instale o agente Log Analytics nos computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
@@ -43,9 +43,11 @@ Começando com versões lançadas após agosto de 2018, estamos a fazer as segui
 >[!NOTE]
 >Se estiver a utilizar um distro ou versão que não esteja atualmente suportado e não esteja alinhado com o nosso modelo de suporte, recomendamos que você forque este repo, reconhecendo que o suporte da Microsoft não fornecerá assistência com versões de agentes forcados.
 
-### <a name="python-2-requirement"></a>Requisito python 2
+### <a name="python-requirement"></a>Requisito de Python
 
- O agente Log Analytics requer Python 2. Se a sua máquina virtual estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.
+Partindo da versão 1.13.27 do Agente Linux, o Agente Linux irá suportar os Python 2 e 3. Recomendamos sempre a utilização do último agente. 
+
+Se estiver a utilizar uma versão mais antiga do agente, deve pedir à Máquina Virtual que utilize a pitão 2 por predefinição. Se a sua máquina virtual estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.
 
  - Chapéu Vermelho, CentOS, Oráculo: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -71,7 +73,7 @@ O Agente OMS tem um suporte limitado de personalização para o Linux.
 Neste momento, são apoiados: 
 - FIPs
 
-Estão previstos, mas ainda não apoiados:
+Estão em consideração, mas ainda não apoiados:
 - CIS
 - SELINUX
 
@@ -81,7 +83,7 @@ Outros métodos de endurecimento e personalização não são suportados nem pla
 
 A tabela seguinte realça as embalagens necessárias para [os distros Linux suportados](#supported-operating-systems) em que o agente será instalado.
 
-|Pacote necessário |Description |Versão mínima |
+|Pacote necessário |Descrição |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |

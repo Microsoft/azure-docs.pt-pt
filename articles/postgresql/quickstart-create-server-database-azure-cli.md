@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 086f680a0674d5d79d9d039d9ad47e542856ac5d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705267"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92420072"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI
 
@@ -27,7 +27,7 @@ Este quickstart mostra como usar comandos [Azure CLI](https://docs.microsoft.com
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo requer que você execute a versão 2.0 do Azure CLI ou mais tarde localmente. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Tem de iniciar sessão na sua conta utilizando o comando [de login az.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure. 
+Tem de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure. 
 
 ```azurecli-interactive
 az login
@@ -39,11 +39,11 @@ Selecione o ID de subscrição específico na sua conta utilizando o comando [co
 az account set --subscription <subscription id>
 ```
 
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter todas as suas subscrições, utilize [a lista de conta az](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter todas as suas subscrições, utilize [a lista de conta az](/cli/azure/account#az-account-list).
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um servidor da Base de Dados do Azure para PostgreSQL
 
-Crie um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) utilizando o [comando de criação](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) do grupo az e, em seguida, crie o seu servidor PostgreSQL dentro deste grupo de recursos. Deverá indicar um nome exclusivo. O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
+Crie um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) utilizando o [comando de criação](/cli/azure/group#az-group-create) do grupo az e, em seguida, crie o seu servidor PostgreSQL dentro deste grupo de recursos. Deverá indicar um nome exclusivo. O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -58,7 +58,7 @@ Aqui estão os detalhes dos argumentos anteriores:
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-name | mydemoserver | Nome único que identifica a sua Base de Dados Azure para servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres.
+name | mydemoserver | Nome único que identifica a sua Base de Dados Azure para servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres. Para mais informações, consulte [a Base de Dados Azure para as Regras de Nomeação Pós-SQL](/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
 resource-group | myResourceGroup | Nome do grupo de recursos Azure.
 localização | westus | Localização azul para o servidor.
 admin-user | myadmin | Nome de utilizador para o login do administrador. Não pode ser **azure_superuser,** **administrador,** **raiz,** **hóspede,** ou **público.** **root**
@@ -67,7 +67,7 @@ sku-name|GP_Gen5_2| Nome da configuração do nível de preços e do cálculo. S
 
 >[!IMPORTANT] 
 >- A versão PostgreSQL predefinida no seu servidor é 9.6. Para ver todas as versões suportadas, consulte [as principais versões postgresQL suportadas.](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)
->- Para ver todos os argumentos para **o servidor az postgres criar** comando, consulte este documento de [referência](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
+>- Para ver todos os argumentos para **o servidor az postgres criar** comando, consulte este documento de [referência](/cli/azure/postgres/server#az-postgres-server-create).
 >- O SSL é ativado por padrão no seu servidor. Para obter mais informações sobre o SSL, consulte [a conectividade Configure SSL](./concepts-ssl-connection-security.md).
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor 
@@ -137,7 +137,7 @@ O cliente [psql](https://www.postgresql.org/docs/current/static/app-psql.html) �
 > ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se não precisar destes recursos para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte comando. 
 
 ```azurecli-interactive

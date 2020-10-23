@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017748"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426861"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Comunicação v2 para v3
 
@@ -59,7 +59,7 @@ Se tem um serviço de vídeo desenvolvido hoje em cima do [legado Media Services
 * A Saída Ao Vivo é mais simples de usar do que a entidade programina nas APIs v2. 
 * Melhor suporte de RTMP (maior estabilidade e mais suporte ao codificação de fontes).
 * RTMPS ingerindo seguro.<br/>Quando crias um Evento Ao Vivo, recebes 4 URLs ingeridos. Os 4 URLs ingering são quase idênticos, têm o mesmo token de streaming (AppId), apenas a parte do número da porta é diferente. Dois dos URLs são primários e de reserva para RTMPS.   
-* Tem controlo de acesso baseado em funções (RBAC) sobre as suas entidades. 
+* Tem o controlo de acesso baseado em funções (Azure RBAC) sobre as suas entidades. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

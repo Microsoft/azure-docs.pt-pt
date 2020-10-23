@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510934"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207500"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Tutorial: Criação de uma aplicação de renderização remota Azure
 
@@ -35,8 +35,8 @@ Este módulo apresenta-lhe algumas capacidades adicionais que poderá ter de con
 
 Para uma visão geral das melhores práticas de arquitetura em todo o sistema, visite:
 
-* [Centro de Arquitetura do Azure](https://docs.microsoft.com/azure/architecture/)
-* [Iniciar Guia para Desenvolvedores Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Centro de Arquitetura do Azure](/azure/architecture/)
+* [Iniciar Guia para Desenvolvedores Azure](../../../../guides/developer/azure-developer-guide.md)
 
 ## <a name="analytics"></a>Análise
 
@@ -54,7 +54,7 @@ Para isso, a Azure oferece um serviço chamado marcação de recursos, que assoc
 
 Para obter mais informações sobre o nome de recursos e a marcação, um bom lugar para começar é:
 
-* [Guia de decisão de nomeação e marcação de recursos](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [Guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 ### <a name="diagnostics"></a>Diagnóstico
 
@@ -62,9 +62,9 @@ Ferramentas poderosas como o Event Tracing for Windows (ETW) e o Event Trace Log
 
 Para mais informações, visite:
 
-* [Criar traços de desempenho do lado do cliente](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [Como recolher o rastreio de eventos para os dados do Windows (ETW)](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Utilização do Portal do Dispositivo Windows: Registar registo](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [Criar traços de desempenho do lado do cliente](../../../how-tos/performance-tracing.md)
+* [Como recolher o rastreio de eventos para os dados do Windows (ETW)](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Utilização do Portal do Dispositivo Windows: Registar registo](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### <a name="usage-analysis"></a>Análise de utilização
 
@@ -72,7 +72,7 @@ O Azure Application Insights ajuda-o a compreender como as pessoas usam a sua ap
 
 Para mais informações, visite:
 
-* [Análise de utilização com insights de aplicações](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Análise de utilização com insights de aplicações](../../../../azure-monitor/app/usage-overview.md)
 
 ## <a name="fast-startup-time-strategies"></a>Estratégias rápidas de tempo de arranque
 
@@ -102,7 +102,7 @@ Esta estratégia também ajuda a otimizar a escolha entre as sessões *Standard*
 
 Para mais informações sobre as sessões de renderização remota do Azure, confira:
 
-* [Sessões do Remote Rendering](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Sessões do Remote Rendering](../../../concepts/sessions.md)
 
 ## <a name="standard-vs-premium-server-size-routing-strategies"></a>Estratégias de encaminhamento de tamanho do servidor standard vs. Premium
 
@@ -164,9 +164,9 @@ Outros exemplos incluem vídeo sonoro, uploads de fundo simultâneos de outros c
 Para mais informações sobre análise de rede, consulte:
 
 * [Teste de velocidade de download de blob de armazenamento Azure](https://www.azurespeed.com/Azure/Download)
-* [Estatísticas de latência de ida e volta da rede Azure](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [Traços de desempenho do lado do servidor](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [Traços de desempenho do lado do cliente](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Estatísticas de latência de ida e volta da rede Azure](../../../../networking/azure-network-latency.md)
+* [Traços de desempenho do lado do servidor](../../../overview/features/performance-queries.md)
+* [Traços de desempenho do lado do cliente](../../../how-tos/performance-tracing.md)
 
 ## <a name="collaboration-considerations"></a>Considerações de colaboração
 
@@ -192,8 +192,8 @@ No entanto, para ativos 3D que serão usados repetidamente, como num caso de uso
 
 Para obter mais informações:
 
-* [Experiências partilhadas em Realidade Mista](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Redundância de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Experiências partilhadas em Realidade Mista](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Redundância de armazenamento Azure](../../../../storage/common/storage-redundancy.md)
 
 ## <a name="managing-model-access"></a>Gestão do acesso a modelos
 
@@ -230,7 +230,7 @@ Esta abordagem poderia ser dada um passo mais além, persistindo uma associaçã
 Para obter mais informações:
 
 * [Modelo de automatização de energia da Microsoft para a replicação do armazenamento OneDrive para Azure](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [Visão geral da API de armazenamento de ficheiros OneDrive](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [Visão geral da API de armazenamento de ficheiros OneDrive](/graph/onedrive-concept-overview)
 
 ### <a name="direct-cad-access"></a>Acesso direto ao CAD
 
@@ -255,7 +255,7 @@ Muitos clientes empresariais determinam que o seu Azure Stack pode ser implantad
 Para obter mais informações:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Tutorial: Publicar aplicações geridas pela Azure no Mercado](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [Tutorial: Publicar aplicações geridas pela Azure no Mercado](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Segurança
 
@@ -277,6 +277,6 @@ Para a autenticação, é aconselhável mover o máximo possível da autenticaç
 
 Para obter mais informações:
 
-* [Autenticação do serviço Azure Ad](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Autenticação do serviço Azure Ad](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Fortaleça a sua postura de segurança com o Azure](https://azure.microsoft.com/overview/security/)
 * [Segurança na Nuvem](https://azure.microsoft.com/product-categories/security/)

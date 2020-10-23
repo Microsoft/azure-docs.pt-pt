@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975540"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168397"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
@@ -35,7 +35,7 @@ Os pedidos devem igualmente conter um `Metadata: true` cabeçalho para garantir 
 > [!IMPORTANT]
 > O Serviço de Metadados de Exemplo não é um canal para dados sensíveis. O ponto final está aberto a todos os processos no VM. As informações expostas através deste serviço devem ser consideradas como informações partilhadas a todas as aplicações que estão dentro do VM.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilização
 
 ### <a name="accessing-azure-instance-metadata-service"></a>Aceder ao Serviço de Metadados de Exemplo de Azure
 
@@ -161,10 +161,10 @@ A tabela a seguir é uma referência de outros formatos de dados que as APIs pod
 
 API | Formato de dados predefinidos | Outros Formatos
 --------|---------------------|--------------
-/atestado | json | nenhuma
-/identidade | json | nenhuma
+/atestado | json | nenhum
+/identidade | json | nenhum
 /instância | json | texto
-/horários eventos | json | nenhuma
+/horários eventos | json | nenhum
 
 Para aceder a um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
@@ -732,7 +732,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```

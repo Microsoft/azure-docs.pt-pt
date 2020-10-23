@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604109"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367793"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a apps
 
@@ -94,4 +94,4 @@ Tal como acontece com as aplicações empresariais, é [possível atribuir utili
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Proteger aplicativos com acesso condicional](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Gestão de grupos de self-service/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Gestão de grupos de self-service/SSAA](../enterprise-users/groups-self-service-management.md)

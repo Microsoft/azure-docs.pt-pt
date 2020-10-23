@@ -3,12 +3,12 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271499"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172217"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
@@ -18,7 +18,7 @@ ms.locfileid: "91271499"
 
 Este artigo explica como pode usar a Caixa de Dados Azure para semear dados de backup iniciais offline de DPM e MABS para um cofre dos Serviços de Recuperação do Azure.
 
-Pode utilizar [a Caixa de Dados Azure](https://docs.microsoft.com/azure/databox/data-box-overview) para semear as suas grandes cópias de segurança DPM/MABS iniciais offline (sem utilizar a rede) para um cofre dos Serviços de Recuperação. Este processo poupa tempo e largura de banda de rede que de outra forma seriam consumidos movendo grandes quantidades de dados de backup on-line sobre uma rede de alta latência. Esta funcionalidade encontra-se em pré-visualização.
+Pode utilizar [a Caixa de Dados Azure](../databox/data-box-overview.md) para semear as suas grandes cópias de segurança DPM/MABS iniciais offline (sem utilizar a rede) para um cofre dos Serviços de Recuperação. Este processo poupa tempo e largura de banda de rede que de outra forma seriam consumidos movendo grandes quantidades de dados de backup on-line sobre uma rede de alta latência. Esta funcionalidade encontra-se em pré-visualização.
 
 A cópia de segurança offline baseada na Azure Data Box oferece duas vantagens distintas sobre [a cópia de segurança offline baseada no serviço Azure Import/Export](backup-azure-backup-server-import-export.md):
 
@@ -39,8 +39,8 @@ São suportados os seguintes SKUs da Caixa de Dados:
 
 | Tamanho de dados de backup (após compressão por MARS) \* por servidor | Suportada Caixa de Dados Azure SKU |
 | --- | --- |
-| \<= 7,2 TB | [Disco de caixa de dados Azure](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| > 7,2 TB e <= 80 TB\*\* | [Caixa de Dados Azure (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| \<= 7,2 TB | [Disco de caixa de dados Azure](../databox/data-box-disk-overview.md) |
+| > 7,2 TB e <= 80 TB\*\* | [Caixa de Dados Azure (100 TB)](../databox/data-box-overview.md) |
 
 \*As taxas típicas de compressão variam entre 10 e 20% <br>
 \*\*Contacte [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) se espera ter mais de 80 TB de dados de backup iniciais para uma única fonte de dados.
@@ -64,7 +64,7 @@ Certifique-se do seguinte:
 
 ### <a name="order-and-receive-the-data-box-device"></a>Encomende e receba o dispositivo Data Box
 
-Certifique-se de que os dispositivos data box necessários estão no estado *de Entrega* antes de ativar a cópia de segurança offline. Consulte [o tamanho dos dados de backup e skus de caixa de dados suportados](#backup-data-size-and-supported-data-box-skus) para encomendar o SKU mais adequado para a sua exigência. Siga os passos [deste artigo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) para encomendar e receba os seus dispositivos Data Box.
+Certifique-se de que os dispositivos data box necessários estão no estado *de Entrega* antes de ativar a cópia de segurança offline. Consulte [o tamanho dos dados de backup e skus de caixa de dados suportados](#backup-data-size-and-supported-data-box-skus) para encomendar o SKU mais adequado para a sua exigência. Siga os passos [deste artigo](../databox/data-box-disk-deploy-ordered.md) para encomendar e receba os seus dispositivos Data Box.
 
 > [!IMPORTANT]
 > Não selecione *BlobStorage* para o **tipo de Conta**. O servidor DPM/MABS requer uma conta que suporta Page Blobs que não é suportada quando *o BlobStorage* é selecionado. Selecione  **o Armazenamento V2 (propósito geral v2)** como o **tipo conta** ao criar a conta de armazenamento alvo para a sua função Azure Data Box.
@@ -77,14 +77,14 @@ Assim que receber o dispositivo Azure Data Box, dependendo do SKU da Caixa de Da
 
 ### <a name="setup-azure-data-box-disk"></a>Configuração Disco de caixa de dados Azure
 
-Se encomendou um ou mais discos Azure Data Box (até 8 TB cada), siga os passos [aqui](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up) mencionados para desempacotar, ligar e desbloquear o disco data box.
+Se encomendou um ou mais discos Azure Data Box (até 8 TB cada), siga os passos [aqui](../databox/data-box-disk-deploy-set-up.md) mencionados para desempacotar, ligar e desbloquear o disco data box.
 
 > [!NOTE]
 > É possível que o servidor DPM/MABS não tenha uma porta USB. Neste cenário, pode ligar o disco Azure Data Box a outro servidor/cliente e expor a raiz do dispositivo como uma partilha de rede.
 
 ## <a name="setup-azure-data-box"></a>Caixa de dados Azure configuração
 
-Se encomendou uma Caixa de Dados Azure (até 100 TB), siga os passos [aqui](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) mencionados para configurar a sua Caixa de Dados.
+Se encomendou uma Caixa de Dados Azure (até 100 TB), siga os passos [aqui](../databox/data-box-deploy-set-up.md) mencionados para configurar a sua Caixa de Dados.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Monte a sua Caixa de Dados Azure como sistema local
 
@@ -100,7 +100,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
    ```
 
 4. A janela de comando que se abre como resultado do comando acima está no contexto do Sistema Local. Utilize esta janela de comando para executar passos para montar o Azure Page Blob Share como uma unidade de rede no seu Servidor Windows.
-5. Siga os passos [aqui](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) para ligar o seu Servidor DPM/MABS ao dispositivo Caixa de Dados via NFS e execute o seguinte comando no comando do Sistema Local para montar a partilha das Blobs de Página Azure:
+5. Siga os passos [aqui](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) para ligar o seu Servidor DPM/MABS ao dispositivo Caixa de Dados via NFS e execute o seguinte comando no comando do Sistema Local para montar a partilha das Blobs de Página Azure:
 
     ```cmd
     mount -o nolock \\<DeviceIPAddres>\<StorageAccountName_PageBlob X:
@@ -110,7 +110,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferir dados de backup iniciais para dispositivos Azure Data Box
 
-1. No seu Servidor DPM/MABS, siga os passos para [criar um novo grupo de proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Se estiver a adicionar uma proteção on-line ao grupo de proteção existente, clique com o botão direito no grupo de proteção existente e selecione **Add Online Protection** e comece a partir do passo **8**.
+1. No seu Servidor DPM/MABS, siga os passos para [criar um novo grupo de proteção](/system-center/dpm/create-dpm-protection-groups). Se estiver a adicionar uma proteção on-line ao grupo de proteção existente, clique com o botão direito no grupo de proteção existente e selecione **Add Online Protection** e comece a partir do passo **8**.
 2. Na página **'Selecionar Membros do Grupo',** especifique os computadores e as fontes que pretende fazer.
 3. Na página do **método de proteção de dados Selecione,** especifique como pretende lidar com a cópia de segurança a curto e longo prazo. Certifique-se de que **seleciona que quero proteção online.**
 
@@ -163,7 +163,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
     > ![Unidade USB](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > Por exemplo, se o caminho do disco é e o `\\mydomain\myserver\disk1\` *disco1* contém um diretório chamado *PageBlob,* o caminho a fornecer no assistente do Servidor DPM/MABS é `\\mydomain\myserver\disk1\` .
-    > Se [configurar um dispositivo Azure Data Box 100 TB,](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box)forneça o seguinte como caminho de rede para o dispositivo `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
+    > Se [configurar um dispositivo Azure Data Box 100 TB,](./offline-backup-azure-data-box.md#set-up-azure-data-box)forneça o seguinte como caminho de rede para o dispositivo `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
 
 15. Selecione **Seguinte**. Na página **Resumo,** reveja as definições e selecione **Criar Grupo**.
 
@@ -193,8 +193,8 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
 
 Siga estes passos assim que a cópia de segurança dos dados para o Disco caixa de dados Azure for bem sucedida.
 
-- Siga os passos [deste artigo](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) para enviar o disco Azure Data Box para Azure. Se utilizar um dispositivo Azure Data Box 100-TB, siga [estes passos](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) para enviar a Caixa de Dados Azure para Azure.
-- [Monitorize o trabalho da Caixa de Dados](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) no portal Azure. Uma vez *concluída*a função Azure Data Box, o servidor DPM/MABS move automaticamente os dados da Conta de Armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marcará o trabalho de backup como *Job Complete* se um ponto de recuperação for criado com sucesso.
+- Siga os passos [deste artigo](../databox/data-box-disk-deploy-picked-up.md) para enviar o disco Azure Data Box para Azure. Se utilizar um dispositivo Azure Data Box 100-TB, siga [estes passos](../databox/data-box-deploy-picked-up.md) para enviar a Caixa de Dados Azure para Azure.
+- [Monitorize o trabalho da Caixa de Dados](../databox/data-box-disk-deploy-upload-verify.md) no portal Azure. Uma vez *concluída*a função Azure Data Box, o servidor DPM/MABS move automaticamente os dados da Conta de Armazenamento para o cofre dos Serviços de Recuperação no momento da próxima cópia de segurança programada. Em seguida, marcará o trabalho de backup como *Job Complete* se um ponto de recuperação for criado com sucesso.
 
   > [!NOTE]
   > O servidor DPM/MABS ativa as cópias de segurança nos horários programados durante a criação do grupo de proteção. No entanto, estes trabalhos serão assinalados À espera que o *trabalho da Caixa de Dados Azure esteja concluído* até ao momento em que o trabalho estiver concluído.

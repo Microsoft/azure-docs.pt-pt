@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847477"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167938"
 ---
 # <a name="manage-farms"></a>Gerir terrenos agrícolas
 
@@ -25,7 +25,7 @@ Utilize os passos seguintes:
 
     Aqui está a imagem da amostra:
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Screenshot que mostra a página Farms.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Selecione **Create Farm** e forneça **nome,** **colheitas** e **endereço.**
@@ -33,14 +33,14 @@ Utilize os passos seguintes:
 
 Aqui estão as duas formas de definir um limite agrícola:
 
-1. **Marca no Mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os limites,  ![ o Project Farm Beats marca os ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) limites exatos.
+1. **Marca no Mapa**: Utilize a ferramenta de controlo do mapa para desenhar e marcar o limite da quinta. Para marcar os limites,  ![ o Screenshot mostra o ícone do lápis para desenhar limites no mapa e marcar os ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) limites exatos.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Screenshot que mostra os limites desenhados num mapa.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Código De Pasta GeoJson**: O GeoJSON é um formato para codificar estruturas geográficas de dados, utilizando a Notação de Objetos JavaScript (JSON). Esta opção exibe uma caixa de texto onde uma cadeia GeoJSON pode ser inserida para marcar os limites da quinta. Também pode criar o código GeoJSON a partir de GeoJSON.io.
 Utilize as pontas de ferramentas para ajudar a preencher as informações.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Screenshot que realça a opção Código Pasta GeoJson no ecrã Create Farm.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  **Selecione Submeter** para criar uma fazenda. Uma nova quinta é criada e exibida na página **Farms.**
 
@@ -71,7 +71,7 @@ A página **Farms** apresenta uma lista de quintas criadas. Utilize os seguintes
 1.  Selecione uma fazenda da lista para apagar detalhes da fazenda.
 2.  Selecione **Delete Farm** para apagar a quinta.
 
-    ![Project Farm Beats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Screenshot que mostra o ecrã Delete Farm e realça o botão Eliminar.](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > Quando se apaga uma quinta, os dispositivos e mapas associados à quinta não são eliminados. Qualquer informação sobre a fazenda associada ao dispositivo e mapas não será relevante. Pode continuar a visualizar dispositivos, telemetria e mapas a partir do serviço FarmBeats.

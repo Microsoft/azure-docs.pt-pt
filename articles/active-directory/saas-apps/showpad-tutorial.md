@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 613f42905c88da7669881dfcae7ae038341b2434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeeb421104a09fe164c8bc93e47d7cf254a802e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548651"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: Integração do Azure Ative Directory com Showpad
 
@@ -129,15 +129,15 @@ Para configurar o Azure AD com um único sign-on com o Showpad, execute os segui
 
 1. No menu em cima, clique nas **Definições**.
 
-    ![Configurar Sign-On única no lado da aplicação](./media/showpad-tutorial/tutorial_showpad_001.png)
+    ![A screenshot mostra definições selecionadas no menu Definições.](./media/showpad-tutorial/tutorial_showpad_001.png)
 
 1. Navegue para **um único sign-on** e clique **em Enable**.
 
-    ![Configurar Sign-On única no lado da aplicação](./media/showpad-tutorial/tutorial_showpad_002.png)
+    ![A screenshot mostra single Sign-On selecionados com uma opção Enable.](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. No **diálogo de serviço Add a SAML 2.0,** execute os seguintes passos:
 
-    ![Configurar Sign-On única no lado da aplicação](./media/showpad-tutorial/tutorial_showpad_003.png) 
+    ![A screenshot mostra a caixa de diálogo de serviço SAML 2.0 ONDE pode introduzir os valores descritos.](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
     a. Na caixa de texto **Name,** digite o nome de Fornecedor de Identificadores (por exemplo: o nome da sua empresa).
 

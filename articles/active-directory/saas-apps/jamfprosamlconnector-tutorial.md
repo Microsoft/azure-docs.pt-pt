@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 780421d93916c7da7897dfa15d09dc895cf56280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48818c300f1ac9ff41f78f39f08e41f95b379b31
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552667"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459575"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutorial: Azure Ative Directory SSO integração com Jamf Pro
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Jamf Pro com Azure Ative Directory
 * Assine automaticamente os seus utilizadores no Jamf Pro com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [single sign-on com Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [single sign-on com Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste. 
 
 * Jamf Pro suporta **SSO iniciado pelo SP** e iniciado pelo **IdP.**
-* Assim que configurar o Jamf Pro, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Assim que configurar o Jamf Pro, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>Adicione Jamf Pro da galeria
 
@@ -190,7 +190,7 @@ Para obter uma conta de utilizador, tome as seguintes medidas:
 
     ![As contas de utilizador Jamf Pro & ícones nas definições do Jamf Pro](./media/jamfprosamlconnector-tutorial/user1.png)
 
-4. Selecione **New** (Novo).
+4. Selecione **Nova**.
 
     ![Página de configurações do sistema Jamf Pro & De Grupos](./media/jamfprosamlconnector-tutorial/user2.png)
 
@@ -220,14 +220,14 @@ Para obter uma conta de utilizador, tome as seguintes medidas:
 
 Nesta secção, testa a configuração de um único sinal de acesso Azure AD utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo Jamf Pro no Painel de Acesso, deverá ser automaticamente inscrito na conta Jamf Pro para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Jamf Pro no Painel de Acesso, deverá ser automaticamente inscrito na conta Jamf Pro para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para integrar aplicações saaS com Diretório Ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para integrar aplicações saaS com Diretório Ativo Azure ](./tutorial-list.md)
 
-- [Inscrição única para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Inscrição única para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 - [Experimente Jamf Pro com Azure AD](https://aad.portal.azure.com/)

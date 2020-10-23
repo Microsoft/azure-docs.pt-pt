@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761928"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217546"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -39,7 +39,7 @@ Abaixo está a lista de pré-requisitos para a partilha de dados de fonte SQL. T
 * Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuidor.
 * Permissão para que a partilha de dados aceda ao armazém de dados. Isto pode ser feito através dos seguintes passos: 
     1. No portal Azure, navegue para o servidor SQL e coloque-se como O Administrador Ativo Azure.
-    1. Conecte-se à Base de Dados/Armazém de Dados Azure SQL utilizando [o Editor de Consulta](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Ative Directory. 
+    1. Conecte-se à Base de Dados/Armazém de Dados Azure SQL utilizando [o Editor de Consulta](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Ative Directory. 
     1. Execute o seguinte script para adicionar o recurso Data Share Identidade Gerida como um db_datareader. Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 
     
         ```sql
@@ -77,7 +77,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Subscrição | A sua subscrição | Selecione a subscrição Azure que pretende utilizar para a sua conta de partilha de dados.|
     | Grupo de recursos | *grupo de recursos de teste* | Utilize um grupo de recursos existente ou crie um novo grupo de recursos. |
     | Localização | *E.U.A. Leste 2* | Selecione uma região para a sua conta de partilha de dados.
-    | Nome | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
+    | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
 1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
@@ -144,7 +144,7 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 ### <a name="prerequisites-for-target-storage-account"></a>Pré-requisitos para a conta de armazenamento alvo
 Se optar por receber dados no Azure Storage, abaixo está a lista de pré-requisitos.
 
-* Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](../storage/common/storage-account-create.md). 
 * Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor. 
 * Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário.  
 
@@ -154,7 +154,7 @@ Se optar por receber dados na Base de Dados Azure SQL, a Azure Synapse Analytics
 * Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuidor. 
 * Permissão para a identidade gerida do recurso de partilha de dados para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics. Isto pode ser feito através dos seguintes passos: 
     1. No portal Azure, navegue para o servidor SQL e coloque-se como O Administrador Ativo Azure.
-    1. Conecte-se à Base de Dados/Armazém de Dados Azure SQL utilizando [o Editor de Consulta](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Ative Directory. 
+    1. Conecte-se à Base de Dados/Armazém de Dados Azure SQL utilizando [o Editor de Consulta](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Ative Directory. 
     1. Execute o seguinte script para adicionar a Identidade Gerida de Partilha de Dados como um "db_datareader, db_datawriter, db_ddladmin". Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 
 
         ```sql
@@ -244,7 +244,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
+| data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -271,13 +271,26 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | uniqueidentifier |GUID |
 | varbinário |Byte[] |
 | varchar |String, Char[] |
-| xml |Cadeia |
+| xml |String |
 
 >[!NOTE]
 > 1. Para os tipos de dados que mapeiam para o tipo de decimal provisório, atualmente o instantâneo suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se numa corda. 
-> 1.  Se estiver a partilhar dados da base de dados Azure SQL para a Azure Synapse Analytics, nem todos os tipos de dados são suportados. Consulte os [tipos de dados de tabela na piscina Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) para obter mais detalhes. 
+> 1.  Se estiver a partilhar dados da base de dados Azure SQL para a Azure Synapse Analytics, nem todos os tipos de dados são suportados. Consulte os [tipos de dados de tabela na piscina Synapse SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obter mais detalhes. 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Sempre Encriptado ou Dinâmico Mascaramento de Dados
+Atualmente, a Azure Data Share não suporta bases de dados Azure SQL com sempre configurado. 
+
+Para as tabelas SQL de origem com máscara de dados dinâmica, os dados aparecerão mascarados no lado do destinatário.
+
+## <a name="sql-snapshot-performance"></a>Desempenho instantâneo SQL
+O desempenho do instantâneo SQL é impactado por uma série de fatores. É sempre recomendado realizar o seu próprio teste de desempenho. Abaixo estão alguns fatores de exemplo que impactam o desempenho.
+
+* Configuração de hardware (por exemplo, vCores, memória, DWU) da loja de dados sql de origem e alvo. 
+* Acesso simultâneo às lojas de dados de origem e alvo. Se estiver a partilhar várias tabelas e vistas da mesma loja de dados SQL, ou receber várias tabelas e vistas para a mesma loja de dados SQL, o desempenho será impactado.   
+* Localização das lojas de dados de origem e alvo. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Falha de instantâneo SQL de resolução de problemas
+A causa mais comum de falha instantânea é que a Data Share não tem permissão para a fonte ou loja de dados alvo. Para conceder permissão de Partilha de Dados à loja de dados de origem ou SQL alvo, deve executar o script SQL fornecido ao ligar-se à base de dados SQL utilizando a autenticação do Azure Ative Directory. Para resolver problemas adicionais de falha de instantâneo SQL, consulte a [falha do instantâneo de resolução de problemas](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Passos seguintes
-Aprendeu a partilhar e receber dados da conta de armazenamento utilizando o serviço Azure Data Share. Para saber mais sobre a partilha de outras fontes de dados, continue a [apoiar as lojas de dados.](supported-data-stores.md)
-
+Aprendeu a partilhar e a receber dados de fontes SQL utilizando o serviço Azure Data Share. Para saber mais sobre a partilha de outras fontes de dados, continue a [apoiar as lojas de dados.](supported-data-stores.md)

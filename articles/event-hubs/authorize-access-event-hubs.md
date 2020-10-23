@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre diferentes opções para au
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85323172"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332387"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorizar o acesso aos Hubs de Eventos do Azure
 Sempre que publica ou consome eventos/dados de um centro de eventos, o seu cliente está a tentar aceder aos recursos do Event Hubs. Todos os pedidos a um recurso seguro devem ser autorizados para que o serviço possa garantir que o cliente tem as permissões necessárias para publicar/consumir os dados. 
@@ -23,7 +23,7 @@ O Azure Event Hubs oferece as seguintes opções para autorizar o acesso a recur
 > Este artigo aplica-se tanto aos cenários de Event Hubs [como apache kafka.](event-hubs-for-kafka-ecosystem-overview.md) 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-A integração do Azure Ative Directory (Azure AD) para os recursos do Event Hubs fornece controlo de acesso baseado em funções (RBAC) para um controlo de grãos finos sobre o acesso de um cliente aos recursos. Pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões ao principal de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O token pode ser usado para autorizar um pedido de acesso a um recurso Desemator de Eventos.
+A integração do Azure Ative Directory (Azure AD) para os recursos do Event Hubs fornece o controlo de acesso baseado em funções (Azure RBAC) para um controlo fino sobre o acesso de um cliente aos recursos. Você pode usar Azure RBAC para conceder permissões ao principal de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O token pode ser usado para autorizar um pedido de acesso a um recurso Desemator de Eventos.
 
 Para obter mais informações sobre a autenticação com Azure AD, consulte os seguintes artigos:
 
@@ -40,7 +40,7 @@ Por padrão, todos os recursos do Event Hubs estão seguros e estão disponívei
 Para obter mais informações sobre a autorização utilizando o SAS, consulte [autorizar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado.](authorize-access-shared-access-signature.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-- Reveja [as amostras do RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) publicadas no nosso repositório GitHub. 
+- Reveja [as amostras do Azure RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) publicadas no nosso repositório GitHub. 
 - Consulte os seguintes artigos:
     - [Autenticar pedidos aos Azure Event Hubs a partir de uma aplicação utilizando o Azure Ative Directory](authenticate-application.md)
     - [Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos dos Hubs de Eventos](authenticate-managed-identity.md)

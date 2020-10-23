@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 245b7c63b3c459d545dfd39fe162df1ee4f816f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031046"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277445"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicie sômis e iniciem aplicações a partir do portal My Apps
 
@@ -42,7 +42,7 @@ Pode chegar ao portal **My Apps** a partir de qualquer um dos seguintes navegado
 
 Pode aceder e utilizar o portal My Apps no seu computador, ou a partir da versão móvel do navegador Edge num dispositivo móvel iOS ou Android.
 
-![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-portal-apps-page.png)
+![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-home.png)
 
 ## <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Aceda e utilize o portal My Apps no seu computador
 

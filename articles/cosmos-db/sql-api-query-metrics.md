@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008697"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280515"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
 
@@ -26,7 +26,7 @@ A Azure Cosmos DB fornece um [API SQL para consulta de dados,](how-to-sql-query.
 
 ## <a name="about-sql-query-execution"></a>Sobre a execução de consulta SQL
 
-Na Azure Cosmos DB, armazena dados em recipientes, que podem crescer a qualquer [tamanho de armazenamento ou produção de pedidos.](partition-data.md) A Azure Cosmos DB escala os dados em divisórias físicas sob as capas para lidar com o crescimento de dados ou aumentar a produção a provisionada. Pode emitir consultas SQL a qualquer recipiente utilizando a API REST ou um dos [SDKs SQL suportados.](sql-api-sdk-dotnet.md)
+Na Azure Cosmos DB, armazena dados em recipientes, que podem crescer a qualquer [tamanho de armazenamento ou produção de pedidos.](partitioning-overview.md) A Azure Cosmos DB escala os dados em divisórias físicas sob as capas para lidar com o crescimento de dados ou aumentar a produção a provisionada. Pode emitir consultas SQL a qualquer recipiente utilizando a API REST ou um dos [SDKs SQL suportados.](sql-api-sdk-dotnet.md)
 
 Uma breve visão geral da partição: define-se uma chave de partição como "cidade", que determina como os dados são divididos entre divisórias físicas. Os dados pertencentes a uma única chave de partição (por exemplo, "city" == "Seattle") são armazenados dentro de uma partição física, mas tipicamente uma única partição física tem várias teclas de partição. Quando uma divisória atinge o seu tamanho de armazenamento, o serviço divide perfeitamente a partição em duas novas divisórias, e divide a chave de partição uniformemente através destas divisórias. Uma vez que as divisórias são transitórias, as APIs usam uma abstração de uma "gama de chaves de partição", que denota as gamas de hashes chave de partição. 
 
@@ -163,7 +163,7 @@ Com a Azure Cosmos DB, normalmente as consultas funcionam na seguinte ordem, des
 
 As consultas que precisam de consultar todas as divisórias precisam de maior latência, e podem consumir RUs mais elevados. Uma vez que cada partição tem indexação automática contra todas as propriedades, a consulta pode ser servida eficientemente a partir do índice neste caso. Você pode fazer consultas que abrangem divisórias mais rapidamente usando as opções de paralelismo.
 
-Para saber mais sobre chaves de partição e partição, consulte [Partition in Azure Cosmos DB](partition-data.md).
+Para saber mais sobre chaves de partição e partição, consulte [Partition in Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>Opções de SDK e consulta
 Consulte [dicas de desempenho](performance-tips.md) e [testes](performance-testing.md) de desempenho para obter o melhor desempenho do lado do cliente da Azure Cosmos DB. Isto inclui a utilização dos mais recentes SDKs, configurações específicas da plataforma como o número padrão de ligações, a frequência da recolha de lixo e a utilização de opções de conectividade leves como Direct/TCP. 

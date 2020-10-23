@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319457"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427035"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Para obter mais informações sobre os preços de armazenamento, consulte a pág
 
 Um núcleo virtual (vCore) representa um CPU lógico e oferece-lhe a opção de escolher entre gerações de hardware e as características físicas do hardware (por exemplo, o número de núcleos, a memória e o tamanho do armazenamento). O modelo de compra baseado em vCore dá-lhe flexibilidade, controlo, transparência do consumo individual de recursos e uma forma simples de traduzir os requisitos de carga de trabalho no local para a nuvem. Este modelo permite-lhe escolher recursos de computação, memória e armazenamento com base nas suas necessidades de carga de trabalho.
 
-No modelo de compra baseado em vCore, pode escolher entre os níveis de serviço [De Propósito Geral](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) e Critical de [Negócios](high-availability-sla.md#premium-and-business-critical-service-tier-availability) para A Base de Dados SQL e SqL Managed Instance.  Para bases de dados individuais, também pode escolher o [nível de serviço Hyperscale.](service-tier-hyperscale.md)
+No modelo de compra baseado em vCore, pode escolher entre os níveis de serviço [De Propósito Geral](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) e Critical de [Negócios](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) para A Base de Dados SQL e SqL Managed Instance.  Para bases de dados individuais, também pode escolher o [nível de serviço Hyperscale.](service-tier-hyperscale.md)
 
 O modelo de compra baseado em vCore permite-lhe escolher independentemente os recursos de computação e armazenamento, combinar o desempenho no local e otimizar o preço. No modelo de compra baseado em vCore, você paga por:
 
@@ -162,7 +162,7 @@ Os clientes com cargas de trabalho sensíveis a alterações de hardware ou clie
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>Preciso de tirar a minha aplicação offline para converter de um nível de serviço baseado em DTU para um nível de serviço baseado em vCore?
 
-N.º Não precisas de desligar a aplicação. Os novos níveis de serviço oferecem um método simples de conversão on-line semelhante ao processo existente de upgrade de bases de dados do padrão para o nível de serviço premium e o contrário. Pode iniciar esta conversão utilizando o portal Azure, PowerShell, O Azure CLI, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
+Não. Não precisas de desligar a aplicação. Os novos níveis de serviço oferecem um método simples de conversão on-line semelhante ao processo existente de upgrade de bases de dados do padrão para o nível de serviço premium e o contrário. Pode iniciar esta conversão utilizando o portal Azure, PowerShell, O Azure CLI, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>Posso converter uma base de dados de um nível de serviço no modelo de compra baseado em vCore para um nível de serviço no modelo de compra baseado em DTU?
 

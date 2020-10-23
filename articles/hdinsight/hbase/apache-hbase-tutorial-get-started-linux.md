@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370326"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
 
@@ -207,9 +207,51 @@ Pode consultar dados nas tabelas HBase utilizando [a Colmeia Apache.](https://hi
 
 1. Para sair da sua ligação ssh, use `exit` .
 
+### <a name="separate-hive-and-hbase-clusters"></a>Agrupamentos separados de colmeias e Hbase
+
+A consulta da Hive para aceder aos dados da HBase não precisa de ser executada a partir do cluster HBase. Qualquer cluster que venha com a Colmeia (incluindo Spark, Hadoop, HBase ou Consulta Interativa) pode ser usado para consultar dados da HBase, desde que os seguintes passos estejam concluídos:
+
+1. Ambos os clusters devem ser ligados à mesma Rede Virtual e Sub-rede
+2. Cópia `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` dos headnodes do cluster HBase para os headnodes do cluster hive
+
+### <a name="secure-clusters"></a>Aglomerados Seguros
+
+Os dados da HBase também podem ser consultados a partir da Hive utilizando hbase ativada por ESP: 
+
+1. Ao seguir um padrão de multi-cluster, ambos os agrupamentos devem estar habilitados a E. 
+2. Para permitir que a Hive questione os dados da HBase, certifique-se de que o `hive` utilizador tem permissões para aceder aos dados da HBase através do plugin Hbase Apache Ranger
+3. Ao utilizar agrupamentos separados, ativados por ESP, o conteúdo dos `/etc/hosts` headnodes do cluster HBase deve ser anexado aos `/etc/hosts` headnodes do cluster Hive. 
+> [!NOTE]
+> Depois de escalar ambos os aglomerados, `/etc/hosts` deve ser anexado novamente
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Utilizar APIs REST de HBase utilizando Curl
 
 A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos com HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
+
+1. Para ativar as APIs de REPOUSO HBase no cluster HDInsight, adicione o seguinte script de arranque personalizado à secção **De Ação do Script.** Pode adicionar o script de arranque quando criar o cluster ou depois de o cluster ter sido criado. Para **o tipo de nó,** selecione **Servidores de Região** para garantir que o script é executado apenas em Servidores da Região HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Definir variável ambiente para facilitar a utilização. Edite os comandos abaixo substituindo pela `MYPASSWORD` palavra-passe de login do cluster. `MYCLUSTERNAME`Substitua-o pelo nome do seu cluster HBase. Então entre nos comandos.
 

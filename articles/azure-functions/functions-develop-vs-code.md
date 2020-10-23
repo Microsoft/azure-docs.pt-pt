@@ -4,12 +4,12 @@ description: Aprenda a desenvolver e testar funções Azure utilizando a extens�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206727"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167904"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
 
@@ -294,10 +294,10 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Idioma | Requisito |
+    | Linguagem | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
+    | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
 
@@ -384,15 +384,13 @@ Para saber mais, consulte [os registos de streaming.](functions-monitoring.md#st
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> Os registos de streaming suportam apenas uma única instância do anfitrião Funções. Quando a sua função é dimensionada para múltiplas instâncias, os dados de outras instâncias não são mostrados no fluxo de registo. [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights suporta várias instâncias. Embora também em tempo quase real, a análise de streaming baseia-se em [dados amostrados.](functions-monitoring.md#configure-sampling)
+> Os registos de streaming suportam apenas uma única instância do anfitrião Funções. Quando a sua função é dimensionada para múltiplas instâncias, os dados de outras instâncias não são mostrados no fluxo de registo. [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights suporta várias instâncias. Embora também em tempo quase real, a análise de streaming baseia-se em [dados amostrados.](configure-monitoring.md#configure-sampling)
 
 ### <a name="application-insights"></a>Application Insights
 
-Recomendamos que monitorize a execução das suas funções integrando a sua aplicação de função com o Application Insights. Quando cria uma aplicação de função no portal Azure, esta integração ocorre por padrão. Quando criar a sua aplicação de função durante a publicação do Visual Studio, tem de integrar o Application Insights.
+Recomendamos que monitorize a execução das suas funções integrando a sua aplicação de função com o Application Insights. Quando cria uma aplicação de função no portal Azure, esta integração ocorre por padrão. Quando criar a sua aplicação de função durante a publicação do Visual Studio, tem de integrar o Application Insights. Para saber como, consulte [a integração de Enable Application Insights](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Para saber mais, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
+Para saber mais sobre a monitorização utilizando o Application Insights, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
 
 ## <a name="c-script-projects"></a>Projetos \# de script C
 

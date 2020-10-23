@@ -4,12 +4,12 @@ description: Saiba mais sobre as novidades e novidades recentes no serviço Azur
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667083"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314578"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
@@ -17,7 +17,7 @@ ms.locfileid: "91667083"
 
 ## <a name="update-september-2020"></a>Atualização (setembro 2020)
 - A migração de servidores para Zonas de Disponibilidade é agora suportada.
-- A migração de VMs e servidores físicos baseados na UEFI para a geração Azure 2 VMs é agora suportada
+- A migração de VMs e servidores físicos baseados na UEFI para Azure geração 2 VMs é agora suportada. Com esta versão, a ferramenta Azure Migrate: Server Migration não realizará a conversão da Gen 2 VM para a Gen 1 VM durante a migração.
 - Um novo painel de avaliação do Azure Migrate Power BI está disponível para ajudá-lo a comparar custos em diferentes definições de avaliação. O dashboard vem com um utilitário PowerShell que cria automaticamente as avaliações que se ligam ao painel Power BI. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - A análise da dependência (sem agente) pode agora ser executada simultaneamente em 1000 VMs.
 - A análise de dependência (sem agente) pode agora ser ativada ou desativada em escala utilizando scripts PowerShell. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
@@ -36,7 +36,7 @@ ms.locfileid: "91667083"
 
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
-- As avaliações para migração de VMware VMs para [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) são agora suportadas. [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
+- As avaliações para migração de VMware VMs para [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) são agora suportadas. [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
 - Suporte para múltiplas credenciais no aparelho para a descoberta do servidor físico.
 - Suporte para permitir o login do Azure a partir de um aparelho para inquilino onde a restrição do inquilino tenha sido configurada.
 
@@ -104,4 +104,4 @@ Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada 
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.
-- Experimente os nossos tutoriais para avaliar [VMware VMs](tutorial-assess-vmware.md) e [VMs Hiper-V.](tutorial-assess-hyper-v.md)
+- Experimente os nossos tutoriais para avaliar [VMware VMs](./tutorial-assess-vmware-azure-vm.md) e [VMs Hiper-V.](tutorial-assess-hyper-v.md)

@@ -8,16 +8,16 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84300177"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152324"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Utilize etiquetas de serviço para o Serviço Azure SignalR
 
-Pode utilizar [tags de serviço](../virtual-network/security-overview.md#service-tags) para o serviço Azure SignalR ao configurar o Grupo de Segurança da [Rede](../virtual-network/security-overview.md#network-security-groups). Permite-lhe definir a regra de segurança da rede de saída para os pontos finais do Serviço Azure SignalR sem necessidade de codificar endereços IP.
+Pode utilizar [tags de serviço](../virtual-network/network-security-groups-overview.md#service-tags) para o serviço Azure SignalR ao configurar o Grupo de Segurança da [Rede](../virtual-network/network-security-groups-overview.md#network-security-groups). Permite-lhe definir a regra de segurança da rede de saída para os pontos finais do Serviço Azure SignalR sem necessidade de codificar endereços IP.
 
 O Serviço Azure SignalR gere estas etiquetas de serviço. Não é possível criar a sua própria etiqueta de serviço ou modificar uma existente. A Microsoft gere estes prefixos de endereço que correspondem à etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
@@ -46,4 +46,4 @@ Pode permitir o tráfego de saída para o Serviço Azure SignalR adicionando uma
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Grupos de segurança da rede: tags de serviço](../virtual-network/security-overview.md#security-rules)
+- [Grupos de segurança da rede: tags de serviço](../virtual-network/network-security-groups-overview.md#security-rules)

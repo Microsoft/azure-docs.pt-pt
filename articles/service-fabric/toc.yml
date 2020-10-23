@@ -148,8 +148,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Segurança do Cluster do Service Fabric
           href: service-fabric-cluster-security.md
-        - name: Controlos de segurança incorporados
-          href: service-fabric-security-controls.md
         - name: Autenticação baseada em certificados no Service Fabric
           href: cluster-security-certificates.md
         - name: Gestão de certificados no Service Fabric
@@ -930,7 +928,7 @@
     - name: Notas de versão
       href: release-notes.md
     - name: Código de exemplo
-      href: 'https://aka.ms/servicefabricsamples'
+      href: /samples/browse/?products=azure
     - name: Opções de suporte
       href: service-fabric-support.md
     - name: Versões do Service Fabric

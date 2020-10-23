@@ -1,16 +1,16 @@
 ---
 title: Migrar para o Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descreve o processo de migração de Azure Dev Spaces para Bridge to Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, Ponte para Kubernetes
-ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044705"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329803"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrar para o Bridge to Kubernetes
 
@@ -50,22 +50,22 @@ Azure Dev Spaces e Bridge to Kubernetes têm características semelhantes, tamb�
 | **Usabilidade** |
 | Independente dos artefactos de Kubernetes e Docker  | Não  | Sim   |
 | Reversão automática de alterações, pós-depuro  | Não  | Sim   |
-| **Ambientes** |
+| **Ferramenta de cliente suportada** |
 | Obras com Visual Studio 2019  | Sim  | Sim   |
-| Trabalha com Código de Estúdio Visual  | Yes  | Sim   |
-| Trabalha com o CLI  | Yes  | Não   |
+| Trabalha com Código de Estúdio Visual  | Sim  | Sim   |
+| Trabalha com um CLI  | Sim  | Não   |
 | **Compatibilidade do Sistema Operativo** |
 | Funciona no Windows 10  | Sim  | Sim  |
-| Trabalha em Linux  | Yes  | Yes  |
-| Trabalha no macOS  | Yes  | Yes  |
+| Trabalha em Linux  | Sim  | Sim  |
+| Trabalha no macOS  | Sim  | Sim  |
 | **Capacidades** |
-| Isolamento do desenvolvedor ou desenvolvimento de equipas  | Yes  | Yes  |
+| Isolamento do desenvolvedor ou desenvolvimento de equipas  | Sim  | Sim  |
 | Variáveis ambientais seletivamente substituindo  | Não  | Sim  |
-| Criação de Dockerfile e Gráfico helm  | Yes  | Não  |
-| Implementação persistente do código para Kubernetes  | Yes  | Não  |
-| Depuragem remota em uma cápsula Kubernetes  | Yes  | Não  |
-| Depuragem local, ligada a Kubernetes  | Não  | Yes  |
-| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Sim  | Yes  |
+| Criação de Dockerfile e Gráfico helm  | Sim  | Não  |
+| Implementação persistente do código para Kubernetes  | Sim  | Não  |
+| Depuragem remota em uma cápsula Kubernetes  | Sim  | Não  |
+| Depuragem local, ligada a Kubernetes  | Não  | Sim  |
+| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Sim  | Sim  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Desenvolvimento do loop interno de Kubernetes
 

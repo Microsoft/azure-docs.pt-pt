@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.openlocfilehash: f4ba5d9d81027d47d699ca94a5a20baf2476f41c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 162c1341c792844dab27f98e67ebf7a48282bfc5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554903"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92452754"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>Tutorial: Azure Ative Directory integração única (SSO) com FloQast
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar FloQast com Azure Ative Directory 
 * Ative os seus utilizadores a serem automaticamente inscritos no FloQast com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação FloQast espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------- | -------------- |
     | FirstName           | user.givenname |
     | LastName            | utilizador.sobrenome |
@@ -106,7 +106,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Selecione **Sign SAML resposta e afirmação** a partir da **Opção de Assinatura**.
     
-    b. Clicar em **Guardar**
+    b. Clique em **Guardar**
 
     ![Opção de assinatura de communifire](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
 
@@ -150,20 +150,20 @@ Para configurar um único sign-on no lado **FloQast,** você precisa enviar o **
 
 ### <a name="create-floqast-test-user"></a>Criar utilizador de teste FloQast
 
-Nesta secção, cria-se um utilizador chamado B.Simon in FloQast. Trabalhe com a [equipa de suporte floQast](mailto:support@floqast.com) para adicionar os utilizadores na plataforma FloQast. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in FloQast. Trabalhe com a [equipa de suporte floQast](mailto:support@floqast.com) para adicionar os utilizadores na plataforma FloQast. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo FloQast no Painel de Acesso, deverá ser automaticamente inscrito no FloQast para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo FloQast no Painel de Acesso, deverá ser automaticamente inscrito no FloQast para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente FloQast com Azure AD](https://aad.portal.azure.com/)

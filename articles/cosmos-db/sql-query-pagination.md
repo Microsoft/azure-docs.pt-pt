@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804202"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276096"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação em Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Em Azure Cosmos DB, as consultas podem ter várias páginas de resultados. Este 
 
 Por vezes, os resultados da consulta serão divididos em várias páginas. Os resultados de cada página são gerados por uma execução de consulta separada. Quando os resultados da consulta não puderem ser devolvidos numa única execução, a Azure Cosmos DB dividirá automaticamente os resultados em várias páginas.
 
-Pode especificar o número máximo de itens devolvidos por uma consulta, definindo o `MaxItemCount` . O `MaxItemCount` é especificado por pedido e garante que o motor de consulta devolverá esse número de itens ou menos. Pode definir `MaxItemCount` `-1` se não quiser colocar um limite no número de resultados por execução de consultas.
+Pode especificar o número máximo de itens devolvidos por uma consulta, definindo o `MaxItemCount` . O `MaxItemCount` é especificado por pedido e diz ao motor de consulta que irá devolver esse número de itens ou menos. Pode definir `MaxItemCount` `-1` se não quiser colocar um limite no número de resultados por execução de consultas.
 
 Além disso, existem outras razões para que o motor de consulta possa precisar de dividir os resultados da consulta em várias páginas. Estes incluem:
 
@@ -72,4 +72,4 @@ ORDER BY c.name
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [ORDEM POR CLÁUSULA](sql-query-order-by.md)
+- [Cláusula ORDER BY](sql-query-order-by.md)

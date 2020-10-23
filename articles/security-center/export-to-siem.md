@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 0800c0d6fb2cf57b919d29ac354d2d89c06c7aeb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946728"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341809"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Alertas de fluxo para uma solução siem, SOAR ou GESTão de Serviços de TI
 
@@ -60,7 +60,7 @@ O Security Center tem integração fora da caixa com a Microsoft Graph Security 
 Você pode usar esta API para transmitir alertas de todo o seu **inquilino** (e dados de muitos outros produtos microsoft Security) em SIEMs de terceiros e outras plataformas populares:
 
 - **Splunk Enterprise e Splunk Cloud**  -  Utilize o Add-On de segurança de segurança do [Microsoft para Splunk](https://splunkbase.splunk.com/app/4564/) 
-- **Power BI**  -  [Ligue-se à API de Segurança do Gráfico da Microsoft no Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-graph-security)
+- **Power BI**  -  [Ligue-se à API de Segurança do Gráfico da Microsoft no Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [Siga as instruções para instalar e configurar a aplicação API de segurança do Microsoft Graph da Loja ServiceNow](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **Rio QRadar**  -  [Módulo de suporte a dispositivos da IBM para o Azure Security Center via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, e muito mais - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
@@ -84,7 +84,7 @@ Para transmitir alertas para **ArcSight**, **Splunk,** **SumoLogic,** Syslog ser
 > Para ver os esquemas de eventos dos tipos de dados exportados, visite os [esquemas de eventos do Event Hub.](https://aka.ms/ASCAutomationSchemas)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta página explicou como garantir que os dados de alerta do Centro de Segurança Azure estão disponíveis na sua ferramenta de eleição SIEM, SOAR ou ITSM. Para obter material relacionado, consulte:
 

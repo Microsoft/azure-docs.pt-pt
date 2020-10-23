@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614167"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359004"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Triagem, investigar e responder a alertas de segurança
-O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Também pode integrar alertas de outros produtos e serviços de segurança no Security Center e criar alertas personalizados com base nos seus próprios indicadores ou fontes de inteligência. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. 
+O Security Center analisa continuamente as suas cargas de trabalho em nuvem híbrida usando análises avançadas e inteligência de ameaça para alertá-lo sobre atividades potencialmente maliciosas nos seus recursos na nuvem. Também pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança. Uma vez levantado um alerta, são necessárias medidas rápidas para investigar e remediar a questão potencial de segurança. 
 
 Neste tutorial, vai aprender a:
 
@@ -93,8 +93,8 @@ Depois de investigar um alerta e compreender o seu âmbito de aplicação, pode 
 
     Isto remove o alerta da lista principal de alertas. Pode utilizar o filtro na página da lista de alertas para visualizar todos os alertas com o estado **de Despedimento.**
 
-1.  Opcionalmente, forneça feedback sobre um alerta à Microsoft:
-    1. Marcando o alerta como **útil** ou **não útil** e fornecendo
+1.  Encorajamo-lo a fornecer feedback sobre o alerta à Microsoft:
+    1. Marcar o alerta como **Útil** ou **Não útil.**
     1. Selecione uma razão e adicione um comentário.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Página da lista de alertas de segurança":::
@@ -122,5 +122,5 @@ Se não pretende continuar, ou se pretende desativar qualquer uma destas funcion
 Neste tutorial, você aprendeu sobre as funcionalidades do Centro de Segurança a serem usadas ao responder a um alerta de segurança. Para materiais relacionados ver:
 
 - [Responder a alertas do Azure Defender para o Key Vault](defender-for-key-vault-usage.md)
-- [Alertas de segurança - um guia de referência](alerts-reference.md)
+- [Alertas de segurança – um guia de referência](alerts-reference.md)
 - [Introdução ao Azure Defender](azure-defender.md)

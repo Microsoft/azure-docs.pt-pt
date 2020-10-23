@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076696"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164169"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implementar um serviço de nuvem
 O portal Azure fornece duas formas de criar e implementar um serviço em nuvem: *Quick Create* e *Custom Create*.
@@ -56,7 +56,7 @@ Para criar um serviço em nuvem com implementações de funções web ou funçõ
 1. Faça login no [portal Azure](https://portal.azure.com/).
 2. Clique **em Criar um recurso > Compute**e, em seguida, desloque-se para baixo e clique no Cloud **Service**.
 
-    ![Publique o seu serviço na nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Screenshot que realça a opção Serviço cloud sob criar um recurso > Compute.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. No novo painel **cloud service,** insira um valor para o **nome DNS**.
 4. Crie um novo **Grupo de Recursos** ou selecione um existente.
 5. Selecione uma **localização**.
@@ -74,7 +74,7 @@ Se o seu pacote de implantação foi [configurado para utilizar certificados,](c
 2. Clique **em Anexar o certificado**e, em seguida, clique em **OK** no painel **de certificados Adicionar.**
 3. Clique em **Criar** no painel de serviço de **nuvem.** Quando a colocação tiver atingido o estado **de Pronto,** pode proceder aos próximos passos.
 
-    ![Publique o seu serviço na nuvem](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Screenshot que destaca o processo de upload de um certificado.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verifique se a sua implementação foi concluída com sucesso
 1. Clique na instância de serviço na nuvem.

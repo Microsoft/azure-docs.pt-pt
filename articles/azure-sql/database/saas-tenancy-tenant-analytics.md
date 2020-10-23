@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619547"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331673"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app de inquilino único
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -95,7 +95,7 @@ Nos passos seguintes, você implanta a loja de análise, que é chamada **de ten
 
 Agora que implementou a aplicação e a preencheu com dados interessantes do inquilino, utilize [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para ligar **os inquilinos1-dpt- &lt; Utilizador &gt; ** e ** &lt; &gt; servidores de utilizadores de catálogo** usando Login = *developer*, Password = *P \@ ssword1*. Consulte o [tutorial introdutório](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
 
-![arquiteturaOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
+![Screenshot que mostra as informações necessárias para ligar ao SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 No Explorador de Objetos, execute os seguintes passos:
 
@@ -110,7 +110,7 @@ Consulte os seguintes itens de base de dados no SSMS Object Explorer expandindo 
 - As mesas de esquema de estrelas são **fact_Tickets,** **dim_Customers,** **dim_Venues,** **dim_Events**e **dim_Dates.**
 - O procedimento armazenado é utilizado para povoar as tabelas de esquemas estelares das tabelas de dados brutos.
 
-![arquiteturaOverView](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
+![Screenshot dos itens de base de dados mostrados no Explorador de Objetos SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Extração de dados 
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090285"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317385"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e walkthroughs para apps Azure Logic
 
@@ -126,7 +126,7 @@ Pode desenvolver e implementar totalmente aplicações lógicas com o Visual Stu
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Lidar com tipos de conteúdo, conversões e transformações
 
-Pode aceder, converter e transformar vários tipos de conteúdo utilizando as muitas funções no [idioma](https://aka.ms/logicappsdocs)de definição de fluxo de trabalho Azure Logic Apps . Por exemplo, pode converter entre uma corda, JSON e XML com as `@json()` expressões de fluxo de `@xml()` trabalho. O motor Logic Apps preserva os tipos de conteúdo para suportar a transferência de conteúdos de forma sem perdas entre os serviços.
+Pode aceder, converter e transformar vários tipos de conteúdo utilizando as muitas funções no [idioma](./logic-apps-workflow-definition-language.md)de definição de fluxo de trabalho Azure Logic Apps . Por exemplo, pode converter entre uma corda, JSON e XML com as `@json()` expressões de fluxo de `@xml()` trabalho. O motor Logic Apps preserva os tipos de conteúdo para suportar a transferência de conteúdos de forma sem perdas entre os serviços.
 
 * [Lidar com tipos de conteúdo em Azure Logic Apps](../logic-apps/logic-apps-content-type.md), tais `application/` `application/octet-stream` como, e `multipart/formdata`
 * [Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia](../logic-apps/workflow-definition-language-functions-reference.md)

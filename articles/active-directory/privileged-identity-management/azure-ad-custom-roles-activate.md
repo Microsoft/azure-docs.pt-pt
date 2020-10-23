@@ -16,16 +16,16 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421166"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371618"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar um papel personalizado da AD AD em Gestão de Identidade Privilegiada
 
-A Gestão privilegiada de Identidade em Diretório Ativo Azure (Azure AD) suporta agora a atribuição just-in-time e time-bound a funções personalizadas criadas para Gestão de Aplicações na experiência administrativa de Gestão de Identidade e Acesso. Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
+A Gestão privilegiada de Identidade em Diretório Ativo Azure (Azure AD) suporta agora a atribuição just-in-time e time-bound a funções personalizadas criadas para Gestão de Aplicações na experiência administrativa de Gestão de Identidade e Acesso. Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../roles/custom-overview.md).
 
 > [!NOTE]
 > As funções personalizadas AZURE AD não são integradas com as funções de diretório incorporado durante a pré-visualização. Uma vez que a capacidade esteja geralmente disponível, a gestão de funções terá lugar na experiência de funções incorporadas. Se vir o seguinte banner, estas funções devem ser geridas [na experiência de funções incorporadas](pim-how-to-activate-role.md) e este artigo não se aplica:
@@ -67,4 +67,4 @@ Se a função necessitar de aprovação para ser ativada, receberá uma notifica
 - [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configure uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-configure.md)
-- [Definições de função em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definições de função em Azure AD](../roles/permissions-reference.md)

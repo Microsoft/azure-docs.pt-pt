@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278792"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362931"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Ativar a colaboração externa B2B e gerir quem pode convidar convidados
 
@@ -24,7 +24,7 @@ Este artigo descreve como ativar a colaboração B2B do Azure Ative Directory (A
 
 Por predefinição, todos os utilizadores e hóspedes do seu diretório podem convidar os hóspedes mesmo que não estejam designados para um papel de administração. As configurações de colaboração externa permitem-lhe ligar ou desligar os convites dos hóspedes para diferentes tipos de utilizadores na sua organização. Também pode delegar convites a utilizadores individuais, atribuindo funções que lhes permitam convidar os hóspedes.
 
-O Azure AD permite-lhe restringir o que os utilizadores externos podem ver no seu diretório AD Azure. Por padrão, os utilizadores de hóspedes são definidos para um nível de permissão limitado que os bloqueia de enumerar utilizadores, grupos ou outros recursos de diretório, mas permite-lhes ver a adesão a grupos não escondidos. Uma nova definição de pré-visualização permite-lhe restringir ainda mais o acesso dos hóspedes, para que os hóspedes só possam ver as suas próprias informações de perfil. Para mais detalhes, consulte [permissões de acesso ao hóspede (pré-visualização)](../users-groups-roles/users-restrict-guest-permissions.md).
+O Azure AD permite-lhe restringir o que os utilizadores externos podem ver no seu diretório AD Azure. Por padrão, os utilizadores de hóspedes são definidos para um nível de permissão limitado que os bloqueia de enumerar utilizadores, grupos ou outros recursos de diretório, mas permite-lhes ver a adesão a grupos não escondidos. Uma nova definição de pré-visualização permite-lhe restringir ainda mais o acesso dos hóspedes, para que os hóspedes só possam ver as suas próprias informações de perfil. Para mais detalhes, consulte [permissões de acesso ao hóspede (pré-visualização)](../enterprise-users/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurar definições de colaboração externa B2B
 

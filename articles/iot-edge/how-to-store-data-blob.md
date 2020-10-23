@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048156"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219739"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Armazenar dados na periferia com o Armazenamento de Blobs do Azure no IoT Edge
 
@@ -92,7 +92,7 @@ O nome desta definição é `deviceAutoDeleteProperties` . Se estiver a utilizar
 | Propriedade | Valores Possíveis | Explicação |
 | ----- | ----- | ---- |
 | deleteOn | TRUE, false | Definido por `false` defeito. Se quiser ligar a função, desa um campo para `true` . <br><br> Variável ambiental: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| excluirAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo apagará automaticamente as suas bolhas do armazenamento local quando este valor expirar. <br><br> Variável ambiental: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| excluirAfterMinutes | `<minutes>` | Especifique o tempo em minutos. O módulo apagará automaticamente as suas bolhas do armazenamento local quando este valor expirar. Os minutos máximos atuais permitidos são 35791. <br><br> Variável ambiental: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | manter o Uploading | TRUE, false | Por predefinição, é definido para `true` , e irá reter o blob enquanto estiver a ser carregado para armazenamento na nuvem se o Apagar Depois expirar. Pode defini-lo `false` e apagará os dados assim que o Eliminar Minuto expirar. Nota: Para que esta propriedade funcione uploadOn deve ser definido como verdadeiro.  <br><br> **ATENÇÃO:** Se estiver a utilizar bolhas de apêndice, esta definição eliminará as bolhas de apêndice do armazenamento local quando o valor expirar, e quaisquer futuras operações do Bloco de Apêndice a essas bolhas falharão. É melhor certificar-se de que o valor de validade é suficientemente grande para a frequência esperada das operações de apêndice realizadas pela sua aplicação.<br><br> Variável ambiental: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Usando a partilha SMB como o seu armazenamento local
@@ -195,7 +195,7 @@ As seguintes amostras de arranque rápido utilizam idiomas que também são supo
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Conecte-se ao seu armazenamento local com o Azure Storage Explorer
 
-Pode utilizar [o Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para se ligar à sua conta de armazenamento local.
+Pode utilizar [o Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) para se ligar à sua conta de armazenamento local.
 
 1. Transferir e instalar o Explorador de Armazenamento do Azure
 

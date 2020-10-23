@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61450587"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165575"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
 
@@ -88,7 +88,7 @@ A clonagem de um modelo de dispositivo permite-lhe criar uma cópia de um modelo
 
 Para clonar um modelo de dispositivo, selecione a caixa junto ao modelo e clique em **Clone** (Clonar), na barra de ações:
 
-![Eliminar modelo de dispositivo](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![Screenshot que destaca o modelo selecionado e o botão Clone.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## <a name="delete-a-device-model"></a>Eliminar um modelo de dispositivo
 

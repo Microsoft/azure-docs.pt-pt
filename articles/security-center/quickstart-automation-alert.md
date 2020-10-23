@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c86561f7c677ec4a335ecb04cc0da95dad119d1e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906360"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340976"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Quickstart: Criar uma resposta automática a um alerta de segurança específico utilizando um modelo de Gestor de Recursos Azure (modelo ARM)
 
@@ -64,7 +64,7 @@ Para outros modelos de arranque rápido do Security Center, consulte estes [mode
 
     [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
-    Para obter mais informações sobre esta opção de implementação, consulte [utilize um botão de implementação para implementar modelos do repositório GitHub](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
+    Para obter mais informações sobre esta opção de implementação, consulte [utilize um botão de implementação para implementar modelos do repositório GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
@@ -77,7 +77,7 @@ Utilize o portal Azure para verificar se a automatização do fluxo de trabalho 
     >[!TIP]
     > Se tiver muitas automatizações de fluxo de trabalho na sua subscrição, utilize o filtro por opção **nome.** 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine a automatização do fluxo de trabalho utilizando o portal Azure.
 
@@ -94,4 +94,4 @@ Quando já não for necessário, elimine a automatização do fluxo de trabalho 
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Crie e implemente o seu primeiro modelo ARM](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f4947fe379f19593d06ba9efb6bfc43c397e9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333448"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424404"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Tutorial: Configure Zoom para o fornecimento automático de utilizadores
 
@@ -121,8 +121,8 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |active|Booleano|
    |name.givenName|String|
    |name.familyName|String|
-   |e-mails[tipo eq "work"]|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
+   |e-mails[tipo eq "work"]|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -152,6 +152,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 
 ## <a name="change-log"></a>Change log
 * 05/14/2020 - Apoio às operações de ATUALIZAÇÃO adicionadas para e-mails[tipo eq "trabalho"] atribuem.
+* 10/20/2020 - Apoio adicional para duas novas funções "Licenciada" e "On-Prem" para substituir as funções existentes "Pro" e "Corp". O apoio às funções "Pro" e "Corp" será removido no futuro.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

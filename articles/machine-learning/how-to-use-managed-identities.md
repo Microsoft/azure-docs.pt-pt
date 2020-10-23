@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079675"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440455"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilizar identidades geridas com Azure Machine Learning (pré-visualização)
 
@@ -29,7 +29,6 @@ Neste artigo, você vai aprender a usar identidades geridas para:
 
  * Configure e utilize o ACR para o seu espaço de trabalho Azure Machine Learning sem ter de permitir o acesso do utilizador administrativo ao ACR.
  * Aceda a um ACR privado externo ao seu espaço de trabalho, para retirar imagens base para treino ou inferência.
- * Aceder a conjuntos de dados para formação utilizando identidades geridas em vez de chaves de acesso ao armazenamento.
 
 > [!IMPORTANT]
 > A utilização de identidades geridas para controlar o acesso a recursos com a Azure Machine Learning está atualmente em pré-visualização. A funcionalidade de pré-visualização é fornecida "as-is", sem garantia de suporte ou acordo de nível de serviço. Para obter mais informações, consulte os [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>Aceder a dados de formação
-
-Uma vez criado um cluster de cálculo de machine learning com identidade gerida como descrito anteriormente, pode usar essa identidade para aceder a dados de treino sem chaves de conta de armazenamento. Pode utilizar a identidade gerida atribuída pelo sistema ou pelo utilizador para este cenário.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>Grant compute gerido acesso de identidade à conta de armazenamento
-
-[Conceda à identidade gerida um papel de leitor](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) na conta de armazenamento na qual armazena os seus dados de formação.
-
-### <a name="register-data-store-with-workspace"></a>Registar loja de dados com espaço de trabalho
-
-Depois de atribuir a identidade gerida, pode criar uma loja de dados sem ter de especificar credenciais de armazenamento.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>Submeter execução de preparação
-
-Quando submete uma corrida de formação utilizando a loja de dados, o cálculo de machine learning utiliza a sua identidade gerida para aceder aos dados.
 
 ## <a name="use-docker-images-for-inference"></a>Use imagens docker para inferência
 

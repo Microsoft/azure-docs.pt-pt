@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461228"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172383"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -60,7 +60,7 @@ According to SQL limitations, you can run Copy Only Full backup on Secondary Rep
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger grupos de disponibilidade no local?
 
-N.º O Azure Backup protege as bases de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre as máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, o Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
+Não. O Azure Backup protege as bases de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) estiver espalhado entre as máquinas Azure e no local, a AG só pode ser protegida se a réplica primária estiver em funcionamento em Azure. Além disso, o Azure Backup protege apenas os nós que funcionam na mesma região de Azure que o cofre dos Serviços de Recuperação.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Posso proteger os grupos de disponibilidade entre regiões?
 
@@ -68,7 +68,7 @@ O cofre dos Serviços de Recuperação de Backup Azure pode detetar e proteger t
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>As tarefas de cópia de segurança bem-sucedida criam alertas?
 
-N.º Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de apoio bem sucedidos não geram alertas. Os alertas são enviados apenas para trabalhos de reserva que falham. O comportamento detalhado dos alertas do portal está documentado [aqui.](backup-azure-monitoring-built-in-monitor.md) No entanto, se estiver interessado em ter alertas mesmo para trabalhos bem sucedidos, pode utilizar [a Monitorização utilizando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de reserva agendados no menu Backup Jobs?
 
@@ -104,7 +104,7 @@ Uma base de dados que [adicione a uma instância autoprotegido](backup-sql-serve
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Posso proteger bases de dados que tenham o TDE (Encriptação de Dados Transparente) ligado e que a base de dados permaneça encriptada durante todo o processo de backup?
 
-Sim, o Azure Backup suporta a cópia de segurança das bases de dados do SQL Server ou do servidor com TDE ativada. A cópia de segurança suporta [o TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) com teclas geridas pela Azure, ou com teclas geridas pelo cliente (BYOK).  A cópia de segurança não executa qualquer encriptação SQL como parte do processo de backup para que a base de dados permaneça encriptada quando estiver cópia de segurança.
+Sim, o Azure Backup suporta a cópia de segurança das bases de dados do SQL Server ou do servidor com TDE ativada. A cópia de segurança suporta [o TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) com teclas geridas pela Azure, ou com teclas geridas pelo cliente (BYOK).  A cópia de segurança não executa qualquer encriptação SQL como parte do processo de backup para que a base de dados permaneça encriptada quando estiver cópia de segurança.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9bf03110fcb4f0c034c70d5e77e558b949a7825
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660938"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147994"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie os dados de uma base de dados do SQL Server para o armazenamento do Azure Blob utilizando a ferramenta Dados de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -44,7 +44,7 @@ Antes de começar, se não tiver uma subscrição do Azure, [crie uma conta grat
 ### <a name="azure-roles"></a>Funções do Azure
 Para criar casos de fábrica de dados, a conta de utilizador que utiliza para iniciar sessão no Azure deve ser atribuída a uma função *de Contribuinte* ou *Proprietário* ou deve ser *administradora* da subscrição Azure.
 
-Para ver as permissões que tem na subscrição, aceda ao portal do Azure. Selecione o nome de utilizador no canto superior direito, e, em seguida, selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Para ver as permissões que tem na subscrição, aceda ao portal do Azure. Selecione o nome de utilizador no canto superior direito, e, em seguida, selecione **Permissões**. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de amostra sobre como adicionar um utilizador a uma função, consulte [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 Neste tutorial, utiliza uma base de dados SQL Server como uma loja de dados *de origem.* O pipeline na fábrica de dados que cria neste tutorial copia dados desta base de dados sql Server (fonte) para o armazenamento blob (pia). Em seguida, cria uma tabela chamada **emp** na base de dados do SQL Server e insere algumas entradas de amostras na tabela.
@@ -141,7 +141,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
    ![Página Introdução](./media/doc-common-process/get-started-page.png)
 
-1. Na página **Propriedades** da ferramenta Copiar Dados, em **Nome da tarefa**, introduza **CopyFromOnPremSqlToAzureBlobPipeline**. e selecione **Seguinte**. A ferramenta Copiar Dados cria um pipeline com o nome que especificar para este campo.
+1. Na página **Propriedades** da ferramenta Copiar Dados, em **Nome da tarefa**, introduza **CopyFromOnPremSqlToAzureBlobPipeline**. Em seguida, selecione **Seguinte**. A ferramenta Copiar Dados cria um pipeline com o nome que especificar para este campo.
   ![Nome da tarefa](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
 1. Na página **Arquivo de dados de origem**, clique em **Criar nova ligação**.
@@ -201,7 +201,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
    d. Selecione **Concluir**.
 
-1. No **diálogo da loja de dados destino,** certifique-se de que o Armazenamento **Azure Blob** está selecionado. e selecione **Seguinte**.
+1. No **diálogo da loja de dados destino,** certifique-se de que o Armazenamento **Azure Blob** está selecionado. Em seguida, selecione **Seguinte**.
 
 1. Na caixa de diálogo **Escolher ficheiro ou pasta de saída**, em **Caminho da pasta**, introduza **adftutorial/fromonprem**. Criou o contentor **adftutorial** como parte dos pré-requisitos. Se a pasta de saída não existir (neste caso **fromonprem**), o Data Factory cria-a automaticamente. Também pode utilizar o botão **Procurar** para navegar no armazenamento da bolha e nos seus recipientes/pastas. Se não especificar qualquer valor em **Nome de ficheiro**, por predefinição o nome da origem deverá ser utilizado (neste caso **dbo.emp**).
 

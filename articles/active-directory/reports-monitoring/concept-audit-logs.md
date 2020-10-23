@@ -17,12 +17,12 @@ ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5aa8f675e3fd36fbebfecf42db0f02b0f0f00115
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812595"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319741"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -35,7 +35,7 @@ A arquitetura de reporte consiste nos seguintes componentes:
 - **Atividade** 
     - **Ins-** O [relatório de inscrições](concept-sign-ins.md) fornece informações sobre o uso de aplicações geridas e atividades de inscrição do utilizador.
     - **Registos de auditoria** - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Exemplos de registos de auditoria incluem alterações feitas a quaisquer recursos dentro do AD Azure, como adicionar ou remover utilizadores, apps, grupos, papéis e políticas.
-    - Registos de **provisionamento**  -  [O fornecimento de registos](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) permite que os clientes monitorizem a atividade através do serviço de fornecimento, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday. 
+    - Registos de **provisionamento**  -  [O fornecimento de registos](./concept-provisioning-logs.md) permite que os clientes monitorizem a atividade através do serviço de fornecimento, como a criação de um grupo no ServiceNow ou um utilizador importado do Workday. 
 - **Segurança** 
     - **Entradas arriscadas** - Um [sinal de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de inscrição que pode ter sido realizada por alguém que não é o legítimo proprietário de uma conta de utilizador. 
     - **Utilizadores sinalizados para o risco** - Um [utilizador de risco](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de utilizador que pode ter sido comprometida.
@@ -128,7 +128,7 @@ O filtro **Category** permite-lhe selecionar um dos seguintes filtros:
 - KerberosDomain
 - Gestão de Chaves
 - Etiqueta
-- Outro
+- Outros
 - PermissõesGrantPolicy
 - Política
 - Gestão de Recursos

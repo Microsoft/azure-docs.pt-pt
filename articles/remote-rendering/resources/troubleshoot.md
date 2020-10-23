@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803828"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203675"
 ---
 # <a name="troubleshoot"></a>Resolução de problemas
 
@@ -88,7 +88,7 @@ A qualidade do vídeo pode ser comprometida quer pela qualidade da rede, quer pe
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Vídeo gravado com MRC não reflete a qualidade da experiência ao vivo
 
-Um vídeo pode ser gravado em HoloLens através [de Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
+Um vídeo pode ser gravado em HoloLens através [de Mixed Reality Capture (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
 * O framerate de vídeo é limitado a 30 Hz em oposição a 60 Hz.
 * As imagens de vídeo não passam pelo passo de processamento de [reprojecção do estágio tardio,](../overview/features/late-stage-reprojection.md) pelo que o vídeo parece ser mais picante.
 

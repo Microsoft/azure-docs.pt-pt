@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4bce0b354d1daffccfea108b5668f33fd429f075
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "81757297"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92371244"
 landingContent:
 - title: Sobre a API do Detetor de Anomalias
   linkLists:
@@ -98,6 +98,12 @@ landingContent:
       url: https://aka.ms/adadvisorsjoin
     - text: Conteúdo gerado pelo utilizador em destaque
       url: user-generated-content.md
+- title: Ajuda e comentários
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Opções de suporte e ajuda
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - title: Referência
   linkLists:
   - linkListType: reference

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568102"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282307"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -57,6 +57,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 |Filipino|  `fil`   |
 |Finlandês|   `fi`    |
 |Francês|    `fr`    |
+|Francês (Canadá)|   `fr-ca` |
 |Alemão|    `de`    |
 |Grego| `el`    |
 |Guzerate|  `gu`    |
@@ -364,6 +365,7 @@ Converta a fala em texto para traduzir para a linguagem de texto à sua escolha.
 |Inglês|
 |Finlandês|
 |Francês|
+|Francês (Canadá)|
 |Alemão|
 |Guzerate|
 |Hindi|
@@ -401,6 +403,7 @@ Converter texto em discurso. O texto-a-discurso é usado para adicionar produç�
 |Inglês|
 |Finlandês|
 |Francês|
+|Francês (Canadá)|
 |Alemão|
 |Grego|
 |Hebraico|

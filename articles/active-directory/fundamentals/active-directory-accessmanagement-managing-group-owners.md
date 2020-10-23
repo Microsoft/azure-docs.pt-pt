@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969919"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371941"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover os proprietários do grupo no Azure Ative Directory
 Os grupos Azure Ative Directory (Azure AD) são propriedade e geridos pelos proprietários do grupo. Os proprietários do grupo podem ser utilizadores ou diretores de serviço, e são capazes de gerir o grupo, incluindo a adesão. Apenas os proprietários de grupos existentes ou administradores de gestão de grupos podem atribuir aos proprietários do grupo. Os donos do grupo não são obrigados a ser membros do grupo.
@@ -63,10 +63,10 @@ Remova um proprietário de um grupo que utilize a Azure AD.
 ## <a name="next-steps"></a>Passos seguintes
 - [Gerir o acesso aos recursos com grupos do Azure Active Directory](active-directory-manage-groups.md)
 
-- [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md)
+- [Cmdlets do Azure Active Directory para configurar definições de grupo](../enterprise-users/groups-settings-cmdlets.md)
 
-- [Utilize grupos para atribuir acesso a uma aplicação Integrada SaaS](../users-groups-roles/groups-saasapps.md)
+- [Utilize grupos para atribuir acesso a uma aplicação Integrada SaaS](../enterprise-users/groups-saasapps.md)
 
 - [Integrar as identidades no local ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
-- [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Cmdlets do Azure Active Directory para configurar definições de grupo](../enterprise-users/groups-settings-v2-cmdlets.md)

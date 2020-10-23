@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626484"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279213"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Dimensione rapidamente e proteja uma aplicação web utilizando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)
 
@@ -36,10 +36,10 @@ Neste tutorial, irá aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) para começar com o Azure CLI.
+- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) para começar com o Azure CLI.
 
   > [!TIP] 
-  > Uma maneira fácil e rápida de começar no Azure CLI é com [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > Uma maneira fácil e rápida de começar no Azure CLI é com [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 - Certifique-se de que a `front-door` extensão é adicionada ao Azure CLI:
 
@@ -48,7 +48,7 @@ Neste tutorial, irá aprender a:
    ```
 
 > [!NOTE] 
-> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true)
+> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest)
 
 ## <a name="create-an-azure-front-door-resource"></a>Criar um recurso Azure Front Door
 
@@ -62,7 +62,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: O nome do seu recurso Azure Front Door.
 
-`--resource-group`: O grupo de recursos em que pretende colocar este recurso Azure Front Door. Para saber mais sobre grupos de recursos, consulte [Gerir grupos de recursos em Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
+`--resource-group`: O grupo de recursos em que pretende colocar este recurso Azure Front Door. Para saber mais sobre grupos de recursos, consulte [Gerir grupos de recursos em Azure.](../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 Na resposta que obtém quando dirige este comando, procure a `hostName` chave. Vai precisar deste valor num passo posterior. É `hostName` o nome DNS do recurso Azure Front Door que criou.
 
@@ -130,21 +130,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 O nome de domínio personalizado da sua aplicação web é aquele que os clientes usam para se referir à sua aplicação. Por exemplo, www.contoso.com. Inicialmente, este nome de domínio personalizado apontava para o local onde estava a funcionar antes de introduzir a Porta frontal Azure. Depois de adicionar Azure Front Door e WAF para fazer frente à aplicação, a entrada DNS que corresponde a esse domínio personalizado deve apontar para o recurso Azure Front Door. Pode efeitá-la remapping a entrada no seu servidor DNS para a Porta frontal Azure `hostName` que notou quando criou o recurso Azure Front Door.
 
-Os passos específicos para atualizar os seus registos DNS dependerão do seu prestador de serviços DNS. Se utilizar o Azure DNS para hospedar o seu nome DNS, pode consultar a documentação para [os passos para atualizar um registo DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e apontar para a Porta frontal do Azure `hostName` . 
+Os passos específicos para atualizar os seus registos DNS dependerão do seu prestador de serviços DNS. Se utilizar o Azure DNS para hospedar o seu nome DNS, pode consultar a documentação para [os passos para atualizar um registo DNS](../dns/dns-operations-recordsets-cli.md) e apontar para a Porta frontal do Azure `hostName` . 
 
-Há uma coisa importante a notar se precisa que os seus clientes entrem no seu website usando o ápice da zona (por exemplo, contoso.com). Neste caso, tem de utilizar o Azure DNS e o [seu tipo de gravação de pseudónimo para](https://docs.microsoft.com/azure/dns/dns-alias) hospedar o seu nome DNS. 
+Há uma coisa importante a notar se precisa que os seus clientes entrem no seu website usando o ápice da zona (por exemplo, contoso.com). Neste caso, tem de utilizar o Azure DNS e o [seu tipo de gravação de pseudónimo para](../dns/dns-alias.md) hospedar o seu nome DNS. 
 
-Também precisa de atualizar a configuração da porta frontal Azure para [adicionar o domínio personalizado](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) ao mesmo para que esteja ciente deste mapeamento.
+Também precisa de atualizar a configuração da porta frontal Azure para [adicionar o domínio personalizado](./front-door-custom-domain.md) ao mesmo para que esteja ciente deste mapeamento.
 
-Finalmente, se estiver a utilizar um domínio personalizado para chegar à sua aplicação web e quiser ativar o protocolo HTTPS. É necessário [configurar os certificados para o seu domínio personalizado na Porta frontal Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Finalmente, se estiver a utilizar um domínio personalizado para chegar à sua aplicação web e quiser ativar o protocolo HTTPS. É necessário [configurar os certificados para o seu domínio personalizado na Porta frontal Azure](./front-door-custom-domain-https.md). 
 
 ## <a name="lock-down-your-web-application"></a>Bloqueie a sua aplicação web
 
-Recomendamos que garanta que apenas as bordas da porta dianteira Azure podem comunicar com a sua aplicação web. Ao fazê-lo, ninguém poderá contornar a proteção da Porta Frontal Azure e aceder diretamente à sua aplicação. Para conseguir este bloqueio, como [posso bloquear o acesso ao meu backend para apenas Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+Recomendamos que garanta que apenas as bordas da porta dianteira Azure podem comunicar com a sua aplicação web. Ao fazê-lo, ninguém poderá contornar a proteção da Porta Frontal Azure e aceder diretamente à sua aplicação. Para conseguir este bloqueio, como [posso bloquear o acesso ao meu backend para apenas Azure Front Door?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) para remover o grupo de recursos, porta frontal e política da WAF:
+Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) para remover o grupo de recursos, porta frontal e política da WAF:
 
 ```azurecli-interactive
   az group delete \

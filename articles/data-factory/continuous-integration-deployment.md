@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616912"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147436"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
@@ -656,7 +656,7 @@ Se estiver a utilizar a integração do Git com a sua fábrica de dados e tiver 
     - As entidades da fábrica de dados dependem umas das outras. Por exemplo, os gatilhos dependem de oleodutos e os gasodutos dependem de conjuntos de dados e outros oleodutos. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões, quando precisar de publicação seletiva, considere usar um hotfix. Para mais informações, consulte [o ambiente de produção da Hotfix.](#hotfix-production-environment)
 
-- A equipa da Azure Data Factory não recomenda a atribuição de controlos RBAC a entidades individuais (oleodutos, conjuntos de dados, etc. ) numa fábrica de dados. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, deve ser capaz de aceder a todos os oleodutos ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções de RBAC dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
+- A equipa da Azure Data Factory não recomenda a atribuição de controlos Azure RBAC a entidades individuais (oleodutos, conjuntos de dados, etc. ) numa fábrica de dados. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, deve ser capaz de aceder a todos os oleodutos ou conjuntos de dados na fábrica de dados. Se sente que precisa implementar muitas funções do Azure dentro de uma fábrica de dados, veja a implementação de uma segunda fábrica de dados.
 
 -   Não pode publicar de agências privadas.
 
@@ -675,7 +675,7 @@ Ao executar um script pós-implantação, terá de especificar uma variação do
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-![Tarefa Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Tarefa do Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Aqui está o script que pode ser usado para pré e pós-implantação. Contabiliza recursos e referências de recursos eliminados.
 

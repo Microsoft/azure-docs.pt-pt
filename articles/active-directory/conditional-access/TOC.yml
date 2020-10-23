@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: Frequência de início de sessão e controlos de persistência do browser
       href: howto-conditional-access-session-lifetime.md
-    - name: Melhores práticas
-      href: best-practices.md
     - name: Resolução de problemas
       items:
         - name: Resolver problemas de início de sessão

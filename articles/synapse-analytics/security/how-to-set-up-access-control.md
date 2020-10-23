@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260160"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341554"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
+# <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização) 
 
 Este artigo irá ensiná-lo a usar funções e controlar o acesso a atividades de controlo e acesso a dados. Seguindo estas instruções, o controlo de acesso em Azure Synapse Analytics é simplificado. Basta adicionar e remover os utilizadores a um dos três grupos de segurança.
 
@@ -31,7 +31,7 @@ Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um 
   - Faísca Apache para administrador azure Synapse Analytics
 - Controlo de acesso para dados em Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controlo de acesso para bases de dados Synapse SQL e Spark
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Passos para garantir um espaço de trabalho da Sinapse
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.
@@ -71,11 +71,12 @@ Identifique esta informação sobre o seu armazenamento:
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASSO 3: Criar e configurar o seu espaço de trabalho sinapse
 
-No portal Azure, crie um espaço de trabalho sinapse:
+ No portal Azure, crie um espaço de trabalho sinapse:
 
+- Selecione a sua subscrição
+- Selecione o seu grupo de recursos - Tem de ter acesso a um grupo de recursos para o qual lhe foi atribuída a função **Proprietário.**
 - Nomeie o espaço de trabalho WS1
-- Escolha STG1 para a conta de Armazenamento
-- Escolha CNT1 para o recipiente que está a ser utilizado como "sistema de ficheiros".
+- Escolha STG1 para a conta de Armazenamento -. Escolha CNT1 para o recipiente que está a ser utilizado como "sistema de ficheiros".
 - Open WS1 no Estúdio Synapse
 - **Selecione Gerir**  >  **o Controlo de Acesso** atribuir os grupos de segurança às seguintes funções de Sinapse.
   - Atribuir **WS1 \_ WSAdmins** aos administradores do Espaço de Trabalho da Sinapse

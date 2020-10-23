@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87062062"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440842"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -39,45 +39,21 @@ O resultado deste processo é um conjunto de nós (os gémeos digitais) ligados 
 
 ## <a name="create-with-the-apis"></a>Criar com as APIs
 
-Esta secção mostra o que parece criar gémeos digitais e relacionamentos a partir de uma aplicação de cliente. Contém exemplos de código .NET que utilizam as [APIs DigitalTwins,](how-to-use-apis-sdks.md)para fornecer contexto adicional sobre o que se passa dentro de cada um destes conceitos.
+Esta secção mostra o que parece criar gémeos digitais e relacionamentos a partir de uma aplicação de cliente. Contém exemplos de código .NET que utilizam as [APIs DigitalTwins,](/rest/api/digital-twins/dataplane/twins)para fornecer contexto adicional sobre o que se passa dentro de cada um destes conceitos.
 
 ### <a name="create-digital-twins"></a>Criar gémeos digitais
 
-Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para instantaneaizar um twin de *tipo Room*.
+Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para instantaneaizar um twin de *tipo Room*.
 
 Na pré-visualização atual do Azure Digital Twins, todas as propriedades de um gémeo devem ser inicializadas antes de o gémeo poder ser criado. Isto é feito através da criação de um documento JSON que fornece os valores de inicialização necessários.
 
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "dtmi:com:contoso:Room;2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+
+Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "twin" mais diretamente, como uma alternativa para usar um dicionário. Para obter mais informações sobre a classe de ajudante e exemplos da sua utilização, consulte a secção [*Digital Twin*](how-to-manage-twin.md#create-a-digital-twin) de *How-to: Manage digital twins*.
 
 ### <a name="create-relationships"></a>Criar relacionamentos
 
-Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](how-to-use-apis-sdks.md) para construir uma relação entre um twin digital tipo *Floor*chamado *GroundFloor* e um twin digital *tipo Quarto*chamado *Café.*
+Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para construir uma relação entre um twin digital tipo *Floor*chamado *GroundFloor* e um twin digital *tipo Quarto*chamado *Café.*
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979688"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372281"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -39,10 +39,21 @@ Soluções que devem ser removidas antes de poder desvincular a sua conta de aut
 - Centro de Segurança do Azure
 
 >[!IMPORTANT]
-> **Clientes da Azure Sentinel:**
-> - Uma vez implantado num espaço de trabalho, o Azure Sentinel **não suporta atualmente** a deslocação desse espaço de trabalho para outros grupos de recursos ou subscrições. 
+> **Clientes Azure Sentinel**
+> - Atualmente, depois de o Azure Sentinel ser implantado num espaço de trabalho, a deslocação do espaço de trabalho para outro grupo de recursos ou subscrição não é suportada. 
+> - Se já moveu o espaço de trabalho, desative todas as regras ativas de acordo com **o Analytics** e reative-as após cinco minutos. Esta deve ser uma solução eficaz na maioria dos casos, no entanto, para reiterar, não é apoiada e levada a cabo por sua conta e risco.
+> 
+> **Recriar alertas**
+> - Todos os alertas devem ser recriados após um movimento porque as permissões são baseadas no ID de Recursos Azure do espaço de trabalho, que muda durante um movimento de espaço de trabalho.
 >
->   Se já moveu o espaço de trabalho, desative todas as regras ativas de acordo com **o Analytics** e reative-as após cinco minutos. No entanto, isto deve ser eficaz na maioria dos casos, para reiterar, não é apoiado e empreendido por sua conta e risco.
+> **Atualizar caminhos de recursos**
+> - Após uma mudança no espaço de trabalho, qualquer Azure ou recursos externos que apontem para o espaço de trabalho devem ser revistos e atualizados para apontar para o novo caminho-alvo de recursos.
+> 
+>   *Exemplos:*
+>   - [Regras de alerta do Monitor Azure](alerts-resource-move.md)
+>   - Aplicações de terceiros
+>   - Scripting personalizado
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminar soluções no portal Azure
 Utilize o seguinte procedimento para remover as soluções utilizando o portal Azure:

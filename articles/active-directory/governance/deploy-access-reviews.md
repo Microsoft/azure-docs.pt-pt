@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306570"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362704"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -87,7 +87,7 @@ Considere as suas necessidades organizacionais para determinar a estratégia de 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as funções do projeto são claras.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as funções do projeto são claras.
 
 Para avaliações de acesso, provavelmente incluirá representantes das seguintes equipas dentro da sua organização:
 
@@ -182,7 +182,7 @@ Os alvos típicos para revisão incluem:
 
 * Membro [do](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) grupo (sincronizado com Azure AD, ou criado em AZure AD ou Microsoft 365, incluindo Microsoft Teams).
 
-* [Pacote de acesso](/azure/active-directory/governance/entitlement-management-overview) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
+* [Pacote de acesso](./entitlement-management-overview.md) que agrupam recursos (grupos, apps e sites) num único pacote para gerir o acesso.
 
 * [Funções de AD AZure e Funções de Recursos Azure definidas](../privileged-identity-management/pim-resource-roles-assign-roles.md) na Gestão de Identidade Privilegiada.
 
@@ -198,7 +198,7 @@ A função administrativa necessária para criar, gerir ou ler uma Revisão de A
 | Pacote de acesso| Administrador Global<p>Pacote de Criador de Acesso| Administrador Global apenas |
 
 
-Para obter mais informações, consulte [permissões de função de administrador no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações, consulte [permissões de função de administrador no Diretório Ativo Azure](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Quem irá rever o acesso ao recurso?
 
@@ -343,7 +343,7 @@ Pode [utilizar comentários de acesso Azure AD para gerir utilizadores excluído
 
 ### <a name="review-external-users-group-memberships"></a>Rever as filiações externas do grupo de utilizadores
 
-Para minimizar o trabalho manual e os potenciais erros associados, considere usar [grupos dinâmicos](../users-groups-roles/groups-create-rule.md) para atribuir a filiação do grupo com base nos atributos de um utilizador. Pode querer criar um ou mais Grupos Dinâmicos para utilizadores externos. O patrocinador interno pode atuar como revisor para a adesão ao grupo. 
+Para minimizar o trabalho manual e os potenciais erros associados, considere usar [grupos dinâmicos](../enterprise-users/groups-create-rule.md) para atribuir a filiação do grupo com base nos atributos de um utilizador. Pode querer criar um ou mais Grupos Dinâmicos para utilizadores externos. O patrocinador interno pode atuar como revisor para a adesão ao grupo. 
 
 Nota: Os utilizadores externos que são removidos de um grupo como resultado de uma Revisão de Acesso não são eliminados do arrendatário. 
 
@@ -389,7 +389,7 @@ As avaliações de acesso podem ser para os membros de um grupo ou para utilizad
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Revisão do plano das funções de recursos Azure AD e Azure
 
-[A Gestão de Identidade Privilegiada (PIM)](../privileged-identity-management/pim-configure.md) simplifica a forma como as empresas gerem o acesso privilegiado aos recursos em Azure AD. Isto mantém a lista de funções privilegiadas, tanto em [recursos Azure AD](../users-groups-roles/directory-assign-admin-roles.md) como [Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
+[A Gestão de Identidade Privilegiada (PIM)](../privileged-identity-management/pim-configure.md) simplifica a forma como as empresas gerem o acesso privilegiado aos recursos em Azure AD. Isto mantém a lista de funções privilegiadas, tanto em [recursos Azure AD](../roles/permissions-reference.md) como [Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
 
 O Access Reviews permite que os revisores ateste se os utilizadores ainda precisam de estar numa função. Tal como os comentários de acesso a pacotes de acesso, as avaliações das funções AD do Azure e do recurso Azure estão integradas na experiência do utilizador de administração PIM. Recomendamos que reveja regularmente as seguintes atribuições de funções:
 
@@ -448,7 +448,7 @@ Para reduzir o risco associado a atribuições de papéis antigos, deve rever re
 
 ![Screenshot que mostra a lista de "Membros de Revisão" de papéis de Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
-Siga as instruções nos links abaixo:
+Siga as instruções nas ligações abaixo:
 
 | Artigos de procedimentos | Descrição |
 | - | - |
@@ -463,7 +463,7 @@ Para reduzir o risco associado a atribuições de funções velhas, deve rever r
 
 ![rever papéis de anúncios azure](./media/deploy-access-review/9-review-azure-roles-picker.png)
 
-Siga as instruções nos links abaixo:
+Siga as instruções nas ligações abaixo:
 
 | Artigos de procedimentos| Descrição |
 | - | -|
@@ -518,4 +518,3 @@ Conheça as tecnologias abaixo relacionadas.
 * [O que é Azure AD Entitlement Management?](entitlement-management-overview.md)
 
 * [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

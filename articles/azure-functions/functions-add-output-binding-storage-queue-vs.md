@@ -4,12 +4,12 @@ description: Saiba como adicionar uma ligação de saída para ligar as funçõe
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84235378"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167126"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Conecte funções ao Azure Storage usando o Visual Studio
 
@@ -106,7 +106,7 @@ Atualizou a sua função HTTP para escrever dados numa fila de armazenamento. Pa
 Em seguida, deve ativar a monitorização do Application Insights para a sua aplicação de função:
 
 > [!div class="nextstepaction"]
-> [Ativar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Ativar a integração do Application Insights](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [artigo de arranque rápido anterior]: functions-create-your-first-function-visual-studio.md

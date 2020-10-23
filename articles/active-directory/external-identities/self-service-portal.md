@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62805564f716d255f38c9312da5c5c986fba944c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265549"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441730"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Self-service para inscrição de colaboração Azure AD B2B
 
@@ -24,11 +24,11 @@ Os clientes podem fazer muito mais com as funcionalidades incorporadas expostas 
 
 ## <a name="azure-ad-entitlement-management-for-b2b-guest-user-sign-up"></a>Gestão de direitos Azure AD para inscrição de utilizadores de hóspedes B2B
 
-Como uma organização convidativa, pode não saber com antecedência quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Precisa de uma forma de os utilizadores de empresas parceiras se inscreverem com políticas que controlam. Se pretender permitir que utilizadores de outras organizações solicitem acesso, e após aprovação seja a provisionado com contas de hóspedes e atribuído a grupos, apps e sites SharePoint Online, pode utilizar a [gestão de direitos AD AZure](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar políticas que [gerem o acesso a utilizadores externos.](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users)
+Como uma organização convidativa, pode não saber com antecedência quem são os colaboradores externos individuais que precisam de acesso aos seus recursos. Precisa de uma forma de os utilizadores de empresas parceiras se inscreverem com políticas que controlam. Se pretender permitir que utilizadores de outras organizações solicitem acesso, e após aprovação seja a provisionado com contas de hóspedes e atribuído a grupos, apps e sites SharePoint Online, pode utilizar a [gestão de direitos AD AZure](../governance/entitlement-management-overview.md) para configurar políticas que [gerem o acesso a utilizadores externos.](../governance/entitlement-management-external-users.md#how-access-works-for-external-users)
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>Azure Ative Directy B2B convite API
 
-As organizações podem usar o [gestor de convites microsoft Graph API](https://docs.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) para construir as suas próprias experiências de embarque para utilizadores convidados B2B. Quando pretender oferecer inscrição de utilizador de hóspedes B2B self-service, recomendamos que utilize [a gestão de direitos AD da Azure](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Mas se quiser construir a sua própria experiência, pode utilizar o [convite de criação API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) para enviar automaticamente o seu e-mail de convite personalizado diretamente para o utilizador B2B, por exemplo. Ou a sua aplicação pode usar o conviteRedeemUrl devolvido na resposta de criação para criar o seu próprio convite (através do seu mecanismo de comunicação de escolha) para o utilizador convidado.
+As organizações podem usar o [gestor de convites microsoft Graph API](/graph/api/resources/invitation?view=graph-rest-1.0) para construir as suas próprias experiências de embarque para utilizadores convidados B2B. Quando pretender oferecer inscrição de utilizador de hóspedes B2B self-service, recomendamos que utilize [a gestão de direitos AD da Azure](../governance/entitlement-management-overview.md). Mas se quiser construir a sua própria experiência, pode utilizar o [convite de criação API](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) para enviar automaticamente o seu e-mail de convite personalizado diretamente para o utilizador B2B, por exemplo. Ou a sua aplicação pode usar o conviteRedeemUrl devolvido na resposta de criação para criar o seu próprio convite (através do seu mecanismo de comunicação de escolha) para o utilizador convidado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

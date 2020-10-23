@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79499757"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364150"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Quickstart: Convidar os utilizadores para o Video Indexer
 
@@ -27,10 +27,9 @@ Para colaborar com os seus colegas, pode convidá-los para a sua conta de Indexe
 ## <a name="invite-new-users"></a>Convidar novos utilizadores
 
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/). Certifique-se de que está ligado a uma conta de administração.
-1. Clique no botão **Convidar outros** no menu superior:
+1. Se você é o administrador, você vê o botão **de conta Partilhar** no canto superior direito. Clique no botão e pode convidar os utilizadores. 
 
-   ![Convidar novos utilizadores](./media/invite-users/invite-users.png)
-
+   ![Convidar novos utilizadores](./media/invite-users/share-account.png)
 1. Adicione os endereços de e-mail das pessoas que pretende adicionar à sua conta de Indexer de Vídeo:
 
     ![Convidar os utilizadores para esta conta](./media/invite-users/invite-to-account.png)
@@ -55,7 +54,7 @@ Os utilizadores não recebem uma notificação após a remoção. Uma vez removi
 
 Agora pode utilizar o [website do Indexer de Vídeo](video-indexer-view-edit.md) ou o Portal de Desenvolvimento do [Indexador](video-indexer-use-apis.md) de Vídeo para ver as ideias do vídeo.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Como se inscrever e fazer o upload do seu primeiro vídeo](video-indexer-get-started.md)

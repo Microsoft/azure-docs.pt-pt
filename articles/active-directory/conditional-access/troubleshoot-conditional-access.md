@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032973"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145091"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Resolver problemas de início de sessão com Acesso Condicional
 
 As informações deste artigo podem ser usadas para resolver resultados inesperados de login relacionados com o Acesso Condicional usando mensagens de erro e registos de logins AD Azure.
+
+## <a name="select-all-consequences"></a>Selecione "todas" as consequências
+
+A estrutura de Acesso Condicional proporciona-lhe uma grande flexibilidade de configuração. No entanto, uma grande flexibilidade também significa que deve rever cuidadosamente cada política de configuração antes de a lançar para evitar resultados indesejáveis. Neste contexto, deve prestar especial atenção às atribuições que afetam conjuntos completos, tais como **todos os utilizadores /grupos /apps cloud**.
+
+As organizações devem evitar as seguintes configurações:
+
+**Para todos os utilizadores, todas as aplicações na nuvem:**
+
+- **Bloquear o acesso** - Esta configuração bloqueia toda a sua organização.
+- **Exigir** que o dispositivo seja marcado como conforme - Para os utilizadores que ainda não tenham inscrito os seus dispositivos, esta política bloqueia todo o acesso, incluindo o acesso ao portal Intune. Se é um administrador sem um dispositivo matriculado, esta política impede-o de voltar ao portal Azure para alterar a política.
+- **Requer dispositivo de domínio Híbrido Azure AD -** Este acesso ao bloco de política também tem o potencial de bloquear o acesso a todos os utilizadores da sua organização se não tiverem um dispositivo híbrido Azure AD.
+- **Requer uma política de proteção de aplicações** - Este acesso por bloqueio de políticas também tem o potencial de bloquear o acesso a todos os utilizadores da sua organização se não tiver uma política Intune. Se é um administrador sem uma aplicação de cliente que tenha uma política de proteção de aplicações Intune, esta política impede-o de voltar a portais como o Intune e o Azure.
+
+**Para todos os utilizadores, todas as aplicações em nuvem, todas as plataformas do dispositivo:**
+
+- **Bloquear o acesso** - Esta configuração bloqueia toda a sua organização.
 
 ## <a name="conditional-access-sign-in-interrupt"></a>Interrupção de acesso condicional
 
@@ -82,8 +99,14 @@ Ao submeter o incidente, forneça o ID do pedido e a hora e data do evento de in
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>O que fazer se estiver trancado fora do portal Azure?
+
+Se estiver bloqueado fora do portal Azure devido a uma definição incorreta numa política de acesso condicional:
+
+- Verifique se há outros administradores na sua organização que ainda não estão bloqueados. Um administrador com acesso ao portal Azure pode desativar a política que está a afetar a sua inscrição. 
+- Se nenhum dos administradores da sua organização conseguir atualizar a apólice, envie um pedido de apoio. O suporte da Microsoft pode rever e após a confirmação atualizar as políticas de Acesso Condicional que estão a impedir o acesso.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Relatórios de atividade de início de sessão no portal do Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
 - [Resolução de problemas Acesso Condicional usando a ferramenta E Se](troubleshoot-conditional-access-what-if.md)
-- Melhores práticas para [acesso condicional no Diretório Ativo Azure](best-practices.md)

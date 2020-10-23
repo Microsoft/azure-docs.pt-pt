@@ -7,12 +7,12 @@ keywords: automação azul, DSC, powershell, configuração do estado, gestão d
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715969"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205341"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automatização do Azure
 
@@ -35,7 +35,7 @@ A Gestão de Configuração na Azure Automation permite o acesso a duas funciona
 
 ### <a name="change-tracking-and-inventory"></a>Controlo de Alterações e Inventário
 
-O Change Tracking and Inventory combina funções de rastreio e inventário de alterações para permitir rastrear alterações de infraestrutura de máquinas virtuais e servidores. O serviço suporta o rastreio de alterações através de serviços, daemons, software, registro e ficheiros no seu ambiente para ajudá-lo a diagnosticar alterações indesejadas e elevar alertas. O suporte ao inventário permite-lhe consultar os recursos in-guest para visibilidade em aplicações instaladas e outros itens de configuração. Para mais detalhes sobre esta funcionalidade, consulte [Change Tracking and Inventory](change-tracking.md).
+O Change Tracking and Inventory combina funções de rastreio e inventário de alterações para permitir rastrear alterações de infraestrutura de máquinas virtuais e servidores. O serviço suporta o rastreio de alterações através de serviços, daemons, software, registro e ficheiros no seu ambiente para ajudá-lo a diagnosticar alterações indesejadas e elevar alertas. O suporte ao inventário permite-lhe consultar os recursos in-guest para visibilidade em aplicações instaladas e outros itens de configuração. Para mais detalhes sobre esta funcionalidade, consulte [Change Tracking and Inventory](change-tracking/overview.md).
 
 ### <a name="azure-automation-state-configuration"></a>State Configuration da Automatização do Azure
 
@@ -94,7 +94,7 @@ A Azure Automation suporta a gestão ao longo do ciclo de vida da sua infraestru
 
 Pode rever os preços associados à Azure Automation na página [de preços.](https://azure.microsoft.com/pricing/details/automation/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma conta de Automatização](automation-quickstart-create-account.md)

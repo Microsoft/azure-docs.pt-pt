@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 7046062b1c2e42f47d650df6d616d6fb73c8d1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033069"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368592"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aparelhos virtuais em rede em Azure
 
@@ -140,7 +140,7 @@ Capture um traço de rede simultâneo na origem VM, na NVA e no VM de destino en
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Utilize **PsPing** ou **Nmap** da fonte VM para o destino VM (por exemplo: `PsPing 10.0.0.4:80` ou `Nmap -p 80 10.0.0.4` ).
-3. Abra os vestígios de rede a partir do VM de destino utilizando [o Monitor de Rede](https://cnet-downloads.com/network-monitor) ou tcpdump. Aplique um filtro de visualização para o IP do VM de origem a que executou **PsPing** ou **Nmap,** tais como `IPv4.address==10.0.0.4 (Windows netmon)` ou `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Abra os vestígios de rede a partir do VM de destino utilizando [o Monitor de Rede](https://download.cnet.com/s/network-monitor) ou tcpdump. Aplique um filtro de visualização para o IP do VM de origem a que executou **PsPing** ou **Nmap,** tais como `IPv4.address==10.0.0.4 (Windows netmon)` ou `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analisar vestígios
 

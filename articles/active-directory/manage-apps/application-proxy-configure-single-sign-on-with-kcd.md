@@ -1,29 +1,25 @@
 ---
-title: Único sinal com Proxy de aplicação / Microsoft Docs
-description: Cobre como fornecer um único sinal de inscrição usando o Azure AD Application Proxy.
+title: Sign-on único baseado em Kerberos (SSO) em Azure Ative Directory com Application Proxy
+description: Cobre como fornecer um único sinal de inscrição usando o Azure Ative Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq2
+ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299753"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426488"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação Restrita Kerberos para início de sessão único nas suas aplicações com o Proxy de Aplicações
+# <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Kerberos Restrita Delegação para um único sign-on (SSO) para as suas apps com Proxy de aplicação
 
 Pode fornecer um único sinal de acesso para aplicações no local publicadas através do Application Proxy que são protegidos com autenticação integrada do Windows. Estas aplicações requerem um bilhete Kerberos para acesso. A Application Proxy utiliza a Delegação Restrita Kerberos (KCD) para apoiar estas aplicações. 
 

@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932401"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143625"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 
@@ -97,7 +97,7 @@ Se selecionarmos imediatamente o botão de edição sob a grelha de dados de ped
 
 ![Screenshot da consulta subjacente de Kusto](./media/workbooks-overview/kusto.png)
 
-Clicar nos outros botões **editar** à direita revelará uma série de componentes centrais que compõem livros como caixas de texto baseadas em [marcação, elementos](workbooks-visualizations.md#text)de [UI de seleção](workbooks-parameters.md) de parâmetros e outros [tipos de gráfico/visualização.](workbooks-visualizations.md) 
+Clicar nos outros botões **editar** à direita revelará uma série de componentes centrais que compõem livros como caixas de texto baseadas em [marcação, elementos](workbooks-text-visualizations.md)de [UI de seleção](workbooks-parameters.md) de parâmetros e outros [tipos de gráfico/visualização.](#visualizations) 
 
 Explorar os modelos pré-construídos em modo de edição e depois modificá-los para se adaptar às suas necessidades e guardar o seu próprio livro personalizado é uma excelente maneira de começar a aprender sobre o que é possível com os livros de trabalho do Azure Monitor.
 
@@ -129,5 +129,5 @@ Assim que começar a criar os seus próprios modelos de livro, talvez queira par
 
 ## <a name="next-step"></a>Passo seguinte
 
-* [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
+* [Começar a](#visualizations) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

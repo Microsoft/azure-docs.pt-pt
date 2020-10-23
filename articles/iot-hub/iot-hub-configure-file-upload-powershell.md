@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60318465"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142269"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de ficheiros IoT Hub usando PowerShell
 
@@ -27,11 +27,11 @@ Para concluir este tutorial, precisa do seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* [Cmdlets Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Cmdlets Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Um centro de IoT Azure. Se não tiver um hub IoT, pode utilizar o [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para criar um ou utilizar o portal para [criar um hub IoT](iot-hub-create-through-portal.md).
+* Um centro de IoT Azure. Se não tiver um hub IoT, pode utilizar o [cmdlet New-AzIoTHub](/powershell/module/az.iothub/new-aziothub) para criar um ou utilizar o portal para [criar um hub IoT](iot-hub-create-through-portal.md).
 
-* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento Azure, pode utilizar os [cmdlets Azure Storage PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) para criar um ou utilizar o portal para [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md)
+* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento Azure, pode utilizar os [cmdlets Azure Storage PowerShell](/powershell/module/az.storage/) para criar um ou utilizar o portal para [criar uma conta de armazenamento](../storage/common/storage-account-create.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inscreva-se e descreva a sua conta Azure
 
@@ -136,5 +136,5 @@ Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Proteja a sua solução IoT do zero](../iot-fundamentals/iot-security-ground-up.md)

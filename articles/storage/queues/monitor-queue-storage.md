@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 3fe99543b821810b1479f1e504098d81fd20c534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb3d29a339911b0ec05b543257974014a1bcbe22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711451"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425486"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorização do armazenamento da fila Azure
 
@@ -46,7 +46,7 @@ O armazenamento da Azure Queue recolhe os mesmos tipos de dados de monitorizaç�
 
 Consulte [a referência de dados de monitorização de armazenamento da Azure Queue](monitor-queue-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e registos criadas pelo armazenamento da Fila Azure.
 
-Métricas e registos no Azure Monitor suportam apenas contas de armazenamento do Gestor de Recursos Azure. O Azure Monitor não suporta contas clássicas de armazenamento. Se quiser utilizar métricas ou registos numa conta de armazenamento clássica, tem de migrar para uma conta de armazenamento do Azure Resource Manager. Consulte [a Migração para o Gestor de Recursos Azure](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Métricas e registos no Azure Monitor suportam apenas contas de armazenamento do Gestor de Recursos Azure. O Azure Monitor não suporta contas clássicas de armazenamento. Se quiser utilizar métricas ou registos numa conta de armazenamento clássica, tem de migrar para uma conta de armazenamento do Azure Resource Manager. Consulte [a Migração para o Gestor de Recursos Azure](/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 Pode continuar a usar métricas e registos clássicos, se quiser. Na verdade, métricas e troncos clássicos estão disponíveis em paralelo com métricas e troncos no Azure Monitor. O suporte permanece em vigor até que o Azure Storage termine o serviço em métricas e registos antigos.
 
@@ -56,7 +56,7 @@ As métricas da plataforma e o registo de Atividade são recolhidos automaticame
 
 Para criar uma definição de diagnóstico utilizando o portal Azure, o Azure CLI ou PowerShell, consulte [criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md). 
 
-Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Quando criar uma definição de diagnóstico, escolha o tipo de armazenamento para o qual pretende ativar os registos, tais como uma bolha, fila, mesa ou ficheiro. Para armazenamento de fila, escolha **a fila**. 
 
@@ -89,7 +89,7 @@ As métricas para o armazenamento da fila Azure estão nestes espaços de nome:
 - Microsoft.Storage/storageAcontas
 - Microsoft.Storage/storageAcontas/filas Serviços
 
-Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento da fila Azure, consulte [as métricas suportadas pelo Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento da fila Azure, consulte [as métricas suportadas pelo Monitor Azure.](/azure/azure-monitor/platform/metrics-supported)
 
 
 ### <a name="accessing-metrics"></a>Métricas de acesso
@@ -101,7 +101,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor, que incl
 
 #### <a name="list-the-metric-definition"></a>Listar a definição métrica
 
-Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento da fila. Utilize o [cmdlet Get-AzMetricDefinition.](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition)
+Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento da fila. Utilize o [cmdlet Get-AzMetricDefinition.](/powershell/module/az.monitor/get-azmetricdefinition)
 
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de fila.  Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -112,7 +112,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="reading-metric-values"></a>Valores métricos de leitura
 
-Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento da fila. Utilize o [cmdlet Get-AzMetric.](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric)
+Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento da fila. Utilize o [cmdlet Get-AzMetric.](/powershell/module/Az.Monitor/Get-AzMetric)
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -123,7 +123,7 @@ Pode ler os valores métricos ao nível da conta da sua conta de armazenamento o
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
-Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento da fila. Utilize o comando [de definições de listas de métricas az monitor.](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
+Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento da fila. Utilize o comando [de definições de listas de métricas az monitor.](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
  
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de fila. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -133,7 +133,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="read-account-level-metric-values"></a>Leia os valores métricos ao nível da conta
 
-Pode ler os valores métricos da sua conta de armazenamento ou do serviço de armazenamento da Fila. Utilize o comando [da lista de métricas do monitor az.](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list)
+Pode ler os valores métricos da sua conta de armazenamento ou do serviço de armazenamento da Fila. Utilize o comando [da lista de métricas do monitor az.](/cli/azure/monitor/metrics#az-monitor-metrics-list)
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -330,19 +330,19 @@ Os registos enviados para um centro de eventos não são armazenados como um fic
 
 ![Registos de auditoria](media/monitor-queue-storage/event-hub-log.png)
 
-Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para mais informações, veja [o que posso fazer com os dados de monitorização que estão a ser enviados para o meu centro de eventos?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para mais informações, veja [o que posso fazer com os dados de monitorização que estão a ser enviados para o meu centro de eventos?](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Aceder a registos num espaço de trabalho do Log Analytics
 
 Pode aceder aos registos enviados para um espaço de trabalho do Log Analytics utilizando consultas de registo do Azure Monitor.
 
-Para obter mais informações, consulte [Começar com o Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Para obter mais informações, consulte [Começar com o Log Analytics no Azure Monitor](/azure/azure-monitor/log-query/get-started-portal).
 
 Os dados são armazenados na tabela **StorageQueueLogs.**  
 
 #### <a name="sample-kusto-queries"></a>Experimente consultas kusto
 
-Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar o armazenamento da fila. Estas consultas funcionam com a [nova linguagem.](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar o armazenamento da fila. Estas consultas funcionam com a [nova linguagem.](/azure/azure-monitor/log-query/log-query-overview)
 
 > [!IMPORTANT]
 > Quando seleciona **Logs** do menu do grupo de recursos de conta de armazenamento, o Log Analytics é aberto com o âmbito de consulta definido para o grupo de recursos atual. Isto significa que as consultas de registo só incluirão dados desse grupo de recursos. Se pretender executar uma consulta que inclua dados de outros recursos ou dados de outros serviços Azure, selecione **Logs** do menu **Azure Monitor.** Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) para obter mais detalhes.
@@ -399,7 +399,7 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
 
 **O Azure Storage suporta métricas para Discos Geridos ou Discos Não Geridos?**
 
-N.º O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
+Não. O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
 ## <a name="next-steps"></a>Passos seguintes
 

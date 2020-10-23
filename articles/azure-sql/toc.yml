@@ -51,8 +51,6 @@
               href: ./database/security-controls-policy.md
             - name: Linha de base de segurança
               href: database/security-baseline.md
-            - name: Atributos de segurança
-              href: database/security-controls.md
             - name: Azure Defender para SQL
               href: database/azure-defender-for-sql.md
             - name: Proteção Avançada Contra Ameaças
@@ -263,6 +261,8 @@
           items:
             - name: Regras de firewall de IP ao nível do servidor
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub Actions
+          href: database/connect-github-actions-sql-db.md
     - name: Tutoriais
       items:
         - name: Estruturar uma base de dados
@@ -864,6 +864,24 @@
                           href: 'https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
                         - name: Sugestões para utilizar pacotes R
                           href: 'https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                - name: Administração
+                  items:
+                    - name: Monitorizar
+                      items:
+                        - name: Monitorizar com relatórios do SQL Server Management Studio
+                          href: 'https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                        - name: Monitorizar com DMV
+                          href: 'https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                        - name: Eventos expandidos
+                          items:
+                            - name: Monitorizar com eventos expandidos
+                              href: 'https://docs.microsoft.com/sql/machine-learning/administration/extended-events?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                            - name: Monitorizar PREDICT T-SQL
+                              href: 'https://docs.microsoft.com/sql/machine-learning/administration/extended-events-predict-tsql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
+                - name: Segurança
+                  items:
+                    - name: Conceder permissão aos utilizadores
+                      href: 'https://docs.microsoft.com/sql/machine-learning/security/user-permission?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true'
         - name: Funcionalidades
           items:
             - name: Servidores ligados
@@ -959,7 +977,7 @@
                   href: virtual-machines/windows/backup-restore.md
                 - name: Armazenamento do Azure para cópia de segurança
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-                - name: Grupo de disponibilidade Always On
+                - name: Grupo de disponibilidade (AG)
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: Instância de cluster de ativação pós-falha
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
@@ -1036,33 +1054,45 @@
                       href: virtual-machines/windows/automated-backup.md
                     - name: Cópia de segurança automatizada (SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Grupo de disponibilidade Always On
+                - name: Grupo de disponibilidade (AG)
                   items:
-                    - name: Portal do Azure
-                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
-                    - name: PowerShell ou CLI do Azure
-                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
-                    - name: Modelos de Início Rápido do Azure
-                      href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-                    - name: Várias regiões
-                      href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-                    - name: Independente do domínio (grupo de trabalho)
-                      href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                    - name: Configurar manualmente
+                    - name: Criar Grupo de Disponibilidade
                       items:
-                        - name: Pré-requisitos
-                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                        - name: Tutorial
-                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-                        - name: Balanceador de carga - portal do Azure
-                          href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-                        - name: Balanceador de carga - Azure PowerShell
-                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: Portal do Azure
+                          href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                        - name: PowerShell ou CLI do Azure
+                          href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                        - name: Modelos de Início Rápido do Azure
+                          href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                        - name: Várias regiões
+                          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                        - name: Independente do domínio (grupo de trabalho)
+                          href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                        - name: Configurar manualmente
+                          items:
+                            - name: Pré-requisitos
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                            - name: Tutorial
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: Balanceador de carga - portal do Azure
+                              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                            - name: Balanceador de carga - Azure PowerShell
+                              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                    - name: Configurar a conectividade
+                      items:
+                        - name: Serviço de escuta VNN
+                          displayName: virtual network name
+                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                        - name: Serviço de escuta DNN
+                          displayName: distributed network name
+                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                        - name: Interoperabilidade DNN
+                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: Instância de cluster de ativação pós-falha (FCI)
                   items:
                     - name: Preparar a VM para FCI
                       href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-                    - name: Criar FCI com
+                    - name: Criar FCI
                       items:
                         - name: Discos partilhados do Azure
                           href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
@@ -1070,16 +1100,14 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: Partilha de ficheiros premium (Win2012 e superior)
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: Nome de Rede Distribuída (DNN)
+                    - name: Configurar a conectividade
                       items:
-                        - name: Criar DNN para FCI
-                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: Funcionalidades de DNN para FCI e do SQL Server
+                        - name: Nome de rede virtual (VNN)
+                          href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+                        - name: Nome de rede distribuída (DNN)
+                          href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+                        - name: Interoperabilidade DNN
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
-                - name: Configurar a conectividade
-                  items:
-                    - name: Nome de Rede Virtual (VNN)
-                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: Referência
           items:
             - name: Azure PowerShell

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c972bd3b770f42353d285d0c69aacef56d6e04d5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742847"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426114"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utilize o portal Azure para configurar alertas sobre métricas para a Base de Dados Azure para MariaDB
 
@@ -27,7 +27,7 @@ Pode configurar um alerta para fazer as seguintes ações quando ativa:
 Pode configurar e obter informações sobre as regras de alerta utilizando:
 * [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Criar uma regra de alerta numa métrica
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor MariaDB que pretende monitorizar.
@@ -85,5 +85,5 @@ Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre [configurar webhooks em alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.
+* Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
+* Obtenha uma [visão geral da recolha de métricas](../azure-monitor/platform/data-platform.md) para se certificar de que o seu serviço está disponível e responsivo.

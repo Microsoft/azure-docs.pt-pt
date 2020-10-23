@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ef7d587cd8bec636f42673941edb69647ee8cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df1285145d0e8b04bf743a3967099d27d1195269
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449984"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362795"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
 
@@ -96,7 +96,7 @@ Em março de 2020, adicionámos estas 51 novas aplicações com apoio da Federa�
 
 [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho One China](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [Profit.co APP SAML](../saas-apps/profitco-saml-app-tutorial.md), [iPoint Service Provider](../saas-apps/ipoint-service-provider-tutorial.md), contexxt.ai [SPHERE](https://contexxt-sphere.com/login), Wisdom [By Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), Flare [Digital Signage](https://spark-dev.pixelnebula.com/login), [Logz.io - Cloud Observability for Engineers](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [SpectrumU,](../saas-apps/spectrumu-tutorial.md) [BizzContact,](https://bizzcontact.app/) [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), [CrossKnowledge Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision Compas](../saas-apps/netvision-compas-tutorial.md), [FCM HUB](../saas-apps/fcm-hub-tutorial.md), RIB [A/S Byggeweb Mobile,](https://apps.apple.com/us/app/docia/id529058757) [GoLinks,](../saas-apps/golinks-tutorial.md) [Datadog](../saas-apps/datadog-tutorial.md), [Zscaler B2B User Portal,](../saas-apps/zscaler-b2b-user-portal-tutorial.md) [LIFT,](../saas-apps/lift-tutorial.md) [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md), [WatchTeams](https://www.devfinition.com/), [Aster](https://demo.asterapp.io/login), [Skills Workflow](../saas-apps/skills-workflow-tutorial.md), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx), Plataforma [IP](../saas-apps/ip-platform-tutorial.md), [InVision](../saas-apps/invision-tutorial.md), [Pipedrive](../saas-apps/pipedrive-tutorial.md), [Showcase Workshop](https://app.showcaseworkshop.com/), [Greenlight Integration Platform](../saas-apps/greenlight-integration-platform-tutorial.md), [Greenlight Compliant Access Management](../saas-apps/greenlight-compliant-access-management-tutorial.md), [Grok Learning](../saas-apps/grok-learning-tutorial.md), [Miradore Online,](https://login.online.miradore.com/) [Khoros Care,](../saas-apps/khoros-care-tutorial.md) [AskYourTeam,](../saas-apps/askyourteam-tutorial.md) [TruNarrative,](../saas-apps/trunarrative-tutorial.md) [Smartwaiver,](https://www.smartwaiver.com/m/user/sw_login.php?wms_login) [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/), [sybo](https://www.systexsoftware.com.tw/), [Britive](../saas-apps/britive-tutorial.md), [WhosOffice](../saas-apps/whosoffice-tutorial.md), [E-days](../saas-apps/e-days-tutorial.md), [Kollective SDN](https://portal.kollective.app/login), [Witivio,](https://app.witivio.com/) [Playvox,](https://my.playvox.com/login) [Korn Ferry 360,](../saas-apps/korn-ferry-360-tutorial.md) [Campus Café,](../saas-apps/campus-cafe-tutorial.md) [Catchpoint,](../saas-apps/catchpoint-tutorial.md) [Code42](../saas-apps/code42-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -116,7 +116,7 @@ As funcionalidades de colaboração Azure AD B2B estão agora disponíveis entre
 **Categoria de serviço:** Reportagem  
 **Capacidade do produto:** Relatório de & de Monitorização
  
-A integração do Azure Monitor com os registos AZure AD está agora disponível no Governo de Azure. Pode encaminhar os Registos AD do Azure (Registos de Auditoria e Registos) para uma conta de armazenamento, Centro de Eventos e Analítico de Log. Por favor, verifique a [documentação detalhada,](https://aka.ms/aadlogsinamd) bem como [planos de implementação para relatórios e monitorização](../reports-monitoring/plan-monitoring-and-reporting.md) para cenários Azure AD.
+A integração do Azure Monitor com os registos AZure AD está agora disponível no Governo de Azure. Pode encaminhar os Registos AD do Azure (Registos de Auditoria e Registos) para uma conta de armazenamento, Centro de Eventos e Analítico de Log. Por favor, verifique a [documentação detalhada,](../reports-monitoring/concept-activity-logs-azure-monitor.md) bem como [planos de implementação para relatórios e monitorização](../reports-monitoring/plan-monitoring-and-reporting.md) para cenários Azure AD.
 
 ---
 
@@ -126,7 +126,7 @@ A integração do Azure Monitor com os registos AZure AD está agora disponível
 **Categoria de serviço:** Proteção de Identidade  
 **Capacidade do produto:** Proteção & de Segurança de Identidade
 
-Estamos entusiasmados por partilhar que lançámos agora a renovada experiência [de Proteção de Identidade Azure AD](https://aka.ms/IdentityProtectionDocs)   no portal do Governo microsoft [Azure](https://portal.azure.us/). Para mais informações, consulte o nosso [post de blog de anúncio.](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667)
+Estamos entusiasmados por partilhar que lançámos agora a renovada experiência [de Proteção de Identidade Azure AD](../identity-protection/overview-identity-protection.md)   no portal do Governo microsoft [Azure](https://portal.azure.us/). Para mais informações, consulte o nosso [post de blog de anúncio.](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667)
 
 ---
 
@@ -183,7 +183,7 @@ A partir de agora, os clientes que tenham inquilinos gratuitos podem aceder aos 
 **Categoria de serviço:** Gestão de Grupos  
 **Capacidade do produto:** Colaboração
 
-Para proporcionar uma forma mais flexível de os clientes criarem grupos de diretório que melhor satisfaçam as suas necessidades, substituímos a opção grupos de **diretório** das configurações gerais dos **grupos**  >  **General** no portal Azure por um link para [a documentação dinâmica do grupo.](../users-groups-roles/groups-dynamic-membership.md) Melhorámos a nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os utilizadores que incluam ou excluam os utilizadores convidados.
+Para proporcionar uma forma mais flexível de os clientes criarem grupos de diretório que melhor satisfaçam as suas necessidades, substituímos a opção grupos de **diretório** das configurações gerais dos **grupos**  >  **General** no portal Azure por um link para [a documentação dinâmica do grupo.](../enterprise-users/groups-dynamic-membership.md) Melhorámos a nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os utilizadores que incluam ou excluam os utilizadores convidados.
 
 ---
 
@@ -220,7 +220,7 @@ Serão adicionadas as seguintes ações de melhoria:
 - Certifique-se de que todos os utilizadores podem completar MFA para acesso seguro
 - Exigir MFA para funções administrativas
 
-Estas novas ações de melhoria exigirão registar os seus utilizadores ou administradores para MFA em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de definir padrão de segurança que permite à Microsoft decidir quando desafiar os utilizadores para MFA, ou ter várias políticas que aplicam decisões de âmbito. Como parte destas atualizações de ação de melhoria, as políticas de proteção de base deixarão de ser incluídas nos cálculos de pontuação. [Leia mais sobre o que está a chegar no Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
+Estas novas ações de melhoria exigirão registar os seus utilizadores ou administradores para MFA em todo o seu diretório e estabelecer o conjunto certo de políticas que se adequam às suas necessidades organizacionais. O objetivo principal é ter flexibilidade, garantindo ao mesmo tempo que todos os seus utilizadores e administradores podem autenticar com múltiplos fatores ou pedidos de verificação de identidade baseados no risco. Isto pode assumir a forma de definir padrão de segurança que permite à Microsoft decidir quando desafiar os utilizadores para MFA, ou ter várias políticas que aplicam decisões de âmbito. Como parte destas atualizações de ação de melhoria, as políticas de proteção de base deixarão de ser incluídas nos cálculos de pontuação. [Leia mais sobre o que está a chegar no Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
 
 ---
 
@@ -232,7 +232,7 @@ Estas novas ações de melhoria exigirão registar os seus utilizadores ou admin
  
 Ouvimos feedback de que os clientes da Azure AD Domain Services querem mais flexibilidade na seleção dos níveis de desempenho para as suas instâncias. A partir de 1 de fevereiro de 2020, mudamos de um modelo dinâmico (onde a Azure AD determina o nível de desempenho e preços baseado na contagem de objetos) para um modelo de autosseleção. Agora os clientes podem escolher um nível de desempenho que corresponda ao seu ambiente. Esta alteração permite-nos também ativar novos cenários como As Florestas de Recursos e funcionalidades Premium como backups diários. A contagem de objetos é agora ilimitada para todos os SKUs, mas continuaremos a oferecer sugestões de contagem de objetos para cada nível.
 
-**Não é necessária qualquer ação imediata do cliente.** Para os clientes existentes, o nível dinâmico que estava em uso a 1 de fevereiro de 2020, determina o novo nível de incumprimento. Não existe um impacto de preços ou desempenho como resultado desta alteração. Para a frente, os clientes da Azure AD DS terão de avaliar os requisitos de desempenho à medida que o seu tamanho de diretório e as suas características de carga de trabalho mudarem. A troca entre os níveis de serviço continuará a ser uma operação sem tempo de inatividade, e deixaremos de transferir automaticamente os clientes para novos níveis com base no crescimento do seu diretório. Além disso, não haverá aumentos de preços, e novos preços irão alinhar-se com o nosso modelo de faturação atual. Para obter mais informações, consulte a [documentação Azure AD DS SKUs](https://docs.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) e a [página de preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).
+**Não é necessária qualquer ação imediata do cliente.** Para os clientes existentes, o nível dinâmico que estava em uso a 1 de fevereiro de 2020, determina o novo nível de incumprimento. Não existe um impacto de preços ou desempenho como resultado desta alteração. Para a frente, os clientes da Azure AD DS terão de avaliar os requisitos de desempenho à medida que o seu tamanho de diretório e as suas características de carga de trabalho mudarem. A troca entre os níveis de serviço continuará a ser uma operação sem tempo de inatividade, e deixaremos de transferir automaticamente os clientes para novos níveis com base no crescimento do seu diretório. Além disso, não haverá aumentos de preços, e novos preços irão alinhar-se com o nosso modelo de faturação atual. Para obter mais informações, consulte a [documentação Azure AD DS SKUs](../../active-directory-domain-services/administration-concepts.md#azure-ad-ds-skus) e a [página de preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
 ---
  
@@ -244,10 +244,10 @@ Ouvimos feedback de que os clientes da Azure AD Domain Services querem mais flex
  
 Em fevereiro de 2020, adicionámos estas 31 novas aplicações com apoio da Federação à galeria de aplicações: 
 
-[Plataforma de Patentes IamIP](https://docs.microsoft.com/azure/active-directory/saas-apps/iamip-patent-platform-tutorial), [Experience Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/experience-cloud-tutorial), [NS1 SSO For Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/ns1-sso-azure-tutorial), [Barracuda Email Security Service](https://ess.barracudanetworks.com/sso/azure), [ABa Reporting](https://myaba.co.uk/client-access/signin/auth/msad), Em caso de crise - Portal [On-line,](https://docs.microsoft.com/azure/active-directory/saas-apps/in-case-of-crisis-online-portal-tutorial) [BIC Cloud Design,](https://docs.microsoft.com/azure/active-directory/saas-apps/bic-cloud-design-tutorial) [Apicultor Azure AD Data Connector,](https://docs.microsoft.com/azure/active-directory/saas-apps/beekeeper-azure-ad-data-connector-tutorial) [Korn Ferry Assessments,](https://www.kornferry.com/solutions/kf-digital/kf-assess) [Verkada Command,](https://docs.microsoft.com/azure/active-directory/saas-apps/verkada-command-tutorial) [Splashtop,](https://docs.microsoft.com/azure/active-directory/saas-apps/splashtop-tutorial) [Syxsense,](https://docs.microsoft.com/azure/active-directory/saas-apps/syxsense-tutorial) [EAB Navigate,](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-tutorial) [Nova Relíquia (Lançamento Limitado)](https://docs.microsoft.com/azure/active-directory/saas-apps/new-relic-limited-release-tutorial), [Thulium](https://admin.thulium.com/login/instance), [Gestor de Bilhetes,](https://docs.microsoft.com/azure/active-directory/saas-apps/ticketmanager-tutorial)Escolha [de Modelos para Equipas,](https://links.officeatwork.com/templatechooser-download-teams) [Beesy,](https://www.beesy.me/index.php/site/login) [Sistema de Suporte de Saúde,](https://docs.microsoft.com/azure/active-directory/saas-apps/health-support-system-tutorial) [MURAL,](https://app.mural.co/signup) [Colmeia,](https://docs.microsoft.com/azure/active-directory/saas-apps/hive-tutorial) [LavaDo,](https://appsource.microsoft.com/product/web-apps/lavaloon.lavado_standard?tab=Overview) [Wakelet,](https://wakelet.com/login) [Firmex VDR,](https://docs.microsoft.com/azure/active-directory/saas-apps/firmex-vdr-tutorial) [ThingLink para Professores e Escolas,](https://www.thinglink.com/) [Coda,](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial) [NearpodApp,](https://nearpod.com/signup/?oc=Microsoft&utm_campaign=Microsoft&utm_medium=site&utm_source=product) [WEDO,](https://docs.microsoft.com/azure/active-directory/saas-apps/wedo-tutorial) [InvitePeople,](https://invitepeople.com/login) [Reprints Desk - Artigo Galaxy,](https://docs.microsoft.com/azure/active-directory/saas-apps/reprints-desk-article-galaxy-tutorial) [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial)
+[Plataforma de Patentes IamIP](../saas-apps/iamip-patent-platform-tutorial.md), [Experience Cloud](../saas-apps/experience-cloud-tutorial.md), [NS1 SSO For Azure](../saas-apps/ns1-sso-azure-tutorial.md), [Barracuda Email Security Service](https://ess.barracudanetworks.com/sso/azure), [ABa Reporting](https://myaba.co.uk/client-access/signin/auth/msad), Em caso de crise - Portal [On-line,](../saas-apps/in-case-of-crisis-online-portal-tutorial.md) [BIC Cloud Design,](../saas-apps/bic-cloud-design-tutorial.md) [Apicultor Azure AD Data Connector,](../saas-apps/beekeeper-azure-ad-data-connector-tutorial.md) [Korn Ferry Assessments,](https://www.kornferry.com/solutions/kf-digital/kf-assess) [Verkada Command,](../saas-apps/verkada-command-tutorial.md) [Splashtop,](../saas-apps/splashtop-tutorial.md) [Syxsense,](../saas-apps/syxsense-tutorial.md) [EAB Navigate,](../saas-apps/eab-navigate-tutorial.md) [Nova Relíquia (Lançamento Limitado)](../saas-apps/new-relic-limited-release-tutorial.md), [Thulium](https://admin.thulium.com/login/instance), [Gestor de Bilhetes,](../saas-apps/ticketmanager-tutorial.md)Escolha [de Modelos para Equipas,](https://links.officeatwork.com/templatechooser-download-teams) [Beesy,](https://www.beesy.me/index.php/site/login) [Sistema de Suporte de Saúde,](../saas-apps/health-support-system-tutorial.md) [MURAL,](https://app.mural.co/signup) [Colmeia,](../saas-apps/hive-tutorial.md) [LavaDo,](https://appsource.microsoft.com/product/web-apps/lavaloon.lavado_standard?tab=Overview) [Wakelet,](https://wakelet.com/login) [Firmex VDR,](../saas-apps/firmex-vdr-tutorial.md) [ThingLink para Professores e Escolas,](https://www.thinglink.com/) [Coda,](../saas-apps/coda-tutorial.md) [NearpodApp,](https://nearpod.com/signup/?oc=Microsoft&utm_campaign=Microsoft&utm_medium=site&utm_source=product) [WEDO,](../saas-apps/wedo-tutorial.md) [InvitePeople,](https://invitepeople.com/login) [Reprints Desk - Artigo Galaxy,](../saas-apps/reprints-desk-article-galaxy-tutorial.md) [TeamViewer](../saas-apps/teamviewer-tutorial.md)
 
  
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
  
@@ -259,13 +259,13 @@ Para obter mais informações sobre as aplicações, consulte a [integração da
  
 Pode agora automatizar a criação, atualização e eliminação de contas de utilizador para estas novas aplicações integradas:
 
-- [Mixpanel](https://docs.microsoft.com/azure/active-directory/saas-apps/mixpanel-provisioning-tutorial)
-- [TeamViewer](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-provisioning-tutorial)
-- [Azure Databricks](https://docs.microsoft.com/azure/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial)
-- [PureCloud da Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-provisioning-tutorial)
-- [Zapier](https://docs.microsoft.com/azure/active-directory/saas-apps/zapier-provisioning-tutorial)
+- [Mixpanel](../saas-apps/mixpanel-provisioning-tutorial.md)
+- [TeamViewer](../saas-apps/teamviewer-provisioning-tutorial.md)
+- [Azure Databricks](/azure/databricks/administration-guide/users-groups/scim/aad)
+- [PureCloud da Genesys](../saas-apps/purecloud-by-genesys-provisioning-tutorial.md)
+- [Zapier](../saas-apps/zapier-provisioning-tutorial.md)
 
-Para obter mais informações sobre como proteger melhor a sua organização utilizando o fornecimento automatizado de conta de utilizador, consulte [automatizar o fornecimento de utilizadores para aplicações SaaS com Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Para obter mais informações sobre como proteger melhor a sua organização utilizando o fornecimento automatizado de conta de utilizador, consulte [automatizar o fornecimento de utilizadores para aplicações SaaS com Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
  
@@ -275,9 +275,9 @@ Para obter mais informações sobre como proteger melhor a sua organização uti
 **Categoria de serviço:** Autenticações (Logins)  
 **Capacidade do produto:** Autenticação do Utilizador
  
-Estamos a anunciar a pré-visualização pública do suporte da AD Azure para chaves de segurança FIDO2 em ambientes híbridos. Os utilizadores podem agora utilizar as chaves de segurança FIDO2 para iniciar súbs nos seus dispositivos Híbrido Azure AD e obter um sinal de saúde sem emenda nos seus locais e recursos na nuvem. O suporte aos ambientes Híbridos tem sido a característica mais requisitada dos nossos clientes sem palavras-passe desde que inicialmente lançámos a pré-visualização pública para suporte FIDO2 em dispositivos aderidos a Azure AD. A autenticação sem palavras-passe utilizando tecnologias avançadas como a biometria e a criptografia de chaves públicas/privadas proporcionam comodidade e facilidade de utilização enquanto estão seguros. Com esta pré-visualização pública, você pode agora usar a autenticação moderna como chaves de segurança FIDO2 para aceder aos recursos tradicionais do Ative Directory. Para mais informações, aceda [ao SSO para obter recursos no local.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises) 
+Estamos a anunciar a pré-visualização pública do suporte da AD Azure para chaves de segurança FIDO2 em ambientes híbridos. Os utilizadores podem agora utilizar as chaves de segurança FIDO2 para iniciar súbs nos seus dispositivos Híbrido Azure AD e obter um sinal de saúde sem emenda nos seus locais e recursos na nuvem. O suporte aos ambientes Híbridos tem sido a característica mais requisitada dos nossos clientes sem palavras-passe desde que inicialmente lançámos a pré-visualização pública para suporte FIDO2 em dispositivos aderidos a Azure AD. A autenticação sem palavras-passe utilizando tecnologias avançadas como a biometria e a criptografia de chaves públicas/privadas proporcionam comodidade e facilidade de utilização enquanto estão seguros. Com esta pré-visualização pública, você pode agora usar a autenticação moderna como chaves de segurança FIDO2 para aceder aos recursos tradicionais do Ative Directory. Para mais informações, aceda [ao SSO para obter recursos no local.](../authentication/howto-authentication-passwordless-security-key-on-premises.md) 
 
-Para começar, visite [as chaves de segurança FIDO2 para o seu inquilino](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key) para obter instruções passo a passo. 
+Para começar, visite [as chaves de segurança FIDO2 para o seu inquilino](../authentication/howto-authentication-passwordless-security-key.md) para obter instruções passo a passo. 
 
 ---
  
@@ -287,7 +287,7 @@ Para começar, visite [as chaves de segurança FIDO2 para o seu inquilino](https
 **Categoria de serviço:** O meu perfil/conta  
 **Capacidade do produto:** Experiências de utilizador final
  
-A Minha Conta, o balcão único para todas as necessidades de gestão de conta de utilizador final, está agora geralmente disponível! Os utilizadores finais podem aceder a este novo site via URL, ou no cabeçalho da nova experiência My Apps. Saiba mais sobre todas as capacidades de self-service que a nova experiência oferece no [My Account Portal Overview](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+A Minha Conta, o balcão único para todas as necessidades de gestão de conta de utilizador final, está agora geralmente disponível! Os utilizadores finais podem aceder a este novo site via URL, ou no cabeçalho da nova experiência My Apps. Saiba mais sobre todas as capacidades de self-service que a nova experiência oferece no [My Account Portal Overview](../user-help/my-account-portal-overview.md).
 
 ---
  
@@ -297,7 +297,7 @@ A Minha Conta, o balcão único para todas as necessidades de gestão de conta d
 **Categoria de serviço:** O meu perfil/conta  
 **Capacidade do produto:** Experiências de utilizador final
  
-A nova experiência do utilizador final my Account irá atualizar o seu URL para `https://myaccount.microsoft.com` o próximo mês. Encontre mais informações sobre a experiência e todas as capacidades de self-service da conta que oferece aos utilizadores finais no [portal My Account.](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview)
+A nova experiência do utilizador final my Account irá atualizar o seu URL para `https://myaccount.microsoft.com` o próximo mês. Encontre mais informações sobre a experiência e todas as capacidades de self-service da conta que oferece aos utilizadores finais no [portal My Account.](../user-help/my-account-portal-overview.md)
 
 ---
 
@@ -358,7 +358,7 @@ Em janeiro de 2020, adicionámos estas 33 novas aplicações com apoio da Federa
 
 [JOSA](../saas-apps/josa-tutorial.md), [FastLy Edge Cloud](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [Upshotly,](../saas-apps/upshotly-tutorial.md) [LeaveBot,](https://leavebot.io/#home) [DataCamp,](../saas-apps/datacamp-tutorial.md) [TripActions,](../saas-apps/tripactions-tutorial.md) [SmartWork,](https://www.intumit.com/english/SmartWork.html) [Dotcom-Monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN - Azure AD SSO Gateway Oracle for E-Business Suite - EBS, PeopleSoft, e JDE](../saas-apps/ssogen-tutorial.md), [Hospedado MyCirqa SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu Property Management Platform,](../saas-apps/yuhu-property-management-platform-tutorial.md) [LumApps](https://sites.lumapps.com/login), [Upwork Enterprise,](../saas-apps/upwork-enterprise-tutorial.md) [Talentsoft,](../saas-apps/talentsoft-tutorial.md) [SmartDB for Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient Conduct Manager Software](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), [PortalTalk 365](https://www.portaltalk.com/), [CoreView](https://portal.coreview.com/), [Squelch Cloud Office365 Connector](https://laxmi.squelch.io/login), [PingFlow Authentication](https://app-staging.pingview.io/), [ PrinterLogic SaaS](../saas-apps/printerlogic-saas-tutorial.md), [Taskize Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/), [EZRentOut,](../saas-apps/ezrentout-tutorial.md) [AssetSonar](../saas-apps/assetsonar-tutorial.md), [Akari Virtual Assistant](https://akari.io/akari-virtual-assistant/)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -392,7 +392,7 @@ A partir de 8 de fevereiro de 2020, quando um pedido é enviado para login.micro
 
 Pode agora integrar os SAP SuccessFactors como fonte de identidade autoritária em Azure AD. Esta integração ajuda-o a automatizar o ciclo de vida de identidade de ponta a ponta, incluindo a utilização de eventos baseados em RH, como novas contratações ou rescisões, para controlar o fornecimento de contas AD Azure.
 
-Para obter mais informações sobre como configurar o SAP SuccessFactors que está a chegar à Azure AD, consulte o tutorial [de provisionamento automático Configure SAP SuccessFactors.](https://aka.ms/SAPSuccessFactorsInboundTutorial)
+Para obter mais informações sobre como configurar o SAP SuccessFactors que está a chegar à Azure AD, consulte o tutorial [de provisionamento automático Configure SAP SuccessFactors.](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 
 ---
 
@@ -580,7 +580,7 @@ Em novembro de 2019, adicionámos estas 21 novas aplicações com apoio da Feder
 
 [Airtable](../saas-apps/airtable-tutorial.md), [Hootsuite,](../saas-apps/hootsuite-tutorial.md) [Blue Access for Members (BAM)](../saas-apps/blue-access-for-members-tutorial.md), [Bitly](../saas-apps/bitly-tutorial.md), [Riva](../saas-apps/riva-tutorial.md), [ResLife Portal](https://app.reslifecloud.com/hub5_signin/microsoft_azuread/?g=44BBB1F90915236A97502FF4BE2952CB&c=5&uid=0&ht=2&ref=), [NegometrixPortal Single Sign On (SSO)](../saas-apps/negometrixportal-tutorial.md), [TeamsChamp,](https://login.microsoftonline.com/551f45da-b68e-4498-a7f5-a6e1efaeb41c/adminconsent?client_id=ca9bbfa4-1316-4c0f-a9ee-1248ac27f8ab&redirect_uri=https://admin.teamschamp.com/api/adminconsent&state=6883c143-cb59-42ee-a53a-bdb5faabf279) [Motus,](../saas-apps/motus-tutorial.md) [MyAryaka,](../saas-apps/myaryaka-tutorial.md) [BlueMail](https://loginself1.bluemail.me/), [Beedle](https://teams-web.beedle.co/#/), [Visma](../saas-apps/visma-tutorial.md), [OneDesk](../saas-apps/onedesk-tutorial.md), [Foko Retail,](../saas-apps/foko-retail-tutorial.md) [Qmarkets Idea & Innovation Management](../saas-apps/qmarkets-idea-innovation-management-tutorial.md), [Netskope User Authentication](../saas-apps/netskope-user-authentication-tutorial.md), [uniFLOW Online,](../saas-apps/uniflow-online-tutorial.md) [Claromentis,](../saas-apps/claromentis-tutorial.md) [Jisc Student Registration](../saas-apps/jisc-student-voter-registration-tutorial.md), [e4enable](https://portal.e4enable.com/)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -616,7 +616,7 @@ Para obter mais informações sobre a utilização de definições de funções 
 
 Em resposta ao feedback do desenvolvedor, os subscritores Azure AD Premium P2 podem agora realizar consultas complexas sobre os dados de deteção de risco da Azure AD Identity Protection utilizando a nova API de deteção de risco para o Microsoft Graph. A versão beta da [API](/graph/api/resources/identityriskevent?view=graph-rest-beta) de identidade existente irá deixar de devolver os dados em **10 de janeiro de 2020**. Se a sua organização estiver a usar a identidadeRiskEvent API, deverá transitar para a nova API de riscodetecção.
 
-Para obter mais informações sobre o novo risco API de deteção de risco, consulte a documentação de referência da [API de deteção de risco.](https://aka.ms/RiskDetectionsAPI)
+Para obter mais informações sobre o novo risco API de deteção de risco, consulte a documentação de referência da [API de deteção de risco.](/graph/api/resources/riskdetection)
 
 ---
 
@@ -645,7 +645,7 @@ Para obter mais informações sobre as definições de cookies Proxy da aplicaç
 
 Os utilizadores com contas AZURE AD já não podem registar ou gerir aplicações utilizando o Portal de Registo de Aplicações (apps.dev.microsoft.com), ou registar e gerir aplicações na experiência de registos (legado) da App no portal Azure.
 
-Para saber mais sobre a experiência das novas inscrições da App, consulte as inscrições da App no guia de [formação do portal Azure.](../develop/app-registrations-training-guide-for-app-registrations-legacy-users.md)
+Para saber mais sobre a experiência das novas inscrições da App, consulte as inscrições da App no guia de [formação do portal Azure.](../develop/quickstart-register-app.md)
 
 ---
 
@@ -739,9 +739,9 @@ Para obter mais informações, consulte [upgrade para o modelo de faturação de
 
 Em outubro de 2019, adicionámos estas 35 novas aplicações com apoio da Federação à galeria de aplicações:
 
-[Em Caso de Crise – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), Juno [Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact,](https://tact.ai/assistant/) [OpusCapita Cash Management,](http://cm1.opuscapita.com/tenantname) [Salestim,](https://prd.salestim.io/forms) [Learnster,](../saas-apps/learnster-tutorial.md) [Dynatrace,](../saas-apps/dynatrace-tutorial.md) [HunchBuzz,](https://login.hunchbuzz.com/integrations/azure/process) [Freshworks,](../saas-apps/freshworks-tutorial.md) [eCornell,](../saas-apps/ecornell-tutorial.md) [ShipHazmat,](../saas-apps/shiphazmat-tutorial.md) [Netskope Cloud Security,](../saas-apps/netskope-cloud-security-tutorial.md) [Contentamento](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US,](https://www.hirevue.com/) [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org,](../saas-apps/visitorg-tutorial.md) [Cambium Xirrus EasyPass Portal,](https://login.xirrus.com/azure-signup) [Paylocity,](../saas-apps/paylocity-tutorial.md) [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), Speaking Email [for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Talking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+[Em Caso de Crise – Mobile](../saas-apps/in-case-of-crisis-mobile-tutorial.md), Juno [Journey](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact,](https://tact.ai/assistant/) [OpusCapita Cash Management,](http://cm1.opuscapita.com/tenantname) [Salestim,](https://www.salestim.com/) [Learnster,](../saas-apps/learnster-tutorial.md) [Dynatrace,](../saas-apps/dynatrace-tutorial.md) [HunchBuzz,](https://login.hunchbuzz.com/integrations/azure/process) [Freshworks,](../saas-apps/freshworks-tutorial.md) [eCornell,](../saas-apps/ecornell-tutorial.md) [ShipHazmat,](../saas-apps/shiphazmat-tutorial.md) [Netskope Cloud Security,](../saas-apps/netskope-cloud-security-tutorial.md) [Contentamento](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [HireVue Coordinate – Europe](https://www.hirevue.com/), [HireVue Coordinate - USOnly](https://www.hirevue.com/), [HireVue Coordinate - US,](https://www.hirevue.com/) [WittyParrot Knowledge Box](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md), [Visit.org,](../saas-apps/visitorg-tutorial.md) [Cambium Xirrus EasyPass Portal,](https://login.xirrus.com/azure-signup) [Paylocity,](../saas-apps/paylocity-tutorial.md) [Mail Luck!](../saas-apps/mail-luck-tutorial.md), [Teamie](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login), [SIGNL4](https://account.signl4.com/manage), [EAB Navigate IMPL](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), Speaking Email [for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [Talking Email for Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), [iHealthHome Care Navigation System](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -774,7 +774,7 @@ A política de expiração dos grupos Office 365 foi reforçada para renovar aut
 
 Esta melhoria ajuda a reduzir as notificações de expiração do seu grupo e ajuda a garantir que os grupos ativos continuam disponíveis. Se já tem uma política de expiração ativa para os seus grupos Office 365, não precisa de fazer nada para ativar esta nova funcionalidade.
 
-Para obter mais informações, consulte a política de [caducidade dos grupos Office 365](../users-groups-roles/groups-lifecycle.md).
+Para obter mais informações, consulte a política de [caducidade dos grupos Office 365](../enterprise-users/groups-lifecycle.md).
 
 ---
 
@@ -822,7 +822,7 @@ Temos o prazer de anunciar a disponibilidade pública de visualização das expe
 
 - Descarregando a lista de membros do grupo para um grupo específico.
 
-Para obter mais informações, consulte [a Bulk add members](../users-groups-roles/groups-bulk-import-members.md), Bulk remove [members,](../users-groups-roles/groups-bulk-remove-members.md) [Bulk download members list](../users-groups-roles/groups-bulk-download-members.md), and Bulk download [groups](../users-groups-roles/groups-bulk-download.md).
+Para obter mais informações, consulte [a Bulk add members](../enterprise-users/groups-bulk-import-members.md), Bulk remove [members,](../enterprise-users/groups-bulk-remove-members.md) [Bulk download members list](../enterprise-users/groups-bulk-download-members.md), and Bulk download [groups](../enterprise-users/groups-bulk-download.md).
 
 ---
 
@@ -844,7 +844,7 @@ Em setembro de 2019, adicionámos estas 29 novas aplicações com apoio da Feder
 
 [ScheduleLook](https://schedulelook.bbsonlineservices.net/), [MS Azure SSO Acesso para Ethidex Compliance Office &trade; - Único sinal,](../saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md) [iServer Portal,](../saas-apps/iserver-portal-tutorial.md) [SKYSITE,](../saas-apps/skysite-tutorial.md) [Concur Viagens e Despesas,](../saas-apps/concur-travel-and-expense-tutorial.md) [WorkBoard](../saas-apps/workboard-tutorial.md), `https://apps.yeeflow.com/` ARC [Facilities,](../saas-apps/arc-facilities-tutorial.md) [Luware Stratus Team](https://stratus.emea.luware.cloud/login), Wide [Ideas,](https://wideideas.online/wideideas/) [Prisma Cloud,](../saas-apps/prisma-cloud-tutorial.md) [JDLT Client Hub](https://clients.jdlt.co.uk/login), [RENRAKU,](../saas-apps/renraku-tutorial.md) [SealPath Secure Browser,](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive) [Prisma Cloud,](../saas-apps/prisma-cloud-tutorial.md) `https://app.penneo.com/` , `https://app.testhtm.com/settings/email-integration` [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](../saas-apps/whitesource-tutorial.md), [Hosted Heritage Online SSO](../saas-apps/hosted-heritage-online-sso-tutorial.md), [IDC,](../saas-apps/idc-tutorial.md) [CakeHR,](../saas-apps/cakehr-tutorial.md) [BIS,](../saas-apps/bis-tutorial.md) [Coo Kai Team Build,](https://ms-contacts.coo-kai.jp/) [Sonarqube,](../saas-apps/sonarqube-tutorial.md) [Adobe Identity Management,](../saas-apps/tutorial-list.md) [Discovery Benefits SSO,](../saas-apps/discovery-benefits-sso-tutorial.md) [Amelio,](https://app.amelio.co/)`https://itask.yipinapp.com/`
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -861,7 +861,7 @@ O papel de Global Reader funciona com o novo Microsoft 365 Admin Center, Exchang
 >[!NOTE]
 > No início da pré-visualização pública, o papel do Global Reader não funcionará com: SharePoint, Gestão de Acesso Privilegiado, Bloqueio de Clientes, etiquetas de sensibilidade, Ciclo de Vida das Equipas, Equipas A reportar & Call Analytics, Teams IP Phone Device Management e Teams App Catalog.
 
-Para obter mais informações, consulte [permissões de função de administrador no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md).
+Para obter mais informações, consulte [permissões de função de administrador no Diretório Ativo Azure](../roles/permissions-reference.md).
 
 ---
 
@@ -941,7 +941,7 @@ Para obter mais informações, consulte [Gerir grupos no portal Azure.](./active
 
 **Tipo:** Nova **categoria de funcionalidades Serviço:** Azure AD roles **Capacidade de produto:** Controlo de acesso
 
-As funções personalizadas (disponíveis com uma subscrição AZure AD P1 ou P2) podem agora ajudar-lhe a fornecer acesso fino, permitindo-lhe criar definições de papéis com permissões específicas e, em seguida, atribuir essas funções a recursos específicos. Atualmente, cria funções personalizadas usando permissões para gerir registos de aplicações e, em seguida, atribuindo o papel a uma aplicação específica. Para obter mais informações sobre funções personalizadas, consulte [as funções de administrador personalizado no Diretório Ativo Azure (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
+As funções personalizadas (disponíveis com uma subscrição AZure AD P1 ou P2) podem agora ajudar-lhe a fornecer acesso fino, permitindo-lhe criar definições de papéis com permissões específicas e, em seguida, atribuir essas funções a recursos específicos. Atualmente, cria funções personalizadas usando permissões para gerir registos de aplicações e, em seguida, atribuindo o papel a uma aplicação específica. Para obter mais informações sobre funções personalizadas, consulte [as funções de administrador personalizado no Diretório Ativo Azure (pré-visualização)](../roles/custom-overview.md).
 
 Se precisar de permissões ou recursos adicionais suportados, o que não vê atualmente, pode enviar feedback para o nosso [site de feedback Azure](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) e adicionaremos o seu pedido ao nosso roteiro de atualização.
 
@@ -983,7 +983,7 @@ Para obter mais informações, consulte [utilizadores](../identity-protection/ho
 
 **Tipo:** Nova **categoria de serviço de recurso:** Identidades geridas para recursos Azure **Capacidade de produto:** Developer Experience
 
-As identidades geridas atribuídas pelo utilizador estão agora geralmente disponíveis para máquinas virtuais e conjuntos de escala de máquinas virtuais. Como parte disso, a Azure pode criar uma identidade no inquilino AZure AD que é confiável pela subscrição em uso, e pode ser atribuída a uma ou mais instâncias de serviço Azure. Para obter mais informações sobre identidades geridas atribuídas pelo utilizador, consulte [o que são identidades geridas para os recursos Azure?](https://aka.ms/azuremanagedidentity)
+As identidades geridas atribuídas pelo utilizador estão agora geralmente disponíveis para máquinas virtuais e conjuntos de escala de máquinas virtuais. Como parte disso, a Azure pode criar uma identidade no inquilino AZure AD que é confiável pela subscrição em uso, e pode ser atribuída a uma ou mais instâncias de serviço Azure. Para obter mais informações sobre identidades geridas atribuídas pelo utilizador, consulte [o que são identidades geridas para os recursos Azure?](../managed-identities-azure-resources/overview.md)
 
 ---
 
@@ -993,7 +993,7 @@ As identidades geridas atribuídas pelo utilizador estão agora geralmente dispo
 
 Os utilizadores que tenham registado uma aplicação móvel junto da sua organização podem agora redefinir a sua própria palavra-passe aprovando uma notificação da aplicação Microsoft Authenticator ou introduzindo um código a partir da sua aplicação móvel ou token de hardware.
 
-Para obter mais informações, consulte [como funciona: Redefinição da palavra-passe de autosserviço Azure AD](https://aka.ms/authappsspr). Para obter mais informações sobre a experiência do utilizador, consulte [redefinir o seu próprio trabalho ou a visão geral da palavra-passe da escola.](../user-help/active-directory-passwords-reset-register.md)
+Para obter mais informações, consulte [como funciona: Redefinição da palavra-passe de autosserviço Azure AD](../authentication/concept-sspr-howitworks.md). Para obter mais informações sobre a experiência do utilizador, consulte [redefinir o seu próprio trabalho ou a visão geral da palavra-passe da escola.](../user-help/active-directory-passwords-reset-register.md)
 
 ---
 
@@ -1015,7 +1015,7 @@ Em agosto de 2019, adicionámos estas 26 novas aplicações com apoio da Federa�
 
 [Plataforma Cívica](../saas-apps/civic-platform-tutorial.md), [Amazon Business](../saas-apps/amazon-business-tutorial.md), [ProNovos Ops Manager,](../saas-apps/pronovos-ops-manager-tutorial.md) [Cognidox](../saas-apps/cognidox-tutorial.md), [Viareport's Inativ Portal (Europa)](../saas-apps/viareports-inativ-portal-europe-tutorial.md), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](../saas-apps/robin-tutorial.md), [Academy Assiding](../saas-apps/academy-attendance-tutorial.md), [Priority Matrix](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](../saas-apps/carbonite-endpoint-backup-tutorial.md), [CPQSync by Cincom](../saas-apps/cpqsync-by-cincom-tutorial.md), [Chargebee,](../saas-apps/chargebee-tutorial.md) [deliver.media &trade; Portal](https://portal.deliver.media), [Frontline Education](../saas-apps/frontline-education-tutorial.md), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect,](https://www.stashcat.com) [Blink](../saas-apps/blink-tutorial.md), [Vocoli,](../saas-apps/vocoli-tutorial.md) [ProNovos Analytics,](../saas-apps/pronovos-analytics-tutorial.md) [Sigstr,](../saas-apps/sigstr-tutorial.md) [Darwinbox,](../saas-apps/darwinbox-tutorial.md) [Watch by Colors](../saas-apps/watch-by-colors-tutorial.md), [Harness](../saas-apps/harness-tutorial.md), [EAB Navigate Strategic Care](../saas-apps/eab-navigate-strategic-care-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1044,7 +1044,7 @@ Estão disponíveis novas atualizações para os módulos PowerShell de pré-vis
 
 Fizemos algumas melhorias na UI ao dinâmico construtor de regras do grupo, disponível no portal Azure, para ajudá-lo mais facilmente a configurar uma nova regra, ou alterar as regras existentes. Esta melhoria de design permite criar regras com até cinco expressões, em vez de apenas uma. Também atualizámos a lista de propriedades do dispositivo para remover as propriedades do dispositivo precotado.
 
-Para obter mais informações, consulte [Gerir as regras de adesão dinâmicas.](../users-groups-roles/groups-dynamic-membership.md)
+Para obter mais informações, consulte [Gerir as regras de adesão dinâmicas.](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 
@@ -1074,7 +1074,7 @@ Para obter mais informações sobre a criação do Azure Monitor, consulte [os r
 
 No dia 25 de setembro de 2019, vamos desligar a antiga experiência de informação de segurança não reforçada para registar e gerir informações de segurança dos utilizadores e apenas ligar a nova [versão melhorada.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271) Isto significa que os seus utilizadores deixarão de poder utilizar a experiência antiga.
 
-Para mais informações sobre a experiência de informação de segurança reforçada, consulte a nossa [documentação de administração](https://aka.ms/securityinfodocs) e [a documentação do](https://aka.ms/securityinfoguide)nosso utilizador.
+Para mais informações sobre a experiência de informação de segurança reforçada, consulte a nossa [documentação de administração](../authentication/concept-registration-mfa-sspr-combined.md) e [a documentação do](../user-help/security-info-setup-signin.md)nosso utilizador.
 
 #### <a name="to-turn-on-this-new-experience-you-must"></a>Para dar a conhecer esta nova experiência, deve:
 
@@ -1168,7 +1168,7 @@ Em julho de 2019, adicionámos estas 18 novas aplicações com apoio da Federaç
 
 [Software Ungerboeck](../saas-apps/ungerboeck-software-tutorial.md), [Bright Pattern Omnichannel Contact Center](../saas-apps/bright-pattern-omnichannel-contact-center-tutorial.md), Clever [Nelly](../saas-apps/clever-nelly-tutorial.md), [AcquireIO](../saas-apps/acquireio-tutorial.md), [Looop](https://www.looop.co/schedule-a-demo/), [productboard](../saas-apps/productboard-tutorial.md), [MS Azure SSO Access for Ethidex Compliance Office &trade; ](../saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md), [Hype](../saas-apps/hype-tutorial.md), [Abstract,](../saas-apps/abstract-tutorial.md) [Ascentis,](../saas-apps/ascentis-tutorial.md) [Flipsnack,](https://www.flipsnack.com/accounts/sign-in-sso.html) [Wandera,](../saas-apps/wandera-tutorial.md) [TwineSocial,](https://twinesocial.com/) [Kallidus](../saas-apps/kallidus-tutorial.md), [HyperAnna](../saas-apps/hyperanna-tutorial.md), [PharmID WasteWitness,](https://pharmid.com/) [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), [JFrog Artifactory](../saas-apps/jfrog-artifactory-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1346,7 +1346,7 @@ Em junho de 2019, adicionámos estas 22 novas aplicações com apoio da Federaç
 
 [Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Cliente Azure VPN](https://portal.azure.com/), [ExpenseIn](../saas-apps/expensein-tutorial.md), [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne,](../saas-apps/globalone-tutorial.md) [Mercedes-Benz In-Car Office,](https://me.secure.mercedes-benz.com/) [Skore,](https://app.justskore.it/) [Oracle Cloud Consola de Infraestruturas](../saas-apps/oracle-cloud-tutorial.md), [Autenticação CYBERArk SAML](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu,](https://www.scrible.com/sign-in/#/create-account) [PandaDoc,](../saas-apps/pandadoc-tutorial.md) [Perceptyx,](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager para o Oracle Retail Merchandising, Oracle Access Manager para Oracle E-Business Suite, Oracle IDCS para E-Business Suite, Oracle IDCS para PeopleSoft, Oracle IDCS para JD Edwards
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1494,7 +1494,7 @@ Em maio de 2019, adicionámos estas 21 novas aplicações com apoio da Federaç�
 
 [Freedcamp](../saas-apps/freedcamp-tutorial.md), [Real Links](../saas-apps/real-links-tutorial.md), [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/), [Simple Sign](../saas-apps/simple-sign-tutorial.md), [Braze](../saas-apps/braze-tutorial.md), [Displayr](../saas-apps/displayr-tutorial.md), [Templafy,](../saas-apps/templafy-tutorial.md) [Marketo Sales Engage,](https://toutapp.com/login) [ACLP,](../saas-apps/aclp-tutorial.md) [OutSystems](../saas-apps/outsystems-tutorial.md), [Meta4 Global HR](../saas-apps/meta4-global-hr-tutorial.md), Quantum [Workplace](../saas-apps/quantum-workplace-tutorial.md), [Cobalt,](../saas-apps/cobalt-tutorial.md) [webMethods API Cloud,](../saas-apps/webmethods-integration-cloud-tutorial.md) [RedFlag](https://pocketstop.com/redflag/), [Whatfix,](../saas-apps/whatfix-tutorial.md) [Control,](../saas-apps/control-tutorial.md) [JOBHUB,](../saas-apps/jobhub-tutorial.md) [NEOGOV,](../saas-apps/neogov-tutorial.md) [Foodee,](../saas-apps/foodee-tutorial.md) [MyVR](../saas-apps/myvr-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1530,7 +1530,7 @@ Pode configurar a política de nomeação para grupos do Office 365 de duas mane
 
 - Faça o upload de um conjunto personalizado de palavras bloqueadas para a sua organização, que não são permitidas em nomes de grupo (por exemplo, "CEO, Payroll, HR").
 
-Para obter mais informações, consulte [Impor uma Política de Nomeação para o Office 365 grupos](../users-groups-roles/groups-naming-policy.md).
+Para obter mais informações, consulte [Impor uma Política de Nomeação para o Office 365 grupos](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1594,7 +1594,7 @@ Pode configurar a política de nomeação para grupos do Office 365 de duas mane
 
 - Faça o upload de um conjunto personalizado de palavras bloqueadas para a sua organização, que não são permitidas em nomes de grupo (por exemplo, "CEO, Payroll, HR").
 
-Para obter mais informações, consulte [Impor uma Política de Nomeação para o Office 365 grupos](../users-groups-roles/groups-naming-policy.md).
+Para obter mais informações, consulte [Impor uma Política de Nomeação para o Office 365 grupos](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1624,7 +1624,7 @@ Em abril de 2019, adicionámos estas 21 novas aplicações com apoio da Federaç
 
 [SAP Fiori](../saas-apps/sap-fiori-tutorial.md), [HRworks Single Sign-On,](../saas-apps/hrworks-single-sign-on-tutorial.md) [Percolate,](../saas-apps/percolate-tutorial.md) [MobiControl,](../saas-apps/mobicontrol-tutorial.md) [Citrix NetScaler,](../saas-apps/citrix-netscaler-tutorial.md) [Shibumi,](../saas-apps/shibumi-tutorial.md) [Benchling,](../saas-apps/benchling-tutorial.md) [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](../saas-apps/pagedna-tutorial.md), [EduBrite LMS,](../saas-apps/edubrite-lms-tutorial.md) [RStudio Connect,](../saas-apps/rstudio-connect-tutorial.md) [AMMS,](../saas-apps/amms-tutorial.md) [Mitel Connect,](../saas-apps/mitel-connect-tutorial.md)Alibaba Cloud [(SSO baseado em funções)](../saas-apps/alibaba-cloud-service-role-based-sso-tutorial.md), [Indiggo](https://indiggolead.com/) [Certent Equity Management](../saas-apps/certent-equity-management-tutorial.md), [Sectigo Certificate Manager](../saas-apps/sectigo-certificate-manager-tutorial.md), [GreenOrbit](../saas-apps/greenorbit-tutorial.md), [Workgrid](../saas-apps/workgrid-tutorial.md), [monday.com](../saas-apps/mondaycom-tutorial.md), [SurveyMon](../saas-apps/surveymonkey-enterprise-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1718,7 +1718,7 @@ Em março de 2019, adicionámos estas 14 novas aplicações com apoio da Federa�
 
 [Delegado de Intercâmbio Móvel ISEC7](https://www.isec7.com/english/), [MediusFlow,](https://office365.cloudapp.mediusflow.com/) [ePlatform,](../saas-apps/eplatform-tutorial.md) [Fulcrum,](../saas-apps/fulcrum-tutorial.md) [ExcelityGlobal,](../saas-apps/excelityglobal-tutorial.md) [Sistema de Auditoria Baseado em Explicações,](../saas-apps/explanation-based-auditing-system-tutorial.md) [Lean,](../saas-apps/lean-tutorial.md) [Powerschool Performance Matters](../saas-apps/powerschool-performance-matters-tutorial.md), [Cinode,](https://cinode.com/) [Iris Intranet,](../saas-apps/iris-intranet-tutorial.md) [Empactis,](../saas-apps/empactis-tutorial.md) [SmartDraw,](../saas-apps/smartdraw-tutorial.md) [Confirmit Horizons,](../saas-apps/confirmit-horizons-tutorial.md) [TAS](../saas-apps/tas-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1728,9 +1728,9 @@ Para obter mais informações sobre as aplicações, consulte a [integração da
 
 Automatizar a criação, atualização e eliminação das contas dos utilizadores para as seguintes aplicações:
 
-[Zscaler,](https://aka.ms/ZscalerProvisioning) [Zscaler Beta,](https://aka.ms/ZscalerBetaProvisioning) [Zscaler One,](https://aka.ms/ZscalerOneProvisioning) [Zscaler Two,](https://aka.ms/ZscalerTwoProvisioning) [Zscaler Three,](https://aka.ms/ZscalerThreeProvisioning) [Zscaler ZSCloud,](https://aka.ms/ZscalerZSCloudProvisioning) [Atlassian Cloud](https://aka.ms/atlassianCloudProvisioning)
+[Zscaler,](../saas-apps/zscaler-provisioning-tutorial.md) [Zscaler Beta,](../saas-apps/zscaler-beta-provisioning-tutorial.md) [Zscaler One,](../saas-apps/zscaler-one-provisioning-tutorial.md) [Zscaler Two,](../saas-apps/zscaler-two-provisioning-tutorial.md) [Zscaler Three,](../saas-apps/zscaler-three-provisioning-tutorial.md) [Zscaler ZSCloud,](../saas-apps/zscaler-zscloud-provisioning-tutorial.md) [Atlassian Cloud](../saas-apps/atlassian-cloud-provisioning-tutorial.md)
 
-Para obter mais informações sobre como proteger melhor a sua organização através do provisionamento automatizado de conta de utilizador, consulte [o fornecimento de utilizadores do Automatismo às aplicações do SaaS com Azure AD](https://aka.ms/ProvisioningDocumentation).
+Para obter mais informações sobre como proteger melhor a sua organização através do provisionamento automatizado de conta de utilizador, consulte [o fornecimento de utilizadores do Automatismo às aplicações do SaaS com Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -1740,7 +1740,7 @@ Para obter mais informações sobre como proteger melhor a sua organização atr
 
 Agora pode ver e gerir os seus grupos eliminados do Office 365 a partir do portal AD AZure. Esta alteração ajuda-o a ver quais grupos estão disponíveis para restaurar, juntamente com o facto de lhe permitir eliminar permanentemente quaisquer grupos que não sejam necessários pela sua organização.
 
-Para obter mais informações, consulte [Os grupos Restore expirados ou eliminados.](../users-groups-roles/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore)
+Para obter mais informações, consulte [Os grupos Restore expirados ou eliminados.](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore)
 
 ---
 
@@ -1854,7 +1854,7 @@ Em fevereiro de 2019, adicionámos estas 27 novas aplicações com apoio da Fede
 
 [Euromonitor Passport](../saas-apps/euromonitor-passport-tutorial.md), [MindTickle](../saas-apps/mindtickle-tutorial.md), [FAT FINGER,](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7) [AirStack,](../saas-apps/airstack-tutorial.md) [Oracle Fusion ERP,](../saas-apps/oracle-fusion-erp-tutorial.md) [IDrive,](../saas-apps/idrive-tutorial.md) [Skyward Qmlativ,](../saas-apps/skyward-qmlativ-tutorial.md) [Brightidea](../saas-apps/brightidea-tutorial.md), [AlertOps](../saas-apps/alertops-tutorial.md), [Soloinsight-CloudGate SSO,](../saas-apps/soloinsight-cloudgate-sso-tutorial.md)Permission Click, [Brandfolder](../saas-apps/brandfolder-tutorial.md), [StoregateSmartFile,](../saas-apps/smartfile-tutorial.md) [Pexip,](../saas-apps/pexip-tutorial.md) [Stormboard](../saas-apps/stormboard-tutorial.md), [Sísmico,](../saas-apps/seismic-tutorial.md) [Partilhar Um Sonho,](https://www.shareadream.org/how-it-works) [Bugsnag,](../saas-apps/bugsnag-tutorial.md) [WebMethods Integration Cloud,](../saas-apps/webmethods-integration-cloud-tutorial.md) [Knowledge Anywhere LMS](../saas-apps/knowledge-anywhere-lms-tutorial.md), [OU Campus,](../saas-apps/ou-campus-tutorial.md) [Periscope Data,](../saas-apps/periscope-data-tutorial.md) [Netop Portal,](../saas-apps/netop-portal-tutorial.md) [smartvid.io,](../saas-apps/smartvid.io-tutorial.md) [PureCloud by Genesys,](../saas-apps/purecloud-by-genesys-tutorial.md) [ClickUp Productivity Platform](../saas-apps/clickup-productivity-platform-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1960,7 +1960,7 @@ Em janeiro de 2019, adicionámos estas 35 novas aplicações com apoio da Federa
 
 [Firstbird](../saas-apps/firstbird-tutorial.md), [Folloze](../saas-apps/folloze-tutorial.md), [Talent Palette](../saas-apps/talent-palette-tutorial.md), [Infor CloudSuite](../saas-apps/infor-cloud-suite-tutorial.md), [Cisco Umbrella,](../saas-apps/cisco-umbrella-tutorial.md) [Zscaler Internet Access Administrator](../saas-apps/zscaler-internet-access-administrator-tutorial.md), [Expiration Reminder,](../saas-apps/expiration-reminder-tutorial.md) [InstaVR Viewer,](../saas-apps/instavr-viewer-tutorial.md) [CorpTax,](../saas-apps/corptax-tutorial.md) [Verb,](https://app.verb.net/login) [OpenLattice,](https://openlattice.com/agora) [TheOrgWiki,](https://www.theorgwiki.com/signup) [Pavaso Digital Close,](../saas-apps/pavaso-digital-close-tutorial.md) [GoodPractice Toolkit,](../saas-apps/goodpractice-toolkit-tutorial.md) [Cloud Service PICCO,](../saas-apps/cloud-service-picco-tutorial.md) [AuditBoard,](../saas-apps/auditboard-tutorial.md) [iProva](../saas-apps/iprova-tutorial.md), [Workable,](../saas-apps/workable-tutorial.md) [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](../saas-apps/gtnexus-sso-module-tutorial.md), [CBRE ServiceInsight](../saas-apps/cbre-serviceinsight-tutorial.md), [Deskradar](../saas-apps/deskradar-tutorial.md), [Coralogixv](../saas-apps/coralogix-tutorial.md), [Signagelive](../saas-apps/signagelive-tutorial.md), [ARES for Enterprise](../saas-apps/ares-for-enterprise-tutorial.md), [K2 for Office 365](https://www.k2.com/O365), [Xledger,](https://www.xledger.net/) [iDiD Manager,](../saas-apps/idid-manager-tutorial.md) [HighGear,](../saas-apps/highgear-tutorial.md) [Visitly](../saas-apps/visitly-tutorial.md), [Korn Ferry ALP,](../saas-apps/korn-ferry-alp-tutorial.md) [Acadia,](../saas-apps/acadia-tutorial.md) [Adoddle cSaas Platform](../saas-apps/adoddle-csaas-platform-tutorial.md)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -1978,7 +1978,7 @@ Estamos entusiasmados por anunciar que adicionámos as seguintes melhorias à of
 
 - Alinhamento a nível do produto entre utilizadores de risco e entradas de risco
 
-Para obter mais informações sobre as melhorias, consulte [o que é a Azure Ative Directory Identity Protection (refrescado)?](https://aka.ms/IdentityProtectionDocs) para aprender mais e partilhar os seus pensamentos através das solicitações no produto.
+Para obter mais informações sobre as melhorias, consulte [o que é a Azure Ative Directory Identity Protection (refrescado)?](../identity-protection/overview-identity-protection.md) para aprender mais e partilhar os seus pensamentos através das solicitações no produto.
 
 ---
 
@@ -2097,7 +2097,7 @@ Para obter mais informações sobre a utilização da app Microsoft Authenticato
 
 Os administradores podem atribuir aos utilizadores a nova função de Administrador de Dispositivos cloud para executar tarefas de administrador de dispositivos em nuvem. Os utilizadores atribuídos à função de Administrador de Dispositivos cloud podem ativar, desativar e eliminar dispositivos em Azure AD, juntamente com a forma de poderem ler as teclas BitLocker do Windows 10 (se estiverem presentes) no portal Azure.
 
-Para obter mais informações sobre funções e permissões, consulte [atribuindo funções de administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md)
+Para obter mais informações sobre funções e permissões, consulte [atribuindo funções de administrador no Azure Ative Directory](../roles/permissions-reference.md)
 
 ---
 
@@ -2180,7 +2180,7 @@ Em novembro de 2018, adicionámos estas 26 novas aplicações com apoio da Feder
 
 [CoreStack](https://cloud.corestack.io/site/login), [HubSpot](../saas-apps/hubspot-tutorial.md), [GetThere](../saas-apps/getthere-tutorial.md), [Gra-Pe,](../saas-apps/grape-tutorial.md) [eHour](https://getehour.com/try-now), [Consent2Go](../saas-apps/consent2go-tutorial.md), [Appinux](../saas-apps/appinux-tutorial.md), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](../saas-apps/useall-tutorial.md), [Infinite Campus,](../saas-apps/infinitecampus-tutorial.md) [Alaya,](https://alayagood.com) [HeyBuddy,](../saas-apps/heybuddy-tutorial.md) [Wrike SAML,](../saas-apps/wrike-tutorial.md) [Drift,](../saas-apps/drift-tutorial.md) [Zenegy for Business Central 365](https://accounting.zenegy.com/), [Everbridge Member Portal](../saas-apps/everbridge-tutorial.md), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](../saas-apps/ivanti-service-manager-tutorial.md), [Peakon](../saas-apps/peakon-tutorial.md), [Allbound SSO](../saas-apps/allbound-sso-tutorial.md), [Aplicações Plex - Classic Test](https://test.plexonline.com/signon), [Aplicações Plex – Classic](https://www.plexonline.com/signon), [Plex Apps - UX Test](https://test.cloud.plex.com/sso), [Plex Apps – UX](https://cloud.plex.com/sso), [Plex Apps – IAM,](https://accounts.plex.com/) [CRAFTS - Childcare Records, Attendance, Sistema de Rastreio Financeiro &](https://getcrafts.ca/craftsregistration)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -2202,7 +2202,7 @@ Em outubro de 2018, adicionámos estas 14 novas aplicações com apoio da Federa
 
 [Os meus pontos de prêmio](../saas-apps/myawardpoints-tutorial.md), [Vibe HCM,](../saas-apps/vibehcm-tutorial.md)ambyint, [MyWorkDrive](../saas-apps/myworkdrive-tutorial.md), [BorrowBox,](../saas-apps/borrowbox-tutorial.md)Dialpad, [ON24 Virtual Environment,](../saas-apps/on24-tutorial.md) [RingCentral,](../saas-apps/ringcentral-tutorial.md) [Zscaler Three](../saas-apps/zscaler-three-tutorial.md), [Phraseanet](../saas-apps/phraseanet-tutorial.md), [Appraisd,](../saas-apps/appraisd-tutorial.md) [Workspot Control,](../saas-apps/workspotcontrol-tutorial.md) [Shuccho Navi,](../saas-apps/shucchonavi-tutorial.md) [Glassfrog](../saas-apps/glassfrog-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -2226,7 +2226,7 @@ Temos o prazer de anunciar que agora pode utilizar a API de domínio ForceDelete
 
 Esta alteração ajuda-o a eliminar mais rapidamente os seus nomes de domínio personalizados se a sua organização deixar de usar o nome, ou se precisar de usar o nome de domínio com outro Azure AD.
 
-Para obter mais informações, consulte [Eliminar um nome de domínio personalizado](../users-groups-roles/domains-manage.md#delete-a-custom-domain-name).
+Para obter mais informações, consulte [Eliminar um nome de domínio personalizado](../enterprise-users/domains-manage.md#delete-a-custom-domain-name).
 
 ---
 
@@ -2246,7 +2246,7 @@ Os papéis são:
 
 - Administrador de utilizadores
 
-Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o estado](../users-groups-roles/groups-create-rule.md)
+Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o estado](../enterprise-users/groups-create-rule.md)
 
 ---
 
@@ -2303,7 +2303,7 @@ O novo **separador troubleshooting and Support** na página **de Iniciars-ins** 
 
 Com esta atualização, pode agora clicar no link Obter propriedades de **extensão personalizadas** a partir do construtor de regras do grupo de utilizadores dinâmico, introduzir o seu ID de aplicação único e receber a lista completa de propriedades de extensão personalizadas para usar ao criar uma regra de adesão dinâmica para os utilizadores. Esta lista também pode ser atualizada para obter quaisquer novas propriedades de extensão personalizada para essa aplicação.
 
-Para obter mais informações sobre a utilização de propriedades de extensão personalizadas para regras dinâmicas de [adesão, consulte propriedades de extensão e propriedades de extensão personalizadas](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+Para obter mais informações sobre a utilização de propriedades de extensão personalizadas para regras dinâmicas de [adesão, consulte propriedades de extensão e propriedades de extensão personalizadas](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
 
 ---
 
@@ -2329,7 +2329,7 @@ Para obter mais informações, consulte:
 
 Depois de configurar esta nova funcionalidade, os seus utilizadores verão um link para redefinir a sua palavra-passe a partir do ecrã **de bloqueio** de um dispositivo que executa o Windows 7, Windows 8 ou Windows 8.1. Ao clicar nesse link, o utilizador é guiado através do mesmo fluxo de reset de palavra-passe que através do navegador web.
 
-Para obter mais informações, consulte [Como ativar a redefinição da palavra-passe do Windows 7, 8 e 8.1](https://aka.ms/ssprforwindows78)
+Para obter mais informações, consulte [Como ativar a redefinição da palavra-passe do Windows 7, 8 e 8.1](../authentication/howto-sspr-windows.md)
 
 ---
 
@@ -2353,7 +2353,7 @@ Em setembro de 2018, adicionámos estas 16 novas aplicações com apoio da Feder
 
 [Uberflip](../saas-apps/uberflip-tutorial.md), [Comeet Recruiting Software](../saas-apps/comeetrecruitingsoftware-tutorial.md), [Workteam,](../saas-apps/workteam-tutorial.md) [ArcGIS Enterprise](../saas-apps/arcgisenterprise-tutorial.md), [Nuclino](../saas-apps/nuclino-tutorial.md), [JDA Cloud,](../saas-apps/jdacloud-tutorial.md) [Snowflake,](../saas-apps/snowflake-tutorial.md)NavigoCloud, [Figma,](../saas-apps/figma-tutorial.md)join.me, [ZephyrSSO,](../saas-apps/zephyrsso-tutorial.md) [Silverback,](../saas-apps/silverback-tutorial.md)Riverbed Xirrus EasyPass, [Rackspace SSO](../saas-apps/rackspacesso-tutorial.md), Enlyft SSO for Azure, SurveyMonkey, [Convene,](../saas-apps/convene-tutorial.md) [dmarcian](../saas-apps/dmarcian-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -2471,7 +2471,7 @@ Em agosto de 2018, adicionámos estas 16 novas aplicações com apoio da Federa�
 
 [Hornbill](../saas-apps/hornbill-tutorial.md), [Bridgeline Unbound](../saas-apps/bridgelineunbound-tutorial.md), [Sauce Labs - Mobile and Web Testing,](../saas-apps/saucelabs-mobileandwebtesting-tutorial.md) [Meta Networks Connector](../saas-apps/metanetworksconnector-tutorial.md), [Way We Do,](../saas-apps/waywedo-tutorial.md) [Spotinst,](../saas-apps/spotinst-tutorial.md) [ProMaster (by Inlogik)](../saas-apps/promaster-tutorial.md), SchoolBooking, [4me](../saas-apps/4me-tutorial.md), [Dossier](../saas-apps/dossier-tutorial.md), [N2F - Relatórios de despesas,](../saas-apps/n2f-expensereports-tutorial.md) [Comm100 Live Chat,](../saas-apps/comm100livechat-tutorial.md) [SafeConnect,](../saas-apps/safeconnect-tutorial.md) [ZenQMS,](../saas-apps/zenqms-tutorial.md) [eLuminate,](../saas-apps/eluminate-tutorial.md) [Dovetale.](../saas-apps/dovetale-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -2513,7 +2513,7 @@ As notificações por e-mail serão enviadas a partir do seguinte endereço de e
 - Endereço de e-mail: azure-noreply@microsoft.com
 - Nome do ecrã: Microsoft Azure
 
-Para um exemplo de alguns dos novos desenhos de e-mail e mais informações, consulte [notificações de email em Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+Para um exemplo de alguns dos novos desenhos de e-mail e mais informações, consulte [notificações de email em Azure AD PIM](../privileged-identity-management/pim-email-notifications.md).
 
 ---
 
@@ -2557,7 +2557,7 @@ Em julho de 2018, adicionámos estas 16 novas aplicações com apoio da Federaç
 
 [Innovation Hub](../saas-apps/innovationhub-tutorial.md), [Leapsome](../saas-apps/leapsome-tutorial.md), [Certain Admin SSO](../saas-apps/certainadminsso-tutorial.md), PSUC Staging, [iPass SmartConnect](../saas-apps/ipasssmartconnect-tutorial.md), [Screencast-O-Matic,](../saas-apps/screencast-tutorial.md)PowerSchool Uniified Classroom, [Eli Onboarding,](../saas-apps/elionboarding-tutorial.md) [Bomgar Remote Support,](../saas-apps/bomgarremotesupport-tutorial.md) [Nimblex,](../saas-apps/nimblex-tutorial.md) [Imagineer WebVision,](../saas-apps/imagineerwebvision-tutorial.md) [Insight4GRC,](../saas-apps/insight4grc-tutorial.md) [SecureW2 JoinNow Connector,](../saas-apps/securejoinnow-tutorial.md) [Kanbanize,](../saas-apps/kanbanize-tutorial.md) [SmartLPA,](../saas-apps/smartlpa-tutorial.md) [Skills Base](../saas-apps/skillsbase-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -2571,7 +2571,7 @@ O Azure AD permite automatizar a criação, manutenção e remoção de identida
 
 - [Bonusly](../saas-apps/bonusly-provisioning-tutorial.md)
 
-Para obter uma lista de todas as aplicações que suportam o provisionamento do utilizador na galeria AZure AD, consulte a integração da [aplicação SaaS com o Azure Ative Directory](https://aka.ms/appstutorial).
+Para obter uma lista de todas as aplicações que suportam o provisionamento do utilizador na galeria AZure AD, consulte a integração da [aplicação SaaS com o Azure Ative Directory](../saas-apps/tutorial-list.md).
 
 ---
 
@@ -2673,7 +2673,7 @@ A notificação de aplicações móveis só pode ser ligada como parte de uma po
 
 **Tipo:** Plano de alteração **da categoria de serviço:** Capacidade do produto de reporte: Monitorização & Reporte **Product capability:**
 
-Devido à nossa aplicação de segurança mais forte, tivemos que fazer uma alteração nas permissões para apps que usam um fluxo de autorização delegado para aceder a [APIs de Registos de Atividades AD Azure](https://aka.ms/aadreportsapi). Esta alteração ocorrerá até **26 de junho de 2018**.
+Devido à nossa aplicação de segurança mais forte, tivemos que fazer uma alteração nas permissões para apps que usam um fluxo de autorização delegado para aceder a [APIs de Registos de Atividades AD Azure](../reports-monitoring/concept-reporting-api.md). Esta alteração ocorrerá até **26 de junho de 2018**.
 
 Se alguma das suas aplicações utilizar APIs de Registo de Atividade AD Azure, siga estes passos para garantir que a aplicação não se parte após a mudança acontecer.
 
@@ -2737,7 +2737,7 @@ Em junho de 2018, adicionámos estas 15 novas aplicações com apoio da Federaç
 
 [Skytap](../saas-apps/skytap-tutorial.md), [Settling music](../saas-apps/settlingmusic-tutorial.md), [SAML 1.1 Token enabled LOB App](../saas-apps/saml-tutorial.md), [Supermood](../saas-apps/supermood-tutorial.md), [Autotask](../saas-apps/autotaskendpointbackup-tutorial.md), [Endpoint Backup,](../saas-apps/autotaskendpointbackup-tutorial.md) [Skyhigh Networks](../saas-apps/skyhighnetworks-tutorial.md), Smartway2, [TonicDM,](../saas-apps/tonicdm-tutorial.md) [Moconavi,](../saas-apps/moconavi-tutorial.md) [Zoho One](../saas-apps/zohoone-tutorial.md), [SharePoint on-in- In-in,](../saas-apps/sharepoint-on-premises-tutorial.md) [ForeSee CX Suite,](../saas-apps/foreseecxsuite-tutorial.md) [Vidyard,](../saas-apps/vidyard-tutorial.md) [ChronicX](../saas-apps/chronicx-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
 ---
 
@@ -2753,7 +2753,7 @@ Especificamente, a proteção de senha AD AD Azure ajuda-o:
 - Impede os seus utilizadores de usarem palavras-passe numa lista de mais de 500 das palavras-passe mais utilizadas e mais de 1 milhão de variações de substituição de caracteres dessas palavras-passe.
 - Administrar a Azure AD Password Protection a partir de uma única localização no portal AD Azure, tanto para a AZure AD como para o Windows Server AD no local.
 
-Para obter mais informações sobre a Proteção de Passwords AD AZure, consulte [Eliminar palavras-passe más na sua organização.](https://aka.ms/aadpasswordprotectiondocs)
+Para obter mais informações sobre a Proteção de Passwords AD AZure, consulte [Eliminar palavras-passe más na sua organização.](../authentication/concept-password-ban-bad.md)
 
 ---
 
@@ -2783,7 +2783,7 @@ Para obter mais informações, consulte [a funcionalidade de utilização do Azu
 
 Lançamos novas orientações passo a passo sobre como implementar a Azure Multi-Factor Authentication (MFA) na sua organização.
 
-Para ver o guia de implementação do MFA, aceda aos [Guias de Implementação de Identidade](https://aka.ms/DeploymentPlans) no GitHub. Para fornecer feedback sobre os guias de implantação, utilize o [formulário de Feedback do Plano de Implementação](https://aka.ms/deploymentplanfeedback). Se tiver alguma dúvida sobre os guias de implantação, contacte-nos na [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+Para ver o guia de implementação do MFA, aceda aos [Guias de Implementação de Identidade](./active-directory-deployment-plans.md) no GitHub. Para fornecer feedback sobre os guias de implantação, utilize o [formulário de Feedback do Plano de Implementação](https://aka.ms/deploymentplanfeedback). Se tiver alguma dúvida sobre os guias de implantação, contacte-nos na [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
 
@@ -2807,7 +2807,7 @@ Os administradores podem agora delegar tarefas de gestão de aplicações sem at
 
     - **Proprietário de aplicativo da empresa.** Concede a capacidade de gerir muitos aspetos de aplicações empresariais próprias, incluindo definições de SSO, atribuições de aplicações e consentimento (exceto recursos AD AZure).
 
-Para mais informações sobre a pré-visualização pública, consulte as [funções de gestão de aplicações delegadas da Azure AD em visualização pública!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. Para obter mais informações sobre funções e permissões, consulte [atribuindo funções de administrador no Azure Ative Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para mais informações sobre a pré-visualização pública, consulte as [funções de gestão de aplicações delegadas da Azure AD em visualização pública!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. Para obter mais informações sobre funções e permissões, consulte [atribuindo funções de administrador no Azure Ative Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -2857,7 +2857,7 @@ Os utilizadores podem agora aceder a aplicações através de URLs internos mesm
 
 **Tipo:** Nova **categoria de funcionalidades Serviço:** Outra **capacidade do produto:** GoLocal
 
-Os clientes na Europa exigem que os seus dados permaneçam na Europa e não sejam replicados fora dos centros de dados europeus para cumprir a privacidade e as leis europeias. Este [artigo](https://go.microsoft.com/fwlink/?linkid=872328) fornece os detalhes específicos sobre as informações de identidade que serão armazenadas na Europa e também fornece detalhes sobre informações que serão armazenadas fora dos centros de dados europeus.
+Os clientes na Europa exigem que os seus dados permaneçam na Europa e não sejam replicados fora dos centros de dados europeus para cumprir a privacidade e as leis europeias. Este [artigo](./active-directory-data-storage-eu.md) fornece os detalhes específicos sobre as informações de identidade que serão armazenadas na Europa e também fornece detalhes sobre informações que serão armazenadas fora dos centros de dados europeus.
 
 ---
 
@@ -2873,7 +2873,7 @@ O Azure AD permite automatizar a criação, manutenção e remoção de identida
 
 - [Zendesk](../saas-apps/zendesk-provisioning-tutorial.md)
 
-Para obter uma lista de todas as aplicações que suportam o provisionamento do utilizador na galeria AZure AD, consulte [https://aka.ms/appstutorial](https://aka.ms/appstutorial) .
+Para obter uma lista de todas as aplicações que suportam o provisionamento do utilizador na galeria AZure AD, consulte [https://aka.ms/appstutorial](../saas-apps/tutorial-list.md) .
 
 ---
 
@@ -2913,7 +2913,7 @@ Em maio de 2018, adicionámos estas 18 novas aplicações com apoio da Federaç�
 
 [PrêmioSpr,](../saas-apps/awardspring-tutorial.md)Infogix Data3Sixty Govern, [Yodeck,](../saas-apps/infogix-tutorial.md) [Jamf Pro,](../saas-apps/jamfprosamlconnector-tutorial.md) [KnowledgeOwl,](../saas-apps/knowledgeowl-tutorial.md) [Envi MMIS,](../saas-apps/envimmis-tutorial.md) [LaunchDarkly,](../saas-apps/launchdarkly-tutorial.md) [Adobe Captivate Prime,](../saas-apps/adobecaptivateprime-tutorial.md) [Montage Online,](../saas-apps/montageonline-tutorial.md)[まなびポケット,](../saas-apps/manabipocket-tutorial.md)OpenReel, [Arc Publishing - SSO,](../saas-apps/arc-tutorial.md) [PlanGrid,](../saas-apps/plangrid-tutorial.md) [iWellnessNow,](../saas-apps/iwellnessnow-tutorial.md) [Proxyclick,](../saas-apps/proxyclick-tutorial.md) [Riskware](../saas-apps/riskware-tutorial.md), [Flock](../saas-apps/flock-tutorial.md), [Reviewsnap](../saas-apps/reviewsnap-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md)
 
 Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
@@ -2925,7 +2925,7 @@ Para obter mais informações sobre a listagem da sua aplicação na galeria de 
 
 Novas orientações passo a passo sobre como implantar o Azure Ative Directory (Azure AD), incluindo reset de senha de autosserviço (SSPR), único sign-on (SSO), Acesso Condicional (CA), procuração de aplicativos, fornecimento de utilizador, Serviços de Federação de Diretórios Ativos (ADFS) para Autenticação Pass-through (PTA) e ADFS para password hash sync (PHS).
 
-Para ver os guias de implantação, aceda aos [Guias de Implementação de Identidade](https://aka.ms/DeploymentPlans) repo no GitHub. Para fornecer feedback sobre os guias de implantação, utilize o [formulário de Feedback do Plano de Implementação](https://aka.ms/deploymentplanfeedback). Se tiver alguma dúvida sobre os guias de implantação, contacte-nos na [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+Para ver os guias de implantação, aceda aos [Guias de Implementação de Identidade](./active-directory-deployment-plans.md) repo no GitHub. Para fornecer feedback sobre os guias de implantação, utilize o [formulário de Feedback do Plano de Implementação](https://aka.ms/deploymentplanfeedback). Se tiver alguma dúvida sobre os guias de implantação, contacte-nos na [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
 ---
 
@@ -3008,7 +3008,7 @@ A Connect Health suporta agora a capacidade de detetar endereços IP que excedam
 - Alertas baseados em e-mail que mostram quando um endereço IP específico excedeu o limiar de logins U/P falhados numa base horária/diária.
 - Uma opção de descarregamento para fazer uma análise detalhada dos dados
 
-Para obter mais informações, consulte [o Relatório IP Arriscado.](https://aka.ms/aadchriskyip)
+Para obter mais informações, consulte [o Relatório IP Arriscado.](../hybrid/how-to-connect-health-adfs.md)
 
 ---
 
@@ -3058,7 +3058,7 @@ Em abril de 2018, adicionámos estas 13 novas aplicações com apoio da Federaç
 
 Critério HCM, [FiscalNote](../saas-apps/fiscalnote-tutorial.md), [Servidor Secreto (On-Premis)](../saas-apps/secretserver-on-premises-tutorial.md), Sinal [Dinâmico,](../saas-apps/dynamicsignal-tutorial.md) [MindWireless](../saas-apps/mindwireless-tutorial.md), [OrgChart Now](../saas-apps/orgchartnow-tutorial.md), [Ziflow,](../saas-apps/ziflow-tutorial.md) [AppNeta Performance Monitor,](../saas-apps/appneta-tutorial.md) [Elium,](../saas-apps/elium-tutorial.md) [Fluxx Labs,](../saas-apps/fluxxlabs-tutorial.md) [Cisco Cloud,](../saas-apps/ciscocloud-tutorial.md)Prateleira, [SafetyNet](../saas-apps/safetynet-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md)
 
 Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
@@ -3149,7 +3149,7 @@ Para obter mais informações, consulte:
 
 - [Acesso Condicional baseado em aplicações de configuração](../conditional-access/app-based-conditional-access.md)
 
-- [Configurar políticas de navegador geridas](https://aka.ms/managedbrowser)
+- [Configurar políticas de navegador geridas](/mem/intune/apps/manage-microsoft-edge)
 
 ---
 
@@ -3201,7 +3201,7 @@ Em março de 2018, adicionámos estas 15 novas aplicações com apoio da Federa�
 
 [Boxcryptor](../saas-apps/boxcryptor-tutorial.md), [CylancePROTECT,](../saas-apps/cylanceprotect-tutorial.md)Wrike, [SignalFx,](../saas-apps/signalfx-tutorial.md)Assistant by FirstAgenda, [YardiOne](../saas-apps/yardione-tutorial.md), Vtiger CRM, inwink, [Amplitude,](../saas-apps/amplitude-tutorial.md) [Spacio,](../saas-apps/spacio-tutorial.md) [ContractWorks,](../saas-apps/contractworks-tutorial.md) [Bersin,](../saas-apps/bersin-tutorial.md) [Mercell,](../saas-apps/mercell-tutorial.md) [Trisotech Digital Enterprise Server,](../saas-apps/trisotechdigitalenterpriseserver-tutorial.md) [Qumu Cloud.](../saas-apps/qumucloud-tutorial.md)
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md)
 
 Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
@@ -3254,7 +3254,7 @@ Para obter mais informações, consulte: [Personalizar a lista de atributos do u
 É possível alterar a forma como a adesão é gerida num grupo. Isto é útil quando pretende manter o mesmo nome de grupo e ID no sistema, pelo que quaisquer referências existentes ao grupo ainda são válidas; a criação de um novo grupo exigiria a atualização dessas referências.
 Atualizámos o centro de administração Admin Azure para suportar esta funcionalidade. Agora, os clientes podem converter grupos existentes de adesão dinâmica a membros atribuídos e vice-versa. Os cmdlets PowerShell existentes também estão disponíveis.
 
-Para mais informações, consulte [as regras de adesão dinâmica para grupos no Azure Ative Directory](../users-groups-roles/groups-dynamic-membership.md)
+Para mais informações, consulte [as regras de adesão dinâmica para grupos no Azure Ative Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 
@@ -3485,9 +3485,9 @@ Quando os termos de utilização são apresentados, pode agora clicar em **ter d
 
 Em janeiro de 2018, foram adicionadas na galeria de aplicações as seguintes novas aplicações com suporte à federação:
 
-[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust Privacy Management Software,](https://go.microsoft.com/fwlink/?linkid=861660) [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk Federated Directory, and [Fidelity NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+[IBM OpenPages](../saas-apps/ibmopenpages-tutorial.md), [OneTrust Privacy Management Software,](../saas-apps/onetrust-tutorial.md) [Dealpath](../saas-apps/dealpath-tutorial.md), [IriusRisk Federated Directory, and [Fidelity NetBenefits](../saas-apps/fidelitynetbenefits-tutorial.md).
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md)
 
 Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
@@ -3639,9 +3639,9 @@ Para mais informações, veja [o que é Azure AD Gestão de Identidade Privilegi
 
 Em dezembro de 2017, adicionámos estas novas aplicações com suporte da Federação à nossa galeria de aplicações:
 
-[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe Experience Manager, [EFI Digital StoreFront](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [IMAGE WORKS,](https://go.microsoft.com/fwlink/?linkid=863517) [MOBI,](https://go.microsoft.com/fwlink/?linkid=863521) [MobileIron Azure AD integração,](https://go.microsoft.com/fwlink/?linkid=858027) [Reflektive,](https://go.microsoft.com/fwlink/?linkid=863518) [SAML SSO for Bamboo por resolução GmbH,](https://go.microsoft.com/fwlink/?linkid=863520) [SAML SSO for Bitbucket by resolution GmbH,](https://go.microsoft.com/fwlink/?linkid=863519) [Vodeclic,](https://go.microsoft.com/fwlink/?linkid=863522)WebHR, Zenegy Azure AD Integration.
+[Accredible](../saas-apps/accredible-tutorial.md), Adobe Experience Manager, [EFI Digital StoreFront](../saas-apps/efidigitalstorefront-tutorial.md), [Communifire](../saas-apps/communifire-tutorial.md) CybSafe, [FactSet](../saas-apps/factset-tutorial.md), [IMAGE WORKS,](../saas-apps/imageworks-tutorial.md) [MOBI,](../saas-apps/mobi-tutorial.md) [MobileIron Azure AD integração,](../saas-apps/mobileiron-tutorial.md) [Reflektive,](../saas-apps/reflektive-tutorial.md) [SAML SSO for Bamboo por resolução GmbH,](../saas-apps/bamboo-tutorial.md) [SAML SSO for Bitbucket by resolution GmbH,](../saas-apps/bitbucket-tutorial.md) [Vodeclic,](../saas-apps/vodeclic-tutorial.md)WebHR, Zenegy Azure AD Integration.
 
-Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial)
+Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](../saas-apps/tutorial-list.md)
 
 Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](../azuread-dev/howto-app-gallery-listing.md)
 
@@ -3804,7 +3804,7 @@ Agora pode incluir (ou excluir) o macOS como condição da plataforma do disposi
 
 Para obter mais informações, consulte:
 
-- [Criar uma política de conformidade para dispositivos macOS com o Intune](https://aka.ms/macoscompliancepolicy)
+- [Criar uma política de conformidade para dispositivos macOS com o Intune](/mem/intune/protect/compliance-policy-create-mac-os)
 - [Acesso Condicional em Azure AD](../conditional-access/overview.md)
 
 ---
@@ -3895,7 +3895,7 @@ Devido a estas novas capacidades, o relatório APIs no âmbito do ponto final /r
 
 **Tipo:** Categoria **serviço fixo:** A minha **capacidade de produto apps:** único sinal
 
-O Azure AD suporta a deteção automática de campo de entrada para aplicações que tornem um nome de utilizador HTML e um campo de palavra-passe. Estes passos estão documentados em [Como capturar automaticamente campos de inscrição para uma aplicação](../manage-apps/configure-password-single-sign-on-non-gallery-applications-problems.md#manually-capture-sign-in-fields-for-an-app). Pode encontrar esta capacidade adicionando uma aplicação *Não Galeria* na página **aplicações** da Empresa no [portal Azure.](https://aad.portal.azure.com) Além disso, pode configurar o modo **único de início de súmula** nesta nova aplicação para O Único Sinal baseado em **Palavra-Passe,** introduzir um URL web e, em seguida, guardar a página.
+O Azure AD suporta a deteção automática de campo de entrada para aplicações que tornem um nome de utilizador HTML e um campo de palavra-passe. Estes passos estão documentados em [Como capturar automaticamente campos de inscrição para uma aplicação](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). Pode encontrar esta capacidade adicionando uma aplicação *Não Galeria* na página **aplicações** da Empresa no [portal Azure.](https://aad.portal.azure.com) Além disso, pode configurar o modo **único de início de súmula** nesta nova aplicação para O Único Sinal baseado em **Palavra-Passe,** introduzir um URL web e, em seguida, guardar a página.
 
 Devido a um problema de serviço, esta funcionalidade foi temporariamente desativada. O problema foi resolvido e a deteção automática de campo de inscrição está novamente disponível.
 

@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
-ms.openlocfilehash: 4cc96a8183e07a17ae880549cdc2b8bdca516322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70407d726b697dd6c4dfb6777cf6c445092d3b73
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651501"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206330"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar ligações coexistentes do ExpressRoute e de Site a Site (clássico)
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Existem dois conjuntos diferentes de procedimentos à sua escolha para configura
 Este procedimento irá explicar-lhe como criar uma VNet e criar ligações coexistentes ExpressRoute e de Rede de VPNs.
 
 1. Terá de instalar a versão mais recente dos cmdlets do Azure PowerShell. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para obter mais informações sobre como instalar os cmdlets PowerShell. Tenha em atenção que os cmdlets que irá utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções. 
-2. Crie um esquema para a sua rede virtual. Para obter mais informações sobre a configuração do esquema, veja [Esquema de configuração da Virtual Network do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Crie um esquema para a sua rede virtual. Para obter mais informações sobre a configuração do esquema, veja [Esquema de configuração da Virtual Network do Azure](/previous-versions/azure/reference/jj157100(v=azure.100)).
    
     Quando cria o seu esquema, confirme que utiliza os seguintes valores:
    
@@ -229,7 +229,7 @@ Se a sub-rede do gateway é /27 ou superior e a rede virtual está ligada atrav�
 4. Edite o esquema do ficheiro de configuração de rede para que a sub-rede do gateway seja /27 ou um prefixo mais curto (como /26 ou /25). Veja o seguinte exemplo. 
    
    > [!NOTE]
-   > Se não tem endereços IP suficientes na sua rede virtual para aumentar o tamanho da sub-rede do gateway, tem de adicionar mais espaço de endereços IP. Para obter mais informações sobre a configuração do esquema, veja [Esquema de configuração da Virtual Network do Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+   > Se não tem endereços IP suficientes na sua rede virtual para aumentar o tamanho da sub-rede do gateway, tem de adicionar mais espaço de endereços IP. Para obter mais informações sobre a configuração do esquema, veja [Esquema de configuração da Virtual Network do Azure](/previous-versions/azure/reference/jj157100(v=azure.100)).
    > 
    > 
    
@@ -253,4 +253,3 @@ Se a sub-rede do gateway é /27 ou superior e a rede virtual está ligada atrav�
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md)
-

@@ -11,12 +11,12 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 981e23a2b021cc0eb8085aa943830f87352aee69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87828528"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426554"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Quickstart: Criar um centro de notificação Azure no portal Azure
 
@@ -52,10 +52,10 @@ Nesta secção, você cria um centro de notificação num espaço de nome existe
       ![Notificação de implantação](./media/create-notification-hub-portal/deployment-notification.png)
 7. Atualize a página web **do Centro de Notificações Para** ver o seu novo hub na lista.
 
-      ![Portal do Azure - notificações -> Ir para o recurso](./media/create-notification-hub-portal/new-hub-in-list.png)
+      ![Screenshot que mostra a página web do Centro de Notificações com o novo hub da lista.](./media/create-notification-hub-portal/new-hub-in-list.png)
 8. Selecione o seu **centro de notificações** para ver a página inicial do seu centro de notificação.
 
-      ![Portal do Azure - notificações -> Ir para o recurso](./media/create-notification-hub-portal/hub-home-page.png)
+      ![Screenshot que mostra a página inicial para o seu centro de notificação.](./media/create-notification-hub-portal/hub-home-page.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874066"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207194"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de registos no Azure Monitor
 
@@ -171,7 +171,7 @@ O exemplo anterior gera esta saída:
 Também pode usar **o projeto** para renomear colunas e definir novas. O exemplo a seguir utiliza o projeto para fazer o seguinte:
 
 * Selecione apenas as colunas originais *com o computador* e o *tempo.*
-* Mude o nome da coluna *De atividade* para *EventDetails*.
+* Exibe a coluna *De atividade* como *EventDetails*.
 * Criar uma nova coluna chamada *EventCode*. A função **sub-adiscagem()** é utilizada para obter apenas os primeiros quatro caracteres do campo Atividade.
 
 

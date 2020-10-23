@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708956"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329377"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -19,7 +19,7 @@ Este artigo fornece uma descrição geral das quotas predefinidas oferecidas a d
 
 ## <a name="storage-and-database-operations"></a>Operações de armazenamento e base de dados
 
-Depois de criar uma conta Azure Cosmos sob a sua subscrição, pode gerir dados na sua conta [criando bases de dados, contentores e itens.](databases-containers-items.md)
+Depois de criar uma conta Azure Cosmos sob a sua subscrição, pode gerir dados na sua conta [criando bases de dados, contentores e itens.](account-databases-containers-items.md)
 
 ### <a name="provisioned-throughput"></a>Débito aprovisionado
 
@@ -27,15 +27,15 @@ Pode provistirá a produção a nível de contentores ou a nível de base de dad
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| RUs máximos por contentor[(modo dedicado a produção)](databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](create-support-request-quota-increase.md) |
-| RUs máximo por base de dados[(modo de produção partilhado)](databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](create-support-request-quota-increase.md) |
+| RUs máximos por contentor[(modo dedicado a produção)](account-databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](create-support-request-quota-increase.md) |
+| RUs máximo por base de dados[(modo de produção partilhado)](account-databases-containers-items.md#azure-cosmos-containers) | 1.000.000 por defeito. Você pode aumentá-lo [ao arquivar um bilhete de apoio Azure](create-support-request-quota-increase.md) |
 | RUs máximo por partição (lógica) | 10,000 |
 | Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição distintas (lógicas) | Ilimitado |
 | Armazenamento máximo por contentor | Ilimitado |
 | Armazenamento máximo por base de dados | Ilimitado |
 | Tamanho máximo do anexo por Conta (a função de anexo está a ser depreciada) | 2 GB |
-| RUs mínimos exigidos por 1 GB | 10 RU/s |
+| RU/s mínimos exigidos por 1 GB | 10 RU/s<br>**Nota:** se o seu contentor ou base de dados contiver mais de 1 TB de dados, a sua conta poderá ser elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Para conhecer as melhores práticas de gestão de cargas de trabalho que tenham chaves de partição que requerem limites mais elevados para armazenamento ou produção, consulte [Criar uma chave de partição sintética](synthetic-partition-keys.md).
@@ -55,8 +55,8 @@ Em resumo, aqui estão os limites mínimos previstos para a RU.
 
 | Recurso | Limite predefinido |
 | --- | --- |
-| RUs mínimos por contentor[(modo dedicado a produção)](databases-containers-items.md#azure-cosmos-containers) | 400 |
-| RUs mínimos por base de dados[(modo de produção partilhado)](databases-containers-items.md#azure-cosmos-containers) | 400 |
+| RUs mínimos por contentor[(modo dedicado a produção)](account-databases-containers-items.md#azure-cosmos-containers) | 400 |
+| RUs mínimos por base de dados[(modo de produção partilhado)](account-databases-containers-items.md#azure-cosmos-containers) | 400 |
 | RUs mínimos por contentor dentro de uma base de dados de produção partilhada | 100 |
 
 Cosmos DB suporta a escala elástica de produção (RUs) por contentor ou base de dados através dos SDKs ou portal. Cada recipiente pode escalar sincronizadamente e imediatamente dentro de uma escala de 10 a 100 vezes, entre valores mínimos e máximos. Se o valor de produção solicitado estiver fora do alcance, o dimensionamento é realizado de forma assíncronea. A escala assíncrona pode demorar minutos a horas a ser concluída, dependendo do rendimento solicitado e do tamanho do armazenamento de dados no recipiente.  

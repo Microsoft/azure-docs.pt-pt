@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6c00a0d2b6ff8bbb4ba9e51110e995e93d6b558
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276470"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426962"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory
 
@@ -32,15 +32,18 @@ Para uma introdução e demonstração de sete minutos desta funcionalidade, vej
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>Arquivos de dados suportados
+## <a name="supported-linked-service-types"></a>Tipos de serviço ligados suportados
 
 Pode parametrizar qualquer tipo de serviço ligado.
-Ao autorizar o serviço ligado na UI, a Data Factory fornece experiência de parametrização incorporada para os seguintes tipos de conectores. Na lâmina de criação/edição de serviços ligados, pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
+Ao autorizar o serviço ligado na UI, a Data Factory fornece experiência de parametrização incorporada para os seguintes tipos de serviços ligados. Na lâmina de criação/edição de serviços ligados, pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (SQL API)
 - Base de Dados do Azure para MySQL
+- Azure Databricks
 - Base de Dados SQL do Azure
+- Instância Gerida do Azure SQL
 - Azure Synapse Analytics (anteriormente SQL DW)
 - MySQL
 - Oracle
@@ -48,7 +51,7 @@ Ao autorizar o serviço ligado na UI, a Data Factory fornece experiência de par
 - HTTP genérico
 - REST genérico
 
-Para outros tipos, pode parametrizar o serviço ligado editando o JSON na UI:
+Para outros tipos de serviços ligados que não estejam na lista acima, pode parametrizar o serviço ligado editando o JSON na UI:
 
 - Na criação/edição de serviços ligados - > expandir "Advanced" na parte inferior -> verificar "Especificar conteúdo dinâmico no formato JSON" -> especificar a carga útil do serviço ligado JSON. 
 - Ou, depois de criar um serviço ligado sem parametrização, no [centro de gestão](author-visually.md#management-hub) -> serviços Linked -> encontrar o serviço ligado específico -> clique em "Code" (botão {} " para editar o JSON. 

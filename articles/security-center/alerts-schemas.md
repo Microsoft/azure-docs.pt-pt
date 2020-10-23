@@ -2,7 +2,6 @@
 title: Schemas para o Centro de Segurança Azure alertas
 description: Este artigo descreve os diferentes esquemas usados pelo Azure Security Center para alertas de segurança.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901349"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341945"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
 
@@ -25,9 +24,9 @@ Se a sua subscrição tiver o Azure Defender ativado, receberá alertas de segur
 
 Pode ver estes alertas de segurança nas páginas de **Proteção** de Ameaças do Centro de Segurança Azure ou através de ferramentas externas como:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - SIEM nativo da Nuvem da Microsoft. O Sentinel Connector recebe alertas do Azure Security Center e envia-os para o [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) para o Azure Sentinel.
-- SIEMs de terceiros - Utilize as ferramentas [de exportação contínuas](continuous-export.md) do Security Center para enviar dados para [os Hubs de Eventos Azure](https://docs.microsoft.com/azure/event-hubs/). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros.
-- [A API REST](https://docs.microsoft.com/rest/api/securitycenter/) - Se estiver a utilizar a API REST para aceder a alertas, consulte a [documentação da API alertas online](https://docs.microsoft.com/rest/api/securitycenter/alerts).
+- [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft. O Sentinel Connector recebe alertas do Azure Security Center e envia-os para o [espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) para o Azure Sentinel.
+- SIEMs de terceiros - Utilize as ferramentas [de exportação contínuas](continuous-export.md) do Security Center para enviar dados para [os Hubs de Eventos Azure](../event-hubs/index.yml). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros.
+- [A API REST](/rest/api/securitycenter/) - Se estiver a utilizar a API REST para aceder a alertas, consulte a [documentação da API alertas online](/rest/api/securitycenter/alerts).
 
 Se estiver a utilizar métodos programáticos para consumir os alertas, precisará do esquema correto para encontrar os campos que são relevantes para si. Além disso, se estiver a exportar para um Centro de Eventos ou a tentar ativar a Automatização do Fluxo de Trabalho com conectores HTTP genéricos, utilize os esquemas para analisar corretamente os objetos JSON.
 
@@ -61,14 +60,14 @@ O Connector Sentinel recebe alertas do Azure Security Center e envia-os para o L
 
 Para criar um caso Sentinel ou incidente usando alertas do Centro de Segurança, você precisará do esquema para os alertas mostrados abaixo. 
 
-Para mais informações sobre a Azure Sentinel, consulte [a documentação.](https://docs.microsoft.com/azure/sentinel/)
+Para mais informações sobre a Azure Sentinel, consulte [a documentação.](../sentinel/index.yml)
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
 
 
-### <a name="azure-activity-log"></a>[Registo de atividades Azure](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Registo de Atividades do Azure](#tab/schema-activitylog)
 
 As auditorias do Azure Security Center geraram alertas de segurança como eventos no Registo de Atividades do Azure.
 
@@ -173,7 +172,7 @@ Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando
 
 O Microsoft Graph é a porta de entrada para dados e inteligência na Microsoft 365. Fornece um modelo de programabilidade unificado que pode utilizar para aceder à enorme quantidade de dados no Microsoft 365, Windows 10 e Enterprise Mobility + Security. Use a riqueza de dados no Microsoft Graph para construir apps para organizações e consumidores que interagem com milhões de utilizadores.
 
-O esquema e uma representação JSON para alertas de segurança enviados para o MS Graph, estão disponíveis [na documentação do Microsoft Graph](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+O esquema e uma representação JSON para alertas de segurança enviados para o MS Graph, estão disponíveis [na documentação do Microsoft Graph](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
 
 ---
 
@@ -184,7 +183,7 @@ Este artigo descreveu os esquemas que as ferramentas de proteção de ameaças d
 
 Para obter mais informações sobre as formas de aceder a alertas de segurança de fora do Centro de Segurança, consulte as seguintes páginas:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - SIEM nativo da Nuvem da Microsoft
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) - Serviço de ingestão de dados totalmente gerido e em tempo real da Microsoft
+- [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft
+- [Azure Event Hubs](../event-hubs/index.yml) - Serviço de ingestão de dados totalmente gerido e em tempo real da Microsoft
 - Recurso de [exportação contínua](continuous-export.md) do Centro de Segurança
-- [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) - Azure Monitor armazena dados de registo num espaço de trabalho Log Analytics, um recipiente que inclui informações de dados e configuração
+- [Log Analytics workspaces](../azure-monitor/learn/quick-create-workspace.md) - Azure Monitor armazena dados de registo num espaço de trabalho Log Analytics, um recipiente que inclui informações de dados e configuração

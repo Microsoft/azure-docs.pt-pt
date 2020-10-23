@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772724"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132555"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro às contas do Azure
 
@@ -25,13 +25,13 @@ A PAL permite que a Microsoft identifique e reconheça os parceiros que impulsio
 
 Antes de ligar o ID de parceiro, o cliente deve fornecer acesso aos recursos do Azure através de uma das seguintes opções:
 
-- **Utilizador convidado**: o cliente pode adicioná-lo como utilizador convidado e atribuir-lhe qualquer função do Azure. Para obter mais informações, veja [Adicionar utilizadores convidados a partir de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utilizador convidado**: o cliente pode adicioná-lo como utilizador convidado e atribuir-lhe qualquer função do Azure. Para obter mais informações, veja [Adicionar utilizadores convidados a partir de outro diretório](../../active-directory/external-identities/what-is-b2b.md).
 
 - **Conta de diretório**: o cliente pode criar uma conta de utilizador para si no seu próprio diretório e atribuir qualquer função do Azure.
 
 - **Principal de serviço**: o cliente pode adicionar uma aplicação ou script da sua organização ao diretório e atribuir qualquer função do Azure. A identidade da aplicação ou do script é conhecida como um principal de serviço.
 
-- **Azure Lighthouse**: O seu cliente pode delegar uma subscrição (ou um grupo de recursos) para que os seus utilizadores possam trabalhar na mesma a partir do seu inquilino. Para obter mais informações, veja [Gestão de recursos delegados do Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+- **Azure Lighthouse**: O seu cliente pode delegar uma subscrição (ou um grupo de recursos) para que os seus utilizadores possam trabalhar na mesma a partir do seu inquilino. Para obter mais informações, veja [Gestão de recursos delegados do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="link-to-a-partner-id"></a>Ligar a um ID de parceiro
 
@@ -55,7 +55,7 @@ Quando tiver acesso aos recursos do cliente, utilize o portal do Azure, o PowerS
 
 1. Instale o módulo do PowerShell [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/).
 
-2. Inicie sessão no inquilino do cliente com a conta de utilizador ou o principal de serviço. Para obter mais informações, veja [Iniciar sessão no PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+2. Inicie sessão no inquilino do cliente com a conta de utilizador ou o principal de serviço. Para obter mais informações, veja [Iniciar sessão no PowerShell](/powershell/azure/authenticate-azureps).
 
    ```azurepowershell-interactive
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -89,7 +89,7 @@ C:\> remove-AzManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ```
 
-2. Inicie sessão no inquilino do cliente com a conta de utilizador ou o principal de serviço. Para obter mais informações, veja [Iniciar sessão na CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2. Inicie sessão no inquilino do cliente com a conta de utilizador ou o principal de serviço. Para obter mais informações, veja [Iniciar sessão na CLI do Azure](/cli/azure/authenticate-azure-cli).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -134,7 +134,7 @@ Sim. Um ID de parceiro ligado pode ser alterado, adicionado ou removido.
 
 A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cliente. Ligue o ID de parceiro em cada inquilino de cliente.
 
-No entanto, se estiver a gerir recursos do cliente através do Azure Lighthouse, terá de criar a ligação no seu inquilino do fornecedor de serviços, utilizando uma conta que tenha acesso aos recursos do cliente. Para obter mais informações, veja [Ligar o seu ID de parceiro para ativar o crédito ganho de parceiro em recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+No entanto, se estiver a gerir recursos do cliente através do Azure Lighthouse, terá de criar a ligação no seu inquilino do fornecedor de serviços, utilizando uma conta que tenha acesso aos recursos do cliente. Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Outros parceiros ou clientes podem editar ou remover a ligação para o ID de parceiro?**
 
@@ -152,9 +152,9 @@ Os relatórios de Desempenho dos Produtos na Cloud estão disponíveis para os p
 
 Não consegue ver o cliente nos relatórios pelos seguintes motivos
 
-1. A conta de utilizador associada não tem o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) em nenhuma subscrição ou recurso do Azure do cliente.
+1. A conta de utilizador associada não tem o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) em nenhuma subscrição ou recurso do Azure do cliente.
 
-2. A subscrição do Azure em que o utilizador tem o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) não tem nenhuma utilização.
+2. A subscrição do Azure em que o utilizador tem o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) não tem nenhuma utilização.
 
 **O ID de parceiro da ligação funciona com o Azure Stack?**
 
@@ -164,7 +164,7 @@ Sim, pode ligar o ID de parceiro com o Azure Stack.
 
 Se integrar clientes na gestão de recursos delegados do Azure mediante a [publicação de uma oferta de serviços geridos no Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), o seu ID do MPN é adicionado automaticamente.
 
-Se [integrar clientes através da implementação de modelos do Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), terá de associar o seu ID do MPN a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em atenção que terá de fazer isto no inquilino do seu fornecedor de serviços, e não em cada inquilino de cliente. Para simplificar, é recomendável criar uma conta principal de serviço no seu inquilino, associando-a ao seu ID do MPN e, em seguida, concedendo-lhe acesso a todos os clientes que integrar com uma [Função incorporada do Azure, que seja elegível para crédito concedido pelo parceiro](/partner-center/azure-roles-perms-pec). Para obter mais informações, veja [Ligar o seu ID de parceiro para ativar o crédito ganho de parceiro em recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+Se [integrar clientes através da implementação de modelos do Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), terá de associar o seu ID do MPN a, pelo menos, uma conta de utilizador que tenha acesso a cada subscrição integrada. Tenha em atenção que terá de fazer isto no inquilino do seu fornecedor de serviços, e não em cada inquilino de cliente. Para simplificar, é recomendável criar uma conta principal de serviço no seu inquilino, associando-a ao seu ID do MPN e, em seguida, concedendo-lhe acesso a todos os clientes que integrar com uma [Função incorporada do Azure, que seja elegível para crédito concedido pelo parceiro](/partner-center/azure-roles-perms-pec). Para obter mais informações, veja [Ligar o seu ID de parceiro para controlar o impacto nos recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Como posso explicar o Partner Admin Link (PAL) ao meu cliente?**
 

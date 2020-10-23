@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588930"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327421"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrar o Key Vault com a Autoridade de Certificação DigiCert
 
@@ -52,9 +52,9 @@ Depois de recolher informações acima da conta DigiCert CertCentral, pode agora
 
 1.  Para adicionar autoridade de certificado DigiCert, navegue para o cofre-chave que pretende adicionar DigiCert. 
 2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
-3.  **Selecione certificado As autoridades** de certificação. ![ Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+3.  **Selecione certificado As autoridades** de certificação. ![ selecionar autoridades de certificados](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.  Selecione A opção **Adicionar.**
- ![Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![adicionar autoridades de certificados](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  No ecrã **da Create a Certificate A Autoridade** escolhe os seguintes valores:
     -   **Nome**: Adicione um nome emitente identificável. Exemplo DigicertCA
     -   **Provedor**: Selecione DigiCert do menu.
@@ -101,24 +101,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - Definir **variável de ID de conta**
 - Definir variável **org iD**
 - Definir variável **chave API**
-- Definir variável **nome emitente**
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Definir **emitente**. Isto irá adicionar Digicert como autoridade de certificado no cofre chave.
+4. Definir **emitente**. Isto irá adicionar Digicert como autoridade de certificado no cofre chave. Para saber mais sobre os parâmetros, [leia aqui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Definição de política para o certificado e certificado de emissão** da DigiCert diretamente dentro do Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ O certificado foi agora emitido com sucesso pela Digicert CA no interior especif
 
 Se o certificado emitido estiver em estado de 'desactivado' no portal Azure, proceda à visualização da **Operação Certificado** para rever a mensagem de erro do DigiCert para esse certificado.
 
- ![Propriedades de certificados](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Operação de certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
@@ -136,10 +134,17 @@ Para obter mais informações, consulte as operações do [Certificado na refer�
 
 - Posso gerar um certificado de wildcard digicert através do KeyVault? 
    Sim. Depende de como configuraste a tua conta de digicert.
-- Se criássemos um certificado EV, como especificar isso? 
-   Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
+- Como posso criar **certificado OV-SSL ou EV-SSL** com DigiCert?? 
+   O cofre-chave suporta a criação de certificados OV e EV SSL. Ao criar um certificado, clique na Configuração de Política Avançada e, em seguida, especifique o tipo de Certificado. Os valores suportados são: OV-SSL, EV-SSL
+   
+   Poderá criar este tipo de certificado no cofre-chave se a sua conta Digicert o permitir. Para este tipo de certificado, a validação é realizada pela DigiCert e a sua equipa de suporte poderá ajudá-lo melhor com a solução, caso a validação falhe. Pode adicionar informações adicionais ao criar um certificado definindo-as no nome do sujeito.
+
+Exemplo
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - Existe um atraso de tempo na criação de certificado digicert através da integração vs aquisição de certificado através do digicert diretamente?
-   N.º Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
+   Não. Ao criar um certificado, é o processo de verificação que pode demorar e que a verificação depende do processo que a DigiCert segue.
 
 
 ## <a name="next-steps"></a>Passos seguintes

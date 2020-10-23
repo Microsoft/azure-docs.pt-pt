@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 87c8a7523222afd3ae4daeb8fb5824025e693cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fad1bca18d16ac3b6a654a3c289d0a14e3cd2e2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569633"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204797"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar se foram cumpridos os seguintes requisitos listados nas secções abaixo.
@@ -34,14 +34,14 @@ Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar
 * **Encaminhamento**: dependendo da forma como se conecta à Cloud microsoft, você ou o seu fornecedor precisa de configurar e gerir as sessões de BGP para [domínios de encaminhamento](expressroute-circuit-peerings.md). Alguns fornecedores de conectividade Ethernet ou fornecedores de intercâmbio em nuvem podem oferecer a gestão do BGP como um serviço de valor acrescentado.
 * **NAT**: a Microsoft só aceita endereços IP públicos através do peering da Microsoft. Se estiver a utilizar endereços IP privados na sua rede de instalações, você ou o seu fornecedor precisa de traduzir os endereços IP privados para os endereços IP públicos [utilizando o NAT](expressroute-nat.md).
 * **QoS**: o Skype para Empresas tem vários serviços (por exemplo, voz, vídeo, texto) que exigem um tratamento QoS diferenciado. O utilizador e o fornecedor devem cumprir os [Requisitos de QoS](expressroute-qos.md).
-* **Segurança de Rede**: tenha em conta a [segurança de rede](../best-practices-network-security.md) ao ligar à Microsoft Cloud através do ExpressRoute.
+* **Segurança de Rede**: tenha em conta a [segurança de rede](/azure/cloud-adoption-framework/reference/networking-vdc) ao ligar à Microsoft Cloud através do ExpressRoute.
 
 ## <a name="microsoft-365"></a>Microsoft 365
 Se planeia ativar o Microsoft 365 no ExpressRoute, reveja os seguintes documentos para obter mais informações sobre os requisitos da Microsoft 365.
 
 * [Azure ExpressRoute para a Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Encaminhamento com ExpressRoute para Microsoft 365](/microsoft-365/enterprise/routing-with-expressroute)
-* [Elevada disponibilidade e ativação pós-falha com o ExpressRoute](https://aka.ms/erhighavailability)
+* [Elevada disponibilidade e ativação pós-falha com o ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
 * [Gamas de endereços Microsoft 365 URLs e IP](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Planeamento de rede e afinação de desempenho para o Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Plano de rede e migração para a Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)

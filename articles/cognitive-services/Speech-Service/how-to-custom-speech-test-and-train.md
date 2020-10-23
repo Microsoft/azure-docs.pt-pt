@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628057"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165337"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -59,7 +59,7 @@ Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados com
 
 Para fazer o upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Discurso Personalizado </a>. A partir do portal, clique em **Carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será solicitado que selecione um tipo de dados de voz para o seu conjunto de dados, antes de lhe permitir fazer o upload dos seus dados.
 
-![Selecione áudio do Portal do Discurso](./media/custom-speech/custom-speech-select-audio.png)
+![Screenshot que realça a opção de upload áudio a partir do Portal do Discurso.](./media/custom-speech/custom-speech-select-audio.png)
 
 Cada conjunto de dados que fizer o upload deve satisfazer os requisitos para o tipo de dados que escolher. Os seus dados devem ser corretamente formatados antes de serem carregados. Dados formatados corretamente garantem que será processado com precisão pelo serviço Desemedicado. Os requisitos estão listados nas seguintes secções.
 
@@ -186,7 +186,7 @@ A forma falada é a sequência fonética escrita. Pode ser composto por letra, p
 
 A pronúncia personalizada está disponível em inglês `en-US` e alemão ( em inglês) e em alemão `de-DE` . Esta tabela mostra caracteres suportados pela linguagem:
 
-| Idioma | Região | Personagens |
+| Linguagem | Região | Personagens |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

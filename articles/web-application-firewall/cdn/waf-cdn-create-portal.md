@@ -7,18 +7,18 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9579d0da3347bdd4ecc627662cee42f909cbfaf7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327943"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132776"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Criar uma política de WAF no Azure CDN usando o portal Azure
 
 Este tutorial mostra-lhe como criar uma política básica de Firewall de Aplicação Web (WAF) e aplicá-la a um ponto final na Rede de Entrega de Conteúdos Azure (CDN).
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar uma política de WAF
@@ -43,7 +43,7 @@ Em primeiro lugar, crie uma política de WAF básica com um Conjunto de Regras P
     | Grupo de recursos          |Selecione o nome do grupo de recursos da porta da frente.|
     | Nome da política             |Insira um nome único para a sua política WAF.|
 
-   ![Criar uma política de WAF](../media/waf-cdn-create-portal/basic.png)
+   :::image type="content" source="../media/waf-cdn-create-portal/basic.png" alt-text="Screenshot da página de política Criar uma política W A F, com um botão Review + criar e valores introduzidos para várias definições." border="false":::
 
 3. No separador **Associação** da página **política 'Criar uma política DA WAF',** selecione Adicionar o Ponto final **CDN,** introduza as seguintes definições e, em seguida, selecione **Adicionar**:
 
@@ -64,7 +64,7 @@ Por defeito, a política waf está no modo *deteção* quando cria uma política
 
 Para ver o WAF em ação, pode alterar as definições de modo de *Deteção* para *Prevenção*. No modo *prevenção,* os pedidos que correspondam às regras definidas no Conjunto de Regras Predefinidas (DRS) são bloqueados e registados nos registos WAF.
 
- ![Alterar o modo de política DAA](../media/waf-cdn-create-portal/policy.png)
+ :::image type="content" source="../media/waf-cdn-create-portal/policy.png" alt-text="Screenshot da página de política Criar uma política W A F, com um botão Review + criar e valores introduzidos para várias definições." border="false":::
 
 ### <a name="custom-rules"></a>Regras personalizadas
 
@@ -72,19 +72,19 @@ Para criar uma regra personalizada, **selecione Adicionar regra personalizada** 
 
 A imagem que se segue mostra uma regra de correspondência personalizada para bloquear um pedido se a cadeia de consulta contiver o **bloco de**valor .
 
-![Adicionar regra de jogo personalizado](../media/waf-cdn-create-portal/custommatch.png)
+:::image type="content" source="../media/waf-cdn-create-portal/custommatch.png" alt-text="Screenshot da página de política Criar uma política W A F, com um botão Review + criar e valores introduzidos para várias definições." border="false":::
 
 As regras limite de taxa requerem dois campos adicionais: **Duração limite de taxa** e **limiar de limite de taxa (pedidos),** como indicado no exemplo seguinte:
 
-![Adicionar regra de limite de taxa](../media/waf-cdn-create-portal/customrate.png)
+:::image type="content" source="../media/waf-cdn-create-portal/customrate.png" alt-text="Screenshot da página de política Criar uma política W A F, com um botão Review + criar e valores introduzidos para várias definições." border="false":::
 
 ### <a name="default-rule-set-drs"></a>Conjunto de regras predefinidos (DRS)
 
 O Conjunto de Regras Padrão gerido por Azure é ativado por padrão. Para desativar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, selecione a caixa de verificação à frente do número de regras e selecione **Desativar** o separador acima. Para alterar tipos de ações para regras individuais dentro do conjunto de regras, selecione a caixa de verificação à frente do número de regra e, em seguida, selecione o separador **de ação Change** acima.
 
- ![Alterar conjunto de regras WAF](../media/waf-cdn-create-portal/managed2.png)
+ :::image type="content" source="../media/waf-cdn-create-portal/managed2.png" alt-text="Screenshot da página de política Criar uma política W A F, com um botão Review + criar e valores introduzidos para várias definições." border="false":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, remova o grupo de recursos e todos os recursos relacionados.
 

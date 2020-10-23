@@ -31,6 +31,9 @@
     - name: Proteger recursos novos com bloqueios de recursos de esquema
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
+    - name: 'Saiba como: gerir várias subscrições com o Azure Blueprints'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Amostras
   items:
     - name: Índice

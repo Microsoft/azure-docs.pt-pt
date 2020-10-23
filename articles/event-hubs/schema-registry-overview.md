@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral do suporte do Registo de Schem
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938802"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330500"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registo de Esquemas do Azure nos Hubs de Eventos (Pré-visualização)
 Em muitos cenários de streaming e mensagens de eventos, a carga útil do evento ou da mensagem contém dados estruturados que estão a ser serializados ou deseralizados usando um formato orientado por esquemas como o Apache Avro. Tanto os remetentes como os recetores podem querer validar a integridade dos dados com um documento de esquema como com o esquema JSON. No que diz sobre os formatos orientados por esquemas, a disponibilização do esquema ao consumidor de mensagens é um pré-requisito para que o consumidor possa deserizar os dados. 
@@ -50,8 +50,8 @@ A imagem a seguir mostra o fluxo de informação do registo de esquemas com os C
 ## <a name="standard-vs-dedicated-limits"></a>Padrão vs. limites dedicados
 Para limites (por exemplo: número de grupos de esquemas num espaço de nome) que são os mesmos e diferentes para níveis padrão e dedicados de Centros de Eventos, consulte [os limites do Registo de Schema](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
 
-## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
-Ao aceder programaticamente ao registo de esquemas, é necessário registar uma aplicação no Azure Ative Directory (Azure AD) e adicionar o principal de segurança da aplicação a uma das funções de controlo de acesso baseado em funções (RBAC):
+## <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
+Ao aceder programaticamente ao registo de esquemas, é necessário registar uma aplicação no Azure Ative Directory (Azure AD) e adicionar o principal de segurança da aplicação a uma das funções de controlo de acesso baseado em funções Azure (Azure RBAC):
 
 | Função | Descrição | 
 | ---- | ----------- | 

@@ -1,17 +1,17 @@
 ---
 title: Versões suportadas - Base de Dados Azure para PostgreSQL - Servidor Flexível
-description: Descreve as versões pósgresas suportadas e pequenas na Base de Dados Azure para PostgreSQL - Servidor Flexível.
+description: Descreve as versões pós-QL suportadas em Azure Database for PostgreSQL - Flexible Server.
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 9d651a38361ccaa7f8788fb4a375b39b2953228b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 334eaa88ae927ae61ebb445343494cfdce570563
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90936970"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167496"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versões postgresQL suportadas na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -22,11 +22,11 @@ A Azure Database for PostgreSQL - Flexible Server suporta atualmente as seguinte
 
 ## <a name="postgresql-version-12"></a>Versão PostgreSQL 12
 
-A libertação menor atual é 12.1. Consulte a [documentação PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-1.html) para saber mais sobre melhorias e correções nesta versão menor.
+A libertação menor atual é de 12,4. Consulte a [documentação PostgreSQL](https://www.postgresql.org/docs/12/static/release-12-4.html) para saber mais sobre melhorias e correções nesta versão menor.
 
 ## <a name="postgresql-version-11"></a>Versão 11 do PostgreSQL
 
-A libertação menor atual é de 11,8. Consulte a [documentação PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-8.html) para saber mais sobre melhorias e correções nesta versão menor.
+A libertação menor atual é de 11,9. Consulte a [documentação PostgreSQL](https://www.postgresql.org/docs/11/static/release-11-9.html) para saber mais sobre melhorias e correções nesta versão menor.
 
 ## <a name="postgresql-version-10-and-older"></a>Versão Pós-SQL 10 ou mais
 
@@ -36,7 +36,7 @@ Não suportamos a versão 10 do PostgreSQL para Azure Database para PostgreSQL -
 
 O projeto PostgreSQL emite regularmente lançamentos menores para corrigir bugs reportados. A Azure Database for PostgreSQL corrige automaticamente servidores com versões menores durante as implementações mensais do serviço.
 
-A atualização automática da versão principal ainda não está suportada. Por exemplo, não existe atualmente nenhuma atualização automática de PostgreSQL 11 para PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
+A automatização para a melhora de versão principal ainda não está suportada. Por exemplo, não existe atualmente nenhuma atualização automática de PostgreSQL 11 para PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
 
 <!--
 ## Next steps

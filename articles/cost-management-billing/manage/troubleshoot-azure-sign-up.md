@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326611"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131076"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Resolução de problemas quando se inscreve numa nova conta no portal do Azure ou no centro de contas do Azure
 
 Poderá ter problemas quando se tentar inscrever numa nova conta no portal do Microsoft Azure ou no centro de contas do Azure. Este pequeno guia orienta-o ao longo do processo de inscrição e aborda alguns dos problemas comuns em cada um dos passos.
 
 > [!NOTE]
-> Se já tem uma conta e está à procura de orientação para resolver problemas de início de sessão, veja [Resolver problemas relativos a início de sessão da subscrição do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
+> Se já tem uma conta e está à procura de orientação para resolver problemas de início de sessão, veja [Resolver problemas relativos a início de sessão da subscrição do Azure](./troubleshoot-sign-in-issue.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -76,8 +76,8 @@ Para resolver este problema, verifique novamente se os seguintes itens são verd
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>É apresentada a mensagem “O tipo de conta atual não é suportado”
 
-Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) e não estiver no diretório do Azure AD da sua organização.
-Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) (Assumir um diretório não gerido como administrador no Azure Active Directory).
+Este problema pode ocorrer se a conta estiver registada num [diretório do Azure AD não gerido](../../active-directory/users-groups-roles/directory-self-service-signup.md) e não estiver no diretório do Azure AD da sua organização.
+Para resolver este problema, inscreva-se na conta do Azure com outra conta ou assuma o controlo do diretório do AD não gerido. Para obter mais informações, veja [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md) (Assumir um diretório não gerido como administrador no Azure Active Directory).
 
 ## <a name="identity-verification-by-phone"></a>Verificação de identidade por telefone
 
@@ -107,7 +107,7 @@ Eis algumas dicas adicionais:
 
 #### <a name="credit-card-declined-or-not-accepted"></a>Cartão de crédito rejeitado ou não aceite
 
-Os cartões de débito ou de crédito pré-pagos ou virtuais não são aceites como pagamento para Subscrições do Azure. Para ver o que mais pode fazer com que o cartão seja rejeitado, veja [Resolução de problemas num cartão rejeitado na inscrição no Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card).
+Os cartões de débito ou de crédito pré-pagos ou virtuais não são aceites como pagamento para Subscrições do Azure. Para ver o que mais pode fazer com que o cartão seja rejeitado, veja [Resolução de problemas num cartão rejeitado na inscrição no Azure](./troubleshoot-declined-card.md).
 
 #### <a name="credit-card-form-doesnt-support-my-billing-address"></a>O formulário do cartão de crédito não suporta o meu endereço de faturação
 
@@ -144,7 +144,7 @@ Complete o Contrato.
 Verifique se está a utilizar as informações de início de sessão corretas. Em seguida, verifique o programa de benefícios para confirmar se é elegível.
 - MSDN
   - Verifique o seu estado de elegibilidade na [página da sua conta MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Se não conseguir verificar o seu estado, contacte os [Centros de Suporte ao Cliente das Subscrições do MSDN](https://msdn.microsoft.com/library/aa493452.aspx).
+  - Se não conseguir verificar o seu estado, contacte os [Centros de Suporte ao Cliente das Subscrições do MSDN](/previous-versions/mappoint/aa493452(v=msdn.10)).
 - Microsoft para Startups
   - Inicie sessão no [portal Microsoft para Startups portal](https://startups.microsoft.com/#start-two) para verificar o seu estado de elegibilidade relativo à Microsoft para Startups.
   - Se não conseguir verificar o seu estado, pode obter ajuda nos [fóruns da Microsoft para Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
@@ -161,10 +161,10 @@ Para criar uma subscrição do Azure no Open, precisa de uma Chave de Ativação
 
 Outros artigos de resolução de problemas para Subscrições e Faturação do Azure
 
-- [Cartão rejeitado](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problemas de início de sessão da subscrição](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [Não foram encontradas subscrições](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Vista de custos empresariais desativada](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Cartão rejeitado](./troubleshoot-declined-card.md)
+- [Problemas de início de sessão da subscrição](./troubleshoot-sign-in-issue.md)
+- [Não foram encontradas subscrições](./no-subscriptions-found.md)
+- [Vista de custos empresariais desativada](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>Contacte-nos para obter ajuda
 
@@ -172,4 +172,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://ms.p
 
 ## <a name="find-out-more-about-azure-cost-management"></a>Saiba mais sobre o Azure Cost Management
 
-- [Documentação do Azure Cost Management e Faturação](https://docs.microsoft.com/azure/cost-management-billing)
+- [Documentação do Azure Cost Management e Faturação](../index.yml)

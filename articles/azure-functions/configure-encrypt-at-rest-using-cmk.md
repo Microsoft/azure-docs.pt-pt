@@ -3,12 +3,12 @@ title: Criptografe a sua fonte de aplicação em repouso
 description: Criptografe os dados da sua aplicação no Azure Storage e implemente-os como um ficheiro de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282335"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108036"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Criptografe os dados da sua aplicação em repouso utilizando as teclas geridas pelo cliente
 
@@ -22,7 +22,7 @@ Encriptar os dados de aplicação da sua aplicação de função em repouso requ
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-Em primeiro lugar, [crie uma conta de Armazenamento Azure](../storage/common/storage-account-create.md) e [criptografe-a com as teclas geridas pelo cliente](../storage/common/encryption-customer-managed-keys.md). Assim que a conta de armazenamento for criada, utilize o [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar ficheiros de pacotes.
+Em primeiro lugar, [crie uma conta de Armazenamento Azure](../storage/common/storage-account-create.md) e [criptografe-a com as teclas geridas pelo cliente](../storage/common/customer-managed-keys-overview.md). Assim que a conta de armazenamento for criada, utilize o [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar ficheiros de pacotes.
 
 Em seguida, utilize o Explorador de Armazenamento para [gerar um SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 

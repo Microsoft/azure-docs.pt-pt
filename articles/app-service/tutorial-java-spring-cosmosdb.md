@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0531ff7765fbcfb304d58e5b444eafdb3ad4fb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404804"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427085"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Construa uma aplicação web Java Spring Boot com serviço de aplicações Azure em Linux e Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 * [Azure CLI,](/cli/azure/overview)instalado no seu próprio computador. 
 * [Rio Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>Clone a amostra toda a app e prepare o repo
@@ -238,7 +238,7 @@ Abra o `pom.xml` ficheiro no `initial/spring-boot-todo` diretório e adicione o 
 
 ## <a name="deploy-to-app-service-on-linux"></a>Implementar para o Serviço de Aplicações em Linux
 
-Utilize o `azure-webapp:deploy` objetivo maven para implementar a app TODO para o Azure App Service em Linux.
+Utilize o `mvn azure-webapp:deploy` objetivo maven para implementar a app TODO para o Azure App Service em Linux.
 
 ```bash
 
@@ -275,7 +275,7 @@ bash-3.2$ mvn azure-webapp:deploy
 A saída contém o URL para a sua aplicação implementada (neste exemplo, `https://spring-todo-app.azurewebsites.net` ). Pode copiar este URL no seu navegador web ou executar o seguinte comando na janela do Terminal para carregar a sua aplicação.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 Deve ver a aplicação a funcionar com o URL remoto na barra de endereços:
@@ -299,8 +299,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se não precisar destes recursos para outro tutorial (veja os [Passos seguintes](#next)), pode eliminá-los ao executar o seguinte comando no Cloud Shell: 
-  
+Se não precisar destes recursos para outro tutorial (veja os [Passos seguintes](#next)), pode eliminá-los ao executar o seguinte comando no Cloud Shell: 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```

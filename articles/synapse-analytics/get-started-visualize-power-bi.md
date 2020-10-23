@@ -7,15 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
-ms.subservice: overview
+ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1046639f60b6fecd5b3b84328b38c10f269a348
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c5c41b98d52a4b8182fb162c3bfa9a08c0df5e15
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093859"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171842"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar dados com o Power BI
 

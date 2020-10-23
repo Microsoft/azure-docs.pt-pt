@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640757"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362370"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações de autosserviço
 
@@ -82,4 +82,4 @@ Para permitir o acesso de aplicações self-service a uma aplicação, siga os p
 Assim que concluir a configuração da aplicação self-service, os utilizadores podem navegar para as suas [Apps My](https://myapps.microsoft.com/) e clicar no botão **Adicionar aplicações de self-service** para encontrar as aplicações que estão habilitados com acesso ao autosserviço. Os aprovadores de negócios também vêem uma notificação nas suas [Aplicações My.](https://myapps.microsoft.com/) Pode ativar um e-mail notificando-os quando um utilizador tiver solicitado acesso a uma aplicação que exija a sua aprovação.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurar o Azure Active Directory para gestão de grupo personalizada](../users-groups-roles/groups-self-service-management.md)
+[Configurar o Azure Active Directory para gestão de grupo personalizada](../enterprise-users/groups-self-service-management.md)

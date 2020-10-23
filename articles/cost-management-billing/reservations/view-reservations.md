@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: ec91d0997717d536c3b47ce7b276f75b21d1baa1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 926e0c8bc0fdff580b4d1e84be5940e0945d52ae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681656"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146271"
 ---
 # <a name="view-azure-reservations"></a>Ver as reservas do Azure
 
@@ -55,7 +55,7 @@ Os utilizadores do Power BI têm duas opções
 - [Gerir Reservas do Azure](manage-reserved-vm-instance.md).
 - [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 - [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
-- [Compreender a utilização de reservas nas subscrições do CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Compreender a utilização de reservas nas subscrições do CSP](/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 

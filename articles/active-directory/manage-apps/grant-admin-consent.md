@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069582"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369102"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador ao nível do inquilino a uma aplicação
 
@@ -27,7 +27,7 @@ Para obter mais informações sobre o consentimento dos pedidos, consulte [o qua
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A concessão do consentimento administrativo ao inquilinos requer que se inscreva como [Administrador Global,](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) [Administrador de Aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)ou [Administrador de Aplicação em Nuvem.](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)
+A concessão do consentimento administrativo ao inquilinos requer que se inscreva como [Administrador Global,](../roles/permissions-reference.md#global-administrator--company-administrator) [Administrador de Aplicação](../roles/permissions-reference.md#application-administrator)ou [Administrador de Aplicação em Nuvem.](../roles/permissions-reference.md#cloud-application-administrator)
 
 > [!IMPORTANT]
 > Quando uma aplicação tiver recebido o consentimento administrativo do arrendatário, todos os utilizadores poderão inscrever-se na app a menos que tenha sido configurada para exigir a atribuição do utilizador. Para restringir quais os utilizadores que podem iniciar sessão numa aplicação, exija a atribuição do utilizador e, em seguida, atribua utilizadores ou grupos à aplicação. Para obter mais informações, consulte [Métodos para atribuir utilizadores e grupos.](methods-for-assigning-users-and-groups.md)
@@ -47,7 +47,7 @@ Você pode conceder o consentimento administrativo do inquilino através de *ped
 
 Para conceder o consentimento administrativo do arrendatário a uma aplicação listada em **aplicações da Enterprise:**
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global,](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) [Administrador de Aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)ou [Administrador de Aplicação cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global,](../roles/permissions-reference.md#global-administrator--company-administrator) [Administrador de Aplicação](../roles/permissions-reference.md#application-administrator)ou [Administrador de Aplicação cloud](../roles/permissions-reference.md#cloud-application-administrator).
 2. Selecione **Azure Ative Directory** e depois **aplicações enterprise**.
 3. Selecione o pedido ao qual pretende conceder o consentimento administrativo ao arrendatário.
 4. Selecione **Permissões** e, em seguida, clique em **Conceder o consentimento de administração**.
@@ -63,7 +63,7 @@ Para aplicações que a sua organização desenvolveu, ou que estão registadas 
 
 Para conceder o consentimento administrativo do arrendatário a partir dos registos da **App:**
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global,](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) [Administrador de Aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)ou [Administrador de Aplicação cloud](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global,](../roles/permissions-reference.md#global-administrator--company-administrator) [Administrador de Aplicação](../roles/permissions-reference.md#application-administrator)ou [Administrador de Aplicação cloud](../roles/permissions-reference.md#cloud-application-administrator).
 2. Selecione **Azure Ative Directory** e depois **registos de aplicações**.
 3. Selecione o pedido ao qual pretende conceder o consentimento administrativo ao arrendatário.
 4. Selecione **permissões API** e, em seguida, clique em **Grant consentimento administrativo**.

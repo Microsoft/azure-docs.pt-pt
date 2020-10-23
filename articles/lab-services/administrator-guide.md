@@ -2,13 +2,13 @@
 title: Azure Lab Services - Guia de Administradores / Microsoft Docs
 description: Este guia ajuda administradores que criam e gerem contas de laboratório usando os Serviços Azure Lab.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444153"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425304"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de Administradores
 Os administradores de Tecnologias de Informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Uma vez criada uma conta de laboratório, administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos Azure envolvidos e as orientações para a sua criação.
@@ -144,11 +144,11 @@ A localização em que um laboratório de sala de aula existe varia com base nos
     > [!NOTE]
     > Quando uma conta de laboratório é espremiada com um VNet, a definição para permitir que o **criador do laboratório escolha a localização do laboratório** é desativada. Informações adicionais podem ser encontradas sobre esta configuração no artigo: Permitir que o [criador do laboratório escolha a localização para o laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **Nenhum VNet é espreitado ***e*** os criadores de laboratório não estão autorizados a escolher a localização do laboratório.**
+  - **Nenhum VNet é espreitado*_* e_*_ criadores de laboratório não estão autorizados a escolher o laboratório location_*
   
     Quando **não** há VNet espreitado com a conta de laboratório *e* [os criadores de laboratório **não** estão autorizados a escolher a localização do laboratório, os](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)laboratórios de sala de aula são automaticamente criados numa região que tem capacidade vm disponível.  Especificamente, a Azure Lab Services procura disponibilidade em [regiões que estão dentro da mesma geografia que a conta de laboratório.](https://azure.microsoft.com/global-infrastructure/regions)
 
-  - **Nenhum VNet é espreitado ***e*** os criadores de laboratório são autorizados a escolher a localização do laboratório**
+  - **Nenhum VNet é espreitado **_e_*_ criadores de laboratório são autorizados a escolher o laboratório location_*
        
     Quando **não** há VNet e os [criadores de laboratório são autorizados a escolher a localização do laboratório,](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)os locais que podem ser selecionados pelo criador do laboratório baseiam-se na capacidade disponível.
 
@@ -171,14 +171,14 @@ Quando administradores ou criadores de laboratório criam um laboratório de sal
 | Médio | <ul><li>4 Núcleos</li><li>7 GB DE RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise. |
 | Médio (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB DE RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise.
 | Grande | <ul><li>8 núcleos</li><li>16 GB DE RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes.  Este tamanho também suporta a virtualização aninhada. |
-| Grande (Virtualização Aninhada) | <ul><li>8 núcleos</li><li>16 GB DE RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes. |
+| Grande (Virtualização Aninhada) | <ul><li>8 núcleos</li><li>32 GB de RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado para aplicações que precisam de CPUs mais rápidos, melhor desempenho do disco local, grandes bases de dados, caches de memória grandes. |
 | Pequeno GPU (Visualização) | <ul><li>6 Núcleos</li><li>56 GB DE RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando quadros como OpenGL e DirectX. |
 | Pequena GPU (Computação) | <ul><li>6 Núcleos</li><li>56 GB DE RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações intensivas em computador, como Inteligência Artificial e Deep Learning. |
 | GPU médio (Visualização) | <ul><li>12 Núcleos</li><li>112 GB DE RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando quadros como OpenGL e DirectX. |
 
 ## <a name="manage-identity"></a>Gerir identidade
 
-Utilizando o [controlo de acesso baseado no papel da Azure,](https://docs.microsoft.com/azure/role-based-access-control/overview)as seguintes funções podem ser atribuídas para dar acesso a contas de laboratório e laboratórios de sala de aula:
+Utilizando [o controlo de acesso baseado em funções Azure (Azure RBAC),](https://docs.microsoft.com/azure/role-based-access-control/overview)as seguintes funções podem ser atribuídas para dar acesso a contas de laboratório e laboratórios de sala de aula:
 
 - **Proprietário da conta de laboratório**
 

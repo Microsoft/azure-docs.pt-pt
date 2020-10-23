@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 9c2f8ea55f99ac893dca0fa380729b7cc866812e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871293"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425134"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
 
@@ -608,5 +608,5 @@ Agora que aprendeu o básico do armazenamento de filas, siga estes links para ap
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
 [Azure Storage Client SDK Reference]: https://azure.github.io/azure-sdk-for-java/storage.html (Referência do SDK do Cliente do Armazenamento do Azure)
-[Azure Storage Services REST API]: https://docs.microsoft.com/rest/api/storageservices/
+[Azure Storage Services REST API]: /rest/api/storageservices/
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

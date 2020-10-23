@@ -1,5 +1,5 @@
 ---
-title: Adicione conectores API aos fluxos do utilizador
+title: Adicione conectores API aos fluxos do utilizador (pré-visualização)
 description: Configurar um conector API para ser utilizado num fluxo de utilizador.
 services: active-directory-b2c
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854363"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102277"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Adicione um conector API a um fluxo de utilizador de inscrição
+# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
 
 Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o conector API e depois ativa-o num fluxo de utilizador.
 
@@ -234,12 +234,12 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | Cadeia            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | Cadeia            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
+| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A alegação não precisa de `_<extensions-app-id>_` conter. Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -255,17 +255,19 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Necessário | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | Cadeia | Sim      | A versão da API.                                                    |
-| ação      | Cadeia | Sim      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | Cadeia | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| versão     | String | Sim      | A versão da API.                                                    |
+| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
 ![Página de bloco de exemplo](./media/add-api-connector/blocking-page-response.png)
 
 ### <a name="example-of-a-validation-error-response"></a>Exemplo de uma resposta de erro de validação
+
+
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -279,12 +281,14 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Necessário | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | Cadeia  | Sim      | A versão da API.                                                    |
-| ação      | Cadeia  | Sim      | O valor deve `ValidationError` ser.                                           |
+| versão     | String  | Sim      | A versão da API.                                                    |
+| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
 | status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | Cadeia  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+
+*Nota:* O código de estado HTTP tem de ser "400" para além do valor de "estado" no corpo da resposta.
 
 **Experiência de utilizador final com uma resposta de erro de validação**
 

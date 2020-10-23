@@ -4,12 +4,12 @@ description: Este artigo discute questões gerais populares sobre a Recuperaçã
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950498"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369442"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -39,7 +39,7 @@ Existem várias medidas tomadas pela Recuperação do Local para garantir a inte
 Sim, a Recuperação de Sites suporta os modelos de infraestrutura partilhados e dedicados.
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>Para um prestador de serviços, a identidade do meu inquilino é partilhada com o serviço de Recuperação do Local?
-N.º A identidade do inquilino permanece anónima. Os seus inquilinos não precisam de acesso ao portal de recuperação de Recuperação de Sites. Apenas o administrador do fornecedor de serviços interage com o portal.
+Não. A identidade do inquilino permanece anónima. Os seus inquilinos não precisam de acesso ao portal de recuperação de Recuperação de Sites. Apenas o administrador do fornecedor de serviços interage com o portal.
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>Os dados da aplicação do inquilino irão para OZure?
 Quando há replicação entre sites pertencentes ao fornecedor de serviços, os dados das aplicações nunca chegam ao Azure. Os dados são encriptados em trânsito e replicados diretamente entre os sites do prestador de serviços.
@@ -47,7 +47,7 @@ Quando há replicação entre sites pertencentes ao fornecedor de serviços, os 
 Se está a replicar para o Azure, os dados da aplicação são enviados para armazenamento do Azure, mas não para o serviço de Recuperação de Sites. Os dados são encriptados em trânsito e permanecem encriptados em Azure.
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>Os meus inquilinos receberão uma fatura de quaisquer serviços do Azure?
-N.º A relação de faturação do Azure é diretamente com o fornecedor de serviços. Os fornecedores de serviços são responsáveis por gerar faturas específicas para os seus inquilinos.
+Não. A relação de faturação do Azure é diretamente com o fornecedor de serviços. Os fornecedores de serviços são responsáveis por gerar faturas específicas para os seus inquilinos.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Se estiver a replicar para o Azure, necessitamos executar as máquinas virtuais no Azure todo o tempo?
 Não, os dados são replicados no armazenamento Azure na sua subscrição. Quando efetua uma ativação pós-falha de teste (simulação de recuperação após desastre) ou uma ativação pós-falha real, a Recuperação de Sites cria automaticamente máquinas virtuais na sua subscrição.
@@ -71,7 +71,7 @@ Rever [detalhes de preços de recuperação do site.](https://azure.microsoft.co
 
 Pode utilizar a [calculadora de preços](https://aka.ms/asr_pricing_calculator) para estimar os custos durante a utilização da Recuperação do Local.
 
-Para uma estimativa detalhada dos custos, execute a ferramenta de planejador de implementação para [VMware](https://aka.ms/siterecovery_deployment_planner) ou [Hyper-V,](https://aka.ms/asr-deployment-planner)e use o [relatório de estimativa de custos](https://aka.ms/asr_DP_costreport).
+Para uma estimativa detalhada dos custos, execute a ferramenta de planejador de implementação para [VMware](./site-recovery-deployment-planner.md) ou [Hyper-V,](https://aka.ms/asr-deployment-planner)e use o [relatório de estimativa de custos](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ### <a name="managed-disks-are-now-used-to-replicate-vmware-vms-and-physical-servers-do-i-incur-additional-charges-for-the-cache-storage-account-with-managed-disks"></a>Os discos geridos são agora utilizados para replicar VMware VMs e servidores físicos. Incorrer em encargos adicionais para a conta de armazenamento de cache com discos geridos?

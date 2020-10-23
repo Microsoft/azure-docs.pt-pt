@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327468"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145859"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligue raspberry Pi ao Azure IoT Hub (C)
 
@@ -81,7 +81,7 @@ Os seguintes itens são opcionais:
 > Estes itens são opcionais porque a amostra de código suporta dados simulados do sensor.
 >
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -154,7 +154,7 @@ Para os pinos dos sensores, utilize os seguintes fios:
 | SDI (Pin 23F)            | SPI0 MOSI (Pino 19)     | Cabo verde   |
 | CS (Pin 24F)             | SPI0 CS (Pino 24)       | Cabo azul    |
 
-Clique para ver [raspberry Pi 2 & mapeamentos de 3 pin](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) para a sua referência.
+Clique para ver [raspberry Pi 2 & mapeamentos de 3 pin](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para a sua referência.
 
 Depois de ter ligado o BME280 com sucesso ao seu Raspberry Pi, deve ser como a imagem abaixo.
 

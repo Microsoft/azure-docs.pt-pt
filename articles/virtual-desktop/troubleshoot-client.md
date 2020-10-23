@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134484"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108971"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Resolução de problemas do cliente de ambiente de trabalho remoto
 
@@ -83,6 +83,20 @@ Se o cliente web continuar a pedir credenciais, siga estas instruções:
 3. Limpe os cookies do navegador. Para obter mais informações, consulte [Como eliminar ficheiros de cookies no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Limpe a cache do browser. Para mais informações, consulte [Cache de navegador Limpo para o seu navegador.](https://binged.it/2RKyfdU)
 5. Abra o seu navegador em modo Privado.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>Cliente do Windows bloqueia feed virtual do Windows Desktop (clássico)
+
+Se o feed do cliente do Windows não mostrar aplicações virtual desktop (clássicas) do Windows, siga estas instruções:
+
+1. Verifique se a política de Acesso Condicional inclui os IDs de aplicação associados ao Windows Virtual Desktop (clássico).
+2. Verifique se a política de acesso condicional bloqueia todos os acessos, exceto iDs de aplicação virtual do Windows Desktop (clássico). Em caso afirmativo, terá de adicionar à apólice o ID **9cdead84-a844-4324-93f2-b2e6bb768d07** para permitir ao cliente descobrir os feeds.
+
+Se não conseguir encontrar a aplicação ID 9cdead84-a844-4324-93f2-b2e6bb768d07 na lista, terá de registar o fornecedor de recursos virtual desktop do Windows. Para registar o fornecedor de recursos:
+
+1. Inicie sessão no Portal do Azure.
+2. Vá à **Subscrição**e, em seguida, selecione a sua subscrição.
+3. No menu do lado esquerdo da página, selecione **Fornecedor de Recursos**.
+4. Localizar e selecionar **Microsoft.DesktopVirtualization**e, em seguida, selecionar **Re-registrar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

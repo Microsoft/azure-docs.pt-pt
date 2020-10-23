@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2020
-ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269170"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317559"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -316,14 +316,14 @@ Juntamente com a Assinatura de Acesso Partilhado (SAS), é possível que queira 
 
 1. Na **configuração do controlo de acesso**Permitido  >  **endereços IP de entrada**, selecione **gamas IP específicas**.
 
-1. Nos **intervalos IP para gatilhos**, especifique os intervalos de endereço IP que o gatilho aceita.
+1. Quando o intervalo IP para a caixa **de gatilhos** aparecer, especifique os intervalos de endereço IP que o gatilho aceita. Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x.x.x.x.x.x*
 
-   Uma gama IP válida utiliza estes formatos: *x.x.x.x/x* ou *x.x.x-x.x.x.x.x.x.x.x*
+   Por exemplo, para tornar a sua aplicação lógica callable apenas como uma aplicação lógica aninhada através da ação HTTP, use a opção **de gamas IP específica** (não a única outra opção de **Aplicações Lógicas)** e insira os [endereços IP](../logic-apps/logic-apps-limits-and-config.md#outbound)de saída da aplicação lógica principal.
 
-Se pretender que a sua aplicação lógica desencadeie apenas como uma aplicação lógica aninhada, a partir da lista **de endereços IP de entrada permitida,** selecione **Apenas outras Aplicações Lógicas**. Esta opção escreve um conjunto vazio para o seu recurso de aplicação lógica. Desta forma, apenas as chamadas do serviço De Aplicações Lógicas (aplicações lógicas dos pais) podem desencadear a aplicação lógica aninhada.
+   No entanto, para tornar a sua aplicação lógica callable apenas como uma app lógica aninhada através da ação incorporada [Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md), selecione a única outra opção **de Aplicações Lógicas.** Esta opção escreve um conjunto vazio para o seu recurso de aplicação lógica e requer que apenas chamadas de outras aplicações lógicas "parentais" possam desencadear a app lógica aninhada através da ação **incorporada Azure Logic Apps.**
 
-> [!NOTE]
-> Independentemente do endereço IP, ainda pode executar uma aplicação lógica que tenha um gatilho baseado em pedidos utilizando a [API de Apps Lógicas REST: Workflow Triggers - Executar](/rest/api/logic/workflowtriggers/run) pedido ou utilizando a API Management. No entanto, este cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) contra a API Azure REST. Todos os eventos aparecem no Registo de Auditoria do Azure. Certifique-se de que define as políticas de controlo de acesso em conformidade.
+   > [!NOTE]
+   > Independentemente de quaisquer endereços IP que especifique, ainda pode executar uma aplicação lógica que tenha um gatilho baseado em pedidos utilizando a [API de Aplicações Lógicas REST: Workflow Triggers - Executar](/rest/api/logic/workflowtriggers/run) pedido ou utilizando a API Management. No entanto, este cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) contra a API Azure REST. Todos os eventos aparecem no Registo de Auditoria do Azure. Certifique-se de que define as políticas de controlo de acesso em conformidade.
 
 <a name="restrict-inbound-ip-template"></a>
 
@@ -1065,7 +1065,7 @@ Você pode usar aplicações lógicas Azure no [Governo Azure](../azure-governme
 
   * [Planos de Serviço de Aplicações Azure](../app-service/overview-hosting-plans.md)
   * [Opções de rede das Funções do Azure](../azure-functions/functions-networking-options.md)
-  * [Azure Anfitriões Dedicados para máquinas virtuais](../virtual-machines/windows/dedicated-hosts.md)
+  * [Azure Anfitriões Dedicados para máquinas virtuais](../virtual-machines/dedicated-hosts.md)
   * [Isolamento de máquina virtual em Azure](../virtual-machines/isolation.md)
   * [Implementar serviços dedicados da Azure em redes virtuais](../virtual-network/virtual-network-for-azure-services.md)
 

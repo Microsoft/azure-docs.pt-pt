@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766664"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371499"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
 
@@ -42,7 +42,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * Está familiarizado com [as Aplicações Lógicas Azure.](../logic-apps/logic-apps-overview.md)
 
-* Está familiarizado com a utilização do Azure PowerShell. A Azure PowerShell é necessária para recolher os prefixos da rede no gateway ExpressRoute. Para obter mais informações sobre a Azure PowerShell em geral, consulte a [documentação Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* Está familiarizado com a utilização do Azure PowerShell. A Azure PowerShell é necessária para recolher os prefixos da rede no gateway ExpressRoute. Para obter mais informações sobre a Azure PowerShell em geral, consulte a [documentação Azure PowerShell](/powershell/azure/?view=azps-4.1.0).
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>Notas e limitações
 
@@ -58,7 +58,7 @@ Quando cria uma conta Automation no portal Azure, uma conta [Run As](../automati
 
 * Cria uma conta principal de serviço para a aplicação em Azure AD.
 
-* Atribui-se a função contribuinte (RBAC) na Subscrição Azure em uso. Esta função gere os recursos do Azure Resource Manager utilizando livros de execução.
+* Atribui-se a função contribuinte (Azure RBAC) na Subscrição Azure em uso. Esta função gere os recursos do Azure Resource Manager utilizando livros de execução.
 
 Para criar uma conta Automation, precisa de privilégios e permissões. Para obter informações, consulte [permissões necessárias para criar uma conta Demôm automação.](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account)
 
@@ -70,7 +70,7 @@ Criar uma conta De automação com permissões run-as. Para obter instruções, 
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. Atribuir a execução como conta uma função
 
-Por predefinição, a **função Contribuinte** é atribuída ao titular de serviço que é utilizado pela sua conta **Run As.** Pode manter a função predefinida atribuída ao principal de serviço, ou pode restringir permissões atribuindo uma [função incorporada](../role-based-access-control/built-in-roles.md) (por exemplo, Leitor) ou uma [função personalizada](../active-directory/users-groups-roles/roles-create-custom.md).
+Por predefinição, a **função Contribuinte** é atribuída ao titular de serviço que é utilizado pela sua conta **Run As.** Pode manter a função predefinida atribuída ao principal de serviço, ou pode restringir permissões atribuindo uma [função incorporada](../role-based-access-control/built-in-roles.md) (por exemplo, Leitor) ou uma [função personalizada](../active-directory/roles/custom-create.md).
 
  Utilize os seguintes passos para determinar a função atribuída ao titular de serviço que é utilizado pela sua conta Run As:
 
@@ -257,7 +257,7 @@ Quando executam o script PowerShell, é recolhida uma lista de valores:
 
 * Mensagem de alerta, para uma descrição verbosa do estado (OK, ALERTA, AVISO)
 
-O script PowerShell converte a informação recolhida numa saída JSON. O livro de bordo utiliza o cmdlet PowerShell [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  como fluxo de saída para comunicar informações ao cliente.
+O script PowerShell converte a informação recolhida numa saída JSON. O livro de bordo utiliza o cmdlet PowerShell [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  como fluxo de saída para comunicar informações ao cliente.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. Validar o livro de recortes
 

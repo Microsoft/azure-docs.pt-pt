@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048326"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461622"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
 
@@ -50,7 +50,7 @@ Uma vez criada a aplicação de função, o seu estúdio visual terá uma amostr
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Escreva uma função Azure com um gatilho de Grade de Eventos
 
-Pode escrever uma função Azure adicionando SDK à sua aplicação de função. A aplicação de função interage com a Azure Digital Twins utilizando a [biblioteca de clientes Azure IoT Digital Twin para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+Pode escrever uma função Azure adicionando SDK à sua aplicação de função. A aplicação de função interage com a Azure Digital Twins utilizando o [Azure Digital Twins SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
 
 Para utilizar o SDK, terá de incluir os seguintes pacotes no seu projeto. Pode instalar os pacotes utilizando o gestor de pacotes do estúdio visual NuGet ou adicionar as embalagens utilizando uma `dotnet` ferramenta de linha de comando. Escolha qualquer um destes métodos: 
 

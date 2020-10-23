@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0583b68df603b04d47ac6104f0cf127b3c4bedd0
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77621011"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173726"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure
 
@@ -19,7 +19,7 @@ As Funções Azure permitem executar pequenas peças de código (chamadas "funç
 
 Uma função é "desencadeada" por um tipo específico de evento. [Os gatilhos suportados](./functions-triggers-bindings.md) incluem responder a alterações nos dados, responder a mensagens, correr num horário ou como resultado de um pedido HTTP.
 
-Embora possa sempre codificar diretamente contra uma miríade de serviços, a integração com outros serviços é simplificada através de encadernações. As obrigações dão-lhe [acesso declarativo a uma grande variedade de serviços Azure e terceiros.](./functions-triggers-bindings.md)
+Embora possa sempre codificar diretamente contra vários serviços, a integração com outros serviços é simplificada através de encadernações. As obrigações dão-lhe [acesso declarativo a uma grande variedade de serviços Azure e terceiros.](./functions-triggers-bindings.md)
 
 ## <a name="features"></a>Funcionalidades
 

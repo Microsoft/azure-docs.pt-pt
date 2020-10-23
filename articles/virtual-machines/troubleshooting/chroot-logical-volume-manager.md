@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361471"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167921"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Resolução de problemas de um Linux VM quando não há acesso à consola em série Azure e o layout do disco está a utilizar o LVM (Gestor de Volume Lógico)
 
@@ -71,7 +71,7 @@ Executar o comando **lsblk** para ver os LVMs dos VM afetados
 
 `lsblk`
 
-![Executar lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Screenshot que mostra a saída do comando de Isblk.](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Verifique se são apresentados LVMs dos VM afetados.
@@ -198,11 +198,11 @@ Agora aceda ao ambiente **cromos novamente** correndo
 
 Todos os LVs devem ser visíveis como divisórias montadas
 
-![Avançado](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Screenshot que mostra os LVs visíveis como divisórias montadas.](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Consulta do **núcleo** instalado
 
-![Avançado](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Screenshot que mostra como consultar o núcleo instalado.](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Se necessário remover ou atualizar o **núcleo** 
  ![ Avançado](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

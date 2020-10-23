@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840443"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125974"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação do centro de micro-realização
 
@@ -47,7 +47,7 @@ Para criar uma nova aplicação do centro de micro-realização que utiliza func
 
 1. Se tiver uma subscrição do Azure, insira o seu diretório, subscrição Azure e região. Se não tiver uma subscrição, pode ativar um teste gratuito de 7 dias e completar as informações de contacto necessárias.  
 
-    Para obter mais informações sobre diretórios e subscrições, consulte o Criar um quickstart de [aplicação.](../preview/quick-deploy-iot-central.md)
+    Para obter mais informações sobre diretórios e subscrições, consulte o Criar um quickstart de [aplicação.](../core/quick-deploy-iot-central.md)
 
 1. Selecione **Criar**.
 
@@ -84,7 +84,7 @@ Utilize a regra da amostra como inspiração para definir regras mais adequadas 
 
 ![Screenshot do separador Regras](./media/tutorial-micro-fulfillment-center-app/rules.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação. Aceda **Administration**às  >  **definições de Aplicação da**Administração e selecione **Delete**.
 
@@ -96,4 +96,4 @@ Mais informações sobre
 > [!div class="nextstepaction"]
 > [micro-realização centro solução arquitetura](./architecture-micro-fulfillment-center.md)
 * Saiba mais sobre os [modelos de retalho Azure IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre [a Azure IoT Central](../preview/overview-iot-central.md)
+* Saiba mais sobre [a Azure IoT Central](../core/overview-iot-central.md)

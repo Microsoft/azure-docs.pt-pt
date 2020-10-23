@@ -1,22 +1,20 @@
 ---
 title: Código Debug C# para empregos U-SQL do Azure Data Lake
 description: Este artigo descreve como depurar um vértice falhado U-SQL usando Azure Data Lake Tools para o Visual Studio.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131876"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218022"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Código C# definido pelo utilizador para trabalhos falhados de U-SQL
 
-U-SQL fornece um modelo de extensibilidade usando C#. Nos scripts U-SQL, é fácil chamar funções C# e executar funções analíticas que a linguagem declarativa semelhante ao SQL não suporta. Para saber mais sobre a extensibilidade da U-SQL, consulte o [guia de programabilidade U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL fornece um modelo de extensibilidade usando C#. Nos scripts U-SQL, é fácil chamar funções C# e executar funções analíticas que a linguagem declarativa semelhante ao SQL não suporta. Para saber mais sobre a extensibilidade da U-SQL, consulte o [guia de programabilidade U-SQL](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
 Na prática, qualquer código pode necessitar de depurar, mas é difícil depurar um trabalho distribuído com código personalizado na nuvem com ficheiros de registo limitados. [O Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) fornece uma funcionalidade chamada **Failed Vertex Debug**, que o ajuda a depurar mais facilmente as falhas que ocorrem no seu código personalizado. Quando o trabalho U-SQL falha, o serviço mantém o estado de falha e a ferramenta ajuda-o a descarregar o ambiente de falha de nuvem para a máquina local para depurar. O download local captura todo o ambiente em nuvem, incluindo quaisquer dados de entrada e código do utilizador.
 

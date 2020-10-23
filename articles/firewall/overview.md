@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 22b202d0ef54984ea2818112b49bbdf7f1098833
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261741"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341622"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -50,13 +50,16 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |FTP ativo não é suportado|O FTP ativo é desativado no Azure Firewall para proteger contra ataques de ressalto FTP utilizando o comando FTP PORT.|Em vez disso, pode utilizar FTP passivo. Deve ainda abrir explicitamente as portas TCP 20 e 21 na firewall.
 |Métrica de utilização do porto SNAT mostra 0%|A métrica de utilização da porta Azure Firewall SNAT pode mostrar uma utilização de 0% mesmo quando as portas SNAT são utilizadas. Neste caso, a utilização da métrica como parte da métrica de saúde da firewall proporciona um resultado incorreto.|Esta questão foi corrigida e a produção está prevista para maio de 2020. Em alguns casos, a redistribuição de firewall resolve o problema, mas não é consistente. Como uma solução intermédia, utilize apenas o estado de saúde da firewall para procurar *o estado=degradado*, não para *o status=insalubre*. A exaustão portuária mostrar-se-á *degradada.* *Não é saudável* para uso futuro quando são mais métricas para impactar a saúde da firewall.
 |Dnat não é suportado com túnel forçado habilitado|As firewalls implantadas com túneis forçados ativados não podem suportar o acesso à entrada da Internet por causa do encaminhamento assimétrico.|Isto é por design devido ao encaminhamento assimétrico. O caminho de retorno para as ligações de entrada passa pela firewall no local, que não viu a ligação estabelecida.
-|FTP passivo de saída não funciona para Firewalls com vários endereços IP públicos|A FTP passiva estabelece diferentes ligações para canais de controlo e dados. Quando uma Firewall com vários endereços IP públicos envia dados para fora, seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP de origem. O FTP falha quando os canais de dados e de controlo utilizam diferentes endereços IP de origem.|Está prevista uma configuração SNAT explícita. Entretanto, considere utilizar um único endereço IP nesta situação.|
+|FtP passivo de saída pode não funcionar para Firewalls com vários endereços IP públicos, dependendo da configuração do servidor FTP.|A FTP passiva estabelece diferentes ligações para canais de controlo e dados. Quando uma Firewall com vários endereços IP públicos envia dados para fora, seleciona aleatoriamente um dos seus endereços IP públicos para o endereço IP de origem. O FTP pode falhar quando os canais de dados e de controlo utilizam diferentes endereços IP de origem, dependendo da configuração do servidor FTP.|Está prevista uma configuração SNAT explícita. Entretanto, pode configurar o seu servidor FTP para aceitar canais de dados e de controlo de diferentes endereços IP de origem (ver [exemplo para IIS).](https://docs.microsoft.com/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) Em alternativa, considere utilizar um único endereço IP nesta situação.|
+|FTP passivo de entrada pode não funcionar dependendo da configuração do servidor FTP |A FTP passiva estabelece diferentes ligações para canais de controlo e dados. As ligações de entrada no Azure Firewall são SNATed para um dos endereços IP privados de firewall para garantir o encaminhamento simétrico. O FTP pode falhar quando os canais de dados e de controlo utilizam diferentes endereços IP de origem, dependendo da configuração do servidor FTP.|A preservação do endereço IP de origem original está a ser investigada. Entretanto, pode configurar o seu servidor FTP para aceitar canais de dados e controlo de diferentes endereços IP de origem.|
 |A métrica NetworkRuleHit está a perder uma dimensão de protocolo|A métrica ApplicationRuleHit permite filtrar o protocolo baseado na filtragem, mas esta capacidade está em falta na métrica correspondente do NetworkRuleHit.|Uma correção está a ser investigada.|
 |As regras da NAT com portas entre 64000 e 65535 não são apoiadas|O Azure Firewall permite que qualquer porta na gama 1-65535 nas regras de rede e aplicação, no entanto as regras DA APENAS suportam portas na gama 1-63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem demorar cinco minutos, em média,|Uma atualização de configuração do Azure Firewall pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.|
 |Azure Firewall usa cabeçalhos SNI TLS para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou do servidor não suportar a extensão do Indicador de Nome do Servidor (SNI), não será capaz de se ligar através do Azure Firewall.|Se o software do navegador ou do servidor não suportar SNI, então poderá ser capaz de controlar a ligação usando uma regra de rede em vez de uma regra de aplicação. Consulte [a indicação do nome do servidor](https://wikipedia.org/wiki/Server_Name_Indication) para software que suporta sNI.|
 |DNS personalizado (pré-visualização) não funciona com túneis forçados|Se o túnel de força estiver ativado, o DNS personalizado (pré-visualização) não funciona.|Uma correção está a ser investigada.|
-|Novo suporte público de endereço IP para múltiplas Zonas de Disponibilidade|Não é possível adicionar um novo endereço IP público quando implanta uma firewall com duas zonas de disponibilidade (1 e 2, 2 e 3, ou 1 e 3)|Trata-se de uma limitação de recursos de endereço IP público.
+|Novo suporte público de endereço IP para múltiplas Zonas de Disponibilidade|Não é possível adicionar um novo endereço IP público quando implanta uma firewall com duas zonas de disponibilidade (1 e 2, 2 e 3, ou 1 e 3)|Trata-se de uma limitação de recursos de endereço IP público.|
+|Start/Stop não funciona com uma firewall configurada em modo de túnel forçado|O arranque/paragem não funciona com firewall Azure configurado em modo de túnel forçado. Tentar iniciar a Firewall do Azure com túneis forçados configurados resulta no seguinte erro:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuração IP não pode ser adicionada a uma firewall existente. Reimplantar com uma configuração IP de gestão se quiser utilizar suporte de túneis forçado. <br> StatusCode: 400 <br> ReasonPhrase: Mau pedido*|Sob investigação.<br><br>Como uma solução alternativa, pode eliminar a firewall existente e criar uma nova com os mesmos parâmetros.|
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

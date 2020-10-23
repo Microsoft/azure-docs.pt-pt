@@ -1,7 +1,7 @@
 ---
-title: Controlo de acesso baseado em funções - Visão Personalizada
+title: Controlo de acesso baseado em funções Azure - Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Este artigo irá mostrar-lhe como configurar o controlo de acesso baseado em funções para os seus projetos de Visão Personalizada.
+description: Este artigo irá mostrar-lhe como configurar o controlo de acesso baseado em funções da Azure para os seus projetos de Visão Personalizada.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826938"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146364"
 ---
-# <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+# <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
-A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Utilizando o RBAC, atribui diferentes membros da equipa diferentes níveis de permissões para os seus projetos de Visão Personalizada. Para obter mais informações sobre o RBAC, consulte a documentação do [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
+A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Utilizando o Azure RBAC, atribui diferentes membros da equipa a diferentes níveis de permissões para os seus projetos de Visão Personalizada. Para obter mais informações sobre o Azure RBAC, consulte a documentação do [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Adicionar atribuição de função ao recurso Visão Personalizada
 
@@ -27,7 +27,7 @@ O Azure RBAC pode ser atribuído a um recurso de Visão Personalizada. Para conc
 1. No [portal do Azure](https://ms.portal.azure.com/), selecione **Todos os serviços**. 
 1. Em seguida, selecione os **Serviços Cognitivos**e navegue para o seu recurso específico de treino de visão personalizada.
    > [!NOTE]
-   > Também pode configurar o RBAC para grupos de recursos inteiros, subscrições ou grupos de gestão. Faça-o selecionando o nível de âmbito pretendido e, em seguida, navegando para o item pretendido (por exemplo, selecionando **grupos de Recursos** e, em seguida, clicando no seu grupo de recursos pretendido).
+   > Também pode configurar o Azure RBAC para grupos de recursos inteiros, subscrições ou grupos de gestão. Faça-o selecionando o nível de âmbito pretendido e, em seguida, navegando para o item pretendido (por exemplo, selecionando **grupos de Recursos** e, em seguida, clicando no seu grupo de recursos pretendido).
 1. Selecione **o controlo de acesso (IAM)** no painel de navegação esquerdo.
 1. Selecione o **separador atribuições de funções** para visualizar as atribuições de funções para este âmbito.
 1. Selecione **Add**  ->  **Adicionar Ação de função**.

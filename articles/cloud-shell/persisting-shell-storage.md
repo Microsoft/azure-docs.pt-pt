@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470141"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152263"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir ficheiros em Azure Cloud Shell
 A Cloud Shell utiliza o armazenamento de ficheiros Azure para persistir ficheiros em todas as sessões. No início inicial, a Cloud Shell pede-lhe que associe uma nova ou existente partilha de ficheiros para persistir ficheiros em todas as sessões.
@@ -55,7 +55,7 @@ Quando aparecer o pedido de configuração de armazenamento, **selecione Mostrar
 ![A definição do grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>Garantir o acesso ao armazenamento
-Para a segurança, cada utilizador deve providenciar a sua própria conta de armazenamento.  Para o controlo de acesso baseado em funções (RBAC), os utilizadores devem ter acesso ao contribuinte ou acima ao nível da conta de armazenamento.
+Para a segurança, cada utilizador deve providenciar a sua própria conta de armazenamento.  Para o controlo de acesso baseado em funções Azure (Azure RBAC), os utilizadores devem ter acesso ao contribuinte ou acima ao nível da conta de armazenamento.
 
 A Cloud Shell utiliza uma Partilha de Ficheiros Azure numa conta de armazenamento, dentro de uma subscrição especificada. Devido às permissões herdadas, os utilizadores com direitos de acesso suficientes à subscrição poderão aceder a todas as contas de armazenamento e às ações de ficheiros contidas na subscrição.
 
@@ -66,7 +66,7 @@ Para encontrar a sua região atual pode correr `env` em Bash e localizar a vari�
 
 As máquinas Cloud Shell existem nas seguintes regiões:
 
-|Área|Region|
+|Área|Região|
 |---|---|
 |Américas|Leste dos EUA, Centro Sul dos EUA, Oeste dos EUA|
 |Europa|Europa do Norte, Europa Ocidental|

@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 2f9f979e5871a4888978ff14362a7fb0082917d5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928688"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151200"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções Azure para acesso administrativo à Pesquisa Cognitiva Azure
 
 O Azure fornece um [modelo global de autorização baseado em papéis](../role-based-access-control/role-assignments-portal.md) para todos os serviços geridos através do portal ou apis do Gestor de Recursos. As funções de Proprietário, Colaborador e Leitor determinam o nível de administração de *serviços* para utilizadores, grupos e princípios de segurança ativos atribuídos a cada função. 
 
 > [!Note]
-> Não existe um controlo de acesso baseado em funções (RBAC) para assegurar partes de um índice ou de um subconjunto de documentos. Para o acesso à identidade sobre os resultados da pesquisa, pode criar filtros de segurança para aparar resultados por identidade, removendo documentos para os quais o solicitador não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [Secure with Ative Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Não existe um controlo de acesso baseado em funções (RBAC) para assegurar conteúdos no serviço. Utilizará uma chave API de administração ou consultará a chave API para pedidos autenticados para o próprio serviço. Para o acesso à identidade sobre os resultados da pesquisa, pode criar filtros de segurança para aparar resultados por identidade, removendo documentos para os quais o solicitador não deve ter acesso. Para obter mais informações, consulte [os filtros de segurança.](search-security-trimming-for-azure-search.md)
 
 ## <a name="management-tasks-by-role"></a>Tarefas de gestão por função
 
@@ -29,9 +29,8 @@ Para a Azure Cognitive Search, as funções estão associadas a níveis de permi
 | Função | Tarefa |
 | --- | --- |
 | Proprietário |Criar ou eliminar o serviço ou qualquer objeto no serviço, incluindo api-keys, índices, indexadores, fontes de dados indexantes e horários de indexante.<p>Ver estado de serviço, incluindo contagens e tamanho de armazenamento.<p>Adicione ou elimine a adesão de funções (apenas um Proprietário pode gerir a adesão ao papel).<p>Os administradores de subscrição e os proprietários de serviços têm adesão automática na função Desema. |
-| Contribuinte |O mesmo nível de acesso que o Proprietário, menos a gestão de funções Azure. Por exemplo, um Contribuinte pode criar ou apagar objetos, ou ver e regenerar [as teclas api,](search-security-api-keys.md)mas não pode modificar os membros de funções. |
-| [Papel integrado do colaborador do serviço de pesquisa](../role-based-access-control/built-in-roles.md#search-service-contributor) | Equivalente ao papel de Contribuinte. |
-| Leitor |Ver o essencial do serviço e métricas. Os membros desta função não podem ver índice, indexador, fonte de dados ou informações-chave.  |
+| Contribuinte | O mesmo nível de acesso que o Proprietário, menos a gestão de funções Azure. Por exemplo, um Contribuinte pode criar ou apagar objetos, ou ver e regenerar [as teclas api,](search-security-api-keys.md)mas não pode modificar os membros de funções.<br><br>[O Contribuinte do Serviço de Pesquisa](../role-based-access-control/built-in-roles.md#search-service-contributor) é equivalente ao papel genérico do Contribuinte incorporado. |
+| Leitor |Ver o essencial do serviço, como o ponto final do serviço, subscrição, grupo de recursos, região, nível e capacidade. Também pode ver métricas de serviço, como consultas médias por segundo, no separador Monitor. Os membros desta função não podem ver informações de índice, indexante, fonte de dados ou skillset. Isto inclui dados de utilização para esses objetos, tais como quantos índices existem no serviço. |
 
 As funções não concedem direitos de acesso ao ponto final do serviço. As operações de serviço de pesquisa, tais como gestão de índices, população de índices e consultas sobre dados de pesquisa, são controladas através de api-keys, não funções. Para obter mais informações, consulte [Gerir as teclas api.](search-security-api-keys.md)
 
@@ -39,18 +38,21 @@ As funções não concedem direitos de acesso ao ponto final do serviço. As ope
 
 A tabela seguinte resume as operações permitidas na Pesquisa Cognitiva Azure e qual a chave que desbloqueia o acesso a uma determinada operação.
 
-| Operação | Permissões |
-|-----------|-------------------------|
-| Criar um serviço | Titular de subscrição Azure |
-| Escalar um serviço | Chave de administração, Rbac Owner ou Contribuinte no recurso  |
-| Apagar um serviço | Chave de administração, Rbac Owner ou Contribuinte no recurso |
-| Criar, modificar, eliminar objetos no serviço: <br>Índices e componentes (incluindo definições de analisador, perfis de pontuação, opções DE CORS), indexadores, fontes de dados, sinónimos, sugestivos | Chave de administração, Rbac Owner ou Contribuinte no recurso |
-| Consulta de um índice | Chave de administração ou consulta (RBAC não aplicável) |
-| Informações do sistema de consulta, tais como estatísticas de retorno, contagem e listas de objetos | Chave de administração, RBAC sobre o recurso (Proprietário, Colaborador, Leitor) |
-| Gerir as teclas de administração | Chave de administração, Rbac Proprietário ou Colaborador no recurso |
-| Gerir chaves de consulta |  Chave de administração, Rbac Proprietário ou Colaborador no recurso  |
+As permissões do RBAC aplicam-se às operações do portal e à gestão de serviços (criar, eliminar ou alterar um serviço ou as suas chaves API). As chaves API são criadas após a existência de um serviço e aplicam-se às operações de conteúdo do serviço. Adicionalmente, para operações relacionadas com conteúdos no portal, tais como a criação ou eliminação de objetos, um Proprietário ou Colaborador do RBAC interage com o serviço com uma chave API de administração implícita.
 
-## <a name="see-also"></a>Consulte também
+| Operação | Controlado por |
+|-----------|-------------------------|
+| Criar um serviço | Permissões DO RBAC: Proprietário ou Colaborador |
+| Escalar um serviço | Permissões DO RBAC: Proprietário ou Colaborador|
+| Apagar um serviço | Permissões DO RBAC: Proprietário ou Colaborador |
+| Gerir chaves de administração ou consulta | Permissões DO RBAC: Proprietário ou Colaborador|
+| Ver informações de serviço no portal ou numa API de gestão | Permissões DO RBAC: Proprietário, Colaborador ou Leitor  |
+| Ver informações e métricas de objetos no portal ou numa API de gestão | Permissões DO RBAC: Proprietário ou Colaborador |
+| Criar, modificar, eliminar objetos no serviço: <br>Índices e componentes (incluindo definições de analisador, perfis de pontuação, opções DE CORS), indexadores, fontes de dados, sinónimos, sugestivos | Chave de administração se utilizar um API, Proprietário ou Colaborador do RBAC se utilizar o portal |
+| Consulta de um índice | Administrador ou chave de consulta se utilizar um API, Proprietário ou Contribuinte do RBAC se utilizar o portal |
+| Informação do sistema de consulta sobre objetos, tais como estatísticas de retorno, contagem e listas de objetos | Chave de administração se utilizar um API, Proprietário ou Colaborador do RBAC se utilizar o portal |
+
+## <a name="next-steps"></a>Passos seguintes
 
 + [Gerir com o PowerShell](search-manage-powershell.md) 
 + [Desempenho e otimização na Pesquisa Cognitiva Azure](search-performance-optimization.md)

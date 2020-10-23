@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 041b1766ae6a64f51d922de128ef316cc0ed8260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0fafe98c3ca48ecced46cef6fb5fe8876c7f50
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922174"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215999"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -81,6 +81,9 @@ O fluxo de utilizador de inscrição e de entrada lida com experiências de insc
 1. Introduza uma nova senha e confirme a senha.
 1. Selecione o seu país e região, insira o nome que deseja exibido, introduza um código postal e, em seguida, clique em **Criar**. O símbolo é devolvido `https://jwt.ms` e deve ser exibido para si.
 1. Agora pode executar o fluxo do utilizador novamente e deverá ser capaz de iniciar scontabilidade com a conta que criou. O token devolvido inclui as alegações que selecionou de país/região, nome e código postal.
+
+> [!NOTE]
+> A experiência "Executar o fluxo do utilizador" não é atualmente compatível com o tipo URL de resposta SPA utilizando o fluxo de código de autorização. Para utilizar a experiência "Executar o fluxo do utilizador" com este tipo de aplicações, registe um URL de resposta do tipo "Web" e possibilite o fluxo implícito tal como descrito [aqui](tutorial-register-spa.md).
 
 ## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de utilizador de edição de perfil
 

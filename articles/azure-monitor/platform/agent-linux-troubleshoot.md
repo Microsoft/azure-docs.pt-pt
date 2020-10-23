@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531195"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460874"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
 
@@ -23,7 +23,37 @@ Se nenhum destes passos funcionar para si, estão também disponíveis os seguin
 * Os clientes com contratos de apoio Azure podem abrir um pedido de apoio [no portal Azure.](https://manage.windowsazure.com/?getsupport=true)
 * Diagnosticar problemas de OMI com o [guia de resolução de problemas do OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Arquivar uma [edição do GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visite a página de Feedback do Log Analytics para rever as ideias e bugs submetidos [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou arquivar uma nova.  
+* Visite a página de Feedback do Log Analytics para rever as ideias e bugs submetidos [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou arquivar uma nova. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Ferramenta de resolução de problemas de log analytics
+
+A Ferramenta de resolução de problemas do Agente Desanal do Registo Linux é um script concebido para ajudar a encontrar e diagnosticar problemas com o Agente de Análise de Registo. É automaticamente incluído com o agente aquando da instalação. Executar a ferramenta deve ser o primeiro passo para diagnosticar um problema.
+
+### <a name="how-to-use"></a>Como usar
+A Ferramenta de resolução de problemas pode ser executada colando o seguinte comando numa janela de terminal numa máquina com o agente Log Analytics: `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>Instalação Manual
+A Ferramenta de Resolução de Problemas é automaticamente incluída na instalação do Agente De Análise de Registo. No entanto, se a instalação falhar de alguma forma, também pode ser instalada manualmente seguindo os passos abaixo.
+
+1. Copie o pacote de resolução de problemas na sua máquina: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Desempacotar o pacote: `tar -xzvf omsagent_tst.tar.gz`
+3. Executar a instalação manual: `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>Cenários Cobertos
+Abaixo está uma lista de cenários verificados pela Ferramenta de Resolução de Problemas:
+
+1. Agente não é saudável, batimentos cardíacos não funcionam corretamente.
+2. O agente não começa, não consegue ligar-se aos Serviços Analíticos de Registo
+3. O agente Syslog não está a funcionar.
+4. O agente tem um alto uso de CPU/ memória
+5. Agente com problemas de instalação
+6. Os registos personalizados do agente não estão a funcionar.
+7. Recolher registos de agentes
+
+Para mais detalhes, consulte a nossa [documentação do Github.](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md)
+
+ >[!NOTE]
+ >Por favor, execute a ferramenta Log Collector quando tiver um problema. Ter os registos inicialmente ajudará muito a nossa equipa de suporte a resolver o seu problema mais rapidamente.
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Localizações importantes do registo e ferramenta de colecionador de registos
 

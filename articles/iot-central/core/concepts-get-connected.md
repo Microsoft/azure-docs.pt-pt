@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714244"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170056"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -113,7 +113,7 @@ Se tiver uma falha de segurança ou o seu certificado primário estiver definido
 
 ### <a name="register-and-connect-devices"></a>Registar e ligar dispositivos
 
-Para ligar a granel os dispositivos que utilizam certificados X.509, primeiro registe os dispositivos na sua aplicação utilizando um ficheiro CSV para [importar os IDs do dispositivo e os nomes do dispositivo](howto-manage-devices.md#import-devices). As identificações do dispositivo devem estar todas em minúsculas.
+Para ligar a granel os dispositivos que utilizam certificados X.509, primeiro registe os dispositivos na sua aplicação utilizando um ficheiro CSV para [importar os IDs do dispositivo e os nomes do dispositivo](howto-manage-devices.md#import-devices). Um ID do dispositivo pode conter letras, números e `-` o caráter.
 
 Gere certificados de folha X.509 para os seus dispositivos utilizando o certificado raiz ou intermédio que carregou para o seu grupo de matrículas X.509. Utilize o **ID** do dispositivo como `CNAME` o valor nos certificados de folha. O código do dispositivo necessita do valor de **alcance de ID** para a sua aplicação, o **ID**do dispositivo e o certificado do dispositivo correspondente.
 
@@ -149,7 +149,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam fichas SAS 
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Adicione uma imagem de grupo de inscrição X.509":::
 
-1. Utilize o `az iot central device compute-device-key` comando para gerar as teclas SAS do dispositivo. Utilize a chave primária do grupo a partir do passo anterior. As iDs do dispositivo devem ser minúsculas:
+1. Utilize o `az iot central device compute-device-key` comando para gerar as teclas SAS do dispositivo. Utilize a chave primária do grupo a partir do passo anterior. O ID do dispositivo pode conter letras, números e `-` o carácter:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam fichas SAS 
 
 1. [Crie um grupo de inscrições](#create-an-enrollment-group) e, em seguida, [adicione e verifique um certificado X.509 raiz ou intermédio](#add-and-verify-a-root-or-intermediate-x509-certificate) na sua aplicação IoT Central.
 
-1. Gere os certificados de folha para os seus dispositivos utilizando o certificado raiz ou intermédio que adicionou à sua aplicação IoT Central. Utilize iDs de dispositivo de caixa inferior como os `CNAME` certificados de folha.
+1. Gere os certificados de folha para os seus dispositivos utilizando o certificado raiz ou intermédio que adicionou à sua aplicação IoT Central. Utilize as identificações do dispositivo como `CNAME` certificados de folha. Um ID do dispositivo pode conter letras, números e `-` o caráter.
 
 1. O OEM pisca cada dispositivo com um ID do dispositivo, um certificado X.509 de folha gerada e o valor de **alcance de identificação** da aplicação.
 
@@ -185,7 +185,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam fichas SAS 
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividade individual do dispositivo baseado em matrículas
 
-Para os clientes que ligam dispositivos que cada um tem as suas próprias credenciais de autenticação, utilize matriculas individuais. Uma inscrição individual é uma entrada para um único dispositivo que é permitido ligar. As inscrições individuais podem usar certificados de folha X.509 ou fichas SAS (a partir de um módulo de plataforma de confiança física ou virtual) como mecanismos de atestação. O ID do dispositivo (também conhecido como ID de registo) numa matrícula individual é alfanumérico, minúsculo, e pode conter hífenes. Para mais informações, consulte [a inscrição individual do DPS.](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment)
+Para os clientes que ligam dispositivos que cada um tem as suas próprias credenciais de autenticação, utilize matriculas individuais. Uma inscrição individual é uma entrada para um único dispositivo que é permitido ligar. As inscrições individuais podem usar certificados de folha X.509 ou fichas SAS (a partir de um módulo de plataforma de confiança física ou virtual) como mecanismos de atestação. O ID do dispositivo (também conhecido como ID de registo) numa inscrição individual Um ID do dispositivo pode conter letras, números e o `-` personagem. Para mais informações, consulte [a inscrição individual do DPS.](../../iot-dps/concepts-service.md#individual-enrollment)
 
 > [!NOTE]
 > Quando cria uma inscrição individual para um dispositivo, tem precedência sobre as opções de inscrição em grupo predefinido na sua aplicação IoT Central.
@@ -204,7 +204,7 @@ A IoT Central apoia os seguintes mecanismos de atestação para as matrículas i
     > [!TIP]
     > Para testes, pode utilizar [ferramentas para o dispositivo de provisionamento do dispositivo Azure IoT SDK para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) gerar um certificado auto-assinado: `node create_test_cert.js device "mytestdevice"`
 
-- **Atestado de Módulo de Plataforma Fidedigna (TPM):** Um [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) é um tipo de módulo de segurança de hardware. A utilização de um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que tPMs discretos, firmware ou TPMs integrados. Não utilize TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e **TPM** como mecanismo. Introduza a chave de endosso TPM e guarde as informações de ligação do dispositivo.
+- **Atestado de Módulo de Plataforma Fidedigna (TPM):** Um [TPM](../../iot-dps/concepts-tpm-attestation.md) é um tipo de módulo de segurança de hardware. A utilização de um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que tPMs discretos, firmware ou TPMs integrados. Não utilize TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e **TPM** como mecanismo. Introduza a chave de endosso TPM e guarde as informações de ligação do dispositivo.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Associar automaticamente a um modelo de dispositivo
 

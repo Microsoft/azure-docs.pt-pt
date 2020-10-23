@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854295"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214945"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
 
@@ -47,7 +47,8 @@ As tabelas seguintes fornecem ligações para exemplos de aplicações, incluind
 
 | Sample | Descrição |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Uma aplicação de página única (SPA) que chama uma API Web. A autenticação é feita com Azure AD B2C utilizando MSAL.js. |
+| [ms-identidade-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Uma aplicação de página única (SPA) que chama uma API Web. A autenticação é feita com Azure AD B2C utilizando MSAL.js. Esta amostra utiliza o fluxo de código de autorização com O PKCE. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Uma aplicação de página única (SPA) que chama uma API Web. A autenticação é feita com Azure AD B2C utilizando MSAL.js. Estas amostras usam o fluxo implícito.|
 
 ## <a name="saml-test-application"></a>Aplicação de teste SAML
 

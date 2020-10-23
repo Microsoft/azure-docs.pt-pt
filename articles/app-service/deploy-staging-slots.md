@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962167"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150334"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
 
-Quando implementar a sua aplicação web, web app no Linux, back end móvel ou app API para [o Azure App Service,](https://go.microsoft.com/fwlink/?LinkId=529714)pode utilizar uma faixa de implementação separada em vez da ranhura de produção padrão quando estiver a executar o nível de plano de aplicação **standard,** **premium**ou **isolado.** As slots de implementação são aplicações ao vivo com os seus próprios nomes de anfitrião. Os elementos de conteúdo e configurações da aplicação podem ser trocados entre duas ranhuras de implantação, incluindo a ranhura de produção. 
+Quando implementar a sua aplicação web, web app no Linux, back end móvel ou app API para [o Azure App Service,](./overview.md)pode utilizar uma faixa de implementação separada em vez da ranhura de produção padrão quando estiver a executar o nível de plano de aplicação **standard,** **premium**ou **isolado.** As slots de implementação são aplicações ao vivo com os seus próprios nomes de anfitrião. Os elementos de conteúdo e configurações da aplicação podem ser trocados entre duas ranhuras de implantação, incluindo a ranhura de produção. 
 
 A implementação da sua aplicação numa faixa horária não-produção tem os seguintes benefícios:
 

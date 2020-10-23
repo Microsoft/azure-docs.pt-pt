@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766936"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147729"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais
 
@@ -59,7 +59,7 @@ O IoT Hub suporta a escrita de dados para o Azure Storage no formato [Apache Avr
 
 O formato de codificação só pode ser definido quando o ponto final de armazenamento do blob estiver configurado; não pode ser editado para um ponto final existente. Para mudar os formatos de codificação para um ponto final existente, terá de eliminar e recriar o ponto final personalizado com o formato que pretende. Uma estratégia útil pode ser criar um novo ponto final personalizado com o seu formato de codificação desejado e adicionar uma rota paralela a esse ponto final. Desta forma, pode verificar os seus dados antes de eliminar o ponto final existente.
 
-Pode selecionar o formato de codificação utilizando o IoT Hub Create ou Atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal [Azure CLI,](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). A imagem a seguir mostra como selecionar o formato de codificação no portal Azure.
+Pode selecionar o formato de codificação utilizando o IoT Hub Create ou Atualizar a API REST, especificamente o [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal [Azure CLI,](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). A imagem a seguir mostra como selecionar o formato de codificação no portal Azure.
 
 ![Codificação do ponto final de armazenamento de bolhas](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -71,7 +71,7 @@ O IoT Hub emoto de mensagens e escreve dados para armazenamento sempre que o lot
 
 Pode utilizar qualquer convenção de nomeação de ficheiros, no entanto deve utilizar todos os tokens listados. O IoT Hub escreverá a uma bolha vazia se não houver dados para escrever.
 
-Recomendamos que se listem as bolhas ou ficheiros e, em seguida, iterando sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. A gama de divisórias pode potencialmente mudar durante uma falha de [failover](iot-hub-ha-dr.md#microsoft-initiated-failover) iniciada pela Microsoft ou [falha manual](iot-hub-ha-dr.md#manual-failover)do IoT Hub . Pode utilizar a [Lista Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. Por favor, consulte a seguinte amostra como orientação.
+Recomendamos que se listem as bolhas ou ficheiros e, em seguida, iterando sobre eles, para garantir que todas as bolhas ou ficheiros são lidos sem fazer quaisquer suposições de partição. A gama de divisórias pode potencialmente mudar durante uma falha de [failover](iot-hub-ha-dr.md#microsoft-initiated-failover) iniciada pela Microsoft ou [falha manual](iot-hub-ha-dr.md#manual-failover)do IoT Hub . Pode utilizar a [Lista Blobs API](/rest/api/storageservices/list-blobs) para enumerar a lista de blobs ou [Lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) para a lista de ficheiros. Por favor, consulte a seguinte amostra como orientação.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -115,12 +115,12 @@ Use os seguintes tutoriais para aprender a ler a mensagem a partir de um ponto f
 
 * Leitura das filas de [autocarros de serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
-* Leia a partir de tópicos de [ônibus de serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+* Leia a partir de tópicos de [ônibus de serviço](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 
 ## <a name="fallback-route"></a>Rota do recuo
 
-A rota de retorno envia todas as mensagens que não satisfazem as condições de consulta em qualquer uma das rotas existentes para os Hubs incorporados em Eventos **(mensagens/eventos),** que são compatíveis com os Centros de [Eventos.](/azure/event-hubs/) Se o encaminhamento de mensagens estiver ligado, pode ativar a capacidade da rota de recuo. Uma vez criada uma rota, os dados param de fluir para o ponto final incorporado, a menos que seja criada uma rota para esse ponto final. Se não houver rotas para o ponto de entrada embutido e uma rota de retorno estiver ativada, apenas mensagens que não correspondam a quaisquer condições de consulta nas rotas serão enviadas para o ponto de finalidade incorporado. Além disso, se todas as rotas existentes forem eliminadas, a rota de retorno deve ser ativada para receber todos os dados no ponto de extremidade incorporado.
+A rota de retorno envia todas as mensagens que não satisfazem as condições de consulta em qualquer uma das rotas existentes para os Hubs incorporados em Eventos **(mensagens/eventos),** que são compatíveis com os Centros de [Eventos.](../event-hubs/index.yml) Se o encaminhamento de mensagens estiver ligado, pode ativar a capacidade da rota de recuo. Uma vez criada uma rota, os dados param de fluir para o ponto final incorporado, a menos que seja criada uma rota para esse ponto final. Se não houver rotas para o ponto de entrada embutido e uma rota de retorno estiver ativada, apenas mensagens que não correspondam a quaisquer condições de consulta nas rotas serão enviadas para o ponto de finalidade incorporado. Além disso, se todas as rotas existentes forem eliminadas, a rota de retorno deve ser ativada para receber todos os dados no ponto de extremidade incorporado.
 
 Pode ativar/desativar a rota de recuo na lâmina de encaminhamento de mensagens de >portal Azure. Também pode utilizar o Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para utilizar um ponto final personalizado para a rota de retorno.
 
@@ -148,7 +148,7 @@ Na maioria dos casos, o aumento médio da latência é inferior a 500 ms. Pode m
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
-O IoT Hub fornece várias métricas relacionadas com o encaminhamento e pontos finais para lhe dar uma visão geral da saúde do seu hub e mensagens enviadas. [As métricas do IoT Hub](iot-hub-metrics.md) listam todas as métricas que são ativadas por padrão para o seu Hub IoT. Utilizando os registos de diagnóstico de **rotas** nas [definições de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md)do Azure Monitor, pode rastrear erros ocorridos durante a avaliação de uma consulta de encaminhamento e saúde de ponto final, conforme percebido pelo IoT Hub. Pode utilizar a API [Rest Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de [saúde](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos finais. 
+O IoT Hub fornece várias métricas relacionadas com o encaminhamento e pontos finais para lhe dar uma visão geral da saúde do seu hub e mensagens enviadas. [As métricas do IoT Hub](iot-hub-metrics.md) listam todas as métricas que são ativadas por padrão para o seu Hub IoT. Utilizando os registos de diagnóstico de **rotas** nas [definições de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md)do Azure Monitor, pode rastrear erros ocorridos durante a avaliação de uma consulta de encaminhamento e saúde de ponto final, conforme percebido pelo IoT Hub. Pode utilizar a API [Rest Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de [saúde](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos finais. 
 
 Utilize o [guia de resolução de problemas para encaminhamento](troubleshoot-message-routing.md) para obter mais detalhes e suporte para o encaminhamento de resolução de problemas.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883918"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342455"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os seus recursos de rede
 O Azure Security Center analisa continuamente o estado de segurança dos seus recursos Azure para as melhores práticas de segurança da rede. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o orientam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
@@ -120,4 +120,4 @@ Para aprofundar um recurso:
 
 Para saber mais sobre as recomendações aplicáveis a outros tipos de recursos Azure, consulte o seguinte:
 
-- [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
+- [Proteger as máquinas e aplicações no Centro de Segurança do Azure](./asset-inventory.md)

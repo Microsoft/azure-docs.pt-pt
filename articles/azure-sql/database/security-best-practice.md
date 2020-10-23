@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885171"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92427268"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Livro de jogadas para abordar requisitos comuns de segurança com base de dados Azure SQL e Azure SQL Gestão De Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -791,12 +791,14 @@ A maioria das normas de segurança aborda a disponibilidade de dados em termos d
 
 - A Azure oferece alta disponibilidade incorporada: [Alta disponibilidade com Base de Dados SQL e SqL Gestd Instance](high-availability-sla.md)
 
-- O nível Business Critical inclui grupos de failover, zonas de multi-disponibilidade, cópias de segurança completas e diferenciais de registo e cópias de segurança de restauração pontuais ativadas por padrão:  
-  - [Alta disponibilidade - Configuração redundante de zona](high-availability-sla.md#zone-redundant-configuration)
+- O nível Business Critical inclui grupos de failover, cópias de segurança completas e diferenciais e cópias de segurança de restauração pontuais ativadas por predefinição:  
   - [Cópias de segurança automatizadas](automated-backups-overview.md)
   - [Recuperar uma base de dados utilizando cópias de dados automatizadas - Restauro pontual](recovery-using-backups.md#point-in-time-restore)
 
-- Características adicionais de continuidade do negócio, tais como grupos de auto-failover em diferentes geos Azure podem ser configurados como descrito aqui: [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Podem ser configuradas funcionalidades adicionais de continuidade de negócios, tais como a configuração redundante da zona e grupos de falha automática em diferentes geos Azure: 
+    - [Alta disponibilidade - Configuração redundante de zona para os níveis de serviço Premium & Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [Alta disponibilidade - Configuração redundante de zona para o nível de serviço de finalidade geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [Visão geral da continuidade do negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

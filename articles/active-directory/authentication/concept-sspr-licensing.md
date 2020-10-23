@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd17e446766514fa90f8beaaab104bbbd2f389f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 239e49d287ebf6ad98d1a155219f0d59f6469292
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965034"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366518"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Requisitos de licenciamento para reposição da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -49,7 +49,7 @@ Para obter informações adicionais sobre o licenciamento, incluindo custos, con
 
 ## <a name="enable-group-or-user-based-licensing"></a>Permitir licenciamentos em grupo ou no utilizador
 
-A Azure AD apoia o licenciamento baseado em grupo. Os administradores podem atribuir licenças a granel a um grupo de utilizadores, em vez de as atribuir uma de cada vez. Para mais informações, consulte [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+A Azure AD apoia o licenciamento baseado em grupo. Os administradores podem atribuir licenças a granel a um grupo de utilizadores, em vez de as atribuir uma de cada vez. Para mais informações, consulte [Atribuir, verificar e resolver problemas com licenças](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Alguns serviços da Microsoft não estão disponíveis em todos os locais. Antes de uma licença poder ser atribuída a um utilizador, o administrador deve especificar a propriedade **de localização de utilização** no utilizador. A atribuição de licenças pode ser feita na secção Definições de Perfil do **Utilizador**  >  **Profile**  >  **Settings** no portal Azure. *Quando utiliza a atribuição de licença de grupo, qualquer utilizadores sem localização de utilização especificada herda a localização do diretório.*
 

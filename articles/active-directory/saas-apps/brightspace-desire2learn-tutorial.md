@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e212b8c72a8cf7000a2789034f3ee83a5a0c9cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d48e42dc1c92e05e963b4c8b53e44daa403378
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542782"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456705"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Azure Ative Directory com Brightspace by Desire2Learn
 
@@ -27,7 +27,7 @@ A integração do Brightspace by Desire2Learn com a Azure AD proporciona-lhe os 
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no Brightspace pela Desire2Learn (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -187,7 +187,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-brightspace-by-desire2learn-test-user"></a>Criar Brightspace por Desire2Learn utilizador de teste
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in Brightspace by Desire2Learn. Trabalhe com [a equipa de suporte Brightspace by Desire2Learn](https://www.d2l.com/contact/) para adicionar os utilizadores na plataforma Brightspace by Desire2Learn. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Brightspace by Desire2Learn. Trabalhe com [a equipa de suporte Brightspace by Desire2Learn](https://www.d2l.com/contact/) para adicionar os utilizadores na plataforma Brightspace by Desire2Learn. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 > [!NOTE]
 > Pode utilizar qualquer outra ferramenta de criação de conta de utilizador Brightspace by Desire2Learn ou APIs fornecidas pelo Brightspace by Desire2Learn para fornecer contas de utilizadores do Azure Ative Directory.
@@ -196,12 +196,12 @@ Nesta secção, cria-se um utilizador chamado Britta Simon in Brightspace by Des
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Brightspace by Desire2Learn no Painel de Acesso, deverá ser automaticamente inscrito no Brightspace by Desire2Learn para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo Brightspace by Desire2Learn no Painel de Acesso, deverá ser automaticamente inscrito no Brightspace by Desire2Learn para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

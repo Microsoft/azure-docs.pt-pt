@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627770"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108138"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transforme e proteja a sua API
 
@@ -20,7 +20,7 @@ O tutorial mostra como transformar a sua API para que não revele informações 
 
 Este tutorial também mostra como é fácil adicionar proteção para a sua API backend, configurando um limite de taxa com a Azure API Management. Por exemplo, pode querer limitar a taxa de chamadas API para que a API não seja sobreutilizada pelos desenvolvedores. Para mais informações, consulte [as políticas de Gestão da API.](api-management-policies.md)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -60,7 +60,7 @@ A resposta original deve ser semelhante à seguinte:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Políticas no portal":::
 
-Como pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version**e **X-Powered-By.**
+Como pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version** e **X-Powered-By.**
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
 
@@ -70,7 +70,7 @@ Como pode ver, a resposta inclui os cabeçalhos **X-AspNet-Version**e **X-Powere
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Políticas no portal" border="false":::
 
 1. Posicione o cursor dentro do elemento ** &lt; de saída &gt; ** e selecione Mostrar os **cortes** no canto superior direito.
-1. Na janela direita, sob **as políticas de transformação,** selecione ** set HTTP header** duas vezes (para inserir dois cortes de política).
+1. Na janela direita, sob **as políticas de transformação,** selecione **set HTTP duas** vezes (para inserir dois cortes de política).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Políticas no portal":::
 
@@ -115,7 +115,7 @@ Esta secção mostra como adicionar proteção à API de back-end através da co
 
 1.  Selecione **Demo Conference API**  >  **Todos os projetos de operações.**  >  **Design**
 1.  Na secção **de processamento de entrada,** selecione o ícone do editor de código **</>** ()
-1.  Posicione o cursor dentro do elemento ** &lt; de entrada. &gt; **
+1.  Posicione o cursor dentro do elemento ** &lt; de entrada &gt; ** e selecione Mostrar os **cortes** no canto superior direito.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Políticas no portal" border="false":::
 

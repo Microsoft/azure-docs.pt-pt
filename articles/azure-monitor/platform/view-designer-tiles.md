@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77658511"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168514"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para ver azulejos do designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo é um guia de referência para as definições dos azulejos que estão disponíveis nas suas vistas personalizadas.
@@ -30,7 +30,7 @@ Os azulejos disponíveis do View Designer são descritos na tabela seguinte:
 | [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
 | [Anel](#donut-tile) | Um gráfico que é baseado numa consulta, com um valor sumário no centro. |
 | Gráfico de linha e chamada | Um gráfico de linha baseado numa consulta, e uma chamada com um valor sumário. |
-| [Gráfico de linha](#line-chart-tile) |Um gráfico de linha baseado numa consulta. |
+| [Gráfico de linhas](#line-chart-tile) |Um gráfico de linha baseado numa consulta. |
 | [Duas cronologias](#two-timelines-tile) | Um gráfico de coluna com duas séries, cada uma com base numa consulta separada. |
 
 As secções seguintes descrevem os tipos de azulejos e as suas propriedades em detalhe.
@@ -104,15 +104,15 @@ O **azulejo Donut** apresenta um único número que resume uma coluna de valor n
 ## <a name="line-chart-tile"></a>Azulejo de gráfico de linha
 Este azulejo é um gráfico de linha que exibe várias séries a partir de uma consulta de log ao longo do tempo. 
 
-![Gráfico de linha e azulejo de chamada](media/view-designer-tiles/tile-line-chart.png)
+![Screenshot de um azulejo de gráfico de linha no Azure Monitor View Designer.](media/view-designer-tiles/tile-line-chart.png)
 
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
-| **Gráfico de linha** | |
+| **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
-| **Gráfico de linha** |**> eixo Y** |
+| **Gráfico de linhas** |**> eixo Y** |
 | Use a escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas no gráfico indicando os tipos de valor e opcionalmente para converter os valores. O **Tipo de Unidade** especifica a categoria da unidade e define os valores do Tipo Unidade **Atual** que estão disponíveis. Se selecionar um valor em **Converter para,** os valores numéricos são convertidos do tipo **Unidade Atual** para o **Converse para** o tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada nenhuma etiqueta, apenas é apresentado o tipo *Unidade.* |
@@ -125,19 +125,19 @@ Este azulejo é um gráfico de linha que exibe várias séries a partir de uma c
 ## <a name="line-chart-and-callout-tile"></a>Gráfico de linha e azulejo de chamada
 Este azulejo tem tanto um gráfico de linha que exibe várias séries a partir de uma consulta de log ao longo do tempo e uma chamada com um valor resumido. 
 
-![Gráfico de linha e azulejo de chamada](media/view-designer-tiles/tile-line-chart-callout.png)
+![Screenshot de um gráfico de linha e azulejo de chamada no Azure Monitor View Designer.A chamada aumenta o gráfico de linha mostrando um valor resumido.](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
 | Descrição |O texto que é mostrado sob o nome de azulejo. |
-| **Gráfico de linha** | |
+| **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
-| **Gráfico de linha** |**> Callout** |
+| **Gráfico de linhas** |**> Callout** |
 | Título de chamada | O texto que é apresentado acima do valor de chamada. |
 | Nome da série |O valor da propriedade da série a ser usado como o valor de chamada. Se não forem fornecidas séries, todos os registos da consulta são utilizados. |
 | Operação |A operação que é realizada na propriedade de valor para resumi-la como um único valor para a chamada.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: A contagem de todos os registos que são devolvidos pela consulta.</li><li>Última amostra: o valor do último intervalo incluído na tabela.</li><li>Max: O valor máximo dos intervalos incluídos na tabela.</li><li>Min: O valor mínimo dos intervalos incluídos na tabela.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
-| **Gráfico de linha** |**> eixo Y** |
+| **Gráfico de linhas** |**> eixo Y** |
 | Use a escala logarítmica |Selecione este link para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para que os valores sejam devolvidos pela consulta. Estas informações são utilizadas para exibir etiquetas de gráficos que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *de Unidade* especifica a categoria da unidade e define os valores de tipo Unidade *De Corrente* disponíveis. Se selecionar um valor em *Converter para,* os valores numéricos são convertidos do tipo *Unidade Atual* para o *Converse para* o tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y ao lado da etiqueta para o tipo *Unidade.* Se não for especificada nenhuma etiqueta, apenas é apresentado o tipo *Unidade.* |

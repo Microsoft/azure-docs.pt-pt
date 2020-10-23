@@ -3,12 +3,12 @@ title: Replicar VMs Azure Stack para Azure usando Azure Site Recovery / Microsof
 description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448971"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370530"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
@@ -186,7 +186,7 @@ Agora instale o servidor de configuração:
 > [!NOTE]
 > O servidor de configuração também pode ser instalado a partir da linha de comando. [Saiba mais](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione **Servidor de Configuração**  >  ***servidor nome***Refresh  >  **Server**.
+> Pode demorar 15 minutos ou mais para o nome da conta aparecer no portal. Para atualizar imediatamente, selecione o nome do servidor **de servidores de configuração**  >  **_server name_*_ > _* Refresh Server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passo 4: Configurar o ambiente-alvo
 
@@ -314,7 +314,7 @@ Em seguida, executar um failover da seguinte forma:
 
 ### <a name="fail-back-to-azure-stack"></a>Falha de volta à Pilha Azure
 
-Quando o seu site principal estiver a funcionar novamente, pode falhar de volta de Azure a Azure Stack. Para isso, siga os passos listados [aqui.](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005)
+Quando o seu site principal estiver a funcionar novamente, pode falhar de volta de Azure a Azure Stack. Para isso, siga os passos listados [aqui.](/azure-stack/operator/site-recovery-failback?view=azs-2005)
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -323,4 +323,3 @@ Neste artigo replicamos VMs Azure Stack para Azure. Com a replicação no lugar,
 ## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter falhado, pode reprotegir o VM e começar a replicá-lo ao Azure novamente Para o fazer, repita os passos deste artigo.
-

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ac5645ccbb9c926bc5ff70605dd1e5de14e823
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529998"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427614"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados da Xero utilizando a Azure Data Factory
 
@@ -55,13 +55,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Xero:
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo deve ser definida para: **Xero** | Sim |
 | conexõesProperties | Um grupo de propriedades que define como se conectar com Xero. | Sim |
-| ***Em `connectionProperties` :*** | | |
+| **_Em: `connectionProperties` __* | | |
 | anfitrião | O ponto final do servidor Xero `api.xero.com` ().  | Sim |
 | authenticationType | Os valores permitidos são `OAuth_2.0` `OAuth_1.0` e. | Sim |
 | consumerKey | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para **gerar o privatekey.pem com numbits de 512 usando** `openssl genrsa -out privatekey.pem 512` , 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para _*gerar o privatekey.pem com numbits de 512** usando `openssl genrsa -out privatekey.pem 512` , 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
 | inquilinoId | A identificação do inquilino associada à sua aplicação Xero. Aplicável à autenticação OAuth 2.0.<br>Saiba como obter a identificação do inquilino da [Verificação dos inquilinos que você está autorizado a aceder à secção.](https://developer.xero.com/documentation/oauth2/auth-flow) | Sim para autenticação OAuth 2.0 |
-| refreshToken | O token de atualização OAuth 2.0 associado à aplicação Xero, usado para refrescar o token de acesso quando o token de acesso expira. Aplicável à autenticação OAuth 2.0. Saiba como obter o token refresh [deste artigo.](https://developer.xero.com/documentation/oauth2/auth-flow)<br>Refresh token nunca expirará. Para obter um token de atualização, você deve solicitar o [âmbito offline_access](https://developer.xero.com/documentation/oauth2/scopes).<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2.0 |
+| refreshToken | Aplicável à autenticação OAuth 2.0.<br/>O token de atualização OAuth 2.0 está associado à aplicação Xero e usado para refrescar o token de acesso; o sinal de acesso expira após 30 minutos. Saiba como funciona o fluxo de autorização Xero e como obter o token refresh [deste artigo.](https://developer.xero.com/documentation/oauth2/auth-flow) Para obter um token de atualização, você deve solicitar o [âmbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Saiba limitação**: Note Xero reinicia o token de atualização depois de ser usado para aceder a atualização simbólica. Para uma carga de trabalho operacionalizada, antes de cada atividade de cópia funcionar, é necessário definir um token de atualização válido para a ADF utilizar.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2.0 |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
 | useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
 | usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
@@ -212,7 +212,7 @@ Note o seguinte ao especificar a consulta Xero:
 
 - As mesas com itens complexos serão divididas em várias mesas. Por exemplo, as transações bancárias têm uma estrutura de dados complexa "LineItems", pelo que os dados de transação bancária são mapeados para tabela `Bank_Transaction` `Bank_Transaction_Line_Items` e, `Bank_Transaction_ID` com como chave estrangeira para os ligar.
 
-- Os dados Xero estão disponíveis através de dois esquemas: `Minimal` (padrão) e `Complete` . O esquema completo contém tabelas de chamadas pré-requisitos que requerem dados adicionais (por exemplo, coluna de ID) antes de fazer a consulta desejada.
+- Os dados Xero estão disponíveis através de dois esquemas: `Minimal` (padrão) e `Complete` . O esquema completo contém tabelas de chamadas pré-requisitos, que requerem dados adicionais (por exemplo, coluna de ID) antes de fazer a consulta desejada.
 
 As tabelas a seguir têm a mesma informação no esquema Minimal and Complete. Para reduzir o número de chamadas API, utilize esquema mínimo (predefinição).
 

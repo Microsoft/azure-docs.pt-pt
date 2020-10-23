@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283382"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461724"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -111,7 +111,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de entrada com configuração de sub-rede ajudada pelo serviço
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |Serra Corpnet       |SUB-REDE MI  |Permitir |
@@ -121,14 +121,14 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de saída com configuração de sub-rede ajudada pelo serviço
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo utilizador com configuração de sub-rede ajudada pelo serviço
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede-para-vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -312,7 +312,7 @@ Se a rede virtual incluir um DNS personalizado, o servidor DNS personalizado dev
 As seguintes funcionalidades de rede virtual não são atualmente suportadas com a SQL Managed Instance:
 
 - **Microsoft peering**: Habilitar [a Microsoft a espreitar](../../expressroute/expressroute-faqs.md#microsoft-peering) os circuitos ExpressRoute espreitei-o direta ou transitivamente com uma rede virtual onde o SQL Managed Instance reside afeta o fluxo de tráfego entre os componentes da SQL Managed Instance dentro da rede virtual e os serviços de que depende, causando problemas de disponibilidade. Espera-se que as implementações de SqL Managed Instance para rede virtual com o microsoft já ativado falhem.
-- **Observação global da rede virtual**: A conectividade de [observação de rede virtual](../../virtual-network/virtual-network-peering-overview.md) em todas as regiões do Azure não funciona para a SQL Managed Instance devido a [restrições documentadas do balançador de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **Observação global da rede virtual**: A conectividade de rede virtual que espreita [as](../../virtual-network/virtual-network-peering-overview.md) regiões de Azure não funciona para as Instâncias Geridas SQL colocadas em sub-redes criadas antes de 22/9/2020.
 - **AzurePlatformDNS**: A utilização da [etiqueta de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma tornaria a SQL Managed Instance indisponível. Embora a SQL Managed Instance suporte DNS definido pelo cliente para resolução de DNS dentro do motor, existe uma dependência da plataforma DNS para operações da plataforma.
 - **Gateway NAT**: A utilização [da Rede Virtual Azure NAT](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a SQL Managed Instance indisponível. O serviço SQL Managed Instance está atualmente limitado ao uso de balanceador de carga básico que não proporciona coexistência de fluxos de entrada e saída com a Rede Virtual NAT.
 
@@ -331,7 +331,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança obrigatórias de entrada
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -339,7 +339,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança obrigatórias de saída
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -357,7 +357,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

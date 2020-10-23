@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4403d5470f96ead861196f7c9bcb0b9b6af088b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a89ab7f2304fa51d3e8c7a968d445c9b40a457a3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973105"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456093"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Cisco AnyConnect
 
@@ -179,8 +179,8 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Cisco AnyConnect. 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
 * Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Cisco AnyConnect para o qual configura o SSO
-* Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Cisco AnyConnect no Painel de Acesso, deverá ser automaticamente inscrito no Cisco AnyConnect para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Cisco AnyConnect no Painel de Acesso, deverá ser automaticamente inscrito no Cisco AnyConnect para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Uma vez configurado Cisco AnyConnect pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado Cisco AnyConnect pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de25cc804844b5aa414e521fa641761d9a4b4f4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642202"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108427"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -295,21 +295,38 @@ Nesta função, o valor do `name` parâmetro de consulta é obtido a partir do p
 
 Da mesma forma, pode definir a `status_code` mensagem e `headers` para a mensagem de resposta no objeto [HttpResponse] devolvido.
 
-## <a name="scaling-and-concurrency"></a>Escala e concuência
+## <a name="scaling-and-performance"></a>Escala e Performance
 
-Por predefinição, o Azure Functions monitoriza automaticamente a carga da sua aplicação e cria casos adicionais de anfitrião para Python, conforme necessário. As funções utilizam limiares incorporados (não configuráveis pelo utilizador) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para o QueueTrigger. Para mais informações, consulte [como funcionam os planos De Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
+É importante entender como as suas funções funcionam e como esse desempenho afeta a forma como a sua aplicação de função é dimensionada. Isto é particularmente importante quando se desenham aplicações altamente performantes. Seguem-se vários fatores a ter em conta ao conceber, escrever e configurar as suas aplicações de funções.
 
-Este comportamento de escala é suficiente para muitas aplicações. No entanto, as aplicações com uma das seguintes características não podem ser dimensionais tão eficazmente:
+### <a name="horizontal-scaling"></a>Dimensionamento horizontal
+Por predefinição, o Azure Functions monitoriza automaticamente a carga da sua aplicação e cria casos adicionais de anfitrião para Python, conforme necessário. As funções utilizam limiares incorporados para diferentes tipos de gatilhos para decidir quando adicionar casos, como a idade das mensagens e o tamanho da fila para o QueueTrigger. Estes limiares não são configuráveis pelo utilizador. Para mais informações, consulte [como funcionam os planos De Consumo e Premium.](functions-scale.md#how-the-consumption-and-premium-plans-work)
 
-- A aplicação precisa de lidar com muitas invocações simultâneas.
-- A aplicação processa um grande número de eventos de E/S.
-- A aplicação está ligada à I/O.
+### <a name="improving-throughput-performance"></a>Melhorar o desempenho da produção
 
-Nesses casos, pode melhorar ainda mais o desempenho utilizando padrões de async e utilizando vários processos de trabalho linguístico.
+Uma chave para melhorar o desempenho é compreender como a sua aplicação utiliza recursos e ser capaz de configurar a sua aplicação de função em conformidade.
 
-### <a name="async"></a>Async
+#### <a name="understanding-your-workload"></a>Compreender a sua carga de trabalho
 
-Como Python é um tempo de execução de um único fio, um exemplo de hospedeiro para Python pode processar apenas uma invocação de função de cada vez. Para aplicações que processam um grande número de eventos de E/S e/ou está ligado a I/O, você pode melhorar o desempenho executando assíncroneamente.
+As configurações predefinidas são adequadas para a maioria das aplicações Azure Functions. No entanto, pode melhorar o desempenho da produção das suas aplicações utilizando configurações com base no seu perfil de carga de trabalho. O primeiro passo é compreender o tipo de carga de trabalho que está a correr.
+
+|| Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
+|--| -- | -- |
+|Características da aplicação de função| <ul><li>A aplicação precisa de lidar com muitas invocações simultâneas.</li> <li> A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de disco.</li> </ul>| <ul><li>A aplicação faz cálculos de longa duração, como o redimensionamento de imagens.</li> <li>A aplicação faz a transformação de dados.</li> </ul> |
+|Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de aprendizagem automática</li><ul>|
+
+ 
+> [!NOTE]
+>  Como as funções reais funcionam a carga de trabalho são, na maioria das vezes, uma mistura de I/S e CPU ligados, recomendamos perfilar a carga de trabalho sob cargas de produção realistas.
+
+
+#### <a name="performance-specific-configurations"></a>Configurações específicas do desempenho
+
+Depois de compreender o perfil de carga de trabalho da sua aplicação de função, as seguintes são as configurações que pode utilizar para melhorar o desempenho de produção das suas funções.
+
+##### <a name="async"></a>Async
+
+Como [Python é um tempo de execução de um único fio,](https://wiki.python.org/moin/GlobalInterpreterLock)uma instância hospedeira para Python pode processar apenas uma invocação de função de cada vez. Para aplicações que processam um grande número de eventos de E/S e/ou está ligado a I/O, você pode melhorar o desempenho significativamente executando funções assíncroneamente.
 
 Para executar uma função assíncronea, utilize a `async def` declaração, que executa a função com [assício](https://docs.python.org/3/library/asyncio.html) diretamente:
 
@@ -317,6 +334,21 @@ Para executar uma função assíncronea, utilize a `async def` declaração, que
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Aqui está um exemplo de uma função com gatilho HTTP que utiliza [cliente aiohttp](https://pypi.org/project/aiohttp/) http:
+
+```python
+import aiohttp
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
+```
+
 
 Uma função sem a `async` palavra-chave é executada automaticamente numa piscina de roscas assincio:
 
@@ -327,11 +359,25 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>Use vários processos de trabalho de língua
+Para obter o pleno benefício de executar assíncroneamente, a operação/biblioteca de E/S que é utilizada no seu código também precisa de ter async implementado. A utilização de operações de E/S sincronizadas em funções definidas como assíncronos **pode prejudicar** o desempenho geral.
+
+Aqui estão alguns exemplos de bibliotecas de clientes que implementaram o padrão async:
+- [aiohttp](https://pypi.org/project/aiohttp/) - Http cliente/servidor para assíncio 
+- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - Primitivos de alto nível assínc/aguardados prontos para trabalhar com ligação à rede
+- [Janus Queue](https://pypi.org/project/janus/) - Fila segura em linha para Python
+- [pyzmq](https://pypi.org/project/pyzmq/) - Ligações python para ZeroMQ
+ 
+
+##### <a name="use-multiple-language-worker-processes"></a>Use vários processos de trabalho de língua
 
 Por padrão, cada instância de anfitrião de Funções tem um único processo de trabalho de língua. Pode aumentar o número de processos de trabalhador por hospedeiro (até 10) utilizando a definição de aplicação [FUNCTIONS_WORKER_PROCESS_COUNT.](functions-app-settings.md#functions_worker_process_count) As Funções Azure tentam então distribuir uniformemente invocações de funções simultâneas por estes trabalhadores.
 
+Para as aplicações ligadas ao CPU, deve definir o número de trabalhadores linguísticos como ou superiores ao número de núcleos disponíveis por aplicação de função. Para saber mais, consulte [a instância disponível SKUs](functions-premium-plan.md#available-instance-skus). 
+
+As aplicações ligadas à I/O também podem beneficiar do aumento do número de processos de trabalhadores para além do número de núcleos disponíveis. Tenha em mente que definir o número de trabalhadores demasiado elevado pode ter impacto no desempenho global devido ao aumento do número de interruptores de contexto necessários. 
+
 O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções criam ao escalonar a sua aplicação para satisfazer a procura.
+
 
 ## <a name="context"></a>Contexto
 

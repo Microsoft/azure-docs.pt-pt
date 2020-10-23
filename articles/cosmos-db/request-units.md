@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88604822"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282048"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Pedido no Azure Cosmos DB
 
@@ -38,42 +38,50 @@ O tipo de conta Azure Cosmos que está a usar determina a forma como as RUs cons
 
 Embora calcule o número de RUs consumidos pela sua carga de trabalho, considere os seguintes fatores:
 
-* **Tamanho do item**: à medida que o tamanho de um item aumenta, o número de RUs consumidos para ler ou escrever o item também aumenta.
+- **Tamanho do item**: à medida que o tamanho de um item aumenta, o número de RUs consumidos para ler ou escrever o item também aumenta.
 
-* **Indexação do item**: por predefinição, cada item é automaticamente indexado. São consumidas menos RUs se optar por não indexar alguns dos seus itens num contentor.
+- **Indexação do item**: por predefinição, cada item é automaticamente indexado. São consumidas menos RUs se optar por não indexar alguns dos seus itens num contentor.
 
-* **Contagem de propriedades do item**: assumindo que a indexação predefinida existe em todas as propriedades, o número de RUs consumidas para escrever um item aumenta à medida que a contagem de propriedades do item aumenta.
+- **Contagem de propriedades do item**: assumindo que a indexação predefinida existe em todas as propriedades, o número de RUs consumidas para escrever um item aumenta à medida que a contagem de propriedades do item aumenta.
 
-* **Propriedades indexadas**: uma política de indexação em cada contentor determina as propriedades indexadas por predefinição. Para reduzir o consumo de RUs para operações de escrita, limite o número de propriedades indexadas.
+- **Propriedades indexadas**: uma política de indexação em cada contentor determina as propriedades indexadas por predefinição. Para reduzir o consumo de RUs para operações de escrita, limite o número de propriedades indexadas.
 
-* **Consistência dos dados**: Os níveis fortes e limitados de consistência da estagnação consomem aproximadamente duas vezes mais RUs enquanto realizam operações de leitura quando comparadas com as de outros níveis de consistência descontraídos.
+- **Consistência dos dados**: Os níveis fortes e limitados de consistência da estagnação consomem aproximadamente duas vezes mais RUs enquanto realizam operações de leitura quando comparadas com as de outros níveis de consistência descontraídos.
 
-* **Tipo de leituras**: As leituras de pontos custam significativamente menos RUs do que consultas.
+- **Tipo de leituras**: As leituras de pontos custam significativamente menos RUs do que consultas.
 
-* **Padrões de consulta**: a complexidade de uma consulta afeta a quantidade de RUs consumidas durante uma operação. Os fatores que afetam o custo das operações de consulta incluem: 
-    
-    - O número de resultados da consulta
-    - O número de predicados
-    - A natureza dos predicados
-    - O número de funções definidas pelo utilizador
-    - O tamanho dos dados de origem
-    - O tamanho do conjunto de resultados
-    - Projeções
+- **Padrões de consulta**: a complexidade de uma consulta afeta a quantidade de RUs consumidas durante uma operação. Os fatores que afetam o custo das operações de consulta incluem: 
 
-  O Azure Cosmos DB garante que a mesma consulta sobre os mesmos dados custa sempre o mesmo número de RUs em execuções repetidas.
+  - O número de resultados da consulta
+  - O número de predicados
+  - A natureza dos predicados
+  - O número de funções definidas pelo utilizador
+  - O tamanho dos dados de origem
+  - O tamanho do conjunto de resultados
+  - Projeções
 
-* **Utilização do script**: Tal como acontece com consultas, os procedimentos armazenados e os gatilhos consomem RUs com base na complexidade das operações que são realizadas. À medida que desenvolve a sua aplicação, inspecione o [cabeçalho de encargos de pedidos](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) para compreender melhor quanta capacidade de RUs é consumida pelas operações.
+  A mesma consulta sobre os mesmos dados custará sempre o mesmo número de RUs em execuções repetidas.
+
+- **Utilização do script**: Tal como acontece com consultas, os procedimentos armazenados e os gatilhos consomem RUs com base na complexidade das operações que são realizadas. À medida que desenvolve a sua aplicação, inspecione o [cabeçalho de encargos de pedidos](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) para compreender melhor quanta capacidade de RUs é consumida pelas operações.
+
+## <a name="request-units-and-multiple-regions"></a>Unidades de pedido e várias regiões
+
+Se você *fornecer RUs 'R'* num recipiente Cosmos (ou base de dados), a Cosmos DB garante que as RUs *'R'* estão disponíveis em *cada* região associada à sua conta Cosmos. Não se pode atribuir RUs seletivamente a uma região específica. As RUs a provisionadas num contentor cosmos (ou base de dados) são a provisionadas em todas as regiões associadas à sua conta Cosmos.
+
+Assumindo que um recipiente Cosmos está configurado com *RUs 'R'* e existem regiões *'N'* associadas à conta Cosmos, o total de RUs disponível globalmente no recipiente = *R* x *N*.
+
+A sua escolha de modelo de [consistência](consistency-levels.md) também afeta a produção. Pode obter aproximadamente 2x de produção de leitura para os níveis de consistência mais descontraídos (por exemplo, *sessão,* *prefixo consistente* e *consistência eventual)* em comparação com níveis de consistência mais fortes (por exemplo, *estagnação limitada* ou *forte* consistência).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como [obter produção em contentores e bases de dados da Azure Cosmos.](set-throughput.md)
-* Saiba mais sobre [o Azure Cosmos DB](serverless.md).
-* Saiba mais sobre [divisórias lógicas.](partition-data.md)
-* Saiba mais sobre como escalar globalmente a [produção a provisionada](scaling-throughput.md).
-* Saiba como [obter a produção num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
-* Saiba como [obter o rendimento numa base de dados da Azure Cosmos.](how-to-provision-database-throughput.md)
-* Saiba como [encontrar a taxa da unidade de pedido para uma operação](find-request-unit-charge.md).
-* Saiba como [otimizar o custo de produção a provisionado no Azure Cosmos DB](optimize-cost-throughput.md).
-* Saiba como [otimizar as leituras e escreve o custo em Azure Cosmos DB](optimize-cost-reads-writes.md).
-* Saiba como otimizar o [custo da consulta em Azure Cosmos DB](optimize-cost-queries.md).
-* Aprenda a [usar métricas para monitorizar a produção.](use-metrics.md)
+- Saiba mais sobre como [obter produção em contentores e bases de dados da Azure Cosmos.](set-throughput.md)
+- Saiba mais sobre [o Azure Cosmos DB](serverless.md).
+- Saiba mais sobre [divisórias lógicas.](partition-data.md)
+- Saiba mais sobre como escalar globalmente a [produção a provisionada](scaling-throughput.md).
+- Saiba como [obter a produção num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
+- Saiba como [obter o rendimento numa base de dados da Azure Cosmos.](how-to-provision-database-throughput.md)
+- Saiba como [encontrar a taxa da unidade de pedido para uma operação](find-request-unit-charge.md).
+- Saiba como [otimizar o custo de produção a provisionado no Azure Cosmos DB](optimize-cost-throughput.md).
+- Saiba como [otimizar as leituras e escreve o custo em Azure Cosmos DB](optimize-cost-reads-writes.md).
+- Saiba como otimizar o [custo da consulta em Azure Cosmos DB](optimize-cost-queries.md).
+- Aprenda a [usar métricas para monitorizar a produção.](use-metrics.md)

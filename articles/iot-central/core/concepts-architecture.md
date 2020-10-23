@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337148"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126178"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitetura do Azure IoT Central
 
@@ -104,7 +104,7 @@ A Azure IoT Central utiliza o Azure IoT Hub como porta de entrada em nuvem que p
 - Gestão de dispositivos.
 - Conectividade segura do dispositivo.
 
-Para saber mais sobre o IoT Hub, consulte [o Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub/)
+Para saber mais sobre o IoT Hub, consulte [o Azure IoT Hub.](../../iot-hub/index.yml)
 
 Para saber mais sobre a conectividade do dispositivo no Azure IoT Central, consulte [a conectividade do dispositivo](concepts-get-connected.md).
 
@@ -142,7 +142,7 @@ Num modelo de dispositivo de aplicação IoT Central contém:
 
 Uma aplicação pode ter um ou mais dispositivos simulados e reais com base em cada modelo de dispositivo.
 
-## <a name="data-export"></a>Exportação de dados
+## <a name="data-export"></a>Exportar dados
 
 Numa aplicação Azure IoT Central, pode [exportar continuamente os seus dados](howto-export-data.md) para os seus próprios centros de eventos Azure e para os casos de Autocarros Azure Service. Também pode exportar periodicamente os seus dados para a sua conta de armazenamento Azure Blob. O IoT Central pode exportar medições, dispositivos e modelos de dispositivos.
 

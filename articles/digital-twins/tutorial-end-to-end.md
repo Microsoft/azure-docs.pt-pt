@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0d28a71e2bd6fc2006bda81fba7d7e6336c5b1c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044603"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460840"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -48,7 +48,7 @@ Para trabalhar através do cenário, irá interagir com componentes da aplicaç�
 
 Aqui estão os componentes implementados pela aplicação de amostra do cenário de construção *AdtSampleApp:*
 * Autenticação do dispositivo 
-* [.NET (C#) Exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) de utilização da SDK (encontrados em *CommandLoop.cs*)
+* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) de utilização da SDK (encontrados em *CommandLoop.cs*)
 * Interface de consola para chamar a AZure Digital Twins API
 * *SampleClientApp* - Uma solução de amostra Azure Digital Twins
 * *SampleFunctionsApp* - Uma app Azure Functions que atualiza o seu gráfico Azure Digital Twins como resultado da telemetria dos eventos IoT Hub e Azure Digital Twins
@@ -87,7 +87,7 @@ Query
 ```
 
 >[!TIP]
-> Este método simplificado é fornecido no âmbito do projeto _**AdtE2ESample.**_ Fora do contexto deste código de amostra, pode consultar todos os gémeos no seu caso a qualquer momento, utilizando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos CLI](how-to-use-cli.md).
+> Este método simplificado é fornecido no âmbito do projeto _**AdtE2ESample.**_ Fora do contexto deste código de amostra, pode consultar todos os gémeos no seu caso a qualquer momento, utilizando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos CLI](how-to-use-cli.md).
 >
 > Aqui está o corpo de consulta completa para obter todos os gémeos digitais no seu caso:
 > 
@@ -442,7 +442,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 
@@ -453,12 +453,6 @@ Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Em seguida, elimine o registo de aplicações AD AZure que criou para a sua aplicação cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.

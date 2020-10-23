@@ -1,19 +1,16 @@
 ---
 title: Código Debug Azure Data Lake Analytics localmente
 description: Saiba como usar o Azure Data Lake Tools para o Visual Studio para depurar empregos U-SQL na sua estação de trabalho local.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 7176e2f64faa8e5b43574084a9cbd947dbd576d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7218deac9efba6df6c1284f2578a744e768284
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125641"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221031"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Código Debug Azure Data Lake Analytics localmente
 

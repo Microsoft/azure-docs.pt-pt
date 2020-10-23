@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71c84b35c001be7fafdc2df53014050ae21dec63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939117"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320210"
 ---
 # <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenha registos de serviços de dados habilitados para a Azure Arc
 
@@ -22,48 +22,60 @@ ms.locfileid: "90939117"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para recuperar os registos de serviços de dados ativados do Arco Azure, necessitará da ferramenta Azure Data CLI. [Instruções de instalação](./install-client-tools.md)
+Antes de prosseguir, precisa:
 
-Terá de ser capaz de iniciar sessão no serviço de tratamento de serviços de dados ativado pelo Azure Arc como administrador.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instruções de instalação](./install-client-tools.md).
+* Uma conta de administrador para iniciar seduca no Azure Arc permitiu o tratamento de serviços de dados.
 
 ## <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenha registos de serviços de dados habilitados para a Azure Arc
 
-Pode obter os registos de serviços de dados ativados pelo Azure Arc em todas as cápsulas ou cápsulas específicas para efeitos de resolução de problemas.  Pode fazê-lo utilizando ferramentas padrão de Kubernetes, como o `kubectl logs` comando ou neste artigo, estará a utilizar a ferramenta CLI de dados Azure, o que facilita a obtê-lo de uma só vez.
+Pode obter os registos de serviços de dados ativados pelo Azure Arc em todas as cápsulas ou cápsulas específicas para efeitos de resolução de problemas. Pode fazê-lo utilizando ferramentas padrão de Kubernetes, como o `kubectl logs` comando ou neste artigo, que irá utilizar a ferramenta, o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] que facilita a obtê-lo de uma só vez.
 
-Primeiro, certifique-se de que está registado no controlador de dados.
+1. Inscreva-se no controlador de dados com uma conta de administrador.
 
-```console
-azdata login
-```
+   ```console
+   azdata login
+   ```
 
-Em seguida, executar o seguinte comando para despejar os registos:
-```console
-azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+2. Executar o seguinte comando para despejar os registos:
 
-#Example:
-#azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
-```
+   ```console
+   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```
 
-Os ficheiros de registo serão criados no diretório de trabalho atual por padrão numa subdirectória chamada 'logs'.  Pode desausar os ficheiros de registo para um diretório diferente utilizando o `--target-folder` parâmetro.
+   Por exemplo:
 
-Pode optar por comprimir os ficheiros omitindo o `--skip-compress` parâmetro.
+   ```console
+   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```
 
-Pode ativar e incluir despejos de memória omitindo o `--exclude-dumps` , mas isso não é recomendado a menos que o Microsoft Support tenha solicitado o despejo de memória.  A tomada de uma lixeira de memória requer que a definição do controlador de dados `allowDumps` seja definida para o tempo da `true` criação do controlador de dados.
+O controlador de dados cria os ficheiros de registo no diretório de trabalho atual numa subdiretório chamada `logs` . 
 
-Pode optar opcionalmente por filtrar para recolher registos apenas para uma vagem específica `--pod` () ou recipiente `--container` () pelo nome.
+## <a name="options"></a>Opções
 
-Também pode optar por filtrar para recolher registos para um recurso personalizado específico, passando o `--resource-kind` e `--resource-name` paramater.  O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recursos personalizados que podem ser recuperados pelo comando `kubectl get customresourcedefinition` .
+`azdata arc dc debug copy-logs` fornece as seguintes opções para gerir a saída.
+
+* Desada os ficheiros de registo para um diretório diferente utilizando o `--target-folder` parâmetro.
+* Comprima os ficheiros omitindo o `--skip-compress` parâmetro.
+* Despoletem e incluam despejos de memória omitindo o `--exclude-dumps` . Este método não é recomendado a menos que o Microsoft Support tenha solicitado o despejo de memória. A tomada de uma lixeira de memória requer que a definição do controlador de dados `allowDumps` seja definida para o tempo da `true` criação do controlador de dados.
+* Filtrar para recolher registos apenas para uma vagem específica `--pod` () ou recipiente `--container` () pelo nome.
+* Filtrar para recolher registos para um recurso personalizado específico, passando o `--resource-kind` parâmetro e `--resource-name` parâmetro. O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recursos personalizados, que podem ser recuperados pelo comando `kubectl get customresourcedefinition` .
+
+Com estes parâmetros, pode substituir o `<parameters>` exemplo seguinte. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```
 
-#Example
+Por exemplo
+
+```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exemplo da hierarquia da pasta.  Note que a hierarquia da pasta é organizada pelo nome do pod e, em seguida, por contentor e, em seguida, pela hierarquia do diretório dentro do recipiente.
+Exemplo da hierarquia da pasta. A hierarquia da pasta é organizada pelo nome do casulo, depois pelo contentor e, em seguida, pela hierarquia do diretório dentro do contentor.
 
-```console
+```output
 <export directory>
 ├───debuglogs-arc-20200827-180403
 │   ├───bootstrapper-vl8j2
@@ -181,3 +193,7 @@ Exemplo da hierarquia da pasta.  Note que a hierarquia da pasta é organizada pe
             ├───journal
             └───openvpn
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+[azdata arc dc depurg copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fc3f3fb0b6bb67239d6c1952d3e128076ce45aaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13467a51b2a06dbc0ca0ec5eadd139fde8b82ad0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85857190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103497"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gestão de conta na Azure Data Lake Storage Gen1 utilizando a API REST
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Pode utilizar duas abordagens para autenticar com o Azure Active Directory.
 
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta do Data Lake Storage Gen1
-Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
+Esta operação baseia-se na chamada da API REST definida [aqui](/rest/api/datalakestore/accounts/create).
 
 Utilize o seguinte comando cURL. Substitua **\<yourstoragegen1name>** o nome da Gen1 de armazenamento de dados.
 
@@ -57,7 +57,7 @@ No comando acima, substitua \<`REDACTED`\> pelo token de autorização obtido an
 ```
 
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Excluir uma conta Gen1 de armazenamento de data lake
-Esta operação baseia-se na chamada da API REST definida [aqui](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
+Esta operação baseia-se na chamada da API REST definida [aqui](/rest/api/datalakestore/accounts/delete).
 
 Utilize o seguinte comando cURL para eliminar uma conta Gen1 de armazenamento de data lake. Substitua **\<yourstoragegen1name>** o nome da sua conta Gen1 de armazenamento de dados.
 
@@ -76,7 +76,6 @@ HTTP/1.1 200 OK
 ## <a name="next-steps"></a>Passos seguintes
 * [Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando a API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Consulte também
-* [Referência Azure Data Lake Storage Gen1 REST API Referência](https://docs.microsoft.com/rest/api/datalakestore/)
+## <a name="see-also"></a>Ver também
+* [Referência Azure Data Lake Storage Gen1 REST API Referência](/rest/api/datalakestore/)
 * [Aplicações Open Source Big Data compatíveis com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
-

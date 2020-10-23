@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327570"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146675"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualize os dados do sensor em tempo real do seu hub Azure IoT numa aplicação web
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicione um grupo de consumidores ao seu hub IoT
 
-[Os grupos de consumidores fornecem vistas independentes](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) sobre o fluxo de eventos que permitem que as aplicações e os serviços Azure consumam dados independentes a partir do mesmo ponto final do Event Hub. Nesta secção, adicione um grupo de consumidores ao ponto final integrado do seu hub IoT que a aplicação web utilizará para ler dados.
+[Os grupos de consumidores fornecem vistas independentes](../event-hubs/event-hubs-features.md#event-consumers) sobre o fluxo de eventos que permitem que as aplicações e os serviços Azure consumam dados independentes a partir do mesmo ponto final do Event Hub. Nesta secção, adicione um grupo de consumidores ao ponto final integrado do seu hub IoT que a aplicação web utilizará para ler dados.
 
 Executar o seguinte comando para adicionar um grupo de consumidores ao ponto final incorporado do seu hub IoT:
 
@@ -156,11 +156,11 @@ Também deve ver saída na consola que mostra as mensagens que a sua aplicação
 
 ## <a name="host-the-web-app-in-app-service"></a>Hospedar a aplicação web no Serviço de Aplicações
 
-A [funcionalidade de Aplicações Web do Azure App Service](https://docs.microsoft.com/azure/app-service/overview) fornece uma plataforma como um serviço (PAAS) para hospedar aplicações web. As aplicações web hospedadas no Azure App Service podem beneficiar de funcionalidades poderosas do Azure, como segurança adicional, equilíbrio de carga e escalabilidade, bem como soluções Azure e partner DevOps como implementação contínua, gestão de pacotes, e assim por diante. O Azure App Service suporta aplicações web desenvolvidas em muitos idiomas populares e implantadas em infraestruturas Windows ou Linux.
+A [funcionalidade de Aplicações Web do Azure App Service](../app-service/overview.md) fornece uma plataforma como um serviço (PAAS) para hospedar aplicações web. As aplicações web hospedadas no Azure App Service podem beneficiar de funcionalidades poderosas do Azure, como segurança adicional, equilíbrio de carga e escalabilidade, bem como soluções Azure e partner DevOps como implementação contínua, gestão de pacotes, e assim por diante. O Azure App Service suporta aplicações web desenvolvidas em muitos idiomas populares e implantadas em infraestruturas Windows ou Linux.
 
-Nesta secção, você fornece uma aplicação web no Serviço de Aplicações e implementa o seu código para ele usando comandos Azure CLI. Pode encontrar detalhes dos comandos utilizados na documentação do [webapp az.](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) Antes de começar, certifique-se de ter completado os passos para adicionar um grupo de [recursos ao seu hub IoT,](#add-a-consumer-group-to-your-iot-hub)obter uma cadeia de [conexão de serviço para o seu hub IoT](#get-a-service-connection-string-for-your-iot-hub), e [descarregar a aplicação web do GitHub](#download-the-web-app-from-github).
+Nesta secção, você fornece uma aplicação web no Serviço de Aplicações e implementa o seu código para ele usando comandos Azure CLI. Pode encontrar detalhes dos comandos utilizados na documentação do [webapp az.](/cli/azure/webapp?view=azure-cli-latest) Antes de começar, certifique-se de ter completado os passos para adicionar um grupo de [recursos ao seu hub IoT,](#add-a-consumer-group-to-your-iot-hub)obter uma cadeia de [conexão de serviço para o seu hub IoT](#get-a-service-connection-string-for-your-iot-hub), e [descarregar a aplicação web do GitHub](#download-the-web-app-from-github).
 
-1. Um plano de Serviço de [Aplicações](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) define um conjunto de recursos computacionares para uma aplicação hospedada no Serviço de Aplicações a executar. Neste tutorial, utilizamos o nível Developer/Free para hospedar a aplicação web. Com o nível Gratuito, a sua aplicação web funciona em recursos partilhados do Windows com outras aplicações do App Service, incluindo aplicações de outros clientes. O Azure também oferece planos de Serviço de Aplicações para implementar aplicações web em recursos de computação Linux. Pode saltar este passo se já tiver um plano de Serviço de Aplicações que pretende utilizar.
+1. Um plano de Serviço de [Aplicações](../app-service/overview-hosting-plans.md) define um conjunto de recursos computacionares para uma aplicação hospedada no Serviço de Aplicações a executar. Neste tutorial, utilizamos o nível Developer/Free para hospedar a aplicação web. Com o nível Gratuito, a sua aplicação web funciona em recursos partilhados do Windows com outras aplicações do App Service, incluindo aplicações de outros clientes. O Azure também oferece planos de Serviço de Aplicações para implementar aplicações web em recursos de computação Linux. Pode saltar este passo se já tiver um plano de Serviço de Aplicações que pretende utilizar.
 
    Para criar um plano de Serviço de Aplicações utilizando o nível livre do Windows, execute o seguinte comando. Use o mesmo grupo de recursos em que o seu hub IoT está. O nome do seu plano de serviço pode conter letras maiúsculas e minúsculas, números e hífens.
 
@@ -187,7 +187,7 @@ Nesta secção, você fornece uma aplicação web no Serviço de Aplicações e 
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Para implementar o código para o Serviço de Aplicações, utilizará as [suas credenciais de implementação ao nível do utilizador.](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials) As suas credenciais de implementação ao nível do utilizador são diferentes das suas credenciais Azure e são usadas para implementações locais e FTP de Git para uma aplicação web. Uma vez definidas, são válidas em todas as suas aplicações do Serviço de Aplicações em todas as subscrições da sua conta Azure. Se tiver definido previamente credenciais de implementação ao nível do utilizador, pode usá-las.
+5. Para implementar o código para o Serviço de Aplicações, utilizará as [suas credenciais de implementação ao nível do utilizador.](../app-service/deploy-configure-credentials.md) As suas credenciais de implementação ao nível do utilizador são diferentes das suas credenciais Azure e são usadas para implementações locais e FTP de Git para uma aplicação web. Uma vez definidas, são válidas em todas as suas aplicações do Serviço de Aplicações em todas as subscrições da sua conta Azure. Se tiver definido previamente credenciais de implementação ao nível do utilizador, pode usá-las.
 
    Se ainda não definiu as credenciais de implementação ao nível do utilizador ou se não se lembrar da sua palavra-passe, execute o seguinte comando. O seu nome de utilizador de implementação deve ser único dentro do Azure, e não deve conter o símbolo '@' para os pushes git locais. Quando for solicitado, insira e confirme a sua nova senha. A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos.
 

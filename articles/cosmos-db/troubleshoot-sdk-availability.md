@@ -3,17 +3,17 @@ title: Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs
 description: Saiba tudo sobre o comportamento de disponibilidade do Azure Cosmos SDK ao operar em ambientes multi-regionais.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743969"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319370"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs em ambientes multi-regionais
 
@@ -34,7 +34,7 @@ Quando definir a preferência regional, o cliente ligar-se-á a uma região como
 | Região de escrita única | Região preferida | Região primária  |
 | Múltiplas regiões de escrita | Região preferida | Região preferida  |
 
-Se não definir uma região preferida:
+Se **não definir uma região preferida,** o cliente SDK falha na região primária:
 
 |Tipo de conta |Leituras |Escritas |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Se não definir uma região preferida:
 > [!NOTE]
 > Região primária refere-se à primeira região da lista da região da [conta Azure Cosmos](distribute-data-globally.md)
 
-Quando ocorre qualquer um dos seguintes cenários, o cliente que utiliza o Azure Cosmos SDK expõe registos e inclui as informações de re-operação como parte da informação de diagnóstico da **operação**:
+Em circunstâncias normais, o cliente SDK ligará à região preferida (se for definida uma preferência regional) ou à região primária (se não for definida qualquer preferência), e as operações serão limitadas a essa região, a menos que ocorra qualquer um dos cenários abaixo.
+
+Nestes casos, o cliente que utiliza o Azure Cosmos SDK expõe registos e inclui as informações de re-tentar como parte da informação de diagnóstico da **operação:**
 
 * *O pedidoDiagnosticsString* propriedade sobre respostas em .NET V2 SDK.
 * A propriedade *Diagnostics* sobre respostas e exceções em .NET V3 SDK.
@@ -66,7 +68,7 @@ Se remover uma região e posteriormente adicioná-la de volta à conta, se a reg
 
 Se configurar o cliente para ligar preferencialmente a uma região que a conta Azure Cosmos não tem, a região preferida é ignorada. Se adicionar essa região mais tarde, o cliente deteta-a e mudará permanentemente para aquela região.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Falha na região de escrita numa única conta de uma única região de escrita
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Falha sobre a região de escrita numa única conta de uma única região de escrita
 
 Se iniciar uma falha na atual região de escrita, o próximo pedido de escrita falhará com uma resposta conhecida. Quando esta resposta for detetada, o cliente irá consultar a conta para aprender a nova região de escrita e procede à retrys the current operation e encaminhar permanentemente todas as futuras operações de escrita para a nova região.
 
@@ -76,7 +78,7 @@ Se a conta for uma única região de escrita e a paragem regional ocorrer durant
 
 ## <a name="session-consistency-guarantees"></a>Garantias de consistência da sessão
 
-Ao utilizar a [consistência da sessão,](consistency-levels.md#guarantees-associated-with-consistency-levels)o cliente precisa de garantir que pode ler os seus próprios escritos. Nas contas da região de escrita única, onde a preferência da região de leitura é diferente da região de escrita, pode haver casos em que o utilizador emite uma escrita e ao fazer uma leitura de uma região local, a região local ainda não recebeu a replicação de dados (velocidade de restrição da luz). Nestes casos, o SDK deteta a falha específica na operação de leitura e retribe a leitura na região do centro para garantir a consistência da sessão.
+Ao utilizar a [consistência da sessão,](consistency-levels.md#guarantees-associated-with-consistency-levels)o cliente precisa de garantir que pode ler os seus próprios escritos. Nas contas da região de escrita única, onde a preferência da região de leitura é diferente da região de escrita, pode haver casos em que o utilizador emite uma escrita e ao fazer uma leitura de uma região local, a região local ainda não recebeu a replicação de dados (velocidade de restrição da luz). Nestes casos, o SDK deteta a falha específica na operação de leitura e recauchuta a leitura na região primária para garantir a consistência da sessão.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemas de conectividade transitórios no protocolo TCP
 

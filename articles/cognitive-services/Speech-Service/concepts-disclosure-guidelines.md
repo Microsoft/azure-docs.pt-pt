@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.author: angle
-ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: shlo
+ms.openlocfilehash: bae801ac64950b0b0e9fe45585a3411477ebf12b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74776390"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150859"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de conceção de divulgação
 Aprenda a construir e manter a confiança com os clientes, sendo transparente sobre a natureza sintética da sua experiência de voz.

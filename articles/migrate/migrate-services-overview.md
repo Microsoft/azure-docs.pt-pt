@@ -4,12 +4,12 @@ description: Conheça o serviço Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86122086"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314756"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -124,5 +124,5 @@ Existem duas versões do serviço Azure Migrate.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Experimente os nossos tutoriais para avaliar [VMware VMs,](tutorial-prepare-vmware.md) [Hiper-VMs,](tutorial-prepare-hyper-v.md)ou [servidores físicos.](tutorial-prepare-physical.md)
+- Experimente os nossos tutoriais para avaliar [VMware VMs,](./tutorial-discover-vmware.md) [Hiper-VMs,](./tutorial-discover-hyper-v.md)ou [servidores físicos.](./tutorial-discover-physical.md)
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

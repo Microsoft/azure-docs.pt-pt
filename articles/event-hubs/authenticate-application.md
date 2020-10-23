@@ -2,13 +2,13 @@
 title: Autenticar uma aplicação para aceder aos recursos do Azure Event Hubs
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder aos recursos do Azure Event Hubs
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566334"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359939"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs
 O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar a Azure AD com Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` (Para os clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` ). A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
@@ -16,7 +16,7 @@ O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recu
 Quando um papel é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser analisado ao nível de subscrição, ao grupo de recursos, ao espaço de nomes do Event Hubs ou a qualquer recurso sob o mesmo. Uma segurança Azure AD pode atribuir funções a um utilizador, a um grupo, a um diretor de serviço de aplicações ou a uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md) 
 
 > [!NOTE]
-> Uma definição de função é uma coleção de permissões. O controlo de acesso baseado em funções (RBAC) controla a forma como estas permissões são aplicadas através da atribuição de funções. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Para obter mais informações, consulte [compreender as diferentes funções.](../role-based-access-control/overview.md)
+> Uma definição de função é uma coleção de permissões. O controlo de acesso baseado em funções (Azure RBAC) controla a forma como estas permissões são aplicadas através da atribuição de funções. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Para obter mais informações, consulte [compreender as diferentes funções.](../role-based-access-control/overview.md)
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Papéis incorporados para hubs de eventos Azure
 A Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados do Event Hubs utilizando Azure AD e OAuth:
@@ -25,38 +25,10 @@ A Azure fornece as seguintes funções incorporadas do Azure para autorizar o ac
 - [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use esta função para dar acesso ao envio aos recursos do Event Hubs.
 - [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use esta função para dar acesso aos recursos do Event Hubs.   
 
-Para funções incorporadas no Registo de Schema, consulte [as funções de Registo de Schema](schema-registry-overview.md#role-based-access-control).
+Para funções incorporadas no Registo de Schema, consulte [as funções de Registo de Schema](schema-registry-overview.md#azure-role-based-access-control).
 
 > [!IMPORTANT]
 > A nossa versão de pré-visualização suportava a adição de privilégios de acesso de dados do Event Hubs à função Proprietário ou Colaborador. No entanto, os privilégios de acesso a dados para o papel de Proprietário e Colaborador deixaram de ser honrados. Se estiver a utilizar a função Proprietário ou Contribuinte, mude para a função Azure Event Hubs Data Owner.
-
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções Azure usando o portal Azure  
-Para saber mais sobre a gestão do acesso aos recursos do Azure utilizando o RBAC e o portal Azure, consulte [este artigo.](..//role-based-access-control/role-assignments-portal.md) 
-
-Depois de ter determinado a possibilidade adequada para uma atribuição de funções, navegue para esse recurso no portal Azure. Mostrar as definições de controlo de acesso (IAM) para o recurso e seguir estas instruções para gerir as atribuições de funções:
-
-> [!NOTE]
-> Os passos descritos abaixo atribuem uma função ao seu centro de eventos sob os espaços de nomes do Event Hubs, mas pode seguir os mesmos passos para atribuir uma função a qualquer recurso de Event Hubs.
-
-1. No [portal Azure,](https://portal.azure.com/)navegue para o seu espaço de nomes Desempaco.
-2. Na página **'Vista Geral',** selecione o centro de eventos para o qual pretende atribuir uma função.
-
-    ![Selecione o seu centro de eventos](./media/authenticate-application/select-event-hub.png)
-1. Selecione **Access Control (IAM)** para exibir as definições de controlo de acesso para o centro de eventos. 
-1. Selecione o **separador funções** para ver a lista de atribuições de funções. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar a atribuição de função**. 
-
-    ![Adicione botão na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
-1. Na página **de atribuição de funções Adicionar,** faça os seguintes passos:
-    1. Selecione a **função De Centros de Eventos** que pretende atribuir. 
-    1. Procure localizar o **principal de segurança** (utilizador, grupo, principal serviço) ao qual pretende atribuir a função.
-    1. **Selecione Guardar** para guardar a atribuição de funções. 
-
-        ![Atribuir função a um utilizador](./media/authenticate-application/assign-role-to-user.png)
-    4. A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a seguinte imagem mostra que os utilizadores do Azure estão na função de Proprietário de Dados do Azure Event Hubs. 
-        
-        ![Utilizador na lista](./media/authenticate-application/user-in-list.png)
-
-Pode seguir passos semelhantes para atribuir uma função a scopeed para o espaço de nomes do Event Hubs, grupo de recursos ou subscrição. Uma vez definido o papel e o seu âmbito, pode testar este comportamento com amostras [neste local do GitHub.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)
 
 
 ## <a name="authenticate-from-an-application"></a>Autenticar a partir de uma aplicação
@@ -95,6 +67,30 @@ O pedido precisa de um segredo de cliente para provar a sua identidade ao pedir 
     ![Segredo do cliente](./media/authenticate-application/client-secret.png)
 
 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções Azure usando o portal Azure  
+Depois de registar a aplicação, designa o principal de serviço da aplicação para uma função de AD do Event Hubs Azure descrita nas [funções Build-in para Azure Event Hubs.](#built-in-roles-for-azure-event-hubs) 
+
+1. No [portal Azure,](https://portal.azure.com/)navegue para o seu espaço de nomes Desempaco.
+2. Na página **'Vista Geral',** selecione o centro de eventos para o qual pretende atribuir uma função.
+
+    ![Selecione o seu centro de eventos](./media/authenticate-application/select-event-hub.png)
+1. Selecione **Access Control (IAM)** para exibir as definições de controlo de acesso para o centro de eventos. 
+1. Selecione o **separador funções** para ver a lista de atribuições de funções. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar a atribuição de função**. 
+
+    ![Adicione botão na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
+1. Na página **de atribuição de funções Adicionar,** faça os seguintes passos:
+    1. Selecione a **função De Centros de Eventos** que pretende atribuir. 
+    1. Procure localizar o **principal de segurança** (utilizador, grupo, principal serviço) ao qual pretende atribuir a função. Selecione a **inscrição registada** na lista. 
+    1. **Selecione Guardar** para guardar a atribuição de funções. 
+
+        ![Atribuir função a um utilizador](./media/authenticate-application/assign-role-to-user.png)
+    4. Mude para o **separador funções** e confirme a atribuição de funções. Por exemplo, a imagem a seguir mostra que o **mywebapp** está no papel de **Remetente de Dados do Azure Event Hubs.** 
+        
+        ![Utilizador na lista](./media/authenticate-application/user-in-list.png)
+
+Pode seguir passos semelhantes para atribuir uma função a scopeed para o espaço de nomes do Event Hubs, grupo de recursos ou subscrição. Uma vez definido o papel e o seu âmbito, pode testar este comportamento com amostras [neste local do GitHub.](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) Para saber mais sobre a gestão do acesso aos recursos do Azure utilizando o Azure RBAC e o portal Azure, consulte [este artigo](..//role-based-access-control/role-assignments-portal.md). 
+
+
 ### <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de clientes para aquisição simbólica  
 Uma vez registado o seu pedido e concedido permissões para enviar/receber dados em Azure Event Hubs, pode adicionar código à sua aplicação para autenticar um principal de segurança e adquirir o token OAuth 2.0. Para autenticar e adquirir o token, pode utilizar uma das bibliotecas de [autenticação](../active-directory/develop/reference-v2-libraries.md) da plataforma de identidade da Microsoft ou outra biblioteca de código aberto que suporte o OpenID ou o Connect 1.0. A sua aplicação pode então utilizar o token de acesso para autorizar um pedido contra o Azure Event Hubs.
 
@@ -109,12 +105,12 @@ Para obter uma lista de cenários para os quais a aquisição de fichas é supor
     Esta amostra foi atualizada para utilizar a mais recente biblioteca **Azure.Messaging.EventHubs.**
 
 ## <a name="next-steps"></a>Passos seguintes
-- Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)](../role-based-access-control/overview.md)?
+- Para saber mais sobre o Azure RBAC, veja [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)](../role-based-access-control/overview.md)?
 - Para aprender a atribuir e gerir atribuições de funções da Azure PowerShell, Azure CLI ou da REST API, consulte estes artigos:
-    - [Gerir o controlo de acesso baseado em funções (RBAC) com a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Gerir o controlo de acesso baseado em funções (RBAC) com o Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Gerir o controlo de acesso baseado em funções (RBAC) com a API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Gerir o controlo de acesso baseado em funções (RBAC) com modelos de gestor de recursos Azure](../role-based-access-control/role-assignments-template.md)
+    - [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-powershell.md)  
+    - [Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-cli.md)
+    - [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-rest.md)
+    - [Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure](../role-based-access-control/role-assignments-template.md)
 
 Consulte os seguintes artigos relacionados:
 - [Autenticar uma identidade gerida com o Azure Ative Directory para aceder aos Recursos dos Hubs de Eventos](authenticate-managed-identity.md)

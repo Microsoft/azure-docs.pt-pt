@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567592"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277971"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a produção de autoescala abastada na Azure Cosmos DB
 
@@ -125,7 +125,7 @@ Por exemplo, suponha que tenha um recipiente de autoescala com 400 - 4000 RU/s:
 - Hora 1: T=2: O recipiente começa a receber pedidos, que consomem 1000 RU em 1 segundo. Há também 200 RUs de valor de TTL que precisam de acontecer. O RU/s faturado ainda é 1000 RU/s. Independentemente de quando ocorrem os TTLs, não afetarão a lógica de escala automática.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Qual é o mapeamento entre as divisórias max RU/s e físicas?
-Quando selecionar pela primeira vez o max RU/s, a Azure Cosmos DB providenciará: Max RU/s / 10.000 RU/s = # de divisórias físicas. Cada [divisória física](partition-data.md#physical-partitions) pode suportar até 10.000 RU/s e 50 GB de armazenamento. À medida que o tamanho do armazenamento aumenta, a Azure Cosmos DB dividirá automaticamente as divisórias para adicionar mais divisórias físicas para lidar com o aumento do armazenamento, ou aumentará o máximo RU/s se o armazenamento [exceder o limite associado](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+Quando selecionar pela primeira vez o max RU/s, a Azure Cosmos DB providenciará: Max RU/s / 10.000 RU/s = # de divisórias físicas. Cada [divisória física](partitioning-overview.md#physical-partitions) pode suportar até 10.000 RU/s e 50 GB de armazenamento. À medida que o tamanho do armazenamento aumenta, a Azure Cosmos DB dividirá automaticamente as divisórias para adicionar mais divisórias físicas para lidar com o aumento do armazenamento, ou aumentará o máximo RU/s se o armazenamento [exceder o limite associado](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 O máximo RU/s da base de dados ou do recipiente é dividido uniformemente em todas as divisórias físicas. Assim, a produção total de qualquer partição física pode escalar para é: Max RU/s de base de dados ou recipiente / # divisórias físicas. 
 
@@ -147,5 +147,5 @@ Por exemplo, se selecionar a opção de produção máxima de 20.000 RU/s e tive
 
 * Saiba como permitir a [autoescalação numa base de dados ou contentor Azure Cosmos DB](how-to-provision-autoscale-throughput.md).
 * Conheça os [benefícios da produção aussitada com autoescala.](provision-throughput-autoscale.md#benefits-of-autoscale)
-* Saiba mais sobre [divisórias lógicas e físicas.](partition-data.md)
+* Saiba mais sobre [divisórias lógicas e físicas.](partitioning-overview.md)
                         

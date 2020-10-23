@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309494"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151984"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
 O glossário de Compreensão linguística (LUIS) explica termos que poderá encontrar enquanto trabalha com o serviço LUIS.
@@ -96,7 +96,7 @@ Uma [intenção](#intent) é um exemplo de um classificador.
 
 ## <a name="collaborator"></a>Colaborador
 
-Um colaborador é conceptualmente a mesma coisa que um [contribuinte.](#contributor) Um colaborador tem acesso quando um proprietário adiciona o endereço de e-mail do colaborador a uma app que não é controlada com o controlo de acesso baseado em funções Azure (Azure RBAC). Se ainda estiver a utilizar colaboradores, deve migrar a sua conta LUIS e utilizar recursos de autoria do LUIS para gerir colaboradores com o RBAC.
+Um colaborador é conceptualmente a mesma coisa que um [contribuinte.](#contributor) Um colaborador tem acesso quando um proprietário adiciona o endereço de e-mail do colaborador a uma app que não é controlada com o controlo de acesso baseado em funções Azure (Azure RBAC). Se ainda estiver a utilizar colaboradores, deve migrar a sua conta LUIS e utilizar recursos de autoria do LUIS para gerir colaboradores com a Azure RBAC.
 
 ## <a name="contributor"></a>Contribuinte
 

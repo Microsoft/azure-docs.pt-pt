@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557618"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329411"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
@@ -68,11 +68,11 @@ Utilize as seguintes opções de origem ao definir o Armazenamento de Tabelas do
 
 Para recuperar a cadeia de ligação de origem ao importar do armazenamento da tabela Azure, abra o portal Azure e clique nas **teclas de**Acesso à conta de armazenamento  >  **Account**  >  **Access keys**e, em seguida, utilize o botão de cópia para copiar a **cadeia De ligação**.
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Captura de ecrã das opções de origem do HBase":::
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot que mostra contas de Armazenamento > Opções de > De acesso de conta e realça o botão de cópia.":::
 
 Para recuperar a cadeia de ligação de origem ao importar de uma conta API de tabela API (pré-visualização) da Tabela Azure Cosmos, abra o portal Azure, clique na Cadeia de Ligação da Conta **Azure Cosmos**  >  **Account**  >  **Connection String** DB e utilize o botão de cópia para copiar a **Cadeia de Ligação**.
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Captura de ecrã das opções de origem do HBase":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Screenshot que mostra contas de Armazenamento > Opções de > De acesso de conta e realça o botão de cópia.":::
 
 [Comando de Armazenamento de Tabelas do Azure](#azure-table-storage)
 

@@ -4,15 +4,15 @@ description: Este artigo fornece informações sobre a configuração das listas
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/25/2020
+ms.date: 10/05/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 73372f3c38e12d0d4ac972a569da36a04ad533da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018649"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125820"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Firewall de aplicação web (WAF) com listas de exclusão do Serviço de Porta Frontal 
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84295427"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215409"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicação que podem ser usados no Ative Directory B2C
-
+ 
 O Azure Ative Directory B2C (Azure AD B2C) suporta a autenticação para uma variedade de arquiteturas de aplicações modernas. Todos elas baseiam-se nos protocolos padrão da indústria [OAuth 2.0](protocols-overview.md) ou [OpenID Connect](protocols-overview.md). Este artigo descreve os tipos de aplicações que pode construir, independentemente do idioma ou plataforma que prefere. Também ajuda-o a compreender os cenários de alto nível antes de começar a construir aplicações.
 
 Todas as aplicações que utilizem o Azure AD B2C devem estar registadas no seu [inquilino Azure AD B2C](tutorial-create-tenant.md) utilizando o [portal Azure](https://portal.azure.com/). O processo de registo de candidatura recolhe e atribui valores, tais como:
@@ -75,6 +75,26 @@ Para ver este cenário em ação, experimente uma das amostras de código de ins
 
 Além de facilitar o simples sing-in, uma aplicação de servidor web também pode precisar de aceder a um serviço web de back-end. Neste caso, a aplicação web pode executar um [fluxo openID connect](openid-connect.md) ligeiramente diferente e adquirir fichas usando códigos de autorização e fichas de atualização. Este cenário é descrito na seguinte [secção APIs da Web](#web-apis).
 
+## <a name="single-page-applications"></a>Aplicações de uma página única
+Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente ("SPAs"). Os desenvolvedores escrevem-nos utilizando o JavaScript ou uma estrutura SPA como Angular, Vue e React. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor.
+
+O Azure AD B2C oferece **duas** opções para permitir que aplicações de uma página única assinem nos utilizadores e obter fichas para aceder a serviços de back-end ou APIs web:
+
+### <a name="authorization-code-flow-with-pkce"></a>Fluxo de código de autorização (com PKCE)
+- [OAuth 2.0 Fluxo de código de autorização (com PKCE)](./authorization-code-flow.md). O fluxo de código de autorização permite que a aplicação troque um código de autorização para fichas **de identificação** para representar o utilizador autenticado e fichas de **acesso** necessárias para chamar APIs protegidas. Além disso, devolve tokens **Refresh** que fornecem acesso a longo prazo aos recursos em nome dos utilizadores sem necessidade de interação com esses utilizadores. 
+
+Esta é a abordagem **recomendada.** Ter tokens de atualização de vida limitada ajuda a sua aplicação a adaptar-se às [limitações modernas](../active-directory/develop/reference-third-party-cookies-spas.md)de privacidade de cookies do navegador , como o Safari ITP.
+
+Para tirar partido deste fluxo, a sua aplicação pode utilizar uma biblioteca de autenticação que o suporte, como [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+
+<!-- ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg) -->
+![Aplicações de uma só página-auth](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
+
+### <a name="implicit-grant-flow"></a>Fluxo de subvenção implícito
+- [OAuth 2.0 fluxo implícito](implicit-flow-single-page-application.md). Alguns quadros, como [MSAL.js 1.x,](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)apenas apoiam o fluxo implícito de subvenções. O fluxo de subvenção implícita permite que a aplicação obtenha **ID** e tokens de **acesso.** Ao contrário do fluxo de código de autorização, o fluxo de subvenção implícita não devolve um **token Refresh**. 
+
+Este fluxo de autenticação não inclui cenários de aplicação que utilizem quadros javaScript de plataforma cruzada, tais como Electrn e React-Native. Estes cenários requerem mais capacidades de interação com as plataformas nativas.
+
 ## <a name="web-apis"></a>APIs da Web
 
 Pode utilizar o Azure AD B2C para garantir serviços web como a API web RESTful da sua aplicação. As APIs Web podem utilizar o OAuth 2.0 para proteger os seus dados, ao autenticar pedidos HTTP recebidos utilizando tokens. O autor da chamada de uma API web acrescenta um token no cabeçalho de autorização de um pedido HTTP:
@@ -85,7 +105,7 @@ Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
 Accept: application/json
 ...
-```
+``` 
 
 A API web pode utilizar o token para verificar a identidade do autor da chamada da API e extrair informações sobre o autor da chamada com base nas afirmações codificadas no token. Saiba mais sobre os tipos de tokens e afirmações disponíveis para uma aplicação na [referência de token do Azure AD B2C](tokens-overview.md).
 

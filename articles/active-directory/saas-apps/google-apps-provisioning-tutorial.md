@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3f2f62fe158b946e00c7f81d0cb7eeb0d8f09437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebbcb8dd8c895c61858952fbd4498bd57e06d36b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331134"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448661"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
-Este tutorial descreve os passos necessários para realizar tanto na Suíte G como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, a Azure AD fornece automaticamente e desescvisões utilizadores e grupos para [A Suite G](https://gsuite.google.com/) utilizando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve os passos necessários para realizar tanto na Suíte G como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, a Azure AD fornece automaticamente e desescvisões utilizadores e grupos para [A Suite G](https://gsuite.google.com/) utilizando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 > [!NOTE]
 > Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -38,21 +38,21 @@ Este tutorial descreve os passos necessários para realizar tanto na Suíte G co
 > * Remova os utilizadores na Suíte G quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre Azure AD e G Suite
 > * Grupos de provisão e membros do grupo na Suíte G
-> * [Único sinal de inscrição na](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial) Suíte G (recomendado)
+> * [Único sinal de inscrição na](./google-apps-tutorial.md) Suíte G (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* [Um inquilino da AD AZure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Uma conta de utilizador no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
+* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * [Um inquilino da Suíte G](https://gsuite.google.com/pricing.html)
 * Uma conta de utilizador numa Suíte G com permissões de Administração.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
-1. Saiba [como funciona o serviço de aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem vai estar no [âmbito do aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais os dados a [mapear entre Azure AD e G Suite](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Saiba [como funciona o serviço de aprovisionamento](../app-provisioning/user-provisioning.md).
+2. Determine quem vai estar no [âmbito do aprovisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine quais os dados a [mapear entre Azure AD e G Suite](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-g-suite-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure a Suíte G para apoiar o provisionamento com a Azure AD
 
@@ -71,7 +71,7 @@ Antes de configurar o G Suite para o fornecimento automático do utilizador com 
     ![G Suite API Ativada](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
-   > Para cada utilizador que pretende providenciar à Suíte G, o seu nome de utilizador em Azure AD **deve** estar ligado a um domínio personalizado. Por exemplo, os nomes de utilizador que se parecem bob@contoso.onmicrosoft.com não são aceites pela Suíte G. Por outro lado, bob@contoso.com é aceite. Pode alterar o domínio de um utilizador existente seguindo as instruções [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
+   > Para cada utilizador que pretende providenciar à Suíte G, o seu nome de utilizador em Azure AD **deve** estar ligado a um domínio personalizado. Por exemplo, os nomes de utilizador que se parecem bob@contoso.onmicrosoft.com não são aceites pela Suíte G. Por outro lado, bob@contoso.com é aceite. Pode alterar o domínio de um utilizador existente seguindo as instruções [aqui](../fundamentals/add-custom-domain.md).
 
 4. Uma vez adicionado e verificado os seus domínios personalizados desejados com Azure AD, deve verificar novamente com a Suíte G. Para verificar os domínios em Suíte G, consulte os seguintes passos:
 
@@ -101,15 +101,15 @@ Antes de configurar o G Suite para o fornecimento automático do utilizador com 
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione suíte G da galeria de aplicações AZure AD
 
-Adicione suíte G da galeria de aplicações AZure AD para começar a gerir o fornecimento para a Suíte G. Se já configurar previamente O G Suite para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione suíte G da galeria de aplicações AZure AD para começar a gerir o fornecimento para a Suíte G. Se já configurar previamente O G Suite para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento 
 
-O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir utilizadores e grupos a Suíte G, deve selecionar uma outra função que não **o Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
+* Ao atribuir utilizadores e grupos a Suíte G, deve selecionar uma outra função que não **o Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
 
-* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-g-suite"></a>Passo 5. Configure o fornecimento automático do utilizador para a Suíte G 
@@ -159,83 +159,83 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 8. Na secção **Mappings,** selecione **Provision Azure Ative Directory Users**.
 
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD a G Suite na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Suíte G para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que a API da Suíte G suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
+9. Reveja os atributos do utilizador que são sincronizados de Azure AD a G Suite na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Suíte G para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](../app-provisioning/customize-application-attributes.md)terá de garantir que a API da Suíte G suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
    |Atributo|Tipo|
    |---|---|
-   |correio primárioEmail|Cadeia|
+   |correio primárioEmail|String|
    |relações. [tipo eq "manager"].value|String|
    |name.familyName|String|
    |name.givenName|String|
-   |suspenso|Cadeia|
-   |externalids. [tipo eq "custom"].valor|Cadeia|
-   |externalids. [tipo eq "organização"].valor|Cadeia|
-   |endereços. [tipo eq "work"].país|Cadeia|
-   |endereços. [tipo eq "work"].streetAddress|Cadeia|
-   |endereços. [tipo eq "work"].região|Cadeia|
-   |endereços. [tipo eq "work"].localidade|Cadeia|
-   |endereços. [tipo eq "work"].postalCode|Cadeia|
-   |e-mails. [tipo eq "work"].endereço|Cadeia|
-   |organizações. [tipo eq "work"].departamento|Cadeia|
-   |organizações. [tipo eq "work"].title|Cadeia|
-   |números de telefone. [tipo eq "work"].value|Cadeia|
-   |números de telefone. [tipo eq "mobile"].valor|Cadeia|
-   |números de telefone. [tipo eq "work_fax"].valor|Cadeia|
-   |e-mails. [tipo eq "work"].endereço|Cadeia|
-   |organizações. [tipo eq "work"].departamento|Cadeia|
-   |organizações. [tipo eq "work"].title|Cadeia|
-   |números de telefone. [tipo eq "work"].value|Cadeia|
-   |números de telefone. [tipo eq "mobile"].valor|Cadeia|
-   |números de telefone. [tipo eq "work_fax"].valor|Cadeia|
-   |endereços. [tipo eq "casa"].país|Cadeia|
-   |endereços. [tipo eq "home"].formatada|Cadeia|
-   |endereços. [tipo eq "casa"].localidade|Cadeia|
-   |endereços. [tipo eq "home"].postalCode|Cadeia|
-   |endereços. [tipo eq "casa"].região|Cadeia|
-   |endereços. [tipo eq "home"].streetAddress|Cadeia|
-   |endereços. [tipo eq "outro"].país|Cadeia|
-   |endereços. [tipo eq "outro"].formatado|Cadeia|
-   |endereços. [tipo eq "outro"].localidade|Cadeia|
-   |endereços. [tipo eq "outro"].postalCode|Cadeia|
-   |endereços. [tipo eq "outro"].região|Cadeia|
-   |endereços. [tipo eq "outro"].streetAddress|Cadeia|
-   |endereços. [tipo eq "work"].formatada|Cadeia|
-   |changePasswordAtNextLogin|Cadeia|
-   |e-mails. [tipo eq "home"].endereço|Cadeia|
-   |e-mails. [tipo eq "outro"].endereço|Cadeia|
-   |externalids. [tipo eq "conta"].valor|Cadeia|
-   |externalids. [tipo eq "custom"].customType|Cadeia|
-   |externalids. [tipo eq "cliente"].valor|Cadeia|
-   |externalids. [tipo eq "login_id"].value|Cadeia|
-   |externalids. [tipo eq "rede"].valor|Cadeia|
-   |género.tipo|Cadeia|
-   |GeradoImmutableId|Cadeia|
-   |Identificador|Cadeia|
-   |Ims. [tipo eq "casa"].protocolo|Cadeia|
-   |Ims. [tipo eq "outro"].protocolo|Cadeia|
-   |Ims. [tipo eq "work"].protocolo|Cadeia|
-   |incluemInGlobalAddressList|Cadeia|
-   |ipWhitelisted|Cadeia|
-   |organizações. [tipo eq "escola"].costCenter|Cadeia|
-   |organizações. [tipo eq "escola"].departamento|Cadeia|
-   |organizações. [tipo eq "escola"].domínio|Cadeia|
-   |organizações. [tipo eq "escola"].FullTimeEquivalente|Cadeia|
-   |organizações. [tipo eq "escola"].localização|Cadeia|
-   |organizações. [tipo eq "escola"].nome|Cadeia|
-   |organizações. [tipo eq "escola"].símbolo|Cadeia|
-   |organizações. [tipo eq "escola"].título|Cadeia|
-   |organizações. [tipo eq "work"].costCenter|Cadeia|
-   |organizações. [tipo eq "work"].domínio|Cadeia|
-   |organizações. [tipo eq "work"].FullTimeEquivallent|Cadeia|
-   |organizações. [tipo eq "work"].localização|Cadeia|
-   |organizações. [tipo eq "work"].name|Cadeia|
-   |organizações. [tipo eq "work"].símbolo|Cadeia|
-   |OrgUnitPath|Cadeia|
-   |números de telefone. [tipo eq "casa"].valor|Cadeia|
-   |números de telefone. [tipo eq "outro"].valor|Cadeia|
-   |sites. [tipo eq "casa"].valor|Cadeia|
-   |sites. [tipo eq "outro"].valor|Cadeia|
-   |sites. [tipo eq "work"].value|Cadeia|
+   |suspenso|String|
+   |externalids. [tipo eq "custom"].valor|String|
+   |externalids. [tipo eq "organização"].valor|String|
+   |endereços. [tipo eq "work"].país|String|
+   |endereços. [tipo eq "work"].streetAddress|String|
+   |endereços. [tipo eq "work"].região|String|
+   |endereços. [tipo eq "work"].localidade|String|
+   |endereços. [tipo eq "work"].postalCode|String|
+   |e-mails. [tipo eq "work"].endereço|String|
+   |organizações. [tipo eq "work"].departamento|String|
+   |organizações. [tipo eq "work"].title|String|
+   |números de telefone. [tipo eq "work"].value|String|
+   |números de telefone. [tipo eq "mobile"].valor|String|
+   |números de telefone. [tipo eq "work_fax"].valor|String|
+   |e-mails. [tipo eq "work"].endereço|String|
+   |organizações. [tipo eq "work"].departamento|String|
+   |organizações. [tipo eq "work"].title|String|
+   |números de telefone. [tipo eq "work"].value|String|
+   |números de telefone. [tipo eq "mobile"].valor|String|
+   |números de telefone. [tipo eq "work_fax"].valor|String|
+   |endereços. [tipo eq "casa"].país|String|
+   |endereços. [tipo eq "home"].formatada|String|
+   |endereços. [tipo eq "casa"].localidade|String|
+   |endereços. [tipo eq "home"].postalCode|String|
+   |endereços. [tipo eq "casa"].região|String|
+   |endereços. [tipo eq "home"].streetAddress|String|
+   |endereços. [tipo eq "outro"].país|String|
+   |endereços. [tipo eq "outro"].formatado|String|
+   |endereços. [tipo eq "outro"].localidade|String|
+   |endereços. [tipo eq "outro"].postalCode|String|
+   |endereços. [tipo eq "outro"].região|String|
+   |endereços. [tipo eq "outro"].streetAddress|String|
+   |endereços. [tipo eq "work"].formatada|String|
+   |changePasswordAtNextLogin|String|
+   |e-mails. [tipo eq "home"].endereço|String|
+   |e-mails. [tipo eq "outro"].endereço|String|
+   |externalids. [tipo eq "conta"].valor|String|
+   |externalids. [tipo eq "custom"].customType|String|
+   |externalids. [tipo eq "cliente"].valor|String|
+   |externalids. [tipo eq "login_id"].value|String|
+   |externalids. [tipo eq "rede"].valor|String|
+   |género.tipo|String|
+   |GeradoImmutableId|String|
+   |Identificador|String|
+   |Ims. [tipo eq "casa"].protocolo|String|
+   |Ims. [tipo eq "outro"].protocolo|String|
+   |Ims. [tipo eq "work"].protocolo|String|
+   |incluemInGlobalAddressList|String|
+   |ipWhitelisted|String|
+   |organizações. [tipo eq "escola"].costCenter|String|
+   |organizações. [tipo eq "escola"].departamento|String|
+   |organizações. [tipo eq "escola"].domínio|String|
+   |organizações. [tipo eq "escola"].FullTimeEquivalente|String|
+   |organizações. [tipo eq "escola"].localização|String|
+   |organizações. [tipo eq "escola"].nome|String|
+   |organizações. [tipo eq "escola"].símbolo|String|
+   |organizações. [tipo eq "escola"].título|String|
+   |organizações. [tipo eq "work"].costCenter|String|
+   |organizações. [tipo eq "work"].domínio|String|
+   |organizações. [tipo eq "work"].FullTimeEquivallent|String|
+   |organizações. [tipo eq "work"].localização|String|
+   |organizações. [tipo eq "work"].name|String|
+   |organizações. [tipo eq "work"].símbolo|String|
+   |OrgUnitPath|String|
+   |números de telefone. [tipo eq "casa"].valor|String|
+   |números de telefone. [tipo eq "outro"].valor|String|
+   |sites. [tipo eq "casa"].valor|String|
+   |sites. [tipo eq "outro"].valor|String|
+   |sites. [tipo eq "work"].value|String|
    
 
 10. Na secção **Mappings,** selecione **Provision Azure Ative Directory Groups**.
@@ -244,12 +244,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       |Atributo|Tipo|
       |---|---|
-      |e-mail|Cadeia|
-      |Membros|Cadeia|
-      |name|Cadeia|
-      |descrição|Cadeia|
+      |e-mail|String|
+      |Membros|String|
+      |name|String|
+      |descrição|String|
 
-12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para ativar o serviço de prestação de Azure AD para a Suite G, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
@@ -271,15 +271,15 @@ Esta operação inicia o ciclo de sincronização inicial de todos os utilizador
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
-1. Utilize os [registos de aprovisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
-3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
+2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

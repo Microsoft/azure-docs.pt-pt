@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930497"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205851"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
 
@@ -30,8 +30,8 @@ Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão 
 
 1. Crie uma política de [acesso no Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) para a identidade da aplicação que criou anteriormente. Ativar a permissão secreta "Obter" sobre esta política. Não configufique a "aplicação autorizada" ou `applicationId` as definições, uma vez que tal não é compatível com uma identidade gerida.
 
-    > [!IMPORTANT]
-    > As referências key Vault não são atualmente capazes de resolver segredos armazenados num cofre-chave com [restrições de rede](../key-vault/general/overview-vnet-service-endpoints.md).
+   > [!IMPORTANT]
+   > As referências key Vault não são atualmente capazes de resolver segredos armazenados num cofre chave com restrições de [rede,](../key-vault/general/overview-vnet-service-endpoints.md) a menos que a aplicação esteja hospedada dentro de um [Ambiente de Serviço de Aplicações](./environment/intro.md).
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 
@@ -45,8 +45,8 @@ Uma referência do Cofre-Chave é do `@Microsoft.KeyVault({referenceString})` fo
 
 > [!NOTE] 
 > As versões são atualmente necessárias. Ao rodar segredos, terá de atualizar a versão na configuração da sua aplicação.
-
 Por exemplo, uma referência completa seria semelhante:
+
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)

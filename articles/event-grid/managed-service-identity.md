@@ -1,14 +1,14 @@
 ---
-title: Entrega de eventos com identidade de serviço gerido
+title: Entrega de eventos, identidade de serviço gerida e ligação privada
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534248"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460925"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como permitir uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -17,6 +17,9 @@ Aqui estão os passos que são abordados em detalhe neste artigo:
 1. Crie um tópico ou domínio com uma identidade atribuída ao sistema, ou atualize um tópico ou domínio existente para permitir a identidade. 
 1. Adicione a identidade a um papel apropriado (por exemplo, Service Bus Data Sender) no destino (por exemplo, uma fila de autocarros de serviço).
 1. Ao criar subscrições de eventos, permita o uso da identidade para entregar eventos ao destino. 
+
+> [!NOTE]
+> Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Para mais informações, consulte a secção [de pontos finais privados](#private-endpoints) no final deste artigo. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Criar um tópico ou domínio com uma identidade
 Primeiro, vamos ver como criar um tópico ou um domínio com uma identidade gerida pelo sistema.
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>Pontos finais privados
+Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Ou seja, não há suporte se tiver requisitos rigorosos de isolamento de rede onde o tráfego de eventos entregues não deve sair do espaço IP privado. 
+
+No entanto, se os seus requisitos exigirem uma forma segura de enviar eventos usando um canal encriptado e uma identidade conhecida do remetente (neste caso, Grade de Evento) utilizando espaço IP público, poderá entregar eventos a Centros de Eventos, Service Bus ou serviço de Armazenamento Azure utilizando um tópico de grelha de eventos Azure ou um domínio com identidade gerida pelo sistema configurado como mostrado neste artigo. Em seguida, pode utilizar um link privado configurado em Funções Azure ou o seu webhook implantado na sua rede virtual para puxar eventos. Consulte a amostra: [Ligue-se a pontos finais privados com funções Azure.](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)
+
+Note que nesta configuração, o tráfego passa pelo IP/internet público de Event Grid para Event Hubs, Service Bus ou Azure Storage, mas o canal pode ser encriptado e uma identidade gerida de Event Grid é usada. Se configurar as suas Funções Azure ou webhook implantados na sua rede virtual para utilizar um Event Hubs, Service Bus ou Azure Storage via link privado, essa secção do tráfego permanecerá, evidentemente, dentro do Azure.
 
 
 ## <a name="next-steps"></a>Passos seguintes

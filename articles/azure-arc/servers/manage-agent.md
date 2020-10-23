@@ -1,14 +1,14 @@
 ---
 title: Gerir o agente de servidores ativado pelo Arco Azure
 description: Este artigo descreve as diferentes tarefas de gestão que normalmente irá executar durante o ciclo de vida do agente ativado pelos servidores Azure Arc Connected Machine.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5161bd097809f1feb6f84b07e07c63d06d0a9c94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254997"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371431"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerir e manter o agente da Máquina Conectada
 
@@ -138,7 +138,7 @@ As ações do comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet)
     zypper update
     ```
 
-As ações do comando [zypper,](https://en.opensuse.org/Portal:Zypper) tais como a instalação e remoção de pacotes, estão registadas no `/var/log/zypper.log` ficheiro de registo. 
+As ações do comando [zypper,](https://en.opensuse.org/Portal:Zypper) tais como a instalação e remoção de pacotes, estão registadas no `/var/log/zypper.log` ficheiro de registo.
 
 ## <a name="about-the-azcmagent-tool"></a>Sobre a ferramenta Azcmagent
 
@@ -148,9 +148,11 @@ A ferramenta Azcmagent (Azcmagent.exe) é utilizada para configurar o agente de 
 
 * **Desconexão** - Para desligar a máquina do Arco Azure
 
-* **Voltar a ligar** - Voltar a ligar uma máquina desligada ao Arco de Azure
+* **Mostrar** - Ver o estado do agente e as suas propriedades de configuração (nome do Grupo de Recursos, ID de subscrição, versão, etc.), o que pode ajudar na resolução de problemas com o agente. Inclua o `-j` parâmetro para a saída dos resultados no formato JSON.
 
-* **Mostrar** - Ver o estado do agente e as suas propriedades de configuração (nome do Grupo de Recursos, ID de subscrição, versão, etc.), o que pode ajudar na resolução de problemas com o agente.
+* **Registos** - Cria um ficheiro .zip no diretório atual que contém registos para o ajudar durante a resolução de problemas.
+
+* **Versão** - Mostra a versão do agente 'Máquina Conectada'.
 
 * **-h ou --ajuda** - Mostra parâmetros disponíveis de linha de comando
 
@@ -158,7 +160,7 @@ A ferramenta Azcmagent (Azcmagent.exe) é utilizada para configurar o agente de 
 
 * **-v ou --verbose** - Permitir a exploração de verbose
 
-Pode executar um **Connect**, **Disconnect**e **Reconnect** manualmente enquanto iniciado ininterruptamente, ou automatizar utilizando o mesmo principal serviço que usou para bordo de vários agentes ou com um [token de acesso à](../../active-directory/develop/access-tokens.md)plataforma de identidade da Microsoft . Se não usou um principal de serviço para registar a máquina com servidores ativados Azure Arc, consulte o [seguinte artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para criar um principal de serviço.
+Pode executar um **Connect** and **Disconnect** manualmente enquanto iniciado ininterruptamente, ou automatizar utilizando o mesmo principal de serviço que usou para bordo de vários agentes ou com um [token de acesso à](../../active-directory/develop/access-tokens.md)plataforma de identidade da Microsoft. Se não usou um principal de serviço para registar a máquina com servidores ativados Azure Arc, consulte o [seguinte artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para criar um principal de serviço.
 
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
@@ -198,28 +200,7 @@ Para desligar usando um token de acesso, executar o seguinte comando:
 
 Para desligar com as suas credenciais elevadas registadas (interativas), executar o seguinte comando:
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>Restabelecer ligação
-
-> [!WARNING]
-> O `reconnect` comando é precotado e não deve ser usado. O comando será removido numa futura libertação do agente e os agentes existentes não poderão completar o pedido de reconexão. Em vez disso, [desligue](#disconnect) a máquina e [volte a ligá-la.](#connect)
-
-Este parâmetro reconecta a máquina já registada ou conectada com servidores ativados pelo Arco Azure. Isto pode ser necessário se a máquina tiver sido desligada, pelo menos, 45 dias, para que o seu certificado expire. Este parâmetro utiliza as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso Azure Resource Manager que representa esta máquina.
-
-Este comando requer privilégios mais elevados do que o papel [de Azure Connected Machine Onboarding.](agent-overview.md#required-permissions)
-
-Para voltar a ligar utilizando um principal de serviço, executar o seguinte comando:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-Para voltar a ligar utilizando um token de acesso, executar o seguinte comando:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-Para voltar a ligar-se às suas credenciais elevadas registadas (interativas), executar o seguinte comando:
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>Remova o agente
 
@@ -344,4 +325,4 @@ sudo azcmagent_proxy remove
 
 * Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
-* Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).
+* Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-introduction.md).

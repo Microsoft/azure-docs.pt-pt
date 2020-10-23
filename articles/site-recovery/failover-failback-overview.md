@@ -3,12 +3,12 @@ title: Sobre failover e failback na Recuperação do Local de Azure
 description: Saiba mais sobre falhas e falhas na Recuperação do Local de Azure.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3617683200aa3ffba08061b70993613fd0cc7241
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089537"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369884"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre a recuperação de desastres no local/failback
 
@@ -46,9 +46,9 @@ Para ligar aos VMs Azure criados após a falha usando RDP/SSH, existem uma séri
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
 **Azure VM (Windows).** | Na máquina no local antes do failover | **Acesso através da internet**: Ativar RDP. Certifique-se de que as regras TCP e UDP são adicionadas ao **Público**, e que o PDR é permitido para todos os perfis em Apps **Windows Firewall**  >  **Permitidas pelo**Windows Firewall .<br/><br/> **Acesso sobre o local-a-local VPN**: Ative o RDP na máquina. Verifique se o RDP **Windows Firewall**é permitido nas  ->  **aplicações e funcionalidades permitidas pelo**Windows Firewall , para redes **de domínio e privado.**<br/><br/>  Certifique-se de que a política do sistema operativo SAN está definida para **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não existem atualizações do Windows pendentes no VM quando desencadear uma falha. O Windows Update pode começar quando falhar de novo e não poderá iniciar sessão no VM até que as atualizações sejam feitas.
-**Azure VM executando janelas** | No Azure VM após falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) devem permitir a entrada de ligações à porta RDP.<br/><br/> Verifique **os diagnósticos da Boot** para verificar uma imagem do VM. Se não conseguir ligar, verifique se o VM está em funcionamento e reveja [as dicas de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure VM executando janelas** | No Azure VM após falha |  [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) devem permitir a entrada de ligações à porta RDP.<br/><br/> Verifique **os diagnósticos da Boot** para verificar uma imagem do VM. Se não conseguir ligar, verifique se o VM está em funcionamento e reveja [as dicas de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Azure VM executando Linux** | Na máquina no local antes do failover | Certifique-se de que o serviço Secure Shell no VM está programado para iniciar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
-**Azure VM executando Linux** | No Azure VM após falha | As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> Verifique **os diagnósticos da Boot** para obter uma imagem do VM.<br/><br/>
+**Azure VM executando Linux** | No Azure VM após falha | As regras do grupo de segurança da rede sobre o falhado sobre o VM (e a sub-rede Azure à qual está ligada) precisam de permitir a entrada de ligações à porta SSH.<br/><br/> [Adicione um endereço IP público](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para a VM.<br/><br/> Verifique **os diagnósticos da Boot** para obter uma imagem do VM.<br/><br/>
 
 ## <a name="types-of-failover"></a>Tipos de failover
 
@@ -164,4 +164,3 @@ Depois de ter falhado no local, ativa a **Reverse Replicate** para começar a re
 - Falha em [VMs num plano de recuperação](site-recovery-failover.md).
 - [Preparar para](vmware-azure-failback.md) Reproteção vMware e recuo.
 - Falha nos [Hiper-V VMs](hyper-v-azure-failback.md).
-

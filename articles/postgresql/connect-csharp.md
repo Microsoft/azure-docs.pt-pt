@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 5/6/2019
-ms.openlocfilehash: cfa7a6e7e2de11978709fd662dcbfaa2085a0716
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: 221bd8287133c3fe9bb53bd4b480823d971b3e3a
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710418"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166017"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize .NET (C#) para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 

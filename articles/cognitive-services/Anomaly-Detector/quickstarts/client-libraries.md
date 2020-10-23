@@ -5,7 +5,7 @@ description: A API do Detetor de Anomalias oferece bibliotecas de clientes para 
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: ad-quickstart-one
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.date: 09/22/2020
 ms.author: mbullwin
 keywords: deteção de anomalias, algoritmos
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-ms.openlocfilehash: a1079c19d9778b8a4392b822b004726bccfc02b7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 72b7d720561be97ffb61d7bbe270de1b0dae43e2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018504"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164147"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>Quickstart: Use a biblioteca de clientes do Detetor de Anomalias
 

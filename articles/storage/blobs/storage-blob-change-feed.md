@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89568239"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172898"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
 
@@ -139,7 +139,7 @@ Utilize um modelo de Gestor de Recursos Azure para ativar alterar o feed da sua 
 O feed de alteração produz vários metadados e ficheiros de registo. Estes ficheiros estão localizados no **recipiente $blobchangefeed** da conta de armazenamento. 
 
 > [!NOTE]
-> Na versão atual, o recipiente **$blobchangefeed** não é visível no Azure Storage Explorer ou no portal Azure. Atualmente, não é possível ver o recipiente $blobchangefeed quando liga para a API listContainers, mas pode ligar diretamente para a API ListBlobs diretamente no recipiente para ver as bolhas.
+> Na versão atual, o recipiente $blobchangefeed é visível apenas no portal Azure, mas não é visível no Azure Storage Explorer. Atualmente não pode ver o recipiente $blobchangefeed quando liga para a API listContainers, mas é capaz de ligar diretamente para a API ListBlobs diretamente no recipiente para ver as bolhas
 
 As aplicações do seu cliente podem consumir o feed de alteração utilizando a biblioteca do processador de feed de alteração blob que é fornecida com o processador de feed SDK change. 
 

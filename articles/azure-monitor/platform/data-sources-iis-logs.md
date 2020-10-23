@@ -1,20 +1,23 @@
 ---
-title: Registos do IIS no Azure Monitor Microsoft Docs
+title: Recolher registos IIS com agente Log Analytics no Azure Monitor
 description: O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Azure Monitor.  Este artigo descreve como configurar a recolha de registos IIS e detalhes dos registos que criam no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461197"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Recolha registos IIS no Azure Monitor
-O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo Azure Monitor e armazenados como [dados de registo](data-platform.md).
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolher registos IIS com agente Log Analytics no Azure Monitor
+O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo agente Log Analytics e armazenados em [Registos do Monitor Azure](data-platform.md).
+
+> [!IMPORTANT]
+> Este artigo abrange a recolha de registos IIS com o [agente Log Analytics,](log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Registos do IIS](media/data-sources-iis-logs/overview.png)
 
@@ -23,7 +26,7 @@ O Azure Monitor recolhe entradas a partir de ficheiros de registo criados pelo I
 
 O Azure Monitor suporta apenas ficheiros de registo IIS armazenados em formato W3C e não suporta campos personalizados ou Registo Avançado IIS. Não recolhe registos em formato NCSA ou IIS.
 
-Configurar registos IIS no Monitor Azure a partir do [menu Definições Avançadas](agent-data-sources.md#configuring-data-sources).  Não é necessária outra configuração que não seja a seleção de **ficheiros de registo IIS do formato Collect W3C**.
+Configurar registos IIS no Monitor Azure a partir do [menu Definições Avançadas](agent-data-sources.md#configuring-data-sources) para o agente Log Analytics.  Não é necessária outra configuração que não seja a seleção de **ficheiros de registo IIS do formato Collect W3C**.
 
 
 ## <a name="data-collection"></a>Recolha de dados

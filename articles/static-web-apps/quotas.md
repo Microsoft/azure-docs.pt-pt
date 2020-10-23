@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6fa70eba5875c32d41fa1cfc8daf9b1cdf8f19df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 915f8675ffda0d70347905d11c7d93975b9d4526
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83599992"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132742"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Quotas em Azure Static Web Apps Preview
 
@@ -26,7 +26,7 @@ Existem as seguintes quotas para a pré-visualização de aplicações web está
 | Largura de banda incluída          | 100 GB por mês |
 | Largura de banda overage           | Indisponível      |
 | Aplicativos por subscrição Azure | 10               |
-| Tamanho da aplicação                    | 100 MB           |
+| Tamanho da aplicação                    | 250 MB           |
 | Ambientes de pré-produção | 1                |
 | Domínios personalizados              | 1                |
 | Autorização<br><br>Com papéis personalizados e regras de encaminhamento | Max 25 utilizadores finais convidados e atribuídos |

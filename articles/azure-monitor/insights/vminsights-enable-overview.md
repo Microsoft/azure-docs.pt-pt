@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995679"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164487"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Ativar o Monitor Azure para visão geral dos VMs
 
@@ -37,30 +38,42 @@ Antes de começar, certifique-se de que compreende a informação nas seguintes 
 >[!NOTE]
 >As seguintes informações descritas nesta secção também são aplicáveis à [solução Mapa de Serviço.](service-map.md)  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
 
 O Azure Monitor for VMs suporta um espaço de trabalho Log Analytics nas seguintes regiões:
 
-- E.U.A. Centro-Oeste
-- E.U.A. Oeste
-- E.U.A. Oeste 2
-- E.U.A. Centro-Sul
-- E.U.A. Leste
-- E.U.A. Leste 2
-- E.U.A. Central
-- E.U.A. Centro-Norte
-- Gov Az dos EUA
-- Gov Va dos EUA
-- Canadá Central
-- Sul do Reino Unido
-- Europa do Norte
-- Europa Ocidental
-- Ásia Leste
-- Sudeste Asiático
-- Índia Central
-- Leste do Japão
-- Leste da Austrália
-- Austrália Sudeste
+- África
+  - Norte da África do Sul
+- Ásia-Pacífico
+  - Ásia Leste
+  - Sudeste Asiático
+- Austrália
+  - Leste da Austrália
+  - Austrália Sudeste
+- Azure Government
+  - Gov Az dos EUA
+  - Gov Va dos EUA
+- Canadá
+  - Canadá Central
+- Europa
+  - Europa do Norte
+  - Europa Ocidental
+- Índia
+  - Índia Central
+- Japão
+  - Leste do Japão
+- Reino Unido
+  - Sul do Reino Unido
+- Estados Unidos
+  - E.U.A. Central
+  - E.U.A. Leste
+  - E.U.A. Leste 2
+  - E.U.A. Centro-Norte
+  - E.U.A. Centro-Sul
+  - E.U.A. Centro-Oeste
+  - E.U.A. Oeste
+  - E.U.A. Oeste 2
+
 
 >[!NOTE]
 >Pode monitorizar os VMs do Azure em qualquer região. Os VMs em si não se limitam às regiões apoiadas pelo espaço de trabalho Log Analytics.
@@ -94,11 +107,11 @@ Consulte a seguinte lista de considerações sobre o apoio do Linux ao agente de
 ## <a name="supported-azure-arc-machines"></a>Máquinas Azure Arc suportadas
 O Azure Monitor para VMs está disponível para servidores ativados aZure Arc em regiões onde o serviço de extensão Arc está disponível. Deve estar a executar a versão 0.9 ou superior ao do Agente Arc.
 
-| Origem ligada | Suportado | Description |
+| Origem ligada | Suportado | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Yes | Juntamente com o [agente Log Analytics para windows,](../platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](../platform/agents-overview.md#supported-operating-systems) |
-| Agentes do Linux | Yes | Juntamente com o [agente Log Analytics para o Linux,](../platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
-| Grupo de gestão do System Center Operations Manager | No | |
+| Agentes do Windows | Sim | Juntamente com o [agente Log Analytics para windows,](../platform/log-analytics-agent.md)os agentes windows precisam do agente Dependency. Para obter mais informações, consulte [os sistemas operativos suportados.](../platform/agents-overview.md#supported-operating-systems) |
+| Agentes do Linux | Sim | Juntamente com o [agente Log Analytics para o Linux,](../platform/log-analytics-agent.md)os agentes Linux precisam do agente Desadependição. Para obter mais informações, consulte [os sistemas operativos suportados.](#supported-operating-systems) |
+| Grupo de gestão do System Center Operations Manager | Não | |
 
 ## <a name="agents"></a>Agentes
 O Azure Monitor para VMs requer que os dois agentes seguintes sejam instalados em cada máquina virtual ou escala de máquina virtual definida para ser monitorizada. Instalar estes agentes e ligá-los ao espaço de trabalho é o único requisito para embarcar no recurso.

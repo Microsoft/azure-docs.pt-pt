@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: a4fa1a690c6607b70774be67048fcad7db378b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047748"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461605"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -53,7 +53,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e insira o **myResourceGroupLB** na caixa de texto.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
+    | Name                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard** |
@@ -138,7 +138,9 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Porta de back-end | Insira **80**. |
     | Conjunto de back-end | Selecione **myBackendPool**.|
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
-    | Criar regras implícitas de saída | Selecione **Não**.
+    | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
+    | Reset TCP | Selecione **Ativado**. |
+    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer aos membros do pool backend acesso à internet.** |
 
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
@@ -267,7 +269,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Nome |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Zona de disponibilidade | **2** |**3**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -332,7 +334,7 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e **digite o myResourceGroupLB** na caixa de texto.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
+    | Name                   | Insira **o myLoadBalancer**                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic** |
@@ -547,7 +549,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Nome |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** | Selecione **mySIlabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -614,7 +616,7 @@ Os VMs criados nos passos anteriores devem ser adicionados ao pool de backend do
 
 Para ver o balanceador de carga distribuir tráfego através dos três VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, carregue o Balancer e todos os recursos relacionados. Para tal, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e, em seguida, selecione **Delete**.
 
@@ -626,6 +628,6 @@ Neste início rápido, irá:
 * Fixado 3 VMs ao equilibrador de carga.
 * Configurar a regra de tráfego do balanceador de carga, a sonda de saúde, e depois testou o equilibrador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, continue a.
+Para saber mais sobre o Azure Load Balancer, continue a:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)

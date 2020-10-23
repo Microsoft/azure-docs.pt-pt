@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979092"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308541"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -22,7 +22,7 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar m�
 > [!NOTE]
 > Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
- Neste tutorial, vai aprender a:
+ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicione a ferramenta Azure Migrate:Server Migration.
@@ -151,7 +151,7 @@ Se este for o primeiro VM que está a replicar no projeto Azure Migrate, a Azure
 - **Autocarro de**serviço : Azure Migrate: A Migração do Servidor utiliza o Service Bus para enviar mensagens de orquestração de replicação para o aparelho.
 - **Conta de armazenamento gateway**: Azure Migrate: A migração do servidor utiliza a conta de armazenamento gateway para armazenar informações estatais sobre os VMs que estão a ser replicados.
 - **Conta de armazenamento de**registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
-- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação. Devia ter configurado as permissões de que o cofre-chave precisa para aceder à conta de armazenamento quando [preparou o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para avaliação e migração de Hiper-VM. 
+- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação. Devia ter configurado as permissões de que o cofre-chave precisa para aceder à conta de armazenamento quando [preparou o Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) para avaliação e migração de Hiper-VM. 
 
 
 ## <a name="track-and-monitor"></a>Rastreio e monitor
@@ -232,7 +232,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).
     - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:

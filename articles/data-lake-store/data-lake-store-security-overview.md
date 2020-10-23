@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192822"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92146294"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança em Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ A autenticação é o processo pelo qual a identidade de um utilizador é verifi
 Cada subscrição do Azure pode ser associada a um caso de Diretório Ativo Azure. Apenas os utilizadores e identidades de serviço que são definidas no seu serviço Azure Ative Directory podem aceder à sua conta Desarrume Desejamento Gen1, utilizando o portal Azure, ferramentas de linha de comando ou através de aplicações de clientes que a sua organização constrói utilizando o Data Lake Storage Gen1 SDK. As principais vantagens da utilização do Azure Ative Directory como mecanismo centralizado de controlo de acessos são:
 
 * Gestão simplificada do ciclo de vida da identidade. A identidade de um utilizador ou de um serviço (identidade principal de serviço) pode ser rapidamente criada e rapidamente revogada simplesmente eliminando ou desativando a conta no diretório.
-* Autenticação multi-factor. [A autenticação multi-factor](../active-directory/authentication/multi-factor-authentication.md) proporciona uma camada adicional de segurança para os insentus em termos de utilizador e transações.
+* Autenticação multi-factor. [A autenticação multi-factor](../active-directory/authentication/concept-mfa-howitworks.md) proporciona uma camada adicional de segurança para os insentus em termos de utilizador e transações.
 * Autenticação de qualquer cliente através de um protocolo aberto padrão, como OAuth ou OpenID.
 * Federação com serviços de diretório de empresas e fornecedores de identidade na nuvem.
 
@@ -42,7 +42,7 @@ Depois de o Azure Ative Directory autenticar um utilizador para que o utilizador
 * [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) para gestão de conta
 * POSIX ACL para aceder a dados na loja
 
-### <a name="rbac-for-account-management"></a>RBAC para gestão de contas
+### <a name="azure-rbac-for-account-management"></a>Azure RBAC para gestão de contas
 
 Quatro funções básicas são definidas para data lake storage gen1 por padrão. As funções permitem diferentes operações numa conta da Data Lake Storage Gen1 através do portal Azure, cmdlets PowerShell e REST APIs. As funções de Proprietário e Contribuinte podem desempenhar uma variedade de funções de administração na conta. Pode atribuir a função Reader a utilizadores que apenas visualizam dados de gestão de conta.
 
@@ -117,7 +117,7 @@ Os clientes da empresa exigem uma plataforma de nuvem de análise de dados que s
 
 Se quiser ver novas funcionalidades na Data Lake Storage Gen1, envie-nos o seu feedback no [fórum UserVoice do Data Lake Storage Gen1.](https://feedback.azure.com/forums/327234-data-lake)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Começar com data lake storage gen1](data-lake-store-get-started-portal.md)

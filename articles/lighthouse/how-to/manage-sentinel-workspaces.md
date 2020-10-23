@@ -3,12 +3,12 @@ title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596933"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424089"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
@@ -39,7 +39,7 @@ Este modelo centralizado de implantação tem as seguintes vantagens:
 > [!NOTE]
 > Pode gerir recursos delegados que estão localizados em [diferentes regiões.](../../availability-zones/az-overview.md#regions) No entanto, a delegação de assinaturas através de uma [nuvem nacional](../../active-directory/develop/authentication-national-cloud.md) e da nuvem pública de Azure, ou através de duas nuvens nacionais separadas, não é apoiada.
 
-## <a name="granular-role-based-access-control-rbac"></a>Controlo de acesso baseado em funções granulares (RBAC)
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções Granular Azure (Azure RBAC)
 
 Cada subscrição de cliente que um MSSP irá gerir deve ser [a bordo do Farol de Azure.](onboard-customer.md) Isto permite que os utilizadores designados no inquilino gerente acedam e realizem operações de gestão em espaços de trabalho Azure Sentinel implantados em inquilinos de clientes.
 

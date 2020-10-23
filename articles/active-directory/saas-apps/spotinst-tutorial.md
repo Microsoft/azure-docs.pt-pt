@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4028cb8d4f206a0e62dda1cb130cc55e71831c78
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587961"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123135"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Spotinst
 
@@ -139,7 +139,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Clique no ícone do **utilizador** no lado superior direito do ecrã e clique em **Definições**.
 
-    ![Definições spotinst](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+    ![A screenshot mostra as definições selecionadas a partir do ícone do Utilizador.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 3. Clique no **separador SEGURANÇA** na parte superior e, em seguida, selecione **Fornecedores de Identidade** e execute os seguintes passos:
 
@@ -161,15 +161,15 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Spotins
 
    b. Clique no ícone do **utilizador** no lado superior direito do ecrã e clique em **Definições**.
 
-    ![Definições spotinst](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+    ![A screenshot mostra as definições selecionadas a partir do ícone do Utilizador.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
     c. Clique **nos Utilizadores** e selecione **ADD USER**.
 
-    ![Definições spotinst](./media/spotinst-tutorial/adduser1.png)
+    ![A screenshot mostra ADD USER selecionado entre os Utilizadores.](./media/spotinst-tutorial/adduser1.png)
 
     d. Na secção de utilizador adicionar, execute os seguintes passos:
 
-    ![Definições spotinst](./media/spotinst-tutorial/adduser2.png)
+    ![A screenshot mostra a secção de utilizador Adicionar onde pode introduzir os valores descritos.](./media/spotinst-tutorial/adduser2.png)
 
     * Na caixa de texto **'Nome Completo',** insira o nome completo do utilizador como **BrittaSimon**.
 

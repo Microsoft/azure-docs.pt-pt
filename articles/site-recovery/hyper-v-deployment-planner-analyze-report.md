@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653584"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369952"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Planeador de Implementações do Azure Site Recovery
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
@@ -154,7 +154,7 @@ Poderá haver casos em que sabe que não pode definir uma largura de banda com m
 
 **Disk Storage Type (Tipo de Armazenamento de Disco)**: uma conta de armazenamento standard ou premium, que é utilizada para replicar todas as VMs correspondentes mencionadas na coluna **VMs to Place** (“VMs a Colocar”).
 
-**Suggested Prefix (Prefixo Sugerido)**: o prefixo de três carateres sugerido que pode ser utilizado para dar um nome à conta de armazenamento. Pode utilizar o seu próprio prefixo, mas a sugestão da ferramenta segue a [convenção de nomenclatura de partições para contas de armazenamento](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix (Prefixo Sugerido)**: o prefixo de três carateres sugerido que pode ser utilizado para dar um nome à conta de armazenamento. Pode utilizar o seu próprio prefixo, mas a sugestão da ferramenta segue a [convenção de nomenclatura de partições para contas de armazenamento](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Suggested Account Name (Nome de Conta Sugerido)**: o nome da conta de armazenamento depois de incluir o prefixo sugerido. Substitua o nome dentro dos parênteses (< e >) pela sua entrada personalizada.
 
@@ -220,7 +220,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **VM Name (Nome da VM)**: o nome da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VHDs) que estão ligados às VMs. Os nomes incluem os nomes do anfitrião Hyper-V onde as VMs foram colocadas quando a ferramenta os detetou durante o período de criação de perfis.
 
-**VM Compatibility (Compatibilidade de VM)**: indica a razão pela qual a VM especificada é incompatível para utilização com o Site Recovery. São descritas as razões para todos os discos incompatíveis da VM, que, com base nos [limites do armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser as seguintes:
+**VM Compatibility (Compatibilidade de VM)**: indica a razão pela qual a VM especificada é incompatível para utilização com o Site Recovery. São descritas as razões para todos os discos incompatíveis da VM, que, com base nos [limites do armazenamento](/en-in/azure/storage/common/scalability-targets-standard-account) publicados, podem ser as seguintes:
 
 * O tamanho do disco é superior a 4095 GB. Atualmente, o Armazenamento do Azure não suporta tamanhos de discos superiores a 4095 GB.
 

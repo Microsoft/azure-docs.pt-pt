@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003869"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142813"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades do dispositivo do Hub IoT em massa
 
@@ -27,7 +27,7 @@ As operações de importação e exportação ocorrem no contexto de *Jobs* que 
 
 A classe **RegistryManager** inclui os **métodos ExportDevicesAsync** e **ImportDevicesAsync** que utilizam o quadro **de trabalho.** Estes métodos permitem-lhe exportar, importar e sincronizar a totalidade de um registo de identidade do hub IoT.
 
-Este tópico discute a utilização do **sistema** de trabalho e de trabalho do **RegistryManager** para realizar importações a granel e exportações de dispositivos de e para o registo de identidade de um hub IoT. Também pode utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para permitir o fornecimento de zero toques, just-in-time, para um ou mais hubs IoT sem necessidade de intervenção humana. Para saber mais, consulte a documentação do [serviço de fornecimento.](/azure/iot-dps)
+Este tópico discute a utilização do **sistema** de trabalho e de trabalho do **RegistryManager** para realizar importações a granel e exportações de dispositivos de e para o registo de identidade de um hub IoT. Também pode utilizar o Serviço de Provisionamento de Dispositivos Azure IoT Hub para permitir o fornecimento de zero toques, just-in-time, para um ou mais hubs IoT sem necessidade de intervenção humana. Para saber mais, consulte a documentação do [serviço de fornecimento.](../iot-dps/index.yml)
 
 ## <a name="what-are-jobs"></a>O que são empregos?
 
@@ -399,7 +399,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Pegue o recipiente SAS URI
 
-A seguinte amostra de código mostra-lhe como gerar um [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) com leitura, escrita e eliminação de permissões para um recipiente blob:
+A seguinte amostra de código mostra-lhe como gerar um [SAS URI](../storage/common/storage-sas-overview.md) com leitura, escrita e eliminação de permissões para um recipiente blob:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -438,8 +438,8 @@ Para saber mais sobre a gestão do Azure IoT Hub, confira os seguintes artigos:
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Para explorar utilizando o serviço de provisionamento de dispositivos IoT Hub para permitir o fornecimento de zero toques, just-in-time, consulte: 
 
-* [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](/azure/iot-dps)
+* [Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure](../iot-dps/index.yml)

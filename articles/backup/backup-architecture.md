@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614007"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173269"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -45,7 +45,7 @@ Os cofres têm as seguintes características:
 - Especifica como os dados no cofre são replicados para redundância:
   - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
   - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Armazenamento redundante de zona (ZRS)**: replica os seus dados em [zonas de disponibilidade,](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Armazenamento redundante de zona (ZRS)**: replica os seus dados em [zonas de disponibilidade,](../availability-zones/az-overview.md#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por predefinição, os cofres dos Serviços de Recuperação utilizam GRS.
 
 Os cofres dos Serviços de Recuperação têm as seguintes características adicionais:
@@ -98,10 +98,10 @@ A tabela a seguir resume as funcionalidades suportadas para os diferentes tipos 
 
 **Funcionalidade** | **Cópia de segurança direta de ficheiros e pastas (utilizando o agente MARS)** | **Azure VM Backup** | **Máquinas ou aplicativos com DPM/MABS**
 --- | --- | --- | ---
-De volta ao cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
-Voltar para o disco DPM/MABS e depois para Azure | | | ![Sim][green]
-Dados de comprimir enviados para cópia de segurança | ![Sim][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Sim][green]
-Executar backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
+De volta ao cofre | ![Yes][green] | ![Yes][green] | ![Yes][green]
+Voltar para o disco DPM/MABS e depois para Azure | | | ![Yes][green]
+Dados de comprimir enviados para cópia de segurança | ![Yes][green] | Não é utilizada qualquer compressão na transferência de dados. O armazenamento é ligeiramente insuflado, mas a restauração é mais rápida.  | ![Yes][green]
+Executar backup incremental |![Yes][green] |![Yes][green] |![Yes][green]
 Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para servidores DPM/MABS implantados apenas no local.
 
 ![Chave de mesa](./media/backup-architecture/table-key.png)

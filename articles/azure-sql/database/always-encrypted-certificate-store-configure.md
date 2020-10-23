@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444775"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164521"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configure Sempre Encriptado utilizando a loja de certificados Windows
 
@@ -97,7 +97,7 @@ O SSMS fornece um assistente para configurar facilmente Sempre Encriptado config
 1. Expandir **tabelas clínicas de bases de**  >  **Clinic**  >  **dados.**
 2. Clique com o botão direito na tabela **'Pacientes'** e **selecione Encrypt Columns** para abrir o assistente sempre encriptado:
 
-    ![Encriptar colunas](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![Screenshot que mostra o Encrypt Colunns... opção de menu na tabela Pacientes.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 O assistente sempre encriptado inclui as seguintes secções: **Seleção de Colunas,** **Configuração de Chave Master** (CMK), **Validação**e **Resumo**.
 
@@ -149,7 +149,7 @@ Agora que está sempre encriptado, pode construir uma aplicação que executa *i
 1. Abra o Visual Studio e crie uma nova aplicação para consola C#. Certifique-se de que o seu projeto está definido para **.NET Framework 4.6** ou mais tarde.
 2. Nomeie o projeto **AlwaysEncryptedConsoleApp** e clique **em OK**.
 
-![Nova aplicação para consolas](./media/always-encrypted-certificate-store-configure/console-app.png)
+![Screenshot que mostra o recém-nomeado projeto AlwaysEncryptedConsoleApp.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Modifique o seu string de ligação para ativar sempre encriptado
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Pode ver que as colunas encriptadas não contêm dados de texto simples.
 
-   ![Nova aplicação para consolas](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![Screenshot que mostra dados encriptados nas colunas encriptadas.](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **parâmetro de Definição de Encriptação da Coluna=ativado** à ligação.
 
@@ -518,7 +518,7 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **
 2. Clique **em Connect**Database  >  **Engine** para abrir a janela **'Ligar ao Servidor'** e, em seguida, clique em **Opções**.
 3. Clique em **parâmetros de ligação adicionais** e tipo **de definição de encriptação da coluna=ativada**.
 
-    ![Nova aplicação para consolas](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![Screenshot que mostra o separador Parâmetros de Ligação Adicional com Definição de Encriptação da Coluna=ativado na caixa.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Execute a seguinte consulta na base de dados da **Clínica.**
 
     ```tsql

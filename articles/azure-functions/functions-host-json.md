@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 2.x
 description: A documentação de referência para as Funções Azure host.jsem arquivo com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321854"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167661"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência host.json das Funções do Azure 2.x e posterior 
 
@@ -138,7 +138,7 @@ As seguintes secções deste artigo explicam cada propriedade de alto nível. To
 
 Esta definição é uma criança de [registo.](#logging)
 
-Controla as opções de Insights de Aplicação, incluindo [opções de amostragem.](./functions-monitoring.md#configure-sampling)
+Controla as opções de Insights de Aplicação, incluindo [opções de amostragem.](./configure-monitoring.md#configure-sampling)
 
 Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arquivo](#sample-hostjson-file).
 
@@ -310,7 +310,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|depuraronamente|Define o nível de registo de ficheiros ativado.  As opções `never` `always` são, `debugOnly` . . |
-|logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do Núcleo ASP.NET. |
+|logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do Núcleo ASP.NET. |
 |consola|n/a| A definição de registo da [consola.](#console) |
 |aplicaçõesInsights|n/a| A [definição de aplicaçõesInsights.](#applicationinsights) |
 

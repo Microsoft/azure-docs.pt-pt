@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88509370"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207228"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Quickstart: Renderiza um modelo com Unidade
 
@@ -18,7 +18,7 @@ Este quickstart cobre como executar uma amostra de Unidade que torna um modelo i
 
 Não entraremos em detalhes sobre a própria ARR API ou como criar um novo projeto de Unidade. Estes tópicos são abordados no [Tutorial: Visualização remota de modelos renderizados.](../tutorials/unity/view-remote-models/view-remote-models.md)
 
-Neste arranque rápido aprenderá a:
+Neste início rápido, vai aprender a:
 > [!div class="checklist"]
 >
 >* Configurar o seu ambiente de desenvolvimento local
@@ -33,7 +33,7 @@ Deve ser instalado o seguinte software:
 
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * A mais recente versão do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+* [Ferramentas de Estúdio Visual para Realidade Mista.](/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
   * **Desenvolvimento de desktop com C++**
   * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * GIT [(download)](https://git-scm.com/downloads)
@@ -111,7 +111,7 @@ Para sincronizar as transformações, clique **em Sync agora** ou verifique a op
 No próximo quickstart, colocaremos a amostra num HoloLens para ver o modelo remotamente renderizado no seu tamanho original.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Implementar a amostra de unidade para hololens](deploy-to-hololens.md)
+> [Início Rápido: Implementar exemplo do Unity no HoloLens](deploy-to-hololens.md)
 
 Em alternativa, a amostra também pode ser implantada num PC de secretária.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 7af555a634f0e362bdf2d530627a782843105bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a5d8c36382433024efd1f1cc6ba9fd878d28ddc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461277"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329530"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorizar alterações de máquina virtual através do Azure Event Grid e do Logic Apps
 
@@ -243,7 +243,7 @@ Parabéns, criou e executou uma aplicação lógica que monitoriza eventos de re
 
 Pode monitorizar outras alterações de configuração com grelhas de eventos e aplicações lógicas, por exemplo:
 
-* Uma máquina virtual obtém direitos de controlo de acesso baseado em funções (RBAC).
+* Uma máquina virtual obtém direitos de controlo de acesso baseados em funções Azure (Azure RBAC).
 * As alterações são efetuadas a um grupo de segurança de rede (NSG) numa interface de rede (NIC).
 * São adicionados ou removidos discos para uma máquina virtual.
 * Um endereço IP público é atribuído a uma NIC de máquina virtual.

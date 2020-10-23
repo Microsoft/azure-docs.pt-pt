@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801992"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145517"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -121,8 +121,7 @@ Além das aplicações da Microsoft, os administradores podem adicionar qualquer
 - Aplicações que usam [palavra-passe com base num único sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
-> Uma vez que a política de acesso condicional define os requisitos para aceder a um serviço, não é possível aplicá-lo a uma aplicação de cliente (público/nativo). Outras palavras, a apólice não é definida diretamente numa aplicação de cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint aplica-se aos clientes que ligam para o SharePoint. Uma política definida no Exchange aplica-se à tentativa de aceder ao e-mail utilizando o cliente Outlook. É por isso que as aplicações de cliente (público/nativo) não estão disponíveis para seleção na opção Cloud Apps picker e Conditional Access não está disponível nas configurações de aplicação para o cliente (público/nativo) registada no seu inquilino. 
-
+> Uma vez que a política de Acesso Condicional define os requisitos para aceder a um serviço, não é possível aplicá-lo a uma aplicação de cliente (público/nativo). Outras palavras, a apólice não é definida diretamente numa aplicação de cliente (público/nativo), mas é aplicada quando um cliente chama um serviço. Por exemplo, uma política definida no serviço SharePoint aplica-se aos clientes que ligam para o SharePoint. Uma política definida no Exchange aplica-se à tentativa de aceder ao e-mail utilizando o cliente Outlook. É por isso que as aplicações de cliente (público/nativo) não estão disponíveis para seleção na opção Cloud Apps picker e Conditional Access não está disponível nas configurações de aplicação para o cliente (público/nativo) registada no seu inquilino. 
 
 ## <a name="user-actions"></a>Ações do utilizador
 

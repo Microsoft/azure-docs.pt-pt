@@ -3,12 +3,12 @@ title: Azure Migrate eletrodoméstico FAQ
 description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630496"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314785"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
 
@@ -42,7 +42,7 @@ O aparelho pode ser acionado da seguinte forma:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como é que o aparelho se liga ao Azure?
 
-O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute. Certifique-se de que estes [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estão aprovados para que o aparelho se conecte ao Azure.
+O aparelho pode ligar-se através da internet ou utilizando o Azure ExpressRoute. Certifique-se de que estes [URLs](./migrate-appliance.md#url-access) estão aprovados para que o aparelho se conecte ao Azure.
 
 - Para utilizar o tráfego de replicação do Azure ExpressRoute para o Azure Migrate, é necessário espreitar a Microsoft ou um espreitamento público existente (o olhar público é depreciado para novas criações de ER).
 - A replicação sobre o Azure ExpressRoute com (apenas) o espreitamento privado ativado não é suportado.
@@ -101,7 +101,7 @@ Estes passos descrevem como o aparelho se conecta ao VMware vCenter Server:
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>O aparelho Azure Migrate pode ligar-se a vários servidores vCenter?
 
-N.º Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
+Não. Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto Azure Migrate pode ter vários aparelhos?
 
@@ -131,11 +131,11 @@ Além disso, não é possível reutilizar uma chave de projeto Azure Migrate exi
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso montar o aparelho num Azure VM?
 
-N.º Atualmente, esta opção não é suportada. 
+Não. Atualmente, esta opção não é suportada. 
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Posso descobrir num hospedeiro ESXi?
 
-N.º Para descobrir VMware VMs, tem de ter o vCenter Server.
+Não. Para descobrir VMware VMs, tem de ter o vCenter Server.
 
 ## <a name="how-do-i-update-the-appliance"></a>Como atualizei o aparelho?
 

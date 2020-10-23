@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828036"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169421"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,6 +94,17 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
   
    ![opções de armazenamento](./media/auditing-overview/auditing-select-destination.png)
 
+### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoria das operações de Suporte do Microsoft (Pré-visualização)
+
+A auditoria das operações de Suporte do Microsoft (Preview) para O Azure SQL Server permite-lhe auditar as operações dos engenheiros de suporte da Microsoft quando precisam de aceder ao seu servidor durante um pedido de suporte. A utilização desta capacidade, juntamente com a sua auditoria, permite uma maior transparência na sua força de trabalho e permite a deteção de anomalias, visualização de tendências e prevenção de perda de dados.
+
+Para ativar a auditoria das operações de suporte do Microsoft (Preview) navegue para **a Auditoria** sob a rubrica de Segurança no painel de **servidores Azure SQL** e **altere a auditoria das operações de suporte da Microsoft (Preview)** para **ON**.
+
+  > [!IMPORTANT]
+  > A auditoria das operações de suporte da Microsoft (Preview) não suporta o destino da conta de armazenamento. Para ativar a capacidade, um espaço de trabalho log Analytics ou um destino Event Hub tem de ser configurado.
+
+![Screenshot das operações de suporte da Microsoft](./media/auditing-overview/support-operations.png)
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoria ao destino de armazenamento
 
 Para configurar registos de auditoria de escrita numa conta de armazenamento, selecione **Storage** e abra **detalhes de Armazenamento**. Selecione a conta de armazenamento Azure onde os registos serão guardados e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os registos mais antigos do que o período de retenção são eliminados.
@@ -111,7 +122,7 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 - Pode escrever registos de auditoria numa conta de Armazenamento Azure por trás de um VNet ou firewall. Para obter instruções específicas, [escreva a auditoria para uma conta de armazenamento por trás do VNet e da firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Depois de configurar as definições de auditoria, pode ligar a nova funcionalidade de deteção de ameaças e configurar e-mails para receber alertas de segurança. Quando utiliza a deteção de ameaças, recebe alertas proactivos sobre atividades anómalas de bases de dados que podem indicar potenciais ameaças à segurança. Para obter mais informações, consulte [Começar com a deteção de ameaças.](threat-detection-overview.md)
 - Para obter mais informações sobre o formato de registo, hierarquia da pasta de armazenamento e convenções de nomeação, consulte a [Referência do Formato do Registo de Auditoria blob](https://go.microsoft.com/fwlink/?linkid=829599).
-- Ao utilizar a autenticação AAD, os registos de logins falhados *não* aparecerão no registo de auditoria SQL. Para visualizar registos de auditoria de login falhados, é necessário visitar o [portal Azure Ative Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista detalhes destes eventos.
+- Ao utilizar a autenticação AD AD Azure, os registos de logins falhados *não* aparecerão no registo de auditoria SQL. Para visualizar registos de auditoria de login falhados, é necessário visitar o [portal Azure Ative Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista detalhes destes eventos.
 - A auditoria em [Réplicas Só de Leitura](read-scale-out.md) é automaticamente ativada. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](audit-log-format.md).
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoria ao destino Log Analytics

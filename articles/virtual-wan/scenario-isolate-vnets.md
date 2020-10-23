@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267640"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424745"
 ---
 # <a name="scenario-isolating-vnets"></a>Cenário: Isolar as Redes
 
@@ -26,10 +26,10 @@ Neste cenário, a carga de trabalho dentro de um determinado VNet permanece isol
 
 | De |   Para |  *VNets* | *Ramos* |
 | -------------- | -------- | ---------- | ---|
-| VNets     | &#8594;|           |     X    |
-| Ramos   | &#8594;|    X     |     X    |
+| VNets     | &#8594;| Direct |   Direct    |
+| Ramos   | &#8594;|  Direct  |   Direct    |
 
-Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "De" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico) para um fluxo de tráfego específico, onde um "X" significa que a conectividade é fornecida por VIRTUAL WAN.
+Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) comunica com um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico). Neste cenário não existem firewalls ou Aparelhos Virtuais de Rede, pelo que as comunicações fluem diretamente sobre o WAN Virtual (daí a palavra "Direto" na tabela).
 
 Esta matriz de conectividade dá-nos dois padrões de linha diferentes, que se traduzem em duas tabelas de rota. A WAN virtual já tem uma tabela de rotas padrão, por isso vamos precisar de outra tabela de rotas. Para este exemplo, vamos nomear a tabela de rotas **RT_VNET**.
 

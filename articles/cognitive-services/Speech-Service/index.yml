@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: b0dcb2e33777451a8adba5973dc2511633f4e876
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91856998"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92371161"
 highlightedContent:
   items:
   - title: O que é o serviço de Voz?
@@ -222,10 +222,6 @@ additionalContent:
     - title: Suporte
       links:
       - text: Suporte e ajuda
-        url: support.md
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
       - text: Problemas do GitHub
         url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-      - text: Stack Overflow
-        url: https://aka.ms/SOspeechquestions
-      - text: UserVoice
-        url: https://cognitive.uservoice.com/forums/912208-speech-service

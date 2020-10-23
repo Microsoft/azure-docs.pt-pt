@@ -1,5 +1,5 @@
 ---
-title: Criar zonas DNS para crianças Azure
+title: 'Tutorial: Criar zonas DNS para crianças Azure'
 titleSuffix: Azure DNS
 description: Tutorial sobre como criar zonas DNS infantis no portal Azure.
 author: jonbeck
@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3f35d39634470ccacffa4d35c272a82725e9001c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c763f761d77ac05d9f6b45e5656436faa5697e88
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89088156"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310074"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Criar uma nova zona de DNS infantil
 
@@ -50,7 +50,7 @@ Há duas maneiras de criar a zona DNS do seu filho.
 ## <a name="create-child-dns-zone-via-create-dns-zone"></a>Criar zona DE DNS para crianças através da criação da zona DNS
 
 Neste passo, vamos criar uma nova zona de DNS infantil com nome **subdomain.contoso.com** e delerá-la para a zona de DNS dos pais existente **contoso.com**. Irá criar a zona DNS utilizando os separadores na página **da zona Criar DNS.**
-1.  No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1.  No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
 1.  Selecione **Networking**e, em seguida, selecione **a zona DNS** e, em seguida, selecione **Adicionar** o botão.
 
 1.  No **separador básico,** escreva ou selecione os seguintes valores:

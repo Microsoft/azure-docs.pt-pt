@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187256"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219467"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime numa agenda
 
@@ -149,7 +149,7 @@ Agora que os seus oleodutos funcionam como esperava, pode criar gatilhos para ex
 
 1. Na barra de ferramentas do gasoduto, selecione **Trigger** e selecione **Novo/Editar**. 
 
-   ![Gatilho -> Novo/Editar](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![Screenshot que realça a opção de menu Trigger-> Novo/Editar.](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. No **painel Add Triggers,** selecione **+ Novo**.
 
@@ -220,7 +220,7 @@ Se ainda não tiver uma conta Azure Automation, crie uma seguindo as instruçõe
 2. Inscreva-se no [portal Azure](https://portal.azure.com/).    
 3. Selecione **Novo** no menu esquerdo, selecione **Monitoring + Management**, e selecione **Automation**. 
 
-   ![Nova Monitorização de -> + Gestão -> Automação](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![Screenshot que destaca a opção De Monitorização + Gestão > Automação.](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. No painel **de Conta De Adicionar Automação,** faça as seguintes ações.
 
@@ -262,7 +262,7 @@ A secção seguinte fornece passos para a criação de um livro de bordo PowerSh
 
 1. Mude para **o separador Runbooks** e selecione + Adicione um livro de **execução** da barra de ferramentas. 
 
-   ![Adicione um botão de runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Screenshot que realça o botão +Adicionar um botão de runbook.](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. Selecione **Criar um novo livro de bordo** e fazer as seguintes ações: 
 
@@ -345,7 +345,7 @@ A secção seguinte fornece passos para a criação de um livro de bordo PowerSh
    
 6. Na janela de trabalho, selecione o azulejo **de saída.** Na janela de saída, aguarde a mensagem **##### Completed #####** depois de ver **#### Starting ####**# . Iniciar o Azure-SSIS IR demora aproximadamente 20 minutos. Feche a janela **job** e volte para a janela **Runbook.**
 
-   ![Azure SSIS IR - começou](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![Screenshot que destaca o azulejo de saída.](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Repita os dois passos anteriores utilizando **STOP** como o valor para **o FUNCIONAMENTO**. Volte a ligar o seu runbook selecionando o botão **Iniciar** na barra de ferramentas. Insira os nomes do seu grupo de recursos, ADF e Azure-SSIS IR. Para **OPERAÇÃO**, insira **STOP**. Na janela de saída, aguarde a mensagem **##### Completed #####** depois de ver **#### Stop ####**# . Parar o Azure-SSIS IR não demora tanto tempo como iniciá-lo. Feche a janela **job** e volte para a janela **Runbook.**
 
@@ -373,7 +373,7 @@ Na secção anterior, criou o seu runbook Azure Automation que pode iniciar ou p
     
 3. Mude para parâmetros e executar o **separador de definições.** Especifique os nomes do seu grupo de recursos, ADF e Azure-SSIS IR. Para **OPERAR**, insira **START** e selecione **OK**. Selecione **OK** novamente para ver a programação na página **Agendas** do seu runbook. 
 
-   ![Horário para olhar para o Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![Screenshot que realça o campo Operação.](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. Repita os dois passos anteriores para criar um horário chamado **Stop IR diariamente**. Insira um tempo que é de pelo menos 30 minutos após o tempo especificado para iniciar o horário **diário do IR.** Para **operar,** insira **STOP** e selecione **OK**. Selecione **OK** novamente para ver a programação na página **Agendas** do seu runbook. 
 

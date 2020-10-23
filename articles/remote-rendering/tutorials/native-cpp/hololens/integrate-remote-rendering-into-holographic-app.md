@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9457323b2642d0e7c5a623c13ec8440520bd5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56e889778e3b598dc4ded5f64eef20101c542b6a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88891781"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207517"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Tutorial: Integrar renderização remota numa app holográfica HoloLens
 
@@ -33,7 +33,7 @@ Para este tutorial você precisa:
 * Informação da sua conta (ID de conta, chave de conta, ID de subscrição). Se não tiver uma conta, [crie uma conta.](../../../how-tos/create-an-account.md)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * A versão mais recente do Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/).
-* [Ferramentas de Estúdio Visual para Realidade Mista.](https://docs.microsoft.com/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
+* [Ferramentas de Estúdio Visual para Realidade Mista.](/windows/mixed-reality/install-the-tools) Especificamente, as seguintes instalações *de carga de trabalho* são obrigatórias:
   * **Desenvolvimento de desktop com C++**
   * **Desenvolvimento da Plataforma Universal windows (UWP)**
 * Os modelos de aplicativo de realidade mista do Windows para estúdio visual [(download)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
@@ -593,4 +593,4 @@ Neste tutorial, aprendeu todos os passos necessários para adicionar renderizaç
 Para converter o seu próprio modelo, consulte o seguinte quickstart:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Converter um modelo para renderização](../../../quickstarts/convert-model.md)
+> [Início Rápido: Converter um modelo para composição](../../../quickstarts/convert-model.md)

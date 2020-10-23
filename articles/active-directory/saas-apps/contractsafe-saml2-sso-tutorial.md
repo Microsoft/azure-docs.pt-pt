@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 9459d13e8943f7e9177d2ad493873257f46f6649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d236b9910e2eda8e574d020544d625a68aefb81
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544398"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455322"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Tutorial: Integrar o Azure Ative Directory single sign-on (SSO) com ContractSafe Saml2 SSO
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar ContractSafe Saml2 SSO com Azure A
 * Capacitar os seus utilizadores a iniciarem automaticamente o sSO ContractSafe Saml2 com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, veja o que é o acesso à [aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, veja o que é o acesso à [aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,7 +89,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 1. Além dos atributos predefinidos, a aplicação ContractSafe Saml2 SSO espera que mais alguns atributos sejam repercutidos na resposta SAML. Estes atributos são pré-povoados, mas pode revê-los de acordo com os seus requisitos. A lista a seguir mostra os atributos adicionais.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | nome de e-mail | user.userprincipalname |
     | e-mail | user.onpremisesuserprincipalname |
@@ -142,14 +142,14 @@ Crie um utilizador chamado B.Simon in ContractSafe Saml2 SSO. Trabalhe com a [eq
 
 ## <a name="test-sso"></a>Teste SSO
 
-Teste a sua configuração AZure AD SSO utilizando o Painel de Acesso. Quando selecionar o azulejo ContractSafe Saml2 SSO no Painel de Acesso, deverá ser automaticamente inscrito no ContractSafe Saml2 SSO para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Teste a sua configuração AZure AD SSO utilizando o Painel de Acesso. Quando selecionar o azulejo ContractSafe Saml2 SSO no Painel de Acesso, deverá ser automaticamente inscrito no ContractSafe Saml2 SSO para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente ContractSafe Saml2 SSO com Azure AD](https://aad.portal.azure.com/)

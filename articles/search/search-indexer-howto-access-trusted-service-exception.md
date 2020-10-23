@@ -1,34 +1,34 @@
 ---
-title: Permitir o acesso ao armazenamento através de uma exceção de serviço fidedigno
+title: Indexer acesso ao Azure Storage usando exceção de serviço fidedigno
 titleSuffix: Azure Cognitive Search
-description: Como orientar isso descreve como configurar uma exceção de serviço fidedigna para aceder aos dados a partir de contas de armazenamento de forma segura.
+description: Permitir o acesso de dados por um indexante na Pesquisa Cognitiva Azure aos dados armazenados de forma segura no Azure Storage.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 4fbffaa7bc68bb32bd07b657f4b769e5af4302bf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: e139c15ef6de00376a4e1a88000d263c3486994b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950029"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101380"
 ---
-# <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Aceder aos dados nas contas de armazenamento de forma segura através de uma exceção de serviço fidedigno
+# <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Indexante acesso ao Azure Storage usando a exceção de serviço fidedigno (Azure Cognitive Search)
 
-Os indexantes que acedem aos dados nas contas de armazenamento podem utilizar a capacidade de exceção do [serviço fidedigno](../storage/common/storage-network-security.md#exceptions) para aceder de forma segura aos dados. Este mecanismo oferece aos clientes que não conseguem conceder acesso a [indexante através de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para aceder a dados em contas de armazenamento.
+Indexadores num serviço de Pesquisa Cognitiva Azure que acedem a dados em contas de Armazenamento Azure podem utilizar a capacidade de exceção do [serviço fidedigno](../storage/common/storage-network-security.md#exceptions) para aceder de forma segura aos dados. Este mecanismo oferece aos clientes que não conseguem conceder acesso ao [indexante utilizando regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para aceder a dados em contas de armazenamento.
 
 > [!NOTE]
 > O suporte para aceder a dados em contas de armazenamento através de uma exceção de serviço fidedigno está limitado ao armazenamento de Azure Blob e ao armazenamento do Azure Data Lake Gen2. O armazenamento da mesa Azure não é suportado.
 
-## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Passo 1: Configurar a ligação à conta de armazenamento por identidade
+## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Passo 1: Configurar uma ligação utilizando uma identidade gerida
 
-Siga os detalhes descritos no [guia de acesso](search-howto-managed-identities-storage.md) à identidade gerido para configurar indexantes para aceder às contas de armazenamento através da identidade gerida do serviço de pesquisa.
+Siga as instruções em [Configurar uma ligação a uma conta de Armazenamento Azure utilizando uma identidade gerida](search-howto-managed-identities-storage.md). Quando terminar, terá registado o seu serviço de pesquisa com o Azure Ative Directory como um serviço de confiança, e terá concedido permissões no Azure Storage que conferem à identidade de pesquisa direitos específicos de acesso a dados ou informações.
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>Passo 2: Permitir que serviços fidedignos da Microsoft acedam à conta de armazenamento
 
-No portal Azure, navegue para o separador "Firewalls and Virtual Networks" da conta de armazenamento. Certifique-se de que a opção "Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento" é verificada. Esta opção apenas permitirá que a instância específica do serviço de pesquisa com acesso adequado à conta de armazenamento (autenticação forte) aceda aos dados na conta de armazenamento, mesmo que seja protegida pelas regras de firewall IP.
+No portal Azure, navegue para o separador **Firewalls e Redes Virtuais** da conta de armazenamento. Certifique-se de que a opção **Permite que os serviços fidedignos da Microsoft acedam a esta conta de armazenamento.** Esta opção apenas permitirá que a instância específica do serviço de pesquisa com acesso adequado à conta de armazenamento (autenticação forte) aceda aos dados na conta de armazenamento, mesmo que seja protegida pelas regras de firewall IP.
 
 ![Exceção de serviço fidedigno](media\search-indexer-howto-secure-access\exception.png "Exceção de serviço fidedigno")
 

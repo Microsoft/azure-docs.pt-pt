@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070389"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363662"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 
@@ -73,7 +73,7 @@ Esta capacidade de provisionamento de TI orientado por RH oferece os seguintes b
 - **Abordar a conformidade e a governação:** O Azure AD suporta registos de auditoria nativos para pedidos de provisionamento de utilizadores realizados por aplicações de sistemas de origem e alvo. Com a auditoria, é possível rastrear quem tem acesso às aplicações a partir de um único ecrã.
 - **Gerir o custo:** O provisionamento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida construídas ao longo do tempo utilizando plataformas antigas e desatualizadas.
 
-### <a name="licensing"></a>Licensing
+### <a name="licensing"></a>Licenciamento
 
 Para configurar a aplicação de HR em nuvem para a integração de fornecimento de utilizadores Azure AD, você precisa de uma [licença Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para a aplicação de HR em nuvem, como Workday ou SuccessFactors.
 
@@ -81,8 +81,8 @@ Você também precisa de uma licença de subscrição Azure AD Premium P1 válid
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Administrador [de identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  Azure AD para configurar o agente de provisionamento Azure AD Connect.
-- Papel [de administrador de aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) AZure AD para configurar a app de provisionamento no portal Azure
+- Administrador [de identidade híbrida](../roles/permissions-reference.md#hybrid-identity-administrator)  Azure AD para configurar o agente de provisionamento Azure AD Connect.
+- Papel [de administrador de aplicação](../roles/permissions-reference.md#application-administrator) AZure AD para configurar a app de provisionamento no portal Azure
 - Um teste e instância de produção da aplicação cloud HR.
 - Permissões de administrador na aplicação cloud HR para criar um utilizador de integração do sistema e fazer alterações para testar dados dos funcionários para fins de teste.
 - Para o fornecimento de utilizadores ao Ative Directory, é necessário um servidor com o Windows Server 2012 ou superior a .NET 4.7.1+ para hospedar o agente de provisionamento Azure AD Connect
@@ -110,7 +110,7 @@ O exemplo a seguir descreve a arquitetura de solução de aprovisionamento de ut
 
 #### <a name="description-of-workflow"></a>Descrição do fluxo de trabalho
 
-Os seguintes passos-chave são indicados no diagrama:  
+Os seguintes passos-chave são indicados no diagrama:  
 
 1. **A equipa de RH** realiza as transações no inquilino de aplicações hr em nuvem.
 2. **O serviço de fornecimento de AD AD Azure** executa os ciclos programados a partir do inquilino da aplicação HR em nuvem e identifica alterações que precisam de ser processadas para sincronização com o Ative Directory.

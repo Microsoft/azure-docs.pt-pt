@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015707"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426819"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -335,9 +335,9 @@ Foram introduzidas as seguintes melhorias:
 
 O novo objeto **Transform** simplifica o modelo de codificação. O novo objeto facilita a criação e partilha de modelos e predefinições do Gestor de Recursos de Codificação. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Autenticação do Diretório Ativo Azure e RBAC
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Autenticação do Azure Ative Directory e Azure RBAC
 
-Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
+Azure AD Authentication and Azure role-based access control (Azure RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
 
 #### <a name="client-sdks"></a>SDKs do Cliente  
 
@@ -366,7 +366,7 @@ Pode ver as seguintes melhorias no suporte da Grelha de Eventos:
 
 CMAF e suporte de encriptação 'cbcs' para os jogadores Apple HLS (iOS 11+) e MPEG-DASH que suportam a CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Indexador de Vídeos
 
 O lançamento do Video Indexer GA foi anunciado em agosto. Para obter novas informações sobre funcionalidades atualmente suportadas, consulte [O Que é Indexer de Vídeo](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 

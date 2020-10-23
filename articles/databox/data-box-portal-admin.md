@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611661"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123720"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy
 
@@ -222,8 +222,8 @@ Aqui estão os estatutos de uma ordem de importação.
 |Recebido     | O dispositivo é recebido e analisado no datacenter do Azure. <br> Após a inspeção, será iniciado o carregamento do dispositivo.      |
 |Cópia de dados     | A cópia dos dados está em curso. Controle o progresso da cópia da sua encomenda no portal do Azure. <br> Aguarde até que a cópia de dados esteja concluída. |
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
-|Concluído com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Consulte [exemplos de registos de cópias quando o upload for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Concluído com avisos| A cópia de dados foi completada, mas os seus dados foram modificados. Os dados tinham erros de blob ou de nome de ficheiro não críticos que foram corrigidos alterando os nomes de ficheiros ou blob. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Tome nota das modificações dos seus dados. Consulte [exemplos de registos de cópias quando o upload estiver concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Concluído com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Consulte [exemplos de registos de cópias quando o upload for concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
+|Concluído com avisos| A cópia de dados foi completada, mas os seus dados foram modificados. Os dados tinham erros de blob ou de nome de ficheiro não críticos que foram corrigidos alterando os nomes de ficheiros ou blob. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Tome nota das modificações dos seus dados. Consulte [exemplos de registos de cópias quando o upload estiver concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
 |Cancelado            |A encomenda foi cancelada. <br> Cancelou a encomenda ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
 |Limpeza | Os dados nos discos de dispositivo são apagados. A limpeza de dispositivo será considerada como concluída quando o histórico da encomenda ficar disponível para transferência no portal do Azure.|
 
@@ -238,9 +238,9 @@ Aqui estão os estatutos para uma ordem de exportação.
 |Processado     | O processamento da encomenda está concluído. De acordo com a sua encomenda, o dispositivo está preparado para cópia de dados no datacenter. As ações do dispositivo são criadas.         |
 |Cópia de dados em curso     | A cópia de dados das contas de Armazenamento Azure especificadas para o dispositivo está em andamento. Controle o progresso da cópia da sua encomenda no portal do Azure. <br> Aguarde até que a cópia de dados esteja concluída. |
 |Cópia concluída     | A cópia de dados das contas de Armazenamento Azure especificadas para o dispositivo está completa. Um ficheiro de registo verboso (se a opção foi ativada na encomenda) e um registo de cópia são criados na sua conta de armazenamento. O registo verboso contém as informações em todos os ficheiros (nome, caminho, check-ução de computação) que são copiados para o dispositivo. O registo de cópia contém o resumo do processo de cópia, incluindo uma lista de ficheiros que não puderam ser copiados devido a quaisquer erros.<br> Os dados da conta de armazenamento permanecem como estão. |
-|Cópia concluída com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download for concluído com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Cópia completada com avisos| A cópia de dados da conta de Armazenamento Azure foi concluída, mas os dados tiveram erros não críticos. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Tome nota dos erros não críticos. Consulte [exemplos de registos de cópias quando o download for concluído com avisos](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Cópia falhou com erros| A cópia de dados da conta de Armazenamento Azure falhou e a encomenda é terminada. Um dispositivo não será enviado.<br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download falhou com erros](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Cópia concluída com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download for concluído com erros](./data-box-logs.md#upload-completed-with-errors).   |
+|Cópia completada com avisos| A cópia de dados da conta de Armazenamento Azure foi concluída, mas os dados tiveram erros não críticos. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure. Tome nota dos erros não críticos. Consulte [exemplos de registos de cópias quando o download for concluído com avisos](./data-box-logs.md#upload-completed-with-warnings).   |
+|Cópia falhou com erros| A cópia de dados da conta de Armazenamento Azure falhou e a encomenda é terminada. Um dispositivo não será enviado.<br> Reveja os registos de cópias na conta de Armazenamento Azure utilizando o caminho fornecido no portal Azure. Consulte [exemplos de registos de cópias quando o download falhou com erros](./data-box-logs.md#upload-completed-with-errors).   |
 |Expedido     |A encomenda foi enviada. Utilize o ID de controlo apresentado na encomenda no portal para controlar o envio.        |
 |Entregue     |A encomenda enviada foi entregue no endereço especificado na encomenda.        |
 |Recolhido     |O envio de devolução foi recolhido e selecionado e analisado pela transportadora.         |

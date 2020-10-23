@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321094"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370819"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar utilizadores usando o Azure Ative Directory
 
@@ -103,6 +103,6 @@ Depois de adicionar os seus utilizadores, pode fazer os seguintes processos bás
 
 - [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- [Trabalhar com grupos dinâmicos e utilizadores](../users-groups-roles/groups-create-rule.md)
+- [Trabalhar com grupos dinâmicos e utilizadores](../enterprise-users/groups-create-rule.md)
 
-Ou pode fazer outras tarefas de gestão do utilizador, tais como [adicionar utilizadores convidados a partir de outro diretório](../external-identities/what-is-b2b.md) ou [restaurar um utilizador eliminado](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../users-groups-roles/index.yml).
+Ou pode fazer outras tarefas de gestão do utilizador, tais como [adicionar utilizadores convidados a partir de outro diretório](../external-identities/what-is-b2b.md) ou [restaurar um utilizador eliminado](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [a documentação de gestão de utilizadores do Azure Ative Directory](../enterprise-users/index.yml).

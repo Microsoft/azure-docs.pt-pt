@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376347"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116732"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
@@ -53,7 +53,7 @@ Clique com o botão direito no projeto no _Solution Explorer_ e escolha Gerir **
 }
 ```
 
-### <a name="install-active-directory"></a>Instalar Diretório Ativo
+### <a name="install-active-directory-nuget-package"></a>Instalar pacote Ative Directory NuGet
 
 O código a seguir utiliza objetos do pacote **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet, pelo que terá de adicionar uma referência a esse pacote no seu projeto.
 

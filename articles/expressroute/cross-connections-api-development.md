@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: 25c8288e1804e6a08ae2b5b128ab6fbc699563f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80392231dba26a10141dcd8247b092e8171894c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397853"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202485"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>ExpressRoute CrossConnnections Desenvolvimento e integração da API
 
@@ -30,7 +30,7 @@ Benefícios da mudança para o recurso expressRouteCrossConnections:
 
 * Quaisquer melhorias futuras para os parceiros ExpressRoute serão disponibilizadas no recurso ExpressRouteCrossConnection.
 
-* Os parceiros podem aplicar [o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
+* Os parceiros podem aplicar [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md) ao recurso expressRouteCrossConnection. Estes controlos podem definir permissões para as quais as contas dos utilizadores podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/eliminar configurações de peering.
 
 * O recurso expressRouteCrossConnection expõe APIs que podem ser úteis na resolução de problemas das ligações ExpressRoute. Isto inclui tabela ARP, Resumo da Tabela de Rota BGP e detalhes da Tabela de Rota bGP. Esta capacidade não é suportada por APIs de implementação clássica.
 
@@ -51,7 +51,7 @@ Os locais de observação do teste: os dispositivos falsos e as portas não est�
 
 ### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. Registe a subscrição Dev_Provider para aceder à API expressRouteCrossConnections
 
-Para aceder à API expressRouteCrossConnections, a subscrição do parceiro tem de ser inscrita no **Microsoft.Network Resource Provider**. Siga os passos nos [fornecedores de recursos Azure e artigo de tipo para](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) completar o processo de registo.
+Para aceder à API expressRouteCrossConnections, a subscrição do parceiro tem de ser inscrita no **Microsoft.Network Resource Provider**. Siga os passos nos [fornecedores de recursos Azure e artigo de tipo para](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) completar o processo de registo.
 
 ### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. Configurar a autenticação para chamadas AZure Resource Manager REST API
 
@@ -59,8 +59,8 @@ A maioria dos serviços da Azure exigem que o código do cliente autença com o 
 
 O processo de autenticação envolve dois passos principais:
 
-1. [Registe o cliente.](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
-2. [Crie o pedido de acesso.](https://docs.microsoft.com/rest/api/azure/#create-the-request)
+1. [Registe o cliente.](/rest/api/azure/#register-your-client-application-with-azure-ad)
+2. [Crie o pedido de acesso.](/rest/api/azure/#create-the-request)
 
 ### <a name="4-provide-network-contributor-permission-to-the-client-application"></a>4. Fornecer autorização do Contribuinte de Rede para a aplicação do cliente
 
@@ -76,12 +76,12 @@ Uma vez configurada a autenticação com sucesso, tem de conceder ao Network Con
 
 ### <a name="5-develop"></a>5. Desenvolver
 
-Desenvolva-se contra a [API expressRouteCrossConnections](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections).
+Desenvolva-se contra a [API expressRouteCrossConnections](/rest/api/expressroute/expressroutecrossconnections).
 
 ## <a name="rest-api"></a>API REST
 
-Consulte [ExpressRoute CrossConnections REST API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) para documentação REST API.
+Consulte [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) para documentação REST API.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre todas as APIs expressRoute REST, consulte [ExpressRoute REST APIs](https://docs.microsoft.com/rest/api/expressroute/).
+Para obter mais informações sobre todas as APIs expressRoute REST, consulte [ExpressRoute REST APIs](/rest/api/expressroute/).

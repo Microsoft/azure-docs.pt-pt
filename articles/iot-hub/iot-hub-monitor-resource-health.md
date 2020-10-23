@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fec74938adea4058041766a5c28c5a5200aa189e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438406"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146562"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -36,7 +36,7 @@ O IoT Hub também fornece as suas próprias métricas que você pode usar para e
 
 O Azure Monitor fornece informações de diagnóstico para recursos Azure, o que significa que você pode monitorizar as operações que ocorrem dentro do seu hub IoT.
 
-Para saber mais sobre as métricas e eventos específicos que o Azure Monitor observa, consulte [métricas suportadas com a azure Monitor](../azure-monitor/platform/metrics-supported.md) e [serviços apoiados, esquemas e categorias para Registos de Diagnóstico Azure.](../azure-monitor/platform/diagnostic-logs-schema.md)
+Para saber mais sobre as métricas e eventos específicos que o Azure Monitor observa, consulte [métricas suportadas com a azure Monitor](../azure-monitor/platform/metrics-supported.md) e [serviços apoiados, esquemas e categorias para Registos de Diagnóstico Azure.](../azure-monitor/platform/resource-logs-schema.md)
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -122,7 +122,7 @@ A categoria de operações de identidade do dispositivo rastreia erros que ocorr
 
 #### <a name="routes"></a>Rotas
 
-A categoria [de encaminhamento de mensagens](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) rastreia erros que ocorrem durante a avaliação da rota da mensagem e saúde do ponto final como percebido pelo IoT Hub. Esta categoria inclui eventos como:
+A categoria [de encaminhamento de mensagens](./iot-hub-devguide-messages-d2c.md) rastreia erros que ocorrem durante a avaliação da rota da mensagem e saúde do ponto final como percebido pelo IoT Hub. Esta categoria inclui eventos como:
 
 * Uma regra avalia a "indefinida",
 * IoT Hub marca um ponto final como morto, ou
@@ -388,8 +388,8 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Cadeia | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
-| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
+| **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o encaminhamento de mensagens está ou não ativado no Hub IoT |
+| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem principal, que seria o traço de mensagem D2C neste caso |
 
 ##### <a name="iot-hub-egress-logs"></a>Troncos de saída do IoT Hub
 
@@ -420,9 +420,9 @@ Na `properties` secção, este registo contém informações adicionais sobre a 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Cadeia | O nome do ponto final de encaminhamento |
-| **endpointType** | Cadeia | O tipo de ponto final de encaminhamento |
-| **parentSpanId** | Cadeia | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o traço de mensagem de entrada IoT Hub neste caso |
+| **endpointName** | String | O nome do ponto final de encaminhamento |
+| **endpointType** | String | O tipo de ponto final de encaminhamento |
+| **parentSpanId** | String | O [span-id](https://w3c.github.io/trace-context/#parent-id) da mensagem dos pais, que seria o traço de mensagem de entrada IoT Hub neste caso |
 
 #### <a name="configurations"></a>Configurações
 
@@ -478,7 +478,7 @@ Algumas operações devolvem uma `sdkVersion` propriedade no `properties` objeto
 
 A tabela a seguir mostra o nome SDK usado para diferentes SDK Azure IoT:
 
-| Nome SDK na propriedade SdkVersion | Idioma |
+| Nome SDK na propriedade SdkVersion | Linguagem |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft.azure.dispositivos | .NET (C#) serviço SDK |

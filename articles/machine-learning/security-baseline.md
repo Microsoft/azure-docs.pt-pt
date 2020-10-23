@@ -3,16 +3,17 @@ title: Linha de segurança Azure para Azure Machine Learning
 description: A linha de base de segurança Azure Machine Learning fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461024"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426299"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de segurança Azure para Azure Machine Learning
 
@@ -302,13 +303,13 @@ O Azure Machine Learning tem um suporte variado em diferentes recursos compute e
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: Pode utilizar o separador Gestão de Identidade e Acesso para obter um recurso no portal Azure para configurar o controlo de acesso baseado em funções (RBAC) e manter o inventário nos recursos de Aprendizagem automática Azure. As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
+**Orientação**: Pode utilizar o separador Gestão de Identidade e Acesso para obter um recurso no portal Azure para configurar o controlo de acesso baseado em funções Azure (Azure RBAC) e manter o inventário nos recursos de Aprendizagem automática Azure. As funções são aplicadas aos utilizadores, grupos, diretores de serviços e identidades geridas no Ative Directory. Você pode usar papéis incorporados ou papéis personalizados para indivíduos e grupos.
 
-A Azure Machine Learning fornece RBAC incorporado para cenários comuns de gestão em Azure Machine Learning. Um indivíduo que tenha um perfil no Azure Ative Directory (Azure AD) pode atribuir estas funções de RBAC a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos de Aprendizagem automática Azure.
+A Azure Machine Learning oferece papéis incorporados para cenários de gestão comuns em Azure Machine Learning. Um indivíduo que tenha um perfil no Azure Ative Directory (Azure AD) pode atribuir estas funções a utilizadores, grupos, diretores de serviços ou identidades geridas para conceder ou negar o acesso a recursos e operações em recursos de Aprendizagem automática Azure.
 
 Também pode utilizar o módulo Azure AD PowerShell para realizar consultas de adhoc para descobrir contas que são membros de grupos administrativos.
 
-- [Compreender o controlo de acesso baseado em funções em Azure Machine Learning](how-to-assign-roles.md)
+- [Compreenda o controlo de acesso baseado em funções do Azure em Azure Machine Learning](how-to-assign-roles.md)
 
 - [Como obter um papel de diretório no Azure Ative Directory com a PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -720,7 +721,7 @@ Remova os recursos de Azure quando já não forem necessários.
 
 - [Como utilizar o Monitor de Integridade do Ficheiro](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Compreender o rastreio e inventário de mudança de automatização da Azure](../automation/change-tracking.md)
+- [Compreender o rastreio e inventário de mudança de automatização da Azure](../automation/change-tracking/overview.md)
 
 - [Como ativar o inventário de máquinas virtuais Azure](../automation/automation-tutorial-installed-software.md)
 
@@ -819,7 +820,7 @@ A Azure Machine Learning apoia plenamente os repositórios de Git para o trabalh
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -833,7 +834,7 @@ O Azure Machine Learning tem um suporte variado em diferentes recursos compute e
 
 - [Como monitorizar as recomendações do Centro de Segurança Azure](../security-center/security-center-recommendations.md)
 
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 - [Visão geral da configuração do estado da automação Azure](../automation/automation-dsc-overview.md)
 
@@ -901,13 +902,13 @@ A Azure Machine Learning apoia plenamente os repositórios de Git para o trabalh
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Armazenar de forma segura imagens do sistema operativo personalizado
 
-**Orientação**: A Azure Machine Learning tem um suporte variado em diferentes recursos compute e até mesmo os seus próprios recursos de computação. Para obter recursos compute que sejam propriedade da sua organização, utilize o controlo de acesso baseado em funções (RBAC) da Azure para garantir que apenas os utilizadores autorizados possam aceder às suas imagens personalizadas. Utilize uma Galeria de Imagens Partilhadas Azure, pode partilhar as suas imagens com diferentes utilizadores, diretores de serviços ou grupos AD Azure dentro da sua organização. Guarde as imagens dos contentores no Registo do Contentor de Azure e utilize o RBAC para garantir que apenas os utilizadores autorizados tenham acesso.
+**Orientação**: A Azure Machine Learning tem um suporte variado em diferentes recursos compute e até mesmo os seus próprios recursos de computação. Para obter recursos compute que sejam propriedade da sua organização, utilize o controlo de acesso baseado em funções (Azure RBAC) para garantir que apenas os utilizadores autorizados possam aceder às suas imagens personalizadas. Utilize uma Galeria de Imagens Partilhadas Azure, pode partilhar as suas imagens com diferentes utilizadores, diretores de serviços ou grupos AD Azure dentro da sua organização. Guarde as imagens do contentor no Registo do Contentor Azure e utilize o Azure RBAC para garantir que apenas os utilizadores autorizados tenham acesso.
 
-- [Compreender o RBAC em Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Compreender Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Compreender o RBAC para o registo de contentores](../container-registry/container-registry-roles.md)
+- [Compreender O RBAC de Azure para o Registo de Contentores](../container-registry/container-registry-roles.md)
 
-- [Como configurar o RBAC em Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Como configurar o Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Visão geral da Galeria de Imagens Partilhada](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1087,7 +1088,7 @@ O Azure Machine Learning tem um suporte variado em diferentes recursos compute e
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Para a cópia de segurança no local, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece quando se faz o backup para OZure. Utilize o controlo de acesso baseado em funções para proteger cópias de segurança e chaves geridas pelo cliente. 
+**Orientação**: Para a cópia de segurança no local, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece quando se faz o backup para OZure. Utilize o controlo de acesso baseado em funções Azure para proteger cópias de segurança e chaves geridas pelo cliente. 
 
 Ativar a proteção de eliminação e purga suave no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. Se o Azure Storage for utilizado para armazenar cópias de segurança, ative a eliminação suave para guardar e recuperar os seus dados quando as bolhas ou as imagens blob forem eliminadas.
  
@@ -1128,7 +1129,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

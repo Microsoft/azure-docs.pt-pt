@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843316"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320514"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -78,7 +78,7 @@ Para mais informações, leia [o Controle de Acesso Role-Based de Tecidos de Ser
 ### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Os grupos de segurança da rede (NSGs) controlam o tráfego de entrada e saída de uma sub-rede, VM ou NIC específico.  Por predefinição, quando vários VMs são colocados na mesma rede virtual, podem comunicar entre si através de qualquer porta.  Se quiser limitar as comunicações entre as máquinas, pode definir NSGs para segmentar a rede ou isolar VMs uns dos outros.  Se tiver vários tipos de nós num cluster, pode aplicar NSGs em sub-redes para evitar que máquinas pertencentes a diferentes tipos de nós se comuniquem entre si.  
 
-Para mais informações, leia sobre [grupos de segurança](../virtual-network/security-overview.md)
+Para mais informações, leia sobre [grupos de segurança](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="scaling"></a>Dimensionamento
 
@@ -98,11 +98,11 @@ Para mais informações, leia [a atualização dos agrupamentos.](service-fabric
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Servidor Windows 1709 | 6.0 |
+| Servidor Windows 1709 | 6,0 |
 | Servidor Windows 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 | Linux Ubuntu 18.04 | 7.1 |
 
 Para mais informações consulte [ver versões de cluster suportadas em Azure](./service-fabric-versions.md#supported-operating-systems)

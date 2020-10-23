@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598193"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426008"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 
@@ -56,7 +56,7 @@ Os passos seguintes preparam e configuram o servidor MariaDB alojado no local, n
 
 2. Certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
    
-   Teste a conectividade ao servidor de origem tentando ligar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
+   Teste a conectividade ao servidor de origem tentando ligar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir da [Azure Cloud Shell](../cloud-shell/overview.md) disponível no portal Azure.
 
    Se a sua organização tiver políticas de segurança rigorosas e não permitirá que todos os endereços IP no servidor de origem possam permitir a comunicação do Azure para o seu servidor de origem, pode potencialmente utilizar o comando abaixo para determinar o endereço IP da sua Base de Dados Azure para o servidor MariaDB.
     
@@ -212,7 +212,7 @@ Os passos seguintes preparam e configuram o servidor MariaDB alojado no local, n
 
 1. Desa parte do servidor de origem.
 
-   Todas as funções de replicação de dados são feitas por procedimentos armazenados. Pode encontrar todos os procedimentos nos [procedimentos armazenados de replicação de dados.](reference-data-in-stored-procedures.md) Os procedimentos armazenados podem ser executados na concha MySQL ou na bancada MySQL Workbench.
+   Todas as funções de replicação de dados são feitas por procedimentos armazenados. Pode encontrar todos os procedimentos nos [procedimentos armazenados de replicação de dados.](reference-stored-procedures.md) Os procedimentos armazenados podem ser executados na concha MySQL ou na bancada MySQL Workbench.
 
    Para ligar dois servidores e iniciar a replicação, inicie sedumento no servidor de réplica alvo no DB Azure para o serviço MariaDB. Em seguida, descreva a instância externa como o servidor de origem utilizando o `mysql.az_replication_change_master` procedimento ou o procedimento armazenado no `mysql.az_replication_change_master_with_gtid` Azure DB para o servidor MariaDB.
 

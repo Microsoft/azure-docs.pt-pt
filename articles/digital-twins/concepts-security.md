@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015009"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331758"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
-Para a segurança, a Azure Digital Twins permite um controlo preciso de acesso sobre dados, recursos e ações específicas na sua implementação. Fá-lo através de uma estratégia de gestão de funções granular e de permissão chamada **controlo de acesso baseado em funções (RBAC)**. Pode ler-se [aqui](../role-based-access-control/overview.md)sobre os princípios gerais da RBAC para o Azure.
+Para a segurança, a Azure Digital Twins permite um controlo preciso de acesso sobre dados, recursos e ações específicas na sua implementação. Fá-lo através de uma estratégia de gestão de funções granulares e de permissão chamada **Azure role-based access control (Azure RBAC)**. Pode ler-se [aqui](../role-based-access-control/overview.md)sobre os princípios gerais do Azure RBAC.
 
 A Azure Digital Twins também suporta a encriptação de dados em repouso.
 
-## <a name="granting-permissions-with-rbac"></a>Concessão de permissões com o RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Concessão de permissões com a Azure RBAC
 
-O RBAC é fornecido à Azure Digital Twins através da integração com [o Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+O Azure RBAC é fornecido à Azure Digital Twins através da integração com [o Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Pode utilizar o RBAC para conceder permissões a um *diretor de segurança,* que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD, e recebe um token OAuth 2.0 em troca. Este token pode ser usado para autorizar um pedido de acesso a uma instância Azure Digital Twins.
+Pode utilizar o Azure RBAC para conceder permissões a um *diretor de segurança,* que pode ser um utilizador, um grupo ou um diretor de serviço de aplicações. O principal de segurança é autenticado pela Azure AD, e recebe um token OAuth 2.0 em troca. Este token pode ser usado para autorizar um pedido de acesso a uma instância Azure Digital Twins.
 
 ### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
@@ -57,7 +57,7 @@ A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acess
 Para obter mais informações sobre como as funções incorporadas são [*definidas,*](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções personalizadas [*Azure, consulte os papéis personalizados da Azure*](../role-based-access-control/custom-roles.md).
 
 Pode atribuir funções de duas formas:
-* através do painel de controlo de acesso (IAM) para Azure Digital Twins no portal Azure (ver [*Adicionar ou remover atribuições de funções utilizando o RBAC Azure e o portal Azure)*](../role-based-access-control/role-assignments-portal.md)
+* através do painel de controlo de acesso (IAM) para Azure Digital Twins no portal Azure (ver [*Adicionar ou remover atribuições de funções Azure utilizando o portal Azure)*](../role-based-access-control/role-assignments-portal.md)
 * através de comandos CLI para adicionar ou remover uma função
 
 Para passos mais detalhados sobre como fazê-lo, experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
@@ -95,4 +95,4 @@ Para resolver este erro, pode fazer um dos seguintes:
 
 * Veja como interagir com estes conceitos a partir do código de aplicação do cliente em [*Como-a-: Escrever código de autenticação de aplicações*](how-to-authenticate-client.md).
 
-* Leia mais sobre [o RBAC para Azure.](../role-based-access-control/overview.md)
+* Leia mais sobre [a Azure RBAC.](../role-based-access-control/overview.md)

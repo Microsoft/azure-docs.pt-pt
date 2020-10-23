@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6fbf84ec3822195f62970dbf08115059ffb7e4a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556377"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122607"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Faça upload de ficheiros dos seus dispositivos para a nuvem
 
@@ -54,7 +54,7 @@ Se pretender desativar os uploads de ficheiros de dispositivos para a sua aplica
 
 ## <a name="upload-a-file-from-a-device"></a>Faça upload de um ficheiro a partir de um dispositivo
 
-O IoT Central utiliza a capacidade de upload de ficheiros do IoT Hub para permitir que os dispositivos carreguem ficheiros. Para obter um código de amostra que lhe mostre como fazer o upload de ficheiros a partir de um dispositivo, consulte a amostra do [dispositivo de upload de ficheiros IoT Central](https://docs.microsoft.com/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
+O IoT Central utiliza a capacidade de upload de ficheiros do IoT Hub para permitir que os dispositivos carreguem ficheiros. Para obter um código de amostra que lhe mostre como fazer o upload de ficheiros a partir de um dispositivo, consulte a amostra do [dispositivo de upload de ficheiros IoT Central](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

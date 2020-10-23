@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531343"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131909"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utilizar alertas de custo para monitorizar a utilização e as despesas
 
@@ -21,7 +21,7 @@ Este artigo ajuda-o a compreender e a utilizar os alertas do Cost Management par
 
 ## <a name="budget-alerts"></a>Alertas de orçamento
 
-Os alertas de orçamento notificam-no quando as despesas, com base na utilização ou no custo, atingem ou excedem o valor definido na [condição de alerta do orçamento](tutorial-acm-create-budgets.md). Os orçamentos do Cost Management são criados com o portal do Azure ou a API de [Consumo do Azure](https://docs.microsoft.com/rest/api/consumption).
+Os alertas de orçamento notificam-no quando as despesas, com base na utilização ou no custo, atingem ou excedem o valor definido na [condição de alerta do orçamento](tutorial-acm-create-budgets.md). Os orçamentos do Cost Management são criados com o portal do Azure ou a API de [Consumo do Azure](/rest/api/consumption).
 
 No portal do Azure, os orçamentos são definidos pelo custo. Com a API de Consumo do Azure, os orçamentos são definidos pelo custo ou pela utilização do consumo. Os alertas de orçamento suportam os orçamentos baseados nos custos e na utilização. Os alertas de orçamento são gerados automaticamente sempre que se verifiquem as condições dos alertas de orçamento. Pode ver todos os alertas de custo no portal do Azure. Sempre que um alerta é gerado, é apresentado nos alertas de custo. É também enviado um e-mail de alerta para as pessoas que se encontram na lista de destinatários dos alertas de orçamento.
 

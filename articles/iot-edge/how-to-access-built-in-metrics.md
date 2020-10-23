@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7924b06b9056a53fa9861fcd0df516845662b34b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979794"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341571"
 ---
-# <a name="access-built-in-metrics"></a>Acesso a métricas incorporadas
+# <a name="access-built-in-metrics"></a>Aceder a métricas incorporadas
 
 Os componentes de tempo de execução IoT Edge, IoT Edge Hub e IoT Edge Agent, produzem métricas incorporadas no [formato de exposição Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Aceda a estas métricas remotamente para monitorizar e entender a saúde de um dispositivo IoT Edge.
 
-A partir do lançamento 1.0.10, as métricas são automaticamente expostas por predefinição na **porta 9600** dos módulos **edgeHub** e **edgeAgent** ( `http://edgeHub:9600/metrics` e `http://edgeAgent:9600/metics` ). Não estão mapeados para o hospedeiro por defeito.
+A partir do lançamento 1.0.10, as métricas são automaticamente expostas por predefinição na **porta 9600** dos módulos **edgeHub** e **edgeAgent** ( `http://edgeHub:9600/metrics` e `http://edgeAgent:9600/metrics` ). Não estão mapeados para o hospedeiro por defeito.
 
 Métricas de acesso do hospedeiro expondo e mapeando a porta métricas a partir do módulo `createOptions` . O exemplo abaixo mapeia a porta métricas padrão para a porta 9601 no hospedeiro:
 
 ```
 {
   "ExposedPorts": {
-    "9600/tcp": {},
+    "9600/tcp": {}
   },
   "HostConfig": {
     "PortBindings": {
@@ -62,7 +62,7 @@ Os quantíiles previstos para o histograma incorporado e as métricas resumidas 
 
 O módulo **edgeHub** produz as seguintes métricas:
 
-| Nome | Dimensões | Descrição |
+| Name | Dimensões | Descrição |
 |-|-|-|
 | `edgehub_gettwin_total` | `source` (fonte de operação)<br> `id` (ID do módulo) | Tipo: balcão<br> Número total de chamadas GetTwin |
 | `edgehub_messages_received_total` | `route_output` (saída que enviou mensagem)<br> `id` | Tipo: balcão<br> Número total de mensagens recebidas de clientes |
@@ -85,7 +85,7 @@ O módulo **edgeHub** produz as seguintes métricas:
 
 O módulo **edgeAgent** produz as seguintes métricas:
 
-| Nome | Dimensões | Descrição |
+| Name | Dimensões | Descrição |
 |-|-|-|
 | `edgeAgent_total_time_running_correctly_seconds` | `module_name` | Tipo: bitola<br> A quantidade de tempo que o módulo foi especificado na implantação e estava no estado de execução |
 | `edgeAgent_total_time_expected_running_seconds` | `module_name` | Tipo: bitola<br> A quantidade de tempo especificado no módulo foi especificado na implementação |

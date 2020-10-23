@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88937001"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171930"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
 
@@ -32,7 +32,7 @@ A integração do Azure Ative Directory gerida pela AKS está disponível em reg
 ## <a name="limitations"></a>Limitações 
 
 * A integração AD gerida pela AKS não pode ser desativada
-* os clusters não ativados da RBAC não são suportados para a integração Azue AD gerida pela AKS
+* os clusters não ativados não-RBAC não são suportados para a integração Azure AD gerida pela AKS
 * Mudar o inquilino AZure AD associado à integração Azure AD gerida pela AKS não é suportado
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079558"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168567"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
 
@@ -77,15 +77,15 @@ Pode aplicar filtros nos gráficos que mostram métricas com dimensões. Por exe
 
 2. Selecione qual a dimensão (propriedade) que pretende filtrar
 
-   ![imagem da métrica](./media/metrics-charts/00006.png)
+   ![Screenshot que mostra as dimensões (propriedades) que pode filtrar.](./media/metrics-charts/00006.png)
 
 3. Selecione quais os valores de dimensão que pretende incluir ao traçar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem sucedidas):
 
-   ![imagem da métrica](./media/metrics-charts/00007.png)
+   ![Screenshot que mostra a filtragem das transações de armazenamento bem sucedidas.](./media/metrics-charts/00007.png)
 
 4. Depois de selecionar os valores do filtro, clique para longe do Seletor de Filtro para o fechar. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
-   ![imagem da métrica](./media/metrics-charts/00008.png)
+   ![Screenshot que mostra quantas transações de armazenamento falharam](./media/metrics-charts/00008.png)
 
 5. Pode repetir os passos 1-4 para aplicar vários filtros nas mesmas tabelas.
 
@@ -104,11 +104,11 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
 
 2. Escolha uma dimensão na qual pretende segmentar o seu gráfico:
 
-   ![imagem da métrica](./media/metrics-charts/00010.png)
+   ![Screenshot que mostra a dimensão selecionada na qual segmenta a sua tabela.](./media/metrics-charts/00010.png)
 
    Agora o gráfico mostra agora várias linhas, uma para cada segmento de dimensão:
 
-   ![imagem da métrica](./media/metrics-charts/00012.png)
+   ![Screenshot que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/00012.png)
 
 3. Clique para longe do **Seletor de Agrupamento** para fechá-lo.
 
@@ -125,7 +125,7 @@ Outro exemplo é uma flutuação na memória disponível, onde o valor tecnicame
 
 Para controlar a gama de eixos y, use o "..." menu de gráfico, e **selecione editar gráfico** para aceder a definições de gráficos avançados. Modifique os valores na secção Y-Axis Range ou use o botão **Auto** para reverter para os predefinidos.
 
-![imagem da métrica](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot que realça a opção editar gráfico.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Bloquear os limites do eixo y para as tabelas que acompanham várias contagens ou somas ao longo de um período de tempo (e assim utilizar a contagem, a soma, o mínimo ou as agregações máximas) geralmente requer especificar uma granularidade de tempo fixo em vez de depender dos predefinidos automáticos. Isto é necessário porque os valores nos gráficos mudam quando a granularidade é automaticamente modificada pelo utilizador redimensionando a janela do navegador ou passando de uma resolução de ecrã para outra. A alteração resultante da granularidade temporal afeta o aspeto do gráfico, invalidando a seleção atual da gama y-axis.
@@ -138,7 +138,7 @@ Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda
 
 Depois de configuradas as cores do gráfico, elas permanecerão assim quando fixar a tabela num dashboard. A seguinte secção mostra como fixar um gráfico.
 
-![imagem da métrica](./media/metrics-charts/018.png)
+![Screenshot que mostra como fixar um gráfico.](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Gráficos de pinos para painéis
 

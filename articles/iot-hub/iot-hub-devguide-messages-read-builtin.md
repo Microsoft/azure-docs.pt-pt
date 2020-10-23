@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.custom:
 - amqp
 - 'Role: Cloud Development'
-ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327706"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147679"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -63,7 +63,7 @@ Em seguida, pode escolher qualquer política de acesso partilhado a partir do dr
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
-| Idioma | SDK | Exemplo |
+| Linguagem | SDK | Exemplo |
 | -------- | --- | ------ |
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Início rápido](quickstart-send-telemetry-dotnet.md) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início rápido](quickstart-send-telemetry-java.md) |
@@ -72,12 +72,12 @@ Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub 
 
 As integrações do produto que pode utilizar com o ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
-* [Funções Azure](https://docs.microsoft.com/azure/azure-functions/). Consulte [os dados de processamento do IoT Hub com Funções Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Consulte os [dados do Stream como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Insights da Série de Tempo](https://docs.microsoft.com/azure/time-series-insights/). Consulte [uma fonte de evento do hub IoT ao ambiente time series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Funções Azure](../azure-functions/index.yml). Consulte [os dados de processamento do IoT Hub com Funções Azure](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](../stream-analytics/index.yml). Consulte os [dados do Stream como entrada no Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Insights da Série de Tempo](../time-series-insights/index.yml). Consulte [uma fonte de evento do hub IoT ao ambiente time series Insights](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Bico de tempestade Apache.](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md) Pode ver a [fonte do bico](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
-* [Integração apache Spark.](../hdinsight/spark/apache-spark-eventhub-streaming.md)
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+* [Integração apache Spark.](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Azure Databricks](/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c82f6eb37d542f80b6cb79ffb1fae6fe0cf0c233
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577769"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144274"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher o direito de nível de Hub IoT para a sua solução
 
@@ -77,37 +77,37 @@ A diferença de capacidades suportadas entre os níveis básico e padrão do IoT
 
 | API | Escalão básico | Nível livre/standard |
 | --- | ---------- | ------------- |
-| [Eliminar dispositivo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Sim | Sim |
-| [Obter dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Sim | Sim |
-| [Eliminar módulo](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Sim | Sim |
-| [Obtenha módulo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Sim | Sim |
-| [Obtenha estatísticas de registo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Sim | Sim |
-| [Obter estatísticas de serviços](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Sim | Sim |
-| [Criar ou atualizar dispositivo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Sim | Sim |
-| [Criar ou atualizar módulo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sim | Sim |
-| [Consulta IoT Hub](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Sim | Sim |
-| [Criar upload de ficheiros SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sim | Sim |
-| [Receber notificação vinculada do dispositivo](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sim | Sim |
-| [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
+| [Eliminar dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Sim | Sim |
+| [Obter dispositivo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Sim | Sim |
+| [Eliminar módulo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Sim | Sim |
+| [Obtenha módulo](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Sim | Sim |
+| [Obtenha estatísticas de registo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Sim | Sim |
+| [Obter estatísticas de serviços](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Sim | Sim |
+| [Criar ou atualizar dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Sim | Sim |
+| [Criar ou atualizar módulo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sim | Sim |
+| [Consulta IoT Hub](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Sim | Sim |
+| [Criar upload de ficheiros SAS URI](/rest/api/iothub/device/createfileuploadsasuri) | Sim | Sim |
+| [Receber notificação vinculada do dispositivo](/rest/api/iothub/device/receivedeviceboundnotification) | Sim | Sim |
+| [Enviar evento de dispositivo](/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
 | Enviar evento de módulo | APENAS AMQP e MQTT | APENAS AMQP e MQTT |
-| [Atualizar o estado do upload do ficheiro](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
-| [Operação de dispositivo a granel](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Sim, exceto pelas capacidades IoT Edge | Sim |
-| [Cancelar trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobs/cancelimportexportjob) | Sim | Sim |
-| [Criar trabalho de exportação de importações](https://docs.microsoft.com/rest/api/iothub/service/jobs/createimportexportjob) | Sim | Sim |
-| [Obter trabalho de exportação de importação](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjob) | Sim | Sim |
-| [Obter empregos de exportação de importações](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) | Sim | Sim |
-| [Fila de comando de purga](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Sim |
-| [Obter dispositivo twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Sim |
-| [Obter módulo twin](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Sim |
-| [Invocar o método do dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) |   | Sim |
-| [Atualização do dispositivo twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) |   | Sim |
-| [Módulo de atualização twin](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Sim |
-| [Abandone a notificação vinculada do dispositivo](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sim |
-| [Notificação completa do dispositivo](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sim |
-| [Cancelar trabalho](https://docs.microsoft.com/rest/api/media/jobs/canceljob) |   | Sim |
-| [Criar a tarefa](https://docs.microsoft.com/rest/api/media/jobs/create) |   | Sim |
-| [Conseguir emprego](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Sim |
-| [Trabalhos de consulta](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Sim |
+| [Atualizar o estado do upload do ficheiro](/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
+| [Operação de dispositivo a granel](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Sim, exceto pelas capacidades IoT Edge | Sim |
+| [Cancelar trabalho de exportação de importação](/rest/api/iothub/service/jobs/cancelimportexportjob) | Sim | Sim |
+| [Criar trabalho de exportação de importações](/rest/api/iothub/service/jobs/createimportexportjob) | Sim | Sim |
+| [Obter trabalho de exportação de importação](/rest/api/iothub/service/jobs/getimportexportjob) | Sim | Sim |
+| [Obter empregos de exportação de importações](/rest/api/iothub/service/jobs/getimportexportjobs) | Sim | Sim |
+| [Fila de comando de purga](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Sim |
+| [Obter dispositivo twin](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Sim |
+| [Obter módulo twin](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Sim |
+| [Invocar o método do dispositivo](./iot-hub-devguide-direct-methods.md) |   | Sim |
+| [Atualização do dispositivo twin](./iot-hub-devguide-device-twins.md) |   | Sim |
+| [Módulo de atualização twin](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Sim |
+| [Abandone a notificação vinculada do dispositivo](/rest/api/iothub/device/abandondeviceboundnotification) |   | Sim |
+| [Notificação completa do dispositivo](/rest/api/iothub/device/completedeviceboundnotification) |   | Sim |
+| [Cancelar trabalho](/rest/api/media/jobs/canceljob) |   | Sim |
+| [Criar a tarefa](/rest/api/media/jobs/create) |   | Sim |
+| [Conseguir emprego](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Sim |
+| [Trabalhos de consulta](/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Sim |
 
 ## <a name="message-throughput"></a>Mensagem de produção
 

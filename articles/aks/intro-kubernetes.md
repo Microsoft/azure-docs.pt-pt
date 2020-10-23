@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003211"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167190"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
 
@@ -63,6 +63,12 @@ Para saber mais sobre as versões do ciclo de vida, veja [Versões suportadas do
 O AKS suporta a criação de conjuntos de nós ativados por GPU. O Azure oferece atualmente VMs ativadas por GPU, únicas ou várias. As VMs ativadas por GPU foram concebidas para cargas de trabalho de computação intensiva, gráficos intensivos e visualização.
 
 Para obter mais informações, veja [Utilizar GPUs no AKS][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Nós de computação confidencial (pré-visualização pública)
+
+A AKS apoia a criação de conjuntos de nó de computação confidencial baseados em Intel SGX (DCSv2 VMs). Os nosdes de computação confidencial permitem que os contentores corram num ambiente de execução fidedigno e isolado (enclaves). O isolamento entre contentores combinados com a integridade do código através do atestado pode ajudar com a sua estratégia de segurança de contentores em profundidade. Os nós de computação confidencial suportam tanto os contentores confidenciais (aplicações de estiva existentes) como os contentores de conhecimento do enclave.
+
+Para mais informações, consulte [os nódes de computação confidencial na AKS][conf-com-node]
 
 ### <a name="storage-volume-support"></a>Suporte para volume de armazenamento
 
@@ -143,3 +149,4 @@ Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CL
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

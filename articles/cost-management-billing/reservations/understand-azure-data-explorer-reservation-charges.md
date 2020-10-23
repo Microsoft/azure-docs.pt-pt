@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: af2dc8378d1f1fe952a568ecb4bd89d088e3e3d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383116"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147241"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Compreender como o desconto de reserva é aplicado ao Azure Data Explorer
 
@@ -70,4 +70,4 @@ Para saber mais sobre as reservas do Azure, veja os seguintes artigos:
 * [Gerir reservas do Azure](manage-reserved-vm-instance.md)  
 * [Compreender a utilização de reservas na sua subscrição Pay As You Go](understand-reserved-instance-usage.md)
 * [Compreender a utilização de reservas na inscrição Enterprise](understand-reserved-instance-usage-ea.md)
-* [Compreender a utilização de reservas nas subscrições do CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Compreender a utilização de reservas nas subscrições do CSP](/partner-center/azure-reservations)

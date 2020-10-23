@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461299"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
 
@@ -106,6 +106,10 @@ Depois de ter preparado as suas ferramentas ITSM, siga os passos abaixo para cri
 ## <a name="using-the-solution"></a>Utilizar a solução
    Ao utilizar a solução ITSM Connector, pode criar itens de trabalho a partir de alertas Azure, alertas de Log Analytics e registos de registos do Log Analytics.
 
+## <a name="template-definitions"></a>Definições de modelo
+   Existem tipos de Itens de Trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
+A utilização de modelos permite ao cliente definir campos que serão povoados automaticamente de acordo com valores fixos que são definidos como parte do grupo de ação. A definição dos modelos é feita na ferramenta ITSM.
+      
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Crie itens de trabalho ITSM a partir de alertas Azure
 
 Assim que tiver a sua ligação ITSM criada, pode criar artigos de trabalho na sua ferramenta ITSM com base em alertas Azure, utilizando a **Ação ITSM** em **Grupos de Ação**.
@@ -133,8 +137,10 @@ Utilize o seguinte procedimento:
     ![Detalhes da ação itsm](media/itsmc-overview/itsm-action-details.png)
 
 6. Selecione o item de **trabalho** do menu suspenso.
-   Opte por utilizar um modelo existente ou preencha os campos exigidos pelo seu produto ITSM.
-7. Clique em **OK**.
+
+7. Se pretender preencher os campos de caixa com valores fixos, deve selecionar a caixa de verificação de "Use Custom Template" caso contrário, optar por utilizar um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente a partir do dropdown e preencher os campos de modelo com valores fixos.
+
+8. Clique em **OK**.
 
 Ao criar/editar uma regra de alerta Azure, utilize um grupo action, que tem uma ação ITSM. Quando o alerta dispara, o item de trabalho é criado/atualizado na ferramenta ITSM.
 

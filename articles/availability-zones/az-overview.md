@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 771635baa3c49c07d0d796cf6ef3be7b870de3e1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078379"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425433"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
@@ -97,7 +97,7 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Azure Cosmos DB | Automatização | Azure Blueprints |
 > | Armazenamento do Azure Data Lake Ger2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | HSM Dedicado do Azure |
-> | Base de Dados SQL do Azure | Cache do Azure para Redis | Azure Dev Spaces |
+> | Base de Dados SQL do Azure | Cache do Azure para Redis | Espaços de Programador do Azure |
 > | Serviços Cloud | Azure Cognitive Search | Azure Digital Twins |
 > | Serviços na Nuvem: Av2-Series | Azure Data Explorer | Azure Lab Services |
 > | Serviços na Nuvem: Dv2-Series | Azure Data Share | Azure NetApp Files |
@@ -105,20 +105,20 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > | Serviços na Nuvem: Ev3-Series | Base de Dados do Azure para PostgreSQL | Serviço de Nuvem de primavera Azure |
 > | Serviços na Nuvem: IPs de nível de exemplo | Azure Database Migration Service | Azure Time Series Insights |
 > | Serviços cloud: IP reservado | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Armazenamento de Discos | Azure DDoS Protection | Serviços cloud: Série G |
+> | Armazenamento em Disco | Proteção contra DDoS do Azure | Serviços cloud: Série G |
 > | Hubs de Eventos | Azure DevTest Labs | Serviços cloud: Série H |
-> | Key Vault | Azure Firewall | Serviços Cognitivos : Visão Personalizada |
+> | Cofre de Chaves | Azure Firewall | Serviços Cognitivos : Visão Personalizada |
 > | Balanceador de carga | Azure Firewall Manager | Serviços Cognitivos : Reconhecimento de Altifalantes |
 > | Service Bus | Funções do Azure | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Catálogo de Dados |
-> | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory : Data Factory V1 |
+> | Conjuntos de Dimensionamento de Máquinas Virtuais | Azure IoT Hub | Data Factory : Data Factory V1 |
 > | Máquinas Virtuais | Serviço de Kubernetes do Azure (AKS) | Data Lake Analytics |
 > | Máquinas Virtuais: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (clássico)|
 > | Máquinas Virtuais: Bs-Series | Azure Private Link | Microsoft Genomics |
 > | Máquinas Virtuais: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
-> | Máquinas Virtuais: DSv3-Series | Serviço SignalR do Azure | Spatial Anchors |
+> | Máquinas Virtuais: DSv3-Series | Serviço Azure SignalR | Spatial Anchors |
 > | Máquinas Virtuais: Dv2-Series | Azure Site Recovery | StorSimple |
-> | Máquinas Virtuais: Dv3-Series | Azure Stack Hub | Video Indexer |
+> | Máquinas Virtuais: Dv3-Series | Azure Stack Hub | Indexador de Vídeos |
 > | Máquinas Virtuais: ESv3-Series | Azure Stream Analytics | Máquinas Virtuais: DASv4-Series |
 > | Máquinas Virtuais: Ev3-Series | Azure Synapse Analytics | Máquinas Virtuais: DAv4-Series |
 > | Máquinas Virtuais: Série F | Batch | Máquinas Virtuais: Série DCsv2 |
@@ -132,11 +132,11 @@ Como mencionado anteriormente, a Azure classifica os serviços em três categori
 > |  | Serviços Cognitivos: Fabricante QnA | Máquinas Virtuais: Série H |
 > |  | Serviços Cognitivos: Serviços de Fala | Máquinas Virtuais: LS-Series |
 > |  | Container Instances | Máquinas Virtuais: LSv2-Series |
-> |  | Container Registry | Máquinas Virtuais: Mv2-Series |
+> |  | Registo de Contentor | Máquinas Virtuais: Mv2-Series |
 > |  | Data Factory | Máquinas Virtuais: NC-Series |
 > |  | Event Grid | Máquinas Virtuais: NCv2-Series |
 > |  | HDInsight | Máquinas Virtuais: NCv3-Series |
-> |  | Logic Apps | Máquinas Virtuais: NDs-Series |
+> |  | Aplicações Lógicas | Máquinas Virtuais: NDs-Series |
 > |  | Serviços de Multimédia | Máquinas Virtuais: NDv2-Series |
 > |  | Observador de Rede | Máquinas Virtuais: NV-Series |
 > |  | Hubs de Notificação | Máquinas Virtuais: NVv3-Series |
@@ -170,10 +170,10 @@ Não há custo adicional para máquinas virtuais implantadas numa Zona de Dispon
 - [Criar uma máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Adicione um disco gerido usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Criar um conjunto de escala de máquina virtual redundante de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Balançar VMs em zonas usando um Balanceador de Carga Padrão com uma linha frontal redundante de zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Balançar VMs de equilíbrio dentro de uma zona usando um Balanceador de Carga Padrão com um frontend zonal](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Armazenamento com redundância entre zonas](../storage/common/storage-redundancy.md)
-- [Base de Dados SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
+- [Balançar VMs em zonas usando um Balanceador de Carga Padrão com uma linha frontal redundante de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Balançar VMs de equilíbrio dentro de uma zona usando um Balanceador de Carga Padrão com um frontend zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Armazenamento com redundância entre zonas](../storage/common/storage-redundancy-zrs.md)
+- [SqL Database nível de propósito geral](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Recuperação após desastre geográfica dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação após desastre geográfica do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

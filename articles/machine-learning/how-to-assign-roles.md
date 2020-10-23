@@ -1,7 +1,7 @@
 ---
 title: Gerir funções no seu espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: Saiba como aceder a um espaço de trabalho Azure Machine Learning utilizando o controlo de acesso baseado em funções (RBAC).
+description: Saiba como aceder a um espaço de trabalho Azure Machine Learning utilizando o controlo de acesso baseado em funções Azure (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966411"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425642"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -34,9 +34,9 @@ Uma área de trabalho do Azure Machine Learning é um recurso do Azure. Tal como
 | **Papel personalizado** | Permite-lhe personalizar o acesso a operações específicas de controle ou data plane dentro de um espaço de trabalho. Por exemplo, submeter uma execução, criar um cálculo, implementar um modelo ou registar um conjunto de dados. |
 
 > [!IMPORTANT]
-> O acesso a funções pode ser alargado a vários níveis em Azure. Por exemplo, alguém com acesso ao proprietário a um espaço de trabalho pode não ter acesso ao grupo de recursos que contém o espaço de trabalho. Para mais informações, consulte [como funciona o RBAC.](/azure/role-based-access-control/overview#how-rbac-works)
+> O acesso a funções pode ser alargado a vários níveis em Azure. Por exemplo, alguém com acesso ao proprietário a um espaço de trabalho pode não ter acesso ao grupo de recursos que contém o espaço de trabalho. Para mais informações, consulte [como funciona o Azure RBAC.](/azure/role-based-access-control/overview#how-azure-rbac-works)
 
-Para obter mais informações sobre funções específicas incorporadas, consulte [as funções incorporadas para o Azure.](/azure/role-based-access-control/built-in-roles)
+Para obter mais informações sobre funções específicas incorporadas, consulte [as funções incorporadas do Azure.](/azure/role-based-access-control/built-in-roles)
 
 ## <a name="manage-workspace-access"></a>Gerir o acesso ao espaço de trabalho
 
@@ -432,13 +432,13 @@ Eis algumas coisas a ter em conta enquanto utiliza o controlo de acesso baseado 
     - "Microsoft.Network/virtualNetworks/join/action" no recurso VNet.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" no recurso sub-rede.
     
-    Para obter mais informações sobre o RBAC com as [funções de networking incorporadas](/azure/role-based-access-control/built-in-roles#networking).
+    Para obter mais informações sobre o Azure RBAC com a rede, consulte as [funções embutidas em rede](/azure/role-based-access-control/built-in-roles#networking).
 
 - Às vezes pode levar até 1 hora para as suas novas tarefas de função fazerem efeito sobre permissões em cache através da pilha.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>P. Que permissões preciso para usar uma identidade gerida atribuída pelo utilizador com os meus clusters Amlcompute?
 
-Para atribuir uma identidade atribuída a um utilizador em clusters Amlcompute, é preciso ter permissões de escrita para criar computação e ter [Função de Operador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre o RBAC com identidades geridas, leia [Como gerir a identidade atribuída pelo utilizador](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Para atribuir uma identidade atribuída a um utilizador em clusters Amlcompute, é preciso ter permissões de escrita para criar computação e ter [Função de Operador de Identidade Gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre o Azure RBAC com identidades geridas, leia [Como gerir a identidade atribuída pelo utilizador](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>P. Apoiamos o controlo de acesso baseado em funções no portal Studio?

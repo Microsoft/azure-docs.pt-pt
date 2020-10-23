@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018202"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126761"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Expandir o Azure IoT Central com regras personalizadas através do Stream Analytics, das Funções do Azure do SendGrid
 
-Este guia de como fazer mostra-lhe, como desenvolvedor de soluções, como estender a sua aplicação IoT Central com regras e notificações personalizadas. O exemplo mostra o envio de uma notificação a um operador quando um dispositivo deixa de enviar telemetria. A solução utiliza uma consulta [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) para detetar quando um dispositivo deixou de enviar telemetria. O trabalho stream Analytics utiliza [funções Azure](https://docs.microsoft.com/azure/azure-functions/) para enviar e-mails de notificação usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Este guia de como fazer mostra-lhe, como desenvolvedor de soluções, como estender a sua aplicação IoT Central com regras e notificações personalizadas. O exemplo mostra o envio de uma notificação a um operador quando um dispositivo deixa de enviar telemetria. A solução utiliza uma consulta [Azure Stream Analytics](../../stream-analytics/index.yml) para detetar quando um dispositivo deixou de enviar telemetria. O trabalho stream Analytics utiliza [funções Azure](../../azure-functions/index.yml) para enviar e-mails de notificação usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 Este guia de como fazer mostra-lhe como estender a IoT Central para além do que já pode fazer com as regras e ações incorporadas.
 
@@ -46,7 +46,7 @@ Crie uma aplicação IoT Central no site do [gestor de aplicações Azure IoT Ce
 | URL | Aceite o prefixo padrão ou escolha o seu próprio prefixo URL único |
 | Diretório | Seu inquilino do Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Region | A sua região mais próxima |
+| Região | A sua região mais próxima |
 
 Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 

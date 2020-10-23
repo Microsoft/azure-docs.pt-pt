@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 031cbb48a7e0c572866dc591d26fb1e6b6b12dba
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267504"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424718"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Cenário: Tráfego de rotas através de NVAs - personalizado (Pré-visualização)
 
@@ -24,25 +24,24 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 
 Neste cenário, utilizaremos a convenção de nomeação:
 
-* "Service VNet" para redes virtuais onde os utilizadores tenham implantado um NVA (VNet 4 na **Figura 1**) para inspecionar o tráfego não internet.
+* "Raios" para redes virtuais ligadas ao centro virtual (VNet 1, VNet 2 e VNet 3 na **Figura 1**).
+* "Service VNet" para redes virtuais onde os utilizadores tenham implantado um NVA (VNet 4 na **Figura 1**) para inspecionar o tráfego não internet e, possivelmente, com serviços comuns acedidos por raios de voz.
 * "DMZ VNet" para redes virtuais onde os utilizadores tenham implantado um NVA para inspecionar o tráfego ligado à Internet (VNet 5 na **Figura 1**).
-* "NVA Spokes" para redes virtuais ligadas a um VNet NVA (VNet 1, VNet 2 e VNet 3 na **Figura 1**).
 * "Hubs" para os Centros VIRTUAIS WAN geridos pela Microsoft.
 
 A seguinte matriz de conectividade resume os fluxos suportados neste cenário:
 
 **Matriz de conectividade**
 
-| De          | Para:|*Porta-vozes da NVA*|*Serviço VNet*|*DMZ VNet*|*Ramos Estáticos*|
-|---|---|---|---|---|---|
-| **Porta-vozes da NVA**| &#8594;|      X |            X |   Peering |    Estático    |
-| **Serviço VNet**| &#8594;|    X |            X |      X    |      X       |
-| **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
-| **Ramos** | &#8594;|  Estático |            X |      X    |      X       |
+| De          | Para:|*Spokes*|*Serviço VNet*|*Ramos*|*Internet*|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes**| &#8594;| Diretamente |Diretamente | Através do Serviço VNet |Através da DMZ VNet |
+| **Serviço VNet**| &#8594;| Diretamente |n/a| Diretamente | |
+| **Ramos** | &#8594;| Através do Serviço VNet |Diretamente| Diretamente |  |
 
-Cada uma das células da matriz de conectividade descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente por VIRTUAL WAN, e "Estática" significa que a conectividade é fornecida por WAN virtual usando rotas estáticas. Vamos em detalhe sobre as diferentes linhas:
+Cada uma das células da matriz de conectividade descreve se a conectividade flui diretamente sobre o WAN Virtual ou sobre um dos VNets com um NVA. Vamos em detalhe sobre as diferentes linhas:
 
-* Porta-vozes da NVA:
+* Porta-vozes:
   * Os porta-vozes chegarão a outros porta-vozes diretamente sobre os centros virtuais de WAN.
   * Os raios-raios obterão conectividade com os ramos através de uma rota estática que aponta para o VNet de serviço. Não devem aprender prefixos específicos dos ramos (caso contrário, estes seriam mais específicos e anulariam o resumo).
   * Os porta-vozes enviarão tráfego de Internet para o DMZ VNet através de um olhar vnet direto.
@@ -51,12 +50,12 @@ Cada uma das células da matriz de conectividade descreve se uma ligação WAN v
 * O VNet de serviço será semelhante a um VNet de Serviços Partilhados que precisa de ser acessível a partir de cada VNet e de cada ramo.
 * O DMZ VNet não precisa realmente de ter conectividade sobre o WAN Virtual, uma vez que o único tráfego que irá suportar virá sobre os seus pares VNet diretos. No entanto, usaremos o mesmo modelo de conectividade que o DMZ VNet para simplificar a configuração.
 
-Assim, a nossa matriz de conectividade dá-nos três padrões distintos de conectividade, que se traduz em três tabelas de rotas. As associações às diferentes VNets serão as seguintes:
+A nossa matriz de conectividade dá-nos três padrões distintos de conectividade, que se traduz em três tabelas de rotas. As associações às diferentes VNets serão as seguintes:
 
-* Porta-vozes da NVA:
+* Porta-vozes:
   * Tabela de rotas associada: **RT_V2B**
   * Propagação para tabelas de rotas: **RT_V2B** e **RT_SHARED**
-* NVA VNets (interno e internet):
+* VNets NVA (Service VNet e DMZ VNet):
   * Tabela de rotas associada: **RT_SHARED**
   * Propagação para tabelas de rotas: **RT_SHARED**
 * Ramos:

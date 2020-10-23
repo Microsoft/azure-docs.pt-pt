@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269561"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365821"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implementar uma estação de trabalho segura e gerida pelo Azure
 
@@ -31,18 +31,18 @@ Selecione um perfil antes de implementar a solução. Pode utilizar vários perf
 
 | Perfil | Baixo | Melhorada | Alto | Especializada | Protegido | Isolado |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Utilizador em Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
-| Gerido por intune | Sim | Sim | Sim | Sim | Sim | Sim |
-| Dispositivo - Azure AD registrado | Sim |  |  |  |  | |   |
-| Dispositivo - Azure AD juntou-se |   | Sim | Sim | Sim | Sim | Sim |
-| Linha de base de segurança intune aplicada |   | Sim <br> (Melhorado) | Sim <br> (Alta Segurança) | Sim <br> (NCSC) | Sim <br> (Seguro) | ND |
-| Hardware cumpre padrões seguros do Windows 10 |   | Sim | Sim | Sim | Sim | Sim |
-| Microsoft Defender ATP ativado |   | Sim  | Sim | Sim | Sim | Sim |
-| Remoção dos direitos de administração |   |   | Sim  | Sim | Sim | Sim |
-| Implementação utilizando o Microsoft Autopilot |   |   | Sim  | Sim | Sim | Sim |
-| Aplicativos instalados apenas pela Intune |   |   |   | Sim | Sim |Sim |
-| URLs restritos à lista aprovada |   |   |   | Sim | Sim |Sim |
-| Internet bloqueada (entrada/saída) |   |   |   |  |  |Sim |
+| Utilizador em Azure AD | Yes | Yes | Yes | Yes | Yes | Yes |
+| Gerido por intune | Yes | Yes | Yes | Yes | Yes | Yes |
+| Dispositivo - Azure AD registrado | Yes |  |  |  |  | |   |
+| Dispositivo - Azure AD juntou-se |   | Yes | Yes | Yes | Yes | Yes |
+| Linha de base de segurança intune aplicada |   | Yes <br> (Melhorado) | Yes <br> (Alta Segurança) | Yes <br> (NCSC) | Yes <br> (Seguro) | ND |
+| Hardware cumpre padrões seguros do Windows 10 |   | Yes | Yes | Yes | Yes | Yes |
+| Microsoft Defender ATP ativado |   | Yes  | Yes | Yes | Yes | Yes |
+| Remoção dos direitos de administração |   |   | Yes  | Yes | Yes | Yes |
+| Implementação utilizando o Microsoft Autopilot |   |   | Yes  | Yes | Yes | Yes |
+| Aplicativos instalados apenas pela Intune |   |   |   | Yes | Yes |Yes |
+| URLs restritos à lista aprovada |   |   |   | Yes | Yes |Yes |
+| Internet bloqueada (entrada/saída) |   |   |   |  |  |Yes |
 
 > [!NOTE]
 > Nos dispositivos de orientação de estação de trabalho seguros serão **atribuídos** perfis e políticas. Os utilizadores não terão as políticas aplicadas diretamente, permitindo que a partilha de dispositivos (dispositivos partilhados) esteja em vigor. Se uma estação de trabalho segura não for partilhada na sua implementação, ou forem necessárias políticas individuais de utilizador, a atribuição dos perfis de política do utilizador pode ser atribuída ao utilizador e ao dispositivo. 
@@ -51,11 +51,11 @@ Selecione um perfil antes de implementar a solução. Pode utilizar vários perf
 
 Os conceitos abrangidos por este guia pressupõem que tem microsoft 365 Enterprise E5 ou um SKU equivalente. Algumas das recomendações deste guia podem ser implementadas com SKUs mais baixos. Para mais informações, consulte [o licenciamento da Microsoft 365 Enterprise.](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise)
 
-Para automatizar o provisionamento de licenças, considere [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para os seus utilizadores.
+Para automatizar o provisionamento de licenças, considere [o licenciamento baseado em grupo](../enterprise-users/licensing-groups-assign.md) para os seus utilizadores.
 
 ## <a name="azure-active-directory-configuration"></a>Configuração do Diretório Ativo Azure
 
-O Azure Ative Directory (Azure AD) gere utilizadores, grupos e dispositivos para as suas estações de trabalho de administrador. Ativar serviços de identidade e funcionalidades com uma [conta de administrador.](../users-groups-roles/directory-assign-admin-roles.md)
+O Azure Ative Directory (Azure AD) gere utilizadores, grupos e dispositivos para as suas estações de trabalho de administrador. Ativar serviços de identidade e funcionalidades com uma [conta de administrador.](../roles/permissions-reference.md)
 
 Quando cria a conta de administrador de estação de trabalho segura, expõe a conta à sua estação de trabalho atual. Certifique-se de que utiliza um dispositivo seguro conhecido para fazer esta configuração inicial e toda a configuração global. Para reduzir a exposição ao ataque para a primeira experiência, considere seguir as [orientações para prevenir infeções por malware](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
@@ -77,7 +77,7 @@ Em seguida, cria-se dois grupos: utilizadores de estações de trabalho e dispos
 
 A partir do portal Azure, navegue até a **Azure Ative Directory**  >  **Groups**  >  **Novo grupo**.
 
-1. Para o grupo de utilizadores de estações de trabalho, é melhor configurar [o licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para automatizar o fornecimento de licenças aos utilizadores.
+1. Para o grupo de utilizadores de estações de trabalho, é melhor configurar [o licenciamento baseado em grupo](../enterprise-users/licensing-groups-assign.md) para automatizar o fornecimento de licenças aos utilizadores.
 1. Para o grupo de utilizadores da estação de trabalho, insira:
 
    * **Tipo de grupo** - Segurança
@@ -131,7 +131,7 @@ Estes passos permitem-lhe gerir qualquer dispositivo com o Intune. Para obter ma
 
 #### <a name="azure-ad-conditional-access"></a>Acesso Condicional do Azure AD
 
-O Acesso Condicional AZURE AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos compatíveis. Os membros predefinidos do grupo **Secure Workstation Users** são obrigados a realizar a autenticação de vários fatores ao iniciar sessão em aplicações na nuvem. Uma boa prática é excluir da apólice as contas de acesso de emergência. Para obter mais informações, consulte [Gerir as contas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md).
+O Acesso Condicional AZURE AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos compatíveis. Os membros predefinidos do grupo **Secure Workstation Users** são obrigados a realizar a autenticação de vários fatores ao iniciar sessão em aplicações na nuvem. Uma boa prática é excluir da apólice as contas de acesso de emergência. Para obter mais informações, consulte [Gerir as contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md).
 
 ## <a name="intune-configuration"></a>Configuração intune
 
@@ -308,7 +308,7 @@ Poderá ser necessário instalar aplicações do Windows 32 bits ou outras aplic
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>Acesso Condicional apenas permitindo capacidade de estação de trabalho segura para aceder ao portal Azure
 
-O Azure AD oferece a capacidade de gerir e restringir, quem e o que pode aceder ao seu portal de gestão de nuvem Azure. Permitir o [Acesso Condicional](../conditional-access/overview.md) garantirá que apenas a sua estação de trabalho segura pode gerir ou alterar recursos. É essencial que ao implementar esta funcionalidade considere, se a funcionalidade de [acesso de emergência](../users-groups-roles/directory-emergency-access.md) pode ou deve ser usada apenas para casos extremos e a conta gerida através da política.
+O Azure AD oferece a capacidade de gerir e restringir, quem e o que pode aceder ao seu portal de gestão de nuvem Azure. Permitir o [Acesso Condicional](../conditional-access/overview.md) garantirá que apenas a sua estação de trabalho segura pode gerir ou alterar recursos. É essencial que ao implementar esta funcionalidade considere, se a funcionalidade de [acesso de emergência](../roles/security-emergency-access.md) pode ou deve ser usada apenas para casos extremos e a conta gerida através da política.
 
 > [!NOTE]
 > Terá de criar um grupo de utilizadores e incluir o utilizador de emergência que pode contornar a política de Acesso Condicional. Por exemplo, temos um grupo de segurança chamado **Emergency BreakGlass**

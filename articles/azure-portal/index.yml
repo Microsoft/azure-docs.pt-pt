@@ -12,12 +12,12 @@ metadata:
   author: mblythe
   ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
+  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88212085"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92089286"
 landingContent:
 - title: Acerca do portal do Azure
   linkLists:
@@ -43,13 +43,13 @@ landingContent:
     links:
     - text: Criar uma lista segura dos URLs do portal do Azure
       url: azure-portal-safelist-urls.md
-    - text: Controlo de acesso baseado em funções para dashboards
+    - text: Controlo de acesso baseado em funções do Azure para dashboards
       url: azure-portal-dashboard-share-access.md
   - linkListType: learn
     links:
     - text: Gerir recursos no Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Proteger os recursos do Azure com controlo de acesso baseado em funções (RBAC)
+    - text: Proteja os seus recursos do Azure com o controlo de acesso baseado em funções do Azure (RBAC do Azure)
       url: /learn//modules/secure-azure-resources-with-rbac/
 - title: Introdução
   linkLists:

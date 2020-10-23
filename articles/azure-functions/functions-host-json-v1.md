@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 1.x
 description: A documentação de referência para as Funções Azure host.jsarquivada com o tempo de execução v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757512"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167730"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jsem referência para Funções Azure 1.x
 
@@ -230,7 +230,7 @@ Se partilhar uma conta de Armazenamento em várias aplicações de funções, ce
 
 ## <a name="logger"></a>madeireiro
 
-Controla a filtragem de registos escritos por um [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) ou por [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controla a filtragem de registos escritos por um objeto [ILogger](functions-dotnet-class-library.md#ilogger) ou por [context.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -340,7 +340,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 
 *Versão 1.x*
 
-Configurações de configuração para registos que cria utilizando um `TraceWriter` objeto. Ver [C# Registar registos](functions-reference-csharp.md#logging) e [Node.js registos](functions-reference-node.md#writing-trace-output-to-the-console).
+Configurações de configuração para registos que cria utilizando um `TraceWriter` objeto. Para saber mais, consulte [C# Logging].
 
 ```json
 {

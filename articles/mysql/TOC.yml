@@ -85,6 +85,8 @@
               href: connect-cpp.md
             - name: Ir
               href: connect-go.md
+            - name: GitHub Actions
+              href: quickstart-mysql-github-actions.md
     - name: Tutoriais
       items:
         - name: Estruturar uma base de dados

@@ -6,14 +6,14 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 72312df41a74ac8f2321b31287cbb3cd87d1a04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffec1b0e5fd57a19c5b5c940ec921b43970387e8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87041738"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372145"
 ---
-# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs ligações para funções Azure
+# <a name="azure-event-hubs-trigger-for-azure-functions"></a>Azure Event Hubs gatilho para funções Azure
 
 Este artigo explica como trabalhar com o gatilho [Azure Event Hubs](../event-hubs/event-hubs-about.md) para funções Azure. As funções Azure [suportam ligações](functions-bindings-event-hubs-output.md) de gatilho e saída para os Centros de Eventos.
 

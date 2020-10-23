@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525046"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419935"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Apoiar VMs de carga de trabalho na CloudSimple Private Cloud usando Veeam B&R
 
@@ -56,7 +56,7 @@ Para ambientes com menos de 30 TB para fazer o back up, o CloudSimple recomenda 
 * Um repositório de apoio primário baseado em Linux em Azure configurado como um alvo para trabalhos de reserva.
 * `azcopy` usado para copiar os dados do repositório de backup primário para um recipiente de bolhas Azure que é replicado para outra região.
 
-![Cenários básicos de implantação](media/veeam-basicdeployment.png)
+![Diagrama que mostra cenários básicos de implantação do Veeam.](media/veeam-basicdeployment.png)
 
 **Implantação avançada**
 

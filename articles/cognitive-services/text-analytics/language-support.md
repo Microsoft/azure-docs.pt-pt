@@ -10,17 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b13d82780a01771c6bb8e87091a7808ea22ca111
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977736"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371190"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
 
-> [!IMPORTANT]
-> A versão 3.x da Text Analytics API está atualmente indisponível nas seguintes regiões: Índia Central, Uae North, China Norte 2, China Leste.
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
@@ -87,7 +86,7 @@ ms.locfileid: "91977736"
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extração de expressões-chave](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
 > [!NOTE]
 > As versões de modelo de Extração de Frase-Chave antes de 2020-07-01 têm um limite de caracteres de 64. Este limite não está presente nas versões posteriores do modelo.
@@ -119,14 +118,109 @@ ms.locfileid: "91977736"
 
 #### <a name="language-detection"></a>[Deteção de Idioma](#tab/language-detection)
 
-A API text Analytics pode detetar uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais/culturais.  A Deteção de Idiomas devolve o "script" de uma língua. Por exemplo, para a frase "tenho um cão" ele vai voltar  `en` em vez de  `en-US` . O único caso especial é o chinês, onde a capacidade de deteção de idiomas regressará `zh_CHS` ou se pode determinar o script dado o texto `zh_CHT` fornecido. Em situações em que um guião específico não possa ser identificado para um documento chinês, ele regressará simplesmente `zh` .
-
-Não publicamos a lista exata de línguas para esta funcionalidade, mas pode detetar uma grande variedade de línguas, variantes, dialetos e algumas línguas regionais/culturais. 
+A API text Analytics pode detetar uma vasta gama de línguas, variantes, dialetos e algumas línguas regionais/culturais, e devolver línguas detetadas com o seu nome e código. Os parâmetros do código linguístico de deteção de linguagem de deteção de linguagem de análise de texto estão em conformidade com a [norma BCP-47,](https://tools.ietf.org/html/bcp47) com a maioria a estar em conformidade com os identificadores [ISO-639-1.](https://www.iso.org/iso-639-language-codes.html) 
 
 Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção de Idiomas para ver se devolve um código. A resposta para línguas que não podem ser detetadas é `unknown` .
 
+| Linguagem | Código do Idioma |  v3 suporte | Disponível a partir da versão do modelo V3: |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|
+|Afrikaans|`af`|✓|    |
+|Albanês|`sq`|✓|    |
+|Árabe|`ar`|✓|    |
+|Arménio|`hy`|✓|    |
+|Basco|`eu`|✓|    |
+|Bielorrusso|`be`|✓|    |
+|Bengalês|`bn`|✓|    |
+|Bósnio|`bs`|✓|2020-09-01|
+|Búlgaro|`bg`|✓|    |
+|Birmanês|`my`|✓|    |
+|Catalão, Valenciano|`ca`|✓|    |
+|Central Khmer|`km`|✓|    |
+|Chinês|`zh`|✓|    |
+|Chinês simplificado|`zh_chs`|✓|    |
+|Chinês tradicional|`zh_cht`|✓|    |
+|Croata|`hr`|✓|    |
+|Checo|`cs`|✓|    |
+|Dinamarquês|`da`|✓|    |
+|Rio Dari|`prs`|✓|2020-09-01|
+|Divehi, Dhivehi, Maldivian|`dv`|✓|    |
+|Holandês, Flamengo|`nl`|✓|    |
+|Inglês|`en`|✓|    |
+|Esperanto|`eo`|✓|    |
+|Estónio|`et`|✓|    |
+|Fijian|`fj`|✓|2020-09-01|
+|Finlandês|`fi`|✓|    |
+|Francês|`fr`|✓|    |
+|Galego|`gl`|✓|    |
+|Georgiano|`ka`|✓|    |
+|Alemão|`de`|✓|    |
+|Grego|`el`|✓|    |
+|Guzerate|`gu`|✓|    |
+|Haiti, crioulo haitiano|`ht`|✓|    |
+|Hebraico|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong Daw|`mww`|✓|2020-09-01|
+|Húngaro|`hu`|✓|    |
+|Islandês|`is`|✓|    |
+|Indonésio|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Irlandês|`ga`|✓|    |
+|Italiano|`it`|✓|    |
+|Japonês|`ja`|✓|    |
+|Canarês|`kn`|✓|    |
+|Cazaque|`kk`|✓|2020-09-01|
+|Coreano|`ko`|✓|    |
+|Curdo|`ku`|✓|    |
+|Rio Lao|`lo`|✓|    |
+|Latim|`la`|✓|    |
+|Letão|`lv`|✓|    |
+|Lituano|`lt`|✓|    |
+|Macedónio|`mk`|✓|    |
+|Malgaxe|`mg`|✓|2020-09-01|
+|Malaio|`ms`|✓|    |
+|Malaiala|`ml`|✓|    |
+|Maltês|`mt`|✓|    |
+|Maori|`mi`|✓|2020-09-01|
+|Marata|`mr`|✓|2020-09-01|
+|Norueguês|`no`|✓|    |
+|Norueguês (Nynorsk)|`nn`|✓|    |
+|Oriya|`or`|✓|    |
+|Pashto|`ps`|✓|    |
+|Persa|`fa`|✓|    |
+|Polaco|`pl`|✓|    |
+|Português|`pt`|✓|    |
+|Punjabi|`pa`|✓|    |
+|Queretaro Otomi|`otq`|✓|2020-09-01|
+|Romeno, Moldávio, Moldávia|`ro`|✓|    |
+|Russo|`ru`|✓|    |
+|Samoa|`sm`|✓|2020-09-01|
+|Sérvio|`sr`|✓|    |
+|Sinhala|`si`|✓|    |
+|Eslovaco|`sk`|✓|    |
+|Esloveno|`sl`|✓|    |
+|Somália|`so`|✓|    |
+|Espanhol, Castelhiano|`es`|✓|    |
+|Suaíli|`sw`|✓|    |
+|Sueco|`sv`|✓|    |
+|Tagalog|`tl`|✓|    |
+|Taitiano|`ty`|✓|2020-09-01|
+|Tâmil|`ta`|✓|    |
+|Telugu|`te`|✓|    |
+|Tailandês|`th`|✓|    |
+|Tongan|`to`|✓|2020-09-01|
+|Turco|`tr`|✓|    |
+|Ucraniano|`uk`|✓|    |
+|Urdu|`ur`|✓|    |
+|Usbeque|`uz`|✓|    |
+|Vietnamita|`vi`|✓|    |
+|Galês|`cy`|✓|    |
+|Iídiche|`yi`|✓|    |
+|Maia-de-iucatec|`yua`|✓|    |
+
+
 ---
 
-## <a name="see-also"></a>Consulte também
+
+## <a name="see-also"></a>Ver também
 
 * [O que é a API de Análise de Texto?](overview.md)   

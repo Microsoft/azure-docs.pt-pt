@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: c0313c74b046d4c93c8625eab8659df392041059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e39884f6d62fc43943f892aed0dac650a01d6c40
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419814"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419898"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -40,15 +40,11 @@ Verifique os seguintes itens antes de redefinir o seu gateway:
 
 ## <a name="azure-portal"></a><a name="portal"></a>Portal do Azure
 
-Pode redefinir uma porta de entrada VPN do Gestor de Recursos utilizando o portal Azure. Se quiser redefinir uma porta de entrada clássica, consulte os passos [PowerShell.](#resetclassic)
+Pode redefinir uma porta de entrada VPN do Gestor de Recursos utilizando o portal Azure. Se quiser redefinir uma porta de entrada clássica, consulte os passos PowerShell para o [modelo de implantação Clássico.](#resetclassic)
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implementação Resource Manager
 
-1. Abra o [portal Azure](https://portal.azure.com) e navegue para o gateway de rede virtual do Gestor de Recursos que pretende reiniciar.
-2. Na lâmina para o gateway de rede virtual, clique em 'Reset'.
-
-   ![Lâmina de gateway VPN reiniciada](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. Na lâmina Reset, clique no botão **Reset.**
+[!INCLUDE [portal steps](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
 ## <a name="powershell"></a><a name="ps"></a>PowerShell
 
@@ -69,7 +65,7 @@ Quando receber um resultado de retorno, pode presumir que o reset do gateway foi
 
 ### <a name="classic-deployment-model"></a><a name="resetclassic"></a>Modelo de implementação clássica
 
-O cmdlet para repor um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para gestão de serviços devem ser instalados localmente no seu ambiente de trabalho. Não podes usar a Azure Cloud Shell. Antes de efetuar um reset, certifique-se de que tem a versão mais recente dos [cmdlets PowerShell de Gestão de Serviços (SM).](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) Ao utilizar este comando, certifique-se de que utiliza o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Pode ver o nome longo utilizando 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
+O cmdlet para repor um gateway é **Reset-AzureVNetGateway**. Os cmdlets Azure PowerShell para gestão de serviços devem ser instalados localmente no seu ambiente de trabalho. Não podes usar a Azure Cloud Shell. Antes de efetuar um reset, certifique-se de que tem a versão mais recente dos [cmdlets PowerShell de Gestão de Serviços (SM).](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets) Ao utilizar este comando, certifique-se de que utiliza o nome completo da rede virtual. Os VNets clássicos que foram criados usando o portal têm um nome longo que é necessário para o PowerShell. Pode ver o nome longo utilizando 'Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml'.
 
 O exemplo a seguir repõe o portal para uma rede virtual chamada "Group TestRG1 TestVNet1" (que mostra simplesmente "TestVNet1" no portal):
 

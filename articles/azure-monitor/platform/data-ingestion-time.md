@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bfe1109640f158b92f54b945d314ac65a93ddc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403556"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107917"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. Muitas vezes existem dúvidas sobre o tempo que os dados de registo demoram a ficar disponíveis após a sua recolha. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -57,7 +57,7 @@ Algumas soluções não recolhem os seus dados de um agente e podem utilizar um 
 Consulte a documentação de cada solução para determinar a sua frequência de recolha.
 
 ### <a name="pipeline-process-time"></a>Tempo de processo do gasoduto
-Uma vez que os registos de registos são ingeridos no oleoduto Azure Monitor (conforme identificado na propriedade [_TimeReceived),](log-standard-properties.md#_timereceived) são escritos para armazenamento temporário para garantir o isolamento do inquilino e para garantir que os dados não são perdidos. Este processo normalmente adiciona 5-15 segundos. Algumas soluções de gestão implementam algoritmos mais pesados para agregar dados e obter insights à medida que os dados estão a ser transmitidos. Por exemplo, a Monitorização do Desempenho da Rede agrega dados de entrada em intervalos de 3 minutos, adicionando efetivamente latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com registos personalizados. Em alguns casos, este processo pode adicionar poucos minutos de latência aos registos que são recolhidos a partir de ficheiros pelo agente.
+Uma vez que os registos de registos são ingeridos no oleoduto Azure Monitor (conforme identificado na propriedade [_TimeReceived),](./log-standard-columns.md#_timereceived) são escritos para armazenamento temporário para garantir o isolamento do inquilino e para garantir que os dados não são perdidos. Este processo normalmente adiciona 5-15 segundos. Algumas soluções de gestão implementam algoritmos mais pesados para agregar dados e obter insights à medida que os dados estão a ser transmitidos. Por exemplo, a Monitorização do Desempenho da Rede agrega dados de entrada em intervalos de 3 minutos, adicionando efetivamente latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com registos personalizados. Em alguns casos, este processo pode adicionar poucos minutos de latência aos registos que são recolhidos a partir de ficheiros pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Novos tipos de dados personalizados
 Quando um novo tipo de dados personalizados é criado a partir de um [registo personalizado](data-sources-custom-logs.md) ou da [API do Colecionador de Dados,](data-collector-api.md)o sistema cria um recipiente de armazenamento dedicado. Esta é uma sobrecarga única que ocorre apenas na primeira apresentação deste tipo de dados.
@@ -77,8 +77,8 @@ O tempo de ingestão pode variar para diferentes recursos em diferentes circunst
 
 | Passo | Propriedade ou Função | Comentários |
 |:---|:---|:---|
-| Record criado na fonte de dados | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir este valor, então será definido ao mesmo tempo que _TimeReceived. |
-| Record recebido pelo Azure Monitor no ponto final | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Record criado na fonte de dados | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir este valor, então será definido ao mesmo tempo que _TimeReceived. |
+| Record recebido pelo Azure Monitor no ponto final | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Disco armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Atrasos na latência da ingestão
@@ -143,4 +143,3 @@ Heartbeat
 
 ## <a name="next-steps"></a>Passos seguintes
 * Leia o [Acordo de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) para O Monitor Azure.
-

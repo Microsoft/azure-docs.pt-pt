@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 1e395e4e73f6c140d81189f1abbccca8c064f757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616657"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332421"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explore a análise do SaaS com a Azure SQL Database, Azure Synapse Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Em seguida, os dados extraídos são transformados e carregados em um conjunto d
 
 Juntas as tabelas central e de dimensão permitem um processamento analítico eficiente. O esquema de estrelas utilizado neste tutorial é exibido na seguinte imagem:
 
-![arquiteturaOverView](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
+![Diagrama que mostra o esquema estelar que é usado neste tutorial.](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
 
 Finalmente, as mesas de esquema de estrelas são questionadas. Os resultados da consulta são apresentados visualmente usando o Power BI para destacar insights sobre o comportamento do inquilino e o seu uso da aplicação. Com este esquema de estrelas, você corre consultas que expõem:
 

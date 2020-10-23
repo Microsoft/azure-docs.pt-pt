@@ -2,13 +2,13 @@
 title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385760"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371448"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -26,7 +26,7 @@ Todos os nós de computação do Batch incluem também:
 
 - Uma [estrutura de pastas](files-and-directories.md) padrão e [variáveis de ambiente](jobs-and-tasks.md) associadas que também estão disponíveis para referência por parte das tarefas.
 - Definições de **Firewall** que são configuradas para controlar o acesso.
-- [Acesso remoto](error-handling.md#connect-to-compute-nodes) para Windows (protocolo RDP (Remote Desktop Protocol)) e nós Linux (Secure Shell (SSH)).
+- [Acesso remoto](error-handling.md#connect-to-compute-nodes) a ambos os nós Windows (Remote Desktop Protocol (RDP)) e Linux (Secure Shell (SSH)) (a menos que [crie a sua piscina com acesso remoto desativado).](pool-endpoint-configuration.md)
 
 Por padrão, os nós podem comunicar uns com os outros, mas não podem comunicar com máquinas virtuais que não fazem parte da mesma piscina. Para permitir que os nós se comuniquem de forma segura com outras máquinas virtuais, ou com uma rede no local, pode providenciar a piscina [numa sub-rede de uma rede virtual Azure (VNet)](batch-virtual-network.md). Ao fazê-lo, os seus nós podem ser acedidos através de endereços IP públicos. Estes endereços IP públicos são criados por Batch e podem ser alterados ao longo da vida útil da piscina. Também pode [criar uma piscina com endereços IP públicos estáticos](create-pool-public-ip.md) que controla, o que garante que não mudarão inesperadamente.
 

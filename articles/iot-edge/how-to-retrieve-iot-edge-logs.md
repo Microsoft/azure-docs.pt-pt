@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044203"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171917"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar registos de implementações IoT Edge
 
@@ -65,17 +65,17 @@ Este método aceita uma carga JSON com o seguinte esquema:
 
 | Nome | Tipo | Descrição |
 |-|-|-|
-| schemaVersão | cadeia | Definir para `1.0` |
+| schemaVersão | string | Definir para `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` `filter` tuples. |
-| ID | cadeia | Uma expressão regular que fornece o nome do módulo. Pode combinar vários módulos num dispositivo de borda. Espera-se o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) |
+| ID | string | Uma expressão regular que fornece o nome do módulo. Pode combinar vários módulos num dispositivo de borda. Espera-se o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) |
 | filter | Secção JSON | Registar filtros para aplicar aos módulos correspondentes à `id` expressão regular no tuple. |
 | cauda | número inteiro | Número de linhas de registo no passado para recuperar a partir das últimas. Opcional. |
 | desde | número inteiro | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX.  Se ambos `tail` e `since` forem especificados, os registos são recuperados usando primeiro o `since` valor. Em seguida, o `tail` valor é aplicado ao resultado, e o resultado final é devolvido. Opcional. |
 | até | número inteiro | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
 | nível de log | número inteiro | Filtrar linhas de registo inferiores ou iguais ao nível de registo especificado. As linhas de registo devem seguir o formato de registo recomendado e utilizar o padrão [de nível de severidade Syslog.](https://en.wikipedia.org/wiki/Syslog#Severity_level) Opcional. |
-| regex | cadeia | Filtrar linhas de registo que tenham conteúdo que corresponda à expressão regular especificada utilizando o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) Opcional. |
-| codificação | cadeia | `gzip` ou `none`. A predefinição é `none`. |
-| conteúdoType | cadeia | `json` ou `text`. A predefinição é `text`. |
+| regex | string | Filtrar linhas de registo que tenham conteúdo que corresponda à expressão regular especificada utilizando o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) Opcional. |
+| codificação | string | `gzip` ou `none`. A predefinição é `none`. |
+| conteúdoType | string | `json` ou `text`. A predefinição é `text`. |
 
 > [!NOTE]
 > Se o conteúdo dos registos exceder o limite de tamanho de resposta dos métodos diretos, que atualmente é de 128 KB, a resposta devolve um erro.
@@ -180,9 +180,9 @@ Um pedido bem sucedido para carregar registos devolve um **"status": 200** segui
 
 | Nome | Tipo | Descrição |
 |-|-|-|
-| status | cadeia | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
-| message | cadeia | Mensagem se erro, corda vazia de outra forma. |
-| correlationId | cadeia   | Identificação para consulta ao estado do pedido de upload. |
+| status | string | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
+| message | string | Mensagem se erro, corda vazia de outra forma. |
+| correlationId | string   | Identificação para consulta ao estado do pedido de upload. |
 
 Por exemplo:
 
@@ -275,7 +275,7 @@ Este método aceita uma carga JSON com o seguinte esquema:
 
 | Nome | Tipo | Descrição |
 |-|-|-|
-| schemaVersão | cadeia | Definir para `1.0` |
+| schemaVersão | string | Definir para `1.0` |
 | sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | desde | número inteiro | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX. Opcional. |
 | até | número inteiro | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
@@ -296,9 +296,9 @@ Um pedido bem sucedido para carregar registos devolve um **"status": 200** segui
 
 | Nome | Tipo | Descrição |
 |-|-|-|
-| status | cadeia | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
-| message | cadeia | Mensagem se erro, corda vazia de outra forma. |
-| correlationId | cadeia   | Identificação para consulta ao estado do pedido de upload. |
+| status | string | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
+| message | string | Mensagem se erro, corda vazia de outra forma. |
+| correlationId | string   | Identificação para consulta ao estado do pedido de upload. |
 
 Por exemplo:
 
@@ -354,9 +354,9 @@ Um pedido bem sucedido para carregar registos devolve um **"status": 200** segui
 
 | Nome | Tipo | Descrição |
 |-|-|-|
-| status | cadeia | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
-| message | cadeia | Mensagem se erro, corda vazia de outra forma. |
-| correlationId | cadeia   | Identificação para consulta ao estado do pedido de upload. |
+| status | string | Um dos `NotStarted` , , , ou `Running` `Completed` `Failed` `Unknown` . |
+| message | string | Mensagem se erro, corda vazia de outra forma. |
+| correlationId | string   | Identificação para consulta ao estado do pedido de upload. |
 
 Por exemplo:
 
@@ -370,7 +370,7 @@ az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <
 '
 ```
 
-No portal Azure, invoque o método com o nome do método `UploadModuleLogs` e a seguinte carga útil JSON após povoar o GUID com as suas informações:
+No portal Azure, invoque o método com o nome do método `GetTaskStatus` e a seguinte carga útil JSON após povoar o GUID com as suas informações:
 
 ```json
     {

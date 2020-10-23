@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317181"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164827"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -203,9 +203,9 @@ O contexto passado para a sua função expõe uma `executionContext` propriedade
 
 | Nome da propriedade  | Tipo  | Descrição |
 |---------|---------|---------|
-| `invocationId` | Cadeia | Fornece um identificador único para a invocação de funções específicas. |
-| `functionName` | Cadeia | Fornece o nome da função de execução |
-| `functionDirectory` | Cadeia | Fornece o diretório de aplicações de funções. |
+| `invocationId` | String | Fornece um identificador único para a invocação de funções específicas. |
+| `functionName` | String | Fornece o nome da função de execução |
+| `functionDirectory` | String | Fornece o diretório de aplicações de funções. |
 
 O exemplo que se segue mostra como devolver o `invocationId` .
 
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Permite-lhe escrever para os registos de funções de streaming no nível de rastreação predefinido. Em `context.log` , existem métodos adicionais de registo que permitem escrever registos de funções em outros níveis de vestígios:
+Permite-lhe escrever para os registos de funções de streaming no nível de rastreação predefinido, com outros níveis de registo disponíveis. A registo de vestígios é descrita em detalhe na secção seguinte. 
 
+## <a name="write-trace-output-to-logs"></a>Escrever saída de vestígios para registos
 
-| Método                 | Descrição                                |
-| ---------------------- | ------------------------------------------ |
-| **erro _(mensagem)_**   | Escreve para registo de nível de erro ou menor.   |
-| **alertar _(mensagem)_**    | Escreve para o nível de registo de aviso, ou mais baixo. |
-| **informação _(mensagem)_**    | Escreve para registo de nível de informação ou menor.    |
-| **verbose (_mensagem)_** | Escreve para a gravação de nível verboso.           |
+Em Funções, utiliza os `context.log` métodos para escrever vestígios de saída para os registos e para a consola. Quando `context.log()` liga, a sua mensagem é escrita para os registos no nível de rastreação predefinido, que é o nível de rastreio de _informações._ As funções integram-se com o Azure Application Insights para capturar melhor os registos de aplicações da sua função. A Application Insights, parte do Azure Monitor, fornece instalações para recolha, renderização visual e análise tanto da telemetria da aplicação como das suas saídas de vestígios. Para saber mais, consulte [a monitorização das Funções Azure](functions-monitoring.md).
 
-O exemplo a seguir escreve um registo ao nível dos vestígios de aviso:
+O exemplo a seguir escreve um registo ao nível do rastreio de informações, incluindo o ID de invocação:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Pode [configurar o limiar de nível de rastreio para registar o](#configure-the-trace-level-for-console-logging) host.jsficheiro. Para obter mais informações sobre registos de escrita, consulte [as saídas de vestígios de escrita](#writing-trace-output-to-the-console) abaixo.
-
-Leia [a monitorização das Funções Azure](functions-monitoring.md) para saber mais sobre registos de funções de visualização e consulta.
-
-## <a name="writing-trace-output-to-the-console"></a>Escrevendo saída de traço para a consola 
-
-Em Funções, utiliza-se os `context.log` métodos para escrever a saída de traços para a consola. Em Funções v2.x, as saídas de vestígios que utilizam `console.log` são capturadas ao nível da Aplicação de Função. Isto significa que as saídas `console.log` não estão ligadas a uma invocação de função específica e não são exibidas nos registos de uma função específica. No entanto, propagam-se a Application Insights. Em Funções v1.x, não é possível escrever `console.log` para a consola.
-
-Quando `context.log()` liga, a sua mensagem é escrita para a consola ao nível padrão de rastreação, que é o nível de rastreio de _informação._ O seguinte código escreve para a consola ao nível do rastreio de informações:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Este código é equivalente ao código acima:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Este código escreve para a consola ao nível de erro:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Como o _erro_ é o nível mais alto de rastreá-lo, este traço é escrito para a saída em todos os níveis de rastrear, desde que a exploração madeireira esteja ativada.
 
 Todos os `context.log` métodos suportam o mesmo formato de parâmetro que é suportado pelo método Node.js [util.formato](https://nodejs.org/api/util.html#util_util_format_format). Considere o seguinte código, que escreve registos de funções utilizando o nível de rastreação predefinido:
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configure o nível de vestígio para a exploração de consolas
+> [!NOTE]  
+> Não use `console.log` para escrever vestígios de saídas. Como a saída `console.log` é capturada ao nível da aplicação de função, não está ligada a uma invocação de função específica e não é exibida nos registos de uma função específica. Além disso, a versão 1.x do tempo de execução de Funções não suporta usar `console.log` para escrever para a consola.
 
-As funções 1.x permitem definir o nível de traço de limiar para a escrita na consola, o que facilita o controlo da forma como os vestígios são escritos na consola a partir da sua função. Para definir o limiar para todos os vestígios escritos na consola, utilize a `tracing.consoleLevel` propriedade na host.jsem arquivo. Esta definição aplica-se a todas as funções da sua aplicação de funções. O exemplo a seguir define o limiar de rastreio para permitir a exploração de verbose:
+### <a name="trace-levels"></a>Níveis de vestígios
+
+Além do nível predefinido, estão disponíveis os seguintes métodos de registo que permitem escrever registos de funções em níveis específicos de rastreamento.
+
+| Método                 | Descrição                                |
+| ---------------------- | ------------------------------------------ |
+| **erro _(mensagem)_**   | Escreve um evento de nível de erro nos registos.   |
+| **alertar _(mensagem)_**    | Escreve um evento de nível de aviso para os registos. |
+| **informação _(mensagem)_**    | Escreve para registo de nível de informação ou menor.    |
+| **verbose (_mensagem)_** | Escreve para a gravação de nível verboso.           |
+
+O exemplo a seguir escreve o mesmo registo ao nível dos rastreios de aviso, em vez do nível de informação:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Como o _erro_ é o nível mais alto de rastreá-lo, este traço é escrito para a saída em todos os níveis de rastrear, desde que a exploração madeireira esteja ativada.
+
+### <a name="configure-the-trace-level-for-logging"></a>Configure o nível de vestígios para a exploração madeireira
+
+As funções permitem definir o nível de traço de limiar para escrever nos registos ou na consola. As definições de limiar específicas dependem da sua versão do tempo de execução de Funções.
+
+# <a name="v2x"></a>[v2.x+](#tab/v2)
+
+Para definir o limiar para vestígios escritos nos registos, utilize a `logging.logLevel` propriedade na host.jsem arquivo. Este objeto JSON permite definir um limiar padrão para todas as funções na sua aplicação de funções, além de que pode definir limiares específicos para funções individuais. Para saber mais, consulte [Como configurar a monitorização para as Funções Azure](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+Para definir o limiar para todos os vestígios escritos para registos e consola, utilize a `tracing.consoleLevel` propriedade no host.jsem arquivo. Esta definição aplica-se a todas as funções da sua aplicação de funções. O exemplo a seguir define o limiar de rastreio para permitir a exploração de verbose:
 
 ```json
 {
@@ -360,7 +358,65 @@ As funções 1.x permitem definir o nível de traço de limiar para a escrita na
 }  
 ```
 
-Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_. Para mais informações, consulte [host.jsa referência.](functions-host-json-v1.md)
+Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_. Para obter mais informações, consulte [host.jsna referência v1.x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Registar telemetria personalizada
+
+Por predefinição, as funções escrevem a saída como traços para Insights de Aplicação. Para mais controlo, pode, em vez disso, utilizar o [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) para enviar dados de telemetria personalizados para a sua instância De Insights de Aplicação. 
+
+# <a name="v2x"></a>[v2.x+](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+O `tagOverrides` parâmetro define o `operation_Id` ID de invocação da função. Esta definição permite-lhe correlacionar toda a telemetria gerada e personalizada automaticamente para uma determinada invocação de função.
 
 ## <a name="http-triggers-and-bindings"></a>Disparadores e encadernações HTTP
 

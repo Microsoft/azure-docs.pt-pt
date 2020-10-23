@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75441226"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279855"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Criar uma chave de partição sintética
 
@@ -58,7 +58,7 @@ Com esta estratégia, as escritas são distribuídas uniformemente pelos valores
 
 Pode saber mais sobre o conceito de partição nos seguintes artigos:
 
-* Saiba mais sobre [divisórias lógicas.](partition-data.md)
+* Saiba mais sobre [divisórias lógicas.](partitioning-overview.md)
 * Saiba mais sobre como [obter produção em contentores e bases de dados da Azure Cosmos.](set-throughput.md)
 * Saiba como [obter a produção num recipiente Azure Cosmos.](how-to-provision-container-throughput.md)
 * Saiba como [obter o rendimento numa base de dados da Azure Cosmos.](how-to-provision-database-throughput.md)

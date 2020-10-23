@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ff7f6468b5556b56c5c2aeaba6107cac48d1ed4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88530312"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456454"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutorial: Azure Ative Directory integração única com Catchpoint
 
@@ -26,7 +26,7 @@ Neste tutorial, aprende-se a integrar o Catchpoint com o Azure Ative Directory (
 * Ativar o registo automático do Catchpoint para utilizadores com contas AZure AD.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * O Catchpoint suporta sSO iniciado pelo SP e iniciado pelo IDP.
 * O Catchpoint suporta o fornecimento do utilizador just-in-time (JIT).
-* Depois de configurar o Catchpoint, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão é uma extensão do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Catchpoint, pode impor o controlo da sessão. Esta precaução protege contra a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão é uma extensão do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-catchpoint-from-the-gallery"></a>Adicione Catchpoint da galeria
 
@@ -87,24 +87,24 @@ Siga estes passos no portal Azure para ativar o Azure AD SSO:
 
 1. A aplicação Catchpoint espera as afirmações DOL num formato específico. Adicione mapeamentos de atributos personalizados à sua configuração de atributos de token SAML. A tabela a seguir contém a lista de atributos predefinidos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------ | --------- |
     | Nome dado | user.givenneame |
     | Apelido | utilizador.sobrenome |
     | Emailaddress | user.mail |
-    | Nome | user.userprincipalname |
+    | Name | user.userprincipalname |
     | Identificador de utilizador único | user.userprincipalname |
 
     ![Imagem da lista de atributos & de atributos do utilizador](common/default-attributes.png)
 
 1. Além disso, a aplicação Catchpoint espera que outro atributo seja aprovado numa resposta SAML. Consulte a tabela seguinte. Este atributo também é pré-povoado, mas pode revê-lo e atualizá-lo de acordo com os seus requisitos.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------------ | --------- |
     | espaço de nomes | user.assignedrole |
 
     > [!NOTE]
-    > A `namespace` reclamação precisa de ser mapeada com o nome da conta. Este nome de conta deve ser criado com um papel na Azure AD a ser repercutido na resposta SAML. Para obter mais informações sobre papéis em Azure AD, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    > A `namespace` reclamação precisa de ser mapeada com o nome da conta. Este nome de conta deve ser criado com um papel na Azure AD a ser repercutido na resposta SAML. Para obter mais informações sobre papéis em Azure AD, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md).
 
 1. Vá ao set Up Single Sign-On com a página **SAML.** Na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)**. Selecione **Baixar** para guardar o certificado para o seu computador.
 
@@ -175,7 +175,7 @@ O Catchpoint suporta o provisionamento do utilizador just-in-time, o que é ativ
 
 Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
 
-Quando selecionar o azulejo do Catchpoint no portal My Apps, deverá ser automaticamente inscrito na aplicação Catchpoint com SSO configurado. Para obter mais informações sobre o portal My Apps, consulte [iniciar sôr-se e iniciar aplicações a partir do portal My Apps.](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
+Quando selecionar o azulejo do Catchpoint no portal My Apps, deverá ser automaticamente inscrito na aplicação Catchpoint com SSO configurado. Para obter mais informações sobre o portal My Apps, consulte [iniciar sôr-se e iniciar aplicações a partir do portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 > [!NOTE]
 > Quando tiver assinado a aplicação Catchpoint através da página de login, depois de fornecer **Credenciais de Ponto de Acesso,** insira o valor de **Espaço Nome** válido no campo **Credenciais da Empresa (SSO)** e selecione **Login**.
@@ -184,12 +184,12 @@ Quando selecionar o azulejo do Catchpoint no portal My Apps, deverá ser automat
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente catchpoint com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

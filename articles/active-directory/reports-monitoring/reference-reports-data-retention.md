@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239552"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308888"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo a Azure AD armazena dados de reporte?
 
@@ -34,7 +34,7 @@ Neste artigo, você aprende sobre as políticas de retenção de dados para os d
 | Edição AD Azure | Início da Coleção |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Quando se inscreve para uma subscrição |
-| Azure AD Gratuito| A primeira vez que abre a lâmina do [Diretório Ativo Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utiliza as [APIs de reporte](https://aka.ms/aadreports)  |
+| Azure AD Gratuito| A primeira vez que abre a lâmina do [Diretório Ativo Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utiliza as [APIs de reporte](./overview-reports.md)  |
 
 ---
 

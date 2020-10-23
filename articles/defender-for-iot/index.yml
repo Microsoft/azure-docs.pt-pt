@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 1f7728334b456eb292c33c18d15f01ccbaa199e8
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 18f3f2f14d4e04c523a355f699eaf24b8c93bb81
+  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90929094"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92090017"
 landingContent:
 - title: Acerca do Azure Defender para IoT
   linkLists:
@@ -102,10 +102,8 @@ landingContent:
   linkLists:
   - linkListType: video
     links:
-    - text: O que é o Azure Defender para IoT?
-      url: https://youtu.be/pq5uSp9u_x0
     - text: Compreender o Azure Defender para IoT
-      url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+      url: https://myignite.microsoft.com/sessions/973175b0-2a2d-4b41-99f8-051e42ac575a
   - linkListType: reference
     links:
     - text: Perguntas mais frequentes

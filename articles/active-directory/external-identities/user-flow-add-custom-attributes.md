@@ -11,12 +11,12 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908938"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441458"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definir atributos personalizados para fluxos de utilizador (Pré-visualização)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87908938"
 
 Para cada aplicação, poderá ter diferentes requisitos para a informação que pretende recolher durante a inscrição. A Azure AD vem com um conjunto incorporado de informações armazenadas em atributos, tais como Nome Dado, Apelido, Cidade e Código Postal. Com o Azure AD, pode estender o conjunto de atributos armazenados numa conta de hóspedes quando o utilizador externo se inscreve através de um fluxo de utilizador.
 
-Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api)do Gráfico microsoft . A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do gráfico são nomeados através da convenção `extension_<extensions-app-id>_attributename` . Por exemplo:
+Pode criar atributos personalizados no portal Azure e usá-los nos fluxos de utilizador de inscrição de autosserviço. Também pode ler e escrever estes atributos utilizando a [API](../../active-directory-b2c/manage-user-accounts-graph-api.md)do Gráfico microsoft . A Microsoft Graph API suporta a criação e atualização de um utilizador com atributos de extensão. Os atributos de extensão na API do gráfico são nomeados através da convenção `extension_<extensions-app-id>_attributename` . Por exemplo:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

@@ -67,6 +67,8 @@
       items:
         - name: Codificar e transmitir em fluxo um ficheiro remoto REST
           href: stream-files-tutorial-with-rest.md
+        - name: Chaves geridas pelo cliente com os Serviços de Multimédia
+          href: tutorial-byok.md
     - name: CLI
       items:
         - name: Codificar e transmitir em fluxo um ficheiro remoto CLI
@@ -175,6 +177,8 @@
         - name: Encriptação dinâmica e entrega de chaves
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: Chaves geridas pelo cliente
+          href: concept-use-customer-managed-keys-byok.md
         - name: Design do sistema com múltiplos DRM
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md
@@ -385,7 +389,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Ir
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

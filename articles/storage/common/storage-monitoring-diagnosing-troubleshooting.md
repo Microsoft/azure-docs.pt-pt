@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854562"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370479"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -217,7 +217,7 @@ A Biblioteca do Cliente de Armazenamento para .NET permite-lhe recolher dados de
 Pode capturar o tráfego entre o cliente e o servidor para fornecer informações detalhadas sobre os dados que o cliente e o servidor estão a trocar e as condições de rede subjacentes. As ferramentas úteis de registo de rede incluem:
 
 * [O Fiddler](https://www.telerik.com/fiddler) é um proxy de depurador de web gratuito que lhe permite examinar os cabeçalhos e dados de carga útil de mensagens de pedido e resposta HTTPS e HTTPS. Para obter mais informações, consulte [o Apêndice 1: Utilizar o violinista para capturar o tráfego HTTP e HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que lhe permitem visualizar informações detalhadas de pacotes para uma ampla gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Utilização de Arame para capturar o tráfego da rede](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://download.cnet.com/s/network-monitor/) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que lhe permitem visualizar informações detalhadas de pacotes para uma ampla gama de protocolos de rede. Para obter mais informações sobre o Wireshark, consulte "[Apêndice 2: Utilização de Arame para capturar o tráfego da rede](#appendix-2)".
 * Se pretender realizar um teste básico de conectividade para verificar se a sua máquina cliente pode ligar-se ao serviço de armazenamento Azure através da rede, não poderá fazê-lo utilizando a ferramenta de **ping** padrão do cliente. No entanto, pode utilizar a ferramenta [ **tcping** ](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
 Em muitos casos, os dados de registo de registo de armazenamento e a Biblioteca do Cliente de Armazenamento serão suficientes para diagnosticar um problema, mas em alguns cenários, poderá necessitar da informação mais detalhada que estas ferramentas de registo de rede podem fornecer. Por exemplo, a utilização de mensagens HTTP e HTTPS permite-lhe visualizar dados de cabeçalho e carga útil enviados de e para os serviços de armazenamento, o que lhe permitiria examinar como uma aplicação de clientes retrigem operações de armazenamento. Os analisadores de protocolos, como o Wireshark, operam ao nível do pacote, permitindo-lhe visualizar dados de TCP, o que lhe permitiria resolver os problemas perdidos e problemas de conectividade. 
@@ -567,7 +567,7 @@ Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as per
 
 A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra a partir do ficheiro de registo de registo de registo de registo de registo de registo de registo de armazenamento:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 | Pedir hora de início | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |

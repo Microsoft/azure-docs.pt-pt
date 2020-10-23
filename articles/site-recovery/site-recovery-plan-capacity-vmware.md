@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135459"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368031"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Capacidade do plano e escala para recuperação de desastres VMware para Azure
 
@@ -20,7 +20,7 @@ Utilize este artigo para planear a capacidade e a escala quando replicar no loca
 
 ## <a name="how-do-i-start-capacity-planning"></a>Como começo a planear capacidades?
 
-Para saber mais sobre os requisitos de infraestrutura de recuperação do local de Azure, recolha informações sobre o seu ambiente de replicação executando [o Planejador de Implementação de Recuperação do Site Azure](https://aka.ms/asr-deployment-planner-doc) para a replicação de VMware. Para obter mais informações, consulte [sobre o Planejador de Implementação de Recuperação de Sítios para VMware a Azure](site-recovery-deployment-planner.md). 
+Para saber mais sobre os requisitos de infraestrutura de recuperação do local de Azure, recolha informações sobre o seu ambiente de replicação executando [o Planejador de Implementação de Recuperação do Site Azure](./site-recovery-deployment-planner.md) para a replicação de VMware. Para obter mais informações, consulte [sobre o Planejador de Implementação de Recuperação de Sítios para VMware a Azure](site-recovery-deployment-planner.md). 
 
 O Planejador de Implementação de Recuperação de Sítios fornece um relatório que dispõe de informações completas sobre VMs compatíveis e incompatíveis, discos por VM e dados por disco. A ferramenta também resume os requisitos de largura de banda de rede para cumprir o RPO alvo e a infraestrutura Azure que é necessária para replicação bem sucedida e falha de teste.
 

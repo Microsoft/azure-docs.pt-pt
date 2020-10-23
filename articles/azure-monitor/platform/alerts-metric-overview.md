@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que pode fazer com alertas métricos e 
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578075"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342183"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como os alertas de métrica funcionam no Azure Monitor
 
@@ -137,7 +137,7 @@ Esta funcionalidade é atualmente suportada para métricas de plataforma (não m
 
 | Serviço | Azure Público | Administração Pública | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuais<sup>1</sup>  | **Sim** | Não | Não |
+| Máquinas virtuais<sup>1</sup>  | **Sim** | No | No |
 | Bases de dados de servidores SQL | **Sim** | **Sim** | **Sim** |
 | Piscinas elásticas do servidor SQL | **Sim** | **Sim** | **Sim** |
 | NetApp arquiva grupos de capacidade | **Sim** | **Sim** | **Sim** |
@@ -166,7 +166,7 @@ Criar regras de alerta métrico que monitorizem múltiplos recursos é como [cri
 
 ## <a name="typical-latency"></a>Latência típica
 
-Para alertas métricos, normalmente será notificado em menos de 5 minutos se definir a frequência da regra de alerta para 1 min. Em casos de carga pesada para sistemas de notificação, poderá ver uma latência mais longa.
+Normalmente, no caso dos alertas de métricas, recebe uma notificação em menos de 5 minutos se definir a frequência da regra de alerta como 1 minuto. Se os sistemas de notificação estiverem sobrecarregados, a latência poderá ser maior.
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recursos suportados para alertas métricos
 
@@ -179,4 +179,5 @@ Pode encontrar a lista completa de tipos de recursos suportados neste [artigo.](
 - [Saiba como implementar alertas métricos usando modelos do Gestor de Recursos Azure](./alerts-metric-create-templates.md)
 - [Saiba mais sobre grupos de ação](action-groups.md)
 - [Saiba mais sobre o tipo de condição de Limiares Dinâmicos](alerts-dynamic-thresholds.md)
+- [Saiba mais sobre problemas de resolução de problemas em alertas métricos](alerts-troubleshoot-metric.md)
 

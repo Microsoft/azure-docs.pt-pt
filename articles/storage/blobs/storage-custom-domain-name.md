@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053631"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314660"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob
 
@@ -23,7 +23,7 @@ Pode mapear um domínio personalizado para um ponto final de serviço blob ou um
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Este mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com` ). Se quiser que o seu ponto final da web esteja disponível no domínio raiz (por exemplo: `contoso.com` ), então terá de utilizar o Azure CDN. Para obter orientação, consulte o Mapa de um domínio personalizado com secção [via HTTPS](#enable-https) deste artigo. Porque a sua ida para aquela secção deste artigo para ativar o domínio raiz do seu domínio personalizado, o passo dentro dessa secção para permitir HTTPS é opcional. 
+> Este mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com` ). Se quiser que o seu ponto final da web esteja disponível no domínio raiz (por exemplo: `contoso.com` ), então terá de utilizar o Azure CDN. Para obter orientação, consulte o Mapa de um domínio personalizado com secção [via HTTPS](#enable-https) deste artigo. Como vai para aquela secção deste artigo para ativar o domínio raiz do seu domínio personalizado, o passo dentro dessa secção para permitir HTTPS é opcional. 
 
 <a id="enable-http"></a>
 

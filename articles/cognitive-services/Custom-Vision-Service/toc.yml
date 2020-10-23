@@ -39,7 +39,7 @@
       href: use-prediction-api.md
     - name: Utilizar a Etiquetadora Inteligente
       href: suggested-tags.md
-    - name: Controlo de acesso baseado em funções
+    - name: Controlo de acesso baseado em funções do Azure
       href: role-based-access-control.md
     - name: Exportar modelos
       items:
@@ -81,6 +81,8 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: Recursos
   items:
+    - name: Opções de suporte e ajuda
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: Amostras
       href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=vision'
     - name: Limites e quotas

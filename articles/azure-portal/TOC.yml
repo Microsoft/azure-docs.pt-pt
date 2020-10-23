@@ -21,7 +21,7 @@
           href: quick-create-template.md
 - name: Conceitos
   items:
-    - name: Partilhar dashboards com o controlo de acesso baseado em funções
+    - name: Partilhar dashboards com o controlo de acesso baseado em funções do Azure
       href: azure-portal-dashboard-share-access.md
     - name: Criar programaticamente dashboards do Azure
       href: azure-portal-dashboards-create-programmatically.md

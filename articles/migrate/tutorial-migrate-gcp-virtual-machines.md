@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMs GCP para Azure com Azure Migra
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cd3bf225c6de0401aaa625cf3bb037b3beb58a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2caebb5dda87a34d003f7f2bd208fff427c98431
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716622"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315890"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Descubra, avalie e emigre os VMs da Google Cloud Platform (GCP) para Azure
 
@@ -367,7 +367,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
     - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - Para uma maior segurança:
     - Bloqueie e limite o acesso ao tráfego de entrada com [o Azure Security Center - Mesmo a tempo da administração](../security-center/security-center-just-in-time.md).
-    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/security-overview.md).
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](../virtual-network/network-security-groups-overview.md).
     - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:
@@ -399,7 +399,7 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 **Resposta:** Poderá ter de escoar estas alterações antes de migrar os seus VMS EC2 para Azure:
 
 - Se estiver a utilizar o init de nuvem para o seu fornecimento de VM, é melhor desativar a inserção de nuvens no VM antes de a replicar para Ozure. As etapas de provisionamento realizadas por cloud-init no VM talvez GCP específico e não serão válidas após a migração para Azure.  
-- Reveja a secção [de pré-requisitos](#prerequisites) para determinar se existem alterações necessárias para o sistema operativo que estiver
+- Reveja a secção [de pré-requisitos](#prerequisites) para determinar se existem alterações necessárias para o sistema operativo antes de as migrar para Azure.
 - Recomendamos sempre que faça um teste de migração antes da migração final.  
 
 ## <a name="next-steps"></a>Passos seguintes

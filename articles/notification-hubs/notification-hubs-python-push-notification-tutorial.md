@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852332"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424841"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os centros de notificação da Python
 
@@ -414,7 +414,7 @@ Note o cabeçalho HTTP tags, que é adicionado ao pedido HTTP (no exemplo abaixo
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Screenshot de uma consola com detalhes do pedido de H T T P e do formato de notificação de autocarros de serviço, tags de notificação de autocarros de serviço e valores do tipo X W N S delineados a vermelho.][3]
+![Screenshot de uma consola com detalhes do pedido de H T T P e do formato de notificação de autocarros de serviço, uma etiqueta de notificação de autocarro de serviço e valores do Tipo X W N S delineados a vermelho.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Enviar notificação especificando várias tags
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Screenshot de uma consola com detalhes do pedido de H T T P e do formato de notificação de autocarros de serviço, tags de notificação de autocarros de serviço e valores do tipo X W N S delineados a vermelho.][4]
+![Screenshot de uma consola com detalhes do pedido de H T T P e do formato de notificação de autocarros de serviço, várias tags de notificação de autocarros de serviço e valores do Tipo X W N S delineados a vermelho.][4]
 
 ### <a name="templated-notification"></a>Notificação de modelo
 

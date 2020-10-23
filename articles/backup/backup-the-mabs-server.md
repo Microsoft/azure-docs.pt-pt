@@ -1,16 +1,16 @@
 ---
-title: Fazer o back up do servidor MABS
+title: Fazer cópia de segurança do servidor MABS
 description: Saiba como fazer backup do Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946829"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172128"
 ---
-# <a name="back-up-the-mabs-server"></a>Fazer o back up do servidor MABS
+# <a name="back-up-the-mabs-server"></a>Fazer cópia de segurança do servidor MABS
 
 Para garantir que os dados podem ser recuperados se o Microsoft Azure Backup Server (MABS) falhar, precisará de uma estratégia para fazer o backup do servidor MABS. Se não estiver apoiado, terá de o reconstruir manualmente depois de uma falha, e os pontos de recuperação baseados em disco não serão recuperáveis. Pode fazer backup dos servidores MABS através da base de dados MABS.
 
@@ -184,9 +184,9 @@ Se o servidor MABS ainda estiver operacional e o pool de armazenamento estiver i
 
 Pode fazer backup da base de dados MABS para um disco local com cópia de segurança nativa do SQL Server, independente do MABS.
 
-- Obtenha uma [descrição geral](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) da cópia de segurança do SQL Server.
+- Obtenha uma [descrição geral](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) da cópia de segurança do SQL Server.
 
-- [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre criar uma cópia de segurança do SQL Server na nuvem.
+- [Saiba mais](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre criar uma cópia de segurança do SQL Server na nuvem.
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>Voltar a uma parte protegida pelo MABS
 
@@ -238,9 +238,9 @@ Esta opção de backup utiliza SQL nativo para fazer backup da base de dados MAB
 
 Pode fazer backup na base de dados MABS como qualquer outra base de dados do SQL Server utilizando a cópia de segurança nativa do SQL Server.
 
-- Obtenha uma [descrição geral](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) da cópia de segurança do SQL Server.
+- Obtenha uma [descrição geral](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) da cópia de segurança do SQL Server.
 
-- [Saiba mais](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre criar uma cópia de segurança do SQL Server na nuvem.
+- [Saiba mais](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) sobre criar uma cópia de segurança do SQL Server na nuvem.
 
 ### <a name="recover-the-mabs-database"></a>Recuperar a base de dados MABS
 
@@ -329,7 +329,7 @@ Depois de restaurar e sincronizar a base de dados MABS e antes de restaurar a r�
 DpmSync -ReallocateReplica
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Matriz de suporte MABS](backup-support-matrix-mabs-dpm.md)
 - [MABS FAQ](backup-azure-dpm-azure-server-faq.md)

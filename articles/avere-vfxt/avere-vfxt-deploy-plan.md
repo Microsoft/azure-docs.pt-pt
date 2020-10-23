@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272795"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342404"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -75,8 +75,8 @@ Siga estas orientações ao planear a infraestrutura de rede do seu cluster Aver
   |----------|-----------|----------|
   | Grupo de recursos | Sim, se estiver vazio. | Deve estar vazio.|
   | Conta de armazenamento | **Sim,** se ligar um recipiente Blob existente após a criação do cluster <br/>  **Não** se criar um novo recipiente Blob durante a criação de clusters | Recipiente blob existente deve estar vazio <br/> &nbsp; |
-  | Rede virtual | Sim | Deve incluir um ponto final de serviço de armazenamento se criar um novo recipiente Azure Blob |
-  | Sub-rede | Sim | Não pode conter outros recursos |
+  | Rede virtual | Yes | Deve incluir um ponto final de serviço de armazenamento se criar um novo recipiente Azure Blob |
+  | Sub-rede | Yes | Não pode conter outros recursos |
 
 ## <a name="ip-address-requirements"></a>Requisitos de endereço IP
 
@@ -109,7 +109,7 @@ Cada nó vFXT será idêntico. Ou seja, se criar um cluster de três nós terá 
 
 A cache do disco por nó é configurável e pode enfurecer-se de 1000 GB a 8000 GB. 4 TB por nó é o tamanho de cache recomendado para Standard_E32s_v3 nós.
 
-Para obter informações adicionais sobre estes VMs, leia a documentação do Microsoft Azure: [Tamanhos de máquinas virtuais otimizados pela memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Para obter informações adicionais sobre estes VMs, leia a documentação do Microsoft Azure: [Tamanhos de máquinas virtuais otimizados pela memória](../virtual-machines/sizes-memory.md)
 
 ## <a name="account-quota"></a>Quota de conta
 

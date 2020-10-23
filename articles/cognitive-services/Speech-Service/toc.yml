@@ -229,6 +229,8 @@
   items:
     - name: Documentação do reconhecimento de intenção
       href: index-intent-recognition.yml
+    - name: Descrição geral do reconhecimento de intenção
+      href: intent-recognition.md
     - name: Início rápido do reconhecimento de intenção
       href: quickstarts/intent-recognition.md
     - name: Guias de procedimentos
@@ -399,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Configurar pontos finais Web
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Exportar a sua aplicação de Comandos Personalizados como competência
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Implementação
                   items:
                     - name: Implementação Contínua com o Azure DevOps
@@ -504,7 +508,7 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: quickstart-custom-speech-commands-create-new.md
-- name: Implementar
+- name: Implementação
   items:
     - name: Ativar registo
       href: how-to-use-logging.md
@@ -578,9 +582,8 @@
       href: how-to-migrate-from-translator-speech-api.md
 - name: Recursos
   items:
-    - name: Suporte
-      displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
-      href: support.md
+    - name: Opções de suporte e ajuda
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentação do Swagger
       href: swagger-documentation.md
     - name: Clouds nacionais

@@ -1,25 +1,28 @@
 ---
-title: Configure fontes de dados de agente no Azure Monitor / Microsoft Docs
+title: Log Analytics fontes de dados de agente no Azure Monitor
 description: As fontes de dados definem os dados de registo que o Azure Monitor recolhe de agentes e outras fontes ligadas.  Este artigo descreve o conceito de como o Azure Monitor utiliza fontes de dados, explica os detalhes de como os configurar e fornece um resumo das diferentes fontes de dados disponíveis.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073691"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460806"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados de agente no Azure Monitor
-Os dados que o Azure Monitor recolhe dos agentes são definidos pelas fontes de dados que configura.  Os dados dos agentes são armazenados como [dados de registo](data-platform-logs.md) com um conjunto de registos.  Cada fonte de dados cria registos de um tipo específico com cada tipo com o seu próprio conjunto de propriedades.
+# <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Log Analytics fontes de dados de agente no Azure Monitor
+Os dados que o Azure Monitor recolhe de máquinas virtuais com o agente [Log Analytics](log-analytics-agent.md) são definidos pelas fontes de dados que configura no espaço de trabalho do [Log Analytics](data-platform-logs.md).   Cada fonte de dados cria registos de um tipo específico com cada tipo com o seu próprio conjunto de propriedades.
+
+> [!IMPORTANT]
+> Este artigo abrange fontes de dados para o [agente Log Analytics,](log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Recolha de dados de registo](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Resumo das fontes de dados
-A tabela que se segue lista as fontes de dados do agente que estão atualmente disponíveis no Azure Monitor.  Cada um tem uma ligação com um artigo separado que fornece detalhes para essa fonte de dados.   Também fornece informações sobre o seu método e frequência de recolha. 
+A tabela que se segue lista as fontes de dados do agente que estão atualmente disponíveis com o agente Log Analytics.  Cada um tem uma ligação com um artigo separado que fornece detalhes para essa fonte de dados.   Também fornece informações sobre o seu método e frequência de recolha. 
 
 
 | Origem de dados | Plataforma | Agente de análise de registo | Agente do Operations Manager | Storage do Azure | Diretor de Operações necessário? | Dados de agente do Gestor de Operações enviados através do grupo de gestão | Frequência da recolha |
@@ -34,14 +37,12 @@ A tabela que se segue lista as fontes de dados do agente que estão atualmente d
 
 
 ## <a name="configuring-data-sources"></a>Configurar fontes de dados
-Configura fontes de dados do menu **Dados** em **Definições Avançadas** para o espaço de trabalho.  Qualquer configuração é entregue a todas as fontes ligadas no seu espaço de trabalho.  Não é possível excluir quaisquer agentes desta configuração.
+Para configurar fontes de dados para agentes do Log Analytics, vá ao menu **de espaços de trabalho Do Log Analytics** no portal Azure e selecione um espaço de trabalho. Clique em **definições avançadas** e, em seguida, **Em Dados**. Selecione a fonte de dados que pretende configurar. Pode seguir os links da tabela acima para documentação para cada fonte de dados e detalhes sobre a sua configuração.
+
+Qualquer configuração é entregue a todos os agentes ligados a esse espaço de trabalho.  Não é possível excluir agentes ligados desta configuração.
 
 ![Configurar eventos windows](media/agent-data-sources/configure-events.png)
 
-1. No portal Azure, selecione **Log Analytics >** espaço de trabalho > **Definições Avançadas**.
-2. Selecione **Dados**.
-3. Clique na fonte de dados que pretende configurar.
-4. Siga o link para a documentação de cada fonte de dados na tabela acima para obter mais informações sobre a sua configuração.
 
 
 ## <a name="data-collection"></a>Recolha de dados

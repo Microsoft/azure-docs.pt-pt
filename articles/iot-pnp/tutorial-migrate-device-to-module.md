@@ -1,5 +1,5 @@
 ---
-title: Ligue um módulo genérico IoT Plug and Play / Microsoft Docs
+title: Ligue um módulo genérico IoT Plug and Play ! Microsoft Docs
 description: Utilize o código do dispositivo IoT Plug e Play da amostra C# num módulo genérico.
 author: ericmitt
 ms.author: ericmitt
@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089167"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426942"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
 

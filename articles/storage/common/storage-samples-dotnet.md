@@ -3,16 +3,16 @@ title: Amostras de armazenamento Azure usando .NET / Microsoft Docs
 description: Ver, descarregar e executar código de amostra e aplicações para Azure Storage. Descubra a obtenção de amostras para bolhas, filas, mesas e ficheiros, utilizando as bibliotecas de clientes de armazenamento .NET.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81010499"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359786"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 .NET
 
@@ -336,4 +336,5 @@ Para obter informações sobre amostras para outras línguas:
 * Java: [Amostras de armazenamento Azure usando Java](storage-samples-java.md)
 * Python: [Amostras de armazenamento Azure usando Python](storage-samples-python.md)
 * JavaScript/Node.js: [Amostras de armazenamento de Azure usando JavaScript](storage-samples-javascript.md)
+* C++: [Amostras de armazenamento Azure usando C++](storage-samples-c-plus-plus.md)
 * Todas as outras línguas: [amostras de armazenamento Azure](storage-samples.md)

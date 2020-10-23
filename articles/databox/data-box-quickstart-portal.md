@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 2ee9d1edefb0e248d0eba13e2d0b9f1c651fdd42
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 81dee0c63db711b39ff8fd2123623a16b2b9cb91
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924517"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122794"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Introdução ao Azure Data Box para importar dados para o Azure
 
@@ -40,7 +40,7 @@ Antes de começar:
 
 - Certifique-se de que a subscrição que utiliza para o serviço Data Box é de um dos tipos seguintes:
     - Microsoft Enterprise Agreement (EA). Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Certifique-se de que tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box.
@@ -131,7 +131,7 @@ Este passo demora entre 5 a 7 minutos.
 
 O tempo de conclusão desta operação depende do tamanho dos dados e da velocidade da rede.
  
-1. Se estiver a utilizar um anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy. Para o anfitrião NFS, utilize o comando `cp` ou `rsync` para copiar os dados. Ligue a ferramenta ao seu dispositivo e comece a copiar dados para as partilhas. Para obter mais informações sobre como utilizar o Robocopy para copiar dados, aceda a [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. Se estiver a utilizar um anfitrião do Windows, utilize uma ferramenta de cópia de ficheiros compatível com SMB, como o Robocopy. Para o anfitrião NFS, utilize o comando `cp` ou `rsync` para copiar os dados. Ligue a ferramenta ao seu dispositivo e comece a copiar dados para as partilhas. Para obter mais informações sobre como utilizar o Robocopy para copiar dados, aceda a [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Ligue às partilhas através do caminho:`\\<IP address of your device>\ShareName`. Para obter as credenciais de acesso de partilha, aceda à página **Ligar e copiar** na IU da Web local do Data Box.
 3. Certifique-se de que os nomes da partilha e dos ficheiros e os dados cumprem as diretrizes descritas nos [Limites de serviços do Armazenamento do Azure e do Data Box](data-box-limits.md).
 
@@ -170,5 +170,3 @@ Neste início rápido, implementou um Azure Data Box para ajudar a importar os s
 > [Utilizar o portal do Azure para administrar o Data Box](data-box-portal-admin.md)
 
 ::: zone-end
-
-

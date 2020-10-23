@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456855"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167887"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
 
@@ -73,7 +73,7 @@ Os passos seguintes mostram como ver os conteúdos de uma partilha de ficheiros 
 
 1. O painel principal apresenta os conteúdos da partilha de ficheiros.
     
-    ![Os conteúdos da partilha](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Screenshot do painel principal para uma partilha de ficheiros no Storage Explorer mostrando o conteúdo da partilha.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Eliminar partilhas de ficheiros
 
@@ -191,7 +191,7 @@ Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de fic
 
 1.  O painel principal apresenta os conteúdos da partilha de ficheiros.
 
-    ![Os conteúdos da partilha](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Screenshot do painel principal para o ficheiro compartilhar myazurefileshare no Storage Explorer, mostrando o conteúdo da partilha com a primeira pasta selecionada.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  O painel principal apresenta os conteúdos da partilha de ficheiros.
 

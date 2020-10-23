@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319432"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426987"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Use réplicas apenas de leitura para descarregar cargas de trabalho de consulta apenas de leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Como parte da arquitetura de [Alta Disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada base de dados, base de dados elástica e caso gerido no nível de serviço Premium e Business Critical é automaticamente a provisionado com uma réplica de leitura primária e várias réplicas secundárias apenas de leitura. As réplicas secundárias são aviscadas com o mesmo tamanho computacional que a réplica primária. A funcionalidade *de escala de leitura* permite descarregar cargas de trabalho apenas de leitura utilizando a capacidade de cálculo de uma das réplicas apenas de leitura, em vez de executá-las na réplica de leitura-escrita. Desta forma, algumas cargas de trabalho apenas de leitura podem ser isoladas das cargas de trabalho de leitura-escrita, e não afetarão o seu desempenho. A funcionalidade destina-se às aplicações que incluem cargas de trabalho apenas de leitura separadas logicamente, como analíticas. Nos níveis de serviço Premium e Business Critical, as aplicações poderiam obter benefícios de desempenho usando esta capacidade adicional sem custos adicionais.
+Como parte da arquitetura de [Alta Disponibilidade](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), cada base de dados, base de dados elástica e caso gerido no nível de serviço Premium e Business Critical é automaticamente a provisionado com uma réplica de leitura primária e várias réplicas secundárias apenas de leitura. As réplicas secundárias são aviscadas com o mesmo tamanho computacional que a réplica primária. A funcionalidade *de escala de leitura* permite descarregar cargas de trabalho apenas de leitura utilizando a capacidade de cálculo de uma das réplicas apenas de leitura, em vez de executá-las na réplica de leitura-escrita. Desta forma, algumas cargas de trabalho apenas de leitura podem ser isoladas das cargas de trabalho de leitura-escrita, e não afetarão o seu desempenho. A funcionalidade destina-se às aplicações que incluem cargas de trabalho apenas de leitura separadas logicamente, como analíticas. Nos níveis de serviço Premium e Business Critical, as aplicações poderiam obter benefícios de desempenho usando esta capacidade adicional sem custos adicionais.
 
 A funcionalidade *de escala de leitura* também está disponível no nível de serviço hyperscale quando pelo menos uma réplica secundária é criada. Réplicas secundárias múltiplas podem ser usadas para cargas de trabalho apenas de equilíbrio de carga que requerem mais recursos do que disponíveis numa réplica secundária.
 
@@ -85,7 +85,7 @@ Quando ligados a uma réplica apenas de leitura, as Vistas de Gestão Dinâmica 
 
 As vistas comumente utilizadas são:
 
-| Nome | Objetivo |
+| Name | Objetivo |
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos durante a última hora, incluindo CPU, IO de dados e utilização de gravação de registos em relação aos limites objetivos do serviço.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregadas para a instância do motor da base de dados. |

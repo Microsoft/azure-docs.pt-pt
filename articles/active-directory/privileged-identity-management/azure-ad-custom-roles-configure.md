@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8745482ed551108044bbe5e2b2f191ad46d7a441
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39e483c5cdb7e5acc0677b0d0cf2b41c390eef0b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538452"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371567"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurar funções personalizadas da Azure AD na Gestão de Identidade Privilegiada
 
@@ -103,4 +103,4 @@ Se quiser requerer aprovação para ativar uma função, siga estes passos.
 - [Ativar um papel personalizado AZure AD](azure-ad-custom-roles-activate.md)
 - [Atribuir um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)
-- [Definições de função em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definições de função em Azure AD](../roles/permissions-reference.md)

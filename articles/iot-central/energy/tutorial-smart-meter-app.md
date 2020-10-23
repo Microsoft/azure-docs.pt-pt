@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986558"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127136"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Tutorial: Criar e percorrer o modelo de aplicação de monitorização do contador inteligente 
 
@@ -24,7 +24,7 @@ Este tutorial guia-o através do processo de criação da aplicação de monitor
 > [!div class="checklist"]
 > * Crie gratuitamente a App Smart Meter
 > * Walk-through de aplicação
-> * Limpar os recursos
+> * Limpar recursos
 
 
 Se não tiver uma subscrição, [crie uma conta de teste gratuita](https://azure.microsoft.com/free)
@@ -95,7 +95,7 @@ Clique no **separador modelos do dispositivo** para ver o modelo do dispositivo 
 > ![Modelos de dispositivo de medidor inteligente](media/tutorial-iot-central-smart-meter/smart-meter-device-template.png)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação com os seguintes passos:
 
 1. Do painel esquerdo, abra o separador administração
@@ -108,6 +108,6 @@ Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação
 
 Saiba mais sobre arquitetura de aplicativos de contador inteligente refere-se a 
 > [!div class="nextstepaction"]
-> [o artigo conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+> [o artigo conceito](./concept-iot-central-smart-meter-app.md)
 * Crie modelos de aplicação de contadores inteligentes gratuitamente: [app smart meter](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Saiba mais sobre o IoT Central, consulte [a visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)
+* Saiba mais sobre o IoT Central, consulte [a visão geral do IoT Central](../index.yml)

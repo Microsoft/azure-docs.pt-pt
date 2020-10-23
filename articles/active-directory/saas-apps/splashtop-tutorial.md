@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 934953437c2d156f220d5b0a1847e16358e3bfb8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524572"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126880"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Tutorial: Azure Ative Directory integração única (SSO) com Splashtop
 
@@ -84,7 +84,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação Splashtop espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, enquanto **o nome** é mapeado com o **nome user.userprincipal**. A aplicação TicketManager espera que **o identificador** de nomes seja mapeado com **o user.mail,** pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 1. Na **configuração de um único sessão com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -129,31 +129,33 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 Nesta secção, terá de se candidatar a um novo método SSO a partir do [portal web Splashtop](https://my.splashtop.com/login).
 1. No portal web Splashtop, **Account info**vá ao  /  separador **'Informações de Conta' Equipa,** desloque-se para baixo para encontrar **o único sinal na** secção . Em seguida, clique **em Aplicar para novo método SSO**.
 
-    ![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+    ![A screenshot mostra o sinal único na página onde pode selecionar Aplicar para novo método S S O.](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
 1. Na janela de aplicação, dê um **nome SSO**. Por exemplo, New Azure, em seguida, selecione **Azure** como o tipo IDP, e insira **URL de login** e **identificador AD Ad Azure** copiado da aplicação Splashtop no portal Azure.
 
-    ![image](media/splashtop-tutorial/azure-sso-1.png)
+    ![A screenshot mostra a página do método 'Aplicar para S O' onde pode introduzir um nome e outras informações.](media/splashtop-tutorial/azure-sso-1.png)
 
 1. Para obter informações sobre o certificado, clique no ficheiro cert descarregado da aplicação Splashtop no portal Azure, edite-o com o Notepad e, em seguida, copie o conteúdo, cole-o no campo **Desembóia (Base64).**
 
-    ![](media/splashtop-tutorial/cert-1.png) ![ imagem ](media/splashtop-tutorial/cert-2.png) ![ imagem](media/splashtop-tutorial/azure-sso-2.png)
+    ![Screenshot show selecionando um arquivo de certificado e abrindo-o com o Bloco de Notas.](media/splashtop-tutorial/cert-1.png)
+    ![A screenshot mostra o conteúdo do ficheiro do certificado.](media/splashtop-tutorial/cert-2.png)
+    ![A screenshot mostra a caixa de texto do Certificado de Descarregamento.](media/splashtop-tutorial/azure-sso-2.png)
 
-1. Já está. Clique em **Save** e Splashtop A equipa de validação SSO entrará em contacto consigo para obter informações de verificação e, em seguida, ativará o método SSO.
+1. Já está! Clique em **Save** e Splashtop A equipa de validação SSO entrará em contacto consigo para obter informações de verificação e, em seguida, ativará o método SSO.
 
 ### <a name="create-splashtop-test-user"></a>Criar utilizador de teste Splashtop
 
 1. Após a ativação do método SSO, verifique o método SSO recém-criado para o ativar na secção **Single Sign On.**
 
-    ![image](media/splashtop-tutorial/enable.png)
+    ![A screenshot mostra a página Single Sign On onde pode ativar o novo método.](media/splashtop-tutorial/enable.png)
 
 1. Convide o utilizador de teste, por exemplo, `B.Simon@contoso.com` para a sua equipa Splashtop com o método SSO recém-criado.
 
-    ![image](media/splashtop-tutorial/invite.png)
+    ![A screenshot mostra a página 'Convidar Utilizadores' onde pode selecionar o seu novo método.](media/splashtop-tutorial/invite.png)
 
 1. Também pode alterar uma conta Splashtop existente para uma conta SSO, ver [instruções](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 
-1. Já está. Pode utilizar a conta SSO para iniciar sessão no portal web do Splashtop ou na aplicação Splashtop Business.
+1. Já está! Pode utilizar a conta SSO para iniciar sessão no portal web do Splashtop ou na aplicação Splashtop Business.
 
 ## <a name="test-sso"></a>Teste SSO 
 

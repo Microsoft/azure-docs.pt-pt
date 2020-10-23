@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600802"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369782"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro passos para uma forte fundação de identidade com Azure Ative Directory
 
@@ -156,7 +156,7 @@ Atribuir os utilizadores às aplicações é melhor mapeado quando se utilizam g
 * Baseado em atributos usando a adesão dinâmica do grupo
 * Delegação aos proprietários de aplicações
 
-O Azure AD fornece a capacidade de gerir o acesso a recursos usando grupos de segurança e grupos Microsoft 365. Estes grupos podem ser geridos por um dono de grupo que pode aprovar ou negar pedidos de adesão e delegar o controlo da adesão ao grupo. Conhecida como [gestão de grupos de self-service,](../users-groups-roles/groups-self-service-management.md)esta funcionalidade poupa tempo ao permitir aos proprietários de grupos que não lhes seja atribuído um papel administrativo para criar e gerir grupos sem terem de confiar nos administradores para lidarem com os seus pedidos.
+O Azure AD fornece a capacidade de gerir o acesso a recursos usando grupos de segurança e grupos Microsoft 365. Estes grupos podem ser geridos por um dono de grupo que pode aprovar ou negar pedidos de adesão e delegar o controlo da adesão ao grupo. Conhecida como [gestão de grupos de self-service,](../enterprise-users/groups-self-service-management.md)esta funcionalidade poupa tempo ao permitir aos proprietários de grupos que não lhes seja atribuído um papel administrativo para criar e gerir grupos sem terem de confiar nos administradores para lidarem com os seus pedidos.
 
 ## <a name="step-4---operationalize-your-insights"></a>Passo 4 - Operacionalizar as suas ideias
 
@@ -172,9 +172,9 @@ Os registos de segurança e os relatórios fornecem-lhe um registo eletrónico d
 
 Ao pensar na sua abordagem às operações, há alguns níveis de administração a considerar. O primeiro nível coloca o fardo da administração no seu administrador(s) global. Utilizar sempre o papel de administrador global, pode ser apropriado para empresas mais pequenas. Mas para as organizações maiores com pessoal de secretária e administradores responsáveis por tarefas específicas, atribuir o papel de administrador global pode ser um risco para a segurança, uma vez que proporciona a esses indivíduos a capacidade de gerir tarefas que estão acima e além do que deveriam ser capazes de fazer.
 
-Neste caso, deve considerar o próximo nível de administração. Utilizando o Azure AD, pode designar os utilizadores finais como "administradores limitados" que podem gerir tarefas em funções menos privilegiadas. Por exemplo, pode atribuir ao seu pessoal de secretária de ajuda a função de leitor de [segurança](../users-groups-roles/directory-assign-admin-roles.md#security-reader) para fornecer-lhes a capacidade de gerir funcionalidades relacionadas com segurança com acesso apenas de leitura. Ou talvez faça sentido atribuir o papel [de administrador de autenticação](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) a indivíduos para lhes dar a capacidade de repor credenciais de não-senha ou ler e configurar a Azure Service Health.
+Neste caso, deve considerar o próximo nível de administração. Utilizando o Azure AD, pode designar os utilizadores finais como "administradores limitados" que podem gerir tarefas em funções menos privilegiadas. Por exemplo, pode atribuir ao seu pessoal de secretária de ajuda a função de leitor de [segurança](../roles/permissions-reference.md#security-reader) para fornecer-lhes a capacidade de gerir funcionalidades relacionadas com segurança com acesso apenas de leitura. Ou talvez faça sentido atribuir o papel [de administrador de autenticação](../roles/permissions-reference.md#authentication-administrator) a indivíduos para lhes dar a capacidade de repor credenciais de não-senha ou ler e configurar a Azure Service Health.
 
-Para saber mais, consulte [permissões de função de Administrador no Diretório Ativo Azure](../users-groups-roles/directory-assign-admin-roles.md).
+Para saber mais, consulte [permissões de função de Administrador no Diretório Ativo Azure](../roles/permissions-reference.md).
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Monitorar componentes híbridos (Azure AD Connect Sync, AD FS) usando Azure AD Connect Health
 

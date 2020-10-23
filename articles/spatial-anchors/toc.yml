@@ -97,15 +97,15 @@
 - name: Referências
   items:
     - name: SDK para Unity
-      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/'
+      href: /dotnet/api/Microsoft.Azure.SpatialAnchors/
     - name: SDK para Objective-C no iOS
-      href: 'https://docs.microsoft.com/objectivec/api/spatial-anchors/'
+      href: /objectivec/api/spatial-anchors/
     - name: SDK para Java no Android
-      href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/'
+      href: /java/api/com.microsoft.azure.spatialanchors/
     - name: SDK para NDK no Android
-      href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
+      href: /cpp/api/spatial-anchors/ndk/
     - name: SDK para C++/WinRT no HoloLens
-      href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
+      href: /cpp/api/spatial-anchors/winrt/
     - name: CLI do Azure
       href: /cli/azure/ext/mixed-reality/spatial-anchors-account
     - name: Azure PowerShell
@@ -115,7 +115,7 @@
     - name: Notas de Versão
       href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
     - name: API REST de Gestão de Recursos do Azure Mixed Reality
-      href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+      href: /rest/api/mixedreality/
     - name: FAQ
       href: spatial-anchor-faq.md
     - name: Fornecer comentários sobre o produto

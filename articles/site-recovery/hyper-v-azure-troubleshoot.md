@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426127"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364036"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de replicação e ativação pós-falha do Hyper-V para o Azure
 
@@ -29,7 +29,7 @@ Se sentir problemas quando ativa a proteção de VMs hiper-V, verifique as segui
 4. Verifique se há problemas que aparecem no hiper-VMMS\Admin para o VM. Este registo está localizado em **Aplicações e Serviços Regista**  >  **o Microsoft**  >  **Windows**.
 5. No VM do hóspede, verifique se o WMI está ativado e acessível.
    - [Saiba mais sobre](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) os testes básicos de WMI.
-   - [Resolução de problemas](https://aka.ms/WMiTshooting) O WMI.
+   - [Resolução de problemas](/windows/win32/wmisdk/wmi-troubleshooting) O WMI.
    - [Problemas de resolução de problemas](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) com scripts e serviços do WMI.
 6. No VM convidado, certifique-se de que a versão mais recente dos Serviços de Integração está em execução.
     - [Verifique](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) se tem a versão mais recente.

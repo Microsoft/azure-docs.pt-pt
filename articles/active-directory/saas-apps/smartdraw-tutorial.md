@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: f99993792c2d5f4300025f26d8409207382553d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b4387252be7e0b76f6e0733d6fd4f95d39e2f0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527626"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>Tutorial: Azure Ative Directory integração única (SSO) com o SmartDraw
 
@@ -152,11 +152,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique em **'Sign-On'** único em Gerir a sua licença SmartDraw.
 
-    ![Configuração SmartDraw](./media/smartdraw-tutorial/configure01.png)
+    ![A screenshot mostra a caixa de diálogo da licença SmartDraw, onde pode selecionar O Sign-On Único.](./media/smartdraw-tutorial/configure01.png)
 
 1. Na página configuração, execute os seguintes passos:
 
-    ![Configuração SmartDraw](./media/smartdraw-tutorial/configure02.png)
+    ![A screenshot mostra a página de Configuração onde pode introduzir os valores descritos.](./media/smartdraw-tutorial/configure02.png)
 
     a. Na caixa de texto **Do Seu Domínio (como acme.com),** digite o seu domínio.
 

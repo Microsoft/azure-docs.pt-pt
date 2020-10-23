@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9db20fd357a50a92384b3c3f483f8d75b67b3e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90058772"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427368"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -44,7 +44,8 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 
 > [!NOTE]
 > 
-> O Conector ITSM só pode ligar-se a instâncias de ServiceNow baseadas na nuvem. As instâncias do ServiceNow no local não são suportadas atualmente.
+> - O Conector ITSM só pode ligar-se a instâncias de ServiceNow baseadas na nuvem. As instâncias do ServiceNow no local não são suportadas atualmente.
+> - Para utilizar modelos personalizados como parte das ações, o parâmetro "ProjectionType" no modelo SCSM deve ser mapeado para "IncidentManagement! System.WorkItem.Incident.ProjectionType"
 
 ### <a name="connection-procedure"></a>Procedimento de ligação
 
@@ -213,6 +214,8 @@ Assegurar que os seguintes pré-requisitos sejam cumpridos:
 > 3. Clique no Acesso De Revogar e do que no Revogar.
 
 - Instale a Aplicação do Utilizador para integração do Microsoft Log Analytics (app ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> O ITSMC suporta apenas a aplicação oficial do utilizador para a integração do Microsoft Log Analytics que é descarregada a partir da loja ServiceNow. O ITSMC não suporta qualquer ingestão de códigos no lado do ServiceNow ou na aplicação que não faça parte da solução oficial do ServiceNow. 
 - Crie uma função de utilizador de integração para a aplicação do utilizador instalada. Informações sobre como criar o papel de utilizador de integração [estão aqui.](#create-integration-user-role-in-servicenow-app)
 
 ### <a name="connection-procedure"></a>**Procedimento de ligação**

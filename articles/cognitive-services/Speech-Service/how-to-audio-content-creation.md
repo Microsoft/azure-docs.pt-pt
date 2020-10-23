@@ -10,43 +10,63 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224592"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370073"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de Criação de Conteúdos Áudio
 
-[Audio Content Creation](https://aka.ms/audiocontentcreation) é uma ferramenta online que permite personalizar e afinar a saída de texto-a-voz da Microsoft para as suas apps e produtos. Pode utilizar esta ferramenta para afinar vozes públicas e personalizadas para expressões naturais mais precisas e gerir a sua saída na nuvem.
+[Audio Content Creation](https://aka.ms/audiocontentcreation) é uma ferramenta fácil de usar e poderosa que permite construir conteúdo sonoro altamente natural para uma variedade de cenários, como audiolivros, transmissões de notícias, narrações de vídeo e chat bots. Com a Audio Content Creation, pode afinar vozes de texto para discurso e desenhar experiências de áudio personalizadas de forma eficiente e de baixo custo.
 
-A ferramenta de criação de conteúdo sonoro baseia-se na [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Para simplificar a personalização e afinação, a Audio Content Creation permite-lhe inspecionar visualmente as suas saídas de texto-a-discurso em tempo real.
+A ferramenta baseia-se na [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Permite-lhe ajustar atributos de saída de texto para voz em tempo real ou síntese de lote, tais como caracteres de voz, estilos de voz, velocidade de fala, pronúncia e prosódica.
+
+Você pode ter fácil acesso a mais de 150 vozes pré-construídas em cerca de 50 línguas diferentes, incluindo as vozes de TTS neurais de última geração, e a sua voz personalizada se você construiu uma. 
 
 Veja o [tutorial de vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para Audio Content Creation.
 
-## <a name="how-does-it-work"></a>Como funciona?
+## <a name="how-to-get-started"></a>Como começar?
+
+A Criação de Conteúdos Áudio é uma ferramenta gratuita, mas pagará pelo serviço Azure Speech que consome. Para trabalhar com a ferramenta, precisa fazer login com uma conta Azure e criar um recurso de fala. Para cada conta Azure, tem quotas de liberdade de expressão mensais que incluem 500.000 caracteres para vozes Neural TTS (por mês), 5 milhões de caracteres para vozes padrão e personalizadas (por mês) e 1 serviço de hospedagem de ponta de voz personalizado (por mês). O valor mensal atribuído é geralmente suficiente para uma pequena equipa de conteúdo de cerca de 3-5 pessoas. Aqui estão os passos para como criar uma conta Azure e obter um recurso de fala. 
+
+### <a name="step-1---create-an-azure-account"></a>Passo 1 - Criar uma conta Azure
+
+Para trabalhar com a Audio Content Creation, precisa de ter uma [conta Microsoft](https://account.microsoft.com/account) e uma [conta Azure.](https://azure.microsoft.com/free/ai/) Siga estas instruções para [configurar a conta](get-started.md#new-resource). 
+
+[O portal Azure](https://portal.azure.com/) é o local centralizado para gerir a sua conta Azure. Pode criar o recurso de fala, gerir o acesso ao produto e monitorizar tudo, desde aplicações web simples até implementações complexas na nuvem. 
+
+### <a name="step-2---create-a-speech-resource"></a>Passo 2 - Criar um recurso de fala
+
+Depois de se inscrever na conta Azure, precisa de criar um recurso De discurso na sua conta Azure para aceder aos serviços de Discurso. Consulte as instruções de [como criar um recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+
+Leva alguns momentos para implementar o seu novo recurso speech. Uma vez concluída a implementação, pode iniciar a jornada de Criação de Conteúdos Áudio. 
+
+ >[!NOTE]
+   > Se pretender utilizar vozes neurais, certifique-se de que cria o seu recurso [numa região que suporta vozes neurais](regions.md#standard-and-neural-voices).
+ 
+### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>Passo 3 - Inicie sessão na Criação de Conteúdos Áudio com a sua conta Azure e recurso de fala
+
+1. Depois de obter a conta Azure e o recurso Speech, pode iniciar sessão na [Criação](https://aka.ms/audiocontentcreation) de Conteúdos áudio clicando **em Iniciar**.
+2. A página **de recursos da Fala** será mostrada a si. Selecione o recurso Speech em que pretende trabalhar. Clique **em Ir ao Estúdio** para iniciar a sua criação de áudio. Também pode criar um novo recurso de Discurso aqui clicando em **Criar novo**. Quando iniciar sessão na ferramenta De criação de conteúdos áudio para a próxima vez, ligaremos-no diretamente aos ficheiros de trabalho áudio sob o recurso de fala atual. 
+3. Pode modificar o seu recurso Speech a qualquer momento com a opção **Definições,** localizada na navegação superior.
+
+## <a name="how-to-use-the-tool"></a>Como usar a ferramenta?
 
 Este diagrama mostra os passos que é preciso para afinar as saídas de texto para discurso. Use os links abaixo para saber mais sobre cada passo.
 
-![Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso.](media/audio-content-creation/audio-content-creation-diagram.jpg)
+:::image source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
 
-1. [Crie a sua conta Azure e o recurso Speech](#set-up-your-azure-account-and-speech-resource) para começar.
-2. [Crie um ficheiro de afinação de áudio](#create-an-audio-tuning-file) utilizando scripts simples ou SSML.
+
+1. Escolha o recurso de fala em que pretende trabalhar.
+2. [Crie um ficheiro de afinação de áudio](#create-an-audio-tuning-file) utilizando scripts simples ou SSML. Digite ou faça o upload do seu conteúdo para a Criação de Conteúdos Áudio.
 3. Escolha a voz e o idioma para o seu conteúdo de script. A Criação de Conteúdo sonoro inclui todas as [vozes texto-a-voz](language-support.md#text-to-speech)da Microsoft. Pode usar a voz normal, neural ou personalizada.
    >[!NOTE]
    > O acesso fechado está disponível para Vozes Neurais Personalizadas, que permitem criar vozes de alta definição semelhantes à fala de som natural. Para mais detalhes, consulte [o processo De Gating.](https://aka.ms/ignite2019/speech/ethics)
 
-4. Reveja a saída de síntese predefinida. Em seguida, melhore a saída ajustando a pronúncia, quebra, tom, taxa, entoação, estilo de voz, e muito mais. Para obter uma lista completa de opções, consulte [a linguagem de marcação de síntese de discursos](speech-synthesis-markup.md). Aqui está um [vídeo](https://youtu.be/mUvf2NbfuYU) para mostrar como afinar a saída da fala com a Audio Content Creation. 
+4. Clique no ícone **de reprodução** (um triângulo) para visualizar a saída de síntese padrão. Em seguida, melhore a saída ajustando a pronúncia, quebra, tom, taxa, entoação, estilo de voz, e muito mais. Para obter uma lista completa de opções, consulte [a linguagem de marcação de síntese de discursos](speech-synthesis-markup.md). Aqui está um [vídeo](https://www.youtube.com/watch?v=O1wIJ7mts_w) para mostrar como afinar a saída da fala com a Audio Content Creation. 
 5. Guarde e [exporte o seu áudio afinado.](#export-tuned-audio) Quando guardar a faixa de afinação no sistema, pode continuar a trabalhar e iterar na saída. Quando estiver satisfeito com a saída, pode criar uma tarefa de criação de áudio com a funcionalidade de exportação. Pode observar o estado da tarefa de exportação e descarregar a saída para uso com as suas apps e produtos.
-
-## <a name="set-up-your-azure-account-and-speech-resource"></a>Crie a sua conta Azure e o recurso Speech
-
-1. Para trabalhar com a Audio Content Creation, tem de ter uma conta Azure. Pode criar uma conta Azure utilizando a sua Conta Microsoft. Siga estas instruções para [criar uma conta Azure](get-started.md#new-resource). 
-2. [Crie um recurso de Discurso](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource) na sua conta Azure. Certifique-se de que o seu nível de preços está definido para **S0**. Se estiver a utilizar uma das vozes neurais, certifique-se de que cria o seu recurso numa [região suportada.](regions.md#standard-and-neural-voices)
-2. Depois de obter a conta Azure e o recurso de fala, pode utilizar os serviços de fala e aceder à [Criação de Conteúdos Áudio.](https://aka.ms/audiocontentcreation)
-3. Selecione o recurso Speech em que precisa de trabalhar. Também pode criar um novo recurso de Discurso aqui. 
-4. Pode modificar o seu recurso Speech a qualquer momento com a opção **Definições,** localizada na navegação superior.
 
 ## <a name="create-an-audio-tuning-file"></a>Criar um ficheiro de afinação de áudio
 
@@ -54,14 +74,13 @@ Existem duas formas de colocar o seu conteúdo na ferramenta de Criação de Con
 
 **Opção 1:**
 
-1. Clique em **Novo ficheiro** para criar um novo ficheiro de sintonização áudio.
+1. Clique no ícone **de novo ficheiro** no canto superior direito para criar um novo ficheiro de afinação de áudio.
 2. Digite ou cole o seu conteúdo na janela de edição. Os caracteres de cada ficheiro são até 20.000. Se o seu script for superior a 20.000 caracteres, pode utilizar a Opção 2 para dividir automaticamente o seu conteúdo em vários ficheiros. 
 3. Não se esqueça de salvar.
 
 **Opção 2:**
 
-1. Clique **em Upload** para importar um ou mais ficheiros de texto. Tanto o texto simples como o SSML são suportados.
-2. Se o seu ficheiro de script for superior a 20.000 caracteres, por favor divida o ficheiro por parágrafos, por caráter ou por expressões regulares. 
+1. Clique **em Upload** para importar um ou mais ficheiros de texto. Tanto o texto simples como o SSML são suportados. Se o seu ficheiro de script for superior a 20.000 caracteres, por favor divida o ficheiro por parágrafos, por caráter ou por expressões regulares. 
 3. Ao fazer o upload dos seus ficheiros de texto, certifique-se de que o ficheiro satisfaz estes requisitos.
 
    | Propriedade | Valor / Notas |
@@ -69,16 +88,15 @@ Existem duas formas de colocar o seu conteúdo na ferramenta de Criação de Con
    | Formato do ficheiro | Texto simples (.txt)<br/> Texto SSML (.txt)<br/> Os ficheiros zip não são suportados |
    | Formato codificante | UTF-8 |
    | Nome de ficheiro | Cada ficheiro deve ter um nome único. Duplicados não são apoiados. |
-   | Comprimento do texto | Os ficheiros de texto não devem exceder 20.000 caracteres. |
+   | Comprimento do texto | A limitação do carácter do ficheiro de texto é de 20.000. Se os seus ficheiros excederem a limitação, divida os ficheiros com as instruções na ferramenta. |
    | Restrições SSML | Cada ficheiro SSML só pode conter uma única peça de SSML. |
 
-### <a name="plain-text-example"></a>Exemplo de texto simples
+**Exemplo de texto simples**
 
 ```txt
 Welcome to use Audio Content Creation to customize audio output for your products.
 ```
-
-### <a name="ssml-text-example"></a>Exemplo de texto SSML
+**Exemplo de texto SSML**
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
@@ -92,20 +110,55 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 Depois de ter revisto a sua saída de áudio e de estar satisfeito com a sua afinação e ajuste, pode exportar o áudio.
 
-1. Clique **em Exportação** para criar uma tarefa de criação de áudio. **Recomenda-se a exportação para a Audio Library,** uma vez que suporta a longa saída de áudio e a experiência de saída áudio completa. Também pode baixar o áudio para o seu disco local diretamente, mas apenas os primeiros 10 minutos estão disponíveis. 
+1. Clique **em Exportação** para criar uma tarefa de criação de áudio. **Recomenda-se a exportação para a Audio Library,** uma vez que suporta a longa saída de áudio e a experiência de saída áudio completa. Também pode baixar o áudio para o seu disco local diretamente, mas apenas os primeiros 10 minutos estão disponíveis.
 2. Escolha o formato de saída para o seu áudio afinado. Uma lista de formatos suportados e taxas de amostra está disponível abaixo.
 3. Pode ver o estado da tarefa no separador **tarefa Exportação.** Se a tarefa falhar, consulte a página de informação detalhada para um relatório completo.
 4. Quando a tarefa estiver concluída, o seu áudio está disponível para download no separador **Audio Library.**
 5. Clique **em Baixar**. Agora está pronto para usar o seu áudio afinado personalizado nas suas apps ou produtos.
 
-### <a name="supported-audio-formats"></a>Formatos áudio suportados
+**Formatos áudio suportados**
 
 | Formato | Taxa de amostra de 16 kHz | Taxa de amostra de 24 kHz |
 |--------|--------------------|--------------------|
 | ondulação | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
 | mp3 | áudio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Consulte também
+## <a name="how-to-addremove-audio-content-creation-users"></a>Como adicionar/remover utilizadores da Criação de Conteúdos áudio?
+
+Se mais do que um utilizador quiser utilizar a Criação de Conteúdos Áudio, pode partilhar a sua conta E palavra-passe Azure com o utilizador, ou conceder acesso ao utilizador à subscrição do Azure e ao recurso de fala. Se adicionar um utilizador a uma subscrição do Azure, o utilizador pode aceder a todos os recursos sob a subscrição do Azure. Mas se apenas adicionar um utilizador a um recurso de fala, o utilizador apenas terá acesso ao recurso de fala, e não poderá aceder a outros recursos ao abrigo desta subscrição do Azure. Um utilizador com acesso ao recurso de fala pode utilizar a Criação de Conteúdos Áudio.
+
+### <a name="add-users-to-a-speech-resource"></a>Adicione os utilizadores a um recurso de fala
+
+Siga estes passos para adicionar um utilizador a um recurso de fala para que possa utilizar a Criação de Conteúdo Sonoro.
+
+1. Procure **serviços cognitivos** no portal Azure, selecione o recurso de fala a que pretende adicionar os utilizadores.
+2. Clique em **Controlo de acesso (IAM)** . Clique no separador **Atribuições de funções** para ver todas as atribuições de funções para esta subscrição.
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+1. Clique em **Adicionar** > **Adicionar atribuição de funções** para abrir o painel Adicionar atribuição de funções. Na lista de drop-down role, selecione a função **utilizador do serviço cognitivo.** Se quiser dar ao utilizador a propriedade deste recurso de fala, pode selecionar a função **Proprietário.**
+1. Na lista, selecione um utilizador. Se não vir o utilizador na lista, pode escrever na caixa Select para pesquisar nomes de exibição e endereços de e-mail. Se o utilizador não estiver neste diretório, pode inserir a [conta Microsoft](https://account.microsoft.com/account) do utilizador (que é fidedigna pelo diretório ativo da Azure).
+1. Clique em **Guardar** para atribuir a função. Após alguns momentos, o utilizador é atribuído ao utilizador do Serviço Cognitivo no âmbito do recurso de voz.
+
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+
+1. Os utilizadores que adicionar receberão um e-mail de convite. Depois de clicarem **em Aceitar convite**Aceite para se juntar ao  >  **Azure,** então eles podem usar a [Criação de Conteúdo Sonoro](https://aka.ms/audiocontentcreation).
+
+Os utilizadores que estejam no mesmo recurso de fala verão o trabalho uns dos outros no estúdio audio content Creation. Se quiser que cada utilizador tenha um local de trabalho único e privado na Criação de Conteúdos Áudio, por favor [crie um novo recurso](#step-2---create-a-speech-resource) de fala para cada utilizador e dê a cada utilizador o acesso único ao recurso de voz. 
+
+### <a name="remove-users-from-a-speech-resource"></a>Remover os utilizadores de um recurso de fala
+1. Procure **serviços cognitivos** no portal Azure, selecione o recurso de voz de onde pretende remover os utilizadores.
+2. Clique em **Controlo de acesso (IAM)** . Clique no **separador atribuições de funções** para ver todas as atribuições de funções para este recurso de fala.
+3. Selecione os utilizadores que pretende remover, clique em **Remover**  >  **Ok**.
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+
+### <a name="enable-users-to-grant-access"></a>Permitir que os utilizadores concedam acesso
+Se pretender que um dos utilizadores dê acesso a outros utilizadores, tem de dar ao utilizador o papel de proprietário para o recurso de fala e definir o utilizador como leitor de diretórios Azure. 
+1. Adicione o utilizador como proprietário do recurso de fala. Veja [como adicionar os utilizadores a um recurso de fala](#add-users-to-a-speech-resource).
+    :::image source="media/audio-content-creation/add-role.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+1. Selecione o menu colapsado na parte superior esquerda. Clique **em Azure Ative Directory**e, em seguida, clique nos **Utilizadores**.
+1. Pesse na conta microsoft do utilizador e aceda à página de detalhes do utilizador. Clique **em funções atribuídas**.
+1. Clique **em Adicionar atribuições**  ->  **Leitores de Diretórios**.
+
+## <a name="see-also"></a>Ver também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 

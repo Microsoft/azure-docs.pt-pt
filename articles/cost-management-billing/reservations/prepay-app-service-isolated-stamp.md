@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: c80ed02e137ea092bae1346260dba71cd417bed9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: feb7be6ad5dbd0dfbd04b05836842d0476780d40
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688934"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151545"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Economize custos para o Imposto de Selo do Plano Isolado do Serviço de Aplicações com a capacidade de reserva
 
@@ -39,7 +39,7 @@ Compre reservas de selos do Windows se tiver um ou mais funções de trabalho do
 
 ## <a name="buy-isolated-stamp-reserved-capacity"></a>Comprar capacidade de reserva de Selos de Plano Isolado
 
-Pode comprar capacidade de reserva de Plano Isolado no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](monthly-payments-reservations.md). Para comprar a capacidade de reserva, deve ter a função de proprietário em pelo menos uma subscrição Enterprise ou uma subscrição individual com tarifas pay as you go.
+Pode comprar capacidade de reserva de Plano Isolado no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](./prepare-buy-reservation.md). Para comprar a capacidade de reserva, deve ter a função de proprietário em pelo menos uma subscrição Enterprise ou uma subscrição individual com tarifas pay as you go.
 
 - Para subscrições Enterprise, a opção **Adicionar Instâncias Reservadas** deve ser ativada no [EA Portal](https://ea.azure.com/). Em alternativa, se a definição estiver desativada, tem ser um Administrador EA.
 - Para o programa Fornecedor de Soluções Cloud (CSP), apenas os agentes de administração ou os agentes de vendas podem comprar capacidade reservada do Azure Synapse Analytics.

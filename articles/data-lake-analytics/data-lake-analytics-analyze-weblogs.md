@@ -1,18 +1,16 @@
 ---
 title: Analisar registos de sites com o Azure Data Lake Analytics
 description: Saiba como analisar os registos do site usando o Azure Data Lake Analytics para executar funções e consultas U-SQL.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132641"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219399"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar registos de sites com o Azure Data Lake Analytics
 Saiba como analisar os registos do site usando data lake analytics, especialmente ao descobrir quais os remetentes que se depararam com erros quando tentaram visitar o site.
@@ -185,4 +183,4 @@ Para iniciar o Data Lake Analytics com ferramentas diferentes, veja:
 
 * [Começar com data lake analytics usando o Portal Azure](data-lake-analytics-get-started-portal.md)
 * [Introdução ao Data Lake Analytics com o Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Introdução ao Data Lake Analytics com o SDK .NET](data-lake-analytics-get-started-net-sdk.md)
+* [Introdução ao Data Lake Analytics com o SDK .NET](./data-lake-analytics-get-started-cli.md)

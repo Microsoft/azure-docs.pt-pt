@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274049"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441849"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs
 
@@ -51,7 +51,7 @@ Esta funcionalidade não é suportada atualmente. Se o acesso aos recursos da su
 Uma organização pode querer adicionar utilizadores de colaboração B2B, fornecendo-os às aplicações conforme necessário, e depois enviar convites. Você pode usar o convite de colaboração B2B API para personalizar o fluxo de trabalho de embarque.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os utilizadores convidados visíveis na Lista de Endereços Globais do Exchange?
-Sim. Os objetos convidados não estão visíveis na lista global de endereços (GAL) da sua organização por padrão, mas pode usar o Azure Ative Directory PowerShell para os tornar visíveis. Veja [se posso tornar os objetos convidados visíveis na lista global de endereços?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Sim. Os objetos convidados não estão visíveis na lista global de endereços (GAL) da sua organização por padrão, mas pode usar o Azure Ative Directory PowerShell para os tornar visíveis. Veja [se posso tornar os objetos convidados visíveis na lista global de endereços?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Posso fazer de um utilizador convidado um administrador limitado?
 Claro que sim. Para obter mais informações, consulte [adicionar utilizadores convidados a um papel.](add-guest-to-role.md)
@@ -80,16 +80,16 @@ Sim! Pode criar uma política de Acesso Condicional que impede todos os utilizad
 Sim. A autenticação multi-factor e as contas de e-mail do consumidor são ambas suportadas pela colaboração Azure AD B2B.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Suporta o reset da palavra-passe para utilizadores de colaboração Azure AD B2B?
-Se o seu inquilino Azure AD for o diretório de casa de um utilizador, pode [redefinir a palavra-passe do utilizador](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) a partir do portal Azure. Mas não é possível redefinir diretamente uma palavra-passe para um utilizador convidado que se inscreve com uma conta que é gerida por outro diretório AD Azure ou fornecedor de identidade externa. Apenas o utilizador convidado ou um administrador no diretório do utilizador pode redefinir a palavra-passe. Aqui estão alguns exemplos de como o reset da palavra-passe funciona para os utilizadores convidados:
+Se o seu inquilino Azure AD for o diretório de casa de um utilizador, pode [redefinir a palavra-passe do utilizador](../fundamentals/active-directory-users-reset-password-azure-portal.md) a partir do portal Azure. Mas não é possível redefinir diretamente uma palavra-passe para um utilizador convidado que se inscreve com uma conta que é gerida por outro diretório AD Azure ou fornecedor de identidade externa. Apenas o utilizador convidado ou um administrador no diretório do utilizador pode redefinir a palavra-passe. Aqui estão alguns exemplos de como o reset da palavra-passe funciona para os utilizadores convidados:
  
 * Os utilizadores convidados que iniciarem sômposições com uma conta Microsoft (por guestuser@live.com exemplo) podem redefinir as suas próprias palavras-passe utilizando o reset da palavra-passe de autosserviço da conta Microsoft (SSPR). Veja [como redefinir a sua palavra-passe da conta Microsoft.](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)
 * Os utilizadores convidados que iniciarem sômposições com uma conta Google ou outro fornecedor de identidade externo podem redefinir as suas próprias palavras-passe utilizando o método SSPR do seu fornecedor de identidade. Por exemplo, um utilizador convidado com a conta Google pode redefinir a guestuser@gmail.com sua palavra-passe seguindo as instruções no [Alterar ou redefinir a sua palavra-passe.](https://support.google.com/accounts/answer/41078)
-* Se o inquilino de identidade for um inquilino just-in-time (JIT) ou "viral" (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
+* Se o inquilino de identidade for um inquilino just-in-time (JIT) ou "viral" (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
 
 * Se o diretório de casa do utilizador convidado for o seu inquilino Azure AD, pode redefinir a senha do utilizador. Por exemplo, pode ter criado um utilizador ou sincronizado um utilizador a partir do seu Ative Directory no local e definir o Seu UserType para o Guest. Como este utilizador está aaprotendo o seu diretório, pode redefinir a sua palavra-passe a partir do portal Azure.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>O Microsoft Dynamics 365 fornece suporte online para a colaboração Azure AD B2B?
-Sim, a Dynamics 365 (online) suporta a colaboração Azure AD B2B. Para mais informações, consulte o artigo Dynamics 365 [Convidar os utilizadores com colaboração Azure AD B2B](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Sim, a Dynamics 365 (online) suporta a colaboração Azure AD B2B. Para mais informações, consulte o artigo Dynamics 365 [Convidar os utilizadores com colaboração Azure AD B2B](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual é a vida útil de uma senha inicial para um recém-criado utilizador de colaboração B2B?
 O Azure AD tem um conjunto fixo de caracteres, força de senha e requisitos de bloqueio de conta que se aplicam igualmente a todas as contas de utilizadores em nuvem Azure. Contas de utilizadores em nuvem são contas que não são federadas com outro fornecedor de identidade, tais como 
@@ -118,7 +118,7 @@ Se o parceiro tiver um inquilino AD Azure que é federado para a infraestrutura 
 Estamos a eliminar as diferenças entre a colaboração B2B e o negócio-consumidor (B2C) em termos de apoio de identidades. A identidade utilizada não é uma boa razão para escolher entre usar b2B ou usar B2C. Para obter informações sobre a escolha da sua opção de colaboração, consulte [Compare B2B e B2C no Azure Ative Directory](compare-with-b2c.md).
 
 ### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Uma conta local Azure AD B2C pode ser convidada para um inquilino da AD Azure para colaboração B2B?
-N.º Uma conta local Azure AD B2C só pode ser usada para assinar no inquilino Azure AD B2C. A conta não pode ser usada para assinar um inquilino da AD Azure. Convidar uma conta local Azure AD B2C para um inquilino da AD AZure para colaboração B2B não é apoiado.
+Não. Uma conta local Azure AD B2C só pode ser usada para assinar no inquilino Azure AD B2C. A conta não pode ser usada para assinar um inquilino da AD Azure. Convidar uma conta local Azure AD B2C para um inquilino da AD AZure para colaboração B2B não é apoiado.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quais aplicações e serviços suportam utilizadores convidados Azure B2B?
 Todas as aplicações integradas a Azure podem suportar utilizadores convidados Azure B2B, mas devem usar um ponto final configurado como inquilino para autenticar os utilizadores convidados. Poderá também ser necessário [personalizar as reclamações](claims-mapping.md) no token SAML que é emitido quando um utilizador convidado autentica para a aplicação. 
@@ -135,4 +135,3 @@ Para obter informações sobre as licenças que a sua organização necessita pa
 ### <a name="next-steps"></a>Passos seguintes
 
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444847"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164504"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configure Sempre Encriptado usando o Cofre da Chave Azure 
 
@@ -149,7 +149,7 @@ O SSMS fornece um assistente que o ajuda a configurar facilmente Sempre Encripta
 1. Expandir **tabelas clínicas de bases de**  >  **Clinic**  >  **dados.**
 2. Clique com o botão direito na tabela **'Pacientes'** e **selecione Encrypt Columns** para abrir o assistente sempre encriptado:
 
-    ![Encriptar colunas](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Screenshot que destaca as Colunas encriptadas... opção menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 O assistente sempre encriptado inclui as seguintes secções: **Seleção de Colunas,** **Configuração de Chave Master,** **Validação**e **Resumo**.
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Pode ver que as colunas encriptadas não contêm dados de texto simples.
 
-   ![Nova aplicação para consolas](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Screenshot que mostra que as colunas encriptadas não contêm quaisquer dados de texto simples.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 Para utilizar o SSMS para aceder aos dados de texto simples, tem primeiro de se certificar de que o utilizador tem permissões adequadas para o Cofre da Chave Azure: *obter,* *desembrulhar aKey,* e *verificar*. Para obter informações detalhadas, consulte [As Teclas Principais da Coluna criar e armazenar (sempre encriptadas)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -584,7 +584,7 @@ Em seguida, adicione o *parâmetro de definição de encriptação da coluna=ati
 2. Clique **em Connect**Database  >  **Engine** para abrir a janela **'Ligar ao servidor'** e clicar em **Opções**.
 3. Clique em **parâmetros de ligação adicionais** e tipo **de definição de encriptação da coluna=ativada**.
 
-    ![Nova aplicação para consolas](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Screenshot que mostra o separador Parâmetros de Correção Adicional.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Execute a seguinte consulta na base de dados da Clínica.
 

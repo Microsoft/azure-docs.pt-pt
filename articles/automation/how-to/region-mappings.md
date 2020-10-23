@@ -1,16 +1,16 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
 description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
-ms.date: 09/03/2020
+ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440665"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207330"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
@@ -32,6 +32,7 @@ A tabela a seguir mostra os mapeamentos suportados:
 |**EUA**||
 |Leste<sup>1</sup>|Leste|
 |Westus2|Westus2|
+|Sul-Centro|Sul-Centro|
 |WestCentralus|WestCentralus|
 |**Canadá**||
 |Centro do Canadá|Centro do Canadá|
@@ -44,6 +45,7 @@ A tabela a seguir mostra os mapeamentos suportados:
 |**Europa**||
 |UKSouth|UKSouth|
 |Europa Ocidental|Europa Ocidental|
+|SuíçaNorth|SuíçaNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>2</sup>|USGovArizona|
@@ -86,5 +88,5 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/update-mgmt-overview.md).
-* Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking.md).
+* Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking/overview.md).
 * Saiba mais sobre VMs de início/paragem durante as horas de folga em [VMs de início/paragem durante a visão geral fora de horas](../automation-solution-vm-management.md).

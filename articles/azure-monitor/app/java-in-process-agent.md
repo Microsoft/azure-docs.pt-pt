@@ -3,12 +3,12 @@ title: Monitorize as aplicações java em qualquer ambiente - Azure Monitor Appl
 description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem instrumentar a aplicação. Mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370039"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215285"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights - visualização pública
 
@@ -114,8 +114,8 @@ Consulte os detalhes em [3.0 Visualização pública: Opções de configuração
 ### <a name="logs"></a>Registos
 
 * java.util.logging
-* Log4j
-* SLF4J/Logback
+* Log4j (incluindo propriedades MDC)
+* SLF4J/Logback (incluindo propriedades MDC)
 
 ### <a name="metrics"></a>Métricas
 
@@ -134,13 +134,13 @@ O quadro abaixo representa os tipos de telemetria personalizados atualmente supo
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **Eventos Personalizados**   |            |                     |  Sim    |
-| **Métricas Personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Sim    |
-| **Exceções**      |            |  Sim                |  Sim    |
-| **Vistas de página**      |            |                     |  Sim    |
-| **Pedidos**        |            |                     |  Sim    |
-| **Rastreios**          |            |  Sim                |  Sim    |
+| **Eventos Personalizados**   |            |                     |  Yes    |
+| **Métricas Personalizadas**  |  Yes       |                     |  Yes    |
+| **Dependências**    |            |                     |  Yes    |
+| **Exceções**      |            |  Yes                |  Yes    |
+| **Vistas de página**      |            |                     |  Yes    |
+| **Pedidos**        |            |                     |  Yes    |
+| **Rastreios**          |            |  Yes                |  Yes    |
 
 Não estamos a planear lançar um SDK com o Application Insights 3.0 neste momento.
 

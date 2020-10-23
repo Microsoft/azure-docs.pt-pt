@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400148"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318451"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Confiem chaves geridas pelo cliente para encriptar dados em repouso para ambientes de serviço de integração (ISEs) em Azure Logic Apps
 
@@ -39,7 +39,7 @@ Este tópico mostra como configurar e especificar a sua própria chave de encrip
 
 * Um cofre-chave Azure que tem as propriedades **Soft Delete** e **Não Purgar** ativadas
 
-  Para obter mais informações sobre como ativar estas propriedades, consulte [a visão geral do Azure Key Vault](../key-vault/general/soft-delete-overview.md) e [configuure as chaves geridas pelo cliente com o Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Se é novo no Azure Key Vault, aprenda [a criar um cofre chave](../key-vault/secrets/quick-create-portal.md#create-a-vault) utilizando o portal Azure ou utilizando o comando Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  Para obter mais informações sobre como ativar estas propriedades, consulte [a visão geral do Azure Key Vault](../key-vault/general/soft-delete-overview.md) e [configuure as chaves geridas pelo cliente com o Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). Se é novo no Azure Key Vault, aprenda [a criar um cofre chave](../key-vault/secrets/quick-create-portal.md#create-a-vault) utilizando o portal Azure ou utilizando o comando Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * No seu cofre chave, uma chave que é criada com estes valores de propriedade:
 
@@ -52,7 +52,7 @@ Este tópico mostra como configurar e especificar a sua própria chave de encrip
 
   ![Crie a sua chave de encriptação gerida pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Para obter mais informações, consulte [as chaves geridas pelo cliente com cofre de chaves Azure](../storage/common/storage-encryption-keys-portal.md) ou o comando Azure PowerShell, [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
+  Para obter mais informações, consulte [as chaves geridas pelo cliente com cofre de chaves Azure](../storage/common/customer-managed-keys-configure-key-vault.md) ou o comando Azure PowerShell, [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Uma ferramenta que pode utilizar para criar o seu ISE, chamando a API de Apps Lógicas REST com um pedido HTTPS PUT. Por exemplo, pode usar [o Carteiro,](https://www.getpostman.com/downloads/)ou pode construir uma aplicação lógica que executa esta tarefa.
 
@@ -225,7 +225,7 @@ Para esta tarefa, pode utilizar o comando Azure PowerShell [Set-AzKeyVaultAccess
 
    1. Quando terminar o painel de **políticas de Acesso,** selecione **Save**.
 
-Para obter mais informações, consulte [como autenticar o Cofre de Chaves](/azure/key-vault/general/authentication) e atribuir uma política de acesso ao Cofre de [Chaves](/azure/key-vault/general/assign-access-policy-portal).
+Para obter mais informações, consulte [como autenticar o Cofre de Chaves](../key-vault/general/authentication.md) e atribuir uma política de acesso ao Cofre de [Chaves](../key-vault/general/assign-access-policy-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

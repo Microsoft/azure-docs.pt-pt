@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: hrasheed-msft
   ms.author: hrasheed
-  ms.date: 08/11/2020
-  ms.openlocfilehash: 43de19b3caa87bf410ad30a237c2c9e91beba63f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/20/2020
+  ms.openlocfilehash: cd1e23d464baa593ed5f63683664ca355e467168
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88136376"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92311705"
 landingContent:
 - title: Sobre o Azure Data Share
   linkLists:
@@ -44,25 +44,31 @@ landingContent:
       url: subscribe-to-data-share.md
   - linkListType: how-to-guide
     links:
-    - text: Adicionar conjuntos de dados
-      url: how-to-add-datasets.md
-    - text: Configurar mapeamentos de conjuntos de dados
-      url: how-to-configure-mapping.md
+    - text: Partilhar a partir do Armazenamento do Azure
+      url: how-to-share-from-storage.md
+    - text: Partilhar a partir da Base de Dados SQL do Azure ou do Synapse Analytics
+      url: how-to-share-from-sql.md
+    - text: Partilhar a partir do Azure Data Explorer
+      url: https://docs.microsoft.com/azure/data-explorer/data-share
 - title: Monitorizar e gerir
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Monitorizar a sua partilha
-      url: how-to-monitor.md
-    - text: Resolver problemas comuns
-      url: data-share-troubleshoot.md
+    - text: Adicionar conjuntos de dados
+      url: how-to-add-datasets.md
     - text: Adicionar destinatários
       url: how-to-add-recipients.md
+    - text: Configurar mapeamentos de conjuntos de dados
+      url: how-to-configure-mapping.md
     - text: Eliminar um convite
       url: how-to-delete-invitation.md
     - text: Revogar uma subscrição de partilha
       url: how-to-revoke-share-subscription.md
+    - text: Monitorizar a sua partilha
+      url: how-to-monitor.md
     - text: Descrição geral de segurança do Azure Data Share
       url: security.md
     - text: Recuperação após desastre
       url: disaster-recovery.md
+    - text: Resolver problemas comuns
+      url: data-share-troubleshoot.md

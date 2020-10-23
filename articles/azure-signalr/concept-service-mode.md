@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514905"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143265"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Modo de serviço no Serviço Azure SignalR
 
@@ -51,11 +51,11 @@ Também não existe nenhuma ligação ao servidor neste modo (se tentar utilizar
 > [!NOTE]
 > Tanto a API REST como a websocket são suportadas na gestão de serviços [signalR SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md). Se estiver a utilizar um idioma diferente de .NET, também pode invocar manualmente as APIs REST seguindo esta [especificação.](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)
 >
-> Se estiver a utilizar funções Azure, pode utilizar [as ligações de serviço SignalR para funções Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (doravante chamadas de ligação de funções) para enviar mensagens como uma ligação de saída.
+> Se estiver a utilizar funções Azure, pode utilizar [as ligações de serviço SignalR para funções Azure](../azure-functions/functions-bindings-signalr-service.md) (doravante chamadas de ligação de funções) para enviar mensagens como uma ligação de saída.
 
 Também é possível que a sua aplicação de servidor receba mensagens e eventos de conexão dos clientes. O serviço entregará mensagens e eventos de conexão a pontos finais pré-configurados (chamados Upstream) utilizando webhooks. Comparando com o modo predefinido, não existe garantia de pegajosa e os pedidos HTTP podem ser menos eficientes do que as ligações websocket.
 
-Para obter mais informações sobre como configurar a montante, consulte este [doc](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+Para obter mais informações sobre como configurar a montante, consulte este [doc](./concept-upstream.md).
 
 Abaixo está um diagrama que ilustra como funciona o modo sem servidor:
 

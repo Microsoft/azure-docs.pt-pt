@@ -1,4 +1,4 @@
-- name: Documentação da Ligação Privada do Azure
+- name: Documentação do Private Link
   href: index.yml
 - name: Descrição geral
   items:
@@ -24,12 +24,19 @@
     - name: Criar um serviço Private Link - modelo ARM
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: Tutoriais
   items:
     - name: Ligar a uma conta de armazenamento
       href: tutorial-private-endpoint-storage-portal.md
     - name: "Ligar a uma conta do Cosmos\_DB"
       href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: Ligar a uma aplicação Web
+      href: tutorial-private-endpoint-webapp-portal.md
+    - name: SQL
+      items:
+        - name: Ligar a um servidor SQL - Portal
+          href: tutorial-private-endpoint-sql-portal.md
 - name: Conceitos
   items:
     - name: Ponto Final Privado
@@ -42,10 +49,94 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
-- name: Procedimento
+- name: Procedimentos
   items:
-    - name: Ligar de forma privada a uma aplicação Web
-      href: create-private-endpoint-webapp-portal.md
+    - name: IA + Machine Learning
+      items:
+        - name: Machine Learning
+          href: ../machine-learning/how-to-configure-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Análise
+      items:
+        - name: Analysis Services
+          href: ../azure-sql/database/private-endpoint-overview.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Data Factory
+          href: ../data-factory/data-factory-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Hubs de Eventos
+          href: ../event-hubs/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: HDInsight
+          href: ../hdinsight/hdinsight-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Power BI
+          href: /power-bi/admin/service-security-private-links
+    - name: Computação
+      items:
+        - name: Batch
+          href: ../batch/private-connectivity.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Discos geridos com Private Links
+          href: ../virtual-machines/disks-enable-private-links-for-import-export-portal.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Contentores
+      items:
+        - name: Container Registry
+          href: ../container-registry/container-registry-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Kubernetes Service
+          href: ../aks/private-clusters.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Bases de Dados
+      items:
+        - name: Cache para Redis
+          href: ../azure-cache-for-redis/cache-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: BD do Cosmos
+          href: ../cosmos-db/how-to-configure-private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Database for MariaDB
+          href: ../mariadb/concepts-data-access-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Base de Dados para MySQL
+          href: ../mysql/concepts-data-access-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Base de Dados para PostgreSQL
+          href: ../postgresql/concepts-data-access-and-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: SQL
+          href: tutorial-private-endpoint-sql-portal.md
+    - name: Ferramentas de Programação
+      items:
+        - name: App Configuration
+          href: ../azure-app-configuration/concept-private-endpoint.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Reencaminhamento
+          href: ../azure-relay/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Integração
+      items:
+        - name: Event Grid
+          href: ../event-grid/network-security.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Service Bus
+          href: ../service-bus-messaging/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Internet das Coisas
+      items:
+        - name: IoT Hub
+          href: ../iot-hub/virtual-network-support.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Gestão e Governação
+      items:
+        - name: Automatização
+          href: ../automation/how-to/private-link-security.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Backup
+          href: ../backup/private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Monitor
+          href: ../azure-monitor/platform/private-link-security.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Segurança
+      items:
+        - name: Cofre de Chaves
+          href: ../key-vault/general/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Armazenamento
+      items:
+        - name: Ficheiros
+          href: ../storage/files/storage-files-networking-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: 'File Sync '
+          href: ../storage/files/storage-sync-files-networking-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Armazenamento
+          href: ../storage/common/storage-private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Web
+      items:
+        - name: Cognitive Search
+          href: ../search/service-create-private-endpoint.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: SignalR
+          href: ../azure-signalr/howto-private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Aplicação Web
+          href: tutorial-private-endpoint-webapp-portal.md
     - name: Desativar políticas de rede para um ponto final privado
       href: disable-private-endpoint-network-policy.md
     - name: Desativar políticas de rede para um Serviço de Ligação Privada

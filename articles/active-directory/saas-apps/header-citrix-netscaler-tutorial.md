@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: de02e8ea995482b815734565f839c4cb1c348782
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944232"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Tutorial: Azure Ative Directory integração única de sign-on com Citrix NetScaler (autenticação baseada em cabeçalho)
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar citrix NetScaler com Azure Ative D
 * Permita que os seus utilizadores sejam automaticamente inscritos no Citrix NetScaler com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -117,7 +117,7 @@ Para ativar o Azure AD SSO utilizando o portal Azure, complete estes passos:
 
 1. A aplicação Citrix NetScaler também espera que mais alguns atributos sejam repercutidos na resposta SAML. Na caixa de diálogo **'Atributos do Utilizador',** em **'Reclamações de Utilizador',** preencha os seguintes passos para adicionar os atributos de ficha SAML, tal como mostrado na tabela:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | mySecretID  | user.userprincipalname |
     
@@ -199,7 +199,7 @@ Para criar um servidor virtual:
 
 1. Desacorda os seguintes valores para o servidor web que está a executar as aplicações:
 
-   * **Nome do Serviço**
+   * **Nome de serviço**
    * **Servidor IP/ Servidor Existente**
    * **Protocolo**
    * **Porta**
@@ -437,15 +437,15 @@ Nesta secção, um utilizador chamado B.Simon é criado no Citrix NetScaler. O C
 
 Nesta secção, testa a configuração Azure AD SSO utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo Citrix NetScaler no Painel de Acesso, deverá ser automaticamente inscrito no Citrix NetScaler para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Citrix NetScaler no Painel de Acesso, deverá ser automaticamente inscrito no Citrix NetScaler para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente citrix NetScaler com Azure AD](https://aad.portal.azure.com/)
 

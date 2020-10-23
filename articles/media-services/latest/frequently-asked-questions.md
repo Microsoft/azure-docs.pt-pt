@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019618"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426889"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Serviços de Mídia v3 frequentemente perguntas
 
@@ -34,7 +34,7 @@ Se o seu vídeo foi previamente enviado para a conta dos Media Services utilizan
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Que funções da Azure podem executar ações sobre os recursos da Azure Media Services? 
 
-Consulte [o controlo de acesso baseado em funções (RBAC) para contas de Serviços de Mídia](rbac-overview.md).
+Consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Mídia](rbac-overview.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Como faço o streaming para dispositivos Apple iOS?
 

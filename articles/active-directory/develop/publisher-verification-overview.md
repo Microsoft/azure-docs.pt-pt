@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258154"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363424"
 ---
 # <a name="publisher-verification"></a>Verificação do editor
 
@@ -39,7 +39,7 @@ A verificação do editor proporciona os seguintes benefícios:
 > A partir de novembro de 2020, os utilizadores finais deixarão de poder conceder o consentimento à maioria das aplicações multi-inquilinos recentemente registadas sem editores verificados. Isto aplica-se a aplicações registadas a partir de 8 de novembro de 2020, utilizará o OAuth2.0 para solicitar permissões para além do perfil básico do utilizador e lerá o consentimento dos utilizadores em diferentes inquilinos do que aquele em que a app está registada. Será exibido um aviso no ecrã de consentimento informando os utilizadores de que estas aplicações são arriscadas e são de editoras não verificadas.    
 
 ## <a name="requirements"></a>Requisitos
-Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. A saber: 
+Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. São: 
 
 -  Um ID MPN para uma conta válida [da Microsoft Partner Network](https://partner.microsoft.com/membership) que tenha concluído o processo de [verificação.](/partner-center/verification-responses) Esta conta MPN deve ser a [conta global partner (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) para a sua organização. 
 
@@ -49,7 +49,7 @@ Existem alguns pré-requisitos para a verificação de editores, alguns dos quai
 
 -  O utilizador que efetua a verificação deve ser autorizado a efetuar alterações tanto no registo da aplicação no AZure AD como na conta MPN no Partner Center. 
 
-    -  Em Azure AD este utilizador deve ser membro de uma das [seguintes funções](../users-groups-roles/directory-assign-admin-roles.md): Administrador de Aplicação, Cloud Application Admin ou Global Admin. 
+    -  Em Azure AD este utilizador deve ser membro de uma das [seguintes funções](../roles/permissions-reference.md): Administrador de Aplicação, Cloud Application Admin ou Global Admin. 
 
     -  No Partner Center este utilizador deve ter as seguintes [funções](/partner-center/permissions-overview): MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado em Azure AD).
     

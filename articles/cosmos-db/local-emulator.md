@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627602"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173788"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instale e utilize o emulador Azure Cosmos para desenvolvimento e testes locais
 
@@ -243,7 +243,7 @@ Utilize os seguintes passos para utilizar o emulador em ambientes Linux ou macOS
 1. A partir do Windows VM, lance o emulador Azure Cosmos a partir da linha de comando utilizando as seguintes opções. Para obter mais informações sobre os parâmetros suportados pela linha de comando, consulte a [referência da ferramenta da linha de comando do emulador:](emulator-command-line-parameters.md)
 
    ```bash
-   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 
 1. Finalmente, você precisa resolver o processo de confiança do certificado entre a aplicação em execução no ambiente Linux ou Mac e o emulador. Pode utilizar uma das duas opções seguintes para resolver o certificado:
@@ -332,7 +332,7 @@ Para permitir o acesso à rede pela primeira vez, o utilizador deve desligar o e
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticar ligações ao utilizar o emulador
 
-Tal como acontece com a Azure Cosmos DB na nuvem, todos os pedidos que fizer contra o emulador Azure Cosmos devem ser autenticados. O emulador Azure Cosmos suporta apenas uma comunicação segura via TLS. O emulador Azure Cosmos suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação de chaves primárias. Esta conta e chave são as únicas credenciais permitidas para uso com o Emulator Azure Cosmos. A saber:
+Tal como acontece com a Azure Cosmos DB na nuvem, todos os pedidos que fizer contra o emulador Azure Cosmos devem ser autenticados. O emulador Azure Cosmos suporta apenas uma comunicação segura via TLS. O emulador Azure Cosmos suporta uma única conta fixa e uma chave de autenticação bem conhecida para a autenticação de chaves primárias. Esta conta e chave são as únicas credenciais permitidas para uso com o Emulator Azure Cosmos. São:
 
 ```bash
 Account name: localhost:<port>

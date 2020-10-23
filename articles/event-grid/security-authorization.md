@@ -3,16 +3,18 @@ title: Segurança e autenticação da Grelha de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119094"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328730"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
-O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de gestão, tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções da Azure (RBAC).
+O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de **gestão,** tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções Azure (Azure RBAC).
 
+> [!NOTE]
+> O EventGrid não suporta o Azure RBAC para publicar eventos para tópicos ou domínios de Event Grid. Utilize uma chave ou ficha de assinatura de acesso partilhado (SAS) para autenticar clientes que publiquem eventos. Para mais informações, consulte [autenticar clientes editoriais.](security-authenticate-publishing-clients.md) 
 
 ## <a name="operation-types"></a>Tipos de operação
 

@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816432"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152050"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma app de Serviço de Aplicações no portal Azure
 
@@ -292,7 +292,7 @@ Consulte [configurar um recipiente Linux personalizado para o Serviço de Aplica
 [Portal do Azure]: https://portal.azure.com/
 [Configure um nome de domínio personalizado no Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Configurar ambientes de teste no Serviço de Aplicações do Azure]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Monitorização do básico no Azure App Service]: ./web-sites-monitor.md
 [modo pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensione uma aplicação no Azure App Service]: ./manage-scale-up.md

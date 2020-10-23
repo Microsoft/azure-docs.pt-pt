@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445063"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426322"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ Para alcançar a continuidade real do negócio, adicionar redundância de base d
 > A repetição do registo é adiada na base de dados secundária se houver atualizações de esquemas na Primária. Este último requer um bloqueio de esquema na base de dados secundária.
 
 > [!IMPORTANT]
-> Pode utilizar a geo-replicação para criar uma base de dados secundária na mesma região que a principal. Você pode usar este secundário para equilibrar uma carga de carga apenas de carga na mesma região. No entanto, uma base de dados secundária na mesma região não proporciona uma resiliência adicional de falhas, pelo que não constitui um objetivo adequado para a recuperação de catástrofes. Também não garante o isolamento da zona de disponibilidade. Use o nível de serviço critical ou Premium do Negócio com [configuração redundante de zona](high-availability-sla.md#zone-redundant-configuration) para alcançar o isolamento da zona de disponibilidade.
+> Pode utilizar a geo-replicação para criar uma base de dados secundária na mesma região que a principal. Você pode usar este secundário para equilibrar uma carga de carga apenas de carga na mesma região. No entanto, uma base de dados secundária na mesma região não proporciona uma resiliência adicional de falhas, pelo que não constitui um objetivo adequado para a recuperação de catástrofes. Também não garante o isolamento da zona de disponibilidade. Use o nível de serviço critical ou Premium do Negócio com [configuração redundante de zona de zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) ou [configuração redundante](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) de nível de serviço para obter isolamento de zona de disponibilidade.
 >
 
 - **Falha planeada**
@@ -132,7 +132,7 @@ Por predefinição, a redundância de armazenamento de backup do secundário é 
 > A taxa de registo de transações no primário pode ser acelerada por razões não relacionadas com o tamanho do cálculo mais baixo num secundário. Este tipo de estrangulamento pode ocorrer mesmo que o secundário tenha o mesmo tamanho de computação ou maior do que o primário. Para mais detalhes, incluindo tipos de espera para diferentes tipos de taxa de registo, consulte a [governação da taxa de registo de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública apenas na região do Sudeste Asiático Azure. Na pré-visualização, se a base de dados de origem for criada com redundância de backup local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não será suportada. 
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível apenas na região do Sudeste Asiático Azure. Quando a base de dados de origem é criada com redundância de armazenamento de backup de segurança redundante local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não é suportada. 
 
 Para obter mais informações sobre os tamanhos de cálculo da Base de Dados [SQL, consulte quais são os Níveis de Serviço de Base de Dados SQL](purchasing-models.md).
 

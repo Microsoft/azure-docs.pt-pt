@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89292984"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150812"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança da empresa em Azure HDInsight
 
@@ -47,7 +47,7 @@ O administrador Hadoop pode configurar o controlo de acesso baseado em funções
 
 Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.apache.org/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante a filtragem ao nível da linha e do nível da coluna (mascaramento de dados). E filtra os dados sensíveis de utilizadores não autorizados.
 
-### <a name="auditing"></a>Auditing (Auditoria)
+### <a name="auditing"></a>Auditoria
 
 A auditoria do acesso a recursos de cluster é necessária para rastrear o acesso não autorizado ou não intencional dos recursos. É tão importante como proteger os recursos do cluster do acesso não autorizado.
 
@@ -82,14 +82,16 @@ A tabela a seguir fornece ligações aos recursos para cada tipo de solução de
 |  | Certifique-se de que a [funcionalidade de encriptação em trânsito](./encryption-in-transit.md) está ativada para utilizar TLS e IPSec para comunicação intra-cluster. | Cliente |
 |  | Configure [as chaves geridas pelo cliente](../../storage/common/storage-encryption-keys-portal.md) para encriptação de armazenamento Azure | Cliente |
 |  | Controle o acesso aos seus dados através do suporte Azure utilizando [o cofre do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Cliente |
-| Segurança de aplicação e middleware | Integre com AAD-DS e [Autenticação Configure](apache-domain-joined-configure-using-azure-adds.md) | Cliente |
+| Segurança de aplicação e middleware | Integre com AAD-DS e [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) ou utilize [HIB para autenticação OAuth](identity-broker.md)| Cliente |
 |  | Configure as políticas [de autorização do Apache Ranger](apache-domain-joined-run-hive.md) | Cliente |
 |  | Utilize [registos do Monitor Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Cliente |
 | Segurança do sistema operativo | Criar clusters com a mais recente imagem de base segura | Cliente |
 |  | Certifique-se [de que o SISTEMA remenda em](../hdinsight-os-patching.md) intervalos regulares | Cliente |
+|  | Garantir [encriptação de disco CMK para VMs](../disk-encryption.md) | Cliente |
 | Segurança da rede | Configurar uma [rede virtual](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configure [regras do grupo de segurança da rede de entrada (NSG)](../control-network-traffic.md) | Cliente |
+|  | Configurar [regras do grupo de segurança da rede de entrada (NSG)](../control-network-traffic.md) ou [ligação privada](../hdinsight-private-link.md) | Cliente |
 |  | Configure [restrição de tráfego de saída](../hdinsight-restrict-outbound-traffic.md) com firewall | Cliente |
+|  | Configurar [encriptação IPSec em trânsito](encryption-in-transit.md) entre nós de cluster | Cliente |
 | Infraestrutura virtualizada | N/D | HDInsight (Fornecedor de nuvem) |
 | Segurança da infraestrutura física | N/D | HDInsight (fornecedor de nuvem) |
 

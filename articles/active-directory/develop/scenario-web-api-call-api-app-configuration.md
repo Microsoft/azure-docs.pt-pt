@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9fe4d5cfb4b0b31a257dfecdeeb191a9c7920772
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403177"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365940"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API web que chama APIs web: configuração de código
 
@@ -248,7 +248,7 @@ Uma API web Python terá de usar algum middleware para validar o sinal do portad
 
 ---
 
-Também pode ver um exemplo da implementação do fluxo OBO em [Node.js e funções Azure](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+Também pode ver um exemplo da implementação do fluxo OBO em [Node.js e funções Azure](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/Function/MyHttpTrigger/index.js#L61).
 
 ## <a name="protocol"></a>Protocolo
 

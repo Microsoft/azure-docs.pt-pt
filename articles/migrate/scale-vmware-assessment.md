@@ -3,12 +3,12 @@ title: Avaliar um grande número de VMware VMs para migração para Azure com Az
 description: Descreve como avaliar um grande número de VMware VMs para migração para Azure usando o serviço Azure Migrate.e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171914"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314124"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avaliar um grande número de VMware VMs para migração para Azure
 
@@ -26,7 +26,7 @@ Neste artigo, vai aprender a:
 
 
 > [!NOTE]
-> Se quiser experimentar uma prova de conceito para avaliar um par de VMs antes de avaliar em escala, siga as nossas [séries tutoriais](tutorial-prepare-vmware.md)
+> Se quiser experimentar uma prova de conceito para avaliar um par de VMs antes de avaliar em escala, siga as nossas [séries tutoriais](./tutorial-discover-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Plano de avaliação
 
@@ -78,7 +78,7 @@ Prepare o Azure e o VMware para avaliação do servidor.
 2. Configure as permissões para que a sua conta Azure interaja com a Azure Migrate.
 3. Prepare o VMware para avaliação.
 
-Siga as instruções [deste tutorial](tutorial-prepare-vmware.md) para configurar estas definições.
+Siga as instruções [deste tutorial](./tutorial-discover-vmware.md) para configurar estas definições.
 
 
 ## <a name="create-a-project"></a>Criar um projeto
@@ -96,7 +96,7 @@ De acordo com os seus requisitos de planeamento, faça o seguinte:
 1. Reveja as avaliações em preparação para o planeamento migratório.
 
 
-Siga as instruções [deste tutorial](tutorial-assess-vmware.md) para configurar estas definições.
+Siga as instruções [deste tutorial](./tutorial-assess-vmware-azure-vm.md) para configurar estas definições.
     
 
 ## <a name="next-steps"></a>Passos seguintes

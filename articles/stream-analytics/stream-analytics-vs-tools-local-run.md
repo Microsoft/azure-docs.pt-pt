@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045642"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221269"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Teste Stream Analytics consultas localmente com Visual Studio
 
@@ -30,7 +30,7 @@ No seu projeto Azure Stream Analytics, clique duas vezes em **Script.asaql** par
 
 Para validar a sua consulta contra dados estáticos locais, clique com o botão direito na entrada e **selecione Adicionar a entrada local**.
    
-![Adicionar entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Screenshot que realça a opção de menu de entrada local.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 Na janela pop-up, selecione os dados da amostra do seu caminho local e **guarde**.
    

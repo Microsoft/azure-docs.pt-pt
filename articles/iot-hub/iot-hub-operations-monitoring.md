@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022025"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139329"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorização das operações do IoT Hub (depreciada)
 
@@ -191,7 +191,7 @@ A categoria de encaminhamento de mensagens rastreia erros que ocorrem durante a 
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Ligar ao ponto final de monitorização
 
-O ponto final de monitorização no seu hub IoT é um ponto final compatível com o Event Hub. Pode utilizar qualquer mecanismo que funcione com os Centros de Eventos para ler mensagens de monitorização a partir deste ponto final. A amostra a seguir cria um leitor básico que não é adequado para uma implantação de alta produção. Para obter mais informações sobre como processar mensagens a partir do Event Hubs, veja o tutorial [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+O ponto final de monitorização no seu hub IoT é um ponto final compatível com o Event Hub. Pode utilizar qualquer mecanismo que funcione com os Centros de Eventos para ler mensagens de monitorização a partir deste ponto final. A amostra a seguir cria um leitor básico que não é adequado para uma implantação de alta produção. Para obter mais informações sobre como processar mensagens a partir do Event Hubs, veja o tutorial [Introdução ao Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Para ligar ao ponto final de monitorização, precisa de uma cadeia de ligação e do nome do ponto final. Os seguintes passos mostram-lhe como encontrar os valores necessários no portal:
 
@@ -271,4 +271,4 @@ Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
 
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/quickstart-linux.md)

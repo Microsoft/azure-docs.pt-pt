@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683407"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131875"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Opções de agrupamento e filtragem na Análise de custos
 
@@ -49,10 +49,10 @@ A tabela seguinte lista algumas das opções de agrupamento e filtragem mais com
 | **Nome do serviço** ou **Categoria do medidor** | Divida os custos por serviço do Azure. | As compras e a utilização do Marketplace serão mostradas como **Não aplicável** ou **não atribuída**. |
 | **Escalão de serviço** ou **Subcategoria de medidor** | Divida os custos por subclassificação do medidor de utilização do Azure. | As compras e a utilização do Marketplace serão mostradas como **Não aplicável** ou **não atribuída**. |
 | **Subscrição** | Divida os custos por subscrição do Azure e por conta associada do AWS. | As compras e os recursos de inquilinos podem ser mostrados como **Não aplicável**. |
-| **Tag** | Divida os custos por valores de etiqueta para uma chave de etiqueta específica. | As etiquetas não estão disponíveis para: compras, recursos de inquilinos não associados a subscrições, recursos da subscrição não implementados num grupo de recursos nem recursos clássicos. Alguns serviços não incluem etiquetas nos dados de utilização. Saiba mais sobre o [suporte de etiquetas para cada tipo de recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Divida os custos por valores de etiqueta para uma chave de etiqueta específica. | As etiquetas não estão disponíveis para: compras, recursos de inquilinos não associados a subscrições, recursos da subscrição não implementados num grupo de recursos nem recursos clássicos. Alguns serviços não incluem etiquetas nos dados de utilização. Saiba mais sobre o [suporte de etiquetas para cada tipo de recurso](../../azure-resource-manager/management/tag-support.md). |
 
 Para obter mais informações sobre os termos, veja [Compreender os termos utilizados no ficheiro de utilização e de custos do Azure](../understand/understand-usage.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar a analisar os custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [Começar a analisar os custos](./quick-acm-cost-analysis.md).

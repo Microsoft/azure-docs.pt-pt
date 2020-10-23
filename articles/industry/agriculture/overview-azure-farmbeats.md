@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439561"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331928"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Visão geral do Azure FarmBeats (Preview)
 
 A azure FarmBeats é uma oferta de negócios disponíveis no Azure Marketplace. Permite a agregação de conjuntos de dados agrícolas entre os fornecedores. O Azure FarmBeats permite-lhe construir modelos de inteligência artificial (IA) ou machine learning (ML) baseados em conjuntos de dados fundidos. Ao utilizar o Azure FarmBeats, as empresas agrícolas podem concentrar-se em valores-acrescentadores fundamentais em vez do levantamento pesado indiferenciado da engenharia de dados.
 
 > [!NOTE]
-> Azure FarmBeats está atualmente em pré-visualização pública. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A Azure FarmBeats é fornecida sem um acordo de nível de serviço. Utilize o [Fórum de Apoio Azure FarmBeats](https://aka.ms/farmbeatssupport) para obter apoio.
+> Azure FarmBeats está atualmente em pré-visualização pública. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A Azure FarmBeats é fornecida sem um acordo de nível de serviço. Utilize o [Fórum de Apoio Azure FarmBeats](https://aka.ms/farmbeatssupport) para obter apoio.
 
 ![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -43,7 +43,7 @@ O Datahub foi concebido como uma plataforma API extensível. Estamos a trabalhar
 
 O Acelerador Azure FarmBeats é uma aplicação web de amostras, que é construída em cima do Datahub. O acelerador inicia a interface do utilizador e o desenvolvimento do modelo. O acelerador Azure FarmBeats utiliza APIs da Azure FarmBeats. Visualiza dados de sensores ingeridos como gráficos e saídas de modelos como mapas. Por exemplo, você pode usar o acelerador para criar uma fazenda rapidamente e obter um mapa do índice de vegetação ou um mapa de colocação de sensores para essa fazenda facilmente.
 
-## <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 
 Um administrador pode definir regras de acesso para Azure FarmBeats usando uma das funções predefinidas. As funções determinam quais as áreas da aplicação a que um utilizador tem acesso e que ações pode realizar. Existem dois tipos de papéis no Azure FarmBeats - para utilizadores e para parceiros.
 

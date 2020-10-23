@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736280"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151457"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do Catálogo de Dados Azure
 
@@ -39,7 +39,7 @@ Metadados estruturais são os metadados extraídos de uma fonte de dados que des
 
 ## <a name="descriptive-metadata"></a>Metadados descritivos
 
-Metadados descritivos são metadados que descrevem a finalidade ou intenção de um ativo de dados. Os metadados descritivos normalmente são adicionados pelos utilizadores do catálogo utilizando o portal Azure Data Catalog, mas também podem ser extraídos da fonte de dados durante o registo. Por exemplo, a ferramenta de registo do Catálogo de Dados Azure extrairá descrições da propriedade Description nos Serviços de Análise de Servidores SQL e serviços de reporte de servidores SQL, e a partir do [ms_description propriedade estendida](https://technet.microsoft.com/library/ms190243.aspx) nas bases de dados do SQL Server, se estas propriedades tiverem sido povoadas com valores.
+Metadados descritivos são metadados que descrevem a finalidade ou intenção de um ativo de dados. Os metadados descritivos normalmente são adicionados pelos utilizadores do catálogo utilizando o portal Azure Data Catalog, mas também podem ser extraídos da fonte de dados durante o registo. Por exemplo, a ferramenta de registo do Catálogo de Dados Azure extrairá descrições da propriedade Description nos Serviços de Análise de Servidores SQL e serviços de reporte de servidores SQL, e a partir do [ms_description propriedade estendida](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) nas bases de dados do SQL Server, se estas propriedades tiverem sido povoadas com valores.
 
 ## <a name="request-access"></a>Pedir acesso
 
@@ -86,4 +86,4 @@ O registo é o ato de extrair metadados de ativos de dados de uma fonte de dados
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Quickstart: Criar um Catálogo de Dados Azure](data-catalog-get-started.md) 
+[Quickstart: Criar um Catálogo de Dados Azure](data-catalog-get-started.md)

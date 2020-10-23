@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743527"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369272"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -121,7 +121,7 @@ Para ativar a funcionalidade com os modelos ARM, desacorda a `healthcheckpath` p
 
 ### <a name="health-check-path"></a>Caminho de verificação de saúde
 
-O caminho deve responder dentro de dois minutos com um código de estado entre 200 e 299 (inclusive). Se o caminho não responder dentro de dois minutos, ou devolver um código de estado fora do alcance, então a instância é considerada "insalubre". O Health Check integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações, o sistema chegará ao ponto final mesmo que estas funcionalidades de secuidade estejam ativadas. Se estiver a utilizar o seu próprio sistema de autenticação, o caminho de verificação de saúde deve permitir o acesso anónimo. Se o site tiver HTTP**S**-Apenas ativado, o pedido de verificação de saúde será enviado através de HTTP**S**.
+O caminho deve responder dentro de um minuto com um código de estado entre 200 e 299 (inclusive). Se o caminho não responder dentro de um minuto, ou devolver um código de estado fora do alcance, então a instância é considerada "insalubre". O Serviço de Aplicações não segue 302 redirecionamentos na via de verificação de saúde. O Health Check integra-se com as funcionalidades de autenticação e autorização do Serviço de Aplicações, o sistema chegará ao ponto final mesmo que estas funcionalidades de secuidade estejam ativadas. Se estiver a utilizar o seu próprio sistema de autenticação, o caminho de verificação de saúde deve permitir o acesso anónimo. Se o site tiver HTTP**S**-Apenas ativado, o pedido de verificação de saúde será enviado através de HTTP**S**.
 
 A via de verificação de saúde deve verificar os componentes críticos da sua aplicação. Por exemplo, se a sua aplicação depender de uma base de dados e de um sistema de mensagens, o ponto final do controlo de saúde deve ligar-se a esses componentes. Se a aplicação não conseguir ligar-se a um componente crítico, então o caminho deve devolver um código de resposta de 500 níveis para indicar que a aplicação não é saudável.
 
@@ -133,7 +133,7 @@ As equipas de desenvolvimento das grandes empresas precisam frequentemente de ad
 
 Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicações irá fazer o caminho em todas as instâncias. Se um código de resposta bem sucedido não for recebido após 5 pings, este caso é considerado "insalubre". Casos pouco saudáveis serão excluídos da rotação do balançador de carga. Além disso, quando estiver a escalonar ou sair, o Serviço de Aplicações irá procurar o caminho de verificação de saúde para garantir que as novas instâncias estão prontas para pedidos.
 
-Os casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído.
+Os casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Se quiser anular este comportamento, pode definir a definição da `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` aplicação para um valor entre `0` e `100` . Defini-lo para um valor mais elevado significa que mais casos insalubres serão removidos (o valor predefinido é de 50).
 
 Se um caso não for saudável durante uma hora, será substituído por uma nova instância. No máximo, um caso será substituído por hora, com um máximo de três instâncias por dia por Plano de Serviço de Aplicação.
 

@@ -16,18 +16,18 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14023065005977334a9f399a61acfde3b6ba9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e004980ada23a616b57e3c7eb1afb241e09598
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87413158"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371652"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir um papel personalizado a AZure AD na Gestão de Identidade Privilegiada
 
 Este artigo diz-lhe como utilizar a Gestão de Identidade Privilegiada (PIM) para criar uma atribuição just-in-time e tempo-bound a funções personalizadas criadas para gerir aplicações na experiência administrativa Azure Ative (Azure AD).
 
-- Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md).
+- Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../roles/custom-overview.md).
 - Se ainda não utilizou a Gestão de Identidade Privilegiada, obtenha mais informações no [Início da Utilização de Gestão de Identidade Privilegiada.](pim-getting-started.md)
 - Para obter informações sobre como conceder a outro administrador acesso à gestão da Gestão de Identidade Privilegiada, consulte [o Acesso de Concessão a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md)
 
@@ -83,4 +83,4 @@ Para verificar a atribuição de funções, numa função aberta, selecione **At
 - [Ativar um papel personalizado AZure AD](azure-ad-custom-roles-assign.md)
 - [Remova ou atualize uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configure uma atribuição de função personalizada Azure AD](azure-ad-custom-roles-configure.md)
-- [Definições de função em Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definições de função em Azure AD](../roles/permissions-reference.md)

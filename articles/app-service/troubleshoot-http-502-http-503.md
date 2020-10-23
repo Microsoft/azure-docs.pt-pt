@@ -7,15 +7,15 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd67ff4f7346daf7a590ab4fb45a32d227f1c3e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958331"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147541"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Resolução de problemas ERROS HTTP de "502 bad gateway" e "serviço 503 indisponível" no Azure App Service
-"502 bad gateway" e "503 service inavailable" são erros comuns na sua aplicação hospedada no [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda-o a resolver estes erros.
+"502 bad gateway" e "503 service inavailable" são erros comuns na sua aplicação hospedada no [Azure App Service](./overview.md). Este artigo ajuda-o a resolver estes erros.
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn azure e nos fóruns Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, também pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e clique em Obter **Suporte.**
 

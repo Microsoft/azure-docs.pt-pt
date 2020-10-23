@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479564"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330483"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
 
@@ -87,7 +87,7 @@ As duas primeiras permissões são necessárias para criar o passo [de aplicaç�
 
 A pessoa que gere os FarmBeats instalados no mercado tem de ser proprietária do Grupo de Recursos no qual o FarmBeats está a ser instalado. Para os proprietários de subscrições, isto acontece automaticamente quando o Grupo de Recursos é criado. Para outros, por favor, crie o Grupo de Recursos e peça ao proprietário da Subscrição para torná-lo proprietário do Grupo de Recursos.
 
-Pode verificar as suas permissões de acesso no portal Azure seguindo as instruções sobre o controlo de acesso baseado em [funções](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Pode verificar as suas permissões de acesso no portal Azure seguindo as instruções do controlo de acesso baseado em [funções da Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Decida a subscrição e a região
 
@@ -172,7 +172,7 @@ Uma vez concluída a instalação, pode verificar a instalação e começar a ut
 
 **Datahub** pode ser encontrado em \<FarmBeats-website-name> https://-api.azurewebsites.net/swagger. Aqui você verá os diferentes objetos API FarmBeats e realizará operações REST nas APIs.
 
-## <a name="upgrade"></a>Atualizar
+## <a name="upgrade"></a>Atualização
 
 Para atualizar os FarmBeats para a versão mais recente, execute os seguintes passos numa instância Cloud Shell utilizando o ambiente PowerShell. O utilizador terá de ser o proprietário da subscrição na qual o FarmBeats está instalado.
 

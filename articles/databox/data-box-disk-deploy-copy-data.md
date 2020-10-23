@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766846"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125342"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ Uma vez concluída a cópia dos dados, poderá continuar a validar os dados. Se 
 
 Se não tiver utilizado a ferramenta Cópia Dividida para copiar os dados, terá de validar os dados. Para verificar os dados, execute os seguintes passos.
 
-1. Execute o `DataBoxDiskValidation.cmd` para validação da soma de verificação na pasta *DataBoxDiskImport* da unidade. Está disponível apenas para o ambiente do Windows. Os utilizadores do Linux têm de confirmar que os dados de origem copiados para o disco cumprem os [pré-requisitos](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
+1. Execute o `DataBoxDiskValidation.cmd` para validação da soma de verificação na pasta *DataBoxDiskImport* da unidade. Está disponível apenas para o ambiente do Windows. Os utilizadores do Linux têm de confirmar que os dados de origem copiados para o disco cumprem os [pré-requisitos](./data-box-disk-limits.md).
     
     ![Resultado da ferramenta de validação do Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ Execute os passos a seguir para verificar os dados.
 1. Execute o `DataBoxDiskValidation.cmd` para validação da soma de verificação na pasta *DataBoxDiskImport* da unidade.
 2. Utilize a opção 2 para validar os ficheiros e gerar somas de verificação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. Se correrem erros durante a validação e a geração da soma de verificação, será notificado e também é fornecida uma ligação para os registos de erros.
 
-    Para obter mais informações sobre a validação de dados, veja [Validar os dados](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Se encontrar erros durante a validação, veja [resolver problemas de erros de validação](data-box-disk-troubleshoot.md).
+    Para obter mais informações sobre a validação de dados, veja [Validar os dados](#validate-data). Se encontrar erros durante a validação, veja [resolver problemas de erros de validação](data-box-disk-troubleshoot.md).
 
 ::: zone-end

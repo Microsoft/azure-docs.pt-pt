@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91315087"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370581"
 ---
 # <a name="changelog"></a>Registo de alterações
 
@@ -198,7 +198,7 @@ Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ### <a name="changes"></a>Alterações ###
 
-- [Mudança] [Legenda ao vivo] Mudou o nome API para legendas CEA de 608 para 708. Para mais informações, consulte [as Definições de Legendas CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Mudança] [Legenda ao vivo] Mudou o nome API para legendas CEA de 608 para 708. Para mais informações, consulte [as Definições de Legendas CEA708](/javascript/api/azuremediaplayer/cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (Lançamento Oficial) ##
 

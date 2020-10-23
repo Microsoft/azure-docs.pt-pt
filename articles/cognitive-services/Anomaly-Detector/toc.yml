@@ -74,16 +74,8 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: Recursos
   items:
-    - name: Suporte
-      items:
-        - name: Obter suporte
-          href: 'https://aka.ms/adsupport'
-        - name: Stack Overflow
-          href: 'https://aka.ms/adso'
-        - name: MSDN
-          href: 'https://aka.ms/admsdn'
-        - name: Voz do utilizador
-          href: 'https://aka.ms/aduservoice'
+    - name: Opções de suporte e ajuda
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Preços
       href: 'https://aka.ms/adpricing'
     - name: Disponibilidade regional

@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91397815"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327778"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
 
@@ -130,7 +130,7 @@ Serviços de ligação em rede tanto no interior do Azure como entre o Azure e o
 
 - Rede de Entrega de Conteúdos do Azure
 
-Para obter documentação detalhada sobre os serviços da Azure, consulte [a documentação do serviço Azure](https://docs.microsoft.com/azure).
+Para obter documentação detalhada sobre os serviços da Azure, consulte [a documentação do serviço Azure](/azure).
 
 ## <a name="azure-key-concepts"></a>Conceitos-chave azul
 
@@ -142,7 +142,7 @@ Um dos benefícios de usar o Azure é que pode implementar as suas aplicações 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-O portal Azure é uma aplicação baseada na web que pode ser usada para criar, gerir e remover recursos e serviços Azure. O portal Azure está localizado em [portal.azure.com.](https://portal.azure.com) Inclui um dashboard personalizável e ferramentas para gerir os recursos da Azure. Também fornece informações de faturação e subscrição. Para obter mais informações, consulte a [visão geral do portal Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [gerencie os recursos do Azure através do portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+O portal Azure é uma aplicação baseada na web que pode ser usada para criar, gerir e remover recursos e serviços Azure. O portal Azure está localizado em [portal.azure.com.](https://portal.azure.com) Inclui um dashboard personalizável e ferramentas para gerir os recursos da Azure. Também fornece informações de faturação e subscrição. Para obter mais informações, consulte a [visão geral do portal Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [gerencie os recursos do Azure através do portal](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### <a name="resources"></a>Recursos
 
@@ -170,11 +170,11 @@ A interface de linha de comando Azure é uma ferramenta que pode usar para criar
 
 #### <a name="rest-apis"></a>APIs REST
 
-O Azure é construído sobre um conjunto de APIs REST que suportam o portal Azure UI. A maioria destes APIs REST também são suportados para permitir que você provisa programáticamente e gere os seus recursos e aplicações Azure a partir de qualquer dispositivo ativado pela Internet. Para mais informações, consulte a [Referência Azure REST SDK](https://docs.microsoft.com/rest/api/index).
+O Azure é construído sobre um conjunto de APIs REST que suportam o portal Azure UI. A maioria destes APIs REST também são suportados para permitir que você provisa programáticamente e gere os seus recursos e aplicações Azure a partir de qualquer dispositivo ativado pela Internet. Para mais informações, consulte a [Referência Azure REST SDK](/rest/api/index).
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Os administradores podem aceder ao Azure PowerShell e ao Azure CLI através de uma experiência acessível ao navegador chamada Azure Cloud Shell. Esta interface interativa fornece uma ferramenta flexível para os administradores do Linux e do Windows utilizarem a sua interface de linha de comando de eleição, seja bash ou PowerShell. O Azure Cloud Shell pode ser acedida através do portal (como interface web autónoma [shell.azure.com](https://shell.azure.com)) ou a partir de vários outros pontos de acesso. Para mais informações, consulte [a visão geral da Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Os administradores podem aceder ao Azure PowerShell e ao Azure CLI através de uma experiência acessível ao navegador chamada Azure Cloud Shell. Esta interface interativa fornece uma ferramenta flexível para os administradores do Linux e do Windows utilizarem a sua interface de linha de comando de eleição, seja bash ou PowerShell. O Azure Cloud Shell pode ser acedida através do portal (como interface web autónoma [shell.azure.com](https://shell.azure.com)) ou a partir de vários outros pontos de acesso. Para mais informações, consulte [a visão geral da Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Subscrições do Azure
 
@@ -198,9 +198,9 @@ Se exceder o valor do crédito, o seu serviço está desativado até ao início 
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo a uma assinatura Azure
 
-O RBAC tem vários papéis incorporados que pode usar para atribuir permissões. Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lhes a função [De Proprietário](../../role-based-access-control/built-in-roles.md#owner) no âmbito de subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas.
+O Azure RBAC tem vários papéis incorporados que pode usar para atribuir permissões. Para tornar um utilizador um administrador de uma subscrição Azure, atribua-lhes a função [De Proprietário](../../role-based-access-control/built-in-roles.md#owner) no âmbito de subscrição. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas.
 
-Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Ver informações de faturação no portal Azure
 
@@ -238,7 +238,7 @@ O Resource Manager oferece várias vantagens:
 
 - Pode definir as dependências entre os recursos, de modo a que sejam implementados na ordem correta.
 
-- Pode aplicar o controlo de acesso a todos os serviços do seu grupo de recursos porque o RBAC está nativamente integrado na plataforma de gestão.
+- Pode aplicar o controlo de acesso a todos os serviços do seu grupo de recursos porque o Azure RBAC está nativamente integrado na plataforma de gestão.
 
 - Pode aplicar etiquetas em recursos para organizar logicamente todos os recursos da sua subscrição.
 
@@ -282,11 +282,11 @@ Estão disponíveis os seguintes mecanismos para a automatização da implantaç
 
 - **Ligação do modelo**: De dentro de um modelo de Gestor de Recursos, pode ligar-se a outro modelo. Isto permite a decomposição da implementação num conjunto de modelos específicos e específicos para o propósito.
 
-Pode construir modelos de Gestor de Recursos em qualquer editor de texto. No entanto, o Azure SDK para Visual Studio inclui ferramentas para o ajudar. Ao utilizar o Visual Studio, pode adicionar recursos ao modelo através de um assistente, em seguida, implementar e depurar o modelo diretamente de dentro do Visual Studio. Para obter mais informações, consulte [os modelos do Gestor de Recursos Azure.](../../resource-group-authoring-templates.md)
+Pode construir modelos de Gestor de Recursos em qualquer editor de texto. No entanto, o Azure SDK para Visual Studio inclui ferramentas para o ajudar. Ao utilizar o Visual Studio, pode adicionar recursos ao modelo através de um assistente, em seguida, implementar e depurar o modelo diretamente de dentro do Visual Studio. Para obter mais informações, consulte [os modelos do Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md)
 
 Finalmente, pode converter grupos de recursos existentes num modelo reutilizável a partir do portal Azure. Isto pode ser útil se você quiser criar um modelo implantável de um grupo de recursos existente, ou você apenas quer examinar o JSON subjacente. Para exportar um grupo de recursos, selecione o botão **Script** Automation a partir das definições do grupo de recursos.
 
-## <a name="security-of-azure-resources-rbac"></a>Segurança dos recursos Azure (RBAC)
+## <a name="security-of-azure-resources-azure-rbac"></a>Segurança dos recursos Azure (Azure RBAC)
 
 Pode conceder acesso operacional às contas dos utilizadores num âmbito especificado: subscrição, grupo de recursos ou recurso individual. Isto significa que pode implantar um conjunto de recursos num grupo de recursos, como uma máquina virtual e todos os recursos relacionados, e conceder permissões a um utilizador ou grupo específico. Esta abordagem limita o acesso apenas aos recursos que pertencem ao grupo de recursos-alvo. Também pode conceder acesso a um único recurso, como uma máquina virtual ou uma rede virtual.
 
@@ -306,7 +306,7 @@ Aqui estão alguns [papéis incorporados em Azure:](../../role-based-access-cont
 
 - **Contribuinte da Conta de Armazenamento**: Um utilizador com esta função pode gerir contas de armazenamento mas não consegue gerir o acesso às contas de armazenamento.
 
-Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Microsoft Azure
 
@@ -314,7 +314,7 @@ Azure Virtual Machines é um dos serviços centrais da IaaS em Azure. A Azure Vi
 
 Ao implementar um Azure VM, pode selecionar uma imagem a partir do Azure Marketplace, ou pode fornecer-lhe uma imagem generalizada. Esta imagem é utilizada para aplicar o sistema operativo e a configuração inicial. Durante a implementação, o Gestor de Recursos manuseará algumas definições de configuração, tais como a atribuição do nome do computador, credenciais administrativas e configuração de rede. Pode utilizar extensões de máquinas virtuais Azure para automatizar ainda mais configurações como instalação de software, configuração antivírus e soluções de monitorização.
 
-Pode criar máquinas virtuais em vários tamanhos diferentes. O tamanho da máquina virtual dita a atribuição de recursos, tais como o processamento, a memória e a capacidade de armazenamento. Em alguns casos, funcionalidades específicas como adaptadores de rede ativados por RDMA e discos SSD estão disponíveis apenas com certos tamanhos VM. Para obter uma lista completa de tamanhos e capacidades VM, consulte "Tamanhos para máquinas virtuais em Azure" para [Windows](../../virtual-machines/windows/sizes.md) e [Linux](../../virtual-machines/linux/sizes.md).
+Pode criar máquinas virtuais em vários tamanhos diferentes. O tamanho da máquina virtual dita a atribuição de recursos, tais como o processamento, a memória e a capacidade de armazenamento. Em alguns casos, funcionalidades específicas como adaptadores de rede ativados por RDMA e discos SSD estão disponíveis apenas com certos tamanhos VM. Para obter uma lista completa de tamanhos e capacidades VM, consulte "Tamanhos para máquinas virtuais em Azure" para [Windows](../../virtual-machines/sizes.md) e [Linux](../../virtual-machines/sizes.md).
 
 ### <a name="use-cases"></a>Casos de utilização
 
@@ -344,7 +344,7 @@ Da mesma forma, pode utilizar o CLI Azure para implementar um modelo de Gestor d
 
 ### <a name="access-and-security-for-virtual-machines"></a>Acesso e segurança para máquinas virtuais
 
-O acesso a uma máquina virtual a partir da Internet requer que a interface de rede associada, ou equilibrador de carga, se aplicável, seja configurada com um endereço IP público. O endereço IP público inclui um nome DNS que irá resolver para a máquina virtual ou balanceador de carga. Para mais informações, consulte [endereços IP em Azure.](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+O acesso a uma máquina virtual a partir da Internet requer que a interface de rede associada, ou equilibrador de carga, se aplicável, seja configurada com um endereço IP público. O endereço IP público inclui um nome DNS que irá resolver para a máquina virtual ou balanceador de carga. Para mais informações, consulte [endereços IP em Azure.](../../virtual-network/public-ip-addresses.md)
 
 Gere o acesso à máquina virtual através do endereço IP público utilizando um recurso de grupo de segurança de rede (NSG). Um NSG age como uma firewall e permite ou nega o tráfego através da interface de rede ou sub-rede em um conjunto de portas definidas. Por exemplo, para criar uma sessão de Desktop Remoto com um Azure VM, é necessário configurar o NSG para permitir o tráfego de entrada na porta 3389. Para obter mais informações, consulte [portas de abertura para um VM em Azure utilizando o portal Azure](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
@@ -378,7 +378,7 @@ O Armazenamento do Azure suporta três tipos de blobs:
 
 - **As bolhas de apêndice** consistem em blocos como bolhas de bloco, mas são otimizadas para operações de apêndice. Estes são frequentemente utilizados para registar informações de uma ou mais fontes para a mesma bolha. Por exemplo, pode escrever todos os seus vestígios de registo no mesmo apêndice blob para uma aplicação que está em funcionamento em vários VMs. Um único blob de acréscimo pode ter até 195 GB.
 
-Para obter mais informações, consulte [Começar com o armazenamento Azure Blob utilizando .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Para obter mais informações, consulte [Começar com o armazenamento Azure Blob utilizando .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 #### <a name="file-storage"></a>Armazenamento de ficheiros
 
@@ -394,7 +394,7 @@ O Table Storage do Azure é um serviço que armazena dados NoSQL estruturados na
 
 Pode utilizar o Table Storage para armazenar conjuntos de dados flexíveis, tais como os dados do utilizador para Web Apps, livros de endereços, informações do dispositivo e qualquer outro tipo de metadados necessários para o seu serviço. Pode armazenar várias entidades numa mesa. Uma conta de armazenamento pode conter qualquer número de tabelas, até ao limite de capacidade da conta de armazenamento.
 
-Para mais informações, consulte [Começar com o armazenamento da tabela Azure.](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+Para mais informações, consulte [Começar com o armazenamento da tabela Azure.](../../cosmos-db/tutorial-develop-table-dotnet.md)
 
 #### <a name="queue-storage"></a>Armazenamento de filas
 
@@ -414,15 +414,15 @@ Além de implementar uma conta de armazenamento a partir do portal Azure, pode i
 
 #### <a name="powershell"></a>PowerShell
 
-A implementação de uma conta de armazenamento Azure utilizando o PowerShell permite uma automatização completa da conta de armazenamento. Para obter mais informações, consulte [a Utilização de Azure PowerShell com armazenamento Azure](../../storage/common/storage-powershell-guide-full.md).
+A implementação de uma conta de armazenamento Azure utilizando o PowerShell permite uma automatização completa da conta de armazenamento. Para obter mais informações, consulte [a Utilização de Azure PowerShell com armazenamento Azure](/powershell/module/az.storage/).
 
 Além de implementar recursos Azure individualmente, pode utilizar o módulo Azure PowerShell para implementar um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interface de Linha de Comandos (CLI)
 
-Tal como acontece com o módulo PowerShell, a Interface da linha de comando Azure fornece automatização de implementação e pode ser utilizada em sistemas Windows, OS X ou Linux. Pode utilizar a **conta de armazenamento** Azure CLI criar comando para criar uma conta de armazenamento. Para obter mais informações, consulte [utilizar o Azure CLI com armazenamento Azure.](../../storage/common/storage-azure-cli.md)
+Tal como acontece com o módulo PowerShell, a Interface da linha de comando Azure fornece automatização de implementação e pode ser utilizada em sistemas Windows, OS X ou Linux. Pode utilizar a **conta de armazenamento** Azure CLI criar comando para criar uma conta de armazenamento. Para obter mais informações, consulte [utilizar o Azure CLI com armazenamento Azure.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
-Da mesma forma, pode utilizar o CLI Azure para implementar um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../../resource-group-template-deploy-cli.md).
+Da mesma forma, pode utilizar o CLI Azure para implementar um modelo de Gestor de Recursos Azure. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-azure-storage"></a>Acesso e segurança para armazenamento Azure
 
@@ -446,7 +446,7 @@ Cada conta de armazenamento tem duas chaves de autenticação, uma primária e u
 
 #### <a name="shared-access-signatures"></a>Assinaturas de acesso compartilhado
 
-Se precisar de permitir que os utilizadores tenham acesso controlado aos seus recursos de armazenamento, pode criar uma assinatura de acesso partilhado. Uma assinatura de acesso partilhado é um símbolo que pode ser anexado a um URL que permite o acesso delegado a um recurso de armazenamento. Qualquer pessoa que possua o símbolo pode aceder ao recurso a que aponta com as permissões que especifica, pelo período de tempo que é válido. Para obter mais informações, consulte [utilização de assinaturas de acesso partilhado.](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Se precisar de permitir que os utilizadores tenham acesso controlado aos seus recursos de armazenamento, pode criar uma assinatura de acesso partilhado. Uma assinatura de acesso partilhado é um símbolo que pode ser anexado a um URL que permite o acesso delegado a um recurso de armazenamento. Qualquer pessoa que possua o símbolo pode aceder ao recurso a que aponta com as permissões que especifica, pelo período de tempo que é válido. Para obter mais informações, consulte [utilização de assinaturas de acesso partilhado.](../../storage/common/storage-sas-overview.md)
 
 ## <a name="azure-virtual-network"></a>Rede Virtual do Azure
 
@@ -456,7 +456,7 @@ As redes virtuais são necessárias para suportar comunicações entre máquinas
 
 Uma rede virtual Azure, por padrão, só é acessível a recursos armazenados em Azure. Os recursos ligados à mesma rede virtual podem comunicar entre si. Pode associar interfaces de rede de máquinas virtuais e equilibradores de carga com um endereço IP público para tornar a máquina virtual acessível através da Internet. Pode ajudar a garantir o acesso aos recursos expostos publicamente utilizando um grupo de segurança de rede.
 
-![Rede Virtual Azure para uma aplicação web de 2 níveis](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![Rede Virtual Azure para uma aplicação web de 2 níveis](/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>Redes virtuais híbridas
 
@@ -479,7 +479,7 @@ Existem várias opções para implantar uma rede virtual.
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 
-Pode ajudar a proteger as redes virtuais do Azure utilizando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de controlo de acesso (ACL) que permitem ou negam o tráfego de rede às suas instâncias VM numa rede virtual. Pode associar NSGs a sub-redes ou a instâncias VM individuais nessa sub-rede. Quando associa um NSG a uma sub-rede, as regras da ACL aplicam-se a todas as instâncias VM nessa sub-rede. Além disso, pode restringir ainda mais o tráfego a um VM individual associando um NSG diretamente com esse VM. Para obter mais informações, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/security-overview.md).
+Pode ajudar a proteger as redes virtuais do Azure utilizando um grupo de segurança de rede. Os NSGs contêm uma lista de regras de controlo de acesso (ACL) que permitem ou negam o tráfego de rede às suas instâncias VM numa rede virtual. Pode associar NSGs a sub-redes ou a instâncias VM individuais nessa sub-rede. Quando associa um NSG a uma sub-rede, as regras da ACL aplicam-se a todas as instâncias VM nessa sub-rede. Além disso, pode restringir ainda mais o tráfego a um VM individual associando um NSG diretamente com esse VM. Para obter mais informações, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/network-security-groups-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

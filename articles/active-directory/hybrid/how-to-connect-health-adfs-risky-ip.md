@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306400"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458037"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
 Os clientes AD FS podem expor pontos finais de autenticação de palavra-passe na internet para fornecer serviços de autenticação para os utilizadores finais acederem a aplicações SaaS como a Microsoft 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
@@ -35,7 +35,7 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 
 > [!NOTE]
 > Para utilizar este relatório, tem de se certificar de que a auditoria do AD FS está ativada. Para obter mais informações, consulte [Ativar Auditoria do AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader).  
+> Para aceder à pré-visualização, precisa da permissão do Administrador Global ou do [Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>O que está no relatório?
@@ -79,16 +79,16 @@ Ao utilizar a funcionalidade **Exportar**, é possível exportar toda a lista de
 Os contactos dos administradores do relatório podem ser atualizados através das **Definições de Notificação**. Por predefinição, a notificação de alerta de e-mail de IP em risco está no estado desativado. Para ativar a notificação, utilize o botão em “Obter notificações por e-mail para endereços IP que excedam o relatório de limiar de atividades falhadas”. Tal como as definições de notificação de alertas genéricas no Connect Health, permite-lhe personalizar a lista de destinatários designados da notificação quanto ao relatório de IP em risco a partir daí. Também pode notificar todos os administradores globais quando fizer a alteração. 
 
 ## <a name="configure-threshold-settings"></a>Configurações de limiar de configuração
-O limiar de alerta pode ser atualizado a partir das Definições do Limiar. Para começar, o sistema tem um limiar predefinido. Existem quatro categorias nas definições de limiar do relatório de IP em risco:
+O limiar de alerta pode ser atualizado a partir das Definições do Limiar. Para começar, o sistema tem um limiar predefinido. Os valores predefinidos são dados abaixo. Existem quatro categorias nas definições de limiar do relatório de IP em risco:
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Item do Limiar | Descrição |
 | --- | --- |
-| (Bad U/P + Extranet Lockout) / Day [(U/P incorreta + Bloqueio de Extranet) / Dia]  | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Palavras-passe Erradas mais a contagem de Bloqueios de Extranet o excede por **dia**. |
-| (Bad U/P + Extranet Lockout) / Hour [U/P incorreta + Bloqueio de Extranet / Hora] | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Palavras-passe Erradas mais a contagem de Bloqueios de Extranet o excede por **hora**. |
-| Extranet Lockout / Day [Bloqueio de Extranet / Dia] | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Bloqueios de Extranet o excede por **dia**. |
-| Extranet Lockout / Hour [Bloqueio de Extranet / Hora]| Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Bloqueios de Extranet o excede por **hora**. |
+| (Bad U/P + Extranet Lockout) / Day [(U/P incorreta + Bloqueio de Extranet) / Dia]  | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Palavras-passe Erradas mais a contagem de Bloqueios de Extranet o excede por **dia**. O valor predefinido é de 100.|
+| (Bad U/P + Extranet Lockout) / Hour [U/P incorreta + Bloqueio de Extranet / Hora] | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Palavras-passe Erradas mais a contagem de Bloqueios de Extranet o excede por **hora**. O valor predefinido é de 50.|
+| Extranet Lockout / Day [Bloqueio de Extranet / Dia] | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Bloqueios de Extranet o excede por **dia**. O valor predefinido é 50.|
+| Extranet Lockout / Hour [Bloqueio de Extranet / Hora]| Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Bloqueios de Extranet o excede por **hora**. O valor predefinido é de 25|
 
 > [!NOTE]
 > - A alteração do limiar de relatório será aplicada passado uma hora da alteração da definição. 

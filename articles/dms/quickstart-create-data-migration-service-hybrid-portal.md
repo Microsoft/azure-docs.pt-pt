@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84195679"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331809"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Quickstart: Criar uma instância de modo híbrido com o portal Azure & Serviço de Migração da Base de Dados Azure
 
@@ -184,7 +184,7 @@ Além de instalar o trabalhador híbrido Azure Database Migration Service atrav�
 Este script destina-se a uma prototipagem rápida quando o utilizador já tiver todas as permissões necessárias no ambiente. Note que no seu ambiente de produção, o AdApp e o Cert podem ter requisitos diferentes, para que o script possa falhar.
 
 > [!IMPORTANT]
-> Este script pressupõe que existe uma instância existente do Azure Database Migration Service em modo híbrido e que a conta Azure utilizada tem permissões para criar AdApps no inquilino e modificar o RBAC na subscrição.
+> Este script pressupõe que existe uma instância existente do Azure Database Migration Service em modo híbrido e que a conta Azure utilizada tem permissões para criar AdApps no inquilino e modificar o Azure RBAC na subscrição.
 
 Preencha os parâmetros no topo do script e, em seguida, execute o script a partir de uma instância PowerShell do administrador.
 

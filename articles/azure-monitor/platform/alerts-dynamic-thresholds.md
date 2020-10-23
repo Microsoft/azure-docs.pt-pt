@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261079"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340092"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Azure
 
@@ -98,7 +98,7 @@ Para os recursos existentes com dados métricos suficientes, os Limiares Dinâmi
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas de Limiares Dinâmicos
 
-Os Limiares Dinâmicos podem ser aplicados a qualquer plataforma ou métrica personalizada no Azure Monitor e também foi sintonizado para as métricas comuns de aplicação e infraestrutura.
+Os Limiares Dinâmicos podem ser aplicados na maioria das métricas de plataforma e personalizados no Azure Monitor e também foi sintonizado para as métricas comuns de aplicação e infraestrutura.
 Os seguintes itens são as melhores práticas sobre como configurar alertas em algumas destas métricas usando Limiares Dinâmicos.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Limiares dinâmicos em métricas percentuais de CPU de máquina virtual

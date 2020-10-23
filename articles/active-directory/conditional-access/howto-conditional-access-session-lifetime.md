@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265940"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145258"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -134,9 +134,8 @@ Utilize a ferramenta What-If para simular um login do utilizador para a aplicaç
 
 ## <a name="policy-deployment"></a>Implementação da Política
 
-Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)
+Para garantir que a sua política funciona como esperado, a melhor prática recomendada é testá-la antes de a lançar para a produção. Idealmente, use um inquilino de teste para verificar se a sua nova apólice funciona como pretendido. Para mais informações, consulte o artigo [Planear uma implementação de Acesso Condicional.](plan-conditional-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Se quiser saber como configurar uma política de acesso condicional, consulte o artigo [Requer MFA para aplicações específicas com Acesso Condicional do Diretório Ativo Azure](../authentication/tutorial-enable-azure-mfa.md).
-* Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [As melhores práticas para acesso condicional no Diretório Ativo Azure.](best-practices.md)
+* Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte o artigo [Planeie uma implementação de Acesso Condicional](plan-conditional-access.md).

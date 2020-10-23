@@ -1,20 +1,18 @@
 ---
-title: 'PowerShell script: Aceite convite de uma Partilha de Dados Azure / Microsoft Docs'
+title: 'PowerShell script: Aceite convite de uma partilha de dados Azure'
 description: Este script PowerShell aceita convites de uma partilha de dados existente.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 246e3550650dfd458b4aeecda3b5b7733e49f017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24091bafac7ad5c558b975d52064f12715b3d622
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307337"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221405"
 ---
 # <a name="use-powershell-to-accept-a-data-share-invitation"></a>Use o PowerShell para aceitar um convite de partilha de dados
 
@@ -42,13 +40,12 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Get-AzDataShareInvitação](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Receber e lista enviar convites de partilha de dados. |
-| [Nova AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription?view=azps-2.6.0) | Criar uma subscrição de partilha de dados. |
+| [Get-AzDataShareInvitação](/powershell/module/az.datashare/get-azdatashareinvitation) | Receber e lista enviar convites de partilha de dados. |
+| [Nova AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription) | Criar uma subscrição de partilha de dados. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 
 Amostras adicionais de scripts Azure Data Share PowerShell podem ser encontradas nas [amostras powerShell de partilha de dados Azure](../../samples-powershell.md).
-

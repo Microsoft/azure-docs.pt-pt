@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440248"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124967"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
 
@@ -185,4 +185,4 @@ Para começar a construir uma solução de retalho:
 * [Implemente e caminhe através de um modelo inteligente de aplicação de gestão de inventário](./tutorial-iot-central-smart-inventory-management.md).
 * [Implemente e caminhe através do modelo de aplicação do centro de micro-realização](./tutorial-micro-fulfillment-center.md).
 * [Implemente e caminhe através do modelo de aplicação de análise de vídeo](./tutorial-video-analytics-deploy.md).
-* Saiba mais sobre o IoT Central na visão geral do [IoT Central](../preview/overview-iot-central.md).
+* Saiba mais sobre o IoT Central na visão geral do [IoT Central](../core/overview-iot-central.md).

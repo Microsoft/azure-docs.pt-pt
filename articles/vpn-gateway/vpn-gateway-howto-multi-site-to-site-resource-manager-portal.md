@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "89401202"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicione uma ligação Site-a-Site a um VNet com uma ligação de gateway VPN existente
@@ -62,7 +62,7 @@ Verifique os seguintes itens:
      ![Adicionar página de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Adicionar página de conexão")<br>
 
 ## <a name="part-2---add-a-local-network-gateway"></a><a name="part2"></a>Parte 2 - Adicione uma porta de entrada de rede local
-1. Clique **no gateway de rede local** Escolha um gateway de rede ***local.*** Isto abrirá a página **de gateway de rede local.**
+1. Clique **em Gateway de rede Local** Escolha um gateway de rede ** _local_*_. Isto abrirá a*** página _ Escolha a página de gateway de rede local.
    
     ![Escolha o gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Escolha o gateway de rede local")<br>
 2. Clique **em Criar novo** para abrir a página de gateway de rede **local.**

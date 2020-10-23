@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613990"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441679"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicione um conector API a um fluxo de utilizador
 
@@ -44,7 +44,7 @@ Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o cone
 > Anteriormente, tinha de configurar quais os atributos do utilizador para enviar à API ('Reclamações a enviar') e quais os atributos do utilizador para aceitar da API ('Reclamações a receber'). Agora, todos os atributos do utilizador são enviados por padrão se tiverem um valor e qualquer atributo de utilizador pode ser devolvido pela API numa resposta de "continuação".
 
 ## <a name="the-request-sent-to-your-api"></a>O pedido enviado à sua API
-Um conector API materializa-se como um pedido **HTTP POST,** enviando atributos do utilizador ('claims') como pares de valor-chave num corpo JSON. Os atributos são serializados de forma semelhante às propriedades do utilizador [do Microsoft Graph.](https://docs.microsoft.com/graph/api/resources/user#properties) 
+Um conector API materializa-se como um pedido **HTTP POST,** enviando atributos do utilizador ('claims') como pares de valor-chave num corpo JSON. Os atributos são serializados de forma semelhante às propriedades do utilizador [do Microsoft Graph.](/graph/api/resources/user#properties) 
 
 **Pedido de exemplo**
 ```http
@@ -85,7 +85,7 @@ Além disso, a reclamação **UI Locales ('ui_locales')** é enviada por padrão
 > Se uma reclamação a enviar não tiver um valor no momento em que o ponto final da API é chamado, a reclamação não será enviada para a API. A sua API deve ser concebida para verificar explicitamente o valor que espera.
 
 > [!TIP] 
-> [**as identidades ('identidades')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as reclamações do **Email Address ('email')** podem ser utilizadas pela API para identificar um utilizador antes de terem uma conta no seu inquilino. A alegação de "identidades" é enviada quando um utilizador autentica com um fornecedor de identidade, como o Google ou o Facebook. 'e-mail' é sempre enviado.
+> [**as identidades ('identidades')**](/graph/api/resources/objectidentity) e as reclamações do **Email Address ('email')** podem ser utilizadas pela API para identificar um utilizador antes de terem uma conta no seu inquilino. A alegação de "identidades" é enviada quando um utilizador autentica com um fornecedor de identidade, como o Google ou o Facebook. 'e-mail' é sempre enviado.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Ativar o conector API num fluxo de utilizador
 
@@ -106,7 +106,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (Google, Facebook, Azure AD). Este passo antecede a ***página de recolha de atributos***, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. 
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (Google, Facebook, Azure AD). Este passo precede a página de*_recolha *atributo_*_, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -244,11 +244,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | Cadeia            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | Cadeia            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como Uma **Reivindicação para receber** na configuração do conector API e **nos atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
+| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como a _*Claim to receive** na configuração do conector API e **atributos do Utilizador** para um fluxo de utilizador. Os valores podem ser devolvidos no token se forem selecionados como **reclamação de Candidatura.**                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A reclamação devolvida não precisa de `_<extensions-app-id>_` conter. Os valores são armazenados no diretório se forem selecionados como Uma **Reivindicação a receber** na configuração do conector API e **no atributo do Utilizador** para um fluxo de utilizador. Os atributos personalizados não podem ser enviados de volta no token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
@@ -266,12 +266,12 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Necessário | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | Cadeia | Sim      | A versão da API.                                                    |
-| ação      | Cadeia | Sim      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | Cadeia | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | Cadeia | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| versão     | String | Sim      | A versão da API.                                                    |
+| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | String | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
@@ -292,13 +292,13 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Necessário | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | Cadeia  | Sim      | A versão da API.                                                    |
-| ação      | Cadeia  | Sim      | O valor deve `ValidationError` ser.                                           |
+| versão     | String  | Sim      | A versão da API.                                                    |
+| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
 | status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | Cadeia  | Sim      | A mensagem a apresentar ao utilizador.                                            |
-| code        | Cadeia  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
+| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| code        | String  | Não       | Código de erro. Pode ser usado para depurar propósitos. Não apresentado ao utilizador. |
 
 **Experiência de utilizador final com uma resposta de erro de validação**
 

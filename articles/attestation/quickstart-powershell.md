@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421293"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316011"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Quickstart: Configurar a Azure Attestation com a Azure PowerShell
 
@@ -23,7 +23,7 @@ Por favor, note que a PowerShell Gallery depreendeu as versões 1.0 e 1.1 de Seg
 - AVISO: Incapaz de resolver a fonte do pacote https://www.powershellgallery.com/api/v2 '
 - PackageManagement\Install-Package: Não foi encontrada qualquer correspondência para os critérios de pesquisa especificados e nome do módulo 
 
-Para continuar a interagir com a Galeria PowerShell, executar o seguinte comando antes dos comandos do Módulo de Instalação
+Para continuar a interagir com a PowerShell Gallery, executar o seguinte comando antes que o Install-Module comandos
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
@@ -81,7 +81,7 @@ Executar o comando abaixo para verificar a versão instalada de todos os módulo
 ```powershell
 Get-InstalledModule
 ```
-Se as versões não corresponderem ao requisito mínimo, executar comandos de Módulo de Atualização.
+Se as versões não corresponderem ao requisito mínimo, executar Update-Module comandos.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -122,7 +122,7 @@ New-AzResourceGroup -Name $attestationResourceGroup -Location $location
 
 ## <a name="create-and-manage-an-attestation-provider"></a>Criar e gerir um fornecedor de atestado
 
-A Nova AzAttestation cria um fornecedor de atestado.
+New-AzAttestation cria um fornecedor de atestado.
 
 ```powershell
 $attestationProvider = "<attestation provider name>" 
@@ -137,7 +137,7 @@ New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationReso
 
 Para a amostra PolicySignersCertateFile, consulte [exemplos de certificado de sinalizador de política](policy-signer-examples.md).
 
-A Get-AzAttestation recupera as propriedades do fornecedor de atestados como o status e o AttestURI. Tome nota de AttestURI, como será necessário mais tarde.
+Get-AzAttestation recupera as propriedades do fornecedor de atestado como o estado e o AttestURI. Tome nota de AttestURI, como será necessário mais tarde.
 
 ```azurepowershell
 Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
@@ -157,7 +157,7 @@ Tags:
 TagsTable: 
 ```
 
-Os fornecedores de atestados podem ser eliminados usando o cmdlet remove-AzAttestation.  
+Os fornecedores de atestados podem ser eliminados utilizando o Remove-AzAttestation cmdlet.  
 
 ```powershell
 Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
@@ -186,9 +186,9 @@ $teeType = "<tee Type>"
 Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-Os tipos de TEE suportados são "sgxenclave" e "vbsenclave".
+Os tipos de TEE suportados são "SgxEnclave", "OpenEnclave" e "VbsEnclave".
 
-Set-AttestationPolicy define uma nova política para o TEE especificado. O cmdlet aceita a política em qualquer texto ou formato JWT e é controlado pelo parâmetro PolicyFormat. "Texto" é o valor predefinido para PolicyFormat. 
+Set-AttestationPolicy estabelece uma nova política para o TEE especificado. O cmdlet aceita a política em qualquer texto ou formato JWT e é controlado pelo parâmetro PolicyFormat. "Texto" é o valor predefinido para PolicyFormat. 
 
 ```powershell
 $policyFormat = "<policy format>"
@@ -202,7 +202,7 @@ A política de atestado no formato JWT deve conter uma reivindicação denominad
 
 Para amostras de políticas, consulte [exemplos de uma política de atestado](policy-examples.md).
 
-Reset-AzAttestationPolicy reinicia a política por defeito para o TEE especificado.
+Reset-AzAttestationPolicy repõe a política por defeito para o TEE especificado.
 
 ```powershell
 Reset-AzAttestationPolicy -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 

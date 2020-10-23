@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd2b1026f69b5ec5814124a92d6a78d7f0225143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421265bf1ee488c8e7d0c41e3ec9a250392d6f3d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613817"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202791"
 ---
 # <a name="object-bounds"></a>Limites dos objetos
 
@@ -61,8 +61,8 @@ void GetBounds(ApiHandle<Entity> entity)
 
 ## <a name="api-documentation"></a>Documentação da API
 
-* [C# Entidade.QueryLocalBoundsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
-* [Entidade C++::QueryLocalBoundsAsync](https://docs.microsoft.com/cpp/api/remote-rendering/entity#querylocalboundsasync)
+* [C# Entidade.QueryLocalBoundsAsync](/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [Entidade C++::QueryLocalBoundsAsync](/cpp/api/remote-rendering/entity#querylocalboundsasync)
 
 ## <a name="next-steps"></a>Passos seguintes
 

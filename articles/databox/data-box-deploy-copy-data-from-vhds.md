@@ -9,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739872"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124018"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Use a Caixa de Dados para importar dados como discos geridos em Azure
 
 Este tutorial descreve como usar a Caixa de Dados Azure para migrar vHDs no local para discos geridos em Azure. Os VHDs dos VMs no local são copiados para Data Box como bolhas de página e são enviados para a Azure como discos geridos. Estes discos geridos podem então ser ligados aos VMs Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Antes de começar, certifique-se de que:
 4. Revendo o:
 
     - Tamanhos [de disco geridos suportados nos limites do tamanho do objeto Azure](data-box-limits.md#azure-object-size-limits).
-    - [Introdução aos discos geridos Azure](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introdução aos discos geridos Azure](../virtual-machines/managed-disks-overview.md). 
 
 5. Manteve uma cópia dos dados de origem até confirmar que a Caixa de Dados transferiu os seus dados para o Azure Storage.
 
@@ -76,7 +76,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     > [!NOTE]
     > As credenciais de todas as ações para discos geridos são idênticas.
 
-    ![Obtenha credenciais de partilha](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Obter credenciais de partilhas](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. A partir da caixa de diálogo de dados de partilha de acesso e cópia, copie o **nome de utilizador** e a **palavra-passe** para a partilha. Clique em **OK**.
     
@@ -102,7 +102,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
 4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
-    ![Conecte-se para partilhar via File Explorer](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Deve agora ver as seguintes pastas pré-fundamentadas dentro de cada ação.
     
@@ -183,4 +183,3 @@ Avance para o tutorial seguinte para saber como enviar o Data Box de volta para 
 
 > [!div class="nextstepaction"]
 > [Enviar o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
-

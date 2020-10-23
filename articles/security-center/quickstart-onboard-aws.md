@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449042"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428104"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Ligue as suas contas AWS ao Azure Security Center
 
@@ -118,9 +118,12 @@ O AWS Systems Manager é necessário para automatizar tarefas através dos seus 
 - [Instalação e Configuração do Agente SSM em instâncias Linux Amazon EC2](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>Passo 4: Criar um diretor de serviço para o embarque à escala
+### <a name="step-4-complete-azure-arc-prerequisites"></a>Passo 4: Completo Azure Arc pré-requisitos
+1. Certifique-se de que os fornecedores de [recursos Azure adequados](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) estão registados:
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
-Como **Proprietário** na subscrição que pretende utilizar para o embarque, crie um principal de serviço para o Azure Arc a bordo, conforme descrito na [Create a Service Principal para o embarque à escala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+1. Crie um diretor de serviço para o embarque à escala. Como **Proprietário** na subscrição que pretende utilizar para o embarque, crie um principal de serviço para o Azure Arc a bordo, conforme descrito na [Create a Service Principal para o embarque à escala.](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>Passo 5. Ligue a AWS ao Centro de Segurança
@@ -132,9 +135,10 @@ Como **Proprietário** na subscrição que pretende utilizar para o embarque, cr
     1. Introduza um **nome de exibição** para o conector.
     1. Confirme se a subscrição está correta. É a subscrição que incluirá as recomendações do connector e do AWS Security Hub.
     1. Dependendo da opção de autenticação que escolheu no [Passo 2. Configurar a autenticação para o Centro de Segurança em AWS:](#step-2-set-up-authentication-for-security-center-in-aws)
-        - Selecione  **Assumir Role** e cole o ARN a partir de [Criar uma função IAM para Centro de Segurança](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
+        - **Selecione Assumir Role** e cole o ARN de Criar uma [função IAM para o Centro de Segurança](#create-an-iam-role-for-security-center).
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 
-            OU
+            OR
 
         - Selecione **Credenciais** e cole a **chave** de acesso e **a chave secreta** do ficheiro .csv que guardou no Criar um utilizador [AWS para o Centro de Segurança.](#create-an-aws-user-for-security-center)
 1. Selecione **Seguinte**.
@@ -143,7 +147,7 @@ Como **Proprietário** na subscrição que pretende utilizar para o embarque, cr
     O Security Center descobre as instâncias EC2 na conta AWS conectada e utiliza sSM para embarcar no Arco Azure. 
 
     > [!TIP]
-    > A lista de sistemas operativos suportados encontra-se nas FAQ abaixo.
+    > Para a lista de sistemas operativos suportados, veja [quais os sistemas operativos para as minhas instâncias EC2?](#what-operating-systems-for-my-ec2-instances-are-supported)
 
     1. Selecione o **Grupo de Recursos** e a **Região Azure** para onde os AWS EC2 descobertos serão acedidos na subscrição selecionada.
     1. Insira o **ID principal** de serviço e **o serviço principal cliente secret** para Azure Arc como descrito aqui Criar um diretor de serviço para bordo em [escala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)

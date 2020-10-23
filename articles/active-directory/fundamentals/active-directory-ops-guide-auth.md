@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601369"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371057"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
 
@@ -42,13 +42,13 @@ A Gestão do Diretório Ativo Azure requer a execução contínua de tarefas e p
 | Triagem e investigam utilizadores sinalizados por relatórios de risco e vulnerabilidade da Azure AD Identity Protection | Equipa de Operações InfoSec |
 
 > [!NOTE]
-> A Azure AD Identity Protection requer uma licença Azure AD Premium P2. Para encontrar a licença certa para os seus requisitos, consulte [comparar as funcionalidades geralmente disponíveis das edições Azure AD Free e Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+> A Azure AD Identity Protection requer uma licença Azure AD Premium P2. Para encontrar a licença certa para os seus requisitos, consulte [comparar as funcionalidades geralmente disponíveis das edições Azure AD Free e Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Ao rever a sua lista, poderá descobrir que precisa de atribuir um proprietário para tarefas que faltam a um proprietário ou ajustar a propriedade para tarefas com proprietários que não estejam alinhados com as recomendações acima.
 
 #### <a name="owner-recommended-reading"></a>Leitura recomendada pelo proprietário
 
-- [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Atribuir funções de administrador no Azure Active Directory](../roles/permissions-reference.md)
 - [Governação no Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Gestão de credenciais
@@ -119,7 +119,7 @@ A autenticação federada com autenticação integrada do Windows (IWA) ou a aut
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso de confiança do dispositivo
 
-Como um utilizador na sua organização, um dispositivo é uma identidade central que quer proteger. Pode utilizar a identidade de um dispositivo para proteger os seus recursos a qualquer momento e a partir de qualquer local.A autenticação do dispositivo e a contabilização do seu tipo de confiança melhora a sua postura de segurança e usabilidade através de:
+Como um utilizador na sua organização, um dispositivo é uma identidade central que quer proteger. Pode utilizar a identidade de um dispositivo para proteger os seus recursos a qualquer momento e a partir de qualquer local. A autenticação do dispositivo e a contabilização do seu tipo de confiança melhora a sua postura de segurança e usabilidade através de:
 
 - Evitando o atrito, por exemplo, com o MFA, quando o dispositivo é confiável
 - Bloquear o acesso a dispositivos não fidedqui os falsos
@@ -128,7 +128,7 @@ Como um utilizador na sua organização, um dispositivo é uma identidade centra
 Pode realizar este objetivo trazendo identidades do dispositivo e gerindo-as em Azure AD utilizando um dos seguintes métodos:
 
 - As organizações podem usar o [Microsoft Intune](/intune/what-is-intune) para gerir o dispositivo e impor políticas de conformidade, atestar a saúde do dispositivo e definir políticas de acesso condicional com base no facto de o dispositivo estar em conformidade. O Microsoft Intune pode gerir dispositivos iOS, desktops Mac (via integração JAMF), desktops Windows (utilizando nativamente Mobile Device Management para Windows 10, e cogestão com o Microsoft Endpoint Configuration Manager) e dispositivos móveis Android.
-- [A ad azure híbrida fornece](../devices/hybrid-azuread-join-managed-domains.md) gestão com políticas de grupo ou Microsoft Endpoint Configuration Manager em um ambiente com dispositivos de computadores ligados ao domínio do Ative Directory. As organizações podem implementar um ambiente gerido através de PHS ou PTA com SSO sem emenda. Trazer os seus dispositivos para a Azure AD maximiza a produtividade do utilizador através do SSO através da sua nuvem e recursos no local, permitindo-lhe garantir o acesso à sua nuvem e recursos no local com [Acesso Condicional](../conditional-access/overview.md)ao   mesmo tempo.
+- [A ad azure híbrida fornece](../devices/hybrid-azuread-join-managed-domains.md) gestão com políticas de grupo ou Microsoft Endpoint Configuration Manager em um ambiente com dispositivos de computadores ligados ao domínio do Ative Directory. As organizações podem implementar um ambiente gerido através de PHS ou PTA com SSO sem emenda. Trazer os seus dispositivos para a Azure AD maximiza a produtividade do utilizador através do SSO através da sua nuvem e recursos no local, permitindo-lhe garantir o acesso à sua nuvem e recursos no local com [Acesso Condicional](../conditional-access/overview.md) ao mesmo tempo.
 
 Se tiver dispositivos Windows associados a domínios que não estejam registados na nuvem, ou dispositivos Windows associados a domínios que estejam registados na nuvem mas sem políticas de acesso condicional, então deve registar os dispositivos não registados e, em qualquer dos casos, [utilizar a AD Híbrida Azure como um controlo](../conditional-access/require-managed-devices.md) nas suas políticas de acesso condicional.
 
@@ -177,7 +177,7 @@ Finalmente, se tiver uma galeria de aplicações AD Azure e utilizar aplicaçõe
 
 ### <a name="assign-users-to-applications"></a>Atribuir utilizadores a aplicações
 
-[Atribuir os utilizadores às aplicações](../manage-apps/assign-user-or-group-access-portal.md) é melhor mapeado através da utilização de grupos, porque permitem uma maior flexibilidade e capacidade de gestão em escala. Os benefícios da utilização de grupos incluem [a adesão dinâmica baseada no atributo](../users-groups-roles/groups-dynamic-membership.md) e [delegação aos proprietários de aplicações.](../fundamentals/active-directory-accessmanagement-managing-group-owners.md) Portanto, se já está a utilizar e a gerir grupos, recomendamos que tome as seguintes ações para melhorar a gestão em escala:
+[Atribuir os utilizadores às aplicações](../manage-apps/assign-user-or-group-access-portal.md) é melhor mapeado através da utilização de grupos, porque permitem uma maior flexibilidade e capacidade de gestão em escala. Os benefícios da utilização de grupos incluem [a adesão dinâmica baseada no atributo](../enterprise-users/groups-dynamic-membership.md) e [delegação aos proprietários de aplicações.](../fundamentals/active-directory-accessmanagement-managing-group-owners.md) Portanto, se já está a utilizar e a gerir grupos, recomendamos que tome as seguintes ações para melhorar a gestão em escala:
 
 - Delegar gestão e governação de grupos aos proprietários de candidaturas.
 - Permitir o acesso self-service à aplicação.
@@ -189,8 +189,8 @@ Por outro lado, se encontrar aplicações que tenham atribuição a utilizadores
 #### <a name="assign-users-to-applications-recommended-reading"></a>Atribuir utilizadores a aplicações recomendadas de leitura
 
 - [Atribuir utilizadores e grupos a uma aplicação no Azure Ative Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegar permissões de registo de aplicativos no Azure Ative Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Regras dinâmicas de adesão para grupos no Azure Ative Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegar permissões de registo de aplicativos no Azure Ative Directory](../roles/delegate-app-roles.md)
+- [Regras dinâmicas de adesão para grupos no Azure Ative Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Políticas de acesso
 
@@ -248,7 +248,7 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 - Utilizar políticas de acesso condicional para [implementar MFA,](../conditional-access/plan-conditional-access.md)em vez de utilizar um **MFA por utilizador**
 - Ter um pequeno conjunto de políticas fundamentais que podem aplicar-se a múltiplas aplicações
 - Defina grupos de exceção vazios e adicione-os às políticas para ter uma estratégia de exceção
-- Plano para quebrar contas [de vidro](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sem controlos de MFA
+- Plano para quebrar contas [de vidro](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) sem controlos de MFA
 - Garantir uma experiência consistente em aplicações de clientes Microsoft 365, por exemplo, Equipas, OneDrive, Outlook, etc.) implementando o mesmo conjunto de controlos para serviços como Exchange Online e Sharepoint Online
 - A atribuição às políticas deve ser implementada através de grupos, não de indivíduos
 - Faça revisões regulares dos grupos de exceção utilizados nas políticas para limitar o tempo que os utilizadores estão fora da postura de segurança. Se possuir Azure AD P2, então pode usar comentários de acesso para automatizar o processo
@@ -347,7 +347,7 @@ Abaixo estão as configurações do utilizador e do grupo que podem ser bloquead
 - [Integração de Aplicações com Diretório Ativo Azure](../develop/quickstart-register-app.md)
 - [Aplicativos, permissões e consentimento no Azure Ative Directory.](../develop/quickstart-register-app.md)
 - [Utilize grupos para gerir o acesso a recursos no Azure Ative Directory](./active-directory-manage-groups.md)
-- [Criação de gestão de acesso a aplicações self-service no Azure Ative Directory](../users-groups-roles/groups-self-service-management.md)
+- [Criação de gestão de acesso a aplicações self-service no Azure Ative Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Tráfego de locais inesperados
 

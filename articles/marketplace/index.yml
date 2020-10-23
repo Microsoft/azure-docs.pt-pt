@@ -10,12 +10,12 @@ metadata:
   author: keferna
   ms.author: keferna
   ms.date: 09/02/2020
-  ms.openlocfilehash: 5bf516cd4492e695e0d58aec8084b941f252a535
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: ce57fb7da524feb4d58231e2ba8bf96ccb28a1c3
+  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91856641"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92281773"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Opções de suporte
-      url: ./partner-center-portal/support.md
+      url: ./support.md
     - text: Resolver erros de autenticação
       url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: Disponibilidade geográfica e moedas

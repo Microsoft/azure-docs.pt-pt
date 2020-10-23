@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252838"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461418"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -22,7 +22,7 @@ Em Azure Digital Twins, você pode encaminhar notificações de eventos para ser
 
 Este artigo acompanha-o através do processo de criação de pontos finais e rotas utilizando o [portal Azure.](https://portal.azure.com)
 
-Também pode gerir pontos finais e rotas com os [ApIs eventRoutes,](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para uma versão deste artigo que utiliza estes mecanismos em vez do portal, consulte [*Como-a-fazer: Gerir pontos finais e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
+Também pode gerir pontos finais e rotas com as [APIs rotas de eventos,](/rest/api/digital-twins/dataplane/eventroutes)o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para uma versão deste artigo que utiliza estes mecanismos em vez do portal, consulte [*Como-a-fazer: Gerir pontos finais e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,7 +72,7 @@ Também pode ver o ponto final que foi criado de volta na página *Endpoints* pa
 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro de Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+Agora, o tópico da grelha de eventos está disponível como ponto final dentro de Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-an-event-hubs-endpoint"></a>Criar um ponto final de Centro de Eventos
 
@@ -94,7 +94,7 @@ Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de 
 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
-Agora, o hub do Evento está disponível como ponto final dentro das Gémeas Digitais Azure, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+Agora, o hub do Evento está disponível como ponto final dentro das Gémeas Digitais Azure, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
 ### <a name="create-a-service-bus-endpoint"></a>Criar um ponto final de ônibus de serviço
 
@@ -116,9 +116,17 @@ Pode verificar se o ponto final foi criado com sucesso, verificando o ícone de 
 
 Se a criação do ponto final falhar, observe a mensagem de erro e redaça após alguns minutos.
 
-Agora, o tópico do Service Bus está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#event-routes)
+Agora, o tópico do Service Bus está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado no campo _Nome._ Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo.](#create-an-event-route)
 
-## <a name="event-routes"></a>Rotas de eventos
+### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto final com letras mortas
+
+Quando um ponto final não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.**
+
+Para criar um ponto final com letras mortas ativadas, deve utilizar as [APIs ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para criar o seu ponto final, em vez do portal Azure.
+
+Para obter instruções sobre como fazê-lo com as APIs, consulte as [*APIs e a*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) versão CLI deste artigo.
+
+## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
 Para enviar dados da Azure Digital Twins para um ponto final, terá de definir uma rota de **eventos.** Estas rotas permitem que os desenvolvedores liguem o fluxo de eventos, em todo o sistema e para os serviços a jusante. Leia mais sobre as rotas de eventos em [*Conceitos: Eventos de Roteamento Azure Digital Twins*](concepts-route-events.md).
 
@@ -127,7 +135,7 @@ Para enviar dados da Azure Digital Twins para um ponto final, terá de definir u
 >[!NOTE]
 >Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se não conseguir configurar a rota porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
 
-### <a name="create-an-event-route"></a>Criar uma rota de eventos 
+### <a name="creation-steps-with-the-azure-portal"></a>Etapas de criação com o portal Azure
 
 Uma definição de rota de evento contém estes elementos:
 * O nome da rota que pretende usar
@@ -153,7 +161,7 @@ Para que o percurso seja ativado, também deve adicionar um filtro de rota de **
 
 Quando terminar, premir o botão _Guardar_ para criar a sua rota de evento.
 
-### <a name="filter-events"></a>Filtrar eventos
+## <a name="filter-events"></a>Filtrar eventos
 
 Como descrito acima, as rotas têm um campo **de filtro.** Se o valor do filtro na sua rota `false` for, não serão enviados eventos para o seu ponto final. 
 
@@ -161,7 +169,6 @@ Depois de permitir o filtro mínimo `true` de, os pontos finais receberão uma v
 * Telemetria disparada por [gémeos digitais](concepts-twins-graph.md) usando o serviço Azure Digital Twins API
 * Notificações de mudança de propriedade gémea, disparadas sobre alterações de propriedade para qualquer gémeo no caso Azure Digital Twins
 * Eventos de ciclo de vida, disparados quando gémeos ou relacionamentos são criados ou eliminados
-* Eventos de mudança de modelo, disparados quando [os modelos](concepts-models.md) configurados numa instância Azure Digital Twins são adicionados ou eliminados
 
 Pode restringir os tipos de eventos que são enviados definindo um filtro mais específico.
 

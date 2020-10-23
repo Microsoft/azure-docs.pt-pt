@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665997"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368235"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Se obtém o erro "Privilégios insuficientes para completar a operação", é provável que a Azure CLI esteja a tentar procurar a identidade do destinatário em Azure AD e o diretor de serviço não pode ler a Azure AD por defeito.
 
-    Há duas formas de resolver este erro. A primeira forma é atribuir o papel de Leitores de [Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) ao diretor de serviço para que possa ler dados no diretório.
+    Há duas formas de resolver este erro. A primeira forma é atribuir o papel de Leitores de [Diretório](../active-directory/roles/permissions-reference.md#directory-readers) ao diretor de serviço para que possa ler dados no diretório.
 
     A segunda forma de resolver este erro é criar a atribuição de funções utilizando o `--assignee-object-id` parâmetro em vez de `--assignee` . Ao utilizar `--assignee-object-id` , o Azure CLI saltará a procura Azure AD. Terá de obter o ID do objeto do utilizador, grupo ou aplicação a que pretende atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando O Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
@@ -184,7 +184,7 @@ Se conceder a um utilizador acesso apenas a uma única aplicação web, algumas 
 * Comandos (como começar, parar, etc.)
 * Alterar definições como configuração geral, definições de escala, definições de backup e definições de monitorização
 * Aceder a credenciais de publicação e outros segredos, como configurações de aplicações e cadeias de conexão
-* Registos de streaming
+* Registos de transmissão em fluxo
 * Configuração de registos de recursos
 * Consola (pedido de comando)
 * Implementações ativas e recentes (para implantação contínua de git local)

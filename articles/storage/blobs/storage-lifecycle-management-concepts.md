@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822395"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309805"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -22,18 +22,21 @@ Os conjuntos de dados têm ciclos de vida únicos. No início do ciclo de vida, 
 
 A política de gestão do ciclo de vida permite-lhe:
 
-- Bolhas de transição para um nível de armazenamento mais fresco (quente a fresco, quente para arquivar, ou fresco para arquivar) para otimizar para desempenho e custo
-- Apagar bolhas no final dos seus ciclos de vida
+- Bolhas de transição de fresco para quente imediatamente se acedido para otimizar para o desempenho 
+- Bolhas de transição, versões blob e snapshots blob para um nível de armazenamento mais fresco (quente a fresco, quente para arquivar ou fresco para arquivar) se não for acedido ou modificado por um período de tempo para otimizar o custo
+- Eliminar bolhas, versões blob e blob snapshots no final dos seus ciclos de vida
 - Definir regras a serem executadas uma vez por dia ao nível da conta de armazenamento
 - Aplicar regras a recipientes ou a um subconjunto de bolhas (utilizando prefixos de nome ou [etiquetas de índice de bolhas](storage-manage-find-blobs.md) como filtros)
 
 Considere um cenário em que os dados tenham acesso frequente durante as fases iniciais do ciclo de vida, mas apenas ocasionalmente após duas semanas. Para além do primeiro mês, o conjunto de dados raramente é acedido. Neste cenário, o armazenamento quente é o melhor durante as fases iniciais. O armazenamento fresco é mais adequado para acessos ocasionais. O armazenamento de arquivo é a melhor opção de nível após a idade dos dados ao longo de um mês. Ao ajustar os níveis de armazenamento em relação à idade dos dados, pode conceber as opções de armazenamento menos dispendiosas para as suas necessidades. Para alcançar esta transição, as regras de política de gestão do ciclo de vida estão disponíveis para mover dados de envelhecimento para níveis mais frios.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+>[!NOTE]
+>Se precisar de dados para se manter legível, por exemplo, quando utilizado pelo StorSimple, não descreva uma política para mover as bolhas para o nível Archive.
 
 ## <a name="availability-and-pricing"></a>Disponibilidade e preços
 
-A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões Azure para as contas de Fins Gerais v2 (GPv2), contas de armazenamento Blob e contas de armazenamento Premium Block Blob. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
+A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões Azure para as contas de Fins Gerais v2 (GPv2), contas de armazenamento Blob, contas de armazenamento Premium Block Blob e contas Azure Data Lake Storage Gen2. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
 
 A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API de Nível Blob.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -243,7 +246,7 @@ Cada regra dentro da política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | Cadeia |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos. Deve ser único dentro de uma política. | Verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. O nome da regra é sensível a casos. Deve ser único dentro de uma política. | Verdadeiro |
 | `enabled`      | Booleano | Um boolean opcional para permitir que uma regra seja temporariamente desativada. O valor predefinido é verdadeiro se não estiver definido. | Falso | 
 | `type`         | Um valor enum | O tipo válido atual é `Lifecycle` . | Verdadeiro |
 | `definition`   | Um objeto que define a regra do ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ação. | Verdadeiro |
@@ -263,29 +266,41 @@ A seguinte regra de amostra filtra a conta para executar as ações em objetos q
 - Bolha de nível para arrefecer nível 30 dias após a última modificação
 - Bolha de nível para arquivar nível 90 dias após a última modificação
 - Apagar bolha 2.555 dias (sete anos) após última modificação
-- Apagar snapshots blob 90 dias após a criação de instantâneos
+- Eliminar versões blob anteriores 90 dias após a criação
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -312,24 +327,24 @@ Os filtros incluem:
 
 As ações são aplicadas às bolhas filtradas quando a condição de funcionamento é satisfeita.
 
-A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas e a eliminação de instantâneos blob. Defina pelo menos uma ação para cada regra em blobs ou snapshots blob.
+A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas, versões anteriores blob e snapshots blob. Defina pelo menos uma ação para cada regra sobre bolhas de base, versões blob anteriores ou instantâneos blob.
 
-| Ação                      | Base Blob                                   | Instantâneo      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Blobs de suporte atualmente em nível quente         | Não suportado |
-| enableAutoTierToHotFromCool | Blobs de suporte atualmente em nível fresco        | Não suportado |
-| tierToArchive               | Bolhas de suporte atualmente em nível quente ou fresco | Não suportado |
-| delete                      | Apoiado `blockBlob` e `appendBlob`  | Suportado     |
+| Ação                      | Base Blob                                  | Instantâneo      | Versão
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Apoiado para `blockBlob`                  | Suportado     | Suportado     |
+| enableAutoTierToHotFromCool | Apoiado para `blockBlob`                  | Não suportado | Não suportado |
+| tierToArchive               | Apoiado para `blockBlob`                  | Suportado     | Suportado     |
+| delete                      | Apoiado `blockBlob` e `appendBlob` | Suportado     | Suportado     |
 
 >[!NOTE]
 >Se definir mais do que uma ação na mesma bolha, a gestão do ciclo de vida aplica a ação menos dispendiosa à bolha. Por exemplo, a ação `delete` é mais barata do que a `tierToArchive` ação. A ação `tierToArchive` é mais barata do que a `tierToCool` ação.
 
-As condições de execução baseiam-se na idade. As bolhas de base usam o último tempo modificado para rastrear a idade, e os instantâneos blob usam o tempo de criação instantâneo para rastrear a idade.
+As condições de execução baseiam-se na idade. As bolhas de base utilizam o último tempo modificado, as versões blob usam o tempo de criação da versão, e os instantâneos blob usam o tempo de criação do instantâneo para rastrear a idade.
 
 | Condição de execução de ação               | Valor da condição                          | Descrição                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | dias Após aModificaçãoGreaterThan   | Valor inteiro indicando a idade em dias | A condição para as ações de blob base                                              |
-| dias Após ACreationGreaterThan       | Valor inteiro indicando a idade em dias | A condição para as ações de snapshot blob                                          |
+| dias Após ACreationGreaterThan       | Valor inteiro indicando a idade em dias | A condição para a versão blob e ações de snapshot blob                         |
 | dias Depois deLastAccessTimeGreaterThan | Valor inteiro indicando a idade em dias | (pré-visualização) A condição para as ações de blob base quando o tempo de acesso último é ativado |
 
 ## <a name="examples"></a>Exemplos
@@ -522,26 +537,35 @@ Alguns dados só devem ser expirados se explicitamente marcados para eliminaçã
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Apagar instantâneos antigos
+### <a name="manage-versions"></a>Gerir versões
 
-Para dados que são modificados e acedidos regularmente ao longo da sua vida útil, os instantâneos são frequentemente utilizados para rastrear versões mais antigas dos dados. Pode criar uma política que elimina instantâneos antigos com base na idade do instantâneo. A idade do instantâneo é determinada avaliando o tempo de criação do instantâneo. Esta regra de política elimina as imagens blob bloqueadas dentro do recipiente `activedata` que são 90 dias ou mais após a criação do instantâneo.
+Para dados que são modificados e acedidos regularmente ao longo da sua vida útil, pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto. Pode criar uma política para tier ou eliminar versões anteriores. A era da versão é determinada avaliando o tempo de criação da versão. Esta regra de política tem versões anteriores dentro do contentor `activedata` que são 90 dias ou mais após a criação da versão para arrefecer o nível, e elimina versões anteriores com 365 dias ou mais.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498808"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147930"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Azure Data Box Encomenda pesada de importação
 
@@ -23,7 +23,7 @@ O quadro seguinte mostra um resumo das etapas de encomenda pesada da Caixa de Da
 
 | Fase de encomenda de importação de caixa de dados       | Ferramenta para acompanhar e auditar                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Criar encomenda               | [Configurar o controlo de acesso na ordem via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Criar encomenda               | [Configurar o controlo de acesso na encomenda via Azure RBAC](#set-up-access-control-on-the-order)                                                    |
 | Encomenda processada            | [Acompanhe a encomenda](#track-the-order) através <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por e-mail</ul> |
 | Configurar dispositivo              | Acesso de credenciais de dispositivo registado em [registos de atividade](#query-activity-logs-during-setup)                                              |
 | Cópia de dados para dispositivo        | [Ver * ficheiroserror.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
@@ -47,7 +47,7 @@ Para restringir o acesso a uma encomenda, pode:
 - Atribua um papel a um nível de encomenda. O utilizador só tem essas permissões, tal como definidas pelas funções para interagir apenas com essa encomenda específica da Caixa de Dados e nada mais.
 - Atribuir uma função ao nível do grupo de recursos, o utilizador tem acesso a todas as encomendas da Caixa de Dados dentro de um grupo de recursos.
 
-Para obter mais informações sobre a utilização sugerida do RBAC, consulte [as melhores práticas para o Azure RBAC](../role-based-access-control/best-practices.md).
+Para obter mais informações sobre a utilização sugerida do Azure RBAC, consulte [as melhores práticas para o Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Controlar a encomenda
 

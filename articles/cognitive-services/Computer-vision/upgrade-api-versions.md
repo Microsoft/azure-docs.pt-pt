@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968944"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331843"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Upgrade de Ler v2.x para Ler v3.x
 
@@ -27,11 +27,12 @@ Utilize a tabela seguinte para determinar a **cadeia de versão** no caminho API
 
 |Tipo de produto| Versão | Cadeia de versão em caminho API 3.x |
 |:-----|:----|:----|
-|Serviço | Ler 3.0 | **v3.0** |
-|Contentor | Ler 3.0 pré-visualização | **v3.0** |
-|Serviço/Contentor | Ler 3.1 pré-visualização | **v3.1 pré-visualização.2** |
+|Serviço | Ler 3.0 ou 3.1 | **v3.0** ou **v3.1** respectivamente |
+|Serviço | Ler 3.2 pré-visualização | **v3.2-pré-visualização.1** |
+|Contentor | Ler 3.0 pré-visualização ou Ler 3.1 pré-visualização | **v3.0** ou **v3.1-preview.2** respectivamente |
 
-Em seguida, utilize as seguintes secções para reduzir as suas operações e substitua a **cadeia de versão** no seu percurso API pelo valor da tabela. Por exemplo, para ler as versões de nuvem de **pré-visualização v3.1** e recipiente, atualize o caminho da API para **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]**.
+
+Em seguida, utilize as seguintes secções para reduzir as suas operações e substitua a **cadeia de versão** no seu percurso API pelo valor da tabela. Por exemplo, para ler as versões de nuvem de **pré-visualização v3.2** e recipiente, atualize o caminho da API para **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]**.
 
 ## <a name="servicecontainer"></a>Serviço/Contentor
 

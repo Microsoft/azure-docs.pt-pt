@@ -4,12 +4,12 @@ description: Saiba mais sobre as quotas, limites e restrições do Lote Azure pa
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84417281"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107543"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -125,7 +125,7 @@ Assim que submeter o seu pedido de apoio, o suporte da Azure entrará em contact
 
 Os lotes na Configuração de Máquina Virtual implantados numa rede virtual Azure alocam automaticamente recursos adicionais de rede Azure. São necessários os seguintes recursos para cada 50 nós de piscina numa rede virtual:
 
-- Um [grupo de segurança de rede](../virtual-network/security-overview.md#network-security-groups)
+- Um [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - Um [endereço IP público](../virtual-network/public-ip-addresses.md)
 - Um [equilibrador de carga](../load-balancer/load-balancer-overview.md)
 

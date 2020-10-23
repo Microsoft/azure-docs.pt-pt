@@ -16,18 +16,18 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9e52dc28d2834b479ac0580ff990119a56772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a35442dd8af1cd4acf22de453c8d10460e1e39f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87422033"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371533"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Atualizar ou remover um papel personalizado Azure AD atribuído na Gestão de Identidade Privilegiada
 
 Este artigo diz-lhe como utilizar a Gestão de Identidade Privilegiada (PIM) para atualizar ou remover a atribuição just-in-time e time-bound para funções personalizadas criadas para gestão de aplicações na experiência administrativa Azure Ative (Azure AD). 
 
-- Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../users-groups-roles/roles-custom-overview.md). 
+- Para obter mais informações sobre a criação de funções personalizadas para delegar a gestão de aplicações em Azure AD, consulte [as funções de administrador personalizado no Azure Ative Directory (pré-visualização)](../roles/custom-overview.md). 
 - Se ainda não utilizou a Gestão de Identidade Privilegiada, obtenha mais informações no [Início da Utilização de Gestão de Identidade Privilegiada.](pim-getting-started.md)
 
 > [!NOTE]
