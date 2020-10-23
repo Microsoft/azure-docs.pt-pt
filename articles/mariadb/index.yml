@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/05/2019
   ms.service: mariadb
   ms.topic: landing-page
-  ms.openlocfilehash: bd4bb93a43bd493069ed03f6197595fe782d605a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3e49a860cca6cb59543f450cda4bda8c6b0c0a38
+  ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "70735382"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92428337"
 landingContent:
 - title: Acerca do Azure Database for MariaDB
   linkLists:
@@ -110,7 +110,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/mariadb/sample-scripts-azure-cli/
+      url: ./sample-scripts-azure-cli.md
   - linkListType: reference
     links:
     - text: Referência para programadores da CLI do Azure
