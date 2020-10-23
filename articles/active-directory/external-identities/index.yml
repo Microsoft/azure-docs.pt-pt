@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: bad40c34db9f597320a05f46be92baae6632d93e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: ecc69f8e2e281b4456861397bdd5af4ba41448e8
+  ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91265617"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92441764"
 landingContent:
 - title: Sobre as Identidades Externas
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
     - text: O que é a colaboração B2B do Azure AD?
       url: what-is-b2b.md
     - text: O que é a identidade do Azure AD B2C (empresa-consumidor)?
-      url: https://docs.microsoft.com/azure/active-directory-b2c/overview
+      url: ../../active-directory-b2c/overview.md
 - title: Colaborar com utilizadores fora da sua organização (colaboração B2B)
   linkLists:
   - linkListType: concept
@@ -54,21 +54,21 @@ landingContent:
   - linkListType: overview
     links:
     - text: Acerca do Azure AD B2C
-      url: https://docs.microsoft.com/azure/active-directory-b2c/overview
+      url: ../../active-directory-b2c/overview.md
     - text: Descrição geral técnica e das funcionalidades
-      url: https://docs.microsoft.com/azure/active-directory-b2c/technical-overview
+      url: ../../active-directory-b2c/technical-overview.md
     - text: Ver toda a documentação do Azure AD B2C
-      url: https://docs.microsoft.com/azure/active-directory-b2c/
+      url: ../../active-directory-b2c/index.yml
   - linkListType: concept
     links:
     - text: Fluxos de utilizador do Azure AD B2C
-      url: https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview
+      url: ../../active-directory-b2c/user-flow-overview.md
     - text: Políticas personalizadas do Azure AD B2C
-      url: https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview
+      url: ../../active-directory-b2c/custom-policy-overview.md
   - linkListType: tutorial
     links:
     - text: Criar fluxos de utilizador no Azure AD B2C
-      url: https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows
+      url: ../../active-directory-b2c/tutorial-create-user-flows.md
 - title: Fluxos de inscrição personalizada para utilizadores convidados B2B (pré-visualização)
   linkLists:
   - linkListType: overview

@@ -267,7 +267,7 @@
         - name: Acessibilidade do Explorador de Armazenamento
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Armazenamento de Filas no Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
+      href: /answers/topics/azure-queue-storage.html
     - name: Armazenamento de Filas no Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-queues'
     - name: Preços do Armazenamento de Filas
@@ -309,7 +309,7 @@
             - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 12.x'
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
             - name: 'Blobs, Filas e Ficheiros (versão 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+              href: /java/api/overview/azure/storage?view=azure-java-legacy
             - name: 'Biblioteca de cliente do Armazenamento do Azure, versão 8.x e anteriores'
               href: 'https://github.com/Azure/azure-storage-java'
         - name: Node.js

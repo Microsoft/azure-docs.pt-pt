@@ -155,6 +155,8 @@
               href: concepts-infrastructure-double-encryption.md
             - name: Linha de base de segurança
               href: security-baseline.md
+        - name: Manutenção planeada
+          href: concepts-planned-maintenance-notification.md
         - name: Continuidade do negócio
           items:
             - name: Introdução à continuidade de negócio

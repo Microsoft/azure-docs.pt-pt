@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
 ms.openlocfilehash: 39a4c7b8afab1a9f102bc0bc24b40a7525d93d83
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "92201359"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Prepare uma instância Azure Digital Twins

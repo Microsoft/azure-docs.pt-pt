@@ -81,6 +81,8 @@
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
+    - name: Manutenção planeada
+      href: concepts-planned-maintenance-notification.md
     - name: Continuidade do negócio
       items:
         - name: Introdução à continuidade de negócio
@@ -260,7 +262,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/mariadb/'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-mariadb.html'
+      href: /answers/topics/azure-database-mariadb.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
     - name: Pedir uma funcionalidade
