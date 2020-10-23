@@ -704,7 +704,7 @@
               href: how-to-data-flow-error-rows.md
             - name: BD SQL do Azure para o Azure Cosmos DB
               href: how-to-sqldb-to-cosmosdb.md
-            - name: Eliminar duplicados e verificação NULL com fragmentos
+            - name: Eliminar duplicados e verificação null com fragmentos
               href: how-to-data-flow-dedupe-nulls-snippets.md
         - name: Migração SSIS a partir do local
           items:

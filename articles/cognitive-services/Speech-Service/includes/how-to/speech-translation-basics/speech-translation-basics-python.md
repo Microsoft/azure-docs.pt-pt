@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
-ms.openlocfilehash: 91683b3328af384c073f7273b97a1cc0e49814a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 987aad74401a11407e33f0b0bd51548f354bdd6d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376563"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470908"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras línguas. Neste arranque rápido aprende-se a usar o Speech SDK nas suas apps e produtos para realizar tradução de fala de alta qualidade. Este arranque rápido abrange temas como:
 
@@ -60,7 +60,7 @@ Há algumas maneiras de inicializar [`SpeechTranslationConfig`][config] um:
 * Com um anfitrião: passe em um endereço de anfitrião. Uma chave ou sinal de autorização é opcional.
 * Com um sinal de autorização: passe em um token de autorização e na região associada.
 
-Vamos ver como um [`SpeechTranslationConfig`][config] é criado usando uma chave e região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador da região.
+Vamos ver como um [`SpeechTranslationConfig`][config] é criado usando uma chave e região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ```python
 from_language, to_language = 'en-US', 'de'

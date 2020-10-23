@@ -41,8 +41,18 @@
           href: onboard-powershell.md
     - name: Gerir
       items:
-        - name: Gerir e utilizar extensões de VM do Azure
-          href: manage-vm-extensions.md
+        - name: Extensões de VM do Azure
+          items:
+            - name: Descrição geral
+              href: manage-vm-extensions.md
+            - name: Gerir extensões a partir do portal
+              href: manage-vm-extensions-portal.md
+            - name: Gerir extensões com a CLI
+              href: manage-vm-extensions-cli.md
+            - name: Gerir extensões com o PowerShell
+              href: manage-vm-extensions-powershell.md
+            - name: Implementar extensões com o modelo do ARM
+              href: manage-vm-extensions-template.md
         - name: Gerir o agente
           href: manage-agent.md
     - name: Resolução de problemas
@@ -55,8 +65,22 @@
   items:
     - name: Residência dos dados
       href: data-residency.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Ir
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
+    - name: Java
+      href: /java/api/overview/azure/hybridcompute/management
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: policy-reference.md

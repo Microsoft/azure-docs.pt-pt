@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 04d54afa6a2dc9aab778f927d55b270a1ca2a660
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 74da0ebf53b265bf5727c080e74772ad95bfb13c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210889"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470703"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -75,7 +75,7 @@ Há algumas maneiras de inicializar [`SpeechConfig`](https://docs.microsoft.com/
 * Com um anfitrião: passe em um endereço de anfitrião. Uma chave ou sinal de autorização é opcional.
 * Com um sinal de autorização: passe em um token de autorização e na região associada.
 
-Vamos ver como um [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) é criado usando uma chave e região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador da região.
+Vamos ver como um [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) é criado usando uma chave e região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ```javascript
 const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");

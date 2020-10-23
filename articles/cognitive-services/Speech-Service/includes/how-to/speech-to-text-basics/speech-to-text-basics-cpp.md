@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 65340bfcab76bd35901d1b3a9f3b4a8736205706
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 420a8ab9a36cdabc3a4565d18f4dbee1d84ec39e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376642"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470963"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -43,7 +43,7 @@ Há algumas maneiras de inicializar [`SpeechConfig`](https://docs.microsoft.com/
 * Com um anfitrião: passe em um endereço de anfitrião. Uma chave ou sinal de autorização é opcional.
 * Com um sinal de autorização: passe em um token de autorização e na região associada.
 
-Vamos ver como um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) é criado usando uma chave e região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador da região.
+Vamos ver como um [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) é criado usando uma chave e região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ```cpp
 auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");

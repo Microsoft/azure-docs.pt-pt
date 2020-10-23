@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92323009"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470959"
 ---
 ## <a name="download-and-install"></a>Transferir e instalar
 
@@ -107,7 +107,8 @@ Por exemplo, no Windows, este comando define a sua chave:
 
 ## <a name="create-subscription-config"></a>Criar config de subscrição
 
-Para começar a utilizar o CLI do Discurso, primeiro tem de introduzir a sua chave de subscrição do Discurso e informações da região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador da região. Assim que tiver a chave de subscrição e o identificador da região (ex. `eastus`, `westus` executar os seguintes comandos.
+Para começar a utilizar o CLI do Discurso, tem de introduzir a tecla de subscrição do Discurso e o identificador da região. Obtenha estas credenciais seguindo os passos no [serviço Try the Speech gratuitamente](../overview.md#try-the-speech-service-for-free).
+Assim que tiver a chave de subscrição e o identificador da região (ex. `eastus`, `westus` executar os seguintes comandos.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY
