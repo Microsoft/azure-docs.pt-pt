@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 6fc0add55caccd7721f3ee2c72db68fbcf6bc0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15bfeb3860c3a7dd5f9dc11f7fb18473116f5ff4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458506"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425606"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar regras e pontos finais de serviço da Rede Virtual para o Azure Database for MariaDB
 
@@ -88,7 +88,7 @@ Existe uma separação de funções de segurança na administração dos pontos 
 - **Administração de rede:** &nbsp; Ligue o ponto final.
 - **Administração de base de dados:** &nbsp; Atualize a lista de controlo de acesso (ACL) para adicionar a sub-rede dada à base de dados Azure para o servidor MariaDB.
 
-*Alternativa RBAC:*
+*Alternativa Azure RBAC:*
 
 Os papéis de Administração de Rede e Administração de Bases de Dados têm mais capacidades do que as necessárias para gerir as regras de rede virtuais. Apenas um subconjunto das suas capacidades é necessário.
 
@@ -155,7 +155,7 @@ Para artigos sobre a criação de regras VNet, consulte:
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

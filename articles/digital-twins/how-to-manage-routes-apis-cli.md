@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c6c0ee775ec1405fa76424e6b0ad57436d2d233e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 775b2da1b3f07897a566b6e82fa3f6b0de10bd22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340109"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428263"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92340109"
 
 Em Azure Digital Twins, você pode encaminhar notificações de eventos para serviços a [jusante](how-to-interpret-event-data.md) ou recursos de computação conectados. Isto é feito primeiro através da criação **de pontos finais** que podem receber os eventos. Em seguida, pode criar  [**rotas de eventos**](concepts-route-events.md) que especifiquem quais os eventos gerados pela Azure Digital Twins que são entregues a que pontos finais.
 
-Os pontos finais e as rotas podem ser geridos com os [ApIs do EventRoutes,](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Este artigo acompanha-o através do processo de criação de pontos finais e rotas através destes mecanismos.
+Os pontos finais e as rotas podem ser geridos com os [ApIs do EventRoutes,](how-to-use-apis-sdks.md)o [.NET (C#) SDK,](https://www.nuget.org/packages/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Este artigo acompanha-o através do processo de criação de pontos finais e rotas através destes mecanismos.
 
 Também podem ser geridos através do [portal Azure.](https://portal.azure.com) Para uma versão deste artigo que utiliza o portal, consulte [*Como fazer: Gerir pontos finais e rotas (portal)*](how-to-manage-routes-portal.md).
 

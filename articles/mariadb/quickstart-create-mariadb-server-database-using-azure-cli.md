@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88185167"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424495"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor MariaDB utilizando o Azure CLI
 
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
+Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
 
 O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`:
 
@@ -223,7 +223,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
 
 4. Selecione a ligação para ligar com êxito ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisa dos recursos que utilizou neste início rápido para outro início rápido ou tutorial, pode eliminá-los ao executar o seguinte comando: 
 
@@ -240,4 +240,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Desenhe uma Base de Dados MariaDB com Azure CLI](./tutorial-design-database-cli.md)
+> [Desenhe uma Base de Dados MariaDB com Azure CLI](tutorial-design-database-cli.md)

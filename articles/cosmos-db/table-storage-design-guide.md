@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002181"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428053"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de conceção de tabela do armazenamento de Tabelas do Azure: Tabelas dimensionáveis e com bom desempenho
 
@@ -195,12 +195,12 @@ Os exemplos a seguir assumem que o armazenamento de mesa está a armazenar entid
 
 | Nome da coluna | Tipo de dados |
 | --- | --- |
-| `PartitionKey` (Nome do departamento) |Cadeia |
+| `PartitionKey` (Nome do departamento) |String |
 | `RowKey` (ID do empregado) |Cadeia |
 | `FirstName` |Cadeia |
 | `LastName` |Cadeia |
 | `Age` |Número inteiro |
-| `EmailAddress` |Cadeia |
+| `EmailAddress` |String |
 
 Aqui estão algumas diretrizes gerais para a conceção de consultas de armazenamento de mesa. A sintaxe do filtro utilizada nos seguintes exemplos é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
 
@@ -476,7 +476,7 @@ Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferente
 #### <a name="context-and-problem"></a>Contexto e problema
 O armazenamento de mesa indexa automaticamente as entidades utilizando os `PartitionKey` valores e `RowKey` valores. Isto permite que uma aplicação do cliente recupere uma entidade de forma eficiente utilizando estes valores. Por exemplo, utilizando a seguinte estrutura de tabela, uma aplicação de cliente pode usar uma consulta de ponto para recuperar uma entidade de colaborador individual, utilizando o nome do departamento e o ID do empregado (os `PartitionKey` `RowKey` valores). Um cliente também pode recuperar entidades classificadas por identificação de funcionários dentro de cada departamento.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados"::: [9]
 
 Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o armazenamento de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da `RowKey` encomenda.  
 

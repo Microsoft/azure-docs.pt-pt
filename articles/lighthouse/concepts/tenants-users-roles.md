@@ -3,12 +3,12 @@ title: Inquilinos, papéis e utilizadores em cenários do Farol de Azure
 description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser usados em cenários do Farol Azure.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399249"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424121"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, papéis e utilizadores em cenários do Farol de Azure
 
@@ -22,7 +22,7 @@ Seja qual for o método de embarque que escolher, terá de definir *autorizaçõ
 
 ## <a name="role-support-for-azure-lighthouse"></a>Apoio de função para o Farol de Azure
 
-Ao definir uma autorização, cada conta de utilizador deve ser atribuída a uma das [funções de controlo de acesso (RBAC) incorporadas.](../../role-based-access-control/built-in-roles.md) As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
+Ao definir uma autorização, cada conta de utilizador deve ser atribuída a uma das [funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md). As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
 
 Todas as [funções incorporadas](../../role-based-access-control/built-in-roles.md) são atualmente suportadas com o Farol Azure, com as seguintes exceções:
 

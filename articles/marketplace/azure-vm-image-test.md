@@ -7,12 +7,12 @@ ms.topic: how-to
 author: github-2407
 ms.author: krsh
 ms.date: 10/15/2020
-ms.openlocfilehash: 21d6d8ec0b59b7bfb7c79884c73db0cbccfe971c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 36eebb218ed2b2d9a48cf7d970896115af5cf6f8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284541"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424869"
 ---
 # <a name="test-a-virtual-machine-image"></a>Teste uma imagem de máquina virtual
 
@@ -1737,25 +1737,60 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Como usar o CURL para consumir a API Self-Test no Linux OS
 
-Ligue para a API em CURL:
+Neste exemplo, o curl será usado para fazer uma chamada POST API para O Diretório Ativo Azure e o Self-Host VM.
 
-1. Use o comando do caracol para chamar a API.
-2. O método é Post e o tipo de conteúdo é JSON, como mostrado no seguinte corte de código.
+1. Solicite um token AD AD Azure para autenticar para auto-anfitrião VM
 
-```shell
-curl POST -H "Content-Type:application/json" -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
-https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "UserName":"XXX",
-"Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD", "AppId":"XXXX-XXXX-XXXX",
-"TenantId "XXXX-XXXX-XXXX"}'
-```
+   Certifique-se de que os valores corretos são substituídos no pedido do caracol.
 
-<br>Aqui está um exemplo de usar o CURL para chamar a API:
+   ```
+   curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
+   --header 'Content-Type: application/x-www-form-urlencoded' \
+   --data-urlencode 'grant_type=client_credentials' \
+   --data-urlencode 'client_id={CLIENT_ID} ' \
+   --data-urlencode 'client_secret={CLIENT_SECRET}' \
+   --data-urlencode 'resource=https://management.core.windows.net'
+   ```
+   Aqui está um exemplo da resposta do pedido:
+   ```JSON
+   {
+       "token_type": "Bearer",
+       "expires_in": "86399",
+       "ext_expires_in": "86399",
+       "expires_on": "1599663998",
+       "not_before": "1599577298",
+       "resource": "https://management.core.windows.net",
+       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJS…"
+   }
+   ```
 
-![Exemplo de utilização do CURL para chamar a API.](media/vm/use-curl-call-api.png)
+2. Apresentar um pedido para o VM auto-teste
 
-<br>Aqui está o resultado do JSON da chamada curl:
+   Certifique-se de que o token do portador e os parâmetros são substituídos pelos valores corretos.
 
-![JSON resulta da chamada curl.](media/vm/test-results-json-viewer-3.png)
+   ```
+   curl --location --request POST 'https://isvapp.azurewebsites.net/selftest-vm' \
+   --header 'Content-Type: application/json' \
+   --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJS…' \
+   --data-raw '{
+       "DNSName": "avvm1.eastus.cloudapp.azure.com",
+       "UserName": "azureuser",
+       "Password": "SECURE_PASSWORD_FOR_THE_SSH_INTO_VM",
+       "OS": "Linux",
+       "PortNo": "22",
+       "CompanyName": "COMPANY_NAME",
+       "AppId": "CLIENT_ID_SAME_AS_USED_FOR_AAD_TOKEN ",
+       "TenantId": "TENANT_ID_SAME_AS_USED_FOR_AAD_TOKEN"
+   }'
+   ```
+
+   Resposta de exemplo da chamada de api VM auto-teste
+   ```JSON
+   {
+       "TrackingId": "9bffc887-dd1d-40dd-a8a2-34cee4f4c4c3",
+       "Response": "{\"SchemaVersion\":1,\"AppCertificationCategory\":\"Microsoft Single VM Certification\",\"ProviderID\":\"050DE427-2A99-46D4-817C-5354D3BF2AE8\",\"OSName\":\"Ubuntu 18.04\",\"OSDistro\":\"Ubuntu 18.04.5 LTS\",\"KernelVersion\":\"5.4.0-1023-azure\",\"KernelFullVersion\":\"Linux version 5.4.0-1023-azure (buildd@lgw01-amd64-053) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #23~18.04.1-Ubuntu SMP Thu Aug 20 14:46:48 UTC 2020\\n\",\"OSVersion\":\"18.04\",\"CreatedDate\":\"09/08/2020 01:13:47\",\"TestResult\":\"Pass\",\"APIVersion\":\"1.5\",\"Tests\":[{\"TestID\":\"48\",\"TestCaseName\":\"Bash History\",\"Description\":\"Bash history files should be cleared before creating the VM image.\",\"Result\":\"Passed\",\"ActualValue\":\"No file Exist\",\"RequiredValue\":\"1024\"},{\"TestID\":\"39\",\"TestCaseName\":\"Linux Agent Version\",\"Description\":\"Azure Linux Agent Version 2.2.41 and above should be installed.\",\"Result\":\"Passed\",\"ActualValue\":\"2.2.49\",\"RequiredValue\":\"2.2.41\"},{\"TestID\":\"40\",\"TestCaseName\":\"Required Kernel Parameters\",\"Description\":\"Verifies the following kernel parameters are set console=ttyS0, earlyprintk=ttyS0, rootdelay=300\",\"Result\":\"Warning\",\"ActualValue\":\"Missing Parameter: rootdelay=300\\r\\nMatched Parameter: console=ttyS0,earlyprintk=ttyS0\",\"RequiredValue\":\"console=ttyS0#earlyprintk=ttyS0#rootdelay=300\"},{\"TestID\":\"41\",\"TestCaseName\":\"Swap Partition on OS Disk\",\"Description\":\"Verifies that no Swap partitions are created on the OS disk.\",\"Result\":\"Passed\",\"ActualValue\":\"No. of Swap Partitions: 0\",\"RequiredValue\":\"swap\"},{\"TestID\":\"42\",\"TestCaseName\":\"Root Partition on OS Disk\",\"Description\":\"It is recommended that a single root partition is created for the OS disk.\",\"Result\":\"Passed\",\"ActualValue\":\"Root Partition: 1\",\"RequiredValue\":\"1\"},{\"TestID\":\"44\",\"TestCaseName\":\"OpenSSL Version\",\"Description\":\"OpenSSL Version should be >=0.9.8.\",\"Result\":\"Passed\",\"ActualValue\":\"1.1.1\",\"RequiredValue\":\"0.9.8\"},{\"TestID\":\"45\",\"TestCaseName\":\"Python Version\",\"Description\":\"Python version 2.6+ is highly recommended. \",\"Result\":\"Passed\",\"ActualValue\":\"2.7.17\",\"RequiredValue\":\"2.6\"},{\"TestID\":\"46\",\"TestCaseName\":\"Client Alive Interval\",\"Description\":\"It is recommended to set ClientAliveInterval to 180. On the application need, it can be set between 30 to 235. \\nIf you are enabling the SSH for your end users this value must be set as explained.\",\"Result\":\"Warning\",\"ActualValue\":\"120\",\"RequiredValue\":\"ClientAliveInterval 180\"},{\"TestID\":\"49\",\"TestCaseName\":\"OS Architecture\",\"Description\":\"Only 64-bit operating system should be supported.\",\"Result\":\"Passed\",\"ActualValue\":\"x86_64\\n\",\"RequiredValue\":\"x86_64,amd64\"},{\"TestID\":\"50\",\"TestCaseName\":\"Security threats\",\"Description\":\"Identifies OS with recent high profile vulnerability that may need patching.  Ignore warning if system was patched as appropriate.\",\"Result\":\"Passed\",\"ActualValue\":\"Ubuntu 18.04\",\"RequiredValue\":\"OS impacted by GHOSTS\"},{\"TestID\":\"51\",\"TestCaseName\":\"Auto Update\",\"Description\":\"Identifies if Linux Agent Auto Update is enabled or not.\",\"Result\":\"Passed\",\"ActualValue\":\"# AutoUpdate.Enabled=y\\n\",\"RequiredValue\":\"Yes\"},{\"TestID\":\"52\",\"TestCaseName\":\"SACK Vulnerability patch verification\",\"Description\":\"Checks if the running Kernel Version has SACK vulnerability patch.\",\"Result\":\"Passed\",\"ActualValue\":\"Ubuntu 18.04.5 LTS,Linux version 5.4.0-1023-azure (buildd@lgw01-amd64-053) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #23~18.04.1-Ubuntu SMP Thu Aug 20 14:46:48 UTC 2020\",\"RequiredValue\":\"Yes\"}]}"
+   }
+   ```
 
 ## <a name="next-steps"></a>Passos seguintes
 

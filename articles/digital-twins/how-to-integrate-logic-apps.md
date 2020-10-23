@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280854"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427997"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -66,7 +66,7 @@ Agora, verifique se o segredo do cliente está visível na página _de segredos 
 
 Este artigo utiliza Apps Lógicas para atualizar um gémeo na sua instância Azure Digital Twins. Para prosseguir, deve adicionar pelo menos um gémeo no seu caso. 
 
-Pode adicionar gémeos utilizando as [APIs DigitalTwins,](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para obter passos detalhados sobre como criar gémeos utilizando estes métodos, consulte [*Como-a-fazer: Gerir gémeos digitais*](how-to-manage-twin.md).
+Pode adicionar gémeos utilizando as [APIs DigitalTwins,](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://www.nuget.org/packages/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para obter passos detalhados sobre como criar gémeos utilizando estes métodos, consulte [*Como-a-fazer: Gerir gémeos digitais*](how-to-manage-twin.md).
 
 Vai precisar da **_identificação de_** um gémeo no seu caso que criou.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315825"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424067"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
 
@@ -182,7 +182,7 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 - A Norma de Proteção DDoS deve ser ativada
 
-Também pode utilizar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções (RBAC) e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
+Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlo de acesso baseado em funções Azure (Azure RBAC) e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -578,7 +578,7 @@ Para aplicações lógicas que necessitem de acesso direto aos recursos numa red
 
 Ao criar o ise, pode optar por utilizar os pontos finais de acesso interno ou externo. A sua seleção determina se o pedido ou webhook dispara em aplicações lógicas no seu ISE pode receber chamadas de fora da sua rede virtual.
 
-Adicionalmente, implementar o isolamento utilizando subscrições e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Pode controlar o acesso aos recursos da Azure através do controlo de acesso baseado em funções do Azure Ative Directory.
+Adicionalmente, implementar o isolamento utilizando subscrições e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure através do controlo de acesso baseado em funções Azure (Azure RBAC).
 
 - [Compreender conectores para aplicações lógicas](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ A Microsoft gere a infraestrutura subjacente às Apps Azure Logic e implementou 
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o Azure Role-Based Access Control (RBAC) para que possa atribuir funções personalizadas ou incorporadas aos membros da sua subscrição Azure:
+**Orientação**: Só é possível permitir que utilizadores ou grupos específicos executem tarefas específicas, tais como gerir, editar e visualizar aplicações lógicas. Para controlar as suas permissões, utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para que possa atribuir funções personalizadas ou incorporadas aos membros da sua subscrição Azure:
 
 - Logic App Contributor: Permite-lhe gerir aplicações lógicas, mas não pode alterar o acesso às mesmos.
 - Operador de aplicativos logicos: Permite-lhe ler, ativar e desativar aplicações lógicas, mas não pode editá-las ou atualizá-las.
@@ -883,7 +883,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 **Orientação**: Os recursos relacionados com as suas Aplicações Lógicas que são necessárias para operações comerciais, mas que podem incorrer em maior risco para a organização, devem ser isolados dentro da sua própria máquina virtual e/ou rede virtual e suficientemente protegidos com um Azure Firewall ou Grupo de Segurança de Rede.
 
-As Aplicações Lógicas que são necessárias para operações comerciais, mas que podem incorrer em maior risco para a organização, devem ser isoladas sempre que possível através de grupos de recursos separados com permissões específicas e limites de RBAC.
+As Aplicações Lógicas que são necessárias para operações comerciais, mas que podem incorrer em maior risco para a organização, devem ser isoladas sempre que possível através de grupos de recursos separados com permissões específicas e limites rbac azure.
 
 - [Como criar uma rede virtual](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ As Aplicações Lógicas que são necessárias para operações comerciais, mas 
 
 - [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md) 
 
-- [Como garantir o acesso a Apps Lógicas via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Como garantir o acesso a Apps Lógicas via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

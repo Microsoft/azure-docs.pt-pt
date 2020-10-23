@@ -3,12 +3,12 @@ title: Arquitetura de aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312917"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428158"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
 
@@ -51,8 +51,8 @@ Durante a instalação do aparelho, registe o aparelho com o Azure Migrate e oco
 **Ação** | **Detalhes** | **Permissões**
 --- | --- | ---
 **Fornecedores de fontes de registo** | Estes fornecedores de recursos estão registados na subscrição que escolher durante a configuração do aparelho: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault.<br/><br/> O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. | Para registar os fornecedores de recursos, precisa de uma função de Contribuinte ou Proprietário na subscrição.
-**Criar comunicação de aplicativos AZure AD** | A Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho e os respetivos serviços em execução no Azure.<br/><br/> Esta aplicação não tem privilégios para fazer chamadas do Azure Resource Manager, ou acesso do RBAC em qualquer recurso. | Precisa [destas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que o Azure Migrate crie a app.
-**Criar ad apps AD Azure** | Esta aplicação é criada apenas para migração sem agentes de VMware VMs para Azure.<br/><br/> É usado exclusivamente para aceder ao cofre-chave criado na subscrição do utilizador para migração sem agentes.<br/><br/> Tem acesso RBAC no cofre da chave Azure (criado no inquilino do cliente), quando a descoberta é iniciada a partir do aparelho. | Precisa [destas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que o Azure Migrate crie a app.
+**Criar comunicação de aplicativos AZure AD** | A Azure Migrate cria uma aplicação Azure Ative Directory (Azure AD) para comunicação (autenticação e autorização) entre os agentes que estão a trabalhar no aparelho e os respetivos serviços em execução no Azure.<br/><br/> Esta aplicação não tem privilégios para fazer chamadas do Azure Resource Manager, ou acesso Azure RBAC em qualquer recurso. | Precisa [destas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que o Azure Migrate crie a app.
+**Criar ad apps AD Azure** | Esta aplicação é criada apenas para migração sem agentes de VMware VMs para Azure.<br/><br/> É usado exclusivamente para aceder ao cofre-chave criado na subscrição do utilizador para migração sem agentes.<br/><br/> Tem acesso Azure RBAC no cofre de chaves Azure (criado no inquilino do cliente), quando a descoberta é iniciada a partir do aparelho. | Precisa [destas permissões](./tutorial-discover-vmware.md#prepare-an-azure-user-account) para que o Azure Migrate crie a app.
 
 
 

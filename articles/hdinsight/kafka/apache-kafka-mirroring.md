@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087367"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428246"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (Utilizar o MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight)
 
 Aprenda a usar a função de espelhamento de Apache Kafka para replicar tópicos para um cluster secundário. O espelhamento pode ser funcionado como um processo contínuo, ou usado intermitentemente como um método de migração de dados de um cluster para outro.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *whitelist*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 Neste exemplo, o espelhamento é usado para replicar tópicos entre dois clusters HDInsight. Ambos os clusters estão em diferentes redes virtuais em diferentes datacenters.
 

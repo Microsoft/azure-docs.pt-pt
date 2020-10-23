@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315938"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424148"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -160,7 +160,7 @@ Pedidos de apoio:
 Com todos os cenários, esteja atento às seguintes limitações atuais:
 
 - Os pedidos tratados pelo Azure Resource Manager podem ser realizados através do Farol Azure. A operação URIs para estes pedidos começa com `https://management.azure.com` . No entanto, os pedidos que são tratados por um tipo de recurso (como o acesso de segredos do Cofre chave ou o acesso a dados de armazenamento) não são suportados com o Farol de Azure. A operação URIs para estes pedidos normalmente começa com um endereço exclusivo do seu caso, como `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/` . Estes últimos são também operações de dados em vez de operações de gestão.
-- As atribuições de funções devem utilizar funções de controlo de acesso [baseados em funções](../../role-based-access-control/built-in-roles.md)(RBAC). Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para o Proprietário ou quaisquer funções incorporadas com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na [atribuição de funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
+- As atribuições de funções devem utilizar [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md) Todas as funções incorporadas são atualmente suportadas com a gestão de recursos delegados da Azure, exceto para o Proprietário ou quaisquer funções incorporadas com [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permissão. A função de Administrador de Acesso ao Utilizador é suportada apenas para uso limitado na [atribuição de funções a identidades geridas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e [as funções clássicas de administrador de subscrição](../../role-based-access-control/classic-administrators.md) não são suportadas.
 - Enquanto você pode a bordo subscrições que usam Azure Databricks, os utilizadores no inquilino gerente não podem lançar espaços de trabalho Azure Databricks em uma subscrição delegada neste momento.
 - Embora possa embarcar subscrições e grupos de recursos que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas pelos utilizadores no inquilino gerente. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protejam os recursos geridos pelo sistema, como as criadas pela Azure ou pela Azure Blueprints (atribuições de negação atribuídas ao sistema), impedem os utilizadores do inquilino gerente de agir em função desses recursos; no entanto, neste momento, os utilizadores do inquilino do cliente não podem criar as suas próprias atribuições de negação (atribuições de negação atribuídas pelo utilizador).
 

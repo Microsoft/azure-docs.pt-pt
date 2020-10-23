@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965153"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424576"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registo combinado de informações de segurança para a visão geral do Azure Ative Directory
 
@@ -34,7 +34,7 @@ Este artigo descreve o que é o registo de segurança combinado. Para começar c
 
 Antes de ativar a nova experiência, reveja esta documentação focada no administrador e a documentação focada no utilizador para garantir que compreende a funcionalidade e o efeito desta funcionalidade. Baseie a sua formação na [documentação](../user-help/security-info-setup-signin.md) do utilizador para preparar os seus utilizadores para a nova experiência e ajudar a garantir um lançamento bem-sucedido.
 
-O registo combinado de informações de segurança Azure AD não está atualmente disponível para nuvens nacionais como o Governo dos EUA, a Azure Alemanha ou o Azure China 21Vianet.
+O registo combinado de informações de segurança Azure AD não está atualmente disponível para nuvens nacionais como a Azure Germany ou a Azure China 21Vianet. Está disponível para o Governo Azure US.
 
 > [!IMPORTANT]
 > Os utilizadores que estão habilitados tanto para a pré-visualização original como para a experiência de registo combinado melhorada vêem o novo comportamento. Os utilizadores que estão habilitados para ambas as experiências vêem apenas a nova experiência My Profile. O novo *My Profile* alinha-se com o aspeto e a sensação de registo combinado e proporciona uma experiência perfeita para os utilizadores. Os utilizadores podem ver o meu perfil indo para [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
@@ -51,7 +51,7 @@ Se quiser forçar uma língua específica, pode adicionar `?lng=<language>` ao f
 
 O registo combinado suporta os seguintes métodos e ações de autenticação:
 
-| Método | Registar | Alterar | Delete |
+| Método | Registar | Alterar | Eliminar |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
 | Outra aplicação autenticadora | Sim (máximo de 5) | Não | Sim |

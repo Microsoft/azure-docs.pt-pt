@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996345"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426646"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -60,7 +60,7 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
       ![Cadeia de conexão de espaço de nome do serviço de cópia do serviço de serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nomes de Service Bus ou a uma entidade de mensagens, como uma fila, procure a cadeia de ligação para o `EntityPath`   parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a cadeia correta para usar com a sua aplicação lógica.
+   > Para confirmar se a sua cadeia de ligação está associada ao seu espaço de nomes de Service Bus ou a uma entidade de mensagens, como uma fila, procure a cadeia de ligação para o `EntityPath` parâmetro. Se encontrar este parâmetro, a cadeia de ligação é para uma entidade específica, e não é a cadeia correta para usar com a sua aplicação lógica.
 
 ## <a name="add-service-bus-trigger"></a>Adicionar gatilho de ônibus de serviço
 
@@ -68,18 +68,22 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica em branco no Logic App Designer.
 
-1. Na caixa de pesquisa, introduza o "ônibus de serviço azul" como filtro. A partir da lista de gatilhos, selecione o gatilho que deseja.
+1. Na caixa de pesquisa do portal, insira `azure service bus` . A partir da lista de gatilhos que aparece, selecione o gatilho que deseja.
 
    Por exemplo, para ativar a sua aplicação lógica quando um novo item for enviado para uma fila de Autocarros de Serviço, selecione a Quando uma mensagem é recebida num gatilho **de fila (completa automaticamente).**
 
    ![Selecione o gatilho do ônibus de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Todos os gatilhos do Service Bus são gatilhos *de sondagens longas.* Esta descrição significa que quando o gatilho dispara, o gatilho processa todas as mensagens e, em seguida, aguarda 30 segundos para que mais mensagens apareçam na fila ou subscrição de tópicos. Se não aparecerem mensagens em 30 segundos, o gatilho é ignorado. Caso contrário, o gatilho continua a ler mensagens até que a fila ou a subscrição de tópicos esteja vazia. A próxima sondagem do gatilho baseia-se no intervalo de recorrência especificado nas propriedades do gatilho.
+   Aqui ficam algumas considerações para quando utilizar um gatilho de ônibus de serviço:
 
-   Alguns gatilhos, como o Quando uma ou mais mensagens chegam num gatilho **de fila (completa automaticamente),** podem devolver uma ou mais mensagens. Quando estes disparam fogo, eles retornam entre um e o número de mensagens especificadas pela propriedade de **contagem de mensagens máximas** do gatilho.
+   * Todos os gatilhos do Service Bus são gatilhos *de sondagens longas.* Esta descrição significa que quando o gatilho dispara, o gatilho processa todas as mensagens e, em seguida, aguarda 30 segundos para que mais mensagens apareçam na fila ou subscrição de tópicos. Se não aparecerem mensagens em 30 segundos, o gatilho é ignorado. Caso contrário, o gatilho continua a ler mensagens até que a fila ou a subscrição de tópicos esteja vazia. A próxima sondagem do gatilho baseia-se no intervalo de recorrência especificado nas propriedades do gatilho.
 
-    > [!NOTE]
-    > O gatilho auto-completo completa automaticamente uma mensagem, mas a conclusão só acontece na próxima chamada para o Service Bus. Este comportamento pode afetar o design da sua aplicação lógica. Por exemplo, evite alterar a concordância no gatilho auto-completo porque esta alteração pode resultar em mensagens duplicadas se a sua aplicação lógica entrar num estado acelerado. A alteração do controlo de concordância cria estas condições: os gatilhos acelerados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e o próximo gatilho ocorre após o intervalo de votação. Tem de definir a duração do bloqueio do autocarro de serviço para um valor mais longo do que o intervalo de votação. No entanto, apesar desta definição, a mensagem ainda pode não estar completa se a sua aplicação lógica se mantiver num estado acelerado no próximo intervalo de votação.
+   * Alguns gatilhos, como o Quando uma ou mais mensagens chegam num gatilho **de fila (completa automaticamente),** podem devolver uma ou mais mensagens. Quando estes disparam fogo, eles retornam entre um e o número de mensagens especificadas pela propriedade de **contagem de mensagens máximas** do gatilho.
+
+     > [!NOTE]
+     > O gatilho auto-completo completa automaticamente uma mensagem, mas a conclusão só acontece na próxima chamada para o Service Bus. Este comportamento pode afetar o design da sua aplicação lógica. Por exemplo, evite alterar a concordância no gatilho auto-completo porque esta alteração pode resultar em mensagens duplicadas se a sua aplicação lógica entrar num estado acelerado. A alteração do controlo de concordância cria estas condições: os gatilhos acelerados são ignorados com o `WorkflowRunInProgress` código, a operação de conclusão não acontecerá e o próximo gatilho ocorre após o intervalo de votação. Tem de definir a duração do bloqueio do autocarro de serviço para um valor mais longo do que o intervalo de votação. No entanto, apesar desta definição, a mensagem ainda pode não estar completa se a sua aplicação lógica se mantiver num estado acelerado no próximo intervalo de votação.
+
+   * Se [ligar a definição de concordância](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) para um gatilho de ônibus de serviço, o valor padrão para a `maximumWaitingRuns` propriedade é de 10. Com base na definição de duração do bloqueio da entidade Service Bus e na duração de funcionação da sua aplicação lógica, este valor padrão pode ser demasiado grande e pode causar uma exceção "lock lost". Para encontrar o valor ideal para o seu cenário, comece a testar com um valor de 1 ou 2 para a `maximumWaitingRuns` propriedade. Para alterar o valor máximo de execuções de espera, consulte [o limite de execução de execuções de espera change](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Se o seu gatilho estiver a ligar-se ao seu espaço de nomes service bus pela primeira vez, siga estes passos quando o Logic App Designer lhe solicitar informações de ligação.
 
@@ -113,13 +117,13 @@ Confirme que a sua aplicação lógica tem permissões para aceder ao seu espaç
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer.
+1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
 1. Sob o passo onde pretende adicionar uma ação, selecione **Novo passo**.
 
    Ou, para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre esses degraus. Selecione o sinal de mais **+** () que aparece e selecione **Adicione uma ação**.
 
-1. Em **Escolha uma ação,** na caixa de pesquisa, introduza o "ônibus de serviço azul" como filtro. Na lista de ações, selecione a ação que deseja. 
+1. Em **Escolha uma ação,** na caixa de pesquisa, insira `azure service bus` . Da lista de ações que aparece, selecione a ação que deseja. 
 
    Para este exemplo, selecione a ação **da mensagem Enviar.**
 

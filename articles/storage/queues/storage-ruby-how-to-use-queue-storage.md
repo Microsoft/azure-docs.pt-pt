@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459611"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425468"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ Os cenários abordados incluem **inserir,** **espreitar,** **receber**e **apagar
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Criar uma aplicação Ruby
-Crie uma aplicação Ruby. Para obter instruções, consulte [Criar uma Aplicação Ruby no Serviço de Aplicações em Linux](https://docs.microsoft.com/azure/app-service/quickstart-ruby).
+Crie uma aplicação Ruby. Para obter instruções, consulte [Criar uma Aplicação Ruby no Serviço de Aplicações em Linux](/azure/app-service/quickstart-ruby).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configure a sua aplicação para aceder ao armazenamento
 Para utilizar o armazenamento Azure, você precisa baixar e usar o pacote Ruby azure, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços DE ARMAZENAMENTO REST.
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para aprender sobre tarefas de armazenamento mais complexas.
 
-* Visite o [Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* Visite o [Azure Storage Team Blog](/archive/blogs/windowsazurestorage/)
 * Visite o [Azure SDK para](https://github.com/WindowsAzure/azure-sdk-for-ruby) repositório ruby no GitHub
 
 Para uma comparação entre o Azure Queue Service discutido neste artigo e as filas de autocarros da Azure Service discutidas no artigo como usar as [filas de autocarros](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) de serviço, consulte [as filas de autocarros do Azure e as filas de autocarros de serviço - Comparadas e Contrastadas](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

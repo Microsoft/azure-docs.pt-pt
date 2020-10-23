@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97f5bd1718c7612ce330ee27ee64f9ad885591b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715386"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425834"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de fila
 
@@ -45,7 +45,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Tenha um plano de revogação em vigor para qualquer SAS que emite aos clientes | Se um SAS estiver comprometido, irá querer revogar o SAS o mais rapidamente possível. Para revogar uma delegação de utilizadores SAS, revogue a chave da delegação do utilizador para invalidar rapidamente todas as assinaturas associadas a essa chave. Para revogar um serviço SAS que esteja associado a uma política de acesso armazenada, pode eliminar a política de acesso armazenada, mudar o nome da apólice ou alterar o seu prazo de validade para um tempo que está no passado. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md).  | - |
 | Se um serviço SAS não estiver associado a uma política de acesso armazenada, então decida o prazo de validade para uma hora ou menos | Um serviço SAS que não esteja associado a uma política de acesso armazenada não pode ser revogado. Por esta razão, recomenda-se a limitação do tempo de validade para que o SAS seja válido por uma hora ou menos. | - |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
@@ -65,5 +65,5 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Documentação de segurança do Azure](https://docs.microsoft.com//azure/security/)
-- [Documentação de desenvolvimento segura.](https://docs.microsoft.com/azure/security/develop/)
+- [Documentação de segurança do Azure](/azure/security/)
+- [Documentação de desenvolvimento segura.](/azure/security/develop/)

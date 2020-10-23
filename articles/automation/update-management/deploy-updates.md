@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369709"
+ms.locfileid: "92426401"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -111,7 +111,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
     > [!NOTE]
     > Quando terminar de configurar o calendário de implementação de um servidor ativado pelo Arco selecionado, selecione **Review + create**.
 
-15. Volta ao dashboard de estado. Selecione **horários de implementação** para mostrar o calendário de implementação que criou. Um máximo de 500 horários estão listados. Se tiver mais de 500 horários e pretender rever a lista completa, consulte as Configurações de [Atualização](/rest/api/automation/softwareupdateconfigurations/list) de Software - List REST API usando a versão 2019-06-01 ou superior.
+15. Volta ao dashboard de estado. Selecione **horários de implementação** para mostrar o calendário de implementação que criou. Um máximo de 500 horários estão listados. Se tiver mais de 500 horários e pretender rever a lista completa, consulte as Configurações de [Atualização](/rest/api/automation/softwareupdateconfigurations/list) de Software - Método API da Lista REST. Especifique a versão API 2019-06-01 ou superior.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Agendar uma atualização programática
 

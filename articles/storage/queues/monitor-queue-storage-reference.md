@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 52ee08e0cce23aebbac1564a5c3ed894d0e487d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 396d2785d80ff29212dddcfb97adbff8ba9ce4c8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711415"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425172"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento de fila Azure
 
@@ -36,7 +36,7 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="queue-storage"></a>Armazenamento de filas
 
-Esta tabela mostra [métricas de armazenamento de fila.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)
+Esta tabela mostra [métricas de armazenamento de fila.](/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices)
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -77,7 +77,7 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - Consulte [o armazenamento da fila Azure](monitor-queue-storage.md) monitor para uma descrição da monitorização do armazenamento do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

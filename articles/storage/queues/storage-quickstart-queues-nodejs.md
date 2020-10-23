@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ad26cba30986ee9a5f642755840ad5ec281219aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f174ba30251757182866f9f446eefb10588618e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320290"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428091"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Quickstart: Azure Queue storage client library v12 for JavaScript
 
@@ -31,15 +31,15 @@ Utilize a biblioteca de clientes de armazenamento Azure Queue v12 para JavaScrip
 
 Recursos adicionais:
 
-* [Documentação de referência da API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [Documentação de referência da API](/javascript/api/@azure/storage-queue/)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Amostras](/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento Azure - [crie uma conta de armazenamento](/azure/storage/common/storage-quickstart-create-account)
 * A [Node.js](https://nodejs.org/en/download/) atual para o seu sistema operativo.
 
 ## <a name="setting-up"></a>Configuração
@@ -136,9 +136,9 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Utilize as seguintes classes JavaScript para interagir com estes recursos:
 
-* [QueueServiceClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient` Permite-lhe gerir todas as filas na sua conta de armazenamento.
-* [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient): A `QueueClient` classe permite-lhe gerir e manipular uma fila individual e as suas mensagens.
-* [FilaMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage): A `QueueMessage` classe representa os objetos individuais devolvidos ao chamar [as caixas de correio numa](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient?view=azure-node-latest#receivemessages-queuereceivemessageoptions-) fila.
+* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient` Permite-lhe gerir todas as filas na sua conta de armazenamento.
+* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): A `QueueClient` classe permite-lhe gerir e manipular uma fila individual e as suas mensagens.
+* [FilaMessage](/javascript/api/@azure/storage-queue/queuemessage): A `QueueMessage` classe representa os objetos individuais devolvidos ao chamar [as caixas de correio numa](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) fila.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -174,9 +174,9 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 Decida um nome para a nova fila. O código abaixo anexa um valor UUID ao nome da fila para garantir que é único.
 
 > [!IMPORTANT]
-> Os nomes da fila só podem conter letras minúsculas, números e hífens, e devem começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen. O nome também deve ter entre 3 e 63 caracteres de comprimento. Para obter mais informações sobre o nome de filas, consulte [As Filas de Nomeação e Os Metadados](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
+> Os nomes da fila só podem conter letras minúsculas, números e hífens, e devem começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen. O nome também deve ter entre 3 e 63 caracteres de comprimento. Para obter mais informações sobre o nome de filas, consulte [As Filas de Nomeação e Os Metadados](/rest/api/storageservices/naming-queues-and-metadata).
 
-Crie um exemplo da classe [QueueClient.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient) Em seguida, ligue para o método [de criação](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) para criar a fila na sua conta de armazenamento.
+Crie um exemplo da classe [QueueClient.](/javascript/api/@azure/storage-queue/queueclient) Em seguida, ligue para o método [de criação](/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) para criar a fila na sua conta de armazenamento.
 
 Adicione este código ao fim da `main` função:
 
@@ -197,7 +197,7 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### <a name="add-messages-to-a-queue"></a>Adicione mensagens a uma fila
 
-O seguinte corte de código adiciona mensagens à fila, chamando o método [de envio de mensagens.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) Também salva a [FilaMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage) devolvida da terceira `sendMessage` chamada. O devolvido `sendMessageResponse` é utilizado para atualizar o conteúdo da mensagem mais tarde no programa.
+O seguinte corte de código adiciona mensagens à fila, chamando o método [de envio de mensagens.](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) Também salva a [FilaMessage](/javascript/api/@azure/storage-queue/queuemessage) devolvida da terceira `sendMessage` chamada. O devolvido `sendMessageResponse` é utilizado para atualizar o conteúdo da mensagem mais tarde no programa.
 
 Adicione este código ao fim da `main` função:
 
@@ -214,7 +214,7 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### <a name="peek-at-messages-in-a-queue"></a>Espreite as mensagens em uma fila
 
-Espreite as mensagens na fila chamando o método [peekMessages.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) O `peekMessages` método recupera uma ou mais mensagens da parte da frente da fila, mas não altera a visibilidade da mensagem.
+Espreite as mensagens na fila chamando o método [peekMessages.](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) O `peekMessages` método recupera uma ou mais mensagens da parte da frente da fila, mas não altera a visibilidade da mensagem.
 
 Adicione este código ao fim da `main` função:
 
@@ -232,7 +232,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### <a name="update-a-message-in-a-queue"></a>Atualize uma mensagem em uma fila
 
-Atualize o conteúdo de uma mensagem chamando o método [de mensagens de atualização.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) O `updateMessage` método pode alterar o tempo limite de visibilidade e o conteúdo de uma mensagem. O conteúdo da mensagem deve ser uma cadeia codificada UTF-8 que tem até 64 KB de tamanho. Juntamente com o novo conteúdo, passe dentro `messageId` e a partir da resposta que foi `popReceipt` guardada mais cedo no código. As `sendMessageResponse` propriedades identificam a mensagem a atualizar.
+Atualize o conteúdo de uma mensagem chamando o método [de mensagens de atualização.](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) O `updateMessage` método pode alterar o tempo limite de visibilidade e o conteúdo de uma mensagem. O conteúdo da mensagem deve ser uma cadeia codificada UTF-8 que tem até 64 KB de tamanho. Juntamente com o novo conteúdo, passe dentro `messageId` e a partir da resposta que foi `popReceipt` guardada mais cedo no código. As `sendMessageResponse` propriedades identificam a mensagem a atualizar.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 
-Descarregue mensagens previamente adicionadas chamando o método [de receber mensagens.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-)  No `numberOfMessages` campo, passe o número máximo de mensagens a receber para esta chamada.
+Descarregue mensagens previamente adicionadas chamando o método [de receber mensagens.](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-)  No `numberOfMessages` campo, passe o número máximo de mensagens a receber para esta chamada.
 
 Adicione este código ao fim da `main` função:
 
@@ -266,7 +266,7 @@ console.log("Messages received, requestId:", receivedMessagesResponse.requestId)
 
 Apague as mensagens da fila depois de recebidas e processadas. Neste caso, o processamento é apenas exibindo a mensagem na consola.
 
-Eliminar mensagens chamando o método [deleteMessage.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) Quaisquer mensagens não explicitamente apagadas acabarão por se tornar visíveis na fila novamente para outra oportunidade de as processar.
+Eliminar mensagens chamando o método [deleteMessage.](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) Quaisquer mensagens não explicitamente apagadas acabarão por se tornar visíveis na fila novamente para outra oportunidade de as processar.
 
 Adicione este código ao fim da `main` função:
 
@@ -289,7 +289,7 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
 
 ### <a name="delete-a-queue"></a>Eliminar uma fila
 
-O código seguinte limpa os recursos que a app criou eliminando a fila utilizando o método [de eliminação.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-)
+O código seguinte limpa os recursos que a app criou eliminando a fila utilizando o método [de eliminação.](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-)
 
 Adicione este código ao fim da `main` função e guarde o ficheiro:
 
@@ -354,7 +354,7 @@ Neste arranque rápido, aprendeu a criar uma fila e a adicionar-lhe mensagens ut
 Para tutoriais, amostras, arranques rápidos e outra documentação, visite:
 
 > [!div class="nextstepaction"]
-> [Azure para documentação JavaScript](https://docs.microsoft.com/azure/developer/javascript/)
+> [Azure para documentação JavaScript](/azure/developer/javascript/)
 
 * Para saber mais, consulte a biblioteca de clientes da [Fila de Armazenamento Azure para o JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
 * Para ver mais aplicativos de amostra de armazenamento da Azure Queue, continue até a [biblioteca de clientes de armazenamento Azure Queue v12 Amostras JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

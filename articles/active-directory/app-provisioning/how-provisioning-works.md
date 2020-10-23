@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366688"
+ms.locfileid: "92424634"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -179,6 +180,8 @@ Certifique-se de que selecionou a caixa de verificação para obter atualizaçõ
 
 Certifique-se de que tem o mapeamento *ativo* para a sua aplicação. Se utilizar uma aplicação na galeria de aplicações, o mapeamento pode ser ligeiramente diferente. Certifique-se de que utiliza o predefinido /fora do mapeamento da caixa para aplicações de galeria.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Desativar um utilizador" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Configure a sua aplicação para eliminar um utilizador**
 
@@ -188,7 +191,9 @@ Os seguintes cenários desencadearão um desativação ou uma eliminação:
 * Um utilizador é permanentemente eliminado / removido do caixote do lixo em Azure AD.
 * Um utilizador não é atribuído a partir de uma aplicação.
 * Um utilizador vai de âmbito para fora do alcance (já não passa um filtro de escotagem).
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Desativar um utilizador" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 Por predefinição, o serviço de fornecimento AZure AD elimina ou desativa os utilizadores que ficam fora de alcance. Se quiser anular este comportamento predefinido, pode definir uma bandeira para [saltar as exclusões fora de alcance.](skip-out-of-scope-deletions.md)
 
 Se ocorrer um dos quatro eventos acima e a aplicação-alvo não suportar eliminações suaves, o serviço de fornecimento enviará um pedido de DELETE para eliminar permanentemente o utilizador da aplicação.

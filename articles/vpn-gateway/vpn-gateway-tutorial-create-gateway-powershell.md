@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 119e27d381ff40a21ca03b5f3ccd8d1fcb68b5f7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048275"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425058"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o PowerShell
 
@@ -26,7 +26,7 @@ Os gateways de VPN do Azure fornecem conectividade em vários locais entre as in
 
 O diagrama seguinte mostra a rede virtual e o gateway de VPN criados como parte deste tutorial.
 
-![VNet e gateway de VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
+:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="Diagrama de gateway VNet e VPN":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -164,7 +164,7 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 Para obter mais informações, veja [Repor um gateway de VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se está a avançar para o [próximo tutorial,](vpn-gateway-tutorial-vpnconnection-powershell.md)vai querer manter estes recursos porque são os pré-requisitos.
 

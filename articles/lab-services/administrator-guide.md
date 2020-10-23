@@ -3,12 +3,12 @@ title: Azure Lab Services - Guia de Administradores / Microsoft Docs
 description: Este guia ajuda administradores que criam e gerem contas de laboratório usando os Serviços Azure Lab.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371414"
+ms.locfileid: "92425304"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de Administradores
 Os administradores de Tecnologias de Informação (TI) que gerem os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para a sua escola. Uma vez criada uma conta de laboratório, administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos Azure envolvidos e as orientações para a sua criação.
@@ -178,7 +178,7 @@ Quando administradores ou criadores de laboratório criam um laboratório de sal
 
 ## <a name="manage-identity"></a>Gerir identidade
 
-Utilizando o [controlo de acesso baseado no papel da Azure,](https://docs.microsoft.com/azure/role-based-access-control/overview)as seguintes funções podem ser atribuídas para dar acesso a contas de laboratório e laboratórios de sala de aula:
+Utilizando [o controlo de acesso baseado em funções Azure (Azure RBAC),](https://docs.microsoft.com/azure/role-based-access-control/overview)as seguintes funções podem ser atribuídas para dar acesso a contas de laboratório e laboratórios de sala de aula:
 
 - **Proprietário da conta de laboratório**
 

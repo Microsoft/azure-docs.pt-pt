@@ -10,23 +10,23 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 14e4cd141094763d37a1309572bb4da4efb3f7ce
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378109"
+ms.locfileid: "92428025"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
-Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>Setembro de 2020
 
 ### <a name="new-articles"></a>Artigos novos
 - [Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo?](whats-new-docs.md)
+- [O que há de novo nos médicos?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados

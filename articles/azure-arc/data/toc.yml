@@ -66,8 +66,16 @@
       items:
         - name: Monitorizar com Grafana e Kibana
           href: monitor-grafana-kibana.md
-        - name: Carregar métricas e registos
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Carregar para o Azure Monitor
+          items:
+            - name: Carregar pré-requisitos
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: Carregar registos
+              href: upload-logs.md
+            - name: Carregar métricas
+              href: upload-metrics.md
+            - name: Carregar dados de utilização
+              href: upload-usage-data.md
         - name: Inventário de instâncias de bases de dados
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Obter nome de utilizador e palavra-passe do controlador de dados

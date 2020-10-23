@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102936"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424518"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
 
 De forma a proporcionar-lhe os níveis ideais de disponibilidade para os seus componentes de análise, o HDInsight foi desenvolvido com uma arquitetura única para garantir alta disponibilidade (HA) de serviços críticos. Alguns componentes desta arquitetura foram desenvolvidos pela Microsoft para fornecer failover automático. Outros componentes são componentes Apache standard que são implantados para suportar serviços específicos. Este artigo explica a arquitetura do modelo de serviço HA em HDInsight, como a HDInsight suporta o failover para os serviços HA, e as melhores práticas para recuperar de outras interrupções de serviço.
- 
+
 > [!NOTE]
-> Comunicação sem preconceitos
->
-> A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
->
+> Este artigo contém referências ao termo *escravo*, um termo que a Microsoft já não utiliza. Quando o termo for removido do software, vamos removê-lo deste artigo.
 
 ## <a name="high-availability-infrastructure"></a>Infraestrutura de alta disponibilidade
 

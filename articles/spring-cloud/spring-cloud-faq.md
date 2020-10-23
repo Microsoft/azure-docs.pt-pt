@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 48a2f7f6587d22c34e240fb3e784eb980c81b6b3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094012"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419855"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -106,7 +106,7 @@ Pode eliminar as definições de diagnóstico da Cloud da primavera utilizando o
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Que versões de java são suportadas em Azure Spring Cloud?
 
-A azure Spring Cloud suporta versões Java LTS com as construções mais recentes, atualmente junho de 2020, java 8 build 252 e Java 11 build 7 são suportados. Ver [Instalar o JDK para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+A azure Spring Cloud suporta versões Java LTS com as construções mais recentes, atualmente junho de 2020, Java 8 e Java 11 são suportados. Ver [Instalar o JDK para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Quem construiu estes tempos de java?
 

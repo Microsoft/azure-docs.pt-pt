@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82732908"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427803"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pré-pagamento da Base de Dados Azure para os recursos de computação MariaDB com capacidade reservada
 
@@ -19,13 +19,13 @@ A Azure Database for MariaDB ajuda-o agora a economizar dinheiro, pré-pagando r
 
 Não precisa de atribuir a reserva a bases de dados Azure específicas para servidores MariaDB. Uma Base de Dados Azure já em execução para a MariaDB ou as que são recentemente implantadas, terá automaticamente o benefício de preços reservados. Ao comprar uma reserva, está a pré-pagar os custos do cálculo por um período de um ou três anos. Assim que comprar uma reserva, a base de dados Azure para os encargos de computação MariaDB que correspondam aos atributos da reserva já não são cobradas nas tarifas pagas. Uma reserva não cobre software, networking ou custos de armazenamento associados ao servidor MariaDB Database. No final do período de reserva, o benefício de faturação expira, e a Base de Dados Azure para MariaDB é cobrada pelo preço de pagamento. As reservas não renovam automaticamente. Para obter informações sobre preços, consulte a [Base de Dados Azure para a oferta de capacidade reservada mariaDB.](https://azure.microsoft.com/pricing/details/mariadb/) </br>
 
-Pode comprar Azure Database para a capacidade reservada da MariaDB no [portal Azure.](https://portal.azure.com/) Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
+Pode comprar Azure Database para a capacidade reservada da MariaDB no [portal Azure.](https://portal.azure.com/) Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar a capacidade reservada:
 
 * Você deve estar na função de proprietário para pelo menos uma Enterprise ou subscrição individual com taxas pay-as-you-go.
 * Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com/). Ou, se essa definição estiver desativada, deve ser um Administrador EA na subscrição.
 * Para o programa Cloud Solution Provider (CSP), apenas os agentes administrativos ou agentes de vendas podem adquirir a Base de Dados Azure para a capacidade reservada mariaDB. </br>
 
-Os detalhes sobre como os clientes da empresa e os clientes Pay-As-You-Go são cobrados para compras de reservas, ver [compreender o uso da reserva Azure para a sua inscrição na Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) e compreender o uso da reserva [Azure para a sua subscrição Pay-As-You-Go.](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+Os detalhes sobre como os clientes da empresa e os clientes Pay-As-You-Go são cobrados para compras de reservas, ver [compreender o uso da reserva Azure para a sua inscrição na Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e compreender o uso da reserva [Azure para a sua subscrição Pay-As-You-Go.](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Determine o tamanho certo do servidor antes da compra
@@ -52,7 +52,7 @@ A tabela a seguir descreve os campos necessários.
 | :------------ | :------- |
 | Subscrição   | A subscrição utilizada para pagar a Base de Dados Azure para reserva de capacidade reservada MariaDB. O método de pagamento da subscrição é cobrado os custos iniciais da Base de Dados Azure para reserva de capacidade reservada MariaDB. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
 | Âmbito | O âmbito da reserva vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Compartilhado**, o desconto de reserva vCore é aplicado na Base de Dados Azure para servidores MariaDB que executam em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única**, o desconto de reserva vCore é aplicado à Base de Dados Azure para servidores MariaDB nesta subscrição. </br></br> **Grupo único de recursos**, o desconto de reserva é aplicado à Base de Dados Azure para servidores MariaDB na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.
-| Region | A região de Azure que está coberta pela Base de Dados Azure para reserva de capacidade reservada mariaDB.
+| Região | A região de Azure que está coberta pela Base de Dados Azure para reserva de capacidade reservada mariaDB.
 | Tipo de implantação | A Base de Dados Azure para o tipo de recurso MariaDB para o quais pretende comprar a reserva.
 | Nível de desempenho | O nível de serviço para a Base de Dados Azure para servidores MariaDB.
 | Termo | Um ano
@@ -60,7 +60,7 @@ A tabela a seguir descreve os campos necessários.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade do tamanho vCore
 
@@ -77,9 +77,9 @@ Para aprender a gerir a Base de Dados Azure para a capacidade reservada da Maria
 
 Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
-* [O que são Reservas Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Gerir o Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Compreender o desconto das Reservas do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Compreender a utilização de reservas na sua subscrição Pay As You Go](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
-* [Compreender a utilização de reservas na inscrição Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)
+* [O que são Reservas Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Gerir o Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Compreender o desconto das Reservas do Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Compreender a utilização de reservas na sua subscrição Pay As You Go](../cost-management-billing/reservations/understand-reservation-charges-mariadb.md)
+* [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations) (Reservas do Azure no programa Fornecedor de Soluções Cloud (CSP) do Centro de Parceiros)

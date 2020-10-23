@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: c210096c1765015378f12f8c5e01fc9f8f97e10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 02bcbf0b4f6f6021c157a8ba3c5d2783fc94f1aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327685"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425319"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Quickstart: Use o JavaScript para criar uma sala de chat com funções Azure e serviço SignalR
 
@@ -58,7 +58,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Selecione e copie a cadeia de ligação principal.
 
-    ![Criar o Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Screenshot que realça a cadeia de ligação primária.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. No seu editor de código, abra a pasta *src/chat/javascript* no repositório clonado.
 
