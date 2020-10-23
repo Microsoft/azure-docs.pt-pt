@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629731"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425095"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -42,12 +42,12 @@ Neste artigo aprende-se a garantir os seguintes recursos de computação de form
 
 + Uma rede virtual existente e uma sub-rede para usar com os seus recursos de computação.
 
-+ Para implantar recursos numa rede virtual ou numa sub-rede, a sua conta de utilizador deve ter permissões para as seguintes ações nos controlos de acesso baseados em funções Azure (RBAC):
++ Para implantar recursos numa rede virtual ou numa sub-rede, a sua conta de utilizador deve ter permissões para as seguintes ações no controlo de acesso baseado em funções Azure (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" no recurso de rede virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" no recurso sub-rede.
 
-    Para obter mais informações sobre o RBAC com as funções em rede, consulte as [funções embutimento em rede](/azure/role-based-access-control/built-in-roles#networking)
+    Para obter mais informações sobre o Azure RBAC com networking, consulte as [funções embutidas em rede](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clusters de computação & instâncias 
@@ -276,7 +276,7 @@ Nesta secção aprende-se a utilizar uma máquina virtual ou um cluster Azure HD
 
 ### <a name="create-the-vm-or-hdinsight-cluster"></a>Criar o cluster VM ou HDInsight
 
-Crie um cluster VM ou HDInsight utilizando o portal Azure ou o CLI Azure, e coloque o cluster numa rede virtual Azure. Para obter mais informações, veja os artigos seguintes:
+Crie um cluster VM ou HDInsight utilizando o portal Azure ou o CLI Azure, e coloque o cluster numa rede virtual Azure. Para obter mais informações, veja os seguintes artigos:
 * [Criar e gerir redes virtuais Azure para Os VMs Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
 * [Estender o HDInsight usando uma rede virtual Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)

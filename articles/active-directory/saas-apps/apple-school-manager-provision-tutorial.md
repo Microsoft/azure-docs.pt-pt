@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fed376eae1c3dadb17f5ecf8e7f1c3422e07b9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757457"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426419"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Tutorial: Configure Apple School Manager para o fornecimento automático de utilizadores
 
@@ -119,10 +119,10 @@ O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser a
    |externalId|String|
    |região|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,7 +160,6 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 * [Ver atividade scim no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
 * [Gerir o token SCIM existente e as conexões no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apdc9a823611)
 * [Desligue a ligação SCIM no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd609be3a61)
-* [Gerir o token SCIM existente e as conexões no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
 * [Resolução de problemas da ligação SCIM no Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Passos seguintes

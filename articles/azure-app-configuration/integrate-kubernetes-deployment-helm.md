@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074843"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426712"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integre-se com a implantação de Kubernetes usando o Helm
 
@@ -23,7 +23,7 @@ Durante o processo de libertação, helm funde o gráfico com a configuração a
 
 Pode sobrepor-se aos valores armazenados em *values.yaml,* fornecendo ficheiros de configuração adicionais baseados em YAML na linha de comando ao executar o Helm. A Azure App Configuration suporta valores de configuração de exportação para ficheiros YAML. A integração desta capacidade de exportação na sua implementação permite que as suas aplicações Kubernetes aproveitem os valores de configuração armazenados na Configuração da Aplicação.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Utilize valores da Configuração da Aplicação ao implementar uma aplicação para Kubernetes utilizando o Helm.
 > * Crie um Segredo de Kubernetes baseado numa referência do Cofre de Chaves na Configuração de Aplicações.
@@ -231,9 +231,9 @@ Verifique se as configurações e segredos foram definidos com sucesso acedendo 
 
 Um segredo, **palavra-passe,** lojas como referência Key Vault na Configuração de Aplicações também foi adicionado em Kubernetes Secrets. 
 
-![Quickstart app lançar local](./media/kubernetes-dashboard-secrets.png)
+![Screenshot que realça a palavra-passe na secção Dados.](./media/kubernetes-dashboard-secrets.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

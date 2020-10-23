@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542432"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425893"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MariaDB para outra região utilizando o portal Azure
 
@@ -21,7 +21,7 @@ Existem vários cenários para mover uma Base de Dados Azure existente para o se
 Você pode usar uma base de dados Azure para [réplica de leitura de região mariadb](concepts-read-replicas.md#cross-region-replication) para completar a mudança para outra região. Para tal, primeiro crie uma réplica de leitura na região alvo. Em seguida, pare a replicação no servidor de réplicas de leitura para torná-lo um servidor autónomo que aceita tanto ler como escrever tráfego. 
 
 > [!NOTE]
-> Este artigo centra-se em mover o seu servidor para uma região diferente. Se pretender mover o seu servidor para um grupo de recursos ou subscrição diferente, consulte o artigo [de movimento.](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) 
+> Este artigo centra-se em mover o seu servidor para uma região diferente. Se pretender mover o seu servidor para um grupo de recursos ou subscrição diferente, consulte o artigo [de movimento.](../azure-resource-manager/management/move-resource-group-and-subscription.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

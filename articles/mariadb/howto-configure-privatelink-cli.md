@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6763450b98b803b0b2e4d35108e10992ce1e7596
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 565e6fb2def64dd594e1b0018f3378ea09bc63cb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123101"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426198"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerir o Link Privado para Azure Database para MariaDB utilizando o CLI
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Desativar as políticas de ponto final privado da sub-rede 
-O Azure implementa recursos para uma sub-rede dentro de uma rede virtual, pelo que é necessário criar ou atualizar a sub-rede para desativar as políticas privadas de rede de pontos [finais](../private-link/disable-private-endpoint-network-policy.md). Atualize uma configuração de sub-rede chamada *mySubnet* com [atualização da sub-rede de rede az:](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
+O Azure implementa recursos para uma sub-rede dentro de uma rede virtual, pelo que é necessário criar ou atualizar a sub-rede para desativar as políticas privadas de rede de pontos [finais](../private-link/disable-private-endpoint-network-policy.md). Atualize uma configuração de sub-rede chamada *mySubnet* com [atualização da sub-rede de rede az:](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -187,7 +187,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando já não for necessário, pode utilizar o grupo AZ para remover o grupo de recursos e todos os recursos que tem: 
 
 ```azurecli-interactive
@@ -195,7 +195,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Saiba mais sobre [o que é o ponto final privado do Azure](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

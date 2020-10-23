@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7072adfcfd276d6420d8ffd7331c59ead7edd288
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: fa994525285ffe363f734e9b706252105b05ff26
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952051"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428444"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -112,12 +112,12 @@ Para diferentes tipos de autenticação, consulte as seguintes secções sobre p
         "typeProperties": {
             "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": {
-                "type": "AzureKeyVaultSecret",
+                "type": "AzureKeyVaultSecret",
                 "store": {
-                    "referenceName": "<Azure Key Vault linked service name>",
-                    "type": "LinkedServiceReference"
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
                 },
-                "secretName": "<secretName>"
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -228,7 +228,7 @@ As seguintes propriedades são suportadas para o conjunto de dados da Base de Da
 |:--- |:--- |:--- |
 | tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlTable**. | Sim |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
-| table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
+| mesa | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
 
 ### <a name="dataset-properties-example"></a>Exemplo de propriedades de dataset
@@ -272,8 +272,8 @@ Para copiar dados da Base de Dados Azure SQL, as seguintes propriedades são sup
 | isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable**, **Snapshot**. Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
 | partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados a partir da Base de Dados Azure SQL. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de uma Base de Dados Azure SQL é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Não |
 | divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | Não |
-| ***Em `partitionSettings` :*** | | |
-| partitionColumnName | Especificar o nome da coluna de origem **no tipo inteiro ou data/data** que será utilizado por divisórias de intervalo para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
+| **_Em: `partitionSettings` __* | | |
+| partitionColumnName | Especificar o nome da coluna de origem _*no tipo inteiro ou data/data** que será utilizado por divisórias de alcance para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
 | partitionUpperBound | O valor máximo da coluna de partição para a divisão do intervalo de partição. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.  <br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
 | partitionLowerBound | O valor mínimo da coluna de partição para a divisão do intervalo de divisão. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
 
@@ -671,6 +671,8 @@ As definições específicas da Base de Dados Azure SQL estão disponíveis no *
 
 O nome da coluna que escolher como chave aqui será usado pela ADF como parte da atualização subsequente, upsert, apagar. Portanto, deve escolher uma coluna que exista no mapeamento da Pia. Se não pretender não escrever o valor para esta coluna-chave, clique em "Saltar colunas-chave de escrita".
 
+Pode parametrizar a coluna-chave utilizada aqui para atualizar a tabela de base de dados Azure SQL. Se tiver várias colunas para uma chave composta, clique em "Expressão Personalizada" e poderá adicionar conteúdo dinâmico utilizando a linguagem de expressão de fluxo de dados ADF, que pode incluir uma série de cordas com nomes de colunas para uma chave composta.
+
 **Ação da tabela:** Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.
 
 - Nenhuma: nenhuma ação será feita à mesa.
@@ -693,7 +695,7 @@ Quando os dados são copiados de ou para Azure SQL Database, os seguintes mapeam
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -720,7 +722,7 @@ Quando os dados são copiados de ou para Azure SQL Database, os seguintes mapeam
 | uniqueidentifier |GUID |
 | varbinário |Byte[] |
 | varchar |String, Char[] |
-| xml |Cadeia |
+| xml |String |
 
 >[!NOTE]
 > Para tipos de dados que mapeiam para o tipo decimal provisório, atualmente a atividade Copy suporta precisão até 28. Se tiver dados com precisão superior a 28, considere converter-se a uma cadeia em consulta SQL.

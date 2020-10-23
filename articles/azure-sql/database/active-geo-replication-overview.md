@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124763"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426322"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ Para alcançar a continuidade real do negócio, adicionar redundância de base d
 > A repetição do registo é adiada na base de dados secundária se houver atualizações de esquemas na Primária. Este último requer um bloqueio de esquema na base de dados secundária.
 
 > [!IMPORTANT]
-> Pode utilizar a geo-replicação para criar uma base de dados secundária na mesma região que a principal. Você pode usar este secundário para equilibrar uma carga de carga apenas de carga na mesma região. No entanto, uma base de dados secundária na mesma região não proporciona uma resiliência adicional de falhas, pelo que não constitui um objetivo adequado para a recuperação de catástrofes. Também não garante o isolamento da zona de disponibilidade. Use o nível de serviço critical ou Premium do Negócio com [configuração redundante de zona](high-availability-sla.md#zone-redundant-configuration) para alcançar o isolamento da zona de disponibilidade.
+> Pode utilizar a geo-replicação para criar uma base de dados secundária na mesma região que a principal. Você pode usar este secundário para equilibrar uma carga de carga apenas de carga na mesma região. No entanto, uma base de dados secundária na mesma região não proporciona uma resiliência adicional de falhas, pelo que não constitui um objetivo adequado para a recuperação de catástrofes. Também não garante o isolamento da zona de disponibilidade. Use o nível de serviço critical ou Premium do Negócio com [configuração redundante de zona de zona](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) ou [configuração redundante](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) de nível de serviço para obter isolamento de zona de disponibilidade.
 >
 
 - **Falha planeada**

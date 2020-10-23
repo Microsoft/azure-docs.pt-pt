@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131824"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426098"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -89,7 +89,7 @@ A Azure Machine Learning utiliza [datastores](concept-data.md#datastores) para s
 1. Nas definições da datastore, selecione __Sim__ para  __permitir o serviço de aprendizagem automática Azure para aceder ao armazenamento utilizando identidade gerida pelo espaço de trabalho__.
 
 
-Estes passos adicionam a identidade gerida pelo espaço de trabalho como __leitor__ ao serviço de armazenamento utilizando o controlo de acesso baseado em recursos Azure (RBAC). __O__ acesso ao leitor permite que o espaço de trabalho recupere as definições de firewall e certifique-se de que os dados não saem da rede virtual.
+Estes passos adicionam a identidade gerida pelo espaço de trabalho como __leitor__ ao serviço de armazenamento utilizando o controlo de acesso baseado em recursos Azure (Azure RBAC). __O__ acesso ao leitor permite que o espaço de trabalho recupere as definições de firewall e certifique-se de que os dados não saem da rede virtual.
 
 > [!NOTE]
 > Estas alterações podem demorar até 10 minutos a produzir efeitos.
@@ -104,9 +104,9 @@ Para __o armazenamento de Azure Blob,__ a identidade gerida pelo espaço de trab
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controlo de acesso a Azure Data Lake Storage Gen2
 
-Pode utilizar as listas de controlo de acesso ao estilo RBAC e POSIX (ACLs) para controlar o acesso de dados dentro de uma rede virtual.
+Pode utilizar as listas de controlo de acesso ao estilo Azure RBAC e POSIX (ACLs) para controlar o acesso de dados dentro de uma rede virtual.
 
-Para utilizar o RBAC, adicione a identidade gerida pelo espaço de trabalho à função [Blob Data Reader.](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Para obter mais informações, consulte [o controlo de acesso baseado em funções da Azure.](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)
+Para utilizar o Azure RBAC, adicione a identidade gerida pelo espaço de trabalho ao papel de Leitor de [Dados Blob.](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Para obter mais informações, consulte [o controlo de acesso baseado em funções da Azure.](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)
 
 Para utilizar ACLs, a identidade gerida pelo espaço de trabalho pode ser atribuída ao acesso como qualquer outro princípio de segurança. Para obter mais informações, consulte [as listas de controlo do Access em ficheiros e diretórios.](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 

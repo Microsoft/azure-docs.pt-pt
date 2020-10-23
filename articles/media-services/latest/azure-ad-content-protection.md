@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839542"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427203"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -26,7 +26,7 @@ ms.locfileid: "91839542"
 
 Com este tutorial e a amostra de jogador fornecida, pode configurar um subsistema de proteção de conteúdos de mídia de ponta a ponta nos serviços Azure Media Services (AMS) e Azure Ative Directy (AAD) para transmitir conteúdo sonoro com todos os formatos DE DRM/AES-128 suportados pela AMS, protocolos de streaming, formatos codec e container. A amostra é genérica o suficiente para acesso seguro a qualquer API REST protegida pela OAuth 2 através do Fluxo de Código de Autorização com Chave de Prova para Troca de Código (PKCE). (O serviço de entrega de licenças Azure Media Services é apenas um deles.) Também funciona para a Microsoft Graph API ou qualquer API de REST desenvolvido sob medida, protegido com OAuth 2 Authorization Code Flow. Este é o documento de companhia do código de [amostra.](https://github.com/Azure-Samples/media-services-content-protection-azure-ad)
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 >
@@ -313,7 +313,7 @@ Se planeia utilizar outro IDE/web platform e/ou um webserver como o IIS em execu
 
 Agora que completou o tutorial e tem um subsistema de funcionamento, pode tentar modificá-lo para os seguintes cenários do cliente:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Role-Based Access Control (RBAC) para entrega de licenças através da adesão ao grupo Azure AD
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Controlo de acesso baseado em funções Azure (Azure RBAC) para entrega de licenças através da adesão ao grupo Azure AD
 
 Até ao momento, o sistema permite que qualquer utilizador que possa iniciar sôms para obter uma licença válida e reproduzir o conteúdo protegido.
 

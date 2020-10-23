@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: caaf8e25cdf43602fda8fc72caf7d16b7b56c06a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361896"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427560"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerir um serviço web utilizando o portal Azure Machine Learning Studio (clássico) Web Services
 
@@ -44,7 +44,7 @@ Se o utilizador não tiver as permissões corretas para aceder aos recursos no p
 
 Para obter mais informações sobre a criação de um espaço de trabalho, consulte Criar e partilhar um espaço de [trabalho (clássico) do Azure Machine Learning Studio](create-workspace.md)( clássico).
 
-Para obter mais informações sobre a definição de permissões de acesso, consulte [Gerir o acesso através do RBAC e do portal Azure.](../../role-based-access-control/role-assignments-portal.md)
+Para obter mais informações sobre a definição de permissões de acesso, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## <a name="manage-new-web-services"></a>Gerir novos serviços Web

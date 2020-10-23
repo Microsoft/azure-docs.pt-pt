@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 20add4859b272b6d121666cde9c56296119d41e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836535"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425621"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para base de dados Azure para MariaDB
 
 O Private Link permite-lhe criar pontos finais privados para a Base de Dados Azure para MariaDB e assim traz serviços Azure dentro da sua Rede Virtual privada (VNet). O ponto final privado expõe um IP privado que pode utilizar para ligar à sua Base de Dados Azure para o servidor de base de dados MariaDB, tal como qualquer outro recurso no VNet.
 
-Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Link, reveja a [documentação](https://docs.microsoft.com/azure/private-link/index)private Link . Um ponto final privado é um endereço IP privado dentro de um [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e Subnet específicos.
+Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Link, reveja a [documentação](../private-link/index.yml)private Link . Um ponto final privado é um endereço IP privado dentro de um [VNet](../virtual-network/virtual-networks-overview.md) e Subnet específicos.
 
 > [!NOTE]
 > A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores MariaDB nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
@@ -28,7 +28,7 @@ A ex-filtração de dados na Base de Dados Azure para MariaDB é quando um utili
 
 Considere um cenário com um utilizador que executa a bancada de trabalho MariaDB dentro de um Azure VM conectando-se a uma base de dados Azure para exemplo mariaDB. Este caso MariaDB está no centro de dados dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados Azure para MariaDB utilizando controlos de acesso à rede.
 
-* Desative todo o tráfego de serviço Azure para Azure Database for MariaDB através do ponto final público, definindo Allow Azure Services to OFF. Certifique-se de que nenhum endereço ou gama IP pode aceder ao servidor através de [regras de firewall](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) ou [de pontos finais de serviço de rede virtual](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
+* Desative todo o tráfego de serviço Azure para Azure Database for MariaDB através do ponto final público, definindo Allow Azure Services to OFF. Certifique-se de que nenhum endereço ou gama IP pode aceder ao servidor através de [regras de firewall](concepts-firewall-rules.md) ou [de pontos finais de serviço de rede virtual](concepts-data-access-security-vnet.md).
 
 * Apenas permita o tráfego na Base de Dados Azure para MariaDB utilizando o endereço IP privado do VM. Para obter mais informações, consulte os artigos sobre as regras [de Service Endpoint](concepts-data-access-security-vnet.md) e [VNet firewall](howto-manage-vnet-portal.md).
 
@@ -45,7 +45,7 @@ Com o Private Link, pode agora configurar controlos de acesso à rede como NSGs 
 
 Quando se conecta ao ponto final público a partir de máquinas no local, o seu endereço IP precisa de ser adicionado à firewall baseada em IP utilizando uma regra de firewall ao nível do servidor. Embora este modelo funcione bem para permitir o acesso a máquinas individuais para dev ou testar cargas de trabalho, é difícil de gerir em ambiente de produção.
 
-Com o Private Link, pode permitir o acesso transversal ao ponto final privado utilizando a [Via Expresso](https://azure.microsoft.com/services/expressroute/) (ER), o perspitamento privado ou [o túnel VPN.](https://docs.microsoft.com/azure/vpn-gateway/) Podem posteriormente desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP.
+Com o Private Link, pode permitir o acesso transversal ao ponto final privado utilizando a [Via Expresso](https://azure.microsoft.com/services/expressroute/) (ER), o perspitamento privado ou [o túnel VPN.](../vpn-gateway/index.yml) Podem posteriormente desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP.
 
 > [!NOTE]
 > Em alguns casos, a Base de Dados Azure para MariaDB e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
@@ -57,8 +57,8 @@ Com o Private Link, pode permitir o acesso transversal ao ponto final privado ut
 
 Os pontos finais privados são necessários para ativar o Link Privado. Isto pode ser feito usando os seguintes guias de como fazer.
 
-* [Portal do Azure](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
+* [Portal do Azure](howto-configure-privatelink-portal.md)
+* [CLI](howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>Processo de aprovação
 
@@ -90,17 +90,17 @@ Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, vNet e
 ![selecione a visão geral do ponto final privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ligação a partir de um Azure VM em Rede Virtual Peered (VNet)
-Configure [VNet olhando](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para estabelecer conectividade com a Base de Dados Azure para MariaDB a partir de um VM Azure em um VNet esprevado.
+Configure [VNet olhando](../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer conectividade com a Base de Dados Azure para MariaDB a partir de um VM Azure em um VNet esprevado.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Ligação a partir de um VM Azure em ambiente VNet-to-VNet
-Configure [a ligação de gateway VNet-to-VNet VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) para estabelecer conectividade com uma Base de Dados Azure para MariaDB a partir de um VM Azure em uma região ou subscrição diferente.
+Configure [a ligação de gateway VNet-to-VNet VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer conectividade com uma Base de Dados Azure para MariaDB a partir de um VM Azure em uma região ou subscrição diferente.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Ligação a partir de um ambiente no local sobre VPN
 Para estabelecer conectividade de um ambiente no local até à Base de Dados Azure para MariaDB, escolha e implemente uma das opções:
 
-* [Ligação ponto-a-local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Ligação VPN Site a Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Ligação VPN Site a Site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Ligação privada combinada com regras de firewall
 
@@ -129,11 +129,11 @@ Para saber como configurar o Acesso à **Rede Pública de Negação** para a sua
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança MariaDB, consulte os seguintes artigos:
 
-* Para configurar uma firewall para Azure Database for MariaDB, consulte [o suporte do Firewall](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules).
+* Para configurar uma firewall para Azure Database for MariaDB, consulte [o suporte do Firewall](concepts-firewall-rules.md).
 
-* Para aprender a configurar um ponto final de serviço de rede virtual para a sua Base de Dados Azure para MariaDB, consulte [o acesso configurado a partir de redes virtuais.](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)
+* Para aprender a configurar um ponto final de serviço de rede virtual para a sua Base de Dados Azure para MariaDB, consulte [o acesso configurado a partir de redes virtuais.](concepts-data-access-security-vnet.md)
 
-* Para uma visão geral da Base de Dados Azure para a conectividade MariaDB, consulte [a Base de Dados Azure para a Arquitetura de Conectividade MariaDB](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+* Para uma visão geral da Base de Dados Azure para a conectividade MariaDB, consulte [a Base de Dados Azure para a Arquitetura de Conectividade MariaDB](concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

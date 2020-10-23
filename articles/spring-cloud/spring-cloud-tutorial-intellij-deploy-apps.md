@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088776"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426725"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Utilizar o IntelliJ para implementar aplicações do Azure Spring Cloud
 
@@ -25,10 +25,10 @@ Antes de executar este exemplo, pode experimentar o [arranque básico](spring-cl
 ## <a name="prerequisites"></a>Pré-requisitos
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, versão 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, versão 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Instale o plug-in
-Pode adicionar o Kit de Ferramentas Azure para IntelliJ IDEA 3.35.0 da UI IntelliJ **Plugins.**
+Pode adicionar o Kit de Ferramentas Azure para IntelliJ IDEA 3.43.0 da UI IntelliJ **Plugins.**
 
 1. Começa o Intellij.  Se já abriu um projeto anteriormente, feche o projeto para mostrar o diálogo de boas-vindas. Selecione **Configurar** a partir do link inferior direito e, em seguida, clique em **Plugins** para abrir o diálogo de configuração plug-in e selecione **Instalar Plugins a partir do disco**.
 
