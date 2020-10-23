@@ -3,12 +3,12 @@ title: Crie uma função personalizada de Gestor de Recursos Azure e atribua ao 
 description: Este artigo fornece orientações sobre como criar uma função personalizada de Gestor de Recursos Azure e atribuir ao principal de serviço para Live Video Analytics em IoT Edge usando Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526583"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425736"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Crie uma função personalizada de Gestor de Recursos Azure e atribua ao diretor de serviços
 
@@ -230,7 +230,7 @@ Procure o "roleDefinitionName" e veja se o seu valor está definido para "Utiliz
 
 Isto confirma que ligamos a função de utilizador personalizado ao principal de serviço que é utilizado para a nossa aplicação.
 
-### <a name="test-the-service-principal-rbac"></a>Teste o serviço principal RBAC  
+### <a name="test-the-service-principal-access-control"></a>Teste o controlo principal de acesso do serviço
 
 1. Faça login usando o diretor de serviço. Para isso, precisaremos de 3 peças de informação para o Diretório Ativo Azure para nos dar o acesso adequado ao símbolo que podemos obter a partir da saída do principal passo do [serviço Create:](#create-service-principal)
     1. AadClientID 

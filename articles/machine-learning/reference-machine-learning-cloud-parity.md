@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892976"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426527"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning paridade de nuvem soberana
 
@@ -56,7 +56,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA                   | SIM                | SIM         |
 | Apoio R e Python                                                       | GA                   | SIM                | SIM         |
 | Suporte de Rede Virtual                                                    | Pré-visualização pública       | NO                 | NO          |
-| **Instância de computação** |   |  | | 
+| **Instância computacional** |   |  | | 
 | Casos de computação gerido para cadernos integrados                         | GA                   | SIM                | SIM         |
 | Jupyter, Integração jupyterLab                                            | GA                   | SIM                | SIM         |
 | Suporte de Rede Virtual (VNet)                                             | Pré-visualização pública       | SIM                | SIM         |
@@ -122,7 +122,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Root e SSH acesso a recursos computetivos.                                          | SIM | SIM |  |
 | Manter a segurança dos sistemas implantados (instâncias, pontos finais, etc.), incluindo proteção de pontos finais, remendos e registos |  PARCIAL|  PARCIAL |ACI por trás do VNet e ponto final privado atualmente não disponível |                                  
 | Controlo (desativação/limite/restrição) da utilização da integração ACI/AKS                    | PARCIAL| PARCIAL |ACI por trás do VNet e ponto final privado atualmente não disponível|
-| Role-Based Access Control (RBAC) - Criações de Função Personalizadas                           | SIM | SIM |  |
+| Azure controle de acesso baseado em funções (Azure RBAC) - Criações de função personalizada                           | SIM | SIM |  |
 | Controle o acesso às imagens ACR utilizadas pelo ML Service (Azure fornecido/mantido versus personalizado)  |PARCIAL|  PARCIAL | ACR por trás de ponto final privado e VNet não apoiado no Governo de Azure |
 | **Utilização geral do serviço de aprendizagem automática** |  | | |
 | Capacidade de ter um ambiente de desenvolvimento para construir um modelo, treinar esse modelo, acolhê-lo como um ponto final, e consumi-lo através de um webapp     | SIM | SIM |  |
@@ -169,7 +169,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA               | SIM       | N/D        |
 | Apoio R e Python                                                       | GA               | SIM       | N/D        |
 | Suporte de Rede Virtual                                                    | Pré-visualização pública   | NO        | N/D        |
-| **Instância de computação** |    | | |
+| **Instância computacional** |    | | |
 | Casos de computação gerido para cadernos integrados                         | GA               | NO        | N/D        |
 | Jupyter, Integração jupyterLab                                            | GA               | SIM       | N/D        |
 | Suporte de Rede Virtual (VNet)                                             | Pré-visualização pública   | SIM       | N/D        |

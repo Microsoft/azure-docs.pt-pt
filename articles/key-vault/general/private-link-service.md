@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d67d6301137a90d287148131fb4b1be7731e15bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585836"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426579"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
 
@@ -51,7 +51,7 @@ Depois de configurar o básico do cofre da chave, selecione o separador de rede 
 1. Selecione o botão de rádio Private Endpoint no separador 'Rede'.
 1. Clique no botão "+ adicionar" para adicionar um ponto final privado.
 
-    ![Imagem](../media/private-link-service-1.png)
+    ![Screenshot que mostra o primeiro ecrã ao criar um cofre chave.](../media/private-link-service-1.png)
  
 1. No campo "Localização" da Lâmina de Ponto Final Privado, selecione a região em que a sua rede virtual está localizada. 
 1. No campo "Nome", crie um nome descritivo que lhe permitirá identificar este ponto final privado. 
@@ -59,7 +59,7 @@ Depois de configurar o básico do cofre da chave, selecione o separador de rede 
 1. Deixe inalterada a opção "integrar-se com a zona privada DNS".  
 1. Selecione "Ok".
 
-    ![Imagem](../media/private-link-service-8.png)
+    ![Screenshot que mostra os campos que são importantes para configurar um ponto final privado.](../media/private-link-service-8.png)
  
 Agora poderá ver o ponto final privado configurado. Tem agora a opção de eliminar e editar este ponto final privado. Selecione o botão "Rever + Criar" e crie o cofre de chaves. Levará 5 a 10 minutos para a colocação estar completa. 
 
@@ -74,12 +74,10 @@ Se já tiver um cofre chave, pode criar uma ligação de ligação privada segui
 1. Selecione o separador de ligações de ponto final privado no topo da página
 1. Selecione o botão "+ Ponto final privado" na parte superior da página.
 
-    ![](../media/private-link-service-3.png) ![ Imagem de imagem](../media/private-link-service-4.png)
+    ![Screenshot que mostra o botão + Ponto Final Privado.](../media/private-link-service-3.png)
+    ![Screenshot que mostra o ecrã para criar um ponto final privado.](../media/private-link-service-4.png)
 
 Pode optar por criar um ponto final privado para qualquer recurso Azure na utilização desta lâmina. Pode utilizar os menus suspensos para selecionar um tipo de recurso e selecionar um recurso no seu diretório, ou pode ligar-se a qualquer recurso Azure utilizando um ID de recurso. Deixe inalterada a opção "integrar-se com a zona privada DNS".  
-
-![](../media/private-link-service-3.png)
- ![ Imagem de imagem](../media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Estabeleça uma ligação privada ao Key Vault utilizando o CLI
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 447b781ec83a01a58e6af9e9e43f75b3fc56b10f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64d45861f37e2015b747a4db0feb2d32e68fe893
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370785"
+ms.locfileid: "92427331"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ligue o Azure às ferramentas ITSM utilizando a Secure Export
 
@@ -57,7 +57,10 @@ Comece a utilizar a ferramenta ITSM Connector com estes passos:
 
 1. Registar a aplicação com o Azure AD.
 2. Crie um grupo de ação Secure Webhook.
-3. Configure o ambiente do seu parceiro. Hoje apoiamos um fornecedor que é a BMC Helix.
+3. Configure o ambiente do seu parceiro. 
+
+A Secure Export suporta ligações com as seguintes ferramentas ITSM:
+* [Hélice BMC](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registe-se no Azure Ative Directory
 
@@ -86,18 +89,18 @@ Para adicionar um webhook a uma ação, siga estas instruções para Secure Webh
 5. Selecione **Secure Webhook**.
 6. Selecione estes detalhes:
    1. Selecione o ID do objeto da instância do Diretório Ativo Azure que registou.
-   2. Para o URI, cole no URL webhook que copiou do ambiente do fornecedor.
+   2. Para o URI, cole no URL webhook que copiou do ambiente de [ferramentas ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment).
    3. Definir **Ative o esquema de alerta comum** para **Sim**. 
 
    A imagem a seguir mostra a configuração de uma ação Secure Webhook de uma amostra:
 
    ![Screenshot que mostra uma ação Secure Webhook.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
 
-## <a name="configure-the-partner-environment"></a>Configure o ambiente parceiro
+## <a name="configure-the-itsm-tool-environment"></a>Configure o ambiente da ferramenta ITSM
 
 A configuração contém 2 passos:
 1. Obtenha o URI para a definição de exportação segura.
-2. Definições de acordo com o fluxo do vendedor.
+2. Definições de acordo com o fluxo da ferramenta ITSM.
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Ligue a Helix BMC ao Monitor Azure
 

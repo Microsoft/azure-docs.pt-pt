@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424993"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461005"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
 
@@ -281,6 +281,13 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
     ]
     }
     ```
+
+    Este modelo cria um _ponto final privado_ para o acesso à rede desde o espaço de trabalho até ao seu ACR. A imagem abaixo mostra um exemplo deste ponto final privado.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Registo do contentor de Azure para o espaço de trabalho":::
+
+    > [!IMPORTANT]
+    > Não apague este ponto final! Se o eliminar acidentalmente, pode voltar a aplicar o modelo neste passo para criar um novo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

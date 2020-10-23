@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011468"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425874"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET para gerir uma fila
 
@@ -34,7 +34,7 @@ Em seguida, transfira e instale o .NET Core 2.0 referente ao seu sistema operati
 - Instale o [.NET Core para Windows](https://www.microsoft.com/net/download/windows) ou o [.NET Framework](https://www.microsoft.com/net/download/windows) (incluído no Visual Studio para Windows)
 - Instale o [Visual Studio para Windows](https://www.visualstudio.com/). Se estiver a utilizar o .NET Core, instalar o Visual Studio é opcional.  
 
-Para obter informações sobre como escolher entre o .NET Core e o .NET Framework, veja [Escolher entre o .NET Core e o .NET Framework para aplicações de servidor](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+Para obter informações sobre como escolher entre o .NET Core e o .NET Framework, veja [Escolher entre o .NET Core e o .NET Framework para aplicações de servidor](/dotnet/standard/choosing-core-framework-server).
 
 ### <a name="linux"></a>Linux
 
@@ -245,7 +245,7 @@ Console.WriteLine("Processed and deleted message '{0}'", retrievedMessage.Id);
 Console.WriteLine();
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 A amostra limpa os recursos que criou eliminando a fila. A eliminação da fila também elimina todas as mensagens que contém.
 
@@ -266,14 +266,14 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com filas Azur
 
 ### <a name="binaries-and-source-code"></a>Binários e código fonte
 
-- Descarregue os pacotes NuGet para a versão mais recente da biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+- Descarregue os pacotes NuGet para a versão mais recente da biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage)
     - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Veja o [código fonte da biblioteca de cliente .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referência e exemplos da biblioteca de cliente
 
-- Consulte a [Referência da API de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente .NET.
+- Consulte a [Referência da API de .NET](/dotnet/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente .NET.
 - Explore [as amostras de armazenamento da fila escritas](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) utilizando a biblioteca do cliente .NET.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -281,6 +281,6 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com filas Azur
 Neste arranque rápido, aprendeu a adicionar mensagens a uma fila, a espreitar mensagens de uma fila e a descaitar e a processar mensagens usando .NET. 
 
 > [!div class="nextstepaction"]
-> [Comunicar entre aplicações com o armazenamento de Filas do Azure](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Comunicar entre aplicações com o armazenamento de Filas do Azure](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319083"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425799"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento de lote para recipientes de fala
 
@@ -75,9 +75,8 @@ O cliente do lote pode detetar dinamicamente se um ponto final ficar indisponív
 > [!NOTE] 
 > * Este exemplo utiliza o mesmo diretório `/my_nfs` () para o ficheiro de configuração e as entradas, saídas e diretórios de registos. Pode utilizar diretórios hospedados ou montados em NFS para estas pastas.
 > * Executar o cliente irá `–h` listar os parâmetros disponíveis da linha de comando e os seus valores predefinidos. 
+> * O recipiente de processamento de lote só é suportado em Linux.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Use o comando Docker `run` para ligar o recipiente. Isto irá iniciar uma concha interativa dentro do recipiente.
 
 ```Docker
@@ -95,17 +94,6 @@ Para executar o cliente do lote e o recipiente num único comando:
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-Para executar o cliente do lote e o recipiente num único comando:
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 O cliente vai começar a correr. Se um ficheiro áudio já tiver sido transcrito numa execução anterior, o cliente saltará automaticamente o ficheiro. Os ficheiros são enviados com uma repetição automática se ocorrerem erros transitórios, e pode diferenciar entre os erros que pretende que o cliente rejueça. Num erro de transcrição, o cliente continuará a transcrição, e pode voltar a tentar sem perder o progresso.  

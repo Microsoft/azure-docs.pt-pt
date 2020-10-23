@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: baanders
-ms.openlocfilehash: 5ea73e776344094a36e46415ffabce0d8ae3525a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a5a6246bd6667a3aee3774f5dd309f8af1e86344
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440841"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426135"
 ---
 ```csharp
 // Define the model type for the twin to be created
@@ -26,5 +26,5 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "Humidity", humidity},
 };
 //Create the twin
-client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
 ```

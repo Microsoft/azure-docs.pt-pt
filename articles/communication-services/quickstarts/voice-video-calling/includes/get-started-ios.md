@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157786"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438413"
 ---
 Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para iOS.
 
@@ -201,4 +201,4 @@ Pode fazer uma chamada VOIP de saída, fornecendo um ID do utilizador no campo d
 
 ## <a name="sample-code"></a>Código de Exemplo
 
-Você pode baixar o aplicativo de amostra do [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)
+Você pode baixar o aplicativo de amostra do [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

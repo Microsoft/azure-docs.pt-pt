@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267487"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461469"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Cenário: Rota para Serviços Partilhados VNets
 
@@ -24,17 +24,19 @@ Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte 
 
 ## <a name="design"></a><a name="design"></a>Design
 
-Podemos usar uma matriz de conectividade para resumir os requisitos deste cenário. Na matriz, cada célula descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida pela VIRTUAL WAN:
+Podemos usar uma matriz de conectividade para resumir os requisitos deste cenário:
 
 **Matriz de conectividade**
 
 | De             | Para:   |*VNets isolados*|*VNet compartilhado*|*Ramos*|
 |---|---|---|---|---|
-|**VNets isolados**|&#8594;|                |        X        |       X      |
-|**VNets compartilhados**  |&#8594;|       X        |        X        |       X      |
-|**Ramos**      |&#8594;|       X        |        X        |       X      |
+|**VNets isolados**|&#8594;|        | Direct | Direct |
+|**VNets compartilhados**  |&#8594;| Direct | Direct | Direct |
+|**Ramos**      |&#8594;| Direct | Direct | Direct |
 
-Semelhante ao [cenário VNet isolado,](scenario-isolate-vnets.md)esta matriz de conectividade dá-nos dois padrões de linha diferentes, que se traduzem em duas tabelas de rotas (os VNets de serviços partilhados e os ramos têm os mesmos requisitos de conectividade). A WAN virtual já tem uma tabela de rotas padrão, por isso vamos precisar de outra tabela de rotas personalizada, que chamaremos **RT_SHARED** neste exemplo.
+Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) comunica com um destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico). Neste cenário não existem firewalls ou Aparelhos Virtuais de Rede, pelo que a comunicação flui diretamente sobre o WAN Virtual (daí a palavra "Direto" na tabela).
+
+À semelhança do [cenário VNet isolado,](scenario-isolate-vnets.md)esta matriz de conectividade dá-nos dois padrões de linha diferentes, que se traduzem em duas tabelas de rotas (os VNets de serviços partilhados e os ramos têm os mesmos requisitos de conectividade). A WAN virtual já tem uma tabela de rotas padrão, por isso vamos precisar de outra tabela de rotas personalizada, que chamaremos **RT_SHARED** neste exemplo.
 
 Os VNets serão associados à tabela de rotas **RT_SHARED.** Uma vez que precisam de conectividade com os balcões e com os VNets de serviço partilhado, o serviço partilhado VNet e os ramos terão de se propagar para **RT_SHARED** (caso contrário, os VNets não aprenderiam o ramo e os prefixos VNet partilhados). Como os balcões estão sempre associados à tabela de rotas padrão, e os requisitos de conectividade são os mesmos para os VNets de serviços partilhados, também associaremos os VNets de serviço partilhado à tabela de rotas Padrão.
 

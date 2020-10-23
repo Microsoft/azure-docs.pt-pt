@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f4874a16e12c5c9e7e5a0fd9858d3e42f2bb1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b59a764510b93daf358e00a4d75bcefd31d2980f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821272"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Azure Ative Directory com Infogix Data3Sixty Govern
 
@@ -27,7 +27,7 @@ A integração do Infogix Data3Sixty Governe com a Azure AD proporciona-lhe os s
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no Infogix Data3Sixty Govern (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -121,7 +121,7 @@ Para configurar o Azure AD um único sinal de inscrição com Infogix Data3Sixty
 
 7. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | -----------| -------------- |
     | nome de primeiro nome  | user.givenname |
     | último nome   | utilizador.sobrenome |
@@ -219,19 +219,18 @@ Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, concede
 Nesta secção, um utilizador chamado Britta Simon é criado no Infogix Data3Sixty Govern. Infogix Data3Sixty Govern suporta o provisionamento do utilizador just-in-time, que é ativado por padrão. Não há nenhum item de ação para si nesta secção. Se um utilizador já não existir no Infogix Data3Sixty Govern, um novo é criado após a autenticação.
 
 > [!Note]
-> Se necessitar de criar um utilizador manualmente, contacte a equipa de [suporte Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com).
+> Se necessitar de criar um utilizador manualmente, contacte a equipa de [suporte Infogix Data3Sixty Govern](mailto:data3sixtysupport@infogix.com).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Infogix Data3Sixty Govern no Painel de Acesso, deverá ser automaticamente inscrito no Infogix Data3Sixty Re para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo Infogix Data3Sixty Govern no Painel de Acesso, deverá ser automaticamente inscrito no Infogix Data3Sixty Re para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

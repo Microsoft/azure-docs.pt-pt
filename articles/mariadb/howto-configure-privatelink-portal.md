@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da54917d21d468f96b8e72ac362e030570fabaee
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836484"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426011"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerir o Link Privado para Azure Database para MariaDB usando o Portal
 
@@ -60,7 +60,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Region | Selecione **Europa Ocidental**. |
+    | Região | Selecione **Europa Ocidental**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows**Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
@@ -144,7 +144,7 @@ Nesta secção, irá criar um ponto final privado para o servidor MariaDB.
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | **Detalhes da instância** |  |
     | Name | Introduza *myPrivateEndpoint*. Se este nome for tomado, crie um nome único. |
-    |Region|Selecione **Europa Ocidental**.|
+    |Região|Selecione **Europa Ocidental**.|
     |||
 5. Selecione **Seguinte: Recurso**.
 6. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
@@ -251,7 +251,7 @@ Quando terminar de usar o ponto final privado, o servidor MariaDB e o VM, elimin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste como fazer, criou um VM numa rede virtual, uma Base de Dados Azure para MariaDB e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor MariaDB utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Neste como fazer, criou um VM numa rede virtual, uma Base de Dados Azure para MariaDB e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor MariaDB utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

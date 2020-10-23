@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 33433587f0617382cc5f05550577594d7e3f9f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457049"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configure Blink para o fornecimento automático do utilizador
 
@@ -81,7 +81,7 @@ Antes de configurar o Blink para o fornecimento automático de utilizadores com 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar os utilizadores em Blink com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o único sinal de sinalização baseado em SAML para blink , seguindo as instruções fornecidas no [tutorial de inscrição único do Blink .](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o único sinal de sinalização baseado em SAML para blink , seguindo as instruções fornecidas no [tutorial de inscrição único do Blink .](./blink-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para blink in Azure AD:
 
@@ -145,4 +145,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

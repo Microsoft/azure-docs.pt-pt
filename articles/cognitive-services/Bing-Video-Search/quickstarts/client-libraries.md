@@ -9,15 +9,15 @@ zone_pivot_groups: programming-languages-set-ten
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 03/19/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7bfbe550bdee8ab537f1aabc8cd1ab3b997c1df1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 98fbef2ecef7b19e2ebd6d3c3977c77186847dc8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328752"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426631"
 ---
 # <a name="quickstart-use-the-bing-video-search-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Video Search
 

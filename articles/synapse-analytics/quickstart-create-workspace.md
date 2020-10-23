@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9780a2adb60c690abda6880157252aaa0c562f18
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171782"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461112"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -23,13 +23,8 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
-1. **Selecione Adicionar** para criar um espaço de trabalho utilizando estas definições:
-
-    |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
-    |---|---|---|---|
-    |Noções básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
-    |Noções básicas|**Região**|Combine com a região da conta de armazenamento.|
-
+1. **Selecione Adicionar** para criar um espaço de trabalho.
+1. No **separador Básicos,** dê ao espaço de trabalho um nome único. Vamos usar **o meu espaço de trabalho** neste documento
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples é criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Em **Select Data Lake Storage Gen 2,** clique em Criar **Novo** e nomeie-o **contosolake**.

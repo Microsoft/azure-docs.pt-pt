@@ -12,12 +12,12 @@ metadata:
   author: kenwith
   ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: e3232f319c14af6724bc5b844f71a5c6ff34bfa9
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 66d2691d1e8c10c21b419cc5c6672179f89171a9
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91535003"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372451"
 landingContent:
 - title: Sobre a gestão de aplicações
   linkLists:
@@ -111,7 +111,5 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
-    - text: Configurar o SSO baseado em SAML
-      url: add-application-portal-setup-sso.md
-    - text: Configurar o SSO baseado em OIDC
-      url: add-application-portal-setup-oidc-sso.md
+    - text: Novidades no Docs
+      url: whats-new-docs.md
