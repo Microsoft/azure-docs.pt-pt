@@ -235,10 +235,13 @@
                   href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Importar dados para blobs
                   href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  displayName: 'Azure CLI, az import-export create, import-export'
                 - name: Importar dados para ficheiros
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  displayName: 'Azure CLI, az import-export create, import-export'
                 - name: Exportar dados a partir de blobs
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  displayName: 'Azure CLI, az import-export create, import-export'
                 - name: Procedimentos
                   items:
                     - name: Utilizar chave gerida pelo cliente

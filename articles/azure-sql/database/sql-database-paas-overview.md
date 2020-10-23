@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617235"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428310"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Com a Base de Dados SQL do Azure, pode criar uma camada de armazenamento altamen
 
 O Azure SQL Database baseia-se na versão mais recente estável do motor de base de dados do [Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Pode utilizar funcionalidades de processamento de consultas avançadas, tais como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e processamento inteligente de [consultas.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) Na verdade, as funcionalidades mais recentes do SQL Server são lançadas primeiro para a Base de Dados SQL e depois para o próprio SQL Server. Obtém as funcionalidades mais recentes do SQL Server, sem custos gerais para correções ou atualizações, que foram testadas em milhões de bases de dados. 
 
-A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um modelo de compra baseado em [DTU.](service-tiers-dtu.md) A Base de Dados SQL é um serviço totalmente gerido que tem uma elevada disponibilidade incorporada, cópias de segurança e outras operações de manutenção comuns. A Microsoft lida com todos os patchings e atualizações do SQL e do código do sistema operativo. Não tens de gerir a infraestrutura subjacente.
+A SQL Database permite-lhe definir e escalar facilmente o desempenho dentro de dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um modelo de compra baseado em [DTU.](service-tiers-dtu.md) A Base de Dados SQL é um serviço totalmente gerido que tem uma elevada disponibilidade incorporada, cópias de segurança e outras operações de manutenção comuns. A Microsoft lida com todos os patchings e atualizações do SQL e do código do sistema operativo. Não tem de gerir a infraestrutura subjacente.
 
 Se é novo na Base de Dados Azure SQL, consulte o vídeo da *Base de Dados Azure SQL* da nossa série de [vídeos Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
@@ -108,7 +108,7 @@ A Azure SQL Database permite que o seu negócio continue a operar durante as int
 
 A recuperação de desastres pressupõe que um evento catastrófico esteja geograficamente localizado o suficiente para ter outra máquina ou conjunto de máquinas com uma cópia dos seus dados longe. No SQL Server, pode utilizar grupos sempre em disponibilidade em funcionamento no modo async para obter esta capacidade. Muitas vezes, as pessoas não querem esperar que a replicação aconteça tão longe antes de cometer uma transação, por isso há potencial para a perda de dados quando se faz falhas não planeadas.
 
-As bases de dados nos níveis de serviço Premium e Business Critical já [fazem algo semelhante](high-availability-sla.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. As bases de dados em níveis de serviço mais baixos proporcionam redundância através do armazenamento utilizando um [mecanismo diferente, mas equivalente.](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger contra uma única falha na máquina. A funcionalidade de geo-replicação ativa dá-lhe a capacidade de se proteger contra desastres onde toda uma região é destruída.
+As bases de dados nos níveis de serviço Premium e Business Critical já [fazem algo semelhante](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) à sincronização de um grupo de disponibilidade. As bases de dados em níveis de serviço mais baixos proporcionam redundância através do armazenamento utilizando um [mecanismo diferente, mas equivalente.](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) A lógica incorporada ajuda a proteger contra uma única falha na máquina. A funcionalidade de geo-replicação ativa dá-lhe a capacidade de se proteger contra desastres onde toda uma região é destruída.
 
 As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de um único edifício de datacenter dentro de uma única região. Ajuda-o a proteger-se contra a perda de energia ou rede para um edifício. Na Base de Dados SQL, coloca as diferentes réplicas em diferentes zonas de disponibilidade (diferentes edifícios, efetivamente).
 
@@ -198,7 +198,7 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Uma aplicação baseada na web para gerir todos os serviços Azure.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, macOS e Linux.|
-|[O SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
+|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
 |[Ferramentas de dados do servidor SQL no Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados na Base de Dados Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).|
 
@@ -210,7 +210,7 @@ A SQL Database suporta aplicações de construção com Python, Java, Node.js, P
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>Posso controlar quando ocorre o tempo de inatividade?
 
-N.º O impacto do patching geralmente não é percetível se [você empregar a lógica de repreensão](develop-overview.md#resiliency) na sua app. Para mais informações, consulte [Os eventos de manutenção do Plano para Azure na Base de Dados Azure SQL](planned-maintenance.md).
+Não. O impacto do patching geralmente não é percetível se [você empregar a lógica de repreensão](develop-overview.md#resiliency) na sua app. Para mais informações, consulte [Os eventos de manutenção do Plano para Azure na Base de Dados Azure SQL](planned-maintenance.md).
 
 
 

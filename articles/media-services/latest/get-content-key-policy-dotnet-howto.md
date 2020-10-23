@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7f46c77d463873a5cdd5d8c4ac1b28f1b7d0b9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299002"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427079"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Um dos principais princípios de design da API v3 é tornar a API mais segura. V3 APIs não devolvem segredos ou credenciais em operações **Get** ou **List.** Consulte aqui a explicação detalhada: Para mais informações, consulte as [contas da RBAC e dos Serviços de Comunicação Social](rbac-overview.md)
+Um dos principais princípios de design da API v3 é tornar a API mais segura. V3 APIs não devolvem segredos ou credenciais em operações **Get** ou **List.** Consulte aqui a explicação detalhada: Para mais informações, consulte as [contas do Azure RBAC e dos Serviços de Comunicação Social](rbac-overview.md)
 
 O exemplo deste artigo mostra como usar .NET para obter uma chave de assinatura da política existente. 
  

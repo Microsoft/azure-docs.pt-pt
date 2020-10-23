@@ -3,13 +3,13 @@ title: Atualizar um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como atualizar um cluster Azure Kubernetes Service (AKS) para obter as mais recentes funcionalidades e atualizações de segurança.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050613"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461452"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster do AKS
 
-Com uma lista de versões disponíveis para o seu cluster AKS, utilize o comando [de upgrade az aks][az-aks-upgrade] para atualizar. Durante o processo de atualização, a AKS adiciona um novo nó ao cluster que executa a versão especificada de Kubernetes, em seguida, cuidadosamente [cordon e drena][kubernetes-drain] um dos nós antigos para minimizar a perturbação das aplicações de execução. Quando o novo nó é confirmado como cápsulas de aplicação em execução, o nó antigo é eliminado. Este processo repete-se até que todos os nós do cluster tenham sido atualizados.
+Com uma lista de versões disponíveis para o seu cluster AKS, utilize o comando [de upgrade az aks][az-aks-upgrade] para atualizar. Durante o processo de atualização, a AKS adiciona um novo nó tampão (ou tantos nós configurados em [pico máximo)](#customize-node-surge-upgrade-preview)ao cluster que executa a versão especificada de Kubernetes. Em seguida, [irá cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a perturbação das aplicações de funcionamento (se estiver a usar o máximo de onda, irá isolar e [drenar][kubernetes-drain] tantos nós ao mesmo tempo que o número de nós tampão especificados). Quando o nó antigo estiver totalmente drenado, será reamco para receber a nova versão e tornar-se-á o nó tampão para o nó seguinte ser atualizado. Este processo repete-se até que todos os nós do cluster tenham sido atualizados. No final do processo, o último nó drenado será eliminado, mantendo a contagem de nó de agente existente.
 
 ```azurecli-interactive
 az aks upgrade \

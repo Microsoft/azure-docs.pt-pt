@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 1623d4501a89e3614e694b57f6cae1eee28062da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 276d444239cb91f1bec2975506279721e6d0008c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547041"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459361"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Tutorial: Integrar JOBHUB com Diretório Ativo Azure
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar JOBHUB com Azure Ative Directory (
 * Permita que os seus utilizadores sejam automaticamente inscritos no JOBHUB com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -132,17 +132,16 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 ### <a name="create-jobhub-test-user"></a>Criar utilizador de teste JOBHUB
 
-Nesta secção, cria-se um utilizador chamado Britta Simon no JOBHUB. Trabalhe com a [equipa de apoio jobhub](mailto:platform@pasonagroup.co.jp) para adicionar os utilizadores na plataforma JOBHUB. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon no JOBHUB. Trabalhe com a [equipa de apoio jobhub](mailto:platform@pasonagroup.co.jp) para adicionar os utilizadores na plataforma JOBHUB. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo JOBHUB no Painel de Acesso, deverá ser automaticamente inscrito no JOBHUB para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo JOBHUB no Painel de Acesso, deverá ser automaticamente inscrito no JOBHUB para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

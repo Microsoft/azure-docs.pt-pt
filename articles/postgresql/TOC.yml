@@ -157,6 +157,8 @@
             - name: Ligação privada
               href: concepts-data-access-and-security-private-link.md
               displayName: 'security, private link, private endpoint'
+        - name: Manutenção planeada
+          href: concepts-planned-maintenance-notification.md
         - name: Continuidade do negócio
           items:
             - name: Introdução à continuidade de negócio

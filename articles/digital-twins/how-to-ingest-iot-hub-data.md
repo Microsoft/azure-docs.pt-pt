@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131501"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461554"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
 A Azure Digital Twins é conduzida com dados de dispositivos IoT e outras fontes. Uma fonte comum para os dados do dispositivo a utilizar em Azure Digital Twins é [o IoT Hub](../iot-hub/about-iot-hub.md).
 
-O processo de ingerir dados em Azure Digital Twins é criar um recurso de computação externa, como uma [função Azure,](../azure-functions/functions-overview.md)que recebe os dados e utiliza as [APIs digitalTwins](how-to-use-apis-sdks.md) para definir propriedades ou eventos de telemetria em [gémeos digitais](concepts-twins-graph.md) em conformidade. 
+O processo de ingerir dados em Azure Digital Twins é criar um recurso de computação externa, como uma [função Azure,](../azure-functions/functions-overview.md)que recebe os dados e utiliza as [APIs digitalTwins](/rest/api/digital-twins/dataplane/twins) para definir propriedades ou eventos de telemetria em [gémeos digitais](concepts-twins-graph.md) em conformidade. 
 
 Este documento de como escrever uma função Azure que pode ingerir telemetria a partir do IoT Hub.
 

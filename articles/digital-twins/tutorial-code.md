@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 40484521ecdc32e2e279ddf1b68ddcd4b1d7bc9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 23f32b6d09e36a98c68f5cb8f73ae1125c0543dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427578"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460755"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
-É comum que os desenvolvedores que trabalham com a Azure Digital Twins escrevam uma aplicação de cliente para interagir com a sua instância do serviço Azure Digital Twins. Este tutorial focado no programador proporciona uma introdução à programação contra o serviço Azure Digital Twins, utilizando o [Azure Digital Twins SDK para .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Acompanha-o através da escrita de uma aplicação de cliente de consola C# passo a passo, começando do zero.
+É comum que os desenvolvedores que trabalham com a Azure Digital Twins escrevam uma aplicação de cliente para interagir com a sua instância do serviço Azure Digital Twins. Este tutorial focado no programador proporciona uma introdução à programação contra o serviço Azure Digital Twins, utilizando o [Azure Digital Twins SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Acompanha-o através da escrita de uma aplicação de cliente de consola C# passo a passo, começando do zero.
 
 > [!div class="checklist"]
 > * Criar projeto
@@ -58,7 +58,7 @@ dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
-A primeira dependência é a [Azure Digital Twins SDK para .NET](https://www.nuget.org/packages/Azure.DigitalTwins.Core). A segunda dependência fornece ferramentas para ajudar na autenticação contra o Azure.
+A primeira dependência é a [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). A segunda dependência fornece ferramentas para ajudar na autenticação contra o Azure.
 
 Mantenha a janela de comando aberta, pois continuará a usá-la durante todo o tutorial.
 

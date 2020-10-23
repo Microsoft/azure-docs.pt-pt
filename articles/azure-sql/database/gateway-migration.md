@@ -4,18 +4,18 @@ description: Artigo fornece aviso aos utilizadores sobre a migração de endere�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004277"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427105"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Os clientes serão notificados via e-mail e no portal Azure com muita antecedên
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
-### <a name="october-2020"></a>outubro de 2020
+### <a name="october-2020"></a>Outubro de 2020
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
@@ -108,7 +108,8 @@ Pode ser afetado se:
 
 - Codificado o endereço IP para qualquer porta de entrada em particular na sua firewall no local
 - Ter quaisquer sub-redes que utilizem o Microsoft.SQL como um Ponto Final de Serviço, mas não podem comunicar com os endereços IP gateway
-- Utilize a [configuração redundante](high-availability-sla.md#zone-redundant-configuration) da zona para a sua base de dados
+- Utilize a [configuração redundante da zona para o nível de finalidade geral](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Utilize a [configuração redundante da zona para níveis críticos de negócios premium &](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 Não será impactado se tiver:
  

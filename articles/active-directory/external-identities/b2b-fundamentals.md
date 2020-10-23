@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442172"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Ative Directy B2B boas práticas
 Este artigo contém recomendações e boas práticas para a colaboração entre empresas (B2B) no Azure Ative Directory (Azure AD).
@@ -31,7 +31,7 @@ Este artigo contém recomendações e boas práticas para a colaboração entre 
 | Para uma experiência de inscrição ideal, federa com fornecedores de identidade | Sempre que possível, federa diretamente com fornecedores de identidade para permitir que os utilizadores convidados inscrevam-se nas suas apps e recursos partilhados sem terem de criar contas microsoft accounts (MSAs) ou Azure AD. Pode utilizar a funcionalidade da [federação](google-federation.md) do Google para permitir que os utilizadores de hóspedes B2B assinem o seu contrato com as suas contas google. Ou, pode utilizar a [funcionalidade Direct federation (pré-visualização)](direct-federation.md) para configurar uma federação direta com qualquer organização cujo fornecedor de identidade (IdP) suporte o protocolo SAML 2.0 ou WS-Fed. |
 | Utilize a funcionalidade de código de acesso único (pré-visualização) do Email para hóspedes B2B que não podem autenticar por outros meios | A funcionalidade [de código de acesso único (pré-visualização)](one-time-passcode.md) do Email autentica os utilizadores convidados B2B quando não podem ser autenticados através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou a federação do Google. Quando o utilizador convidado resgatar um convite ou aceder a um recurso partilhado, pode solicitar um código temporário, que é enviado para o seu endereço de e-mail. Depois introduzem este código para continuarem a iniciar sessão. |
 | Adicionar uma imagem corporativa à sua página de início de sessão | Pode personalizar a sua página de sôr-in para que seja mais intuitiva para os seus utilizadores convidados B2B. Veja como [adicionar marca da empresa para iniciar sing e páginas do Painel de Acesso](../fundamentals/customize-branding.md). |
-| Adicione a sua declaração de privacidade à experiência de resgate de utilizadores de hóspedes B2B | Pode adicionar o URL da declaração de privacidade da sua organização ao processo de resgate de convites pela primeira vez para que um utilizador convidado consinta nos seus termos de privacidade para continuar. Ver [Como fazer: Adicione as informações de privacidade da sua organização no Diretório Ativo Azure](https://aka.ms/adprivacystatement). |
+| Adicione a sua declaração de privacidade à experiência de resgate de utilizadores de hóspedes B2B | Pode adicionar o URL da declaração de privacidade da sua organização ao processo de resgate de convites pela primeira vez para que um utilizador convidado consinta nos seus termos de privacidade para continuar. Ver [Como fazer: Adicione as informações de privacidade da sua organização no Diretório Ativo Azure](../fundamentals/active-directory-properties-area.md). |
 | Utilize a função de convite a granel (pré-visualização) para convidar vários utilizadores convidados B2B ao mesmo tempo | Convide vários utilizadores convidados para a sua organização ao mesmo tempo, utilizando a funcionalidade de pré-visualização de convites a granel no portal Azure. Esta funcionalidade permite-lhe fazer o upload de um ficheiro CSV para criar utilizadores convidados B2B e enviar convites a granel. Consulte [tutorial para utilizadores B2B convidativos a granel.](tutorial-bulk-invite.md) |
 | Impor políticas de acesso condicional para autenticação multi-factor (MFA) | Recomendamos a aplicação das políticas de MFA nas aplicações que pretende partilhar com os utilizadores B2B parceiros. Desta forma, o MFA será constantemente aplicado nas aplicações do seu inquilino, independentemente de a organização parceira estar a usar MFA. Ver [Acesso Condicional para utilizadores de colaboração B2B](conditional-access.md). |
 | Se estiver a aplicar políticas de acesso condicional baseadas em dispositivos, utilize listas de exclusão para permitir o acesso aos utilizadores B2B | Se as políticas de Acesso Condicional baseadas no dispositivo estiverem ativadas na sua organização, os dispositivos de utilizador convidado B2B serão bloqueados porque não são geridos pela sua organização. Pode criar listas de exclusão que contenham utilizadores parceiros específicos para os excluir da política de Acesso Condicional baseada no dispositivo. Ver [Acesso Condicional para utilizadores de colaboração B2B](conditional-access.md). |

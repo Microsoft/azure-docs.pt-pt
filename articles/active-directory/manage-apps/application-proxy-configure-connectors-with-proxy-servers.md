@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208010"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426454"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -121,7 +122,7 @@ Se a sua firewall ou proxy permitir configurar listas de autorizações DNS, pod
 Se não conseguir permitir a conectividade pela FQDN e precisar de especificar os intervalos IP, utilize estas opções:
 
 * Permitir o acesso de saída do conector a todos os destinos.
-* Permitir o acesso de saída do conector a todas as gamas IP do datacenter Azure. O desafio com a utilização da lista de gamas IP do datacenter Azure é que é atualizado semanalmente. É necessário implementar um processo para garantir que as suas regras de acesso sejam atualizadas em conformidade. Apenas a utilização de um subconjunto dos endereços IP pode fazer com que a sua configuração se parta. Para descarregar as mais recentes gamas IP do Azure Data Center, navegue [https://download.microsoft.com](https://download.microsoft.com) e procure "Azure IP Ranges and Service Tags". Certifique-se de selecionar a nuvem relevante. Por exemplo, as gamas IP em nuvem pública podem ser encontradas com "Azure IP Ranges and Service Tags – Public Cloud". A nuvem goverment dos EUA pode ser encontrada procurando "Azure IP Ranges and Service Tags – US Goverment Cloud".
+* Permitir o acesso de saída do conector a todas as gamas IP do datacenter Azure. O desafio com a utilização da lista de gamas IP do datacenter Azure é que é atualizado semanalmente. É necessário implementar um processo para garantir que as suas regras de acesso sejam atualizadas em conformidade. Apenas a utilização de um subconjunto dos endereços IP pode fazer com que a sua configuração se parta. Para descarregar as mais recentes gamas IP do Azure Data Center, navegue [https://download.microsoft.com](https://download.microsoft.com) e procure "Azure IP Ranges and Service Tags". Certifique-se de selecionar a nuvem relevante. Por exemplo, as gamas IP em nuvem pública podem ser encontradas com "Azure IP Ranges and Service Tags – Public Cloud". A nuvem do Governo dos EUA pode ser encontrada procurando "Azure IP Ranges and Service Tags – US Government Cloud".
 
 #### <a name="proxy-authentication"></a>Autenticação por procuração
 

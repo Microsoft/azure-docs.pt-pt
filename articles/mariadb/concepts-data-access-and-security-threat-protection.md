@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79532183"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425658"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Base de Dados Azure para a Proteção Avançada de Ameaças MariaDB
 
@@ -42,6 +42,6 @@ A Advanced Threat Protection for Azure Database for MariaDB deteta atividades an
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre [o Azure Security Center](../security-center/security-center-introduction.md)
 * Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços da MariaDB](https://azure.microsoft.com/pricing/details/mariadb/) 
-* Configure [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal  
+* Configure [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal

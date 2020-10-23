@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265799"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442070"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de faturação para identidades externas Azure AD
 
-O preço das identidades externas do Azure Ative (Azure AD) baseia-se nos utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo de faturação aplica-se tanto aos inquilinos convidados da Azure AD (B2B) como [aos inquilinos AZURE AD B2C.](https://docs.microsoft.com/azure/active-directory-b2c/billing) A faturação mau ajuda a reduzir custos oferecendo um nível livre e preços flexíveis e previsíveis. Neste artigo, conheça a faturação da MAU e ligue os seus inquilinos AD AZure a uma subscrição.
+O preço das identidades externas do Azure Ative (Azure AD) baseia-se nos utilizadores ativos mensais (MAU), que é a contagem de utilizadores únicos com atividade de autenticação dentro de um mês civil. Este modelo de faturação aplica-se tanto aos inquilinos convidados da Azure AD (B2B) como [aos inquilinos AZURE AD B2C.](../../active-directory-b2c/billing.md) A faturação mau ajuda a reduzir custos oferecendo um nível livre e preços flexíveis e previsíveis. Neste artigo, conheça a faturação da MAU e ligue os seus inquilinos AD AZure a uma subscrição.
 
 > [!IMPORTANT]
 > Este artigo não contém detalhes sobre os preços. Para obter as informações mais recentes sobre a faturação e preços de utilização, consulte [os preços do Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,7 +45,7 @@ O nível de preços que se aplica aos seus utilizadores convidados baseia-se no 
 
 Um inquilino Azure AD deve estar ligado a uma subscrição da Azure para faturação adequada e acesso a funcionalidades. Se o diretório já não tiver uma subscrição a que possa ligar, terá a oportunidade de adicionar uma durante este processo.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta Azure que foi atribuída pelo menos a função [de Contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) dentro da subscrição ou um grupo de recursos dentro da subscrição.
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta Azure que foi atribuída pelo menos a função [de Contribuinte](../../role-based-access-control/built-in-roles.md) dentro da subscrição ou um grupo de recursos dentro da subscrição.
 
 2. Selecione o diretório que pretende ligar: Na barra de ferramentas do portal Azure, selecione o ícone **Do Diretório + Subscrição** e, em seguida, selecione o diretório.
 
