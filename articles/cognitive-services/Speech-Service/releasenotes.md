@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 9eac4b08b590f93b3ec450eb1e1329d706fa09a3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 89a87cd881689f58bbc4d2b4bf2a63a992e8dae9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206208"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461639"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -177,7 +177,7 @@ Mantenha-se saudável!
 * Leitura cambial
     * Corrigiu a questão com a leitura da moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Input | Leitura após melhoria |
+    | Linguagem | Entrada | Leitura após melhoria |
     |---|---|---|
     | `es-MX` | $1,58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1,58 | un dólar cincuenta y ocho centavos |
@@ -216,7 +216,7 @@ Mantenha-se saudável!
 **Amostras**
 -   **C#**: [Amostra de código](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) para reconhecimento de altifalantes.
 -   **C++**: [Amostra de código](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) para reconhecimento de altifalantes.
--   **Java**: [Amostra de código](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) para reconhecimento de intenções no Android. 
+-   **Java**: [Amostra de código](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) para reconhecimento de intenções no Android. 
 
 **Testes abreviados COVID-19:** Devido ao trabalho remoto nas últimas semanas, não podíamos fazer tantos testes de verificação manual como normalmente fazemos. Não fizemos alterações que achamos que podem ter quebrado alguma coisa, e os nossos testes automatizados passaram. No caso improvável de termos perdido algo, por favor, avise-nos no [GitHub.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)<br>
 Mantenha-se saudável!
@@ -251,7 +251,7 @@ Mantenha-se saudável!
 **Amostras**
 - **Ir**: Entradas rápidas adicionais para [reconhecimento](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) de voz e [assistente de voz personalizado](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Encontre o código de amostra [aqui.](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples) 
 - **JavaScript**: Adição de quickstarts para [texto-a-discurso,](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript) [tradução](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)e [reconhecimento de intenções](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
-- Amostras de reconhecimento de palavras-chave para [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) e [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
+- Amostras de reconhecimento de palavras-chave para [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) e [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **Testes abreviados COVID-19:** Devido ao trabalho remoto nas últimas semanas, não podíamos fazer tantos testes de verificação manual como normalmente fazemos. Não fizemos alterações que achamos que podem ter quebrado alguma coisa, e os nossos testes automatizados passaram. Se nos escapou alguma coisa, por favor, avise-nos no [GitHub.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)<br>
 Mantenha-se saudável!
@@ -260,7 +260,7 @@ Mantenha-se saudável!
 **Novas funcionalidades**
 - Linux: Suporte adicional para Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 com [instruções](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) sobre como configurar o sistema para A SDK de fala.
 - Linux: Suporte adicional para .NET Core C# no Linux ARM32 e ARM64. Leia mais [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
-- C#, C++: Adicionado `UtteranceId` em , um ID consistente em todos `ConversationTranscriptionResult` os intermediários e resultado final de reconhecimento de discurso. Detalhes para [C.](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
+- C#, C++: Adicionado `UtteranceId` em , um ID consistente em todos `ConversationTranscriptionResult` os intermediários e resultado final de reconhecimento de discurso. Detalhes para [C.](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet&preserve-view=true), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
 - Python: Apoio adicional para `Language ID` . Ver speech_sample.py em [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
 - Windows: Suporte ao formato de entrada de áudio comprimido adicionado na plataforma Windows para todas as aplicações da consola Win32. Detalhes [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams) 
 - JavaScript: Síntese de discurso de suporte (texto-a-discurso) em NodeJS. Sabia mais [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
@@ -268,7 +268,7 @@ Mantenha-se saudável!
         
 **Correções de bugs**
 - C#, C++: Fixo um problema, por isso `SendMessageAsync` agora envia mensagem binária como tipo binário. Detalhes para [C.](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
-- C#, C++: Corrigiu um problema em que a utilização do `Connection MessageReceived` evento pode causar uma falha se for eliminada antes do `Recognizer` `Connection` objeto. Detalhes para [C.](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
+- C#, C++: Corrigiu um problema em que a utilização do `Connection MessageReceived` evento pode causar uma falha se for eliminada antes do `Recognizer` `Connection` objeto. Detalhes para [C.](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet&preserve-view=true), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
 - Android: O tamanho do tampão de áudio do microfone diminuiu de 800ms para 100ms para melhorar a latência.
 - Android: Corrigiu um [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) com o emulador Android x86 no Android Studio.
 - JavaScript: Apoio adicional às regiões da China com a `fromSubscription` API. Detalhes [aqui.](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#fromsubscription-string--string-) 

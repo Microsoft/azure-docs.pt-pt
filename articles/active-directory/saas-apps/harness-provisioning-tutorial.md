@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305660"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445705"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: Configure arnês para o fornecimento automático de utilizadores
 
@@ -25,7 +25,7 @@ Neste artigo, aprende-se a configurar o Azure Ative Directory (Azure AD) para pr
 > [!NOTE]
 > Este artigo descreve um conector que é construído em cima do serviço de fornecimento de utilizadores AZure AD. Para obter informações importantes sobre este serviço e respostas a perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de utilizadores para aplicações SaaS com o Azure Ative Directory](../app-provisioning/user-provisioning.md).
 >
-> Este conector encontra-se atualmente em pré-visualização. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector encontra-se atualmente em pré-visualização. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,7 +99,7 @@ Antes de configurar o Harness para o fornecimento automático de utilizadores co
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores ou grupos em Arnês com base em atribuições de utilizador ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o único sinal de Arnês baseado em SAML seguindo as instruções no tutorial de inscrição única do [Arnês.](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial) Pode configurar um único sinal de inscrição independente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
+> Pode também optar por ativar o único sinal de Arnês baseado em SAML seguindo as instruções no tutorial de inscrição única do [Arnês.](./harness-tutorial.md) Pode configurar um único sinal de inscrição independente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
 > [!NOTE]
 > Para saber mais sobre o ponto final do Harness SCIM, consulte o artigo [API Keys](https://docs.harness.io/article/smloyragsm-api-keys) do Harness.

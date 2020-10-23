@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: Proxy de saída
       href: load-balancer-outbound-connections.md
-    - name: Reposição de TCP e tempo limite de inatividade de TCP
     - name: Regras de saída
       href: outbound-rules.md
     - name: Reposição de TCP em tempo limite de inatividade

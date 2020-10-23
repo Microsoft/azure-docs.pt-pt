@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef09ef7d2ca6dd68def732831f9341dcd3aa6d62
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713584"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Diretório Ativo Azure com o AnswerHub
 
@@ -27,7 +27,7 @@ A integração do AnswerHub com a AD Azure proporciona estes benefícios:
 * Pode permitir que os seus utilizadores inscrevam-se automaticamente no AnswerHub com as suas contas AD Azure (súpido único).
 * Pode gerir as suas contas a partir de uma localização central: o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [o Single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [o Single sign-on para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -242,13 +242,12 @@ Para que os utilizadores de Azure AD entrem no AnswerHub, tem de os adicionar no
 
 Nesta secção, testa a configuração de inscrição única do Azure AD utilizando o painel de acesso.
 
-Quando selecionar o azulejo AnswerHub no painel de acesso, deverá ser automaticamente inscrito no AnswerHub para o qual configura sSO. Para obter mais informações sobre o painel de acesso, consulte [Introdução ao painel de acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo AnswerHub no painel de acesso, deverá ser automaticamente inscrito no AnswerHub para o qual configura sSO. Para obter mais informações sobre o painel de acesso, consulte [Introdução ao painel de acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para integrar apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para integrar apps SaaS com Diretório Ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

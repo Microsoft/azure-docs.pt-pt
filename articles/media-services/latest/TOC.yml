@@ -215,7 +215,7 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Paginar, filtrar e ordenar entidades'
           href: entities-overview.md
-        - name: RBAC
+        - name: RBAC do Azure
           href: rbac-overview.md
         - name: Códigos de erro
           items:
@@ -389,7 +389,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Go
+        - name: Ir
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

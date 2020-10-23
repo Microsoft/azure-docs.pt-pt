@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 6933f838f17e52f6889a44e343d02bef4848a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe09da61f4d87fbef4ce6c8739cd79c7bcda6796
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88521621"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442762"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hosted-heritage-online-sso"></a>Tutorial: Azure Ative Directory integração única (SSO) com SSO Online Do Heritage
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o Hosted Heritage Online SSO com O
 * Permita que os seus utilizadores sejam automaticamente inscritos no Hosted Heritage Online SSO com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -124,21 +124,20 @@ Para configurar um único sinal no lado **SSO do Heritage Online,** você precis
 
 ### <a name="create-hosted-heritage-online-sso-test-user"></a>Criar o utilizador de teste SSO online do Heritage Hospedado
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Hosted Heritage Online SSO. Trabalhe com [a equipe de apoio SSO do Heritage Online para](mailto:support@isoxford.com) adicionar os utilizadores na plataforma SSO online do Heritage Hosted. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Hosted Heritage Online SSO. Trabalhe com [a equipe de apoio SSO do Heritage Online para](mailto:support@isoxford.com) adicionar os utilizadores na plataforma SSO online do Heritage Hosted. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo SSO do Património Anfitrião no Painel de Acesso, deverá ser automaticamente inscrito no SSO Online do Património Anfitrião para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo SSO do Património Anfitrião no Painel de Acesso, deverá ser automaticamente inscrito no SSO Online do Património Anfitrião para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o SSO online do Heritage hospedado com a Azure AD](https://aad.portal.azure.com/)
-
