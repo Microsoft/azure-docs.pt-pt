@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7104040e73679b6563b02aba47698b8eac2b7a56
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926727"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441390"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -74,8 +74,8 @@ Pode delegar a gestão de utilizadores convidados aos proprietários da aplicaç
 
 Traga os seus parceiros externos a bordo de formas personalizadas às necessidades da sua organização.
 
-- Utilize [a gestão de direitos Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar políticas que [gerem o acesso a utilizadores externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Utilize o [convite de colaboração B2B APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar as suas experiências de embarque.
+- Utilize [a gestão de direitos Azure AD](../governance/entitlement-management-overview.md) para configurar políticas que [gerem o acesso a utilizadores externos](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- Utilize o [convite de colaboração B2B APIs](/graph/api/resources/invitation) para personalizar as suas experiências de embarque.
 
 ## <a name="integrate-with-identity-providers"></a>Integrar-se com fornecedores de identidade
 

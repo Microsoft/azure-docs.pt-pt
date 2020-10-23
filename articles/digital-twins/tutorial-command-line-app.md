@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048496"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460789"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -242,7 +242,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
     >[!NOTE]
-    >No projeto da amostra, o comando `Query` sem argumentos adicionais é o equivalente a `Query SELECT * FROM DIGITALTWINS` . Para consultar todos os gémeos no seu caso utilizando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos CLI,](how-to-use-cli.md)utilize a consulta mais longa (completa).
+    >No projeto da amostra, o comando `Query` sem argumentos adicionais é o equivalente a `Query SELECT * FROM DIGITALTWINS` . Para consultar todos os gémeos no seu caso utilizando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos CLI,](how-to-use-cli.md)utilize a consulta mais longa (completa).
 
 * **Quais são todos os quartos do meu ambiente?** (consulta por modelo)
 
@@ -284,7 +284,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). Se pretender continuar para o próximo tutorial, pode manter os recursos que criou aqui para continuar a usar esta instância Azure Digital Twins e uma aplicação de amostra configurada.
 * Neste caso, pode utilizar a aplicação da amostra `DeleteAllTwins` e `DeleteAllModels` os comandos para limpar os gémeos e modelos no seu caso, respectivamente. Isto vai dar-lhe uma ficha limpa para o próximo tutorial.

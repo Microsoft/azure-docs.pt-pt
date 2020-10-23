@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441876"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440740"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -36,6 +36,8 @@ Tens de o fazer:
     - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Passo 1: Criar um emprego de exportação
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Execute os seguintes passos para criar uma função de exportação no portal Azure.
 
@@ -99,6 +101,83 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
         > Envie sempre os discos para o datacenter indicado no portal Azure. Se os discos forem enviados para o centro de dados errado, o trabalho não será processado.
 
     - Clique **em OK** para concluir a criação de emprego de exportação.
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Utilize os seguintes passos para criar uma tarefa de exportação no portal Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Criar uma tarefa
+
+1. Utilize o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão [de importação e exportação az:](/cli/azure/ext/import-export/import-export)
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Para obter uma lista dos locais a partir dos quais pode receber discos, utilize o comando [da lista de localização de importação e exportação az:](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list)
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Executar o seguinte [az import-export criar](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) comando para criar uma tarefa de exportação que utilize a sua conta de armazenamento existente:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
+
+   Este trabalho exporta todas as bolhas na sua conta de armazenamento. Pode especificar uma bolha para exportação substituindo este valor para **--exportação**:
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   Este valor de parâmetro exporta a bolha nomeada *logo.bmp* no recipiente raiz.
+
+   Também tem a opção de selecionar todas as bolhas num recipiente utilizando um prefixo. Substitua este valor por **--exportação:**
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   Para mais informações, consulte [exemplos de caminhos de bolhas válidos.](#examples-of-valid-blob-paths)
+
+   > [!NOTE]
+   > Se a bolha a exportar estiver a ser utilizada durante a cópia de dados, o serviço Azure Import/Export tira uma foto da bolha e copia o instantâneo.
+
+1. Utilize o comando [da lista de importação e exportação az](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) para ver todos os postos de trabalho para o grupo de recursos myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Para atualizar o seu trabalho ou cancelar o seu trabalho, executar o comando [az de atualização de importação e exportação:](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update)
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 <!--## (Optional) Step 2: -->
 

@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424148"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460670"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -81,6 +81,10 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 [Serviço Azure Kubernetes (AKS)](../../aks/index.yml):
 
 - Gerir ambientes kubernetes hospedados e implementar e gerir aplicações contentorizadas dentro dos inquilinos dos clientes
+
+[Azure Migrate:](../../migrate/index.yml)
+
+- Crie projetos de migração no inquilino do cliente e migrar VMs
 
 [Monitor Azure:](../../azure-monitor/index.yml)
 

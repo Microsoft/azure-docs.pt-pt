@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149087"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427855"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -170,7 +170,7 @@ A funcionalidade de exceção de serviços de primeira festa fidedigna da Micros
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Conectividade Egressa para pontos finais da conta de armazenamento para encaminhamento
 
-O IoT Hub pode encaminhar mensagens para uma conta de armazenamento do cliente. Para permitir que a funcionalidade de encaminhamento aceda a uma conta de armazenamento enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma [identidade gerida.](#turn-on-managed-identity-for-iot-hub) Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para aceder à sua conta de armazenamento.
+O IoT Hub pode encaminhar mensagens para uma conta de armazenamento do cliente. Para permitir que a funcionalidade de encaminhamento aceda a uma conta de armazenamento enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma [identidade gerida.](#turn-on-managed-identity-for-iot-hub) Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao Azure RBAC para a identidade de recursos do seu hub para aceder à sua conta de armazenamento.
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
@@ -188,7 +188,7 @@ Agora, o seu ponto final de armazenamento personalizado está configurado para u
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Conectividade Egressa para centros de eventos pontos finais para encaminhamento
 
-O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nomes de centros de eventos pertencentes ao cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de centros de eventos enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma identidade gerida. Assim que uma identidade gerida for criada, siga os passos abaixo para dar permissão ao RBAC para aceder aos seus centros de eventos.
+O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nomes de centros de eventos pertencentes ao cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de centros de eventos enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma identidade gerida. Assim que uma identidade gerida for criada, siga os passos abaixo para dar permissão ao Azure RBAC para aceder aos seus centros de eventos.
 
 1. No portal Azure, navegue no separador **Access control (IAM)** dos seus centros de eventos e clique em **Adicionar** na secção De atribuição **de funções** Adicionar.
 
@@ -206,7 +206,7 @@ Agora, o ponto final dos seus centros de eventos personalizados está configurad
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Conectividade Egress para serviço de pontos finais de autocarro para encaminhamento
 
-O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome de ônibus de serviço de propriedade do cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de ônibus de serviço enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
+O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome de ônibus de serviço de propriedade do cliente. Para permitir que a funcionalidade de encaminhamento aceda a um recurso de ônibus de serviço enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao Azure RBAC para a identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
 
 1. No portal Azure, navegue no separador **access control (IAM)** do seu autocarro de serviço e clique em **Adicionar** na secção De atribuição de **funções** Adicionar.
 
@@ -224,7 +224,7 @@ Agora, o seu ponto final de serviço personalizado está configurado para usar a
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade Egressa para contas de armazenamento para upload de ficheiros
 
-A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos carreguem ficheiros para uma conta de armazenamento do cliente. Para permitir o funcionamento do upload do ficheiro, ambos os dispositivos e ioT Hub precisam de ter conectividade com a conta de armazenamento. Se as restrições de firewall estiverem em vigor na conta de armazenamento, os seus dispositivos precisam de utilizar qualquer mecanismo da conta de armazenamento suportada (incluindo [pontos finais privados,](../private-link/tutorial-private-endpoint-storage-portal.md) [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)de serviço ou [configuração de firewall direta](../storage/common/storage-network-security.md)) para ganhar conectividade. Da mesma forma, se as restrições de firewall estiverem em vigor na conta de armazenamento, o IoT Hub precisa de ser configurado para aceder ao recurso de armazenamento através da exceção de serviços fidedignos da Microsoft. Para isso, o seu Hub IoT deve ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para aceder à sua conta de armazenamento.
+A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos carreguem ficheiros para uma conta de armazenamento do cliente. Para permitir o funcionamento do upload do ficheiro, ambos os dispositivos e ioT Hub precisam de ter conectividade com a conta de armazenamento. Se as restrições de firewall estiverem em vigor na conta de armazenamento, os seus dispositivos precisam de utilizar qualquer mecanismo da conta de armazenamento suportada (incluindo [pontos finais privados,](../private-link/tutorial-private-endpoint-storage-portal.md) [pontos finais](../virtual-network/virtual-network-service-endpoints-overview.md)de serviço ou [configuração de firewall direta](../storage/common/storage-network-security.md)) para ganhar conectividade. Da mesma forma, se as restrições de firewall estiverem em vigor na conta de armazenamento, o IoT Hub precisa de ser configurado para aceder ao recurso de armazenamento através da exceção de serviços fidedignos da Microsoft. Para isso, o seu Hub IoT deve ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao Azure RBAC para a identidade de recursos do seu hub para aceder à sua conta de armazenamento.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +244,7 @@ Agora, o seu ponto final de armazenamento para upload de ficheiros está configu
 
 O IoT Hub suporta a funcionalidade de [importação/exportação](./iot-hub-bulk-identity-mgmt.md) de informações de dispositivos a granel a partir de/para uma bolha de armazenamento fornecida pelo cliente. Para permitir o funcionamento da função de importação/exportação a granel, tanto os dispositivos como o IoT Hub precisam de ter conectividade com a conta de armazenamento.
 
-Esta funcionalidade requer conectividade desde o IoT Hub até à conta de armazenamento. Para aceder a um recurso de ônibus de serviço enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao RBAC para a identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
+Esta funcionalidade requer conectividade desde o IoT Hub até à conta de armazenamento. Para aceder a um recurso de ônibus de serviço enquanto as restrições de firewall estão em vigor, o seu IoT Hub precisa de ter uma identidade gerida. Uma vez que uma identidade gerida é aprovisionada, siga os passos abaixo para dar permissão ao Azure RBAC para a identidade de recursos do seu hub para aceder ao seu ônibus de serviço.
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 

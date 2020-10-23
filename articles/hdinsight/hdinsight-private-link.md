@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147921"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426398"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Secure and isolate Azure HDInsight clusters com Private Link (pré-visualização)
 
@@ -59,6 +59,8 @@ Quando `privateLink` estiver definido para *ativar,* são [criados os equilibrad
 Os equilibradores de carga padrão não fornecem automaticamente o [NAT de saída pública,](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) como fazem os equilibradores básicos de carga. Tem de fornecer a sua própria solução NAT, como [o Virtual Network NAT](../virtual-network/nat-overview.md) ou uma [firewall,](./hdinsight-restrict-outbound-traffic.md)para dependências de saída. O seu cluster HDInsight ainda precisa de acesso às suas dependências de saída. Se estas dependências de saída não forem permitidas, a criação do cluster pode falhar.
 
 ### <a name="prepare-your-environment"></a>Preparar o ambiente
+
+Para o sucesso da criação de serviços de ligação privada, deve desativar explicitamente as políticas de [rede para o serviço de ligações privadas.](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)
 
 O diagrama que se segue mostra um exemplo da configuração de rede necessária antes de criar um cluster. Neste exemplo, todo o tráfego de saída é [forçado](../firewall/forced-tunneling.md) a Azure Firewall usando UDR e as dependências de saída necessárias devem ser "permitidas" na firewall antes de criar um cluster. Para os clusters de pacotes de segurança empresarial, a conectividade da rede com os Serviços de Domínio do Diretório Ativo Azure pode ser fornecida pelo espremiamento VNet.
 

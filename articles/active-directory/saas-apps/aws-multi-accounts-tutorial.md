@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: a9c1eb8816246c66803eca71677bc6ee835a9b29
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425594"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
 
@@ -31,7 +31,7 @@ A integração da Amazon Web Services (AWS) com a Azure AD proporciona-lhe os se
 ![Amazon Web Services (AWS) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Por favor, note que ligar uma aplicação AWS a todas as suas contas AWS não é a nossa abordagem recomendada. Em vez disso, recomendamos que utilize [esta](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem para configurar várias instâncias da conta AWS para várias instâncias de aplicações AWS em Azure AD. Só deve utilizar esta abordagem se tiver poucas Contas e Funções AWS, este modelo não é escalável à medida que as contas e funções AWS dentro destas contas crescem. Esta abordagem não utiliza a funcionalidade de importação de AWS Role utilizando o Provisioning do Utilizador Azure AD, pelo que tem de adicionar/atualizar/eliminar manualmente as funções. Para outras limitações nesta abordagem, consulte os detalhes abaixo.
+> Por favor, note que ligar uma aplicação AWS a todas as suas contas AWS não é a nossa abordagem recomendada. Em vez disso, recomendamos que utilize [esta](./amazon-web-service-tutorial.md) abordagem para configurar várias instâncias da conta AWS para várias instâncias de aplicações AWS em Azure AD. Só deve utilizar esta abordagem se tiver poucas Contas e Funções AWS, este modelo não é escalável à medida que as contas e funções AWS dentro destas contas crescem. Esta abordagem não utiliza a funcionalidade de importação de AWS Role utilizando o Provisioning do Utilizador Azure AD, pelo que tem de adicionar/atualizar/eliminar manualmente as funções. Para outras limitações nesta abordagem, consulte os detalhes abaixo.
 
 **Por favor, note que não recomendamos a utilização desta abordagem por seguintes razões:**
 
@@ -363,11 +363,11 @@ Também pode verificar a resposta da SAML para ver as funções serem passadas c
 
 ![Teste de sinal único 2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../active-directory-saas-access-panel-introduction.md)
+Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 50607093dd71184740e972a3c8572630df609453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f136d0818daca1585de3896305a080ddbabfbe2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361145"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426922"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gerir um espaço de trabalho Azure Machine Learning Studio (clássico)
 
@@ -48,7 +48,7 @@ Para gerir os serviços web associados a este espaço de trabalho Studio (cláss
 > [!NOTE]
 > Para implementar ou gerir Novos serviços web, deve ser-lhe atribuída uma função de contribuinte ou administrador na subscrição para a qual o serviço web é implantado. Se convidar outro utilizador para um espaço de trabalho do Machine Learning Studio (clássico), deve atribuí-lo a um colaborador ou administrador na subscrição antes de poder implementar ou gerir serviços web. 
 > 
->Para obter mais informações sobre a definição de permissões de acesso, consulte [Gerir o acesso através do RBAC e do portal Azure.](../../role-based-access-control/role-assignments-portal.md)
+>Para obter mais informações sobre a definição de permissões de acesso, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a implementação de Machine Learning com modelos de gestor de recursos Azure.](deploy-with-resource-manager-template.md) 

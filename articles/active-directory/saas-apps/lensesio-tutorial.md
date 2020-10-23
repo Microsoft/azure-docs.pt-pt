@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 48a1e50d451abb429e9bc33308909b368283644f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661457"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458613"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Tutorial: Azure Ative Directory integração única (SSO) com o portal Lenses.io DataOps
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o [portal dataOps Lenses.io](https
 * Ative os seus utilizadores a serem automaticamente inscritos nas Lentes com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Neste tutorial, você vai configurar e testar Azure AD SSO em um ambiente de tes
 
 * Lenses.io suporta o prestador de serviços (SP) iniciado sSO.
 
-* Pode impor o controlo da sessão depois de configurar Lenses.io. O controlo da sessão protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Pode impor o controlo da sessão depois de configurar Lenses.io. O controlo da sessão protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-lensesio-from-the-gallery"></a>Adicione Lenses.io da galeria
 
@@ -164,20 +164,20 @@ Para mais informações, consulte [o Mapeamento do grupo Azure - Lenses.](https:
 
 Nesta secção, teste a sua configuração Azure AD SSO utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo Lenses.io no Painel de Acesso, deverá ser automaticamente inscrito no seu portal Lenses.io. Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando selecionar o azulejo Lenses.io no Painel de Acesso, deverá ser automaticamente inscrito no seu portal Lenses.io. Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [Configurar sSO na sua Lenses.io instância](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [Lista de tutoriais sobre como integrar apps saaS com Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar apps saaS com Azure AD](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e sSO com Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e sSO com Azure AD?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure AD?](../conditional-access/overview.md)
 
 - [Experimente Lenses.io com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger Lenses.io com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger Lenses.io com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
