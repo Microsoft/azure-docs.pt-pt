@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267742"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440489"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: Qualquer-para-qualquer
 
@@ -22,14 +22,14 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 
 ## <a name="design"></a><a name="design"></a>Design
 
-Para descobrir quantas tabelas de rota serão necessárias num cenário de WAN Virtual, pode construir uma matriz de conectividade, onde cada célula representa se uma fonte (linha) pode comunicar a um destino (coluna). A matriz de conectividade neste cenário é trivial, mas incluímo-la para ser consistente com outros cenários.
+Para descobrir quantas tabelas de rota serão necessárias num cenário de WAN Virtual, pode construir uma matriz de conectividade, onde cada célula representa se uma fonte (linha) pode comunicar a um destino (coluna).
 
 | De |   Para |  *VNets* | *Ramos* |
 | -------------- | -------- | ---------- | ---|
-| VNets     | &#8594;|      X     |     X    |
-| Ramos   | &#8594;|    X     |     X    |
+| VNets     | &#8594;| Direct | Direct |
+| Ramos   | &#8594;| Direct  | Direct |
 
-Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "De" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico, onde um "X" significa que a conectividade é fornecida por Virtual WAN.
+Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) comunica com um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico). Neste cenário não existem firewalls ou Aparelhos Virtuais de Rede, pelo que a comunicação flui diretamente sobre o WAN Virtual (daí a palavra "Direto" na tabela).
 
 Uma vez que todas as ligações de VNets e sucursais (VPN, ExpressRoute e User VPN) têm os mesmos requisitos de conectividade, é necessária uma única tabela de rotas. Como resultado, todas as ligações serão associadas e propagadas para a mesma tabela de rotas, a tabela de rotas predefinida:
 

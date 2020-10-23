@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b8ff2fa32ae64b1857da4b7e4ef0cb997e4285
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821255"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92450633"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Azure Ative Directory integração única (SSO) com Freshworks
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Freshworks com Azure Ative Directo
 * Permita que os seus utilizadores sejam automaticamente inscritos na Freshworks com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,9 +91,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-1. Para modificar as opções **de Assinatura**   de acordo com o seu requisito, clique em **Editar**o   botão Editar para abrir o diálogo **do Certificado de Assinatura SAML.**  
+1. Para modificar as opções **de Assinatura** de acordo com o seu requisito, clique em Editar o botão **Editar** para abrir o diálogo **do Certificado de Assinatura SAML.**
 
-     ![image](common/edit-certificate.png)
+     ![image](common/edit-certificate.png)
 
      ![Screenshot que mostra o diálogo "S A M L Signing Certificate" com o botão "Editar" selecionado.](./media/freshworks-tutorial/response.png)
 
@@ -139,7 +139,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Abra uma nova janela do navegador web e inscreva-se no site da empresa Freshworks como administrador e execute os seguintes passos:
 
-2. A partir do lado esquerdo do menu, clique no ícone **de**   Segurança, em seguida, verifique a opção de **inscrição única** e selecione **SSO SAML** em **métodos de autenticação**.
+2. A partir do lado esquerdo do menu, clique no ícone **de Segurança,** em seguida, verifique a opção **de inscrição única** e selecione **SSO SAML** em **métodos de autenticação**.
 
     ![Screenshot que mostra a secção "Métodos de Segurança - Autenticação" com a opção "Single sign-on" ligada e selecionada "S A M L S S O".](./media/freshworks-tutorial/configure01.png)
 
@@ -159,21 +159,20 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-freshworks-test-user"></a>Criar utilizador de testes freshworks
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Freshworks. Trabalhe com [a equipa de suporte do Cliente Freshworks](mailto:support@freshworks.com) para adicionar os utilizadores na plataforma Freshworks. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
+Nesta secção, cria-se um utilizador chamado B.Simon in Freshworks. Trabalhe com [a equipa de suporte do Cliente Freshworks](mailto:support@freshworks.com) para adicionar os utilizadores na plataforma Freshworks. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo Freshworks no Painel de Acesso, deverá ser automaticamente inscrito no Freshworks para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo Freshworks no Painel de Acesso, deverá ser automaticamente inscrito no Freshworks para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente freshworks com Azure AD](https://aad.portal.azure.com/)
-

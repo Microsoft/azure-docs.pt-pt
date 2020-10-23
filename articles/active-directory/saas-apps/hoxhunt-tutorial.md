@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 03b31f80ecd5cc388b66c6eae54db83be300cd95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e18cd80c0232c4552c0e3dc57a23477d410c5395
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442563"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hoxhunt"></a>Tutorial: Azure Ative Directory integração única (SSO) com Hoxhunt
 
@@ -122,7 +122,7 @@ Para configurar um único sign-on no lado **hoxhunt,** você precisa enviar o Ce
 
 ### <a name="create-hoxhunt-test-user"></a>Criar utilizador de teste Hoxhunt
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Hoxhunt. Trabalhe com a [equipa de suporte da Hoxhunt](mailto:support@hoxhunt.com) para adicionar os utilizadores na plataforma Hoxhunt. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Hoxhunt. Trabalhe com a [equipa de suporte da Hoxhunt](mailto:support@hoxhunt.com) para adicionar os utilizadores na plataforma Hoxhunt. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -132,10 +132,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 2. Vá diretamente ao URL de inscrição de Hoxhunt e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo hoxhunt no Painel de Acesso, este irá redirecionar para o URL de inscrição de Hoxhunt. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo hoxhunt no Painel de Acesso, este irá redirecionar para o URL de inscrição de Hoxhunt. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado Hoxhunt, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado Hoxhunt, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

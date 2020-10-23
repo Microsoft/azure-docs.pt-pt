@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 1da2fd879dbeac1836469d46567566769f6163a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732362ef7099e93697320d8e47180c1207e8cb32
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555404"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integração do Azure Ative Directory com a Everbridge
 
@@ -26,7 +26,7 @@ Quando integrar o Everbridge com a AD Azure, pode:
 * Controlo em Azure AD que tem acesso a Everbridge.
 * Permita que os seus utilizadores sejam automaticamente inscritos na Everbridge com as suas contas AD Azure. Este controlo de acesso chama-se único sinal de acesso (SSO).
 * Gerencie as suas contas numa localização central utilizando o portal Azure.
-Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [o que é o acesso à aplicação e o único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [o que é o acesso à aplicação e o único acesso ao Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -228,11 +228,10 @@ Nesta secção, cria-se a utilizadora de testes Britta Simon em Everbridge. Para
 
 Teste a sua configuração de sinal único AD AD através do Painel de Acesso.
 
-Quando selecionar o azulejo Everbridge no Painel de Acesso, deverá ser automaticamente inscrito na conta Everbridge para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Everbridge no Painel de Acesso, deverá ser automaticamente inscrito na conta Everbridge para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

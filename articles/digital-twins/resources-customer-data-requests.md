@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047697"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461764"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Funcionalidades de pedido de dados do cliente da Azure Digital Twins
 
@@ -25,7 +25,7 @@ As representações digitais chamadas *gémeas digitais* em Azure Digital Twins 
 
 Muitos dos gémeos digitais em Azure Digital Twins não representam diretamente entidades pessoais — objetos típicos representados podem ser uma sala de reuniões de escritório, ou um piso de fábrica. No entanto, os utilizadores podem considerar que algumas entidades são pessoalmente identificáveis, e a seu critério podem manter o seu próprio ativo ou métodos de rastreio de inventário que ligam gémeos digitais a indivíduos. A Azure Digital Twins gere e armazena todos os dados associados a gémeos digitais como se fossem dados pessoais.
 
-Para visualizar, exportar e eliminar dados pessoais que possam ser referenciados num pedido de assunto de dados, um administrador da Azure Digital Twins pode utilizar o [**portal Azure**](https://portal.azure.com/) para utilizadores e funções, ou as [**APIs REST de Gémeos Digitais Azure**](how-to-use-apis-sdks.md) para gémeos digitais. O portal Azure e as APIs REST fornecem diferentes métodos para os utilizadores servirem esses pedidos de tratamento.
+Para visualizar, exportar e eliminar dados pessoais que possam ser referenciados num pedido de assunto de dados, um administrador da Azure Digital Twins pode utilizar o [**portal Azure**](https://portal.azure.com/) para utilizadores e funções, ou as [**APIs REST de Gémeos Digitais Azure**](/rest/api/azure-digitaltwins/) para gémeos digitais. O portal Azure e as APIs REST fornecem diferentes métodos para os utilizadores servirem esses pedidos de tratamento.
 
 ## <a name="identifying-customer-data"></a>Identificar dados do cliente
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123532"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424134"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre O Observador de Redes Azure
 O serviço [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -55,7 +55,7 @@ Visite [a página de preços](https://azure.microsoft.com/pricing/details/networ
 Pode ver a mais recente disponibilidade regional na [página de disponibilidade do Serviço Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Que permissões são necessárias para utilizar o Network Watcher?
-Consulte a lista de [permissões do RBAC necessárias para utilizar o Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Para a implementação de recursos, necessita de permissões de colaboradores para o NetworkWatcherRG (ver abaixo).
+Consulte a lista de [permissões Azure RBAC necessárias para utilizar o Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Para a implementação de recursos, necessita de permissões de colaboradores para o NetworkWatcherRG (ver abaixo).
 
 ### <a name="how-do-i-enable-network-watcher"></a>Como posso ativar o Observador de Rede?
 O serviço Network Watcher é [ativado automaticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) para cada subscrição.

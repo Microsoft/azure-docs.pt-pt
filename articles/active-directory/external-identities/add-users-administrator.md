@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b503c7494d1b5e1821718fab5577bca88be65169
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442291"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração Azure Ative Directory B2B no portal Azure
 
@@ -25,7 +25,7 @@ Como utilizador a quem é atribuída qualquer uma das funções limitadas de dir
 Depois de adicionar um utilizador convidado ao diretório, pode enviar ao utilizador convidado um link direto para uma aplicação partilhada, ou o utilizador convidado pode clicar no URL de resgate no e-mail de convite. Para obter mais informações sobre o processo de resgate, consulte o [pedido de colaboração B2B de resgate](redemption-experience.md).
 
 > [!IMPORTANT]
-> Deve seguir os passos em [Como-a: Adicione as informações de privacidade da sua organização no Azure Ative Directory](https://aka.ms/adprivacystatement) para adicionar o URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convites pela primeira vez, um utilizador convidado deve consentir com os seus termos de privacidade para continuar. 
+> Deve seguir os passos em [Como-a: Adicione as informações de privacidade da sua organização no Azure Ative Directory](../fundamentals/active-directory-properties-area.md) para adicionar o URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convites pela primeira vez, um utilizador convidado deve consentir com os seus termos de privacidade para continuar. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -124,4 +124,3 @@ Se um utilizador convidado ainda não tiver resgatado o seu convite, pode reensi
 
 - Para saber como os administradores não-AD não-Azure podem adicionar utilizadores convidados B2B, veja [como é que os trabalhadores da informação adicionam utilizadores de colaboração B2B?](add-users-information-worker.md)
 - Para obter informações sobre o e-mail de convite, consulte [os elementos do e-mail de convite de colaboração B2B.](invitation-email-elements.md)
-

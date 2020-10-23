@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354977"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441509"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
@@ -93,11 +93,11 @@ Um utilizador que tenha uma conta de hóspedes não pode iniciar sessão e está
 
 O utilizador tem uma conta de utilizador Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, não existem administradores globais ou de empresas no arrendatário.
 
-Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a  [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
+Para resolver este problema, tem de tomar conta do inquilino abandonado. Consulte a  [tomada de posse de um diretório não gerido como administrador no Azure Ative Directory](../users-groups-roles/domains-admin-takeover.md). Também deve aceder ao DNS virado para a Internet para o sufixo de domínio em questão, de modo a fornecer provas diretas de que está a controlar o espaço de nome. Depois de o arrendatário ser devolvido a um estado gerido, por favor discuta com o cliente se deixar os utilizadores e o nome de domínio verificado é a melhor opção para a sua organização.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um utilizador convidado com um inquilino just-in-time ou "viral" é incapaz de redefinir a sua palavra-passe
 
-Se o inquilino de identidade for um inquilino just-in-time (JIT) ou inquilino viral (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
+Se o inquilino de identidade for um inquilino just-in-time (JIT) ou inquilino viral (o que significa que é um inquilino Azure separado e não gerido), apenas o utilizador convidado pode redefinir a sua senha. Por vezes, uma organização [assume a gestão de inquilinos virais](../users-groups-roles/domains-admin-takeover.md) que são criados quando os funcionários usam os seus endereços de e-mail de trabalho para se inscreverem para serviços. Após a organização assumir um inquilino viral, apenas um administrador nessa organização pode redefinir a palavra-passe do utilizador ou ativar o SSPR. Se necessário, como organização convidativa, pode remover a conta de utilizador do seu diretório e reensuitar um convite.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Um utilizador convidado não pode utilizar o módulo AzureAD PowerShell V1
 
@@ -105,7 +105,7 @@ A partir de 18 de novembro de 2019, os utilizadores convidados do seu diretório
 
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Num inquilino do Governo dos EUA, não posso convidar um utilizador convidado de colaboração B2B
 
-Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apenas apoiada entre inquilinos que estão dentro da nuvem do Governo dos EUA e que ambos apoiam a colaboração B2B. Se convidar um utilizador para um inquilino que não faça parte da nuvem do Governo dos EUA ou que ainda não apoie a colaboração B2B, terá um erro. Para mais detalhes e limitações, consulte [Azure Ative Directory Premium P1 e P2 Variações.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)
+Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apenas apoiada entre inquilinos que estão dentro da nuvem do Governo dos EUA e que ambos apoiam a colaboração B2B. Se convidar um utilizador para um inquilino que não faça parte da nuvem do Governo dos EUA ou que ainda não apoie a colaboração B2B, terá um erro. Para mais detalhes e limitações, consulte [Azure Ative Directory Premium P1 e P2 Variações.](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2)
 
 ## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Eu recebo o erro que a AZure AD não pode encontrar a aad-extensions-app no meu inquilino
 
@@ -123,4 +123,4 @@ Deverá agora ver a aplicação restaurada no portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Obtenha apoio para a colaboração B2B](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)
+[Obtenha apoio para a colaboração B2B](../fundamentals/active-directory-troubleshooting-support-howto.md)

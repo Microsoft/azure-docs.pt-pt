@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 2a50d7b037cec2c10f83fdbbd875f80513c00a6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47a3ae27fd1a18b7e9acd7d8b25748f6274c3e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88517073"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456998"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blogin"></a>Tutorial: Azure Ative Directory integração única (SSO) com blogIn
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar blogIn com Azure Ative Directory (
 * Capacitar os seus utilizadores a serem automaticamente inscritos no BlogIn com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * BlogIn suporta **SP e IDP** iniciado SSO
 * BlogIn suporta **o fornecimento de utilizadores just in time**
-* Uma vez configurado o BlogIn, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurado o BlogIn, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-blogin-from-the-gallery"></a>Adicionar BlogIn da galeria
 
@@ -97,7 +97,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação BlogIn espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ------ | --------- |
     | título |user.jobtitle |
     
@@ -143,7 +143,7 @@ Para configurar o login único no **BlogIn** na sua conta BlogIn e siga estes pa
 1. Ir para **Definições**  >  **Configurações Configurações Configuração Configuração**  >  **Configuração Configuração SSO & fornecimento do utilizador**.
 2. No ecrã seguinte, altere o estado de Sign-On único para **On** e escolha um nome personalizado para o botão de login SSO que será exibido no ecrã de login.
 
-3. Se guardou o Url de **Metadados da Federação** de Aplicações no último passo da secção anterior, escolha o método de configuração **MEtadados URL** e cole **o Url de metadados da Federação de Aplicações** no campo URL dos metadados. Caso contrário, altere o método de Configuração para **manual,** povoe manualmente **o URL SSO (URL do Fornecedor de Início de Sessão)** e o Emissor de Fornecedor de Identidade **(ID da entidade)** e faça o upload do **Certificado (base64)**   que obteve do Azure AD.
+3. Se guardou o Url de **Metadados da Federação** de Aplicações no último passo da secção anterior, escolha o método de configuração **MEtadados URL** e cole **o Url de metadados da Federação de Aplicações** no campo URL dos metadados. Caso contrário, altere o método de Configuração para **manual,** povoe manualmente **o URL SSO (URL do Fornecedor de Início de Sessão)** e o Emissor de Fornecedor de Identidade **(ID da entidade)** e faça o upload do **Certificado (base64)** que obteve do Azure AD.
 
 4. Escolha a função de utilizador predefinido para novos utilizadores que se juntem ao BlogIn utilizando sSO.
 
@@ -159,18 +159,18 @@ Nesta secção, um utilizador chamado B.Simon é criado no BlogIn. O BlogIn supo
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo BlogIn no Painel de Acesso, deverá ser automaticamente inscrito no BlogIn para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo BlogIn no Painel de Acesso, deverá ser automaticamente inscrito no BlogIn para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente blogIn com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o BlogIn com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger o BlogIn com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

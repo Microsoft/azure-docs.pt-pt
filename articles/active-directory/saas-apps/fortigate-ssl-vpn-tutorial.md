@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acb08d5430f13ad9a339b2cdd072fce9c196d05f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331121"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92451490"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Tutorial: Azure Ative Directory integração única (SSO) com FortiGate SSL VPN
 
@@ -30,7 +30,7 @@ Neste tutorial, você vai aprender a integrar FortiGate SSL VPN com Azure Ative 
 * Permita que os seus utilizadores sejam automaticamente inscritos na VPN FortiGate SSL com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ Neste tutorial, você vai configurar e testar Azure AD SSO em um ambiente de tes
 
 A FortiGate SSL VPN suporta sSO iniciado pelo SP.
 
-Depois de configurar o FortiGate SSL VPN, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o FortiGate SSL VPN, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-fortigate-ssl-vpn-from-the-gallery"></a>Adicione FortiGate SSL VPN da galeria
 
@@ -100,7 +100,7 @@ Siga estes passos para permitir que o Azure AD SSO no portal Azure:
 
 1. As duas reclamações adicionais exigidas pela FortiGate SSL VPN são apresentadas no quadro seguinte. Os nomes destas reclamações devem corresponder aos nomes utilizados na secção de configuração da **linha de comando Perform FortiGate** deste tutorial. 
 
-   | Nome |  Atributo de origem|
+   | Name |  Atributo de origem|
    | ------------ | --------- |
    | nome de utilizador | user.userprincipalname |
    | group | utilizador.grupos |
@@ -254,24 +254,24 @@ Para completar estes passos, você precisará do Id de Objeto do grupo de segura
 
 Nesta secção, irá configurar um FortiGate VPN Portals and Firewall Policy que dá acesso ao grupo de segurança FortiGateAccess que criou anteriormente neste tutorial.
 
-Trabalhe com a [equipa de apoio fortiGate](mailto:tac_amer@fortinet.com) para adicionar os Portais VPN e a Política de Firewall à plataforma VPN FortiGate. Tem de completar este passo antes de utilizar uma única s placa.
+Trabalhe com a [equipa de apoio fortiGate](mailto:tac_amer@fortinet.com) para adicionar os Portais VPN e a Política de Firewall à plataforma VPN FortiGate. Tem de completar este passo antes de utilizar uma única s placa.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, irá testar a sua configuração de inscrição única Azure AD utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo VPN VPN do FortiGate SSL no Painel de Acesso, deverá ser automaticamente inscrito no FortiGate SSL VPN para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [o Painel de Introdução ao Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo VPN VPN do FortiGate SSL no Painel de Acesso, deverá ser automaticamente inscrito no FortiGate SSL VPN para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [o Painel de Introdução ao Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 A Microsoft e o FortiGate recomendam que utilize o cliente Fortinet VPN, FortiClient, para a melhor experiência do utilizador final.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais sobre como integrar apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais sobre como integrar apps SaaS com Diretório Ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
 - [Experimente FortiGate SSL VPN com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

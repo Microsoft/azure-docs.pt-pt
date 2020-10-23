@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282259"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440812"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -73,7 +73,7 @@ As APIs de ponta que estão disponíveis no plano de controlo são:
  
 Para criar uma rota de eventos, pode utilizar o plano de dados Azure Digital Twins [**APIs,**](how-to-manage-routes-apis-cli.md#create-an-event-route) [**comandos CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou o [**portal Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateEventRoute` [.NET (C#) SDK:](how-to-use-apis-sdks.md) 
+Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateEventRoute` [.NET (C#) SDK:](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
