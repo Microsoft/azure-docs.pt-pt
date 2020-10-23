@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 8669330a8cfccea0dcc10c318c2be4acbcb7788c
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169358"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424074"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -23,7 +23,7 @@ Este artigo descreve os limites e detalhes de configuração para criar e execut
 
 Aqui estão os limites para uma definição de aplicação lógica única:
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 | ---- | ----- | ----- |
 | Ações por fluxo de trabalho | 500 | Para estender este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
 | Permitiu profundidade de nidificação para ações | 8 | Para estender este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
@@ -41,32 +41,31 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>Executar limites de duração e retenção
+## <a name="run-duration-and-retention-history-limits"></a>Prazos de duração e conservação
 
 Aqui estão os limites para uma única aplicação lógica executada:
 
-| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Duração da execução | 90 dias | 366 dias | A duração da execução é calculada utilizando a hora de início de uma execução e o limite especificado *na hora* de início pela definição do fluxo de trabalho, Executar [**a retenção do histórico em dias**](#change-duration). <p><p>Para alterar o limite de incumprimento, que é de 90 dias, consulte [a duração do prazo de alteração](#change-duration). |
-| Executar retenção no armazenamento | 90 dias | 366 dias | A retenção de execução é calculada utilizando a hora de início de uma execução e o limite especificado *no momento atual* pela definição do fluxo de trabalho, Executar a [**retenção do histórico em dias**](#change-retention). Quer uma execução complete ou o tempo de saída, o cálculo da retenção utiliza sempre a hora de início da execução. Quando a duração de uma corrida excede o limite de retenção *atual,* a execução é removida da história das corridas. <p><p>Se alterar esta definição, o limite atual é sempre utilizado para calcular a retenção, independentemente do limite anterior. Por exemplo, se reduzir o limite de retenção de 90 dias para 30 dias, uma corrida que tem 60 dias é removida da história das corridas. Se aumentar o período de retenção de 30 dias para 60 dias, uma corrida que tem 20 dias de idade na história das corridas por mais 40 dias. <p><p>Para alterar o limite de incumprimento, que é de 90 dias, consulte [a retenção de execução de variação no armazenamento](#change-retention). |
+| Duração da execução | 90 dias | 366 dias | A duração da execução é calculada utilizando a hora de início de uma corrida. |
+| Executar retenção de história no armazenamento | 90 dias | 366 dias | Quando uma execução termina ou se esgota, a retenção do histórico é sempre calculada utilizando a hora de início da execução e o limite especificado no *momento atual* pela definição do fluxo de trabalho, executar [**a retenção do histórico em dias**](#change-retention). Se alterar esta definição, o limite *atual* é sempre utilizado para calcular a retenção, independentemente do limite anterior. Quando a duração de uma corrida excede o limite atual, a execução é removida da história das corridas. <p><p>Por exemplo, suponha que reduza o limite de retenção de 90 dias para 30 dias. Uma corrida de 60 dias é removida da história das corridas. Se aumentar o período de retenção de 30 dias para 60 dias, uma corrida de 20 dias fica na história das corridas por mais 40 dias. <p><p>Para alterar o limite de incumprimento, que é de 90 dias, consulte [a retenção do histórico de variação no armazenamento](#change-retention). |
 | Intervalo mínimo de recorrência | 1 segundo | 1 segundo ||
 | Intervalo máximo de recorrência | 500 dias | 500 dias ||
 |||||
 
-<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>Alterar a duração do funcional e executar a retenção no armazenamento
+### <a name="change-run-history-retention-in-storage"></a>Alterar a retenção do histórico de execução no armazenamento
 
-Para alterar o limite padrão para a duração do funcional e executar a retenção no armazenamento, siga estes passos. Para aumentar o limite máximo, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+Para alterar o limite padrão para a retenção do histórico de execução no armazenamento, siga estes passos. Para aumentar o limite máximo, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
 > [!NOTE]
 > Para aplicações lógicas em Azure multi-inquilino, o limite de 90 dias de incumprimento é o mesmo que o limite máximo. Só se pode diminuir este valor.
 > Para aplicações lógicas num ambiente de serviço de integração, pode diminuir ou aumentar o limite de 90 dias.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com). Na caixa de pesquisa do portal, encontre e selecione **aplicações Lógicas.**
+1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com) encontre e selecione **aplicações Lógicas.**
 
-1. Selecione e, em seguida, abra a sua aplicação lógica no Logic App Designer.
+1. Encontre e selecione a sua aplicação lógica. Abra a sua aplicação lógica no Logic App Designer.
 
 1. No menu da aplicação lógica, selecione **as definições do Fluxo de Trabalho**.
 
@@ -82,7 +81,7 @@ Para alterar o limite padrão para a duração do funcional e executar a retenç
 
 Aqui estão os limites para uma única aplicação lógica executada:
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 | ---- | ----- | ----- |
 | Concuência do gatilho | - Ilimitado quando o controlo de concordância é desligado <p><p>- 25 é o limite de predefinição quando o controlo de concordância é ligado, o que não pode desfazer depois de permitir a concuência. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite descreve o maior número de instâncias lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a concuência é ligada, o limite SplitOn é reduzido a 100 itens para [debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 de forma inclusiva, consulte [alterar o limite de concuência do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou desencadear [sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Corridas de espera máximas | - Sem concordância, o número mínimo de espera é 1, enquanto o número máximo é de 50. <p><p>- Com concordância, o número mínimo de execuções de espera é de 10 mais o número de execuções simultâneas (concuência do gatilho). Pode alterar o número máximo até 100 inclusive. | Este limite descreve o maior número de instâncias lógicas que podem esperar para correr quando a sua aplicação lógica já está a executar as instâncias mais simultâneas. <p><p>Para alterar o limite de predefinição, consulte [o limite de execuções de espera change](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
@@ -100,7 +99,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 ### <a name="multi-tenant-logic-apps-service"></a>Serviço de Apps Lógicas Multi-inquilinos
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 | ---- | ----- | ----- |
 | Ação: Execuções por 5 minutos | 100.000 é o limite de incumprimento, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [executar a sua aplicação lógica no modo "alta produção",](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)que está em pré-visualização. Ou, pode distribuir a carga de trabalho por mais do que uma aplicação lógica, se necessário. |
 | Ação: Chamadas de saída simultâneas | ~2500 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
@@ -114,7 +113,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 Aqui estão os limites de produção para o [Premium ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 |------|-------|-------|
 | Limite de execução da unidade de base | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Fornece ~4.000 execuções de ação por minuto, que é ~160 milhões de execuções de ação por mês | |
 | Limite de execução da unidade de escala | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que é ~80 milhões mais execuções de ação por mês | |
@@ -142,7 +141,7 @@ Aqui estão os limites para uma única chamada HTTP de saída ou entrada:
 
 Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de webhook, pelo que o tempo limite para estas operações pode ser maior do que estes limites. Para mais informações, consulte os detalhes técnicos do conector específico e também [os gatilhos e ações do Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Pedido de saída | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas por triggers HTTP. <p><p>**Dica**: Para operações mais longas, utilize um [padrão de sondagem assíncronos](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para trabalhar em torno de limites de tempo quando você chama outra aplicação lógica que tem um [ponto final chamado,](logic-apps-http-endpoint.md)você pode usar a ação incorporada Azure Logic Apps, que você pode encontrar no conector picker em **incorporado**. |
 | Pedido de entrada | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de entrada incluem chamadas recebidas por pedido de triggers e detonadores webhook. <p><p>**Nota:** Para que o chamador original obtenha a resposta, todos os passos na resposta devem terminar dentro do limite, a menos que chame outra aplicação lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [aplicações lógicas Call, Trigger ou Nest.](../logic-apps/logic-apps-http-endpoint.md) |
@@ -152,7 +151,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar este limite, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não suportar a chunking ou mesmo o limite padrão. <p><p>- Conectores como AS2, X12 e EDIFACT têm os seus [próprios limites de mensagem B2B](#b2b-protocol-limits). <br>- Os conectores ISE utilizam o limite ISE, não os seus limites de conector não ISE. |
 | Tamanho da mensagem com chunking | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa o chunking ou permitem que possassar a sua configuração de tempo de execução. <p><p>Se estiver a utilizar um ISE, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de rutura até ao limite do motor, por exemplo, consulte a [referência API do conector Azure Blob Storage](/connectors/azureblob/). Para obter mais informações sobre o chunking, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
@@ -160,7 +159,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 #### <a name="character-limits"></a>Limites de caracteres
 
-| Nome | Notas |
+| Name | Notas |
 |------|-------|
 | Limite de avaliação da expressão | 131 072 carateres | As `@concat()` `@base64()` `@string()` expressões não podem ser mais longas do que este limite. |
 | Pedido limite de caracteres URL | 16.384 caracteres |
@@ -170,7 +169,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 #### <a name="retry-policy"></a>Política de Repetição
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 | ---- | ----- | ----- |
 | Tentativas de repetição | 90 | A predefinição é 4. Para alterar o padrão, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Intervalo máx. de repetição | 1 dia | Para alterar o padrão, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -183,7 +182,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 Aqui estão os limites para uma aplicação lógica que começa com um gatilho request e permite [a autenticação aberta do Diretório Ativo Azure](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar chamadas de entrada para o gatilho do Pedido:
 
-| Nome | Limite | Notas |
+| Name | Limite | Notas |
 | ---- | ----- | ----- |
 | Políticas de autorização Azure AD | 5 | |
 | Reclamações por política de autorização | 10 | |
@@ -195,7 +194,7 @@ Aqui estão os limites para uma aplicação lógica que começa com um gatilho r
 
 Aqui estão os limites para conectores personalizados que pode criar a partir de APIs web.
 
-| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Número de conectores personalizados | 1000 por subscrição do Azure | 1000 por subscrição do Azure ||
 | Número de pedidos por minuto para um conector personalizado | 500 pedidos por minuto por ligação | 2.000 pedidos por minuto por *conector personalizado* ||
@@ -205,7 +204,7 @@ Aqui estão os limites para conectores personalizados que pode criar a partir de
 
 ## <a name="managed-identities"></a>Identidades geridas
 
-| Nome | Limite |
+| Name | Limite |
 |------|-------|
 | Identidades geridas por app lógica | Ou a identidade atribuída ao sistema ou 1 identidade atribuída ao utilizador |
 | Número de aplicações lógicas que têm uma identidade gerida numa subscrição do Azure por região | 1,000 |
@@ -281,7 +280,7 @@ Para taxas de preços, consulte [os preços das Aplicações Lógicas.](https://
 
 Aqui estão os limites de tamanho da mensagem que se aplicam aos protocolos B2B:
 
-| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2 - 100 MB<br>v1 - 25 MB | v2 - 200 MB <br>v1 - 25 MB | Aplica-se para descodificar e codificar |
 | X12 | 50 MB | 50 MB | Aplica-se para descodificar e codificar |
@@ -338,7 +337,7 @@ Esta secção lista os endereços IP de entrada apenas para o serviço Azure Log
 | Região multi-arrendatário | IP |
 |---------------------|----|
 | Leste da Austrália | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
-| Austrália Sudeste | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
+| Sudeste da Austrália | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Sul do Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
 | Canadá Central | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Leste do Canadá | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
@@ -402,7 +401,7 @@ Esta secção lista os endereços IP de saída para o serviço Azure Logic Apps 
 | Região multi-arrendatário | Aplicativos lógicos IP | Conectores geridos IP |
 |---------------------|---------------|-----------------------|
 | Leste da Austrália | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72, 13.70.78.224 - 13.70.78.255 |
-| Austrália Sudeste | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202, 13.77.55.160 - 13.77.55.191 |
+| Sudeste da Austrália | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34, 52.255.48.202, 13.77.55.160 - 13.77.55.191 |
 | Sul do Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207, 191.232.191.157, 191.233.207.160 - 191.233.207.191 |
 | Canadá Central | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.31.197, 52.237.24.126, 52.237.32.212, 13.71.175.160 - 13.71.175.191, 13.71.170.224 - 13.71.170.239 |
 | Leste do Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152, 52.242.30.112, 40.69.111.0 - 40.69.111.31 |

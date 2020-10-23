@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7e54c89a609b39a88d2a34078aadd6bbe9308e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f9568d175d564547e58bc3584174cb0f239dd49
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268371"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425218"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Use o PowerShell para criar uma app AD Azure para usar com a Azure Media Services API
 
@@ -60,10 +60,10 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 }
 ```
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-- [Gerir Role-Based controlo de acesso utilizando a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-powershell.md)
 - [Como configurar manualmente aplicações daemon usando certificados](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 
 ## <a name="next-steps"></a>Passos seguintes

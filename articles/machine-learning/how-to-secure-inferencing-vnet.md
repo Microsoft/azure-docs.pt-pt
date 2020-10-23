@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341316"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424455"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Garantir um ambiente de aprendizagem automática Azure com redes virtuais
 
@@ -42,12 +42,12 @@ Neste artigo aprende-se a assegurar os seguintes recursos de inferenculação nu
 
 + Uma rede virtual existente e uma sub-rede para usar com os seus recursos de computação.
 
-+ Para implantar recursos numa rede virtual ou numa sub-rede, a sua conta de utilizador deve ter permissões para as seguintes ações nos controlos de acesso baseados em funções Azure (RBAC):
++ Para implantar recursos numa rede virtual ou numa sub-rede, a sua conta de utilizador deve ter permissões para as seguintes ações no controlo de acesso baseado em funções Azure (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" no recurso de rede virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" no recurso sub-rede.
 
-    Para obter mais informações sobre o RBAC com as funções em rede, consulte as [funções embutimento em rede](/azure/role-based-access-control/built-in-roles#networking)
+    Para obter mais informações sobre o Azure RBAC com networking, consulte as [funções embutidas em rede](/azure/role-based-access-control/built-in-roles#networking)
 
 <a id="aksvnet"></a>
 

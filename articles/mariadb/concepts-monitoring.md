@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 8/13/2020
-ms.openlocfilehash: 9868403f69f3dc0b56aae06be1afda2134472805
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d2d34e95642308dcdacba20879945f2c965db955
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631040"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425204"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na Base de Dados Azure para MariaDB
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar a sua carga de trabalho. A Azure Database for MariaDB fornece várias métricas que dão uma visão do comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
-Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../azure-monitor/platform/data-platform.md).
 
 Para orientação passo a passo, consulte [como configurar alertas](howto-alert-metric.md).
 
@@ -36,16 +36,16 @@ Estas métricas estão disponíveis para Azure Database for MariaDB:
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo de servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento de registo de servidor|Bytes|O armazenamento máximo de registo de registo do servidor para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Ligações Ativas|Contagem|O número de ligações ativas ao servidor.|
-|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas ao servidor.|
-|seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos em que o servidor de réplica está a atrasar-se contra o servidor de origem. (Não aplicável aos servidores de nível básico)|
+|active_connections|Ligações Ativas|de palavras|O número de ligações ativas ao servidor.|
+|connections_failed|Ligações com Falhas|de palavras|O número de ligações falhadas ao servidor.|
+|seconds_behind_master|Atraso de replicação em segundos|de palavras|O número de segundos em que o servidor de réplica está a atrasar-se contra o servidor de origem. (Não aplicável aos servidores de nível básico)|
 |network_bytes_egress|Saída da Rede|Bytes|Rede para fora através de ligações ativas.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede Em através de ligações ativas.|
 |backup_storage_used|Armazenamento de backup usado|Bytes|A quantidade de armazenamento de reserva usado. Esta métrica representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência das cópias de segurança é gerida e explicada no [artigo de conceitos](concepts-backup.md). Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante.|
 
 ## <a name="server-logs"></a>Registos do servidor
 
-Pode ativar o início de sessão de consulta lenta no seu servidor. Estes registos também estão disponíveis através de Registos de Diagnóstico Azure em registos do Monitor Azure, Centros de Eventos e Conta de Armazenamento. Para saber mais sobre o registo de [registos,](concepts-server-logs.md) visite a página de registos do servidor.
+Pode ativar o início de sessão de consulta lenta no seu servidor. Estes registos também estão disponíveis através de Registos de Diagnóstico Azure em registos do Monitor Azure, Centros de Eventos e Conta de Armazenamento. Para saber mais sobre o registo de [registos,](concepts-server-logs.md) visite a página de registos do servidor.
 
 ## <a name="query-store"></a>Arquivo de Consultas
 
@@ -61,30 +61,13 @@ O recurso ['Recomendações de Desempenho'](concepts-performance-recommendations
 
 ## <a name="planned-maintenance-notification"></a>Notificação de manutenção planeada
 
-**As notificações de manutenção planeadas** permitem-lhe receber alertas para a próxima manutenção planeada na sua Base de Dados Azure para a MariaDB. Estas notificações estão integradas na manutenção planeada [do Service Health](../service-health/overview.md) e permitem-lhe visualizar todas as manutenção programadas para as suas subscrições num só local. Também ajuda a escalar a notificação para o público certo para diferentes grupos de recursos, pois você pode ter diferentes contactos responsáveis por diferentes recursos. Receberá a notificação sobre a próxima manutenção 72 horas antes do evento.
+[As notificações de manutenção planeadas](./concepts-planned-maintenance-notification.md) permitem-lhe receber alertas para a próxima manutenção planeada na sua Base de Dados Azure para a MariaDB. Estas notificações estão integradas na manutenção planeada [do Service Health](../service-health/overview.md) e permitem-lhe visualizar todas as manutenção programadas para as suas subscrições num só local. Também ajuda a escalar a notificação para o público certo para diferentes grupos de recursos, pois você pode ter diferentes contactos responsáveis por diferentes recursos. Receberá a notificação sobre a próxima manutenção 72 horas antes do evento.
 
-Durante a manutenção planeada, pode esperar que o seu servidor reinicie e possam ocorrer [erros transitórios.](concepts-connectivity.md#transient-errors) A maioria destes eventos são automaticamente atenuados pelo sistema em menos de 60 segundos. 
-
-> [!IMPORTANT]
-> As notificações de manutenção previstas estão atualmente disponíveis em pré-visualização em todas as **regiões, exceto** na Central Oeste dos EUA.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Para receber a notificação de manutenção planeada
-
-1. No [portal](https://portal.azure.com), selecione **Service Health**.
-2. Na secção **Alertas,** selecione **Alertas de Saúde**.
-3. **Selecione + Adicione o alerta de saúde** do serviço e preencha os campos.
-4. Preencha os campos necessários. 
-5. Escolha o **tipo de Evento,** selecione **manutenção planeada** ou **selecione tudo**
-6. Em **Action os grupos** definem como gostaria de receber o alerta (receba um e-mail, desencadeie uma aplicação lógica, etc.)  
-7. Certifique-se de que a regra enable após a criação está definida para Sim.
-8. Selecione **Criar regra de alerta** para completar o seu alerta
-
-Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!Note]
-> Faremos todas as tentativas para fornecer **aviso de manutenção planeada** 72 horas para todos os eventos. No entanto, em casos de patches críticos ou de segurança, as notificações podem ser enviadas para mais perto do evento ou ser omitidas.
+Saiba mais sobre como configurar notificações no documento [de notificações de manutenção planeado.](./concepts-planned-maintenance-notification.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-  - Veja [como configurar alertas](howto-alert-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
+- Veja [como configurar alertas](howto-alert-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
+- Saiba mais sobre [as notificações de manutenção planeadas](./concepts-planned-maintenance-notification.md) na Base de Dados Azure para MariaDB.
+

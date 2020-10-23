@@ -11,49 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 24e10dad6a4b9a6232ce74b5365d9a9df7860079
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339939"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425395"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
 ## <a name="introduction-to-secure-score"></a>Introdução para garantir pontuação
 
-O Azure Security Center tem dois objetivos principais: ajudá-lo a compreender a sua situação atual de segurança e ajudá-lo a melhorar de forma eficiente e eficaz a sua segurança. O aspeto central do Centro de Segurança que lhe permite atingir esses objetivos é a pontuação segura.
+O Centro de Segurança Azure tem dois objetivos principais: 
+
+- para ajudá-lo a entender a sua situação atual de segurança
+- para ajudá-lo de forma eficiente e eficaz a melhorar a sua segurança
+
+A característica central no Centro de Segurança que lhe permite atingir esses objetivos é **pontuação segura.**
 
 O Security Center avalia continuamente os seus recursos, subscrições e organização para questões de segurança. Em seguida, agrega todas as conclusões numa única pontuação para que possa dizer, num ápice, a sua situação de segurança atual: quanto maior for a pontuação, menor o nível de risco identificado.
 
-A página de pontuação segura do Centro de Segurança inclui:
+A pontuação segura é mostrada nas páginas do portal Azure como um valor percentual, mas os valores subjacentes também são claramente apresentados:
 
-- **A pontuação** - A pontuação segura é mostrada como um valor percentual, mas os valores subjacentes também são claros:
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Pontuação máxima segura, como mostrado no portal":::
 
-    [![Pontuação segura mostrada como um valor percentual com os números subjacentes claros também](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+Para aumentar a sua segurança, reveja a página de recomendações do Security Center para as ações pendentes necessárias para aumentar a sua pontuação. Cada recomendação inclui instruções para ajudá-lo a remediar a questão específica.
 
-- **Controlos de segurança** - Cada controlo é um grupo lógico de recomendações de segurança relacionadas, e reflete as suas superfícies de ataque vulneráveis. Um controlo é um conjunto de recomendações de segurança, com instruções que o ajudam a implementar essas recomendações. A sua pontuação só melhora quando remedia *todas as* recomendações para um único recurso dentro de um controlo.
+As recomendações são agrupadas nos **controlos de segurança.** Cada controlo é um grupo lógico de recomendações de segurança relacionadas, e reflete as suas superfícies de ataque vulneráveis. A sua pontuação só melhora quando remedia *todas as* recomendações para um único recurso dentro de um controlo. Para ver se a sua organização está a proteger cada superfície de ataque individual, reveja as pontuações para cada controlo de segurança.
 
-    Para ver imediatamente o quão bem a sua organização está a proteger cada superfície de ataque individual, reveja as pontuações para cada controlo de segurança.
-
-    Para obter mais informações, consulte [como a sua pontuação segura é calculada](secure-score-security-controls.md#how-your-secure-score-is-calculated) abaixo. 
-
-
->[!TIP]
-> Versões anteriores do Security Center premiaram pontos ao nível da recomendação: quando remediado uma recomendação para um único recurso, a sua pontuação segura melhorou. Hoje, a sua pontuação só melhora se remediar *todas as* recomendações para um único recurso dentro de um controlo. Portanto, a tua pontuação só melhora quando melhoras a segurança de um recurso.
+Para obter mais informações, consulte [como a sua pontuação segura é calculada](secure-score-security-controls.md#how-your-secure-score-is-calculated) abaixo. 
 
 
 ## <a name="access-your-secure-score"></a>Aceda à sua pontuação segura
 
-Pode encontrar a sua pontuação total segura, bem como a sua pontuação por subscrição, através do portal Azure ou programaticamente com o AZure Security Center REST API.
+Pode encontrar a sua pontuação máxima, bem como a sua pontuação por subscrição, através do portal Azure ou programaticamente como descrito nas seguintes secções:
+
+- [Obtenha a sua pontuação segura a partir do portal](#get-your-secure-score-from-the-portal)
+- [Obtenha a sua pontuação segura na API REST](#get-your-secure-score-from-the-rest-api)
+- [Obtenha a sua pontuação segura a partir do Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Obtenha a sua pontuação segura a partir do portal
 
-O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: é a primeira coisa mostrada na página de Visão Geral. Se clicar na página de pontuação segura dedicada, verá a pontuação desabatada por subscrição. Clique numa única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição.
+O Centro de Segurança exibe a sua pontuação de forma proeminente no portal: é o primeiro azulejo principal da página geral do Centro de Segurança. Selecionando este azulejo, leva-o à página de pontuação segura dedicada, onde verá a pontuação desabatada por subscrição. Selecione uma única subscrição para ver a lista detalhada de recomendações prioritárias e o impacto potencial que a sua reparação terá na pontuação da subscrição.
 
-![Pontuação máxima segura, como mostrado no portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
+Para recapitular, a sua pontuação segura é mostrada nos seguintes locais nas páginas do portal do Security Center.
+
+- Num azulejo da **visão geral** do Centro de Segurança (painel principal):
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Pontuação máxima segura, como mostrado no portal":::
+
+- Na página de **pontuação Secure** dedicada:
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Pontuação máxima segura, como mostrado no portal":::
+
+- No topo da página de **Recomendações:**
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Pontuação máxima segura, como mostrado no portal":::
+
+
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenha a sua pontuação segura na API REST
 
@@ -62,6 +79,40 @@ Pode aceder à sua pontuação através da pontuação segura API (atualmente em
 ![Recuperação de uma única pontuação segura através da API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Por exemplo, ferramentas construídas em cima da pontuação segura API, consulte [a área de pontuação segura da nossa comunidade GitHub.](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score) 
+
+
+
+### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Obtenha a sua pontuação segura a partir do Azure Resource Graph (ARG)
+
+O Azure Resource Graph fornece acesso instantâneo à informação de recursos em todos os seus ambientes em nuvem com capacidades robustas de filtragem, agrupamento e triagem. É uma forma rápida e eficiente de consultar informações através de subscrições Azure programáticas ou dentro do portal Azure. [Saiba mais sobre o Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+Para aceder à pontuação segura para várias subscrições com ARG:
+
+1. A partir do portal Azure, abra **o Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Pontuação máxima segura, como mostrado no portal" :::
+
+1. Insira a sua consulta Kusto (utilizando os exemplos abaixo para obter orientação).
+
+    - Esta consulta devolve o ID de subscrição, a pontuação atual em pontos e em percentagem, e a pontuação máxima para a subscrição. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - Esta consulta devolve o estado de todos os controlos de segurança. Para cada controlo, obterá o número de recursos insalubres, a pontuação atual e a pontuação máxima. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. Selecione **Consulta de execução**.
 
 ## <a name="how-your-secure-score-is-calculated"></a>Como a sua pontuação segura é calculada 
 
@@ -99,7 +150,7 @@ Recomendações assinaladas como **Preview** não estão incluídas nos cálculo
 
 Um exemplo de uma recomendação de pré-visualização:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Pontuação máxima segura, como mostrado no portal":::
 
 ## <a name="improve-your-secure-score"></a>Melhorar a sua pontuação segura
 

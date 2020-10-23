@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135764"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424827"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicar VMs Azure executando espaços de armazenamento direto para outra região
 
@@ -49,12 +49,12 @@ Abaixo, o diagrama mostra um aglomerado de failover Azure VM de dois nós utiliz
 1. Selecione a política de replicação com a consistência da aplicação off* (só existe suporte de consistência de colisão)
 1. Ativar a replicação
 
-   ![proteção de espaços de armazenamento](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Screenshot que mostra onde configurar as definições de replicação.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Vá a itens replicados e poderá ver o estado da máquina virtual.
 3. Ambas as máquinas virtuais estão a ser protegidas e também são mostradas como parte do grupo de consistência multi-VM.
 
-   ![proteção de espaços de armazenamento](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Screenshot que mostra que as máquinas virtuais estão protegidas e faz parte de um grupo de consistência multi-VM.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Criação de um plano de recuperação
 Um plano de recuperação apoia a sequenciação de vários níveis numa aplicação multi-nível durante uma falha. A sequenciação ajuda a manter a consistência da aplicação. Quando criar um plano de recuperação para uma aplicação web multi-nível, complete os passos descritos na [Criar um plano de recuperação utilizando a Recuperação do Site](site-recovery-create-recovery-plans.md).

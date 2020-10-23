@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135774"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424801"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -36,10 +36,10 @@ Ative a replicação. Este procedimento pressupõe que a região primária de Az
    - **Assinatura de origem**: A subscrição a que pertencem os seus VMs de origem. Isto pode ser qualquer subscrição com o mesmo inquilino do Azure Active Directory onde existe o cofre de serviços de recuperação.
    - **Grupo de Recursos**: O grupo de recursos a que pertencem as máquinas virtuais de origem. Todos os VMs do grupo de recursos selecionados estão listados para proteção no passo seguinte.
 
-     ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![Screenshot que realça os campos necessários para configurar a replicação.](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 3. Em **Máquinas Virtuais > Selecione máquinas virtuais,** clique e selecione cada VM que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**.
-    ![Ativar replicação](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![Screenshot que realça onde seleciona máquinas virtuais.](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. Nas **Definições,** pode configurar opcionalmente as definições do site do alvo:
 
@@ -101,7 +101,7 @@ Pode modificar as definições de alvo predefinidos utilizadas pela Recuperaçã
     - No **conjunto Disponibilidade,** pode adicionar definições de disponibilidade ao VM, se fizerem parte de um conjunto de disponibilidade na região de origem.
     - Nas **contas de Armazenamento Alvo,** selecione a conta que pretende utilizar.
 
-        ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![Screenshot que mostra como personalizar as definições de subscrição de alvo.](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. Clique **em Personalizar:** para modificar as definições de replicação.
 4. Na **consistência multi-VM,** selecione os VMs que pretende replicar juntos.
     - Todas as máquinas num grupo de replicação irão partilhar pontos de recuperação consistentes com a aplicação e com falhas aquando da ativação pós-falha.
@@ -111,7 +111,7 @@ Pode modificar as definições de alvo predefinidos utilizadas pela Recuperaçã
     - Se ativar a consistência multi-VM, as máquinas no grupo de replicação comunicam entre si pela porta 20004.
     - Certifique-se de que não existe um aparelho de firewall que bloqueie a comunicação interna entre os VMs sobre a porta 20004.
     - Se pretender que os VMs do Linux fazem parte de um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 é aberto manualmente de acordo com as orientações para a versão específica do Linux.
-![Ativar replicação](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+![Screenshot que mostra as definições de consistência multi-VM.](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. Clique **em Criar recurso-alvo**  >  **Ativar a replicação**.
 6. Depois de os VMs estarem ativados para replicação, pode verificar o estado da saúde em VM em **itens replicados**

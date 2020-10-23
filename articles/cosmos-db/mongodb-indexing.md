@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282369"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425025"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
 
@@ -40,7 +40,10 @@ Uma consulta utiliza vários índices de campo único sempre que disponível. Po
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compostos (versão 3.6 do servidor MongoDB)
 
-A API da Azure Cosmos DB para o MongoDB suporta índices compostos para contas que utilizam o protocolo de fio da versão 3.6. Pode incluir até oito campos num índice composto. **Ao contrário do MongoDB, você deve criar um índice composto apenas se a sua consulta precisar de classificar eficientemente em vários campos ao mesmo tempo.** Para consultas com filtros múltiplos que não precisam de classificar, crie vários índices de campo único em vez de um único índice composto.
+A API da Azure Cosmos DB para o MongoDB suporta índices compostos para contas que utilizam o protocolo de fio da versão 3.6. Pode incluir até oito campos num índice composto. Ao contrário do MongoDB, você deve criar um índice composto apenas se a sua consulta precisar de classificar eficientemente em vários campos ao mesmo tempo. Para consultas com filtros múltiplos que não precisam de classificar, crie vários índices de campo único em vez de um único índice composto. 
+
+> [!NOTE]
+> Não é possível criar índices compostos em propriedades aninhadas ou matrizes.
 
 O seguinte comando cria um índice composto nos campos `name` `age` e:
 
@@ -59,7 +62,7 @@ No entanto, a sequência dos caminhos no índice composto deve corresponder exat
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Não é possível criar índices compostos em propriedades aninhadas ou matrizes.
+> Os índices compostos são usados apenas em consultas que classificam resultados. Para consultas que tenham vários filtros que não precisam de classificar, crie índices de campo único multipe.
 
 ### <a name="multikey-indexes"></a>Índices multi-chave
 
@@ -75,7 +78,7 @@ Aqui está um exemplo de criação de um índice geoespacial no `location` campo
 
 ### <a name="text-indexes"></a>Índices de texto
 
-A API da Azure Cosmos DB para o MongoDB não suporta atualmente índices de texto. Para consultas de pesquisa de texto em cordas, você deve usar a integração [de Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) com Azure Cosmos DB.
+A API da Azure Cosmos DB para o MongoDB não suporta atualmente índices de texto. Para consultas de pesquisa de texto em cordas, você deve usar a integração [de Pesquisa Cognitiva Azure](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) com Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Índices wildcard
 
@@ -92,7 +95,7 @@ Aqui está parte de um documento de exemplo nessa coleção:
   ]
 ```
 
-Aqui está outro exemplo, desta vez com um conjunto ligeiramente diferente de propriedades em `children` :
+Aqui está outro exemplo, desta vez com um conjunto ligeiramente diferente de propriedades `children` em:
 
 ```json
   "children": [
@@ -131,7 +134,10 @@ Eis como se pode criar um índice wildcard em todos os campos:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-À medida que está a começar o desenvolvimento, pode ser útil criar um índice wildcard em todos os campos. À medida que mais propriedades são indexadas num documento, a taxa da Unidade de Pedido (RU) para a escrita e atualização do documento aumentará. Portanto, se tiver uma carga de trabalho pesada, deve optar por percursos de índice individualmente em oposição à utilização de índices wildcard.
+> [!NOTE]
+> Se está apenas a começar o desenvolvimento, recomendamos **vivamente** começar com um índice wildcard em todos os campos. Isto pode simplificar o desenvolvimento e facilitar a otimização de consultas.
+
+Os documentos com muitos campos podem ter uma elevada taxa de Unidade de Pedido (RU) para escritas e atualizações. Portanto, se tiver uma carga de trabalho pesada, deve optar por percursos de índice individualmente em oposição à utilização de índices wildcard.
 
 ### <a name="limitations"></a>Limitações
 
@@ -335,7 +341,7 @@ Atualmente, só é possível criar índices únicos quando a coleção não cont
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indexação para a versão 3.2 do MongoDB
 
-As funcionalidades e incumprimentos de indexação disponíveis são diferentes para as contas Azure Cosmos que são compatíveis com a versão 3.2 do protocolo de fio MongoDB. Pode [consultar a versão da sua conta.](mongodb-feature-support-36.md#protocol-support) Pode fazer upgrade para a versão 3.6, apresentando um pedido de [apoio.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+As funcionalidades e incumprimentos de indexação disponíveis são diferentes para as contas Azure Cosmos que são compatíveis com a versão 3.2 do protocolo de fio MongoDB. Pode [consultar a versão da sua conta](mongodb-feature-support-36.md#protocol-support) e atualizar para a versão [3.6](mongodb-version-upgrade.md).
 
 Se estiver a utilizar a versão 3.2, esta secção descreve as principais diferenças com a versão 3.6.
 
@@ -352,11 +358,11 @@ Depois de baixar os índices predefinidos, pode adicionar mais índices como na 
 
 ### <a name="compound-indexes-version-32"></a>Índices compostos (versão 3.2)
 
-Os índices compostos contêm referências a vários campos de um documento. Se pretender criar um índice composto, atualize para a versão 3.6, apresentando um pedido de [apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Os índices compostos contêm referências a vários campos de um documento. Se quiser criar um índice composto, [atualize para a versão 3.6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Índices wildcard (versão 3.2)
 
-Se pretender criar um índice wildcard, atualize para a versão 3.6, apresentando um pedido de [apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se quiser criar um índice wildcard, [atualize para a versão 3.6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

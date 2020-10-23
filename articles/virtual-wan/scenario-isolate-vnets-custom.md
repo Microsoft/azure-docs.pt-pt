@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267725"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461826"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Cenário: Isolamento personalizado para VNets
 
@@ -25,11 +25,11 @@ Para descobrir quantas tabelas de rotas serão necessárias, você pode construi
 
 | De | Para:| *VNets Azuis* | *VNets vermelhos* | *Ramos*|
 |---|---|---|---|---|
-| **VNets Azuis** |   &#8594;|      X        |               |       X      |
-| **VNets vermelhos**  |   &#8594;|              |       X       |       X      |
-| **Ramos**   |   &#8594;|     X        |       X       |       X      |
+| **VNets Azuis** |   &#8594;|   Direct     |           |  Direct |
+| **VNets vermelhos**  |   &#8594;|              |   Direct  |  Direct |
+| **Ramos**   |   &#8594;|   Direct     |   Direct  |  Direct |
 
-Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "De" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela) para um fluxo de tráfego específico, onde um "X" significa que a conectividade é fornecida por Virtual WAN.
+Cada uma das células da tabela anterior descreve se uma ligação WAN virtual (o lado "From" do fluxo, os cabeçalhos de linha) comunica com um destino (o lado "To" do fluxo, os cabeçalhos da coluna em itálico). Neste cenário não existem firewalls ou Aparelhos Virtuais de Rede, pelo que as comunicações fluem diretamente sobre o WAN Virtual (daí a palavra "Direto" na tabela).
 
 O número de diferentes padrões de linha será o número de tabelas de rotas que vamos precisar neste cenário. Neste caso, três tabelas de rota que chamaremos **RT_BLUE** e **RT_RED** para as redes virtuais, e **Padrão** para os balcões. Lembre-se, os ramos têm sempre de estar associados à tabela de encaminhamento padrão.
 

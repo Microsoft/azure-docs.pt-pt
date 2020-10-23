@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e6cac09ff304e02e24b482dc834d8199329c1c0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80063794"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424885"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure Database for MariaDB com o portal do Azure
 
@@ -37,7 +37,7 @@ No browser, aceda ao [Portal do Azure](https://portal.azure.com/). Introduza as 
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Criar um Azure Database for MariaDB Server
 
-Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recursos de armazenamento e computação](concepts-pricing-tiers.md). O servidor é criado num [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recursos de armazenamento e computação](concepts-pricing-tiers.md). O servidor é criado num [grupo de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
@@ -194,4 +194,4 @@ Neste tutorial, utilizou o portal do Azure para aprender a:
 > * Restaurar dados
 
 > [!div class="nextstepaction"]
-> [Como ligar aplicações ao Azure Database for MariaDB](./howto-connection-string.md)
+> [Como ligar aplicações ao Azure Database for MariaDB](howto-connection-string.md)

@@ -7,12 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 34a9350f830171a137ca3a63ecae2203edec92b2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.custom: device-developer
+ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127374"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424471"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolver problemas relacionados com a não apresentação dos dados dos seus dispositivos no Azure IoT Central
 

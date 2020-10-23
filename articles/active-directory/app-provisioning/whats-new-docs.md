@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377048"
+ms.locfileid: "92424554"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicações do Azure Ative Directory: Quais as novidades
 
-Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de fornecimento, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>Setembro de 2020
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [O que há de novo?](whats-new-docs.md)
+- [O que há de novo nos médicos?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de pedidos em estado de quarentena](application-provisioning-quarantine-status.md)

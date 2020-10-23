@@ -3,12 +3,12 @@ title: Criar uma biblioteca de conteúdos para implantar VMs na Solução VMware
 description: Crie uma biblioteca de conteúdos para implantar um VM numa nuvem privada Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575806"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461690"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Criar uma biblioteca de conteúdos para implantar VMs na Solução VMware Azure
 
@@ -18,7 +18,7 @@ Neste artigo, vamos percorrer o procedimento para a criação de uma biblioteca 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário um segmento de comutação lógica NSX-T e um serviço DHCP gerido para completar este tutorial.  Para mais informações, consulte o Artigo Como gerir o DHCP no artigo [Azure VMWare Solution.](manage-dhcp.md)
+É necessário um segmento de comutação lógica NSX-T e um serviço DHCP gerido para completar este tutorial.  Para mais informações, consulte o Artigo Como gerir o DHCP no artigo [Azure VMware Solution.](manage-dhcp.md)
 
 ## <a name="create-a-content-library"></a>Criar uma biblioteca de conteúdos
 
@@ -92,7 +92,7 @@ Agora que a biblioteca de conteúdos foi criada, pode adicionar uma imagem ISO p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se planeia utilizar a Extensão de Nuvem Híbrida (HCX) para migrar cargas de trabalho VM para a sua nuvem privada, utilize o procedimento [installar HCX para solução VMware Azure.](tutorial-deploy-vmware-hcx.md)
+Se planeia utilizar o VMware HCX para migrar cargas de trabalho VM para a sua nuvem privada, utilize o procedimento [VMware HCX de implementação e configuração.](tutorial-deploy-vmware-hcx.md)
 
 <!-- LINKS - external-->
 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/08/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a88cf9981d4f3a69a503c9caa56be1b5f35029f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eacd84d2ff37c10702896127adcb67f5459b6be
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461673"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilizar o serviço Importar/Exportar do Azure para importar dados para ficheiros do Azure
 
@@ -35,7 +35,7 @@ Antes de criar uma função de importação para transferir dados para a Azure F
     - Gere um número de rastreio para o trabalho de exportação.
     - Cada tarefa deve ter um número de controlo separado. Não são apoiados várias tarefas com o mesmo número de controlo.
     - Se não tiver uma conta transportadora, vá a:
-        - [Criar uma conta FedEX,](https://www.fedex.com/en-us/create-account.html)ou
+        - [Criar uma conta FedEx,](https://www.fedex.com/en-us/create-account.html)ou
         - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
@@ -114,6 +114,8 @@ Para obter amostras adicionais, aceda a [amostras para obter ficheiros de diári
 
 ## <a name="step-2-create-an-import-job"></a>Passo 2: Criar um trabalho de importação
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Execute os seguintes passos para criar uma função de importação no portal Azure.
 1. Faça login em https://portal.azure.com/ .
 2. Aceda a **todos os serviços > armazenamento > empregos de importação/exportação.**
@@ -161,6 +163,86 @@ Execute os seguintes passos para criar uma função de importação no portal Az
     - Clique **em OK** para concluir a criação de emprego de importação.
 
         ![Criar trabalho de importação - Passo 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Utilize os seguintes passos para criar um trabalho de importação no Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Criar uma tarefa
+
+1. Utilize o comando [de adicionar extensão az](/cli/azure/extension#az_extension_add) para adicionar a extensão [de importação e exportação az:](/cli/azure/ext/import-export/import-export)
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Pode utilizar um grupo de recursos existente ou criar um. Para criar um grupo de recursos, executar o [grupo az criar](/cli/azure/group#az_group_create) comando:
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. Pode utilizar uma conta de armazenamento existente ou criar uma. Para criar uma conta de armazenamento, executar a [conta de armazenamento az criar](/cli/azure/storage/account#az_storage_account_create) comando:
+
+    ```azurecli
+    az storage account create -resource-group myierg -name myssdocsstorage --https-only
+    ```
+
+1. Para obter uma lista dos locais para os quais pode enviar discos, utilize o comando [da lista de localização de importação e exportação az:](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list)
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Utilize o comando [de localização de importação e exportação az](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) para obter localizações para a sua região:
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Executar os [seguintes az importação-exportação criar](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) comando para criar um trabalho de importação:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
+
+
+1. Utilize o comando [da lista de importação e exportação az](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) para ver todos os postos de trabalho para o grupo de recursos myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Para atualizar o seu trabalho ou cancelar o seu trabalho, executar o comando [az de atualização de importação e exportação:](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update)
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Passo 3: Envie as unidades para o datacenter Azure
 

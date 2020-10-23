@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618160"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424228"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ A lista que se segue descreve as características-chave do nível de serviço pa
 
 - Projetado para a maioria das aplicações empresariais com requisitos típicos de desempenho
 - Armazenamento Azure Blob de alto desempenho (8 TB)
-- Alta [disponibilidade](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) incorporada com base no armazenamento fiável do Azure Blob e no [Tecido de Serviço Azure](../../service-fabric/service-fabric-overview.md)
+- Alta [disponibilidade](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) incorporada com base no armazenamento fiável do Azure Blob e no [Tecido de Serviço Azure](../../service-fabric/service-fabric-overview.md)
 
 Para obter mais informações, consulte [a camada de armazenamento no nível de finalidade geral](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e nas [melhores práticas e considerações para o SQL Managed Instance (Finalidade Geral)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -110,7 +110,7 @@ A lista que se segue descreve as características-chave do nível de serviço Bu
 
 - Projetado para aplicações empresariais com maior desempenho e requisitos de HA
 - Vem com armazenamento SSD local super rápido (até 1 TB na Gen4 e até 4 TB na Gen5)
-- Alta [disponibilidade](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) incorporada com base em [grupos de disponibilidade e](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) tecido de serviço [Azure](../../service-fabric/service-fabric-overview.md)
+- Alta [disponibilidade](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) incorporada com base em [grupos de disponibilidade e](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) tecido de serviço [Azure](../../service-fabric/service-fabric-overview.md)
 - Réplica de [base de dados](../database/read-scale-out.md) adicional incorporada apenas para leitura que pode ser usada para relatórios e outras cargas de trabalho apenas de leitura
 - [OLTP em memória](../in-memory-oltp-overview.md) que pode ser usado para carga de trabalho com requisitos de alto desempenho  
 

@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368983"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461656"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -61,14 +61,14 @@ Com a nova Azure VMware Solution, a Microsoft e a VMware têm uma parceria diret
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>As soluções Red Hat são suportadas na Azure VMware Solution?
 
-A Microsoft e a Red Hat partilham uma equipa de suporte integrada e co-localizada que fornece um ponto de contacto unificado para os ecossistemas da Red Hat que estão a funcionar na plataforma Azure.  À semelhança de outros serviços da plataforma Azure que trabalham com a Red Hat Enterprise Linux, a Azure VMware Solution está sob o Cloud Access e o guarda-chuva de suporte integrado, e a Red Hat Enterprise Linux é suportada para correr em cima da Azure VMware Solution dentro do Azure.
+A Microsoft e a Red Hat partilham uma equipa de suporte integrada e de apoio que fornece um ponto de contacto unificado para os ecossistemas da Red Hat que estão a funcionar na plataforma Azure.  À semelhança de outros serviços da plataforma Azure que trabalham com a Red Hat Enterprise Linux, a Azure VMware Solution está sob o Cloud Access e o guarda-chuva de suporte integrado, e a Red Hat Enterprise Linux é suportada para correr em cima da Azure VMware Solution dentro do Azure.
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>A VMware HCX Enterprise Edition está disponível e, em caso afirmativo, quanto custa?
 
-VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar/excluir o serviço.
+VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Pode desligar ou optar por sair do serviço.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Os VMS de Solução VMware Azure podem ser geridos pela VMRC?
-Sim, desde que o sistema em que esteja instalado possa aceder ao vCenter de nuvem privada e que esteja a utilizar DNS públicos (para que possa resolver os hostnames ESXi).
+Sim, desde que o sistema em que esteja instalado possa aceder ao vCenter de nuvem privada e esteja a utilizar DNS públicos (para que possa resolver os hostnames ESXi).
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Existem instruções especiais para instalar e utilizar VMRC com VMS de Solução VMware Azure?
 Não, utilize as [instruções fornecidas pela VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e cumpra os pré-requisitos VM especificados nessas instruções. 
@@ -116,7 +116,7 @@ Tanto quanto sabemos, qualquer solução de backup que utilize o VMware VADP com
 
 Uma vez que estas soluções de backup são instaladas e geridas pelos clientes, podem contactar o respetivo ISV para apoio. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Qual é a política de armazenamento correta para a dedup criada?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Qual é a política de armazenamento correta para a configuração do dedup?
 
 Utilize a política de armazenamento *thin_provision* para o seu modelo VM.  O padrão é *thick_provision*.
 
@@ -239,7 +239,7 @@ Você precisará de uma conta Azure numa subscrição do Azure.
 * Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta Azure numa subscrição do Azure.
 
-Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.
+Antes de criar o seu recurso Azure VMware Solution, tem de enviar um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.
 
 
 1. No seu portal Azure, no âmbito **da Ajuda + Suporte,** crie um **[novo pedido de suporte](https://rc.portal.azure.com/#create/Microsoft.Support)** e forneça as seguintes informações para o bilhete:

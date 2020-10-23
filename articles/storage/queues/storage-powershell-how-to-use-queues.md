@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f45a4de2e13f936556f8dd99aa107110edc6e91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077930"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425535"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
 
@@ -104,7 +104,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>Adicione uma mensagem a uma fila
 
-As operações que impactam as mensagens reais na fila utilizam a biblioteca do cliente de armazenamento .NET, tal como exposta no PowerShell. Para adicionar uma mensagem a uma fila, crie uma nova instância do objeto de mensagem, [microsoft.Azure.storage.queue.CloudQueueMessage.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) Em seguida, chame o método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage). É possível criar uma CloudQueueMessage a partir de uma cadeia (no formato UTF-8) ou uma matriz de bytes.
+As operações que impactam as mensagens reais na fila utilizam a biblioteca do cliente de armazenamento .NET, tal como exposta no PowerShell. Para adicionar uma mensagem a uma fila, crie uma nova instância do objeto de mensagem, [microsoft.Azure.storage.queue.CloudQueueMessage.](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) Em seguida, chame o método [AddMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage). É possível criar uma CloudQueueMessage a partir de uma cadeia (no formato UTF-8) ou uma matriz de bytes.
 
 O exemplo a seguir demonstra como adicionar uma mensagem à sua fila.
 

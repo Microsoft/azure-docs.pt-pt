@@ -1,0 +1,88 @@
+---
+title: Ativar a extensão VM utilizando o CLI Azure
+description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida usando o Azure CLI.
+ms.date: 10/19/2020
+ms.topic: conceptual
+ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92463005"
+---
+# <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Ativar extensões Azure VM utilizando o CLI Azure
+
+Este artigo mostra-lhe como implantar e desinstalar extensões Azure VM, suportadas por servidores ativados pelo Azure Arc, para uma máquina híbrida Linux ou Windows utilizando o CLI Azure.
+
+[!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[Instale o Azure CLI](/cli/azure/install-azure-cli).
+
+Antes de utilizar o CLI Azure para gerir as extensões VM no seu servidor híbrido gerido por servidores ativados pelo Arc, é necessário instalar a `ConnectedMachine` extensão CLI. Executar o seguinte comando no seu servidor ativado arc:
+
+```azurecli
+az extension add connectedmachine
+```
+
+Quando a instalação estiver concluída, a seguinte mensagem é devolvida:
+
+`The installed extension `conexa` is experimental and not covered by customer support. Please use with discretion.`
+
+## <a name="enable-extension"></a>Permitir extensão
+
+Para ativar uma extensão VM no seu servidor ativado pelo Arco, utilize [a extensão da máquina de conexão az](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_create) com os `--machine-name` `--extension-name` `--location` `--type` parâmetros , , `settings` e `--publisher` parâmetros.
+
+O exemplo a seguir permite a extensão VM do Log Analytics num servidor Linux ativado pelo Arco:
+
+```azurecli
+az connectedmachine machine-extension create --machine-name "myMachineName" --name "OmsAgentforLinux" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.EnterpriseCloud.Monitoring" --settings "{\"workspaceId\":\"workspaceId"}" --protected-settings "{\workspaceKey\":"\workspaceKey"} --type-handler-version "1.10" --resource-group "myResourceGroup"
+```
+
+O exemplo a seguir permite a extensão de script personalizado num servidor ativado pelo Arco:
+
+```azurecli
+az connectedmachine machine-extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
+```
+
+## <a name="list-extensions-installed"></a>Extensões de lista instaladas
+
+Para obter uma lista das extensões VM no seu servidor ativado pelo Arco, utilize [a lista de extensão da máquina de conexão az](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_list) com os `--machine-name` `--resource-group` parâmetros e parâmetros.
+
+Exemplo:
+
+```azurecli
+az connectedmachine machine-extension list --machine-name "myMachineName" --resource-group "myResourceGroup"
+```
+
+Por predefinição, a saída dos comandos Azure CLI encontra-se em JSON (Notação de Objetos JavaScript). Para alterar a saída padrão para uma lista ou tabela, por exemplo, use [az configuração --saída](/cli/azure/reference-index). Também pode adicionar `--output` a qualquer comando para uma alteração única no formato de saída.
+
+O exemplo a seguir mostra a saída parcial de JSON do `az connectedmachine machine-extension -list` comando:
+
+```json
+[
+  {
+    "autoUpgradingMinorVersion": "false",
+    "forceUpdateTag": null,
+    "id": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/SVR01/extensions/DependencyAgentWindows",
+    "location": "eastus",
+    "name": "DependencyAgentWindows",
+    "namePropertiesInstanceViewName": "DependencyAgentWindows",
+```
+
+## <a name="remove-an-installed-extension"></a>Remover uma extensão instalada
+
+Para remover uma extensão VM instalada no seu servidor ativado pelo Arco, utilize [a extensão da máquina de conexão az com](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_delete) o `--extension-name` , e `--machine-name` `--resource-group` parâmetros.
+
+Por exemplo, para remover a extensão VM do Log Analytics para o Linux, executar o seguinte comando:
+
+```azurecli
+az connectedmachine machine-extension delete --machine-name "myMachineName" --name "OmsAgentforLinux" --resource-group "myResourceGroup"
+```
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Pode implementar, gerir e remover extensões VM utilizando [powerShell](manage-vm-extensions-powershell.md), a partir do [portal Azure](manage-vm-extensions-portal.md), ou [modelos de Gestor de Recursos Azure](manage-vm-extensions-template.md).
+
+- As informações relativas à resolução de problemas podem ser encontradas no guia de [extensões VM de resolução de problemas.](troubleshoot-vm-extensions.md)

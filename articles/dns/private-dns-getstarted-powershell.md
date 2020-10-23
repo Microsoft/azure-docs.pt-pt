@@ -1,18 +1,18 @@
 ---
 title: Quickstart - Criar uma zona de DNS privada Azure usando Azure PowerShell
-description: Neste artigo, você cria e testa uma zona de DNS privada e grava em Azure DNS. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS privada e o registo com o Azure PowerShell.
+description: Neste arranque rápido, aprende a criar e gerir a sua primeira zona privada de DNS e a gravar usando o Azure PowerShell.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: fd795c9e251a7c4c0c8cbea5ce6c48cec3535484
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ee6dde6b34cccd415f9bf2052f65dcbe940715c1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311760"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424392"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Quickstart: Criar uma zona de DNS privada Azure usando Azure PowerShell
 
