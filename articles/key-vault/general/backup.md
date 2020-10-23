@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585938"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440523"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Cofre de Chaves Azure
 
@@ -30,6 +30,9 @@ O Key Vault mantém a disponibilidade em cenários de desastres e falhará autom
 Se pretender proteção contra a eliminação acidental ou maliciosa dos seus segredos, configuure as funcionalidades de proteção para eliminar e limpar o seu cofre. Para obter mais informações, consulte [a visão geral do Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
 
 ## <a name="limitations"></a>Limitações
+
+> [!IMPORTANT]
+> O Key Vault não suporta a capacidade de fazer backup de mais de 500 versões passadas de um objeto chave, secreto ou certificado. Tentar fazer backup de um objeto chave, segredo ou certificado pode resultar num erro. Não é possível eliminar versões anteriores de uma chave, segredo ou certificado.
 
 O Cofre-Chave não fornece uma maneira de apoiar um cofre inteiro numa única operação. Qualquer tentativa de usar os comandos listados neste documento para fazer uma cópia de segurança automatizada de um cofre de chaves pode resultar em erros e não será suportada pela Microsoft ou pela equipa Azure Key Vault. 
 

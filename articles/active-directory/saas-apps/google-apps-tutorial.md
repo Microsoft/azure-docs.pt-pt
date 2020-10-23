@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5cb1e589481bb424507d08879da8cc1b14ff1c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707820"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448202"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o Conector Google Cloud (G Suite) 
 * Permita que os seus utilizadores sejam automaticamente inscritos no Conector Google Cloud (G Suite) com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +64,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 5. **P: Se um utilizador for assinado através do Windows, será que autentica automaticamente o Conector Google Cloud (G Suite) sem ser solicitado para uma senha?**
 
-    R: Existem duas opções para permitir este cenário. Em primeiro lugar, os utilizadores podem iniciar súmitos nos dispositivos windows 10 através [do Azure Ative Directory Join](../device-management-introduction.md). Em alternativa, os utilizadores poderiam assinar em dispositivos Windows que se unem a um Diretório Ativo no local que foi ativado para um único sinal de entrada no AD AD através de uma implementação [de Serviços da Federação de Diretórios Ativos (AD FS).](../hybrid/plan-connect-user-signin.md) Ambas as opções requerem que execute os passos no seguinte tutorial para ativar um único sinal de acesso entre O AD AD e Google Cloud (G Suite) Connector.
+    R: Existem duas opções para permitir este cenário. Em primeiro lugar, os utilizadores podem iniciar súmitos nos dispositivos windows 10 através [do Azure Ative Directory Join](../devices/overview.md). Em alternativa, os utilizadores poderiam assinar em dispositivos Windows que se unem a um Diretório Ativo no local que foi ativado para um único sinal de entrada no AD AD através de uma implementação [de Serviços da Federação de Diretórios Ativos (AD FS).](../hybrid/plan-connect-user-signin.md) Ambas as opções requerem que execute os passos no seguinte tutorial para ativar um único sinal de acesso entre O AD AD e Google Cloud (G Suite) Connector.
 
 6. **P: O que devo fazer quando recebo uma mensagem de erro "e-mail inválida"?**
 
@@ -82,8 +82,8 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Conector Google Cloud (G Suite) suporta **SSO** iniciado SP
 
-* O Conector Google Cloud (G Suite) suporta o fornecimento [ **automatizado** de utilizadores](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
-* Assim que configurar o Conector Google Cloud (G Suite) pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* O Conector Google Cloud (G Suite) suporta o fornecimento [ **automatizado** de utilizadores](./google-apps-provisioning-tutorial.md)
+* Assim que configurar o Conector Google Cloud (G Suite) pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>Adicionar conector Google Cloud (G Suite) da galeria
 
@@ -242,7 +242,7 @@ Nesta secção, você permitirá que B.Simon use o único sinal de Azure, conced
 
 O objetivo desta secção é [criar um utilizador no Conector Google Cloud (G Suite)](https://support.google.com/a/answer/33310?hl=en) chamado B.Simon. Depois de o utilizador ter sido criado manualmente no Conector Google Cloud (G Suite), o utilizador poderá agora iniciar sessão com as suas credenciais de login microsoft 365.
 
-O Conector Google Cloud (G Suite) também suporta o fornecimento automático do utilizador. Para configurar o fornecimento automático do utilizador, tem primeiro de configurar o [Conector Google Cloud (G Suite) para o fornecimento automático do utilizador](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+O Conector Google Cloud (G Suite) também suporta o fornecimento automático do utilizador. Para configurar o fornecimento automático do utilizador, tem primeiro de configurar o [Conector Google Cloud (G Suite) para o fornecimento automático do utilizador](./google-apps-provisioning-tutorial.md).
 
 > [!NOTE]
 > Certifique-se de que o seu utilizador já existe no Conector Google Cloud (G Suite) se o provisionamento no AD Azure não tiver sido ligado antes de testar o Single Sign-on.
@@ -254,23 +254,23 @@ O Conector Google Cloud (G Suite) também suporta o fornecimento automático do 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo do Conector Google Cloud (G Suite) no Painel de Acesso, deverá ser automaticamente inscrito no Conector Google Cloud (G Suite) para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo do Conector Google Cloud (G Suite) no Painel de Acesso, deverá ser automaticamente inscrito no Conector Google Cloud (G Suite) para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é acesso à aplicação e um único acesso com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+- [O que é acesso à aplicação e um único acesso com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
-- [Configurar o Provisionamento do Utilizador](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+- [Configurar o Provisionamento do Utilizador](./google-apps-provisioning-tutorial.md)
 
 - [Experimente o Conector Google Cloud (G Suite) com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Conector Google Cloud (G Suite) com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+- [Como proteger o Conector Google Cloud (G Suite) com visibilidade e controlos avançados](/cloud-app-security/protect-gsuite)
 
 <!--Image references-->
 

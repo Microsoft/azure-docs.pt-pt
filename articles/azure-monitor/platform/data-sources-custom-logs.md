@@ -1,21 +1,24 @@
 ---
-title: Colete registos personalizados no Azure Monitor Microsoft Docs
+title: Colete registos personalizados com o agente Log Analytics no Azure Monitor
 description: O Azure Monitor pode recolher eventos a partir de ficheiros de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo registo personalizado e detalhes dos registos que criam no Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269493"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461571"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Colete registos personalizados com o agente Log Analytics no Azure Monitor
 
-A fonte de dados de Registos Personalizados no Azure Monitor permite-lhe recolher eventos a partir de ficheiros de texto em computadores Windows e Linux. Muitas aplicações registam informações em ficheiros de texto em vez de serviços de registo padrão, como o registo do Windows Event ou o Syslog. Uma vez recolhidos, pode analisar os dados em campos individuais nas suas consultas ou extrair os dados durante a recolha para campos individuais.
+A fonte de dados de Registos Personalizados para o agente Log Analytics no Azure Monitor permite-lhe recolher eventos a partir de ficheiros de texto em ambos os computadores Windows e Linux. Muitas aplicações registam informações em ficheiros de texto em vez de serviços de registo padrão, como o registo do Windows Event ou o Syslog. Uma vez recolhidos, pode analisar os dados em campos individuais nas suas consultas ou extrair os dados durante a recolha para campos individuais.
+
+> [!IMPORTANT]
+> Este artigo cobre a recolha de registos personalizados com o [agente Log Analytics,](log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Coleção de registos personalizados](media/data-sources-custom-logs/overview.png)
 

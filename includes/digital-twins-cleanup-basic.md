@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
 ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "92372327"
 ---
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los.

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983951"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428422"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar netsuite para o fornecimento automático de utilizadores
 
@@ -28,6 +28,7 @@ O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 *   Um inquilino de diretório Azure Ative.
 *   Uma subscrição netsuite OneWorld. Note que o fornecimento automático de utilizadores é atualmente suportado apenas com o NetSuite OneWorld.
 *   Uma conta de utilizador na Netsuite com permissões de administrador.
+*   A integração com a Azure AD requer uma isenção de 2FA. Entre em contato com a equipa de apoio netsuite para esta exceção.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Atribuir utilizadores à Netsuite OneWorld
 

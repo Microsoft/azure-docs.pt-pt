@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 63cdb27663cb1a2d8de1a97a2f352b05ff57a3f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489889"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460704"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implantação de HSMs numa rede virtual existente utilizando o Azure CLI
 
 A Azure Dedicated HSM fornece um dispositivo físico para uso exclusivo do cliente, com controlo administrativo completo e total responsabilidade de gestão. A utilização de dispositivos físicos cria a necessidade de a Microsoft controlar a alocação de dispositivos para garantir que a capacidade é gerida de forma eficaz. Como resultado, dentro de uma subscrição Azure, o serviço dedicado HSM não será normalmente visível para o fornecimento de recursos. Qualquer cliente Azure que necessite de acesso ao serviço dedicado HSM deve primeiro contactar o seu executivo de conta Microsoft para solicitar o registo do serviço Dedicado HSM. Só uma vez concluído este processo com sucesso será possível o provisionamento. 
 
@@ -38,7 +38,7 @@ Este tutorial centra-se num par de HSMs e o ExpressRoute Gateway necessário (ve
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A Azure Dedicated HSM não está atualmente disponível no portal Azure. Toda a interação com o serviço será através de uma linha de comando ou utilizando o PowerShell. Este tutorial utilizará a interface de linha de comando (CLI) na Azure Cloud Shell. Se é novo no Azure CLI, siga as instruções de início aqui: [Azure CLI 2.0 Get Start](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+A Azure Dedicated HSM não está atualmente disponível no portal Azure. Toda a interação com o serviço será através de uma linha de comando ou utilizando o PowerShell. Este tutorial utilizará a interface de linha de comando (CLI) na Azure Cloud Shell. Se é novo no Azure CLI, siga as instruções de início aqui: [Azure CLI 2.0 Get Start](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 Pressupostos:
 
@@ -51,11 +51,11 @@ Todas as instruções abaixo assumem que já navegaram até ao portal Azure e qu
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Provisionamento de um HSM dedicado
 
-O fornecimento de HSMs e a sua integração numa rede virtual existente através do ExpressRoute Gateway serão validados através do ssh. Esta validação ajuda a garantir a alcance e a disponibilidade básica do dispositivo HSM para quaisquer outras atividades de configuração. Os seguintes comandos utilizarão um modelo de Gestor de Recursos Azure para criar os recursos HSM e recursos de rede associados.
+O fornecimento de HSMs e a sua integração numa rede virtual existente através do ExpressRoute Gateway serão validados através do ssh. Esta validação ajuda a garantir a alcance e a disponibilidade básica do dispositivo HSM para quaisquer outras atividades de configuração.
 
 ### <a name="validating-feature-registration"></a>Validação do Registo de Recursos
 
-Como mencionado acima, qualquer atividade de provisionamento requer que o serviço dedicado HSM esteja registado para a sua subscrição. Para validar isso, executar os seguintes comandos na casca de nuvem do portal Azure.
+Como mencionado acima, qualquer atividade de provisionamento requer que o serviço dedicado HSM esteja registado para a sua subscrição. Para validar isso, execute os seguintes comandos no portal Azure Cloud Shell.
 
 ```azurecli
 az feature show \
@@ -69,69 +69,14 @@ Os comandos devem devolver um estado de "Registado" (como mostrado abaixo). Se o
 
 ### <a name="creating-hsm-resources"></a>Criação de recursos HSM
 
-Um HSM é alotado na rede virtual de um cliente para que seja necessária uma rede virtual e uma sub-rede. Uma dependência do HSM para permitir a comunicação entre a rede virtual e o dispositivo físico é um Gateway ExpressRoute, e finalmente uma máquina virtual é necessária para aceder ao dispositivo HSM usando o software do cliente Gemalto. Estes recursos foram recolhidos num ficheiro de modelo, com o respetivo arquivo de parâmetros, para facilitar a utilização. Os ficheiros estão disponíveis contactando a Microsoft diretamente como HSMrequest@Microsoft.com .
-
-Uma vez que tenha os ficheiros, tem de editar o ficheiro de parâmetros para inserir os seus nomes preferidos para obter recursos. Editar linhas com "valor": "".
-
-- `namingInfix` Prefixo para nomes de recursos HSM
-- `ExistingVirtualNetworkName` Nome da rede virtual utilizada para os HSMs
-- `DedicatedHsmResourceName1` Nome do recurso HSM no carimbo do datacenter 1
-- `DedicatedHsmResourceName2` Nome do recurso HSM no carimbo do datacenter 2
-- `hsmSubnetRange` Gama de endereços IP sub-rede para HSMs
-- `ERSubnetRange` Gama de endereços IP sub-rede para gateway VNET
-
-Um exemplo destas alterações é o seguinte:
-
-```json
-{
-"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "namingInfix": {
-      "value": "MyHSM"
-    },
-    "ExistingVirtualNetworkName": {
-      "value": "MyHSM-vnet"
-    },
-    "DedicatedHsmResourceName1": {
-      "value": "HSM1"
-    },
-    "DedicatedHsmResourceName2": {
-      "value": "HSM2"
-    },
-    "hsmSubnetRange": {
-      "value": "10.0.2.0/24"
-    },
-    "ERSubnetRange": {
-      "value": "10.0.255.0/26"
-    },
-  }
-}
-```
-
-O ficheiro de modelo associado do Gestor de Recursos Azure criará 6 recursos com esta informação:
-
-- Uma sub-rede para os HSMs no VNET especificado
-- Uma sub-rede para o gateway de rede virtual
-- Um gateway de rede virtual que liga o VNET aos dispositivos HSM
-- Um endereço IP público para o portal
-- Um HSM no selo 1
-- Um HSM no carimbo 2
-
-Uma vez definidos os valores dos parâmetros, os ficheiros precisam de ser enviados para a partilha de ficheiros de shell do portal Azure para utilização. No portal Azure, clique no símbolo da concha da \> \_ nuvem " " no topo direito e isto fará da parte inferior do ecrã um ambiente de comando. As opções para isso são BASH e PowerShell e deve selecionar BASH se ainda não estiver definido.
-
-O invólucro de comando tem uma opção de upload/download na barra de ferramentas e deve selecioná-lo para carregar os ficheiros do modelo e dos parâmetros para a sua partilha de ficheiros:
-
-![partilha de arquivos](media/tutorial-deploy-hsm-cli/file-share.png)
-
-Assim que os ficheiros forem carregados, está pronto para criar recursos. Antes de criar novos recursos HSM, existem alguns recursos pré-necessários que deve garantir que estão em vigor. Deve ter uma rede virtual com gamas de sub-redes para computação, HSMs e gateway. Os seguintes comandos servem como um exemplo do que criaria uma rede virtual.
+Antes de criar recursos HSM, existem alguns recursos pré-necessários. Deve ter uma rede virtual com gamas de sub-redes para computação, HSMs e gateway. Os seguintes comandos servem como um exemplo do que criaria uma rede virtual.
 
 ```azurecli
 az network vnet create \
   --name myHSM-vnet \
   --resource-group myRG \
-  --address-prefix 10.2.0.0/16
-  --subnet-name compute
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name compute \
   --subnet-prefix 10.2.0.0/24
 ```
 
@@ -155,22 +100,47 @@ az network vnet subnet create \
 >[!NOTE]
 >A configuração mais importante a notar para a rede virtual, é que a sub-rede para o dispositivo HSM deve ter delegações definidas para "Microsoft.HardwareSecurityModules/dedicadohSMs".  O provisionamento do HSM não funcionará sem que esta opção seja definida.
 
-Uma vez que todos os pré-requisitos estejam em vigor, executar o seguinte comando para usar o modelo Azure Resource Manager garantindo que tem valores atualizados com os seus nomes únicos (pelo menos o nome do grupo de recursos):
+Depois de configurar a sua rede, utilize estes comandos Azure CLI para abastecer os seus HSMs.
+
+1. Utilize o [comando az dedicado-hsm criar](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) comando para providenciar o primeiro HSM. O HSM é nomeado hsm1. Substitua a sua subscrição:
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+   Esta implementação deve demorar aproximadamente 25 a 30 minutos a ser completada com a maior parte desse tempo sendo os dispositivos HSM.
+
+1. Para ver um HSM atual, executar o comando [az dedicado-hsm show:](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show)
+
+   ```azurecli
+   az dedicated-hsm show --resource group myRG --name hsm1
+   ```
+
+1. Provisionar o segundo HSM utilizando este comando:
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm2 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+1. Execute o comando [da lista az dedicado-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) para ver detalhes sobre os seus HSMs atuais:
+
+   ```azurecli
+   az dedicated-hsm list --resource-group myRG
+   ```
+
+Há outros comandos que podem ser úteis. Utilize o comando [de atualização az dedicado ao hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) para atualizar um HSM:
 
 ```azurecli
-az group deployment create \
-   --resource-group myRG  \
-   --template-file ./Deploy-2HSM-toVNET-Template.json \
-   --parameters ./Deploy-2HSM-toVNET-Params.json \
-   --name HSMdeploy \
-   --verbose
+az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-Esta implementação deve demorar aproximadamente 25 a 30 minutos para ser completada com a maior parte desse tempo sendo os dispositivos HSM
+Para eliminar um HSM, utilize o comando [az dedicado-hsm eliminar:](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete)
 
-![estatuto de provisionamento](media/tutorial-deploy-hsm-cli/progress-status.png)
-
-Quando a implementação terminar com sucesso "ProvisioningState": "Bem-sucedido" será exibido. Pode ligar-se à sua máquina virtual existente e utilizar o SSH para garantir a disponibilidade do dispositivo HSM.
+```azurecli
+az dedicated-hsm delete --resource-group myRG –name hsm1
+```
 
 ## <a name="verifying-the-deployment"></a>Verificação da implantação
 
@@ -184,7 +154,49 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![provisão de produção](media/tutorial-deploy-hsm-cli/progress-status2.png)
+A saída parece-se com a seguinte saída:
+
+```json
+{
+    "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSMl",
+    "identity": null,
+    "kind": null,
+    "location": "westus",
+    "managedBy": null,
+    "name": "HSM1",
+    "plan": null,
+    "properties": {
+        "networkProfile": {
+            "networkInterfaces": [
+            {
+            "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/networkInterfaces/HSMl_HSMnic", "privatelpAddress": "10.0.2.5",
+            "resourceGroup": "HSM-RG"
+            }
+            L
+            "subnet": {
+                "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/virtualNetworks/demo-vnet/subnets/hsmsubnet", "resourceGroup": "HSM-RG"
+            }
+        },
+        "provisioningState": "Succeeded",
+        "stampld": "stampl",
+        "statusMessage": "The Dedicated HSM device is provisioned successfully and ready to use."
+    },
+    "resourceGroup": "HSM-RG",
+    "sku": {
+        "capacity": null,
+        "family": null,
+        "model": null,
+        "name": "SafeNet Luna Network HSM A790",
+        "size": null,
+        "tier": null
+    },
+    "tags": {
+        "Environment": "prod",
+        "resourceType": "Hsm"
+    },
+    "type": "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+}
+```
 
 Agora também poderá ver os recursos utilizando o [explorador de recursos Azure.](https://resources.azure.com/)   Uma vez no explorador, expandir as "subscrições" à esquerda, expandir a sua subscrição específica para O HSM dedicado, expandir "grupos de recursos", expandir o grupo de recursos que utilizou e finalmente selecionar o item "recursos".
 
@@ -219,7 +231,7 @@ Quando estiver ligado ao HSM utilizando o ssh, executar o seguinte comando para 
 
 A saída deve ser vista como mostrado na imagem abaixo:
 
-![lista de componentes](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
+![A screenshot mostra a saída na janela PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
 Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração da Rede Gemalto Luna HSM 7 capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente de Gemalto para download uma vez registado no Portal de Apoio ao Cliente gemalto e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
 
@@ -230,21 +242,19 @@ Se terminou apenas com o dispositivo HSM, então pode ser eliminado como recurso
 > [!NOTE]
 > se tiver problemas com qualquer configuração do dispositivo Gemalto, deve contactar [o suporte ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
 
-
 Se terminou com todos os recursos deste grupo de recursos, então pode removê-los todos com o seguinte comando:
 
 ```azurecli
-az group deployment delete \
+az group delete \
    --resource-group myRG \
    --name HSMdeploy \
    --verbose
-
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Após completar os passos no tutorial, são fornecidos recursos dedicados ao HSM e tem uma rede virtual com HSMs necessários e componentes de rede adicionais para permitir a comunicação com o HSM.  Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts.
-Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. O ficheiro de modelo utilizado neste tutorial pode ser facilmente usado como base para uma implantação de dois HSM, mas precisa de ter os seus parâmetros modificados para satisfazer os seus requisitos.
+Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. 
 
 * [Alta Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)

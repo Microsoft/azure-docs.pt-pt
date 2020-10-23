@@ -1,25 +1,28 @@
 ---
-title: Recolha e analise balcões de desempenho no Azure Monitor Microsoft Docs
+title: Recolher fontes de dados de desempenho do Windows e do Linux com o agente Log Analytics no Azure Monitor
 description: Os contadores de desempenho são recolhidos pelo Azure Monitor para analisar o desempenho nos agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para agentes Windows e Linux, detalhes dos mesmos armazenados no espaço de trabalho e como analisá-los no portal Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131195"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461367"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e Linux no Azure Monitor
-Os contadores de desempenho no Windows e linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operativos e aplicações.  O Azure Monitor pode recolher contadores de desempenho em intervalos frequentes para análises de Tempo Real Próximo (NRT), além de agregar dados de desempenho para análise e reporte a longo prazo.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de desempenho do Windows e do Linux com o agente Log Analytics
+Os contadores de desempenho no Windows e linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operativos e aplicações.  O Azure Monitor pode recolher contadores de desempenho de agentes do Log Analytics em intervalos frequentes para análises de Tempo Real Próximo (NRT), além de agregar dados de desempenho para análise e reporte a longo prazo.
+
+> [!IMPORTANT]
+> Este artigo abrange a recolha de dados de desempenho com o [agente Log Analytics,](log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurar contadores de desempenho
-Configurar os contadores de desempenho do [menu De dados em Definições Avançadas.](agent-data-sources.md#configuring-data-sources)
+Configure os contadores de desempenho do [menu De dados em Definições Avançadas](agent-data-sources.md#configuring-data-sources) para o espaço de trabalho Do Log Analytics.
 
 Quando configurar pela primeira vez os contadores Windows ou Linux Performance para um novo espaço de trabalho, é-lhe dada a opção de criar rapidamente vários contadores comuns.  São listados com uma caixa de verificação junto a cada um.  Certifique-se de que quaisquer contadores que pretende criar são verificados e, em seguida, clique em **Adicionar os contadores de desempenho selecionados**.
 

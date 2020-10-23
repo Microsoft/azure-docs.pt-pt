@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b2b5538df894e17449e173baa3e402d6c59654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354994"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441441"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalização linguística no Diretório Ativo Azure (Pré-visualização)
 
@@ -146,9 +146,9 @@ Chrome e Firefox solicitam ambos para o seu idioma definido. Se for uma língua 
 
 ## <a name="supported-languages"></a>Linguagens suportadas
 
-A Azure AD inclui suporte para as seguintes línguas. As línguas de fluxo do utilizador são fornecidas pela Azure AD. As línguas de notificação de autenticação multi-factor (MFA) são fornecidas pela [Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+A Azure AD inclui suporte para as seguintes línguas. As línguas de fluxo do utilizador são fornecidas pela Azure AD. As línguas de notificação de autenticação multi-factor (MFA) são fornecidas pela [Azure MFA](../authentication/concept-mfa-howitworks.md).
 
-| Idioma              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
+| Linguagem              | Código do idioma | Fluxos do utilizador         | Notificações de MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
 | Árabe                | ar            | ![X indicando não.](./media/user-flow-customize-language/no.png) | ![Marca verde de verificação.](./media/user-flow-customize-language/yes.png) |
 | Búlgaro             | bg            | ![X indicando não.](./media/user-flow-customize-language/no.png) | ![Marca verde de verificação.](./media/user-flow-customize-language/yes.png) |

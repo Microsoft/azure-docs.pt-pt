@@ -3,16 +3,16 @@ title: 'Quickstart: Executar um recipiente personalizado no Serviço de Aplicaç
 description: Começa com os contentores no Azure App Service implantando o seu primeiro recipiente personalizado.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 3191552421091bc0a2c4e6855c0271c142af1882
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1411491906e763a52ee1b6a66df1dea183b91973
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152370"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425860"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Executar um recipiente personalizado em Azure
 

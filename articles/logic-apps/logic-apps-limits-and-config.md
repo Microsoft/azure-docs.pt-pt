@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424074"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440659"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -48,7 +48,7 @@ Aqui estão os limites para uma única aplicação lógica executada:
 | Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 366 dias | A duração da execução é calculada utilizando a hora de início de uma corrida. |
-| Executar retenção de história no armazenamento | 90 dias | 366 dias | Quando uma execução termina ou se esgota, a retenção do histórico é sempre calculada utilizando a hora de início da execução e o limite especificado no *momento atual* pela definição do fluxo de trabalho, executar [**a retenção do histórico em dias**](#change-retention). Se alterar esta definição, o limite *atual* é sempre utilizado para calcular a retenção, independentemente do limite anterior. Quando a duração de uma corrida excede o limite atual, a execução é removida da história das corridas. <p><p>Por exemplo, suponha que reduza o limite de retenção de 90 dias para 30 dias. Uma corrida de 60 dias é removida da história das corridas. Se aumentar o período de retenção de 30 dias para 60 dias, uma corrida de 20 dias fica na história das corridas por mais 40 dias. <p><p>Para alterar o limite de incumprimento, que é de 90 dias, consulte [a retenção do histórico de variação no armazenamento](#change-retention). |
+| Executar retenção de história no armazenamento | 90 dias | 366 dias | Se a duração de uma corrida exceder o limite de retenção do histórico de execução atual, o percurso é removido do histórico de execuções no armazenamento. Quer a execução esteja concluída ou fora do tempo, a retenção do histórico é sempre calculada utilizando o tempo de início da execução e o limite atual especificado na definição do fluxo de trabalho, [**Executar a retenção do histórico em dias**](#change-retention). Independentemente do limite anterior, o limite atual é sempre utilizado para o cálculo da retenção. <p><p>Para alterar o limite padrão e para obter mais informações, consulte [Alterar executar a retenção do histórico no armazenamento](#change-retention). Para aumentar o limite máximo, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos. |
 | Intervalo mínimo de recorrência | 1 segundo | 1 segundo ||
 | Intervalo máximo de recorrência | 500 dias | 500 dias ||
 |||||
@@ -57,11 +57,17 @@ Aqui estão os limites para uma única aplicação lógica executada:
 
 ### <a name="change-run-history-retention-in-storage"></a>Alterar a retenção do histórico de execução no armazenamento
 
-Para alterar o limite padrão para a retenção do histórico de execução no armazenamento, siga estes passos. Para aumentar o limite máximo, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+Para alterar o limite padrão para a retenção do histórico de execução no armazenamento, siga estes passos.
 
-> [!NOTE]
-> Para aplicações lógicas em Azure multi-inquilino, o limite de 90 dias de incumprimento é o mesmo que o limite máximo. Só se pode diminuir este valor.
-> Para aplicações lógicas num ambiente de serviço de integração, pode diminuir ou aumentar o limite de 90 dias.
+* Para aplicações lógicas em Azure multi-inquilino, o limite de 90 dias de incumprimento é o mesmo que o limite máximo. Só se pode diminuir este valor.
+
+* Para aplicações lógicas num ambiente de serviço de integração, pode diminuir ou aumentar o limite de 90 dias.
+
+Por exemplo, suponha que reduza o limite de retenção de 90 dias para 30 dias. Uma corrida de 60 dias é removida da história das corridas. Se aumentar o período de retenção de 30 dias para 60 dias, uma corrida de 20 dias fica na história das corridas por mais 40 dias. 
+
+
+> [!IMPORTANT]
+> Para evitar perder o histórico de execuções, certifique-se de que o limite de retenção é *sempre* mais do que a duração mais longa possível da corrida. Caso contrário, a história da corrida perde-se.
 
 1. Na caixa de pesquisa do [portal Azure,](https://portal.azure.com) encontre e selecione **aplicações Lógicas.**
 

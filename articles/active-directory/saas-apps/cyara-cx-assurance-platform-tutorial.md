@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: ab62ed396be4832f09d5eb26e3d732a01bdb905d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18a0037f2af221101b4202883e5c145471af1183
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542654"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455060"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cyara-cx-assurance-platform"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Cyara CX Assurance Platform
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar a Cyara CX Assurance Platform com 
 * Permita que os seus utilizadores sejam automaticamente inscritos na Plataforma cyara CX Assurance com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Cyara CX Assurance Platform suporta **IDP** iniciado SSO
-* Uma vez configurada a Cyara CX Assurance Platform, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurada a Cyara CX Assurance Platform, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-cyara-cx-assurance-platform-from-the-gallery"></a>Adicionar plataforma de garantia Cyara CX da galeria
 
@@ -133,24 +133,24 @@ Para configurar um único sinal no lado **da Plataforma de Garantia Cyara CX,** 
 
 ### <a name="create-cyara-cx-assurance-platform-test-user"></a>Criar utilizador de teste da Plataforma Cyara CX Assurance
 
-Nesta secção, cria-se um utilizador chamado Britta Simon na Plataforma cyara CX Assurance. Trabalhe com a [equipa de suporte da Cyara CX Assurance Platform](mailto:support@cyara.com) para adicionar os utilizadores na plataforma Cyara CX Assurance Platform. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon na Plataforma cyara CX Assurance. Trabalhe com a [equipa de suporte da Cyara CX Assurance Platform](mailto:support@cyara.com) para adicionar os utilizadores na plataforma Cyara CX Assurance Platform. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo da Plataforma cyara CX Assurance no Painel de Acesso, deverá ser automaticamente inscrito na Plataforma de Garantia CX da Cyara para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo da Plataforma cyara CX Assurance no Painel de Acesso, deverá ser automaticamente inscrito na Plataforma de Garantia CX da Cyara para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente a Plataforma de Garantia Cyara CX com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger a Cyara CX Assurance Platform com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger a Cyara CX Assurance Platform com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

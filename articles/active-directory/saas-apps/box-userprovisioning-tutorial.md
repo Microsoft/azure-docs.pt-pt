@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312911"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456828"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Caixa de configuração para o provisionamento automático do utilizador
 
@@ -48,7 +48,7 @@ O Azure Ative Directory utiliza um conceito chamado "atribuições" para determi
 
 Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os utilizadores e/ou grupos em AZure AD que representam os utilizadores que precisam de acesso à sua aplicação Box. Uma vez decididos, pode atribuir estes utilizadores à sua aplicação Box seguindo as instruções aqui:
 
-[Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="assign-users-and-groups"></a>Atribuir utilizadores e grupos
 O **separador Box > Utilizadores e Grupos** no portal Azure permite-lhe especificar quais os utilizadores e grupos que devem ter acesso à Box. A atribuição de um utilizador ou grupo faz com que ocorram as seguintes coisas:
