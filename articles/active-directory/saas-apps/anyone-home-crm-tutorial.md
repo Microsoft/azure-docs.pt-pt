@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
-ms.openlocfilehash: d6b6ca4af29629ec30e4058d5b9f820367fcde5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234e8586dd5e250525b37e45def249ee7ec4e8a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544684"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457950"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-anyone-home-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com qualquer CRM doméstico
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprenderá a integrar qualquer CRM home com Azure Ative Di
 * Ative os seus utilizadores a serem automaticamente inscritos em Qualquer CRM home com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Qualquer CRM domiciliário suporta **IDP** iniciado SSO
-* Uma vez configurado qualquer CRM doméstico, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurado qualquer CRM doméstico, pode impor o controlo de sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-anyone-home-crm-from-the-gallery"></a>Adicionando qualquer CRM home da galeria
 
@@ -126,24 +126,24 @@ Para configurar um único sinal de inscrição em qualquer lado **de CRM domést
 
 ### <a name="create-anyone-home-crm-test-user"></a>Criar qualquer utilizador de teste de CRM doméstico
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Qualquer CRM Home. Trabalhe com [a equipa de suporte do HOME CRM](mailto:support@anyonehome.com) para adicionar os utilizadores na plataforma De CRM home. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Qualquer CRM Home. Trabalhe com [a equipa de suporte do HOME CRM](mailto:support@anyonehome.com) para adicionar os utilizadores na plataforma De CRM home. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo de CRM home de qualquer pessoa no Painel de Acesso, deverá ser automaticamente inscrito no CRM de qualquer pessoa para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo de CRM home de qualquer pessoa no Painel de Acesso, deverá ser automaticamente inscrito no CRM de qualquer pessoa para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente qualquer CRM em casa com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger qualquer CRM doméstico com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger qualquer CRM doméstico com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

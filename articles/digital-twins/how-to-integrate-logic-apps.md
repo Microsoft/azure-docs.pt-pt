@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427997"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461078"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -43,7 +43,7 @@ Para ligar uma instância Azure Digital Twins a Logic Apps neste artigo, terá d
 Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
 * Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal Azure).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
-Para autenticar a aplicação ADT Explorer, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
+Para autenticar o conector, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
 * Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino) ID (encontre_** [no portal Azure).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 
 ### <a name="get-app-registration-client-secret"></a>Obtenha o segredo do cliente de registo de aplicativos
@@ -66,7 +66,7 @@ Agora, verifique se o segredo do cliente está visível na página _de segredos 
 
 Este artigo utiliza Apps Lógicas para atualizar um gémeo na sua instância Azure Digital Twins. Para prosseguir, deve adicionar pelo menos um gémeo no seu caso. 
 
-Pode adicionar gémeos utilizando as [APIs DigitalTwins,](how-to-use-apis-sdks.md)a [.NET (C#) SDK,](https://www.nuget.org/packages/Azure.DigitalTwins.Core)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para obter passos detalhados sobre como criar gémeos utilizando estes métodos, consulte [*Como-a-fazer: Gerir gémeos digitais*](how-to-manage-twin.md).
+Pode adicionar gémeos utilizando as [APIs DigitalTwins,](/rest/api/digital-twins/dataplane/twins)a [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para obter passos detalhados sobre como criar gémeos utilizando estes métodos, consulte [*Como-a-fazer: Gerir gémeos digitais*](how-to-manage-twin.md).
 
 Vai precisar da **_identificação de_** um gémeo no seu caso que criou.
 

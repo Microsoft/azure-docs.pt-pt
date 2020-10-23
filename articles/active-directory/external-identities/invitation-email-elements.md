@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340642"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441883"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Ative Directory
 
@@ -63,7 +63,7 @@ A próxima secção do e-mail contém informações sobre onde o convite será l
 
 ### <a name="footer-section"></a>Seção footer
 
-O rodapé contém mais informações sobre o convite que está a ser enviado. Há sempre uma opção para o convidado bloquear futuros convites. Se a organização [tiver estabelecido uma declaração de privacidade,](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)o link para a declaração é apresentado aqui.  Caso contrário, uma nota indica que a organização não definiu uma declaração de privacidade.
+O rodapé contém mais informações sobre o convite que está a ser enviado. Há sempre uma opção para o convidado bloquear futuros convites. Se a organização [tiver estabelecido uma declaração de privacidade,](../fundamentals/active-directory-properties-area.md)o link para a declaração é apresentado aqui.  Caso contrário, uma nota indica que a organização não definiu uma declaração de privacidade.
 
 ![Imagem da secção de rodapé no e-mail](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ Um utilizador convidado pode seguir estes passos para ver ou exportar as organiz
 
 O idioma apresentado ao utilizador convidado no e-mail do convite é determinado pelas seguintes definições. Estas definições estão listadas por ordem de precedência. Se uma definição não estiver configurada, a próxima definição da lista determina o idioma.
 
-- A **mensagem Propriedade deLanguage** do objeto [convidadoUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se o convite Create API for usado
--   A propriedade **preferida da Língua de Língua** especificada no objeto de [utilizador](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) do hóspede
+- A **mensagem Propriedade deLanguage** do objeto [convidadoUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se o convite Create API for usado
+-   A propriedade **preferida da Língua de Língua** especificada no objeto de [utilizador](/graph/api/resources/user?view=graph-rest-1.0) do hóspede
 -   A **linguagem de notificação** definida nas propriedades do inquilino do hóspede (apenas para inquilinos da AZure AD)
 -   A **linguagem de notificação** definida nas propriedades do inquilino de recursos
 

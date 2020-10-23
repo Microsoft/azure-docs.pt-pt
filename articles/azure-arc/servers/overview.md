@@ -2,14 +2,14 @@
 title: Visão geral dos servidores azure Arc
 description: Saiba como usar o Azure Arc habilitado os servidores a gerir servidores hospedados fora do Azure como um recurso Azure.
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
-ms.openlocfilehash: b2875cfdeb80aa17b19cee462dc35eaa7a3de665
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200972"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460857"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -29,7 +29,7 @@ Quando liga a sua máquina a servidores ativados do Azure Arc, permite a capacid
 
 - Simplificar a implementação com outros serviços Azure [Automation State Configuration](../../automation/automation-dsc-overview.md) e Azure Monitor Log Analytics utilizando as [extensões Azure VM](manage-vm-extensions.md) suportadas para as suas janelas não-Azure ou máquina Linux. Isto inclui a realização de configuração pós-implantação ou instalação de software utilizando a extensão de script personalizado.
 
-- Utilize [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) na Azure Automation para gerir as atualizações do sistema operativo para os seus servidores Windows e Linux. Primeiro, implante a função [de trabalhador do Runbook Híbrido](../../automation/automation-hybrid-runbook-worker.md) e, em seguida, siga os passos para ativar a Gestão de [Atualização](../../automation/update-management/update-mgmt-enable-portal.md) no seu Windows ou máquina Linux não-Azure.
+- Utilize [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) na Azure Automation para gerir as atualizações do sistema operativo para os seus servidores Windows e Linux.
 
 - Inclua os seus servidores não-Azure para deteção de ameaças e monitorize proativamente para potenciais ameaças à segurança usando [o Azure Security Center](../../security-center/security-center-introduction.md).
 

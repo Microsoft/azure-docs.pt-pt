@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362897"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442087"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 
@@ -66,7 +66,7 @@ Por exemplo, ao configurar a federação direta para _*fabrikam.com**, o URL de 
 Se especificar o URL dos metadados nas definições do fornecedor de identidade, o Azure AD renovará automaticamente o certificado de assinatura quando expirar. No entanto, se o certificado for rotativo por qualquer motivo antes do prazo de validade, ou se não fornecer um URL de metadados, a Azure AD não poderá renová-lo. Neste caso, terá de atualizar manualmente o certificado de assinatura.
 
 ### <a name="limit-on-federation-relationships"></a>Limite nas relações da federação
-Atualmente, um máximo de 1.000 relações da federação é apoiado. Este limite inclui tanto as [federações internas](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) como as federações diretas.
+Atualmente, um máximo de 1.000 relações da federação é apoiado. Este limite inclui tanto as [federações internas](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) como as federações diretas.
 
 ### <a name="limit-on-multiple-domains"></a>Limite em vários domínios
 Não apoiamos a federação direta com vários domínios do mesmo inquilino.
@@ -87,7 +87,7 @@ Em primeiro lugar, a sua organização parceira precisa de configurar o seu forn
 
 ### <a name="saml-20-configuration"></a>Configuração SAML 2.0
 
-O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que utilizam o protocolo SAML com requisitos específicos listados abaixo. Para obter mais informações sobre a criação de uma confiança entre o seu fornecedor de identidade SAML e a AD Azure, consulte utilizar um Fornecedor de  [Identidade SAML 2.0 (IdP) para uma única Sposição](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+O Azure AD B2B pode ser configurado para federar com fornecedores de identidade que utilizam o protocolo SAML com requisitos específicos listados abaixo. Para obter mais informações sobre a criação de uma confiança entre o seu fornecedor de identidade SAML e a AD Azure, consulte utilizar um Fornecedor de  [Identidade SAML 2.0 (IdP) para uma única Sposição](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > O domínio-alvo da federação direta não deve ser verificado em Azure AD. O domínio URL de autenticação deve coincidir com o domínio alvo ou deve ser o domínio de um fornecedor de identidade permitido. Consulte a secção [Limitações](#limitations) para mais detalhes. 

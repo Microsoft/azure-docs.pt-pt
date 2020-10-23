@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055941"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441113"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -36,7 +36,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Atualmente, a configuração só pode ser executada utilizando pedidos CLI ou REST. Não é possível utilizar o portal Azure ou o PowerShell.
-- As tabelas suportadas são atualmente limitadas às específicas na secção (#supported-tabes) abaixo. Se a regra de exportação de dados incluir uma tabela não apoiada, a operação terá sucesso, mas nenhum dado será exportado para esse quadro. Se a regra de exportação de dados incluir uma tabela que não existe, falhará com a tabela de * <tableName> erros que não existe no espaço de trabalho.*
+- As tabelas suportadas são atualmente limitadas às específicas na secção de [tabelas suportadas](#supported-tables) abaixo. Se a regra de exportação de dados incluir uma tabela não apoiada, a operação terá sucesso, mas nenhum dado será exportado para esse quadro. Se a regra de exportação de dados incluir uma tabela que não existe, falhará com o erro ```Table <tableName> does not exist in the workspace.```
 - O seu espaço de trabalho Log Analytics pode estar em qualquer região, exceto no seguinte:
   - Suíça Norte
   - Suíça Oeste
@@ -57,7 +57,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 ## <a name="data-completeness"></a>Preencha os dados
 A exportação de dados continuará a tentar o envio de dados por um tempo até 30 minutos no caso de o destino não estar disponível. Se ainda estiver indisponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 Atualmente, não existem encargos adicionais para a funcionalidade de exportação de dados. Os preços para a exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da faturação. Se optar por continuar a utilizar a exportação de dados após o período de pré-aviso, será cobrado à taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
@@ -239,7 +239,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Mesas não suportadas
 Se a regra de exportação de dados incluir uma tabela não apoiada, a configuração terá sucesso, mas nenhum dado será exportado para esse quadro. Se a tabela for mais tarde suportada, os seus dados serão exportados nessa altura.
 
-Se a regra de exportação de dados incluir uma tabela que não existe, falhará com a tabela de * <tableName> erros que não existe no espaço de trabalho*.
+Se a regra de exportação de dados incluir uma tabela que não existe, falhará com o erro ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>Mesas apoiadas

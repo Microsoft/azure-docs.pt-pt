@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9be94183fc34c2dbee3503d21e2e643d5296a82b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461129"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -25,12 +25,14 @@ ms.locfileid: "92124590"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Esta amostra está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 A amostra de **chat hero do grupo** de serviços de comunicação Azure mostra como a biblioteca de clientes de Chat Web dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo.
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
-> [!IMPORTANT]
-> [Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -96,7 +98,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. Crie um novo perfil de publicação e selecione a sua subscrição Azure.
 3. Antes de publicar, adicione a sua cadeia de ligação com `Edit App Service Settings` , e preencha `ResourceConnectionString` como chave e forneça a sua cadeia de ligação (copiada a partir de appsettings.js) como o valor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 

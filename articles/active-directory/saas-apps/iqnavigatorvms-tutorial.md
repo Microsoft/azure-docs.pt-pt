@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 947834f0ca32b81a8a5e292ce63507f93a389bb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beef52641b9744b39873a7f48e39eb2f94ed4c9f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552790"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459735"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iqnavigator-vms"></a>Tutorial: Azure Ative Directy integração única (SSO) com IQNavigator VMS
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o IQNavigator VMS com Azure Ative 
 * Ative os seus utilizadores a serem automaticamente inscritos no IQNavigator VMS com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -139,21 +139,20 @@ Para configurar um único sinal no lado **VMS do IQNavigator,** é necessário e
 
 ### <a name="create-iqnavigator-vms-test-user"></a>Criar utilizador de teste VMS do IQNavigator
 
-Nesta secção, cria-se um utilizador chamado Britta Simon no IQNavigator VMS. Trabalhe com a [equipa de suporte do IQNavigator VMS](https://www.beeline.com/support-iqn/) para adicionar os utilizadores na plataforma VMS do IQNavigator. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon no IQNavigator VMS. Trabalhe com a [equipa de suporte do IQNavigator VMS](https://www.beeline.com/support-iqn/) para adicionar os utilizadores na plataforma VMS do IQNavigator. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo VMS do IQNavigator no Painel de Acesso, deverá ser automaticamente inscrito no VMS do IQNavigator para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo VMS do IQNavigator no Painel de Acesso, deverá ser automaticamente inscrito no VMS do IQNavigator para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o IQNavigator VMS com Azure AD](https://aad.portal.azure.com/)
-

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f76d6a5c4c891abf92b67cc51ffffab5f2a81d6b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f0d28a71e2bd6fc2006bda81fba7d7e6336c5b1c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427693"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460840"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -48,7 +48,7 @@ Para trabalhar através do cenário, irá interagir com componentes da aplicaç�
 
 Aqui estão os componentes implementados pela aplicação de amostra do cenário de construção *AdtSampleApp:*
 * Autenticação do dispositivo 
-* [.NET (C#) Exemplos](https://www.nuget.org/packages/Azure.DigitalTwins.Core) de utilização da SDK (encontrados em *CommandLoop.cs*)
+* [.NET (C#) Exemplos](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) de utilização da SDK (encontrados em *CommandLoop.cs*)
 * Interface de consola para chamar a AZure Digital Twins API
 * *SampleClientApp* - Uma solução de amostra Azure Digital Twins
 * *SampleFunctionsApp* - Uma app Azure Functions que atualiza o seu gráfico Azure Digital Twins como resultado da telemetria dos eventos IoT Hub e Azure Digital Twins
@@ -87,7 +87,7 @@ Query
 ```
 
 >[!TIP]
-> Este método simplificado é fornecido no âmbito do projeto _**AdtE2ESample.**_ Fora do contexto deste código de amostra, pode consultar todos os gémeos no seu caso a qualquer momento, utilizando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos CLI](how-to-use-cli.md).
+> Este método simplificado é fornecido no âmbito do projeto _**AdtE2ESample.**_ Fora do contexto deste código de amostra, pode consultar todos os gémeos no seu caso a qualquer momento, utilizando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos CLI](how-to-use-cli.md).
 >
 > Aqui está o corpo de consulta completa para obter todos os gémeos digitais no seu caso:
 > 

@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126331"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461146"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -25,12 +25,12 @@ ms.locfileid: "92126331"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Esta amostra está disponível no GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como a biblioteca de clientes web dos Serviços de Comunicação pode ser usada para construir uma experiência de chamada de grupo.
 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
-
-> [!IMPORTANT]
-> [Faça o download da amostra do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -96,7 +96,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. Crie um novo perfil de publicação e selecione a sua subscrição Azure.
 3. Antes de publicar, adicione a sua cadeia de ligação com `Edit App Service Settings` , e preencha `ResourceConnectionString` como chave e forneça a sua cadeia de ligação (copiada a partir de appsettings.js) como o valor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
@@ -108,7 +108,6 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 Para obter mais informações, veja os seguintes artigos:
 
 - Familiarize-se com [a utilização da biblioteca de clientes de chamadas](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Saiba mais [sobre chamar as capacidades da biblioteca do cliente](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como funciona a chamada](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>Leitura adicional

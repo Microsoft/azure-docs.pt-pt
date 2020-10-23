@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317451"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455425"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Conigure Concur para o fornecimento automático de utilizadores
 
@@ -35,7 +35,7 @@ O Azure Ative Directory utiliza um conceito chamado "atribuições" para determi
 
 Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os utilizadores e/ou grupos em Azure AD que representam os utilizadores que precisam de acesso à sua app Concur. Uma vez decididos, pode atribuir estes utilizadores à sua app Concur seguindo as instruções aqui:
 
-[Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>Dicas importantes para atribuir utilizadores à Concur
 
@@ -121,4 +121,3 @@ Agora pode criar uma conta de teste. Aguarde até 20 minutos para verificar se a
 * [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](concur-tutorial.md)
-

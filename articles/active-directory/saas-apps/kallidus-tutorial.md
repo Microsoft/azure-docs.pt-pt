@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b743043d7a7c211ad024b2c1f2fe51f807c50beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8401589d804a9f1a89820a357495cb703e7a542
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546865"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459225"
 ---
 # <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>Tutorial: Integre Kallidus com diretório ativo Azure
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Kallidus com Azure Ative Directory
 * Permita que os seus utilizadores sejam automaticamente inscritos no Kallidus com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -120,16 +120,16 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-kallidus-test-user"></a>Criar utilizador de teste Kallidus
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Kallidus. Trabalhe com a [equipa de suporte da Kallidus](https://kallidus.zendesk.com) para adicionar os utilizadores na plataforma Kallidus. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Kallidus. Trabalhe com a [equipa de suporte da Kallidus](https://kallidus.zendesk.com) para adicionar os utilizadores na plataforma Kallidus. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo Kallidus no Painel de Acesso, deverá ser automaticamente inscrito no Kallidus para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Kallidus no Painel de Acesso, deverá ser automaticamente inscrito no Kallidus para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

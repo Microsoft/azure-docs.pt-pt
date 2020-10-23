@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658365"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457996"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Início de Sessão Único Totalmente Integrado do Azure Active Directory
 
@@ -64,18 +64,20 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
-|Windows 8.1|Sim, é o seu\*|N/D|Sim|Sim\*\*\*|N/D
-|Windows 8|Sim, é o seu\*|N/D|Sim|Sim\*\*\*|N/D
-|Windows 7|Sim, é o seu\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 8.1|Sim\*|Sim, eu não.\*\*\*|Sim|Sim\*\*\*|N/D
+|Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
 |Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Sim|Sim\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
 
-\*Requer versões do Internet Explorer 10 ou superiores
+\*Requer a versão 10 ou posterior do Internet Explorer.
 
-\*\*Requer versões do Internet Explorer 10 ou superiores. Desativar o modo protegido melhorado
+\*\*Requer a versão 10 ou posterior do Internet Explorer. Desative o modo protegido melhorado.
 
-\*\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Requer [uma configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Requer a versão 77 ou posterior do Microsoft Edge.
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é utilizar o [Azure AD Join](../devices/concept-azure-ad-join.md) para a experiência de súmis ideal com a Azure AD.
