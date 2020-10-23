@@ -3,17 +3,17 @@ title: Analisar custos com a Aplicação Power BI
 description: Este artigo explica como instalar e utilizar a Aplicação Power BI do Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447661"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131127"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar o custo com a Aplicação Power BI do Azure Cost Management para Contratos Enterprise (EA)
 
@@ -28,8 +28,8 @@ Atualmente, a Aplicação Power BI do Azure Cost Management suporta apenas clien
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma [licença Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) para instalar e utilizar a aplicação
-- Para se ligar aos dados, terá de utilizar uma conta de [Administrador Enterprise](../manage/understand-ea-roles.md)
+- É necessária uma [licença do Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) para instalar e utilizar a aplicação.
+- Para se ligar aos dados, tem de utilizar uma conta de [Administrador Empresarial](../manage/understand-ea-roles.md). A função Administrador Empresarial (só de leitura) é suportada.
 
 ## <a name="installation-steps"></a>Passos de instalação
 
@@ -88,7 +88,7 @@ O relatório também identifica as VMs do Windows nas quais o Benefício Híbrid
 
 Pode aplicar um filtro em _chargetype_ para ver os dados de subutilização de RI.
 
-Para obter mais informações sobre os dados amortizados, veja [Obter custos e utilização de reservas do Contrato Enterprise](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Para obter mais informações sobre os dados amortizados, veja [Obter custos e utilização de reservas do Contrato Enterprise](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** (Poupanças de RI) - O relatório mostra as poupanças acumuladas pelas reservas para subscrição, grupo de recursos e o nível de recurso. Apresenta:
 

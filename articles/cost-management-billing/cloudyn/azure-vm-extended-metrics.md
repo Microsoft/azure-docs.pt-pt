@@ -10,12 +10,12 @@ ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89084f0631b52631708db68a11595cb24d1b9fee
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 14ea98ecc4d9682353038088a124802d60a5dd5d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690124"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131450"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas expandidas para máquinas virtuais do Azure
 
@@ -50,7 +50,7 @@ As métricas padrão são métricas do computador anfitrião. A métrica _Percen
 
 A ativação das métricas expandidas é simples. Ative a monitorização ao nível do convidado para cada VM. Quando ativar a monitorização ao nível do convidado, o agente de diagnóstico do Azure é instalado na VM. Por predefinição, é adicionado um conjunto básico de métricas expandidas. O processo seguinte é o mesmo para as VMs clássicas e regulares, bem como para as VMs do Windows e do Linux.
 
-Não se esqueça de que tanto a monitorização ao nível do convidado do Azure como do Linux requerem uma conta de armazenamento. Quando ativar a monitorização ao nível do convidado, se não escolher uma conta de armazenamento existente, será criada uma automaticamente.
+Não se esqueça de que tanto a monitorização ao nível do convidado do Windows como do Linux requer uma conta de armazenamento. Quando ativar a monitorização ao nível do convidado, se não escolher uma conta de armazenamento existente, será criada uma automaticamente.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Ativar a monitorização ao nível do convidado em VMs existentes
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre como ativar as métricas expandidas para má
 
 ## <a name="resource-manager-credentials"></a>Credenciais do Resource Manager
 
-Depois de ativar as métricas expandidas, verifique se a Cloudyn tem acesso às [credenciais do Resource Manager](../../cost-management/activate-subs-accounts.md). As credenciais são necessárias para que a Cloudyn consiga recolher e apresentar os dados de desempenho das VMs. São também utilizados para criar recomendações de otimização de custos. A Cloudyn precisa de, pelo menos, três dias de dados de desempenho de uma instância para determinar se é candidata a uma recomendação de redução.
+Depois de ativar as métricas expandidas, verifique se a Cloudyn tem acesso às [credenciais do Resource Manager](./activate-subs-accounts.md). As credenciais são necessárias para que a Cloudyn consiga recolher e apresentar os dados de desempenho das VMs. São também utilizados para criar recomendações de otimização de custos. A Cloudyn precisa de, pelo menos, três dias de dados de desempenho de uma instância para determinar se é candidata a uma recomendação de redução.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Ativar as métricas das VMs com um script
 
@@ -88,4 +88,4 @@ Para ver as métricas de desempenho nas Instâncias do Azure no portal da Cloudy
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se ainda não ativou a acesso à API do Azure Resource Manager para as suas contas, avance para [Ativar subscrições e contas do Azure](../../cost-management/activate-subs-accounts.md).
+- Se ainda não ativou a acesso à API do Azure Resource Manager para as suas contas, avance para [Ativar subscrições e contas do Azure](./activate-subs-accounts.md).

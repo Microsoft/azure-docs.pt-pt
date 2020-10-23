@@ -3,18 +3,18 @@ title: Gerir a utilização e os custos do AWS no Azure Cost Management
 description: Este artigo ajuda-o a compreender como utilizar a análise de custos e os orçamentos no Cost Management para gerir os custos e a utilização do AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266226"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148965"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerir os custos e a utilização do AWS no Azure
 
@@ -44,7 +44,7 @@ Na análise de custos, abra o seletor de âmbito e selecione o grupo de gestão 
 
 Veja a seguir um exemplo que mostra o custo do grupo de gestão na análise de custos, agrupado por Fornecedor (Azure e AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemplo a mostrar os custos do Azure e do AWS para um trimestre na análise de custos" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exemplo da vista Selecionar âmbito com contas associadas num grupo de gestão" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Atualmente, os grupos de gestão não são suportados para clientes do Contrato de Cliente Microsoft (MCA). Os clientes do MCA podem criar o conector e ver os respetivos dados do AWS. No entanto, os clientes do MCA não podem ver os custos do Azure e os custos do AWS juntos num grupo de gestão.
@@ -55,17 +55,17 @@ Para ver os custos de contas associadas do AWS, abra o seletor de âmbito e sele
 
 Veja a seguir um exemplo que mostra a seleção de um âmbito de conta associada do AWS.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemplo da vista Selecionar âmbito que mostra contas associadas do AWS" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exemplo da vista Selecionar âmbito com contas associadas num grupo de gestão" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Ver os custos da conta consolidada do AWS
 
 Para ver os custos da conta consolidada do AWS, abra o seletor de âmbito e selecione a conta consolidada do AWS. Veja a seguir um exemplo que mostra a seleção de um âmbito de conta consolidada do AWS.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemplo da vista Selecionar âmbito com contas consolidadas" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exemplo da vista Selecionar âmbito com contas associadas num grupo de gestão" :::
 
 Este âmbito apresenta uma vista agregada de todas as contas associadas do AWS associadas à conta consolidada do AWS. Veja a seguir um exemplo que mostra os custos para uma conta consolidada do AWS, agrupados por nome de serviço.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemplo a mostrar os custos consolidados do AWS na análise de custos" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exemplo da vista Selecionar âmbito com contas associadas num grupo de gestão" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensões disponíveis para filtragem e agrupamento
 
@@ -95,7 +95,7 @@ A tabela seguinte descreve as dimensões disponíveis para agrupar e filtrar por
 
 Utilize orçamentos para gerir proativamente os custos e impulsionar a responsabilidade na sua organização. Os orçamentos são definidos nos âmbitos da conta consolidada do AWS e das contas associadas do AWS. Veja a seguir um exemplo de orçamentos de uma conta consolidada do AWS apresentada no Cost Management:
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemplo a mostrar os orçamentos de uma conta consolidada do AWS" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exemplo da vista Selecionar âmbito com contas associadas num grupo de gestão" :::
 
 ## <a name="aws-data-collection-process"></a>Processo de recolha de dados do AWS
 
@@ -175,7 +175,13 @@ Este erro significa que o Cost Management não consegue localizar o relatório d
 
 **Código de erro:** _ReportIsNotValid_
 
-Este erro está relacionado com a definição do Relatório de Custos e Utilização, uma vez que são necessárias definições específicas para este relatório. Veja requisitos em [Criar um relatório de Custos e Utilização no AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
+Este erro está relacionado com a definição do Relatório de Custos e Utilização, uma vez que são necessárias definições específicas para este relatório. Veja requisitos em [Criar um relatório de Custos e Utilização no AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="internal-error-when-creating-connector"></a>Erro interno ao criar o conector
+
+**Código de erro:** _Criar conector - Falha ao criar o conector &lt;ConnectorName&gt;. Motivo: Erro interno. Confirme que foram fornecidas as propriedades corretas do AWS._
+
+Este erro pode ocorrer quando o conector e a subscrição do AWS estão em grupos de gestão diferentes. O conector e a subscrição do AWS têm de estar no mesmo grupo de gestão.
 
 ## <a name="next-steps"></a>Próximos passos
 

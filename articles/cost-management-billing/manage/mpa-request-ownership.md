@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371019"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203267"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -21,15 +21,15 @@ Para disponibilizar uma única fatura consolidada para os serviços geridos e pa
 
 Esta funcionalidade está disponível apenas para os Parceiros de Faturação Direta do CSP certificados como [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). Está sujeita à governação e às políticas da Microsoft e pode exigir análise e aprovação para determinados clientes.
 
-Para pedir a propriedade de faturação, precisa de ter a função de **Administrador Global** ou **Agente de Administração**. Para saber mais, veja [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).
+Para pedir a propriedade de faturação, precisa de ter a função de **Administrador Global** ou **Agente de Administração**. Para saber mais, veja [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview) (Centro de Parceiros – Atribuir funções e permissões de utilizadores).
 
 Este artigo aplica-se às contas de faturação dos Contratos de Parceiro da Microsoft. Estas contas foram criadas para os Fornecedores de Soluções Cloud (CSPs) gerirem a faturação dos clientes na nova experiência comercial. A nova experiência está disponível apenas para os parceiros que têm pelo menos um cliente que aceitou um Contrato de Cliente da Microsoft (MCA) e tem um Plano do Azure. [Verifique se tem acesso a um Contrato de Parceiro da Microsoft](#check-access-to-a-microsoft-partner-agreement).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Estabeleça uma [relação de revendedor ](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) com o cliente. Veja [CSP Regional Authorization Overview](https://docs.microsoft.com/partner-center/regional-authorization-overview) (Descrição Geral de Autorização Regional do CSP) para garantir que o cliente e o Inquilino parceiro estão dentro das mesmas regiões autorizadas.
-1. [Confirme que o cliente aceitou o Contrato de Cliente da Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
-1. Configure um [plano do Azure](https://docs.microsoft.com/partner-center/purchase-azure-plan) para o cliente. Se o cliente estiver a comprar através de vários revendedores, tem de configurar o plano do Azure para cada combinação de cliente e revendedor.
+1. Estabeleça uma [relação de revendedor ](/partner-center/request-a-relationship-with-a-customer) com o cliente. Veja [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview) (Descrição Geral de Autorização Regional do CSP) para garantir que o cliente e o Inquilino parceiro estão dentro das mesmas regiões autorizadas.
+1. [Confirme que o cliente aceitou o Contrato de Cliente da Microsoft](/partner-center/confirm-customer-agreement).
+1. Configure um [plano do Azure](/partner-center/purchase-azure-plan) para o cliente. Se o cliente estiver a comprar através de vários revendedores, tem de configurar o plano do Azure para cada combinação de cliente e revendedor.
 
 ## <a name="request-billing-ownership"></a>Pedir a propriedade da faturação
 
@@ -115,7 +115,7 @@ As subscrições desativadas não podem ser transferidas. As subscrições devem
 
 ### <a name="azure-resources-transfer"></a>Transferência de recursos do Azure
 
-Todos os recursos das subscrições, como VMs, discos e transferência de sites.
+Todos os recursos das subscrições, como VMs, discos e transferência de sites. Durante a transferência, os IDs das subscrições e dos recursos são preservados. 
 
 ### <a name="azure-marketplace-products-transfer"></a>Transferência de produtos do Azure Marketplace
 
@@ -123,13 +123,13 @@ Os produtos do Azure Marketplace que estão disponíveis para as subscrições q
 
 ### <a name="azure-reservations-transfer"></a>Transferência das Reservas do Azure
 
-As Reservas do Azure não são movidas automaticamente com as subscrições. Pode manter a Reserva no EA para outras subscrições ou [cancelar a Reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) e o parceiro pode voltar a comprá-la no CSP.
+As Reservas do Azure não são movidas automaticamente com as subscrições. Pode manter a Reserva no EA para outras subscrições ou [cancelar a Reserva](../reservations/exchange-and-refund-azure-reservations.md) e o parceiro pode voltar a comprá-la no CSP.
 
 ### <a name="access-to-azure-services"></a>Acesso aos serviços do Azure
 
 O acesso de utilizadores, grupos ou principais de serviço existentes atribuído com o [controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) não é afetado durante a transição. O parceiro não obtém qualquer acesso RBAC novo às subscrições.
 
-Os parceiros devem colaborar com o cliente para obterem acesso às subscrições. Para abrir pedidos de suporte, os parceiros têm de ter acesso de [Administração em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider).
+Os parceiros devem colaborar com o cliente para obterem acesso às subscrições. Para abrir pedidos de suporte, os parceiros têm de ter acesso de [Administração em Nome de – AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) ou [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md).
 
 ### <a name="azure-support-plan"></a>Plano de suporte do Azure
 
@@ -155,13 +155,13 @@ Alguns pedidos de transição de clientes podem exigir um processo adicional de 
 
 O diretório das subscrições do Azure que são transferidas tem de corresponder ao diretório do cliente que foi selecionado durante o estabelecimento da relação com o CSP.
 
-Se estes dois diretórios não corresponderem, as subscrições não poderão ser transferidas. Precisará de estabelecer uma nova relação de revendedor de CSP com o cliente ao selecionar o diretório das subscrições do Azure ou de alterar o diretório das subscrições do Azure para corresponder ao diretório da relação do CSP com o cliente. Para obter mais informações, veja [Associar uma subscrição existente ao diretório do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+Se estes dois diretórios não corresponderem, as subscrições não poderão ser transferidas. Precisará de estabelecer uma nova relação de revendedor de CSP com o cliente ao selecionar o diretório das subscrições do Azure ou de alterar o diretório das subscrições do Azure para corresponder ao diretório da relação do CSP com o cliente. Para obter mais informações, veja [Associar uma subscrição existente ao diretório do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
-### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Subscrição EA no diretório de não organização
+### <a name="ea-subscription-in-the-non-organization-directory"></a>Subscrição EA no diretório não organização
 
 As subscrições EA de diretórios de não organização podem ser transferidas desde que o diretório tenha uma relação de revendedor com o CSP. Se o diretório não tiver uma relação de revendedor, tem de se certificar de que tem o utilizador da organização no diretório como um *Administrador Global* que possa aceitar a relação com o parceiro. A parte do nome de domínio do nome de utilizador tem de ser o nome de domínio predefinido inicial "[nome de domínio]. onmicrosoft.com" ou um nome de domínio personalizado verificado e não federado como "contoso.com."  
 
-Para adicionar um novo utilizador ao diretório, veja [Início rápido: Adicionar novos utilizadores ao Azure Active Directory para adicionar o novo utilizador ao diretório do AAD](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para adicionar um novo utilizador ao diretório, veja [Início rápido: Adicionar novos utilizadores ao Azure Active Directory para adicionar o novo utilizador ao diretório](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificar o acesso a um Contrato de Parceiro da Microsoft
 
@@ -174,4 +174,4 @@ Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Micr
 ## <a name="next-steps"></a>Passos seguintes
 
 * A propriedade da faturação das subscrições do Azure é transferida para si. Controle os custos destas subscrições no [portal do Azure.](https://portal.azure.com)
-* Trabalhe com o cliente para obter acesso às subscrições do Azure transferidas. [Utilize o portal do Azure para adicionar ou remover atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Trabalhe com o cliente para obter acesso às subscrições do Azure transferidas. [Utilize o portal do Azure para adicionar ou remover atribuições de funções](../../role-based-access-control/role-assignments-portal.md).

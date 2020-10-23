@@ -5,19 +5,21 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/20/2020
 ms.author: banders
-ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371801"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316418"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a conta de faturação para um Contrato de Cliente da Microsoft
 
-Se a sua inscrição do Contrato Enterprise tiver expirado ou estiver prestes a expirar, poderá assinar um Contrato de Cliente da Microsoft para renovar a inscrição. Este artigo descreve as alterações à sua faturação atual após a configuração e orienta-o ao longo da configuração da nova conta de faturação. A renovação inclui os seguintes passos:
+Se a sua inscrição direta do Contrato Enterprise tiver expirado ou estiver prestes a expirar, poderá assinar um Contrato de Cliente Microsoft para renovar a inscrição. Este artigo descreve as alterações à sua faturação atual após a configuração e orienta-o ao longo da configuração da nova conta de faturação. Atualmente, os Contratos Enterprise indiretos a expirar podem ser renovados com um Contrato de Cliente Microsoft.
+
+A renovação inclui os seguintes passos:
 
 1. Aceitar o novo Contrato de Cliente da Microsoft. Trabalhe com o seu representante no terreno da Microsoft para compreender os detalhes e aceitar o novo contrato.
 2. Configurar a nova conta de faturação criada para o novo Contrato de Cliente da Microsoft.
@@ -28,7 +30,7 @@ Para configurar a conta de faturação, deve realizar a transição da faturaç�
 - Receberá mensalmente uma fatura digital dos seus custos. Pode ver e analisar a fatura na página Azure Cost Management + Faturação.
 - Em vez de departamentos e conta na sua inscrição do Contrato Enterprise, utilizará a estrutura e os âmbitos de faturação da nova conta para gerir e organizar a faturação.
 
-Antes de iniciar a configuração, recomendamos que faça o seguinte:
+Antes de iniciar a configuração, recomendamos que realize as ações seguintes:
 
 - **Compreender a nova conta de faturação**
   - A nova conta simplifica a faturação da sua organização. [Obter uma descrição geral rápida da nova conta de faturação](../understand/mca-overview.md)
@@ -98,9 +100,9 @@ Dependendo do acesso que possuem, os administradores de faturação na inscriç�
 
 Um inquilino do Azure Active Directory (AD) é selecionado para a nova conta de faturação durante a aceitação do Contrato de Cliente da Microsoft. Se não existir nenhum inquilino na sua organização, será criado um. O inquilino representa a sua organização no Azure Active Directory. Os administradores de inquilinos globais na sua organização utilizam o inquilino para gerir o acesso às aplicações e aos dados na sua organização.
 
-A nova conta apenas suporta utilizadores do inquilino que foi selecionado durante a assinatura do Contrato de Cliente da Microsoft. Se os utilizadores com permissão administrativa no Contrato Enterprise fizerem parte do inquilino, terão acesso à nova conta de faturação durante a configuração. Se não fizerem parte do inquilino, não poderão aceder à nova conta de faturação, a menos que os convide.
+A nova conta apenas suporta utilizadores do inquilino que foi selecionado durante a assinatura do Contrato de Cliente da Microsoft. Se os utilizadores com permissão administrativa no Contrato Enterprise fizerem parte do inquilino, terão acesso à nova conta de faturação durante a configuração. Se não fizerem parte do inquilino, não podem aceder à conta de faturação nova, a menos que os convide.
 
-Quando convida os utilizadores, estes são adicionados ao inquilino como utilizadores convidados e obtêm acesso à conta de faturação. Para convidar os utilizadores, o acesso de convidados deve ser ativado para o inquilino. Para obter mais informações, veja [Control guest access in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory) (Controlar o acesso de convidados no Azure Active Directory). Se o acesso de convidados estiver desativado, contacte os administradores globais do seu inquilino para o ativar. <!-- Todo - How can they find their global administrator -->
+Quando convida os utilizadores, estes são adicionados ao inquilino como utilizadores convidados e obtêm acesso à conta de faturação. Para convidar os utilizadores, o acesso de convidados deve ser ativado para o inquilino. Para obter mais informações, veja [Control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory) (Controlar o acesso de convidados no Azure Active Directory). Se o acesso de convidados estiver desativado, contacte os administradores globais do seu inquilino para o ativar. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-replaced-features"></a>Ver as funcionalidades substituídas
 
@@ -112,7 +114,7 @@ As contas que foram criadas na inscrição do Contrato Enterprise não são supo
 
 ### <a name="notification-contacts"></a>Contactos de notificação
 
-Os contactos de notificação recebem comunicações por e-mail sobre o Contrato Enterprise do Azure. Estes não são suportados na nova conta de faturação. Os e-mails sobre créditos e faturas do Azure são enviados aos utilizadores que têm acesso aos perfis de faturação na conta de faturação.
+Os contactos de notificação recebem comunicações por e-mail sobre o Contrato Enterprise do Azure. Não são suportados na conta de faturação nova. Os e-mails sobre créditos e faturas do Azure são enviados aos utilizadores que têm acesso aos perfis de faturação na conta de faturação.
 
 ### <a name="spending-quotas"></a>Quotas de despesas
 
@@ -164,7 +166,7 @@ A transição não pode ser revertida. Assim que a faturação das subscrições
 
 ### <a name="closing-your-browser-during-setup"></a>Fechar o browser durante a configuração
 
-Antes de clicar em **Iniciar transição**, pode fechar o browser. Pode voltar à configuração com a ligação que recebeu no e-mail e iniciar a transição. Se fechar o browser depois de iniciada a transição, a transição continuará em execução. Volte à página do estado da transição para monitorizar o estado mais recente da transição. Receberá um e-mail quando a transição for concluída.
+Antes de selecionar **Iniciar transição**, pode fechar o browser. Pode voltar à configuração com a ligação que recebeu no e-mail e iniciar a transição. Se fechar o browser depois de iniciada a transição, a transição continuará em execução. Volte à página do estado da transição para monitorizar o estado mais recente da transição. Receberá um e-mail quando a transição for concluída.
 
 ## <a name="complete-the-setup-in-the-azure-portal"></a>Concluir a configuração no portal do Azure
 
@@ -183,7 +185,7 @@ Para concluir a instalação, precisa de aceder à nova conta de faturação e �
     - É criada uma hierarquia de faturação correspondente à sua hierarquia do Contrato Enterprise na nova conta de faturação. Para obter mais informações, veja [Compreender as alterações à hierarquia de faturação](#understand-changes-to-your-billing-hierarchy).
     - Os administradores da sua inscrição do Contrato Enterprise obtêm acesso à nova conta de faturação para que possam continuar a gerir a faturação da sua organização.
     - A faturação das suas subscrições do Azure é transferida para a nova conta. **Durante a transição, os seus serviços do Azure não sofrerão qualquer impacto. Continuarão em execução sem qualquer interrupção**.
-    - Se tiver Reservas do Azure, estas serão movidas para a nova conta de faturação sem alterações nos benefícios ou no período.
+    - Se tiver Reservas do Azure, estas são movidas para a nova conta de faturação sem alterações nos benefícios ou no período.
 
 4. Pode monitorizar o estado da transição na página **Estado da transição**.
 

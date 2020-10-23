@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371818"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166221"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso às informações de faturação do Azure
 
@@ -53,7 +53,7 @@ Depois de um administrador de conta ter atribuído as funções apropriadas a ou
 
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
-    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Captura de ecrã que realça Cost Management + Faturação na secção Serviços.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
 1. Selecione **Subscrições** no painel esquerdo. Consoante o seu acesso, pode ter de selecionar um âmbito da faturação e, em seguida, selecionar **Subscrições**.
 
@@ -94,7 +94,7 @@ A funcionalidade Leitor de Faturação está em pré-visualização e ainda não
 1. Na caixa de texto **Selecionar**, digite o nome ou o e-mail do utilizador que quer adicionar.
 1. Selecione o utilizador.
 1. Selecione **Guardar**.
-    ![Captura de ecrã que mostra o clique em Adicionar atribuição de função](./media/manage-billing-access/billing-save-role-assignment.png)
+    ![Captura de ecrã que realça o botão Guardar.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. Após alguns instantes, a função de Leitor de Faturação é atribuída ao utilizador para essa subscrição.
 
