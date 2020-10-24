@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76937443"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489613"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas e alertas de DNS do Azure
 O Azure DNS é um serviço de hospedagem para domínios DNS que fornece resolução de nomes utilizando a infraestrutura Microsoft Azure. Este artigo descreve métricas e alertas para o serviço Azure DNS.
@@ -57,7 +57,7 @@ A métrica *Record set Count* mostra o número de Recordsets no Azure DNS para a
 ### <a name="record-set-capacity-utilization"></a>Record Fixo Utilização da Capacidade
 A métrica *de utilização da capacidade de fixação de registos* em Azure DNS mostra a percentagem de utilização da sua capacidade de Recordset para uma Zona DE DNS. Todas as zonas DNS em Azure DNS estão sujeitas a um limite de Recordset que define o número máximo de Conjuntos de Registos que são permitidos para a Zona (ver [limites DNS).](dns-zones-records.md#limits) Por isso, esta métrica mostra-lhe o quão perto está de atingir o limite de Recordset. Por exemplo, se tiver 500 Conjuntos de Registos configurados para a sua zona de DNS, e a zona tiver o limite de Registos padrão de 5000, a métrica de RegistosSetCapacityUtilization mostrará o valor de 10% (que é obtido dividindo 500 por 5000). A unidade de medição é **percentagem** e o tipo **de agregação** é **máximo**. Para visualizar esta métrica, selecione Experiência de explorador métrica (pré-visualização) a partir do separador Monitor no portal Azure. Selecione a sua zona DNS a partir da redução de recursos, selecione a métrica de utilização da capacidade de registo e selecione Max como a agregação. A imagem abaixo mostra um exemplo. Para obter mais informações sobre a experiência e o charting do Metrics Explorer, consulte [o Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
-![Contagem de recordes](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![Screenshot que whows um exemplo de como ver métricas.](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *Figura: Azure DNS Record set Capacidade Utilização métricas*
 

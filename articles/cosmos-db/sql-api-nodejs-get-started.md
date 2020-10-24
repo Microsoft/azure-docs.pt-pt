@@ -9,25 +9,25 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297883"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478002"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola Node.js com o SDK de JavaScript para gerir os dados da API SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Java assíncrono](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Java assíncrono](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
 Como desenvolvedor, pode ter aplicações que utilizam dados de documentos NoSQL. Pode utilizar uma conta API SQL no Azure Cosmos DB para armazenar e aceder a estes dados de documentos. Este tutorial mostra-lhe como construir uma aplicação de consola Node.js para criar recursos DB da Azure Cosmos e questioná-los.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Criar e ligar a uma conta DB Azure Cosmos.
@@ -221,6 +221,6 @@ Quando estes recursos já não forem necessários, pode eliminar o grupo de recu
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Monitorize uma conta DB da Azure Cosmos](monitor-accounts.md)
+> [Monitorize uma conta DB da Azure Cosmos](./monitor-cosmos-db.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account

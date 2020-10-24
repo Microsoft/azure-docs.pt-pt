@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402092f1667abb49da4521b91ba1f0e7d471f0d1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435257"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490259"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
 
-[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) é uma extensão gratuita e aberta para as edições comunitárias (gratuitas), profissionais e empresariais de ambos o Visual Studio [2017](https://www.visualstudio.com/downloads/)e [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) ou superior. O RTVS não está disponível para [o Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) é uma extensão gratuita e aberta para as edições comunitárias (gratuitas), profissionais e empresariais de ambos o Visual Studio [2017](https://www.visualstudio.com/downloads/)e [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) ou superior. O RTVS não está disponível para [o Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019&preserve-view=true).
 
 O RTVS melhora o seu fluxo de trabalho R oferecendo ferramentas como a [janela R Interactive](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (conclusão de código), [visualização de enredo](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) através de bibliotecas R como ggplot2 e ggviz, [depuração de código R,](https://docs.microsoft.com/visualstudio/rtvs/debugging)e muito mais.
 
-## <a name="set-up-your-environment"></a>Configurar o ambiente
+## <a name="set-up-your-environment"></a>Configurar o seu ambiente
 
 1. Instale [ferramentas R para Estúdio Visual](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 

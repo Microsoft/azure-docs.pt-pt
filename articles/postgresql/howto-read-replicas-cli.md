@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707545"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489715"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerir réplicas de leitura do Azure CLI, REST API
 
@@ -34,7 +34,7 @@ Pode criar e gerir réplicas de leitura utilizando o Azure CLI.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli)
 - Uma [base de dados Azure para o servidor PostgreSQL](quickstart-create-server-up-azure-cli.md) ser o servidor primário.
 
 
@@ -60,7 +60,7 @@ Pode criar e gerir réplicas de leitura utilizando o Azure CLI.
 
 ### <a name="create-a-read-replica"></a>Criar uma réplica de leitura
 
-A [réplica do servidor az postgres criar](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) o comando requer os seguintes parâmetros:
+A [réplica do servidor az postgres criar](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) o comando requer os seguintes parâmetros:
 
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ Se não definiu o `azure.replication_support` parâmetro para **REPLICA** num se
 > Antes de uma definição de servidor primário ser atualizada para um novo valor, atualize a definição de réplica para um valor igual ou maior. Esta ação ajuda a réplica a acompanhar quaisquer alterações feitas ao mestre.
 
 ### <a name="list-replicas"></a>Lista réplicas
-Pode ver a lista de réplicas de um servidor primário utilizando o comando da [lista de réplicas do servidor az postgres.](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list)
+Pode ver a lista de réplicas de um servidor primário utilizando o comando da [lista de réplicas do servidor az postgres.](/cli/azure/postgres/server/replica#az-postgres-server-replica-list)
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
-Pode parar a replicação entre um servidor primário e uma réplica de leitura utilizando o comando [de stop de réplica do servidor az postgres.](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop)
+Pode parar a replicação entre um servidor primário e uma réplica de leitura utilizando o comando [de stop de réplica do servidor az postgres.](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop)
 
 Depois de parar a replicação num servidor primário e uma réplica de leitura, não pode ser desfeita. A réplica de leitura torna-se um servidor autónomo que suporta tanto as leituras como as escritas. O servidor autónomo não pode ser transformado numa réplica novamente.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Eliminar um servidor primário ou de réplica
-Para eliminar um servidor primário ou de réplica, utilize o [comando de eliminação do servidor az postgres.](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete)
+Para eliminar um servidor primário ou de réplica, utilize o [comando de eliminação do servidor az postgres.](/cli/azure/postgres/server#az-postgres-server-delete)
 
 Quando elimina um servidor primário, a replicação de todas as réplicas lidas é interrompida. As réplicas de leitura tornam-se servidores autónomos que agora suportam tanto as leituras como as escritas.
 

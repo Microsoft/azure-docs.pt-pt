@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372247"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487471"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – descrição geral
 
@@ -69,7 +69,7 @@ Vamos investigar cada um em detalhe.
 |Backups on-line automatizados|As bases de dados da Azure Cosmos são armazenadas regularmente e armazenadas numa loja geodes redundante. <br><br>Saiba mais em [backup online automático e restaure com a Azure Cosmos DB](online-backup-and-restore.md).|
 |Restaurar dados eliminados|As cópias de segurança on-line automatizadas podem ser usadas para recuperar dados que pode ter acidentalmente apagado até ~30 dias após o evento. <br><br>Saiba mais em [backup online automático e restaure com a Azure Cosmos DB](online-backup-and-restore.md)|
 |Proteger e isolar dados sensíveis|Todos os dados nas regiões listadas em Quais as novidades? está agora encriptado em repouso.<br><br>Os dados pessoais e outros dados confidenciais podem ser isolados a recipientes específicos e ler-escrever, ou o acesso apenas de leitura pode ser limitado a utilizadores específicos.|
-|Monitor para ataques|Ao utilizar [registos de registos de auditoria e de atividade,](logging.md)pode monitorizar a sua conta para uma atividade normal e anormal. Pode ver que operações foram realizadas nos seus recursos, que iniciaram a operação, quando ocorreu a operação, o estado da operação, e muito mais como mostrado na imagem seguinte a esta tabela.|
+|Monitor para ataques|Ao utilizar [registos de registos de auditoria e de atividade,](./monitor-cosmos-db.md)pode monitorizar a sua conta para uma atividade normal e anormal. Pode ver que operações foram realizadas nos seus recursos, que iniciaram a operação, quando ocorreu a operação, o estado da operação, e muito mais como mostrado na imagem seguinte a esta tabela.|
 |Responder a ataques|Uma vez contactado o apoio do Azure para relatar um possível ataque, um processo de resposta a incidentes de 5 etapas é iniciado. O objetivo do processo de 5 etapas é restaurar a segurança e operações normais do serviço o mais rápido possível após a deteção de um problema e uma investigação é iniciada.<br><br>Saiba mais na [Microsoft Azure Security Response na Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-esgrima|AZure Cosmos DB assegura a governação de dados para regiões soberanas (por exemplo, Alemanha, China, EUA Gov).|
 |Instalações protegidas|Os dados em Azure Cosmos DB são armazenados em SSDs nos centros de dados protegidos do Azure.<br><br>Saiba mais nos [datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
@@ -104,6 +104,6 @@ As chaves primárias, secundárias, lidas apenas e as teclas primárias de leitu
 
 Para obter mais informações sobre chaves primárias e fichas de recursos, consulte [garantir o acesso aos dados DB da Azure Cosmos](secure-access-to-data.md).
 
-Para obter mais informações sobre o registo de auditoria, consulte [a Azure Cosmos DB para fazer a sessão de diagnóstico](logging.md).
+Para obter mais informações sobre o registo de auditoria, consulte [a Azure Cosmos DB para fazer a sessão de diagnóstico](./monitor-cosmos-db.md).
 
 Para obter mais informações sobre as certificações da Microsoft, consulte [o Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715806"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488763"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas
 
@@ -24,7 +24,7 @@ O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seg
 
 Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser alargado ao nível da subscrição, do grupo de recursos, da conta de armazenamento ou de um contentor ou fila individual. Um diretor de segurança Azure AD pode ser um utilizador, um grupo, um diretor de serviço de aplicação ou uma [identidade gerida para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-Este artigo descreve como usar a Azure PowerShell para listar as funções incorporadas do Azure e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do Azure PowerShell, consulte [a visão geral da Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Este artigo descreve como usar a Azure PowerShell para listar as funções incorporadas do Azure e atribuí-las aos utilizadores. Para obter mais informações sobre a utilização do Azure PowerShell, consulte [a visão geral da Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

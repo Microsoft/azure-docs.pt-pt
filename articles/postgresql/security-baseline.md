@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 828be8e790803e53b0434a71fb32a29a4a0c17bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f8aa38cf5d1667e2413f30025b554e379bd76b07
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428068"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478580"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Linha de segurança Azure para Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -134,7 +134,7 @@ Nota: A Azure Database for PostgreSQL utiliza a etiqueta de serviço "Microsoft.
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Amostras da Política Azure para networking](/azure/governance/policy/samples)
+- [Amostras da Política Azure para networking](../governance/policy/samples/index.md)
 
 - [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -150,7 +150,7 @@ Utilize qualquer uma das definições de Política Azure incorporadas relacionad
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas etiquetas.
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -160,7 +160,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com a sua Base de Dados Azure para instâncias postgreSQL. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -202,7 +202,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como configurar e aceder aos registos de auditoria do Azure Database para PostgreSQL](concepts-audit.md)
 
-- [Como configurar definições de diagnóstico para o registo de atividades azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/platform/activity-log.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -222,7 +222,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Armazenar registos de recursos numa conta de armazenamento Azure](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -254,7 +254,7 @@ Além disso, pode ativar registos de servidores e definições de diagnóstico p
 
 - [Como configurar e aceder aos registos de auditoria do Azure Database para PostgreSQL](concepts-audit.md)
 
-- [Como configurar definições de diagnóstico para o registo de atividades azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/platform/activity-log.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -386,7 +386,7 @@ Utilize deteções de risco Azure AD para visualizar alertas e relatórios sobre
 
 - [Como implementar gestão de identidade privilegiada (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Compreender deteções de risco Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Compreender deteções de risco Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -420,7 +420,7 @@ As credenciais AD do AZure também podem ser utilizadas para a administração a
 
 **Orientação**: Reveja os registos do Azure Ative Directory para ajudar a descobrir contas velhas que podem incluir as que têm Base de Dados Azure para funções administrativas postgreSQL. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais que possam ser usadas para aceder à Base de Dados Azure para PostgreSQL e atribuições de funções. O acesso ao utilizador deve ser revisto regularmente, como a cada 90 dias, para garantir que apenas os Utilizadores certos tenham acesso continuado.
 
-- [Compreenda a Azure Ad Reporting](/azure/active-directory/reports-monitoring/)
+- [Compreenda a Azure Ad Reporting](../active-directory/reports-monitoring/index.yml)
 
 - [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -438,7 +438,7 @@ As credenciais AD do AZure também podem ser utilizadas para a administração a
 
 - [Como configurar e aceder aos registos de auditoria do Azure Database para PostgreSQL](concepts-audit.md)
 
-- [Como integrar os Registos de Atividades do Azure no Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -456,7 +456,7 @@ Você também pode ingerir troncos em Azure Sentinel para mais investigação.
 
 - [Visão geral da Proteção de Identidade AD AZure](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como ver a Azure AD a entrar em risco](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Como ver a Azure AD a entrar em risco](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -482,7 +482,7 @@ Você também pode ingerir troncos em Azure Sentinel para mais investigação.
 
 **Orientação**: Utilize etiquetas para ajudar a rastrear a Base de Dados Azure para instâncias postgreSQL ou recursos relacionados que armazenam ou processam informações sensíveis.
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -492,9 +492,9 @@ Você também pode ingerir troncos em Azure Sentinel para mais investigação.
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Utilize uma combinação de regras private link, endpoints de serviço e/ou firewall para isolar e limitar o acesso à rede à sua Base de Dados Azure para instâncias PostgreSQL.
 
-- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
 - [Como configurar link privado para base de dados de Azure para PostgreSQL](howto-configure-privatelink-portal.md)
 
@@ -654,7 +654,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 - [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-- [Como ver as suas Subscrições Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -666,7 +666,7 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 **Orientação**: Aplicar etiquetas na Base de Dados Azure para instâncias postgreSQL e outros recursos relacionados que dão metadados para organizá-los logicamente numa taxonomia.
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -676,11 +676,11 @@ A Microsoft realiza a gestão de vulnerabilidades nos sistemas subjacentes que s
 
 **Orientação**: Utilize a marcação, grupos de gestão e assinaturas separadas, se for caso disso, para organizar e rastrear a Base de Dados Azure para instâncias postgreSQL e recursos conexos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
-- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -746,7 +746,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -798,7 +798,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 - As ligações de registo devem ser ativadas para servidores de base de dados PostgreSQL
 
-- [Como ver pseudónimos disponíveis da Política Azure](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -838,9 +838,9 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure para a sua Base de Dados Azure para instâncias postgreSQL e recursos relacionados, utilize o Azure Repos para armazenar e gerir de forma segura o seu código.
 
-- [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentação de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentação de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -898,7 +898,7 @@ Além disso, utilize o Gráfico de Recursos Azure para consultar/descobrir recur
 
 - [Como criar um Cofre-Chave](../key-vault/general/quick-create-portal.md)
 
-- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](/azure/key-vault/general/managed-identity)
+- [Como fornecer a autenticação do Cofre-Chave com uma identidade gerida](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -1106,5 +1106,5 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
-- Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
+- Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085553"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489596"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas de Colmeia Apache com Apache Hadoop em HDInsight usando REST
 
@@ -185,7 +185,7 @@ $clusterName
 
 1. Uma vez alterado o estado do trabalho para **SERDI,** pode recuperar os resultados do trabalho a partir do armazenamento da Azure Blob. O `statusdir` parâmetro passado com a consulta contém a localização do ficheiro de saída; neste caso, `/example/rest` . Este endereço armazena a saída no `example/curl` diretório no armazenamento predefinido dos clusters.
 
-    Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI com armazenamento Azure, consulte o [Use Azure CLI com](https://docs.microsoft.com/azure/storage/storage-azure-cli) o documento de armazenamento Azure.
+    Pode listar e descarregar estes ficheiros utilizando o [Azure CLI](/cli/azure/install-azure-cli). Para obter mais informações sobre a utilização do Azure CLI com armazenamento Azure, consulte o [Use Azure CLI com](https://docs.microsoft.com/azure/storage/storage-azure-cli) o documento de armazenamento Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

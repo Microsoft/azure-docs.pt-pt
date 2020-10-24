@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322704"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478121"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma Node.js aplicação web utilizando o JavaScript SDK para gerir uma conta API SQL em Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91322704"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -33,7 +33,7 @@ Este tutorial demonstra como criar uma conta API SQL em Azure Cosmos DB utilizan
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar uma conta do Azure Cosmos DB
+> * Criar uma conta do Azure Cosmos DB
 > * Criar uma nova aplicação Node.js
 > * Ligar a aplicação ao Azure Cosmos DB
 > * Executar e implementar a aplicação no Azure
@@ -50,7 +50,7 @@ Antes de seguir as instruções deste artigo, certifique-se de que tem os seguin
 * [Express generator](https://www.expressjs.com/starter/generator.html) (pode instalar o Express através de `npm install express-generator -g`)
 * Instale o [Git][Git] na estação de trabalho local.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Criar uma conta do Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a name="_Toc395637761"></a>Criar uma conta do Azure Cosmos DB
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar uma aplicação Node.js](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -487,4 +487,3 @@ Quando estes recursos já não forem necessários, pode eliminar o grupo de recu
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
-

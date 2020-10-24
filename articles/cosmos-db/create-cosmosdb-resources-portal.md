@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486655"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentor e itens a partir do portal Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "88607590"
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode utilizar a Azure Cosmos DB para criar e consultar rapidamente bases de dados chave/valor, bases de dados de documentos e bases de dados de gráficos, que beneficiam da distribuição global e das capacidades de escala horizontal no núcleo da Azure Cosmos DB. 
 
-Este quickstart demonstra como usar o portal Azure para criar uma conta AZure Cosmos [DB SQL API,](sql-api-introduction.md) criar uma base de dados de documentos e contentor, e adicionar dados ao recipiente. 
+Este quickstart demonstra como usar o portal Azure para criar uma conta AZure Cosmos [DB SQL API,](./introduction.md) criar uma base de dados de documentos e contentor, e adicionar dados ao recipiente. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ Uma subscrição da Azure ou conta de teste gratuita da Azure Cosmos DB
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
 Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Procure e selecione **Azure Cosmos DB**.
 
@@ -137,7 +137,7 @@ Adicione dados à sua nova base de dados utilizando o Data Explorer.
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)] 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

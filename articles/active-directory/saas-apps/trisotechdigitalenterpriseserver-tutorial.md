@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e8bf3d2407e2c3d0db4bb5d8591ba598aba68a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfad185718dcc4a1c06ba3a4ed22961615ccd37e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546445"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Ative Directory com o Trisotech Digital Enterprise Server
 
@@ -120,15 +120,15 @@ Para configurar o único sinal de Ad da Azure com o Trisotech Digital Enterprise
 
 2. Clique no **ícone menu** e, em seguida, selecione **Administração**.
 
-    ![Configurar Sign-On Individuais](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+    ![A screenshot mostra o ícone da Administração no Microsoft Digital Enterprise Server.](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 3. Selecione **User Provider**.
 
-    ![Configurar Sign-On Individuais](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+    ![A screenshot mostra o User Provider selecionado no menu.](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 4. Na secção **Configurações do Fornecedor de Utilizador,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+    ![A screenshot mostra as configurações do fornecedor do utilizador onde pode introduzir os valores descritos.](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
     a. Selecione **O Idioma de Marcação de Afirmação Garantido 2 (SAML 2)** a partir do dropdown no **Método de Autenticação**.
 
@@ -136,11 +136,11 @@ Para configurar o único sinal de Ad da Azure com o Trisotech Digital Enterprise
 
     c. Na caixa de texto ID do **aplicativo,** introduza o URL utilizando o seguinte padrão: `https://<companyname>.trisotech.com` .
 
-    d. Clicar em **Guardar**
+    d. Clique em **Guardar**
 
     e. Introduza o nome de domínio na caixa de texto **"Domínios Permitidos" (significa vazio significa todos)** que atribui automaticamente licenças para utilizadores que correspondam aos Domínios Permitidos
 
-    f. Clicar em **Guardar**
+    f. Clique em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 

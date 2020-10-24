@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707664"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489749"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para a base de dados de Azure para PostgreSQL - Servidor Único para outra região utilizando o portal Azure
 
@@ -21,7 +21,7 @@ Existem vários cenários para mover uma Base de Dados Azure existente para o se
 Você pode usar uma base de dados Azure para [a réplica de leitura de região pós-SQL](concepts-read-replicas.md#cross-region-replication) para completar a mudança para outra região. Para tal, primeiro crie uma réplica de leitura na região alvo. Em seguida, pare a replicação no servidor de réplicas de leitura para torná-lo um servidor autónomo que aceita tanto ler como escrever tráfego. 
 
 > [!NOTE]
-> Este artigo centra-se em mover o seu servidor para uma região diferente. Se pretender mover o seu servidor para um grupo de recursos ou subscrição diferente, consulte o artigo [de movimento.](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) 
+> Este artigo centra-se em mover o seu servidor para uma região diferente. Se pretender mover o seu servidor para um grupo de recursos ou subscrição diferente, consulte o artigo [de movimento.](../azure-resource-manager/management/move-resource-group-and-subscription.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

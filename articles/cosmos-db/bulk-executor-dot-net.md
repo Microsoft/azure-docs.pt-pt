@@ -10,12 +10,12 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2fb3e2031d5656668b9971fdf357f66824179fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31baad997733c46cf3e9aa8dc92ac0613468f72f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975885"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489392"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize o executor a granel .NET library para realizar operações a granel em Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Atualmente, a biblioteca de executores a granel é suportada apenas pelas contas
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-* Você pode [experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. Ou pode usar o [emulador Azure Cosmos DB](/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticate-requests).
+* Você pode [experimentar Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. Ou pode usar o [emulador Azure Cosmos DB](./local-emulator.md) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticate-requests).
 
 * Crie uma conta Azure Cosmos DB SQL API utilizando os passos descritos na secção de conta de base de [dados](create-sql-api-dotnet.md#create-account) do artigo de arranque rápido .NET.
 

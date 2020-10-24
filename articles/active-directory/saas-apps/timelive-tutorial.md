@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 217a049b589db98b6d28e7a0ef9b8ef64f635349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e9328d25459985172d2a80915bb156d297371ae
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88541719"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Tutorial: Integração do Azure Ative Directory com o TimeLive
 
@@ -130,11 +130,11 @@ Para configurar o Azure AD com o TimeLive, execute os seguintes passos:
 
 2. Selecione **Preferências** em **Opções de Administração**.
 
-    ![Configuração TimeLive](./media/timelive-tutorial/configure1.png)
+    ![A screenshot mostra as opções de administrador com preferências selecionadas.](./media/timelive-tutorial/configure1.png)
 
 3. Na secção **Preferência de Candidatura,** execute os seguintes passos:
     
-    ![Configuração TimeLive](./media/timelive-tutorial/configure2.png)
+    ![A screenshot mostra a secção 'Preferência de aplicação' onde pode introduzir os valores descritos.](./media/timelive-tutorial/configure2.png)
 
     a. Selecione o separador **Segurança**.
 

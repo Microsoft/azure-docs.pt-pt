@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b99d5ea33693431fb3811af50385891684a366e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df256749a813fe81857aa250081411afd52ae35c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546462"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489562"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Tutorial: Azure Ative Directory integração única (SSO) com ThousandEyes
 
@@ -129,11 +129,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No menu em cima, clique em **Definições**.
 
-    ![Definições](./media/thousandeyes-tutorial/ic790066.png "Definições")
+    ![A screenshot mostra o site ThousandEyes com Definições selecionadas.](./media/thousandeyes-tutorial/ic790066.png "Definições")
 
 3. Clique **em Conta**
 
-    ![Conta](./media/thousandeyes-tutorial/ic790067.png "Conta")
+    ![A screenshot mostra a conta selecionada no menu Definições.](./media/thousandeyes-tutorial/ic790067.png "Conta")
 
 4. Clique no separador **Autenticação &** de Segurança.
 
@@ -165,11 +165,11 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon in Thousan
 
 2. Clique em **Definições**.
 
-    ![Definições](./media/thousandeyes-tutorial/IC790066.png "Definições")
+    ![A screenshot mostra o site ThousandEyes com Definições selecionadas.](./media/thousandeyes-tutorial/ic790066.png "Definições")
 
 3. Clique **em Conta**.
 
-    ![Conta](./media/thousandeyes-tutorial/IC790067.png "Conta")
+    ![A screenshot mostra a conta selecionada no menu Definições.](./media/thousandeyes-tutorial/ic790067.png "Conta")
 
 4. Clique no **separador Contas & Utilizadores.**
 

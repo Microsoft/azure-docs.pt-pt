@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279836"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490616"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API de Gremlin em Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Seguem-se as características diferenciadas que a AZure Cosmos DB Gremlin API of
 
 * **Débito e armazenamento dimensionável de forma elástica**
 
-  Os gráficos no mundo real precisam de ser dimensionados para além da capacidade de um único servidor. A Azure Cosmos DB suporta bases de dados de gráficos horizontalmente escaláveis que podem ter um tamanho praticamente ilimitado em termos de armazenamento e produção a provisionada. À medida que a escala da base de dados de gráficos aumenta, os dados serão automaticamente distribuídos através da [partição de gráficos](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+  Os gráficos no mundo real precisam de ser dimensionados para além da capacidade de um único servidor. A Azure Cosmos DB suporta bases de dados de gráficos horizontalmente escaláveis que podem ter um tamanho praticamente ilimitado em termos de armazenamento e produção a provisionada. À medida que a escala da base de dados de gráficos aumenta, os dados serão automaticamente distribuídos através da [partição de gráficos](./graph-partitioning.md).
 
 * **Replicação de várias regiões**
 
@@ -52,7 +52,7 @@ Seguem-se as características diferenciadas que a AZure Cosmos DB Gremlin API of
 
 * **Indexação automática**
 
-  Por padrão, a Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós (também chamados de vértices) e bordas no gráfico e não espera ou requer qualquer esquema ou criação de índices secundários. Saiba mais sobre [a indexação em Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
+  Por padrão, a Azure Cosmos DB indexa automaticamente todas as propriedades dentro dos nós (também chamados de vértices) e bordas no gráfico e não espera ou requer qualquer esquema ou criação de índices secundários. Saiba mais sobre [a indexação em Azure Cosmos DB](/azure/cosmos-db/index-overview).
 
 * **Compatibilidade com o Apache TinkerPop**
 

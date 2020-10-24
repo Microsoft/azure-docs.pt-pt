@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a601b7ec7e2615053203e23ea61fc6d2efc85bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09d661f29b2e262e5e67c471711a5e978abe79d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533525"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Diretório Ativo Azure com T&E Express
 
@@ -128,11 +128,11 @@ Para configurar o Azure AD com T&E Express, execute os seguintes passos:
 
 1. No separador **Admin,** clique no **domínio SAML** para abrir a página de definições SAML.
 
-    ![Configurar Sign-On Individuais](./media/tyeexpress-tutorial/tye-SAML.png)
+    ![A screenshot mostra o domínio SAML selecionado a partir do menu Dedmin.](./media/tyeexpress-tutorial/tye-SAML.png)
 
 1. Selecione a opção **Ativar (Ativar)** de **Não** a **SI(Sim)**. Na caixa de texto **do Fornecedor de Identidade Metadata,** cole os metadados XML que descarregou a partir do portal Azure.
 
-    ![Configurar Sign-On Individuais](./media/tyeexpress-tutorial/tyeAdmin.png)
+    ![A screenshot mostra a página Dominio SAML onde pode introduzir os metadados.](./media/tyeexpress-tutorial/tyeAdmin.png)
 
 1. Clique no botão **Guardar (Guardar)** para guardar as definições.
 
@@ -197,17 +197,17 @@ Para permitir que os utilizadores da Azure AD acedam ao T&E Express, devem ser a
 
 1. Na etiqueta Admin, clique nos Utilizadores para abrir a página principal dos Utilizadores.
 
-    ![Adicionar Empregado](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![A screenshot mostra os utilizadores selecionados a partir do menu Dedmin.](./media/tyeexpress-tutorial/tye-adminusers.png)
 
 1. Na página inicial, clique **+** para adicionar os utilizadores.
 
-    ![Adicionar Empregado](./media/tyeexpress-tutorial/tye-usershome.png)
+    ![A screenshot mostra o ícone plus para adicionar utilizadores.](./media/tyeexpress-tutorial/tye-usershome.png)
 
 1. Introduza todos os detalhes obrigatórios como solicitado no formulário e clique no botão de guardar para guardar os detalhes.
 
-    ![Adicionar Empregado](./media/tyeexpress-tutorial/tye-usersadd.png)
+    ![A screenshot mostra a secção de informações do Utilizador onde pode introduzir valores apropriados.](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-    ![Adicionar Empregado](./media/tyeexpress-tutorial/tye-userssave.png)
+    ![A screenshot mostra as secções Approvers e Assistant onde pode introduzir valores apropriados.](./media/tyeexpress-tutorial/tye-userssave.png)
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

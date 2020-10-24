@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282855"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477339"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
 
@@ -78,7 +78,7 @@ Este exemplo mostra como declarar um campo estático para segurar a cadeia de li
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Utilize o nome da sua conta de Armazenamento para `<your_storage_account>` . Para <your_storage_account_key>, utilize a chave de acesso para a conta de Armazenamento listada no [portal Azure](https://portal.azure.com). Para obter informações sobre contas de Armazenamento e chaves de acesso, consulte [Criar uma conta de armazenamento.](../storage/common/storage-create-storage-account.md)
+Utilize o nome da sua conta de Armazenamento para `<your_storage_account>` . Para <your_storage_account_key>, utilize a chave de acesso para a conta de Armazenamento listada no [portal Azure](https://portal.azure.com). Para obter informações sobre contas de Armazenamento e chaves de acesso, consulte [Criar uma conta de armazenamento.](../storage/common/storage-account-create.md)
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configurar uma cadeia de ligação Azure Cosmos DB
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 
-Para adicionar uma entidade a uma mesa, crie um novo `table_entity` objeto e passe-o para `table_operation::insert_entity` . O código seguinte utiliza o nome próprio do cliente como a chave da fila e o apelido como a chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam de forma exclusiva a entidade na tabela. As entidades com a mesma chave de partição podem ser questionadas mais rapidamente do que as entidades com diferentes chaves de partição. A utilização de teclas de partição diversificadas permite uma maior escalabilidade paralela ao funcionamento. Para obter mais informações, consulte a [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../storage/common/storage-performance-checklist.md).
+Para adicionar uma entidade a uma mesa, crie um novo `table_entity` objeto e passe-o para `table_operation::insert_entity` . O código seguinte utiliza o nome próprio do cliente como a chave da fila e o apelido como a chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam de forma exclusiva a entidade na tabela. As entidades com a mesma chave de partição podem ser questionadas mais rapidamente do que as entidades com diferentes chaves de partição. A utilização de teclas de partição diversificadas permite uma maior escalabilidade paralela ao funcionamento. Para obter mais informações, consulte a [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../storage/blobs/storage-performance-checklist.md).
 
 O código a seguir cria uma nova instância `table_entity` com alguns dados do cliente para armazenar. O código em seguida chama `table_operation::insert_entity` para criar um objeto para inserir uma entidade em uma `table_operation` mesa, e associa a nova entidade de tabela com ele. Finalmente, o código chama o `execute` método do `cloud_table` objeto. O novo `table_operation` envia um pedido ao serviço mesa para inserir a nova entidade cliente na `people` tabela.  
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: e322449913ca1f8848f0d8c60ac6f11a28bdfb91
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ab8ffb41d45f60394c27eb492b19eaf280c2e64e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282023"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488304"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-cassandra-api-keyspace-and-table-using-azure-powershell"></a>Crie um bloqueio de recursos para o espaço-chave Azure Cosmos Cassandra API e tabela usando Azure PowerShell
 
@@ -42,11 +42,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 |**Recurso Azure**| |
-| [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | Cria uma fechadura de recursos. |
-| [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock) | Obtém uma fechadura de recursos ou lista bloqueios de recursos. |
-| [Remover-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) | Remove uma fechadura de recursos. |
+| [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | Cria uma fechadura de recursos. |
+| [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock) | Obtém uma fechadura de recursos ou lista bloqueios de recursos. |
+| [Remover-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) | Remove uma fechadura de recursos. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a Azure PowerShell, consulte [a documentação da Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre a Azure PowerShell, consulte [a documentação da Azure PowerShell](/powershell/).

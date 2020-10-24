@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331758"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485754"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -48,11 +48,13 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorização: Funções Azure para Azure Digital Twins
 
 A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um recurso Azure Digital Twins:
-* *Azure Digital Twins Owner (Preview)* – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
-* *Azure Digital Twins Reader (Preview)* – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
+* *Azure Digital Twins Data Owner* – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
+* *Azure Digital Twins Data Reader* – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
 
-> [!TIP]
-> O papel *do Azure Digital Twins Reader (Preview)* agora também suporta relações de navegação.
+>[!NOTE]
+> Estes papéis foram recentemente renomeados a partir dos seus nomes anteriores na pré-visualização:
+> * *Azure Digital Twins Data Owner* foi anteriormente *Azure Digital Twins Owner (Preview)*.
+> * *Azure Digital Twins Data Reader* foi anteriormente *Azure Digital Twins Reader (Preview)*.
 
 Para obter mais informações sobre como as funções incorporadas são [*definidas,*](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções personalizadas [*Azure, consulte os papéis personalizados da Azure*](../role-based-access-control/custom-roles.md).
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278366"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486553"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Quickstart: Construa uma app DB D3 da Spring Data Cosmos para gerir dados API API AZURE Cosmos DB SQL
 
@@ -36,9 +36,9 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
 > Dados de primavera Azure Cosmos DB suporta apenas o SQL API.
 >
 > Consulte estes artigos para obter informações sobre dados da primavera sobre outras APIs Azure Cosmos DB:
-> * [Dados da primavera para Apache Cassandra com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Dados de primavera MongoDB com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Dados da primavera para Apache Cassandra com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Dados de primavera MongoDB com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin com Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos

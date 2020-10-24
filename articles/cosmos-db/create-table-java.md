@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a430af4bd0cb8ec0db468ed4bfe605ce1fd3b8c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10a1a13deaaa6e61eacef3e68e19a1cfe97ef3c1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322793"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487556"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB Table API
 
@@ -22,7 +22,7 @@ ms.locfileid: "87322793"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 Neste quickstart, você cria uma conta API de tabela Azure Cosmos, e usa Data Explorer e uma aplicação Java clonada do GitHub para criar tabelas e entidades. Azure Cosmos DB é um serviço de base de dados multi-modelo que permite criar e consultar rapidamente documentos, tabelas, valor-chave e bases de dados de gráficos com capacidades de distribuição global e escala horizontal.
@@ -204,7 +204,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115480"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478138"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
 
@@ -65,13 +65,13 @@ Aqui estão as experiências de consentimento que um utilizador pode ver nos cen
     
     2. Os utilizadores verão o pedido de consentimento tradicional.
 
-        ![Pedido de consentimento para o cenário 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Screenshot que mostra o pedido de consentimento tradicional.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Os indivíduos que acedem a uma aplicação que requer pelo menos uma permissão que está fora do seu âmbito de autoridade.
     1. Os administradores verão a mesma solicitação que 1.i mostrada acima.
     2. Os utilizadores ficarão impedidos de conceder o consentimento à aplicação, e serão aconselhados a pedir ao seu administrador acesso à app. 
                 
-        ![Pedido de consentimento para o cenário 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Screenshot do consentimento pronta a dizer ao utilizador para pedir a um administrador acesso à app.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Indivíduos que navegam ou são direcionados para o fluxo de consentimento administrativo.
     1. Os utilizadores de administração verão o pedido de consentimento administrativo. O título e as descrições de permissão alteradas neste pedido, as alterações destacam o facto de que aceitar esta solicitação dará acesso à app aos dados solicitados em nome de todo o arrendatário.

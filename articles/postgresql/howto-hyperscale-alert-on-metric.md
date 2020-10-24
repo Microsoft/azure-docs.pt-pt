@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b59bcf3f25921a348e9c5f25e83619d8596ebd5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907426"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489868"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas em métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -28,7 +28,7 @@ Pode configurar um alerta para fazer as seguintes ações quando ativa:
 Pode configurar e obter informações sobre as regras de alerta utilizando:
 * [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica a partir do portal Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor PostgreSQL que pretende monitorizar.
@@ -102,4 +102,4 @@ A monitorização da utilização do CPU é útil para estabelecer uma linha de 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.
+* Obtenha uma [visão geral da recolha de métricas](../azure-monitor/platform/data-platform.md) para se certificar de que o seu serviço está disponível e responsivo.

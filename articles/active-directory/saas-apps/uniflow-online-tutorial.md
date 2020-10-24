@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcda410e678e44916a4128d7ef097883e148ed79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81d0a0df53ff18661582416d4d96fd5d5ee83192
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551865"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486910"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutorial: Azure Ative Directy integração única (SSO) com uniFLOW Online
 
@@ -152,20 +152,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. A partir do painel de navegação esquerdo, selecione **o separador Utilizador.**
 
-    ![configuração online uniFLOW](./media/uniflow-online-tutorial/configure1.png)
+    ![A screenshot mostra o utilizador selecionado a partir do site uniflow Online.](./media/uniflow-online-tutorial/configure1.png)
 
 1. Clique **em fornecedores de identidade.**
 
-    ![configuração online uniFLOW](./media/uniflow-online-tutorial/configure2.png)
+    ![A screenshot mostra fornecedores de identidade selecionados.](./media/uniflow-online-tutorial/configure2.png)
 
 1. Clique no **Adicionar fornecedor de identidade.**
 
-    ![configuração online uniFLOW](./media/uniflow-online-tutorial/configure3.png)
+    ![Screenshot mostra Adicionar fornecedor de identidade selecionado.](./media/uniflow-online-tutorial/configure3.png)
 
 1. Na secção **ADD IDENTITY PROVIDER,** execute os seguintes passos:
 
-
-    ![configuração online uniFLOW](./media/uniflow-online-tutorial/configure4.png)
+    ![A screenshot mostra a secção ADD IDENTITY PROVIDER onde pode introduzir os valores descritos.](./media/uniflow-online-tutorial/configure4.png)
 
     a. Introduza o nome de exibição Ex: *AzureAD SSO*.
 
@@ -177,7 +176,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No separador **Geral,** execute os seguintes passos:
 
-    ![configuração online uniFLOW](./media/uniflow-online-tutorial/configure5.png)
+    ![A screenshot mostra o separador Geral onde pode introduzir os valores descritos.](./media/uniflow-online-tutorial/configure5.png)
 
     a. Introduza o nome de exibição Ex: *AzureAD SSO*.
 

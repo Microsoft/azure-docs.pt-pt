@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bd659ebd74b67a036c189cae763205e6b0371f7c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058170"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488219"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver uma aplicação web core MVC ASP.NET com a Azure Cosmos DB utilizando .NET SDK
 
@@ -22,7 +22,7 @@ ms.locfileid: "92058170"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 Este tutorial mostra-lhe como usar a Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação MVC ASP.NET que está hospedada no Azure. Neste tutorial, utilize o .NET SDK V3. A imagem a seguir mostra a página web que irá construir utilizando a amostra deste artigo:
@@ -238,7 +238,7 @@ Primeiro, vamos adicionar uma classe que contém a lógica para ligar e usar Azu
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   O código neste passo inicializa o cliente com base na configuração como um caso singleton a ser injetado através da [injeção de Dependência no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+   O código neste passo inicializa o cliente com base na configuração como um caso singleton a ser injetado através da [injeção de Dependência no ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
 
    E certifique-se de alterar o Controlador MVC predefinido para `Item` editar as rotas no `Configure` método do mesmo ficheiro:
 
@@ -333,11 +333,11 @@ Em poucos segundos, o Visual Studio publica a sua aplicação web e lança um br
 Neste tutorial, aprendeu a construir uma aplicação web core MVC ASP.NET. A sua aplicação pode aceder aos dados armazenados na Azure Cosmos DB. Agora pode continuar com estes recursos:
 
 * [Criação de partições no Azure Cosmos DB](./partitioning-overview.md)
-* [Introdução às consultas SQL](./how-to-sql-query.md)
+* [Introdução às consultas SQL](./sql-query-getting-started.md)
 * [Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real](./how-to-model-partition-example.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
+[Preventing Cross-Site Request Forgery]: /aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
+[Basic CRUD Operations in ASP.NET MVC]: /aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app

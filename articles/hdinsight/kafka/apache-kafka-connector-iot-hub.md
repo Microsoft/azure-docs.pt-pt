@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087389"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485550"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Use Apache Kafka em HDInsight com Azure IoT Hub
 
@@ -162,7 +162,7 @@ Para recuperar as informações do hub IoT utilizadas pelo conector, utilize os 
         > [!IMPORTANT]  
         > O valor do ponto final do portal pode conter texto extra que não é necessário neste exemplo. Extrair o texto que corresponde a este `sb://<randomnamespace>.servicebus.windows.net/` padrão.
 
-   * __A partir do [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ utilize o seguinte comando:
+   * __A partir do [Azure CLI,](/cli/azure/get-started-with-azure-cli)__ utilize o seguinte comando:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -184,7 +184,7 @@ Para recuperar as informações do hub IoT utilizadas pelo conector, utilize os 
         2. Copie o valor __da chave primária.__
         3. Copie o valor da chave de __ligação- principal.__
 
-    * __A partir do [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ utilize o seguinte comando:
+    * __A partir do [Azure CLI,](/cli/azure/get-started-with-azure-cli)__ utilize o seguinte comando:
 
         1. Para obter o valor da chave primária, utilize o seguinte comando:
 

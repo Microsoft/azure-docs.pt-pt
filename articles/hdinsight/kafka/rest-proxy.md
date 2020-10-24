@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8d2c7d48dc0b77d3be0b9019d4bbf1da8a40c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541735"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490276"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um representante rest
 
@@ -97,7 +97,7 @@ Este código faz a seguinte ação:
 1. Vai buscar um token OAuth da Azure AD.
 1. Mostra como fazer um pedido ao representante kafka REST.
 
-Para obter mais informações sobre a obtenção de fichas OAuth em python, consulte [a classe Python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Você pode ver um atraso enquanto `topics` que não são criados ou apagados através do representante kafka REST são refletidos lá. Este atraso deve-se à atualização da cache.
+Para obter mais informações sobre a obtenção de fichas OAuth em python, consulte [a classe Python AuthenticationContext](/python/api/adal/adal.authentication_context.authenticationcontext). Você pode ver um atraso enquanto `topics` que não são criados ou apagados através do representante kafka REST são refletidos lá. Este atraso deve-se à atualização da cache.
 
 ```python
 #Required python packages

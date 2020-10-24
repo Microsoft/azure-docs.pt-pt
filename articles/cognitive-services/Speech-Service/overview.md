@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 29289166dca2ee87055c8bcd4e453fc02966c0e5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b7b28c972dfb55bfdc4e5bb09c460fe71c92328e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427173"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489426"
 ---
 # <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
 
@@ -29,15 +29,15 @@ As seguintes funcionalidades fazem parte do serviço Speech. Utilize os links de
 | Serviço | Funcionalidade | Descrição | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Discurso-a-Texto](speech-to-text.md) | Discurso-a-texto em tempo real | A palavra-para-texto transcreve ou traduz streams de áudio ou ficheiros locais para texto em tempo real que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. Use o discurso-a-texto com [a Compreensão da Linguagem (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) para obter as intenções dos utilizadores da fala transcrita e agir em comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Lote Discurso-a-Texto](batch-transcription.md) | Lote O discurso-a-texto permite a transcrição assíncrona de discurso a texto de grandes volumes de dados áudio da fala armazenados no Azure Blob Storage. Além de converter áudio de fala em texto, o Batch Speech-to-text também permite a diarização e a análise de sentimentos. | Não | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| | [Conversa multi-dispositivo](multi-device-conversation.md) | Conecte vários dispositivos ou clientes numa conversação para enviar mensagens baseadas em discursos ou textos, com suporte fácil para transcrição e tradução| Sim | Não |
-| | [Transcrição de conversa](conversation-transcription-service.md) | Permite o reconhecimento da fala em tempo real, a identificação e a diarização dos altifalantes. É perfeito para transcrever reuniões presenciais com a capacidade de distinguir os falantes. | Sim | Não |
-| | [Criar modelos de discurso personalizados](#customize-your-speech-experience) | Se estiver a usar texto-a-texto para reconhecimento e transcrição num ambiente único, pode criar e formar modelos acústicos, linguísticos e de pronúncia personalizados para abordar o ruído ambiente ou o vocabulário específico da indústria. | Não | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
+| | [Lote Discurso-a-Texto](batch-transcription.md) | Lote O discurso-a-texto permite a transcrição assíncrona de discurso a texto de grandes volumes de dados áudio da fala armazenados no Azure Blob Storage. Além de converter áudio de fala em texto, o Batch Speech-to-text também permite a diarização e a análise de sentimentos. | No | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
+| | [Conversa multi-dispositivo](multi-device-conversation.md) | Conecte vários dispositivos ou clientes numa conversação para enviar mensagens baseadas em discursos ou textos, com suporte fácil para transcrição e tradução| Yes | No |
+| | [Transcrição de conversa](conversation-transcription-service.md) | Permite o reconhecimento da fala em tempo real, a identificação e a diarização dos altifalantes. É perfeito para transcrever reuniões presenciais com a capacidade de distinguir os falantes. | Yes | No |
+| | [Criar modelos de discurso personalizados](#customize-your-speech-experience) | Se estiver a usar texto-a-texto para reconhecimento e transcrição num ambiente único, pode criar e formar modelos acústicos, linguísticos e de pronúncia personalizados para abordar o ruído ambiente ou o vocabulário específico da indústria. | No | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | [Texto-a-Discurso](text-to-speech.md) | Conversão de texto em voz | O texto-a-discurso converte o texto de entrada em linguagem humana sintetizada utilizando [a linguagem de marcação da síntese de fala (SSML)](speech-synthesis-markup.md). Escolha entre vozes padrão e vozes neurais (ver [suporte linguístico).](language-support.md) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas únicas à sua marca ou produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Tradução de Voz](speech-translation.md) | Tradução de voz | A tradução da fala permite a tradução em tempo real, multi-linguístico da fala para as suas aplicações, ferramentas e dispositivos. Utilize este serviço para tradução fala-a-fala e discurso-a-texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
-| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam o serviço Speech capacitam os desenvolvedores para criar interfaces de conversação naturais e humanas para as suas aplicações e experiências. O serviço de assistente de voz proporciona uma interação rápida e fiável entre um dispositivo e uma implementação de assistente que utiliza o canal de Fala de Linha Direta do Quadro Bot ou o serviço de Comandos Personalizados integrados (Pré-visualização) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
-| [Reconhecimento de Orador](speaker-recognition-overview.md) | Verificação de & de verificação de altifalantes | O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". | Sim | [Sim](https://docs.microsoft.com/rest/api/speakerrecognition/) |
+| | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas únicas à sua marca ou produto. | No | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Tradução de Voz](speech-translation.md) | Tradução de voz | A tradução da fala permite a tradução em tempo real, multi-linguístico da fala para as suas aplicações, ferramentas e dispositivos. Utilize este serviço para tradução fala-a-fala e discurso-a-texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
+| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam o serviço Speech capacitam os desenvolvedores para criar interfaces de conversação naturais e humanas para as suas aplicações e experiências. O serviço de assistente de voz proporciona uma interação rápida e fiável entre um dispositivo e uma implementação de assistente que utiliza o canal de Fala de Linha Direta do Quadro Bot ou o serviço de Comandos Personalizados integrados (Pré-visualização) para a conclusão da tarefa. | [Sim](voice-assistants.md) | No |
+| [Reconhecimento de Orador](speaker-recognition-overview.md) | Verificação de & de verificação de altifalantes | O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". | Yes | [Sim](https://docs.microsoft.com/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
@@ -81,7 +81,9 @@ Para adicionar um recurso de serviço de discurso (nível gratuito ou pago) à s
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-Leva alguns momentos para implementar o seu novo recurso speech. Assim que a implementação estiver concluída, selecione **Vá para o recurso** e no painel de navegação esquerdo selecione **Chaves** para exibir as teclas de subscrição do serviço Desíproca. Cada subscrição tem duas chaves; pode utilizar qualquer uma das chaves na sua aplicação. Para copiar/colar rapidamente uma chave para o seu editor de código ou outro local, selecione o botão de cópia ao lado de cada tecla, altere as janelas para colar o conteúdo da área de transferência para o local pretendido.
+Leva alguns momentos para implementar o seu novo recurso speech. Uma vez concluída a implementação, selecione **Vá para o recurso** e no painel de navegação esquerdo selecione Keys e **Endpoint** para exibir as teclas de subscrição do serviço De discurso e o identificador da região. Cada subscrição tem duas chaves; pode utilizar qualquer uma das chaves na sua aplicação. Para copiar/colar rapidamente uma chave para o seu editor de código ou outro local, selecione o botão de cópia ao lado de cada tecla, altere as janelas para colar o conteúdo da área de transferência para o local pretendido.
+
+Além disso, copie o `LOCATION` valor que é o seu ID da região (ex. `westus`, `westeurope` ) para chamadas SDK.
 
 > [!IMPORTANT]
 > Estas chaves de subscrição são usadas para aceder à sua API de Serviço Cognitivo. Não partilhem as chaves. Guarde-os de forma segura, por exemplo, utilizando o Cofre da Chave Azure. Recomendamos também a regeneração regular destas teclas. Apenas uma chave é necessária para fazer uma chamada da API. Ao regenerar a primeira chave, pode utilizar a segunda chave para o acesso continuado ao serviço.

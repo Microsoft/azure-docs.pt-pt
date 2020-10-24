@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d485e90036f03c13ad8c9d52781486151009e14c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 54b58a07e3d6d4b330b6f97ef0f4a7bdd10293da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284653"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490463"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Criar um recipiente em Azure Cosmos DB Cassandra API
 
@@ -68,5 +68,4 @@ Se encontrar exceção no tempo limite ao criar uma coleção, faça uma operaç
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
 * [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
-* [Trabalhar com uma conta do Azure Cosmos](account-overview.md)
-
+* [Trabalhar com uma conta do Azure Cosmos](./account-databases-containers-items.md)

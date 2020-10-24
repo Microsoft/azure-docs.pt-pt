@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714377"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488610"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Azure Storage Explorer
 
@@ -44,13 +44,13 @@ Esta secção descreve as duas tecnologias baseadas em AD Azure que podem ser us
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 
-[O controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) dá-lhe um controlo de acesso fino sobre os seus recursos Azure. As funções e permissões azure podem ser geridas a partir do portal Azure.
+[O controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview) dá-lhe um controlo de acesso fino sobre os seus recursos Azure. As funções e permissões azure podem ser geridas a partir do portal Azure.
 
 O Storage Explorer suporta o acesso do Azure RBAC a Contas de Armazenamento, Blobs e Filas. Se precisar de acesso a Ações ou Tabelas de Ficheiros, terá de atribuir funções Azure que concedam permissão para listar chaves de conta de armazenamento.
 
 #### <a name="access-control-lists-acls"></a>Listas de controlo de acesso (ACL)
 
-[As listas de controlo de acesso (ACLs)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) permitem controlar o acesso ao ficheiro e ao nível das pastas em recipientes blob ADLS Gen2. Pode gerir os seus ACLs utilizando o Storage Explorer.
+[As listas de controlo de acesso (ACLs)](/azure/storage/blobs/data-lake-storage-access-control) permitem controlar o acesso ao ficheiro e ao nível das pastas em recipientes blob ADLS Gen2. Pode gerir os seus ACLs utilizando o Storage Explorer.
 
 ### <a name="shared-access-signatures-sas"></a>Assinaturas de acesso partilhado (SAS)
 
@@ -102,4 +102,4 @@ Ao permitir o acesso público a um recipiente de bolhas, recomendamos as seguint
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Recomendações de segurança](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Recomendações de segurança](/azure/storage/blobs/security-recommendations)

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400554"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488695"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolher uma solução do Azure para a transferência de dados
 
@@ -71,15 +71,15 @@ Também pode ir à sua conta de Armazenamento Azure no portal Azure e selecionar
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obtenha uma introdução ao Azure Storage Explorer.](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)
-- [Leia uma visão geral da AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
+- [Leia uma visão geral da AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - [Quickstart: Upload, download e list blobs com PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Criar, transferir e listar bolhas com Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Saiba mais sobre:
 
-    - [Caixa de dados Azure, Disco de Caixa de Dados Azure e Caixa de Dados Azure Pesado para transferências offline](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway e Azure Stack Edge para transferências on-line](https://docs.microsoft.com/azure/databox-online/).
-- [Saiba o que é Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [Caixa de dados Azure, Disco de Caixa de Dados Azure e Caixa de Dados Azure Pesado para transferências offline](/azure/databox/).
+    - [Azure Data Box Gateway e Azure Stack Edge para transferências on-line](/azure/databox-online/).
+- [Saiba o que é Azure Data Factory](/azure/data-factory/copy-activity-overview).
 - Utilize as APIs REST para transferir dados
 
-    - [Em .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Em Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [Em .NET](/dotnet/api/overview/azure/storage)
+    - [Em Java](/java/api/overview/azure/storage)

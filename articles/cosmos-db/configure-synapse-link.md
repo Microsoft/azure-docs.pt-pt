@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d3e7eca546adbcac8af882ff4cd5b09d3d643d4c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370717"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489273"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -225,7 +225,7 @@ Pode construir uma base de dados sem servidor Sinaapse SQL e visualizações sob
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-O [modelo Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) cria uma conta DB do Azure Cosmos habilitada para a API SQL. Este modelo cria uma conta API core (SQL) numa região com um recipiente configurado com TTL analítico ativado, e uma opção de utilização manual ou de escala automática. Para implementar este modelo, clique em **Implementar para Azure** na página de readme.
+O [modelo Azure Resource Manager](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) cria uma conta DB do Azure Cosmos habilitada para a API SQL. Este modelo cria uma conta API core (SQL) numa região com um recipiente configurado com TTL analítico ativado, e uma opção de utilização manual ou de escala automática. Para implementar este modelo, clique em **Implementar para Azure** na página de readme.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Começando com Azure Synpase Link - Amostras
 

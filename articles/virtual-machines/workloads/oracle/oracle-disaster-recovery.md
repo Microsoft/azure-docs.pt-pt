@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996176"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480365"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastres para uma base de dados Oracle Database 12c em ambiente Azure
 
@@ -42,7 +42,7 @@ Aqui está um resumo da configuração do Azure:
 - Uma caixa de salto, serviço de aplicações, base de dados e gateway VPN em sub-redes separadas
 - NSG aplicada nas sub-redes de aplicação e de base de dados
 
-![Screenshot da página de topologia dr](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagrama que mostra sites primários e DR em Azure .](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Cenário 2: Local primário no local e local de DR em Azure
 
@@ -68,7 +68,7 @@ Segue-se um resumo da configuração do Azure:
 - Uma política/regra NSG para permitir a entrada da porta TCP 1521 (ou uma porta definida pelo utilizador)
 - Uma política/regra NSG para restringir apenas o endereço/endereços IP no local (DB ou aplicação) para aceder à rede virtual
 
-![Screenshot da página de topologia dr](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagrama que mostra ligações diretas entre as instalações e o Azure, que requer portas TCP abertas na firewall.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Abordagem 2: VPN local-a-local
 A VPN local é uma melhor abordagem. Para obter mais informações sobre a configuração de uma VPN, consulte [Criar uma rede virtual com uma ligação VPN site-to-site utilizando CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).

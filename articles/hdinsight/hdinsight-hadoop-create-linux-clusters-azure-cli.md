@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf292ccd185ad2c6a85cb6d2f097bb8a7fa9e173
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080725"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489664"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter etapas.
+CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli) para obter etapas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Az
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Definir variáveis ambientais. O uso de variáveis neste artigo baseia-se em Bash. Serão necessárias ligeiras variações para outros ambientes. Consulte [a az-hdinsight-create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) para obter uma lista completa de possíveis parâmetros para a criação de clusters.
+2. Definir variáveis ambientais. O uso de variáveis neste artigo baseia-se em Bash. Serão necessárias ligeiras variações para outros ambientes. Consulte [a az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) para obter uma lista completa de possíveis parâmetros para a criação de clusters.
 
     |Parâmetro | Descrição |
     |---|---|
@@ -68,7 +68,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Az
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Crie o grupo de recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) introduzindo o comando abaixo:
+3. [Crie o grupo de recursos](/cli/azure/group#az-group-create) introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az group create \
@@ -78,7 +78,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Az
 
     Para uma lista de locais válidos, use o `az account list-locations` comando e, em seguida, use uma das localizações a partir do `name` valor.
 
-4. [Crie uma conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) introduzindo o comando abaixo:
+4. [Crie uma conta de Armazenamento Azure](/cli/azure/storage/account#az-storage-account-create) introduzindo o comando abaixo:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Az
         --sku Standard_LRS
     ```
 
-5. [Extrair a chave primária da conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) e armazená-la numa variável introduzindo o comando abaixo:
+5. [Extrair a chave primária da conta de Armazenamento Azure](/cli/azure/storage/account/keys#az-storage-account-keys-list) e armazená-la numa variável introduzindo o comando abaixo:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Az
         --query [0].value -o tsv)
     ```
 
-6. [Crie um recipiente de armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) introduzindo o comando abaixo:
+6. [Crie um recipiente de armazenamento Azure](/cli/azure/storage/container#az-storage-container-create) introduzindo o comando abaixo:
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +109,7 @@ CLI do Azure. Se ainda não instalou o Azure CLI, consulte [a Instalação do Az
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Crie o cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) introduzindo o seguinte comando:
+7. [Crie o cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create) introduzindo o seguinte comando:
 
     ```azurecli-interactive
     az hdinsight create \

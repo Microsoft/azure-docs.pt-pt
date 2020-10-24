@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907501"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489936"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
 
@@ -222,7 +222,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
     Address:  10.1.3.4
     ```
 
-3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
+3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
 
 4. Em **Nova ligação,** insira ou selecione estas informações:
 
@@ -252,7 +252,7 @@ Quando terminar de usar o ponto final privado, o servidor PostgreSQL e o VM, eli
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste como fazê-lo, criou um VM numa rede virtual, uma Base de Dados Azure para PostgreSQL - Servidor Único e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor PostgreSQL utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Neste como fazê-lo, criou um VM numa rede virtual, uma Base de Dados Azure para PostgreSQL - Servidor Único e um ponto final privado para acesso privado. Ligou-se a um VM da internet e comunicou-se de forma segura ao servidor PostgreSQL utilizando o Private Link. Para saber mais sobre os pontos finais privados, consulte [o que é o ponto final privado do Azure.](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

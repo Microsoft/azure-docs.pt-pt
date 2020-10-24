@@ -5,28 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
+ms.openlocfilehash: 6cb30b96f9c2094e6d690b565edf487d6508d520
 ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479580"
+ms.locfileid: "92487121"
 ---
 1. A partir do [portal Azure](https://portal.azure.com), em **Recursos de Busca, serviços e docs (G+/)** tipo gateway de rede **virtual**. Localize **o gateway de rede virtual** nos resultados da pesquisa e selecione-o.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Campo de pesquisa" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/search.png" alt-text="Campo de pesquisa" lightbox="./media/vpn-gateway-add-gw-rm-portal-empty/search-expand.png":::
 
 1. Na página **de gateway de rede Virtual,** selecione + **Adicionar**. É aberta a página **Criar gateway de rede virtual**.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Campo de pesquisa":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/add.png" alt-text="Campo de pesquisa":::
 1. No **separador Básicos,** preencha os valores do seu gateway de rede virtual.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Campo de pesquisa":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/gateway.png" alt-text="Campo de pesquisa":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Campo de pesquisa":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/gateway-vnet.png" alt-text="Campo de pesquisa":::
+
+   **Detalhes do projeto**
 
    * **Subscrição**: Selecione a subscrição que pretende utilizar a partir do dropdown.
    * **Grupo de Recursos**: Esta definição é preenchida automaticamente quando seleciona a sua rede virtual nesta página.

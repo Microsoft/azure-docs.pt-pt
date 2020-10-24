@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aed014800be41ce5b9d1d86d137aefcf2585e98
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533168"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Ative Directory com a Uberflip
 
@@ -96,7 +96,7 @@ Para configurar o Azure AD single sign-on com a Uberflip, tome os seguintes pass
 
 1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
-   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir uma Resposta U R L.](common/edit-urls.png)
 
 1. No painel **de configuração básico do SAML,** faça um dos seguintes passos, dependendo do modo SSO que pretende configurar:
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD single sign-on com a Uberflip, tome os seguintes pass
 
      `https://app.uberflip.com/users/login`
 
-     ![Uberflip domínio e URLs informações únicas de sinal-on](common/both-signonurl.png)
+     ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both-signonurl.png)
 
 1. Na **configuração single Sign-On com painel SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
 

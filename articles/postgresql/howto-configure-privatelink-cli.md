@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6146a2d961a40f0882a3bbd1779bb0c83851dec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 297190a99f9231cd07cffe1364202a1acbe75323
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126863"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490004"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerir o Link Privado para Azure Database para PostgreSQL - Servidor único usando CLI
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Desativar as políticas de ponto final privado da sub-rede 
-O Azure implementa recursos para uma sub-rede dentro de uma rede virtual, pelo que é necessário criar ou atualizar a sub-rede para desativar as políticas privadas de rede de pontos [finais](../private-link/disable-private-endpoint-network-policy.md). Atualize uma configuração de sub-rede chamada *mySubnet* com [atualização da sub-rede de rede az:](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
+O Azure implementa recursos para uma sub-rede dentro de uma rede virtual, pelo que é necessário criar ou atualizar a sub-rede para desativar as políticas privadas de rede de pontos [finais](../private-link/disable-private-endpoint-network-policy.md). Atualize uma configuração de sub-rede chamada *mySubnet* com [atualização da sub-rede de rede az:](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -168,7 +168,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
     Address:  10.1.3.4
     ```
 
-3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
+3. Teste a ligação de ligação privada para o servidor PostgreSQL utilizando qualquer cliente disponível. No exemplo abaixo, usei o [estúdio Azure Data](/sql/azure-data-studio/download?view=sql-server-ver15) para fazer a operação.
 
 4. Em **Nova ligação,** insira ou selecione estas informações:
 
@@ -189,7 +189,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando já não for necessário, pode utilizar o grupo AZ para remover o grupo de recursos e todos os recursos que tem: 
 
 ```azurecli-interactive
@@ -197,7 +197,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [o que é o ponto final privado do Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Saiba mais sobre [o que é o ponto final privado do Azure](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

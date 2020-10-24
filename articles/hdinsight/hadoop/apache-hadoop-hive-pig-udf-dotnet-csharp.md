@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000622"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489001"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use funções definidas pelo utilizador C# com Apache Hive e Apache Pig em Apache Hadoop em HDInsight
 
@@ -30,7 +30,7 @@ Tanto a Hive como a Pig podem passar dados para aplicações externas para proce
 
     Use o IDE que quiser. Recomendamos [o Visual Studio](https://www.visualstudio.com/vs) ou Visual Studio [Code](https://code.visualstudio.com/). Os passos deste documento utilizam o Visual Studio 2019.
 
-* Uma forma de enviar ficheiros .exe para o cluster e executar trabalhos de Pig e Hive. Recomendamos [ferramentas do Lago de Dados para Estúdio Visual,](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md) [Azure PowerShell](/powershell/azure)e [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Os passos deste documento utilizam as Ferramentas do Lago de Dados para o Estúdio Visual para carregar os ficheiros e executar o exemplo consulta Hive.
+* Uma forma de enviar ficheiros .exe para o cluster e executar trabalhos de Pig e Hive. Recomendamos [ferramentas do Lago de Dados para Estúdio Visual,](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md) [Azure PowerShell](/powershell/azure)e [Azure CLI](/cli/azure/install-azure-cli). Os passos deste documento utilizam as Ferramentas do Lago de Dados para o Estúdio Visual para carregar os ficheiros e executar o exemplo consulta Hive.
 
     Para obter informações sobre outras formas de executar consultas de Hive, veja [o que é Apache Hive e HiveQL em Azure HDInsight?](hdinsight-use-hive.md). . .
 
@@ -56,7 +56,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 2. **Selecione Criar um novo projeto.**
 
-3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). e selecione **Seguinte**.
+3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). Em seguida, selecione **Seguinte**.
 
 4. Na janela do **Configure o seu novo projeto,** insira um nome de **Projeto** da *HiveCSharp,* e navegue para ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 
@@ -123,7 +123,7 @@ Para criar um projeto C# para um Apache Hive UDF:
 
 2. Na janela **Iniciar,** **selecione Criar um novo projeto.**
 
-3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). e selecione **Seguinte**.
+3. Na nova janela do **projeto,** escolha o modelo **de App consola (.NET Framework)** (a versão C#). Em seguida, selecione **Seguinte**.
 
 4. Na **configuração** da sua nova janela de projeto, insira um **nome** de Projeto da *PigUDF,* e vá ou crie uma **Localização** para salvar o novo projeto em. Em seguida, selecione **Criar**.
 

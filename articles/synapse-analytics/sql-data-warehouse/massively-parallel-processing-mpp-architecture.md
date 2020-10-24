@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics (anteriormente SQL DW) arquitetura
-description: Saiba como a Azure Synapse Analytics (anteriormente SQL DW) combina o processamento paralelo maciço (MPP) com o Azure Storage para alcançar um alto desempenho e escalabilidade.
+description: Saiba como a Azure Synapse Analytics (anteriormente SQL DW) combina capacidades de processamento de consulta distribuídas com o Azure Storage para alcançar um alto desempenho e escalabilidade.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210971"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479345"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics (anteriormente SQL DW) arquitetura
 
@@ -33,13 +33,13 @@ O Azure Synapse é um serviço de análise ilimitado que junta o armazenamento d
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Componentes de arquitetura Sinapse SQL MPP
+## <a name="synapse-sql-architecture-components"></a>Componentes de arquitetura Sinapse SQL
 
 [O Sinaapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) aproveita uma arquitetura de escala para distribuir o processamento computacional de dados através de múltiplos nós. A unidade de escala é uma abstração do poder computacional que é conhecida como uma [unidade de armazém de dados.](what-is-a-data-warehouse-unit-dwu-cdwu.md) O cálculo é separado do armazenamento, o que lhe permite escalar o cálculo independentemente dos dados do seu sistema.
 
 ![Arquitetura SQL do Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-O SYNAPSE SQL utiliza uma arquitetura baseada em nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo, que é o único ponto de entrada para o Sinaapse SQL. O nó de Controlo funciona com o motor MPP, que otimiza consultas para processamento paralelo, e depois passa as operações para os nós compute para fazer o seu trabalho em paralelo.
+O SYNAPSE SQL utiliza uma arquitetura baseada em nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo, que é o único ponto de entrada para o Sinaapse SQL. O nó de Controlo acolhe o motor de consulta distribuído, que otimiza consultas para processamento paralelo, e depois passa as operações para os nós compute para fazer o seu trabalho em paralelo.
 
 Os nós de computação armazenam todos os dados de utilizador no Armazenamento do Microsoft Azure e executam as consultas paralelas. O Serviço de Movimento de Dados (DMS – Data Movement Service) é um serviço interno ao nível do sistema que move os dados em todos os nós, conforme necessário, para executar consultas em paralelo e devolver resultados precisos.
 
@@ -50,7 +50,7 @@ Com armazenamento e cálculo dissociados, ao utilizar a piscina Synapse SQL pode
 - Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 - Retomar a capacidade de computação durante as horas de funcionamento.
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
 O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros.  Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. Os dados são **fragmentos** em distribuições para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
 
@@ -60,13 +60,13 @@ O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador segur
 
 ### <a name="control-node"></a>Nó de controlo
 
-O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. O motor de MPP é executado no nó de Controlo para otimizar e coordenar as consultas paralelas. Quando submete uma consulta T-SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
+O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. O motor de consulta distribuído funciona no nó de Controlo para otimizar e coordenar consultas paralelas. Quando submete uma consulta T-SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
 
 ### <a name="compute-nodes"></a>Nós de computação
 
 Os nós de computação conferem poder de computação. Mapa de distribuição para nó de Computação para processamento. À medida que paga por mais recursos computacional, as distribuições são rempeitadas aos nós de Computação disponíveis. O número de nós de computação varia de 1 a 60, e é determinado pelo nível de serviço para Synapse SQL.
 
-Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Serviço de Movimento de Dados
 

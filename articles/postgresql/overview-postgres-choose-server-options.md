@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: f81a44af4a90ccda1875c0a9f2bfaa8dc0b73441
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948202"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489698"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Escolha a opção de servidor PostgreSQL certa em Azure
 
@@ -80,13 +80,13 @@ Com a Azure Database for PostgreSQL, pode continuar a administrar a sua base de 
 - Bases de Dados
 - Iniciar sessão
 - Afinação de índices
-- Sintonização de consulta
-- Auditing (Auditoria)
+- Ajuste de consultas
+- Auditoria
 - Segurança
 
 Além disso, configurar alta disponibilidade para outro centro de dados requer uma configuração ou administração mínimas.
 
-- Com PostgreSQL em VMs Azure, tem controlo total sobre o sistema operativo e a configuração de instância do servidor PostgreSQL. Com um VM, você decide quando atualizar ou atualizar o sistema operativo e o software de base de dados e quais patches aplicar. Também decide quando instalar qualquer software adicional, como uma aplicação antivírus. Algumas funcionalidades automatizadas são fornecidas para simplificar muito o patching, a cópia de segurança e a alta disponibilidade. Pode controlar o tamanho do VM, o número de discos e as suas configurações de armazenamento. Para obter mais informações, consulte [os tamanhos de serviço de máquina virtual e cloud para Azure.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- Com PostgreSQL em VMs Azure, tem controlo total sobre o sistema operativo e a configuração de instância do servidor PostgreSQL. Com um VM, você decide quando atualizar ou atualizar o sistema operativo e o software de base de dados e quais patches aplicar. Também decide quando instalar qualquer software adicional, como uma aplicação antivírus. Algumas funcionalidades automatizadas são fornecidas para simplificar muito o patching, a cópia de segurança e a alta disponibilidade. Pode controlar o tamanho do VM, o número de discos e as suas configurações de armazenamento. Para obter mais informações, consulte [os tamanhos de serviço de máquina virtual e cloud para Azure.](../virtual-machines/sizes.md)
 
 ## <a name="time-to-move-to-azure-postgresql-service-paas"></a>Hora de mudar para o Serviço Azure PostgreSQL (PaaS)
 
@@ -98,4 +98,3 @@ Além disso, configurar alta disponibilidade para outro centro de dados requer u
 
 - Consulte a Base de Dados Azure para [preços pós-SQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
 - Comece por criar o seu primeiro servidor.
-

@@ -9,47 +9,47 @@ ms.topic: reference
 ms.date: 10/07/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 321b80e8aa86703cad16e70af46d016b9dc6555f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e5c88f94544fa25e4f91fefedc0352ff2ef1132d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048003"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477645"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v3 para SQL API: Baixar e lançar notas
 > [!div class="op_single_selector"]
 > * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
 > * [SDK .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK Feed de Alterações .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
-> * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Executor em massa - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-|**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
+|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Amostras**|[Amostras de código .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**Introdução**|[Começa com o Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
 |**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Tutorial do Núcleo-Quadro da Entidade**|[Núcleo-Quadro da Entidade com Fornecedor DB da Azure Cosmos](/ef/core/providers/cosmos/#get-started)|
-|**Quadro atual suportado**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
+|**Framework suportado atualmente**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Ver também
-Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 
+## <a name="see-also"></a>Consulte também
+Para saber mais sobre o Azure Cosmos DB, veja a página do serviço [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: a666acbcd2aed168bd1d871c0ef0fb8c3205fd05
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367725"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479153"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure
 
@@ -167,7 +167,7 @@ Para obter uma abordagem semelhante sobre como definir a permissão dos Leitores
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="objeto-id":::
 
-2. Também terá de criar um segredo de cliente para iniciar sessão. Siga o guia aqui para [fazer o upload de um certificado ou criar um segredo para iniciar sessão.](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+2. Também terá de criar um segredo de cliente para se inscrever. Siga o guia aqui para [fazer o upload de um certificado ou criar um segredo para iniciar sessão.](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
 
 3. Grave o seguinte a partir do seu registo de inscrição. Deve estar disponível no painel de **visão** geral:
     - **ID da Aplicação**
@@ -177,6 +177,16 @@ Neste tutorial, vamos usar *o AppSP* como nosso principal serviço principal, e 
 
 Para obter mais informações sobre como criar uma aplicação AD Azure, consulte o artigo [Como: Usar o portal para criar uma aplicação AD AD Azure que possa aceder a recursos.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Permissões necessárias para definir ou desaparasitar o administrador AD Azure
+
+Para que o diretor de serviço desconfiem ou desinteça um administrador AD Azure para o Azure SQL, é necessária uma Autorização API adicional. A permissão da API [de aplicação.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application terá de ser adicionada à sua aplicação em Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="objeto-id":::
+
+O diretor de serviço também necessitará da função [**de contribuinte do SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) para a Base de Dados SQL, ou da [**função de contribuinte de instância gerida sql**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) para a sql Managed Instance.
+
+> [!NOTE]
+> Embora a Azure AD Graph API esteja a ser depreciada, o **Diretório.Reader.Toda a** permissão ainda se aplica a este tutorial. A API do Microsoft Graph não se aplica a este tutorial.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Criar o utilizador principal do serviço na Base de Dados Azure SQL
 

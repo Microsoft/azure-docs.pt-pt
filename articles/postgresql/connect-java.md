@@ -8,24 +8,24 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 66a3b4919903f739ed5afef0a02b501f00ff248f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cc9d8bf253a7282a5893af75b5e2ed71b3ab4b6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88545442"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490157"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Use Java e JDBC com base de dados Azure para PostgreSQL
 
-Este tópico demonstra a criação de uma aplicação de amostra que utiliza Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações na [Base de Dados Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/).
+Este tópico demonstra a criação de uma aplicação de amostra que utiliza Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações na [Base de Dados Azure para PostgreSQL](./index.yml).
 
 JDBC é a API padrão de Java para ligar às bases de dados relacionais tradicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se não tiver um, [faça um julgamento gratuito.](https://azure.microsoft.com/free/)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [Azure CLI](/cli/azure/install-azure-cli). Recomendamos a Azure Cloud Shell para que faça login automaticamente e tenha acesso a todas as ferramentas de que necessita.
-- Um Kit de [Desenvolvimento java](https://aka.ms/azure-jdks)suportado, versão 8 (incluído na Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) ou [Azure CLI](/cli/azure/install-azure-cli). Recomendamos a Azure Cloud Shell para que faça login automaticamente e tenha acesso a todas as ferramentas de que necessita.
+- Um Kit de [Desenvolvimento java](/azure/developer/java/fundamentals/java-jdk-long-term-support)suportado, versão 8 (incluído na Azure Cloud Shell).
 - A ferramenta de construção [Apache Maven.](https://maven.apache.org/)
 
 ## <a name="prepare-the-working-environment"></a>Preparar o ambiente de trabalho
@@ -67,7 +67,7 @@ az group create \
 A primeira coisa que vamos criar é um servidor PósgreSQL gerido.
 
 > [!NOTE]
-> Pode ler informações mais detalhadas sobre a criação de servidores PostgreSQL na [Criação de uma Base de Dados Azure para servidor PostgreSQL utilizando o portal Azure](/azure/postgresql/quickstart-create-server-database-portal).
+> Pode ler informações mais detalhadas sobre a criação de servidores PostgreSQL na [Criação de uma Base de Dados Azure para servidor PostgreSQL utilizando o portal Azure](./quickstart-create-server-database-portal.md).
 
 Em [Azure Cloud Shell](https://shell.azure.com/), executar o seguinte comando:
 

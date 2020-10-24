@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284678"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488389"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Problemas de consulta de resolução de problemas ao utilizar a API DB API do Azure Cosmos para a MongoDB
 
@@ -116,7 +116,7 @@ A `$explain` saída do comando é longa e tem informações detalhadas sobre a e
 | `timeInclusiveMS` | Latência de consulta de backend |
 | `pathsIndexed` | Mostra índices que a consulta usada | 
 | `pathsNotIndexed` | Mostra índices que a consulta poderia ter usado, se disponível | 
-| `shardInformation` | Resumo do desempenho da consulta para uma [partição física](partition-data.md#physical-partitions) particular | 
+| `shardInformation` | Resumo do desempenho da consulta para uma [partição física](./partitioning-overview.md#physical-partitions) particular | 
 | `retrievedDocumentCount` | Número de documentos carregados pelo motor de consulta | 
 | `outputDocumentCount` | Número de documentos devolvidos nos resultados da consulta | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Latência adicional estimada devido à limitação da taxa | 
@@ -256,7 +256,7 @@ A indexação das melhores práticas na API da Azure Cosmos para a MongoDB é di
 
 [Os índices wildcard](mongodb-indexing.md#wildcard-indexes) podem simplificar a indexação. Ao contrário do MongoDB, os índices wildcard podem suportar vários campos em predicados de consulta. Não haverá uma diferença no desempenho da consulta se utilizar um único índice wildcard em vez de criar um índice separado para cada propriedade. Adicionar um índice wildcard para todas as propriedades é a maneira mais fácil de otimizar todas as suas consultas.
 
-Pode adicionar novos índices a qualquer momento, sem qualquer efeito na disponibilidade de escrita ou leitura. Pode [acompanhar o progresso da transformação do índice.](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)
+Pode adicionar novos índices a qualquer momento, sem qualquer efeito na disponibilidade de escrita ou leitura. Pode [acompanhar o progresso da transformação do índice.](./how-to-manage-indexing-policy.md#dotnet-sdk)
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Entenda quais as operações de agregação que usam o índice
 

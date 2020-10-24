@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329377"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489290"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 
@@ -144,7 +144,7 @@ Não existem restrições às cargas de produtos como o número de propriedades 
 
 ## <a name="per-request-limits"></a>Limites por pedido
 
-A Azure Cosmos DB suporta [a CRUD e opera operações de consulta](/rest/api/cosmos-db/) contra recursos como contentores, itens e bases de dados. Também suporta [pedidos de lote transacional](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) contra vários itens com a mesma chave de partição num recipiente.
+A Azure Cosmos DB suporta [a CRUD e opera operações de consulta](/rest/api/cosmos-db/) contra recursos como contentores, itens e bases de dados. Também suporta [pedidos de lote transacional](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) contra vários itens com a mesma chave de partição num recipiente.
 
 | Recurso | Limite predefinido |
 | --- | --- |
@@ -191,7 +191,7 @@ Consulte o artigo [de Autoscale](provision-throughput-autoscale.md#autoscale-lim
 
 ## <a name="sql-query-limits"></a>Limites de consulta SQL
 
-Cosmos DB suporta consulta de itens usando [SQL](how-to-sql-query.md). O quadro que se segue descreve restrições em declarações de consulta, por exemplo em termos de número de cláusulas ou comprimento de consulta.
+Cosmos DB suporta consulta de itens usando [SQL](./sql-query-getting-started.md). O quadro que se segue descreve restrições em declarações de consulta, por exemplo em termos de número de cláusulas ou comprimento de consulta.
 
 | Recurso | Limite predefinido |
 | --- | --- |

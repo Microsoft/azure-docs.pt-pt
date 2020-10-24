@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc
-ms.openlocfilehash: 78824ef6f557a2df431e664158da9d858df0603f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0c0fd1b540251b5a7dfefde5fc33adb2813bb8e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948556"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490072"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Quickstart: Criar uma base de dados Azure para o Servidor Flexível PostgreSQL utilizando O Azure CLI
 
@@ -28,17 +28,17 @@ O [Azure Cloud Shell](../../cloud-shell/overview.md) é uma concha interativa gr
 
 Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode abrir o Cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copy** para copiar os blocos de código, cole-o na Cloud Shell e selecione **Enter** para executá-lo.
 
-Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de iniciar sessão na sua conta utilizando o comando [de login az.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure.
+Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a subscrição específica sob a sua conta usando o comando [conjunto de conta az.](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) Tome nota do valor de **id** da saída de **login az** para usar como valor para o argumento **de subscrição** no comando. Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter toda a sua subscrição, utilize [a lista de conta az](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Selecione a subscrição específica sob a sua conta usando o comando [conjunto de conta az.](/cli/azure/account#az-account-set) Tome nota do valor de **id** da saída de **login az** para usar como valor para o argumento **de subscrição** no comando. Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter toda a sua subscrição, utilize [a lista de conta az](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -52,7 +52,7 @@ Crie um [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resourc
 az group create --name myresourcegroup --location westus
 ```
 
-Crie um servidor flexível com o `az postgres flexible-server create` comando. Cada servidor pode conter várias bases de dados. O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do [contexto local](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest)do seu Azure CLI: 
+Crie um servidor flexível com o `az postgres flexible-server create` comando. Cada servidor pode conter várias bases de dados. O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do [contexto local](/cli/azure/local-context)do seu Azure CLI: 
 
 ```azurecli
 az postgres flexible-server create
@@ -122,7 +122,7 @@ Com o psql, conecte-se utilizando o comando abaixo. Substitua os valores pelo no
 psql -h mydemoserver.postgres.database.azure.com -u mydemouser -p
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisa destes recursos para outro início rápido/tutorial, pode eliminá-los ao executar o seguinte comando:
 
