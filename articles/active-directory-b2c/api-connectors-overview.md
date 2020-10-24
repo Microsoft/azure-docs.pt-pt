@@ -5,27 +5,30 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 195101a432d16c2236ea2d164416e75df33b12e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94d6b0192b014396f8751e58f5620aec5c132203
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828453"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503883"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-sign-up-user-flows"></a>Utilize conectores API para personalizar e alargar os fluxos de utilizador de inscrição
 
-## <a name="overview"></a>Descrição geral 
-Como desenvolvedor ou administrador de TI, pode utilizar conectores API para integrar os fluxos de utilizador de inscrição com APIs web para personalizar a experiência de inscrição. Com conectores API, pode:
+> [!IMPORTANT]
+> Os conectores API para inscrição é uma funcionalidade de pré-visualização pública do Azure AD B2C. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- **Realizar verificação de identidade**. Utilize um serviço de verificação de identidade para adicionar um nível extra de segurança às decisões de criação de conta.
+## <a name="overview"></a>Descrição geral 
+Como desenvolvedor ou administrador de TI, pode utilizar conectores API para integrar os fluxos de utilizador de inscrição com APIs web para personalizar a experiência de inscrição. Por exemplo, com conectores API, pode:
+
 - **Validar os dados de entrada do utilizador.** Validar contra dados de utilizador mal formados ou inválidos. Por exemplo, pode validar os dados fornecidos pelo utilizador com os dados existentes numa loja de dados externos ou lista de valores permitidos. Se for inválido, pode solicitar a um utilizador que forneça dados válidos ou impeça o utilizador de continuar o fluxo de inscrição.
 - **Integre-se com um fluxo de trabalho de aprovação personalizado.** Conecte-se a um sistema de aprovação personalizado para gerir e limitar a criação de conta.
 - **Sobrepor os atributos do utilizador**. Reformat ou atribuir um valor a um atributo recolhido do utilizador. Por exemplo, se um utilizador introduzir o primeiro nome em todas as letras maiúsculas ou maiúsculas, pode formatar o nome apenas com a primeira letra capitalizada. 
+- **Realizar verificação de identidade**. Utilize um serviço de verificação de identidade para adicionar um nível extra de segurança às decisões de criação de conta.
 - **Executar lógica de negócio personalizada**. Pode desencadear eventos a jusante nos seus sistemas de nuvem para enviar notificações push, atualizar bases de dados corporativas, gerir permissões, auditar bases de dados e realizar outras ações personalizadas.
 
 Um conector API fornece ao Azure Ative Directory as informações necessárias para chamar uma API, incluindo um URL de ponto final e autenticação. Uma vez configurado um conector API, pode ative-lo para um passo específico no fluxo do utilizador. Quando um utilizador atinge esse passo no fluxo de inscrição, o conector API é invocado e materializa-se como um pedido HTTP POST para a sua API, enviando informações do utilizador ("claims") como pares de valor-chave num corpo JSON. A resposta da API pode afetar a execução do fluxo do utilizador. Por exemplo, a resposta da API pode bloquear a inscrição de um utilizador, pedir ao utilizador para reintrodutar informações, ou substituir e apendicar os atributos do utilizador.
@@ -42,7 +45,7 @@ Existem dois lugares num fluxo de utilizador onde pode ativar um conector API:
 
 ### <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo antecede a ***página de recolha de atributos***, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local. Seguem-se exemplos de cenários de conector API que poderá permitir neste passo:
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo antecede a **_página de recolha de atributos_**, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local. Seguem-se exemplos de cenários de conector API que poderá permitir neste passo:
 
 - Utilize o e-mail ou identidade federada que o utilizador forneceu para procurar reclamações num sistema existente. Devolva estas reclamações do sistema existente, preencha a página de recolha de atributos e disponibilize-as para devolver no token.
 - Implementar uma lista de permitir ou bloquear com base na identidade social.
@@ -59,4 +62,5 @@ Um conector API neste passo no processo de inscrição é invocado após a pági
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba como [adicionar um conector API a um fluxo de utilizador](add-api-connector.md)
+- Começa com as [nossas amostras.](code-samples.md#api-connectors)
 <!-- - Learn how to [add a custom approval system to self-service sign-up](add-approvals.md) -->

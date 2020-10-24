@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426819"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514491"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -37,6 +37,15 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Você pode usar o [portal Azure](https://portal.azure.com/) para gerir [eventos v3 ao vivo,](live-events-outputs-concept.md)ver [ativos](assets-concept.md) e empregos v3, obter informações sobre o acesso a APIs, encriptar conteúdo. Para todas as outras tarefas de gestão (por exemplo, gerir transformações e empregos), utilize o [REST API,](/rest/api/media/accountfilters) [OI,](/cli/azure/ams)ou um dos [SDKs apoiados.](media-services-apis-overview.md#sdks)
 >
 > Para mais detalhes, consulte: [as limitações do portal Azure para os Serviços de Comunicação Social v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="basic-audio-analysis"></a>Análise áudio básica
+A predefinição de Análise áudio inclui agora um nível de preços de modo básico. O novo modo Basic Audio Analyzer oferece uma opção de baixo custo para extrair transcrição de voz e legendas e legendas de saída de formato. Este modo executa a transcrição de discurso-a-texto e a geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. Consulte a lista de [línguas apoiadas.](analyzing-video-audio-files-concept.md#built-in-presets)
+
+Os clientes que usam Indexer v1 e Indexer v2 devem migrar para a predefinição de Análise Áudio Básica.
+
+Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyzing-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](how-to-create-basic-audio-transform.md).
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -366,7 +375,7 @@ Pode ver as seguintes melhorias no suporte da Grelha de Eventos:
 
 CMAF e suporte de encriptação 'cbcs' para os jogadores Apple HLS (iOS 11+) e MPEG-DASH que suportam a CMAF.
 
-### <a name="video-indexer"></a>Indexador de Vídeos
+### <a name="video-indexer"></a>Video Indexer
 
 O lançamento do Video Indexer GA foi anunciado em agosto. Para obter novas informações sobre funcionalidades atualmente suportadas, consulte [O Que é Indexer de Vídeo](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 

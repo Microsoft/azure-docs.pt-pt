@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 173ca296689bbdb8d574930ec2549e82839c47e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e71566ea7cd2e8953c84d58128e3380a782ba40
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428472"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516720"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar a autenticação do utilizador netskope para o fornecimento automático do utilizador
 
@@ -97,7 +97,7 @@ Antes de configurar a Autenticação do Utilizador netskope para o fornecimento 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos na Autenticação do Utilizador netskope com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para a autenticação do utilizador netskope seguindo as instruções fornecidas no tutorial de autenticação única do [utilizador netskope.](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
+> Pode também optar por ativar o sign-on único baseado em SAML para a autenticação do utilizador netskope seguindo as instruções fornecidas no tutorial de autenticação única do [utilizador netskope.](./netskope-cloud-security-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
 > [!NOTE]
 > Para saber mais sobre o ponto final scim do utilizador netskope, consulte [isto](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon).
@@ -172,4 +172,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

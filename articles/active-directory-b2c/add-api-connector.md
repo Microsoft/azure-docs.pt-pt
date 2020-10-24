@@ -5,19 +5,22 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102277"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504116"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicione um conector API a um fluxo de utilizador de inscrição (pré-visualização)
+
+> [!IMPORTANT]
+> Os conectores API para inscrição é uma funcionalidade de pré-visualização pública do Azure AD B2C. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para utilizar um [conector API,](api-connectors-overview.md)primeiro cria o conector API e depois ativa-o num fluxo de utilizador.
 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -80,7 +83,7 @@ Além disso, a reclamação **UI Locales ('ui_locales')** é enviada por padrão
 > Se uma reclamação não tiver um valor no momento em que o ponto final da API é chamado, a reclamação não será enviada para a API. A sua API deve ser concebida para verificar e lidar explicitamente com o caso em que uma reclamação não está no pedido.
 
 > [!TIP] 
-> [**as identidades ('identidades')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as reclamações do **Email Address ('email')** podem ser utilizadas pela API para identificar um utilizador antes de terem uma conta no seu inquilino. A alegação de "identidades" é enviada quando um utilizador autentica com um fornecedor de identidade, como o Google ou o Facebook. 'e-mail' é sempre enviado.
+> [**as identidades ('identidades')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e as reclamações do **Email Address ('email')** podem ser utilizadas pela API para identificar um utilizador antes de terem uma conta no seu inquilino. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Ativar o conector API num fluxo de utilizador
 
@@ -100,7 +103,7 @@ Siga estes passos para adicionar um conector API a um fluxo de utilizador de ins
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de iniciar sessão com um fornecedor de identidade
 
-Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo antecede a ***página de recolha de atributos***, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local.
+Um conector API neste passo no processo de inscrição é invocado imediatamente após o utilizador autenticar com um fornecedor de identidade (como Google, Facebook, & Azure AD). Este passo precede a página de*_recolha *atributo_*_, que é o formulário apresentado ao utilizador para recolher os atributos do utilizador. Este passo não é invocado se um utilizador estiver a registar-se numa conta local.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Pedido de exemplo enviado à API neste passo
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -234,12 +237,12 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Necessário | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| versão                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
-| ação                                             | String            | Sim      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A alegação não precisa de `_<extensions-app-id>_` conter. Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**  |
+| versão                                            | String            | Yes      | A versão da API.                                                                                                                                                                                                                                                                |
+| ação                                             | String            | Yes      | O valor deve `Continue` ser.                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como uma reclamação de _*Aplicação**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A alegação não precisa de `_<extensions-app-id>_` conter. Os valores devolvidos podem substituir valores recolhidos por um utilizador. Também podem ser devolvidos no token se forem selecionados como **reclamação de Aplicação.**  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -255,11 +258,11 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Necessário | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| versão     | String | Sim      | A versão da API.                                                    |
-| ação      | String | Sim      | Valor deve ser `ShowBlockPage`                                              |
-| userMessage | String | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| versão     | String | Yes      | A versão da API.                                                    |
+| ação      | String | Yes      | Valor deve ser `ShowBlockPage`                                              |
+| userMessage | String | Yes      | A mensagem a apresentar ao utilizador.                                            |
 
 **Experiência de utilizador final com uma resposta de bloqueio**
 
@@ -281,14 +284,15 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Necessário | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| versão     | String  | Sim      | A versão da API.                                                    |
-| ação      | String  | Sim      | O valor deve `ValidationError` ser.                                           |
-| status      | Número inteiro | Sim      | Deve ser valor `400` para uma resposta do ValidationError.                        |
-| userMessage | String  | Sim      | A mensagem a apresentar ao utilizador.                                            |
+| versão     | String  | Yes      | A versão da API.                                                    |
+| ação      | String  | Yes      | O valor deve `ValidationError` ser.                                           |
+| status      | Número inteiro | Yes      | Deve ser valor `400` para uma resposta do ValidationError.                        |
+| userMessage | String  | Yes      | A mensagem a apresentar ao utilizador.                                            |
 
-*Nota:* O código de estado HTTP tem de ser "400" para além do valor de "estado" no corpo da resposta.
+> [!NOTE]
+> O código de estado HTTP tem de ser "400" para além do valor de "estado" no corpo da resposta.
 
 **Experiência de utilizador final com uma resposta de erro de validação**
 
@@ -318,4 +322,4 @@ Em geral, é útil utilizar as ferramentas de registo ativadas pelo seu serviço
 
 ## <a name="next-steps"></a>Passos seguintes
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Começa com as [nossas amostras de quickstart da Azure Function](code-samples.md#api-connectors).
+- Começa com as [nossas amostras.](code-samples.md#api-connectors)

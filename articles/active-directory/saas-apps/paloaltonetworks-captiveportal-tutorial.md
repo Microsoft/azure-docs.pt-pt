@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1096437fc1d77042a9db4dc359d51cd6d9d22960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e363b43bf9028e3075efa0f5a1f54e6bda190d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304394"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Diretório Ativo Azure com o Portal Cativo das Redes Palo Alto
 
@@ -150,8 +150,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO
 
-Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo do Portal Cativo das Redes Palo Alto no Painel de Acesso, deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo do Portal Cativo das Redes Palo Alto no Painel de Acesso, deverá ser automaticamente inscrito no Portal Cativo das Redes Palo Alto para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Uma vez configurado o Portal Cativo palo Alto Networks, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado o Portal Cativo palo Alto Networks, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

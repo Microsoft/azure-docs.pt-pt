@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067159"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515751"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicações existentes do Java Message Service (JMS) 2.0 da Apache ActiveMQ para Azure Service Bus
 
@@ -35,7 +35,7 @@ A Azure Service Bus e Apache ActiveMQ são ambos corretores de mensagens, funcio
 
 Ainda assim, existem algumas diferenças entre os dois, como mostra a tabela seguinte:
 
-| Categoria | ActiveMQ | Service Bus do Azure |
+| Categoria | ActiveMQ | Azure Service Bus |
 | --- | --- | --- |
 | Tiering de aplicações | Monólito agrupado | Dois níveis <br> (gateway + back end) |
 | Suporte de protocolo | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
@@ -62,7 +62,7 @@ Como parte da migração e modificação das aplicações do seu cliente para in
 
 #### <a name="authentication-and-authorization"></a>Autenticação e autorização
 
-O controlo de acesso baseado em funções (RBAC), apoiado pelo Azure Ative Directory, é o mecanismo de autenticação preferido para o Service Bus. Uma vez que o RBAC, ou a autenticação baseada em sinistros, não é atualmente suportado pelo Apache QPID JMS, no entanto, deve utilizar as chaves SAS para autenticação.
+O controlo de acesso baseado em funções Azure (Azure RBAC), apoiado pela Azure Ative Directory, é o mecanismo de autenticação preferido para o Service Bus. Uma vez que o Azure RBAC, ou autenticação baseada em sinistros, não é atualmente suportado pelo Apache QPID JMS, no entanto, deve utilizar as chaves SAS para autenticação.
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -73,7 +73,7 @@ Utiliza os seguintes componentes e versões enquanto escreve as aplicações JMS
 | Componente | Versão |
 |---|---|
 | Serviço de Mensagens Java (JMS) API | 1.1 ou maior |
-| Protocolo AMQP | 1.0 |
+| Protocolo AMQP | 1,0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Certifique-se de que as portas AMQP estão abertas
 

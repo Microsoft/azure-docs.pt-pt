@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92426098"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503220"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -36,7 +36,7 @@ Veja os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Enquanto a maioria do estúdio trabalha com dados armazenados numa rede virtual, os cadernos integrados __não.__ Os cadernos integrados não suportam o armazenamento que se encontra numa rede virtual. Em vez disso, pode usar os Cadernos Jupyter de uma instância computacional. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.]()
+> Se o seu espaço de trabalho estiver numa __nuvem soberana__, como o Governo Azure ou o Azure China 21Vianet, os cadernos integrados _não suportam_ o armazenamento que se encontra numa rede virtual. Em vez disso, pode usar os Cadernos Jupyter de uma instância computacional. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -127,7 +127,7 @@ O designer utiliza a conta de armazenamento anexada ao seu espaço de trabalho p
 Para definir um novo armazenamento predefinido para um oleoduto:
 
 1. Num rascunho de pipeline, selecione o **ícone de engrenagem Definições** perto do título do seu oleoduto.
-1. **Selecione Selecione a loja de dados predefinidos**.
+1. Selecione a **loja de dados predefinitiva Select**.
 1. Especifique uma nova loja de dados.
 
 Também pode sobrepor a datastore predefinido numa base por módulo. Isto dá-lhe controlo sobre o local de armazenamento de cada módulo individual.

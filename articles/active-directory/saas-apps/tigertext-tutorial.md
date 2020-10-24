@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 995cd8470d4fbbf3dc340139a86275593a3d5d28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6831e96ebd8fd2db51d640ff3d93955b1a9f1477
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815228"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigerconnect-secure-messenger"></a>Tutorial: Integração do Diretório Ativo Azure com TigerConnect Secure Messenger
 
@@ -28,7 +28,7 @@ A integração do TigerConnect Secure Messenger com a Azure AD proporciona-lhe o
 * Pode permitir que os seus utilizadores se inscrevam automaticamente no TigerConnect Secure Messenger (único sún) com as suas contas AD Azure.
 * Pode gerir as suas contas num local central: o portal Azure.
 
-Para mais detalhes sobre o software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para mais detalhes sobre o software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Para configurar a integração AD da Azure com o TigerConnect Secure Messenger, 
 Neste tutorial, você configura e testa a Azure AD um único sinal de acesso em um ambiente de teste e integrar TigerConnect Secure Messenger com Azure AD.
 
 * TigerConnect Secure Messenger suporta **SSO** iniciado SP
-* Assim que configurar o TigerConnect Secure Messenger, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Assim que configurar o TigerConnect Secure Messenger, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-tigerconnect-secure-messenger-from-the-gallery"></a>Adicionando TigerConnect Secure Messenger da galeria
 
@@ -144,16 +144,16 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em TigerConnect Secur
 
 Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
 
-Quando selecionar **TigerConnect Secure Messenger** no portal My Apps, deverá ser automaticamente inscrito na subscrição TigerConnect Secure Messenger para a qual configura um único s-on. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar **TigerConnect Secure Messenger** no portal My Apps, deverá ser automaticamente inscrito na subscrição TigerConnect Secure Messenger para a qual configura um único s-on. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais para integrar apps saaS com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
 - [Experimente TigerConnect Secure Messenger com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

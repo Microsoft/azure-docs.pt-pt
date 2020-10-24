@@ -104,7 +104,7 @@
         - name: CLI do Azure
           href: sample-scripts-azure-cli.md
         - name: Incorporações do Azure Policy
-          href: policy-samples.md
+          href: ./policy-reference.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -542,7 +542,7 @@
           displayName: 'samples, azure cli'
         - name: Incorporações do Azure Policy
           displayName: 'samples, policies, definitions'
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: Conceitos
       items:
         - name: Dados distribuídos
@@ -640,7 +640,7 @@
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
+      href: /answers/topics/azure-database-postgresql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Vídeos

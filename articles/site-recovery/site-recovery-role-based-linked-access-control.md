@@ -1,21 +1,21 @@
 ---
 title: Gerir o controlo de acesso baseado em funções Azure na Recuperação do Local de Azure
-description: Este artigo descreve como aplicar o controlo de acesso baseado em funções (RBAC) para gerir o acesso à Recuperação do Local de Azure.
+description: Este artigo descreve como aplicar o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir o acesso à Recuperação do Local de Azure.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e1334f513e8ac587d639758d83ce080c5b4ab9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927169"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516907"
 ---
-# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerir o acesso à recuperação do local com controlo de acesso baseado em funções (RBAC)
+# <a name="manage-site-recovery-access-with-azure-role-based-access-control-azure-rbac"></a>Gerir o acesso à recuperação do local com o controlo de acesso baseado em funções Azure (Azure RBAC)
 
-O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o RBAC, pode segregar responsabilidades dentro da sua equipa e conceder apenas permissões de acesso específicas aos utilizadores, conforme necessário para realizar trabalhos específicos.
+O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o Azure RBAC, pode segregar responsabilidades dentro da sua equipa e conceder apenas permissões de acesso específicas aos utilizadores, conforme necessário para realizar trabalhos específicos.
 
 A Azure Site Recovery fornece 3 funções incorporadas para controlar as operações de gestão da Recuperação do Local. Saiba mais sobre [os papéis embutidos no Azure](../role-based-access-control/built-in-roles.md)
 
@@ -72,9 +72,9 @@ Um utilizador precisa das seguintes permissões para completar a replicação de
 Considere utilizar as [funções incorporadas](../role-based-access-control/built-in-roles.md) 'Virtual Machine Contributor' e 'Classic Virtual Machine Contributor' para o Gestor de Recursos e modelos de implantação Clássicos, respectivamente.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o RBAC no portal Azure.
+* [Controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Começa com o Azure RBAC no portal Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Resolução de problemas do Controlo de Acesso Baseado em Função:](../role-based-access-control/troubleshooting.md)Obtenha sugestões para corrigir questões comuns.
+* [Resolução de problemas do Azure RBAC](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir questões comuns.

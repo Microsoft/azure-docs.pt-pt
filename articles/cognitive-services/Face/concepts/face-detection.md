@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743065"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504134"
 ---
 # <a name="face-detection-and-attributes"></a>Deteção de rosto e atributos
 
@@ -47,7 +47,7 @@ Os atributos são um conjunto de funcionalidades que podem ser detetadas opciona
 * **Género.** O sexo estimado do rosto dado. Os valores possíveis são masculinos, femininos e sem género.
 * **Óculos.** Se o rosto dado tem óculos. Os valores possíveis são NoGlasses, ReadingGlasses, Óculos de Sol e Óculos de Natação.
 * **Cabelo.** O tipo de cabelo do rosto. Este atributo mostra se o cabelo é visível, se a calvície é detetada e quais as cores do cabelo detetadas.
-* **Pose de cabeça**. A orientação do rosto no espaço 3D. Este atributo é descrito pelos ângulos de arremesso, rolo e bocejo em graus. Os valores são de -90 graus a 90 graus, -180 graus a 180 graus, e -90 graus a 90 graus, respectivamente. Consulte o seguinte diagrama para mapeamentos de ângulo:
+* **Pose de cabeça**. A orientação do rosto no espaço 3D. Este atributo é descrito pelos ângulos de arremesso, rolo e bocejo em graus. Os valores são de -90 graus a 90 graus, -90 graus a 90 graus, e -90 graus a 90 graus, respectivamente. Consulte o seguinte diagrama para mapeamentos de ângulo:
 
     ![Uma cabeça com o arremesso, rolo e eixos de bocejo rotulados](../Images/headpose.1.jpg)
 * **Maquilhagem.** Se o rosto tem maquilhagem. Este atributo devolve um valor Boolean para eyeMakeup e lipMakeup.
@@ -63,7 +63,7 @@ Os atributos são um conjunto de funcionalidades que podem ser detetadas opciona
 Utilize as seguintes dicas para se certificar de que as suas imagens de entrada dão os resultados de deteção mais precisos:
 
 * Os formatos de imagem de entrada suportados são JPEG, PNG, GIF para o primeiro quadro e BMP.
-* O tamanho do ficheiro de imagem não deve ser superior a 4 MB.
+* O tamanho do ficheiro de imagem não deve ser superior a 6 MB.
 * A gama de tamanhos faciais detetáveis é de 36 x 36 a 4096 x 4096 pixels. Rostos fora deste alcance não serão detetados.
 * Alguns rostos podem não ser detetados devido a desafios técnicos. Ângulos faciais extremos (pose da cabeça) ou oclusão facial (objetos como óculos de sol ou mãos que bloqueiam parte da face) podem afetar a deteção. Rostos frontais e quase frontais dão os melhores resultados.
 

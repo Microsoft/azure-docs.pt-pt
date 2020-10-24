@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a9410215abeb6fdb413866cbff12cf5f826c0fee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201703"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504376"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de segurança Azure para o Serviço Azure Kubernetes
 
@@ -949,7 +949,7 @@ Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descob
 
 Implementar espaço de nome em Kubernetes para criar um limite de isolamento lógico. Utilize pseudónimos da Azure Policy no espaço de nomes "Microsoft.ContainerService" para criar políticas personalizadas para auditar ou impor a configuração das suas instâncias do Serviço Azure Kubernetes (AKS). 
 
-Rever e implementar características e considerações adicionais de Kubernetes para isolamento e multi-arrendamento incluem as seguintes áreas: agendamento, networking, autenticação/autorização e contentores. Utilize também assinaturas separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Separe os agrupamentos AKS com redes virtuais, sub-redes que são marcadas adequadamente e protegidas com uma Firewall de Aplicação Web (WAF).
+Rever e implementar funcionalidades e considerações adicionais de Kubernetes para isolamento e multi-arrendamento para incluir o seguinte: agendamento, networking, autenticação/autorização e contentores. Utilize também assinaturas separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Separe os agrupamentos AKS com redes virtuais, sub-redes que são marcadas adequadamente e protegidas com uma Firewall de Aplicação Web (WAF).
 
 - [Conheça as melhores práticas para o isolamento do cluster em AKS](operator-best-practices-cluster-isolation.md)
 

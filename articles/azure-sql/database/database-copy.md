@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460959"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516210"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -108,7 +108,7 @@ Inicie sessão na base de dados principal com o login do administrador do servid
 
 Este comando copia a Base de Dados1 para uma nova base de dados chamada Database2 numa piscina elástica chamada pool1. Dependendo do tamanho da sua base de dados, a operação de cópia pode demorar algum tempo a ser concluída.
 
-A base de dados1 pode ser uma base de dados única ou agrizada, mas o pool1 deve ter o mesmo nível de serviço que o Database1. 
+A base de dados1 pode ser uma base de dados única ou agrizada. A cópia entre diferentes piscinas de nível é suportada, mas algumas cópias transversais não serão bem sucedidas. Por exemplo, você pode copiar um db padrão único ou elástico em uma piscina de propósito geral, mas você não pode copiar um db elástico padrão em uma piscina premium. 
 
    ```sql
    -- execute on the master database to start copying

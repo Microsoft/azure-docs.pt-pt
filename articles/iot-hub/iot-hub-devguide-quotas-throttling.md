@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797807"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504079"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -59,7 +59,7 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 | Número máximo de fluxos de dispositivos ligados simultaneamente<sup>1</sup> | 50 | 50 | 50 |
 | Transferência máxima de dados de fluxo de<sup>dispositivos 1</sup> (volume agregado por dia) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup> Esta funcionalidade não está disponível no nível básico do IoT Hub. Para mais informações, consulte [Como escolher o IoT Hub certo.](iot-hub-scaling.md) <br/><sup>2</sup> O tamanho do medidor de estrangulamento é de 4 KB.
+<sup>1</sup> Esta funcionalidade não está disponível no nível básico do IoT Hub. Para mais informações, consulte [Como escolher o IoT Hub certo.](iot-hub-scaling.md) <br/><sup>2</sup> O tamanho do medidor de estrangulamento é de 4 KB. O estrangulamento baseia-se apenas no tamanho da carga útil do pedido.
 
 ### <a name="throttling-details"></a>Detalhes de estrangulamento
 

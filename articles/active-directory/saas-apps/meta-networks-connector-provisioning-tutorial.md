@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fe0d8e6ad2056a244ec0d811f1b2dcb67e7bd84
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849253"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516812"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configurar meta-redes connector para fornecimento automático de utilizadores
 
@@ -115,7 +115,7 @@ Antes de configurar o Conector Meta Networks para o fornecimento automático de 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Meta Networks Connector com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o único sinal de acesso ao conector meta redes, seguindo as instruções fornecidas no tutorial de assinatura único do [Conector meta networks](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o único sinal de acesso ao conector meta redes, seguindo as instruções fornecidas no tutorial de assinatura único do [Conector meta networks](./metanetworksconnector-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para o Conector meta redes em Azure AD:
 
@@ -187,4 +187,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

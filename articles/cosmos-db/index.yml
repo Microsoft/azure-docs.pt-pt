@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 3daa7ed6e59230fe0f6c66e01982f6021f8e1ba7
-  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+  ms.openlocfilehash: 7ee6db07facb1464428c6d1d8562fdd54216b883
+  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/20/2020
-  ms.locfileid: "92278447"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92485771"
 landingContent:
 - title: Acerca da BD do Cosmos para o Azure
   linkLists:
@@ -67,7 +67,7 @@ landingContent:
     - text: Criar uma aplicação Web .NET para gerir os seus dados
       url: sql-api-dotnet-application.md
     - text: Aplicação Java com o SDK Assíncrono
-      url: sql-api-async-java-get-started.md
+      url: ./create-sql-api-java.md
     - text: Consultar dados com consultas SQL
       url: tutorial-query-sql-api.md
   - linkListType: how-to-guide
@@ -169,7 +169,7 @@ landingContent:
     - text: Shell CQL, Spark – API para Cassandra
       url: cassandra-import-data.md
     - text: Azure Database Migration Service – API para MongoDB
-      url: /azure/dms/tutorial-mongodb-cosmos-db
+      url: ../dms/tutorial-mongodb-cosmos-db.md
     - text: AzCopy, Ferramenta de migração de dados – API de Tabela
       url: table-import.md
   - linkListType: how-to-guide

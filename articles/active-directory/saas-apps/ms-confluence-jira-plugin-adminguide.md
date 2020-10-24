@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543987"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515684"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração Atlassian Jira e Confluence para o Azure Ative Directory
 
@@ -67,7 +67,7 @@ O plug-in suporta as seguintes versões de Jira e Confluence:
 
 * Jira Core e Software: 6.0 a 7.12
 * Balcão de Serviço Jira: 3.0.0 a 3.5.0
-* JIRA também suporta 5.2. Para mais detalhes, clique [no Microsoft Azure Ative Directory para o JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA também suporta 5.2. Para mais detalhes, clique [no Microsoft Azure Ative Directory para o JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluência: 5.0 a 5.10
 * Confluência: 6.0.1
 * Confluência: 6.1.1
@@ -177,7 +177,7 @@ O plug-in funciona com versões no local de Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>O plug-in funciona em versões em nuvem?
 
-N.º O plug-in suporta apenas versões no local de Jira e Confluence.
+Não. O plug-in suporta apenas versões no local de Jira e Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Que versões da Jira e da Confluence suportam o plug-in?
 
@@ -185,7 +185,7 @@ O plug-in suporta estas versões:
 
 * Jira Core e Software: 6.0 a 7.12
 * Balcão de Serviço Jira: 3.0.0 a 3.5.0
-* JIRA também suporta 5.2. Para mais detalhes, clique [no Microsoft Azure Ative Directory para o JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA também suporta 5.2. Para mais detalhes, clique [no Microsoft Azure Ative Directory para o JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluência: 5.0 a 5.10
 * Confluência: 6.0.1
 * Confluência: 6.1.1
@@ -221,7 +221,7 @@ Testámos o plug-in apenas em instalações do Windows Server de 64 bits de Jira
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>O plug-in funciona com IDPs para além do Azure AD?
 
-N.º Só funciona com a Azure AD.
+Não. Só funciona com a Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>Com que versão da SAML funciona o plug-in?
 
@@ -229,12 +229,12 @@ Funciona com SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>O plug-in faz o fornecimento do utilizador?
 
-N.º O plug-in fornece apenas SSO baseado em SAML 2.0. O utilizador tem de ser apresentado na aplicação antes da sso.in.
+Não. O plug-in fornece apenas SSO baseado em SAML 2.0. O utilizador tem de ser apresentado na aplicação antes da sso.in.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>As versões de suporte plug-in da Jira e Confluence?
 
-N.º O plug-in funciona com versões no local de Jira e Confluence.
+Não. O plug-in funciona com versões no local de Jira e Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>O plug-in funciona com versões HTTP da Jira e Confluence?
 
-N.º O plug-in funciona apenas com instalações ativadas por HTTPS.
+Não. O plug-in funciona apenas com instalações ativadas por HTTPS.

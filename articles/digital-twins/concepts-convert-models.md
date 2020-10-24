@@ -1,5 +1,5 @@
 ---
-title: Conversão de modelos padrão da indústria
+title: Converter modelos padrão da indústria
 titleSuffix: Azure Digital Twins
 description: Compreender o padrão de conversão dos modelos padrão da indústria (RDF/OWL) para DTDL
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/28/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf39bd0c787ed64d573cc2a257442b4d3bb8ab7d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2d30410cf201475b69adce39eb6a66a7831cad8d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015119"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503254"
 ---
 # <a name="convert-industry-standard-models-to-dtdl-for-azure-digital-twins"></a>Converter modelos padrão da indústria para DTDL para Azure Digital Twins
 
@@ -32,7 +32,8 @@ Alguns modelos comuns da indústria incluem:
 | --- | --- | 
 | Gestão de edifícios /instalações | [RealEstateCore](https://www.realestatecore.io/)<br>[BRICK Schema](https://brickschema.org/ontology/1.1/)<br>[Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/)<br>[Rede de Sensores Semânticos](https://www.w3.org/TR/vocab-ssn/)<br>[BuildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
 | Cidades Inteligentes | [ETSI NGSI-LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Referência de Aplicações Inteligentes (SAREF)](https://saref.etsi.org/)<br>[Fiware](https://www.fiware.org/)<br>[Open & Agile Smart Cities (OASC)](https://oascities.org/) |
-| Rede energética | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[Modelos ADRM](http://www.adrm.com/) para o comércio de energia e mercadorias | 
+| Rede energética | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[Modelos ADRM](http://www.adrm.com/) para o comércio de energia e mercadorias |
+| Automóvel | [Especificação do sinal do veículo](https://github.com/GENIVI/vehicle_signal_specification/tree/master/spec) |
 
 Dependendo das suas necessidades, também pode usar o DTDL para personalizar ou ampliar modelos da indústria, ou desenvolver o seu próprio modelo personalizado de raiz. 
 

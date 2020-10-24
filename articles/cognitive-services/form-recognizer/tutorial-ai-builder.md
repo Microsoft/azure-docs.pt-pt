@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0261c495ad08000f9041390658e0f19954b71669
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003366"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517026"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar uma app de processamento de formulários com OI Builder
 
@@ -93,7 +93,7 @@ Na página de seleção de campo, você escolhe os campos que lhe interessam:
     - **Valor do**campo : O valor para o campo detetado.
 
 > [!div class="mx-imgBorder"]
-> ![adicionar página de documentos](./media/tutorial-ai-builder/select-fields-page.png)
+> ![página de marcação](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Rotular campos não detetados
 
@@ -104,7 +104,7 @@ Se o campo que pretende rotular não tiver sido detetado automaticamente pelo mo
 1. Selecione **Seguinte** para verificar os campos de formulário selecionados. Se estiver tudo correto, selecione **Preparar** para preparar o modelo.
 
     > [!div class="mx-imgBorder"]
-    > ![adicionar página de documentos](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![página de formação](./media/tutorial-ai-builder/summary-train-page.png)
 1. Quando a preparação estiver concluída, selecione **Ir para a página Detalhes** no ecrã **Preparação concluída**.
 ## <a name="quick-test-your-model"></a>Testar rapidamente o modelo
 
@@ -127,7 +127,7 @@ Se estiver a obter maus resultados ou pontuações de baixa confiança para dete
 Se está satisfeito com o seu modelo, **selecione Publicar**  para publicá-lo. Quando a publicação estiver concluída, o modelo passa a **Publicado** e estará pronto para ser utilizado.
 
 > [!div class="mx-imgBorder"]
-> ![adicionar página de documentos](./media/tutorial-ai-builder/model-page.png)
+> ![publicar página de modelo](./media/tutorial-ai-builder/model-page.png)
 
 Depois de publicar o seu modelo de processamento de formulários, pode usá-lo numa [aplicação](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) de tela power apps ou em [Power Automamate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
 

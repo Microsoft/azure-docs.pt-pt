@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 7f3c5fc8e7ac4e61d44bb6cd54e1690d7c053526
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fc6b36feecd96f2a84f9164e7efb3f07cf45f5a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127170"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505209"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o ServiceNow com o Azure Ative Dir
 * Ative os seus utilizadores a serem automaticamente inscritos no ServiceNow com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * O ServiceNow suporta [o fornecimento automatizado de utilizadores.](servicenow-provisioning-tutorial.md)
 
-* Uma vez configurado o ServiceNow, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Uma vez configurado o ServiceNow, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 * Pode configurar a aplicação ServiceNow Classic (Mobile) com Azure AD para ativar sSO. Suporta utilizadores android e iOS. Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
@@ -452,7 +452,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in ServiceNow. 
 
 ## <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo ServiceNow no Painel de Acesso, deverá ser automaticamente inscrito no ServiceNow para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo ServiceNow no Painel de Acesso, deverá ser automaticamente inscrito no ServiceNow para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="test-sso-for-servicenow-classic-mobile"></a>Teste SSO para ServiceNow Classic (Mobile)
 
@@ -480,16 +480,16 @@ Quando selecionar o azulejo ServiceNow no Painel de Acesso, deverá ser automati
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar apps saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar apps saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Configurar o aprovisionamento de utilizadores](servicenow-provisioning-tutorial.md)
 
 - [Experimente o ServiceNow com Azure AD](https://aad.portal.azure.com)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/protect-servicenow)
 
-- [Como proteger o ServiceNow com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger o ServiceNow com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
