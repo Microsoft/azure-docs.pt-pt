@@ -2,14 +2,14 @@
 title: Escolha tamanhos VM para piscinas
 description: Como escolher entre os tamanhos VM disponíveis para nóns computacional em piscinas Azure Batch
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107509"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517060"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para nó de computação numa piscina Azure Batch
 
@@ -31,17 +31,19 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | Básico A | Todos os *tamanhos, exceto* Basic_A0 (A0) |
 | A | Todos os *tamanhos, exceto* Standard_A0 |
 | Av2 | Todos os tamanhos |
-| N | Nenhum |
-| DC | Nenhum |
+| N | Não suportado |
+| DC | Não suportado |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3 | Todos os tamanhos |
 | Dav4<sup>1</sup> | Todos os tamanhos |
 | Dasv4<sup>1</sup> | Todos os tamanhos |
 | Ddv4 |  Todos os tamanhos |
+| Dv4 | Não suportado |
 | Ev3 | Todos os tamanhos, exceto E64is_v3 |
 | Eav4<sup>1</sup> | Todos os tamanhos |
 | Easv4<sup>1</sup> | Todos os tamanhos |
 | Edv4 |  Todos os tamanhos |
+| Ev4 | Não suportado |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
@@ -56,12 +58,13 @@ As piscinas de lote na configuração da Máquina Virtual suportam quase todos o
 | NC | Todos os tamanhos |
 | NCv2<sup>1</sup> | Todos os tamanhos |
 | NCv3<sup>1</sup> | Todos os tamanhos |
+| NCasT4_v3 | Nenhum - ainda não disponível |
 | ND<sup>1</sup> | Todos os tamanhos |
 | NDv2<sup>1</sup> | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
 | NVv3<sup>1</sup> | Todos os tamanhos |
-| NVv4 | Nenhum - ainda não disponível |
-| SAP HANA | Nenhum |
+| NVv4<sup>1</sup> | Todos os tamanhos |
+| SAP HANA | Não suportado |
 
 <sup>1</sup> Estas séries VM podem ser atribuídas em piscinas de Lote na configuração da Máquina Virtual, mas você deve criar uma nova conta Batch e solicitar um aumento específico [de quota](batch-quota-limit.md#increase-a-quota). Esta limitação será eliminada uma vez que a quota vCPU por série VM seja totalmente suportada para as contas batch.
 

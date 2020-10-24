@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f5ae700260641ccb93631e50f70f5c89ff49ce2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e28281b783c66f8dbb0bc4842679eeec43755508
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534242"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515006"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-reprints-desk---article-galaxy"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Reprints Desk - Artigo Galaxy
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Reprints Desk - Artigo Galaxy com 
 * Habilita os seus utilizadores a serem automaticamente inscritos no Reprints Desk - Artigo Galaxy com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +43,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Reprints Desk - Artigo Galaxy suporta **provisão de** utilizador just in time
 
-* [Uma vez configurado o Reprints Desk - Artigo Galaxy pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* [Uma vez configurado o Reprints Desk - Artigo Galaxy pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-reprints-desk---article-galaxy-from-the-gallery"></a>Adicionar Reprints Desk - Artigo Galaxy da galeria
 
@@ -144,18 +144,18 @@ Nesta secção, um utilizador chamado B.Simon é criado no Reprints Desk - Artig
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no Balcão de Reimpressões - Artigo Galaxy azulejo no Painel de Acesso, deverá ser automaticamente inscrito no Balcão de Reimpressões - Artigo Galaxy para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no Balcão de Reimpressões - Artigo Galaxy azulejo no Painel de Acesso, deverá ser automaticamente inscrito no Balcão de Reimpressões - Artigo Galaxy para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente o Balcão de Reimpressões - Artigo Galaxy com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Balcão de Reimpressões - Artigo Galaxy com visibilidade avançada e controlos](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger o Balcão de Reimpressões - Artigo Galaxy com visibilidade avançada e controlos](/cloud-app-security/proxy-intro-aad)

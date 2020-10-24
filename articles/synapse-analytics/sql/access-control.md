@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289485"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503288"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
 Aprenda a gerir o controlo de acesso a espaços de trabalho, dados e oleodutos num espaço de trabalho Azure Synapse Analytics (pré-visualização).
 
 > [!NOTE]
-> Para a AG, o RBAC será mais desenvolvido através da introdução de funções Azure específicas da Sinapse
+> Para a AG, o Azure RBAC será mais desenvolvido através da introdução de funções Azure específicas da Sinapse
 
 ## <a name="access-control-for-workspace"></a>Controlo de Acesso para Espaço de Trabalho
 
@@ -144,7 +144,7 @@ Para conceder acesso total a um utilizador a **todas as** bases de dados a pedid
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>Piscinas SQL

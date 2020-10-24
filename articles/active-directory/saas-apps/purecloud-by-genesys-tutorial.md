@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d7aa43a94c7b49eef5b3273617ad9038fd1202e4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108546"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505748"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com PureCloud by Genesys
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar PureCloud by Genesys com Azure Ati
 * Permita que os seus utilizadores sejam automaticamente inscritos no PureCloud pela Genesys com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -215,14 +215,14 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no PureCloud by Genes
 
 Nesta secção, testa a configuração de um único sinal de acesso Azure AD utilizando o Painel de Acesso.
 
-Quando selecionar o **azulejo PureCloud by Genesys** no Painel de Acesso, deverá ser automaticamente inscrito na conta PureCloud by Genesys para a quais configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o **azulejo PureCloud by Genesys** no Painel de Acesso, deverá ser automaticamente inscrito na conta PureCloud by Genesys para a quais configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar apps saaS com Azure AD ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar apps saaS com Azure AD ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso com a Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso com a Azure AD?](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure AD?](../conditional-access/overview.md)
 
 - [Experimente PureCloud by Genesys com Azure AD](https://aad.portal.azure.com/)

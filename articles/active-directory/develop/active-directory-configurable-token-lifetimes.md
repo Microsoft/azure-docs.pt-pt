@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948628"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503781"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
 Pode especificar a vida útil de um símbolo emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. No entanto, atualmente, não apoiamos a configuração das vidas simbólicas para [os diretores de serviços de identidade geridos.](../managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a pré-visualização, implementamos [capacidades de gestão de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md) no Azure AD Conditional Access. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência. Depois de 30 de maio de 2020 nenhum novo inquilino poderá usar a política de vida simbólica para configurar sessão e refrescar tokens. A depreciação acontecerá dentro de alguns meses, o que significa que deixaremos de honrar a sessão existente e refrescaremos as polícias. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.
+> Depois de 30 de janeiro de 2021, os inquilinos deixarão de poder configurar a atualização e a duração da sessão e o Azure Ative Directory deixará de honrar a configuração de atualização e sinal de sessão existente nas políticas após essa data. Ainda pode configurar o acesso às vidas simbólicas após a reforma.
+> Implementamos capacidades de [gestão de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no Acesso Condicionado AZURE AD. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência. O Acesso Condicional é uma funcionalidade Azure AD Premium P1 e pode avaliar se o prémio é adequado para a sua organação na [página de preços premium.](https://azure.microsoft.com/en-us/pricing/details/active-directory/) 
+> 
+> Para os inquilinos que não utilizem a gestão da sessão de autenticação no Acesso Condicional após a data da reforma, podem esperar que a Azure AD honre a configuração padrão descrita na secção seguinte.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriedades de vida simbólicas configuráveis após a reforma
+A configuração de token de atualização e sessão é afetada pelas seguintes propriedades e pelos seus valores respectivamente definidos. Após a retirada da configuração de token de atualização e sessão, a Azure AD apenas honrará o valor padrão descrito abaixo, independentemente de as políticas terem valores personalizados configurados valores personalizados configurados.  
+
+|Propriedade   |Cadeia de propriedade política    |Afeta |Predefinição |
+|----------|-----------|------------|------------|
+|Atualizar tempo inativo token Max |MaxInactiveTime  |Fichas de atualização |90 dias  |
+|Single-Factor Refresh Token Max Age  |MaxAgeSingleFactor  |Fichas de atualização (para qualquer utilizadores)  |Até revogação  |
+|Multi-Factor Refresh Token Max Age  |MaxAgeMultiFactor  |Fichas de atualização (para qualquer utilizadores) |180 dias  |
+|Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes)  |Até revogação |
+|Sessão multi-factor Token Max Age  |MaxAgeSessionMultiFactor  |Fichas de sessão (persistentes e não permanentes)  |180 dias |
+
+Pode utilizar o [cmdlet Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) para identificar políticas de vida simbólicas cujos valores de propriedade diferem dos incumprimentos da AD Azure.
+
+Para entender melhor como as suas políticas são usadas no seu inquilino, pode utilizar o [cmdlet Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) para identificar quais as aplicações e os principais serviços que estão ligados às suas políticas. 
+
+Se o seu inquilino tiver políticas que definam valores personalizados para propriedades de configuração de atualização e sessão, a Microsoft recomenda que atualize essas políticas no âmbito de valores que reflitam os padrão acima descritos. Se não forem feitas alterações, o Azure AD honrará automaticamente os valores predefinidos.  
+
+## <a name="overview"></a>Descrição geral
 
 Em Azure AD, um objeto de política representa um conjunto de regras que são aplicadas em aplicações individuais ou em todas as aplicações de uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são aplicadas a objetos aos quais são atribuídos.
 

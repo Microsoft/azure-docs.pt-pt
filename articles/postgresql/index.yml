@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/21/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 24a8d13a364d4d4f3d484beb41404e169420f34a
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2ca0301f7ce9e343c98283a42a77eb068330389e
+  ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91760993"
+  ms.lasthandoff: 10/23/2020
+  ms.locfileid: "92489460"
 landingContent:
 - title: Acerca da Base de Dados do Azure para PostgreSQL
   linkLists:
@@ -144,7 +144,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/postgresql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
     - text: Modelos do Azure Resource Manager
       url: /azure/templates/microsoft.dbforpostgresql/allversions
   - linkListType: reference

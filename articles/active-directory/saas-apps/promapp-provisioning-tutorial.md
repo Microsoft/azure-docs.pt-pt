@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3677b16921c6954f5f99e55af9afeae9c337cce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00adf8f1559d01d6ba17692e1166c93c93fcbf8f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255828"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516652"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutorial: Configurar o Promapp para o fornecimento automático de utilizadores
 
@@ -93,7 +93,7 @@ Antes de configurar o Promapp para o fornecimento automático de utilizadores co
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Promapp com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Você também pode optar por ativar um único sign-on baseado em SAML para o Promapp seguindo as instruções fornecidas no [tutorial de assinatura única promapp.](https://docs.microsoft.com/azure/active-directory/saas-apps/promapp-tutorial) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
+> Você também pode optar por ativar um único sign-on baseado em SAML para o Promapp seguindo as instruções fornecidas no [tutorial de assinatura única promapp.](./promapp-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o Promapp em Azure AD:
 
@@ -157,4 +157,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

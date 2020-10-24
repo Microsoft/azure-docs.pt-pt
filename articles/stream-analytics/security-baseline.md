@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a7f27ff20a4770caea44e73d91001d9785c015
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229009"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517230"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de segurança Azure para Stream Analytics
 
@@ -248,7 +248,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
-**Orientação**: Stream Analytics não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida com o Azure Ative Directory e assegurada pelo controlo de acesso baseado em funções (RBAC) para gerir o serviço. Dependendo dos serviços de fluxo de injeção e serviços de saída, é necessário rodar credenciais configuradas nos trabalhos.
+**Orientação**: Stream Analytics não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida com o Azure Ative Directory e assegurada pelo Azure role-based access control (Azure RBAC) para gerir o serviço. Dependendo dos serviços de fluxo de injeção e serviços de saída, é necessário rodar credenciais configuradas nos trabalhos.
 
 * [Rode as credenciais de login para entradas e saídas de um trabalho stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -324,7 +324,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. A Azure AD fornece controlo de acesso baseado em funções (RBAC) para controlo de grãos finos sobre o acesso de um cliente aos recursos stream analytics.
+**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. A Azure AD fornece o controlo de acesso baseado em funções Azure (Azure RBAC) para controlo de grãos finos sobre o acesso de um cliente aos recursos stream analytics.
 
 * [Como criar e configurar uma instância AD Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -932,7 +932,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 * [Alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-* [Utilizar etiquetas para organizar os seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Utilizar etiquetas para organizar os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

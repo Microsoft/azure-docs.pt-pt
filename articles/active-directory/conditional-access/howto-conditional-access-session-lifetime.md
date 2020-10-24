@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/23/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d33721a70f0a9d4cfb26516d2f252424cc924f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145258"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503815"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -37,7 +37,7 @@ A frequência de inscrição define o período de tempo antes de um utilizador s
 
 A configuração padrão do Azure Ative Directory (Azure AD) para a frequência de inscrição do utilizador é uma janela rolante de 90 dias. Pedir credenciais aos utilizadores muitas vezes parece uma coisa sensata a fazer, mas pode dar a volta por cima: os utilizadores que são treinados para introduzir as suas credenciais sem pensar podem fornecer-lhes involuntariamente uma solicitação de credencial maliciosa.
 
-Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A configuração padrão AD AD do Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
+Pode parecer alarmante não pedir a um utilizador que volte a entrar, na realidade qualquer violação das políticas de TI irá revogar a sessão. Alguns exemplos incluem (mas não se limitam a) uma alteração de senha, um dispositivo incompatível ou desativação de conta. Também pode revogar explicitamente [as sessões dos utilizadores utilizando o PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true). A configuração padrão AD AD do Azure resume-se a "não pedir aos utilizadores que forneçam as suas credenciais se a postura de segurança das suas sessões não tiver mudado".
 
 A definição de frequência de início funciona com aplicações que implementaram protocolos OAUTH2 ou OIDC de acordo com as normas. A maioria das aplicações nativas da Microsoft para Windows, Mac e Mobile, incluindo as seguintes aplicações web, cumprem a definição.
 
@@ -88,7 +88,7 @@ O padrão AD AD AZure para persistência da sessão de navegador permite que os 
 O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença premium. Se quiser saber mais sobre o Acesso Condicional, veja [o que é o Acesso Condicional no Diretório Ativo Azure?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se estiver a utilizar a funcionalidade [de vida útil de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, por favor, note que não suportamos a criação de duas políticas diferentes para a mesma combinação de utilizador ou app: uma com esta funcionalidade e outra com uma funcionalidade de vida simbólica. A Microsoft planeia retirar a funcionalidade de vida útil de token configurável no dia 1 de maio de 2020 e substituí-la pela funcionalidade de gestão da sessão de autenticação de acesso condicional.  
+> Se estiver a utilizar a funcionalidade [de vida útil de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, por favor, note que não suportamos a criação de duas políticas diferentes para a mesma combinação de utilizador ou app: uma com esta funcionalidade e outra com uma funcionalidade de vida simbólica. A Microsoft planeia retirar a funcionalidade de vida útil de token configurável para a atualização e a sessão de token lifes a 30 de janeiro de 2021 e substituí-la pela funcionalidade de gestão da sessão de autenticação de acesso condicional.  
 >
 > Antes de ativar a frequência de inscrição, certifique-se de que outras definições de reauthenciacation estão desativadas no seu inquilino. Se estiver ativado "Remember MFA em dispositivos fidedignos", certifique-se de desativá-lo antes de utilizar a frequência de início de sposição, uma vez que utilizar estas duas definições em conjunto pode levar a que os utilizadores sejam inesperadamente informados. Para saber mais sobre as solicitações de reauestatura e a vida útil da sessão, consulte o artigo, [otimize as solicitações de reauestação e compreenda a vida útil da sessão para autenticação multi-factor Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 

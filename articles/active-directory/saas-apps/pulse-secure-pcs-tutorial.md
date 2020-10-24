@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
-ms.openlocfilehash: c46565f7eaa060a060183cf321bb1df1903b945c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d38ff5c8f33bda5b12f6267e7a8cdf477db6c7d7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000904"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92511448"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Pulse Secure PCS
 
@@ -174,7 +174,7 @@ Execute os seguintes passos na seguinte página:
 
 ### <a name="create-pulse-secure-pcs-test-user"></a>Criar utilizador de teste de PCS Seguro de Pulso
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Pulse Secure PCS. Trabalhe com [a equipa de suporte do PcS Pulse Secure](mailto:support@pulsesecure.net) para adicionar os utilizadores na plataforma PcS Pulse Secure. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Pulse Secure PCS. Trabalhe com [a equipa de suporte do PcS Pulse Secure](mailto:support@pulsesecure.net) para adicionar os utilizadores na plataforma PcS Pulse Secure. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -184,10 +184,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 2. Vá diretamente ao URL de inscrição do PCS De segurança pulse e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Do PCS Pulse Secure no Painel de Acesso, este irá redirecionar para URL de inscrição de PCS de segurança de pulso. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Do PCS Pulse Secure no Painel de Acesso, este irá redirecionar para URL de inscrição de PCS de segurança de pulso. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado Pulse Secure PCS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Uma vez configurado Pulse Secure PCS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
-ms.openlocfilehash: b3790c52598b2857f56cac54acad156b3ba0bf51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d872c50174ba2fe7dfa321ac568e51fdaa80affc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545012"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Sonarqube
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Sonarqube com Azure Ative Director
 * Permita que os seus utilizadores sejam automaticamente inscritos na Sonarqube com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -162,21 +162,20 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
 ### <a name="create-sonarqube-test-user"></a>Criar utilizador de teste sonarqube
 
-Nesta secção, cria-se um utilizador chamado B.Simon em Sonarqube. Trabalhe com a [equipa de suporte do Cliente Sonarqube](https://www.sonarsource.com/support/) para adicionar os utilizadores na plataforma Sonarqube. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
+Nesta secção, cria-se um utilizador chamado B.Simon em Sonarqube. Trabalhe com a [equipa de suporte do Cliente Sonarqube](https://www.sonarsource.com/support/) para adicionar os utilizadores na plataforma Sonarqube. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação. 
 
 ## <a name="test-sso"></a>Teste SSO 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo sonarqube no Painel de Acesso, deverá ser automaticamente inscrito no Sonarqube para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo sonarqube no Painel de Acesso, deverá ser automaticamente inscrito no Sonarqube para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente Sonarqube com Azure AD](https://aad.portal.azure.com/)
-

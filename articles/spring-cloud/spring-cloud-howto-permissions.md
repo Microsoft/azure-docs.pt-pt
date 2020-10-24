@@ -7,20 +7,20 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155487"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516193"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Como usar permissões em Azure Spring Cloud
-Este artigo mostra-lhe como criar papéis personalizados que delegam permissões aos recursos da Azure Spring Cloud. As funções personalizadas estendem [as funções de Azure incorporadas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) com várias permissões de stock.
+Este artigo mostra-lhe como criar papéis personalizados que delegam permissões aos recursos da Azure Spring Cloud. As funções personalizadas estendem [as funções incorporadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) com várias permissões de stock.
 
 Implementaremos as seguintes funções personalizadas:
 
 * **Papel de desenvolvedor:** 
-    * Implementação
+    * Implementar
     * Teste
     * Reiniciar aplicativos
     * Pode aplicar e fazer alterações nas configurações de aplicações no repositório git
@@ -256,7 +256,7 @@ A partir de **Microsoft.AppPlatform/skus,** selecione:
 6. Clique em **Rever e criar**.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Criar ou atualizar funções personalizadas do Azure com o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal)
 
 Para obter mais informações sobre três métodos que definem permissões personalizadas consulte:

@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048029"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515734"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Monitorize a sua carga de trabalho de piscina Azure Synapse Analytics SQL utilizando DMVs
 
@@ -139,7 +139,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Verifique a coluna *total_elapsed_time* para ver se uma determinada distribuição está a demorar significativamente mais tempo do que outras para o movimento de dados.
-* Para a distribuição de longa duração, verifique a coluna *rows_processed* para ver se o número de linhas que estão a ser movidas dessa distribuição é significativamente maior do que outros. Em caso afirmativo, esta descoberta pode indicar distorção dos seus dados subjacentes.
+* Para a distribuição de longa duração, verifique a coluna *rows_processed* para ver se o número de linhas que estão a ser movidas dessa distribuição é significativamente maior do que outros. Em caso afirmativo, esta descoberta pode indicar distorção dos seus dados subjacentes. Uma das causas para a distorção dos dados é a distribuição numa coluna com muitos valores NULOS (cujas filas irão todas aterrar na mesma distribuição). Evite consultas lentas evitando a distribuição neste tipo de colunas ou filtrando a sua consulta para eliminar NULLs quando possível. 
 
 Se a consulta estiver em execução, pode utilizar [o DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar o plano estimado do SQL Server a partir da cache do plano sql server para o passo SQL atualmente em execução dentro de uma determinada distribuição.
 

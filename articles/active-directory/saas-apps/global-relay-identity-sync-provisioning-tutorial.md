@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: f0e34c8a331c475b103922789a9d1983f1c84cac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492199"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514406"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Global Relay Identity Sync para o fornecimento automático do utilizador
 
@@ -52,7 +52,7 @@ Contacte o seu representante Global Relay Identity Sync para receber o url do In
 
 ## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione o Global Relay Identity Sync da galeria de aplicações AZure AD
 
-Adicione o Global Relay Identity Sync da galeria de aplicações Azure AD para começar a gerir o fornecimento ao Global Relay Identity Sync. Se tiver configurado previamente global Relay Identity Sync para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione o Global Relay Identity Sync da galeria de aplicações Azure AD para começar a gerir o fornecimento ao Global Relay Identity Sync. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app) 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento 
 
@@ -63,7 +63,7 @@ O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser a
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Passo 5. Configure o fornecimento automático de utilizadores para o Global Relay Identity Sync 
 
-Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no TestApp com base em atribuições de utilizador e/ou grupo em Azure AD.
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos na aplicação Global Relay Identity Sync com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Global Relay Identity Sync em Azure AD:
 

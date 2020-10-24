@@ -9,22 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f70a11165f6433e580fd857f2d5a620deb6640c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604340"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503626"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configure políticas de vida útil simbólicas (pré-visualização)
-Muitos cenários são possíveis no Azure AD quando você pode criar e gerir vidas simbólicas para apps, diretores de serviços e sua organização geral. Para saber mais, leia [as vidas de símbolos configurais na plataforma de identidade da Microsoft.](active-directory-configurable-token-lifetimes.md) 
+Muitos cenários são possíveis no Azure AD quando você pode criar e gerir vidas simbólicas para apps, diretores de serviços e sua organização geral.  
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a pré-visualização, implementamos [capacidades de gestão de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md) no Azure AD Conditional Access. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência. Depois de 30 de maio de 2020 nenhum novo inquilino poderá usar a política de vida simbólica para configurar sessão e refrescar tokens. A depreciação acontecerá dentro de alguns meses, o que significa que deixaremos de honrar a sessão existente e refrescaremos as polícias. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.
+> Depois de 30 de janeiro de 2021, os inquilinos deixarão de poder configurar a atualização e a duração da sessão e a Azure AD deixará de honrar a configuração de atualização e sessão existente nas políticas após essa data. Ainda pode configurar o acesso a vidas simbólicas após a depreciação.  Para saber mais, leia [as vidas de símbolos configurais na plataforma de identidade da Microsoft.](active-directory-configurable-token-lifetimes.md)
+> Implementamos capacidades de [gestão de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no Acesso Condicionado AZURE AD. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência.
 
 
 Nesta secção, passamos por alguns cenários políticos comuns que podem ajudá-lo a impor novas regras para:

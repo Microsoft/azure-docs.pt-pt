@@ -3,16 +3,16 @@ title: Visão geral dos centros de eventos dedicados - Azure Event Hubs Microsof
 description: Este artigo fornece uma visão geral do dedicado Azure Event Hubs, que oferece implementações de inquilinos individuais de centros de eventos.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: e6208a8d50e21766969dbe9d9739d5003958126a
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 20b153c9093c96e7357a8e439b6655f1db80bd46
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495093"
+ms.locfileid: "92517005"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral dos Centros de Eventos Dedicados
 
-*Os clusters de eventos Hubs* oferecem implantações de inquilinos únicos para clientes com as necessidades de streaming mais exigentes. Esta oferta de inquilino único tem um SLA garantido de 99,99% e está disponível apenas no nosso nível de preços dedicado. Um cluster Event Hubs pode entrar em milhões de eventos por segundo com capacidade garantida e latência sub-segundo. Os espaços de nome e os centros de eventos criados dentro do cluster dedicado incluem todas as funcionalidades da oferta Standard e muito mais, mas sem limites de entrada. Também inclui a popular funcionalidade [de Captura de Centros de Eventos](event-hubs-capture-overview.md) sem custos adicionais, permitindo-lhe a triagem automática de dados para O Azure Storage ou Azure Data Lake. 
+*Os clusters de eventos Hubs* oferecem implantações de inquilinos únicos para clientes com as necessidades de streaming mais exigentes. Esta oferta de inquilino único tem um SLA garantido de 99,99% e está disponível apenas no nosso nível de preços dedicado. Um cluster Event Hubs pode entrar em milhões de eventos por segundo com capacidade garantida e latência do subsegundo. Os espaços de nome e os centros de eventos criados dentro do cluster dedicado incluem todas as funcionalidades da oferta Standard e muito mais, mas sem limites de entrada. Também inclui a popular funcionalidade [de Captura de Centros de Eventos](event-hubs-capture-overview.md) sem custos adicionais, permitindo-lhe a triagem automática de dados para O Azure Storage ou Azure Data Lake. 
 
 Os clusters são a provisionados e faturados por **Unidades de Capacidade (CUs),** uma quantia pré-atribuída de CPU e recursos de memória. Você pode comprar 1, 2, 4, 8, 12, 16 ou 20 CUs para cada cluster. Quanto você pode ingerir e fluir por CU depende de uma variedade de fatores, tais como o número de produtores e consumidores, forma de carga útil, taxa de saída (ver resultados de referência abaixo para mais detalhes). 
 
@@ -25,13 +25,13 @@ O Event Hubs dedicado oferece três benefícios convincentes para os clientes qu
 
 #### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>Arrendamento único garante capacidade para um melhor desempenho
 
-Um cluster dedicado garante capacidade em plena escala, e pode entrar até gigabytes de dados de streaming com armazenamento totalmente durável e latência sub-segundo para acomodar qualquer explosão no tráfego. 
+Um cluster dedicado garante capacidade em plena escala, e pode entrar até gigabytes de dados de streaming com armazenamento totalmente durável e latência subsegundo para acomodar qualquer explosão no tráfego. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Acesso inclusivo e exclusivo às funcionalidades 
-A oferta dedicada inclui funcionalidades como Capture sem custos adicionais, bem como acesso exclusivo a funcionalidades futuras como Bring Your Own Key (BYOK). O serviço também gere o equilíbrio de carga, atualizações de SO, patches de segurança e divisórias para o cliente, para que possa passar menos tempo na manutenção da infraestrutura e mais tempo na construção de funcionalidades do lado do cliente.  
+A oferta dedicada inclui funcionalidades como Capture sem custos adicionais e acesso exclusivo a funcionalidades futuras como Bring Your Own Key (BYOK). O serviço também gere o equilíbrio de carga, atualizações de SO, patches de segurança e divisórias para o cliente, para que possa passar menos tempo na manutenção da infraestrutura e mais tempo na construção de funcionalidades do lado do cliente.  
 
 #### <a name="cost-savings"></a>Poupança de Custos
-Em volumes de entrada elevados (>100 TUs), um cluster custa significativamente menos por hora do que a compra de uma quantidade comparável de unidades de produção na oferta Standard.
+Em volumes de entrada elevados (>100 unidades de produção), um cluster custa significativamente menos por hora do que a compra de uma quantidade comparável de unidades de produção na oferta Standard.
 
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Centros de Eventos Quotas e Limites Dedicados
@@ -53,7 +53,7 @@ A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mín
 
 ## <a name="how-to-onboard"></a>Como embarcar
 
-A experiência de autosserviço para [criar um cluster de Clusters de Eventos](event-hubs-dedicated-cluster-create-portal.md) através do portal [Azure](https://aka.ms/eventhubsclusterquickstart) está agora em Pré-Visualização. Se tiver alguma dúvida ou precisar de ajuda a bordo do Event Hubs Dedicado, contacte a equipa do [Event Hubs.](mailto:askeventhubs@microsoft.com)
+A experiência de autosserviço para [criar um cluster de Clusters de Eventos](event-hubs-dedicated-cluster-create-portal.md) através do portal [Azure](https://aka.ms/eventhubsclusterquickstart) está agora em Pré-Visualização. Se tiver alguma dúvida ou precisar de ajuda no embarque para o Event Hubs Dedicado, contacte a equipa do [Event Hubs](mailto:askeventhubs@microsoft.com).
 
 ## <a name="faqs"></a>FAQs
 

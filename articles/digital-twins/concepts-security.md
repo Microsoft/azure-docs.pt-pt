@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485754"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503322"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -20,7 +20,7 @@ Para a segurança, a Azure Digital Twins permite um controlo preciso de acesso s
 
 A Azure Digital Twins também suporta a encriptação de dados em repouso.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Concessão de permissões com a Azure RBAC
+## <a name="roles-and-permissions-with-azure-rbac"></a>Funções e permissões com a Azure RBAC
 
 O Azure RBAC é fornecido à Azure Digital Twins através da integração com [o Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -47,22 +47,32 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorização: Funções Azure para Azure Digital Twins
 
-A Azure fornece as funções incorporadas abaixo do Azure para autorizar o acesso a um recurso Azure Digital Twins:
-* *Azure Digital Twins Data Owner* – Use esta função para dar acesso total sobre os recursos da Azure Digital Twins.
-* *Azure Digital Twins Data Reader* – Use este papel para dar acesso apenas à leitura dos recursos da Azure Digital Twins.
+A Azure fornece **duas funções incorporadas para** autorizar o acesso ao plano de dados Azure Digital Twins [APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). Pode consultar as funções pelo nome ou por ID:
+
+| Papel incorporado | Descrição | ID | 
+| --- | --- | --- |
+| Proprietário de dados Azure Digital Twins | Dá acesso total sobre os recursos da Azure Digital Twins | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Leitor de dados de gémeos digitais Azure | Dá acesso apenas à leitura dos recursos da Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > Estes papéis foram recentemente renomeados a partir dos seus nomes anteriores na pré-visualização:
 > * *Azure Digital Twins Data Owner* foi anteriormente *Azure Digital Twins Owner (Preview)*.
 > * *Azure Digital Twins Data Reader* foi anteriormente *Azure Digital Twins Reader (Preview)*.
 
-Para obter mais informações sobre como as funções incorporadas são [*definidas,*](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções personalizadas [*Azure, consulte os papéis personalizados da Azure*](../role-based-access-control/custom-roles.md).
-
 Pode atribuir funções de duas formas:
 * através do painel de controlo de acesso (IAM) para Azure Digital Twins no portal Azure (ver [*Adicionar ou remover atribuições de funções Azure utilizando o portal Azure)*](../role-based-access-control/role-assignments-portal.md)
 * através de comandos CLI para adicionar ou remover uma função
 
 Para passos mais detalhados sobre como fazê-lo, experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md).
+
+Para obter mais informações sobre como as funções incorporadas são [*definidas,*](../role-based-access-control/role-definitions.md) consulte definições de funções na documentação do Azure RBAC. Para obter informações sobre a criação de funções personalizadas [*Azure, consulte os papéis personalizados da Azure*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automatização de papéis
+
+Quando se refere a papéis em cenários automatizados, recomenda-se referir-se a eles pelos seus IDs em vez dos seus **nomes.** Os nomes podem mudar entre lançamentos, mas os IDs não, tornando-os uma referência mais estável na automação.
+
+> [!TIP]
+> Se estiver a assigar papéis com um cmdlet, como `New-AzRoleAssignment` ([referência),](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)pode usar o `-RoleDefinitionId` parâmetro em vez de passar um `-RoleDefinitionName` ID em vez de um nome para o papel.
 
 ### <a name="permission-scopes"></a>Âmbitos de permissão
 

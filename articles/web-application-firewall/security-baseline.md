@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5ecfd5e5ff29b2eade4391976947062d6e8f186f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021185"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516159"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de segurança Azure para firewall de aplicação web Azure
 
@@ -355,7 +355,7 @@ Dinamize este processo criando Definições de Diagnóstico para contas de utili
 
 **Orientação**: Implementar o isolamento utilizando assinaturas e grupos de gestão separados para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade de dados, por exemplo, ambientes de desenvolvimento, teste e produção. 
 
-Controlar o acesso aos recursos Azure com o Azure Ative Directory (Azure AD) controlo de acesso baseado em funções (Azure RBAC).
+Controlar o acesso aos recursos Azure com controlo de acesso baseado em funções Azure (Azure RBAC).
 
 - [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
 
@@ -379,10 +379,10 @@ Siga as recomendações do Centro de Segurança para encriptação em repouso e 
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Controle o acesso aos recursos Azure com o Azure Ative Directory (Azure AD) controlo de acesso baseado em funções (Azure RBAC).
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+**Orientação**: Controle o acesso aos recursos Azure com controlo de acesso baseado em funções Azure (Azure RBAC).
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

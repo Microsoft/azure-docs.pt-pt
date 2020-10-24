@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 837c1c1a3bac064ddc808c7c083fcaa56e60f210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30dd7068a8ba2d0e30a2a4308e124886c4439641
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553891"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515480"
 ---
 # <a name="tutorial-integrate-perceptyx-with-azure-active-directory"></a>Tutorial: Integrar o Perceptyx com o Azure Ative Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o Perceptyx com o Azure Ative Dire
 * Ative os seus utilizadores a serem automaticamente inscritos no Perceptyx com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -122,16 +122,16 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-perceptyx-test-user"></a>Criar utilizador de teste Perceptyx
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Perceptyx. Trabalhe com a [equipa de suporte da Perceptyx](mailto:customersupport@perceptyx.com) para adicionar os utilizadores na plataforma Perceptyx. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Perceptyx. Trabalhe com a [equipa de suporte da Perceptyx](mailto:customersupport@perceptyx.com) para adicionar os utilizadores na plataforma Perceptyx. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo Perceptyx no Painel de Acesso, deverá ser automaticamente inscrito no Perceptyx para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Perceptyx no Painel de Acesso, deverá ser automaticamente inscrito no Perceptyx para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

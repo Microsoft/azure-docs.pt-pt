@@ -1,6 +1,6 @@
 ---
 title: Permissões em Azure Sentinel ! Microsoft Docs
-description: Este artigo explica como o Azure Sentinel usa o controlo de acesso baseado em funções para atribuir permissões aos utilizadores e identifica as ações permitidas para cada função.
+description: Este artigo explica como o Azure Sentinel usa o controlo de acesso baseado em funções Azure para atribuir permissões aos utilizadores, e identifica as ações permitidas para cada papel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 3b680dbaead6e94aa955ebc0e0e720281a40389d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369901"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517306"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
 O Azure Sentinel usa [o controlo de acesso baseado em funções (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços em Azure.
 
-Utilize o RBAC para criar e atribuir funções dentro da sua equipa de operações de segurança para conceder acesso adequado ao Azure Sentinel. As diferentes funções dão-lhe um controlo fino sobre o que os utilizadores do Azure Sentinel podem ver e fazer. As funções Azure podem ser atribuídas diretamente no espaço de trabalho do Azure Sentinel (ver nota abaixo), ou num grupo de subscrição ou recursos a que o espaço de trabalho pertence, ao qual o Azure Sentinel herdará.
+Use o Azure RBAC para criar e atribuir funções dentro da sua equipa de operações de segurança para conceder acesso adequado ao Azure Sentinel. As diferentes funções dão-lhe um controlo fino sobre o que os utilizadores do Azure Sentinel podem ver e fazer. As funções Azure podem ser atribuídas diretamente no espaço de trabalho do Azure Sentinel (ver nota abaixo), ou num grupo de subscrição ou recursos a que o espaço de trabalho pertence, ao qual o Azure Sentinel herdará.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Papéis para trabalhar em Azure Sentinel
 
@@ -62,7 +62,7 @@ Os utilizadores com requisitos de trabalho específicos podem ter de ser atribu�
 
 - Utilizadores convidados que atribuem incidentes
 
-    Se um utilizador convidado precisar de ser capaz de atribuir incidentes, então, para além da função Azure Sentinel Responder, o utilizador também terá de ser designado para o papel de Leitor de [Diretórios](../active-directory/roles/permissions-reference.md#directory-readers). Note que este papel *não* é um papel de Azure RBAC, mas um papel **de Diretório Ativo Azure,** e que os utilizadores regulares (não convidados) têm esta função atribuída por padrão. 
+    Se um utilizador convidado precisar de ser capaz de atribuir incidentes, então, para além da função Azure Sentinel Responder, o utilizador também terá de ser designado para o papel de Leitor de [Diretórios](../active-directory/roles/permissions-reference.md#directory-readers). Note que este papel *não* é um papel de Azure, mas um papel **de Diretório Ativo Azure,** e que os utilizadores regulares (não convidados) têm esta função atribuída por padrão. 
 
 Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed-actions).
 
@@ -87,11 +87,11 @@ A tabela seguinte resume as funções e ações permitidas no Azure Sentinel.
 | Contribuidor do Azure Sentinel | -- | &#10003; | &#10003; | &#10003; |
 | Azure Sentinel Contributor + Colaborador de Aplicação Lógica | &#10003; | &#10003; | &#10003; | &#10003; |
 
-## <a name="custom-roles-and-advanced-rbac"></a>Papéis personalizados e RBAC avançado
+## <a name="custom-roles-and-advanced-azure-rbac"></a>Funções personalizadas e RBAC do Azure avançadas
 
-- Além disso, ou em vez de usar funções incorporadas do Azure, pode criar papéis personalizados Azure para O Azure Sentinel. Os papéis personalizados Azure para O Azure Sentinel são criados da mesma forma que cria outros papéis [Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) [personalizados, baseados em permissões específicas para Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- Além disso, ou em vez de usar funções incorporadas do Azure, pode criar papéis personalizados Azure para O Azure Sentinel. Os papéis personalizados Azure para O Azure Sentinel são criados da mesma forma que cria outros [papéis personalizados Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), baseados em [permissões específicas para Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Pode utilizar o controlo avançado de acesso baseado em funções do Log Analytics através dos dados do seu espaço de trabalho Azure Sentinel. Isto inclui tanto o RBAC baseado em dados como o RBAC centrado em recursos. Para obter mais informações sobre as funções de Log Analytics, consulte [Gerir os dados de registo e os espaços de trabalho no Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Pode utilizar o controlo avançado de acesso baseado em funções do Log Analytics através dos dados do seu espaço de trabalho Azure Sentinel. Isto inclui tanto o Azure RBAC baseado em dados como o Azure RBAC centrado em recursos. Para obter mais informações sobre as funções de Log Analytics, consulte [Gerir os dados de registo e os espaços de trabalho no Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Passos seguintes
 
