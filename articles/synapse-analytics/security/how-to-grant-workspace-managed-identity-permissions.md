@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535047"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487199"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões à identidade gerida pelo espaço de trabalho (pré-visualização)
 
@@ -70,7 +70,7 @@ A identidade gerida deve ter acesso de dados ao contentor (sistema de ficheiros)
 
 
 Selecione o mesmo sistema de ficheiros ou contentores para conceder a função *de Contribuinte de Dados de Armazenamento blob* para a identidade gerida.
-![Seleção de contentores de conta de armazenamento ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Screenshot que mostra o sistema de contentores ou ficheiros que deve selecionar.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Passo 3: Navegar para o controlo de acesso
 

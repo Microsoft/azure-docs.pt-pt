@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 60d73f8b3eae21ab399853e8d05b67b7b431ee5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3bb6925e11579deff914a930116d8ef464e39f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321059"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476897"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Problemas de resolução de problemas quando se utiliza o Azure Cosmos DB Async Java SDK v2 com contas API SQL
 
@@ -63,13 +63,13 @@ O número de ficheiros abertos máximos permitidos, que são identificados como 
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Exaustão portuária de Azure SNAT (PAT)
 
-Se a sua aplicação for implementada em Máquinas Virtuais Azure sem endereço IP público, por padrão as [portas Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) estabelecem ligações a qualquer ponto final fora do seu VM. O número de ligações permitidas do VM ao ponto final DB Azure Cosmos é limitado pela [configuração Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se a sua aplicação for implementada em Máquinas Virtuais Azure sem endereço IP público, por padrão as [portas Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) estabelecem ligações a qualquer ponto final fora do seu VM. O número de ligações permitidas do VM ao ponto final DB Azure Cosmos é limitado pela [configuração Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  As portas Azure SNAT são utilizadas apenas quando o seu VM tem um endereço IP privado e um processo do VM tenta ligar-se a um endereço IP público. Existem duas soluções alternativas para evitar a limitação do Azure SNAT:
 
-* Adicione o seu ponto final de serviço Azure Cosmos DB à sub-rede da sua rede virtual Azure Virtual Machines. Para mais informações, consulte [os pontos finais do serviço Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Adicione o seu ponto final de serviço Azure Cosmos DB à sub-rede da sua rede virtual Azure Virtual Machines. Para mais informações, consulte [os pontos finais do serviço Azure Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Quando o ponto final de serviço está ativado, os pedidos deixaram de ser enviados de um IP público para a Azure Cosmos DB. Em vez disso, a rede virtual e a identidade da sub-rede são enviadas. Esta alteração pode resultar em quedas de firewall se apenas os IPs públicos forem permitidos. Se utilizar uma firewall, quando ativar o ponto final de serviço, adicione uma sub-rede à firewall utilizando [ACLs de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    Quando o ponto final de serviço está ativado, os pedidos deixaram de ser enviados de um IP público para a Azure Cosmos DB. Em vez disso, a rede virtual e a identidade da sub-rede são enviadas. Esta alteração pode resultar em quedas de firewall se apenas os IPs públicos forem permitidos. Se utilizar uma firewall, quando ativar o ponto final de serviço, adicione uma sub-rede à firewall utilizando [ACLs de rede virtual](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Atribua um IP público ao seu Azure VM.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Não consigo chegar ao Serviço - firewall
@@ -276,5 +276,3 @@ Muitas ligações com o ponto final do Azure Cosmos DB podem estar no `CLOSE_WAI
 [Enable client SDK logging]: #enable-client-sice-logging
 [Limite de ligação numa máquina hospedeira]: #connection-limit-on-host
 [Exaustão portuária de Azure SNAT (PAT)]: #snat
-
-

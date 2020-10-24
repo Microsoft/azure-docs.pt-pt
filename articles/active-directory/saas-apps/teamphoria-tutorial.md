@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 30971c9c5280bfba37f46aaab0aaf2c2506502c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53b717759bf65241b946194aab91bab0608320c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542348"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Tutorial: Azure Ative Directy integração única (SSO) com a Teamphoria
 
@@ -134,15 +134,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Aceda à opção **ADMIN SETTINGS** na barra de ferramentas esquerda e sob o separador configurar clique no **SIGN-ON ÚNICO** para abrir a janela de configuração SSO.
 
-    ![Configurar Sign-On Individuais](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![A screenshot mostra definições de ADMIN onde pode selecionar UM ÚNICO SIGN-ON.](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Clique na opção **ADD NEW IDENTITY PROVIDER** no canto superior direito para abrir o formulário para adicionar as definições de SSO.
 
-    ![Configurar Sign-On Individuais](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![A screenshot mostra onde pode selecionar ADICIONAR NOVO FORNECEDOR DE IDENTIDADE.](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Insira os detalhes nos campos como descrito abaixo...
 
-    ![Configurar Sign-On Individuais](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![A screenshot mostra a página onde pode introduzir os valores descritos.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **NOME DO VISÃO**: Introduza o nome do visor do plugin na página de administração.
 
@@ -168,11 +168,11 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na Teamphoria, devem 
 
 1. Clique na opção **MANUAL CONVIDAR.**
 
-    ![Convidar pessoas](./media/teamphoria-tutorial/admin_manage_add_users.png)
+    ![A screenshot mostra a opção MANUAL INVITE.](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
 1. Nesta página, execute a seguinte ação.
 
-    ![Convidar pessoas](./media/teamphoria-tutorial/manual_user_invite.png)
+    ![A screenshot mostra a página MANUAL USER INVITE onde pode introduzir nome e endereço de e-mail.](./media/teamphoria-tutorial/manual_user_invite.png)
 
     a. Na caixa de sms **do endereço de e-mail,** insira o endereço de **e-mail** do utilizador como B.Simon.
 

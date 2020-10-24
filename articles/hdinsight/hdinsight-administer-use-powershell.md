@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/13/2020
-ms.openlocfilehash: 1839cfe0f7295af583b7bd5397957a223e888d3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fbafd81fac1982f624adae9286000fb61db62c5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086511"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474925"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando a Azure PowerShell
 
@@ -146,7 +146,7 @@ Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)](hdinsight-
 
 ## <a name="see-also"></a>Consulte também
 
-* [Cmdlets Az.HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight/?view=azps-3.1.0#hdinsight)
+* [Cmdlets Az.HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight/#hdinsight)
 * [Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar HDInsight utilizando uma interface de linha de comando](hdinsight-administer-use-command-line.md)
 * [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827308"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487896"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -39,8 +39,8 @@ A tabela a seguir fornece uma visão geral de como mudar de cada tipo de replica
 
 | Comutação | ... para o LRS | ... a GRS/RA-GRS | ... para ZRS | ... para GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1</sup> | Realizar uma migração manual <br /><br /> OU <br /><br /> Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OU <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
-| <b>... de GRS/RA-GRS</b> | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D | Realizar uma migração manual <br /><br /> OU <br /><br /> Mude primeiro para LRS e, em seguida, solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OU <br /><br /> Solicite uma migração ao vivo |
+| <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1</sup> | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
+| <b>... de GRS/RA-GRS</b> | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para LRS e, em seguida, solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo |
 | <b>... da ZRS</b> | Realizar uma migração manual | Realizar uma migração manual | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,2</sup> |
 | <b>... de GZRS/RA-GZRS</b> | Realizar uma migração manual | Realizar uma migração manual | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D |
 
@@ -144,9 +144,9 @@ Uma pessoa de apoio entrará em contacto consigo e prestará qualquer assistênc
 > [!NOTE]
 > A migração ao vivo não é atualmente suportada para ações de ficheiros premium. Apenas os dados de cópia ou deslocação manualmente são suportados atualmente.
 >
-> As contas de armazenamento GZRS não suportam atualmente o nível de arquivo. Consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e arquivados](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
+> As contas de armazenamento GZRS não suportam atualmente o nível de arquivo. Consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e arquivados](/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
 >
-> Os discos geridos só estão disponíveis para ORS e não podem ser migrados para ZRS. Pode armazenar instantâneos e imagens para discos geridos SSD padrão no armazenamento HDD padrão e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para obter informações sobre a integração com conjuntos de disponibilidade, consulte [discos geridos introdução ao Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> Os discos geridos só estão disponíveis para ORS e não podem ser migrados para ZRS. Pode armazenar instantâneos e imagens para discos geridos SSD padrão no armazenamento HDD padrão e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para obter informações sobre a integração com conjuntos de disponibilidade, consulte [discos geridos introdução ao Azure](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Switch do ZRS Classic
 
@@ -198,8 +198,8 @@ Se migrar a sua conta de armazenamento de GRS para LRS, não há custo adicional
 > [!IMPORTANT]
 > Se migrar a sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é faturada como RA-GRS por mais 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Redundância de armazenamento Azure](storage-redundancy.md)
+- [Redundância do Armazenamento do Azure](storage-redundancy.md)
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)
 - [Use geo-redundância para projetar aplicações altamente disponíveis](geo-redundant-design.md)

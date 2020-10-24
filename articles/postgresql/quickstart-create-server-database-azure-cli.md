@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 086f680a0674d5d79d9d039d9ad47e542856ac5d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8a9661f7f5cdd66dc0aab6d937701cda48048219
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92420072"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488032"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Quickstart: Criar uma Base de Dados Azure para servidor PostgreSQL utilizando o Azure CLI
 
-Este quickstart mostra como usar comandos [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma única Base de Dados Azure para servidor PostgreSQL em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Este quickstart mostra como usar comandos [Azure CLI](/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma única Base de Dados Azure para servidor PostgreSQL em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -58,7 +58,7 @@ Aqui estão os detalhes dos argumentos anteriores:
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-name | mydemoserver | Nome único que identifica a sua Base de Dados Azure para servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres. Para mais informações, consulte [a Base de Dados Azure para as Regras de Nomeação Pós-SQL](/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
+name | mydemoserver | Nome único que identifica a sua Base de Dados Azure para servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres. Para mais informações, consulte [a Base de Dados Azure para as Regras de Nomeação Pós-SQL](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myResourceGroup | Nome do grupo de recursos Azure.
 localização | westus | Localização azul para o servidor.
 admin-user | myadmin | Nome de utilizador para o login do administrador. Não pode ser **azure_superuser,** **administrador,** **raiz,** **hóspede,** ou **público.** **root**
@@ -66,7 +66,7 @@ admin-password | *palavra-passe segura* | Palavra-passe do utilizador administra
 sku-name|GP_Gen5_2| Nome da configuração do nível de preços e do cálculo. Siga a convenção {nível de preços}_{compute generation}_{vCores} em abreviatura. Para obter mais informações, consulte [a Base de Dados Azure para obter preços pós-SQL.](https://azure.microsoft.com/pricing/details/postgresql/server/)
 
 >[!IMPORTANT] 
->- A versão PostgreSQL predefinida no seu servidor é 9.6. Para ver todas as versões suportadas, consulte [as principais versões postgresQL suportadas.](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)
+>- A versão PostgreSQL predefinida no seu servidor é 9.6. Para ver todas as versões suportadas, consulte [as principais versões postgresQL suportadas.](./concepts-supported-versions.md)
 >- Para ver todos os argumentos para **o servidor az postgres criar** comando, consulte este documento de [referência](/cli/azure/postgres/server#az-postgres-server-create).
 >- O SSL é ativado por padrão no seu servidor. Para obter mais informações sobre o SSL, consulte [a conectividade Configure SSL](./concepts-ssl-connection-security.md).
 
@@ -154,7 +154,6 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados utilizando exportação e importação](./howto-migrate-using-export-and-import.md)
 > 
-> [Implementar uma aplicação web Django com PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
+> [Implementar uma aplicação web Django com PostgreSQL](../app-service/tutorial-python-postgresql-app.md)
 >
 > [Conecte-se com uma aplicação Node.JS](./connect-nodejs.md)
-

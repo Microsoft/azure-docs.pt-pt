@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279915"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480229"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 
@@ -63,7 +63,7 @@ As transações são integradas de forma nativa no modelo de programação Azure
 
 ### <a name="data-consistency"></a>Consistência de dados
 
-Os procedimentos e gatilhos armazenados são sempre executados na réplica primária de um contentor Azure Cosmos. Esta funcionalidade garante que as leituras dos procedimentos armazenados oferecem [uma forte consistência.](consistency-levels-tradeoffs.md) As consultas que utilizam funções definidas pelo utilizador podem ser executadas na réplica primária ou secundária. Os procedimentos e gatilhos armazenados destinam-se a suportar escritas transacionais – entretanto, a lógica apenas de leitura é melhor implementada como lógica do lado da aplicação e consultas utilizando os [SDKs API API API AZure Cosmos DB SQL](sql-api-dotnet-samples.md), irão ajudá-lo a saturar o rendimento da base de dados. 
+Os procedimentos e gatilhos armazenados são sempre executados na réplica primária de um contentor Azure Cosmos. Esta funcionalidade garante que as leituras dos procedimentos armazenados oferecem [uma forte consistência.](./consistency-levels.md) As consultas que utilizam funções definidas pelo utilizador podem ser executadas na réplica primária ou secundária. Os procedimentos e gatilhos armazenados destinam-se a suportar escritas transacionais – entretanto, a lógica apenas de leitura é melhor implementada como lógica do lado da aplicação e consultas utilizando os [SDKs API API API AZure Cosmos DB SQL](sql-api-dotnet-samples.md), irão ajudá-lo a saturar o rendimento da base de dados. 
 
 > [!TIP]
 > As consultas executadas dentro de um procedimento ou gatilho armazenados podem não ver alterações em itens efecionados pela mesma transação de script. Esta declaração aplica-se tanto a consultas SQL como, tais `getContent().getCollection.queryDocuments()` como, assim como consultas linguísticas integradas, tais `getContext().getCollection().filter()` como.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 815c738f1680c12f94aa97e91cd123237bf1b4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac050a9b90272203a899a9a15a51df022e4b0d0e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542503"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integração do Azure Ative Directory com o TeamSeer
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com o TeamSeer, execute os seguintes passos:
 
 1. Vá ao **Rh Admin.**
 
-    ![Administração HR](./media/teamseer-tutorial/ic789634.png "Administração HR")
+    ![A screenshot mostra o H R Admin selecionado a partir da janela TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administração HR")
 
 1. Clique **em Configuração**.
 
@@ -134,11 +134,11 @@ Para configurar o Azure AD com o TeamSeer, execute os seguintes passos:
 
 1. Clique **em Configurar detalhes do fornecedor SAML**.
 
-    ![Definições SAML](./media/teamseer-tutorial/ic789636.png "Definições SAML")
+    ![Screenshot mostra Configurar os detalhes do fornecedor SAML selecionados.](./media/teamseer-tutorial/ic789636.png "Definições SAML")
 
 1. Na secção de detalhes do fornecedor SAML, execute os seguintes passos:
 
-    ![Definições SAML](./media/teamseer-tutorial/ic789637.png "Definições SAML")
+    ![A screenshot mostra os detalhes do fornecedor SAML onde pode introduzir os valores descritos.](./media/teamseer-tutorial/ic789637.png "Definições SAML")
 
     a. Na caixa de texto **URL,** cole o valor URL do **Login,** que copiou a partir do portal Azure.
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD com o TeamSeer, execute os seguintes passos:
 
 1. Para completar a configuração do fornecedor SAML, execute os seguintes passos:
 
-    ![Definições SAML](./media/teamseer-tutorial/ic789638.png "Definições SAML")
+    ![A screenshot mostra a configuração do fornecedor SAML onde pode introduzir os valores descritos.](./media/teamseer-tutorial/ic789638.png "Definições SAML")
 
     a. Nos **endereços de e-mail de teste,** digite o endereço de e-mail do utilizador do teste.
   
@@ -215,7 +215,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no TeamSeer, devem se
 
 1. Vá aos **Utilizadores de \> Administração HR** e, em seguida, clique em **Executar o novo assistente do utilizador**.
 
-    ![Administração HR](./media/teamseer-tutorial/ic789640.png "Administração HR")
+    ![A screenshot mostra o separador H R Admin onde pode selecionar um assistente para executar.](./media/teamseer-tutorial/ic789640.png "Administração HR")
 
 1. Na secção **Detalhes do Utilizador,** execute os seguintes passos:
 

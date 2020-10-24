@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 27e346dd97824918d859ea6819e3c2b43f4c02aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed7bda2875fa68254fb3842dac8b713a0bbddfd4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551953"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Tutorial: Integração do Diretório Ativo Azure com a UNIFI
 
@@ -130,15 +130,15 @@ Para configurar o Azure AD com a UNIFI, execute os seguintes passos:
 
 2. Clique nos **Utilizadores.**
 
-    ![Configurar Sign-On Individuais](./media/unifi-tutorial/app1.png)
+    ![A screenshot mostra os utilizadores selecionados a partir do site DA UNIFI.](./media/unifi-tutorial/app1.png)
 
 3. Clique no **Fornecedor de Novas Identidades.**
 
-    ![Configurar Sign-On Individuais](./media/unifi-tutorial/app2.png)
+    ![A screenshot mostra o novo fornecedor de identidade de anúncios selecionado.](./media/unifi-tutorial/app2.png)
 
 4. Na secção **Add Identity Provider,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/unifi-tutorial/app3.png) 
+    ![A screenshot mostra o Fornecedor de Identidade Adicionar onde pode introduzir os valores descritos.](./media/unifi-tutorial/app3.png) 
 
     a. Na caixa de texto **'Nome provedor',** digite o nome do Fornecedor de Identidade..
 

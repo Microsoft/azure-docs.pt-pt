@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: e937f6c79e52aa7a75f6e222f195e1428dd16033
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ceafbacb4cfc99b5327423ff1a50b82292030893
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371023"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479260"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 > [!IMPORTANT]
@@ -38,7 +38,7 @@ Antes de criar uma rede virtual TAP, deve ter recebido um e-mail de confirmaçã
 
 As contas que utiliza para aplicar a configuração TAP nas interfaces de rede devem ser atribuídas à função [de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída a partir do quadro seguinte:
 
-| Ação | Name |
+| Ação | Nome |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e apagar um recurso TAP de rede virtual |
 | Microsoft.Network/networkInterfaces/read | Obrigado a ler o recurso de interface de rede em que a TAP será configurada |
@@ -63,7 +63,7 @@ As contas que utiliza para aplicar a configuração TAP nas interfaces de rede d
 - [Fidelis Cibersegurança](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Rio Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
-- [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
+- [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [RSA NetWitness® Plataforma](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)

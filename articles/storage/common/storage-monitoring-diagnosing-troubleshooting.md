@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43c8f3dc0df41d9322edbe2e0c763de12b787ed6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370479"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479804"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -131,7 +131,7 @@ As métricas de armazenamento apenas armazenam métricas de capacidade para o se
 >
 >
 
-Para ajudar a estimar o tamanho de vários objetos de armazenamento, tais como bolhas, consulte o post do blog [Understanding Azure Storage Billing – Bandwidth, Transactions e Capacity](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Para ajudar a estimar o tamanho de vários objetos de armazenamento, tais como bolhas, consulte o post do blog [Understanding Azure Storage Billing – Bandwidth, Transactions e Capacity](/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Monitorizar a disponibilidade
 Deverá monitorizar a disponibilidade dos serviços de armazenamento na sua conta de armazenamento, monitorizando o valor na coluna **Disponibilidade** nas tabelas de métricas horárias ou minúsculas — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable,** **$MetricsHourPrimaryTransactionsQueue,** **$MetricsMinutePrimaryTransactionsBlob,** **$MetricsMinutePrimaryTransactionsTable,** **$MetricsMinutePrimaryTransactionsQueue,** **$MetricsCapacityBlob**. A coluna **Disponibilidade** contém um valor percentual que indica a disponibilidade do serviço ou da operação API representada pela linha (o **RowKey** mostra se a linha contém métricas para o serviço como um todo ou para uma operação API específica).
@@ -362,7 +362,7 @@ O serviço de armazenamento apenas calcula a métrica **AverageE2ELatency** para
 #### <a name="investigating-client-performance-issues"></a>Investigar problemas de desempenho do cliente
 As possíveis razões para o cliente responder lentamente incluem ter um número limitado de ligações ou fios disponíveis, ou estar com poucos recursos como CPU, memória ou largura de banda de rede. Pode ser capaz de resolver o problema modificando o código do cliente para ser mais eficiente (por exemplo, utilizando chamadas assíncronos para o serviço de armazenamento), ou utilizando uma Máquina Virtual maior (com mais núcleos e mais memória).
 
-Para os serviços de mesa e fila, o algoritmo Nagle também pode causar uma alta **média de E2ELatency** em comparação com **a AverageServerLatency**: para mais informações, consulte o algoritmo do post [Nagle não é amigável para pedidos pequenos.](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) Pode desativar o algoritmo Nagle em código utilizando a classe **ServicePointManager** no espaço de nome **System.Net.** Deverá fazê-lo antes de efetivar quaisquer chamadas para a mesa ou serviços de fila na sua aplicação, uma vez que isso não afeta as ligações que já estão abertas. O exemplo a seguir vem do **método Application_Start** numa função de trabalhador.
+Para os serviços de mesa e fila, o algoritmo Nagle também pode causar uma alta **média de E2ELatency** em comparação com **a AverageServerLatency**: para mais informações, consulte o algoritmo do post [Nagle não é amigável para pedidos pequenos.](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) Pode desativar o algoritmo Nagle em código utilizando a classe **ServicePointManager** no espaço de nome **System.Net.** Deverá fazê-lo antes de efetivar quaisquer chamadas para a mesa ou serviços de fila na sua aplicação, uma vez que isso não afeta as ligações que já estão abertas. O exemplo a seguir vem do **método Application_Start** numa função de trabalhador.
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
@@ -567,7 +567,7 @@ Se a aplicação do cliente tentar utilizar uma chave SAS que não inclua as per
 
 A tabela a seguir mostra uma mensagem de registo do lado do servidor da amostra a partir do ficheiro de registo de registo de registo de registo de registo de registo de registo de armazenamento:
 
-| Name | Valor |
+| Nome | Valor |
 | --- | --- |
 | Pedir hora de início | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |

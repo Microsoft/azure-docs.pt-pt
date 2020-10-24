@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356371"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475920"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Use o feed de alteração DB do Azure Cosmos para visualizar a análise de dados em tempo real
 
@@ -50,7 +50,7 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
 
 5. **Centro de Eventos:** O Azure Event Hub armazena estes eventos e envia-os para [a Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para realizar mais análises.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics define consultas para processar os eventos e realizar análises de dados em tempo real. Estes dados são então enviados para [o Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics define consultas para processar os eventos e realizar análises de dados em tempo real. Estes dados são então enviados para [o Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI é utilizado para visualizar os dados enviados pela Azure Stream Analytics. Pode construir um dashboard para ver como as métricas mudam em tempo real.  
 
@@ -382,4 +382,4 @@ Para eliminar os recursos que criou durante este laboratório, navegue para o gr
 
 ## <a name="next-steps"></a>Passos seguintes 
   
-* Para saber mais sobre a mudança de feed, consulte [trabalhar com o suporte de feed de mudança em Azure Cosmos DB](change-feed.md) 
+* Para saber mais sobre a mudança de feed, consulte [trabalhar com o suporte de feed de mudança em Azure Cosmos DB](change-feed.md)

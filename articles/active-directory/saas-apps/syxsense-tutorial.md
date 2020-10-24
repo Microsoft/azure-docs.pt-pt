@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 3bb03444062a5652e4e0aad24560b90acd2ce2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234ef7e3cec3bfa78bc2f2aac2670efc1e3c0499
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544823"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483476"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Syxsense
 
@@ -136,11 +136,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **ícone de definições.**
 
-    ![Configuração Syxsense](./media/syxsense-tutorial/configure1.png)
+    ![A screenshot mostra o ícone Definições.](./media/syxsense-tutorial/configure1.png)
 
 1. Clique na **Autenticação Externa** e forneça o valor do **url de metadados da Federação de Aplicações** na caixa de texto DE **MEtadados SAML2.0** e clique em **Guardar**.
 
-    ![Configuração Syxsense](./media/syxsense-tutorial/configure2.png)
+    ![O Screenshot mostra a página de autenticação externa onde pode introduzir o valor de Metadados U R L da Federação de Aplicações.](./media/syxsense-tutorial/configure2.png)
 
 ### <a name="create-syxsense-test-user"></a>Criar utilizador de teste Syxsense
 
@@ -148,15 +148,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique nas Contas de **Utilizador** a partir do painel de navegação esquerdo.
 
-    ![Configuração Syxsense](./media/syxsense-tutorial/user1.png)
+    ![A screenshot mostra contas de utilizador selecionadas a partir do painel de navegação.](./media/syxsense-tutorial/user1.png)
 
 1. Clique em **Adicionar**.
 
-    ![Configuração Syxsense](./media/syxsense-tutorial/user2.png)
+    ![A screenshot mostra o painel de contas do utilizador onde pode selecionar Adicionar.](./media/syxsense-tutorial/user2.png)
 
 1. Forneça os dados do utilizador de acordo com os requisitos da sua organização e clique em **Guardar**.
 
-    ![Configuração Syxsense](./media/syxsense-tutorial/user3.png)
+    ![A screenshot mostra a página onde pode introduzir as suas informações.](./media/syxsense-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Teste SSO
 

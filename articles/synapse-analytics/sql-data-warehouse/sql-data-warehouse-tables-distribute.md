@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214014"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487012"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Orientações para estruturar tabelas distribuídas no conjunto Synapse SQL
 
 Recomendações para a conceção de mesas distribuídas por haxixe e rodapé em piscinas Sinaapse SQL.
 
-Este artigo pressupõe que está familiarizado com os conceitos de distribuição de dados e movimento de dados na piscina Synapse SQL.Para obter mais informações, consulte [a Azure Synapse Analytics arquitetura de processamento massivamente paralelo (MPP).](massively-parallel-processing-mpp-architecture.md)
+Este artigo pressupõe que está familiarizado com os conceitos de distribuição de dados e movimento de dados no Synapse SQL.  Para mais informações, consulte [a arquitetura Azure Synapse Analytics.](massively-parallel-processing-mpp-architecture.md)
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma mesa distribuída?
 
@@ -32,7 +32,7 @@ Uma tabela distribuída aparece como uma única tabela, mas as linhas são realm
 
 Outra opção de armazenamento de mesa é replicar uma pequena mesa em todos os nós compute. Para obter mais informações, consulte [a orientação do Design para tabelas replicadas.](design-guidance-for-replicated-tables.md) Para escolher rapidamente entre as três opções, consulte as tabelas Distribuídas na visão geral das [tabelas.](sql-data-warehouse-tables-overview.md)
 
-Como parte do design de mesa, compreenda o máximo possível sobre os seus dados e como os dados são consultados.Por exemplo, considere estas questões:
+Como parte do design de mesa, compreenda o máximo possível sobre os seus dados e como os dados são consultados.  Por exemplo, considere estas questões:
 
 - Qual é o tamanho da mesa?
 - Com que frequência a mesa é refrescada?

@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116791"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486877"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicação no Registo do Contentor de Azure
 
@@ -138,7 +138,7 @@ Para desativar o encaminhamento para uma replicação existente, primeiro execut
 az acr replication list --registry --output table
 
 # Disable routing to replication
-az acr replication update update --name westus \
+az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled false
 ```
@@ -146,7 +146,7 @@ az acr replication update update --name westus \
 Para restaurar o encaminhamento para uma replicação:
 
 ```azurecli
-az acr replication update update --name westus \
+az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled true
 ```

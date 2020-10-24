@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55fff7e4e36f066ba8ae5734e483df393fbd72cd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051964"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488661"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guia de versão blob do Azure Storage Explorer
 
-O Microsoft Azure Storage Explorer proporciona fácil acesso e gestão de versões blob. Este guia irá ajudá-lo a entender como a versão blob funciona no Storage Explorer. Antes de continuar, recomenda-se que leia mais sobre [a versão blob](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+O Microsoft Azure Storage Explorer proporciona fácil acesso e gestão de versões blob. Este guia irá ajudá-lo a entender como a versão blob funciona no Storage Explorer. Antes de continuar, recomenda-se que leia mais sobre [a versão blob](/azure/storage/blobs/versioning-overview).
 
 ## <a name="terminology"></a>Terminologia
 
 Esta secção fornece algumas definições para ajudar a entender o seu uso neste artigo.
 
-- Excluir suave: Uma funcionalidade alternativa de proteção automática de dados. Pode saber mais sobre a eliminação suave [aqui.](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+- Excluir suave: Uma funcionalidade alternativa de proteção automática de dados. Pode saber mais sobre a eliminação suave [aqui.](/azure/storage/blobs/soft-delete-blob-overview)
 - Blob ativo: Uma versão blob ou blob é criada em estado ativo. Só pode operar em bolhas ou versões blob em estado ativo.
 - Bolha apagada suave: Uma versão blob ou blob marcada como soft-deleted. As bolhas apagadas e macias são mantidas apenas durante o seu período de retenção.
 - Versão blob: Uma bolha criada com a versão blob ativada. Cada versão blob está associada a um ID de versão.
@@ -36,10 +36,10 @@ O Storage Explorer suporta quatro vistas diferentes para visualizar bolhas.
 
 | Vista | Bolhas não-versão ativas | Bolhas de versão não eliminadas com soft-apagado | Versões blob |
 | ---- | :----------: | :-----------: | :------------------: |
-| Bolhas ativas | Sim | Não | Versão atual apenas |
-| Bolhas ativas e bolhas comvidade | Sim | Sim | Versão atual apenas |
-| Bolhas e bolhas ativas sem versão atual | Sim | Não | Versão atual ou versão ativa mais recente |
-| Todas as bolhas e bolhas sem versão atual | Sim | Sim | Versão atual ou versão mais recente |
+| Bolhas ativas | Yes | No | Versão atual apenas |
+| Bolhas ativas e bolhas comvidade | Yes | Yes | Versão atual apenas |
+| Bolhas e bolhas ativas sem versão atual | Yes | No | Versão atual ou versão ativa mais recente |
+| Todas as bolhas e bolhas sem versão atual | Yes | Yes | Versão atual ou versão mais recente |
 
 ### <a name="active-blobs"></a>Bolhas ativas
 
@@ -117,5 +117,5 @@ Cada versão blob tem o seu próprio nível de acesso. Para alterar o nível de 
 
 ## <a name="see-also"></a>Consulte também
 
-* [Versão blob](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Eliminação recuperável para blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Versão blob](/azure/storage/blobs/versioning-overview)
+* [Eliminação recuperável para blobs](/azure/storage/blobs/soft-delete-blob-overview)

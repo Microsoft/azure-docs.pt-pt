@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: f4eb26678dee161451ff10144c2eaa3321ecc011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84693117"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487403"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilize o Azure DNS para fornecer definições de domínio personalizadas para um serviço Azure
 
@@ -103,7 +103,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 Volte para o serviço de aplicações configurado para o nome de domínio personalizado. Clique **em domínios personalizados**e, em seguida, clique em **Hostnames**. Para adicionar o registo CNAME que criou, clique **em + Adicione o nome de anfitrião**.
 
-![figura 1](./media/dns-custom-domain/figure1.png)
+![Screenshot que realça o botão + Adicionar nome de anfitrião.](./media/dns-custom-domain/figure1.png)
 
 Uma vez concluído o processo, **executar nslookup** para validar a resolução de nomes está funcionando.
 
@@ -136,7 +136,7 @@ Navegue para a sua Zona DNS e clique **em + Conjunto de registos.** Preencha as 
 
 Volte para a sua conta **Storage**de armazenamento clicando em  >  **Contas de Armazenamento,** selecione a sua conta de armazenamento e clique no domínio **personalizado.** Digite o pseudónimo que criou sem o prefixo de asverificar na caixa de texto, verifique **a validação indireta do CNAME**e clique em **Guardar**. Uma vez concluído este passo, volte à sua zona de DNS e crie um registo CNAME sem o prefixo de asverificar.  Depois desse ponto, é seguro apagar o registo CNAME com o prefixo cdnver.
 
-![domínio personalizado de armazenamento de blob](./media/dns-custom-domain/indirectvalidate.png)
+![Screenshot que mostra a página de Domínio Personalizado.](./media/dns-custom-domain/indirectvalidate.png)
 
 Validar a resolução do DNS executando `nslookup`
 

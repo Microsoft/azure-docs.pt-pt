@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 6708fcbe6f756a92984ee8aa48c181e1103f2046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6e09405fbc2fec6da516cabc7f509de712c45d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532894"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Diretório Ativo Azure com o UserEcho
 
@@ -128,19 +128,19 @@ Para configurar o Azure AD com o UserEcho, execute os seguintes passos:
 
 2. Na barra de ferramentas no topo, clique no nome de utilizador para expandir o menu e, em seguida, clique em **Configuração**.
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![A screenshot mostra a configuração selecionada a partir do site UserEcho.](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Clique **em Integrações**.
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![O Screenshot mostra integrações selecionadas no menu Definições.](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Clique **no Site**e, em seguida, clique em **'S.' Single sign-on (SAML2)**.
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![A screenshot mostra um ÚNICO SAML2 de sinalização selecionado a partir do menu Integrações.](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Na página **single sign-on (SAML),** execute os seguintes passos:
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![A screenshot mostra a página SAML de assinatura única onde pode introduzir os valores descritos.](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. Como **ativado pelo SAML,** selecione **Sim**.
     
@@ -212,23 +212,23 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no UserEch
 
 2. Na barra de ferramentas no topo, clique no nome de utilizador para expandir o menu e, em seguida, clique em **Configuração**.
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![A screenshot mostra a configuração selecionada a partir do site UserEcho.](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Clique **em Utilizadores,** para expandir a secção **de Utilizadores.**
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![A screenshot mostra os utilizadores selecionados a partir do menu Definições.](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Clique em **Utilizadores**.
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![A screenshot mostra os utilizadores selecionados.](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Clique **em Convidar um novo utilizador.**
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![A screenshot mostra ao Convidar um novo controlo do utilizador.](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. No **Convite um novo** diálogo de utilizador, execute os seguintes passos:
    
-    ![Configurar Sign-On Individuais](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![A screenshot mostra ao Convidar uma nova caixa de diálogo do utilizador onde pode introduzir informações do utilizador.](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. Na caixa de texto **Name,** tipo nome do utilizador como Britta Simon.
     

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606261"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475537"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Otimizar o desenvolvimento e testar o custo no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ O nível livre de DB da Azure Cosmos facilita o início, o desenvolvimento e o t
 > [!NOTE]
 > O nível livre só está disponível no modo de produção a provisionado.
 
-O nível livre dura indefinidamente para a vida útil da conta e vem com todos os [benefícios e características](introduction.md#key-benefits) de uma conta DB Azure Cosmos regular, incluindo armazenamento ilimitado e produção (RU/s), SLAs, alta disponibilidade, distribuição global chave na mão em todas as regiões do Azure, e muito mais. Pode ter até uma conta de nível livre por subscrição Azure e deve optar pela criação da conta. Para começar, [crie uma nova conta no portal Azure com nível gratuito ou](create-cosmosdb-resources-portal.md) utilize um modelo [ARM](manage-sql-with-resource-manager.md#free-tier). Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais informações.
+O nível livre dura indefinidamente para a vida útil da conta e vem com todos os [benefícios e características](introduction.md#key-benefits) de uma conta DB Azure Cosmos regular, incluindo armazenamento ilimitado e produção (RU/s), SLAs, alta disponibilidade, distribuição global chave na mão em todas as regiões do Azure, e muito mais. Pode ter até uma conta de nível livre por subscrição Azure e deve optar pela criação da conta. Para começar, [crie uma nova conta no portal Azure com nível gratuito ou](create-cosmosdb-resources-portal.md) utilize um modelo [ARM](./manage-with-templates.md#free-tier). Veja a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais informações.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimentar o Azure Cosmos DB gratuitamente
 
@@ -57,5 +57,5 @@ Pode começar com a utilização do emulador ou das contas gratuitas da Azure Co
 * Saiba mais sobre [otimizar o custo de produção](optimize-cost-throughput.md)
 * Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [otimizar o custo das leituras e dos escritos](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo das consultas](optimize-cost-queries.md)
+* Saiba mais sobre [otimizar o custo das consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [otimizar o custo das contas da Azure Cosmos em várias regiões](optimize-cost-regions.md)

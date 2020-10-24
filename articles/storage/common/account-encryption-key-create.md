@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ac76387f32b333d6d17d8d6f71ab0bc7de07ec0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967475"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474755"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Crie uma conta que suporte chaves geridas pelo cliente para mesas e filas
 
@@ -30,7 +30,7 @@ Para criar uma conta de armazenamento que se baseie na chave de encriptação da
 
 Pode criar uma conta de armazenamento que se baseie na chave de encriptação da conta para o armazenamento de fila e mesa nas seguintes regiões:
 
-- E.U.A. Leste
+- E.U.A Leste
 - E.U.A. Centro-Sul
 - E.U.A. Oeste 2  
 
@@ -252,4 +252,4 @@ N/D
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
 - [Chaves geridas pelo cliente para encriptação de armazenamento Azure](customer-managed-keys-overview.md)
-- [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+- [O que é Azure Key Vault?](/azure/key-vault/key-vault-overview)

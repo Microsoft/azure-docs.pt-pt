@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe1b685a0209643332d798b875b9e62b02aa02da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83684476"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488780"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -41,7 +41,7 @@ Se tiver configurado uma política de retenção de dados, não é cobrado para 
 
 ### <a name="understanding-billable-requests"></a>Compreender pedidos de faturação
 
-Todos os pedidos feitos ao serviço de armazenamento de uma conta são faturais ou não faturam. Armazenamento Analytics regista cada pedido individual feito a um serviço, incluindo uma mensagem de estado que indica como o pedido foi tratado. Da mesma forma, o Storage Analytics armazena métricas para um serviço e as operações da API desse serviço, incluindo as percentagens e a contagem de determinadas mensagens de estado. Em conjunto, estas funcionalidades podem ajudá-lo a analisar os seus pedidos de faturação, a fazer melhorias na sua aplicação e a diagnosticar problemas com pedidos aos seus serviços. Para obter mais informações sobre faturação, consulte [a Compreensão da Faturação de Armazenamento Azure - Largura de Banda, Transações e Capacidade](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Todos os pedidos feitos ao serviço de armazenamento de uma conta são faturais ou não faturam. Armazenamento Analytics regista cada pedido individual feito a um serviço, incluindo uma mensagem de estado que indica como o pedido foi tratado. Da mesma forma, o Storage Analytics armazena métricas para um serviço e as operações da API desse serviço, incluindo as percentagens e a contagem de determinadas mensagens de estado. Em conjunto, estas funcionalidades podem ajudá-lo a analisar os seus pedidos de faturação, a fazer melhorias na sua aplicação e a diagnosticar problemas com pedidos aos seus serviços. Para obter mais informações sobre faturação, consulte [a Compreensão da Faturação de Armazenamento Azure - Largura de Banda, Transações e Capacidade](/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 Ao analisar os dados do Storage Analytics, pode utilizar as tabelas no tópico [de Operações registadas e Mensagens de Estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) do Armazenamento Analytics para determinar quais os pedidos que são faturados. Em seguida, pode comparar os seus dados de registos e métricas com as mensagens de estado para ver se foi cobrado um pedido específico. Também pode utilizar as tabelas no tópico anterior para investigar a disponibilidade para um serviço de armazenamento ou operação API individual.
 

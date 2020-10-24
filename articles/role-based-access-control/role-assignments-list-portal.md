@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151711"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479923"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Liste atribuições de funções Azure usando o portal Azure
 
@@ -126,7 +126,7 @@ Pode listar atribuições de funções para identidades geridas atribuídas pelo
 
     Você vê uma lista de funções atribuídas à identidade gerida atribuída pelo utilizador selecionado em vários âmbitos, tais como grupo de gestão, subscrição, grupo de recursos ou recursos. Esta lista inclui todas as atribuições de funções que tem permissão para ler.
 
-    ![Atribuições de funções para uma identidade gerida atribuída pelo sistema](./media/shared/role-assignments-user-assigned.png)
+    ![Screenshot que mostra atribuições de funções para uma identidade gerida atribuída pelo utilizador.](./media/shared/role-assignments-user-assigned.png)
 
 1. Para alterar a subscrição, clique na lista **de Assinaturas.**
 
@@ -178,7 +178,7 @@ Siga estes passos para descarregar atribuições de funções num âmbito.
 
     ![Descarregue atribuições de funções como CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Descarregue atribuições de funções como CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Screenshot das atribuições de funções descarregadas como no formato JSON.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

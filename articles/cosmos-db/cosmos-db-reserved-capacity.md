@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90a4e86360916ba4b3dace0861fd1c6f7cd9b459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567116"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487522"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade de reserva no Azure Cosmos DB
 
@@ -22,7 +22,7 @@ A capacidade reservada da Azure Cosmos DB pode reduzir significativamente os cus
 
 A Azure Cosmos DB de capacidade reservada cobre o rendimento previsto para os seus recursos. Não abrange os custos de armazenamento e de rede. Assim que comprar uma reserva, os encargos de produção que correspondam aos atributos da reserva já não são cobrados nas tarifas pagas. Para mais informações sobre reservas, consulte o artigo reservas do [Azure.](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-Você pode comprar Azure Cosmos DB capacidade reservada a partir do [portal Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar capacidade de reserva:
+Você pode comprar Azure Cosmos DB capacidade reservada a partir do [portal Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar capacidade de reserva:
 
 * Você deve estar na função Proprietário para pelo menos uma Enterprise ou subscrição individual com taxas pay-as-you-go.  
 * Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com). Ou, se essa definição estiver desativada, deve ser um Administrador EA na subscrição.
@@ -106,7 +106,7 @@ O desconto de reserva é aplicado automaticamente aos recursos DB da Azure Cosmo
    * [Gerir reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
    * [Compreender a utilização de reservas na inscrição Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Compreender a utilização de reservas na sua subscrição Pay As You Go](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
-   * [Reservas Azure no programa CSP do Centro Parceiro](https://docs.microsoft.com/partner-center/azure-reservations)
+   * [Reservas Azure no programa CSP do Centro Parceiro](/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

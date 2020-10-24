@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716066"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486394"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ Para a autenticação AD DS no local, deve configurar os controladores de domín
 
 O diagrama seguinte retrata a autenticação AD DS no local para ações de ficheiros Azure sobre a SMB. O DS AD on-prem deve ser sincronizado com a AD AZure utilizando a sincronização Azure AD Connect. Apenas os utilizadores híbridos que existam tanto no local AD DS como Azure AD podem ser autenticados e autorizados para acesso a partilha de ficheiros Azure. Isto porque a permissão do nível de ação é configurada contra a identidade representada no Azure AD onde a permissão de nível de diretório/arquivo é aplicada com a da DS AD. Certifique-se de que configura corretamente as permissões contra o mesmo utilizador híbrido.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagrama":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagrama que retrata a autenticação AD DS no local para ações de ficheiros Azure sobre SMB.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 
@@ -116,7 +116,7 @@ O diagrama seguinte representa o fluxo de trabalho para a autenticação Azure A
 
 - Em segundo lugar, todos os utilizadores que existam em Azure AD podem ser autenticados e autorizados. O utilizador pode ser apenas em nuvem ou híbrido. A sincronização de Azure AD a Azure AD DS é gerida pela plataforma sem necessitar de qualquer configuração do utilizador. No entanto, o cliente deve ser domínio associado à Azure AD DS, não pode ser a Azure AD aderido ou registado. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagrama":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagrama que retrata a autenticação AD DS no local para ações de ficheiros Azure sobre SMB.":::
 
 ### <a name="enable-identity-based-authentication"></a>Ativar a autenticação baseada na identidade
 

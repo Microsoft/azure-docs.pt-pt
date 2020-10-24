@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f681a271dcd64468cb471c81496e489f0ce8413f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 391cbbca79560ba57ae2be62accdad8451446227
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713653"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488729"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a bolhas e filas utilizando o Azure Ative Directory
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre como as funções incorporadas são definida
 
 ### <a name="access-permissions-for-data-operations"></a>Permissões de acesso para operações de dados
 
-Para obter mais informações sobre as permissões necessárias para ligar para operações específicas de serviço Blob ou Queue, consulte [permissões para ligar para operações de dados de blob e fila](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+Para obter mais informações sobre as permissões necessárias para ligar para operações específicas de serviço Blob ou Queue, consulte [permissões para ligar para operações de dados de blob e fila](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 ## <a name="resource-scope"></a>Âmbito do recurso
 

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325390"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479090"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database e Azure Synapse Analytics arquitetura de conectividade
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ Este artigo explica a arquitetura de vários componentes que direcionam o tráfe
 
 O diagrama seguinte fornece uma visão geral de alto nível da arquitetura de conectividade.
 
-![visão geral da arquitetura](./media/connectivity-architecture/connectivity-overview.png)
+![Diagrama que mostra uma visão geral de alto nível da arquitetura de conectividade.](./media/connectivity-architecture/connectivity-overview.png)
 
 Os seguintes passos descrevem como uma ligação é estabelecida com a Base de Dados Azure SQL:
 
@@ -63,7 +63,7 @@ Se estiver a ligar a partir de dentro do Azure, as suas ligações têm uma pol�
 
 Se estiver a ligar-se de fora do Azure, as suas ligações têm uma política de ligação `Proxy` por defeito. Uma política de `Proxy` meios que a sessão de TCP é estabelecida através do gateway de base de dados Azure SQL e todos os pacotes subsequentes fluem através do gateway. O diagrama que se segue ilustra este fluxo de tráfego.
 
-![visão geral da arquitetura](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagrama que mostra como a sessão TCP é estabelecida através do gateway Azure SQL Database e todos os pacotes subsequentes fluem através do gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > Abra ainda as portas TCP 1434 e 14000-14999 para permitir [a ligação com o CAD](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
@@ -89,7 +89,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Norte da China          | 139.219.15.17      |
 | China Norte 2        | 40.73.50.0         |
 | Ásia Leste            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| E.U.A. Leste              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| E.U.A Leste              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | E.U.A. Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | França Central       | 40.79.137.0, 40.79.129.1 |
 | Alemanha Central      | 51.4.144.100       |
@@ -106,8 +106,8 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
 | Leste da Noruega          | 51.120.96.0        |
 | Oeste da Noruega          | 51.120.216.0       |
-| África do Sul Norte   | 102.133.152.0, 102.133.120.2       |
-| África do Sul    | 102.133.24.0       |
+| Norte da África do Sul   | 102.133.152.0, 102.133.120.2       |
+| Oeste da África do Sul    | 102.133.24.0       |
 | E.U.A. Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | Ásia Sudeste      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
 | Suíça Norte    | 51.107.56.0, 51.107.57.0 |

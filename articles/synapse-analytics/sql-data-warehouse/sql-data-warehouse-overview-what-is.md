@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ec5b5a5ee5c29893f47560d57e78c281825453e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370394"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480400"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
@@ -40,7 +40,7 @@ O pool SYNAPSE SQL refere-se às funcionalidades de armazenamento de dados da em
 
 A piscina SQL representa uma coleção de recursos analíticos que estão sendo a provisionados ao utilizar o SQL da Sinapse. O tamanho da piscina SQL é determinado por Unidades de Armazenagem de Dados (DWU).
 
-Importe big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL e, em seguida, use o poder de MPP para executar análises de alto desempenho. À medida que se integra e analisa, o pool Synapse SQL tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos.  
+Importe big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL e, em seguida, use a potência do motor de consulta distribuído para executar análises de alto desempenho. À medida que integra e analisa os dados, o Synapse SQL tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos. 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Componente chave de uma solução de big data
 

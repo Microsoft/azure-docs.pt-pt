@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708459"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488015"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -32,11 +32,11 @@ Para os servidores que suportam até 4-TB de armazenamento máximo, as cópias d
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento até 16-TB
 
-Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. Num dia, são realizadas três cópias de segurança instantâneas diferenciais. As cópias de segurança de registo de transações ocorrem a cada cinco minutos. 
+Num subconjunto de [regiões Azure,](./concepts-pricing-tiers.md#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. Num dia, são realizadas três cópias de segurança instantâneas diferenciais. As cópias de segurança de registo de transações ocorrem a cada cinco minutos. 
 
 ### <a name="backup-retention"></a>Retenção da cópia de segurança
 
-As cópias de segurança são mantidas com base na definição do período de retenção de cópias de segurança no servidor. Pode selecionar um período de retenção de 7 a 35 dias. O período de retenção por defeito é de 7 dias. Pode definir o período de retenção durante a criação do servidor ou posteriormente atualizando a configuração de backup utilizando o [portal Azure](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) ou [O Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration). 
+As cópias de segurança são mantidas com base na definição do período de retenção de cópias de segurança no servidor. Pode selecionar um período de retenção de 7 a 35 dias. O período de retenção por defeito é de 7 dias. Pode definir o período de retenção durante a criação do servidor ou posteriormente atualizando a configuração de backup utilizando o [portal Azure](./howto-restore-server-portal.md#set-backup-configuration) ou [O Azure CLI](./howto-restore-server-cli.md#set-backup-configuration). 
 
 O período de retenção de backups regula o quão longe no tempo um restauro de ponto no tempo pode ser recuperado, uma vez que é baseado em backups disponíveis. O período de retenção de backup também pode ser tratado como uma janela de recuperação de uma perspetiva de restauro. Todas as cópias de segurança necessárias para a restauração pontual dentro do período de retenção de backup são mantidas no armazenamento de backup. Por exemplo - se o período de retenção de backup estiver definido para 7 dias, a janela de recuperação é considerada dura 7 dias. Neste cenário, todas as cópias de segurança necessárias para restaurar o servidor nos últimos 7 dias são mantidas. Com uma janela de retenção de reserva de sete dias:
 - Os servidores com armazenamento até 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
@@ -44,7 +44,7 @@ O período de retenção de backups regula o quão longe no tempo um restauro de
 
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
-A Base de Dados Azure para PostgreSQL proporciona a flexibilidade para escolher entre armazenamento de backup localmente redundante ou geo-redundante nos níveis Geral De Finalidade e Memória Otimizada. Quando as cópias de segurança são armazenadas no armazenamento de backup geo-redundante, não só são armazenadas na região em que o seu servidor está hospedado, como também são replicadas num centro de [dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível básico só oferece armazenamento de backup localmente redundante.
+A Base de Dados Azure para PostgreSQL proporciona a flexibilidade para escolher entre armazenamento de backup localmente redundante ou geo-redundante nos níveis Geral De Finalidade e Memória Otimizada. Quando as cópias de segurança são armazenadas no armazenamento de backup geo-redundante, não só são armazenadas na região em que o seu servidor está hospedado, como também são replicadas num centro de [dados emparelhado](../best-practices-availability-paired-regions.md). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível básico só oferece armazenamento de backup localmente redundante.
 
 > [!IMPORTANT]
 > Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança.
@@ -69,7 +69,7 @@ Existem dois tipos de restauro disponíveis:
 O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
 
 > [!IMPORTANT]
-> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 

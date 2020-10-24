@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318777"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477288"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 
@@ -137,7 +137,7 @@ Para adicionar uma entidade, crie primeiro um objeto que defina as propriedades 
 * **PartitionKey** - determina a partição na qual a entidade é armazenada.
 * **RowKey** - identifica exclusivamente a entidade na partição.
 
-**PartitionKey** e **RowKey** têm de ser valores de cadeia. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+**PartitionKey** e **RowKey** têm de ser valores de cadeia. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Segue-se um exemplo de definição de uma entidade. O **dueDate** é definido como um tipo de `Edm.DateTime` . A especificação do tipo é opcional. Se não forem especificados, os tipos são inferidos.
 
@@ -483,6 +483,6 @@ Para obter mais informações, consulte os seguintes recursos.
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * Repositório do [Azure Storage SDK para Node.js](https://github.com/Azure/azure-storage-node) no GitHub.
-* [Programadores do Azure para Node.js](https://docs.microsoft.com/azure/developer/javascript/)
+* [Programadores do Azure para Node.js](/azure/developer/javascript/)
 * [Criar uma aplicação Web Node.js no Azure](../app-service/quickstart-nodejs.md)
 * [Criar e implementar uma aplicação Node.js num Serviço Cloud do Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (utilizando o Windows PowerShell)

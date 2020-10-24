@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080458"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488355"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referência dos dados de monitorização do Azure Cosmos DB
 
@@ -25,7 +25,7 @@ A tabela que se segue lista as propriedades dos registos de recursos em Azure Co
 
 | Campo ou propriedade de Armazenamento Azure | Propriedade Azure Monitor Logs | Descrição |
 | --- | --- | --- |
-| **Hora** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
+| **hora** | **TimeGenerated** | A data e a hora (UTC) quando ocorreu a operação. |
 | **recursosId** | **Recurso** | A conta DB do Azure Cosmos para os registos que estão ativados.|
 | **categoria** | **Categoria** | Para Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** são os tipos de registos disponíveis. |
 | **operaçãoName** | **OperationName** | O nome da operação. O nome da operação pode ser  `Create` , , , , , , , , `Update` , , , `Read` , , , `ReadFeed` , , , `Delete` ou `Replace` `Execute` `SqlQuery` `Query` `JSQuery` `Head` `HeadFeed` `Upsert` .   |
@@ -38,13 +38,13 @@ A tabela que se segue lista as propriedades dos registos de recursos em Azure Co
 | **clienteIpAddress** | **clientIpAddress_s** | O endereço IP do cliente. |
 | **requestCharge** | **requestCharge_s** | O número de RU/s que são usados pela operação |
 | **coleçãoRid** | **collectionId_s** | A identificação única para a coleção.|
-| **duração** | **duration_d** | A duração da operação, em milissegundos. |
+| **duration** | **duration_d** | A duração da operação, em milissegundos. |
 | **solicitaçãoLength** | **requestLength_s** | A duração do pedido, em bytes. |
 | **respostaLength** | **responseLength_s** | A duração da resposta, em bytes.|
-| **recursoTokenUserRid** | **resourceTokenUserRid_s** | Este valor não é vazio quando [os tokens de recursos](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para a autenticação. O valor aponta para o ID de recurso do utilizador. |
+| **recursoTokenUserRid** | **resourceTokenUserRid_s** | Este valor não é vazio quando [os tokens de recursos](./secure-access-to-data.md#resource-tokens) são utilizados para a autenticação. O valor aponta para o ID de recurso do utilizador. |
 | **respostaLength** | **responseLength_s** | A duração da resposta, em bytes.|
 
-Para obter uma lista de todas as categorias de registos do Azure Monitor e links para esquemas associados, consulte [as categorias e esquemas de Registos do Monitor Azure.](../azure-monitor/platform/diagnostic-logs-schema.md) 
+Para obter uma lista de todas as categorias de registos do Azure Monitor e links para esquemas associados, consulte [as categorias e esquemas de Registos do Monitor Azure.](../azure-monitor/platform/resource-logs-schema.md) 
 
 ## <a name="metrics"></a>Métricas
 As tabelas seguintes listam as métricas da plataforma recolhidas para Azure CosmOS DB. Todas as métricas são armazenadas no namespace **Cosmos DB métricas métricas padrão**.

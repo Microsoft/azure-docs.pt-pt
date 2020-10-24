@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714452"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488627"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -23,7 +23,7 @@ Este guia resume soluções para problemas que são geralmente vistos no Storage
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC permissões questões
 
-O controlo de acesso baseado em funções [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para fazer com que o Azure RBAC funcione da melhor forma no Storage Explorer.
+O controlo de acesso baseado em funções [Azure RBAC](/azure/role-based-access-control/overview) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para fazer com que o Azure RBAC funcione da melhor forma no Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como acesso os meus recursos no Storage Explorer?
 
@@ -65,7 +65,7 @@ Se quiser aceder a recipientes ou filas de bolhas, pode anexar esses recursos ut
 3. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Clique em Seguinte.
 4. Selecione o tipo de recurso, introduza o URL no recurso e introduza um nome de exibição único para a ligação. Clique em Seguinte. Clique em Ligar.
 
-Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)
+Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
@@ -100,7 +100,7 @@ Se não tem certeza de onde vem o certificado, siga estes passos para encontrá-
 2. Abrir o sl.
     * Janelas: Abra o diretório de instalação, selecione **/bin/**, e, em seguida, clique duas vezes **openssl.exe**.
     * Mac e Linux: Fugir `openssl` de um terminal.
-3. Execute `s_client -showcerts -connect microsoft.com:443`.
+3. Execute o `s_client -showcerts -connect microsoft.com:443`.
 4. Procure certificados autoassinados. Se não tem a certeza de quais certificados são auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e `("i:")` emitente sejam os mesmos.
 5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` até um novo ficheiro `-----END CERTIFICATE-----` .cer.
 6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados**. Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
@@ -111,7 +111,7 @@ Se não conseguir encontrar nenhum certificado auto-assinado seguindo estes pass
 
 ### <a name="blank-sign-in-dialog-box"></a>Caixa de diálogo de entrada em branco
 
-As caixas de diálogo de sinal em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretório Ativo (AD FS) solicitam ao Storage Explorer que execute um redirecionamento, que não é suportado pela Electron. Para contornar este problema, pode tentar utilizar o Fluxo de Código do Dispositivo para iniciar sôm. Para o fazer, siga estes passos:
+As caixas de diálogo de sinal em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretório Ativo (AD FS) solicitam ao Storage Explorer que execute um redirecionamento, que não é suportado pela Electron. Para contornar este problema, pode tentar utilizar o Fluxo de Código do Dispositivo para iniciar sôm. Para tal, siga estes passos:
 
 1. Na barra de ferramentas verticais esquerda, abra **as definições**. No Painel de Definições, aceda ao S **indicador**para a  >  **aplicação .** Ativar **o sinal de fluxo do código do dispositivo de utilização**.
 2. Abra a caixa de diálogo **Connect** (quer através do ícone de ficha na barra vertical do lado esquerdo, quer selecionando **a Conta Adicionar** no painel de contas).
@@ -332,7 +332,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Descarregue o ficheiro Storage Explorer .tar.gz.
-2. Instale o [prazo de execução do núcleo .NET:](https://docs.microsoft.com/dotnet/core/install/linux)
+2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Descarregue o ficheiro Storage Explorer .tar.gz.
-2. Instale o [prazo de execução do núcleo .NET:](https://docs.microsoft.com/dotnet/core/install/linux)
+2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ O Storage Explorer requer que o Núcleo .NET seja instalado no seu sistema. Reco
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Descarregue o ficheiro Storage Explorer .tar.gz.
-2. Instale o [prazo de execução do núcleo .NET:](https://docs.microsoft.com/dotnet/core/install/linux)
+2. Instale o [prazo de execução do núcleo .NET:](/dotnet/core/install/linux)
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

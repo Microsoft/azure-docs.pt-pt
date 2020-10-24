@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708990"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488049"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -88,7 +88,7 @@ Para começar rapidamente, ajuste `pgaudit.log` para , e abra seus `WRITE` regis
 ## <a name="viewing-audit-logs"></a>Visualização de registos de auditoria
 Se estiver a utilizar ficheiros .log, os seus registos de auditoria serão incluídos no mesmo ficheiro que os registos de erro do PostgreSQL. Pode descarregar ficheiros de registo a partir do [portal](howto-configure-server-logs-in-portal.md) Azure ou [CLI](howto-configure-server-logs-using-cli.md). 
 
-Se estiver a utilizar o registo de recursos Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+Se estiver a utilizar o registo de recursos Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
 

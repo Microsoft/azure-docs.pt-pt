@@ -10,18 +10,18 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333584"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488899"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Uma conta de armazenamento Azure contém todos os seus objetos de dados de armazenamento Azure: bolhas, ficheiros, filas, tabelas e discos. A conta de armazenamento fornece um espaço de nome único para os seus dados de Armazenamento Azure que estão acessíveis a partir de qualquer parte do mundo em HTTP ou HTTPS. Os dados na sua conta de armazenamento Azure são duráveis e altamente disponíveis, seguros e massivamente escaláveis.
 
-Neste artigo de como fazer, aprende-se a criar uma conta de armazenamento utilizando o [portal Azure](https://portal.azure.com/) [, Azure PowerShell,](https://docs.microsoft.com/powershell/azure/) [Azure CLI,](https://docs.microsoft.com/cli/azure)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+Neste artigo de como fazer, aprende-se a criar uma conta de armazenamento utilizando o [portal Azure](https://portal.azure.com/) [, Azure PowerShell,](/powershell/azure/) [Azure CLI,](/cli/azure)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

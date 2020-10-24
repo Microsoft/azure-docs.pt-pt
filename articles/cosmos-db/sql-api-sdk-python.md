@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d784e8bfb0841570f63d8433fa74059eb9e22758
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487743"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
@@ -22,25 +22,25 @@ ms.locfileid: "91569814"
 > * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
 > * [SDK .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK Feed de Alterações .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
-> * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Baixar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
+|**Documentação da API**|[Documentação de referência da Python API](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**Instruções de instalação da SDK**|[Instruções de instalação python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Começa com o Python SDK](create-sql-api-python.md)|
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -316,12 +316,12 @@ A versão 4.0.0b1 é a primeira pré-visualização dos nossos esforços para cr
 
 ## <a name="release--retirement-dates"></a>Liberação & datas de reforma
 
-A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas ao SDK atual, como tal é recomendado que você sempre atualize para a versão SDK mais recente o mais cedo possível.
+A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência para retirar um SDK de forma a suavizar a transição para uma versão mais recente/suportada. As funcionalidades, características e otimizações novas só são adicionadas ao SDK atual, pelo que se recomenda que atualize sempre para a última versão dos SDKs o mais cedo possível.
 
 > [!WARNING]
 > Depois de 31 de agosto de 2022, a Azure Cosmos DB deixará de fazer correções de bugs, adicionar novas funcionalidades e fornecer suporte às versões 1.x ou 2.x do Azure Cosmos DB Python SDK para a SQL API. Se preferir não fazer upgrade, os pedidos enviados das versões 1.x e 2.x do SDK continuarão a ser servidos pelo serviço DB Azure Cosmos.
 
-| Versão | Data de Lançamento | Data de Extinção |
+| Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
 | [4.0.0](#400) |20 de maio de 2020 |--- |
 | [3.0.2](#302) |15 de novembro de 2018 |--- |
@@ -359,4 +359,4 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 
+Para saber mais sobre o Azure Cosmos DB, veja a página do serviço [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

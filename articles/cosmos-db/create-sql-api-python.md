@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: 128e80572275924655e1da534553265407353fff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319015"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487590"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API API API AZure Cosmos DB SQL
 
@@ -26,7 +26,7 @@ ms.locfileid: "91319015"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [SDK v4 de Java](create-sql-api-java.md)
-> * [Dados da primavera v3](create-sql-api-spring-data.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -39,7 +39,7 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
     * Dentro de uma subscrição ativa do Azure:
         * [Crie uma Conta Gratuita Azure](https://azure.microsoft.com/free) ou use a subscrição existente 
         * [Créditos mensais do Estúdio Visual](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB Free Tier](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Sem uma subscrição ativa do Azure:
         * [Experimente gratuitamente Azure Cosmos DB,](https://azure.microsoft.com/try/cosmosdb/)um ambiente de testes que dura 30 dias.
         * [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
@@ -227,7 +227,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
@@ -237,5 +237,3 @@ Neste quickstart, aprendeu a criar uma conta DB Azure Cosmos, criar um recipient
 
 > [!div class="nextstepaction"]
 > [Importar dados para o Azure Cosmos DB para a SQL API](import-data.md)
-
-

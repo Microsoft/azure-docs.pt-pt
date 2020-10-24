@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108767"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487641"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma app toda com Xamarin usando a conta API API da Azure Cosmos DB SQL
 
@@ -22,7 +22,7 @@ ms.locfileid: "92108767"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [SDK v4 de Java](create-sql-api-java.md)
-> * [Dados da primavera v3](create-sql-api-spring-data.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -32,7 +32,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 > [!NOTE]
 > O código de exemplo de uma aplicação Xamarin de exemplo canónico completo que mostra várias ofertas do Azure, incluindo CosmosDB, pode ser encontrado no GitHub [aqui](https://github.com/xamarinhq/app-geocontacts). Esta aplicação mostra a visualização de contactos dispersos geograficamente e permite que estes atualizem a respetiva localização.
 
-Este início rápido demonstra como criar uma conta API SQL do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Em seguida, você construirá e implementará uma aplicação móvel de lista de toda a lista construída no [SQL .NET API](sql-api-sdk-dotnet.md) e [Xamarin](https://docs.microsoft.com/xamarin/) utilizando [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e o [padrão arquitetónico MVVM.](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)
+Este início rápido demonstra como criar uma conta API SQL do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Em seguida, você construirá e implementará uma aplicação móvel de lista de toda a lista construída no [SQL .NET API](sql-api-sdk-dotnet.md) e [Xamarin](/xamarin/) utilizando [Xamarin.Forms](/xamarin/) e o [padrão arquitetónico MVVM.](/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)
 
 :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
@@ -177,7 +177,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 Os seguintes passos demonstram como executar a aplicação com o depurador do Visual Studio para Mac.
 
 > [!NOTE]
-> A utilização da versão da aplicação para Android é exatamente igual. Eventuais diferenças serão destacadas nos passos abaixo. Se quiser depurar com o Visual Studio no Windows, está disponível documentação para tal para [iOS aqui](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) e [Android aqui](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
+> A utilização da versão da aplicação para Android é exatamente igual. Eventuais diferenças serão destacadas nos passos abaixo. Se quiser depurar com o Visual Studio no Windows, está disponível documentação para tal para [iOS aqui](/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) e [Android aqui](/xamarin/android/deploy-test/debugging/).
 
 1. Primeiro, selecione a plataforma que quer segmentar ao clicar no menu pendente realçado e selecionar ToDoItems.iOS, para iOS, ou ToDoItems.Android, para Android.
 
@@ -207,7 +207,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488576"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -30,7 +30,7 @@ Os dados numa conta de armazenamento são encriptados independentemente do níve
 
 Cada blob de bloco, blob de apêndice ou bolha de página que foi escrito para Azure Storage depois de 20 de outubro de 2017 é encriptado. As manchas criadas antes desta data continuam a ser encriptadas por um processo de fundo. Para forçar a encriptação de uma bolha que foi criada antes de 20 de outubro de 2017, você pode reescrever a bolha. Para saber como verificar o estado de encriptação de uma bolha, consulte [verifique o estado de encriptação de uma bolha](../blobs/storage-blob-encryption-status.md).
 
-Para obter mais informações sobre os módulos criptográficos subjacentes à encriptação do Armazenamento Azure, consulte [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
+Para obter mais informações sobre os módulos criptográficos subjacentes à encriptação do Armazenamento Azure, consulte [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
 Para obter informações sobre encriptação e gestão de chaves para discos geridos pelo Azure, consulte [a encriptação do lado do Servidor dos discos geridos pelo Azure](../../virtual-machines/windows/disk-encryption.md) para VMs do Windows ou [encriptação do lado do Servidor de discos geridos pelo Azure](../../virtual-machines/linux/disk-encryption.md) para Os VMs Do Linux.
 

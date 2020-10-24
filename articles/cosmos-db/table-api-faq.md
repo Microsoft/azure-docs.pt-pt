@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167594"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485006"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a Tabela API em Azure Cosmos DB
 
@@ -97,7 +97,7 @@ Pode utilizar o portal Azure para navegar nos dados. Também pode utilizar o có
 
 ### <a name="which-tools-work-with-the-table-api"></a>Que ferramentas funcionam com a Tabela API?
 
-Pode utilizar o [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Pode utilizar o [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 As ferramentas com a flexibilidade para obter uma cadeia de ligação no formato especificado anteriormente podem suportar a nova Tabela API. Uma lista de ferramentas de mesa é fornecida na página [Azure Storage Client Tools.](../storage/common/storage-explorers.md)
 
@@ -115,7 +115,7 @@ Sim, pode ligar-se criando duas instâncias separadas do CloudTableClient, cada 
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Como posso migrar uma aplicação de armazenamento de mesa Azure existente para esta oferta?
 
-[A AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) e a [Ferramenta de Migração de Dados DB da Azure Cosmos](import-data.md) são ambas suportadas.
+[A AzCopy](../storage/common/storage-use-azcopy-v10.md) e a [Ferramenta de Migração de Dados DB da Azure Cosmos](import-data.md) são ambas suportadas.
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Como é que a expansão do tamanho de armazenamento é feita para este serviço se, por exemplo, eu começar com *n* GB de dados e os meus dados vão crescer para 1 TB ao longo do tempo?
 
@@ -231,7 +231,7 @@ A partir do .NET SDK pode ser submetido no ficheiro app.config:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos DB como uma plataforma parece ter muitas capacidades, tais como triagem, agregados, hierarquia e outras funcionalidades. Irá adicionar estas capacidades à Tabela API?
 
-A Tabela API fornece a mesma funcionalidade de consulta que o armazenamento da Tabela Azure. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. Para mais informações, consulte [as consultas SQL.](how-to-sql-query.md)
+A Tabela API fornece a mesma funcionalidade de consulta que o armazenamento da Tabela Azure. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. Para mais informações, consulte [as consultas SQL.](./sql-query-getting-started.md)
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando devo mudar o TableThroughput para a Tabela API?
 
@@ -293,7 +293,7 @@ Azure Cosmos DB é um sistema baseado em SLA que fornece garantias de latência,
 Pode partilhar o seu feedback de qualquer das seguintes formas:
 
 * [Voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&Uma página de perguntas](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow é o melhor para questões de programação. [Certifique-se de](https://stackoverflow.com/help/on-topic) que a sua pergunta está sobre o tema e forneça o máximo de detalhes [possível, tornando a pergunta clara e responsável.](https://stackoverflow.com/help/how-to-ask)
 
 ## <a name="next-steps"></a>Passos seguintes

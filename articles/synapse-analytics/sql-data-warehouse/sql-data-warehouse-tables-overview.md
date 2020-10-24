@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460552"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486944"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
 
@@ -79,7 +79,7 @@ A piscina SQL suporta os tipos de dados mais utilizados. Para obter uma lista do
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
 
-Uma característica fundamental da piscina SQL é a forma como pode armazenar e operar em mesas através das [distribuições.](massively-parallel-processing-mpp-architecture.md#distributions)  A piscina SQL suporta três métodos para distribuir dados: round-robin (padrão), haxixe e replicado.
+Uma característica fundamental do Synapse SQL é a forma como pode armazenar e operar em mesas através das [distribuições.](massively-parallel-processing-mpp-architecture.md#distributions) O SQL de Sinapse suporta três métodos para distribuir dados: round-robin (padrão), haxixe e replicado.
 
 ### <a name="hash-distributed-tables"></a>Tabelas distribuídas com hash
 
