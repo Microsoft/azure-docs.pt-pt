@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b4484b9bb235b24d2b733c329b52ab6b04be183
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545969"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519831"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Azure Ative Directory integração única (SSO) com Zoom
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Zoom com Azure Ative Direy (Azure 
 * Ative os seus utilizadores a serem automaticamente inscritos no Zoom com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Zoom suporta **SP** iniciado SSO e 
-* O Zoom suporta o fornecimento [ **automatizado** do utilizador.](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
+* O Zoom suporta o fornecimento [ **automatizado** do utilizador.](./zoom-provisioning-tutorial.md)
 
 ## <a name="adding-zoom-from-the-gallery"></a>Adicionar Zoom da galeria
 
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Para aprender a configurar o papel na Ad Azure, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+> Para aprender a configurar o papel na Ad Azure, consulte [Configure a alegação de papel emitida no token SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md).
 
 > [!NOTE]
 > Zoom pode esperar uma reivindicação de grupo na carga útil DAL. Se criou algum grupo, contacte a [equipa de suporte](https://support.zoom.us/hc/) do Zoom Client com as informações do grupo para que possam configurar as informações do grupo no seu final. Também precisa de fornecer o ID do Objeto para [a equipa de suporte do Cliente Zoom](https://support.zoom.us/hc/) para que possam configurar o ID do objeto na sua extremidade. Para obter o ID do objeto, consulte [o Zoom Configurante com Azure](https://support.zoom.us/hc/articles/115005887566).
@@ -170,7 +170,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-zoom-test-user"></a>Criar utilizador de teste de zoom
 
-O objetivo desta secção é criar um utilizador chamado B.Simon in Zoom. O Zoom suporta o fornecimento automático do utilizador, que é por defeito ativado. Pode encontrar mais detalhes [aqui](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial) sobre como configurar o fornecimento automático do utilizador.
+O objetivo desta secção é criar um utilizador chamado B.Simon in Zoom. O Zoom suporta o fornecimento automático do utilizador, que é por defeito ativado. Pode encontrar mais detalhes [aqui](./zoom-provisioning-tutorial.md) sobre como configurar o fornecimento automático do utilizador.
 
 > [!NOTE]
 > Se precisar de criar um utilizador manualmente, tem de contactar a equipa de [suporte do Cliente Zoom](https://support.zoom.us/hc/)
@@ -179,14 +179,14 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in Zoom. O Zoom
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo do Zoom no Painel de Acesso, deverá ser automaticamente inscrito no Zoom para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo do Zoom no Painel de Acesso, deverá ser automaticamente inscrito no Zoom para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente zoom com Azure AD](https://aad.portal.azure.com/)

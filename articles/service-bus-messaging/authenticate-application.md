@@ -3,12 +3,12 @@ title: Autenticar uma aplicação para aceder a entidades de autocarros da Azure
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder a entidades de autocarros de serviço da Azure (filas, tópicos, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064830"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518233"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar uma aplicação com a Azure Ative Directory para aceder a entidades do Azure Service Bus
 A Azure Service Bus suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos a entidades de Service Bus (filas, tópicos, subscrições ou filtros). Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador, grupo ou diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -131,7 +131,7 @@ Uma vez registado o seu pedido e concedido permissões para enviar/receber dados
 Para obter uma lista de cenários para os quais a aquisição de fichas é suportada, consulte a secção [de Cenários](https://aka.ms/msal-net-scenarios) da Biblioteca de Autenticação da [Microsoft (MSAL) para](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) o repositório .NET GitHub.
 
 ## <a name="sample-on-github"></a>Amostra no GitHub
-Consulte a seguinte amostra no GitHub: [Controlo de acesso à base de funções para Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
+Consulte a seguinte amostra no GitHub: [Controlo de acesso baseado em funções Azure para Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl). 
 
 Utilize a opção De Login Secreto do **Cliente,** não a opção **De Início de Sessão do Utilizador Interativo.** Quando se usa a opção secreta do cliente, não se vê uma janela pop-up. A aplicação utiliza o ID do inquilino e o ID da aplicação para autenticação. 
 

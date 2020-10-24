@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443228"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503764"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Hootsuite para o fornecimento automático de utilizadores
 
@@ -35,7 +35,7 @@ Este tutorial descreve os passos necessários para realizar tanto no Diretório 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
 * [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
-* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* Uma conta de utilizador em Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
 * Uma conta de utilizador com [a Hootsuite](http://www.hootsuite.com/) que tem permissões de Membro de **Gestão** na organização.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
@@ -108,18 +108,30 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |displayName|String|
    |preferiuLanguage|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|String|
+   |name.givenName|String|
+   |name.familyName|String|
 
-10. Para ativar o serviço de prestação de Ad Azure para a Hootsuite, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups**.
+
+11. Reveja os atributos do grupo que são sincronizados de Azure AD a Hootsuite na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos em Hootsuite para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+
+      |Atributo|Tipo|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |membros|Referência|
+
+12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para ativar o serviço de prestação de Ad Azure para a Hootsuite, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
     ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
-11. Defina os utilizadores e/ou grupos que deseja prestar à Hootsuite, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+14. Defina os utilizadores e/ou grupos que deseja prestar à Hootsuite, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-12. Quando estiver pronto para aprovisionar, clique em **Guardar**.
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
@@ -132,6 +144,10 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 * Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
 * Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## <a name="change-log"></a>Change log
+
+* 10/22/2020 - Suporte adicional para atributos do Utilizador "name.givenName" e "name.familyName". Os atributos de extensão personalizada "organizaids" e "teamIds" foram removidos para os Utilizadores.
+Suporte adicional para atributos do Grupo "displayName", "members" e "externalId".
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

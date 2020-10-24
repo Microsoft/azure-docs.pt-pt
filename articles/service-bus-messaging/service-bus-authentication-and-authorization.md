@@ -3,18 +3,18 @@ title: Autenticação e autorização do Azure Service Bus Microsoft Docs
 description: Autenticar aplicativos para Service Bus com autenticação de assinatura de acesso partilhado (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066867"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517285"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Service Bus
 Existem duas formas de autenticar e autorizar o acesso aos recursos do Azure Service Bus: Azure Activity Directory (Azure AD) e Shared Access Signatures (SAS). Este artigo dá-lhe detalhes sobre a utilização destes dois tipos de mecanismos de segurança. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-A integração AD da AD para os recursos de Service Bus fornece controlo de acesso baseado em funções (RBAC) para um controlo de grãos finos sobre o acesso de um cliente aos recursos. Pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O token pode ser usado para autorizar um pedido de acesso a um recurso de Service Bus (fila, tópico, etc.).
+A integração AD da AD para os recursos de Service Bus fornece o controlo de acesso baseado em funções Azure (Azure RBAC) para um controlo fino sobre o acesso de um cliente aos recursos. Você pode usar Azure RBAC para conceder permissões a um principal de segurança, que pode ser um utilizador, um grupo ou um diretor de serviço de aplicação. O principal de segurança é autenticado pela Azure AD para devolver um token OAuth 2.0. O token pode ser usado para autorizar um pedido de acesso a um recurso de Service Bus (fila, tópico, etc.).
 
 Para obter mais informações sobre a autenticação com Azure AD, consulte os seguintes artigos:
 

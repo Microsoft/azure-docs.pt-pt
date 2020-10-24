@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Introdução ao Azure Sentinel'
-description: Use este quickstart para aprender a visualizar e monitorizar rapidamente o que está a acontecer em todo o seu ambiente, utilizando o Azure Sentinel. 
+description: Use este quickstart para aprender a visualizar e monitorizar rapidamente o que está a acontecer em todo o seu ambiente, utilizando o Azure Sentinel.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208231"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516958"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -80,10 +80,10 @@ Se quiser adicionar um novo azulejo, pode adicioná-lo a um livro existente, que
 Pode criar um novo livro de raiz ou usar um livro embutido como base para o seu novo livro.
 
 1. Para criar um novo livro de trabalho do zero, selecione **Workbooks** e, em seguida, **+Novo livro**de trabalho.
-2. Selecione a subscrição em que o livro é criado e dê-lhe um nome descritivo. Cada livro é um recurso Azure como qualquer outro, e você pode atribuí-lo papéis (RBAC) para definir e limitar quem pode aceder. 
+2. Selecione a subscrição em que o livro é criado e dê-lhe um nome descritivo. Cada livro é um recurso Azure como qualquer outro, e você pode atribuí-lo papéis (Azure RBAC) para definir e limitar quem pode aceder. 
 3. Para que ele apareça nos seus livros para fixar visualizações, você tem que partilhá-lo. Clique **em Partilhar** e, em seguida, Gerir os **utilizadores.** 
  
-1. Utilize as atribuições de acesso e **função de** **Verificação** como faria para qualquer outro recurso Azure. Para obter mais informações, consulte [os livros share Azure utilizando o RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Utilize as atribuições de acesso e **função de** **Verificação** como faria para qualquer outro recurso Azure. Para obter mais informações, consulte [os livros share Azure utilizando o Azure RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Novos exemplos de livros

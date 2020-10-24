@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971523"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519576"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida
 
@@ -29,7 +29,7 @@ Antes de aprender mais sobre esta funcionalidade, recomenda-se que tenha uma com
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Ligue a identidade gerida atribuída pelo sistema
 
-Quando uma identidade gerida atribuída ao sistema está ativada, a Azure cria uma identidade para o seu serviço de pesquisa que pode ser usado para autenticar outros serviços Azure dentro do mesmo inquilino e subscrição. Em seguida, pode utilizar esta identidade em atribuições de controlo de acesso baseado em funções (RBAC) que permitem o acesso aos dados durante a indexação.
+Quando uma identidade gerida atribuída ao sistema está ativada, a Azure cria uma identidade para o seu serviço de pesquisa que pode ser usado para autenticar outros serviços Azure dentro do mesmo inquilino e subscrição. Em seguida, pode utilizar esta identidade em atribuições de controlo de acesso baseado em funções Azure (Azure RBAC) que permitem o acesso aos dados durante a indexação.
 
 ![Ligue o sistema atribuído identidade gerida](./media/search-managed-identities/turn-on-system-assigned-identity.png "Ligue o sistema atribuído identidade gerida")
 
@@ -174,7 +174,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 
 Se tiver um erro quando o indexante tenta ligar-se à fonte de dados que diz que o cliente não está autorizado a aceder ao servidor, dê uma olhada nos [erros comuns](./search-indexer-troubleshooting.md)do indexante .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 Saiba mais sobre o indexante Azure SQL:
 * [Indexador do Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

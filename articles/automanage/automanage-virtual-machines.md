@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816823"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519661"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -58,7 +58,7 @@ Existem vários pré-requisitos a considerar antes de tentar ativar a auto-produ
 
 Consulte [a Azure Automanage for Virtual Machines Best Practices](virtual-machines-best-practices.md) para a lista completa dos serviços Azure participantes, bem como os seus perfis de configuração suportados.
 
- Iremos automaticamente a bordo destes serviços participantes. São essenciais para as nossas melhores práticas, o Livro Branco, que pode encontrar no nosso [Quadro de Adoção](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management)em Nuvem.
+ Iremos automaticamente a bordo destes serviços participantes. São essenciais para as nossas melhores práticas, o Livro Branco, que pode encontrar no nosso [Quadro de Adoção](/azure/cloud-adoption-framework/manage/azure-server-management)em Nuvem.
 
 Para todos estes serviços, iremos automaticamente embarcar, configurar automaticamente, monitorizar a deriva e mediar se for detetada deriva.
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823583"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521055"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Transformação não-adívora no fluxo de dados de mapeamento
 
@@ -28,27 +28,27 @@ Utilize o fluxo de dados de mapeamento unpivot em ADF como forma de transformar 
 
 ![Transformação Não-3](media/data-flow/unpivot5.png "Opções não-abertas 2")
 
-Primeiro, desagrega as colunas pelas que deseja agrupar para a sua agregação de pivôs. Desaprova uma ou mais colunas para desagrupamento com o sinal + ao lado da lista de colunas.
+Primeiro, desagrega as colunas pelas que deseja desagrupar para a sua agregação não-pívora. Desaprova uma ou mais colunas para desagrupamento com o sinal + ao lado da lista de colunas.
 
 ## <a name="unpivot-key"></a>Chave não-marfim
 
 ![Transformação Não-3](media/data-flow/unpivot6.png "Opções não-marfim 3")
 
-A Chave Pivot é a coluna que a ADF irá girar de linha para coluna. Por predefinição, cada valor único no conjunto de dados deste campo irá girar para uma coluna. No entanto, pode introduzir opcionalmente os valores a partir do conjunto de dados que deseja orientar para valores de coluna.
+A Chave Unpivot é a coluna que a ADF vai girar de coluna para linha. Por predefinição, cada valor único no conjunto de dados deste campo irá girar para uma linha. No entanto, pode introduzir opcionalmente os valores a partir do conjunto de dados que deseja orientar para valores de linha.
 
 ## <a name="unpivoted-columns"></a>Colunas Não-Edívoras
 
 ![Transformação Não-3](media/data-flow//unpivot7.png "Opções não-marfim 4")
 
-Por último, escolha a agregação que deseja utilizar para os valores mais indicados e como gostaria que as colunas fossem exibidas na nova projeção de saída a partir da transformação.
+Por último, escolha o nome da coluna para armazenar os valores para colunas não nomeadas que são transformadas em linhas.
 
-(Opcional) Pode definir um padrão de nomeação com um prefixo, meio e sufixo a ser adicionado a cada novo nome de coluna a partir dos valores da linha.
+(Opcional) Pode cair fileiras com valores nulos.
 
-Por exemplo, apostar em "Vendas" por "Região" simplesmente lhe daria novos valores de coluna a partir de cada valor de venda. Por exemplo: "25", "50", "1000", ... No entanto, se definir um valor prefixo de "Vendas", então "Vendas" será prefixado nos valores.
+Por exemplo, SumCost é o nome da coluna que é escolhido no exemplo partilhado acima.
 
 ![Imagem mostrando as colunas PO, Fornecedor e Frutas antes e depois de uma transformação unipivot usando a coluna Fruit como a chave unipivot.](media/data-flow/unpivot3.png)
 
-A definição do Convénio da Coluna para "Normal" agrupará todas as colunas com os seus valores agregados. A definição do arranjo das colunas para "Lateral" alternará entre coluna e valor.
+Definir o Acordo de Coluna para "Normal" irá agrupar todas as novas colunas não-porpavoradas de um único valor. Definir o arranjo das colunas para "Lateral" irá agrupar novas colunas não-edívoras geradas a partir de uma coluna existente.
 
 ![Transformação Não-3](media/data-flow//unpivot7.png "Opções não-abertas 5")
 

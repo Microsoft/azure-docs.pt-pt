@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 665e4870619751bbda062473d0c2549b26352d94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f34eca7ce92a2f465cc34bdde48ada15b21860d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361607"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515700"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: Configurar consola de infraestrutura oracle cloud para fornecimento automático de utilizadores
 
-Este tutorial descreve os passos necessários para realizar tanto na Consola de Infraestruturas da Oracle Cloud como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, o Azure AD fornece automaticamente e desnegri os utilizadores e grupos para a [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) utilizando o serviço de provisionamento Ad Ad Azure. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve os passos necessários para realizar tanto na Consola de Infraestruturas da Oracle Cloud como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, o Azure AD fornece automaticamente e desnegri os utilizadores e grupos para a [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) utilizando o serviço de provisionamento Ad Ad Azure. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Capacidades suportadas
@@ -29,21 +29,21 @@ Este tutorial descreve os passos necessários para realizar tanto na Consola de 
 > * Remova os utilizadores na Consola de Infraestruturas oracle Cloud quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre a Azure AD e a Consola de Infraestruturas oracle Cloud
 > * Grupos de fornecimento e membros do grupo na Oracle Cloud Infrastructure Console
-> * Único sinal de assinatura para consola [de infraestrutura](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) de nuvem oracle (recomendado)
+> * Único sinal de assinatura para consola [de infraestrutura](./oracle-cloud-tutorial.md) de nuvem oracle (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* [Um inquilino da AD AZure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Uma conta de utilizador no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
+* [Um inquilino da AD AZure](../develop/quickstart-create-new-tenant.md) 
+* Uma conta de utilizador no Azure AD com [permissão](../users-groups-roles/directory-assign-admin-roles.md) para configurar o aprovisionamento (por ex., Administrador de Aplicações, Administrador de Aplicações de Cloud, Proprietário da Aplicação ou Administrador Global). 
 * Um [inquilino](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)do Controlo de Infraestruturas da Nuvem oracle.
 * Uma conta de utilizador no Controlo de Infraestruturas da Oracle Cloud com permissões de administração.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
-1. Saiba [como funciona o serviço de aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem vai estar no [âmbito do aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais os dados a [mapear entre a Azure AD e a Consola de Infraestruturas da Nuvem oracle.](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 
+1. Saiba [como funciona o serviço de aprovisionamento](../app-provisioning/user-provisioning.md).
+2. Determine quem vai estar no [âmbito do aprovisionamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine quais os dados a [mapear entre a Azure AD e a Consola de Infraestruturas da Nuvem oracle.](../app-provisioning/customize-application-attributes.md) 
 
 ## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure consola de infraestrutura em nuvem oracle para apoiar o fornecimento com Azure AD
 
@@ -73,15 +73,15 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione consola de infraestrutura oracle cloud da galeria de aplicações AZure AD
 
-Adicione a Consola de Infraestruturas Oracle Cloud da galeria de aplicações AZure AD para começar a gerir o fornecimento à Consola de Infraestruturas oracle Cloud. Se já configurar previamente a Consola de Infraestruturas oracle Cloud para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione a Consola de Infraestruturas Oracle Cloud da galeria de aplicações AZure AD para começar a gerir o fornecimento à Consola de Infraestruturas oracle Cloud. Se já configurar previamente a Consola de Infraestruturas oracle Cloud para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento 
 
-O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir utilizadores e grupos à Consola de Infraestruturas da Nuvem Oracle, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
+* Ao atribuir utilizadores e grupos à Consola de Infraestruturas da Nuvem Oracle, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
 
-* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Passo 5. Configure o fornecimento automático de utilizadores ao Oracle Cloud Infrastructure Console 
@@ -118,7 +118,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para a Consola de Infraestruturas de Nuvem Oracle.**
 
-9. Reveja os atributos do utilizador que são sincronizados do AD AD a Oracle Cloud Infrastructure Console na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador na Consola de Infraestruturas oracle Cloud para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que a API da Consola de Infraestruturas da Oracle Cloud suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
+9. Reveja os atributos do utilizador que são sincronizados do AD AD a Oracle Cloud Infrastructure Console na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador na Consola de Infraestruturas oracle Cloud para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](../app-provisioning/customize-application-attributes.md)terá de garantir que a API da Consola de Infraestruturas da Oracle Cloud suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
       |Atributo|Tipo|
       |---|---|
@@ -130,18 +130,18 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
       |preferiuLanguage|String|
       |name.givenName|String|
       |name.familyName|String|
-      |endereços[tipo eq "work"].formatado|Cadeia|
-      |endereços[tipo eq "work"].localidade|Cadeia|
-      |endereços[tipo eq "work"].região|Cadeia|
-      |endereços[tipo eq "work"].postalCode|Cadeia|
-      |endereços[tipo eq "work"].país|Cadeia|
-      |endereços[tipo eq "work"].streetAddress|Cadeia|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia|
+      |endereços[tipo eq "work"].formatado|String|
+      |endereços[tipo eq "work"].localidade|String|
+      |endereços[tipo eq "work"].região|String|
+      |endereços[tipo eq "work"].postalCode|String|
+      |endereços[tipo eq "work"].país|String|
+      |endereços[tipo eq "work"].streetAddress|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Cadeia|
+      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
       |urn:ietf:params:scim:schemas:oracle:idcs:extensão:utilizador:Utilizador:bypassNotificação|Booleano|
       |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Booleano|
 
@@ -155,7 +155,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
       |externalId|String|
       |membros|Referência|
 
-12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para ativar o serviço de fornecimento de AD Azure para consola de infraestruturas de nuvem oracle, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
@@ -174,15 +174,15 @@ Esta operação inicia o ciclo de sincronização inicial de todos os utilizador
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
-* Utilize os [registos de aprovisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
-* Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
-* Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
+* Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+* Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101261"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503492"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Indexante acesso a conteúdos protegidos por funcionalidades de segurança da rede Azure (Azure Cognitive Search)
 
@@ -46,7 +46,7 @@ Os clientes podem garantir estes recursos através de vários mecanismos de isol
 | Funções do Azure | Suportado | Suportado, apenas para certos níveis de funções Azure |
 
 > [!NOTE]
-> Além das opções listadas acima, para contas de Armazenamento Azure seguras em rede, os clientes podem aproveitar o facto de que a Azure Cognitive Search é um [serviço microsoft de confiança.](../storage/common/storage-network-security.md#trusted-microsoft-services) Isto significa que um serviço de pesquisa específico pode contornar as restrições de rede virtual ou IP na conta de armazenamento e pode aceder aos dados na conta de armazenamento, se o controlo de acesso baseado em funções adequado estiver ativado na conta de armazenamento. Para obter mais informações, consulte [as ligações Indexer utilizando a exceção de serviço fidedigno](search-indexer-howto-access-trusted-service-exception.md). Esta opção pode ser utilizada em vez da rota de restrição IP, caso a conta de armazenamento ou o serviço de pesquisa não possam ser transferidos para uma região diferente.
+> Além das opções listadas acima, para contas de Armazenamento Azure seguras em rede, os clientes podem aproveitar o facto de que a Azure Cognitive Search é um [serviço microsoft de confiança.](../storage/common/storage-network-security.md#trusted-microsoft-services) Isto significa que um serviço de pesquisa específico pode contornar as restrições de rede virtual ou IP na conta de armazenamento e pode aceder aos dados na conta de armazenamento, se o controlo de acesso adequado baseado em funções estiver ativado na conta de armazenamento. Para obter mais informações, consulte [as ligações Indexer utilizando a exceção de serviço fidedigno](search-indexer-howto-access-trusted-service-exception.md). Esta opção pode ser utilizada em vez da rota de restrição IP, caso a conta de armazenamento ou o serviço de pesquisa não possam ser transferidos para uma região diferente.
 
 Ao escolher qual o mecanismo de acesso seguro que um indexante deve utilizar, considere os seguintes constrangimentos:
 
@@ -87,7 +87,7 @@ Esta funcionalidade apenas se encontra disponível em serviços de pesquisa fatu
 
 Os clientes devem ligar para a operação de gestão de pesquisa, [a CreateOrUpdate API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) num **recurso de ligação privada partilhada,** de forma a criar uma ligação privada ao seu recurso seguro (por exemplo, uma conta de armazenamento). O tráfego que passa por esta ligação de ponto final privado (outbound) terá origem apenas na rede virtual que está no ambiente específico de execução do indexante "privado" do serviço de pesquisa.
 
-A Azure Cognitive Search validará que os chamadores desta API têm permissões de RBAC para aprovar pedidos de ligação de ponto final privado ao recurso seguro. Por exemplo, se solicitar uma ligação de ponto final privado a uma conta de armazenamento com permissões apenas de leitura, esta chamada será rejeitada.
+A Azure Cognitive Search validará que os chamadores desta API têm permissões Azure RBAC para aprovar pedidos de ligação de ponto final privado ao recurso seguro. Por exemplo, se solicitar uma ligação de ponto final privado a uma conta de armazenamento com permissões apenas de leitura, esta chamada será rejeitada.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Passo 2: Aprovar a ligação de ponto final privado
 

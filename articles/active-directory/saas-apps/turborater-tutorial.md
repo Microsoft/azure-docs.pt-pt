@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7483e7a9300088d07e85d238ad897522d59c5464
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546394"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Azure Ative Directory com o TurboRater
 
@@ -28,7 +28,7 @@ A integração do TurboRater com a AD Azure proporciona-lhe os seguintes benefí
 * Pode permitir que os seus utilizadores se inscrevam automaticamente no TurboRater (súpido único) com as suas contas AD AZure.
 * Pode gerir as suas contas num local central: o portal Azure.
 
-Para mais detalhes sobre o software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para mais detalhes sobre o software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -187,12 +187,12 @@ Nesta secção, cria-se um utilizador chamado B. Simon no TurboRater. Trabalhe c
 
 Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
 
-Quando selecionar o **TurboRater** no portal My Apps, deverá ser automaticamente inscrito na subscrição do TurboRater para a qual configura uma única súbs. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o **TurboRater** no portal My Apps, deverá ser automaticamente inscrito na subscrição do TurboRater para a qual configura uma única súbs. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais para integrar aplicações saaS com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista de tutoriais para integrar aplicações saaS com diretório ativo Azure](./tutorial-list.md)
 
-* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-* [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

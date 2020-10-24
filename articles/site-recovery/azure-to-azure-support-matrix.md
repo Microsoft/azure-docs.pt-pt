@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 9f2aaaa4138c483224bb3a98266e10b95b9381a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425854"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520943"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -188,7 +188,7 @@ Imagens da galeria Azure - Microsoft publicada | Suportado | Suportado se o VM f
 Imagens da Galeria Azure - Terceiro publicado | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 Imagens personalizadas - Terceiros publicados | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 VMs migraram usando a Recuperação do Local | Suportado | Se um VMware VM ou uma máquina física foi migrado para Azure usando a Recuperação do Site, é necessário desinstalar a versão mais antiga do serviço de mobilidade em funcionamento na máquina e reiniciar a máquina antes de a replicar para outra região do Azure.
-Políticas do RBAC | Não suportado | As políticas de controlo de acesso baseados em funções (RBAC) em VM não são replicadas para o VM de failover na região-alvo.
+Políticas de Azure RBAC | Não suportado | As políticas de controlo de acesso baseado em funções (Azure RBAC) em VM não são replicadas para o VM de failover na região-alvo.
 Extensões | Não suportado | As extensões não são replicadas para o VM de failover na região-alvo. Tem de ser instalado manualmente após a falha.
 Grupos de colocação de proximidade | Suportado | As máquinas virtuais localizadas dentro de um Grupo de Colocação de Proximidade podem ser protegidas através da Recuperação do Local.
 

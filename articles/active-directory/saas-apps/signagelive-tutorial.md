@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a8fe24e5fa1935b2363ed5d2c15c72af8af11ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88539764"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Diretório Ativo Azure com Signagelive
 
@@ -27,7 +27,7 @@ A integração da Signagelive com a AZure AD proporciona-lhe os seguintes benef�
 * Pode permitir que os seus utilizadores se inscrevam automaticamente no Signagelive (único sind on) com as suas contas AD Azure.
 * Pode gerir as suas contas num local central: o portal Azure.
 
-Para obter mais informações sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único acesso com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para obter mais informações sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único acesso com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md). Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -177,19 +177,18 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, c
 
 ### <a name="create-a-signagelive-test-user"></a>Criar um utilizador de teste Signagelive
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em Signagelive. Trabalhe com a [equipa de apoio Signagelive](mailto:support@signagelive.com) para adicionar os utilizadores na plataforma Signagelive. Tem de criar e ativar os utilizadores antes de utilizar uma única sessão de sessão.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Signagelive. Trabalhe com a [equipa de apoio Signagelive](mailto:support@signagelive.com) para adicionar os utilizadores na plataforma Signagelive. Tem de criar e ativar os utilizadores antes de utilizar uma única sessão de sessão.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, você testa a sua configuração de pré-acesso Azure AD através do portal MyApps.
 
-Quando selecionar o azulejo **Signagelive** no portal MyApps, deverá ser automaticamente inscrito. Para mais informações sobre o portal MyApps, veja [o que é o portal MyApps?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo **Signagelive** no portal MyApps, deverá ser automaticamente inscrito. Para mais informações sobre o portal MyApps, veja [o que é o portal MyApps?](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar apps saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar apps saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

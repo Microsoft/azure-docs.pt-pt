@@ -3,18 +3,18 @@ title: Serviços de mensagens Azure - Gestor de Serviços para Gestor de Recurso
 description: Este artigo fornece mapeamento de cmdlets de Azure Service Manager preprodutado REST & PowerShell a Resource Manager API & powerShell cmdlets.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 84335d534c229f40381b913dfca54f42e2da250b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82772b364bbc44a898197e7fafd11b33e2e6320
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761180"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518794"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Depreciação do suporte do Azure Service Manager para Azure Service Bus, Relay e Event Hubs
 
 O Resource Manager, a nossa pilha de infraestruturas em nuvem de próxima geração, está a substituir totalmente o modelo "clássico" de Gestão de Serviços Azure (modelo clássico de implementação). Como resultado, o modelo de implementação clássico REST APIs e suporte para Service Bus, Relay e Event Hubs será retirado a 1 de novembro de 2021. Esta depreciação foi anunciada pela primeira vez num [anúncio da Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), mas recentemente decidimos prolongar o período de depreciação mais dois anos a contar do momento do anúncio original. Para uma identificação fácil, estas APIs têm `management.core.windows.net` no seu URI. Consulte a tabela seguinte para obter uma lista das APIs prevadas e a versão API do Gestor de Recursos Azure que deve agora utilizar.
 
-Para continuar a usar Service Bus, Relay e Event Hubs, mude-se para Resource Manager até 31 de outubro de 2021. Encorajamos todos os clientes que ainda estão a usar as antigas APIs para fazerem a troca em breve para tirar partido dos benefícios adicionais do Gestor de Recursos, que incluem o agrupamento de recursos, tags, um processo de implementação e gestão simplificado, e um controlo de acesso de grãos finos usando o controlo de acesso baseado em funções (RBAC).
+Para continuar a usar Service Bus, Relay e Event Hubs, mude-se para Resource Manager até 31 de outubro de 2021. Encorajamos todos os clientes que ainda estão a usar as antigas APIs para fazerem a troca em breve para tirar partido dos benefícios adicionais do Gestor de Recursos, que incluem o agrupamento de recursos, tags, um processo de implementação e gestão simplificado, e um controlo de acesso de grãos finos usando o controlo de acesso baseado em funções Azure (Azure RBAC).
 
 Para obter mais informações sobre Azure Resource Manager vs Azure Service Manager, consulte o [Blog TechNet](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
 
@@ -22,7 +22,7 @@ Para obter mais informações sobre O Gestor de Serviços e APIs do Gestor de Re
 
 - [Azure Service Bus](/rest/api/servicebus/)
 - [Hubs de Eventos do Azure](/rest/api/eventhub/)
-- [Relé Azure](/rest/api/relay/)
+- [Reencaminhamento do Azure](/rest/api/relay/)
 
 ## <a name="service-manager-rest-api---resource-manager-rest-api"></a>Gestor de ServiçoS REST API - Gestor de Recursos REST API
 
@@ -69,7 +69,7 @@ Consulte a seguinte documentação:
 - Documentação mais recente da API REST
     - [Azure Service Bus](/rest/api/servicebus/)
     - [Hubs de Eventos do Azure](/rest/api/eventhub/)
-    - [Relé Azure](/rest/api/relay/)
+    - [Reencaminhamento do Azure](/rest/api/relay/)
 - Documentação mais recente da PowerShell
     - [Azure Service Bus](/powershell/module/azurerm.servicebus/#service_bus)
     - [Hubs de Eventos do Azure](/powershell/module/azurerm.eventhub/#event_hub)

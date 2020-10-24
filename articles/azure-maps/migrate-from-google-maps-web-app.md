@@ -9,16 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fb99afef2d5e210b8aa166f016bd2b9ec409c2a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876503"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518964"
 ---
-# <a name="migrate-a-web-app-from-google-maps"></a>Migrar uma aplicação web do Google Maps
+# <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Tutorial - Migrar uma aplicação web do Google Maps
 
-A maioria das aplicações web, que utilizam o Google Maps, estão a usar o SDK JavaScript do Google Maps V3. O Azure Maps Web SDK é o SDK baseado em Azure adequado para migrar. O Azure Maps Web SDK permite personalizar mapas interativos com o seu próprio conteúdo e imagens. Pode executar a sua aplicação em aplicações web ou móveis. Este controlo utiliza o WebGL, permitindo-lhe compor grandes conjuntos de dados com elevado desempenho. Desenvolva-se com este SDK utilizando JavaScript ou TypeScript.
+A maioria das aplicações web, que utilizam o Google Maps, estão a usar o SDK JavaScript do Google Maps V3. O Azure Maps Web SDK é o SDK baseado em Azure adequado para migrar. O Azure Maps Web SDK permite personalizar mapas interativos com o seu próprio conteúdo e imagens. Pode executar a sua aplicação em aplicações web ou móveis. Este controlo utiliza o WebGL, permitindo-lhe compor grandes conjuntos de dados com elevado desempenho. Desenvolva-se com este SDK utilizando JavaScript ou TypeScript. Neste tutorial, vai aprender a:
+
+> [!div class="checklist"]
+> * Carregue um mapa
+> * Localize um mapa
+> * Adicione marcadores, polilinas e polígonos.
+> * Mostrar informações numa janela popup ou info
+> * Carregar e exibir dados KML e GeoJSON
+> * Marcadores de cluster
+> * Sobrepor uma camada de azulejo
+> * Mostrar dados de tráfego
+> * Adicione uma sobreposição de solo
+
+Também vai aprender: 
+
+> [!div class="checklist"]
+> * Como realizar tarefas comuns de mapeamento usando o Azure Maps Web SDK
+> * Melhores práticas para melhorar o desempenho e a experiência do utilizador
+> * Dicas sobre como tornar a sua aplicação usando mais funcionalidades avançadas disponíveis no Azure Maps
 
 Se migrar uma aplicação web existente, verifique se está a utilizar uma biblioteca de controlo de mapas de código aberto. Exemplos de biblioteca de controlo de mapas de código aberto são: Césio, Folheto e OpenLayers. Ainda pode migrar a sua aplicação, mesmo que utilize uma biblioteca de controlo de mapas de código aberto, e não queira utilizar o Azure Maps Web SDK. Nesse caso, ligue a sua aplicação aos serviços de azulejos Azure Maps[road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [(azulejos de telhas](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)de estrada). Os seguintes pontos detalham como usar o Azure Maps em algumas bibliotecas de controlo de mapas de código aberto comumente utilizadas.
 
@@ -33,6 +51,11 @@ Se desenvolver usando uma estrutura JavaScript, um dos seguintes projetos de có
 - [Componente de reação do Azure Maps](https://github.com/WiredSolutions/react-azure-maps) - Um invólucro de reação para o controlo Azure Maps.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Um componente Azure Maps para aplicação Vue.
 
+## <a name="prerequisites"></a>Pré-requisitos 
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+2. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
 ## <a name="key-features-support"></a>Suporte de funcionalidades principais
 
@@ -72,7 +95,6 @@ Seguem-se algumas diferenças fundamentais entre os SDKs web do Google Maps e Az
 
 Esta recolha tem amostras de código para cada plataforma, e cada amostra cobre uma caixa de uso comum. Destina-se a ajudá-lo a migrar a sua aplicação web do Google Maps V3 JavaScript SDK para o Azure Maps Web SDK. As amostras de código relacionadas com aplicações web são fornecidas no JavaScript. No entanto, o Azure Maps também fornece definições TypeScript como uma opção adicional através de um [módulo NPM.](how-to-use-map-control.md)
 
-
 **Tópicos**
 
 - [Carregue um mapa](#load-a-map)
@@ -90,7 +112,6 @@ Esta recolha tem amostras de código para cada plataforma, e cada amostra cobre 
 - [Mostrar dados de tráfego](#show-traffic-data)
 - [Adicione uma sobreposição de solo](#add-a-ground-overlay)
 - [Adicione dados KML ao mapa](#add-kml-data-to-the-map)
-
 
 ### <a name="load-a-map"></a>Carregue um mapa
 
@@ -1720,9 +1741,18 @@ As bibliotecas adicionam funcionalidade adicional ao mapa. Muitas destas bibliot
 | Biblioteca de geometria      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Biblioteca de visualização | [Camada de mapa de calor](map-add-heat-map-layer.md) |
 
-Para saber mais sobre a migração do Google Maps:
+## <a name="next-steps"></a>Passos seguintes
 
-* [como usar o módulo de serviços](how-to-use-services-module.md) 
-* [como usar o módulo de ferramentas de desenho](set-drawing-options.md)
-* [como usar o módulo de serviços](how-to-use-services-module.md)
-* [como usar o controlo do mapa](how-to-use-map-control.md)
+Saiba mais sobre a Azure Maps Web SDK:
+
+> [!div class="nextstepaction"]
+> [Como usar o controlo do mapa](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Como usar o módulo de ferramentas de desenho](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [Como utilizar o módulo de serviços](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [Como usar o módulo IO espacial](how-to-use-spatial-io-module.md)

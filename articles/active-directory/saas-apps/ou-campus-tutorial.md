@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ec3609c631ba356a68ac62bb3a3ea672508a5f5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af80d68f384869e79ef540d41a6707040dd19f2b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518568"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutorial: Integração do Diretório Ativo Azure com o Campus da OU
 
@@ -27,7 +27,7 @@ A integração do Campus da U com a AD Azure proporciona-lhe os seguintes benef�
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no Campus da OU (Sign-on Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -177,19 +177,18 @@ Nesta secção, você permite que Britta Simon use a Azure single sign-on, conce
 
 ### <a name="create-ou-campus-test-user"></a>Criar utilizador de teste do Campus da OU
 
-Nesta secção, cria-se um utilizador chamado Britta Simon no Campus da U. Trabalhe com [a equipa de suporte do CAMPUS da OU](mailto:support@omniupdate.com) para adicionar os utilizadores na plataforma do Campus da OU. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon no Campus da U. Trabalhe com [a equipa de suporte do CAMPUS da OU](mailto:support@omniupdate.com) para adicionar os utilizadores na plataforma do Campus da OU. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo do Campus da OU no Painel de Acesso, deverá ser automaticamente inscrito no Campus da UO para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo do Campus da OU no Painel de Acesso, deverá ser automaticamente inscrito no Campus da UO para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

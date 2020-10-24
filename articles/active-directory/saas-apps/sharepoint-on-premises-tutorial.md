@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979701"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Tutorial: Azure Ative Directory integração única com SharePoint no local
 
@@ -133,7 +133,7 @@ Para configurar a Azure AD SSO com o SharePoint no local:
     Executar os seguintes comandos para configurar um novo fornecedor de identidade de confiança.
 
     > [!TIP]
-    > Se é novo a usar o PowerShell ou quer saber mais sobre o funcionamento do PowerShell, consulte [o SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
+    > Se é novo a usar o PowerShell ou quer saber mais sobre o funcionamento do PowerShell, consulte [o SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
 
 
     ```
@@ -287,4 +287,4 @@ Pode ter outros cenários em que pretende dar acesso ao seu SharePoint no local 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Uma vez configurar o SharePoint no local, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+Uma vez configurar o SharePoint no local, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

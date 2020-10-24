@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4e50f6b2770f9f787c92e7a9c66f72cdbb252a94
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105129"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519695"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função no Azure com o Visual Studio Code
 
@@ -65,7 +65,7 @@ Antes de começar, certifique-se de que tem os seguintes requisitos em vigor:
 - Ambos [.NET Core 3.1](https://www.microsoft.com/net/download) e [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- O [Kit de Desenvolvimento java,](/azure/developer/java/fundamentals/java-jdk-long-term-support)versão 8.
+- O [Kit de Desenvolvimento java,](/azure/developer/java/fundamentals/java-jdk-long-term-support)versão 8 ou 11.
 
 - [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 ::: zone-end
@@ -121,7 +121,7 @@ Nesta secção, utiliza o Código do Estúdio Visual para criar um projeto local
     ::: zone pivot="programming-language-java"
     - **Selecione um idioma para o seu projeto de função**: Escolha `Java` .
 
-    - **Selecione uma versão de Java:** Escolha `Java 8` `Java 11 (preview)` ou, em que as suas funções funcionam em Azure. Escolha uma versão Java que verificou localmente.
+    - **Selecione uma versão de Java:** Escolha `Java 8` `Java 11` ou, em que as suas funções funcionam em Azure. Escolha uma versão Java que verificou localmente.
 
     - **Fornecer um ID de grupo**: Escolha `com.function` .
 
@@ -182,7 +182,7 @@ Depois de verificar que a função funciona corretamente no seu computador local
 
     ![Resposta da função no browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando continuar até ao próximo passo, [adicione uma fila de armazenamento Azure à sua função,](functions-add-output-binding-storage-queue-vs-code.md)terá de manter todos os seus recursos no lugar para se basear no que já fez.
 

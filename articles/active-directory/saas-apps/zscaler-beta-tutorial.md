@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fec471e4047707f2b7cbaa55fdc7f2256bebe93
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546029"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Azure Ative Directory com zscaler Beta
 
@@ -27,7 +27,7 @@ Quando integrar a Zscaler Beta com AZure AD, pode:
 * Permitir que os seus utilizadores sejam automaticamente inscritos na Zscaler Beta com as suas contas AD Azure. Este controlo de acesso chama-se único sinal de acesso (SSO).
 * Gerencie as suas contas numa localização central utilizando o portal Azure.
 
-Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [o que é o acesso à aplicação e o único acesso ao Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para obter mais informações sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte [o que é o acesso à aplicação e o único acesso ao Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -136,7 +136,7 @@ Para configurar o Azure AD com Zscaler Beta, siga estes passos.
     exemplo, Selecione **Guardar**.
 
     > [!NOTE]
-    > Para aprender a configurar papéis em Azure AD, consulte [Configure a reivindicação do papel](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
+    > Para aprender a configurar papéis em Azure AD, consulte [Configure a reivindicação do papel](../develop/active-directory-enterprise-app-role-management.md).
 
 7. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Certificado (Base64)**. Guarde no seu computador.
 
@@ -296,11 +296,10 @@ Nesta secção, a utilizadora Britta Simon é criada em Zscaler Beta. A Zscaler 
 
 Teste a sua configuração de sinal único AD AD através do Painel de Acesso.
 
-Quando selecionar o azulejo Beta Zscaler no Painel de Acesso, deverá ser automaticamente inscrito na Versão Zscaler para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Beta Zscaler no Painel de Acesso, deverá ser automaticamente inscrito na Versão Zscaler para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

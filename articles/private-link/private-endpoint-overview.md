@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277507"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508034"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto Final Privado do Azure?
 
@@ -133,15 +133,16 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao utilizar pontos
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Criar um ponto de final privado para base de dados SQL utilizando o Portal ](create-private-endpoint-portal.md)
-- [Criar um ponto final privado para base de dados SQL utilizando PowerShell ](create-private-endpoint-powershell.md)
-- [Criar um ponto final privado para base de dados SQL utilizando CLI ](create-private-endpoint-cli.md)
-- [Criar um ponto final privado para conta de armazenamento utilizando o Portal ](create-private-endpoint-storage-portal.md)
-- [Criar um ponto final privado para conta Azure Cosmos usando portal ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Criar um ponto final privado para base de dados SQL utilizando o portal](create-private-endpoint-portal.md)
+- [Criar um ponto final privado para base de dados SQL utilizando PowerShell](create-private-endpoint-powershell.md)
+- [Criar um ponto final privado para base de dados SQL utilizando CLI](create-private-endpoint-cli.md)
+- [Criar um ponto final privado para armazenamento usando o portal](create-private-endpoint-storage-portal.md)
+- [Criar um ponto final privado para a conta Azure Cosmos usando o portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Crie o seu próprio serviço de Ligação Privada utilizando a Azure PowerShell](create-private-link-service-powershell.md)
-- [Crie o seu próprio Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único utilizando o Portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Crie o seu próprio Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único utilizando o portal](../postgresql/howto-configure-privatelink-portal.md)
 - [Crie o seu próprio Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único utilizando CLI](../postgresql/howto-configure-privatelink-cli.md)
-- [Crie o seu próprio Link Privado para Base de Dados Azure para o MySQL utilizando o Portal](../mysql/howto-configure-privatelink-portal.md)
+- [Crie o seu próprio Link Privado para Base de Dados Azure para o MySQL utilizando o portal](../mysql/howto-configure-privatelink-portal.md)
 - [Crie o seu próprio Link Privado para Base de Dados Azure para o MySQL utilizando o CLI](../mysql/howto-configure-privatelink-cli.md)
-- [Crie o seu próprio Link Privado para Base de Dados Azure para MariaDB usando o Portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Crie o seu próprio Link Privado para Base de Dados Azure para MariaDB utilizando o portal](../mariadb/howto-configure-privatelink-portal.md)
 - [Crie o seu próprio Link Privado para Base de Dados Azure para MariaDB utilizando o CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Crie o seu próprio Link Privado para Azure Key Vault usando o portal e o CLI](../key-vault/general/private-link-service.md)

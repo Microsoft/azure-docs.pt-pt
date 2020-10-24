@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039120"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516176"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Migrar manualmente do Windows Virtual Desktop (clássico)
 
@@ -35,7 +35,7 @@ Apesar do incómodo, migrar para longe da versão clássica ainda é importante.
 - Gerir o Windows Virtual Desktop através do portal Azure.
 - Atribua grupos de utilizadores Azure Ative (AD) a grupos de aplicação.
 - Utilize a funcionalidade de Análise de Registo melhorada para resolver problemas na sua implementação.
-- Utilize controlos de acesso Role-Based nativos do Azure para gerir o acesso administrativo.
+- Utilize o controlo de acesso baseado em funções (Azure RBAC) para gerir o acesso administrativo.
 
 ## <a name="when-should-i-migrate"></a>Quando devo migrar?
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287226"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518573"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Tutorial: Configurar software OfficeSpace para fornecimento automático de utilizadores
 
@@ -89,7 +89,7 @@ Antes de configurar o OfficeSpace Software para o fornecimento automático de ut
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no Software OfficeSpace com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para o Software OfficeSpace seguindo as instruções fornecidas no [tutorial de assinatura único do Software OfficeSpace](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
+> Pode também optar por ativar o sign-on único baseado em SAML para o Software OfficeSpace seguindo as instruções fornecidas no [tutorial de assinatura único do Software OfficeSpace](./officespace-tutorial.md). O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
 ### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o OfficeSpace Software em Azure AD:
 
@@ -153,4 +153,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

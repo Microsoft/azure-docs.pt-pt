@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: e969520e226999bc2b104fb4f757619832eaa165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddceb2808874e531cfda81e5a9ce74be3a4fab4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88944470"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517089"
 ---
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local
 
@@ -42,11 +42,7 @@ Antes de começar, deve ter o seguinte:
 + O [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ O [Kit de Desenvolvimento java,](https://aka.ms/azure-jdks)versão 8. 
-
-    > [!IMPORTANT]
-    > + O suporte de funções para Java 11 está atualmente em pré-visualização, e o arquétipo Maven cria uma implementação Java 8 por padrão. Se pretender executar a sua aplicação de função em Java 11, tem de atualizar manualmente o ficheiro pom.xml com os valores de Java 11. Para saber mais, consulte as [versões Java.](../articles/azure-functions/functions-reference-java.md#java-versions) 
-    > + A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação da versão correta do JDK para completar este arranque rápido.
++ O [Kit de Desenvolvimento java,](https://aka.ms/azure-jdks)versão 8 ou 11. 
 
 + [Apache Maven,](https://maven.apache.org)versão 3.0 ou superior.
 

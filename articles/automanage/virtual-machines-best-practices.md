@@ -8,17 +8,17 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: dce076da08a7c31d7e2637dd5b8b29c9202ea10e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 2b8009d6d571a9daf7163d2126b6d52edfc4bfdd
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206412"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521089"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Azure Automanage para as melhores práticas de máquinas virtuais
 
 
-Estes serviços Azure são automaticamente acedidos para si quando utiliza a Automanagem para máquinas virtuais. São essenciais para as nossas melhores práticas, o Livro Branco, que pode encontrar no nosso [Quadro de Adoção](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management)em Nuvem.
+Estes serviços Azure são automaticamente acedidos para si quando utiliza a Automanagem para máquinas virtuais. São essenciais para as nossas melhores práticas, o Livro Branco, que pode encontrar no nosso [Quadro de Adoção](/azure/cloud-adoption-framework/manage/azure-server-management)em Nuvem.
 
 Para todos estes serviços, iremos automaticamente embarcar, configurar automaticamente, monitorizar a deriva e mediar se for detetada deriva. Para saber mais sobre este processo, consulte [a Azure Automanage para máquinas virtuais.](automanage-virtual-machines.md)
 
@@ -28,8 +28,8 @@ Para todos estes serviços, iremos automaticamente embarcar, configurar automati
 |Serviço    |Description    |Perfis Suportados<sup>1</sup>    |Preferências suportadas<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |Monitorização de Insights VM    |O Azure Monitor for VMs monitoriza o desempenho e a saúde das suas máquinas virtuais, incluindo os seus processos de funcionamento e dependências de outros recursos. Saiba [mais.](../azure-monitor/insights/vminsights-overview.md)    |Azure VM Melhores Práticas – Produção    |No    |
-|Cópia de segurança    |O Azure Backup fornece cópias de segurança independentes e isoladas para que estas protejam os dados nas suas VMs contra a destruição acidental. Saiba [mais.](../backup/backup-azure-vms-introduction.md) As cargas baseiam-se no número e no tamanho dos VMs que estão a ser protegidos. Saiba [mais.](https://azure.microsoft.com/pricing/details/backup/)    |Azure VM Melhores Práticas – Produção    |Yes    |
-|Centro de Segurança do Azure    |O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados e fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem. Saiba [mais.](../security-center/security-center-intro.md)  A autogestão configurará a subscrição onde o seu VM reside na oferta de nível livre do Azure Security Center. Se a sua subscrição já estiver a bordo do Azure Security Center, então a gestão automática não a reconfigurará.    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
+|Backup    |O Azure Backup fornece cópias de segurança independentes e isoladas para que estas protejam os dados nas suas VMs contra a destruição acidental. Saiba [mais.](../backup/backup-azure-vms-introduction.md) As cargas baseiam-se no número e no tamanho dos VMs que estão a ser protegidos. Saiba [mais.](https://azure.microsoft.com/pricing/details/backup/)    |Azure VM Melhores Práticas – Produção    |Yes    |
+|Centro de Segurança do Azure    |O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados e fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem. Saiba [mais.](../security-center/security-center-introduction.md)  A autogestão configurará a subscrição onde o seu VM reside na oferta de nível livre do Azure Security Center. Se a sua subscrição já estiver a bordo do Azure Security Center, então a gestão automática não a reconfigurará.    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
 |Microsoft Antimalware    |O Microsoft Antimalware for Azure é uma proteção gratuita em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. Gera alertas quando um software malicioso ou indesejado conhecido tenta instalar-se ou funcionar nos seus sistemas Azure. Saiba [mais.](../security/fundamentals/antimalware.md) |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |Yes    |
 |Gestão de Atualizações    |Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas virtuais. Pode avaliar rapidamente o estado das atualizações disponíveis em todas as máquinas de agente e gerir o processo de instalação das atualizações necessárias para os servidores. Saiba [mais.](../automation/update-management/update-mgmt-overview.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
 |Alterar o inventário de & de rastreio    |O Change Tracking and Inventory combina funções de rastreio e inventário de alterações para permitir rastrear alterações de infraestrutura de máquinas virtuais e servidores. O serviço suporta o rastreio de alterações através de serviços, software daemons, registo e ficheiros no seu ambiente para ajudá-lo a diagnosticar alterações indesejadas e aumentar alertas. O suporte ao inventário permite-lhe consultar os recursos in-guest para visibilidade em aplicações instaladas e outros itens de configuração.  Saiba [mais.](../automation/change-tracking/overview.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |

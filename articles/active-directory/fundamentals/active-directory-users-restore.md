@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bba8a0898c11cf1af150f4824d9bef5e9e03576e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370887"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514394"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover um utilizador recentemente eliminado usando o Azure Ative Directory
-Depois de eliminar um utilizador, a conta permanece em estado suspenso durante 30 dias. Durante essa janela de 30 dias, a conta do utilizador pode ser restaurada, juntamente com todas as suas propriedades. Após a janela de 30 dias passar, o utilizador é automaticamente e permanentemente eliminado.
+Depois de eliminar um utilizador, a conta permanece em estado suspenso durante 30 dias. Durante essa janela de 30 dias, a conta do utilizador pode ser restaurada, juntamente com todas as suas propriedades. Após a janela de 30 dias passar, o processo de eliminação permanente é automaticamente iniciado.
 
 Pode ver os seus utilizadores restauradores, restaurar um utilizador eliminado ou eliminar permanentemente um utilizador utilizando o Azure Ative Directory (AZure AD) no portal Azure.
 
@@ -80,7 +80,7 @@ Pode eliminar permanentemente um utilizador da sua organização sem esperar os 
     ![Utilizadores - Página de utilizadores eliminada, com a opção de utilizador delete em destaque](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de restaurar ou apagar os seus utilizadores, pode realizar os seguintes processos básicos:
+Depois de restaurar ou apagar os seus utilizadores, pode:
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)
 

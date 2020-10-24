@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: baf528e1b4ab7e323b69574729669d09692741cc
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148149"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503526"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um Ambiente de Serviço de Aplicação do Balanceador interno 
 
@@ -104,22 +104,22 @@ Quando utiliza um ASE Externo, as aplicações feitas no seu ASE estão registad
 
 Para configurar o DNS no seu próprio servidor DNS com o seu ILB ASE:
 
-1. criar uma zona para <ASE name> .appserviceenvironment.net
+1. criar uma zona para &lt; o nome ASE &gt; .appserviceenvironment.net
 2. criar um registo A naquela zona que aponta * para o endereço IP ILB
 3. criar um registo A naquela zona que aponta @ para o endereço IP ILB
-4. criar uma zona em <ASE name> .appserviceenvironment.net nomeado scm
+4. criar uma zona em &lt; nome ASE &gt; .appserviceenvironment.net nomeado scm
 5. criar um registo A na zona scm que aponta * para o endereço IP ILB
 
 Para configurar DNS em zonas privadas Azure DNS:
 
-1. criar uma zona privada Azure DNS chamada <ASE name> .appserviceenvironment.net
+1. criar uma zona privada Azure DNS chamada &lt; ase nome &gt; .appserviceenvironment.net
 2. criar um registo A naquela zona que aponta * para o endereço IP ILB
 3. criar um registo A naquela zona que aponta @ para o endereço IP ILB
 4. criar um registo A nessa zona que aponta *.scm para o endereço IP ILB
 
-As definições DE DNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a serem apenas acessíveis por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas aplicações num ILB ASE. Se então quiser criar uma zona denominada contoso.net, pode fazê-lo e apontá-la para o endereço IP ILB. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O sítio scm só está disponível em <appname> .scm. <asename> . appserviceenvironment.net.
+As definições DE DNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a serem apenas acessíveis por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas aplicações num ILB ASE. Se então quiser criar uma zona denominada contoso.net, pode fazê-lo e apontá-la para o endereço IP ILB. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O site scm só está disponível &lt; no appname &gt; .scm. &lt; asename &gt; .appserviceenvironment.net.
 
-A zona <asename> chamada. . appserviceenvironment.net é globalmente único. Antes de maio de 2019, os clientes puderam especificar o sufixo de domínio do ILB ASE. Se quisesse usar .contoso.com para o sufixo de domínio, poderia fazê-lo e isso incluiria o site scm. Houve desafios com este modelo, incluindo; gerir o certificado SSL predefinido, falta de um único sinal com o site scm e a obrigação de usar um certificado wildcard. O processo de atualização do certificado por defeito ILB ASE também foi disruptivo e causou o reinício da aplicação. Para resolver estes problemas, o comportamento do ILB ASE foi alterado para usar um sufixo de domínio baseado no nome do ASE e com um sufixo propriedade da Microsoft. A alteração ao comportamento do ILB ASE só afeta as ASEs do ILB feitas após maio de 2019. AsES ILB pré-existentes devem ainda gerir o certificado predefinido do ASE e a sua configuração de DNS.
+A zona chamada . &lt; asename &gt; .appserviceenvironment.net é globalmente única. Antes de maio de 2019, os clientes puderam especificar o sufixo de domínio do ILB ASE. Se quisesse usar .contoso.com para o sufixo de domínio, poderia fazê-lo e isso incluiria o site scm. Houve desafios com este modelo, incluindo; gerir o certificado SSL predefinido, falta de um único sinal com o site scm e a obrigação de usar um certificado wildcard. O processo de atualização do certificado por defeito ILB ASE também foi disruptivo e causou o reinício da aplicação. Para resolver estes problemas, o comportamento do ILB ASE foi alterado para usar um sufixo de domínio baseado no nome do ASE e com um sufixo propriedade da Microsoft. A alteração ao comportamento do ILB ASE só afeta as ASEs do ILB feitas após maio de 2019. AsES ILB pré-existentes devem ainda gerir o certificado predefinido do ASE e a sua configuração de DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicar com um ASE de ILB
 

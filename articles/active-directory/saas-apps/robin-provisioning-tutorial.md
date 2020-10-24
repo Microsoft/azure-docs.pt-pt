@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300003"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520732"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configure Robin para o fornecimento automático de utilizadores
 
@@ -89,7 +89,7 @@ Antes de configurar a Robin para o fornecimento automático de utilizadores com 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Robin com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para a Robin, seguindo as instruções fornecidas no [tutorial de inscrição](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial)robin single . O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar o sign-on único baseado em SAML para a Robin, seguindo as instruções fornecidas no [tutorial de inscrição](./robin-tutorial.md)robin single . O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Robin em Azure AD:
 
@@ -163,4 +163,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495229"
+ms.locfileid: "92518029"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -42,13 +42,13 @@ Para obter mais informações sobre os níveis de preços, incluindo os Event Hu
 
 O Azure Event Hubs está disponível em todas as regiões de Azure apoiadas. Para obter uma lista, visite a página das [regiões de Azure.](https://azure.microsoft.com/regions/)  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Posso utilizar uma única ligação AMQP para enviar e receber de vários centros de eventos?
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Posso utilizar uma única ligação de Protocolo de Filade Mensagens Avançadas (AMQP) para enviar e receber de vários centros de eventos?
 
 Sim, desde que todos os centros de eventos estejam no mesmo espaço de nome.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual é o período máximo de retenção para eventos?
 
-O nível Standard do Event Hubs suporta atualmente um período máximo de retenção de sete dias. Os centros de eventos não se destinam a uma loja de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente reproduzir um fluxo de eventos para os mesmos sistemas; por exemplo, para treinar ou verificar um novo modelo de aprendizagem automática sobre os dados existentes. Se necessitar de retenção de mensagens para além de sete dias, permitir que o [Event Hubs Capture](event-hubs-capture-overview.md) no seu centro de eventos puxe os dados do seu centro de eventos para a conta de armazenamento ou para a conta Azure Data Lake Service à sua escolha. Ativar a Captura incorre numa carga baseada nas suas unidades de produção adquiridas.
+O nível Standard do Event Hubs suporta atualmente um período máximo de retenção de sete dias. Os centros de eventos não se destinam a uma loja de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente reproduzir um fluxo de eventos para os mesmos sistemas. Por exemplo, para treinar ou verificar um novo modelo de aprendizagem automática sobre os dados existentes. Se necessitar de retenção de mensagens para além de sete dias, permitir que o [Event Hubs Capture](event-hubs-capture-overview.md) no seu centro de eventos puxe os dados do seu centro de eventos para a conta de armazenamento ou para a conta Azure Data Lake Service à sua escolha. Ativar a Captura incorre numa carga baseada nas suas unidades de produção adquiridas.
 
 Pode configurar o período de retenção para os dados capturados na sua conta de armazenamento. A funcionalidade de **gestão** do ciclo de vida do Azure Storage oferece uma política rica e baseada em regras para fins gerais v2 e contas de armazenamento de bolhas. Utilize a política para transitar os seus dados para os níveis de acesso apropriados ou expire no final do ciclo de vida dos dados. Para obter mais informações, consulte [gerir o ciclo de vida de armazenamento Azure Blob](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
@@ -61,7 +61,7 @@ O Azure Event Hubs armazena dados do cliente. Estes dados são automaticamente a
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso para abrir na firewall? 
 Pode utilizar os seguintes protocolos com a Azure Service Bus para enviar e receber mensagens:
 
-- Avançadas Message Queuing Protocol (AMQP)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -128,12 +128,23 @@ O Event Hubs fornece um ponto final kafka que pode ser usado pelas aplicações 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Que alterações de configuração precisam de ser feitas para que a minha aplicação existente fale com os Centros de Eventos?
 Para se conectar a um centro de eventos, você precisará atualizar os configs do cliente Kafka. É feito criando um espaço de nomes de Event Hubs e obtendo a [cadeia de conexão.](event-hubs-get-connection-string.md) Mude o bootstrap.servers para apontar o Event Hubs FQDN e a porta para 9093. Atualize o sasl.jaas.config para direcionar o cliente Kafka para o seu ponto final do Event Hubs (que é a cadeia de ligação que obteve), com autenticação correta como mostrado abaixo:
 
-bootstrap.servers={YOUR. OS EVENTHUBS. FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR. OS EVENTHUBS. LIGAÇÃO. STRING}";
+```properties
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 Exemplo:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.Plain.PlainLoginModule requirou username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName=DummyAccessKeyName; SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
+```properties
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 Nota: Se sasl.jaas.config não for uma configuração suportada no seu quadro, encontre as configurações que são usadas para definir o nome de utilizador e palavra-passe SASL e use-as em vez disso. Desa estama de utilizador para $ConnectionString e a palavra-passe na sua cadeia de ligação 'Centro de Eventos'.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Qual é o tamanho da mensagem/evento para os Centros de Eventos?
@@ -259,7 +270,7 @@ Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de S
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Como posso direcionar uma versão específica do Azure Storage SDK ao usar o Azure Blob Storage como uma loja de checkpoint?
-Se executar este código no Azure Stack Hub, sofrerá erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada do Azure Storage para a sua construção do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão no seu código. 
+Se executar este código no Azure Stack Hub, sofrerá erros de tempo de execução a menos que tenha como alvo uma versão API de armazenamento específica. Isto porque o Event Hubs SDK utiliza a mais recente API de Armazenamento Azure disponível disponível no Azure que pode não estar disponível na sua plataforma Azure Stack Hub. O Azure Stack Hub pode suportar uma versão diferente do Storage Blob SDK do que o que normalmente está disponível no Azure. Se estiver a utilizar o Azure Blog Storage como uma loja de checkpoint, verifique a [versão API suportada do Azure Storage para a sua construção do Azure Stack Hub](/azure-stack/user/azure-stack-acs-differences?#api-version) e direcione essa versão no seu código. 
 
 Por exemplo, Se estiver a executar a versão Azure Stack Hub 2005, a versão mais alta disponível para o serviço de armazenamento é a versão 2019-02-02. Por padrão, a biblioteca de clientes Event Hubs SDK utiliza a versão mais alta disponível no Azure (2019-07-07 no momento do lançamento do SDK). Neste caso, além de seguir os passos nesta secção, também terá de adicionar código para direcionar o serviço de armazenamento API versão 2019-02-02. Para um exemplo sobre como direcionar uma versão API de armazenamento específica, consulte as seguintes amostras para C#, Java, Python e JavaScript/TypeScript.  
 

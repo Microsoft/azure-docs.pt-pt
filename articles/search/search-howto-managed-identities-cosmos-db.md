@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102698"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519610"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurar uma ligação indexante a uma base de dados de Cossm no Cosmos usando uma identidade gerida
 
@@ -29,7 +29,7 @@ Antes de aprender mais sobre esta funcionalidade, recomenda-se que tenha uma com
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Ligue a identidade gerida atribuída pelo sistema
 
-Quando uma identidade gerida atribuída ao sistema está ativada, a Azure cria uma identidade para o seu serviço de pesquisa que pode ser usado para autenticar outros serviços Azure dentro do mesmo inquilino e subscrição. Em seguida, pode utilizar esta identidade em atribuições de controlo de acesso baseado em funções (RBAC) que permitem o acesso aos dados durante a indexação.
+Quando uma identidade gerida atribuída ao sistema está ativada, a Azure cria uma identidade para o seu serviço de pesquisa que pode ser usado para autenticar outros serviços Azure dentro do mesmo inquilino e subscrição. Em seguida, pode utilizar esta identidade em atribuições de controlo de acesso baseado em funções Azure (Azure RBAC) que permitem o acesso aos dados durante a indexação.
 
 ![Ligue o sistema atribuído identidade gerida](./media/search-managed-identities/turn-on-system-assigned-identity.png "Ligue o sistema atribuído identidade gerida")
 
@@ -85,7 +85,7 @@ O corpo do pedido contém a definição de fonte de dados, que deve incluir os s
 | **nome** | Obrigatório. Escolha qualquer nome para representar o seu objeto de origem de dados. |
 |**tipo**| Obrigatório. Deve `cosmosdb` ser. |
 |**credenciais** | Obrigatório. <br/><br/>Ao ligar-se utilizando uma identidade gerida, o formato **de credenciais** deve ser: Base de *dados=[nome da base de dados]; ResourceId=[resource-id-string];(ApiKind=[api-kind];)*<br/> <br/>O formato ResourceId: *ResourceId=/subscrições/**o seu ID**de subscrição /grupos de recursos/**o nome do grupo de recursos**/fornecedores/Microsoft.DocumentDB/databaseSAcounts/ o seu nome de**conta cosmos db**/;*<br/><br/>Para as coleções SQL, a cadeia de ligação não requer uma ApiKind.<br/><br/>Para as coleções MongoDB, adicione **ApiKind=MongoDb** à cadeia de ligação. <br/><br/>Para gráficos gremlin e tabelas Cassandra, inscreva-se para a [pré-visualização](https://aka.ms/azure-cognitive-search/indexer-preview) do indexante fechado para ter acesso à pré-visualização e informações sobre como formatar as credenciais.<br/>|
-| **contentor** | Contém os seguintes elementos: <br/>**nome:** Obrigatório. Especifique o ID da recolha da base de dados a ser indexado.<br/>**consulta**: Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Azure Cognitive Search pode indexar.<br/>Para a API mongodb, Gremlin API e Cassandra API, as consultas não são apoiadas. |
+| **recipiente** | Contém os seguintes elementos: <br/>**nome:** Obrigatório. Especifique o ID da recolha da base de dados a ser indexado.<br/>**consulta**: Opcional. Pode especificar uma consulta para aplainar um documento JSON arbitrário num esquema plano que a Azure Cognitive Search pode indexar.<br/>Para a API mongodb, Gremlin API e Cassandra API, as consultas não são apoiadas. |
 | **dataChangeDetectionPolicy** | Recomendado |
 |**dataDeletionDetectionPolicy** | Opcional |
 

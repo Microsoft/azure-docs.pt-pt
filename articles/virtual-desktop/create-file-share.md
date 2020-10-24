@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287326"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519444"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -29,7 +29,7 @@ Primeiro, terá de criar uma conta de armazenamento do Azure Files.
 
 Para criar uma conta de armazenamento:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Procure uma **conta de armazenamento** na barra de pesquisa.
 
@@ -86,7 +86,7 @@ Para configurar permissões de nível de partilha, atribua a cada utilizador uma
 >[!NOTE]
 >As contas ou grupos a que atribui permissões deverão ter sido criados no domínio e sincronizados com o Azure Active Directory. As contas criadas no Azure Active Directory não funcionarão.
 
-Para atribuir permissões de controlo de acesso baseado em funções (RBAC):
+Para atribuir permissões de controlo de acesso baseado em funções Azure (Azure RBAC):
 
 1. Abra o portal do Azure.
 
@@ -106,7 +106,7 @@ Para atribuir permissões de controlo de acesso baseado em funções (RBAC):
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Atribuir permissões aos utilizadores na partilha de ficheiros Azure
 
-Uma vez atribuídas as permissões RBAC aos utilizadores, terá de configurar as permissões NTFS.
+Uma vez que tenha atribuído permissões Azure RBAC aos seus utilizadores, em seguida terá de configurar as permissões NTFS.
 
 Precisa de saber duas coisas do portal Azure para começar:
 

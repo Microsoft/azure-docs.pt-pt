@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 4995f813bbfe7ef368f83085cdd61ab97fa330e8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b55e66eaf4bda06369711e389629b6a20765271d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108529"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522211"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integre a Qlik Sense Enterprise com o Azure Ative Directory
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar qlik Sense Enterprise com Azure At
 * Capacitar os seus utilizadores a serem automaticamente inscritos na Qlik Sense Enterprise com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 * A Qlik Sense Enterprise apoia a **SP** iniciou a SSO.
 * Qlik Sense Enterprise suporta **provisão just-in-time**
 
-* Assim que configurar a Qlik Sense Enterprise, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Assim que configurar a Qlik Sense Enterprise, pode impor o controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Adicionando Qlik Sense Enterprise da galeria
 
@@ -252,17 +252,17 @@ A Qlik Sense Enterprise suporta **o fornecimento just-in-time**, os utilizadores
 
 ### <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo Qlik Sense Enterprise no Painel de Acesso, deverá ser automaticamente inscrito na Qlik Sense Enterprise para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Qlik Sense Enterprise no Painel de Acesso, deverá ser automaticamente inscrito na Qlik Sense Enterprise para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

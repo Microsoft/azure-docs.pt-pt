@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6aed014800be41ce5b9d1d86d137aefcf2585e98
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486978"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Ative Directory com a Uberflip
 
@@ -28,7 +28,7 @@ A integração da Uberflip com a Azure AD proporciona-lhe os seguintes benefíci
 * Pode permitir que os seus utilizadores se inscrevam automaticamente no Uberflip (súpder único) com as suas contas AD Azure.
 * Pode gerir as suas contas num local central: o portal Azure.
 
-Para mais detalhes sobre o software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para mais detalhes sobre o software como uma integração de aplicações de serviço (SaaS) com a Azure AD, consulte [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -192,12 +192,12 @@ Um utilizador chamado B. Simon é agora criado na Uberflip. Não tens de fazer n
 
 Nesta secção, testa a configuração de um único sinal de Azure AD utilizando o portal My Apps.
 
-Quando selecionar o **Uberflip** no portal My Apps, deverá ser automaticamente inscrito na subscrição da Uberflip para a qual configura uma única s inscrição. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o **Uberflip** no portal My Apps, deverá ser automaticamente inscrito na subscrição da Uberflip para a qual configura uma única s inscrição. Para obter mais informações sobre o portal My Apps, consulte [o Access e utilize aplicações no portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais para integrar aplicações saaS com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista de tutoriais para integrar aplicações saaS com diretório ativo Azure](./tutorial-list.md)
 
-* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-* [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

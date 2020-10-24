@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ea65e94e97b69e24c6935328cc01c2295adc5a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045506"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518641"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuais
 
@@ -105,7 +105,7 @@ Os recursos numa rede virtual não conseguem resolver os nomes dos recursos numa
 
 ## <a name="permissions"></a>Permissões
 
-O Azure utiliza [o controlo de acesso baseado em funções](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) para recursos. As permissões são atribuídas a um [âmbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na seguinte hierarquia: grupo de gestão, subscrição, grupo de recursos e recursos individuais. Para saber mais sobre a hierarquia, consulte [Organizar os seus recursos.](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Para trabalhar com redes virtuais Azure e todas as suas capacidades relacionadas, tais como peering, grupos de segurança de rede, pontos finais de serviço e tabelas de rotas, pode atribuir membros da sua organização às funções [de Proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)Incorporado, [Contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)ou [Network,](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e atribuir o papel ao âmbito apropriado. Se pretender atribuir permissões específicas para um subconjunto de capacidades de rede virtuais, crie uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribua as permissões específicas necessárias para [redes virtuais,](manage-virtual-network.md#permissions) [sub-redes e pontos finais de serviço,](virtual-network-manage-subnet.md#permissions) [interfaces de rede,](virtual-network-network-interface.md#permissions) [grupos](virtual-network-manage-peering.md#permissions)de [segurança de rede e aplicações,](manage-network-security-group.md#permissions)ou [tabelas de rota](manage-route-table.md#permissions) para a função.
+A Azure utiliza o [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para recursos. As permissões são atribuídas a um [âmbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na seguinte hierarquia: grupo de gestão, subscrição, grupo de recursos e recursos individuais. Para saber mais sobre a hierarquia, consulte [Organizar os seus recursos.](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Para trabalhar com redes virtuais Azure e todas as suas capacidades relacionadas, tais como peering, grupos de segurança de rede, pontos finais de serviço e tabelas de rotas, pode atribuir membros da sua organização às funções [de Proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)Incorporado, [Contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)ou [Network,](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e atribuir o papel ao âmbito apropriado. Se pretender atribuir permissões específicas para um subconjunto de capacidades de rede virtuais, crie uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribua as permissões específicas necessárias para [redes virtuais,](manage-virtual-network.md#permissions) [sub-redes e pontos finais de serviço,](virtual-network-manage-subnet.md#permissions) [interfaces de rede,](virtual-network-network-interface.md#permissions) [grupos](virtual-network-manage-peering.md#permissions)de [segurança de rede e aplicações,](manage-network-security-group.md#permissions)ou [tabelas de rota](manage-route-table.md#permissions) para a função.
 
 ## <a name="policy"></a>Política
 

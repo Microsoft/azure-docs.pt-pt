@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626263"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518190"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Linha de segurança Azure para VPN Gateway
 
@@ -178,7 +178,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: O controlo de acesso baseado em funções (RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
+**Orientação**: O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso aos recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure.
 
 - [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
-**Orientação**: As portas VPN têm instâncias VM dedicadas para cada rede virtual do cliente. Implementar o isolamento utilizando redes virtuais separadas, subscrições e grupos de gestão para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Pode controlar o acesso aos recursos da Azure através do controlo de acesso baseado em funções do Azure Ative Directory.
+**Orientação**: As portas VPN têm instâncias VM dedicadas para cada rede virtual do cliente. Implementar o isolamento utilizando redes virtuais separadas, subscrições e grupos de gestão para domínios de segurança individuais, tais como o tipo de ambiente e o nível de sensibilidade aos dados. Pode restringir o nível de acesso aos seus recursos Azure que as suas aplicações e ambientes empresariais exigem. Você pode controlar o acesso aos recursos Azure através do controlo de acesso baseado em funções Azure (Azure RBAC).
 
 - [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
-**Orientação**: Utilize o Azure AD RBAC para controlar o acesso a dados e recursos, de outra forma utilize métodos específicos de controlo de acesso do serviço. Utilize funções de controlo de acesso baseadas em funções incorporadas, como Proprietário, Colaborador ou Colaborador da Rede e, em seguida, atribua a função ao âmbito adequado. Atribua permissões específicas para um subconjunto de capacidades de rede virtuais, criando uma função personalizada e atribuindo as permissões específicas necessárias para redes virtuais, sub-redes, gateways VPN, interfaces de rede, grupos de segurança de rede e tabelas de rota para o papel.
+**Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso a dados e recursos, de outra forma utilizar métodos específicos de controlo de acesso do serviço. Utilize funções incorporadas como Proprietário, Contribuinte ou Colaborador de Rede e, em seguida, atribua a função ao âmbito apropriado. Atribua permissões específicas para um subconjunto de capacidades de rede virtuais, criando uma função personalizada e atribuindo as permissões específicas necessárias para redes virtuais, sub-redes, gateways VPN, interfaces de rede, grupos de segurança de rede e tabelas de rota para o papel.
 
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Planear redes virtuais](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 
@@ -532,7 +532,7 @@ Também pode utilizar recomendações do Azure Security Center como uma base de 
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Recomendações de segurança - um guia de referência](../security-center/recommendations-reference.md)
+- [Recomendações de segurança: um guia de referência](../security-center/recommendations-reference.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -720,7 +720,7 @@ Além disso, marque subscrições usando tags e crie um sistema de nomeação pa
 
 - [Alertas de segurança no Centro de Segurança do Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

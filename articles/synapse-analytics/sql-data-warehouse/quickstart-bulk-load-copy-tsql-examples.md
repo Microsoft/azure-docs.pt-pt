@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569482"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503271"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar de forma segura dados usando O SQL de Sinapse
 
@@ -25,7 +25,7 @@ A matriz a seguir descreve os métodos de autenticação suportados para cada ti
 
 |                          |                CSV                |              Parquet               |                ORC                 |
 | :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
-|  **Armazenamento de bolhas Azure**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/CHAVE               |              SAS/CHAVE               |
+|  **Armazenamento de blobs do Azure**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/CHAVE               |              SAS/CHAVE               |
 | **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob endpoint)/MSI (dfs endpoint)/SERVICE PRINCIPAL/KEY/AAD | SAS (blob endpoint)/MSI (dfs endpoint)/SERVICE PRINCIPAL/KEY/AAD |
 
 
@@ -97,7 +97,7 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
     > [!IMPORTANT]
     > Especifique a função De Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor Azure. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor. 
 
-    ![Concessão de permissão do RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Concessão de permissão do RBAC Azure para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. Pode agora executar a declaração COPY especificando "Identidade Gerida":
 
@@ -118,7 +118,7 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
     > [!IMPORTANT]
     > Especifique a função De Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor Azure. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor.
 
-    ![Concessão de permissão do RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Concessão de permissão do RBAC Azure para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configure a autenticação AD através da [seguinte documentação](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 

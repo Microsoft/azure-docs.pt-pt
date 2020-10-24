@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 4cb46487904f1f909686119d074dff5dcfad40c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b774f50f6f136d9e7c71b5fe6fbffb725a9240a5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604648"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522228"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-orgvitality-sso"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com OrgVitality SSO
 
@@ -124,7 +124,7 @@ Para configurar um único sign-on no lado **SSO da OrgVitality,** é necessário
 
 ### <a name="create-orgvitality-sso-test-user"></a>Criar utilizador de teste OrgVitality SSO
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in OrgVitality SSO. Trabalhe com [a equipa de suporte da OrgVitality SSO](https://orgvitality.com/contact-us/) para adicionar os utilizadores na plataforma OrgVitality SSO. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in OrgVitality SSO. Trabalhe com [a equipa de suporte da OrgVitality SSO](https://orgvitality.com/contact-us/) para adicionar os utilizadores na plataforma OrgVitality SSO. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -132,8 +132,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 1. Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no OrgVitality SSO para o qual configura o SSO
 
-1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo OrgVitality SSO no Painel de Acesso, deverá ser automaticamente inscrito no OrgVitality SSO para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+1. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo OrgVitality SSO no Painel de Acesso, deverá ser automaticamente inscrito no OrgVitality SSO para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez configurado OrgVitality SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Uma vez configurado OrgVitality SSO, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

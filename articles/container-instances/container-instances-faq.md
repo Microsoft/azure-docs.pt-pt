@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818492"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516975"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contentores Azure
 
@@ -61,7 +61,7 @@ Use a imagem mais pequena que satisfaça os seus requisitos. Para o Linux, pode 
 
 Isto depende da sua carga de trabalho. Inicie um desempenho pequeno e teste para ver como se saem os seus recipientes. [Monitorize o CPU e o uso do recurso de memória](container-instances-monitor.md)e, em seguida, adicione núcleos ou memória com base no tipo de processos que implementa no recipiente.
 
-Certifique-se também de verificar a disponibilidade de [recursos](container-instances-region-availability.md#availability---general) para a região em que está a implantar para os limites superiores nos núcleos de CPU e memória disponível por grupo de contentores. 
+Certifique-se também de verificar a disponibilidade de [recursos](container-instances-region-availability.md) para a região em que está a implantar para os limites superiores nos núcleos de CPU e memória disponível por grupo de contentores. 
 
 > [!NOTE]
 > Uma pequena quantidade de recursos de um grupo de contentores é utilizada pela infraestrutura subjacente do serviço. Os seus contentores poderão aceder à maioria, mas não a todos os recursos atribuídos ao grupo. Por esta razão, planeie um pequeno tampão de recursos ao solicitar recursos para contentores no grupo.
@@ -80,7 +80,7 @@ Ainda não. Atualmente, estes são os máximos para um grupo de contentores. Con
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>Quando estará o ACI numa região específica?
 
-A disponibilidade da região atual é publicada [aqui.](container-instances-region-availability.md#availability---general) Se tiver um requisito para uma região específica, contacte o Suporte Azure.
+A disponibilidade da região atual é publicada [aqui.](container-instances-region-availability.md) Se tiver um requisito para uma região específica, contacte o Suporte Azure.
 
 ## <a name="features-and-scenarios"></a>Características e cenários
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: c2f2e86a3080b0edfcb0a699ac9b3a78ee1b5a52
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940825"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519423"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integre o Azure AD single sign-on (SSO) com NetSuite
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar NetSuite com Azure Ative Directory
 * Permita que os seus utilizadores sejam automaticamente inscritos no NetSuite com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central, o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, veja [o que é o acesso à aplicação e um único acesso com o Azure Ative Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Suportes NetSuite:
 * SSO iniciado pelo IDP.
 * JIT (just-in-time) fornecimento de utilizador.
 * [Fornecimento automatizado de utilizadores](NetSuite-provisioning-tutorial.md).
-* Uma vez configurado o NetSuite, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Uma vez configurado o NetSuite, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > Como o identificador desta aplicação é um valor fixo de cadeia, apenas um caso pode ser configurado em um inquilino.
@@ -258,14 +258,14 @@ Nesta secção, um utilizador chamado B.Simon é criado na NetSuite. O NetSuite 
 
 Nesta secção, testa a configuração de um único sinal de acesso Azure AD utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo NetSuite no Painel de Acesso, deverá ser automaticamente inscrito no NetSuite para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo NetSuite no Painel de Acesso, deverá ser automaticamente inscrito no NetSuite para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 - [Experimente netSuite com Azure AD](https://aad.portal.azure.com/)
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o NetSuite com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger o NetSuite com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

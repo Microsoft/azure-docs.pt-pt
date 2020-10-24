@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996495"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519627"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvedores de Java funções Azure Functions
 
@@ -134,8 +134,6 @@ Aqui está o correspondente gerado `function.json` pelo [azure-funs-maven-plugin
 
 ## <a name="java-versions"></a>Versões java
 
-_O suporte para Java 11 está neste momento em pré-visualização_
-
 A versão de Java utilizada ao criar a aplicação de função em que as funções funciona no Azure é especificada no ficheiro pom.xml. O arquétipo Maven gera atualmente uma pom.xml para Java 8, que podes alterar antes de publicares. A versão Java em pom.xml deve coincidir com a versão na qual desenvolveu e testou localmente a sua aplicação. 
 
 ### <a name="supported-versions"></a>Versões suportadas
@@ -144,18 +142,18 @@ A tabela a seguir mostra as versões Java suportadas atuais para cada versão pr
 
 | Versão de funções | Versões java (Windows) | Versões java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (pré-visualização)<br/>8 | 11 (pré-visualização)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
 A menos que especifique uma versão Java para a sua implantação, o arquétipo Maven desresímos de Java 8 durante a implementação para Azure.
 
 ### <a name="specify-the-deployment-version"></a>Especificar a versão de implantação
 
-Pode controlar a versão de Java visada pelo arquétipo Maven utilizando o `-DjavaVersion` parâmetro. O valor deste parâmetro pode ser `8` `11` ou. O suporte de Java 11 está neste momento em pré-visualização. 
+Pode controlar a versão de Java visada pelo arquétipo Maven utilizando o `-DjavaVersion` parâmetro. O valor deste parâmetro pode ser `8` `11` ou. 
 
 O arquétipo maven gera uma pom.xml que visa a versão java especificada. Os seguintes elementos em pom.xml indicam a versão Java a utilizar:
 
-| Elemento |  Valor de Java 8 | Valor de Java 11 | Description |
+| Elemento |  Valor de Java 8 | Valor de Java 11 | Descrição |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Versão de Java usada pelo maven-compilador-plugin. |
 | **`JavaVersion`** | 8 | 11 | Versão Java hospedada pela aplicação de função em Azure. |

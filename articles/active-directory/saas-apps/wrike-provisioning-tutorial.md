@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: e3ec25504decca0747c8a853bb88ab3e7a10966a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546326"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520035"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configure Wrike para o fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos que executa no Wrike e no Azure Ative Directory (Azure AD) para configurar a Azure AD para provisão automática e desprovisionar utilizadores ou grupos para Wrike.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do serviço de fornecimento de utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [o fornecimento e desprovisionamento de utilizadores da Automamate para aplicações software-as-a-service (SaaS) com diretório Azure Ative.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+> Este tutorial descreve um conector construído em cima do serviço de fornecimento de utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [o fornecimento e desprovisionamento de utilizadores da Automamate para aplicações software-as-a-service (SaaS) com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
 >
 > Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

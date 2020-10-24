@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102579"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518930"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -21,12 +21,12 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 ## <a name="september-2020"></a>Setembro de 2020
 
-Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em seguida, use permissões do RBAC para conceder as permissões de leitura de identidade apenas para fontes de dados Azure. Opcionalmente, escolha a capacidade de exceção do [serviço fidedigno](search-indexer-howto-access-trusted-service-exception.md) se as regras IP não forem uma opção.
+Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em seguida, use permissões Azure RBAC para conceder as permissões de leitura de identidade apenas para fontes de dados Azure. Opcionalmente, escolha a capacidade de exceção do [serviço fidedigno](search-indexer-howto-access-trusted-service-exception.md) se as regras IP não forem uma opção.
 
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |------------------------------|----------|-------------|---------------|
-| [Identidade de serviço gerida](search-howto-managed-identities-data-sources.md) | Indexantes, segurança | Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em seguida, use permissões RBAC para conceder acesso a fontes de dados Azure. Esta abordagem elimina a necessidade de credenciais na cadeia de ligação. <br><br>Uma forma adicional de usar uma identidade de serviço gerida é através de uma [exceção de serviço fidedigna](search-indexer-howto-access-trusted-service-exception.md) se as regras IP não forem uma opção. | Geralmente disponível. Aceda a esta capacidade quando utilizar o portal ou [criar fonte de dados (REST)](/rest/api/searchservice/create-data-source) com versão api=2020-06-30. |
+| [Identidade de serviço gerida](search-howto-managed-identities-data-sources.md) | Indexantes, segurança | Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em seguida, use permissões Azure RBAC para conceder acesso a fontes de dados Azure. Esta abordagem elimina a necessidade de credenciais na cadeia de ligação. <br><br>Uma forma adicional de usar uma identidade de serviço gerida é através de uma [exceção de serviço fidedigna](search-indexer-howto-access-trusted-service-exception.md) se as regras IP não forem uma opção. | Geralmente disponível. Aceda a esta capacidade quando utilizar o portal ou [criar fonte de dados (REST)](/rest/api/searchservice/create-data-source) com versão api=2020-06-30. |
 | [Pedidos de saída usando um link privado](search-indexer-howto-access-private.md) | Indexantes, segurança | Crie um recurso de ligação privada partilhado que os indexantes podem usar ao aceder aos recursos Azure garantidos pela Azure Private Link. Para obter mais informações sobre todas as formas de garantir ligações indexantes, consulte [o Indexer acesso a conteúdos protegidos por funcionalidades de segurança da rede Azure](search-indexer-securing-resources.md). | Geralmente disponível. Aceda a esta capacidade ao utilizar o portal ou [o Recurso de Ligação Privada Partilhada](/rest/api/searchmanagement/sharedprivatelinkresources) com versão api=2020-08-01. |
 | [Gestão REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | A nova API de REST estável adiciona suporte para a criação de recursos de ligação privada partilhada. | Geralmente disponível. |
 | [Gestão REST API (2020-08-01-Pré-visualização)](/rest/api/searchmanagement/management-api-versions) | REST | Adiciona recurso de ligação privada compartilhado para Funções Azure e Azure SQL para MySQL Databases. | Pré-visualização pública. |

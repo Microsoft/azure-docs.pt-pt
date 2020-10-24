@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9f3b7ea3d99de51b9398bda82b690d2c249a1d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289329"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520970"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Como migrar a sua conta do Portal do Parceiro Cloud para o Partner Center
 
@@ -81,7 +81,7 @@ Para obter informações específicas sobre o que precisa de ser feito até **15
     * A certificação ou recertificação requer que a sua aplicação suporte a versão mais recente da nossa Plataforma de Aplicações Empresariais.
     * Uma vez aprovada a sua aplicação, receberá um e-mail para voltar à oferta e selecionar "ir ao vivo" para permitir que a oferta seja transmitida em direto no Microsoft AppSource.
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 Obtenha ajuda de especialistas e pares em fóruns e descubra blogs, webinars, vídeos, eventos e muito mais na [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 

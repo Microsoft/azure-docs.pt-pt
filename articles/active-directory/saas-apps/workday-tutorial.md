@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4867a1735f091085f64bbe7010969bd086f820a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d9ab8b7a3aa95b5283f63753cc9885246b77176
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527178"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Azure Ative Directory integração única (SSO) com Workday
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar o Workday com o Azure Ative Direct
 * Ative os seus utilizadores a serem automaticamente inscritos no Workday com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Workday suporta **SP** iniciado SSO.
 
-* Uma vez configurado o Workday, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Uma vez configurado o Workday, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workday-from-the-gallery"></a>Adicionar dia de trabalho da galeria
 
@@ -108,7 +108,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Selecione **Sign SAML resposta e afirmação** para **a opção de assinatura**.
 
-    b. Clicar em **Guardar**
+    b. Clique em **Guardar**
 
 1. Na secção Configurar o **Workday,** copie os URL(s) apropriados com base no seu requisito.
 
@@ -247,18 +247,18 @@ Nesta secção, cria-se um utilizador chamado B.Simon in Workday. Trabalhe com [
 
 ## <a name="test-sso"></a>Teste SSO
 
-Quando selecionar o azulejo workday no Painel de Acesso, deverá ser automaticamente inscrito no Dia de Trabalho para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo workday no Painel de Acesso, deverá ser automaticamente inscrito no Dia de Trabalho para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
 - [Experimente o Dia de Trabalho com a Azure AD](https://aad.portal.azure.com)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger o Dia de Trabalho com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/protect-workday)
+- [Como proteger o Dia de Trabalho com visibilidade e controlos avançados](/cloud-app-security/protect-workday)

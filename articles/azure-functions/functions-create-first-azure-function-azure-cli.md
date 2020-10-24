@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b299f0bb13bb25fbc192f3d117be11ca1ce26586
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89145557"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519678"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -82,7 +82,11 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-Numa pasta vazia, execute o seguinte comando para gerar o projeto das Funções a partir de um [arquétipo do Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) 
+Numa pasta vazia, execute o seguinte comando para gerar o projeto das Funções a partir de um [arquétipo do Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
+
+> [!IMPORTANT]
+> + Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) 
+> + A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação da versão correta do JDK para completar este artigo.
 
 # <a name="bash"></a>[festa](#tab/bash)
 ```bash
@@ -158,8 +162,6 @@ As definições para os recursos Azure criados para hospedar a sua aplicação s
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Pode alterar estas definições para controlar a forma como os recursos são criados no Azure, tais como alterando `runtime.os` de antes da `windows` `linux` implantação inicial. Para obter uma lista completa de definições suportadas pelo plug-in Maven, consulte os detalhes da [configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
-
-Se pretender executar a sua aplicação de função em Java 11 em vez de Java 8, tem de atualizar manualmente o ficheiro pom.xml com os valores de Java 11. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) Ao correr em Java 11, certifique-se de que  
 
 #### <a name="functiontestjava"></a>FunçãoTest.java
 
@@ -402,7 +404,7 @@ Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** anexando o parâme
 >   func azure functionapp logstream <APP_NAME> --browser
 >   ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se continuar até ao próximo passo, [adicione uma ligação de saída de fila Azure Storage](functions-add-output-binding-storage-queue-cli.md), mantenha todos os seus recursos no lugar, pois irá basear-se no que já fez.
 

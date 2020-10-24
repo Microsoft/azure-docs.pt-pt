@@ -4,12 +4,12 @@ description: Aprenda a implantar um grupo de contentores para uma rede virtual A
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303013"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518131"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentores numa rede virtual do Azure
 
@@ -40,7 +40,7 @@ Uma vez implantado o seu primeiro grupo de contentores com este método, pode im
 
 ### <a name="example"></a>Exemplo
 
-O [seguinte recipiente az cria][az-container-create] comando especifica definições para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos criado numa região onde estão [disponíveis](container-instances-region-availability.md#availability---virtual-network-deployment)implantações de grupos de contentores numa rede virtual . Este comando implementa o recipiente público [aci-helloworld][aci-helloworld] da Microsoft que executa um pequeno webserver Node.js que serve uma página web estática. Na secção seguinte, colocará um segundo grupo de contentores na mesma sub-rede e testará a comunicação entre as duas instâncias do contentor.
+O [seguinte recipiente az cria][az-container-create] comando especifica definições para uma nova rede virtual e sub-rede. Forneça o nome de um grupo de recursos criado numa região onde estão [disponíveis](container-instances-region-availability.md)implantações de grupos de contentores numa rede virtual . Este comando implementa o recipiente público [aci-helloworld][aci-helloworld] da Microsoft que executa um pequeno webserver Node.js que serve uma página web estática. Na secção seguinte, colocará um segundo grupo de contentores na mesma sub-rede e testará a comunicação entre as duas instâncias do contentor.
 
 ```azurecli
 az container create \
