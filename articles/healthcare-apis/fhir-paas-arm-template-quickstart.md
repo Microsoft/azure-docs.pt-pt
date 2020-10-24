@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Implementar API Azure para FHIR usando um modelo ARM'
-description: Neste quickstart, aprenda a implementar a API Azure para Recursos de Interoperabilidade de Cuidados rápidos de Saúde (FHIR®), utilizando um modelo de Gestor de Recursos Azure.
+description: Neste quickstart, aprenda a implementar a API Azure para Recursos de Interoperabilidade de Cuidados rápidos de Saúde (FHIR®), utilizando um modelo de Gestor de Recursos Azure (modelo ARM).
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: 8e259dffe95b992003c2d8edb5d2a9eb3486631f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339344"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521446"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Quickstart: Use um modelo ARM para implantar API Azure para FHIR
 

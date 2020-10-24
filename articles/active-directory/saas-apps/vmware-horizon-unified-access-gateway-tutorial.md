@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e9d98e8b68b4e01d7e8f19e7c7d89a88d9bf69f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500894"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com VMware Horizon - Portal de Acesso Unificado
 
@@ -125,7 +125,7 @@ Para configurar um único sign-on no **VMware Horizon - Lado do Gateway de acess
 
 ### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Criar VMware Horizon-Unified utilizador de teste Access Gateway
 
-Nesta secção, cria-se um utilizador chamado B.Simon in VMware Horizon - Unified Access Gateway. Trabalhe com [a equipa de suporte VMware Horizon - Uniified Access Gateway](mailto:support@vmware.com) para adicionar os utilizadores na plataforma VMware Horizon - Portal de Acesso Unificado. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in VMware Horizon - Unified Access Gateway. Trabalhe com [a equipa de suporte VMware Horizon - Uniified Access Gateway](mailto:support@vmware.com) para adicionar os utilizadores na plataforma VMware Horizon - Portal de Acesso Unificado. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -141,8 +141,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no VMware Horizon - Portal de Acesso Unificado para o qual configura o SSO 
 
-Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo VMware Horizon - Portal de Acesso Unificado no Painel de Acesso, deverá ser automaticamente inscrito no VMware Horizon - Portal de Acesso Unificado para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo VMware Horizon - Portal de Acesso Unificado no Painel de Acesso, deverá ser automaticamente inscrito no VMware Horizon - Portal de Acesso Unificado para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que configurar o VMware Horizon - Portal de Acesso Unificado, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Assim que configurar o VMware Horizon - Portal de Acesso Unificado, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

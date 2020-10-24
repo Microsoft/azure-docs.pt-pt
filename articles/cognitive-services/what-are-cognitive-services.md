@@ -1,7 +1,7 @@
 ---
 title: O que são os Serviços Cognitivos Azure?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services são serviços na nuvem com APIs REST e SDKs da biblioteca de clientes que você pode usar com o Microsoft Azure para construir aplicações inteligentes.
+description: Os Serviços Cognitivos tornam a IA acessível a todos os desenvolvedores sem necessitar de aprendizagem automática e conhecimentos de ciência de dados. Basta fazer uma chamada da API a partir da sua aplicação para adicionar a capacidade de ver (pesquisa e reconhecimento de imagem avançada), ouvir, falar, pesquisar e tomar decisões nas suas apps.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,65 +9,76 @@ keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, 
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 08/28/2020
+ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 96a722ba3570cda7a3a5d1ee82955ddc3f0014e8
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 2cc0ef4ed0e7a63a822efc34e223cbec20815dd9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827593"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521480"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
-Os Azure Cognitive Services são serviços baseados na nuvem com APIs rest, e SDKs da biblioteca de clientes disponíveis para ajudar os desenvolvedores a construir inteligência cognitiva em aplicações sem ter inteligência artificial direta (IA) ou habilidades ou conhecimentos de ciência de dados. O Azure Cognitive Services permite que os desenvolvedores adicionem facilmente funcionalidades cognitivas nas suas aplicações com soluções cognitivas que podem ver, ouvir, falar, entender e até começar a raciocinar.
+Os Azure Cognitive Services são serviços baseados na nuvem com APIs REST e SDKs da biblioteca de clientes disponíveis para ajudá-lo a construir inteligência cognitiva nas suas aplicações. Pode adicionar funcionalidades cognitivas às suas aplicações sem ter inteligência artificial (IA) ou competências em ciência de dados. Os Serviços Cognitivos Azure compreendem vários serviços de IA que lhe permitem construir soluções cognitivas que possam ver, ouvir, falar, compreender e até tomar decisões.
 
-O catálogo de serviços de IA, que fornecem compreensão cognitiva são categorizados em cinco pilares principais:
+## <a name="categories-of-cognitive-services"></a>Categorias de Serviços Cognitivos
+
+O catálogo de serviços cognitivos que proporcionam compreensão cognitiva são categorizados em cinco pilares principais:
 
 * Visão
 * Voz
 * Idioma
-* Pesquisa na Web
 * Decisão
+* Pesquisar
 
-A lista atual de nova documentação está disponível no [What's new in Cognitive Services docs](whats-new-docs.md).
+As seguintes secções deste artigo fornecem uma lista de serviços que fazem parte destes cinco pilares.
 
 ## <a name="vision-apis"></a>APIs de Visão
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
 |[Imagem Digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Imagem Digitalizada")|O serviço De Visão Computacional fornece-lhe acesso a algoritmos cognitivos avançados para processar imagens e devolver informações.|
-|[Serviço de Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite-lhe construir classificadores de imagem personalizados.|
+|[Serviço de Imagem Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Imagem Personalizada")|O Serviço de Visão Personalizada permite-lhe construir classificadores de imagem personalizados.|
 |[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Rostos")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais.|
-|[Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Reconhecedor de Formato") (Pré-visualização)|O Reconhecimento de Formulários identifica e extrai pares de valores-chave e dados de tabela a partir de documentos de formulário; em seguida, produz dados estruturados, incluindo as relações no ficheiro original.|
+|[Reconhecedor de Formato](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Reconhecedor de Formato")|O Reconhecimento de Formulários identifica e extrai pares de valores-chave e dados de tabela a partir de documentos de formulário; em seguida, produz dados estruturados, incluindo as relações no ficheiro original.|
 |[Reconhecimento de tinta](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Reconhecedor de Tinta Digital") (aposentadoria)|O Ink Recogniser permite-lhe reconhecer e analisar dados digitais de traçado de tinta, formas e conteúdo manuscrito, e desempenhá-lo numa estrutura documental com todas as entidades reconhecidas.|
-|[Indexador de Vídeos](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Indexador de Vídeos")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo.|
+|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo.|
 
 ## <a name="speech-apis"></a>APIs de fala
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
-|[API de Reconhecimento de Altifalantes](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de Reconhecimento de Orador") (Pré-visualização)|A API de Reconhecimento de Altifalantes fornece algoritmos para identificação e verificação de altifalantes.|
-|[Discurso de Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Voz do Bing") (Aposentação)|A API do Discurso Bing proporciona-lhe uma forma fácil de criar funcionalidades ativadas pela fala nas suas aplicações.|
-|[Discurso do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tradução de Voz") (Reforma)|Tradutor Speech é um serviço de tradução automática.|
-
-> [!NOTE]
-> À procura [de Azure Cognitive Search?](https://docs.microsoft.com/azure/search/) Embora utilize serviços cognitivos para algumas tarefas, é uma tecnologia de pesquisa diferente que suporta outros cenários.
-
-
+|[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações. O serviço de fala inclui várias capacidades como discurso-a-texto, texto-a-discurso, tradução da fala, e muito mais.|
+<!--
+|[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
+|[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
+|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
+-->
 ## <a name="language-apis"></a>APIs linguísticos
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Compreensão linguística LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Compreensão de Idiomas")|O serviço de Compreensão de Línguas (LUIS) permite que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras.|
+|[Compreensão linguística LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Compreensão de Idiomas")|O serviço Language Understanding (LUIS) permite que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras.|
 |[Criador de FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|O QnA Maker permite-lhe construir um serviço de perguntas e respostas a partir do seu conteúdo semi-estruturado.|
-|[Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Análise de Texto")|Text Analytics fornece processamento de linguagem natural sobre texto cru para análise de sentimento, extração de frases-chave e deteção de linguagem.|
+|[Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Análise de Texto")| Text Analytics fornece processamento de linguagem natural sobre texto cru para análise de sentimento, extração de frases-chave e deteção de linguagem.|
 |[Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/ "Tradutor")|O tradutor fornece tradução de texto baseada em máquina em quase tempo real.|
+| [Leitura Avançada](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/ "Leitura Avançada") | O Leitor Imersivo adiciona capacidades de leitura e compreensão do ecrã às suas aplicações. |
 
+## <a name="decision-apis"></a>APIs de decisão
+
+|Nome do Serviço|Descrição do Serviço|
+|:-----------|:------------------|
+|[Detetor de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Detetor de Anomalias") |O Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo.|
+|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Moderador de Conteúdo fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e arriscados.|
+|[Conselheiro de Métricas](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (Pré-visualização) | O Metrics Advisor fornece uma deteção de anomalias personalizáveis em dados de séries de tempo multivariáveis e um portal web totalmente apresentado para ajudá-lo a usar o serviço.|
+|[Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizador")|O personalização permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.|
 
 ## <a name="search-apis"></a>APIs de pesquisa
+
+> [!NOTE]
+> À procura [de Azure Cognitive Search?](https://docs.microsoft.com/azure/search/) Embora utilize serviços cognitivos para algumas tarefas, é uma tecnologia de pesquisa diferente que suporta outros cenários.
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
@@ -82,31 +93,32 @@ A lista atual de nova documentação está disponível no [What's new in Cogniti
 |[Pesquisa de Negócios Locais do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Pesquisa de Negócios Locais do Bing")| A API de Pesquisa de Negócios Locais permite que as suas aplicações encontrem informações de contacto e localização sobre empresas locais com base em consultas de pesquisa.|
 |[Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|Bing Spell Check permite-lhe realizar gramática contextual e verificação ortográfica.|
 
-## <a name="decision-apis"></a>APIs de decisão
+## <a name="get-started-with-cognitive-services"></a>Introdução aos Serviços Cognitivos
 
-|Nome do Serviço|Descrição do Serviço|
-|:-----------|:------------------|
-|[Detetor de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Detetor de Anomalias") (Pré-visualização)|O Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Moderador de Conteúdo fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e arriscados.|
-|[Conselheiro de Métricas](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (Pré-visualização) | O Metrics Advisor fornece uma deteção de anomalias personalizáveis em dados de séries de tempo multivariáveis e um portal web totalmente apresentado para ajudá-lo a usar o serviço.
-|[Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizador")|O personalização permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.|
-
-## <a name="learn-with-the-quickstarts"></a>Aprenda com os Quickstarts
-
-Saiba como criar um recurso de Serviços Cognitivos com quickstarts práticos, utilizando o:
+Comece por criar um recurso de Serviços Cognitivos com quickstarts práticos utilizando os seguintes métodos:
 
 * [Portal do Azure](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Portal do Azure")
 * [CLI do Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "CLI do Azure")
 * [Bibliotecas de clientes Azure SDK](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programação-linguagem-csharp")
 * [Modelos do Azure Resource Manager (ARM)](resource-manager-template.md?tabs=portal "Modelos do Azure Resource Manager (ARM)")
 
-## <a name="subscription-management"></a>Gestão de subscrições
+<!--
+## Subscription management
 
-Assim que tiver assinado com a sua Conta Microsoft, pode aceder às [minhas subscrições](https://www.microsoft.com/cognitive-services/subscriptions "As minhas assinaturas") para mostrar os produtos que está a utilizar, a quota restante e a capacidade de adicionar produtos adicionais à sua subscrição.
+Once you are signed in with your Microsoft Account, you can access [My subscriptions](https://www.microsoft.com/cognitive-services/subscriptions "My subscriptions") to show the products you are using, the quota remaining, and the ability to add additional products to your subscription.
 
-## <a name="upgrade-to-unlock-higher-limits"></a>Upgrade para desbloquear limites mais elevados
+## Upgrade to unlock higher limits
 
-Todas as APIs têm um nível livre, que tem limites de utilização e produção.  Pode aumentar estes limites utilizando uma oferta paga e selecionando a opção de nível de preços apropriado ao implementar o serviço no portal Azure. [Saiba mais sobre as ofertas e preços.](https://azure.microsoft.com/pricing/details/cognitive-services/ "ofertas e preços") Terá de configurar uma conta de assinante do Azure com um cartão de crédito e um número de telefone. Se tiver um requisito especial ou simplesmente quiser falar com as vendas, clique no botão "Contacte-nos" na página de preços superior.
+All APIs have a free tier, which has usage and throughput limits.  You can increase these limits by using a paid offering and selecting the appropriate pricing tier option when deploying the service in the Azure portal. [Learn more about the offerings and pricing](https://azure.microsoft.com/pricing/details/cognitive-services/ "offerings and pricing"). You'll need to set up an Azure subscriber account with a credit card and a phone number. If you have a special requirement or simply want to talk to sales, click "Contact us" button at the top the pricing page.
+-->
+
+## <a name="using-cognitive-services-securely"></a>Utilização de Serviços Cognitivos de forma segura
+
+A Azure Cognitive Services fornece um modelo de segurança em camadas, incluindo [a autenticação](authentication.md "autenticação") através de credenciais de Diretório Ativo Azure, uma chave de recursos válida, e [Redes Virtuais Azure](cognitive-services-virtual-networks.md "Redes Virtuais do Azure").
+
+## <a name="containers-for-cognitive-services"></a>Contentores para os Serviços Cognitivos
+
+ Os Serviços Cognitivos fornecem contentores para implantação na nuvem Azure ou no local. Saiba mais sobre [os Contentores de Serviços Cognitivos.](cognitive-services-container-support.md "Contentores dos Serviços Cognitivos")
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
@@ -116,31 +128,19 @@ As APIs em Serviços Cognitivos estão hospedadas numa rede crescente de centros
 
 ## <a name="supported-cultural-languages"></a>Línguas culturais apoiadas
 
- Os Serviços Cognitivos apoiam uma vasta gama de línguas culturais ao nível do serviço. Pode encontrar a disponibilidade de idiomas para cada API na [lista de línguas suportadas.](language-support.md "lista de línguas apoiadas")
-
-## <a name="securing-resources"></a>Assegurar recursos
-
-A Azure Cognitive Services fornece um modelo de segurança em camadas, incluindo [a autenticação](authentication.md "autenticação") através de credenciais de Diretório Ativo Azure, uma chave de recursos válida, e [Redes Virtuais Azure](cognitive-services-virtual-networks.md "Redes Virtuais do Azure").
-
-## <a name="container-support"></a>Suporte de contentor
-
- Os Serviços Cognitivos fornecem contentores para implantação na nuvem Azure ou no local. Saiba mais sobre [os Contentores de Serviços Cognitivos.](cognitive-services-container-support.md "Contentores dos Serviços Cognitivos")
+Os Serviços Cognitivos apoiam uma vasta gama de línguas culturais ao nível do serviço. Pode encontrar a disponibilidade de idiomas para cada API na [lista de línguas suportadas.](language-support.md "lista de línguas apoiadas")
 
 ## <a name="certifications-and-compliance"></a>Certificações e conformidade
 
-Os Serviços Cognitivos foram premiados com certificações como CSA STAR Certification, FedRAMP Moderate e HIPAA BAA.
-
-Você pode [baixar](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "transferir") certificações para suas próprias auditorias e avaliações de segurança.
+Os Serviços Cognitivos foram premiados com certificações como CSA STAR Certification, FedRAMP Moderate e HIPAA BAA. Você pode [baixar](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "transferir") certificações para suas próprias auditorias e avaliações de segurança.
 
 Para compreender a privacidade e a gestão de dados, vá ao [Trust Center.](https://servicetrust.microsoft.com/ "Centro de Fidedignidade")
 
 ## <a name="support"></a>Suporte
 
-Os Serviços Cognitivos oferecem várias [opções de suporte.](cognitive-services-support-options.md "opções de apoio")
-
-
-
+Os Serviços Cognitivos oferecem várias opções de suporte para ajudá-lo a avançar com a criação de aplicações inteligentes. Os Serviços Cognitivos também têm uma forte comunidade de desenvolvedores que podem ajudar a responder às suas questões específicas. Para obter uma lista completa de opções disponíveis para si, consulte as opções de [suporte dos Serviços Cognitivos e opções de ajuda.](cognitive-services-support-options.md "Serviços Cognitivos apoiam e ajudam opções")
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma conta dos Serviços Cognitivos](cognitive-services-apis-create-account.md "Criar uma conta dos Serviços Cognitivos")
+* [Quais as novidades nos docs dos Serviços Cognitivos](whats-new-docs.md "Quais as novidades nos docs dos Serviços Cognitivos")

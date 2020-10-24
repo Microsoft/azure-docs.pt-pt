@@ -3,59 +3,93 @@ title: Disponibilidade de recursos por região
 description: Disponibilidade de recursos de computação e memória para o serviço Azure Container Instances em diferentes regiões do Azure.
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: 97baa5199a1803bd967c0b55c846908ea5a2ddcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565434"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521463"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
-Este artigo detalha a disponibilidade de recursos de cálculo, memória e armazenamento de instâncias Azure nas regiões de Azure e pelo sistema operativo-alvo. 
+Este artigo detalha a disponibilidade de recursos de cálculo, memória e armazenamento de instâncias Azure nas regiões de Azure e pelo sistema operativo-alvo. Para obter uma lista geral das regiões disponíveis para instâncias de contentores de Azure, consulte [as regiões disponíveis.](https://azure.microsoft.com/regions/services/)
 
-Os valores apresentados são os recursos máximos disponíveis por implantação de um grupo de [contentores.](container-instances-container-groups.md) Os valores são atuais no momento da publicação. 
+Os valores apresentados são os recursos máximos disponíveis por implantação de um grupo de [contentores.](container-instances-container-groups.md) Os valores são atuais no momento da publicação.
 
 > [!NOTE]
 > Os grupos de contentores criados dentro destes limites de recursos estão sujeitos à disponibilidade na região de implantação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar tal falha de implantação, tente implementar casos com configurações de recursos mais baixas ou tente a sua implantação posteriormente ou numa região diferente com recursos disponíveis.
 
 Para obter informações sobre quotas e outros limites nas suas implementações, consulte [quotas e limites para instâncias de contentores Azure](container-instances-quotas.md).
 
-## <a name="availability---general"></a>Disponibilidade - Geral
+## <a name="linux-container-groups"></a>Grupos de contentores Linux
 
-As seguintes regiões e recursos máximos estão disponíveis para grupos de contentores com Linux e contentores [suportados](container-instances-faq.md#what-windows-base-os-images-are-supported) pelo Windows Server 2016.
+As seguintes regiões e recursos máximos estão disponíveis para grupos de contentores com contentores Linux em implantações gerais, implantações [de redes virtuais Azure](container-instances-vnet.md) e implantações com [recursos gpu](container-instances-gpu.md) (pré-visualização).
 
-| Regiões | SO | CPU Máxima | Memória Máxima (GB) | Armazenamento (GB) |
-| -------- | -- | :---: | :-----------: | :---: |
-| Brasil Sul, Canadá Central, Índia Central, Eua Central, Leste Asiático, Leste dos EUA, Leste dos EUA 2, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Europa Ocidental, Eua Ocidental, Oeste DOS EUA 2 | Linux | 4 | 16 | 50 |
-| Austrália Leste, Japão Leste | Linux | 2 | 8 | 50 |
-| E.U.A. Centro-Norte | Linux | 2 | 3.5 | 50 |
-| Brasil Sul, Japão Leste, Europa Ocidental | Windows | 4 | 16 | 20 |
-| Leste dos EUA, Oeste dos EUA | Windows | 4 | 14 | 20 |
-| Austrália Leste, Canadá Central, Índia Central, Eua Central, Leste Ásia, Leste DOS EUA 2, Norte da Europa Central, Norte da Europa, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Reino Unido Sul, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
+> [!IMPORTANT]
+> Os recursos máximos numa região são diferentes dependendo da sua implantação. Por exemplo, uma região pode ter um tamanho máximo de CPU e memória diferente numa implementação de rede virtual Azure do que para uma implantação geral. Essa mesma região pode também ter um conjunto diferente de valores máximos para uma implantação com recursos de GPU. Verifique o seu tipo de implantação antes de verificar as tabelas abaixo para obter os valores máximos na sua região.
 
-## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade - Windows Server 2019 LTSC, 1809 implementações (pré-visualização)
+| Region | CPU Máxima | Memória Máxima (GB) | VNET Max CPU | Memória Máxima VNET (GB) | Armazenamento (GB) | GPU SKUs (pré-visualização) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
+| Leste da Austrália | 4 | 16 | 4 | 16 | 50 | N/D |
+| Sul do Brasil | 4 | 16 | 2 | 8 | 50 | N/D |
+| Canadá Central | 4 | 16 | 4 | 16 | 50 | N/D |
+| Índia Central | 4 | 16 | N/D | N/D | 50 | V100 |
+| E.U.A. Central | 4 | 16 | 4 | 16 | 50 | N/D |
+| Ásia Leste | 4 | 16 | 4 | 16 | 50 | N/D |
+| E.U.A Leste | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| E.U.A. Leste 2 | 4 | 16 | 4 | 16 | 50 | N/D |
+| Leste do Japão | 2 | 8 | 4 | 16 | 50 | N/D |
+| Coreia do Sul Central | 4 | 16 | N/D | N/D | 50 | N/D |
+| E.U.A. Centro-Norte | 2 | 3.5 | 4 | 16 | 50 | N/D |
+| Europa do Norte | 4 | 16 | 4 | 16 | 50 | K80 |
+| E.U.A. Centro-Sul | 4 | 16 | 4 | 16 | 50 | N/D |
+| Sudeste Asiático | 4 | 16 | 4 | 16 | 50 | P100, V100 |
+| Sul da Índia | 4 | 16 | N/D | N/D | 50 | N/D |
+| Sul do Reino Unido | 4 | 16 | 4 | 16 | 50 | N/D |
+| E.U.A. Centro-Oeste| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Europa Ocidental | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| E.U.A. Oeste | 4 | 16 | 2 | 4 | 16| N/D |
+| E.U.A. Oeste 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
-As seguintes regiões e recursos máximos estão disponíveis para grupos de contentores com contentores baseados no Windows Server 2019 (pré-visualização).
+Estão disponíveis os seguintes recursos máximos para um grupo de contentores implantado com [recursos gpu](container-instances-gpu.md) (pré-visualização).
 
-| Regiões | SO | CPU Máxima | Memória Máxima (GB) | Armazenamento (GB) |
-| -------- | -- | :---: | :-----------: | :---: |
-| Austrália Leste, Brasil Sul, Canadá Central, Índia Central, Eua Central, Ásia Oriental, Leste dos EUA, Japão Leste, Norte Central DOS EUA, Norte da Europa, Sudeste Da Ásia, Sul da Índia, Reino Unido Sul, Europa Ocidental | Windows | 4 | 16 | 20 |
-| Leste dos EUA 2, Oeste DOS EUA 2 | Windows | 2 | 3.5 | 20 |
+| GPU SKUs | Contagem de GPU | CPU Máxima | Memória Máxima (GB) | Armazenamento (GB) |
+| --- | --- | --- | --- | --- |
+| K80 | 1 | 6 | 56 | 50 |
+| K80 | 2 | 12 | 112 | 50 |
+| K80 | 4 | 24 | 224 | 50 |
+| P100, V100 | 1 | 6 | 112 | 50 |
+| P100, V100 | 2 | 12 | 224 | 50 |
+| P100, V100 | 4 | 24 | 448 | 50 |
 
+## <a name="windows-container-groups"></a>Grupos de contentores windows
 
-## <a name="availability---virtual-network-deployment"></a>Disponibilidade - Implementação de rede virtual
+As seguintes regiões e recursos máximos estão disponíveis para grupos de contentores com recipientes [suportados e de pré-visualização](container-instances-faq.md#what-windows-base-os-images-are-supported) do Windows Server.
 
-As seguintes regiões e recursos máximos estão disponíveis para um grupo de contentores implantado numa [rede virtual Azure.](container-instances-vnet.md)
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
-
-## <a name="availability---gpu-resources-preview"></a>Disponibilidade - Recursos da GPU (pré-visualização)
-
-As seguintes regiões e recursos máximos estão disponíveis para um grupo de contentores implantado com [recursos gpu](container-instances-gpu.md) (pré-visualização).
-
-[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
-[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
+| Region | Windows Server 2016 Max CPU | Windows Server 2016 Max Memory (GB) | Windows Server 2019 LTSC Max CPU | Windows Server 2019 LTSC Max Memory (GB) | Armazenamento (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Leste da Austrália | 2 | 3.5 | 4 | 16 | 20 |
+| Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
+| Canadá Central | 2 | 3.5 | 4 | 16 | 20 |
+| Índia Central | 2 | 3.5 | 4 | 16 | 20 |
+| E.U.A. Central | 2 | 3.5 | 4 | 16 | 20 |
+| Ásia Leste | 2 | 3.5 | 4 | 16 | 20 |
+| E.U.A Leste | 2 | 8 | 4 | 16 | 20 |
+| E.U.A. Leste 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| França Central | 4 | 16 | 4 | 16 | 20 |
+| Leste do Japão | 4 | 16 | 4 | 16 | 20 |
+| Coreia do Sul Central | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Centro-Norte | 2 | 3.5 | 4 | 16 | 20 |
+| Europa do Norte | 2 | 3.5 | 4 | 16 | 20 |
+| E.U.A. Centro-Sul | 2 | 3.5 | 4 | 16 | 20 |
+| Sul da Índia | 2 | 3.5 | 4 | 16 | 20 |
+| Sudeste Asiático | 2 | 3.5 | 4 | 16 | 20 |
+| Sul do Reino Unido | 2 | 3.5 | 4 | 16 | 20 |
+| E.U.A. Centro-Oeste | 4 | 16 | 4 | 16 | 20 |
+| Europa Ocidental | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Oeste | 4 | 14 | N/D | N/D | 20 |
+| E.U.A. Oeste 2 | 2 | 3.5 | 2 | 3.5 | 20 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

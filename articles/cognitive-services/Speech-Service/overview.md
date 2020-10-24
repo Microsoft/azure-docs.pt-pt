@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b7b28c972dfb55bfdc4e5bb09c460fe71c92328e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489426"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521514"
 ---
 # <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
 
@@ -81,9 +81,21 @@ Para adicionar um recurso de serviço de discurso (nível gratuito ou pago) à s
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-Leva alguns momentos para implementar o seu novo recurso speech. Uma vez concluída a implementação, selecione **Vá para o recurso** e no painel de navegação esquerdo selecione Keys e **Endpoint** para exibir as teclas de subscrição do serviço De discurso e o identificador da região. Cada subscrição tem duas chaves; pode utilizar qualquer uma das chaves na sua aplicação. Para copiar/colar rapidamente uma chave para o seu editor de código ou outro local, selecione o botão de cópia ao lado de cada tecla, altere as janelas para colar o conteúdo da área de transferência para o local pretendido.
+Leva alguns momentos para implementar o seu novo recurso speech. 
 
-Além disso, copie o `LOCATION` valor que é o seu ID da região (ex. `westus`, `westeurope` ) para chamadas SDK.
+### <a name="find-keys-and-region"></a>Encontre chaves e região
+
+Para encontrar as chaves e a região de uma implantação concluída, siga estes passos:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta Microsoft.
+
+2. Selecione **Todos os recursos**e selecione o nome do seu recurso Serviços Cognitivos.
+
+3. No painel esquerdo, em **GESTÃO DE RECURSOS,** selecione **Keys e Endpoint**.
+
+Cada subscrição tem duas chaves; pode utilizar qualquer uma das chaves na sua aplicação. Para copiar/colar uma chave para o seu editor de código ou outro local, selecione o botão de cópia ao lado de cada tecla, altere as janelas para colar o conteúdo da área de transferência para o local pretendido.
+
+Além disso, copie o `LOCATION` valor, que é o seu ID da região (ex. `westus`, `westeurope` ) para chamadas SDK.
 
 > [!IMPORTANT]
 > Estas chaves de subscrição são usadas para aceder à sua API de Serviço Cognitivo. Não partilhem as chaves. Guarde-os de forma segura, por exemplo, utilizando o Cofre da Chave Azure. Recomendamos também a regeneração regular destas teclas. Apenas uma chave é necessária para fazer uma chamada da API. Ao regenerar a primeira chave, pode utilizar a segunda chave para o acesso continuado ao serviço.

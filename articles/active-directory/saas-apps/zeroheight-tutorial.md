@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: bcfd9e1b132ef47c83d028acf5e2bcb3fc637ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 678f35ffd6d37d8d2dd16665902ebf85d91b633b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369387"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521565"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zeroheight"></a>Tutorial: Azure Ative Directy integração única (SSO) com zeroheight
 
@@ -129,7 +129,7 @@ Para configurar um único sign-on on **zeroheight,** você precisa enviar o **Ur
 
 ### <a name="create-zeroheight-test-user"></a>Criar utilizador de teste zeroheight
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em zeroheight. Trabalhe com [a equipa de suporte zeroheight](mailto:support@zeroheight.com) para adicionar os utilizadores na plataforma zeroheight. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em zeroheight. Trabalhe com [a equipa de suporte zeroheight](mailto:support@zeroheight.com) para adicionar os utilizadores na plataforma zeroheight. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -139,9 +139,8 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 2. Vá diretamente para o URL de inscrição zero e inicie o fluxo de login a partir daí.
 
-3. Pode utilizar o Microsoft Access Panel. Quando clicar na telha zeroheight no Painel de Acesso, este irá redirecionar para URL de inscrição zero. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar na telha zeroheight no Painel de Acesso, este irá redirecionar para URL de inscrição zero. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Uma vez configurado zeroheight pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+Uma vez configurado zeroheight pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

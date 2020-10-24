@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,39 +8,39 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 14e74bfbcd087ccc1d8c5f2f10a8e44ed37cce84
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8eff9da82fdfa5749fd1c2bc04652d5c8ce8dfd2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016551"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518083"
 ---
-![Menu métricas](media/vm-disk-performance/utilization-metrics-example/fio-output.jpg)
+![Screenshot de f i o saída mostrando r=22.8k realçado.](media/vm-disk-performance/utilization-metrics-example/fio-output.jpg)
 
-No entanto, o Standard_D8s_v3 pode alcançar um total de 28.600 IOPs, usando as métricas permite investigar o que está acontecendo e identificar o nosso garigal de armazenamento IO estrangulamento. Primeiro, localize o menu do lado esquerdo do botão métrica e selecione-o:
+O Standard_D8s_v3 pode atingir um total de 28.600 IOPS. Usando as métricas, vamos investigar o que se passa e identificar o nosso engarrafamento de armazenamento. No painel esquerdo, selecione **Métricas:**
 
-![Menu métricas](media/vm-disk-performance/utilization-metrics-example/metrics-menu.jpg)
+![Screenshot mostrando métricas destacadas no painel esquerdo.](media/vm-disk-performance/utilization-metrics-example/metrics-menu.jpg)
 
 Vamos primeiro dar uma olhada na nossa métrica **VM Cached IOPS Consumido Percentual:**
 
-![VM Cached IOPS Percentagem consumida](media/vm-disk-performance/utilization-metrics-example/vm-cached.jpg)
+![Screenshot mostrando V M Cached I O P S Consumido Percentagem.](media/vm-disk-performance/utilization-metrics-example/vm-cached.jpg)
 
-Esta métrica está a dizer-nos que dos 16.000 IOPs atribuídos aos IOPs em cache no VM, 61% está a ser usado. Isto significa que o estrangulamento do IO de armazenamento não é com os discos que estão em cache porque não está a 100%. Então vamos agora dar uma olhada na nossa **métrica VM Uncached IOPS Consumido Percentual:**
+Esta métrica diz-nos que 61% dos 16.000 IOPS atribuídos ao IOPS em cache no VM estão a ser usados. Esta percentagem significa que o estrangulamento do IO de armazenamento não é com os discos que estão em cache porque não está a 100%. Agora vamos olhar para a nossa métrica **VM Uncached IOPS Consumido Percentual:**
 
-![VM IOPS EdvolvidoS Percentagem Consumida](media/vm-disk-performance/utilization-metrics-example/vm-uncached.jpg)
+![Screenshot mostrando V M Uncached I O P S Consumido Percentagem.](media/vm-disk-performance/utilization-metrics-example/vm-uncached.jpg)
 
-Esta métrica está a 100%, dizendo-nos que todos os 12.800 IOPs atribuídos aos IOPs não encatados no VM estão a ser usados. Uma forma de remediar isto é alterando o tamanho do nosso VM para um tamanho maior que pode lidar com o IO adicional. Mas antes de fazermos isso, vamos dar uma olhada no disco anexado para ver quantos IOPs estão a ver. Vamos primeiro dar uma olhada no disco oss, olhando para a percentagem consumida do **disco oss:**
+Esta métrica está a 100%. Diz-nos que todos os 12.800 IOPS atribuídos ao IOPS não encatado no VM estão a ser utilizados. Uma forma de remediar esta questão é mudar o tamanho do nosso VM para um tamanho maior que possa lidar com o OI adicional. Mas antes de fazermos isso, vamos olhar para o disco anexo para descobrir quantos IOPS estão a ver. Consulte o disco osso olhando para a **percentagem consumida do disco oss:**
 
-![Percentagem consumida em disco de OS](media/vm-disk-performance/utilization-metrics-example/os-disk.jpg)
+![Screenshot mostrando O S Disk I O P S Consumido Percentual.](media/vm-disk-performance/utilization-metrics-example/os-disk.jpg)
 
-Esta métrica diz-nos que dos 5.000 IOPs previstos para este disco P30 OS, cerca de 90% está a ser utilizado. Isto significa que não há estrangulamento aqui no disco os. Agora vamos dar uma olhada nos discos de dados que estão ligados ao VM, olhando para a **percentagem de IOPS consumido em disco de dados:**
+Esta métrica diz-nos que cerca de 90% dos 5.000 IOPS previstos para este disco P30 OS estão a ser usados. Esta percentagem significa que não há estrangulamento no disco de os. Agora vamos verificar os discos de dados que estão ligados ao VM olhando para a **percentagem de consumo de IOPS do disco de dados:**
 
-![Percentagem consumida em IOPS do disco de dados](media/vm-disk-performance/utilization-metrics-example/data-disks-no-splitting.jpg)
+![Screenshot mostrando data disk I O P S Consumido percentagem.](media/vm-disk-performance/utilization-metrics-example/data-disks-no-splitting.jpg)
 
-Esta métrica está a dizer-nos que a percentagem média de IOPs consumida em todos os discos ligados é de cerca de 42%. Esta percentagem é calculada com base nos IOPs que são utilizados pelos discos e não estão a ser servidos a partir da cache do anfitrião. Vamos aprofundar esta métrica para ver o através da aplicação de **divisão** nestas métricas e divisão pelo valor LUN:
+Esta métrica diz-nos que a percentagem média de IOPS consumida em todos os discos ligados é de cerca de 42%. Esta percentagem é calculada com base no IOPS que é usado pelos discos, e que não estão sendo servidos a partir da cache do hospedeiro. Vamos aprofundar esta métrica aplicando *a divisão* nestas métricas e dividindo-se pelo valor LUN:
 
-![IOPS de disco de dados consumido percentagem com divisão](media/vm-disk-performance/utilization-metrics-example/data-disks-splitting.jpg)
+![Screenshot mostrando data disk I O P S Consumeed Percentagem com divisão.](media/vm-disk-performance/utilization-metrics-example/data-disks-splitting.jpg)
 
-Esta métrica está a dizer-nos que os discos de dados ligados aos LUN 3 e 2 estão a utilizar cerca de 85% dos seus IOPs a provisionados. Aqui está um diagrama de como o IO está a olhar da arquitetura VM e Disks:
+Esta métrica diz-nos que os discos de dados ligados à LUN 3 e 2 estão a utilizar cerca de 85% do seu IOPS a provisionado. Aqui está um diagrama de como o IO se parece a partir da arquitetura VM e discos:
 
-![Diagnóstico de exemplo de métricas de IO de armazenamento](media/vm-disk-performance/utilization-metrics-example/metrics-diagram.jpg)
+![Diagrama de armazenamento I O exemplo métricas.](media/vm-disk-performance/utilization-metrics-example/metrics-diagram.jpg)

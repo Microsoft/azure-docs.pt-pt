@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b144d49daf9ab89a4553b93e3b36c9c2c8bef9ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946132"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521329"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Node.js)
 
@@ -214,7 +214,7 @@ Neste cenário, `Model Id: dtmi:com:example:Thermostat;1` produz.
     node twin.js
     ```
 
-1. Na saída do terminal de **serviço,** na secção de propriedades reportadas, vê-se a temperatura-alvo atualizada reportada. Pode demorar algum tempo até que o dispositivo termine a atualização. Repita este passo até que o dispositivo tenha processado a atualização da propriedade:
+1. Na saída do terminal **de serviço,** na `reported` secção de propriedades, vê-se a temperatura-alvo atualizada reportada. Pode demorar algum tempo até que o dispositivo termine a atualização. Repita este passo até que o dispositivo tenha processado a atualização da propriedade:
 
     ```json
     "reported": {
@@ -264,7 +264,7 @@ Neste cenário, `Model Id: dtmi:com:example:Thermostat;1` produz.
     Response to method 'getMaxMinReport' sent successfully.
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a uma solução IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 
