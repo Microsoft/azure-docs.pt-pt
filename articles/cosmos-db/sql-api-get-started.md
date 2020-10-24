@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278462"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480994"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Construa uma aplicação de consola .NET para gerir dados na conta AZure Cosmos DB SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Java assíncrono](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Java assíncrono](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -157,7 +157,7 @@ Parabéns! Ligaste-te com sucesso a uma conta DB da Azure Cosmos.
 
 ## <a name="step-4-create-a-database"></a>Passo 4: Criar uma base de dados
 
-As bases de dados são os contentores lógicos dos itens particionados em contentores. Ou o `CreateDatabaseIfNotExistsAsync` método ou método da classe `CreateDatabaseAsync` [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) pode criar uma base de dados.
+As bases de dados são os contentores lógicos dos itens particionados em contentores. Ou o `CreateDatabaseIfNotExistsAsync` método ou método da classe `CreateDatabaseAsync` [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) pode criar uma base de dados.
 
 1. Copie e cole o `CreateDatabaseAsync` método abaixo do seu `GetStartedDemoAsync` método.
 
@@ -345,7 +345,7 @@ Parabéns! Criou com sucesso dois itens da Azure Cosmos.
 
 ## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Passo 7: Consultar recursos do Azure Cosmos DB
 
-O Azure Cosmos DB suporta consultas extensas em documentos JSON armazenados em cada contentor. Para mais informações, consulte [Começar com consultas SQL.](sql-api-sql-query.md) O seguinte código de amostra mostra como executar uma consulta contra os itens que inserimos no passo anterior.
+O Azure Cosmos DB suporta consultas extensas em documentos JSON armazenados em cada contentor. Para mais informações, consulte [Começar com consultas SQL.](./sql-query-getting-started.md) O seguinte código de amostra mostra como executar uma consulta contra os itens que inserimos no passo anterior.
 
 1. Copie e cole o `QueryItemsAsync` método após o seu `AddItemsToContainerAsync` método.
 
@@ -497,8 +497,8 @@ Para restaurar as referências ao Azure Cosmos DB .NET SDK no Visual Studio, cli
 
 * Quer um tutorial ASP.NET MVC mais complexo? Ver [Tutorial: Desenvolver uma aplicação web core MVC ASP.NET com a Azure Cosmos DB utilizando .NET SDK](sql-api-dotnet-application.md).
 * Quer fazer testes de escala e desempenho com a Azure Cosmos DB? Ver [Testes de desempenho e escala com Azure Cosmos DB](performance-testing.md).
-* Para aprender a monitorizar os pedidos, utilização e armazenamento da Azure Cosmos, consulte [as métricas de desempenho e armazenamento do Monitor em Azure Cosmos DB](monitor-accounts.md).
+* Para aprender a monitorizar os pedidos, utilização e armazenamento da Azure Cosmos, consulte [as métricas de desempenho e armazenamento do Monitor em Azure Cosmos DB](./monitor-cosmos-db.md).
 * Para executar consultas contra o nosso conjunto de dados de amostra, consulte o [Parque Desíduo de Consulta.](https://www.documentdb.com/sql/demo)
-* Para saber mais sobre o Azure Cosmos DB, veja [Bem-vindo ao Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
+* Para saber mais sobre o Azure Cosmos DB, veja [Bem-vindo ao Azure Cosmos DB](./introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

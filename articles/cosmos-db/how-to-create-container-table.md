@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: ccda92f094d28b27e48de689c3b39c4f8a9bfaa3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284638"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491143"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Criar um recipiente em Azure Cosmos DB Table API
 
@@ -54,5 +54,4 @@ Este artigo explica as diferentes formas de criar um recipiente na Azure Cosmos 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
 * [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
-* [Trabalhar com uma conta do Azure Cosmos](account-overview.md)
-
+* [Trabalhar com uma conta do Azure Cosmos](./account-databases-containers-items.md)

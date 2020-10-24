@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbf2893896b7258115ed3f59224caef9cf843b1f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282557"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481521"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos .NET para a API do SQL
 
@@ -90,7 +90,7 @@ O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/bl
 | [Ler documento apenas se este for alterado](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
-O método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) do projeto *IndexManagement* da amostra mostra como fazer as seguintes tarefas. Para saber mais sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte as políticas de [índice,](index-policy.md) [os tipos de índices](index-types.md)e [os caminhos de índice](index-paths.md). 
+O método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) do projeto *IndexManagement* da amostra mostra como fazer as seguintes tarefas. Para saber mais sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte as políticas de [índice,](index-policy.md) [os tipos de índices](index-overview.md#index-kinds)e [os caminhos de índice](index-policy.md#include-exclude-paths). 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -102,7 +102,7 @@ O método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/m
 | [Realizar uma transformação de índice](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L318-L370) |[ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync) |
 
 ## <a name="geospatial-examples"></a>Exemplos geoespaciais
-O método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) do projeto *Geoespacial* da amostra mostra como fazer as seguintes tarefas.  Para saber mais sobre geoJSON e dados geoespacial antes de executar as [seguintes amostras, consulte os dados de localização geoespaciais e geojson](geospatial.md). 
+O método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) do projeto *Geoespacial* da amostra mostra como fazer as seguintes tarefas.  Para saber mais sobre geoJSON e dados geoespacial antes de executar as [seguintes amostras, consulte os dados de localização geoespaciais e geojson](./sql-query-geospatial-intro.md). 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -114,7 +114,7 @@ O método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/m
 | [Validar dados de ponto e polígono](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br>[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br>[GeometryOperationExtensions.IsValid](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br>[GeometryOperationExtensions.IsValidDetailed](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 
 ## <a name="query-examples"></a>Exemplos de consultas
-O método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) do projeto *de consultas* de amostra mostra como fazer as seguintes tarefas usando a gramática de consulta SQL, o provedor LINQ com consulta, e Lambda. Para saber mais sobre a referência de consulta SQL em Azure Cosmos DB antes de executar as [seguintes amostras, consulte exemplos de consulta SQL para Azure Cosmos DB](how-to-sql-query.md). 
+O método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) do projeto *de consultas* de amostra mostra como fazer as seguintes tarefas usando a gramática de consulta SQL, o provedor LINQ com consulta, e Lambda. Para saber mais sobre a referência de consulta SQL em Azure Cosmos DB antes de executar as [seguintes amostras, consulte exemplos de consulta SQL para Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -164,4 +164,3 @@ O método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/m
 | [Criar um utilizador](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L93) |[DocumentClient.CreateUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserasync) |
 | [Definir permissões numa coleção ou documento](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L97) |[DocumentClient.CreatePermissionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createpermissionasync) |
 | [Obter uma lista de permissões de um utilizador](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L241) |[DocumentClient.ReadUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readuserasync)<br>[DocumentClient.ReadPermissionFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpermissionfeedasync) |
-

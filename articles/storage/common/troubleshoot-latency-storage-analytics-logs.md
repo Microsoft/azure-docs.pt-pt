@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075946"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480654"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Resolver problemas de latência com os registos da Análise de Armazenamento
 
@@ -27,7 +27,7 @@ Os seguintes passos demonstram como identificar e resolver problemas de latênci
 
 ## <a name="recommended-steps"></a>Passos recomendados
 
-1. Descarregue os [registos Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Descarregue os [registos Storage Analytics](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
 2. Utilize o seguinte script PowerShell para converter os registos de formato bruto em formato tabular:
 
@@ -99,10 +99,10 @@ Os seguintes passos demonstram como identificar e resolver problemas de latênci
 
    | Tipo Blob |PedidoStatus=<br>Success|PedidoStatus=<br>(SAS) NetworkError|Recomendação|
    |---|---|---|---|
-   |GetBlob|Sim|Não|[**Operação GetBlob:** RequestStatus = Sucesso](#getblob-operation-requeststatus--success)|
-   |GetBlob|Não|Sim|[**Operação GetBlob:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|Sim|Não|[**Colocar operação:** RequestStatus = Sucesso](#put-operation-requeststatus--success)|
-   |PutBlob|Não|Sim|[**Colocar operação:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Yes|No|[**Operação GetBlob:** RequestStatus = Sucesso](#getblob-operation-requeststatus--success)|
+   |GetBlob|No|Yes|[**Operação GetBlob:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Yes|No|[**Colocar operação:** RequestStatus = Sucesso](#put-operation-requeststatus--success)|
+   |PutBlob|No|Yes|[**Colocar operação:** RequestStatus = (SAS)NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Resultados do estado
 

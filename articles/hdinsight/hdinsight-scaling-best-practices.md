@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505017"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490973"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Clusters Azure HDInsight
 
@@ -34,7 +34,7 @@ A Microsoft fornece os seguintes utilitários para dimensionar os clusters:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[CLI do Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[CLI Clássica do Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Portal do Azure](https://portal.azure.com)|Abra o painel de agrupamento HDInsight, selecione o tamanho do **Cluster** no menu da esquerda, depois na vidraça do tamanho do Cluster, escreva o número de nós de trabalhador e selecione Save.|  
 
@@ -43,8 +43,8 @@ A Microsoft fornece os seguintes utilitários para dimensionar os clusters:
 Utilizando qualquer um destes métodos, pode escalar o seu cluster HDInsight para cima ou para baixo em minutos.
 
 > [!IMPORTANT]  
-> * O CLI clássico do Azure é prectado e só deve ser usado com o modelo de implementação clássico. Para todas as outras missões, utilize o [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * O módulo PowerShell AzureRM está precotado.  Por favor, utilize o [módulo Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) sempre que possível.
+> * O CLI clássico do Azure é prectado e só deve ser usado com o modelo de implementação clássico. Para todas as outras missões, utilize o [CLI Azure](/cli/azure/).
+> * O módulo PowerShell AzureRM está precotado.  Por favor, utilize o [módulo Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sempre que possível.
 
 ## <a name="impact-of-scaling-operations"></a>Impacto das operações de escala
 

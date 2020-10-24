@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013066"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480688"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Use geo-redundância para projetar aplicações altamente disponíveis
 
@@ -146,7 +146,7 @@ Outra consideração é como lidar com vários casos de uma aplicação, e o que
 
 Tem três opções principais para monitorizar a frequência de retração na região primária, a fim de determinar quando mudar para a região secundária e alterar a aplicação para funcionar apenas em modo de leitura.
 
-* Adicione um manipulador para o evento [**de Retripação**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) no objeto [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que transmite aos seus pedidos de armazenamento – este é o método apresentado neste artigo e utilizado na amostra que o acompanha. Estes eventos disparam sempre que o cliente re-tenta um pedido, permitindo-lhe rastrear a frequência com que o cliente encontra erros retripáveis num ponto final primário.
+* Adicione um manipulador para o evento [**de Retripação**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) no objeto [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) que transmite aos seus pedidos de armazenamento – este é o método apresentado neste artigo e utilizado na amostra que o acompanha. Estes eventos disparam sempre que o cliente re-tenta um pedido, permitindo-lhe rastrear a frequência com que o cliente encontra erros retripáveis num ponto final primário.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -157,7 +157,7 @@ Tem três opções principais para monitorizar a frequência de retração na re
     };
     ```
 
-* No método [**Avaliar**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) numa política de relícola personalizada, pode executar código personalizado sempre que ocorrer uma nova volta. Além de gravar quando uma nova tentou acontecer, isso também lhe dá a oportunidade de modificar o seu comportamento de relemgar.
+* No método [**Avaliar**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) numa política de relícola personalizada, pode executar código personalizado sempre que ocorrer uma nova volta. Além de gravar quando uma nova tentou acontecer, isso também lhe dá a oportunidade de modificar o seu comportamento de relemgar.
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,

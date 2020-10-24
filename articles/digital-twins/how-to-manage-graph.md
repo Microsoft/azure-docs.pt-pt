@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458115"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495762"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -221,6 +221,8 @@ await DeleteRelationship(client, srcId, relId);
 
 O seguinte código runnable snippet usa as operações de relacionamento deste artigo para criar um gráfico gémeo a partir de gémeos digitais e relacionamentos.
 
+### <a name="set-up-the-runnable-sample"></a>Configurar a amostra runnable
+
 O snippet usa o [*Room.jse*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) [*Floor.jsem*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) definições de modelo a partir de [*Tutorial: Explore Azure Digital Twins com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Pode utilizar estes links para ir diretamente aos ficheiros ou descarregá-los como parte do projeto de amostra completa de ponta a [ponta aqui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Antes de executar a amostra, faça o seguinte:
@@ -232,7 +234,12 @@ Antes de executar a amostra, faça o seguinte:
     dotnet add package Azure.identity
     ```
 
-Então, executar a amostra.
+Também terá de configurar credenciais locais se quiser executar a amostra diretamente. A próxima secção passa por isto.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Executar o exemplo
+
+Depois de completar os passos acima, pode executar diretamente o seguinte código de amostra.
 
 ```csharp 
 using System;

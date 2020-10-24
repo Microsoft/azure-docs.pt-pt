@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331588"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488984"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -92,7 +92,6 @@ Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua p
 - Configure o IP ACLing para que os seus backends aceitem o tráfego do espaço ip de backend da Azure Front Door e apenas os serviços de infraestrutura do Azure. Consulte os detalhes ip abaixo para ACLing o seu backend:
  
     - Consulte a secção *AzureFrontDoor.Backend* em [Gamas IP Azure e Tags](https://www.microsoft.com/download/details.aspx?id=56519) de Serviço para a gama de endereços IP de backend IPv4 da porta frontal ou também pode utilizar a etiqueta de serviço *AzureFrontDoor.Backend* nos seus [grupos de segurança de rede.](../virtual-network/network-security-groups-overview.md#security-rules)
-    - O espaço IP de backend **IPv6** da Porta da Frente, enquanto coberto pela etiqueta de serviço, não está listado no ficheiro JSON das gamas IP Azure. Se estiver à procura de uma gama explícita de endereços IPv6, atualmente está limitada a `2a01:111:2050::/44`
     - Os [serviços básicos de infraestrutura](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) do Azure através de endereços IP de hospedeiros virtualizados: `168.63.129.16``169.254.169.254`
 
     > [!WARNING]

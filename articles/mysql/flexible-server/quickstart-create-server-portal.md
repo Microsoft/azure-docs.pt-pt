@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/29/2020
-ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/22/2020
+ms.openlocfilehash: 646506eb347970dadd2a5b2fa6527e5d8bd879ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569621"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481397"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Quickstart: Use o portal Azure para criar uma base de dados Azure para o MySQL Flexible Server
 
@@ -32,19 +32,19 @@ Cria-se um servidor flexível com um conjunto definido de recursos de [computaç
 
 Siga estes passos para criar um servidor flexível:
 
-1. **Selecione Criar um recurso** (+) no canto superior esquerdo do portal.
+1. Procure "Azure Database for MySQL" no portal utilizando a caixa de pesquisa para encontrar o serviço. 
+    
+    > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Pesquisa rumo à Base de Dados Azure para o MySQL":::
 
-2. Selecione **Base de Dados**  >  **Azure Databases para o MySQL**. Também pode inserir **o MySQL** na caixa de pesquisa para encontrar o serviço.
+2. Selecione **Adicionar**. 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Base de Dados do Azure para opção MySQL":::
-
-3. Selecione **o servidor flexível** como opção de implementação.
+3. Na página "Selecione a página de opção de implementação", selecione **o servidor Flexível** como opção de implementação.
      
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Base de Dados do Azure para opção MySQL":::    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Pesquisa rumo à Base de Dados Azure para o MySQL":::    
 
 4. Preencha o formulário Básico com as **seguintes** informações: 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Base de Dados do Azure para opção MySQL"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Pesquisa rumo à Base de Dados Azure para o MySQL"::: 
                                     
     |**Definição**|**Valor Sugerido**|**Descrição**|
     |---|---|---|
@@ -57,7 +57,7 @@ Siga estes passos para criar um servidor flexível:
     Versão|5.7| Versão principal do MySQL.|
     Computação e armazenamento | **Burstable**, **Standard_B1ms**, **10 GiB,** **7 dias** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o servidor Configurar**. *Burstable*, *Standard_B1ms*, *10 GiB*, e *7 dias* são os valores padrão para     **o nível computo,** **tamanho computo,** **armazenamento**e período **de retenção de backup**. Pode deixar os sliders como está ou ajustá-los. Para guardar esta seleção de cálculo e armazenamento, **selecione Guardar** para continuar com as configurações. A imagem abaixo mostra as opções de cálculo e armazenamento.|
     
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Base de Dados do Azure para opção MySQL":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Pesquisa rumo à Base de Dados Azure para o MySQL":::
 
 5. Opções de rede de configuração
 
@@ -66,7 +66,7 @@ Siga estes passos para criar um servidor flexível:
     > [!NOTE]
     > O método de conectividade não pode ser alterado após a criação do servidor. Por exemplo, se selecionou *acesso público (endereços IP permitidos)* durante a criação, então não poderá alterar para *acesso privado (Integração VNet)* após a criação. Recomendamos vivamente a criação de um servidor com acesso privado para aceder de forma segura ao seu servidor utilizando a Integração VNet. Saiba mais sobre o acesso privado no [artigo de conceitos.](./concepts-networking.md)
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Base de Dados do Azure para opção MySQL":::  
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Pesquisa rumo à Base de Dados Azure para o MySQL":::  
 
 6. Selecione **Review + crie** para rever a configuração flexível do servidor.
 
@@ -92,7 +92,7 @@ Com mysql.exe, conecte-se utilizando o comando abaixo. Substitua os valores pelo
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Criou com sucesso uma Base de Dados Azure para o MySQL Flexible Server num grupo de recursos.  Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos ou simplesmente eliminar o servidor MySQL. Para eliminar o grupo de recursos, siga estes passos:
 
 1. No portal Azure, procure e selecione **grupos de Recursos.**
@@ -103,7 +103,7 @@ Criou com sucesso uma Base de Dados Azure para o MySQL Flexible Server num grupo
 Para eliminar o servidor, pode clicar no botão **Eliminar** na página **de visão geral** do seu servidor, tal como mostrado abaixo:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Base de Dados do Azure para opção MySQL":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Pesquisa rumo à Base de Dados Azure para o MySQL":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

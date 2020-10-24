@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 699bdeb34d4a7134cd9fc4938427a2bd813069fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3ee4036a605e74ff43b3951b41ee3b4d1325004d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282625"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482048"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-api"></a>Criar uma base de dados e um recipiente para Azure Cosmos DB - SQL API
 
@@ -41,20 +41,20 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 |**BD do Cosmos para o Azure**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta De Cosmos DB. |
-| [New-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Cria uma Base de Dados DE DB SQL cosmos. |
-| [New-AzCosmosDBSqlUniqueKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekey) | Cria um objeto PSSqlUniqueKey usado como parâmetro para New-AzCosmosDBSqlUniqueKeyPolicy. |
-| [New-AzCosmosDBSqlUniqueKeyPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekeypolicy) | Cria um objeto PSSqlUniqueKeyPolicy usado como parâmetro para New-AzCosmosDBSqlContainer. |
-| [New-AzCosmosDBSqlCompositePath](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcompositepath) | Cria um objeto PSCompositePath usado como parâmetro para New-AzCosmosDBSqlIndexingPolicy. |
-| [New-AzCosmosDBSqlIncludedPathIndex](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpathindex) | Cria um objeto PSIndexes usado como parâmetro para New-AzCosmosDBSqlIncludedPath. |
-| [New-AzCosmosDBSqlIncludedPath](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpath) | Cria um objeto PSIncludedPath usado como parâmetro para New-AzCosmosDBSqlIndexingPolicy. |
-| [Nova-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Cria um objeto PSSqlIndexingPolicy usado como parâmetro para New-AzCosmosDBSqlContainer. |
-| [Nova-AzCosmosDBSqlConflictResolutionPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlconflictresolutionpolicy) | Cria um objeto PSSqlConflictResolutionPolicy usado como parâmetro para New-AzCosmosDBSqlContainer. |
-| [New-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | Cria um novo recipiente Cosmos DB SQL. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta De Cosmos DB. |
+| [New-AzCosmosDBSqlDatabase](/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Cria uma Base de Dados DE DB SQL cosmos. |
+| [New-AzCosmosDBSqlUniqueKey](/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekey) | Cria um objeto PSSqlUniqueKey usado como parâmetro para New-AzCosmosDBSqlUniqueKeyPolicy. |
+| [New-AzCosmosDBSqlUniqueKeyPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekeypolicy) | Cria um objeto PSSqlUniqueKeyPolicy usado como parâmetro para New-AzCosmosDBSqlContainer. |
+| [New-AzCosmosDBSqlCompositePath](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcompositepath) | Cria um objeto PSCompositePath usado como parâmetro para New-AzCosmosDBSqlIndexingPolicy. |
+| [New-AzCosmosDBSqlIncludedPathIndex](/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpathindex) | Cria um objeto PSIndexes usado como parâmetro para New-AzCosmosDBSqlIncludedPath. |
+| [New-AzCosmosDBSqlIncludedPath](/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpath) | Cria um objeto PSIncludedPath usado como parâmetro para New-AzCosmosDBSqlIndexingPolicy. |
+| [Nova-AzCosmosDBSqlIndexingPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Cria um objeto PSSqlIndexingPolicy usado como parâmetro para New-AzCosmosDBSqlContainer. |
+| [Nova-AzCosmosDBSqlConflictResolutionPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqlconflictresolutionpolicy) | Cria um objeto PSSqlConflictResolutionPolicy usado como parâmetro para New-AzCosmosDBSqlContainer. |
+| [New-AzCosmosDBSqlContainer](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | Cria um novo recipiente Cosmos DB SQL. |
 |**Grupos de Recursos Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).

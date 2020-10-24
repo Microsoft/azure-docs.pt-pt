@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409770"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490633"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
 
@@ -37,7 +37,7 @@ Uma solução de base de dados de gráficos pode ser aplicada da melhor forma se
 
 Se os critérios acima referidos forem satisfeitos, é provável que uma abordagem de base de dados de gráficos proporcione vantagens para **a complexidade da consulta,** **escalabilidade do modelo de dados**e **desempenho de consulta**.
 
-O próximo passo é determinar se o gráfico vai ser usado para fins analíticos ou transacionais. Se o gráfico se destinar a ser utilizado para trabalhos pesados de cálculo e processamento de dados, valeria a pena explorar o [conector Cosmos DB Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector) e a utilização da [biblioteca GraphX](https://spark.apache.org/graphx/). 
+O próximo passo é determinar se o gráfico vai ser usado para fins analíticos ou transacionais. Se o gráfico se destinar a ser utilizado para trabalhos pesados de cálculo e processamento de dados, valeria a pena explorar o [conector Cosmos DB Spark](./spark-connector.md) e a utilização da [biblioteca GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Como usar objetos gráficos
 
@@ -47,12 +47,12 @@ Seguem-se as melhores práticas para as propriedades nos objetos gráficos:
 
 | Objeto | Propriedade | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Vértex | ID | Cadeia | Exclusivamente aplicada por divisória. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
-| Vértex | etiqueta | Cadeia | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
+| Vértex | ID | String | Exclusivamente aplicada por divisória. Se um valor não for fornecido após a inserção, será armazenado um GUID gerado automaticamente. |
+| Vértex | etiqueta | String | Esta propriedade é usada para definir o tipo de entidade que o vértice representa. Se um valor não for fornecido, será utilizado um "vértice" de valor predefinido. |
 | Vértex | propriedades | String, Boolean, Numérico | Uma lista de propriedades separadas armazenadas como pares de valor-chave em cada vértice. |
 | Vértex | chave de partição | String, Boolean, Numérico | Esta propriedade define onde o vértice e as suas bordas de saída serão armazenados. Leia mais sobre [a partição de gráficos.](graph-partitioning.md) |
-| Microsoft Edge | ID | Cadeia | Exclusivamente aplicada por divisória. Gerado automaticamente por defeito. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
-| Microsoft Edge | etiqueta | Cadeia | Esta propriedade é usada para definir o tipo de relacionamento que dois vértices têm. |
+| Microsoft Edge | ID | String | Exclusivamente aplicada por divisória. Gerado automaticamente por defeito. As bordas geralmente não têm a necessidade de ser recuperadas exclusivamente por um ID. |
+| Microsoft Edge | etiqueta | String | Esta propriedade é usada para definir o tipo de relacionamento que dois vértices têm. |
 | Microsoft Edge | propriedades | String, Boolean, Numérico | Uma lista de propriedades separadas armazenadas como pares de valores-chave em cada borda. |
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461328"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494783"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -381,6 +381,8 @@ Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a 
 
 Pode utilizar a amostra de código runable abaixo para criar um gémeo, atualizar os seus dados e eliminar o gémeo. 
 
+### <a name="set-up-the-runnable-sample"></a>Configurar a amostra runnable
+
 O snippet usa o [Room.jsna](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) definição de modelo a partir de [*Tutorial: Explore Azure Digital Twins com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Pode utilizar este link para ir diretamente ao ficheiro ou descarregá-lo como parte do projeto de amostra completa de ponta a [ponta aqui](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Antes de executar a amostra, faça o seguinte:
@@ -392,7 +394,12 @@ Antes de executar a amostra, faça o seguinte:
     dotnet add package Azure.identity
     ```
 
-Então, executar a amostra.
+Também terá de configurar credenciais locais se quiser executar a amostra diretamente. A próxima secção passa por isto.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Executar o exemplo
+
+Depois de completar os passos acima, pode executar diretamente o seguinte código de amostra.
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ Aqui está a saída da consola do programa acima:
 ## <a name="manage-twins-with-cli"></a>Gerir gémeos com CLI
 
 Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [_How-to: Use o Azure Digital Twins CLI*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>Ver todos os gémeos digitais
 

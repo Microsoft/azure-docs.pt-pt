@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511726"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481334"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure com o portal do Azure
 
@@ -331,7 +331,7 @@ Siga estes passos para ver os seus papéis personalizados.
 
 1. Clique na elipse **(...**) para obter o papel personalizado que pretende eliminar e, em seguida, clique em **Eliminar**.
 
-    ![Menu de função personalizado](./media/custom-roles-portal/delete-menu.png)
+    ![Screenshot que mostra uma lista de funções personalizadas que podem ser selecionadas para eliminação.](./media/custom-roles-portal/delete-menu.png)
 
     Pode levar alguns minutos para que o seu papel personalizado seja completamente apagado.
 

@@ -1,14 +1,14 @@
 ---
 title: Ativar a extensão VM utilizando o modelo do Gestor de Recursos Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a executar em ambientes de nuvem híbrida usando um modelo de Gestor de Recursos Azure.
-ms.date: 10/15/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 23cb1e85b9560b7033dc5bdce672ee8718ed326b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 935fa38fbb98622f2da7d2ce9e1d166b12a32e44
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462937"
+ms.locfileid: "92491211"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Ativar extensões de VM Azure utilizando o modelo ARM
 
@@ -135,9 +135,9 @@ Guarde o modelo e os ficheiros de parâmetros para o disco e edite o ficheiro de
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
 ```
 
-## <a name="deploy-the-custom-script-extension"></a>Implementar a extensão de script personalizado
+## <a name="deploy-the-custom-script-extension"></a>Implementar a extensão de Script Personalizado
 
-Para utilizar a extensão de script personalizada, a amostra a seguir é fornecida para ser executada no Windows e Linux. Se não estiver familiarizado com a extensão do Script Personalizado, consulte a [extensão do Script Personalizado para Windows](../../virtual-machines/extensions/custom-script-windows.md) ou [extensão de script personalizada para Linux](../../virtual-machines/extensions/custom-script-linux.md). Existem algumas características diferentes que deve entender ao utilizar esta extensão com máquinas híbridas:
+Para utilizar a extensão de Script Personalizado, é fornecida a seguinte amostra para ser executada no Windows e Linux. Se não estiver familiarizado com a extensão do Script Personalizado, consulte a [extensão do Script Personalizado para Windows](../../virtual-machines/extensions/custom-script-windows.md) ou [extensão de script personalizado para Linux](../../virtual-machines/extensions/custom-script-linux.md). Existem algumas características diferentes que deve entender ao utilizar esta extensão com máquinas híbridas:
 
 * A lista de sistemas operativos suportados com a extensão Azure VM Custom Script não é aplicável aos servidores ativados do Azure Arc. A lista de OSs suportados para servidores ativados pelo Arco pode ser encontrada [aqui](agent-overview.md#supported-operating-systems).
 
@@ -145,7 +145,7 @@ Para utilizar a extensão de script personalizada, a amostra a seguir é forneci
 
 * Se as suas máquinas precisarem de descarregar um script externamente e só puderem comunicar através de um servidor proxy, é necessário [configurar o agente 'Máquina Conectada'](manage-agent.md#update-or-remove-proxy-settings) para definir a variável ambiental do servidor proxy.
 
-A configuração de extensão de script personalizado especifica coisas como a localização do script e o comando a ser executado. Esta configuração é especificada num modelo Azure Resource Manager, fornecido abaixo tanto para máquinas híbridas Linux como para Windows.
+A configuração de extensão do Script Personalizado especifica coisas como a localização do script e o comando a ser executado. Esta configuração é especificada num modelo Azure Resource Manager, fornecido abaixo tanto para máquinas híbridas Linux como para Windows.
 
 ### <a name="template-file-for-linux"></a>Arquivo de modelo para Linux
 
@@ -291,9 +291,9 @@ A configuração de extensão de script personalizado especifica coisas como a l
 }
 ```
 
-## <a name="deploy-the-powershell-dsc-extension"></a>Implementar a extensão DSC powerShell
+## <a name="deploy-the-powershell-dsc-extension"></a>Implementar a extensão DSC PowerShell
 
-Para utilizar a extensão DSC powerShell, é fornecida a seguinte amostra para funcionar no Windows e Linux. Se não estiver familiarizado com a extensão DSC powerShell, consulte a [visão geral do controlador de extensão DSC](../../virtual-machines/extensions/dsc-overview.md). Existem algumas características diferentes que deve entender ao utilizar esta extensão com máquinas híbridas:
+Para utilizar a extensão DSC PowerShell, é fornecida a seguinte amostra para funcionar no Windows e Linux. Se não estiver familiarizado com a extensão DSC powerShell, consulte a [visão geral do controlador de extensão DSC](../../virtual-machines/extensions/dsc-overview.md). Existem algumas características diferentes que deve entender ao utilizar esta extensão com máquinas híbridas:
 
 * A lista de sistemas operativos suportados com a extensão DSC Azure VM PowerShell não é aplicável aos servidores ativados do Azure Arc. A lista de OSs suportados para servidores ativados pelo Arco pode ser encontrada [aqui](agent-overview.md#supported-operating-systems).
 
@@ -543,7 +543,7 @@ Para utilizar a extensão DSC powerShell, é fornecida a seguinte amostra para f
 }
 ```
 
-## <a name="deploy-the-dependency-agent"></a>Implementar o agente de dependência
+## <a name="deploy-the-dependency-agent-extension"></a>Implementar a extensão do agente de dependência
 
 Para utilizar a extensão do agente Azure Monitor Dependency, é fornecida a seguinte amostra para funcionar no Windows e Linux. Se não estiver familiarizado com o agente de dependência, consulte [a visão geral dos agentes do Monitor Azure](../../azure-monitor/platform/agents-overview.md#dependency-agent).
 

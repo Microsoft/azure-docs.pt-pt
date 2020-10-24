@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489409"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495832"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -283,7 +283,7 @@ Não. Os espaços de endereço não devem sobrepor-se para ativar o VNet Peering
 Não há qualquer custo para criar uma ligação de espreitamento VNet. A transferência de dados através de ligações de espreitária é cobrada. [Veja aqui.](https://azure.microsoft.com/pricing/details/virtual-network/)
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>O tráfego de observação da VNet está encriptado?
-Quando o tráfego de observação de Vnet se move entre datacenters-- fora dos limites físicos não controlados por (ou em nome da Microsoft -- a encriptação da [camada de ligação de dados MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) é utilizada no hardware de rede subjacente.
+Quando o tráfego Azure se move entre datacenters (limites físicos externos não controlados pela Microsoft ou em nome da Microsoft), a encriptação da [camada de ligação de dados MACsec](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) é utilizada no hardware de rede subjacente.  Isto é aplicável ao tráfego de observação VNet.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Porque é que a minha ligação de espreitar está num estado *desligado?*
 As ligações de observação VNet entram em estado *de desconexão* quando um link de observação VNet é eliminado. Tem de eliminar ambas as ligações para restabelecer uma ligação de observação bem sucedida.

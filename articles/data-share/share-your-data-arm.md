@@ -1,22 +1,22 @@
 ---
 title: Partilhe fora do seu org (modelo ARM) - Azure Data Share quickstart
-description: Saiba como partilhar dados com clientes e parceiros utilizando o modelo Azure Data Share e Resource Manager neste arranque rápido.
+description: Saiba como partilhar dados com clientes e parceiros usando a Azure Data Share e um modelo de Gestor de Recursos Azure (modelo ARM) neste arranque rápido.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146147"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487692"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Quickstart: Partilhar dados utilizando modelos de partilha de dados e gestor de recursos do Azure
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Quickstart: Partilhar dados usando o modelo Azure Data Share e ARM
 
-Saiba como configurar uma nova Azure Data Share a partir de uma conta de armazenamento Azure utilizando o modelo Azure Resource Manager e comece a partilhar os seus dados com clientes e parceiros fora da sua organização Azure. Para obter uma lista das lojas de dados suportadas, consulte [as lojas de dados suportadas no Azure Data Share](./supported-data-stores.md).
+Saiba como configurar uma nova partilha de dados Azure a partir de uma conta de armazenamento Azure utilizando um modelo de Gestor de Recursos Azure (modelo ARM). E, comece a partilhar os seus dados com clientes e parceiros fora da sua organização Azure. Para obter uma lista das lojas de dados suportadas, consulte [as lojas de dados suportadas no Azure Data Share](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,12 +38,12 @@ Os seguintes recursos são definidos no modelo:
 
 * [Microsoft.Storage/storageAcontas:](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft.Storage/storageAcontas/blobServices/contentores](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.DataShare/contas](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft.DataShare/contas/ações](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAconselhos/fornecedores/funAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/contas](/rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/contas/ações](/rest/api/datashare/shares/create)
-* [Microsoft.DataShare/contas/ações/dataSets](/rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/contas/ações/convites](/rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/contas/ações/sincronizaçõesS](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.DataShare/contas/ações/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/contas/ações/convites](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft.DataShare/contas/ações/sincronizaçõesS](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 O modelo executa as seguintes tarefas:
 
@@ -56,11 +56,11 @@ O modelo executa as seguintes tarefas:
 
 Este modelo é criado para fins de aprendizagem. Na prática, normalmente tem alguns dados numa conta de armazenamento existente. Você precisaria de criar a atribuição de funções antes de executar um modelo ou um script para criar o conjunto de dados. Por vezes, pode receber a seguinte mensagem de erro quando implementar o modelo:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-É porque a implementação está a tentar criar o conjunto de dados antes da atribuição de funções Azure ser finalizada. Apesar da mensagem de erro, a implementação pode ser bem sucedida.  Você ainda seria capaz de andar através [de recursos implantados da Revisão.](#review-deployed-resources)
+É porque a implementação está a tentar criar o conjunto de dados antes da atribuição de funções do Azure ser finalizada. Apesar da mensagem de erro, a implementação pode ser bem sucedida. Você ainda seria capaz de andar através [de recursos implantados da Revisão.](#review-deployed-resources)
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -89,7 +89,7 @@ Este modelo é criado para fins de aprendizagem. Na prática, normalmente tem al
     ![Definições de sincronização de conta de armazenamento de partilha de dados Azure](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Selecione **Convites** a partir do topo. Verá o endereço de e-mail especificado quando implementar o modelo. O **Estatuto** deve estar **pendente.**
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

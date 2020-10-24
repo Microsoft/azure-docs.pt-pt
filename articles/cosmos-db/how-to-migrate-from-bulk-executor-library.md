@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62a31750fe0c058624c4f69848abb56e7b5095b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022484"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491024"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrar da biblioteca de executor a granel para o suporte a granel em Azure Cosmos DB .NET V3 SDK
 
@@ -20,13 +20,13 @@ Este artigo descreve as etapas necessárias para migrar o código de uma aplica�
 
 ## <a name="enable-bulk-support"></a>Permitir o suporte a granel
 
-Ativar o suporte a granel no `CosmosClient` caso através da configuração [AllowBulkExecution:](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution)
+Ativar o suporte a granel no `CosmosClient` caso através da configuração [AllowBulkExecution:](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution)
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
 ## <a name="create-tasks-for-each-operation"></a>Criar Tarefas para cada operação
 
-Suporte a granel nas obras .NET SDK aproveitando a [Biblioteca Paralela de Tarefa](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) e operações de agrupamento que ocorrem simultaneamente. 
+Suporte a granel nas obras .NET SDK aproveitando a [Biblioteca Paralela de Tarefa](/dotnet/standard/parallel-programming/task-parallel-library-tpl) e operações de agrupamento que ocorrem simultaneamente. 
 
 Não existe um único método no SDK que leve a sua lista de documentos ou operações como parâmetro de entrada, mas, pelo contrário, precisa de criar uma Tarefa para cada operação que pretende executar a granel e, em seguida, simplesmente esperar que eles completem.
 
@@ -38,11 +38,11 @@ Se pretender fazer importações a granel (semelhantes à utilização do BulkEx
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Se pretender fazer *atualizações* a granel (semelhante à utilização [do BulkExecutor.BulkUpdateAsync),](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)tem de ter chamadas simultâneas para `ReplaceItemAsync` o método após a atualização do valor do produto. Por exemplo:
+Se pretender fazer *atualizações* a granel (semelhante à utilização [do BulkExecutor.BulkUpdateAsync),](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)tem de ter chamadas simultâneas para `ReplaceItemAsync` o método após a atualização do valor do produto. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-E se pretender fazer *a eliminação* a granel (semelhante à utilização [do BulkExecutor.BulkDeleteAsync),](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)precisa de ter chamadas simultâneas `DeleteItemAsync` para, com a chave e `id` partição de cada item. Por exemplo:
+E se pretender fazer *a eliminação* a granel (semelhante à utilização [do BulkExecutor.BulkDeleteAsync),](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)precisa de ter chamadas simultâneas `DeleteItemAsync` para, com a chave e `id` partição de cada item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -68,7 +68,7 @@ O método aguardará até que `ExecuteAsync` todas as operações estejam conclu
 
 ## <a name="capture-statistics"></a>Estatísticas de captura
 
-O código anterior aguarda até que todas as operações estejam concluídas e calcule as estatísticas necessárias. Estas estatísticas são semelhantes às da [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse)da biblioteca de executores a granel.
+O código anterior aguarda até que todas as operações estejam concluídas e calcule as estatísticas necessárias. Estas estatísticas são semelhantes às da [BulkImportResponse](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse)da biblioteca de executores a granel.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
@@ -81,9 +81,9 @@ O código anterior aguarda até que todas as operações estejam concluídas e c
 
 ## <a name="retry-configuration"></a>Configuração de retíria
 
-A biblioteca de executores a granel tinha [orientações](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) que mencionavam para definir o `MaxRetryWaitTimeInSeconds` e de `MaxRetryAttemptsOnThrottledRequests` [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) `0` para delegar o controlo na biblioteca.
+A biblioteca de executores a granel tinha [orientações](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) que mencionavam para definir o `MaxRetryWaitTimeInSeconds` e de `MaxRetryAttemptsOnThrottledRequests` [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) `0` para delegar o controlo na biblioteca.
 
-Para suporte a granel no .NET SDK, não existe nenhum comportamento oculto. Pode configurar as opções de retícula diretamente através das [Opções CosmosClient.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+Para suporte a granel no .NET SDK, não existe nenhum comportamento oculto. Pode configurar as opções de retícula diretamente através das [Opções CosmosClient.MaxRetryAttemptsOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > Nos casos em que as unidades de pedido previstas sejam muito inferiores às esperadas com base na quantidade de dados, talvez deva considerar a definição destes para valores elevados. A operação a granel demorará mais tempo, mas tem uma maior probabilidade de sucesso devido às maiores retréis.

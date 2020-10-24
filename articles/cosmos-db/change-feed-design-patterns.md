@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118955"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489358"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Alterar padrões de design de feed em Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Além de ler a partir do feed de mudança de um recipiente Cosmos, você também
 
 ### <a name="high-availability"></a>Elevada disponibilidade
 
-A Azure Cosmos DB oferece até 99,999% de leitura e disponibilidade de escrita. Ao contrário de muitas filas de mensagens, os dados DB do Azure Cosmos podem ser facilmente distribuídos globalmente e configurados com um [RTO (Objetivo](consistency-levels-tradeoffs.md#rto) de Tempo de Recuperação) de zero.
+A Azure Cosmos DB oferece até 99,999% de leitura e disponibilidade de escrita. Ao contrário de muitas filas de mensagens, os dados DB do Azure Cosmos podem ser facilmente distribuídos globalmente e configurados com um [RTO (Objetivo](./consistency-levels.md#rto) de Tempo de Recuperação) de zero.
 
 Após o processamento de itens no feed de alteração, pode construir uma visão materializada e persistir valores agregados no Azure Cosmos DB. Se estiveres a usar o Azure Cosmos DB para construir um jogo, podes, por exemplo, usar o feed de alteração para implementar leaderboards em tempo real com base em pontuações de jogos concluídos.
 
@@ -73,7 +73,7 @@ Quando tiver de [desnormalizar os dados através de divisórias e contentores,](
 
 ## <a name="event-sourcing"></a>Sourcing de eventos
 
-O [padrão de sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) do evento envolve usar uma loja apenas de apêndice para registar toda a série de ações nesses dados. O feed de mudança da Azure Cosmos DB é uma ótima escolha como uma loja de dados central em arquiteturas de sourcing em casos em que toda a ingestão de dados é modelada como escreve (sem atualizações ou eliminações). Neste caso, cada um escreve para Azure Cosmos DB é um "evento" e terá um registo completo de eventos passados no feed de mudança. Os usos típicos dos eventos publicados pela loja central de eventos são para manter vistas materializadas ou para integração com sistemas externos. Como não há limite de tempo para a retenção no feed de mudança, pode reproduzir todos os eventos passados lendo desde o início do feed de mudança do seu contentor Cosmos.
+O [padrão de sourcing](/azure/architecture/patterns/event-sourcing) do evento envolve usar uma loja apenas de apêndice para registar toda a série de ações nesses dados. O feed de mudança da Azure Cosmos DB é uma ótima escolha como uma loja de dados central em arquiteturas de sourcing em casos em que toda a ingestão de dados é modelada como escreve (sem atualizações ou eliminações). Neste caso, cada um escreve para Azure Cosmos DB é um "evento" e terá um registo completo de eventos passados no feed de mudança. Os usos típicos dos eventos publicados pela loja central de eventos são para manter vistas materializadas ou para integração com sistemas externos. Como não há limite de tempo para a retenção no feed de mudança, pode reproduzir todos os eventos passados lendo desde o início do feed de mudança do seu contentor Cosmos.
 
 Pode ter [vários consumidores de feed de alteração subscreverem o feed de alteração do mesmo recipiente](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Além da produção provisitada [do contentor de arrendamento,](change-feed-processor.md#components-of-the-change-feed-processor) não há qualquer custo para utilizar o alimento para a mudança. O feed de alteração está disponível em todos os recipientes, independentemente de ser utilizado.
 

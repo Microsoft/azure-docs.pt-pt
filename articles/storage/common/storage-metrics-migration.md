@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802842"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490769"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
-No **dia 31 de agosto de 2023** serão retiradas as métricas de Storage Analytics, também referidas como *métricas clássicas.* Para mais informações, consulte o [anúncio oficial.](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/) Se utilizar métricas clássicas, certifique-se de que faz a transição para métricas no Azure Monitor antes dessa data. Este artigo ajuda-o a fazer a transição. 
+No **dia 31 de agosto de 2023** serão retiradas as métricas de Storage Analytics, também referidas como *métricas clássicas.* Para obter mais informações, veja o [anúncio oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se utilizar as métricas clássicas, certifique-se de que faz a transição para as métricas do Azure Monitor antes dessa data. Este artigo ajuda na transição. 
 
 ## <a name="steps-to-complete-the-transition"></a>Passos para completar a transição
 
@@ -30,12 +30,12 @@ Para a transição para métricas no Azure Monitor, recomendamos a seguinte abor
 
 3. Identifique [quais métricas no Azure Monitor](#metrics-mapping-between-old-metrics-and-new-metrics) forneça os mesmos dados que as métricas que utiliza atualmente. 
    
-4. Crie [gráficos](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou dashboards para visualizar [dados](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) métricos.
+4. Crie [gráficos](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou dashboards para visualizar [dados](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) métricos.
 
    > [!NOTE]
    > As métricas no Monitor Azure são ativadas por padrão, por isso não há nada que precise fazer para começar a capturar métricas. No entanto, deve criar gráficos ou dashboards para visualizar essas métricas. 
  
-5. Se criou regras de alerta baseadas em métricas clássicas de armazenamento, então [crie regras](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) de alerta baseadas em métricas no Azure Monitor. 
+5. Se criou regras de alerta baseadas em métricas clássicas de armazenamento, então [crie regras](/azure/azure-monitor/platform/alerts-overview) de alerta baseadas em métricas no Azure Monitor. 
 
 6. Depois de poder ver todas as suas métricas no Azure Monitor, pode desligar a exploração madeireira clássica. 
 
@@ -53,7 +53,7 @@ No que diz respeito ao suporte de métricas, as métricas clássicas fornecem m�
 
 Se a atividade na sua conta não desencadear uma métrica, as métricas clássicas mostrarão um valor de zero (0) para essa métrica. As métricas no Azure Monitor omitirão completamente os dados, o que leva a relatórios mais limpos. Por exemplo, com métricas clássicas, se não forem reportados erros de tempo do servidor, o `ServerTimeoutError` valor na tabela de métricas é definido para 0. O Azure Monitor não devolve quaisquer dados quando consulta o valor da métrica `Transactions` com dimensão `ResponseType` igual a `ServerTimeoutError` . 
 
-Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

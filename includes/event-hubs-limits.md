@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ea1ac064799b0cede1de82851a514a2b389f20aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116763"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499185"
 ---
 As tabelas a seguir fornecem quotas e limites específicos aos [Hubs de Eventos Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços dos Event Hubs, consulte [os preços do Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -46,6 +46,8 @@ O quadro a seguir mostra limites que podem ser diferentes para os níveis básic
 
 ### <a name="dedicated-tier"></a>Nível dedicado
 A oferta dedicada do Event Hubs é faturada a um preço mensal fixo, com um mínimo de 4 horas de utilização. O tier dedicado oferece todas as características do plano Standard, mas com capacidade de escala empresarial e limites para clientes com cargas de trabalho exigentes. 
+
+Consulte este [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) sobre como criar um cluster dedicado de Centros de Eventos utilizando o portal Azure.
 
 | Funcionalidade | Limites |
 | --- | ---|

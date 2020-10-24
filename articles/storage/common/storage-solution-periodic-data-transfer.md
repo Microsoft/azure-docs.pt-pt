@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504343"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491262"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
  
@@ -57,17 +57,17 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 | Fator de forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal Azure, agente no local                                                            |
 | Hardware                                      | O seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço inicial de configuração                          | Baixo (<30 minutos.)            | Moderado (~duas horas) | Grande (~dias)                                                 |
-| Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas de dados e formatos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pré-processamento de dados                           | Não                         | Sim, via edge compute    | Sim                                                           |
-| Cache local<br>(para armazenar dados no local)    | Sim                        | Sim                      | Não                                                            |
-| Transferência de outras nuvens                    | Não                         | Não                       | Sim                                                           |
+| Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas de dados e formatos](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Pré-processamento de dados                           | No                         | Sim, via edge compute    | Yes                                                           |
+| Cache local<br>(para armazenar dados no local)    | Yes                        | Yes                      | No                                                            |
+| Transferência de outras nuvens                    | No                         | No                       | Yes                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Transferir dados com a AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Mais informações sobre transferência de dados com APIs de repouso de armazenamento](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+- [Mais informações sobre transferência de dados com APIs de repouso de armazenamento](/dotnet/api/overview/azure/storage).
 - Compreender como:
-    - [Transferir dados com data box gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transforme os dados com data box edge antes de enviar para o Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Saiba como transferir dados com a Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal)
+    - [Transferir dados com data box gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Transforme os dados com data box edge antes de enviar para o Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Saiba como transferir dados com a Azure Data Factory.](/azure/data-factory/tutorial-bulk-copy-portal)

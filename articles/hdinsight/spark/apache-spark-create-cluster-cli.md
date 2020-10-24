@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9827c50d034b1c49700869c3274800c194c631a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 91c88d1084329ea3681ef39c1d8d755ed31d9ddd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499454"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490888"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Quickstart: Criar cluster Apache Spark em Azure HDInsight usando Azure CLI
 
@@ -24,7 +24,7 @@ Se estiver a utilizar vários clusters em conjunto, vai querer criar uma rede vi
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI,](https://docs.microsoft.com/cli/azure/install-azure-cli)se não quiser usar a Azure Cloud Shell.
+- [Azure CLI,](/cli/azure/install-azure-cli)se não quiser usar a Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -114,7 +114,7 @@ Se estiver a utilizar vários clusters em conjunto, vai querer criar uma rede vi
         --version $clusterVersion
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de completar o arranque rápido, é possível que queira eliminar o cluster. Com o HDInsight, os seus dados são armazenados no Azure Storage, para que possa eliminar com segurança um cluster quando este não estiver a ser utilizado. Também é cobrado por um cluster HDInsight, mesmo quando não está a ser utilizado. Uma vez que as taxas para o cluster são muitas vezes mais do que os encargos de armazenamento, faz sentido económico apagar clusters quando não estão a ser utilizados.
 

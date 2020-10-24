@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149185"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480127"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e utilizar métricas e registos de diagnóstico com um hub IoT
 
@@ -138,7 +138,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 2. Procure a secção **de monitorização** na lâmina do hub IoT. Clique em **Definições de diagnóstico**. 
 
-   ![Screenshot mostrando as definições de diagnóstico parte da lâmina IoT Hub.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![Screenshot que realça as definições de Diagnóstico na secção de Monitorização.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
 3. Certifique-se de que o grupo de subscrição e recursos está correto. No **tipo de recurso**, desmarque **tudo,** em seguida, procure e verifique **o IoT Hub**. (Coloca a marca de verificação ao lado *do Select All* novamente, basta ignorá-la.) Em **Recurso,** selecione o nome do hub. O seu ecrã deve parecer-se com esta imagem: 
@@ -182,7 +182,7 @@ Agora, crie algumas métricas para ver quando as mensagens são enviadas para o 
 
    Agora, o seu ecrã mostra a métrica minimizada das *mensagens de telemetria enviadas*, mais a nova métrica para o *número total de mensagens utilizadas*.
 
-   ![Screenshot mostrando a adição de uma métrica para mensagens de telemetria enviadas.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![Screenshot que realça o botão Pin para painel de instrumentos.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    Clique em Pin para painel de **instrumentos**. Irá fixá-lo no painel de instrumentos do seu portal Azure para que possa aceder-lhe novamente. Se não o fixar no painel de instrumentos, as suas definições não são mantidas.
 
@@ -365,7 +365,7 @@ Clique **em Baixar** para descarregá-lo e abri-lo. Vê os registos do dispositi
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Para remover todos os recursos que criou neste tutorial, elimine o grupo de recursos. Esta ação também elimina todos os recursos contidos no grupo. Neste caso, remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos. Se tiver fixado métricas no painel de instrumentos, terá de removê-las manualmente clicando nos três pontos no canto superior direito de cada um e selecionando **Remover**.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82fdd40c9ae538d1d7aa87ab5b71ea6a6c0542d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318811"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487505"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com dados com o explorador do Azure Cosmos 
 
@@ -55,4 +55,4 @@ Os clientes que recebem erros HTTP-401 podem dever-se a permissões de RBAC insu
 
 Agora que aprendeu a começar com o explorador DB da Azure Cosmos para gerir os seus dados, a seguir pode:
 
-* Comece a definir [consultas](sql-api-query-reference.md) utilizando a sintaxe SQL e execute [a programação lateral do servidor](stored-procedures-triggers-udfs.md) utilizando procedimentos armazenados, UDFs, gatilhos. 
+* Comece a definir [consultas](./sql-query-getting-started.md) utilizando a sintaxe SQL e execute [a programação lateral do servidor](stored-procedures-triggers-udfs.md) utilizando procedimentos armazenados, UDFs, gatilhos.

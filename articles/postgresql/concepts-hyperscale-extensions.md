@@ -7,20 +7,20 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996448"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487981"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensões postgreSQL em Azure Database for PostgreSQL – Hyperscale (Citus)
 
-O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões permitem a agregação de vários objetos SQL relacionados num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Depois de serem carregadas na base de dados, as extensões podem funcionar como funcionalidades incorporadas. Para obter mais informações sobre extensões PostgreSQL, consulte [os objetos relacionados com o pacote numa extensão.](https://www.postgresql.org/docs/current/static/extend-extensions.html)
+O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões permitem a agregação de vários objetos SQL relacionados num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Depois de serem carregadas na base de dados, as extensões podem funcionar como funcionalidades incorporadas. Para obter mais informações sobre extensões PostgreSQL, consulte [os objetos relacionados com o pacote numa extensão.](https://www.postgresql.org/docs/current/static/extend-extensions.html)
 
 ## <a name="use-postgresql-extensions"></a>Utilizar extensões PostgreSQL
 
-As extensões PostgreSQL devem ser instaladas na sua base de dados antes de as poder utilizar. Para instalar uma extensão específica, executar o comando [EXTENSÃO CREATE](https://www.postgresql.org/docs/current/static/sql-createextension.html)   a partir da ferramenta psql para carregar os objetos embalados na sua base de dados.
+As extensões PostgreSQL devem ser instaladas na sua base de dados antes de as poder utilizar. Para instalar uma extensão específica, executar o comando [EXTENSÃO CREATE](https://www.postgresql.org/docs/current/static/sql-createextension.html) a partir da ferramenta psql para carregar os objetos embalados na sua base de dados.
 
 A Azure Database for PostgreSQL - Hyperscale (Citus) suporta atualmente um subconjunto de extensões-chave como listado aqui. Extensões que não as listadas não são suportadas. Não é possível criar a sua própria extensão com a Base de Dados Azure para PostgreSQL.
 
@@ -140,7 +140,7 @@ As tabelas seguintes listam as extensões postgreSQL padrão que são atualmente
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 A [ \_ \_ extensão de declarações pg stat](https://www.postgresql.org/docs/current/pgstatstatements.html) é pré-carregada em todas as bases de dados do Azure para o servidor PostgreSQL para fornecer-lhe um meio de rastrear as estatísticas de execução de declarações SQL.
 
-A definição `pg_stat_statements.track` controla as declarações contadas pela extensão. O incumprimento é de `top` , o que significa que todas as declarações emitidas diretamente pelos clientes são rastreadas. Os outros dois níveis de rastreio são `none` `all` e. Esta definição é configurável como parâmetro de servidor através do [portal Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou do [CLI Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+A definição `pg_stat_statements.track` controla as declarações contadas pela extensão. O incumprimento é de `top` , o que significa que todas as declarações emitidas diretamente pelos clientes são rastreadas. Os outros dois níveis de rastreio são `none` `all` e. Esta definição é configurável como parâmetro de servidor através do [portal Azure](./howto-configure-server-parameters-using-portal.md) ou do [CLI Azure](./howto-configure-server-parameters-using-cli.md).
 
 Há uma troca entre a informação de execução de consulta pg_stat_statements fornece e o efeito no desempenho do servidor à medida que regista cada declaração SQL. Se não estiver a utilizar ativamente a extensão pg_stat_statements, recomendamos que se desemalte `pg_stat_statements.track` `none` . Alguns serviços de monitorização de terceiros podem contar com pg_stat_statements para fornecer insights de desempenho de consulta, por isso confirme se este é o caso para si ou não.
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461554"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495818"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -64,19 +64,15 @@ O modelo é assim:
 
 Para **fazer o upload deste modelo para a sua instância gémea,** abra o CLI Azure e execute o seguinte comando:
 
-```azurecli
+```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
 Em seguida, terá de **criar um gémeo utilizando este modelo.** Utilize o seguinte comando para criar um gémeo e definir 0.0 como um valor de temperatura inicial.
 
-```azurecli
+```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 A saída de um comando de criação de gémeos bem sucedido deve ser assim:
 ```json
@@ -252,9 +248,7 @@ No tutorial de ponta a ponta, complete os seguintes passos:
 
 Enquanto executa o simulador do dispositivo acima, o valor de temperatura do seu gémeo digital será alterado. No CLI Azure, executar o seguinte comando para ver o valor da temperatura.
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
-```azurecli
+```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
 ```
 

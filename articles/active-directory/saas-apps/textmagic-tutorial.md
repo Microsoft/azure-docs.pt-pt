@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 81dc3a4f55b214ea6ca7ad0388e57f4b4fdc7124
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1db4f1ae40c72203cdd5d07c49b2f9c202ad525
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546479"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491364"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Tutorial: Azure Ative Directory integração única (SSO) com TextMagic
 
@@ -149,11 +149,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Selecione **as definições de Conta** sob o nome de utilizador.
 
-    ![Configuração TextMagic](./media/textmagic-tutorial/config1.png)
+    ![A screenshot mostra as definições de conta selecionadas pelo utilizador.](./media/textmagic-tutorial/config1.png)
 
 5. Clique no separador **Single Sign-On (SSO)** e preencha os seguintes campos:  
 
-    ![Configuração TextMagic](./media/textmagic-tutorial/config2.png)
+    ![A screenshot mostra o separador Single Sign-On onde pode introduzir os valores descritos.](./media/textmagic-tutorial/config2.png)
 
     a. No **ID da Entidade fornecedora de identidade:** caixa de texto, cole o valor do **Identificador AD Azure,** que copiou do portal Azure.
 

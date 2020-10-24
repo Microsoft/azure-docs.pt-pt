@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9535160bbc87b291ba40becdb55c917985bd348c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527320"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483153"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Azure Ative Directory integração única (SSO) com TimeOffManager
 
@@ -146,11 +146,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Ir para ** \> opções de conta \> configurações Sign-On únicas**.
    
-    ![Definições de Sign-On única](./media/timeoffmanager-tutorial/ic795917.png "Definições de Sign-On única")
+    ![A screenshot mostra as definições de Sign-On única selecionadas a partir de opções de conta.](./media/timeoffmanager-tutorial/ic795917.png "Definições de Sign-On única")
 
 3. Na secção **Definições de Sign-On Única,** execute os seguintes passos:
    
-    ![Definições de Sign-On única](./media/timeoffmanager-tutorial/ic795918.png "Definições de Sign-On única")
+    ![A screenshot mostra a secção Definições de Sign-On única onde pode introduzir os valores descritos.](./media/timeoffmanager-tutorial/ic795918.png "Definições de Sign-On única")
    
     a. Abra o certificado codificado base-64 no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole todo o Certificado na caixa de texto **do Certificado X.509.**
    
@@ -168,7 +168,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Na página **'Sign in Settings',** copie o valor do URL do Serviço ao Consumidor de **Afirmação** e cole-o na caixa de texto **URL de resposta** na secção de **Configuração BÁSICA SAML** no portal Azure. 
 
-      ![Definições de Sign-On única](./media/timeoffmanager-tutorial/ic795915.png "Definições de Sign-On única")
+      ![A screenshot mostra a ligação Com o Serviço de Consumo de Afirmação U R L.](./media/timeoffmanager-tutorial/ic795915.png "Definições de Sign-On única")
 
 ### <a name="create-timeoffmanager-test-user"></a>Criar utilizador de teste TimeOffManager
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047816"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490854"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -61,10 +61,10 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscrição     | selecione a subscrição do Azure                                  |
-    | Grupo de Recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de Recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -109,9 +109,9 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
+    | Grupo de recursos         | Selecione **CreateIntLBQS-rg** criado no passo anterior.|
     | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -195,7 +195,9 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Porta de back-end | Insira **80**. |
     | Conjunto de back-end | Selecione **myBackendPool**.|
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
-    | Criar regras implícitas de saída | Selecione **Não**.
+    | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
+    | Reset TCP | Selecione **Ativado**. |
+    | Tradução de endereços de rede de saída (SNAT) | Selecione **(Recomendado) Utilize regras de saída para fornecer aos membros do pool backend acesso à internet.** |
 
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
@@ -223,10 +225,10 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscrição | selecione a subscrição do Azure |
-    | Grupo de Recursos | Selecione **myResourceGroupLB** |
+    | Grupo de Recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **zonas de disponibilidade** |
     | Zona de disponibilidade | Selecione **1** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
@@ -294,10 +296,10 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     |------------------|-----------------------------------------------------------------|
     | **Detalhes do projeto**  |                                                                 |
     | Subscrição     | selecione a subscrição do Azure                                  |
-    | Grupo de Recursos   | Selecione **myResourceGroupLB** |
+    | Grupo de Recursos   | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -342,9 +344,9 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
+    | Grupo de recursos         | Selecione **CreateIntLBQS-rg** criado no passo anterior.|
     | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Basic** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -435,6 +437,7 @@ Nesta secção, irá criar uma regra do balançador de carga:
     | Porta de back-end | Insira **80**. |
     | Conjunto de back-end | Selecione **myBackendPool**.|
     | Sonda de estado de funcionamento | Selecione **myHealthProbe**. |
+    | Tempo de 20 minutos (minutos) | Mova o deslizador para **15** minutos. |
  
 4. Deixe o resto dos predefinidos e, em seguida, selecione **OK**.
 
@@ -462,10 +465,10 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscrição | selecione a subscrição do Azure |
-    | Grupo de Recursos | Selecione **myResourceGroupLB** |
+    | Grupo de Recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Conjunto de disponibilidade** |
     | Conjunto de disponibilidade | Selecione **Criar novo**. </br> Insira **o mySilabilitySet** no **nome**. </br> Selecione **OK** |
     | Imagem | **Windows Server 2019 Datacenter** |
@@ -534,10 +537,10 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscrição | selecione a subscrição do Azure |
-    | Grupo de Recursos | Selecione **myResourceGroupLB** |
+    | Grupo de Recursos | Selecione **CreateIntLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myTestVM** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -566,7 +569,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, a partir da lista de recursos, selecione **myVM1** que está localizado no grupo de recursos **myResourceGroupLB.**
+1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, da lista de recursos, selecione **myVM1** que está localizado no grupo de recursos **CreateIntLBQS-rg.**
 
 2. Na página **'Vista Geral',** selecione **Connect**e, em seguida, **Bastion**.
 
@@ -604,7 +607,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
 
 2. Tome nota ou copie o endereço ao lado **do Endereço IP Privado** na **visão geral** do **myLoadBalancer**.
 
-3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, a partir da lista de recursos, selecione **myTestVM** que está localizado no grupo de recursos **myResourceGroupLB.**
+3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos**, e, em seguida, da lista de recursos, selecione **myTestVM** que está localizado no grupo de recursos **CreateIntLBQS-rg.**
 
 4. Na página **'Vista Geral',** selecione **Connect**e, em seguida, **Bastion**.
 
@@ -618,9 +621,9 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
    
 Para ver o balanceador de carga distribuir tráfego em ambos os VMs, pode personalizar a página padrão de cada servidor Web IIS de cada VM e, em seguida, refrescar o seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos **myResourceGroupLB** que contém os recursos e, em seguida, selecione **Delete**.
+Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos **CreateIntLBQS-rg** que contém os recursos e, em seguida, selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

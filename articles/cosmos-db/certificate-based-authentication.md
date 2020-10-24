@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569730"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486536"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificados para uma identidade AD Azure para aceder a chaves a partir de uma conta DB da Azure Cosmos
 
@@ -22,7 +22,7 @@ A autenticação baseada em certificados permite que a aplicação cliente seja 
 
 * Instale a [versão mais recente](/powershell/azure/install-az-ps) do Azure PowerShell.
 
-* Se não tiver uma [subscrição do Azure,](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se não tiver uma [subscrição do Azure,](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 ## <a name="register-an-app-in-azure-ad"></a>Registar uma aplicação no Azure AD
 

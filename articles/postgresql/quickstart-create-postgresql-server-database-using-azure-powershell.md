@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 7f04c4c52b2c1e2b347699168b3255d2f809278b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 91351c0b2982c6ee0e96cc1433c0fadf67e3bcc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705318"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485431"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para PostgreSQL - Servidor Único usando PowerShell
 
@@ -23,7 +23,7 @@ Este quickstart descreve como usar o PowerShell para criar uma Base de Dados Azu
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se conecte à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [instalar a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se optar por utilizar o PowerShell localmente, este artigo requer que instale o módulo Az PowerShell e se conecte à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount) Para obter mais informações sobre a instalação do módulo Az PowerShell, consulte [instalar a Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Enquanto o módulo Az.PostgreSql PowerShell estiver em pré-visualização, deve instalá-lo separadamente do módulo Az PowerShell utilizando o seguinte comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease` .
@@ -37,7 +37,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se tiver várias subscrições do Azure, escolha a subscrição adequada na qual os recursos devem ser faturados. Selecione um ID de subscrição específico utilizando o [cmdlet Set-AzContext.](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext)
+Se tiver várias subscrições do Azure, escolha a subscrição adequada na qual os recursos devem ser faturados. Selecione um ID de subscrição específico utilizando o [cmdlet Set-AzContext.](/powershell/module/az.accounts/set-azcontext)
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -45,7 +45,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Criar um [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) utilizando o cmdlet [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
+Criar um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) utilizando o cmdlet [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo.
 
 O exemplo a seguir cria um grupo de recursos chamado **myresourcegroup** na região **oeste dos EUA.**
 
@@ -61,7 +61,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 |        **Definição**         | **Valor de exemplo** |                                                                                                                                                             **Descrição**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor PostgreSQL. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
+| Nome                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor PostgreSQL. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
 | ResourceGroupName          | myResourceGroup  | Indique o nome do grupo de recursos do Azure.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | O nome do SKU. Segue em **abreviatura os \_ \_ vCores de geração de preços de** convenção. Para obter mais informações sobre o parâmetro Sku, consulte as informações que se seguem a esta tabela.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35.                                                                                                                                                                                                                                                                       |
@@ -199,7 +199,7 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
 
 1. No painel **Browser**, pode ver a base de dados que criou na lista de bases de dados, no nome do seu servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se os recursos criados neste quickstart não forem necessários para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte exemplo.
 

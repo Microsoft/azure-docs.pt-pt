@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709203"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489681"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host zonas de pesquisa de DNS inversas em Azure DNS
 
@@ -48,7 +48,7 @@ O nome de uma zona de procura inversa IPv4 baseia-se no intervalo IP que represe
 
 O exemplo a seguir mostra como criar uma zona DE DNS inversa classe C nomeada `2.0.192.in-addr.arpa` em Azure DNS através do portal Azure:
 
- ![Painel "Criar zona DNS", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Screenshot que mostra como criar uma zona DE DNS inversa classe C chamada 2.0.192.in-addr.arpa em Azure DNS através do portal Azure.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **A localização** do grupo de recursos define a localização para o grupo de recursos. Não tem impacto na zona do DNS. A localização da zona DNS é sempre “global” e não está apresentada.
 
@@ -117,7 +117,7 @@ O exemplo que se segue acompanha-o através do processo de criação de um regis
 
 1. No topo do painel de **zonas DNS,** selecione **+ Conjunto de record** para abrir o painel de **recordes Add.**
 
-   ![Botão para criar um conjunto de registos](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Screenshot do painel de zona DNS com uma seta apontando para o botão conjunto + Record.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. O nome do recorde estabelecido para um registo DEPT tem de ser o resto do endereço IPv4 em ordem inversa. 
 
@@ -162,7 +162,7 @@ O exemplo que se segue acompanha-o através do processo de criação de um novo 
 4. Para **NOME DE DOMÍNIO,** introduza o FQDN do recurso que utiliza o IP.
 5. Selecione **OK** na parte inferior do painel para criar o registo DNS.
 
-![Painel "Adicionar conjunto de recordes", com caixas preenchidas](./media/dns-reverse-dns-hosting/figure7.png)
+![Screenshot que mostra o painel "Adicionar recorde conjunto" com uma seta apontando para o valor no campo Tipo.](./media/dns-reverse-dns-hosting/figure7.png)
 
 Os exemplos a seguir mostram como completar esta tarefa utilizando o PowerShell ou o Azure CLI.
 

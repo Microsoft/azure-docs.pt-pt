@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 8aa2644f86f5c26fa861aba8c928e79b7bc58a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee42482a2b5d59619c678d282f8b38d7a2a0b0d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873199"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490922"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Amostras de python
 
@@ -48,4 +48,4 @@ Você pode obter estas amostras para Python clonando o [hdinsight-python-sdk-sam
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Os snippets de código para esta funcionalidade SDK adicional podem ser encontrados na [documentação de referência hdInsight SDK para a documentação de referência python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
+Os snippets de código para esta funcionalidade SDK adicional podem ser encontrados na [documentação de referência hdInsight SDK para a documentação de referência python](https://docs.microsoft.com/python/api/overview/azure/hdinsight).

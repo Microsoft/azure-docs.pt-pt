@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ac093f707167160e916c15b935cb3d8ff6bbc748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037121"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479362"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o Azure Storage utilizando o AzCopy
 
@@ -48,7 +48,7 @@ Reúna a chave de acesso AWS e a chave de acesso secreta e, em seguida, descreva
 
 ## <a name="copy-objects-directories-and-buckets"></a>Copiar objetos, diretórios e baldes
 
-O AzCopy utiliza o [Bloco de Put From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, pelo que os dados são copiados diretamente entre a AWS S3 e os servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda de rede do seu computador.
+O AzCopy utiliza o [Bloco de Put From URL](/rest/api/storageservices/put-block-from-url) API, pelo que os dados são copiados diretamente entre a AWS S3 e os servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda de rede do seu computador.
 
 > [!TIP]
 > Os exemplos desta secção encerram argumentos de percurso com citações únicas ('). Utilize aspas únicas em todas as cápsulas de comando, exceto no Windows Command Shell (cmd.exe). Se estiver a utilizar uma Concha de Comando do Windows (cmd.exe), encobre argumentos de caminho com citações duplas ("") em vez de cotações individuais (').
@@ -135,7 +135,7 @@ Além disso, à medida que o AzCopy copia sobre ficheiros, verifica se dá nome 
 
 ## <a name="handle-differences-in-object-metadata"></a>Lidar com diferenças nos metadados de objetos
 
-AWS S3 e Azure permitem diferentes conjuntos de caracteres nos nomes das teclas do objeto. Pode ler sobre os caracteres que a AWS S3 utiliza [aqui.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) Do lado Azure, as teclas de objetos blob aderem às regras de nomeação para [identificadores C#](https://docs.microsoft.com/dotnet/csharp/language-reference/).
+AWS S3 e Azure permitem diferentes conjuntos de caracteres nos nomes das teclas do objeto. Pode ler sobre os caracteres que a AWS S3 utiliza [aqui.](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) Do lado Azure, as teclas de objetos blob aderem às regras de nomeação para [identificadores C#](/dotnet/csharp/language-reference/).
 
 Como parte de um comando AzCopy, `copy` pode fornecer um valor opcional para a bandeira que especifica como gostaria de lidar com `s2s-handle-invalid-metadata` ficheiros onde os metadados do ficheiro contêm nomes-chave incompatíveis. A tabela a seguir descreve cada valor da bandeira.
 
