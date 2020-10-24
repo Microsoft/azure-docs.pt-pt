@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd06491b5488223b9a8eba50839a7fdf0cd61b6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895233"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478546"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Desenhe um dashboard de análise em tempo real utilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
 
@@ -226,5 +226,5 @@ Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não esp
 
 Neste tutorial, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados. Aprendeu a consultar dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar dados antigos.
 
-- Saiba mais sobre [os tipos de nó de](https://aka.ms/hyperscale-concepts) grupo de servidor
+- Saiba mais sobre [os tipos de nó de](./concepts-hyperscale-nodes.md) grupo de servidor
 - Determine o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para o seu grupo de servidor

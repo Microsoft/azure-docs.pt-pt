@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: ead5ab6f914db951027406e43437ac30a4f85247
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: afc9633c32174cbe1d94535d68e4c8f85f3d137b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279241"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478071"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4 exemplos
 
@@ -124,7 +124,7 @@ O ficheiro [Recolha CRUD Samples](https://github.com/Azure/azure-documentdb-java
 
 ## <a name="autoscale-collection-examples"></a>Exemplos de coleção de autoescala
 
-Para saber mais sobre a autoescalação antes de executar estas amostras, dê uma olhada nestas instruções para permitir a autoescalação na sua [conta](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) e nas suas [bases de dados e contentores.](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale)
+Para saber mais sobre a autoescalação antes de executar estas amostras, dê uma olhada nestas instruções para permitir a autoescalação na sua [conta](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) e nas suas [bases de dados e contentores.](./provision-throughput-autoscale.md)
 
 O ficheiro [de amostras CRUD de escala automática](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) mostra como executar as seguintes tarefas.
 
@@ -163,7 +163,7 @@ O ficheiro [Amostras CRUD documentais](https://github.com/Azure/azure-documentdb
 | [Ler documento apenas se este for alterado](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AcessoCondition.setType<br>AcessoCondição.setCondição |
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
-O ficheiro [Recolha CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) mostra como executar as seguintes tarefas. Para aprender sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte [políticas de indexação,](index-policy.md) [tipos de indexação](index-types.md)e [artigos conceptuais de caminhos de indexação.](index-paths.md) 
+O ficheiro [Recolha CRUD Samples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) mostra como executar as seguintes tarefas. Para aprender sobre a indexação em Azure Cosmos DB antes de executar as seguintes amostras, consulte [políticas de indexação,](index-policy.md) [tipos de indexação](index-overview.md#index-kinds)e [artigos conceptuais de caminhos de indexação.](index-policy.md#include-exclude-paths) 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -180,7 +180,7 @@ O ficheiro [Recolha CRUD Samples](https://github.com/Azure/azure-documentdb-java
 Para obter mais informações sobre a indexação, veja [Políticas de indexação do Azure Cosmos DB](index-policy.md).
 
 ## <a name="query-examples"></a>Exemplos de consultas
-O ficheiro [Amostras de Consulta](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) mostra como fazer as seguintes tarefas utilizando a gramática de consulta SQL. Para saber mais sobre a referência de consulta SQL em Azure Cosmos DB antes de executar as [seguintes amostras, consulte exemplos de consulta SQL para Azure Cosmos DB](how-to-sql-query.md). 
+O ficheiro [Amostras de Consulta](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) mostra como fazer as seguintes tarefas utilizando a gramática de consulta SQL. Para saber mais sobre a referência de consulta SQL em Azure Cosmos DB antes de executar as [seguintes amostras, consulte exemplos de consulta SQL para Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Tarefa | Referência da API |
 | --- | --- |

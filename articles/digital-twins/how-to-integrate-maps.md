@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045130"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496047"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
 
@@ -50,12 +50,12 @@ As instâncias Azure Digital Twins podem emitir eventos de atualização dupla s
 Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o que lhe dá flexibilidade para alterar a fonte de dados subjacente à temperatura sem precisar de atualizar a sua lógica de mapeamento. Por exemplo, pode adicionar vários termómetros ou definir esta sala para partilhar um termómetro com outra sala, tudo sem necessidade de atualizar a lógica do mapa.
 
 1. Crie um tópico de grelha de eventos, que receberá eventos da sua instância Azure Digital Twins.
-    ```azurecli
+    ```azurecli-interactive
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
 
 2. Crie um ponto final para ligar o tópico da grelha de eventos à Azure Digital Twins.
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
@@ -64,9 +64,9 @@ Este padrão lê-se diretamente do twin da sala, em vez do dispositivo IoT, o qu
     >[!NOTE]
     >Existe atualmente um **problema conhecido** na Cloud Shell que afeta estes grupos de comando: . . . . . . . . . . . . `az dt route` . `az dt model` `az dt twin` .
     >
-    >Para resolver, ou corra `az login` em Cloud Shell antes de executar o comando, ou use o [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest) em vez de Cloud Shell. Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Para resolver, ou corra `az login` em Cloud Shell antes de executar o comando, ou use o [CLI local](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) em vez de Cloud Shell. Para mais detalhes sobre este assunto, consulte [*Troubleshooting: Questões conhecidas em Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
-    ```azurecli
+    ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 Terá de definir duas variáveis ambientais na sua aplicação de função. Uma delas é a sua chave de subscrição primária do [Azure Maps,](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)e uma é o seu [ID de estado Azure Maps.](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset)
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

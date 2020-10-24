@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5203223f8468a4dfa0faf2df92e826a62f7bbfcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fa0b32d21c9a2172fa6093f2f7f57ccacf5e5d6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802757"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477764"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de executor a granel .NET: Descarregar informações 
 
@@ -21,29 +21,29 @@ ms.locfileid: "91802757"
 > * [SDK .NET v3](sql-api-sdk-dotnet-standard.md)
 > * [SDK .NET v2](sql-api-sdk-dotnet.md)
 > * [SDK v2 de .NET Core](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [SDK Feed de Alterações .NET v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [SDK v4 de Java](sql-api-sdk-java-v4.md)
 > * [SDK v2 Java assíncrono](sql-api-sdk-async-java.md)
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
-> * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
-> * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Executor a granel - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [Executor em massa - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 | **Descrição**| A biblioteca de executor a granel .NET permite que as aplicações do cliente realizem operações a granel nas contas DB da Azure Cosmos. Esta biblioteca fornece espaços de nome BulkImport, BulkUpdate e BulkDelete. O módulo BulkImport pode ingerir documentos em massa de forma otimizada, de modo a que a produção prevista para uma recolha seja consumida na sua máxima extensão. O módulo BulkUpdate pode atualizar em massa os dados existentes em recipientes Azure Cosmos como patches. O módulo BulkDelete pode eliminar em massa documentos de forma otimizada de modo a que a produção prevista para uma recolha seja consumida na sua máxima extensão.|
-|**Download SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+|**Transferência de SDK**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Biblioteca de executor a granel em GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**Documentação da API**|[.NET Documentação de referência da API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet&preserve-view=true)|
+|**Documentação da API**|[.NET Documentação de referência da API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?preserve-view=true&view=azure-dotnet)|
 |**Introdução**|[Começa com a biblioteca de executor a granel .NET SDK](bulk-executor-dot-net.md)|
-| **Quadro atual suportado**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
+| **Framework suportado atualmente**| Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 |
 
 > [!NOTE]
 > Se estiver a utilizar o executor a granel, consulte a versão mais recente 3.x do [.NET SDK](tutorial-sql-api-dotnet-bulk-import.md), que tem o executor a granel incorporado no SDK. 

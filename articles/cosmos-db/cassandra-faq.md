@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278191"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482609"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API cassandra em Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Quando se ultrapassa esta capacidade, obtém-se a seguinte mensagem de erro que 
 
 Estão disponíveis métricas que mostram como a produção é usada ao longo de horas, ao longo de dias, e por sete dias, através de divisórias ou em conjunto. Para obter mais informações, consulte [Monitorização e depuração com métricas em Azure Cosmos DB](use-metrics.md).
 
-Os registos de diagnóstico são explicados no artigo de [registo de diagnóstico Azure Cosmos DB.](logging.md)
+Os registos de diagnóstico são explicados no artigo de [registo de diagnóstico Azure Cosmos DB.](./monitor-cosmos-db.md)
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>O mapa principal da chave primária para o conceito chave de partição de Azure Cosmos DB?
 
@@ -135,9 +135,9 @@ Sim, a TTL é apoiada.
 
 A Azure Cosmos DB é um serviço de plataforma que o ajuda a aumentar a produtividade e não se preocupa em gerir e monitorizar infraestruturas. Por exemplo, não precisa monitorizar o estado do nó, o estado da réplica, os parâmetros gc e OS anteriormente com várias ferramentas. Só precisas de cuidar da produção que está disponível nas métricas do portal para ver se estás a ser estrangulado e depois aumentar ou diminuir essa produção. Pode:
 
-- Monitor [SLAs](monitor-accounts.md)
+- Monitor [SLAs](./monitor-cosmos-db.md)
 - Use [métricas](use-metrics.md)
-- Use [registos de diagnóstico](logging.md)
+- Use [registos de diagnóstico](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Que cliente sDKs pode trabalhar com a API Cassandra?
 
@@ -187,7 +187,7 @@ Pode ler sobre as opções de migração na [conta da API de Cassandra na conta 
 Fornecer feedback através do feedback de [voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Passos seguintes
 

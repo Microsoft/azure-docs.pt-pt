@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 301bedc75d243f427120c955bda539508ff43200
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87323643"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475962"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Quickstart: Criar uma app de consolas com a Java e a API MongoDB em Azure Cosmos DB
 
@@ -127,7 +127,7 @@ Agora pode utilizar [o Robomongo](mongodb-robomongo.md)  /  [Studio 3T](mongodb-
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
@@ -136,4 +136,4 @@ Agora pode utilizar [o Robomongo](mongodb-robomongo.md)  /  [Studio 3T](mongodb-
 Neste quickstart, aprendeu a criar um API DB API Azure Cosmos para a conta DB da Mongo, adicionar uma base de dados e um contentor usando o Data Explorer e adicionar dados através de uma aplicação de consola Java. Pode agora importar dados adicionais para a sua base de dados Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md) (Importar dados do MongoDB para o Azure Cosmos DB)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) (Importar dados do MongoDB para o Azure Cosmos DB)

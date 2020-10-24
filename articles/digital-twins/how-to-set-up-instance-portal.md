@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205503"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478863"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -75,7 +75,7 @@ Primeiro, abra a página para a sua instância Azure Digital Twins no portal Azu
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
 
 Na página seguinte *de atribuição de funções Adicionar,* preencha os valores (deve ser preenchido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure):
-* **Função**: Selecione *Azure Digital Twins Owner (Preview)* do menu suspenso
+* **Função**: Selecione *Azure Digital Twins Data Owner* do menu dropdown
 * **Atribuir acesso a**: Selecione *Azure AD utilizador, grupo ou principal de serviço* a partir do menu suspenso
 * **Selecione:** Procure o nome ou endereço de e-mail do utilizador para atribuir. Quando selecionar o resultado, o utilizador aparecerá numa secção *de membros selecionados.*
 
@@ -91,7 +91,7 @@ Quando terminar de introduzir os detalhes, acerte no botão *Guardar.*
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
-Pode ver a atribuição de funções que estabeleceu no controlo de *acesso (IAM) > atribuições de Função*. O utilizador deve aparecer na lista com um papel de *Azure Digital Twins Owner (Preview)*. 
+Pode ver a atribuição de funções que estabeleceu no controlo de *acesso (IAM) > atribuições de Função*. O utilizador deve aparecer na lista com um papel de *Azure Digital Twins Data Owner*. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
 

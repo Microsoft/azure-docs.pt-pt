@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289043"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474772"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
@@ -37,8 +37,8 @@ A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado no armazém de dados Azure durante a criação de visualização. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | Não                                           | Sim
-|Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
+|Armazenamento extra                   | No                                           | Yes
+|Syntax                          | CREATE VIEW                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-materialized-views"></a>Benefícios de vistas materializadas
 
@@ -79,7 +79,9 @@ Em comparação com outras opções de afinação, como a escala e a gestão de 
 
 **Precisa de diferentes estratégias de distribuição de dados para um desempenho de consulta mais rápido**
 
-O armazém de dados Azure é um sistema de processamento distribuído e massivamente paralelo (MPP).   Os dados numa tabela de armazéns de dados são distribuídos por 60 nóns utilizando uma das três [estratégias](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) de distribuição (haxixe, round_robin ou replicado).  
+O armazém de dados Azure é um sistema de processamento distribuído e massivamente paralelo (MPP).  
+
+O Synapse SQL é um sistema de consulta distribuído que permite às empresas implementar cenários de armazenamento de dados e virtualização de dados utilizando experiências padrão de T-SQL familiares aos engenheiros de dados. Também expande as capacidades do SQL para abordar cenários de streaming e machine learning. Os dados numa tabela de armazéns de dados são distribuídos por 60 nóns utilizando uma das três [estratégias](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) de distribuição (haxixe, round_robin ou replicado).  
 
 A distribuição de dados é especificada na hora de criação da tabela e permanece inalterada até que a tabela seja largada. A vista materializada sendo uma tabela virtual no disco suporta a distribuição de dados de haxixe e round_robin.  Os utilizadores podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que frequentemente usam as vistas.  
 

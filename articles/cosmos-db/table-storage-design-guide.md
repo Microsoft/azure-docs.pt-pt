@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428053"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477594"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de conceção de tabela do armazenamento de Tabelas do Azure: Tabelas dimensionáveis e com bom desempenho
 
@@ -24,7 +24,7 @@ Para criar tabelas dimensionáveis e de alto desempenho, tem de considerar uma v
 O armazenamento de mesas destina-se a apoiar aplicações em escala em nuvem que podem conter milhares de milhões de entidades ("linhas" na terminologia de bases de dados relacionais) de dados ou para conjuntos de dados que devem suportar volumes de transações elevados. Por isso, tem de pensar de forma diferente sobre como armazena os seus dados e compreender como funciona o armazenamento da Tabela. Uma loja de dados NoSQL bem concebida pode permitir que a sua solução se dimensione muito mais (e a um custo mais baixo) do que uma solução que utilize uma base de dados relacional. Este guia ajuda-o com estes tópicos.  
 
 ## <a name="about-azure-table-storage"></a>Sobre o armazenamento da mesa Azure
-Esta secção destaca algumas das principais características do armazenamento da mesa que são especialmente relevantes para a conceção de desempenho e escalabilidade. Se é novo no armazenamento de armazenamento e mesa do Azure, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) e [inicie-se com o armazenamento da tabela Azure utilizando .NET](table-storage-how-to-use-dotnet.md) antes de ler o restante deste artigo. Embora o foco deste guia esteja no armazenamento de mesa, ele inclui alguma discussão sobre o armazenamento da Azure Queue e o armazenamento Azure Blob, e como você pode usá-los juntamente com o armazenamento de mesa em uma solução.  
+Esta secção destaca algumas das principais características do armazenamento da mesa que são especialmente relevantes para a conceção de desempenho e escalabilidade. Se é novo no armazenamento de armazenamento e mesa do Azure, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md) e [inicie-se com o armazenamento da tabela Azure utilizando .NET](./tutorial-develop-table-dotnet.md) antes de ler o restante deste artigo. Embora o foco deste guia esteja no armazenamento de mesa, ele inclui alguma discussão sobre o armazenamento da Azure Queue e o armazenamento Azure Blob, e como você pode usá-los juntamente com o armazenamento de mesa em uma solução.  
 
 O armazenamento de mesa utiliza um formato tabular para armazenar dados. Na terminologia padrão, cada fileira da tabela representa uma entidade, e as colunas armazenam as várias propriedades dessa entidade. Cada entidade tem um par de chaves para identificá-lo de forma única, e uma coluna de timetamp que o armazenamento da mesa usa para rastrear quando a entidade foi atualizada pela última vez. O campo de tempos é adicionado automaticamente e não é possível substituir manualmente a placa de tempo com um valor arbitrário. O armazenamento de mesa utiliza esta última etiqueta de tempo modificada (LMT) para gerir a concordância otimista.  
 
@@ -123,7 +123,7 @@ O exemplo a seguir mostra um design de mesa simples para armazenar funcionários
 </table>
 
 
-Até agora, este design parece semelhante a uma tabela numa base de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidades na mesma tabela. Além disso, cada uma das propriedades definidas pelo utilizador, como **o FirstName** ou **o Age,** tem um tipo de dados, como o número inteiro ou o fio, tal como uma coluna numa base de dados relacional. No entanto, ao contrário de uma base de dados relacional, a natureza sem esquemas de armazenamento de mesa significa que uma propriedade não precisa de ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos numa única propriedade, deve utilizar um formato serializado como JSON ou XML. Para obter mais informações, consulte [o modelo de dados de armazenamento de tabelas de compreensão.](https://msdn.microsoft.com/library/azure/dd179338.aspx)
+Até agora, este design parece semelhante a uma tabela numa base de dados relacional. As principais diferenças são as colunas obrigatórias e a capacidade de armazenar vários tipos de entidades na mesma tabela. Além disso, cada uma das propriedades definidas pelo utilizador, como **o FirstName** ou **o Age,** tem um tipo de dados, como o número inteiro ou o fio, tal como uma coluna numa base de dados relacional. No entanto, ao contrário de uma base de dados relacional, a natureza sem esquemas de armazenamento de mesa significa que uma propriedade não precisa de ter o mesmo tipo de dados em cada entidade. Para armazenar tipos de dados complexos numa única propriedade, deve utilizar um formato serializado como JSON ou XML. Para obter mais informações, consulte [o modelo de dados de armazenamento de tabelas de compreensão.](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)
 
 Sua escolha e é fundamental para um bom design de `PartitionKey` `RowKey` mesa. Todas as entidades armazenadas numa mesa devem ter uma combinação única de `PartitionKey` e `RowKey` . Tal como acontece com as chaves numa tabela de bases de dados relacional, os `PartitionKey` valores e `RowKey` valores são indexados para criar um índice agrupado que permite visualizações rápidas. O armazenamento de mesa, no entanto, não cria quaisquer índices secundários, por isso estas são as duas únicas propriedades indexadas (alguns dos padrões descritos mais tarde mostram como você pode trabalhar em torno desta limitação aparente).  
 
@@ -134,7 +134,7 @@ O nome da conta, o nome da tabela e, `PartitionKey` em conjunto, identificam a p
 
 No armazenamento de mesa, um nó individual presta uma ou mais divisórias completas, e as balanças de serviço por divisórias de equilíbrio dinâmico de carga em nós. Se um nó estiver carregado, o armazenamento da mesa pode dividir a gama de divisórias servidas por esse nó em diferentes nós. Quando o tráfego diminui, o armazenamento de mesa pode fundir as gamas de divisórias de nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do armazenamento da mesa, e em particular a forma como gere as divisórias, consulte [o Microsoft Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
+Para obter mais informações sobre os detalhes internos do armazenamento da mesa, e em particular a forma como gere as divisórias, consulte [o Microsoft Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transações de grupos de entidades
 No armazenamento de mesas, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs são também referidos como *transações de lote*. As EGTs só podem operar em entidades armazenadas na mesma partição (partilhando a mesma chave de partição numa tabela específica), por isso, sempre que precisar de comportamento transacional atómico entre várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é frequentemente uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
@@ -156,7 +156,7 @@ A tabela a seguir inclui alguns dos valores-chave a ter em conta quando está a 
 | Tamanho do `RowKey` |Uma corda até 1 KB de tamanho. |
 | Dimensão de uma transação de grupo de entidades |Uma transação pode incluir no máximo 100 entidades, e a carga útil deve ter um tamanho inferior a 4 MB. Um EGT só pode atualizar uma entidade uma vez. |
 
-Para obter mais informações, consulte [o modelo de dados de serviço de tabela.](https://msdn.microsoft.com/library/azure/dd179338.aspx)  
+Para obter mais informações, consulte [o modelo de dados de serviço de tabela.](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)  
 
 ### <a name="cost-considerations"></a>Considerações de custos
 O armazenamento de mesa é relativamente barato, mas deve incluir estimativas de custos tanto para o uso da capacidade como para a quantidade de transações como parte da sua avaliação de qualquer solução que utilize o armazenamento da mesa. Em muitos cenários, no entanto, armazenar dados denormalizados ou duplicados de forma a melhorar o desempenho ou escalabilidade da sua solução é uma abordagem válida a tomar. Para obter mais informações sobre preços, consulte [os preços de Armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/).  
@@ -202,7 +202,7 @@ Os exemplos a seguir assumem que o armazenamento de mesa está a armazenar entid
 | `Age` |Número inteiro |
 | `EmailAddress` |String |
 
-Aqui estão algumas diretrizes gerais para a conceção de consultas de armazenamento de mesa. A sintaxe do filtro utilizada nos seguintes exemplos é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
+Aqui estão algumas diretrizes gerais para a conceção de consultas de armazenamento de mesa. A sintaxe do filtro utilizada nos seguintes exemplos é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](/rest/api/storageservices/Query-Entities)  
 
 * Uma *consulta de pontos* é a procura mais eficiente para usar, e é recomendado para consultas ou procuras de alto volume que requerem a latência mais baixa. Tal consulta pode usar os índices para localizar uma entidade individual de forma eficiente, especificando tanto os valores como os `PartitionKey` `RowKey` valores. Por exemplo: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
 * O segundo melhor é uma *consulta de alcance.* Utiliza o `PartitionKey` , e filtra numa gama de `RowKey` valores para devolver mais do que uma entidade. O `PartitionKey` valor identifica uma divisória específica, e os `RowKey` valores identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
@@ -410,7 +410,7 @@ Em secções anteriores, aprendeu sobre como otimizar o design da sua tabela tan
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Gráfico mostrando uma entidade de departamento e uma entidade de empregados":::
 
-O mapa de padrões destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há, naturalmente, muitos outros padrões que vale a pena considerar. Por exemplo, um dos cenários-chave para o armazenamento da mesa é usar o padrão de [vista materializado](https://msdn.microsoft.com/library/azure/dn589782.aspx) a partir do padrão de segregação de [responsabilidade de comando.](https://msdn.microsoft.com/library/azure/jj554200.aspx)  
+O mapa de padrões destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há, naturalmente, muitos outros padrões que vale a pena considerar. Por exemplo, um dos cenários-chave para o armazenamento da mesa é usar o padrão de [vista materializado](/previous-versions/msp-n-p/dn589782(v=pandp.10)) a partir do padrão de segregação de [responsabilidade de comando.](/previous-versions/msp-n-p/jj554200(v=pandp.10))  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Padrão do índice secundário intra-partição
 Armazenar várias cópias de cada entidade utilizando `RowKey` valores diferentes (na mesma partição). Isto permite sondagens rápidas e eficientes e ordens de classificação alternativas utilizando `RowKey` valores diferentes. As atualizações entre cópias podem ser mantidas consistentes utilizando EGTs.  
@@ -437,7 +437,7 @@ Se consultar uma série de entidades de colaboradores, pode especificar um inter
 * Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama 000100 a 000199, utilize: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
 * Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail a começar pela letra "a", utilize: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'email_a') e (RowKey lt 'email_b')  
   
-A sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
+A sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](/rest/api/storageservices/Query-Entities)  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -497,7 +497,7 @@ Se consultar uma série de entidades de colaboradores, pode especificar um inter
 * Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199**, classificados em ordem de ID dos funcionários, utilize: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que comece com "a", classificado em ordem de endereço de e-mail, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
-Note que a sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](https://msdn.microsoft.com/library/azure/dd179421.aspx)  
+Note que a sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](/rest/api/storageservices/Query-Entities)  
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -557,7 +557,7 @@ Neste exemplo, o passo 4 no diagrama insere o funcionário na tabela **Archive.*
 #### <a name="recover-from-failures"></a>Recuperar de falhas
 É importante que as operações nos passos 4-5 no diagrama sejam *idempotentes* no caso de a função do trabalhador necessitar de reiniciar a operação de arquivo. Se estiver a utilizar o armazenamento da mesa, para o passo 4 deve utilizar uma operação de "inserir ou substituir"; para o passo 5, deve utilizar uma operação de "excluir se existir" na biblioteca do cliente que está a utilizar. Se estiver a utilizar outro sistema de armazenamento, deve utilizar uma operação idempotente apropriada.  
 
-Se o papel do trabalhador nunca completar o passo 6 no diagrama, então, após um intervalo, a mensagem reaparece na fila pronta para o papel do trabalhador tentar reprocessá-lo. O papel do trabalhador pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "venenosa" para investigação enviando-a para uma fila separada. Para obter mais informações sobre a leitura de mensagens de fila e a verificação da contagem de deques, consulte [obter mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Se o papel do trabalhador nunca completar o passo 6 no diagrama, então, após um intervalo, a mensagem reaparece na fila pronta para o papel do trabalhador tentar reprocessá-lo. O papel do trabalhador pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizá-la como uma mensagem "venenosa" para investigação enviando-a para uma fila separada. Para obter mais informações sobre a leitura de mensagens de fila e a verificação da contagem de deques, consulte [obter mensagens](/rest/api/storageservices/Get-Messages).  
 
 Alguns erros do armazenamento de mesa e do armazenamento da fila são erros transitórios, e a aplicação do seu cliente deve incluir lógica de repetição adequada para lidar com eles.  
 
@@ -1018,7 +1018,7 @@ Uma consulta contra o armazenamento de mesa pode devolver um máximo de 1.000 en
 - A consulta não terminou em cinco segundos.
 - A consulta cruza o limite da partição. 
 
-Para obter mais informações sobre como funcionam os tokens de continuação, consulte [o tempo limite de consulta e a paginação.](https://msdn.microsoft.com/library/azure/dd135718.aspx)  
+Para obter mais informações sobre como funcionam os tokens de continuação, consulte [o tempo limite de consulta e a paginação.](/rest/api/storageservices/Query-Timeout-and-Pagination)  
 
 Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, pode lidar automaticamente com fichas de continuação para si, uma vez que devolve entidades do armazenamento de mesa. Por exemplo, a seguinte amostra de código C# lida automaticamente com fichas de continuação se o armazenamento da mesa os devolver numa resposta:  
 
@@ -1424,7 +1424,7 @@ Pode utilizar fichas de assinatura de acesso partilhado (SAS) para permitir que 
 * Pode descarregar parte do trabalho que as funções web e trabalhadora desempenham na gestão das suas entidades. Pode descarregar para dispositivos clientes, como computadores de utilizador final e dispositivos móveis.  
 * Pode atribuir um conjunto limitado de permissões a um cliente (como permitir o acesso apenas à leitura a recursos específicos).  
 
-Para obter mais informações sobre a utilização de fichas SAS com armazenamento de mesa, consulte [utilizando assinaturas de acesso partilhado (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Para obter mais informações sobre a utilização de fichas SAS com armazenamento de mesa, consulte [utilizando assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md).  
 
 No entanto, ainda deve gerar os tokens SAS que concedem um pedido de cliente às entidades de armazenamento de mesa. Faça isto num ambiente que tenha acesso seguro às chaves da sua conta de armazenamento. Normalmente, usa uma função web ou trabalhadora para gerar os tokens SAS e entregá-los às aplicações do cliente que precisam de acesso às suas entidades. Como ainda existe uma sobrecarga envolvida na geração e entrega de fichas SAS aos clientes, deve considerar a melhor forma de reduzir esta sobrecarga, especialmente em cenários de grande volume.  
 
@@ -1521,5 +1521,4 @@ Neste exemplo assíncronos, pode ver as seguintes alterações a partir da vers�
 * A assinatura do método agora inclui o `async` modificador, e devolve uma `Task` instância.  
 * Em vez de chamar o `Execute` método para atualizar a entidade, o método agora chama o `ExecuteAsync` método. O método utiliza o `await` modificador para obter resultados assíncronos.  
 
-A aplicação do cliente pode chamar vários métodos assíncronos como este, e cada invocação de método corre em um fio separado.  
-
+A aplicação do cliente pode chamar vários métodos assíncronos como este, e cada invocação de método corre em um fio separado.

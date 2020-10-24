@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423926"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496055"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Remova TLS 1.0 e 1.1 da utilização com cache Azure para Redis
 
@@ -19,10 +19,14 @@ Há um impulso a nível da indústria para o uso exclusivo da versão 1.2 ou pos
 
 Como parte deste esforço, vamos fazer as seguintes alterações ao Azure Cache para Redis:
 
-* **Fase 1:** Configuraremos a versão mínima TLS padrão para ser 1.2 para instâncias de cache recém-criadas (anteriormente TLS 1.0).  As instâncias de cache existentes não serão atualizadas neste momento. Poderá alterar a [versão mínima TLS](cache-configure.md#access-ports) de volta para 1.0 ou 1.1 para retrocompatibilidade, se necessário. Esta alteração pode ser feita através do portal Azure ou de outras APIs de gestão.
-* **Fase 2:** Vamos deixar de suportar as versões TLS 1.0 e 1.1. Após esta alteração, a sua aplicação será obrigada a utilizar o TLS 1.2 ou posteriormente para comunicar com o seu cache.
+* **Fase 1:** Vamos configurar a versão mínima TLS padrão para ser 1.2 para instâncias de cache recém-criadas (anteriormente, era TLS 1.0). As instâncias de cache existentes não serão atualizadas neste momento. Pode ainda utilizar o portal Azure ou outras APIs de gestão para [alterar a versão mínima TLS](cache-configure.md#access-ports) para 1.0 ou 1.1 para retrocompatibilidade, se necessário.
+* **Fase 2:** Vamos parar de apoiar os TLS 1.1 e TLS 1.0. Após esta alteração, a sua aplicação deve utilizar o TLS 1.2 ou mais tarde para comunicar com o seu cache. Espera-se que o serviço Azure Cache for Redis esteja disponível enquanto o migramos para suportar apenas TLS 1.2 ou mais tarde.
 
-Além disso, como parte desta mudança, vamos remover o apoio para suites cifras mais antigas e inseguras.  As nossas suítes cifradas suportadas serão restritas às seguintes quando a cache estiver configurada com uma versão TLS mínima de 1.2.
+  > [!NOTE]
+  > A fase 2 está provisoriamente prevista para começar não antes de 31 de dezembro de 2020. No entanto, recomendamos vivamente que comece a planear esta mudança agora e atualizar proativamente os clientes para apoiar o TLS 1.2 ou mais tarde. 
+  >
+
+Como parte desta mudança, também removeremos suporte para suítes cifras mais antigas que não são seguras. As nossas suítes cifradas suportadas serão restritas às seguintes suites quando a cache estiver configurada com um mínimo de TLS 1.2:
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ As datas em que estas alterações fazem efeito são:
 
 | Cloud                | Fase 1 Data de Início | Fase 2 Data de Início         |
 |----------------------|--------------------|----------------------------|
-| Azure (global)       |  13 de janeiro de 2020  | Adiado devido ao COVID 19  |
-| Azure Government     |  13 de março de 2020    | Adiado devido ao COVID 19  |
-| Azure Alemanha        |  13 de março de 2020    | Adiado devido ao COVID 19  |
-| Azure China 21Vianet |  13 de março de 2020    | Adiado devido ao COVID 19  |
+| Azure (global)       |  13 de janeiro de 2020  | Adiado devido ao COVID-19  |
+| Azure Government     |  13 de março de 2020    | Adiado devido ao COVID-19  |
+| Azure Alemanha        |  13 de março de 2020    | Adiado devido ao COVID-19  |
+| Azure China 21Vianet |  13 de março de 2020    | Adiado devido ao COVID-19  |
 
-NOTA: Nova data para a Fase 2 ainda não foi determinada
+> [!NOTE]
+> A fase 2 está provisoriamente prevista para começar não antes de 31 de dezembro de 2020. Este artigo será atualizado quando as datas específicas forem definidas.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Verifique se a sua aplicação já está em conformidade
 

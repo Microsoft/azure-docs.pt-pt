@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 10/23/2020
+ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424177"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495229"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -181,27 +181,12 @@ Numa oferta multi-arrendatário, as unidades de produção podem crescer até 40
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>O que são os clusters dos Hubs de Eventos Dedicados?
 Clusters dedicados ao Evento Hubs oferecem implantações de inquilinos únicos para clientes com requisitos mais exigentes. Esta oferta constrói um cluster baseado na capacidade que não está ligado por unidades de produção. Significa que pode usar o cluster para ingerir e transmitir os seus dados como ditado pelo CPU e pelo uso da memória do cluster. Para mais informações, consulte [clusters dedicados do Event Hubs.](event-hubs-dedicated-overview.md)
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>O que é que uma única unidade de capacidade me permite alcançar?
-Para um cluster dedicado, quanto pode ingerir e transmitir depende de vários fatores, como os seus produtores, consumidores, a taxa a que está a ingerir e a processar, e muito mais. 
-
-A tabela seguinte mostra os resultados de referência que conseguimos durante os nossos testes:
-
-| Forma de carga útil | Recetores | Largura de banda ingress| Mensagens ingress | Largura de banda da Egress | Mensagens de egress | TUs totais | TUs por CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lotes de 100x1KB | 2 | 400 MB/seg | 400k mensagens/seg | 800 MB/seg | 800k mensagens/seg | 400 TUs | 100 TUs | 
-| Lotes de 10x10KB | 2 | 666 MB/seg | 66.6k mensagens/seg | 1,33 GB/seg | Mensagens de 133k/seg | 666 TUs | 166 TUs |
-| Lotes de 6x32KB | 1 | 1,05 GB/seg | Mensagens de 34k /seg | 1,05 GB/seg | Mensagens de 34k/seg | 1000 TUs | 250 TUs |
-
-No ensaio, foram utilizados os seguintes critérios:
-
-- Foi utilizado um cluster dedicado de Centros de Eventos com quatro unidades de capacidade (CUs). 
-- O centro de eventos usado para a ingestão tinha 200 divisórias. 
-- Os dados que foram ingeridos foram recebidos por duas aplicações recetoras recebidas de todas as divisórias.
-
-Os resultados dão-lhe uma ideia do que pode ser alcançado com um cluster dedicado de Clusters de Eventos. Além disso, um cluster dedicado vem com o Event Hubs Capture habilitado para os seus cenários de micro-lote e retenção a longo prazo.
-
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Como posso criar um cluster dedicado ao Event Hubs?
-Cria um cluster dedicado ao Event Hubs, submetendo um pedido de [apoio ao aumento de quota](https://portal.azure.com/#create/Microsoft.Support) ou contactando a equipa do Event [Hubs.](mailto:askeventhubs@microsoft.com) Normalmente leva cerca de duas semanas para que o cluster seja implantado e entregue para ser usado por si. Este processo é temporário até que um autosserviço completo seja disponibilizado através do portal Azure.
+Para obter instruções passo a passo e mais informações sobre a criação de um cluster dedicado ao Event Hubs, consulte o [Quickstart: Crie um cluster dedicado de Centros de Eventos utilizando o portal Azure.](event-hubs-dedicated-cluster-create-portal.md) 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## <a name="best-practices"></a>Melhores práticas
 

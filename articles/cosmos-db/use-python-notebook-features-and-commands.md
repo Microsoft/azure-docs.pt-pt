@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801856"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476285"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB Python (pré-visualização)
 
@@ -167,7 +167,7 @@ Consulte [as amostras do Python SDK.](https://github.com/Azure/azure-sdk-for-pyt
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>Criar uma instância personalizada de ``cosmos_client``
 Para uma maior flexibilidade, pode criar uma instância personalizada de ``cosmos_client`` forma a:
 
-- Personalizar a [política de ligação](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
+- Personalizar a [política de ligação](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview)
 - Executar operações contra uma conta Azure Cosmos diferente da que você está em
 
 Pode aceder à cadeia de ligação e à chave primária da conta corrente através das [variáveis ambientais.](#access-the-account-endpoint-and-primary-key-env-variables) 

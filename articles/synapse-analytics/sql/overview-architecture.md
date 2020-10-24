@@ -1,6 +1,6 @@
 ---
 title: Arquitetura SQL do Synapse
-description: Saiba como o Azure Synapse SQL combina um processamento paralelo maciço (MPP) com o Azure Storage para alcançar um alto desempenho e escalabilidade.
+description: Saiba como o Azure Synapse SQL combina capacidades de processamento de consulta distribuídas com o Azure Storage para alcançar um alto desempenho e escalabilidade.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046857"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476013"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
 
@@ -35,7 +35,7 @@ Para o SQL a pedido, sendo sem servidor, o dimensionamento é feito automaticame
 
 O SYNAPSE SQL utiliza uma arquitetura baseada em nó. As aplicações ligam e emitem comandos T-SQL a um nó de controlo, que é o único ponto de entrada para o Sinaapse SQL. 
 
-O nó de controlo de piscina SQL utiliza o motor MPP para otimizar consultas para processamento paralelo e, em seguida, passa as operações para os nós compute para fazer o seu trabalho em paralelo. 
+O nó de controlo Azure Synapse SQL utiliza um motor de consulta distribuído para otimizar consultas de processamento paralelo e, em seguida, passa as operações para os nós compute para fazer o seu trabalho em paralelo. 
 
 O nó de controlo on-demand SQL utiliza o motor distributed query processing (DQP) para otimizar e orquestrar a execução distribuída da consulta do utilizador, dividindo-o em consultas menores que serão executadas nos nós compute. Cada pequena consulta é chamada tarefa e representa unidade de execução distribuída. Lê ficheiros(s) a partir de armazenamento, junta resultados de outras tarefas, grupos ou dados de encomendas obtidos de outras tarefas. 
 
@@ -47,7 +47,7 @@ Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se bene
 * Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros. Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. 
 
@@ -61,7 +61,7 @@ O SQL on demand permite-lhe consultar ficheiros no seu lago de dados apenas de f
 
 O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. 
 
-Na piscina SQL, o motor MPP funciona no nó de Controlo para otimizar e coordenar consultas paralelas. Quando submete uma consulta T-SQL à piscina SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
+No Synapse SQL, o motor de consulta distribuído funciona no nó de Controlo para otimizar e coordenar consultas paralelas. Quando submete uma consulta T-SQL à piscina SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
 
 No SQL on demand, o motor DQP funciona no nó de Controlo para otimizar e coordenar a execução distribuída da consulta do utilizador, dividindo-a em consultas menores que serão executadas nos nós compute. Também atribui conjuntos de ficheiros a serem processados por cada nó.
 
@@ -69,7 +69,7 @@ No SQL on demand, o motor DQP funciona no nó de Controlo para otimizar e coorde
 
 Os nós de computação conferem poder de computação. 
 
-Na piscina SQL, mapa de distribuição para nós compute para processamento. À medida que paga por mais recursos computacional, o pool remaps as distribuições para os nós computacional disponíveis. O número de nós computativos varia de 1 a 60, e é determinado pelo nível de serviço para piscina SQL. Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema MPP](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Na piscina SQL, mapa de distribuição para nós compute para processamento. À medida que paga por mais recursos computacional, o pool remaps as distribuições para os nós computacional disponíveis. O número de nós computativos varia de 1 a 60, e é determinado pelo nível de serviço para piscina SQL. Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 Em SQL on demand, cada nó compute é atribuído tarefa e conjunto de ficheiros para executar tarefa. A tarefa é distribuída unidade de execução de consulta, que na verdade faz parte do utilizador de consulta submetido. O dimensionamento automático está em vigor para garantir que os nós computacional suficientes são utilizados para executar a consulta do utilizador.
 

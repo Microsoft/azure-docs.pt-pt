@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498859"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485108"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução LINQ para SQL
 
-O fornecedor de consulta DB Azure Cosmos realiza um melhor mapeamento de esforço de uma consulta LINQ em uma consulta Cosmos DB SQL. Se pretender obter a consulta SQL que é traduzida a partir de LINQ, utilize o `ToString()` método no `IQueryable` objeto gerado. A seguinte descrição pressupõe uma familiaridade básica com [o LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+O fornecedor de consulta DB Azure Cosmos realiza um melhor mapeamento de esforço de uma consulta LINQ em uma consulta Cosmos DB SQL. Se pretender obter a consulta SQL que é traduzida a partir de LINQ, utilize o `ToString()` método no `IQueryable` objeto gerado. A seguinte descrição pressupõe uma familiaridade básica com [o LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 O sistema de tipo fornecedor de consulta suporta apenas os tipos primitivos JSON: numérico, Boolean, string e nulo.
 

@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 16110c8f48330d60d4d0b6a2affb870ffa5e349c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281596"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482677"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Mude o feed na API DB AZure Cosmos para Cassandra
 
 [O](change-feed.md) suporte de feed de mudança no Azure Cosmos DB API para Cassandra está disponível através dos predicados de consulta na Língua Desafetação de Cassandra (CQL). Utilizando estas condições predicados, pode consultar a API de alimentação de alteração. As aplicações podem obter as alterações feitas a uma tabela usando a chave primária (também conhecida como chave de partição) como é exigido no CQL. Em seguida, pode tomar outras ações com base nos resultados. As alterações nas linhas da tabela são capturadas na ordem do seu tempo de modificação e na ordem de classificação por tecla de partição.
 
-O exemplo a seguir mostra como obter um feed de mudança em todas as linhas de uma tabela de keyspace Cassandra API usando .NET. O predicado COSMOS_CHANGEFEED_START_TIME() é utilizado diretamente no CQL para consultar itens no feed de alteração a partir de uma hora de início especificada (neste caso, a data atual). Você pode baixar a amostra completa, para C# [aqui](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) e para Java [aqui](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
+O exemplo a seguir mostra como obter um feed de mudança em todas as linhas de uma tabela de keyspace Cassandra API usando .NET. O predicado COSMOS_CHANGEFEED_START_TIME() é utilizado diretamente no CQL para consultar itens no feed de alteração a partir de uma hora de início especificada (neste caso, a data atual). Você pode baixar a amostra completa, para C# [aqui](/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) e para Java [aqui](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 Em cada iteração, a consulta retoma no último ponto as alterações foram lidas, utilizando o estado de paging. Podemos ver um fluxo contínuo de novas alterações na tabela no Keyspace. Veremos alterações nas linhas que são inseridas ou atualizadas. Atualmente, não é suportado o serviço de observação de operações de eliminação utilizando o feed de alteração na API de Cassandra.
 
@@ -146,4 +146,4 @@ Os seguintes códigos de erro e mensagens são suportados ao utilizar o feed de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Gerir recursos da Azure Cosmos DB Cassandra API utilizando modelos de Gestor de Recursos Azure](manage-cassandra-with-resource-manager.md)
+* [Gerir recursos da Azure Cosmos DB Cassandra API utilizando modelos de Gestor de Recursos Azure](./templates-samples-cassandra.md)

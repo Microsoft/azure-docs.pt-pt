@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bd6c504970d4991ee7d5c44b091a5d91c9d0a166
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461401"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494813"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -48,19 +48,19 @@ O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento 
 
 Primeiro, criar um tópico de grelha de eventos. Pode utilizar o seguinte comando ou ver os passos mais detalhadamente visitando [a secção *de tópicos personalizados* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom.*
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
 
 > [!TIP]
 > Para obter uma lista de nomes da região de Azure que podem ser passados em comandos no CLI Azure, executar este comando:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
 Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte [comando CLI Azure Digital Twins](how-to-use-cli.md):
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -77,12 +77,12 @@ Primeiro, crie os seus recursos que usará como ponto final. Aqui está o que é
 Em seguida, utilize os seguintes comandos para criar os pontos finais em Azure Digital Twins: 
 
 * Adicionar ponto final de tópico de ônibus de serviço (requer um recurso de service bus pré-criado)
-```azurecli 
+```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Adicionar ponto final do Event Hubs (requer recurso de Centros de Eventos pré-criado)
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -242,8 +242,6 @@ Aqui estão os filtros de rota suportados. Utilize o detalhe na coluna *de esque
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Gerir pontos finais e rotas com CLI
 
 Os pontos finais e as rotas também podem ser geridos usando o CLI das Gémeas Digitais Azure. Para obter mais informações sobre a utilização do CLI e quais os comandos disponíveis, consulte [*Como-a-fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f9dd69c147dff1bf0bd10ca070e023bb6f7692a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368439"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494744"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Dispositivos de gestão automática em Gémeos Digitais Azure utilizando o Serviço de Provisionamento de Dispositivos (DPS)
 
@@ -71,7 +71,7 @@ Crie uma instância de Serviço de Provisionamento de Dispositivos, que será ut
 
 O seguinte comando Azure CLI criará um serviço de provisionamento de dispositivos. Você precisará especificar um nome, grupo de recursos e região. O comando pode ser executado em [Cloud Shell,](https://shell.azure.com)ou localmente se tiver o CLI Azure [instalado na sua máquina](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
-```azurecli
+```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ Em seguida, terá de definir variáveis ambientais na sua aplicação de funçã
 
 Adicione a definição com este comando Azure CLI:
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Certifique-se de que as permissões e a atribuição de funções de identidade 
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Deverá ver o dispositivo a ser registado e ligado ao IoT Hub e, em seguida, com
 
 Como resultado do fluxo que criou neste artigo, o dispositivo será automaticamente registado em Azure Digital Twins. Utilizando o seguinte comando [CLI das Gémeas Digitais Azure](how-to-use-cli.md) para encontrar o gémeo do dispositivo na instância Azure Digital Twins que criou.
 
-```azurecli
+```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -449,13 +449,13 @@ Em seguida, terá de definir variáveis ambientais na sua app de função anteri
 
 Adicione a definição com este comando Azure CLI. O comando pode ser executado em [Cloud Shell,](https://shell.azure.com)ou localmente se tiver o CLI Azure [instalado na sua máquina](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Em seguida, terá de configurar a variável ambiente de função para ligar ao centro de eventos recém-criado.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ O dispositivo será automaticamente removido da Azure Digital Twins.
 
 Utilize o seguinte comando [CLI dos Gémeos Digitais Azure](how-to-use-cli.md) para verificar se o gémeo do dispositivo na instância Azure Digital Twins foi eliminado.
 
-```azurecli
+```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recu
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

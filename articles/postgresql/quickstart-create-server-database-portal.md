@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 6e43d00722dd86934c8f95e06a3b8b590b263d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2c340f9e7d2c44082adc67eeb816276449602035
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705165"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484496"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor PostgreSQL utilizando o portal Azure
 
@@ -68,7 +68,7 @@ Para criar uma base de dados Azure para o servidor PostgreSQL:
 Uma base de dados vazia, **postgres,** é criada. Também encontrará uma base **de dados azure_maintenance** que é usada para separar os processos de serviço geridos das ações do utilizador. Não pode aceder à base **de dados azure_maintenance.**
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
-Por predefinição, o servidor que cria não é acessível ao público. Tem de dar permissões ao seu endereço IP. Aceda ao recurso do seu servidor no portal Azure e selecione a segurança de **ligação** do menu do lado esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte os [recursos abertos.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)
+Por predefinição, o servidor que cria não é acessível ao público. Tem de dar permissões ao seu endereço IP. Aceda ao recurso do seu servidor no portal Azure e selecione a segurança de **ligação** do menu do lado esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte os [recursos abertos.](../azure-resource-manager/management/manage-resources-portal.md#open-resources)
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Screenshot que mostra Azure Database para PostgreSQL no menu.":::
@@ -80,7 +80,7 @@ Por predefinição, o servidor que cria não é acessível ao público. Tem de d
 
 ## <a name="connect-to-azure-database-for-postgresql-server-by-using-psql"></a>Ligue à Base de Dados de Azure para servidor PostgreSQL utilizando o psql
 
-Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin,](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html)que são clientes postgreSQL populares. Para este arranque rápido, vamos conectar-nos usando psql em [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) dentro do portal Azure.
+Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin,](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html)que são clientes postgreSQL populares. Para este arranque rápido, vamos conectar-nos usando psql em [Azure Cloud Shell](../cloud-shell/overview.md) dentro do portal Azure.
 
 1. Tome nota do nome do seu servidor, nome de login de administrador do servidor, palavra-passe e ID de subscrição para o seu servidor recém-criado a partir da secção **visão geral** do seu servidor.
 
@@ -130,7 +130,7 @@ Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin
    ```
 6. Digite `\q` , e, em seguida, selecione a tecla Enter para fechar o psql. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Criou com sucesso uma Base de Dados Azure para servidor PostgreSQL num grupo de recursos. Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos ou o servidor PostgreSQL. 
 
 Para eliminar o grupo de recursos:

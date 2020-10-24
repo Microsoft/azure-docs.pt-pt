@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13d2633576454ea6445deb4d2b0b11c2bbb1514e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869444"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478376"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -151,15 +151,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--cadeia de nível de log** Define a verbosidade do registo para o ficheiro de registo, níveis disponíveis: `INFO` (todos os pedidos e respostas), `WARNING` (respostas lentas), `ERROR` (apenas pedidos falhados) e `NONE` (sem registos de saída). (predefinição). `INFO` 
 
-**--preservar-smb-info**     Falso por defeito.Preserva a informação de propriedade SMB (última hora de escrita, tempo de criação, atributo bits) entre recursos conscientes de SMB (Windows e Azure Files).Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas de ficheiro (por exemplo, incluir o padrão).A informação transferida para pastas é a mesma que para ficheiros, com exceção da Última Hora de Escrita que não está preservada para pastas.
+**--preservar-smb-info**   Falso por defeito. Preserva a informação de propriedade SMB (última hora de escrita, tempo de criação, atributo bits) entre recursos conscientes de SMB (Windows e Azure Files). Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas de ficheiro (por exemplo, incluir o padrão). A informação transferida para pastas é a mesma que para ficheiros, com exceção da Última Hora de Escrita que não está preservada para pastas.
 
-**---conserva-smb-permissões**     Falso por defeito.Preserva acls SMB entre recursos conscientes (Windows e Azure Files).Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas para ficheiros (por exemplo,  `include-pattern` ).
+**---conserva-smb-permissões**   Falso por defeito. Preserva acls SMB entre recursos conscientes (Windows e Azure Files). Esta bandeira aplica-se tanto a ficheiros como a pastas, a menos que seja especificado um filtro apenas para ficheiros (por exemplo, `include-pattern` ).
 
 **--put-md5**     Crie um haxixe MD5 de cada ficheiro e guarde o haxixe como propriedade do Conteúdo-MD5 da bolha de destino ou ficheiro. (Por defeito, o haxixe NÃO é criado.) Só disponível no upload.
 
 **--recursivo** `True` por padrão, procure subdisposições de forma recorrente ao sincronizar entre diretórios.     (predefinição). `True` 
 
-**--s2s-preserve-access-tier**  Preservar o nível de acesso durante o serviço à cópia de serviço. Consulte o [armazenamento do Azure Blob: níveis de acesso quentes, frescos e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino suporta a definição do nível de acesso. Nos casos em que a definição do nível de acesso não seja suportada, utilize o s2sPreserveAccessTier=falso para contornar o nível de acesso de cópia. (predefinição). `true` 
+**--s2s-preserve-access-tier**  Preservar o nível de acesso durante o serviço à cópia de serviço. Consulte o [armazenamento do Azure Blob: níveis de acesso quentes, frescos e de arquivo](/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino suporta a definição do nível de acesso. Nos casos em que a definição do nível de acesso não seja suportada, utilize o s2sPreserveAccessTier=falso para contornar o nível de acesso de cópia. (predefinição). `true` 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas dos comandos dos pais
 
@@ -169,6 +169,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [azcopy](storage-ref-azcopy.md)
+- [azcopia](storage-ref-azcopy.md)

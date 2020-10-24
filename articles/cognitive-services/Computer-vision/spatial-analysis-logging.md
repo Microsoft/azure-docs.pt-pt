@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254079"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496100"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -23,9 +23,9 @@ A análise espacial inclui um conjunto de funcionalidades para monitorizar o est
 
 ## <a name="enable-visualizations"></a>Permitir visualizações
 
-Para ativar uma visualização de eventos de IA Insights num quadro de vídeo, é necessário utilizar a `.debug` versão de uma [operação](spatial-analysis-operations.md)de análise espacial . Há quatro operações de depuro disponíveis.
+Para ativar uma visualização de eventos de AI Insights numa moldura de vídeo, é necessário utilizar a `.debug` versão de uma [operação](spatial-analysis-operations.md) de análise espacial numa máquina de ambiente de trabalho. A visualização não é possível nos dispositivos Azure Stack Edge. Há quatro operações de depuro disponíveis.
 
-Edite o [manifesto de implantação](https://go.microsoft.com/fwlink/?linkid=2142179) para utilizar o valor correto para a `DISPLAY` variável ambiente. Precisa combinar com a `$DISPLAY` variável no computador anfitrião. Após a atualização do manifesto de implantação, reimplante o recipiente.
+Se o seu dispositivo não for um dispositivo Azure Stack Edge, edite o ficheiro manifesto de implementação para [máquinas de ambiente de trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) para utilizar o valor correto para a `DISPLAY` variável ambiente. Precisa combinar com a `$DISPLAY` variável no computador anfitrião. Após a atualização do manifesto de implantação, reimplante o recipiente.
 
 Depois de concluída a implementação, poderá ter de copiar o `.Xauthority` ficheiro do computador anfitrião para o recipiente e reiniciá-lo. Na amostra abaixo, `peopleanalytics` está o nome do recipiente no computador anfitrião.
 
@@ -39,7 +39,7 @@ xhost +
 
 ## <a name="collect-system-health-telemetry"></a>Recolher telemetria de saúde do sistema
 
-A Telegraf é uma imagem de código aberto que funciona com análise espacial, e está disponível no Registo de Contentores da Microsoft. Pega nas seguintes entradas e envia-as para o Azure Monitor. O módulo telegraf pode ser construído com entradas e saídas personalizadas desejadas. A configuração do módulo telegraf na análise espacial faz parte do manifesto de [implantação.](https://go.microsoft.com/fwlink/?linkid=2142179) Este módulo é opcional e pode ser removido do manifesto se não precisar. 
+A Telegraf é uma imagem de código aberto que funciona com análise espacial, e está disponível no Registo de Contentores da Microsoft. Pega nas seguintes entradas e envia-as para o Azure Monitor. O módulo telegraf pode ser construído com entradas e saídas personalizadas desejadas. A configuração do módulo telegraf na análise espacial faz parte do manifesto de implantação (ligado acima). Este módulo é opcional e pode ser removido do manifesto se não precisar. 
 
 Entradas: 
 1. Análise espacial Métricas
@@ -51,7 +51,7 @@ Entradas:
 Saídas:
 1. Azure Monitor
 
-O módulo de análise espacial fornecido telegraf publicará todos os dados de telemetria emitidos pelo recipiente de análise espacial ao Azure Monitor. Consulte o [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para obter informações sobre a adição do monitor Azure à sua subscrição.
+O módulo de análise espacial fornecido telegraf publicará todos os dados de telemetria emitidos pelo recipiente de análise espacial ao Azure Monitor. Consulte o [Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/overview) para obter informações sobre a adição do Monitor Azure à sua subscrição.
 
 Depois de configurar o Azure Monitor, terá de criar credenciais que permitam ao módulo enviar telemetria. Pode utilizar o portal Azure para criar um novo Diretor de Serviços ou utilizar o comando Azure CLI abaixo para criar um.
 
@@ -68,14 +68,14 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-No [manifesto de implantação,](https://go.microsoft.com/fwlink/?linkid=2142179)procure o módulo *telegraf,* e substitua os seguintes valores com as informações principais do serviço do passo anterior e da redistribuição.
+No manifesto de implantação do seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou de outra máquina de ambiente de [trabalho,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)procure o módulo *telegraf* e substitua os seguintes valores com as informações principais do Serviço do passo anterior e da redistribuição.
 
 ```json
 
 "telegraf": { 
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
 "env": {
@@ -105,19 +105,19 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 | Nome do Evento | Descrição|
 |------|---------|
-|archon_exit    |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
-|archon_error   |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
-|InputRate  |A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos. | 
-|Taxa de saída     |A taxa a que o gráfico produz insights de IA. Reportado a cada 5 minutos. |
-|archon_allGraphsStarted | Enviado quando todos os gráficos terminarem de começar. |
-|archon_configchange    | Enviado quando uma configuração de gráfico mudou. |
-|archon_graphCreationFailed     |Enviado quando o gráfico com o relato `graphId` não começa. |
-|archon_graphCreationSuccess    |Enviado quando o gráfico com o relatado `graphId` começa com sucesso. |
-|archon_graphCleanup    | Enviado quando o gráfico com o relato `graphId` limpa e sai. |
-|archon_graphHeartbeat  |Batimentos cardíacos enviados a cada minuto por cada gráfico de uma habilidade. |
+|archon_exit    |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
+|archon_error   |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
+|InputRate  |A taxa a que o gráfico processa a entrada de vídeo. Reportado a cada 5 minutos. | 
+|Taxa de saída     |A taxa a que o gráfico produz insights de IA. Reportado a cada 5 minutos. |
+|archon_allGraphsStarted | Enviado quando todos os gráficos terminarem de começar. |
+|archon_configchange    | Enviado quando uma configuração de gráfico mudou. |
+|archon_graphCreationFailed     |Enviado quando o gráfico com o relato `graphId` não começa. |
+|archon_graphCreationSuccess    |Enviado quando o gráfico com o relatado `graphId` começa com sucesso. |
+|archon_graphCleanup    | Enviado quando o gráfico com o relato `graphId` limpa e sai. |
+|archon_graphHeartbeat  |Batimentos cardíacos enviados a cada minuto por cada gráfico de uma habilidade. |
 |archon_apiKeyAuthFail |Enviado quando a tecla de recursos de Visão Por Computador não autentica o recipiente por mais de 24 horas, devido às seguintes razões: Fora de Quota, Inválido, Offline. |
-|VideoIngesterHeartbeat     |Enviado a cada hora para indicar que o vídeo é transmitido a partir da fonte de Vídeo, com o número de erros naquela hora. Reportado para cada gráfico. |
-|Estado do VideoIngester | Relatórios *Parados* ou *Iniciados* para transmissão de vídeo.Reportado para cada gráfico. |
+|VideoIngesterHeartbeat     |Enviado a cada hora para indicar que o vídeo é transmitido a partir da fonte de Vídeo, com o número de erros naquela hora. Reportado para cada gráfico. |
+|Estado do VideoIngester | Relatórios *Parados* ou *Iniciados* para transmissão de vídeo. Reportado para cada gráfico. |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Resolução de problemas de um dispositivo de borda IoT
 
@@ -129,22 +129,17 @@ Pode utilizar `iotedge` a ferramenta da linha de comando para verificar o estado
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Recolher ficheiros de registo com o recipiente de diagnóstico
 
-A análise espacial gera registos de depurar Docker que pode usar para diagnosticar problemas de tempo de execução, ou incluir em bilhetes de apoio. O módulo de diagnóstico de análise espacial está disponível no Registo de Contentores da Microsoft para que possa descarregar. No [manifesto de implantação](https://go.microsoft.com/fwlink/?linkid=2142179)da amostra, procure o módulo *de diagnóstico.*
+A análise espacial gera registos de depurar Docker que pode usar para diagnosticar problemas de tempo de execução, ou incluir em bilhetes de apoio. O módulo de diagnóstico de análise espacial está disponível no Registo de Contentores da Microsoft para que possa descarregar. No ficheiro de implantação manifesto para o seu [Dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outra máquina de ambiente de [trabalho,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)procure o módulo *de diagnóstico.*
 
 Na secção "env" adicione a seguinte configuração:
 
 ```json
-"diagnostics": {  
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
-  }
+"diagnostics": {  
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
+  }
 ```    
-
->[!NOTE]
-> Se não estiver a funcionar num ambiente ASE Kubernetes, substitua o recipiente para criar opções para o módulo de registo registador para o seguinte:
->
->`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
 Para otimizar os registos enviados para um ponto final remoto, como o Azure Blob Storage, recomendamos manter um pequeno tamanho de ficheiro. Veja o exemplo abaixo para a configuração recomendada de registos do Docker.
 
@@ -193,13 +188,13 @@ Também pode ser definido através do documento IoT Edge Module Twin, quer a ní
 > O `diagnostics` módulo não afeta o conteúdo da registo, é apenas ajuda na recolha, filtragem e upload dos registos existentes.
 > Tem de ter a versão API 1.40 ou superior para utilizar este módulo.
 
-O ficheiro [manifesto de implantação da amostra](https://go.microsoft.com/fwlink/?linkid=2142179) inclui um módulo nomeado que recolhe e carrega `diagnostics` registos. Este módulo é desativado por predefinição e deve ser ativado através da configuração do módulo IoT Edge quando necessitar de aceder a registos. 
+O ficheiro manifesto de implementação da amostra para o seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outra máquina de ambiente de [trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  inclui um módulo nomeado que recolhe e `diagnostics` envia registos. Este módulo é desativado por predefinição e deve ser ativado através da configuração do módulo IoT Edge quando necessitar de aceder a registos. 
 
 A `diagnostics` coleção é a pedido e controlada através de um método direto IoT Edge, e pode enviar registos para um Azure Blob Storage.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurar metas de upload de diagnósticos
 
-A partir do portal IoT Edge, selecione o seu dispositivo e, em seguida, o módulo **de diagnóstico.** No ficheiro de amostra [*DeploymentManifest.js,*](https://go.microsoft.com/fwlink/?linkid=2142179)procure a secção **de Variáveis ambientais** para diagnósticos, denominado 'env', e adicione as seguintes informações:
+A partir do portal IoT Edge, selecione o seu dispositivo e, em seguida, o módulo **de diagnóstico.** No ficheiro manifesto de implementação da amostra para o seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou [outras máquinas de ambiente de trabalho,](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)procure a secção **de Variáveis ambientais** para diagnósticos, `env` nomeados, e adicione as seguintes informações:
 
 **Configurar o upload para o armazenamento de blob Azure**
 
@@ -221,9 +216,9 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 
 1. Vá à página do portal IoT Hub, selecione **Dispositivos edge**e, em seguida, selecione o seu dispositivo e o seu módulo de diagnóstico. 
-2. Vá à página de detalhes do módulo e clique no ***separador método direto.***
+2. Vá à página de detalhes do módulo e clique no separador método*_* _ método._*
 3. Digite `getRTCVLogs` no Nome do Método e uma cadeia de formato json na carga útil. Pode `{}` entrar, que é uma carga vazia. 
-4. Desa estaca de ligação e de tempo de método, e clique em **Invocar Método**.
+4. Desa estacadem a ligação e o método, e clique em _*Invoke Method**.
 5. Selecione o seu recipiente-alvo e construa uma corda de json de carga útil utilizando os parâmetros descritos na secção **de sintaxe de registo.** Clique **em Invocar Método** para realizar o pedido.
 
 >[!NOTE]
@@ -250,7 +245,7 @@ A tabela seguinte lista os atributos na resposta de consulta.
 
 | Palavra-chave | Descrição|
 |--|--|
-|DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a API retorna a informação ***de forma sincronizada***. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos ***assíncronamente***.|
+|DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a api devolve informações *** sincronizadamente**_. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos _*_assíncronamente_*_.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|
 |Filtros de Valor| Filtros de palavras-chave aplicados nos registos. |
 |TimeStamp| Tempo de início da execução do método. |
@@ -303,7 +298,7 @@ A tabela seguinte lista os atributos na resposta de consulta.
 }
 ```
 
-Verifique as linhas, horas e tamanhos do log, se essas definições parecerem boas substituem o ***DoPost*** `true` e que empurrarão os registos com os mesmos filtros para destinos. 
+Verifique as linhas, horas e tamanhos do log, se essas definições parecerem boas substituem o _*_DoPost_*_ `true` e que empurrarão os registos com os mesmos filtros para destinos. 
 
 Pode exportar registos do Azure Blob Storage quando resolver problemas. 
 
@@ -319,9 +314,9 @@ Para obter mais informações, consulte [Pedir a aprovação para executar o rec
 
 A secção seguinte é fornecida para ajudar na depuração e verificação do estado do seu dispositivo Azure Stack Edge.
 
-### <a name="access-the-kubernetes-api-endpoint"></a>Aceda ao Ponto Final da API da Kubernetes. 
+### <a name="access-the-kubernetes-api-endpoint"></a>Aceda ao Ponto Final da API da Kubernetes. 
 
-1. Na UI local do seu dispositivo, aceda à página **dispositivos.** 
+1. Na UI local do seu dispositivo, aceda à página _*Dispositivos** 
 2. Nos **pontos finais do dispositivo,** copie o ponto final de serviço da API da Kubernetes. Este ponto final é uma cadeia no seguinte formato: `https://compute..[device-IP-address]` .
 3. Salve a corda do ponto final. Usará isto mais tarde ao configurar `kubectl` para aceder ao cluster Kubernetes.
 

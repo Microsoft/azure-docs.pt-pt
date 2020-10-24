@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277296"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496130"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se o computador anfitrião não for um dispositivo Azure Stack Edge, terá de instalar a versão 1.0.8 do [Azure IoT Edge.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Siga estes passos para descarregar a versão correta:
+Se o computador anfitrião não for um dispositivo Azure Stack Edge, terá de instalar a versão 1.0.9 do [Azure IoT Edge.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Siga estes passos para descarregar a versão correta:
 
 Servidor Ubuntu 18.04:
 ```bash
@@ -286,10 +286,10 @@ Atualize as listas de pacotes no seu dispositivo.
 sudo apt-get update
 ```
 
-Instale o desbloqueio 1.0.8:
+Instale o desbloqueio 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 Em seguida, registe o computador anfitrião como um dispositivo IoT Edge na sua instância IoT Hub, utilizando uma [cadeia de ligação](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -314,7 +314,7 @@ Utilize os degraus abaixo para colocar o recipiente utilizando o Azure CLI.
 
 ### <a name="iot-deployment-manifest"></a>Manifesto de implantação do IoT
 
-Para simplificar a implantação de contentores em vários computadores hospedeiros, pode criar um ficheiro manifesto de implantação para especificar as opções de criação de contentores e variáveis ambientais. Pode encontrar um exemplo de um manifesto de [implantação no GitHub](https://go.microsoft.com/fwlink/?linkid=2142179).
+Para simplificar a implantação de contentores em vários computadores hospedeiros, pode criar um ficheiro manifesto de implantação para especificar as opções de criação de contentores e variáveis ambientais. Pode encontrar um exemplo de um manifesto de implementação [para Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) e  [outras máquinas de ambiente de trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) no Github.
 
 A tabela seguinte mostra as várias variáveis ambientais utilizadas pelo Módulo de Borda IoT. Também pode defini-los no manifesto de implantação acima ligado, utilizando o `env` atributo em `spatialanalysis` :
 
@@ -335,17 +335,16 @@ A tabela seguinte mostra as várias variáveis ambientais utilizadas pelo Módul
 > [!IMPORTANT]
 > As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
 
-Assim que atualizar a amostra [DeploymentManifest.jsficheiro](https://go.microsoft.com/fwlink/?linkid=2142179) com as suas próprias definições e seleção de operações, pode utilizar o comando CLI abaixo do [Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) para implantar o recipiente no computador anfitrião, como módulo IoT Edge.
+Assim que atualizar o manifesto de implementação para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou [uma máquina de ambiente de trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) com as suas próprias definições e seleção de operações, pode utilizar o comando [CLI abaixo](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) para implantar o recipiente no computador anfitrião, como módulo IoT Edge.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |Parâmetro  |Descrição  |
 |---------|---------|
-| `--deployment-id` | Um novo nome para a implantação. |
 | `--hub-name` | O seu nome Azure IoT Hub. |
 | `--content` | O nome do ficheiro de implantação. |
 | `--target-condition` | O nome do seu dispositivo IoT Edge para o computador anfitrião. |
@@ -386,7 +385,7 @@ Navegue na secção **do Recipiente** e crie um novo recipiente ou utilize um ex
 
 Clique em **Generate SAS Token e URL** e copie o URL Blob SAS. Substitua o início `https` e teste o URL num browser que suporte a `http` reprodução de vídeo.
 
-Substitua `VIDEO_URL` no [manifesto de implantação](https://go.microsoft.com/fwlink/?linkid=2142179) por URL que criou, para todos os gráficos. Definir `VIDEO_IS_LIVE` para , e `false` recolocar o recipiente de análise espacial com o manifesto atualizado. Veja o exemplo abaixo.
+Substitua `VIDEO_URL` no manifesto de implantação do seu dispositivo [Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou noutra máquina de ambiente de [trabalho](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) com o URL que criou, para todos os gráficos. Definir `VIDEO_IS_LIVE` para , e `false` recolocar o recipiente de análise espacial com o manifesto atualizado. Veja o exemplo abaixo.
 
 O módulo de análise espacial começará a consumir ficheiro de vídeo e também irá reproduzir-se continuamente automaticamente.
 

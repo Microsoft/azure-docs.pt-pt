@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: a14235cb4fc20147accc8eb8a0e421cbc4df90f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c604a3edcee0c34df2817c7bbebf0f3ad4fada67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533661"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483561"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Tutorial: Azure Ative Directy integração única (SSO) com a SumoLogic
 
@@ -168,11 +168,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. A partir da **configuração Select ou criar uma nova** lista, selecione **AZure AD**e, em seguida, clique em **Configurar**.
 
-    ![Configurar SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configurar SAML 2.0")
+    ![A screenshot mostra Configure SAML 2.0 onde pode selecionar Azure A D.](./media/sumologic-tutorial/ic778558.png "Configurar SAML 2.0")
 
 1. No diálogo **Configure SAML 2.0,** execute os seguintes passos:
 
-    ![Configurar SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configurar SAML 2.0")
+    ![A screenshot mostra a caixa de diálogo Configure SAML 2.0 onde pode introduzir os valores descritos.](./media/sumologic-tutorial/ic778559.png "Configurar SAML 2.0")
 
     a. Na caixa de texto do nome de **configuração,** **escreva Azure AD**.
 
@@ -200,11 +200,11 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na SumoLogic, devem s
 
 1. Ir para **Gerir \> utilizadores**.
 
-    ![Utilizadores](./media/sumologic-tutorial/ic778561.png "Utilizadores")
+    ![A screenshot mostra os utilizadores selecionados a partir do menu Gerir.](./media/sumologic-tutorial/ic778561.png "Utilizadores")
 
 1. Clique em **Adicionar**.
 
-    ![Utilizadores](./media/sumologic-tutorial/ic778562.png "Utilizadores")
+    ![A screenshot mostra o botão Adicionar para Utilizadores.](./media/sumologic-tutorial/ic778562.png "Utilizadores")
 
 1. No diálogo do **Novo Utilizador,** execute os seguintes passos:
 

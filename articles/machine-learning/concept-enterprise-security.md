@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207942"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496002"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -115,7 +115,7 @@ Também pode ativar o Azure Private Link para o seu espaço de trabalho. O Priva
 >
 > A exemplo de computação de aprendizagem automática Azure é um ambiente dev/teste. Ao usá-lo, recomendamos que guarde os seus ficheiros, como cadernos e scripts, numa partilha de ficheiros. Os seus dados devem ser armazenados numa data-loja.
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
 > [!IMPORTANT]
 > Se o seu espaço de trabalho contiver dados sensíveis, recomendamos que se estabeleça a [bandeira hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria o seu espaço de trabalho. A `hbi_workspace` bandeira só pode ser colocada quando um espaço de trabalho é criado. Não pode ser alterado para um espaço de trabalho existente.
@@ -183,6 +183,7 @@ Para utilizar as suas próprias chaves (geridas pelo cliente) para encriptar o r
 Para um exemplo de criação de um espaço de trabalho utilizando um registo de contentores Azure existente, consulte os seguintes artigos:
 
 * [Crie um espaço de trabalho para a Azure Machine Learning com Azure CLI](how-to-manage-workspace-cli.md).
+* [Crie um espaço de trabalho com Python SDK.](how-to-manage-workspace.md?tabs=python#create-a-workspace)
 * [Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure](how-to-create-workspace-template.md)
 
 #### <a name="azure-container-instance"></a>Instância de Contentor do Azure

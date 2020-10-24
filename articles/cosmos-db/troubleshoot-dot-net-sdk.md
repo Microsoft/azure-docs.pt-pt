@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e941c941c7b406be8d6931fd7af4108137220d56
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802418"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476914"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 
@@ -34,8 +34,8 @@ Considere a seguinte lista de verificação antes de transferir a sua aplicaçã
 *    Utilize o [SDK](sql-api-sdk-dotnet-standard.md)mais recente. Os SDKs de pré-visualização não devem ser utilizados para a produção. Isto evitará que se acertem questões conhecidas que já estão corrigidas.
 *    Reveja as [dicas de desempenho](performance-tips.md)e siga as práticas sugeridas. Isto ajudará a prevenir a escala, a latência e outros problemas de desempenho.
 *    Ative o registo SDK para ajudá-lo a resolver um problema. Ativar a exploração pode afetar o desempenho, por isso o melhor é permitir apenas problemas de resolução de problemas. Pode ativar os seguintes registos:
-*    [Registar métricas](monitor-accounts.md) utilizando o portal Azure. As métricas do portal mostram a telemetria DB Azure Cosmos, que é útil para determinar se o problema corresponde à DB Azure Cosmos ou se é do lado do cliente.
-*    Faça o registo da [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no V2 SDK ou nos [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) em V3 SDK a partir das respostas de operação de ponto.
+*    [Registar métricas](./monitor-cosmos-db.md) utilizando o portal Azure. As métricas do portal mostram a telemetria DB Azure Cosmos, que é útil para determinar se o problema corresponde à DB Azure Cosmos ou se é do lado do cliente.
+*    Faça o registo da [cadeia de diagnósticos](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no V2 SDK ou nos [diagnósticos](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) em V3 SDK a partir das respostas de operação de ponto.
 *    Registar as [Métricas de Consulta SQL](sql-api-query-metrics.md) de todas as respostas de consulta 
 *    Siga a configuração para [a sessão SDK]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
@@ -51,7 +51,7 @@ Verifique a [secção de problemas](https://github.com/Azure/azure-cosmos-dotnet
 * Pode encontrar problemas de conectividade/disponibilidade devido à falta de recursos na sua máquina cliente. Recomendamos monitorizar a utilização do CPU nos nós que executam o cliente DB da Azure Cosmos e escalonar se estiverem a funcionar com carga elevada.
 
 ### <a name="check-the-portal-metrics"></a>Verifique as métricas do portal
-A verificação das [métricas](monitor-accounts.md) do portal ajudará a determinar se é um problema do lado do cliente ou se há algum problema com o serviço. Por exemplo, se as métricas contiverem uma alta taxa de pedidos limitados de taxa (código de estado HTTP 429), o que significa que o pedido está a ser acelerado, então verifique a [taxa de pedido demasiado grande.](troubleshoot-request-rate-too-large.md) 
+A verificação das [métricas](./monitor-cosmos-db.md) do portal ajudará a determinar se é um problema do lado do cliente ou se há algum problema com o serviço. Por exemplo, se as métricas contiverem uma alta taxa de pedidos limitados de taxa (código de estado HTTP 429), o que significa que o pedido está a ser acelerado, então verifique a [taxa de pedido demasiado grande.](troubleshoot-request-rate-too-large.md) 
 
 ## <a name="common-error-status-codes"></a>Códigos comuns de estado de erro <a id="error-codes"></a>
 
@@ -78,11 +78,11 @@ Se a sua aplicação for implementada em [Máquinas Virtuais Azure sem endereço
 
 * Adicione o seu ponto final de serviço Azure Cosmos DB à sub-rede da sua rede virtual Azure Virtual Machines. Para mais informações, consulte [os pontos finais do serviço Azure Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Quando o ponto final de serviço está ativado, os pedidos deixaram de ser enviados de um IP público para a Azure Cosmos DB. Em vez disso, a rede virtual e a identidade da sub-rede são enviadas. Esta alteração pode resultar em quedas de firewall se apenas os IPs públicos forem permitidos. Se utilizar uma firewall, quando ativar o ponto final de serviço, adicione uma sub-rede à firewall utilizando [ACLs de rede virtual](../virtual-network/virtual-networks-acl.md).
+    Quando o ponto final de serviço está ativado, os pedidos deixaram de ser enviados de um IP público para a Azure Cosmos DB. Em vez disso, a rede virtual e a identidade da sub-rede são enviadas. Esta alteração pode resultar em quedas de firewall se apenas os IPs públicos forem permitidos. Se utilizar uma firewall, quando ativar o ponto final de serviço, adicione uma sub-rede à firewall utilizando [ACLs de rede virtual](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Atribua um [IP público ao seu Azure VM](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Latência de alta rede
-A alta latência da rede pode ser identificada utilizando a [cadeia de diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) no V2 SDK ou [diagnósticos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) em V3 SDK.
+A alta latência da rede pode ser identificada utilizando a [cadeia de diagnósticos](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) no V2 SDK ou [diagnósticos](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) em V3 SDK.
 
 Se não houver [intervalos de tempo](troubleshoot-dot-net-sdk-request-timeout.md) e os diagnósticos mostrarem pedidos únicos em que a elevada latência é evidente na diferença entre `ResponseTime` `RequestStartTime` e, assim (>300 milissegundos neste exemplo):
 
@@ -94,11 +94,11 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 Esta latência pode ter múltiplas causas:
 
 * A sua candidatura não está a decorrer na mesma região que a sua conta DB Azure Cosmos.
-* A [configuração preferida deLocalização](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) ou [Região de Aplicação](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) está incorreta e está a tentar ligar-se a uma região diferente do local onde a sua aplicação está atualmente a decorrer.
+* A [configuração preferida deLocalização](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) ou [Região de Aplicação](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) está incorreta e está a tentar ligar-se a uma região diferente do local onde a sua aplicação está atualmente a decorrer.
 * Pode haver um estrangulamento na interface da Rede por causa do tráfego elevado. Se a aplicação estiver em execução em Azure Virtual Machines, existem possíveis soluções alternativas:
     * Considere utilizar uma [máquina virtual com rede acelerada ativada](../virtual-network/create-vm-accelerated-networking-powershell.md).
     * Ativar [a rede acelerada numa máquina virtual existente.](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)
-    * Considere usar uma [máquina virtual de extremidade superior.](../virtual-machines/windows/sizes.md)
+    * Considere usar uma [máquina virtual de extremidade superior.](../virtual-machines/sizes.md)
 
 ### <a name="common-query-issues"></a>Questões de consulta comuns
 

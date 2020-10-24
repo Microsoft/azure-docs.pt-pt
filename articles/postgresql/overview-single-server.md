@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 469235957ebe26dd44cc6ce464a68167629099ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948203"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476149"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Base de dados Azure para servidor único pós-SQL
 
@@ -81,8 +81,8 @@ O serviço de servidor único está equipado com funcionalidades de monitorizaç
 
 O serviço executa a versão comunitária do PostgreSQL. Isto permite a compatibilidade total da aplicação e requer um custo mínimo de refactor para migrar a aplicação existente desenvolvida no motor PostgreSQL para um único serviço de servidor. A migração para o servidor único pode ser realizada utilizando uma das seguintes opções:
 
-- **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como Pg_dump e Pg_restore podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) para obter mais detalhes.
-- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para um único servidor com tempo mínimo de inatividade, o Serviço de Migração da Base de Dados Azure pode ser alavancado. Ver [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) e [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como Pg_dump e Pg_restore podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](./howto-migrate-using-dump-and-restore.md) para obter mais detalhes.
+- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para um único servidor com tempo mínimo de inatividade, o Serviço de Migração da Base de Dados Azure pode ser alavancado. Ver [DMS via portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [DMS via CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## <a name="contacts"></a>Contactos
 
@@ -98,4 +98,3 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação de um único servidor postgreSQL, está pronto para:
 - Crie o seu primeiro servidor.
-  

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47b3706d1fb46ab7e115d79c2f06f6264c8b423e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9001d9982a26875f814b635533bebd7579339fa5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666519"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476727"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
 
@@ -98,7 +98,7 @@ Para obter o pacote NuGet, siga estes passos:
 
 ## <a name="create-a-table"></a>Criar uma tabela 
 
-A classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) permite-lhe obter tabelas e entidades armazenadas no Table Storage. Como não temos tabelas na conta API da Tabela Cosmos, vamos adicionar o `CreateTableAsync` método à classe **Common.cs** para criar uma tabela:
+A classe [CloudTableClient](/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) permite-lhe obter tabelas e entidades armazenadas no Table Storage. Como não temos tabelas na conta API da Tabela Cosmos, vamos adicionar o `CreateTableAsync` método à classe **Common.cs** para criar uma tabela:
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
 
@@ -110,17 +110,17 @@ tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 
 ## <a name="define-the-entity"></a>Definir a entidade 
 
-As entidades mapeiam para objetos C# utilizando uma classe personalizada derivada da [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Para adicionar uma entidade a uma tabela, crie uma classe que define as propriedades de entidade.
+As entidades mapeiam para objetos C# utilizando uma classe personalizada derivada da [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). Para adicionar uma entidade a uma tabela, crie uma classe que define as propriedades de entidade.
 
 Clique à direita no seu projeto **CosmosTableSamples**. **Selecione Adicionar**, **Nova Pasta** e nomeie-a como **Modelo**. Dentro da pasta Modelo adicione uma classe chamada **CustomerEntity.cs** e adicione-lhe o seguinte código.
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
-Este código define uma classe de entidade que usa o primeiro nome do cliente como chave de linha e apelido como chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam-na de forma exclusiva na tabela. As entidades com a mesma chave de partição podem ser questionadas mais rapidamente do que as entidades com diferentes chaves de partição, mas a utilização de chaves de partição diversificadas permite uma maior escalabilidade de operações paralelas. As entidades a serem armazenadas em tabelas têm de ter um tipo suportado, por exemplo derivadas da classe [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). As propriedades de entidade que pretende armazenar numa tabela têm de ser propriedades públicas do tipo e suportar a introdução e a definição de valores. Além disso, o tipo de entidade tem de expor um construtor sem parâmetros.
+Este código define uma classe de entidade que usa o primeiro nome do cliente como chave de linha e apelido como chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam-na de forma exclusiva na tabela. As entidades com a mesma chave de partição podem ser questionadas mais rapidamente do que as entidades com diferentes chaves de partição, mas a utilização de chaves de partição diversificadas permite uma maior escalabilidade de operações paralelas. As entidades a serem armazenadas em tabelas têm de ter um tipo suportado, por exemplo derivadas da classe [TableEntity](/dotnet/api/microsoft.azure.cosmos.table.tableentity). As propriedades de entidade que pretende armazenar numa tabela têm de ser propriedades públicas do tipo e suportar a introdução e a definição de valores. Além disso, o tipo de entidade tem de expor um construtor sem parâmetros.
 
 ## <a name="insert-or-merge-an-entity"></a>Inserir ou fundir uma entidade
 
-O exemplo de código a seguir cria um objeto de entidade e adiciona-o à tabela. O método InsertOrMerge dentro da classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é utilizado para inserir ou fundir uma entidade. O [ métodoCloudTable.Exebonito Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) é chamado para executar a operação. 
+O exemplo de código a seguir cria um objeto de entidade e adiciona-o à tabela. O método InsertOrMerge dentro da classe [TableOperation](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é utilizado para inserir ou fundir uma entidade. O [ métodoCloudTable.Exebonito Async](/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?preserve-view=true&view=azure-dotnet) é chamado para executar a operação. 
 
 Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **SamplesUtils.cs**. Esta classe armazena todo o código necessário para a realização de operações CRUD nas entidades. 
 
@@ -128,7 +128,7 @@ Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**
 
 ## <a name="get-an-entity-from-a-partition"></a>Obter uma entidade de uma partição
 
-Pode obter a entidade a partir de uma partição utilizando o método Recuperar sob a classe [TableOperation.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) O exemplo de código a seguir obtém a chave de partição, o e-mail e o número de telefone de uma entidade cliente. Este exemplo também imprime as unidades de pedido consumidas para consulta da entidade. Para consultar uma entidade, apencha o seguinte código para **SamplesUtils.cs** ficheiro:
+Pode obter a entidade a partir de uma partição utilizando o método Recuperar sob a classe [TableOperation.](/dotnet/api/microsoft.azure.cosmos.table.tableoperation) O exemplo de código a seguir obtém a chave de partição, o e-mail e o número de telefone de uma entidade cliente. Este exemplo também imprime as unidades de pedido consumidas para consulta da entidade. Para consultar uma entidade, apencha o seguinte código para **SamplesUtils.cs** ficheiro:
 
 :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 

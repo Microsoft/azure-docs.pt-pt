@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ddcbfd9c069fa3d50cf694087600bfc3030b1c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533707"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484156"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Tutorial: Azure Ative Directory integração única (SSO) com CRM de açúcar
 
@@ -142,11 +142,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Na secção **Administração,** clique em **Gestão de Passwords.**
 
-    ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administração")
+    ![A screenshot mostra a secção Administração onde pode selecionar a Gestão de Passwords.](./media/sugarcrm-tutorial/ic795889.png "Administração")
 
 1. Selecione **Ativar a autenticação SAML**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administração")
+    ![A screenshot mostra a opção de selecionar a autenticação SAML.](./media/sugarcrm-tutorial/ic795890.png "Administração")
 
 1. Na secção **de Autenticação SAML,** execute os seguintes passos:
 
@@ -174,7 +174,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CrM do açúcar, d
 
 1. Na secção **Administração,** clique em **Gestão de Utilizadores.**
 
-    ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administração")
+    ![A screenshot mostra a secção Administração onde pode selecionar a Gestão do Utilizador.](./media/sugarcrm-tutorial/ic795893.png "Administração")
 
 1. Ir aos **Utilizadores \> Criar Novo Utilizador**.
 
@@ -182,7 +182,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CrM do açúcar, d
 
 1. No **separador Perfil** do Utilizador, execute os seguintes passos:
 
-    ![Novo Utilizador](./media/sugarcrm-tutorial/ic795895.png "Novo Utilizador")
+    ![A screenshot mostra o separador Perfil do Utilizador onde pode introduzir os valores descritos.](./media/sugarcrm-tutorial/ic795895.png "Novo Utilizador")
 
     * Digite o nome de **utilizador,** **apelido**e endereço de **e-mail** de um utilizador válido do Azure Ative Directory nas caixas de texto relacionadas.
   
@@ -190,7 +190,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no CrM do açúcar, d
 
 1. No separador Palavra-passe, execute os seguintes passos:
 
-    ![Novo Utilizador](./media/sugarcrm-tutorial/ic795896.png "Novo Utilizador")
+    ![A screenshot mostra o separador Palavra-passe onde pode introduzir os valores descritos.](./media/sugarcrm-tutorial/ic795896.png "Novo Utilizador")
 
     a. Digite a palavra-passe na caixa de texto relacionada.
 

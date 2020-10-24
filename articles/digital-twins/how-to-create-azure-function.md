@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461622"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495925"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
 
@@ -186,26 +186,28 @@ Pode configurar o acesso à segurança da aplicação de função Azure utilizan
 
 O esqueleto da função Azure de exemplos anteriores requer que lhe seja passado um símbolo portador, de modo a poder autenticar-se com as Gémeas Digitais Azure. Para se certificar de que este token ao portador é passado, terá de configurar [a Identidade de Serviço Gerido (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para a aplicação de função. Isto só precisa de ser feito uma vez para cada aplicação de função.
 
-Pode criar identidade gerida pelo sistema e atribuir a identidade da aplicação de função ao papel _de Azure Digital Twins Owner (Preview)_ para a sua instância Azure Digital Twins. Isto dará à aplicação de função permissão no caso de realizar atividades de data plane. Em seguida, torne o URL da instância Azure Digital Twins acessível à sua função definindo uma variável ambiental.
+Pode criar identidade gerida pelo sistema e atribuir a identidade da aplicação de função à função _**Azure Digital Twins Data Owner**_ para a sua instância Azure Digital Twins. Isto dará à aplicação de função permissão no caso de realizar atividades de data plane. Em seguida, torne o URL da instância Azure Digital Twins acessível à sua função definindo uma variável ambiental.
 
- Utilize [a Azure Cloud Shell](https://shell.azure.com) para executar os comandos.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Utilize [a Azure Cloud Shell](https://shell.azure.com) para executar os comandos.
 
 Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome nota do campo _principalid_ na saída.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Utilize o valor _principalid_ no seguinte comando para atribuir a identidade da aplicação de função ao papel _Azure Digital Twins Owner (Preview)_ para a sua instância Azure Digital Twins.
+Utilize o valor _principalid_ no seguinte comando para atribuir a identidade da aplicação de função à função _Azure Digital Twins Data Owner_ para a sua instância Azure Digital Twins.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Por último, pode tornar o URL da sua instância Azure Digital Twins acessível à sua função, definindo uma variável ambiental. Para obter mais informações sobre a definição de variáveis ambientais, consulte [*variáveis ambientais*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > O URL da instância Azure Digital Twins é feito adicionando *https://* ao início do *nome de anfitrião*da sua instância Azure Digital Twins . Para ver o nome do anfitrião, juntamente com todas as propriedades do seu caso, pode `az dt show --dt-name <your-Azure-Digital-Twins-instance>` correr.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Opção 2: Configurar o acesso à segurança para a aplicação de função Azure utilizando o portal Azure
@@ -241,7 +243,7 @@ Na página _de atribuição de funções adicionar (Pré-visualização)_ que se
 * _Âmbito_: grupo de recursos
 * _Subscrição_: selecione a sua subscrição Azure
 * _Grupo de recursos_: selecione o seu grupo de recursos a partir do dropdown
-* _Função_: selecione _Azure Digital Twins Owner (Preview)_ from the dropdown
+* _Função_: selecione _Azure Digital Twins Data Owner_ a partir do dropdown
 
 Em seguida, guarde os seus dados premindo o botão _Guardar._
 

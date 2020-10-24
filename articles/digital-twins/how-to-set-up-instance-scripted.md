@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205592"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495026"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -43,7 +43,7 @@ Este artigo utiliza uma amostra de código Azure Digital Twins para implementar 
 
 Aqui estão os passos para executar o script de implementação em Cloud Shell.
 1. Vá a uma janela [Azure Cloud Shell](https://shell.azure.com/) no seu navegador. Inscreva-se usando este comando:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de inscrição do Azure. Caso contrário, abra uma página do navegador *https://aka.ms/devicelogin* e introduza o código de autorização exibido no seu terminal.
@@ -62,11 +62,11 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
 
 4. Executar o script enviando o `./deploy.ps1` comando na janela Cloud Shell. Pode copiar o comando abaixo (lembre-se que para colar em Cloud Shell, pode utilizar **Ctrl+Shift+V** no Windows e Linux, ou **Cmd+Shift+V** no macOS. Também pode utilizar o menu de clique à direita).
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    O script criará uma instância Azure Digital Twins e atribuirá ao seu utilizador Azure o papel *de Azure Digital Twins Owner (Preview)* no caso.
+    O script criará uma instância Azure Digital Twins e atribuirá ao seu utilizador Azure o papel *de Proprietário de Dados Azure Digital Twins* no caso.
 
     À medida que o script passa pelos passos de configuração automatizados, ser-lhe-á pedido que passe nos seguintes valores:
     * Por exemplo: o ID de *subscrição* da sua subscrição Azure para usar
@@ -83,10 +83,10 @@ Aqui está um excerto do registo de saída do script:
 Se o guião estiver concluído com sucesso, a impressão final dirá `Deployment completed successfully` . Caso contrário, endereça a mensagem de erro e reencando o script. Irá contornar os passos que já completou e começar a solicitar a entrada novamente no ponto onde deixou de lado.
 
 > [!NOTE]
-> O script atribui atualmente o papel de gestão necessário dentro da Azure Digital Twins *(Azure Digital Twins Owner (Preview)* ao mesmo utilizador que executa o script da Cloud Shell. Se precisar de atribuir esta função a outra pessoa que esteja a gerir o caso, pode fazê-lo agora através do portal Azure[(instruções)](how-to-set-up-instance-portal.md#set-up-user-access-permissions)ou CLI[(instruções).](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
+> O script atribui atualmente o papel de gestão necessário dentro da Azure Digital Twins *(Azure Digital Twins Data Owner*) ao mesmo utilizador que executa o script da Cloud Shell. Se precisar de atribuir esta função a outra pessoa que esteja a gerir o caso, pode fazê-lo agora através do portal Azure[(instruções)](how-to-set-up-instance-portal.md#set-up-user-access-permissions)ou CLI[(instruções).](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
 
 >[!NOTE]
->Existe atualmente um **problema conhecido** com a configuração escrita, no qual alguns utilizadores (especialmente utilizadores em contas pessoais da [Microsoft (MSAs)](https://account.microsoft.com/account)podem encontrar a **atribuição de papel para _Azure Digital Twins Owner (Preview)_ não foi criada**.
+>Existe atualmente um **problema conhecido** com a configuração escrita, no qual alguns utilizadores (especialmente utilizadores em contas pessoais da [Microsoft (MSAs)](https://account.microsoft.com/account)podem encontrar a atribuição de **funções para _Azure Digital Twins Data Owner_ não foi criada**.
 >
 >Pode verificar a atribuição de funções com a secção [*de atribuição de funções de utilizador*](#verify-user-role-assignment) verificar mais tarde neste artigo e, se necessário, configurar a atribuição de funções manualmente utilizando o portal [Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >

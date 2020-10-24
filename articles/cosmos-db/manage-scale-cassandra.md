@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277674"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482524"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar elasticamente uma conta Azure Cosmos DB Cassandra API
 
 Existem uma variedade de opções para explorar a natureza elástica da API API do Azure Cosmos para Cassandra. Para entender como escalar eficazmente em Azure Cosmos DB, é importante entender como providenciar a quantidade certa de unidades de pedido (RU/s) para responder às exigências de desempenho no seu sistema. Para saber mais sobre unidades de pedido, consulte o artigo [Unidades de Pedido.](request-units.md) 
 
-Para a API Cassandra, pode recuperar a taxa da Unidade de Pedido para consultas individuais utilizando os [SDKs .NET e Java](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). Isto é útil para determinar a quantidade de RU/s que você precisará para prestar no serviço.
+Para a API Cassandra, pode recuperar a taxa da Unidade de Pedido para consultas individuais utilizando os [SDKs .NET e Java](./find-request-unit-charge-cassandra.md). Isto é útil para determinar a quantidade de RU/s que você precisará para prestar no serviço.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Operações de base de dados consomem Unidades de Pedido" border="false":::
 
@@ -38,7 +38,7 @@ Se precisar de minimizar a latência, existe um espectro de opções para gerir 
 
 As seguintes secções explicam as vantagens e desvantagens de cada abordagem. Pode então decidir qual a melhor estratégia para equilibrar as necessidades de escala do seu sistema, o custo global e as necessidades de eficiência para a sua solução.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Use o portal Azure
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Utilizar o portal do Azure
 
 Você pode escalar os recursos na conta Azure Cosmos DB Cassandra API usando o portal Azure. Para saber mais, consulte o artigo sobre [a produção de provisões em contentores e bases de dados.](set-throughput.md) Este artigo explica os benefícios relativos da fixação de produção em qualquer [base de dados](set-throughput.md#set-throughput-on-a-database) ou nível [de contentor](set-throughput.md#set-throughput-on-a-container) no portal Azure. Os termos "base de dados" e "contentor" mencionados nestes artigos mapeiam para "keyspace" e "mesa" respectivamente para a API de Cassandra.
 
@@ -46,7 +46,7 @@ A vantagem deste método é que é uma forma simples de gerir a capacidade de pr
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Use o plano de controlo
 
-A API da Azure Cosmos DB para a Cassandra fornece a capacidade de ajustar a produção programática usando as nossas várias funcionalidades de control-plane. Consulte os [artigos Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md)e [Azure CLI](cli-samples.md) para obter orientação e amostras.
+A API da Azure Cosmos DB para a Cassandra fornece a capacidade de ajustar a produção programática usando as nossas várias funcionalidades de control-plane. Consulte os [artigos Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md)e [Azure CLI](cli-samples.md) para obter orientação e amostras.
 
 A vantagem deste método é que você pode automatizar a escala de recursos para cima ou para baixo de recursos com base em um temporizador para explicar a atividade de pico, ou períodos de baixa atividade. Veja [aqui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) a nossa amostra para saber como realizar isto usando as Funções Azure e a PowerShell.
 

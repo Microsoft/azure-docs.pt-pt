@@ -3,18 +3,18 @@ title: Backup VMs de Solução VMware Azure com Servidor de Backup Azure
 description: Configure o seu ambiente de Solução VMware Azure para fazer backup de máquinas virtuais utilizando o Servidor de Backup Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: d4273980a134fbdaabe64215aaf0b66a53253788
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893021"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495707"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Backup VMs de Solução VMware Azure com Servidor de Backup Azure
 
-Neste artigo, passamos pelos procedimentos para apoiar as máquinas virtuais VMware (VMs) em execução na Solução VMware Azure utilizando o Azure Backup Server. Antes de começar, certifique-se de que passa minuciosamente pelo [Microsoft Azure Backup Server para Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
+Neste artigo, vamos apoiar as máquinas virtuais VMware (VMs) em execução na Solução VMware Azure com o Azure Backup Server. Em primeiro lugar, percorra minuciosamente [o Microsoft Azure Backup Server para a Solução VMware Azure](set-up-backup-server-for-azure-vmware-solution.md).
 
-Depois, percorremos todos os procedimentos necessários para:
+Então, vamos percorrer todos os procedimentos necessários para:
 
 > [!div class="checklist"] 
 > * Crie um canal seguro para que o Azure Backup Server possa comunicar com servidores VMware através de HTTPS. 
@@ -162,7 +162,11 @@ A VMware 6.7 tinha o TLS ativado como protocolo de comunicação.
 
    ![Página de acabamento](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Deverá ver o servidor vCenter listado no **Servidor de Produção** com o tipo como **VMware Server** e Agent **Status** como **OK**. Se vir **o Estado do Agente** como **Desconhecido,** selecione **Refresh**.
+   Vê o servidor vCenter listado no **Servidor de Produção** com:
+   - Digite como **VMware Server** 
+   - Estatuto do Agente como **OK** 
+   
+      Se vir **o Estado do Agente** como **Desconhecido,** selecione **Refresh**.
 
 ## <a name="configure-a-protection-group"></a>Configure um grupo de proteção
 
@@ -202,7 +206,7 @@ Os grupos de proteção recolhem vários VMs e aplicam as mesmas definições de
 
    - As alocações recomendadas em disco baseiam-se na gama de retenção especificada, no tipo de carga de trabalho e no tamanho dos dados protegidos. Faça as alterações necessárias e, em seguida, selecione **Seguinte**.
    - **Tamanho dos dados:** Tamanho dos dados no grupo de proteção.
-   - **Espaço em disco:** Quantidade recomendada de espaço em disco para o grupo de proteção. Se quiser modificar esta definição, aloque o espaço total ligeiramente maior do que a quantidade que estima que cada fonte de dados cresce.
+   - **Espaço em disco:** Quantidade recomendada de espaço em disco para o grupo de proteção. Se pretender modificar esta definição, selecione um espaço ligeiramente maior do que a quantidade que estima que cada fonte de dados cresce.
    - **Detalhes da piscina de armazenamento:** Mostra o estado da piscina de armazenamento, que inclui o tamanho total e restante do disco.
 
    :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="vSphere Web Client":::
@@ -229,14 +233,14 @@ Os grupos de proteção recolhem vários VMs e aplicam as mesmas definições de
 
    ![Especificar dados de proteção on-line](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-1. Na página **'Especificar agendamento' de cópia de segurança on-line,** indique com que frequência pretende fazer cópias de segurança do armazenamento local para o Azure e, em seguida, selecione **Next**. 
+1. Na página **'Especificar agendamento' de backup online,** indique com que frequência pretende fazer cópias de segurança de armazenamento local para Azure. 
 
    - Os pontos de recuperação da nuvem para os dados são gerados de acordo com o calendário. 
    - Depois do ponto de recuperação ser gerado, é depois transferido para o cofre dos Serviços de Recuperação em Azure.
 
    ![Especificar o horário de backup on-line](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. Na página **'Especificar Política de Retenção Online',** indique quanto tempo pretende manter os pontos de recuperação que são criados a partir das cópias de segurança diárias, semanais, mensais ou mensais para Azure e, em seguida, selecione **Next**.
+1. Na página **'Especificar Política de Retenção Online',** indique quanto tempo pretende manter os pontos de recuperação criados das cópias de segurança para o Azure.
 
    - Não há limite de tempo para quanto tempo podes manter os dados em Azure.
    - O único limite é que não se pode ter mais de 9.999 pontos de recuperação por instância protegida. Neste exemplo, o caso protegido é o servidor VMware.
@@ -251,8 +255,9 @@ Os grupos de proteção recolhem vários VMs e aplicam as mesmas definições de
 
 Depois de configurar o grupo de proteção para apoiar os VMs da Solução VMware Azure, pode monitorizar o estado da tarefa de backup e alertar utilizando a consola Azure Backup Server. Aqui está o que pode monitorizar.
 
-- No separador Alertas no painel **de monitorização,** pode monitorizar **erros,** avisos e informações gerais para um grupo de proteção, para um computador protegido específico ou por gravidade da mensagem. Pode ver alertas ativos e inativos e configurar notificações de e-mail.
-- No **separador Jobs** no painel **de monitorização,** pode visualizar os trabalhos iniciados pelo Azure Backup Server para um grupo específico de fonte de dados protegido ou grupo de proteção. Pode acompanhar o progresso do trabalho ou verificar os recursos consumidos por empregos.
+- Na área de tarefa **de monitorização:**
+   - Em **Alertas,** pode monitorizar erros, avisos e informações gerais.  Pode ver alertas ativos e inativos e configurar notificações de e-mail.
+   - Em **Jobs**, pode visualizar os trabalhos iniciados pelo Azure Backup Server para uma fonte de dados protegida específica ou grupo de proteção. Pode acompanhar o progresso do trabalho ou verificar os recursos consumidos por empregos.
 - Na área de **tarefas de Proteção,** pode verificar o estado dos volumes e ações do grupo de proteção. Também pode verificar as definições de configuração, tais como definições de recuperação, atribuição de discos e o calendário de cópias de segurança.
 - Na área de **tarefas de Gestão,** pode ver os **separadores Discos, Online**e **Agentes** para verificar o estado dos discos na piscina de armazenamento, o registo no Azure e o estado do agente DPM implantado.
 
@@ -263,18 +268,18 @@ Depois de configurar o grupo de proteção para apoiar os VMs da Solução VMwar
 Na Consola de Administrador do Servidor de Backup Azure, existem duas formas de encontrar dados recuperáveis. Pode pesquisar ou navegar. Quando recuperar dados, pode ou não querer restaurar dados ou um VM no mesmo local. Por esta razão, o Azure Backup Server suporta três opções de recuperação para cópias de segurança VMware VM:
 
 - **Recuperação original da localização (OLR)**: Utilize o OLR para restaurar um VM protegido na sua localização original. Só pode restaurar um VM na sua localização original se não forem adicionados ou eliminados discos desde que a cópia de segurança ocorreu. Se os discos forem adicionados ou eliminados, deve utilizar a recuperação alternativa da localização.
-- **Recuperação alternativa da localização (ALR)**: Quando o VM original estiver em falta, ou não quiser perturbar o VM original, recupere o VM para um local alternativo. Para recuperar um VM para um local alternativo, deve fornecer a localização de um anfitrião ESXi, piscina de recursos, pasta e a loja de dados de armazenamento e caminho. Para ajudar a diferenciar o VM restaurado do VM original, o Azure Backup Server anexa "-Recuperado" ao nome do VM.
+- **Recuperação alternativa da localização (ALR)**: Utilize quando o VM original estiver em falta, ou não quer perturbar o VM original. Forneça a localização de um anfitrião ESXi, piscina de recursos, pasta e a loja de dados de armazenamento e caminho. Para ajudar a diferenciar o VM restaurado do VM original, o Azure Backup Server anexa *"-Recuperado"* ao nome do VM.
 - **Recuperação individual da localização do ficheiro (ILR)**: Se o VM protegido for um VM do Servidor do Windows, ficheiros ou pastas individuais dentro do VM podem ser recuperados utilizando a capacidade ILR do Servidor de Backup Azure. Para recuperar ficheiros individuais, consulte o procedimento mais tarde neste artigo. Restaurar um ficheiro individual a partir de um VM está disponível apenas para pontos de recuperação do Windows VM e discos.
 
 ### <a name="restore-a-recovery-point"></a>Restaurar um ponto de recuperação
 
 1. Na consola de administrador do servidor de backup Azure, selecione a vista **Recovery.** 
 
-1. Utilizando o painel **de navegação,** navegue ou filtre para encontrar o VM que pretende recuperar. Depois de selecionar um VM ou pasta, os **pontos de recuperação do** painel de pontos mostram os pontos de recuperação disponíveis.
+1. Utilizando o painel **de navegação,** navegue ou filtre para encontrar o VM que pretende recuperar. Depois de selecionar um VM ou uma pasta, os pontos de recuperação **para painel de visualização dos pontos de recuperação disponíveis.
 
    ![Pontos de recuperação disponíveis](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
-1. Nos **pontos de recuperação do** painel, utilize os menus de calendário e suspensos para selecionar uma data quando um ponto de recuperação foi tomado. As datas do calendário em negrito têm pontos de recuperação disponíveis. Alternadamente, pode clicar à direita no VM e selecionar **Mostrar todos os pontos de recuperação** e, em seguida, selecionar o ponto de recuperação da lista.
+1. Nos **pontos de recuperação do** painel, selecione uma data quando um ponto de recuperação foi tomado. As datas do calendário em negrito têm pontos de recuperação disponíveis. Alternadamente, pode clicar à direita no VM e selecionar **Mostrar todos os pontos de recuperação** e, em seguida, selecionar o ponto de recuperação da lista.
 
    > [!NOTE] 
    > Para uma proteção a curto prazo, selecione um ponto de recuperação baseado em disco para uma recuperação mais rápida. Após o termo dos pontos de recuperação de curto prazo, vê apenas pontos de recuperação **online** para recuperar.
@@ -292,7 +297,7 @@ Na Consola de Administrador do Servidor de Backup Azure, existem duas formas de 
    > [!NOTE]
    > As cargas de trabalho da VMware não suportam o estrangulamento da largura de banda da rede.
 
-1. Na página **Select Recovery Type,** escolha se deve recuperar para a instância original ou para um novo local e, em seguida, selecione **Seguinte**.
+1. Na página **Select Recovery Type,** ou recupere para a instância original ou para uma nova localização.
 
    - Se escolher **Recuperar para instância original,** não precisa de fazer mais escolhas no assistente. Os dados relativos à instância original são utilizados.
    - Se escolher **Recuperar como máquina virtual em qualquer anfitrião,** em seguida, no ecrã De destino **especifique,** forneça as informações para **anfitrião ESXi,** **Pool de Recursos,** **Pasta**e **Caminho**.
@@ -312,11 +317,11 @@ Pode restaurar ficheiros individuais a partir de um ponto de recuperação de VM
 
 1. Na consola de administrador do servidor de backup Azure, selecione a vista **Recovery.**
 
-1. Utilizando o painel **de navegação,** navegue ou filtre para encontrar o VM que pretende recuperar. Depois de selecionar um VM ou pasta, os **pontos de recuperação do** painel de pontos mostram os pontos de recuperação disponíveis.
+1. Utilizando o painel **de navegação,** navegue ou filtre para encontrar o VM que pretende recuperar. Depois de selecionar um VM ou uma pasta, os pontos de recuperação **para painel de visualização dos pontos de recuperação disponíveis.
 
    ![Pontos de recuperação disponíveis](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-1. Nos **pontos de recuperação do** painel, utilize o calendário para selecionar a data que contém os pontos de recuperação pretendidos. Dependendo da configuração da política de backup, as datas podem ter mais do que um ponto de recuperação. 
+1. Nos **pontos de recuperação do** painel, utilize o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo da configuração da política de backup, as datas podem ter mais do que um ponto de recuperação. 
 
 1. Depois de selecionar o dia em que o ponto de recuperação foi tomado, certifique-se de que escolhe o tempo correto **de recuperação**. 
 
@@ -334,14 +339,14 @@ Pode restaurar ficheiros individuais a partir de um ponto de recuperação de VM
 
 1. Quando tiver selecionado os itens para recuperação, na fita da ferramenta Consola de Administrador, selecione **Recuperar** para abrir o **Assistente de Recuperação**. No **Assistente de Recuperação,** o ecrã **de Seleção de Recuperação** de Revisão mostra os itens selecionados a recuperar.
 
-1. No ecrã **De Especificar Opções de Recuperação,** faça uma das seguintes:
+1. No ecrã **'Especificar Opções de Recuperação',** faça um dos seguintes passos:
 
    - Selecione **Modificar** para ativar o estrangulamento da largura de banda da rede. Na caixa de diálogo **do Acelerador,** selecione **Ativar o acelerador de utilização** da largura de banda da rede para o ligar. Uma vez ativado, configurar as **Definições** e a **Programação de Trabalho**.
    - Selecione **Seguinte** para deixar o estrangulamento da rede desativado.
 
 1. No ecrã **Select Recovery Type,** selecione **Seguinte**. Só é possível recuperar os seus ficheiros ou pastas numa pasta de rede.
 
-1. No ecrã **'Destino Específico',** selecione **Procurar** para encontrar uma localização de rede para os seus ficheiros ou pastas. O Azure Backup Server cria uma pasta onde todos os itens recuperados são copiados. O nome da pasta tem o prefixo MABS_day mês. Quando seleciona uma localização para os ficheiros ou pasta recuperados, são fornecidos os detalhes desse local, tais como **Destino,** **Destino**e **Espaço disponível.**
+1. No ecrã **'Destino Específico',** selecione **Procurar** para encontrar uma localização de rede para os seus ficheiros ou pastas. O Azure Backup Server cria uma pasta onde todos os itens recuperados são copiados. O nome da pasta tem o prefixo MABS_day mês. Quando seleciona um local para os ficheiros ou pasta recuperados, os detalhes dessa localização são fornecidos.
 
    ![Especificar a localização para recuperar ficheiros](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
 

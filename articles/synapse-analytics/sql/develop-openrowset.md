@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289026"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474789"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com SQL on demand (pré-visualização)
 
@@ -192,9 +192,9 @@ Especifica um personagem que será usado como o personagem de citação no fiche
 
 DATA_COMPRESSION = 'data_compression_method'
 
-Especifica o método de compressão. É suportado o seguinte método de compressão:
+Especifica o método de compressão. Suportado apenas em PARSER_VERSION='1.0'. É suportado o seguinte método de compressão:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 

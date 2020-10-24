@@ -8,14 +8,14 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: bea4a5d92309710645dd63e611cd0a5e3b742c34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604352"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495189"
 ---
-# <a name="azure-key-vault-recovery-overview"></a>Visão geral da recuperação do cofre de chave Azure
+# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como permitir a eliminação suave e a proteção de purga
 
 Este artigo abrange duas funcionalidades de recuperação do Cofre da Chave Azure, proteção de eliminação suave e purga. Este documento fornece uma visão geral destas funcionalidades, e mostra-lhe como geri-las através do portal Azure CLI e Azure PowerShell.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9514d0fb6c9cbc95b82f13ffb576703893f303f2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057540"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484564"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -38,7 +38,7 @@ As cópias de segurança de registo de transações ocorrem a cada cinco minutos
 O armazenamento para fins gerais é o armazenamento de backend suportando o servidor de nível [de finalidade geral](concepts-pricing-tiers.md) e [de memória otimizado.](concepts-pricing-tiers.md) Para servidores com armazenamento de finalidade geral até 4-TB, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos. As cópias de segurança no armazenamento de fins gerais até 4-TB não são baseadas em instantâneos e consomem largura de banda IO no momento da cópia de segurança. Para grandes bases de dados (> 1TB) no armazenamento de 4-TB, recomendamos que considere 
 
 - Provisionando mais IOPs para responder a iOs de backup OR
-- Alternativamente, migrar para o armazenamento de propósito geral que suporta até 16-TB armazenamento se a infastructure de armazenamento subjacente estiver disponível nas suas [regiões de Azure preferidas](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Não existe um custo adicional para o armazenamento para fins gerais que suporte até 16-TB armazenamento. Para assistência com a migração para o armazenamento de 16-TB, abra um bilhete de apoio a partir do portal Azure. 
+- Alternativamente, migrar para o armazenamento de fins gerais que suporte até 16-TB de armazenamento se a infraestrutura de armazenamento subjacente estiver disponível nas suas [regiões de Azure preferidas](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Não existe um custo adicional para o armazenamento para fins gerais que suporte até 16-TB armazenamento. Para assistência com a migração para o armazenamento de 16-TB, abra um bilhete de apoio a partir do portal Azure. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 16-TB
 Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. 
@@ -55,12 +55,16 @@ O período de retenção de backups regula o quão longe no tempo um restauro de
 - Os servidores com armazenamento até 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
 -   Os servidores com armazenamento até 16-TB conservarão o instantâneo completo da base de dados, todas as imagens diferenciais e cópias de segurança de registo de transações nos últimos 8 dias.
 
+#### <a name="long-term-retention"></a>Retenção de longa duração
+A retenção de backups a longo prazo para além de 35 dias ainda não é suportada de forma nativa pelo serviço. Você tem a opção de usar mysqldump para pegar cópias de segurança e armazená-las para retenção a longo prazo. A nossa equipa de apoio bloqueou um [artigo passo a passo](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) para partilhar como pode alcançá-lo. 
+
+
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
 A Azure Database for MySQL proporciona a flexibilidade para escolher entre armazenamento de backup localmente redundante ou geo-redundante nos níveis Geral De Finalidade e Memória Otimizada. Quando as cópias de segurança são armazenadas no armazenamento de backup geo-redundante, não só são armazenadas na região em que o seu servidor está hospedado, como também são replicadas num centro de [dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível básico só oferece armazenamento de backup localmente redundante.
 
-> [!IMPORTANT]
-> Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passar de localmente redundante para armazenamento de backup geo-redundante
+Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança. Para mover o armazenamento de backup do armazenamento localmente redundante para o armazenamento geo-redundante, criar um novo servidor e migrar os dados usando [o despejo e restaurar](concepts-migrate-dump-restore.md) é a única opção suportada.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 

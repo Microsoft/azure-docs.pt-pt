@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad025d2278d6c9ab360ddbdc250e8db4b4eec665
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710741"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495748"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -128,7 +128,8 @@ A sua conta de Armazenamento Azure, metas de computação e outros recursos pode
 ## <a name="next-steps"></a>Passos seguintes
 
 - Crie a sua primeira experiência com o seu método preferido:
-  + [Use cadernos Python para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
+- + [Começar no seu próprio ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use cadernos Jupyter em uma instância de computação para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown para treinar & implementar modelos ML](tutorial-1st-r-experiment.md) 
   + [Utilize machine learning automatizado para treinar & implementar modelos ML](tutorial-first-experiment-automated-ml.md) 
   + [Use as capacidades de arrastar & de arrastar do designer para treinar & implementar](tutorial-designer-automobile-price-train-score.md) 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207789"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494975"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação Azure Digital Twins (CLI)
 
@@ -36,7 +36,7 @@ Esta versão deste artigo passa por estes passos manualmente, um a um, utilizand
 
 Nesta secção, irá **criar uma nova instância de Azure Digital Twins** utilizando o comando Cloud Shell. Terá de providenciar:
 * Um grupo de recursos para implantá-lo. Se ainda não tiver um grupo de recursos existente em mente, pode criar um agora com este comando:
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Uma região para o destacamento. Para ver que regiões suportam a Azure Digital Twins, visite [*os produtos Azure disponíveis por região.*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
@@ -44,7 +44,7 @@ Nesta secção, irá **criar uma nova instância de Azure Digital Twins** utiliz
 
 Utilize estes valores no seguinte comando para criar o caso:
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -67,8 +67,8 @@ Agora tens uma instância do Azure Digital Twins pronta para ir. Em seguida, voc
 
 Utilize o seguinte comando para atribuir a função (deve ser gerido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure). O comando requer que passe o *nome principal* do utilizador na conta AZure AD para o utilizador que deve ser atribuído à função. Na maioria dos casos, isto corresponderá ao e-mail do utilizador na conta AZure AD.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
 O resultado deste comando é informação sobre a atribuição de funções que foi criada.

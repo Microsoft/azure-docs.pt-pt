@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 9fc7ecd633e92c22c8d2a65e4bf45371dab9697a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c3101b69b7ebf55367dbb52d0c2fd6d265cf33f5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282405"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475639"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
@@ -52,7 +52,7 @@ Eis alguns sítios por onde começar:
 
 * Siga a [aplicação Connect a MongoDB para o tutorial DB do Azure Cosmos](connect-mongodb-account.md) para aprender a obter informações sobre as cordas de ligação da sua conta.
 * Siga o tutorial [use Studio 3T com Azure Cosmos DB](mongodb-mongochef.md) para aprender a criar uma ligação entre a sua base de dados Cosmos e a aplicação MongoDB no Studio 3T.
-* Siga os [dados do Import MongoDB no tutorial do Azure Cosmos DB](mongodb-migrate.md) para importar os seus dados para uma base de dados cosmos.
+* Siga os [dados do Import MongoDB no tutorial do Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para importar os seus dados para uma base de dados cosmos.
 * Ligue-se a uma conta Cosmos usando [Robo 3T](mongodb-robomongo.md).
 * Saiba como [configurar as preferências de leitura para aplicações distribuídas globalmente.](../cosmos-db/tutorial-global-distribution-mongodb.md)
 * Encontre as soluções para erros geralmente encontrados no nosso [guia de resolução de problemas](mongodb-troubleshoot.md)
