@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1a8d375519ed4c7d252afe60d71aad4c5244cd1c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284646"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491177"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Criar um recipiente em Azure Cosmos DB API para MongoDB
 
@@ -62,12 +62,11 @@ Se encontrar exceção no tempo limite ao criar uma coleção, faça uma operaç
 
 ## <a name="create-a-container-using-azure-resource-manager-templates"></a>Criar um recipiente usando modelos de Gestor de Recursos Azure
 
-[Crie uma coleção para Azure Cosmos DB para MongoDB API com modelo de Gestor de Recursos](manage-sql-with-resource-manager.md#azure-cosmos-account-with-standard-provisioned-throughput).
+[Crie uma coleção para Azure Cosmos DB para MongoDB API com modelo de Gestor de Recursos](./manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
 * [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
-* [Trabalhar com uma conta do Azure Cosmos](account-overview.md)
-
+* [Trabalhar com uma conta do Azure Cosmos](./account-databases-containers-items.md)

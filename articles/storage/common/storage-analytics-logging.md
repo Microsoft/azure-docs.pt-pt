@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280033"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488797"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registo de análise de armazenamento Azure
 
 A Análise de Armazenamento regista informações detalhadas sobre os pedidos com êxito e com falha feitos a um serviço de armazenamento. Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados numa base de melhor esforço.
 
- O registo da Análise de Armazenamento não está ativado, por predefinição, na conta de armazenamento. Pode ative-lo no [portal Azure;](https://portal.azure.com/) para mais informações, consulte [uma conta de armazenamento no portal Azure](/azure/storage/storage-monitor-storage-account). Também pode ativar o Storage Analytics programáticamente através da API REST ou da biblioteca do cliente. Utilize as propriedades de [serviço Get Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Obtenha propriedades de serviço de fila](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)e obtenha operações de Serviço de [Mesa](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) para ativar o Storage Analytics para cada serviço.
+ O registo da Análise de Armazenamento não está ativado, por predefinição, na conta de armazenamento. Pode ative-lo no [portal Azure;](https://portal.azure.com/) para mais informações, consulte [uma conta de armazenamento no portal Azure](/azure/storage/storage-monitor-storage-account). Também pode ativar o Storage Analytics programáticamente através da API REST ou da biblioteca do cliente. Utilize as propriedades de [serviço Get Blob](/rest/api/storageservices/Blob-Service-REST-API), [Obtenha propriedades de serviço de fila](/rest/api/storageservices/Get-Queue-Service-Properties)e obtenha operações de Serviço de [Mesa](/rest/api/storageservices/Get-Table-Service-Properties) para ativar o Storage Analytics para cada serviço.
 
  As entradas de registo só são criadas se houver pedidos feitos contra o ponto final de serviço. Por exemplo, se uma conta de armazenamento tiver atividade no seu ponto final Blob, mas não nos seus pontos finais de Tabela ou Fila, apenas serão criados registos relativos ao serviço Blob.
 
@@ -204,7 +204,7 @@ O exemplo a seguir mostra como pode descarregar os dados de registo do serviço 
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar ficheiros específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar ficheiros específicos](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
 Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registos são capazes de analisar (para mais informações, consulte o guia [Monitor, Diagnóstico e Resolução de Problemas do Microsoft Azure Storage).](storage-monitoring-diagnosing-troubleshooting.md) Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o formato de registo de [armazenamento Analytics](/rest/api/storageservices/storage-analytics-log-format) e o armazenamento de [analítica operações registadas e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

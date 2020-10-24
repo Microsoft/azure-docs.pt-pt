@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 035bc13ee44a8a003ae860eb2bdd67432fa91f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 175934c3e80e1271d6d17aa04327b58887427ea5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542527"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483697"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Tutorial: Azure Ative Directory integração única (SSO) com Tableau Online
 
@@ -165,15 +165,15 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. Numa janela de navegador diferente, inscreva-se na sua aplicação Tableau Online. Ir para **Definições** e, em seguida, **Autenticação**.
 
-    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![A screenshot mostra autenticação selecionada no menu Definições.](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
 
 2. Para ativar a secção SAML, **Tipos de Autenticação Sub-Autenticação.** Verifique **Ativar um método de autenticação adicional** e, em seguida, verifique a caixa de verificação **SAML.**
 
-    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![A screenshot mostra a secção de tipos de autenticação onde pode selecionar os valores.](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
 3. Desloque-se até ao **ficheiro de metadados de importação para a secção Tableau Online.**  Clique em Procurar e importe o ficheiro metadados, que descarregou a partir de Azure AD. Em seguida, clique **em Aplicar**.
 
-   ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![A screenshot mostra a secção onde pode importar o ficheiro de metadados.](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
 4. Na secção **de afirmações match, insira** o nome de afirmação do Fornecedor de Identidade correspondente para **endereço de e-mail,** **nome próprio**e **apelido**. Para obter esta informação da Azure AD: 
   
@@ -181,17 +181,17 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     b. Na secção **Atributos & Pedidos** de Utilizador, clique no ícone de edição.
 
-   ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/attributesection.png)
+   ![A screenshot mostra a secção "Atributos & Do Utilizador" onde pode selecionar o ícone de edição.](./media/tableauonline-tutorial/attributesection.png)
 
     c. Copie o valor do espaço de nome para estes atributos: nome dado, e-mail e apelido utilizando os seguintes passos:
 
-   ![Azure AD Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![A screenshot mostra os atributos Givenname, Surname e Emailaddress.](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Clique no valor **do utilizador.dado nome**
 
     e. Copie o valor da caixa de texto **Namespace.**
 
-    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/attributesection2.png)
+    ![A screenshot mostra a secção de reclamações do utilizador Gerir onde pode introduzir o Espaço Nome.](./media/tableauonline-tutorial/attributesection2.png)
 
     f. Para copiar os valores do espaço de nome para o e-mail e sobrenome repita os passos acima.
 
@@ -203,7 +203,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     * Apelido: **apelido**
 
-    ![Configurar Sign-On Individuais](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![A screenshot mostra a secção de atributos Match onde pode introduzir os valores.](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### <a name="create-tableau-online-test-user"></a>Criar utilizador de teste Online Tableau
 
@@ -211,11 +211,11 @@ Nesta secção, cria-se um utilizador chamado Britta Simon in Tableau Online.
 
 1. No **Tableau Online,** clique em **Definições** e, em seguida, na secção **de Autenticação.** Desloque-se para baixo para gerir a secção **de utilizadores.** Clique **em Adicionar Utilizadores** e, em seguida, clique **em Introduzir Endereços de E-mail.**
   
-    ![Criar um utilizador de teste AZure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![A screenshot mostra a secção de utilizadores 'Gerir' onde pode selecionar utilizadores Adicionar.](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
 2. **Selecione Adicionar os utilizadores para a autenticação (SAML).** Na **caixa de e-mail Enter os endereços** de texto adicionam britta.simon \@ contoso.com
   
-    ![Criar um utilizador de teste AZure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![A screenshot mostra a página 'Adicionar Utilizadores' onde pode introduzir um endereço de e-mail.](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Clique **em Adicionar Utilizadores**.
 

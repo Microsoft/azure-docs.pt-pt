@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984118"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478325"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
 
@@ -37,8 +37,8 @@ A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado na piscina SQL durante a criação de vista. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | Não                                           | Sim
-|Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
+|Armazenamento extra                   | No                                           | Yes
+|Syntax                          | CREATE VIEW                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
 
@@ -79,7 +79,7 @@ Em comparação com outras opções de afinação, como a escala e a gestão de 
 
 **Precisa de diferentes estratégias de distribuição de dados para um desempenho de consulta mais rápido**
 
-A piscina SQL é um sistema de processamento massivamente paralelo (MPP).   Os dados numa mesa de bilhar SQL são distribuídos por 60 nosdes utilizando uma das três [estratégias](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de distribuição (haxixe, round_robin ou replicado).  
+Synapse SQL é um sistema de processamento de consultas distribuído.  Os dados numa tabela SQL são distribuídos por 60 nóns utilizando uma das três [estratégias](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) de distribuição (haxixe, round_robin ou replicado).   
 
 A distribuição de dados é especificada na hora de criação da tabela e permanece inalterada até que a tabela seja largada. A vista materializada sendo uma tabela virtual no disco suporta a distribuição de dados de haxixe e round_robin.  Os utilizadores podem escolher uma distribuição de dados diferente das tabelas base, mas ideal para o desempenho de consultas que mais usam as vistas.  
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409532"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490582"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Cabeçalhos de resposta do servidor Azure Cosmos DB Gremlin
 Este artigo aborda os cabeçalhos devolvidos pelo servidor do Gremlin no Cosmos DB ao chamador mediante a execução do pedido. Estes cabeçalhos são úteis para resolver problemas de desempenho de pedidos, ao criar aplicações que se integram nativamente no serviço Cosmos DB e ao simplificar o suporte ao cliente.
@@ -29,7 +29,7 @@ Tenha em mente que, tendo em conta estes cabeçalhos, está a limitar a portabil
 | **x-ms-total-servidor-time-ms** | double | 130.512 | Êxito e Falha | Tempo total, em milissegundos, que o servidor Cosmos DB Gremlin demorou a executar todo o traversal. Este cabeçalho está incluído em todas as respostas parciais. Representa um período de execução cumulativo desde o início do pedido. A última resposta indica o tempo total de execução. Este cabeçalho é útil para diferenciar entre cliente e servidor como fonte de latência. Pode comparar o tempo de execução transversal do cliente com o valor deste cabeçalho. |
 | **x-ms-status-code** | long | 200 | Êxito e Falha | O cabeçalho indica razão interna para a conclusão ou rescisão do pedido. A aplicação é aconselhada a olhar para o valor deste cabeçalho e a tomar medidas corretivas. |
 | **x-ms-substatus-code** | long | 1003 | Apenas falha | Cosmos DB é uma base de dados multi-modelo que é construída em cima de camadas de armazenamento unificadas. Este cabeçalho contém insights adicionais sobre a razão da falha quando a falha ocorre dentro de camadas inferiores de pilha de alta disponibilidade. A aplicação é aconselhada a armazenar este cabeçalho e usá-lo quando contactar o suporte do cliente da Cosmos DB. O valor deste cabeçalho é útil para o engenheiro da Cosmos DB para uma rápida resolução de problemas. |
-| **x-ms-retry-after-ms** | cadeia (TimeSpan) | "00:00:03.9500000" | Apenas falha | Este cabeçalho é uma representação de cordas de um tipo .NET [TimeSpan.](https://docs.microsoft.com/dotnet/api/system.timespan) Este valor só será incluído nos pedidos falhados devidos à exaustão de produção. A aplicação deve voltar aubscrevê-la após o período de tempo instruído. |
+| **x-ms-retry-after-ms** | cadeia (TimeSpan) | "00:00:03.9500000" | Apenas falha | Este cabeçalho é uma representação de cordas de um tipo .NET [TimeSpan.](/dotnet/api/system.timespan) Este valor só será incluído nos pedidos falhados devidos à exaustão de produção. A aplicação deve voltar aubscrevê-la após o período de tempo instruído. |
 | **x-ms-activity-id** | corda (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Êxito e Falha | O cabeçalho contém um identificador único do lado do servidor de um pedido. Cada pedido é atribuído um identificador único pelo servidor para fins de rastreio. As aplicações devem registar identificadores de atividade devolvidos pelo servidor para pedidos que os clientes possam querer contactar o suporte do cliente. O pessoal de suporte da Cosmos DB pode encontrar pedidos específicos por estes identificadores na telemetria de serviço da Cosmos DB. |
 
 ## <a name="status-codes"></a>Códigos de estado

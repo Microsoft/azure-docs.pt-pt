@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077913"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488525"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Dados de transferência com armazenamento AzCopy e Blob
 
@@ -282,7 +282,7 @@ O nome de cada ficheiro descarregado começa com o ID da versão seguido pelo no
 
 Pode utilizar o AzCopy para copiar blobs para outras contas de armazenamento. A operação de cópia é sincronizada, pelo que quando o comando é devolvido, indica que todos os ficheiros foram copiados. 
 
-O AzCopy utiliza [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url) [de servidor a servidor,](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) por isso os dados são copiados diretamente entre servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda de rede do seu computador. Pode aumentar a produção destas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável ambiente. Para saber mais, consulte [a produção otimiza.](storage-use-azcopy-configure.md#optimize-throughput)
+O AzCopy utiliza [APIs](/rest/api/storageservices/put-page-from-url) [de servidor a servidor,](/rest/api/storageservices/put-block-from-url) por isso os dados são copiados diretamente entre servidores de armazenamento. Estas operações de cópia não utilizam a largura de banda de rede do seu computador. Pode aumentar a produção destas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável ambiente. Para saber mais, consulte [a produção otimiza.](storage-use-azcopy-configure.md#optimize-throughput)
 
 > [!NOTE]
 > Este cenário tem as seguintes limitações na versão atual.
@@ -363,7 +363,7 @@ O comando [de sincronização](storage-ref-azcopy-sync.md) compara nomes de fich
 Se colocar a `--delete-destination` bandeira no `true` AzCopy elimina ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de o AzCopy apagar um ficheiro, coloque a `--delete-destination` bandeira em `prompt` .
 
 > [!NOTE]
-> Para evitar supressões acidentais, certifique-se de que ativa a função [de eliminação suave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de utilizar a `--delete-destination=prompt|true` bandeira.
+> Para evitar supressões acidentais, certifique-se de que ativa a função [de eliminação suave](/azure/storage/blobs/storage-blob-soft-delete) antes de utilizar a `--delete-destination=prompt|true` bandeira.
 
 > [!TIP]
 > Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais. Aqui estão alguns exemplos.

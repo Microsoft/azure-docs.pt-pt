@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578394"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479056"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação .NET Framework ou Core utilizando a conta API API AZure Cosmos DB Gremlin
 
@@ -72,7 +72,7 @@ Agora vamos clonar uma aplicação da API do Gremlin a partir do GitHub, definir
 5. Restaure os pacotes NuGet no projeto. Isto deve incluir o controlador Gremlin.Net, bem como o pacote Newtonsoft.Json.
 
 
-6. Também pode instalar manualmente o controlador Gremlin.Net com o gestor de pacotes Nuget ou o [utilitário de linha de comandos do nuget](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. Também pode instalar manualmente o controlador Gremlin.Net com o gestor de pacotes Nuget ou o [utilitário de linha de comandos do nuget](/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -166,7 +166,7 @@ Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
@@ -176,4 +176,3 @@ Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gr
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md) (Utilizar Gremlin para consultar)
-

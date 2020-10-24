@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 5c82c7a3fbe931042c1ae817d2f5b6c9ae6989ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480739"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
 
@@ -44,12 +44,15 @@ O período de retenção de backups regula o quão longe no tempo um restauro de
 - Os servidores com armazenamento até 4-TB irão reter até 2 cópias de dados completas, todas as cópias de segurança diferenciais e cópias de segurança de registo de transações realizadas desde a primeira cópia de segurança completa da base de dados.
 -   Os servidores com armazenamento até 16-TB conservarão o instantâneo completo da base de dados, todas as imagens diferenciais e cópias de segurança de registo de transações nos últimos 8 dias.
 
+#### <a name="long-term-retention-of-backups"></a>Retenção de cópias de segurança de longa duração
+A retenção de backups a longo prazo para além de 35 dias ainda não é suportada de forma nativa pelo serviço. Você tem a opção de usar mysqldump para pegar cópias de segurança e armazená-las para retenção a longo prazo. A nossa equipa de apoio bloqueou um [artigo passo a passo](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) para partilhar como pode alcançá-lo. 
+
 ### <a name="backup-redundancy-options"></a>Opções de redundância de backup
 
 A Base de Dados Azure para MariaDB proporciona a flexibilidade para escolher entre armazenamento de backup localmente redundante ou geo-redundante nos níveis Geral De Finalidade e Memória Otimizada. Quando as cópias de segurança são armazenadas no armazenamento de backup geo-redundante, não só são armazenadas na região em que o seu servidor está hospedado, como também são replicadas num centro de [dados emparelhado](../best-practices-availability-paired-regions.md). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível básico só oferece armazenamento de backup localmente redundante.
 
-> [!IMPORTANT]
-> Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passar de localmente redundante para armazenamento de backup geo-redundante
+Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança. Para mover o armazenamento de backup do armazenamento localmente redundante para o armazenamento geo-redundante, criar um novo servidor e migrar os dados usando [o despejo e restaurar](howto-migrate-dump-restore.md) é a única opção suportada.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107492"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489324"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -44,33 +44,33 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 
 |Comando  |Suportado |
 |---------|---------|
-| ascii  | Sim |
-| bigint  | Sim |
-| blob  | Sim |
-| boolean  | Sim |
-| counter  | Sim |
-| data  | Sim |
-| decimal  | Sim |
-| double  | Sim |
-| float  | Sim |
-| frozen  | Sim |
-| inet  | Sim |
-| int  | Sim |
-| lista  | Sim |
-| set  | Sim |
-| smallint  | Sim |
-| texto  | Sim |
-| hora  | Sim |
-| carimbo de data/hora  | Sim |
-| timeuuid  | Sim |
-| tinyint  | Sim |
-| tuple  | Sim |
-| uuid  | Sim |
-| varchar  | Sim |
-| varint  | Sim |
-| tuples | Sim | 
-| udts  | Sim |
-| mapa | Sim |
+| ascii  | Yes |
+| bigint  | Yes |
+| blob  | Yes |
+| boolean  | Yes |
+| counter  | Yes |
+| date  | Yes |
+| decimal  | Yes |
+| double  | Yes |
+| float  | Yes |
+| frozen  | Yes |
+| inet  | Yes |
+| int  | Yes |
+| lista  | Yes |
+| set  | Yes |
+| smallint  | Yes |
+| texto  | Yes |
+| hora  | Yes |
+| carimbo de data/hora  | Yes |
+| timeuuid  | Yes |
+| tinyint  | Yes |
+| tuple  | Yes |
+| uuid  | Yes |
+| varchar  | Yes |
+| varint  | Yes |
+| tuples | Yes | 
+| udts  | Yes |
+| mapa | Yes |
 
 A estática é suportada para a declaração do tipo de dados.
 
@@ -80,10 +80,10 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 
 |Comando  |Suportado |
 |---------|---------|
-| Token * | Sim |
-| ttl | Sim |
-| tempo de escrita | Sim |
-| elenco | Não |
+| Token * | Yes |
+| ttl | Yes |
+| tempo de escrita | Yes |
+| elenco | No |
 
 \* A API cassandra suporta o token como uma projeção/seletor, e só permite token(pk) no lado esquerdo de uma cláusula onde. Por exemplo, `WHERE token(pk) > 1024` é apoiado, mas `WHERE token(pk) > token(100)` não é apoiado.
 
@@ -92,34 +92,34 @@ Funções agregadas:
 
 |Comando  |Suportado |
 |---------|---------|
-| min | Sim |
-| max | Sim |
-| avg | Sim |
-| count | Sim |
+| min | Yes |
+| max | Yes |
+| avg | Yes |
+| count | Yes |
 
 Funções de conversão blob:
  
 |Comando  |Suportado |
 |---------|---------|
-| typeAsBlob(valor)   | Sim |
-| blobAsType(valor) | Sim |
+| typeAsBlob(valor)   | Yes |
+| blobAsType(valor) | Yes |
 
 
 UUID e funções timeuuid:
  
 |Comando  |Suportado |
 |---------|---------|
-| dateOf()  | Sim |
-| now()  | Sim |
-| minTimeuuid()  | Sim |
-| unixTimestampOf()  | Sim |
-| toDate(timeuuid)  | Sim |
-| toTimestamp(timeuuid)  | Sim |
-| toUnixTimestamp(timeuuid)  | Sim |
-| toDate(carimbo de data/hora)  | Sim |
-| toUnixTimestamp(carimbo de data/hora)  | Sim |
-| toTimestamp(data)  | Sim |
-| toUnixTimestamp(data) | Sim |
+| dateOf()  | Yes |
+| now()  | Yes |
+| minTimeuuid()  | Yes |
+| unixTimestampOf()  | Yes |
+| toDate(timeuuid)  | Yes |
+| toTimestamp(timeuuid)  | Yes |
+| toUnixTimestamp(timeuuid)  | Yes |
+| toDate(carimbo de data/hora)  | Yes |
+| toUnixTimestamp(carimbo de data/hora)  | Yes |
+| toTimestamp(data)  | Yes |
+| toUnixTimestamp(data) | Yes |
 
 
   
@@ -129,60 +129,60 @@ O Azure Cosmos DB suporta os seguintes comandos de base de dados nas contas da A
 
 |Comando  |Suportado |
 |---------|---------|
-| PERMITIR A FILTRAGEM | Sim |
+| PERMITIR A FILTRAGEM | Yes |
 | ALTERAR O ESPAÇO DE CHAVES | N/A (serviço PaaS, replicação gerida internamente)|
-| ALTERAR VISTA MATERIALIZADA | Não |
-| ALTERAR PAPEL | Não |
-| ALTER TABLE | Sim |
-| TIPO ALTER | Não |
-| UTILIZADOR ALTER | Não |
+| ALTERAR VISTA MATERIALIZADA | No |
+| ALTERAR PAPEL | No |
+| ALTER TABLE | Yes |
+| TIPO ALTER | No |
+| UTILIZADOR ALTER | No |
 | LOTE | Sim (apenas lote não enólogo)|
 | ARMAZENAMENTO COMPACTO | N/A (serviço PaaS) |
-| CRIAR AGREGADO | Não | 
-| CRIAR ÍNDICE PERSONALIZADO (SASI) | Não |
+| CRIAR AGREGADO | No | 
+| CRIAR ÍNDICE PERSONALIZADO (SASI) | No |
 | CREATE INDEX | Sim (sem [especificar o nome do índice](cassandra-secondary-index.md), e índices em chaves de agrupamento ou recolha completa de FROZEN não suportada) |
-| CREATE FUNCTION | Não |
-| CRIAR KEYSPACE (definições de replicação ignoradas) | Sim |
-| CRIAR VISTA MATERIALIZADA | Não |
-| CREATE TABLE | Sim |
-| CRIAR GATILHO | Não |
-| CRIAR TIPO | Sim |
-| CRIAR PAPEL | Não |
-| CREATE USER (Deprecado em Apache Cassandra nativo) | Não |
-| DELETE | Sim |
-| EXCLUIR (transações leves com IF CONDITION)| Sim |
-| DISTINCT | Não |
-| AGREGADO DE DROP | Não |
-| DROP FUNCTION | Não |
-| DROP INDEX | Sim |
-| DROP KEYSPACE | Sim |
-| VISTA MATERIALIZADA GOTA | Não |
-| PAPEL DE DROP | Não |
-| DROP TABLE | Sim |
-| DETONADOR DE QUEDA | Não | 
-| TIPO DE GOTA | Sim |
-| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | Não |
-| GRANT | Não |
-| INSERT | Sim |
-| INSIRA (transações leves com IF CONDITION)| Sim |
-| PERMISSÕES DE LISTA | Não |
-| FUNÇÕES DE LISTA | Não |
-| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | Não |
-| REVOKE | Não |
-| SELECT | Sim |
-| SELECT (transações leves com IF CONDITION)| Não |
-| UPDATE | Sim |
-| ATUALIZAÇÃO (transações leves com IF CONDITION)| Não |
-| TRUNCATO | Não |
-| USE | Sim |
+| CREATE FUNCTION | No |
+| CRIAR KEYSPACE (definições de replicação ignoradas) | Yes |
+| CRIAR VISTA MATERIALIZADA | No |
+| CREATE TABLE | Yes |
+| CRIAR GATILHO | No |
+| CRIAR TIPO | Yes |
+| CRIAR PAPEL | No |
+| CREATE USER (Deprecado em Apache Cassandra nativo) | No |
+| DELETE | Yes |
+| EXCLUIR (transações leves com IF CONDITION)| Yes |
+| DISTINCT | No |
+| AGREGADO DE DROP | No |
+| DROP FUNCTION | No |
+| DROP INDEX | Yes |
+| DROP KEYSPACE | Yes |
+| VISTA MATERIALIZADA GOTA | No |
+| PAPEL DE DROP | No |
+| DROP TABLE | Yes |
+| DETONADOR DE QUEDA | No | 
+| TIPO DE GOTA | Yes |
+| UTILIZADOR DROP (Deprecado em Apache Cassandra nativo) | No |
+| GRANT | No |
+| INSERT | Yes |
+| INSIRA (transações leves com IF CONDITION)| Yes |
+| PERMISSÕES DE LISTA | No |
+| FUNÇÕES DE LISTA | No |
+| UTILIZADORES LISTA (Deprecado em Apache Cassandra nativo) | No |
+| REVOKE | No |
+| SELECIONAR | Yes |
+| SELECT (transações leves com IF CONDITION)| No |
+| UPDATE | Yes |
+| ATUALIZAÇÃO (transações leves com IF CONDITION)| No |
+| TRUNCATO | No |
+| USE | Yes |
 
 ## <a name="json-support"></a>Suporte JSON
 |Comando  |Suportado |
 |---------|---------|
-| SELECIONE JSON | Sim |
-| INSERIR JSON | Sim |
-| fromJson() | Não |
-| toJson() | Não |
+| SELECIONE JSON | Yes |
+| INSERIR JSON | Yes |
+| fromJson() | No |
+| toJson() | No |
 
 
 ## <a name="cassandra-api-limits"></a>Limites da API para Cassandra
@@ -208,7 +208,7 @@ Também pode ligar-se à API Cassandra em Azure Cosmos DB utilizando o CQLSH ins
 
 **Janelas:**
 
-Se utilizar janelas, recomendamos que ative o [sistema de ficheiros Windows para o Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Em seguida, pode seguir os comandos linux abaixo.
+Se utilizar janelas, recomendamos que ative o [sistema de ficheiros Windows para o Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Em seguida, pode seguir os comandos linux abaixo.
 
 **Unix/Linux/Mac:**
 
@@ -255,7 +255,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapeamento de consistência 
 
-A API para Cassandra do Azure Cosmos DB permite que haja consistência em operações de leitura.  O mapeamento de consistência é detalhado [aqui.](consistency-levels-across-apis.md#cassandra-mapping)
+A API para Cassandra do Azure Cosmos DB permite que haja consistência em operações de leitura.  O mapeamento de consistência é detalhado [aqui.](./cassandra-consistency.md#mapping-consistency-levels)
 
 ## <a name="permission-and-role-management"></a>Gestão de permissões e funções
 

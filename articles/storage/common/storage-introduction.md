@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091309"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490803"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
 
@@ -46,7 +46,7 @@ A tabela seguinte compara Ficheiros, Blobs, Discos, Filas e Tabelas, e mostra ce
 | **Ficheiros do Azure** |Oferece partilhas de ficheiros em nuvem totalmente geridas que pode aceder a partir de qualquer lugar através do protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria.<br><br>Pode montar partilhas de ficheiros Azure a partir de implementações de Windows, Linux e macOS no local. | Pretende "levantar e deslocar" uma aplicação para a nuvem que já utiliza as APIs do sistema de ficheiros nativo para partilhar dados entre ele e outras aplicações em execução no Azure.<br/><br/>Pretende substituir ou complementar servidores de ficheiros no local ou dispositivos NAS.<br><br> Pretende armazenar ferramentas de desenvolvimento e depuragem que precisam de ser acedidas a partir de muitas máquinas virtuais. |
 | **Blobs do Azure** | Permite que os dados não estruturados sejam armazenados e acedidos a uma escala massiva em blobs de blocos.<br/><br/>Também suporta [a Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluções de análise de big data da empresa. | Pretende que a sua aplicação suporte cenários de streaming e acesso aleatório.<br/><br/>Pretende aceder aos dados da aplicação a partir de qualquer lugar.<br/><br/>Você quer construir um lago de dados da empresa em Azure e realizar grandes análises de dados. |
 | **Discos do Azure** | Permite que os dados sejam armazenados e acedidos persistentemente a partir de um disco rígido virtual anexado. | Pretende -se que "levante e desloque" aplicações que utilizem APIs do sistema de ficheiros nativos para ler e escrever dados para discos persistentes.<br/><br/>Pretende armazenar dados que não sejam necessários para serem acedidos a partir de fora da máquina virtual à qual o disco está ligado. |
-| **Filas do Azure** | Permite a fila de mensagens assíncronos entre os componentes da aplicação. | Pretende dissociar os componentes da aplicação e utilizar mensagens assíncronos para comunicar entre eles.<br><br>Para obter orientações sobre quando usar o armazenamento da fila contra as filas de Service Bus, consulte [as filas de armazenamento e as filas de Service Bus - comparadas e contrastadas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Filas do Azure** | Permite a fila de mensagens assíncronos entre os componentes da aplicação. | Pretende dissociar os componentes da aplicação e utilizar mensagens assíncronos para comunicar entre eles.<br><br>Para obter orientações sobre quando usar o armazenamento da fila contra as filas de Service Bus, consulte [as filas de armazenamento e as filas de Service Bus - comparadas e contrastadas](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabelas do Azure** | Permitir-lhe armazenar dados NoSQL estruturados na nuvem, fornecendo uma loja chave/atributo com um design sem esquemas. | Pretende armazenar conjuntos de dados flexíveis, como dados de utilizador para aplicações web, livros de endereços, informações de dispositivos ou outros tipos de metadados que o seu serviço necessita. <br/><br/>Para obter orientações sobre quando utilizar o armazenamento de mesa contra a API da tabela AZure Cosmos DB, consulte [Desenvolver-se com Azure Cosmos DB Table API e Azure Table storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
@@ -61,7 +61,7 @@ O armazenamento de blobs é ideal para:
 - Armazenamento de dados de cópia de segurança e restauro, recuperação após desastre e arquivo.
 - Armazenamento de dados para análise por um serviço no local ou alojado no Azure.
 
-Os Objetos no Armazenamento de blobs podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Os utilizadores ou aplicações de cliente podem aceder a blobs através de URLs, à [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), ao [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), à [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou a uma biblioteca de cliente do Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para muitas linguagens, incluindo [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) e [Ruby](https://azure.github.io/azure-storage-ruby).
+Os Objetos no Armazenamento de blobs podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Os utilizadores ou aplicações de cliente podem aceder a blobs através de URLs, à [API REST do Armazenamento do Azure](/rest/api/storageservices/blob-service-rest-api), ao [Azure PowerShell](/powershell/module/azure.storage), à [CLI do Azure](/cli/azure/storage) ou a uma biblioteca de cliente do Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para muitas linguagens, incluindo [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) e [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Para obter mais informações sobre o armazenamento blob, consulte [Introdução ao armazenamento blob](../blobs/storage-blobs-introduction.md).
 
@@ -113,7 +113,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 - **Integração do Azure Ative Directory (Azure AD) para dados de bolhas e filas.** O Azure Storage suporta a autenticação e autorização com a Azure AD para os serviços Blob e Queue via Azure role-based access control (Azure RBAC). É recomendada a autorização de pedidos com Azure AD para uma segurança superior e facilidade de utilização. Para obter mais informações, consulte [Autoriza o acesso a blobs e filas Azure usando o Azure Ative Directory](storage-auth-aad.md).
 - **Autorização Azure AD sobre SMB para Ficheiros Azure.** O Azure Files suporta a autorização baseada na identidade sobre o SMB (Server Message Block) através dos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS) ou nos locais Serviços de Domínio do Diretório Ativo (pré-visualização). Os seus VMs windows unidos ao domínio podem aceder a ações de ficheiros Azure usando credenciais Azure AD. Para obter mais informações, consulte [o suporte de autenticação baseado em identidade do Azure Files para aceder](../files/storage-files-active-directory-overview.md) e planear uma [implementação de Ficheiros Azure](../files/storage-files-planning.md#identity).
-- **Autorização com Chave Partilhada.** A Azure Storage Blob, Ficheiros, Fila e Serviços de Tabela apoiam a autorização com Chave Partilhada. Um cliente que utilize a autorização Da Chave Partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada.](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)
+- **Autorização com Chave Partilhada.** A Azure Storage Blob, Ficheiros, Fila e Serviços de Tabela apoiam a autorização com Chave Partilhada. Um cliente que utilize a autorização Da Chave Partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada.](/rest/api/storageservices/authorize-with-shared-key)
 - **Autorização utilizando assinaturas de acesso partilhado (SAS).** Uma assinatura de acesso partilhado (SAS) é uma cadeia que contém um símbolo de segurança que pode ser anexado ao URI para um recurso de armazenamento. O símbolo de segurança encapsula constrangimentos como permissões e o intervalo de acesso. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
 - **Acesso anónimo a contentores e bolhas.** Um recipiente e as suas bolhas podem estar disponíveis ao público. Quando se especifica que um recipiente ou bolha é público, qualquer pessoa pode lê-lo anonimamente; não é necessária autenticação. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
@@ -121,7 +121,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 Existem dois tipos básicos de encriptação disponíveis para os serviços de armazenamento principal. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
 A encriptação Azure Storage protege e salvaguarda os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. O Azure Storage encripta automaticamente todos os dados antes de persistir na conta de armazenamento e desencripta-os antes da recuperação. A encriptação, desencriptação e os principais processos de gestão são transparentes para os utilizadores. Os clientes também podem optar por gerir as suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](storage-service-encryption.md).
 
@@ -147,10 +147,10 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 
 ### <a name="azure-storage-data-api-and-library-references"></a>API de dados do Armazenamento do Azure e referências da biblioteca
 
-- [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/) (API REST do Armazenamento do Azure)
-- [Biblioteca de clientes Azure Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Biblioteca de clientes Azure Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteca de clientes Azure Storage para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Azure Storage REST API](/rest/api/storageservices/) (API REST do Armazenamento do Azure)
+- [Biblioteca de clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage)
+- [Biblioteca de clientes Azure Storage para Java/Android](/java/api/overview/azure/storage)
+- [Biblioteca de clientes Azure Storage para Node.js](/javascript/api/overview/azure/storage-overview)
 - [Biblioteca de clientes Azure Storage para Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteca de clientes Azure Storage para PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteca de clientes Azure Storage para Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -158,19 +158,19 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 
 ### <a name="azure-storage-management-api-and-library-references"></a>API de gestão do Armazenamento do Azure e referências da biblioteca
 
-- [API REST do Fornecedor de Recursos de Armazenamento](https://docs.microsoft.com/rest/api/storagerp/)
-- [Biblioteca de Clientes do Fornecedor de Recursos do Storage para o .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+- [API REST do Fornecedor de Recursos de Armazenamento](/rest/api/storagerp/)
+- [Biblioteca de Clientes do Fornecedor de Recursos do Storage para o .NET](/dotnet/api/overview/azure/storage/management)
 - [API REST da Gestão de Serviços do Storage (Clássica)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>API de movimentação do Armazenamento do Azure e referências da biblioteca
 
-- [API REST do Serviço de Importação/Exportação do Storage](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [API REST do Serviço de Importação/Exportação do Storage](/rest/api/storageimportexport/)
 - [Biblioteca de Clientes do Movimento de Dados do Storage para o .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Ferramentas e utilitários
 
-- [Cmdlets do Azure PowerShell para Armazenamento](https://docs.microsoft.com/powershell/module/az.storage)
-- [Cmdlets da CLI do Azure para Armazenamento](https://docs.microsoft.com/cli/azure/storage)
+- [Cmdlets do Azure PowerShell para Armazenamento](/powershell/module/az.storage)
+- [Cmdlets da CLI do Azure para Armazenamento](/cli/azure/storage)
 - [Utilitário da Linha de Comandos do AzCopy](https://aka.ms/downloadazcopy)
 - O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 - [Modelos de gestor de recursos Azure para armazenamento Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)

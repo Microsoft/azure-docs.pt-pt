@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 48524bec352d2fa9c169a1345e52ad4c789e59d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 232d138488d061c638073b51198e5f2ea4c6b53f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552124"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481283"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: Azure Ative Directory integração única (SSO) com SuccessFactors
 
@@ -160,14 +160,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Coloque qualquer valor no **Token reset** e clique em **Guardar Token** para ativar o SSO SAML.
 
-    ![Configurar um único sinal no lado da aplicação][11]
+    ![O Screenshot mostra o separador de Segurança da Aplicação com sinal único nas funcionalidades chamadas onde pode introduzir um token.][11]
 
     > [!NOTE]
     > Este valor é utilizado como o interruptor de ligar/desligar. Se algum valor for guardado, o SSO SAML está LIGADO. Se um valor em branco for salvo, o SSO SAML está desligado.
 
 4. Nativo abaixo da imagem e executar as seguintes ações:
 
-    ![Configurar um único sinal no lado da aplicação][12]
+    ![A screenshot mostra o painel S S O baseado em SAML onde pode introduzir os valores descritos.][12]
   
     a. Selecione o botão de rádio **SSO SAML v2**
   
@@ -192,7 +192,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 5. Navegue até SAML V2 e, em seguida, execute os seguintes passos:
 
-    ![Configurar um único sinal no lado da aplicação][13]
+    ![A screenshot mostra o painel de logout iniciado SAML v2 S P onde pode introduzir os valores descritos.][13]
 
     a. Selecione **Sim** como **Suporte SP iniciado Logotipout Global**.
 

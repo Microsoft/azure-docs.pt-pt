@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
-ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409702"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475605"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de otimização pós-migração ao utilizar a API da Azure Cosmos para a MongoDB
 
@@ -53,12 +53,12 @@ Para distribuir globalmente os seus dados, consulte [distribuir os dados globalm
 
 ## <a name="set-consistency-level"></a>Definir nível de consistência
 
-A Azure Cosmos DB oferece 5 níveis de consistência bem [definidos.](consistency-levels.md) Para ler sobre o mapeamento entre os níveis de consistência do MongoDB e do Azure Cosmos DB, leia os [níveis de consistência e as APIs DB do Cosmos Azure Cosmos](consistency-levels-across-apis.md). O nível de consistência predefinido é o nível de consistência da sessão. Alterar o nível de consistência é opcional e pode otimizá-lo para a sua aplicação. Para alterar o nível de consistência utilizando o portal Azure:
+A Azure Cosmos DB oferece 5 níveis de consistência bem [definidos.](consistency-levels.md) Para ler sobre o mapeamento entre os níveis de consistência do MongoDB e do Azure Cosmos DB, leia os [níveis de consistência e as APIs DB do Cosmos Azure Cosmos](./consistency-levels.md). O nível de consistência predefinido é o nível de consistência da sessão. Alterar o nível de consistência é opcional e pode otimizá-lo para a sua aplicação. Para alterar o nível de consistência utilizando o portal Azure:
 
 1. Aceda à lâmina **de consistência predefinido** em Definições.
 2. Selecione o seu [nível de consistência](consistency-levels.md)
 
-A maioria dos utilizadores deixa o seu nível de consistência na definição de consistência da sessão predefinida. No entanto, [existem compensações de disponibilidade e desempenho para vários níveis de consistência.](consistency-levels-tradeoffs.md)
+A maioria dos utilizadores deixa o seu nível de consistência na definição de consistência da sessão predefinida. No entanto, [existem compensações de disponibilidade e desempenho para vários níveis de consistência.](./consistency-levels.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

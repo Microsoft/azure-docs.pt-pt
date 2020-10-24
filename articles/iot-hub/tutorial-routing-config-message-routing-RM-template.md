@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74084398"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480110"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Use um modelo de Gestor de Recursos Azure para configurar o encaminhamento de mensagens IoT Hub
 
@@ -358,7 +358,7 @@ Para implementar o modelo para Azure, carreque o modelo e o ficheiro de parâmet
 
 Para fazer o upload dos ficheiros, selecione o ícone **de ficheiros upload/Download** na barra de menus e, em seguida, escolha upload.
 
-![Barra de menu Cloud Shell com ficheiros upload/download em destaque](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Screenshot que realça o ícone de ficheiros upload/download.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Utilize o Explorador de Ficheiros que aparece para encontrar os ficheiros no disco local e selecione-os e, em seguida, escolha **Abrir**.
 

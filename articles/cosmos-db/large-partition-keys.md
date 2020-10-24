@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59781f9b86764d0982e1612f9671e8f0919ed490
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009513"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488440"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar recipientes com chave de partição grande
 
@@ -83,4 +83,4 @@ Atualmente, não é possível utilizar recipientes com chave de partição grand
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de Pedido no Azure Cosmos DB](request-units.md)
 * [Aprovisionar o débito em contentores e bases de dados](set-throughput.md)
-* [Trabalhar com uma conta do Azure Cosmos](account-overview.md)
+* [Trabalhar com uma conta do Azure Cosmos](./account-databases-containers-items.md)

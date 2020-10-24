@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9a29a34b25b6834c2c343bd568f3dd3548ceff3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569193"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474942"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Esta definição evitará quaisquer alterações a qualquer recurso cosmos de qu
 
 - Modificação de procedimentos armazenados, gatilhos ou funções definidas pelo utilizador.
 
-Se as suas aplicações (ou utilizadores através do portal Azure) realizarem alguma destas ações, terão de ser migradas para serem executadas através [de Modelos ARM](manage-sql-with-resource-manager.md), [PowerShell,](manage-with-powershell.md) [Azure CLI,](manage-with-cli.md)REST ou [Biblioteca de Gestão Azure.](https://github.com/Azure-Samples/cosmos-management-net) Note que a Azure Management está disponível em [vários idiomas.](https://docs.microsoft.com/azure/?product=featured#languages-and-tools)
+Se as suas aplicações (ou utilizadores através do portal Azure) realizarem alguma destas ações, terão de ser migradas para serem executadas através [de Modelos ARM](./manage-with-templates.md), [PowerShell,](manage-with-powershell.md) [Azure CLI,](manage-with-cli.md)REST ou [Biblioteca de Gestão Azure.](https://github.com/Azure-Samples/cosmos-management-net) Note que a Azure Management está disponível em [vários idiomas.](/azure/?product=featured#languages-and-tools)
 
 ### <a name="set-via-arm-template"></a>Definido via modelo ARM
 

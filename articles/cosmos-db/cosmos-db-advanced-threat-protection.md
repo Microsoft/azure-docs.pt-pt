@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85119275"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489256"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)
 
@@ -26,7 +26,7 @@ Os alertas de segurança são desencadeados quando ocorrem anomalias na atividad
 > * A Proteção Avançada de Ameaças para Azure Cosmos DB está atualmente disponível apenas para a API SQL.
 > * A Proteção Avançada de Ameaças para Azure Cosmos DB não está atualmente disponível no governo de Azure e nas regiões de nuvem soberana.
 
-Para uma experiência de investigação completa dos alertas de segurança, recomendamos permitir o registo de [diagnóstico em Azure Cosmos DB,](https://docs.microsoft.com/azure/cosmos-db/logging)que regista operações na própria base de dados, incluindo operações CRUD em todos os documentos, contentores e bases de dados.
+Para uma experiência de investigação completa dos alertas de segurança, recomendamos permitir o registo de [diagnóstico em Azure Cosmos DB,](./monitor-cosmos-db.md)que regista operações na própria base de dados, incluindo operações CRUD em todos os documentos, contentores e bases de dados.
 
 ## <a name="threat-types"></a>Tipos de ameaças
 
@@ -59,16 +59,16 @@ Pode configurar uma proteção avançada de ameaças de várias formas, descrita
 
 Utilize comandos de API de repouso para criar, atualizar ou obter a definição de Proteção de Ameaças Avançadas para uma conta DB Azure Cosmos específica.
 
-* [Proteção avançada de ameaças - Criar](https://go.microsoft.com/fwlink/?linkid=2099745)
-* [Proteção Avançada de Ameaças - Obter](https://go.microsoft.com/fwlink/?linkid=2099643)
+* [Proteção avançada de ameaças - Criar](/rest/api/securitycenter/advancedthreatprotection/create)
+* [Proteção Avançada de Ameaças - Obter](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilize os seguintes cmdlets PowerShell:
 
-* [Ativar o Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
-* [Obter proteção de ameaças avançadas](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
-* [Desativar a proteção de ameaças avançadas](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+* [Ativar o Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Obter proteção de ameaças avançadas](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Desativar a proteção de ameaças avançadas](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
 
 ### <a name="arm-template"></a>[Modelo ARM](#tab/arm-template)
 
@@ -112,9 +112,9 @@ Uma notificação por e-mail também é enviada com os detalhes de alerta e aç�
 
 ## <a name="cosmos-db-atp-alerts"></a>Alertas ATP do Cosmos DB
 
- Para ver uma lista dos alertas gerados ao monitorizar as contas DB da Azure Cosmos, consulte a secção [de alertas cosmos DB](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) na documentação do Centro de Segurança Azure.
+ Para ver uma lista dos alertas gerados ao monitorizar as contas DB da Azure Cosmos, consulte a secção [de alertas cosmos DB](../security-center/alerts-reference.md#alerts-azurecosmos) na documentação do Centro de Segurança Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [o login de diagnóstico no Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
-* Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre [o Azure Security Center](../security-center/security-center-introduction.md)

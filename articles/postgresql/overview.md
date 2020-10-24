@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3ea7930f41fe89538a817da032e993e534db9cd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90903768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491330"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL é um serviço de base de dados relacional na nuve
 
  :::image type="content" source="./media/overview/overview-what-is-azure-postgres.png" alt-text="Base de Dados do Azure para PostgreSQL":::
 
-Estas capacidades não requerem quase nenhuma administração, e todas são fornecidas sem custos adicionais. Permitem-lhe focar-se no rápido desenvolvimento de aplicações e acelerar o seu tempo no mercado em vez de alocar tempo e recursos preciosos à gestão de máquinas e infraestruturas virtuais. Além disso, pode continuar a desenvolver a sua aplicação, com a plataforma e as ferramentas open-source da sua preferência, e garantir a velocidade e a eficiência exigidas pelo seu negócio sem ter de adquirir novas competências.
+Estas funcionalidades não exigem praticamente qualquer ação de administração e são todas fornecidas sem custos adicionais. Permitem-lhe focar-se no rápido desenvolvimento de aplicações e acelerar o seu tempo no mercado em vez de alocar tempo e recursos preciosos à gestão de máquinas e infraestruturas virtuais. Além disso, pode continuar a desenvolver a sua aplicação, com a plataforma e as ferramentas open-source da sua preferência, e garantir a velocidade e a eficiência exigidas pelo seu negócio sem ter de adquirir novas competências.
 
 ## <a name="deployment-models"></a>Modelos de implementação
 
@@ -43,7 +43,7 @@ A azure Database for PostgreSQL powered by the PostgreSQL community edition est�
 
 A azure Database for PostgreSQL Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizaçãos de bases de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para alta disponibilidade incorporada com 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária de PostgreSQL 9.5, 9,6, 10 e 11. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
-A opção de implementação Servidor Único oferece três escalões de preço: Básico, Fins Geral e Otimizada para Memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) para obter mais detalhes.
+A opção de implementação Servidor Único oferece três escalões de preço: Básico, Fins Geral e Otimizada para Memória. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](./concepts-pricing-tiers.md) para obter mais detalhes.
 
 Os servidores individuais são mais adequados para aplicações nativas em nuvem concebidas para lidar com remendos automatizados sem a necessidade de controlo granular na programação de remendos e configurações de configuração postgreSQL personalizadas.
 
@@ -72,7 +72,7 @@ A opção de implementação Hyperscale (Citus) fornece:
 - Paralelização de consultas nestes servidores para obter respostas mais rápidas em grandes conjuntos de dados
 - Excelente suporte para aplicações de múltiplos inquilinos, análise operacional em tempo real e elevadas cargas de trabalho de débito transacional
   
-As aplicações construídas para PostgreSQL podem executar consultas distribuídas em Hiperescala (Citus) com bibliotecas de [conexão](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) padrão e alterações mínimas.
+As aplicações construídas para PostgreSQL podem executar consultas distribuídas em Hiperescala (Citus) com bibliotecas de [conexão](./concepts-connection-libraries.md) padrão e alterações mínimas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

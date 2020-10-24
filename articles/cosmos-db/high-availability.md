@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 85f358d205a4a14874e520efdace5345de837588
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276266"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490548"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade
 
@@ -58,7 +58,7 @@ Como uma base de dados distribuída globalmente, a Azure Cosmos DB fornece SLAs 
 
 Para os raros casos de paragem regional, a Azure Cosmos DB garante que a sua base de dados está sempre altamente disponível. Os seguintes detalhes capturam o comportamento do Azure Cosmos DB durante uma paragem, dependendo da configuração da sua conta Azure Cosmos:
 
-* Com a Azure Cosmos DB, antes de uma operação de escrita ser reconhecida ao cliente, os dados são duramente cometidos por um quórum de réplicas dentro da região que aceita as operações de escrita. Para mais detalhes, consulte [os níveis de consistência e produção](consistency-levels-tradeoffs.md#consistency-levels-and-throughput)
+* Com a Azure Cosmos DB, antes de uma operação de escrita ser reconhecida ao cliente, os dados são duramente cometidos por um quórum de réplicas dentro da região que aceita as operações de escrita. Para mais detalhes, consulte [os níveis de consistência e produção](./consistency-levels.md#consistency-levels-and-throughput)
 
 * As contas multi-regiões configuradas com regiões de escrita múltipla estarão altamente disponíveis tanto para as gravações como para as leituras. As falhas regionais são detetadas e tratadas no cliente DB da Azure Cosmos. Também são instantâneos e não requerem alterações na aplicação.
 
@@ -89,7 +89,7 @@ Para os raros casos de paragem regional, a Azure Cosmos DB garante que a sua bas
 
 * As leituras subsequentes são redirecionadas para a região recuperada sem necessidade de alterar o código da aplicação. Durante o fracasso e o regresso de uma região anteriormente fracassada, leia-se que as garantias de consistência continuam a ser honradas pela Azure Cosmos DB.
 
-* Mesmo num evento raro e infeliz quando a região do Azure é permanentemente irrecuperável, não há perda de dados se a sua conta Azure Cosmos multi-região estiver configurada com *forte* consistência. No caso de uma região de escrita permanentemente irrecuperável, uma conta Azure Cosmos multi-região configurada com consistência limitada, a janela de perda de dados potencial é restrita à janela de estagnação *(K* ou *T)* onde K=100.000 atualizações e T=5 minutos. Para a sessão, prefixo consistente e eventuais níveis de consistência, a janela de perda de dados potencial é limitada a um máximo de 15 minutos. Para obter mais informações sobre os alvos de RTO e RPO para Azure Cosmos DB, consulte [os níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
+* Mesmo num evento raro e infeliz quando a região do Azure é permanentemente irrecuperável, não há perda de dados se a sua conta Azure Cosmos multi-região estiver configurada com *forte* consistência. No caso de uma região de escrita permanentemente irrecuperável, uma conta Azure Cosmos multi-região configurada com consistência limitada, a janela de perda de dados potencial é restrita à janela de estagnação *(K* ou *T)* onde K=100.000 atualizações e T=5 minutos. Para a sessão, prefixo consistente e eventuais níveis de consistência, a janela de perda de dados potencial é limitada a um máximo de 15 minutos. Para obter mais informações sobre os alvos de RTO e RPO para Azure Cosmos DB, consulte [os níveis de consistência e durabilidade dos dados](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Suporte à Zona de Disponibilidade
 
@@ -131,7 +131,7 @@ As Zonas de Disponibilidade podem ser ativadas através de:
 
 * [CLI do Azure](manage-with-cli.md#add-or-remove-regions)
 
-* [Modelos do Azure Resource Manager](manage-sql-with-resource-manager.md)
+* [Modelos do Azure Resource Manager](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>Construir aplicações altamente disponíveis
 
@@ -143,15 +143,15 @@ As Zonas de Disponibilidade podem ser ativadas através de:
 
 * Mesmo que a sua conta Azure Cosmos esteja altamente disponível, a sua aplicação pode não estar corretamente concebida para permanecer altamente disponível. Para testar a elevada disponibilidade da sua aplicação, como parte dos exercícios de teste de aplicação ou recuperação de desastres (DR), desativar temporariamente a falha automática da conta, invocar a falha manual utilizando o [powerShell, o portal Azure CLI ou a Azure,](how-to-manage-database-account.md#manual-failover)e depois monitorizar a falha da sua aplicação. Uma vez concluído, pode voltar à região primária e restaurar a falha automática da conta.
 
-* Dentro de um ambiente de base de dados distribuído globalmente, existe uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação a nível regional. À medida que desenvolve o seu plano de continuidade de negócios, precisa entender o tempo máximo aceitável antes que a aplicação recupere totalmente após um evento disruptivo. O tempo necessário para uma aplicação de recuperação total é conhecido como objetivo do tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes que a aplicação pode tolerar perder ao recuperar após um evento disruptivo. O período de tempo de atualizações que poderá perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RPO e o RTO para Azure Cosmos DB, consulte [os níveis de consistência e durabilidade dos dados](consistency-levels-tradeoffs.md#rto)
+* Dentro de um ambiente de base de dados distribuído globalmente, existe uma relação direta entre o nível de consistência e a durabilidade dos dados na presença de uma paralisação a nível regional. À medida que desenvolve o seu plano de continuidade de negócios, precisa entender o tempo máximo aceitável antes que a aplicação recupere totalmente após um evento disruptivo. O tempo necessário para uma aplicação de recuperação total é conhecido como objetivo do tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes que a aplicação pode tolerar perder ao recuperar após um evento disruptivo. O período de tempo de atualizações que poderá perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RPO e o RTO para Azure Cosmos DB, consulte [os níveis de consistência e durabilidade dos dados](./consistency-levels.md#rto)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode ler os seguintes artigos:
 
-* [Disponibilidade e compensações de desempenho para vários níveis de consistência](consistency-levels-tradeoffs.md)
+* [Disponibilidade e compensações de desempenho para vários níveis de consistência](./consistency-levels.md)
 
-* [Dimensionamento global de débito aprovisionado](scaling-throughput.md)
+* [Dimensionamento global de débito aprovisionado](./request-units.md)
 
 * [Distribuição global - em segundo plano](global-dist-under-the-hood.md)
 

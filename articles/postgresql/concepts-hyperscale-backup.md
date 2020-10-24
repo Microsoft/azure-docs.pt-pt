@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314935"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485380"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Backup e restauro na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -39,7 +39,7 @@ Na Base de Dados Azure para PostgreSQL, restaurar um cluster de Hiperescala (Cit
 
 
 > [!IMPORTANT]
-> Os aglomerados de hiperescala (Citus) apagados não podem ser restaurados. Se eliminar o cluster, todos os nós que pertencem ao cluster são apagados e não podem ser recuperados. Para proteger os recursos de cluster, pós-implantação, de eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](/azure/azure-resource-manager/management/lock-resources).
+> Os aglomerados de hiperescala (Citus) apagados não podem ser restaurados. Se eliminar o cluster, todos os nós que pertencem ao cluster são apagados e não podem ser recuperados. Para proteger os recursos de cluster, pós-implantação, de eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore-pitr"></a>Restauro pontual (PITR)
 
@@ -65,5 +65,5 @@ Após uma restauração de qualquer mecanismo de recuperação, deve fazer o seg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [as zonas de disponibilidade do Azure.](/azure/availability-zones/az-overview)
-*  [Desenhe alertas sugeridos](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts) em grupos de servidores Hyperscale (Citus).
+* Saiba mais sobre [as zonas de disponibilidade do Azure.](../availability-zones/az-overview.md)
+*  [Desenhe alertas sugeridos](./howto-hyperscale-alert-on-metric.md#suggested-alerts) em grupos de servidores Hyperscale (Citus).

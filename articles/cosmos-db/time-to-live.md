@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802935"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476982"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Com **o Time to Live** ou TTL, o Azure Cosmos DB fornece a capacidade de elimina
 
 A eliminação de itens caducados é uma tarefa de fundo que consome [Unidades de Pedido](request-units.md)sobrantes, ou seja, Unidades de Pedido que não tenham sido consumidas por solicitações do utilizador. Mesmo depois de expirado o TTL, se o contentor estiver sobrecarregado com pedidos e se não houver RU suficiente disponível, a eliminação de dados é retardada. Os dados são eliminados uma vez que existam RUs suficientes disponíveis para executar a operação de eliminação. Embora a eliminação de dados seja adiada, os dados não são devolvidos por quaisquer consultas (por qualquer API) depois de expirado o TTL.
 
-> Este conteúdo está relacionado com a loja de transações Azure Cosmos DB TTL. Se procura uma loja analidade TTL, que permite cenários noETL HTAP através do [Azure Synapse Link,](https://docs.microsoft.com/azure/cosmos-db/synapse-link)clique [aqui.](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl)
+> Este conteúdo está relacionado com a loja de transações Azure Cosmos DB TTL. Se procura uma loja analidade TTL, que permite cenários noETL HTAP através do [Azure Synapse Link,](./synapse-link.md)clique [aqui.](./analytical-store-introduction.md#analytical-ttl)
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tempo de viver para contentores e itens
 

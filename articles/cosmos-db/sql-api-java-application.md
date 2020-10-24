@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801601"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485295"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutorial: Construa uma aplicação web Java usando Azure Cosmos DB e a API SQL
 
@@ -22,7 +22,7 @@ ms.locfileid: "91801601"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -53,7 +53,7 @@ Antes de começar este tutorial de desenvolvimento de aplicação, tem de ter o 
 
 Se estiver a instalar estas ferramentas pela primeira vez, coreservlets.com fornece uma passagem do processo de instalação na secção de arranque rápido do seu [Tutorial: Instalar o TomCat7 e usá-lo com](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) artigo Eclipse.
 
-## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Criar uma conta do Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Criar uma conta do Azure Cosmos DB
 
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para o [Passo 2: Criar a aplicação Java JSP](#CreateJSP).
 
@@ -197,7 +197,7 @@ Os Sites do Azure tornam a implementação de aplicações Java tão simples com
    * Na caixa Destino, selecione um destino para guardar o ficheiro WAR.
    * Clique em **Concluir**.
 
-1. Agora que tem um ficheiro WAR, pode simplesmente carregá-lo no diretório **webapps** do seu Site do Azure. Para obter instruções sobre o carregamento do ficheiro, veja [Adicionar uma aplicação Java às Aplicações Web do Serviço de Aplicações do Azure](../app-service/web-sites-java-add-app.md). Depois de o ficheiro WAR ser enviado para o diretório de webapps, o ambiente de tempo de execução irá detetar que o adicionou e irá carregá-lo automaticamente.
+1. Agora que tem um ficheiro WAR, pode simplesmente carregá-lo no diretório **webapps** do seu Site do Azure. Para obter instruções sobre o carregamento do ficheiro, veja [Adicionar uma aplicação Java às Aplicações Web do Serviço de Aplicações do Azure](../app-service/quickstart-java.md). Depois de o ficheiro WAR ser enviado para o diretório de webapps, o ambiente de tempo de execução irá detetar que o adicionou e irá carregá-lo automaticamente.
 
 1. Para ver o seu produto concluído, navegue para `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` e comece a adicionar as suas tarefas!
 

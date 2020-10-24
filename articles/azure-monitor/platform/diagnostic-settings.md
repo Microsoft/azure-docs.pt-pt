@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489443"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
 [Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -43,7 +43,7 @@ O vídeo que se segue acompanha-o através de registos de plataformas de encamin
 ## <a name="destinations"></a>Destinos
 Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. 
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
 | [Log Analytics espaço de trabalho](design-logs-deployment.md) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
 | [Hubs de eventos](../../event-hubs/index.yml) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.  |
@@ -63,6 +63,8 @@ Quaisquer destinos para a definição de diagnóstico devem ser criados antes de
 > [!NOTE]
 > As contas do Azure Data Lake Storage Gen2 não são atualmente suportadas como um destino para as definições de diagnóstico, mesmo que estas possam ser listadas como uma opção válida no portal do Azure.
 
+> [!NOTE]
+> O Azure Monitor (Definições de Diagnóstico) não consegue aceder aos recursos do Event Hubs quando as redes virtuais estão ativadas. Tem de ativar os serviços da Microsoft fidedignos para contornar esta definição de firewall no Event Hub, para que o serviço Azure Monitor (Definições de Diagnóstico) tenha acesso aos recursos dos seus Centros de Eventos. 
 
 
 ## <a name="create-in-azure-portal"></a>Criar no portal do Azure

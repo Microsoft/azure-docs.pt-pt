@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0b19d7681925296936fee5823f7df32e131f8bb8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277758"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482660"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gerir recursos API Azure Cosmos Core (SQL) utilizando O Azure CLI
 
-O guia a seguir descreve os comandos comuns para automatizar a gestão das contas, das bases de dados e dos contentores do Azure Cosmos DB com a CLI do Azure. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [Referência Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). Você também pode encontrar mais exemplos em [amostras de CLI Azure para Azure Cosmos DB](cli-samples.md), incluindo como criar e gerir contas, bases de dados e contentores da Cosmos para MongoDB, Gremlin, Cassandra e Table API.
+O guia a seguir descreve os comandos comuns para automatizar a gestão das contas, das bases de dados e dos contentores do Azure Cosmos DB com a CLI do Azure. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [Referência Azure CLI](/cli/azure/cosmosdb). Você também pode encontrar mais exemplos em [amostras de CLI Azure para Azure Cosmos DB](cli-samples.md), incluindo como criar e gerir contas, bases de dados e contentores da Cosmos para MongoDB, Gremlin, Cassandra e Table API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -545,5 +545,5 @@ az lock delete --ids $lockid
 Para obter mais informações sobre o Azure CLI, consulte:
 
 * [Instalar O Azure CLI](/cli/azure/install-azure-cli)
-* [Referência Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Referência Azure CLI](/cli/azure/cosmosdb)
 * [Amostras adicionais de Azure CLI para Azure Cosmos DB](cli-samples.md)

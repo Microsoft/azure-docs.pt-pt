@@ -7,18 +7,18 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a186c6e176cde20474cdf4772b8724ad3f356a3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc4655ce6cd572183cd92e1c8b2ac10e613ebd8f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87493623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489970"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-postgresql-server-using-powershell"></a>Armazenamento de crescimento automático na Base de Dados Azure para servidor PostgreSQL usando PowerShell
 
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento de servidores PostgreSQL crescer sem afetar a carga de trabalho.
 
-O crescimento automático do armazenamento impede que o seu servidor [atinja o limite de armazenamento](/azure/postgresql/concepts-pricing-tiers#reaching-the-storage-limit) e se torne apenas de leitura. Para servidores com 100 GB ou menos de armazenamento a provisionado, o tamanho é aumentado em 5 GB quando o espaço livre é inferior a 10%. Para servidores com mais de 100 GB de armazenamento a provisionado, o tamanho é aumentado em 5% quando o espaço livre é inferior a 10 GB. Os limites máximos de armazenamento aplicam-se conforme especificado na secção de armazenamento da Base de [Dados Azure para os níveis de preços pós-SQL](/azure/postgresql/concepts-pricing-tiers#storage).
+O crescimento automático do armazenamento impede que o seu servidor [atinja o limite de armazenamento](./concepts-pricing-tiers.md#reaching-the-storage-limit) e se torne apenas de leitura. Para servidores com 100 GB ou menos de armazenamento a provisionado, o tamanho é aumentado em 5 GB quando o espaço livre é inferior a 10%. Para servidores com mais de 100 GB de armazenamento a provisionado, o tamanho é aumentado em 5% quando o espaço livre é inferior a 10 GB. Os limites máximos de armazenamento aplicam-se conforme especificado na secção de armazenamento da Base de [Dados Azure para os níveis de preços pós-SQL](./concepts-pricing-tiers.md#storage).
 
 > [!IMPORTANT]
 > Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
@@ -27,14 +27,14 @@ O crescimento automático do armazenamento impede que o seu servidor [atinja o l
 
 Para completar este guia, precisa:
 
-- O [módulo Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente ou [Azure Cloud Shell](https://shell.azure.com/) no navegador
+- O [módulo Az PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure Cloud Shell](https://shell.azure.com/) no navegador
 - Uma [base de dados Azure para servidor PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Enquanto o módulo Az.PostgreSql PowerShell estiver em pré-visualização, deve instalá-lo separadamente do módulo Az PowerShell utilizando o seguinte comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease` .
 > Uma vez que o módulo Az.PostgreSql PowerShell está geralmente disponível, torna-se parte de futuras libertações do módulo Az PowerShell e disponível nativamente a partir de Azure Cloud Shell.
 
-Se optar por utilizar o PowerShell localmente, ligue-se à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+Se optar por utilizar o PowerShell localmente, ligue-se à sua conta Azure utilizando o cmdlet [Connect-AzAccount.](/powershell/module/az.accounts/connect-azaccount)
 
 ## <a name="enable-postgresql-server-storage-auto-grow"></a>Permitir o crescimento automático de armazenamento de servidores PostgreSQL
 

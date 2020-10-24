@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263549"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480926"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrar centenas de terabytes de dados para o Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Muitas destas limitações estão a ser corrigidas para ferramentas como a fábr
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Ferramenta personalizada com biblioteca de executor a granel 
 
-Os desafios descritos na secção acima, podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em vários casos e é resistente a falhas transitórias. Além disso, a ferramenta personalizada pode parar e retomar a migração em vários pontos de verificação. A Azure Cosmos DB já fornece a biblioteca de [executor a granel](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) que incorpora algumas destas funcionalidades. Por exemplo, a biblioteca de executor a granel já tem a funcionalidade de lidar com erros transitórios e pode escalar fios num único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executor a granel também divide o conjunto de dados de origem em micro-lotes que são operados independentemente como uma forma de checkpoint.  
+Os desafios descritos na secção acima, podem ser resolvidos usando uma ferramenta personalizada que pode ser facilmente dimensionada em vários casos e é resistente a falhas transitórias. Além disso, a ferramenta personalizada pode parar e retomar a migração em vários pontos de verificação. A Azure Cosmos DB já fornece a biblioteca de [executor a granel](./bulk-executor-overview.md) que incorpora algumas destas funcionalidades. Por exemplo, a biblioteca de executor a granel já tem a funcionalidade de lidar com erros transitórios e pode escalar fios num único nó para consumir cerca de 500 K RUs por nó. A biblioteca de executor a granel também divide o conjunto de dados de origem em micro-lotes que são operados independentemente como uma forma de checkpoint.  
 
 A ferramenta personalizada utiliza a biblioteca de executor a granel e suporta a escala em vários clientes e para rastrear erros durante o processo de ingestão. Para utilizar esta ferramenta, os dados de origem devem ser divididos em ficheiros distintos no Azure Data Lake Storage (ADLS) para que diferentes trabalhadores da migração possam pegar em cada ficheiro e ingerê-los em Azure Cosmos DB. A ferramenta personalizada faz uso de uma recolha separada, que armazena metadados sobre o progresso da migração para cada ficheiro de origem individual em ADLS e rastreia quaisquer erros associados a eles.  
 
@@ -152,4 +152,4 @@ Embora possa seguir este guia para migrar com sucesso grandes conjuntos de dados
 
 * Saiba mais experimentando as aplicações de amostra que consomem a biblioteca de executor a granel em [.NET](bulk-executor-dot-net.md) e [Java](bulk-executor-java.md). 
 * A biblioteca de executor a granel está integrada no conector Cosmos DB Spark, para saber mais, ver artigo [do conector Azure Cosmos DB Spark.](spark-connector.md)  
-* Contacte a equipa de produtos da Azure Cosmos DB abrindo um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de migração "Grandes (TB+)" para ajuda adicional com migrações em larga escala. 
+* Contacte a equipa de produtos da Azure Cosmos DB abrindo um bilhete de apoio ao abrigo do tipo de problema "General Advisory" e do subtipo de problemas de migração "Grandes (TB+)" para ajuda adicional com migrações em larga escala.

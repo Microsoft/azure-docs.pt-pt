@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a9501df45d598c85f8c694c5d07db4f959615c00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968187"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489341"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Atualmente, a biblioteca de executor a granel é suportada apenas por contas AZu
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.  
 
-* Pode [experimentar gratuitamente a Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. Ou pode usar o [Emulador Azure Cosmos DB](/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticate-requests).  
+* Pode [experimentar gratuitamente a Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição Azure, gratuitamente e compromissos. Ou pode usar o [Emulador Azure Cosmos DB](./local-emulator.md) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticate-requests).  
 
 * [Kit de Desenvolvimento java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
@@ -215,5 +215,3 @@ Considere os seguintes pontos para um melhor desempenho ao utilizar a biblioteca
     
 ## <a name="next-steps"></a>Passos seguintes
 * Para conhecer os detalhes do pacote maven e lançar notas da biblioteca Java do executor a granel, consulte[detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-java.md).
-
-

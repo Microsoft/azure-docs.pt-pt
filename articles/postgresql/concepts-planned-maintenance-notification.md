@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a0d61488fe5e7e91d025c7d3b8d3aa862b9cd9bd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487913"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planeada na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -23,7 +23,7 @@ A Azure Database for PostgreSQL executa patching automatizado do hardware subjac
 
 Uma manutenção planeada é uma janela de manutenção quando estas atualizações de serviço são implementadas para servidores de uma determinada região de Azure. Durante a manutenção planeada, é criado um evento de notificação para informar os clientes quando a atualização de serviço é implementada na região de Azure hospedando os seus servidores. A duração mínima entre duas manutenção planeadas é de 30 dias. Recebe uma notificação da próxima janela de manutenção com 72 horas de antecedência.
 
-## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção Planeada - Duração e Impacto do Cliente
+## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planeada - duração e impacto do cliente
 
 Espera-se que uma manutenção planeada para uma determinada região de Azure seja normalmente executada 15 horas. A janela também inclui tempo de tampão para executar um plano de reversão, se necessário. Durante a manutenção planeada, pode haver reinício ou falhas no servidor de base de dados, o que pode levar a uma breve indisponibilidade dos servidores de base de dados para os utilizadores finais. A base de dados Azure para servidores PostgreSQL está a funcionar em contentores para que os recomeçamento do servidor de base de dados sejam normalmente rápidos, esperando-se que completem normalmente em 60-120 segundos. Todo o evento de manutenção planeado, incluindo cada servidor, é cuidadosamente monitorizado pela equipa de engenharia. O tempo de falha do servidor depende do tempo de recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da falha. Para evitar um tempo de reinício mais longo, é aconselhável evitar transações de longa duração (cargas a granel) durante os eventos de manutenção planeados.
 
@@ -61,9 +61,9 @@ Pode consultar a notificação de manutenção planeada no portal Azure ou confi
 7. Certifique-se de que a regra enable após a criação está definida para Sim.
 8. Selecione **Criar regra de alerta** para completar o seu alerta
 
-Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications.md).
+Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>Posso controlar ou alterar a manutenção planeada para os meus servidores depois de receber um evento de notificação?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planeada?
 
 A manutenção é necessária para manter o seu servidor seguro, estável e atualizado. O evento de manutenção planeado não pode ser cancelado ou adiado. Uma vez que a notificação é enviada para uma determinada região de Azure, as alterações de programa de remendação não podem ser feitas para qualquer servidor individual nessa região. O patch é lançado para toda a região de uma só vez. Azure Database for PostgreSQL - Serviço de servidor único é projetado para aplicação nativa em nuvem que não requer controlo granular ou personalização do serviço. Se procura ter a capacidade de agendar a manutenção para os seus servidores, recomendamos que considere [servidores flexíveis](./flexible-server/overview.md).
 

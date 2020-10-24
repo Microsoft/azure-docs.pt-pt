@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85117986"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475129"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB consulta folhas de batota
 
@@ -32,7 +32,7 @@ Descarregue as [folhas de fraude do tamanho de Azure Cosmos DB A3](https://go.mi
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais ajuda para escrever consultas, consulte os seguintes artigos:
-* Para consultas de API SQL, consulte Consulta utilizando as consultas [SQL API,](tutorial-query-sql-api.md) [SQL para Azure Cosmos DB,](how-to-sql-query.md)e [referência de sintaxe SQL](sql-api-query-reference.md)
+* Para consultas de API SQL, consulte Consulta utilizando as consultas [SQL API,](tutorial-query-sql-api.md) [SQL para Azure Cosmos DB,](./sql-query-getting-started.md)e [referência de sintaxe SQL](./sql-query-getting-started.md)
 * Para consultas mongoDB, consulte [a Consulta utilizando a API da Azure Cosmos para a MongoDB](tutorial-query-mongodb.md) e a [API da Azure Cosmos DB para suporte e sintaxe de recurso MongoDB](mongodb-feature-support.md)
 * Para consultas da API de Gremlin, consulte a Consulta utilizando o suporte [de gráficos Gremlin API](tutorial-query-graph.md) e [Azure Cosmos DB Gremlin](gremlin-support.md)
 * Para consultas de API de tabela, consulte [consulta utilizando a Tabela API](tutorial-query-table.md)

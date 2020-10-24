@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311691"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489018"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 
@@ -34,7 +34,7 @@ Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o se
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista do portal Azure com o ícone 'Cloud Shell' em destaque, e a Cloud Shell aparecendo na parte inferior da janela do portal":::
 
-Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão.
+Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
@@ -46,7 +46,9 @@ Isto não afeta os comandos Azure Digital Twins dos `az dt` grupos ou `az dt end
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Atribuição de função em falta após configuração escrita
 
-Alguns utilizadores podem experimentar problemas com a parte de atribuição de funções de [*Como-a- Configurar um caso e autenticação (scripted)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a *função Azure Digital Twins Owner (Preview)* não está atribuída com sucesso ao utilizador, e este problema terá impacto na capacidade de criar outros recursos ao longo da estrada.
+Alguns utilizadores podem experimentar problemas com a parte de atribuição de funções de [*Como-a- Configurar um caso e autenticação (scripted)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função *Azure Digital Twins Data Owner* não é atribuída com sucesso ao utilizador, e este problema terá impacto na capacidade de criar outros recursos ao longo da estrada.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Para determinar se a sua atribuição de funções foi configurada com sucesso após a execução do script, siga as instruções na secção de atribuição de [*funções*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) de utilizador do artigo de configuração. Se o seu utilizador não for mostrado com esta função, este problema afeta-o.
 
@@ -64,7 +66,7 @@ Para os utilizadores que iniciam sessão com uma conta pessoal da [Microsoft (MS
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
-Ao escrever código de autenticação nas suas aplicações Azure Digital Twins utilizando a versão **1.2.0** da biblioteca ** [Azure.Identity,](/dotnet/api/azure.identity?view=azure-dotnet) **poderá experimentar problemas com o método [InteractiveBrowserCredential.](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet)
+Ao escrever código de autenticação nas suas aplicações Azure Digital Twins utilizando a versão **1.2.0** da biblioteca ** [Azure.Identity,](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **poderá experimentar problemas com o método [InteractiveBrowserCredential.](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)
 
 Esta não é a última versão da biblioteca. A versão mais recente é **1.2.2**.
 

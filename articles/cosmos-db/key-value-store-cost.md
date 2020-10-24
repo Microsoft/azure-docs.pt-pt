@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262825"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488457"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como uma loja de valor chave - visão geral de custos
 
-Azure Cosmos DB é um serviço de base de dados multi-modelo distribuído globalmente para a construção de aplicações altamente disponíveis e em larga escala facilmente. Por padrão, a Azure Cosmos DB indexa de forma automática e eficiente todos os dados que ingere. Isto permite consultas rápidas e consistentes [de SQL](how-to-sql-query.md) (e [JavaScript)](stored-procedures-triggers-udfs.md)sobre os dados. 
+Azure Cosmos DB é um serviço de base de dados multi-modelo distribuído globalmente para a construção de aplicações altamente disponíveis e em larga escala facilmente. Por padrão, a Azure Cosmos DB indexa de forma automática e eficiente todos os dados que ingere. Isto permite consultas rápidas e consistentes [de SQL](./sql-query-getting-started.md) (e [JavaScript)](stored-procedures-triggers-udfs.md)sobre os dados. 
 
 Este artigo descreve o custo da Azure Cosmos DB para operações simples de escrita e leitura quando é usado como uma loja chave/valor. As operações de escrita incluem inserções, substituições, eliminações e eserções de itens de dados. Além de garantir uma disponibilidade de 99,999% para todas as contas multi-regiões, a Azure Cosmos DB oferece <latência de 10 ms para leituras e para as (indexadas) escreve, no percentil 99. 
 
@@ -48,4 +48,3 @@ A maioria dos serviços básicos de blob ou lojas de objetos cobram $0,40 por tr
 ## <a name="next-steps"></a>Passos seguintes
 
 * Utilize [calculadora RU](https://cosmos.azure.com/capacitycalculator/) para estimar a produção das suas cargas de trabalho.
-

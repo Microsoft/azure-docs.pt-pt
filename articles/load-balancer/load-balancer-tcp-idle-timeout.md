@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: allensu
-ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b507fbad4d9089d918ae7a85c07f30efcb118476
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649869"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487250"
 ---
 # <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Configurar o tempo limite de marcha lenta para O Equilibrador de Carga Azure
 
@@ -28,7 +28,11 @@ ms.locfileid: "91649869"
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar o PowerShell localmente, também precisa de correr `Connect-AzAccount` para criar uma ligação com o Azure.
 
-O Azure Load Balancer tem uma definição de tempo limite de 4 minutos a 120 minutos. Por predefinição, está programado para 4 minutos. Se um período de inatividade for maior do que o valor de tempo limite, não há garantias de que a sessão TCP ou HTTP seja mantida entre o cliente e o seu serviço na nuvem. Saiba mais sobre [o tempo limite de marcha lenta da TCP.](load-balancer-tcp-reset.md)
+O Azure Load Balancer tem a seguinte gama de tempo limite de marcha lenta:
+
+4 minutos a 100 minutos para as regras de saída 4 minutos a 30 minutos para as regras do balançador de carga e regras NAT de entrada
+
+Por predefinição, está programado para 4 minutos. Se um período de inatividade for maior do que o valor de tempo limite, não há garantias de que a sessão TCP ou HTTP seja mantida entre o cliente e o seu serviço na nuvem. Saiba mais sobre [o tempo limite de marcha lenta da TCP.](load-balancer-tcp-reset.md)
 
 As secções seguintes descrevem como alterar as definições de tempo limite de marcha lenta para IP público e recursos do balançador de carga.
 
@@ -41,7 +45,7 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo limite de tempo é de 4 minutos. O intervalo aceitável é de 4 a 120 minutos.
+`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo limite de tempo é de 4 minutos. 
 
 ## <a name="set-the-tcp-idle-timeout-on-rules"></a>Desave o tempo limite de marcha lenta do TCP sobre as regras
 

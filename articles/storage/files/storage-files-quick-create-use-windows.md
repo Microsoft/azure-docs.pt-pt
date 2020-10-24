@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836433"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489579"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Quickstart: Criar e gerir ficheiros Azure partilhar com máquinas virtuais do Windows
 
@@ -98,7 +98,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Agor
 1. No portal Azure, navegue para o ficheiro *qsfileshare* e selecione **Connect**.
 1. Copie o conteúdo da segunda caixa e cole-o no **Bloco de Notas**.
 
-   ![O caminho UNC a partir do painel Ligar dos Ficheiros do Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Screenshot que mostra o conteúdo da caixa de segundos que deve copiar e colar no Bloco de Notas.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. No VM, abra o **File Explorer** e selecione **Este PC** na janela. Esta seleção altera os menus disponíveis na fita. No menu **Computador,** selecione **a unidade de rede do mapa.**
 1. Selecione a letra de unidade e introduza o caminho UNC. Se tiver seguido as sugestões de nomeação neste arranque rápido, copie * \\ qsstorageacct.file.core.windows.net\qsfileshare* do **Notepad**.
@@ -175,7 +175,7 @@ Tal como acontece com as imagens VSS no local, pode ver as imagens da sua partil
 
    ![Restaurar o botão na mensagem de aviso ](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Nota:Se o seu ficheiro não tiver mudado, não verá uma versão anterior para esse ficheiro porque esse ficheiro é a mesma versão que o instantâneo. Isto é consistente com o funcionamento de um servidor de ficheiros Windows.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

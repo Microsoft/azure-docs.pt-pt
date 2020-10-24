@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d1fe28e4339cb4585deeeef1c44e3614fd693943
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284967"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490701"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Encontre a taxa da unidade de pedido para operações executadas na Azure Cosmos DB API para a MongoDB
 
@@ -91,4 +91,4 @@ Para aprender a otimizar o seu consumo de RU, consulte estes artigos:
 
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)
 * [Otimizar o débito aprovisionado no Azure Cosmos DB](optimize-cost-throughput.md)
-* [Otimizar o custo das consultas no Azure Cosmos DB](optimize-cost-queries.md)
+* [Otimizar o custo das consultas no Azure Cosmos DB](./optimize-cost-reads-writes.md)

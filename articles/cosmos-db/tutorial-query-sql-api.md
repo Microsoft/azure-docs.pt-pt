@@ -8,16 +8,16 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd76a6848c9ff6a5c7a29e328814fe0054655691
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136002"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476438"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
-A [API do SQL](documentdb-introduction.md) da Azure Cosmos DB suporta a consulta de documentos utilizando o SQL. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
+A [API do SQL](./introduction.md) da Azure Cosmos DB suporta a consulta de documentos utilizando o SQL. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
 
 Este artigo abrange as seguintes tarefas: 
 
@@ -80,7 +80,7 @@ Dado o documento familiar da amostra acima, a consulta SQL retorna os documentos
     WHERE f.id = "WakefieldFamily"
 ```
 
-**Results**
+**Resultados**
 
 ```json
 {
@@ -124,7 +124,7 @@ A próxima consulta devolve todos os nomes de crianças da família cuja identif
     WHERE f.id = 'WakefieldFamily'
 ```
 
-**Results**
+**Resultados**
 
 ```
 [
@@ -149,4 +149,3 @@ Agora pode avançar para o tutorial seguinte para saber como distribuir dados gl
 
 > [!div class="nextstepaction"]
 > [Distribuir dados globalmente](tutorial-global-distribution-sql-api.md)
-

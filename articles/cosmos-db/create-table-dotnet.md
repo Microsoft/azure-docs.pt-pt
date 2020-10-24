@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e49ecf0f8e88e0de22117a5ed85b8352e73a2f5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65a3e9a1e60ad28fbc0357c5b04007ce4da37895
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020240"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487607"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma aplicação API de tabela com .NET SDK e Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "89020240"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 >  
 
 Este guia de introdução mostra como utilizar o .NET e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para criar uma aplicação através da clonagem de um exemplo do GitHub. Este guia de introdução mostra também como criar uma conta do Azure Cosmos DB e como utilizar o Data Explorer para criar tabelas e entidades no portal do Azure baseado na Web.
@@ -68,7 +68,7 @@ Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cade
    ```
 
 > [!TIP]
-> Para obter uma passagem mais detalhada de código semelhante, consulte o artigo de amostra da [Tabela Cosmos DB API.](table-storage-how-to-use-dotnet.md)
+> Para obter uma passagem mais detalhada de código semelhante, consulte o artigo de amostra da [Tabela Cosmos DB API.](./tutorial-develop-table-dotnet.md)
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Abra a aplicação de exemplo no Visual Studio
 
@@ -163,7 +163,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
@@ -173,4 +173,3 @@ Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a cri
 
 > [!div class="nextstepaction"]
 > [Importar dados da tabela para a API de Tabela](table-import.md)
-

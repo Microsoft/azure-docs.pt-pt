@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: bec4e831b3f7af0ef551617ba8a8253925226e05
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 925a5000f9778689660765ef715dd8760d5340a2
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461843"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495971"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -318,7 +318,7 @@ Se planeia continuar com os tutoriais do Azure Digital Twins, a instância usada
 
 Em seguida, elimine o registo de aplicações Azure Ative Directory que criou para a sua aplicação cliente com este comando:
 
-```azurecli
+```azurecli-interactive
 az ad app delete --id <your-application-ID>
 ```
 

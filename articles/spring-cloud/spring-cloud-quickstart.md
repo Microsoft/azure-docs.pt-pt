@@ -4,16 +4,16 @@ description: Neste arranque rápido, implementamos uma aplicação Cloud spring 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/18/2020
+ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2ec79c9c1fc3b461037b2005da7198f81cbbab34
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170366"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488963"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -96,7 +96,7 @@ No Visual Studio, crie uma aplicação Core Web ASP.NET chamada "hello-world" co
    cd hello-world
    ```
 
-1. Editar a *appSettings.jsno*ficheiro para adicionar   as seguintes definições:
+1. Editar a *appSettings.jsno* ficheiro para adicionar as seguintes definições:
 
    ```json
    "spring": {
@@ -345,9 +345,9 @@ Para concluir este guia de início rápido:
 
 ## <a name="generate-a-spring-cloud-project"></a>Gere um projeto de Nuvem de primavera
 
-Comece com [o Initializr de primavera](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) para gerar um projeto de amostra com dependências recomendadas para Azure Spring Cloud. A imagem a seguir mostra o Initializr criado para este projeto de amostra.
+Comece com [o Initializr de primavera](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) para gerar um projeto de amostra com dependências recomendadas para Azure Spring Cloud. A imagem a seguir mostra o Initializr criado para este projeto de amostra.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 
   ![Página inicializr](media/spring-cloud-quickstart-java/initializr-page.png)
@@ -498,7 +498,7 @@ Para funcionalidades avançadas de análise de registos, visite o **separador Re
 [![Registos Analytics ](media/spring-cloud-quickstart-java/logs-analytics.png)](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, criou recursos Azure que continuarão a acumular encargos enquanto permanecem na sua subscrição. Se não espera precisar destes recursos no futuro, elimine o grupo de recursos do portal ou executando o seguinte comando no Azure CLI:
 

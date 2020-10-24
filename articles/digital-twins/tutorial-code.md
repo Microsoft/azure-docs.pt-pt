@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 23f32b6d09e36a98c68f5cb8f73ae1125c0543dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e44fe44285a6693583c1b16645ad0d023428c72b
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460755"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494675"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -34,6 +34,8 @@ O que precisa para começar:
 * **.NET Core 3.1** na sua máquina de desenvolvimento. Pode descarregar esta versão do .NET Core SDK para várias plataformas a partir do [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ## <a name="set-up-project"></a>Criar projeto
 
@@ -116,9 +118,6 @@ Console.WriteLine($"Service client created – ready to go");
 ```
 
 Guarde o ficheiro. 
-
->[!NOTE]
-> Este exemplo utiliza um `DefaultAzureCredential` para autenticação. Para obter informações sobre outros tipos de credenciais, consulte a documentação para as [bibliotecas de autenticação da plataforma de identidade](../active-directory/develop/reference-v2-libraries.md)da Microsoft, ou o artigo da Azure Digital Twins sobre a [autenticação de aplicações do cliente.](how-to-authenticate-client.md)
 
 Na sua janela de comando, execute o código com este comando: 
 

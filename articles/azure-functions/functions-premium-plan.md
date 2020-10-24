@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578041"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490752"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -104,7 +104,7 @@ Pode configurar o tamanho e os máximos do plano no portal Azure selecionando as
 Também pode aumentar o limite máximo de explosão a partir do CLI Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 O mínimo para cada plano será pelo menos um exemplo.  O número mínimo real de ocorrências será configurado automaticamente para si com base nas instâncias sempre prontas solicitadas pelas aplicações no plano.  Por exemplo, se a aplicação A solicitar cinco instâncias sempre prontas, e a app B solicitar duas instâncias sempre prontas no mesmo plano, o tamanho mínimo do plano será calculado como cinco.  A App A estará em execução em todos os 5, e a aplicação B só estará em execução no dia 2.
@@ -117,7 +117,7 @@ Na maioria das circunstâncias, este mínimo autocalculado deve ser suficiente. 
 Aumentar o mínimo calculado para um plano pode ser feito usando o Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>SKUs de instância disponível
@@ -146,14 +146,14 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |Austrália Central| 100 | Não Disponível |
 |Austrália Central 2| 100 | Não Disponível |
 |Leste da Austrália| 100 | 20 |
-|Sudeste da Austrália | 100 | 20 |
+|Austrália Sudeste | 100 | 20 |
 |Sul do Brasil| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |E.U.A. Central| 100 | 20 |
 |China Leste 2| 100 | 20 |
 |China Norte 2| 100 | 20 |
 |Ásia Leste| 100 | 20 |
-|E.U.A. Leste | 100 | 20 |
+|E.U.A Leste | 100 | 20 |
 |E.U.A. Leste 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Alemanha Centro-Oeste| 100 | Não Disponível |

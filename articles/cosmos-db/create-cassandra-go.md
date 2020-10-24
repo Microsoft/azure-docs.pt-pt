@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86535845"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491245"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Quickstart: Construa uma app Go com o `gocql` cliente para gerir os dados da Azure Cosmos DB Cassandra API
 
@@ -85,7 +85,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-O anfitrião Azure Cosmos DB Cassandra é passado para a [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) função para obter uma [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) estrutura que é então configurada para usar o nome de utilizador, palavra-passe, porta e versão TLS apropriada[(requisito de segurança de encriptação HTTPS/SSL/TLS)](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database)
+O anfitrião Azure Cosmos DB Cassandra é passado para a [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) função para obter uma [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) estrutura que é então configurada para usar o nome de utilizador, palavra-passe, porta e versão TLS apropriada[(requisito de segurança de encriptação HTTPS/SSL/TLS)](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database)
 
 A `GetSession` função é então chamada da `main` função `main.go` ().
 
@@ -260,7 +260,7 @@ go run main.go
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

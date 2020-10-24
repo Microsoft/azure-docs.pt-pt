@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 731e23c99a92d8f7d3558ea111d19f179db61da4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae99f5fc1cd6f27c46f7a4444bc75b8c773b4f74
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480008"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -120,7 +120,7 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 * Atualmente, a loja analítica só pode ser ativada para novos contentores. Para utilizar a loja analítica para recipientes existentes, migrar dados dos seus recipientes existentes para novos recipientes utilizando [ferramentas de migração Azure Cosmos DB](cosmosdb-migrationchoices.md). Pode ativar o Synapse Link em novas e existentes contas DB do Azure Cosmos.
 
-* Para os recipientes com loja analítica ligada, a cópia de segurança automática e a restauração dos seus dados na loja analítica não são suportadas neste momento. Quando o Synapse Link estiver ativado numa conta de base de [dados,](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) a Azure Cosmos DB continuará a receber automaticamente cópias de segurança dos seus dados na loja transacional (apenas) de contentores num intervalo de backup programado, como sempre. É importante notar que quando um recipiente com loja analítica ligada é restaurado para uma nova conta, o recipiente será restaurado apenas com uma loja transacional e sem loja analítica ativada. 
+* Para os recipientes com loja analítica ligada, a cópia de segurança automática e a restauração dos seus dados na loja analítica não são suportadas neste momento. Quando o Synapse Link estiver ativado numa conta de base de [dados,](./online-backup-and-restore.md) a Azure Cosmos DB continuará a receber automaticamente cópias de segurança dos seus dados na loja transacional (apenas) de contentores num intervalo de backup programado, como sempre. É importante notar que quando um recipiente com loja analítica ligada é restaurado para uma nova conta, o recipiente será restaurado apenas com uma loja transacional e sem loja analítica ativada. 
 
 * O acesso à loja de análiseS DB da Azure Cosmos com o Sinaapse SQL abastado não está disponível atualmente.
 

@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 5af929991e96d1307c32d219a9807c6e6a58387c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f5d137cb5bb702cc2ee9307336775dda1c864da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253382"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476047"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Quickstart: Migrar uma aplicação web de Node.js mongoDB existente para Azure Cosmos DB 
 
@@ -100,7 +100,7 @@ Se estiver a utilizar o Azure Cloud Shell, selecione **Try It**, siga as instru�
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
 Crie uma conta Cosmos com o [cosmosdb az criar](/cli/azure/cosmosdb#az-cosmosdb-create) comando.
 
@@ -115,7 +115,7 @@ O parâmetro `--kind MongoDB` permite ligações de cliente da MongoDB.
 Após criar a conta do DB Cosmos Azure, a CLI do Azure mostra informações semelhantes ao exemplo seguinte. 
 
 > [!NOTE]
-> Este exemplo utiliza o JSON como formato de saída da CLI do Azure, que é a predefinição. Para utilizar outro formato de saída, veja [Formatos de saída para os comandos da CLI do Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> Este exemplo utiliza o JSON como formato de saída da CLI do Azure, que é a predefinição. Para utilizar outro formato de saída, veja [Formatos de saída para os comandos da CLI do Azure](/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -240,7 +240,7 @@ No terminal, confirme todas as alterações no Git. Pode copiar os dois comandos
 git add .
 git commit -m "configured MongoDB connection string"
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
@@ -249,4 +249,4 @@ git commit -m "configured MongoDB connection string"
 Neste quickstart, aprendeu a criar uma conta AZure Cosmos DB MongoDB API usando a Azure Cloud Shell, e criar e executar uma aplicação MEAN.js para adicionar utilizadores à conta. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md) (Importar dados do MongoDB para o Azure Cosmos DB)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) (Importar dados do MongoDB para o Azure Cosmos DB)

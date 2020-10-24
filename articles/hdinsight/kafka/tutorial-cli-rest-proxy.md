@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49419853f193336e39ff8f729472342bb137fd39
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503145"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490225"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um aglomerado de proxy Apache Kafka REST em HDInsight usando Azure CLI
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Um grupo de segurança Azure AD com o seu pedido registado como membro. Este grupo de segurança será utilizado para controlar quais aplicações podem interagir com o representante DO REST. Para obter mais informações sobre a criação de grupos AD Azure, consulte [criar um grupo básico e adicionar membros usando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* CLI do Azure. Certifique-se de que tem pelo menos a versão 2.0.79. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* CLI do Azure. Certifique-se de que tem pelo menos a versão 2.0.79. Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
@@ -85,7 +85,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     export componentVersion=kafka=2.1
     ```
 
-1. [Crie o grupo de recursos](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) introduzindo o comando abaixo:
+1. [Crie o grupo de recursos](/cli/azure/group#az-group-create) introduzindo o comando abaixo:
 
     ```azurecli
      az group create \
@@ -93,7 +93,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --name $resourceGroupName
     ```
 
-1. [Crie uma conta de Armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) introduzindo o comando abaixo:
+1. [Crie uma conta de Armazenamento Azure](/cli/azure/storage/account#az-storage-account-create) introduzindo o comando abaixo:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +106,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --sku Standard_LRS
     ```
 
-1. [Extrair a chave primária](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) da conta de Armazenamento Azure e armazená-la numa variável introduzindo o comando abaixo:
+1. [Extrair a chave primária](/cli/azure/storage/account/keys#az-storage-account-keys-list) da conta de Armazenamento Azure e armazená-la numa variável introduzindo o comando abaixo:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +115,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --query [0].value -o tsv)
     ```
 
-1. [Crie um recipiente de armazenamento Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) introduzindo o comando abaixo:
+1. [Crie um recipiente de armazenamento Azure](/cli/azure/storage/container#az-storage-container-create) introduzindo o comando abaixo:
 
     ```azurecli
     az storage container create \
@@ -124,7 +124,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         --account-name $storageAccount
     ```
 
-1. [Crie o cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). Antes de entrar no comando, observe os seguintes parâmetros:
+1. [Crie o cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create). Antes de entrar no comando, observe os seguintes parâmetros:
 
     1. Parâmetros necessários para os clusters kafka:
 

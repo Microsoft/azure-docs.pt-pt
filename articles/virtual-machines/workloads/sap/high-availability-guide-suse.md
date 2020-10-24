@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 7ce7058b627044920109520baffbc04eb9521980
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 63adf2b1ca7ae795e35e8245440093fe0f6e6c49
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168363"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486179"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP
 
@@ -552,10 +552,10 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
 
 1. **[A]** Configurar Manter Vivo
 
-   A comunicação entre o servidor de aplicações SAP NetWeaver e o ASCS/SCS é encaminhada através de um equilibrador de carga de software. O balançador de carga desliga as ligações inativas após um tempo configurável. Para evitar isto, é necessário definir um parâmetro no perfil ASCS/SCS DO NET NetWeaver e alterar as definições do sistema Linux. Leia [a Nota SAP 1410736][1410736] para mais informações.
+   A comunicação entre o servidor de aplicações SAP NetWeaver e o ASCS/SCS é encaminhada através de um equilibrador de carga de software. O balançador de carga desliga as ligações inativas após um tempo configurável. Para evitar isto, é necessário definir um parâmetro no perfil ASCS/SCS DO NET NetWeaver, se utilizar o ENSA1, e alterar as definições do sistema Linux `keepalive` em todos os servidores SAP para ambos ENSA1/ENSA2. Leia [a Nota SAP 1410736][1410736] para mais informações.
 
    <pre><code># Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 1. **[A]** Configure os utilizadores SAP após a instalação

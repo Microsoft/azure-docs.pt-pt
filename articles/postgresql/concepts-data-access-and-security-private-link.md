@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884651"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489511"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para a base de dados Azure para servidor PostgreSQL-Single
 
 O Private Link permite-lhe criar pontos finais privados para a Base de Dados Azure para PostgreSQL - Servidor único e assim traz serviços Azure dentro da sua Rede Virtual privada (VNet). O ponto final privado expõe um IP privado que pode utilizar para ligar ao seu servidor de base de dados, tal como qualquer outro recurso no VNet.
 
-Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Link, reveja a [documentação](https://docs.microsoft.com/azure/private-link/index)private Link . Um ponto final privado é um endereço IP privado dentro de um [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e Subnet específicos.
+Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Link, reveja a [documentação](../private-link/index.yml)private Link . Um ponto final privado é um endereço IP privado dentro de um [VNet](../virtual-network/virtual-networks-overview.md) e Subnet específicos.
 
 > [!NOTE]
 > A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores PostgreSQL nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
@@ -28,7 +28,7 @@ Ex-filtração de dados na Base de Dados Azure para o servidor PostgreSQL Single
 
 Considere um cenário com um utilizador a executar PGAdmin dentro de uma Máquina Virtual Azure (VM) que está a ligar-se a uma Base de Dados Azure para servidor single PostgreSQL a provisionado nos EUA Ocidentais. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados Azure para servidor Single PostgreSQL utilizando controlos de acesso à rede.
 
-* Desative todo o tráfego de serviço Azure para Azure Database para o servidor PostgreSQL Single através do ponto final público, definindo *Allow Azure Services* to OFF. Certifique-se de que nenhum endereço ou gama IP pode aceder ao servidor através de [regras de firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) ou [de pontos finais de serviço de rede virtual](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+* Desative todo o tráfego de serviço Azure para Azure Database para o servidor PostgreSQL Single através do ponto final público, definindo *Allow Azure Services* to OFF. Certifique-se de que nenhum endereço ou gama IP pode aceder ao servidor através de [regras de firewall](./concepts-firewall-rules.md) ou [de pontos finais de serviço de rede virtual](./concepts-data-access-and-security-vnet.md).
 
 * Apenas permita o tráfego para a Base de Dados Azure para o servidor Single PostgreSQL utilizando o endereço IP privado do VM. Para obter mais informações, consulte os artigos sobre as regras [de Service Endpoint](concepts-data-access-and-security-vnet.md) e [VNet firewall.](howto-manage-vnet-using-portal.md)
 
@@ -45,7 +45,7 @@ Com o Private Link, pode agora configurar controlos de acesso à rede como NSGs 
 
 Quando se conecta ao ponto final público a partir de máquinas no local, o seu endereço IP precisa de ser adicionado à firewall baseada em IP utilizando uma regra de firewall ao nível do Servidor. Embora este modelo funcione bem para permitir o acesso a máquinas individuais para dev ou testar cargas de trabalho, é difícil de gerir em ambiente de produção.
 
-Com o Private Link, pode permitir o acesso transversal ao ponto final privado utilizando a [Via Expresso](https://azure.microsoft.com/services/expressroute/) (ER), o perspitamento privado ou [o túnel VPN.](https://docs.microsoft.com/azure/vpn-gateway/) Podem posteriormente desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP.
+Com o Private Link, pode permitir o acesso transversal ao ponto final privado utilizando a [Via Expresso](https://azure.microsoft.com/services/expressroute/) (ER), o perspitamento privado ou [o túnel VPN.](../vpn-gateway/index.yml) Podem posteriormente desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP.
 
 > [!NOTE]
 > Em alguns casos, a Base de Dados Azure para PostgreSQL e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
@@ -57,8 +57,8 @@ Com o Private Link, pode permitir o acesso transversal ao ponto final privado ut
 
 Os pontos finais privados são necessários para ativar o Link Privado. Isto pode ser feito usando os seguintes guias de como fazer.
 
-* [Portal do Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
+* [Portal do Azure](./howto-configure-privatelink-portal.md)
+* [CLI](./howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>Processo de aprovação
 Uma vez que o administrador de rede cria o ponto final privado (PE), o administrador PostgreSQL pode gerir a ligação de ponto final privado (PEC) para Azure Database for PostgreSQL. Esta separação de direitos entre a administração da rede e a DBA é útil para a gestão da Base de Dados Azure para a conectividade Pós-SQL. 
@@ -89,17 +89,17 @@ Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, vNet e
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="selecione o portal de ponto final privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ligação a partir de um Azure VM em Rede Virtual Peered (VNet)
-Configure [VNet olhando](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para estabelecer conectividade com a Base de Dados Azure para PostgreSQL - Servidor único de um VM Azure em um VNet esprevado.
+Configure [VNet olhando](../virtual-network/tutorial-connect-virtual-networks-powershell.md) para estabelecer conectividade com a Base de Dados Azure para PostgreSQL - Servidor único de um VM Azure em um VNet esprevado.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Ligação a partir de um VM Azure em ambiente VNet-to-VNet
-Configure [a ligação de gateway VNet-to-VNet VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) para estabelecer conectividade a uma Base de Dados Azure para PostgreSQL - Servidor único de um VM Azure numa região ou subscrição diferente.
+Configure [a ligação de gateway VNet-to-VNet VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para estabelecer conectividade a uma Base de Dados Azure para PostgreSQL - Servidor único de um VM Azure numa região ou subscrição diferente.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Ligação a partir de um ambiente no local sobre VPN
 Para estabelecer conectividade de um ambiente no local até à Base de Dados Azure para PostgreSQL - Servidor único, escolha e implemente uma das opções:
 
-* [Ligação ponto-a-local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Ligação VPN Site a Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [Circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Ligação VPN Site a Site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Circuito do ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Ligação privada combinada com regras de firewall
 
@@ -128,11 +128,11 @@ Para saber como configurar o Acesso à **Rede Pública de Negação** para o seu
 
 Para saber mais sobre a Base de Dados Azure para funcionalidades de segurança de servidores postgresQL, consulte os seguintes artigos:
 
-* Para configurar uma firewall para Azure Database para o servidor Single PostgreSQL, consulte [o suporte de Firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+* Para configurar uma firewall para Azure Database para o servidor Single PostgreSQL, consulte [o suporte de Firewall](./concepts-firewall-rules.md).
 
-* Para aprender a configurar um ponto final de serviço de rede virtual para o seu Azure Database para o servidor Single PostgreSQL, consulte [o acesso configurado a partir de redes virtuais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+* Para aprender a configurar um ponto final de serviço de rede virtual para o seu Azure Database para o servidor Single PostgreSQL, consulte [o acesso configurado a partir de redes virtuais](./concepts-data-access-and-security-vnet.md).
 
-* Para obter uma visão geral da Base de Dados Azure para a conectividade do servidor único postgreSQL, consulte [a Base de Dados de Azure para Arquitetura de Conectividade Pós-Crise](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+* Para obter uma visão geral da Base de Dados Azure para a conectividade do servidor único postgreSQL, consulte [a Base de Dados de Azure para Arquitetura de Conectividade Pós-Crise](./concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

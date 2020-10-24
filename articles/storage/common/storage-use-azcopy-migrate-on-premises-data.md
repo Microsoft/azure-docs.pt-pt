@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f969c30033604cb4b331b5ed86d992af371f9c75
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716094"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490820"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migrar dados no local para armazenamento em nuvem com AzCopy
 
@@ -46,7 +46,7 @@ Siga estes passos para criar um contentor:
 1. Selecione o botão **Contas de armazenamento** na página principal e selecione a conta de armazenamento que criou.
 2. Selecione **Blobs** em **Serviços** e, em seguida, selecione **Contentor**.
 
-   ![Criar um contentor](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Screenshot mostrando criação de recipiente](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Os nomes de contentores têm de começar com uma letra ou um número. Só podem conter letras, números e o caráter de hífen (-). Para ter acesso a outras regras sobre como atribuir nomes a blobs e contentores, consulte [Atribuir nomes e referenciar contentores, blobs e metadados](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -62,7 +62,7 @@ Coloque o ficheiro AzCopy em qualquer lugar do seu computador. Adicione a locali
 
 ## <a name="authenticate-with-azure-ad"></a>Autenticar com o Azure AD
 
-Em primeiro lugar, atribua o papel [de Contribuinte de Dados blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) à sua identidade. Consulte [o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Em primeiro lugar, atribua o papel [de Contribuinte de Dados blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) à sua identidade. Consulte [o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Em seguida, abra um pedido de comando, digite o seguinte comando e prima a tecla ENTER.
 
@@ -72,13 +72,13 @@ azcopy login
 
 Este comando devolve um código de autenticação e o URL de um website. Abra o site, forneça o código e, em seguida, escolha o botão **Seguinte.**
 
-![Criar um contentor](media/storage-use-azcopy-v10/azcopy-login.png)
+![Screenshot mostrando o pedido de login](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Aparecerá uma janela de inscrição. Nessa janela, inscreva-se na sua conta Azure utilizando as credenciais da sua conta Azure. Depois de ter assinado com sucesso, pode fechar a janela do navegador e começar a usar a AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Carregar conteúdos de uma pasta para o armazenamento de Blobs
 
-Pode utilizar o AzCopy para carregar todos os ficheiros numa pasta para o armazenamento de Blobs no [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) ou [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Para carregar todos os blobs numa pasta, introduza o seguinte comando do AzCopy:
+Pode utilizar o AzCopy para carregar todos os ficheiros numa pasta para o armazenamento de Blobs no [Windows](/azure/storage/common/storage-use-azcopy) ou [Linux](/azure/storage/common/storage-use-azcopy-linux). Para carregar todos os blobs numa pasta, introduza o seguinte comando do AzCopy:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -176,7 +176,7 @@ Para validar que a tarefa agendada/tarefa Cron é executada corretamente, crie n
 
 Para obter mais informações sobre formas de mover os dados no local para o Armazenamento do Azure e vice-versa, siga esta ligação:
 
-* [Mover dados de e para o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Mover dados de e para o Armazenamento do Azure](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Para mais informações sobre a AzCopy, consulte qualquer um destes artigos:
 
