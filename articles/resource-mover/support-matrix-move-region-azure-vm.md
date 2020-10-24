@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945918"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521310"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -107,7 +107,7 @@ Imagens da galeria Azure (publicadas pela Microsoft) | Suportado | Suportado se 
 Imagens da Galeria Azure (publicadas por terceiros)  | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 Imagens personalizadas (publicadas por terceiros)| Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 VMs usando recuperação de site | Não suportado | Mover recursos através de regiões para VMs, usando a Recuperação do Local no backend. Se já estiver a utilizar a Recuperação do Local, desative a replicação e, em seguida, inicie o processo de Preparação.
-Políticas do RBAC | Não suportado | As políticas de controlo de acesso baseados em funções (RBAC) em VMs não são copiadas para o VM na região-alvo.
+Políticas de Azure RBAC | Não suportado | As políticas de controlo de acesso baseado em funções (Azure RBAC) em VM não são copiadas para o VM na região-alvo.
 Extensões | Não suportado | As extensões não são copiadas para o VM na região alvo. Instale-as manualmente depois de concluída a deslocação.
 
 
@@ -188,6 +188,6 @@ Se estiver a utilizar regras de um grupo de segurança de rede (NSG) para contro
 - Recomendamos que teste regras num ambiente de não produção. [Reveja alguns exemplos.](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tente [mover um Azure VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource Mover.

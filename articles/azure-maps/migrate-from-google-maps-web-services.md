@@ -9,16 +9,32 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874463"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518896"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial - Migrar o serviço web do Google Maps
 
 Tanto o Azure como o Google Maps fornecem acesso a APIs espaciais através de serviços web REST. As interfaces API destas plataformas executam funcionalidades similares. Mas cada um usa diferentes convenções de nomeação e objetos de resposta.
+
+Neste tutorial, vai aprender a:
+
+> * Geocoding para a frente e reverso
+> * Procurar pontos de interesse
+> * Calcular rotas e direções
+> * Recupere uma imagem de mapa
+> * Calcular uma matriz de distância
+> * Obtenha detalhes do fuso horário
+
+Também vai aprender: 
+
+> [!div class="checklist"]
+> * Que serviço Azure Maps REST ao migrar de um Serviço Web do Google Maps
+> * Dicas sobre como tirar o máximo partido dos serviços Azure Maps
+> * Insights sobre outros serviços relacionados Azure Maps
 
 A tabela mostra as APIs do serviço Azure Maps, que têm uma funcionalidade semelhante às APIs do serviço do Google Maps listados.
 
@@ -48,6 +64,12 @@ A Azure Maps dispõe de vários serviços web REST adicionais que podem ser de i
 
 - [Operações espaciais](https://docs.microsoft.com/rest/api/maps/spatial): Descarrega cálculos e operações espaciais complexos, como geofencing, para um serviço.
 - [Tráfego](https://docs.microsoft.com/rest/api/maps/traffic): Aceda ao fluxo de tráfego em tempo real e aos dados dos incidentes.
+
+## <a name="prerequisites"></a>Pré-requisitos 
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+2. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição. Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](how-to-manage-authentication.md)
 
 ## <a name="geocoding-addresses"></a>Endereços de geocoding
 
@@ -334,7 +356,6 @@ Adicionemos um ícone vermelho `FF0000` () padrão, com a etiqueta "Space Needle
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Marcador de Mapas Azure](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Adicione três pinos com os valores da etiqueta '1', '2' e '3':
@@ -342,8 +363,6 @@ Adicione três pinos com os valores da etiqueta '1', '2' e '3':
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Azure Maps múltiplos marcadores](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -468,13 +487,24 @@ Estas bibliotecas de clientes de código aberto são para outras linguagens de p
 
 - .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [Pacote NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/) do projeto GitHub
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Passos seguintes
 
-Seguem-se documentação e recursos adicionais para os serviços Azure Maps REST.
+Saiba mais sobre os serviços Azure Maps REST:
 
-- [Melhores práticas de pesquisa](how-to-use-best-practices-for-search.md)
-- [Pesquisar por um endereço](how-to-search-for-address.md)
-- [Melhores práticas para o encaminhamento](how-to-use-best-practices-for-routing.md)
-- [Documentação de referência do Serviço API do Azure Maps REST](https://docs.microsoft.com/rest/api/maps/)
-- [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [Como utilizar o módulo de serviços (Web SDK)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [Melhores práticas de pesquisa](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Pesquisar por um endereço](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Melhores práticas para o encaminhamento](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Documentação de referência do Serviço API do Azure Maps REST](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [Como utilizar o módulo de serviços (Web SDK)](how-to-use-best-practices-for-routing.md)

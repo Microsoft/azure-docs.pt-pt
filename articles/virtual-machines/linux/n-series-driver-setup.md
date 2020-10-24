@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168482"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517264"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -161,6 +161,23 @@ Implementar VMs da série N capaz de RDMA a partir de uma das imagens no Azure M
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
 * **CentOS-based 7.4 HPC** - RdMA drivers e Intel MPI 5.1 estão instalados no VM.
+
+* **HPC baseado em CentOS** - CentOS-HPC 7.6 e posteriormente (para SKUs onde a InfiniBand é suportada sobre SR-IOV). Estas imagens têm bibliotecas Mellanox OFED e MPI pré-instaladas.
+
+> [!NOTE]
+> CX3-Pro cartões são suportados apenas através de versões LTS de Mellanox OFED. Utilize a versão LTS Mellanox OFED (4.9-0.1.7.0) nos VMs da série N com cartões ConnectX3-Pro. Para mais informações, consulte [a Linux Drivers.](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)
+>
+> Além disso, algumas das imagens mais recentes do Azure Marketplace HPC têm Mellanox OFED 5.1 e mais tarde, que não suportam ConnectX3-Pro cartões. Verifique a versão Mellanox OFED na imagem HPC antes de a utilizar em VMs com cartões ConnectX3-Pro.
+>
+> As imagens a seguir são as imagens centos-HPC mais recentes que suportam ConnectX3-Pro cartões:
+>
+> - OpenLogic:CentOS-HPC:7.6:7.6.2020062900
+> - OpenLogic:CentOS-HPC:7_6gen2:7.6.2020062901
+> - OpenLogic:CentOS-HPC:7.7:7.7.2020062600
+> - OpenLogic:CentOS-HPC:7_7-gen2:7.7.2020062601
+> - OpenLogic:CentOS-HPC:8_1:8.1.2020062400
+> - OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
+>
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instale controladores GRID em VMs da série NV ou NVv3
 

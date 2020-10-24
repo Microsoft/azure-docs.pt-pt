@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de4f52dae236502a087116aa72424641220c628
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758987"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517090"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-O `-DjavaVersion` parâmetro indica ao tempo de execução funções qual versão de Java a utilizar. Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11, que está em pré-visualização. Quando não `-DjavaVersion` especifica, Maven falha em Java 8. Para mais informações, consulte as [versões Java.](functions-reference-java.md#java-versions)
+O `-DjavaVersion` parâmetro indica ao tempo de execução funções qual versão de Java a utilizar. Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11. Quando não `-DjavaVersion` especifica, Maven falha em Java 8. Para mais informações, consulte as [versões Java.](functions-reference-java.md#java-versions)
+
+> [!IMPORTANT]
+> A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação da versão correta do JDK para completar este artigo.
 
 A Maven pede-lhe valores necessários para terminar a geração do projeto na implantação.   
 Fornecer os seguintes valores quando solicitado:

@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328543"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516924"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure
 
-Neste artigo, você vai aprender as várias maneiras que você pode autenticar para Azure Spatial Anchors a partir da sua app ou serviço web. Você também vai aprender sobre as formas de usar o controlo de acesso baseado em funções no Azure Ative Directory (Azure AD) para controlar o acesso às suas contas De Âncoras Espaciais.
+Neste artigo, você vai aprender as várias maneiras que você pode autenticar para Azure Spatial Anchors a partir da sua app ou serviço web. Você também vai aprender sobre as formas de usar o controlo de acesso baseado em funções Azure (Azure RBAC) em Azure Ative Directory (Azure AD) para controlar o acesso às suas contas De Âncoras Espaciais.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -94,7 +94,7 @@ Depois de definir essa propriedade, o SDK tratará da troca da chave de conta pa
 
 Para aplicações que visam os utilizadores do Azure Ative Directory, recomendamos que utilize um token AD Azure para o utilizador. Pode obter este símbolo utilizando o [MSAL](../../active-directory/develop/msal-overview.md). Siga os passos no [quickstart sobre o registo de uma aplicação,](../../active-directory/develop/quickstart-register-app.md)que inclui:
 
-**No portal do Azure**
+**No portal Azure**
 1.    Registe a sua candidatura no Azure AD como uma aplicação nativa. Como parte do registo, terá de determinar se a sua aplicação deve ser multitenante. Também terá de fornecer os URLs de redirecionamento permitidos para a sua aplicação.
 1.  Vá ao separador permissões da **API.**
 2.  **Selecione Adicionar uma permissão**.
@@ -108,7 +108,7 @@ Para aplicações que visam os utilizadores do Azure Ative Directory, recomendam
    1.    Vá ao seu recurso De Âncoras Espaciais no portal Azure.
    2.    Aceda ao **separador Controlo de Acesso (IAM).**
    3.    Selecione **Adicionar atribuição de função**.
-   1.    [Selecione uma função](#role-based-access-control).
+   1.    [Selecione uma função](#azure-role-based-access-control).
    2.    Na caixa **Select,** insira os nomes dos utilizadores, grupos e/ou aplicações às quais pretende atribuir acesso.
    3.    Selecione **Guardar**.
 
@@ -172,7 +172,7 @@ Aqui, presume-se que a sua aplicação utiliza o seu próprio mecanismo para aut
 
 O token de acesso Azure AD é recuperado através do [MSAL](../../active-directory/develop/msal-overview.md). Siga os passos no [registo de uma aplicação de arranque rápido,](../../active-directory/develop/quickstart-register-app.md)que inclui:
 
-**No portal do Azure**
+**No portal Azure**
 1.    Registe a sua candidatura no Azure AD:
         1.    No portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **registos de Aplicações**.
         2.    Selecione **Novo registo**.
@@ -182,7 +182,7 @@ O token de acesso Azure AD é recuperado através do [MSAL](../../active-directo
         1.    Vá ao seu recurso De Âncoras Espaciais no portal Azure.
         2.    Aceda ao **separador Controlo de Acesso (IAM).**
         3.    Selecione **Adicionar atribuição de função**.
-        1.    [Selecione uma função](#role-based-access-control).
+        1.    [Selecione uma função](#azure-role-based-access-control).
         2.    Na caixa **Select,** insira o nome ou os nomes das aplicações às quais pretende atribuir acesso. Se quiser que os utilizadores da sua aplicação tenham papéis diferentes contra a conta Spatial Anchors, registe várias aplicações em AD Azure e atribua um papel separado a cada um. Em seguida, implemente a sua lógica de autorização para utilizar o papel certo para os seus utilizadores.
         
               > [!NOTE] 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+## <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
 Para ajudá-lo a controlar o nível de acesso concedido aos utilizadores de aplicações, serviços ou Azure AD do seu serviço, pode atribuir estas funções pré-existentes conforme necessário contra as suas contas Azure Spatial Anchors:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 044ee51fb7ff675af0fb97224313c388c4cbeac1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371346"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Tutorial: Integração do Azure Ative Directory com Mitel MiCloud Connect ou CloudLink Platform
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a usar a app Mitel Connect para integrar o Azur
 * Pode controlar o acesso dos utilizadores às aplicações Do MiCloud Connect e às aplicações CloudLink em AZure AD utilizando as suas credenciais empresariais.
 * Pode permitir que os utilizadores na sua conta sejam automaticamente inscritos no MiCloud Connect ou no CloudLink (súmido único) utilizando as suas contas AD Azure.
 
-Para mais detalhes sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único acesso com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para mais detalhes sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único acesso com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de iniciar a integração do AD AZure com o Mitel MiCloud Connect ou a CloudLink Platform.
 
@@ -41,7 +41,7 @@ Para configurar a integração AD do Azure com o MiCloud Connect, precisa dos se
 Neste tutorial, você vai configurar e testar Azure AD single sign-on (SSO).
 
 * Mitel Connect suporta **SSO** iniciado SP
-* Uma vez configurado o Mitel Connect, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Uma vez configurado o Mitel Connect, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mitel-connect-from-the-gallery"></a>Adicione Mitel Connect da galeria
 
@@ -221,7 +221,7 @@ Crie um utilizador na sua conta MiCloud Connect com os seguintes detalhes:
 
 Nesta secção, irá testar a sua configuração de inscrição única Azure AD utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo Mitel Connect no Painel de Acesso, deverá ser automaticamente redirecionado para iniciar sôm na aplicação MiCloud Connect configurada como o seu padrão no campo **URL de acesso.** Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Mitel Connect no Painel de Acesso, deverá ser automaticamente redirecionado para iniciar sôm na aplicação MiCloud Connect configurada como o seu padrão no campo **URL de acesso.** Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="configure-and-test-azure-ad-sso-with-cloudlink-platform"></a>Configure e teste Azure AD SSO com plataforma CloudLink
 
@@ -375,12 +375,12 @@ Crie um utilizador no seu portal de Contas CloudLink com os seguintes detalhes:
 
 Nesta secção, irá testar a sua configuração Azure AD SSO utilizando o Painel de Acesso.
 
-Quando selecionar o azulejo Mitel Connect no Painel de Acesso, será automaticamente redirecionado para iniciar sôm na aplicação CloudLink configurada como o seu padrão no campo **URL de acesso.** Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando selecionar o azulejo Mitel Connect no Painel de Acesso, será automaticamente redirecionado para iniciar sôm na aplicação CloudLink configurada como o seu padrão no campo **URL de acesso.** Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620210"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518114"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen1
 
@@ -36,7 +36,7 @@ Este tutorial guia-o através do processo de criação de um ambiente Azure Time
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A sua conta de inscrição Azure também deve ser membro da função **Proprietário** da subscrição. Para obter mais informações, leia [Gerir o acesso utilizando o controlo de acesso baseado em funções e o portal Azure.](../role-based-access-control/role-assignments-portal.md)
+* A sua conta de inscrição Azure também deve ser membro da função **Proprietário** da subscrição. Para obter mais informações, leia [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Rever vídeo
 
@@ -68,7 +68,7 @@ Em primeiro lugar, crie a solução de simulação do dispositivo, que gera dado
    Parâmetro|Descrição
    ---|---
    **Nome de implantação** | Este valor único é usado para criar um novo grupo de recursos. Os recursos do Azure listados são criados e atribuídos ao grupo de recursos.
-   **Assinatura Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights na secção anterior.
+   **Subscrição do Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights na secção anterior.
    **Opções de implementação** | Selecione **Provision novo IoT Hub** para criar um novo hub IoT específico para este tutorial.
    **Local azul** | Especifique a mesma região que foi usada para criar o seu ambiente Azure Time Series Insights na secção anterior.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f2a6598cc28c39719d73be333bd74c24fce9371b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551909"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514542"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Trend Micro Web Security (TMWS)
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar a Trend Micro Web Security (TMWS) 
 * Permitir que os seus utilizadores sejam automaticamente inscritos na TMWS com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [o Single sign-on para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte [o Single sign-on para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para começar, precisa do seguinte:
 Neste tutorial, você vai configurar e testar Azure AD SSO em um ambiente de teste.
 
 * A TMWS suporta sSO iniciado pelo SP.
-* Depois de configurar o TMWS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. Para aprender a impor o controlo da sessão utilizando a Microsoft Cloud App Security, consulte [a bordo e implemente o Controlo de Aplicações de Acesso Condicional para qualquer aplicação.](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+* Depois de configurar o TMWS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. Para aprender a impor o controlo da sessão utilizando a Microsoft Cloud App Security, consulte [a bordo e implemente o Controlo de Aplicações de Acesso Condicional para qualquer aplicação.](/cloud-app-security/proxy-deployment-any-app)
 
 ## <a name="add-tmws-from-the-gallery"></a>Adicione TMWS da galeria
 
@@ -116,7 +116,7 @@ Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azur
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. Na caixa **Nome,** insira `B.Simon` .  
-   1. Na caixa de **nome de utilizador,** ***insira o nome *@* de utilizador dodomínio da empresa *.* extensão***. Por exemplo, `B.Simon@contoso.com`.
+   1. Na caixa de **nome de utilizador,** insira **_username_ @ nome de*utilizador dodomínio da empresa *.* extensão***. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione **Mostrar a palavra-passe**e, em seguida, anotar o valor que é apresentado na caixa **palavra-passe.**
    1. Selecione **Criar**.
 
@@ -230,15 +230,14 @@ Depois de configurar o serviço AZure AD e especificar a Azure AD como o método
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais sobre como integrar apps SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais sobre como integrar apps SaaS com Diretório Ativo Azure](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
 - [Experimente trend Micro Web Security com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Como proteger a Trend Micro Web Security com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Como proteger a Trend Micro Web Security com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

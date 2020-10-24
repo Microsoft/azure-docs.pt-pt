@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495832"
+ms.locfileid: "92518012"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
 
@@ -326,7 +326,7 @@ Existem duas etapas para garantir um recurso de serviço Azure através de ponto
 1. Ligue os pontos finais de serviço para o serviço Azure.
 2. Configurar VNet ACLs no serviço Azure.
 
-O primeiro passo é uma operação lateral de rede e o segundo passo é uma operação do lado do recurso de serviço. Ambas as etapas podem ser executadas pelo mesmo administrador ou por diferentes administradores com base nas permissões rbac concedidas à função de administrador. Recomendamos que ligue primeiro os pontos finais de serviço para a sua rede virtual antes de configurar acLs VNet no lado do serviço Azure. Assim, os passos devem ser executados na sequência acima listada para configurar os pontos finais de serviço VNet.
+O primeiro passo é uma operação lateral de rede e o segundo passo é uma operação do lado do recurso de serviço. Ambas as etapas podem ser executadas pelo mesmo administrador ou por diferentes administradores com base nas permissões Azure RBAC concedidas à função de administrador. Recomendamos que ligue primeiro os pontos finais de serviço para a sua rede virtual antes de configurar acLs VNet no lado do serviço Azure. Assim, os passos devem ser executados na sequência acima listada para configurar os pontos finais de serviço VNet.
 
 >[!NOTE]
 > Ambas as operações descritas acima devem ser concluídas antes de poder limitar o acesso do serviço Azure à VNet e à sub-rede permitidas. Apenas ligar os pontos finais de serviço para o serviço Azure no lado da rede não lhe proporciona o acesso limitado. Além disso, também deve configurar ACLs VNet no lado do serviço Azure.

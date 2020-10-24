@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ecb4d249c8c2167ec61740eb9515fd1937230b0
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312342"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519746"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configurar zscaler acesso privado (ZPA) para fornecimento automático de utilizadores
 
@@ -114,7 +114,7 @@ Antes de configurar o Zscaler Private Access (ZPA) para o fornecimento automáti
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos em Zscaler Private Access (ZPA) com base em atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar o sign-on único baseado em SAML para zscaler private access (ZPA) seguindo as instruções fornecidas no [tutorial de acesso privado Zscaler (ZPA) único.](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
+> Pode também optar por ativar o sign-on único baseado em SAML para zscaler private access (ZPA) seguindo as instruções fornecidas no [tutorial de acesso privado Zscaler (ZPA) único.](./zscalerprivateaccess-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se complementem.
 
 > [!NOTE]
 > Para saber mais sobre o ponto final scim do Zscaler Private Access, consulte [isto](https://www.zscaler.com/partners/microsoft).
@@ -189,4 +189,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 59101e05345e9284b71b44d24732a45f3c53e629
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "88526623"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520086"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Diretório Ativo Azure com o Workspot Control
 
@@ -26,7 +26,7 @@ Neste tutorial, aprende-se a integrar o Workspot Control com o Azure Ative Direc
 * Permitir que os utilizadores inscrevam-se automaticamente no Workspot Control (sso único de sso]) utilizando as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
 
-Para obter mais informações sobre a integração da aplicação SaaS com a Azure AD, consulte [o single sign-on para aplicações em Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para obter mais informações sobre a integração da aplicação SaaS com a Azure AD, consulte [o single sign-on para aplicações em Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -236,12 +236,12 @@ Para permitir que os utilizadores da Azure AD entrem no Workspot Control, devem 
 
 Nesta secção, testamos a nossa configuração de inscrição única AD AD através do Painel de *Acesso.*
 
-Quando clicar no azulejo **do Controle do Ponto de** Trabalho no Painel de Acesso, deverá ser automaticamente inscrito no Controlo do Ponto de Trabalho para o qual configura sSO. Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Quando clicar no azulejo **do Controle do Ponto de** Trabalho no Painel de Acesso, deverá ser automaticamente inscrito no Controlo do Ponto de Trabalho para o qual configura sSO. Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
 
-- [Inscrição única para aplicações no Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Inscrição única para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

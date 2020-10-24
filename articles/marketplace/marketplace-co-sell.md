@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207717"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520999"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -75,11 +75,13 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
  
 1. Faça upload de informações de contacto de vendas na secção **Contactos.** Os vendedores da Microsoft podem contactar estes contactos para solicitar informações adicionais sobre a sua oferta. *(Requerido: um contacto para cada geografia em que a sua oferta é disponibilizada.*)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft." no âmbito do dropdown "Serviços CED desejados":
+<ul><ul>
 
-1. Guarde o rascunho antes de continuar.
-1. Depois de ter concluído todas as secções necessárias da oferta, pode submetê-la para revisão e publicação. No canto superior direito, selecione **'Rever e publicar.** Reveja os detalhes da oferta e, em seguida, **selecione Publicar**.
-1. Vamos rever os materiais que fez o upload e determinar se a sua oferta se qualifica para o programa de co-venda.
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::
+
+O CED contactar-lhe-á para concluir o processo.
+</ul></ul>
 
 ## <a name="next-steps"></a>Passos seguintes
 

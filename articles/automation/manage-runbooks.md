@@ -3,14 +3,14 @@ title: Gerir livros de execução na Azure Automation
 description: Este artigo diz como gerir os livros de execução na Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/10/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987577"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521072"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -20,9 +20,8 @@ Pode adicionar um livro de execução à Azure Automation, criando um novo ou im
 
 Crie um novo runbook na Azure Automation utilizando o portal Azure ou Windows PowerShell. Uma vez criado o livro de bordo, pode editá-lo utilizando informações em:
 
-* [Editar o livro de texto na Azure Automation](automation-edit-textual-runbook.md) 
+* [Editar o livro de texto na Azure Automation](automation-edit-textual-runbook.md)
 * [Aprenda os principais conceitos de fluxo de trabalho do Windows PowerShell para os runbooks de automação](automation-powershell-workflow.md)
-* [Autoria gráfica na Azure Automation](automation-graphical-authoring-intro.md)
 * [Gerir pacotes Python 2 em Azure Automation](python-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Criar um livro de corridas no portal Azure
@@ -35,7 +34,7 @@ Crie um novo runbook na Azure Automation utilizando o portal Azure ou Windows Po
 
 ### <a name="create-a-runbook-with-powershell"></a>Criar um livro de bordo com PowerShell
 
-Utilize o [cmdlet New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para criar um livro de bordo vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidos para `New-AzAutomationRunbook` .
+Utilize o [cmdlet New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook) para criar um livro de bordo vazio. Utilize o `Type` parâmetro para especificar um dos tipos de livro definidos para `New-AzAutomationRunbook` .
 
 O exemplo a seguir mostra como criar um novo livro de bordo vazio.
 
@@ -77,7 +76,7 @@ Pode utilizar o seguinte procedimento para importar um ficheiro de script para a
 
 ### <a name="import-a-runbook-with-windows-powershell"></a>Importar um livro com Windows PowerShell
 
-Utilize o [cmdlet Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar um ficheiro de script como um rascunho de livro de recortes. Se o livro já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
+Utilize o [cmdlet Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) para importar um ficheiro de script como um rascunho de livro de recortes. Se o livro já existir, a importação falha a menos que utilize o `Force` parâmetro com o cmdlet.
 
 O exemplo a seguir mostra como importar um ficheiro de script num livro de aplicação.
 
@@ -147,7 +146,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="track-progress"></a>Controlar o progresso
 
-É uma boa prática autoriar os seus livros de corridas para serem modulares na natureza, com lógica que pode ser reutilizada e reiniciada facilmente. O acompanhamento do progresso num livro de bordo garante que a lógica do livro executa corretamente se houver problemas. 
+É uma boa prática autoriar os seus livros de corridas para serem modulares na natureza, com lógica que pode ser reutilizada e reiniciada facilmente. O acompanhamento do progresso num livro de bordo garante que a lógica do livro executa corretamente se houver problemas.
 
 Pode acompanhar o progresso de um livro de execução utilizando uma fonte externa, como uma conta de armazenamento, uma base de dados ou ficheiros partilhados. Crie lógica no seu livro de bordo para verificar primeiro o estado das últimas medidas tomadas. Em seguida, com base nos resultados da verificação, a lógica pode saltar ou continuar tarefas específicas no livro de aplicação.
 
@@ -192,35 +191,33 @@ Se o seu livro de execução normalmente funcionar dentro de uma restrição de 
 
 ## <a name="work-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
 
-O seu livro de execução deve poder trabalhar com [subscrições.](automation-runbook-execution.md#subscriptions) Por exemplo, para lidar com várias subscrições, o runbook utiliza o cmdlet [Disable-AzContextAutosave.](/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) Este cmdlet garante que o contexto de autenticação não é recuperado de outro runbook que funciona na mesma caixa de areia. O livro também utiliza o `Get-AzContext` cmdlet para recuperar o contexto da sessão atual, e atribuí-lo à variável `$AzureContext` .
+O seu livro de execução deve poder trabalhar com [subscrições.](automation-runbook-execution.md#subscriptions) Por exemplo, para lidar com várias subscrições, o runbook utiliza o cmdlet [Disable-AzContextAutosave.](/powershell/module/Az.Accounts/Disable-AzContextAutosave) Este cmdlet garante que o contexto de autenticação não é recuperado de outro runbook que funciona na mesma caixa de areia. O livro também utiliza o `Get-AzContext` cmdlet para recuperar o contexto da sessão atual, e atribuí-lo à variável `$AzureContext` .
 
 ```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
+$AzureContext = Connect-AzAccount -ServicePrincipal `
 -Tenant $Conn.TenantID `
 -ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$AzureContext = Get-AzContext
+-CertificateThumbprint $Conn.CertificateThumbprint `
+-Subscription $Conn.SubscriptionId
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
 $ResourceGroupName = 'myResourceGroup'
 
 Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $AzureContext
+-ResourceGroupName $ResourceGroupName `
+-AutomationAccountName $AutomationAccountName `
+-Name $ChildRunbookName `
+-DefaultProfile $AzureContext
 ```
 
 ## <a name="work-with-a-custom-script"></a>Trabalhe com um script personalizado
 
 > [!NOTE]
-> Normalmente não é possível executar scripts e livros personalizados no anfitrião com um agente Log Analytics instalado. 
+> Normalmente não é possível executar scripts e livros personalizados no anfitrião com um agente Log Analytics instalado.
 
 Para usar um script personalizado:
 
@@ -257,7 +254,7 @@ Quando cria ou importa um novo livro de bordo, deve publicá-lo antes de o poder
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publique um livro de execução usando o PowerShell
 
-Utilize o [cmdlet Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) para publicar o seu runbook. 
+Utilize o [cmdlet Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook) para publicar o seu runbook. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -277,7 +274,7 @@ Quando o seu livro de bordo tiver sido publicado, pode agendar para operação:
 3. **Selecione Adicione um horário**.
 4. No painel 'Schedule Runbook', **selecione Link um horário para o seu runbook**.
 5. Escolha **Criar um novo horário** no painel agendamento.
-6. Introduza um nome, descrição e outros parâmetros no painel de horários novo. 
+6. Introduza um nome, descrição e outros parâmetros no painel de horários novo.
 7. Uma vez criado o horário, realce-o e clique **em OK**. Deve agora estar ligado ao seu livro de bordo.
 8. Procure um e-mail na sua caixa de correio para notificá-lo do estado do livro de aplicação.
 
@@ -285,7 +282,7 @@ Quando o seu livro de bordo tiver sido publicado, pode agendar para operação:
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Ver statuses no portal Azure
 
-Os detalhes do tratamento de emprego na Azure Automation são fornecidos em [Jobs](automation-runbook-execution.md#jobs). Quando estiver pronto para ver os seus trabalhos de runbook, use o portal Azure e aceda à sua conta Automation. À direita, pode ver-se um resumo de todos os trabalhos de runbook em **Estatísticas de Emprego.** 
+Os detalhes do tratamento de emprego na Azure Automation são fornecidos em [Jobs](automation-runbook-execution.md#jobs). Quando estiver pronto para ver os seus trabalhos de runbook, use o portal Azure e aceda à sua conta Automation. À direita, pode ver-se um resumo de todos os trabalhos de runbook em **Estatísticas de Emprego.**
 
 ![Azulejo de Estatísticas de Emprego](./media/manage-runbooks/automation-account-job-status-summary.png)
 
@@ -305,7 +302,7 @@ Em alternativa, pode visualizar os dados do resumo do trabalho para um livro de 
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar o estatuto de trabalho usando o PowerShell
 
-Utilize o [cmdlet Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os postos de trabalho criados para um livro de bordo e os detalhes de um determinado trabalho. Se iniciar um livro de bordo `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Use [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída do trabalho.
+Utilize o [cmdlet Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) para recuperar os postos de trabalho criados para um livro de bordo e os detalhes de um determinado trabalho. Se iniciar um livro de bordo `Start-AzAutomationRunbook` utilizando, devolve o trabalho resultante. Use [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) para recuperar a saída do trabalho.
 
 O exemplo a seguir obtém o último trabalho para um livro de amostras e apresenta o seu estado, os valores fornecidos para os parâmetros do livro de bordo e a saída do trabalho.
 
@@ -340,6 +337,4 @@ foreach($item in $output)
 
 * Para obter detalhes sobre a gestão de [runbook, consulte a execução do Runbook na Azure Automation](automation-runbook-execution.md).
 * Para preparar um livro de bordo PowerShell, consulte [editar livros de texto em Azure Automation](automation-edit-textual-runbook.md).
-* Para ajudar a escrever um manual de fluxo de trabalho PowerShell, consulte [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md).
-* Para obter detalhes sobre a escrita de livros gráficos, consulte [os livros gráficos do Autor na Azure Automation](automation-graphical-authoring-intro.md).
 * Para resolver problemas com a execução do livro de [recortes, consulte os problemas do livro de resolução de problemas](troubleshoot/runbooks.md).

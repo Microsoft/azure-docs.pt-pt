@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4c6bf8b203f9721436ab3dde1f80837df92234d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90020374"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518267"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Linha de segurança Azure para Azure Sentinel
 
@@ -325,7 +325,7 @@ Os papéis do Log Analytics incluem o colaborador do Log Analytics e o leitor de
 
 Além disso, cada livro do Sentinel é um recurso Azure, e pode atribuir funções aos utilizadores para gerir o acesso.
 
-- [Como configurar o RBAC em Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Compreender papéis personalizados](../role-based-access-control/custom-roles.md)
 

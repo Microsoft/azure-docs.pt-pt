@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541293"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520239"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -311,7 +311,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Workd
 Para o fornecimento ao Ative Directory no local, o agente Provisioning deve ser instalado num servidor que tenha .NET 4.7.1+ Framework e acesso à rede ao domínio ou do Diretório Ativo pretendido.
 
 > [!TIP]
-> Pode verificar a versão da estrutura .NET no seu servidor utilizando as instruções fornecidas [aqui.](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)
+> Pode verificar a versão da estrutura .NET no seu servidor utilizando as instruções fornecidas [aqui.](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)
 > Se o servidor não tiver .NET 4.7.1 ou superior instalado, pode descarregá-lo a partir [daqui](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Transfira o instalador de agente descarregado para o anfitrião do servidor e siga os passos abaixo para completar a configuração do agente.
@@ -390,9 +390,9 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
    
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Sim |
+     | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
 
       > [!NOTE]
      > Se nenhuma informação de versão for especificada no URL, a aplicação utiliza o Workday Web Services (WWS) v21.1 e não são necessárias alterações nas expressões API padrão enviadas com a aplicação. Para utilizar uma versão API da WWS específica, especifique o número da versão no URL <br>
@@ -410,7 +410,7 @@ Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no po
    * **E-mail de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
 
      > [!NOTE]
-     > O Serviço de Provisionamento Azure AD envia uma notificação por e-mail se o trabalho de provisionamento entrar em estado de [quarentena.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
+     > O Serviço de Provisionamento Azure AD envia uma notificação por e-mail se o trabalho de provisionamento entrar em estado de [quarentena.](../app-provisioning/application-provisioning-quarantine-status.md)
 
    * Clique no botão **De Ligação de Teste.** Se o teste de ligação for bem sucedido, clique no botão **Guardar** na parte superior. Se falhar, verifique duas vezes se as credenciais do Workday e as credenciais AD configuradas na configuração do agente são válidas.
 
@@ -594,7 +594,7 @@ Não, a solução não mantém uma cache de perfis de utilizador. O serviço de 
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>O suporte à solução que atribui grupos de AD no local ao utilizador?
 
-Esta funcionalidade não é suportada atualmente. A solução recomendada é implementar um script PowerShell que questione o ponto final da Microsoft Graph API para [os dados de registo de auditoria](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) e use-o para desencadear cenários como a atribuição de grupos. Este script PowerShell pode ser anexado a um programador de tarefas e implantado na mesma caixa que executa o agente de provisionamento.  
+Esta funcionalidade não é suportada atualmente. A solução recomendada é implementar um script PowerShell que questione o ponto final da Microsoft Graph API para [os dados de registo de auditoria](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) e use-o para desencadear cenários como a atribuição de grupos. Este script PowerShell pode ser anexado a um programador de tarefas e implantado na mesma caixa que executa o agente de provisionamento.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Que APIs workday utiliza a solução para consultar e atualizar os perfis dos trabalhadores do Workday?
 
@@ -679,7 +679,7 @@ Substitua as variáveis [proxy-server] e [proxy-port] pelo nome do seu servidor 
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Como posso assegurar que o Agente de Provisionamento seja capaz de comunicar com o inquilino Azure AD e que não haja firewalls a bloquear portas exigidas pelo agente?
 
-Também pode verificar se todas as portas necessárias estão [abertas.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports)
+Também pode verificar se todas as portas necessárias estão [abertas.](../manage-apps/application-proxy-add-on-premises-application.md#open-ports)
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Um agente de provisionamento pode ser configurado para a disponibilização de vários domínios de AD?
 
@@ -1157,4 +1157,4 @@ No que diz respeito à retenção de dados, o serviço de fornecimento de Ad Azu
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)
 * [Saiba como integrar outras aplicações saaS com o Azure Ative Directory](tutorial-list.md)
-* [Saiba como utilizar as APIs do Microsoft Graph para gerir configurações de provisionamento](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Saiba como utilizar as APIs do Microsoft Graph para gerir configurações de provisionamento](/graph/api/resources/synchronization-overview)

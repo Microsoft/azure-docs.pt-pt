@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d7b090eb5228a449212ceebd6cd299c5f8860089
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996656"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Diretório Ativo Azure com Pingboard
 
@@ -27,7 +27,7 @@ A integração do Pingboard com a Azure AD proporciona-lhe os seguintes benefíc
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no Pingboard (Sign-on único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,7 +43,7 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Pingboard suporta **SP** e **IDP** iniciado SSO
 
-* Pingboard suporta [fornecimento automatizado de utilizadores](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial) 
+* Pingboard suporta [fornecimento automatizado de utilizadores](./pingboard-provisioning-tutorial.md) 
 
 ## <a name="adding-pingboard-from-the-gallery"></a>Adicionando pingboard da galeria
 
@@ -239,14 +239,14 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Pingboa
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo do Pingboard no Painel de Acesso, deverá ser automaticamente inscrito no Pingboard para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo do Pingboard no Painel de Acesso, deverá ser automaticamente inscrito no Pingboard para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
 
-- [Configurar o Provisionamento do Utilizador](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
+- [Configurar o Provisionamento do Utilizador](./pingboard-provisioning-tutorial.md)

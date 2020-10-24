@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 05994a61b0afd0190e3fc1d4b841d576cec047f5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 023cd13c40bdd6aae9febaf7d929f94fe26ef6d3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015853"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519644"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analise ficheiros de vídeo e áudio com a Azure Media Services
 
@@ -27,10 +27,12 @@ ms.locfileid: "92015853"
 
 O Azure Media Services v3 permite extrair informações dos seus ficheiros de vídeo e áudio com o Video Indexer. Este artigo descreve as predefinições de analisadores de media v3 usadas para extrair esses insights. Se quiser informações mais detalhadas, utilize diretamente o Video Indexer. Para entender quando utilizar o Video Indexer vs. Media Services analise predefins, consulte o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
+Existem dois modos para a predefinição do Analisador de Áudio, básico e padrão. Consulte a descrição das diferenças na tabela abaixo.
+
 Para analisar o seu conteúdo utilizando predefinições de Serviços de Comunicação v3, cria uma **Transformação** e submete um **Job** que utiliza uma destas predefinições: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) ou **AudioAnalyzerPreset**. Para um tutorial que demonstre como utilizar **o VideoAnalyzerPreset,** consulte [vídeos da Análise com a Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Quando utilizar uma predefinição do Analisador de Vídeo ou Áudio, utilize o portal do Azure para definir a sua conta para ter 10 Unidades Reservadas de Multimédia S3. Para obter mais informações, veja [Dimensionar o processamento de multimédia](media-reserved-units-cli-how-to.md).
+> Quando utilizar predefinições de um Analisador de Vídeo ou Áudio, utilize o portal Azure para definir a sua conta para ter 10 Unidades Reservadas a Mídia S3, embora tal não seja necessário. Pode utilizar S1 ou S2 para pré-sintonias áudio. Para obter mais informações, veja [Dimensionar o processamento de multimédia](media-reserved-units-cli-how-to.md).
 
 ## <a name="compliance-privacy-and-security"></a>Conformidade, Privacidade e Segurança
 
@@ -42,17 +44,29 @@ Atualmente, os Serviços de Comunicação Social suportam as seguintes predefini
 
 |**Nome predefinido**|**Cenário**|**Detalhes**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise de Padrão áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo a transcrição da fala. Atualmente, a predefinição suporta o processamento de conteúdos com uma única faixa áudio que contém a fala numa única língua. Pode especificar o idioma para a carga áudio na entrada utilizando o formato BCP-47 de "região de identificação linguística". As línguas apoiadas são o inglês ('en-US' e 'en-GB'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt'-BR'), chineses ('zh-CN'), alemães ('de-DE'), árabe ('ar-EG' e 'ar-SY'), russo ('ru-RU'), Hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a deteção automática da linguagem escolhe o primeiro idioma detetado e continua com o idioma selecionado durante a duração do ficheiro. A funcionalidade de deteção automática de idiomas suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Não suporta a troca dinâmica entre línguas após a deteção da primeira língua. A funcionalidade de deteção automática de linguagem funciona melhor com gravações áudio com um discurso claramente percetível. Se a deteção automática de idiomas não encontrar o idioma, a transcrição volta ao inglês.|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise áudio Básico|"Este modo executa a transcrição de discurso-texto e geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo." A lista de línguas apoiadas está disponível aqui: https://go.microsoft.com/fwlink/?linkid=2109463|
-|[VídeoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análise de áudio e vídeo|Extrai insights (metadados ricos) tanto de áudio como de vídeo, e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações áudio ao processar um ficheiro de vídeo. Para mais informações, consulte [o vídeo da Análise.](analyze-videos-tutorial-with-api.md)|
-|[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Deteção de rostos presentes em vídeo|Descreve as definições a serem usadas ao analisar um vídeo para detetar todos os rostos presentes.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise de Padrão áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em IA, incluindo a transcrição da fala. Atualmente, a predefinição suporta o processamento de conteúdos com uma única faixa áudio que contém a fala numa única língua. Pode especificar o idioma para a carga áudio na entrada utilizando o formato BCP-47 de "região de identificação linguística". As línguas apoiadas são o inglês ('en-US' e 'en-GB'), espanhol ('es-ES' e 'es-MX'), francês ('fr-FR'), italiano ('it-IT'), japonês ('ja-JP'), português ('pt'-BR'), chineses ('zh-CN'), alemães ('de-DE'), árabe ('ar-EG' e 'ar-SY'), russo ('ru-RU'), Hindi ('hi-IN') e coreano ('ko-KR').<br/><br/> Se o idioma não for especificado ou definido como nulo, a deteção automática da linguagem escolhe o primeiro idioma detetado e continua com o idioma selecionado durante a duração do ficheiro. A funcionalidade de deteção automática de idiomas suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Não suporta a troca dinâmica entre línguas após a deteção da primeira língua. A funcionalidade de deteção automática de linguagem funciona melhor com gravações áudio com um discurso claramente percetível. Se a deteção automática de idiomas não encontrar o idioma, a transcrição volta ao inglês.|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise áudio Básico|Este modo executa a transcrição de discurso-a-texto e a geração de um ficheiro de legenda/legenda VTT. A saída deste modo inclui um ficheiro Insights JSON, incluindo apenas as palavras-chave, transcrição e informações de tempo. A deteção automática de idiomas e a diarização dos altifalantes não estão incluídas neste modo. A lista de línguas apoiadas está disponível [aqui](https://go.microsoft.com/fwlink/?linkid=2109463)|
+|[VídeoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise de áudio e vídeo|Extrai insights (metadados ricos) tanto de áudio como de vídeo, e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações áudio ao processar um ficheiro de vídeo. Para mais informações, consulte [o vídeo da Análise.](analyze-videos-tutorial-with-api.md)|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Deteção de rostos presentes em vídeo|Descreve as definições a serem usadas ao analisar um vídeo para detetar todos os rostos presentes.|
 
-### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+### <a name="audioanalyzerpreset-standard-mode"></a>Modo padrão AudioAnalyzerPreset
 
-A predefinição permite extrair várias informações áudio de um ficheiro áudio ou de vídeo. A saída inclui um ficheiro JSON (com todas as informações) e ficheiro VTT para a transcrição áudio. Esta predefinição aceita um imóvel que especifica o idioma do ficheiro de entrada sob a forma de uma cadeia [BCP47.](https://tools.ietf.org/html/bcp47) As informações áudio incluem:
+A predefinição permite extrair várias informações áudio de um ficheiro áudio ou de vídeo.
+
+A saída inclui um ficheiro JSON (com todas as informações) e ficheiro VTT para a transcrição áudio. Esta predefinição aceita um imóvel que especifica o idioma do ficheiro de entrada sob a forma de uma cadeia [BCP47.](https://tools.ietf.org/html/bcp47) As informações áudio incluem:
 
 * **Transcrição áudio**: Uma transcrição das palavras faladas com os tempos. Várias línguas são suportadas.
 * **Indexação do altifalante**: Um mapeamento dos altifalantes e as palavras faladas correspondentes.
 * **Análise do sentimento da**fala : A produção da análise de sentimento realizada na transcrição áudio.
+* **Palavras-chave**: Palavras-chave extraídas da transcrição áudio.
+
+### <a name="audioanalyzerpreset-basic-mode"></a>Modo básico AudioAnalyzerPreset
+
+A predefinição permite extrair várias informações áudio de um ficheiro áudio ou de vídeo.
+
+A saída inclui um ficheiro JSON e um ficheiro VTT para a transcrição áudio. Esta predefinição aceita um imóvel que especifica o idioma do ficheiro de entrada sob a forma de uma cadeia [BCP47.](https://tools.ietf.org/html/bcp47) A saída inclui:
+
+* **Transcrição áudio**: Uma transcrição das palavras faladas com os tempos. Vários idiomas são suportados, mas a deteção automática de linguagem e a diarização dos altifalantes não estão incluídas.
 * **Palavras-chave**: Palavras-chave extraídas da transcrição áudio.
 
 ### <a name="videoanalyzerpreset"></a>VídeoAnalyzerPreset

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275103"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519593"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida
 
@@ -31,7 +31,7 @@ Estas preocupações podem ser resolvidas através da configuração da sua liga
 
 ## <a name="using-managed-identities"></a>Utilização de identidades geridas
 
-[Identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade que fornece aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta funcionalidade na Azure Cognitive Search para criar um objeto de origem de dados com uma cadeia de ligação que não inclua quaisquer credenciais. Em vez disso, o seu serviço de pesquisa terá acesso à fonte de dados através do controlo de acesso baseado em funções (RBAC).
+[Identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) é uma funcionalidade que fornece aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta funcionalidade na Azure Cognitive Search para criar um objeto de origem de dados com uma cadeia de ligação que não inclua quaisquer credenciais. Em vez disso, o seu serviço de pesquisa terá acesso à fonte de dados através do controlo de acesso baseado em funções Azure (Azure RBAC).
 
 Ao configurar uma fonte de dados utilizando uma identidade gerida, pode alterar as suas credenciais de origem de dados e os seus indexantes ainda poderão ligar-se à fonte de dados. Também pode criar objetos de origem de dados no seu código sem ter de incluir uma chave de conta ou utilizar o Key Vault para recuperar uma chave de conta.
 

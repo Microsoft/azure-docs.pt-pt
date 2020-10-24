@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4579fa3c6dd1e34072a31747fda5113a5ac1be2a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333505"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517434"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler ZSCloud para fornecimento automático de utilizadores
 
 Neste tutorial, você aprenderá a configurar o Azure Ative Directory (Azure AD) para provisão automática de utilizadores e/ou grupos para Zscaler ZSCloud.
 
 > [!NOTE]
-> Este tutorial descreve um conector que é construído no serviço de fornecimento de utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz e como funciona, e respostas a perguntas frequentes, consulte [automatizar o fornecimento de utilizadores e desprovisionar as aplicações do SaaS com o Azure Ative Directory](../active-directory-saas-app-provisioning.md).
+> Este tutorial descreve um conector que é construído no serviço de fornecimento de utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz e como funciona, e respostas a perguntas frequentes, consulte [automatizar o fornecimento de utilizadores e desprovisionar as aplicações do SaaS com o Azure Ative Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -61,7 +61,7 @@ Na caixa de pesquisa, **insira zscaler ZSCloud**. Selecione **Zscaler ZSCloud** 
 
 Os utilizadores de AD Azure precisam de ter acesso a aplicações selecionadas antes de poderem usá-las. No contexto do fornecimento automático de utilizadores, apenas os utilizadores ou grupos que são atribuídos a uma aplicação em AZure AD são sincronizados.
 
-Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Zscaler ZSCloud. Depois de decidir isso, pode atribuir estes utilizadores e grupos ao Zscaler ZSCloud seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial.](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Antes de configurar e permitir o fornecimento automático do utilizador, deve decidir quais os utilizadores e/ou grupos em Azure AD que precisam de acesso ao Zscaler ZSCloud. Depois de decidir isso, pode atribuir estes utilizadores e grupos ao Zscaler ZSCloud seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial.](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-zscloud"></a>Dicas importantes para atribuir utilizadores ao Zscaler ZSCloud
 
@@ -130,7 +130,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da secção De mapeamentos de atributos com três mapeamentos exibidos.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
-14. Para configurar filtros de deteção, consulte as instruções no tutorial do [filtro de escotagem](./../active-directory-saas-scoping-filters.md).
+14. Para configurar filtros de deteção, consulte as instruções no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Para ativar o serviço de provisionamento Azure AD para zscaler ZSCloud, altere o **Estado de Provisionamento** para **On** na secção **Definições:**
 
@@ -146,7 +146,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais do que as sincronizações subsequentes, que ocorrem a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode monitorizar o progresso na secção Detalhes da **Sincronização.** Também pode seguir links para um relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD AZure no Zscaler ZSCloud.
 
-Para obter informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../active-directory-saas-provisioning-reporting.md).
+Para obter informações sobre como ler os registos de provisionamento da AZure AD, consulte [Reportar sobre o provisionamento automático da conta de utilizador](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -155,7 +155,7 @@ Para obter informações sobre como ler os registos de provisionamento da AZure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-zscloud-provisioning-tutorial/tutorial-general-01.png

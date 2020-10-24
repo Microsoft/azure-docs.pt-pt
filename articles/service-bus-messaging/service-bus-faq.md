@@ -3,12 +3,12 @@ title: Azure Service Bus frequentemente fez perguntas (FAQ) Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre a Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894523"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518760"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
@@ -83,7 +83,7 @@ Se utilizar a **redundância** da zona para o seu espaço de nome, tem de fazer 
     > O endereço IP devolvido pelo `nslookup` comando não é um endereço IP estático. No entanto, permanece constante até que a implementação subjacente seja eliminada ou transferida para um cluster diferente.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Onde posso encontrar o endereço IP do cliente enviando/recebendo mensagens de/para um espaço de nome? 
-Não registamos os endereços IP dos clientes que enviam ou recebem mensagens de/para o seu espaço de nome. Regenerar as chaves para que todos os clientes existentes não autentiquem e revejam as definições de controlo de acesso baseado em funções[(RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)para garantir que apenas os utilizadores ou aplicações autorizados tenham acesso ao espaço de nome. 
+Não registamos os endereços IP dos clientes que enviam ou recebem mensagens de/para o seu espaço de nome. Regenerar as chaves para que todos os clientes existentes não autentiquem e revejam as definições [de controlo de acesso baseado em funções (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)para garantir que apenas os utilizadores ou aplicações autorizados tenham acesso ao espaço de nome. 
 
 Se estiver a utilizar um espaço de nome **premium,** utilize [a filtragem IP,](service-bus-ip-filtering.md) [os pontos finais do serviço de rede virtual](service-bus-service-endpoints.md)e os [pontos finais privados](private-link-service.md) para limitar o acesso ao espaço de nomes. 
 
@@ -113,7 +113,7 @@ Para obter informações completas sobre os preços do Service Bus, consulte [os
 Qualquer transferência de dados dentro de uma determinada região de Azure é fornecida gratuitamente, bem como qualquer transferência de dados de entrada. A transferência de dados para fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui.](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Service Bus cobra pelo armazenamento?
-N.º A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
+Não. A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um espaço de nomes padrão de autocarro de serviço. Por que vejo acusações no âmbito do grupo de recursos "$system"?
 A Azure Service Bus atualizou recentemente os componentes de faturação. Devido a esta alteração, se tiver um espaço de nomes Service Bus Standard, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.

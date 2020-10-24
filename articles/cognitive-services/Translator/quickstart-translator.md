@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318845"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517043"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -2441,12 +2441,18 @@ Depois de uma chamada bem sucedida, deverá ver a seguinte resposta. Para obter 
 ]
 ```
 
+## <a name="troubleshooting"></a>Resolução de problemas
+
+### <a name="java-users"></a>Utilizadores de Java
+
+Se estiver a encontrar problemas de ligação, pode ser que o seu certificado SSL tenha expirado. Para resolver este problema, instale o [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) na sua loja privada. 
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como a API conta caracteres](character-counts.md)
 * [Personalizar e melhorar a tradução](customization.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Referência API tradutor v3](reference/v3-0-reference.md)
 * [Suporte de idiomas](language-support.md)

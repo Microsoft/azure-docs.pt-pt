@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597671"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521293"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen2
 
@@ -38,7 +38,7 @@ Inscreva-se para uma [subscrição gratuita do Azure](https://azure.microsoft.co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* No mínimo, deve ter o **papel de Contribuinte** para a subscrição do Azure. Para obter mais informações, leia [Gerir o acesso utilizando o controlo de acesso baseado em funções e o portal Azure.](../role-based-access-control/role-assignments-portal.md)
+* No mínimo, deve ter o **papel de Contribuinte** para a subscrição do Azure. Para obter mais informações, leia [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Criar uma simulação de dispositivos
 
@@ -53,7 +53,7 @@ Nesta secção, irá criar três dispositivos simulados que enviam dados para um
    Parâmetro|Descrição
    ---|---
    **Nome de implantação** | Este valor único é usado para criar um novo grupo de recursos. Os recursos do Azure listados são criados e atribuídos ao grupo de recursos.
-   **Assinatura Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights Gen2 na secção anterior.
+   **Subscrição do Azure** | Especifique a mesma subscrição que foi usada para criar o seu ambiente Azure Time Series Insights Gen2 na secção anterior.
    **Opções de implementação** | Selecione **Provision novo IoT Hub** para criar um novo hub IoT específico para este tutorial.
    **Local azul** | Especifique a mesma região que foi usada para criar o seu ambiente Azure Time Series Insights Gen2 na secção anterior.
 
@@ -91,8 +91,8 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
     | **Grupo de recursos** | Selecione um grupo de recursos existente ou crie um novo grupo de recursos para o recurso ambiente Azure Time Series Insights Gen2. Um grupo de recursos é um contentor de recursos do Azure. Uma boa prática é utilizar o mesmo grupo de recursos que os outros recursos IoT que são criados pelo simulador do dispositivo. |
     | **Localização** | Selecione uma região de data center para o seu ambiente Azure Time Series Insights Gen2. Para evitar latência adicional, o melhor é criar o seu ambiente Azure Time Series Insights Gen2 na mesma região que o seu hub IoT criado pelo simulador de dispositivos. |
     | **Escalão de serviço** |  Selecione **Gen2(L1)**. Este é o SKU para o produto Azure Time Series Insights Gen2. |
-    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial, insira ***id id id id id id id iothub-connection-connection-device***. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./time-series-insights-update-how-to-id.md). |
-    | **Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
+    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial,*_insira * iothub-connection-device-id_*_. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./time-series-insights-update-how-to-id.md). |
+    | _*Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
     | **Tipo de conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Recomendamos armazenamentoV2|
     | **Replicação da conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Com base na sua seleção de localização, pode escolher entre LRS, GRS e ZRS. Para este tutorial, pode selecionar LRS|
     | **Espaço hierárquico de nomes** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
@@ -287,7 +287,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         | Parâmetro | Ação |
         | --- | --- |
         | **Hierarquias** | Selecione **hierarquia de localização** |
-        | **País** | Entrar **nos EUA** |
+        | **Country** | Entrar **nos EUA** |
         | **City** | Entrar em **Seattle** |
         | **Edifício** | Entrar **na agulha do espaço** |
 
@@ -303,7 +303,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Nome** | Entrar **elevador 2**|
     | **Descrição** | **Insira a instância para o elevador 2** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
-    | **País** | Entrar **nos EUA** |
+    | **Country** | Entrar **nos EUA** |
     | **City** | Entrar em **Seattle** |
     | **Edifício** | Insira **o Centro de Ciência do Pacífico** |
 
@@ -315,7 +315,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Nome** | Entrar **elevador 3**|
     | **Descrição** | **Insira a instância para o elevador 3** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
-    | **País** | Entrar **nos EUA** |
+    | **Country** | Entrar **nos EUA** |
     | **City** | Entra em **Nova Iorque** |
     | **Edifício** | Entrar no **Empire State Building** |
 
