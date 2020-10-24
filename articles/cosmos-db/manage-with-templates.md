@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 02e9fbbe98458e4f9ba39e971b2c5fe50fd8fa4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 380cd174e1e71ed4bd63e168503ced7888b5b34f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482388"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Gerir recursos da API de Núcleo (SQL) do Azure Cosmos DB com modelos de Azure Resource Manager
 
@@ -82,7 +82,7 @@ Este modelo cria uma conta Azure Cosmos de nível livre e uma base de dados com 
 
 Seguem-se alguns recursos adicionais:
 
-* [Documentação do Azure Resource Manager](/azure/azure-resource-manager/)
+* [Documentação do Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Esquema de fornecedor de recursos Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
 * [Modelos de arranque rápido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [Resolução de problemas erros comuns de implementação do Gestor de Recursos Azure](../azure-resource-manager/templates/common-deployment-errors.md)

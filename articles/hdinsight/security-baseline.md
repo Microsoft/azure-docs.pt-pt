@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327710"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484615"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança Azure para HDInsight
 
@@ -146,9 +146,7 @@ Também pode usar plantas Azure para simplificar as implementações de Azure em
 
 Como visualizar pseudónimos disponíveis da Política Azure:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Como configurar e gerir a Política de Azure:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Como configurar e gerir a Política de Azure:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ Além disso, pode utilizar recomendações de Gestão de Identidade e Acesso do 
 
 Como obter um papel de diretório em Azure AD com PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Como obter membros de um papel de diretório em Azure AD com PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Como monitorizar a identidade e o acesso com o Azure Security Center:
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Como ver as suas Subscrições Azure:
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Compreenda Azure RBAC:
 
@@ -942,7 +940,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 Como visualizar pseudónimos disponíveis da Política Azure:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Como configurar e gerir a Política de Azure:
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure, utilize Azure DevOps ou Azure Repos para armazenar e gerir o seu código de forma segura.
 
-Como armazenar código em Azure DevOps:
+[Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Documentação Azure Repos:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Documentação de Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.HDInsight" para criar políticas personalizadas para auditar ou impor a configuração do seu cluster HDInsight.
 
-Como visualizar pseudónimos disponíveis da Política Azure:
+[Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Como configurar e gerir a Política de Azure:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Como apoiar as chaves do Cofre chave em Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Como restaurar as chaves do cofre chave em Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 

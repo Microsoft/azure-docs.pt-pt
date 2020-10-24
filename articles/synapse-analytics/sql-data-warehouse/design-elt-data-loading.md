@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075030"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476098"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para conjuntos Synapse SQL
 
-As piscinas SMP SQL tradicionais utilizam um processo de extração, transformação e carga (ETL) para os dados de carregamento. A piscina Sinaapse SQL, dentro da Azure Synapse Analytics, possui uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento.
+As piscinas SMP SQL tradicionais utilizam um processo de extração, transformação e carga (ETL) para os dados de carregamento. A Synapse SQL, dentro da Azure Synapse Analytics, utiliza arquitetura de processamento de consultas distribuídas que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento.
 
-A utilização de um processo de Extração, Carga e Transformação (ELT) alavanca o MPP e elimina os recursos necessários para a transformação de dados antes do carregamento.
+Utilizando um processo de Extração, Carga e Transformação (ELT) alavanca as capacidades de processamento de consultas distribuídas incorporadas e elimina os recursos necessários para a transformação de dados antes do carregamento.
 
 Enquanto o pool SQL suporta muitos métodos de carregamento, incluindo opções populares do SQL Server, como o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e a [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)a forma mais rápida e escalável de carregar dados é através de tabelas externas da PolyBase e da [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -107,7 +107,7 @@ Utilize o seguinte mapeamento do tipo de dados SQL ao carregar ficheiros Parquet
 |                            INT32                             |            INT(8, falso)            |     tinyint      |
 |                            INT32                             |            INT(16, falso)             |       int        |
 |                            INT32                             |           INT(32, falso)            |      bigint      |
-|                            INT32                             |                 DATE                  |       data       |
+|                            INT32                             |                 DATE                  |       date       |
 |                            INT32                             |                DECIMAL                |     decimal      |
 |                            INT32                             |            TEMPO (MILLIS)             |       hora       |
 |                            INT64                             |            INT(64, verdade)            |      bigint      |

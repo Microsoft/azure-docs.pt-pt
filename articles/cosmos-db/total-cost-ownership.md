@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569495"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476999"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Custo Total de Propriedade (TCO) com Azure Cosmos DB
 
@@ -40,7 +40,7 @@ O modelo de provisionamento sem servidor da Azure Cosmos DB elimina a necessidad
 
 * **Paga-se à hora:** Para cargas de trabalho em larga escala, que precisam de escalar a qualquer momento, você só é cobrado por hora. As cargas de trabalho numa aplicação variam tipicamente em todas as épocas do ano, e pelos dados que são consultados. Com a Azure Cosmos DB, pode escalar para cima ou para baixo como precisar e pagar apenas pelo que precisa. Com sistemas no local ou hospedados em IaaS, não é possível comparar este modelo, porque não há uma maneira de desativar o hardware a cada hora. Nesses casos, pode potencialmente economizar entre 10 a 14 vezes, em média, com Azure Cosmos DB.
 
-* **Você obtém inúmeras funcionalidades gratuitamente:** Em Azure Cosmos DB, as cargas de trabalho de escrita são substancialmente mais baratas em comparação com serviços de base de dados alternativos. Além disso, a Azure Cosmos DB oferece funcionalidades como [indexação automática,](indexing-policies.md) [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) e outras sem quaisquer encargos adicionais, algo que outros serviços de base de dados normalmente cobram.
+* **Você obtém inúmeras funcionalidades gratuitamente:** Em Azure Cosmos DB, as cargas de trabalho de escrita são substancialmente mais baratas em comparação com serviços de base de dados alternativos. Além disso, a Azure Cosmos DB oferece funcionalidades como [indexação automática,](index-policy.md) [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) e outras sem quaisquer encargos adicionais, algo que outros serviços de base de dados normalmente cobram.
 
 * **Utiliza moeda unificada para diversas cargas de trabalho:** Ao contrário de ofertas alternativas, em Azure Cosmos DB, não é necessário segmentar cargas de trabalho, por exemplo, em leituras e escritas. Ou provisão de produção em um tipo de carga de trabalho que é lido através da produção vs. escrever produção. Em Azure Cosmos DB, a produção aprovisionada é reservada utilizando uma moeda unificada e normalizada em termos de Unidades de Pedido ou RU/sec. A azure Cosmos DB não o obriga a atribuir prioridade às suas cargas de trabalho, realizar planeamento de capacidade ou pagar por cada tipo de capacidade separadamente. Esta abordagem permite-lhe facilmente trocar os mesmos RU/s entre várias operações e tipos de carga de trabalho.
 
@@ -63,6 +63,6 @@ O modelo de provisionamento sem servidor da Azure Cosmos DB elimina a necessidad
 * Saiba mais sobre [otimizar o custo de produção](optimize-cost-throughput.md)
 * Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [otimizar o custo das leituras e dos escritos](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo das consultas](optimize-cost-queries.md)
+* Saiba mais sobre [otimizar o custo das consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [otimizar o custo das contas cosmos multi-regiões](optimize-cost-regions.md)
 * Saiba mais sobre [o custo total de (não) propriedade de um Serviço de Nuvem de Base de Dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

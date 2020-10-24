@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10e3f420a187d67e19392dd3647692b54a817fa5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090306"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475864"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>QuickStart: Construa uma app Xamarin.Forms com API da .NET SDK e Azure Cosmos DB para a MongoDB
 
@@ -184,7 +184,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 2. Clique em **Restaurar todos os pacotes NuGet**.
 3. Clique com o botão direito do rato em **TaskList.Android** e selecione **Definir como projeto de arranque**.
 4. Prima F5 para iniciar a depuração da aplicação.
-5. Se quiser executar em iOS, primeiro o seu computador tem de estar ligado a um Mac (eis as [instruções](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazê-lo).
+5. Se quiser executar em iOS, primeiro o seu computador tem de estar ligado a um Mac (eis as [instruções](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre como fazê-lo).
 6. Clique com o botão direito do rato no projeto **TaskList.iOS** e selecione **Definir como projeto de arranque**.
 7. Clique em F5 para iniciar a depuração da aplicação.
 
@@ -197,7 +197,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
@@ -206,4 +206,4 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Xamarin.Forms com a API do MongoDB. Agora, pode importar dados adicionais à sua conta do Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Dados de importação para Azure Cosmos DB configurados com API da Azure Cosmos DB para a MongoDB](mongodb-migrate.md)
+> [Dados de importação para Azure Cosmos DB configurados com API da Azure Cosmos DB para a MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

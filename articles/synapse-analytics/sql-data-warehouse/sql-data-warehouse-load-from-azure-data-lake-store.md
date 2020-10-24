@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73d19df546f2ff0e9e9180c94567bd334b44bedd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533942"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482813"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Carregar dados do Azure Data Lake Storage para Synapse SQL
 
@@ -84,7 +84,7 @@ FROM 'https://storageaccount.blob.core.windows.net/container/directory/'
 WITH 
 (
    --CREDENTIAL: Specifies the authentication method and credential access your storage account
-   CREDENTIAL (IDENTITY = '', SECRET = '')
+   CREDENTIAL = (IDENTITY = '', SECRET = ''),
    --FILE_TYPE: Specifies the file type in your storage account location
    FILE_TYPE = 'CSV',
    --FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text (CSV) file

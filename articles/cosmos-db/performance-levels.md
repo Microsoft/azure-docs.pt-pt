@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: da74fde761d32802966d1f477beaf6138c77020e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281042"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475401"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retiring the S1, S2, and S3 performance levels (Os níveis de desempenho S1, S2 e S3 vão ser preteridos)
 
@@ -116,12 +116,12 @@ Aqui está um código para alterar a produção para 5.000 unidades de pedido po
     await client.ReplaceOfferAsync(offer);
 ```
 
-Visite a [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) para ver exemplos adicionais e saiba mais sobre os nossos métodos de oferta:
+Visite a [MSDN](/dotnet/api/microsoft.azure.documents.client.documentclient) para ver exemplos adicionais e saiba mais sobre os nossos métodos de oferta:
 
-* [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
-* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
-* [**SubstituirOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-* [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+* [**ReadOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
+* [**ReadOffersFeedAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
+* [**SubstituirOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
+* [**CreateOfferQuery**](/previous-versions/azure/dn975114(v=azure.100))
 
 <a name="ea-customer"></a>
 

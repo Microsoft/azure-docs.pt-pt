@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f0d28a71e2bd6fc2006bda81fba7d7e6336c5b1c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460840"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495961"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -168,24 +168,26 @@ No painel *publicar* que se abre de volta na janela principal do Estúdio Visual
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
 
-Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema e dar a esta identidade o papel *de Azure Digital Twins Owner (Preview)* no caso Azure Digital Twins. Esta função é necessária para qualquer utilizador ou função que pretenda realizar muitas atividades de data plane no caso. Pode ler mais sobre segurança e atribuições de papéis em [*Soluções Concepts: Security for Azure Digital Twins.*](concepts-security.md)
+Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema, e dar a esta identidade o papel *de Proprietário de Dados Azure Digital Twins* na instância Azure Digital Twins. Esta função é necessária para qualquer utilizador ou função que pretenda realizar muitas atividades de data plane no caso. Pode ler mais sobre segurança e atribuições de papéis em [*Soluções Concepts: Security for Azure Digital Twins.*](concepts-security.md)
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância Azure Digital Twins.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome nota do campo *principalid* na saída.
 
-```azurecli
+```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Utilize o valor *principal* da saída no seguinte comando, para atribuir a identidade da aplicação de função à função *Azure Digital Twins Owner (Preview)* para a sua instância Azure Digital Twins:
+Utilize o valor *principal* da saída no seguinte comando, para atribuir a identidade da aplicação de função à função *Azure Digital Twins Data Owner* para a sua instância Azure Digital Twins:
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 
 O resultado deste comando é informação sobre a função que criou. A aplicação de função tem agora permissões para aceder à sua instância Azure Digital Twins.
@@ -213,7 +215,7 @@ A Azure Digital Twins foi concebida para trabalhar ao lado [do IoT Hub,](../iot-
 
 Em Azure Cloud Shell, use este comando para criar um novo hub IoT:
 
-```azurecli
+```azurecli-interactive
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -252,7 +254,7 @@ Esta secção cria uma representação do dispositivo no IoT Hub com o *termóst
 
 Em Azure Cloud Shell, crie um dispositivo no IoT Hub com o seguinte comando:
 
-```azurecli
+```azurecli-interactive
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -264,13 +266,13 @@ Em seguida, configuure o simulador do dispositivo para enviar dados para a sua i
 
 Comece por obter a *cadeia de ligação do hub IoT* com este comando:
 
-```azurecli
+```azurecli-interactive
 az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Em seguida, obtenha a *cadeia de ligação* do dispositivo com este comando:
 
-```azurecli
+```azurecli-interactive
 az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
@@ -340,13 +342,13 @@ Nesta secção, cria-se um tópico de grelha de eventos e, em seguida, cria-se u
 
 Em Azure Cloud Shell, executar o seguinte comando para criar um tópico de grelha de evento:
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
 > [!TIP]
 > Para obter uma lista de nomes da região de Azure que podem ser passados em comandos no CLI Azure, executar este comando:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
@@ -354,7 +356,7 @@ A saída deste comando é informação sobre o tópico da grelha de eventos que 
 
 Em seguida, crie um ponto final Azure Digital Twins apontando para o tópico da grelha do evento. Utilize o comando abaixo, preenchendo os campos reservados, se necessário:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
 ```
 
@@ -362,7 +364,7 @@ A saída deste comando é informação sobre o ponto final que criaste.
 
 Também pode verificar se a criação de ponto final foi bem sucedida executando o seguinte comando para consultar a sua instância Azure Digital Twins para este ponto final:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
@@ -376,9 +378,7 @@ Guarde os nomes que deu ao tema da grelha de eventos e ao seu ponto final Azure 
 
 Em seguida, crie uma rota Azure Digital Twins que envia eventos para o ponto final das Gémeas Digitais Azure que acabaste de criar.
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
-```azurecli
+```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
@@ -451,7 +451,7 @@ Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

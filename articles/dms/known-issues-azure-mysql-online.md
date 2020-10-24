@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893752"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494441"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Questões de migração online & limitações ao Azure DB para o MySQL com o Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Questões e limitações conhecidas associadas às migrações on-line do MySQL 
 - Azure Database for MySQL suporta:
   - Edição comunitária MySQL
   - Motor InnoDB
-- Migração da mesma versão. A migração do MySQL 5.6 para a Base de Dados Azure para o MySQL 5.7 não é suportada.
+- Migração da mesma versão. A migração do MySQL 5.6 para a Base de Dados Azure para o MySQL 5.7 não é suportada. As migrações de ou para o MySQL 8.0 não são suportadas.
 - Ative o registo binário em my.ini (Windows) ou my.cnf (Unix)
   - Coloque Server_id em qualquer número maior ou igual a 1, por exemplo, Server_id=1 (apenas para o MySQL 5.6)
   - Definir log-bin = \<path> (apenas para MySQL 5.6)

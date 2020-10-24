@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047e2855949b800a88ca87bcc50e0df06f420aa8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570176"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475503"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
@@ -58,5 +58,4 @@ Em seguida, pode proceder para saber mais sobre a otimização de custos na Azur
 * Saiba mais sobre [otimizar o custo de produção](optimize-cost-throughput.md)
 * Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [otimizar o custo das leituras e dos escritos](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo das consultas](optimize-cost-queries.md)
-
+* Saiba mais sobre [otimizar o custo das consultas](./optimize-cost-reads-writes.md)

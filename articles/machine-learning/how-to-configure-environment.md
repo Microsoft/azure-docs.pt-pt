@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203097"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495233"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Criar um ambiente de desenvolvimento para a Azure Machine Learning
 
@@ -139,10 +139,10 @@ Não há nada para instalar ou configurar para um caso de computação.
 
 Crie um a qualquer momento a partir do seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo Azure VM. Experimente agora com este [Tutorial: Ambiente de configuração e espaço de trabalho.](tutorial-1st-experiment-sdk-setup.md)
 
-Para saber mais sobre casos de computação, incluindo como instalar pacotes, consulte [instâncias computacionais](concept-compute-instance.md).
+Para saber mais sobre casos de computação, incluindo como instalar pacotes, consulte [Criar e gerir um caso de cálculo de Aprendizagem automática Azure](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> Para evitar que as acusações incorram por uma instância de computação não sustentável, [pare a instância de computação](tutorial-1st-experiment-bring-data.md#clean-up-resources).
+> Para evitar que as acusações incorram por uma instância de computação não sustentável, [pare a instância de computação](how-to-create-manage-compute-instance.md#manage).
 
 Além de um servidor Jupyter Notebook e JupyterLab, você pode usar instâncias computatadas na [funcionalidade de caderno integrado dentro do estúdio Azure Machine Learning](how-to-run-jupyter-notebooks.md).
 

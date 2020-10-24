@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4aaf4f059976635f32c1a4e6b7130f8835598f98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f69c0460fe3e2d2570f79e842963f75bab792d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552140"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutorial: Integração do Diretório Ativo Azure com TAS
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com TAS, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Informações únicas de súmis e URLs do domínio TAS e URLs](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://taseu.combtas.com/<DOMAIN>`
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD com TAS, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Informações únicas de súmis e URLs do domínio TAS e URLs](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://taseu.combtas.com/<DOMAIN>`
 
@@ -134,11 +134,11 @@ Para configurar o Azure AD com TAS, execute os seguintes passos:
 
 2. No lado esquerdo do menu, clique em **Definições** e navegue para **Administrador** e, em seguida, clique em **Gerir o sinal único .**
 
-    ![Configuração TAS](./media/tas-tutorial/configure01.png)
+    ![A screenshot mostra gerir um único sinal selecionado.](./media/tas-tutorial/configure01.png)
 
 3. No **sinal 'Gerir único' na** página, execute os seguintes passos:
 
-    ![Configuração TAS](./media/tas-tutorial/configure02.png)
+    ![A screenshot mostra o sinal 'Gerir único' na página onde pode introduzir os valores descritos.](./media/tas-tutorial/configure02.png)
 
     a. Na caixa de texto **'Nome',** digite o nome do ambiente.
     

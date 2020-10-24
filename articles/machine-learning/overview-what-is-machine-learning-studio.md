@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667440"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495991"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
@@ -30,7 +30,7 @@ Neste artigo aprende-se:
 
 O estúdio oferece múltiplas experiências de autoria dependendo do projeto tipo e do nível de experiência do utilizador.
 
-+ **Blocos de Notas**
++ **Notebooks**
 
   Escreva e execute o seu próprio código em [servidores jupyter notebook geridos](how-to-run-jupyter-notebooks.md) que estão diretamente integrados no estúdio. 
 
@@ -98,7 +98,9 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 ## <a name="next-steps"></a>Passos seguintes
 
 Visite o [estúdio,](https://ml.azure.com)ou explore as diferentes opções de autoria com estes tutoriais:  
-  + [Use cadernos Python para treinar & implementar modelos](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Começar no seu próprio ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use cadernos Jupyter em uma instância de computação para treinar & implementar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Utilize machine learning automatizado para treinar & implementar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Use o designer para treinar & implementar modelos](tutorial-designer-automobile-price-train-score.md)
 

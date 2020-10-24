@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707936"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485448"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade em Base de Dados Azure para PostgreSQL – Servidor Único
 O serviço Azure Database for PostgreSQL – Single Server proporciona um elevado nível de disponibilidade garantido com o contrato de nível de serviço (SLA) apoiado financeiramente de [99,99% de tempo de 99,99%.](https://azure.microsoft.com/support/legal/sla/postgresql) A Azure Database for PostgreSQL fornece alta disponibilidade durante eventos planeados, como operação de computação em escala initada pelo utilizador, e também quando ocorrem eventos não planeados, tais como hardware, software ou falhas de rede subjacentes. A Azure Database for PostgreSQL pode recuperar rapidamente da maioria das circunstâncias críticas, garantindo praticamente nenhum tempo de inação de aplicação ao utilizar este serviço.
@@ -40,8 +40,8 @@ Aqui estão alguns cenários de manutenção planeados:
 | ------------ | ----------- |
 | <b>Escala de cálculo para cima/para baixo | Quando o utilizador executa a operação de escala de cálculo para cima/para baixo, um novo servidor de base de dados é a provisionado utilizando a configuração de computação em escala. No antigo servidor de bases de dados, os pontos de verificação ativos são autorizados a completar, as ligações do cliente são drenadas, quaisquer transações não comprometidas são canceladas e, em seguida, é desligado. O armazenamento é então desligado do antigo servidor de base de dados e anexado ao novo servidor de base de dados. Quando a aplicação do cliente retrição a ligação, ou tenta fazer uma nova ligação, o Gateway direciona o pedido de ligação para o novo servidor de base de dados.|
 | <b>Armazenamento de escalonamento | O escalonamento do armazenamento é uma operação online e não interrompe o servidor de base de dados.|
-| <b>Nova implementação de software (Azure) | As novas funcionalidades de lançamento ou correções de bugs acontecem automaticamente como parte da manutenção planeada do serviço. Para mais informações, consulte a [documentação,](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
-| <b>Upgrades de versão menores | A Azure Database for PostgreSQL remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Isto incorreria num curto período de inatividade em termos de segundos, e o servidor de base de dados é automaticamente reiniciado com a nova versão menor. Para mais informações, consulte a [documentação,](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
+| <b>Nova implementação de software (Azure) | As novas funcionalidades de lançamento ou correções de bugs acontecem automaticamente como parte da manutenção planeada do serviço. Para mais informações, consulte a [documentação,](./concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
+| <b>Upgrades de versão menores | A Azure Database for PostgreSQL remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Isto incorreria num curto período de inatividade em termos de segundos, e o servidor de base de dados é automaticamente reiniciado com a nova versão menor. Para mais informações, consulte a [documentação,](./concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Mitigação não planeada do tempo de inatividade
@@ -68,8 +68,8 @@ Eis alguns cenários de falha que exigem que a ação do utilizador recupere:
 
 | **Cenário** | **Plano de recuperação** |
 | ---------- | ---------- |
-| <b> Falha na região | O fracasso de uma região é um acontecimento raro. No entanto, se precisar de proteção contra uma falha da região, pode configurar uma ou mais réplicas lidas noutras regiões para a recuperação de desastres (DR). (Consulte [este artigo](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) sobre a criação e gestão de réplicas de leitura para mais detalhes). Em caso de falha a nível da região, pode promover manualmente a réplica de leitura configurada na outra região para ser o seu servidor de base de dados de produção. |
-| <b> Erros lógicos/de utilizador | A recuperação de erros do utilizador, tais como tabelas acidentalmente largadas ou dados incorretamente atualizados, envolve a realização de uma [recuperação pontual](https://docs.microsoft.com/azure/postgresql/concepts-backup) (PITR), restaurando e recuperando os dados até ao momento antes do erro ter ocorrido.<br> <br>  Se pretender restaurar apenas um subconjunto de bases de dados ou tabelas específicas em vez de todas as bases de dados no servidor de bases de dados, pode restaurar o servidor de base de dados num novo caso, exportar a tabela(s) através [de pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), e depois utilizar [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) para restaurar essas tabelas na sua base de dados. |
+| <b> Falha na região | O fracasso de uma região é um acontecimento raro. No entanto, se precisar de proteção contra uma falha da região, pode configurar uma ou mais réplicas lidas noutras regiões para a recuperação de desastres (DR). (Consulte [este artigo](./howto-read-replicas-portal.md) sobre a criação e gestão de réplicas de leitura para mais detalhes). Em caso de falha a nível da região, pode promover manualmente a réplica de leitura configurada na outra região para ser o seu servidor de base de dados de produção. |
+| <b> Erros lógicos/de utilizador | A recuperação de erros do utilizador, tais como tabelas acidentalmente largadas ou dados incorretamente atualizados, envolve a realização de uma [recuperação pontual](./concepts-backup.md) (PITR), restaurando e recuperando os dados até ao momento antes do erro ter ocorrido.<br> <br>  Se pretender restaurar apenas um subconjunto de bases de dados ou tabelas específicas em vez de todas as bases de dados no servidor de bases de dados, pode restaurar o servidor de base de dados num novo caso, exportar a tabela(s) através [de pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), e depois utilizar [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) para restaurar essas tabelas na sua base de dados. |
 
 
 

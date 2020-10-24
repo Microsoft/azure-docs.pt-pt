@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 97f6817a02b7adf4d2d3e12dee6d1e3445e09a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88053f2c7b1218a15315f2c616231d9356b65540
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552215"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Tutorial: Integração do Diretório Ativo Azure com o Stormboard
 
@@ -102,13 +102,13 @@ Para configurar o Azure AD com stormboard, execute os seguintes passos:
 
 4. Na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute o seguinte passo:
 
-    ![Stormboard Domain e URLs informações únicas de sinalização](common/both-replyurl.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir uma Resposta U R L e selecionar Save.](common/both-replyurl.png)
 
     Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.stormboard.com/saml2/ad/acs/<TEAMID>`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Stormboard Domain e URLs informações únicas de sinalização](common/both-signonurl.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both-signonurl.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<SUBDOMAIN>.stormboard.com/saml2/ad/login/<TEAMID>`
 

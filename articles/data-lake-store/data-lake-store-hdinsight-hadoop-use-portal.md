@@ -6,17 +6,17 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 420efd653ef6218b5a1d5a8c70ca268b7185fc30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 41ba9d9e66fa1d7f622550bde68951573af4bb96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103548"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484989"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters HDInsight com Azure Data Lake Storage Gen1 utilizando o portal Azure
 
 > [!div class="op_single_selector"]
-> * [Use o portal Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Utilizar o portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Utilize o PowerShell (para armazenamento predefinido)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Utilize o PowerShell (para armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Use Gestor de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -85,18 +85,11 @@ Nesta secção, configura o acesso da Data Lake Storage Gen1 a partir de cluster
 A partir do portal Azure, você pode usar um principal de serviço existente ou criar um novo.
 
 Para criar um diretor de serviço a partir do portal Azure:
-
-1. Selecione **data lake store acesso** a partir da lâmina de armazenamento.
-1. Na lâmina de **acesso Gen1 de armazenamento de data lake,** selecione **Criar novos**.
-1. Selecione **o diretor de serviço**e, em seguida, siga as instruções para criar um principal de serviço.
-1. Faça o download do certificado se decidir usá-lo novamente no futuro. O download do certificado é útil se pretender utilizar o mesmo principal serviço quando criar clusters HDInsight adicionais.
-
-    ![Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png)
-
-1. Selecione **Acesso** à configuração do acesso à pasta.  Consulte [permissões de ficheiros configurantes](#configure-file-permissions).
+1. Consulte [Criar O Título de Serviço e Certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) utilizando o Diretório Ativo Azure.
 
 Para utilizar um principal de serviço existente a partir do portal Azure:
 
+1. O diretor de serviço deve ter permissões do proprietário na conta de Armazenamento. Consulte [as permissões de configuração para que o Diretor de Serviço seja proprietário na conta de armazenamento.](#configure-serviceprincipal-permissions)
 1. Selecione **data lake store acesso**.
 1. Na lâmina de **acesso Gen1 de armazenamento de data lake,** selecione **Utilize a lâmina existente**.
 1. Selecione **o diretor de serviço**e, em seguida, selecione um principal de serviço.
@@ -105,6 +98,10 @@ Para utilizar um principal de serviço existente a partir do portal Azure:
 [Adicione o principal do serviço ao cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Selecione **Acesso** à configuração do acesso à pasta.  Consulte [permissões de ficheiros configurantes](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Configurar permissões para que o Diretor de Serviço seja proprietário na conta de armazenamento
+1. Na folha de armazenamento do Controlo de Acesso (IAM) clique em Adicionar uma atribuição de função. 
+2. No Add a role assignment blade select Role as 'owner', e selecione o SPN e clique em guardar.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configure permissões de ficheiros
 

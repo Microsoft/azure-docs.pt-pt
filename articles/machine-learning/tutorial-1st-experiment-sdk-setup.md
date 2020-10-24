@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e9fd3b3d2d5bceb766651c2758f956b9ef105e0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841863"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494959"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Começa com a Azure Machine Learning em Cadernos Jupyter
 
@@ -34,6 +34,8 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implementar modelos de machine learning. Liga a sua subscrição e grupo de recursos Azure a um objeto facilmente consumido no serviço.
 
+Salte para [Clonar uma pasta de portátil](#clone) se já tiver um espaço de trabalho de Aprendizagem automática Azure.  
+
 Cria um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
@@ -49,7 +51,7 @@ O Azure Machine Learning inclui um servidor de cadernos em nuvem no seu espaço 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Clone uma pasta de caderno
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Clone uma pasta de caderno
 
 Você completa a seguinte configuração de experiências e executar passos no estúdio Azure Machine Learning. Esta interface consolidada inclui ferramentas de machine learning para realizar cenários de ciência de dados para os praticantes de ciência de dados de todos os níveis de habilidade.
 

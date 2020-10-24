@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280991"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476370"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Constrangimentos fundamentais únicos no Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Só pode definir chaves únicas quando criar um recipiente Azure Cosmos. Uma cha
 
 * Não é possível atualizar um recipiente existente para utilizar uma chave única diferente. Por outras palavras, depois de um recipiente ser criado com uma política chave única, a política não pode ser alterada.
 
-* Para definir uma chave única para um recipiente existente, crie um novo recipiente com o constrangimento chave único. Utilize a ferramenta de migração de dados adequada para mover os dados do recipiente existente para o novo recipiente. Para recipientes SQL, utilize a [ferramenta de migração de dados](import-data.md) para mover dados. Para os recipientes MongoDB, utilize [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) para mover dados.
+* Para definir uma chave única para um recipiente existente, crie um novo recipiente com o constrangimento chave único. Utilize a ferramenta de migração de dados adequada para mover os dados do recipiente existente para o novo recipiente. Para recipientes SQL, utilize a [ferramenta de migração de dados](import-data.md) para mover dados. Para os recipientes MongoDB, utilize [mongoimport.exe ou mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para mover dados.
 
 * Uma política chave única pode ter um máximo de 16 valores de caminho. Por exemplo, os valores podem ser `/firstName` `/lastName` , e `/address/zipCode` . Cada política chave única pode ter um máximo de 10 restrições ou combinações únicas. Os caminhos combinados para cada restrição de índice único não devem exceder 60 bytes. No exemplo anterior, o primeiro nome, apelido e endereço de e-mail juntos são um constrangimento. Esta restrição utiliza 3 dos 16 caminhos possíveis.
 

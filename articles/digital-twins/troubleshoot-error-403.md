@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331503"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495911"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)
 
@@ -25,7 +25,9 @@ Este erro pode ocorrer em muitos tipos de pedidos de serviço que requerem auten
 
 ### <a name="cause-1"></a>Causa #1
 
-Na maioria das vezes, este erro indica que as permissões de controlo de acesso baseado em funções (Azure RBAC) para o serviço não estão corretamente configuradas. Muitas ações para uma instância Azure Digital Twins requerem que você tenha o papel de *Azure Digital Twins Owner (Preview)* **sobre o caso que você está tentando gerir**. 
+Na maioria das vezes, este erro indica que as permissões de controlo de acesso baseado em funções (Azure RBAC) para o serviço não estão corretamente configuradas. Muitas ações para uma instância Azure Digital Twins requerem que você tenha o papel *de Proprietário de Dados Azure Digital Twins* sobre o caso que você está **tentando gerir.** 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>Causa #2
 
@@ -37,11 +39,12 @@ O registo da aplicação deve ter permissões de acesso configuradas para as API
 
 ### <a name="solution-1"></a>#1 de solução
 
-A primeira solução é verificar se o utilizador Azure tem o papel _**de Azure Digital Twins Owner (Preview)**_ no caso em que está a tentar gerir. Se não tem este papel, crie-o.
+A primeira solução é verificar se o utilizador do Azure tem a função _**de Proprietário de Dados Azure Digital Twins**_ no caso em que está a tentar gerir. Se não tem este papel, crie-o.
 
 Note que este papel é diferente de...
-* a função *do Proprietário* em toda a subscrição do Azure. *Azure Digital Twins Owner (Preview)* é uma função dentro da Azure Digital Twins e é traçada para este exemplo individual de Azure Digital Twins.
-* o papel *de Proprietário* em Azure Digital Twins. Estes são dois papéis distintos de gestão da Azure Digital Twins, e *a Azure Digital Twins Owner (Preview)* é o papel que deve ser usado para a gestão durante a pré-visualização.
+* o nome anterior para este papel durante a pré-visualização, *Azure Digital Twins Owner (Preview)* (o papel é o mesmo, mas o nome mudou)
+* a função *do Proprietário* em toda a subscrição do Azure. *Azure Digital Twins Data Owner* é um papel dentro da Azure Digital Twins e é traçado para este exemplo individual de Azure Digital Twins.
+* o papel *de Proprietário* em Azure Digital Twins. Estes são dois papéis distintos de gestão da Azure Digital Twins, e *a Azure Digital Twins Data Owner* é o papel que deve ser usado para a gestão durante a pré-visualização.
 
 #### <a name="check-current-setup"></a>Verifique a configuração atual
 
@@ -49,12 +52,12 @@ Note que este papel é diferente de...
 
 #### <a name="fix-issues"></a>Corrigir problemas 
 
-Se não tiver esta atribuição de funções, alguém com um papel proprietário na sua **subscrição Azure** deve executar o seguinte comando para dar ao seu utilizador Azure a função *Azure Digital Twins Owner (Preview)* na **instância Azure Digital Twins**. 
+Se não tiver esta atribuição de funções, alguém com um papel proprietário na sua **subscrição Azure** deve executar o seguinte comando para dar ao seu utilizador Azure a função *de Proprietário de Dados Azure Digital Twins* na instância **Azure Digital Twins**. 
 
 Se você é um Proprietário na subscrição, você pode executar este comando por si mesmo. Se não estiver, contacte um Proprietário para executar este comando em seu nome.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.

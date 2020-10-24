@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628199"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496078"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como: Implementar uma aplicação web people Counting
 
@@ -63,14 +63,14 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Desloque o recipiente no Azure IoT Edge no computador anfitrião
 
-Desloque o recipiente de análise espacial como módulo IoT no computador anfitrião, utilizando o CLI Azure. O processo de implantação requer um ficheiro manifesto de implantação que delineie os recipientes, variáveis e configurações necessários para a sua implantação. Pode encontrar um [manifesto de implantação de](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) amostras no GitHub, que inclui uma configuração básica de implantação para o recipiente de análise *espacial.* 
+Desloque o recipiente de análise espacial como módulo IoT no computador anfitrião, utilizando o CLI Azure. O processo de implantação requer um ficheiro manifesto de implantação que delineie os recipientes, variáveis e configurações necessários para a sua implantação. Pode encontrar uma amostra [Azure Stack Edge um manifesto de implantação específico,](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) bem como um [manifesto de implantação específico não-Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) no GitHub, que inclui uma configuração básica de implementação para o recipiente de análise *espacial.* 
 
 > [!NOTE] 
-> Os *recipientes* *de diagnóstico de análise espacial-telegraf* e de análise espacial são opcionais. Pode decidir removê-los do *DeploymentManifest.jsarquivado.* Para mais informações consulte o artigo [de telemetria e resolução de problemas.](./spatial-analysis-logging.md) Pode encontrar uma amostra *DeploymentManifest.jsno* ficheiro [em Github](https://go.microsoft.com/fwlink/?linkid=2142179) 
+> Os *recipientes* *de diagnóstico de análise espacial-telegraf* e de análise espacial são opcionais. Pode decidir removê-los do *DeploymentManifest.jsarquivado.* Para mais informações consulte o artigo [de telemetria e resolução de problemas.](./spatial-analysis-logging.md) Pode encontrar duas amostras *DeploymentManifest.jsem* ficheiros no Github, para um [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outra máquina de [desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
 ### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-A maioria das **Variáveis Ambientais** para o Módulo de Borda IoT já estão definidas na amostra *DeploymentManifest.jsno* ficheiro ligado acima. No ficheiro, procure as `BILLING_ENDPOINT` variáveis e `API_KEY` ambientais, mostradas abaixo. Substitua os valores pela Endpoint URI e pela Chave API que criou anteriormente. Certifique-se de que o valor EULA está definido para "aceitar". 
+A maioria das **Variáveis Ambientais** para o Módulo IoT Edge já estão definidas na amostra *DeploymentManifest.jsem* ficheiros acima ligados. No ficheiro, procure as `BILLING_ENDPOINT` variáveis e `API_KEY` ambientais, mostradas abaixo. Substitua os valores pela Endpoint URI e pela Chave API que criou anteriormente. Certifique-se de que o valor EULA está definido para "aceitar". 
 
 ```json
 "EULA": { 
@@ -89,7 +89,7 @@ A maioria das **Variáveis Ambientais** para o Módulo de Borda IoT já estão d
 
 Agora que a configuração inicial do recipiente *de análise espacial* está completa, o próximo passo é configurar os parâmetros de operações e adicioná-los à implantação. 
 
-O primeiro passo é atualizar o [manifesto de implantação](https://go.microsoft.com/fwlink/?linkid=2142179) da amostra e configurar a operaçãoId para `cognitiveservices.vision.spatialanalysis-personcount` os indicados abaixo:
+O primeiro passo é atualizar o manifesto de implantação da amostra ligado acima e configurar a operaçãoId para `cognitiveservices.vision.spatialanalysis-personcount` os indicados abaixo:
 
 
 ```json
@@ -107,7 +107,7 @@ O primeiro passo é atualizar o [manifesto de implantação](https://go.microsof
 },
 ```
 
-Depois de atualizado o [manifesto de implantação,](https://go.microsoft.com/fwlink/?linkid=2142179) siga as instruções do fabricante da câmara para instalar a câmara, configurar o url da câmara e configurar o nome de utilizador e a palavra-passe. 
+Depois de atualizado o manifesto de implantação, siga as instruções do fabricante da câmara para instalar a câmara, configurar o url da câmara e configurar o nome de utilizador e a palavra-passe. 
 
 Em seguida, coloque `VIDEO_URL` a url RTSP da câmara e as credenciais para ligar à câmara.
 
@@ -122,7 +122,7 @@ Também pode selecionar um limiar de confiança para quando as pessoas detetadas
 
 ### <a name="execute-the-deployment"></a>Executar a implantação
 
-Agora que o [manifesto de implantação](https://go.microsoft.com/fwlink/?linkid=2142179) está completo, utilize este comando no CLI Azure para implantar o recipiente no computador anfitrião como módulo IoT Edge.
+Agora que o manifesto de implantação está completo, utilize este comando no CLI Azure para implantar o recipiente no computador anfitrião como módulo IoT Edge.
 
 ```azurecli
 az login
@@ -145,7 +145,7 @@ Localizar o Estado de *execução* nas Definições do Módulo de Borda IoT para
 
 ![Verificação de implementação de exemplo](./media/spatial-analysis/deployment-verification.png)
 
-Neste momento, o contentor de análise espacial está a executar a operação. Emite insights de IA para a `cognitiveservices.vision.spatialanalysis-personcount` operação e encaminha estas insights como telemetria para o seu exemplo Azure IoT Hub. Para configurar câmaras adicionais, pode atualizar o ficheiro [manifesto de implementação](https://go.microsoft.com/fwlink/?linkid=2142179) e executar novamente a implementação.
+Neste momento, o contentor de análise espacial está a executar a operação. Emite insights de IA para a `cognitiveservices.vision.spatialanalysis-personcount` operação e encaminha estas insights como telemetria para o seu exemplo Azure IoT Hub. Para configurar câmaras adicionais, pode atualizar o ficheiro manifesto de implementação e executar novamente a implementação.
 
 ## <a name="person-counting-web-application"></a>Aplicação web de contagem de pessoas
 
@@ -156,7 +156,7 @@ Esta aplicação web contando com esta pessoa permite-lhe configurar rapidamente
 Uma forma de recipiente desta aplicação disponível no Registo do Contentor Azure. Use o seguinte comando de puxar o estivador para o descarregar. Contacte a Microsoft projectarchon@microsoft.com para obter o token de acesso.
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369986"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475231"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Sugestões de desempenho para o SDK Java v4 do Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala
 
 Então, se está a perguntar"Como posso melhorar o desempenho da minha base de dados?" Considerar as seguintes opções:
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 * **Modo de ligação: Utilize o modo direto**
 <a id="direct-connection"></a>
@@ -85,13 +85,13 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
 * **Ativar a rede acelerada no seu Azure VM para uma menor latência.**
 
-Recomenda-se que siga as instruções para ativar a rede acelerada no seu [Windows (clique para instruções)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) ou [Linux (clique para instruções)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) Azure VM, de modo a maximizar o desempenho.
+Recomenda-se que siga as instruções para ativar a rede acelerada no seu [Windows (clique para instruções)](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [Linux (clique para instruções)](../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM, de modo a maximizar o desempenho.
 
 Sem rede acelerada, o IO que transite entre o seu VM Azure e outros recursos Azure pode ser encaminhado desnecessariamente através de um hospedeiro e de um interruptor virtual situado entre o VM e o seu cartão de rede. Ter o hospedeiro e o interruptor virtual inline no datapath não só aumenta a latência e o nervosismo no canal de comunicação, como também rouba ciclos de CPU do VM. Com rede acelerada, o VM interage diretamente com o NIC sem intermediários; quaisquer detalhes da política de rede que estavam a ser tratados pelo anfitrião e pela switch virtual são agora tratados em hardware no NIC; o hospedeiro e o interruptor virtual são ignorados. Geralmente, pode esperar uma menor latência e maior produção, bem como uma latência mais *consistente* e uma menor utilização do CPU quando permite uma rede acelerada.
 
 Limitações: a rede acelerada deve ser suportada no VM OS, e só pode ser ativada quando o VM é interrompido e transatado. O VM não pode ser implantado com o Gestor de Recursos Azure.
 
-Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) e [Do Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para mais detalhes.
+Consulte as instruções [do Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) e [Do Linux](../virtual-network/create-vm-accelerated-networking-cli.md) para mais detalhes.
 
 ## <a name="sdk-usage"></a>Utilização do SDK
 * **Instale o SDK mais recente**
@@ -311,7 +311,7 @@ _ **Escale a sua carga de trabalho ao cliente**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    Para obter mais informações, consulte [as políticas de indexação de DB do Azure Cosmos](indexing-policies.md).
+    Para obter mais informações, consulte [as políticas de indexação de DB do Azure Cosmos](index-policy.md).
 
 ## <a name="throughput"></a>Débito
 <a id="measure-rus"></a>

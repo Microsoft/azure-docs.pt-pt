@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475809"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -125,10 +125,10 @@ O processador de alimentação de alteração será inicializado e começará a 
 
 O processador de feed de alteração pode ser hospedado em qualquer plataforma que suporte processos ou tarefas de longa duração:
 
-* Um [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)em execução contínua .
-* Um processo numa [Máquina Virtual Azure.](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines)
-* Um trabalho de fundo no [Serviço Azure Kubernetes.](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)
-* Um [serviço ASP.NET hospedado.](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services)
+* Um [Azure WebJob](/learn/modules/run-web-app-background-task-with-webjobs/)em execução contínua .
+* Um processo numa [Máquina Virtual Azure.](/azure/architecture/best-practices/background-jobs#azure-virtual-machines)
+* Um trabalho de fundo no [Serviço Azure Kubernetes.](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)
+* Um [serviço ASP.NET hospedado.](/aspnet/core/fundamentals/host/hosted-services)
 
 Embora o processador de feed de mudança possa funcionar em ambientes de curta duração, porque o recipiente de arrendamento mantém o estado, o ciclo de arranque destes ambientes irá adicionar atraso para receber as notificações (devido à sobrecarga de arranque do processador cada vez que o ambiente é iniciado).
 
@@ -147,4 +147,4 @@ Pode agora proceder para saber mais sobre o processador de feed de mudança nos 
 * [Modelo Pull do feed de alterações](change-feed-pull-model.md)
 * [Como migrar da biblioteca do processador de mudanças](how-to-migrate-from-change-feed-library.md)
 * [Utilizar o calculador do feed de alterações](how-to-use-change-feed-estimator.md)
-* [Hora de início do processador do feed de alterações](how-to-configure-change-feed-start-time.md)
+* [Hora de início do processador do feed de alterações](#starting-time)

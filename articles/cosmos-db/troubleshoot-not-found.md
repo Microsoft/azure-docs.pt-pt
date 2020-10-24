@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802401"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496090"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB não encontrou exceções
 O código de estado HTTP 404 indica que o recurso já não existe.
@@ -28,7 +28,7 @@ Existem vários casos de clientes SDK e a leitura aconteceu antes da escrita.
 
 #### <a name="solution"></a>Solução:
 1. A consistência da conta padrão para Azure Cosmos DB é a consistência da sessão. Quando um item é criado ou atualizado, a resposta devolve um token de sessão que pode ser passado entre instâncias SDK para garantir que o pedido de leitura é lido a partir de uma réplica com essa alteração.
-1. Mude o [nível de consistência](consistency-levels-choosing.md) para um [nível mais forte](consistency-levels-tradeoffs.md).
+1. Mude o [nível de consistência](./consistency-levels.md) para um [nível mais forte](./consistency-levels.md).
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Chave de partição inválida e combinação de ID
 A chave de partição e a combinação de identificação não são válidas.
@@ -37,7 +37,7 @@ A chave de partição e a combinação de identificação não são válidas.
 Corrija a lógica de aplicação que está a causar a combinação incorreta. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Personagem inválido em um iD item
-Um item é inserido na Azure Cosmos DB com um [carácter inválido](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) no ID do item.
+Um item é inserido na Azure Cosmos DB com um [carácter inválido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) no ID do item.
 
 #### <a name="solution"></a>Solução:
 Mude o ID para um valor diferente que não contenha os caracteres especiais. Se alterar o ID não é uma opção, pode codificar o ID para escapar aos caracteres especiais.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Tempo para viver purga
-O item tinha o conjunto de propriedades [Time to Live (TTL).](https://docs.microsoft.com/azure/cosmos-db/time-to-live) O artigo foi purgado porque a propriedade TTL expirou.
+O item tinha o conjunto de propriedades [Time to Live (TTL).](./time-to-live.md) O artigo foi purgado porque a propriedade TTL expirou.
 
 #### <a name="solution"></a>Solução:
 Altere a propriedade TTL para evitar que o item seja purgado.
@@ -94,11 +94,11 @@ Aguarde que o indexante acompanhe ou altere a política de indexação.
 A base de dados ou o contentor em que o artigo existe foi eliminado.
 
 #### <a name="solution"></a>Solução:
-1. [Restaurar](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) o recurso principal, ou recriar os recursos.
+1. [Restaurar](./online-backup-and-restore.md#request-data-restore-from-a-backup) o recurso principal, ou recriar os recursos.
 1. Crie um novo recurso para substituir o recurso eliminado.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. Os nomes dos contentores/recolha são sensíveis aos casos
-Os nomes de contentores/coleções são casos sesnsitivos em Cosmos DB.
+Os nomes de contentores/coleções são sensíveis a casos na Cosmos DB.
 
 #### <a name="solution"></a>Solução:
 Certifique-se de que utiliza o nome exato durante a ligação ao Cosmos DB.

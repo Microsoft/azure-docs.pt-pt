@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483733"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474670"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Desenhe uma estratégia de carregamento de dados da PolyBase para a piscina SQL Azure Synapse
 
-Os armazéns de dados tradicionais SMP utilizam um processo de extração, transformação e carga (ETL) para o carregamento de dados. A piscina Azure SQL é uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento. A utilização de um processo de Extração, Carga e Transformação (ELT) pode tirar partido do MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
+Os armazéns de dados tradicionais SMP utilizam um processo de extração, transformação e carga (ETL) para o carregamento de dados. A piscina Azure SQL é uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento. A utilização de um processo de Extração, Carga e Transformação (ELT) pode tirar partido das capacidades de processamento de consultas distribuídas incorporadas e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
 Enquanto a piscina SQL suporta muitos métodos de carregamento, incluindo opções não-Polybase, como BCP e SQL BulkCopy API, a forma mais rápida e escalável de carregar data é através da PolyBase.  PolyBase é uma tecnologia que acede a dados externos armazenados no armazenamento Azure Blob ou na Azure Data Lake Store através da linguagem T-SQL.
 
@@ -112,7 +112,7 @@ Para formatar os ficheiros de texto:
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Carregue os dados em mesas de paragem de piscinas SQL usando a PolyBase
 
-É melhor a prática carregar dados numa tabela de preparação. As tabelas de preparação permitem-lhe lidar com erros sem interferir com as tabelas de produção. Uma tabela de encenação também lhe dá a oportunidade de usar o MPP do pool SQL para transformações de dados antes de inserir os dados em tabelas de produção.
+É melhor a prática carregar dados numa tabela de preparação. As tabelas de preparação permitem-lhe lidar com erros sem interferir com as tabelas de produção. Uma tabela de encenação também lhe dá a oportunidade de usar capacidades de processamento de consulta distribuída incorporadas sql para transformações de dados antes de inserir os dados em tabelas de produção.
 
 ### <a name="options-for-loading-with-polybase"></a>Opções para carregamento com PolyBase
 

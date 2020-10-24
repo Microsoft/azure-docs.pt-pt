@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122726"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474908"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos com piscina SQL sem servidor em Azure Synapse Link (pré-visualização)
 
@@ -277,5 +277,6 @@ Pode relatar sugestões e problemas na [página de feedback do Azure Synapse](ht
 
 Para obter mais informações, veja os seguintes artigos:
 
+- [Use power BI e sem servidor Piscina SQL synapse com Link Azure Synapse](../../cosmos-db/synapse-link-power-bi.md)
 - [Como criar e usar vistas em SQL on demand](create-use-views.md) 
 - [Tutorial sobre a construção de vistas a pedido do SQL sobre a Azure Cosmos DB e ligá-las aos modelos Power BI via DirectQuery](./tutorial-data-analyst.md)

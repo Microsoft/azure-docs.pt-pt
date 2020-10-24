@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930446"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496147"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -45,7 +45,7 @@ Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicaç
 | Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.5.0 |
 | Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.7.0 |
 | Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.7.0 |
-| Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1.0 |
+| Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1,0 |
 | Texto-a-discurso neural | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. | 1.2.0 |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -491,6 +491,16 @@ Este comando:
 * Atribui 1 núcleos de CPU e 1 gigabyte (GB) de memória.
 * Expõe a porta TCP 5003 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
+
+Se enviar apenas pedidos de Deteção de Linguagem da Fala, terá de definir o valor do cliente da Fala `phraseDetection` para `None` .  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
 
 Se quiser executar este recipiente com o recipiente de fala para texto, pode utilizar esta [imagem do Docker](https://hub.docker.com/r/antsu/on-prem-client). Depois de iniciar ambos os contentores, utilize este comando Docker Run para executar `speech-to-text-with-languagedetection-client` .
 

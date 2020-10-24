@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 82e2a484e23d55b91ff0c7820302b2cc83537cb8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b6c6d15b553e8b19fff2c464dfb856550f7bcbf0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057710"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494919"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 
@@ -73,7 +73,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-O código inicia sessão no espaço de trabalho Azure Machine Learning definido em **config.js** (para uma explicação, consulte [Tutorial: Começa a criar a tua primeira experiência ML com o Python SDK).](tutorial-1st-experiment-sdk-setup.md) Se já não existe um conjunto de dados `'titanic_ds'` nomeado registado, então cria um. O código descarrega dados de CSV a partir da Web, utiliza-os para instantaneamente a `TabularDataset` e, em seguida, regista o conjunto de dados com o espaço de trabalho. Finalmente, a função `Dataset.get_by_name()` atribui `Dataset` o a `titanic_ds` . 
+O código inicia sessão no espaço de trabalho Azure Machine Learning definido em **config.js** (para uma explicação, consulte [Criar um ficheiro de configuração do espaço de trabalho](how-to-configure-environment.md#workspace). Se já não existe um conjunto de dados `'titanic_ds'` nomeado registado, então cria um. O código descarrega dados de CSV a partir da Web, utiliza-os para instantaneamente a `TabularDataset` e, em seguida, regista o conjunto de dados com o espaço de trabalho. Finalmente, a função `Dataset.get_by_name()` atribui `Dataset` o a `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Configure o seu alvo de armazenamento e cálculo
 

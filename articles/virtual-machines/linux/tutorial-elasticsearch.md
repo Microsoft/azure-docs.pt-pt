@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80066549"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475061"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalar a Pilha Elástica numa VM do Azure
 
@@ -228,7 +228,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Abra a consola do Kibana e selecione **Criar**, para gerar um índice predefinido com base nos dados do syslog enviados anteriormente para o Elasticsearch . 
 
-![Procurar eventos do Syslog no Kibana](media/elasticsearch-install/kibana-index.png)
+![Screenshot que mostra a consola Kibana e destaca o botão Criar.](media/elasticsearch-install/kibana-index.png)
 
 Selecione **Detetar** na consola do Kibana para pesquisar, procurar e filtrar nos eventos do syslog.
 

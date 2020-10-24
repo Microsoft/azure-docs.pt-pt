@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1b7cfa03aeb705ea7e7caf3254bc39d9fff722ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d50434ce3cca4e6f5082334bb91c3d569e2b1e1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546539"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483255"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Tutorial: Integração do Diretório Ativo Azure com Paleta de Talentos
 
@@ -100,13 +100,13 @@ Para configurar o Azure AD single sign-on com Talent Palette, execute os seguint
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Domínio de paleta de talento e informações únicas de súmis](common/both_replyurl.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir uma Resposta U R L.](common/both_replyurl.png)
 
     Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:  `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Domínio de paleta de talento e informações únicas de súmis](common/both_signonurl.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both_signonurl.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://talent-p.net/saml/sso/<tenantID>`
 
@@ -184,7 +184,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 ### <a name="create-talent-palette-test-user"></a>Criar utilizador de teste de paleta de talento
 
-Nesta secção, cria-se um utilizador chamado Britta Simon in Talent Palette. Trabalhe com [a equipa de apoio talent palette](mailto:talent-support@pa-consul.co.jp) para adicionar os utilizadores na plataforma Talent Palette. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon in Talent Palette. Trabalhe com [a equipa de apoio talent palette](mailto:talent-support@pa-consul.co.jp) para adicionar os utilizadores na plataforma Talent Palette. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

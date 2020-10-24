@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567864"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476404"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 
@@ -284,7 +284,7 @@ A sua fatura total (sem capacidade reservada) seria (assumindo 30 dias ou 720 ho
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Valor cobrado (à hora)**| **Valor Faturado (mensal)**|
 |----|----|----|----|----|
-|E.U.A. Leste|$0.008 |50 K|$4|$2.880 |
+|E.U.A Leste|$0.008 |50 K|$4|$2.880 |
 |Leste do Japão|$0,009 |50 K| $4,50 |$3.240 |
 |Total|||$8,50|$6.120 |
 
@@ -298,7 +298,7 @@ O que você efetivamente comprou é um crédito de $8 por hora, por 100 K RU/seg
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Valor cobrado (à hora)**| **Valor Faturado (mensal)**|
 |----|----|----|----|----|
-|E.U.A. Leste|$0.008 |50 K|$4|$2.880 |
+|E.U.A Leste|$0.008 |50 K|$4|$2.880 |
 |Leste do Japão|$0,009 |50 K| $4,50 |$3.240 |
 |||Pay as you go|$8,50|$6120|
 |Capacidade Reservada Adquirida|$0.0064 (20% de desconto) |100 RU/seg ou $8 capacidade pré-comprada |-$8|-$5.760 |
@@ -313,5 +313,5 @@ Em seguida, pode proceder a conhecer a otimização de custos na Azure Cosmos DB
 * Saiba mais sobre [otimizar o custo de produção](optimize-cost-throughput.md)
 * Saiba mais sobre [otimizar o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [otimizar o custo das leituras e dos escritos](optimize-cost-reads-writes.md)
-* Saiba mais sobre [otimizar o custo das consultas](optimize-cost-queries.md)
+* Saiba mais sobre [otimizar o custo das consultas](./optimize-cost-reads-writes.md)
 * Saiba mais sobre [otimizar o custo das contas da Azure Cosmos em várias regiões](optimize-cost-regions.md)

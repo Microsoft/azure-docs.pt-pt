@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e4615db3dbabbc4b18dad7d6ec805ddff10e8fd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705114"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485227"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Quickstart: Use um comando Azure CLI, postgres up (pré-visualização), para criar uma base de dados Azure para PostgreSQL - Servidor Único
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Este artigo requer que esteja a executar a versão 2.0 do Azure CLI ou mais tarde localmente. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/authenticate-azure-cli?view=interactive-log-in) Note a propriedade **ID** a partir da saída de comando para o nome de subscrição correspondente.
+Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/authenticate-azure-cli) Note a propriedade **ID** a partir da saída de comando para o nome de subscrição correspondente.
 
 ```azurecli
 az login
@@ -89,7 +89,7 @@ Após a conclusão do `az postgres up` comando, é devolvida uma lista de cadeia
 
 Pode utilizar o comando [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) para listar estas cordas de ligação novamente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe todos os recursos que criou no arranque rápido utilizando o seguinte comando. Este comando elimina a Base de Dados Azure para o servidor PostgreSQL e o grupo de recursos.
 
