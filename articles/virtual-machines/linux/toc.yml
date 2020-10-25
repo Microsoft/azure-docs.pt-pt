@@ -1024,8 +1024,6 @@
               href: disks-benchmarks.md
             - name: Otimizar o desempenho
               href: optimization.md
-            - name: Configurar LVM
-              href: configure-lvm.md
         - name: Localizar discos desanexados - CLI
           href: find-unattached-disks.md
         - name: Localizar discos desanexados - Portal

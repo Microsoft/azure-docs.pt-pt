@@ -515,6 +515,14 @@
               items:
                 - name: Ligar através de TLS/SSL
                   href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Configurar parâmetros do servidor
+          items:
+            - name: Portal do Azure
+              href: flexible-server/how-to-configure-server-parameters-portal.md
+              displayName: server parameters
+            - name: CLI do Azure
+              href: flexible-server/how-to-configure-server-parameters-cli.md
+              displayName: 'server parameters, cli'
         - name: Monitorização e Registos
           items:
             - name: Criar alertas para as métricas
