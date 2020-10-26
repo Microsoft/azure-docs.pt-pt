@@ -100,7 +100,9 @@
           href: rbac-migration.md
         - name: Resolver problemas de acesso
           href: troubleshooting-access-issues.md
-    - name: Como ativar o registo
+    - name: Ativar a eliminação recuperável e a remoção da proteção
+      href: key-vault-recovery.md
+    - name: Ativar registo
       href: howto-logging.md
     - name: Programar
       items:
@@ -109,7 +111,7 @@
         - name: Utilizar o Azure Resource Manager para implementar o Key Vault
           href: vault-create-template.md
         - name: Guardar segredos da Aplicação Web
-          href: vs-secure-secret-appsettings.md
+          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
         - name: Autenticação serviço a serviço com .NET
           href: service-to-service-authentication.md
         - name: Utilizar o Serviço Ligado do Key Vault
@@ -134,14 +136,6 @@
           href: private-link-service.md
         - name: Aceder ao Key Vault protegido por uma firewall - Azure Key Vault
           href: access-behind-firewall.md
-    - name: Eliminar de forma recuperável
-      items:
-        - name: Recuperação do Key Vault (Eliminação Recuperável e Remoção de Proteção)
-          href: key-vault-recovery.md
-        - name: Utilizar a eliminação recuperável com a CLI
-          href: soft-delete-cli.md
-        - name: Utilizar a eliminação recuperável com o PowerShell
-          href: soft-delete-powershell.md
     - name: Mover o Key Vault
       items:
         - name: Mover o Key Vault para Outro Grupo de Recursos

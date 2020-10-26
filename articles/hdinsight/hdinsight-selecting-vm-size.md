@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73682207"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535319"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selecionando o tamanho VM certo para o seu cluster Azure HDInsight
 
@@ -32,7 +32,7 @@ O tamanho e tipo VM é determinado pelo poder de processamento do CPU, tamanho R
 
 - RAM: O tamanho VM também dita a quantidade de RAM disponível no VM. Para cargas de trabalho que armazenam dados na memória para processamento, em vez de ler em disco, certifique-se de que os seus nós de trabalhador têm memória suficiente para encaixar os dados.
 
-- Rede: Para a maioria dos tipos de clusters, os dados processados pelo cluster não estão no disco local, mas sim num serviço de armazenamento externo, como o Data Lake Storage ou o Azure Storage. Considere a largura de banda da rede e a produção entre o nó VM e o serviço de armazenamento. A largura de banda de rede disponível para um VM normalmente aumenta com tamanhos maiores. Para mais detalhes, consulte [a visão geral dos tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+- Rede: Para a maioria dos tipos de clusters, os dados processados pelo cluster não estão no disco local, mas sim num serviço de armazenamento externo, como o Data Lake Storage ou o Azure Storage. Considere a largura de banda da rede e a produção entre o nó VM e o serviço de armazenamento. A largura de banda de rede disponível para um VM normalmente aumenta com tamanhos maiores. Para mais detalhes, consulte [a visão geral dos tamanhos de VM](../virtual-machines/sizes.md).
 
 ## <a name="understanding-vm-optimization"></a>Compreensão da otimização do VM
 
@@ -40,10 +40,10 @@ As famílias de máquinas virtuais em Azure são otimizadas para se adequarem a 
 
 | Tipo                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Nível de entrada](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Tenha configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. São económicos e oferecem uma opção de baixo custo para começar com o Azure. |
-| [Fins gerais](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Proporção equilibrada entre CPU e memória. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
-| [Com otimização de computação](../virtual-machines/linux/sizes-compute.md)        | F           | Proporção elevada de CPU para memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações.        |
-| [Com otimização de memória](../virtual-machines/linux/sizes-memory.md)         | Esv3  | Proporção elevada de memória para CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Nível de entrada](../virtual-machines/sizes-general.md)          | A, Av2  | Tenha configurações de desempenho e memória de CPU mais adequadas para cargas de trabalho de nível de entrada como desenvolvimento e teste. São económicos e oferecem uma opção de baixo custo para começar com o Azure. |
+| [Fins gerais](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Proporção equilibrada entre CPU e memória. Ideais para testes e desenvolvimento, bases de dados pequenas a médias e servidores Web de tráfego baixo a médio. |
+| [Com otimização de computação](../virtual-machines/sizes-compute.md)        | F           | Proporção elevada de CPU para memória. Bom para servidores web de tráfego médio, aparelhos de rede, processos de lote e servidores de aplicações.        |
+| [Com otimização de memória](../virtual-machines/sizes-memory.md)         | Esv3  | Proporção elevada de memória para CPU. Ideais para servidores de bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 
 - Para obter informações sobre os preços dos casos de VM disponíveis em todas as regiões apoiadas por HDInsight, consulte [o HdInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -74,4 +74,4 @@ Para obter mais informações sobre o benchmarking para SKUs VM e tamanhos de cl
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Configurações de nó suportado por Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a04ce77c7e81a3a73b87eaf5790b383dece35d86
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435386"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535234"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
@@ -39,7 +39,7 @@ Para mais informações, veja [o que é a Tempestade Apache em Azure HDInsight?]
 
 O Spark Streaming é uma extensão ao Spark, que permite reutilizar o mesmo código que utiliza para o processamento de lotes. Pode combinar perguntas de lote e interativas na mesma aplicação. Ao contrário da Tempestade, o Spark Streaming fornece semântica de processamento. Quando usado em combinação com a [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados kafka são recebidos pelo Spark Streaming exatamente uma vez, é possível alcançar de ponta a ponta exatamente uma vez que as garantias. Um dos pontos fortes do Spark Streaming é a sua capacidade tolerante a falhas, recuperando os nós defeituosos rapidamente quando vários nós estão sendo usados dentro do cluster.
 
-Para mais informações, veja [o que é Apache Spark Streaming?](hdinsight-spark-streaming-overview.md)
+Para mais informações, veja [o que é Apache Spark Streaming?](./spark/apache-spark-streaming-overview.md)
 
 ## <a name="scaling-a-cluster"></a>Escalar um aglomerado
 

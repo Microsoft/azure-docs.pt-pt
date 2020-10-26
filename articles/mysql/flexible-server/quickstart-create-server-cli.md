@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 7a5bab13dbaa5715aa8dd34e41aba34ce62557a2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4be295ada476e4dc41a86d06908ef1d653a3bad8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91329533"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545026"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Quickstart: Criar uma base de dados Azure para o MySQL Flexible Server utilizando O Azure CLI
 
-Este quickstart mostra como usar os comandos [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma Base de Dados Azure para o MySQL Flexible Server em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Este quickstart mostra como usar os comandos [Azure CLI](/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma Base de Dados Azure para o MySQL Flexible Server em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server está atualmente em pré-visualização pública
@@ -28,17 +28,17 @@ O [Azure Cloud Shell](../../cloud-shell/overview.md) é uma concha interativa gr
 
 Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode abrir o Cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copy** para copiar os blocos de código, cole-o na Cloud Shell e selecione **Enter** para executá-lo.
 
-Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Se preferir instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0 do Azure CLI ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de iniciar sessão na sua conta utilizando o comando [de login az.](https://docs.microsoft.com/cli/azure/reference-index#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure.
+Terá de iniciar sessão na sua conta utilizando o comando [de login az.](/cli/azure/reference-index#az-login) Note a propriedade **id,** que se refere ao **ID de subscrição** para a sua conta Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Selecione a subscrição específica sob a sua conta usando o comando [conjunto de conta az.](https://docs.microsoft.com/cli/azure/account#az-account-set) Tome nota do valor de **id** da saída de **login az** para usar como valor para o argumento **de subscrição** no comando. Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter toda a sua subscrição, utilize [a lista de conta az](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Selecione a subscrição específica sob a sua conta usando o comando [conjunto de conta az.](/cli/azure/account#az-account-set) Tome nota do valor de **id** da saída de **login az** para usar como valor para o argumento **de subscrição** no comando. Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Para obter toda a sua subscrição, utilize [a lista de conta az](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -46,13 +46,13 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-flexible-server"></a>Criar um servidor flexível
 
-Crie um [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) utilizando o `az group create` comando e, em seguida, crie o seu servidor flexível MySQL dentro deste grupo de recursos. Deverá indicar um nome exclusivo. O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `eastus2`.
+Crie um [grupo de recursos Azure](../../azure-resource-manager/management/overview.md) utilizando o `az group create` comando e, em seguida, crie o seu servidor flexível MySQL dentro deste grupo de recursos. Deverá indicar um nome exclusivo. O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `eastus2`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location eastus2
 ```
 
-Crie um servidor flexível com o `az mysql flexible-server create` comando. Cada servidor pode conter várias bases de dados. O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do [contexto local](https://docs.microsoft.com/cli/azure/local-context)do seu Azure CLI: 
+Crie um servidor flexível com o `az mysql flexible-server create` comando. Cada servidor pode conter várias bases de dados. O seguinte comando cria um servidor utilizando predefinições e valores de serviço a partir do [contexto local](/cli/azure/local-context)do seu Azure CLI: 
 
 ```azurecli
 az mysql flexible-server create
@@ -107,7 +107,7 @@ Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informaç�
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin**. Abaixo está uma amostra da saída JSON: 
+O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin** . Abaixo está uma amostra da saída JSON: 
 
 ```json
 {
@@ -142,7 +142,7 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
 
 ## <a name="connect-using-mysql-command-line-client"></a>Conecte-se usando o cliente da linha de comando mysql
 
-Uma vez que o servidor flexível foi criado com *acesso privado (VNet Integration)*, terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada. 
+Uma vez que o servidor flexível foi criado com *acesso privado (VNet Integration)* , terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada. 
 
 Uma vez criado o seu VM, pode entrar na máquina e instalar a ferramenta cliente popular, **[mysql.exe](https://dev.mysql.com/downloads/)** ferramenta de linha de comando.
 
@@ -152,7 +152,7 @@ Com mysql.exe, conecte-se utilizando o comando abaixo. Substitua os valores pelo
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não precisa destes recursos para outro início rápido/tutorial, pode eliminá-los ao executar o seguinte comando:
 

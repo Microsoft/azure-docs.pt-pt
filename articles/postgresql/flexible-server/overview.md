@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439957"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532667"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -90,11 +90,9 @@ O serviço de servidor flexível está equipado com funcionalidades de monitoriz
 
 O serviço executa a versão comunitária do PostgreSQL. Isto permite a compatibilidade total da aplicação e requer um custo mínimo de refactor para migrar uma aplicação existente desenvolvida no motor PostgreSQL para o Flexible Server. 
 
-- **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como pg_dump e pg_restore podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) para obter mais detalhes.
-- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para servidor flexível com tempo mínimo de inatividade, o Serviço de Migração da Base de Dados Azure pode ser alavancado. Ver [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) e [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online). Pode migrar da sua Base de Dados Azure para PostgreSQL - Servidor Único para Servidor Flexível. Consulte este [artigo do DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) para mais detalhes.
+- **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como pg_dump e pg_restore podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](../howto-migrate-using-dump-and-restore.md) para obter mais detalhes.
+- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para servidor flexível com tempo mínimo de inatividade, o Serviço de Migração da Base de Dados Azure pode ser alavancado. Ver [DMS via portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) e [DMS via CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Pode migrar da sua Base de Dados Azure para PostgreSQL - Servidor Único para Servidor Flexível. Consulte este [artigo do DMS](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) para mais detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação flexível do servidor Pós-SQL, está pronto para criar o seu primeiro servidor: [Criar uma Base de Dados Azure para PostgreSQL - Servidor Flexível utilizando o portal Azure](./quickstart-create-server-portal.md)
-
-

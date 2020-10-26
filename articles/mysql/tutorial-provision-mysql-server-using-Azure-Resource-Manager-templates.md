@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74771105"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543700"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Fornecimento de uma base de dados Azure para servidor MySQL usando o modelo do Gestor de Recursos Azure
 
-A [Base de Dados Azure para a API MySQL REST](https://docs.microsoft.com/rest/api/mysql/) permite aos engenheiros da DevOps automatizar e integrar o fornecimento, configuração e operações de servidores e bases de dados geridos do MySQL em Azure.  A API permite a criação, enumeração, gestão e eliminação de servidores e bases de dados MySQL na Base de Dados Azure para o serviço MySQL.
+A [Base de Dados Azure para a API MySQL REST](/rest/api/mysql/) permite aos engenheiros da DevOps automatizar e integrar o fornecimento, configuração e operações de servidores e bases de dados geridos do MySQL em Azure.  A API permite a criação, enumeração, gestão e eliminação de servidores e bases de dados MySQL na Base de Dados Azure para o serviço MySQL.
 
-O Azure Resource Manager aproveita a API rest subjacente para declarar e programar os recursos Azure necessários para implantações em escala, alinhando-se com a infraestrutura como um conceito de código. O modelo parametriza o nome de recurso Azure, SKU, rede, configuração de firewall e configurações, permitindo que seja criado uma vez e usado várias vezes.  Os modelos Azure Resource Manager podem ser facilmente criados usando [o portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou [o Código do Estúdio Visual.](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI) Permitem a embalagem de aplicações, normalização e automatização de implantação, que podem ser integradas no gasoduto DevOps CI/CD.  Por exemplo, se estiver a procurar implementar rapidamente uma Web App com base de dados Azure para o backend MySQL, pode executar a implementação de ponta a ponta utilizando este [modelo QuickStart](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) a partir da galeria GitHub.
+O Azure Resource Manager aproveita a API rest subjacente para declarar e programar os recursos Azure necessários para implantações em escala, alinhando-se com a infraestrutura como um conceito de código. O modelo parametriza o nome de recurso Azure, SKU, rede, configuração de firewall e configurações, permitindo que seja criado uma vez e usado várias vezes.  Os modelos Azure Resource Manager podem ser facilmente criados usando [o portal Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) ou [o Código do Estúdio Visual.](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI) Permitem a embalagem de aplicações, normalização e automatização de implantação, que podem ser integradas no gasoduto DevOps CI/CD.  Por exemplo, se estiver a procurar implementar rapidamente uma Web App com base de dados Azure para o backend MySQL, pode executar a implementação de ponta a ponta utilizando este [modelo QuickStart](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) a partir da galeria GitHub.
 
 Neste tutorial, você usa o modelo Azure Resource Manager e outros utilitários para aprender a:
 
@@ -115,7 +115,7 @@ Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informaç�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin**.
+O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin** .
 ```json
 {
   "administratorLogin": "myadmin",

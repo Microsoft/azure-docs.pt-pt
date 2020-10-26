@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47c8096893742a25904f0f7e688af2fc641166d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007918"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544499"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas da Cache do Azure para Redis 
 Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável da sua Cache Azure para a instância Redis.
@@ -27,7 +27,7 @@ Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utiliza
 
  * **O Redis funciona melhor com valores mais pequenos,** por isso considere cortar dados maiores em várias teclas.  [Nesta discussão redis,](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/)algumas considerações estão listadas que deve considerar cuidadosamente.  Leia [este artigo](cache-troubleshoot-client.md#large-request-or-response-size) para um problema de exemplo que pode ser causado por grandes valores.
 
- * **Localize o seu cache e a sua aplicação na mesma região.**  Estabelecer ligação a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache*.  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
+ * **Localize o seu cache e a sua aplicação na mesma região.**  Estabelecer ligação a uma cache numa região diferente pode aumentar significativamente a latência e reduzir a fiabilidade.  Embora possa ligar-se do exterior do Azure, não é recomendado *especialmente quando se utiliza o Redis como cache* .  Se estiver a usar o Redis como apenas uma loja chave/valor, a latência pode não ser a principal preocupação. 
 
  * **Reutilizar as ligações.**  Criar novas ligações é dispendioso e aumenta a latência, por isso reutilizar as ligações o máximo possível. Se optar por criar novas ligações, certifique-se de fechar as ligações antigas antes de as libertar (mesmo em idiomas de memória geridos como .NET ou Java).
 
@@ -37,7 +37,7 @@ Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utiliza
  
  * **Evite operações dispendiosas** - Algumas operações redis, como o comando [KEYS,](https://redis.io/commands/keys) são *muito* caras e devem ser evitadas.  Para mais informações, consulte algumas considerações em torno [de comandos de longa duração](cache-troubleshoot-server.md#long-running-commands)
 
- * **Utilização da encriptação TLS** - Azure Cache for Redis requer comunicações encriptadas TLS por padrão.  As versões TLS 1.0, 1.1 e 1.2 estão atualmente suportadas.  No entanto, os TLS 1.0 e 1.1 estão num caminho para a depreciação em toda a indústria, pelo que utilize o TLS 1.2, se possível.  Se a biblioteca ou ferramenta do seu cliente não suportar TLS, então permitir ligações não encriptadas pode ser feita [através do portal Azure](cache-configure.md#access-ports) ou [APIs de gestão](https://docs.microsoft.com/rest/api/redis/redis/update).  Nos casos em que as ligações encriptadas não são possíveis, seria recomendado colocar a sua cache e a sua aplicação de clientes numa rede virtual.  Para obter mais informações sobre quais portas são utilizadas no cenário de cache de rede virtual, consulte esta [tabela](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ * **Utilização da encriptação TLS** - Azure Cache for Redis requer comunicações encriptadas TLS por padrão.  As versões TLS 1.0, 1.1 e 1.2 estão atualmente suportadas.  No entanto, os TLS 1.0 e 1.1 estão num caminho para a depreciação em toda a indústria, pelo que utilize o TLS 1.2, se possível.  Se a biblioteca ou ferramenta do seu cliente não suportar TLS, então permitir ligações não encriptadas pode ser feita [através do portal Azure](cache-configure.md#access-ports) ou [APIs de gestão](/rest/api/redis/redis/update).  Nos casos em que as ligações encriptadas não são possíveis, seria recomendado colocar a sua cache e a sua aplicação de clientes numa rede virtual.  Para obter mais informações sobre quais portas são utilizadas no cenário de cache de rede virtual, consulte esta [tabela](cache-how-to-premium-vnet.md#outbound-port-requirements).
  
  * **Tempo de mente -** Azure Redis tem atualmente um tempo de 10 minutos para ligações, pelo que este deve ser programado para menos de 10 minutos.
  
@@ -72,20 +72,20 @@ Se quiser testar como o seu código funciona em condições de erro, considere u
  * **Comece por `redis-benchmark.exe` usar** para obter uma sensação de possível produção/latência antes de escrever os seus próprios testes perf.  A documentação de referência do Redis pode ser [consultada aqui.](https://redis.io/topics/benchmarks)  Note que o redis-benchmark não suporta TLS, por isso terá de [ativar a porta Não-TLS através do Portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com janelas de redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
  * O VM do cliente utilizado para testes deve estar **na mesma região que a** sua cache Redis.
  * **Recomendamos a utilização de Série VM Dv2** para o seu cliente, uma vez que têm melhor hardware e darão os melhores resultados.
- * Certifique-se de que o VM do cliente que utiliza tem pelo*menos tanto cálculo e largura de banda* como a cache que está a ser testada. 
- * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx)  Exemplo de script do PowerShell:
+ * Certifique-se de que o VM do cliente que utiliza tem pelo *menos tanto cálculo e largura de banda* como a cache que está a ser testada. 
+ * **Ativar o VRSS** na máquina do cliente se estiver no Windows.  [Consulte aqui para mais detalhes.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11))  Exemplo de script do PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (Get-NetAdapter). Nome 
      
- * **Considere utilizar instâncias De nível Premium Redis**.  Estes tamanhos de cache terão melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
+ * **Considere utilizar instâncias De nível Premium Redis** .  Estes tamanhos de cache terão melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
  
      > [!NOTE]
      > Os nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para a sua referência.   Além disso, esteja ciente de que o SSL/TLS adiciona algumas despesas gerais, para que possa obter latências e/ou produção diferentes se estiver a usar encriptação de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Redis-Benchmark exemplos
-**Configuração pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.
+**Configuração pré-teste** : Prepare a instância de cache com os dados necessários para os comandos de teste de latência e de produção listados abaixo.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
-**Para testar a latência**: Teste os pedidos GET utilizando uma carga útil de 1k.
+**Para testar a latência** : Teste os pedidos GET utilizando uma carga útil de 1k.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **Para testar a produção:** Solicitações PIPELINED GET com carga útil de 1k.

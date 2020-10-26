@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2fccf5431666990919faf7e6378b46c41d682437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf749f3aef10a0c67814722577f79906f447ffdb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937090"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532786"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Servidor flexível
 
@@ -57,7 +57,7 @@ Cada entrada de auditoria é indicada `AUDIT:` perto do início da linha de regi
 Para começar rapidamente, ajuste `pgaudit.log` para , e abra os `WRITE` registos do seu servidor para rever a saída. 
 
 ## <a name="viewing-audit-logs"></a>Visualização de registos de auditoria
-A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../../azure-monitor/platform/resource-logs-collect-storage.md) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
 
 Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../../azure-monitor/log-query/log-query-overview.md)
 

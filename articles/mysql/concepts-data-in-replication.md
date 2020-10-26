@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e84f0c9beaee8a755499467925d28a83ba3139fc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537162"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544057"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados na Base de Dados Azure para o MySQL
 
@@ -41,12 +41,12 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/8.0/en/repli
 - Cada mesa deve ter uma chave primária.
 - O servidor de origem deve utilizar o motor MySQL InnoDB.
 - O utilizador deve ter permissões para configurar a sessão de registo binário e criar novos utilizadores no servidor de origem.
-- Se o servidor de origem tiver SSL ativado, certifique-se de que o certificado SSL CA fornecido para o domínio foi incluído no `mysql.az_replication_change_master` procedimento armazenado. Consulte os [seguintes exemplos](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) e o `master_ssl_ca` parâmetro.
-- Certifique-se de que o endereço IP do servidor de origem foi adicionado à Base de Dados Azure para as regras de firewall do servidor de réplicas MySQL. Atualize as regras de firewall com o [portal do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Se o servidor de origem tiver SSL ativado, certifique-se de que o certificado SSL CA fornecido para o domínio foi incluído no `mysql.az_replication_change_master` procedimento armazenado. Consulte os [seguintes exemplos](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) e o `master_ssl_ca` parâmetro.
+- Certifique-se de que o endereço IP do servidor de origem foi adicionado à Base de Dados Azure para as regras de firewall do servidor de réplicas MySQL. Atualize as regras de firewall com o [portal do Azure](./howto-manage-firewall-using-portal.md) ou a [CLI do Azure](./howto-manage-firewall-using-cli.md).
 - Certifique-se de que a máquina que hospeda o servidor de origem permite o tráfego de entrada e saída na porta 3306.
 - Certifique-se de que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 - A replicação de dados só é suportada nos níveis de preços otimizados para fins gerais e memória.
 - Os identificadores globais de transações (GTID) não são suportados.
 

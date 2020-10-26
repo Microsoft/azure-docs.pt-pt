@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
-ms.openlocfilehash: 533fe0f391779a5bbe53bf7f2a136c3e9fb19017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14a7276d51b7bc1f490bc9ab49f72aedfb829f7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080623"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541847"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Crie clusters Apache Hadoop em HDInsight utilizando modelos de Gestor de Recursos
 
@@ -51,11 +51,11 @@ Pode implementar um modelo de Gestor de Recursos utilizando o portal Azure. Para
 
 ## <a name="deploy-using-powershell"></a>Implementar com o PowerShell
 
-Pode implementar um modelo de Gestor de Recursos utilizando o Azure PowerShell. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [implementar o modelo de Gestor de Recursos Privados com token SAS e Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
+Pode implementar um modelo de Gestor de Recursos utilizando o Azure PowerShell. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) e [implementar o modelo de Gestor de Recursos Privados com token SAS e Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="deploy-using-azure-cli"></a>Implementar com a CLI do Azure
 
-Pode implementar um modelo de Gestor de Recursos utilizando o Azure CLI. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../azure-resource-manager/templates/deploy-cli.md) e [implementar o modelo de Gestor de Recursos Privados com token SAS e Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Pode implementar um modelo de Gestor de Recursos utilizando o Azure CLI. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure CLI](../azure-resource-manager/templates/deploy-cli.md) e [implementar o modelo de Gestor de Recursos Privados com token SAS e Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Implementar utilizando a API REST
 
@@ -78,6 +78,6 @@ Neste artigo, aprendeu várias formas de criar um cluster HDInsight. Para saber 
 * Para obter mais modelos relacionados com HDInsight, consulte [os modelos de arranque rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Para um exemplo de implantação de recursos através da biblioteca de clientes .NET, consulte [recursos de implantação utilizando bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Para obter um exemplo aprofundado de implantação de uma aplicação, consulte [Provisão e implemente microserviços previsivelmente em Azure](../app-service/deploy-complex-application-predictably.md).
-* Para obter orientações sobre a implementação da sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e teste no Microsoft Azure](../solution-dev-test-environments.md).
+* Para obter orientações sobre a implementação da sua solução em ambientes diferentes, consulte [Ambientes de desenvolvimento e teste no Microsoft Azure](../devtest-labs/devtest-lab-overview.md).
 * Para saber mais sobre as secções do modelo do Gestor de Recursos Azure, consulte [os modelos de autoria](../azure-resource-manager/templates/template-syntax.md).
 * Para obter uma lista das funções que pode utilizar num modelo de Gestor de Recursos Azure, consulte [as funções do Modelo](../azure-resource-manager/templates/template-functions.md).

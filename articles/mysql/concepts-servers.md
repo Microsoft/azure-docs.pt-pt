@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1a6aabe7ef3500a114525fe6c8bc993826295e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afbf80810f45f616eac40de16889bbebb1cf4964
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275358"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544805"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Conceitos de servidor na Base de Dados Azure para o MySQL
 
@@ -32,7 +32,7 @@ Uma base de dados Azure para o servidor MySQL:
 - Fornece a margem de manobra para políticas de gestão que se aplicam às suas bases de dados: login, firewall, utilizadores, funções, configurações, etc.
 - Está disponível em várias versões. Para obter mais informações, consulte [a Base de Dados Azure suportada para versões de base de dados MySQL](./concepts-supported-versions.md).
 
-Dentro de uma Base de Dados do Azure para o servidor MySQL, pode criar uma ou várias bases de dados. Pode optar por criar uma única base de dados por servidor para utilizar todos os recursos ou criar várias bases de dados para partilhar os recursos. O preço é estruturado por servidor, com base na configuração do nível de preços, vCores e armazenamento (GB). Para obter mais informações, consulte [os níveis de preços.](./concepts-service-tiers.md)
+Dentro de uma Base de Dados do Azure para o servidor MySQL, pode criar uma ou várias bases de dados. Pode optar por criar uma única base de dados por servidor para utilizar todos os recursos ou criar várias bases de dados para partilhar os recursos. O preço é estruturado por servidor, com base na configuração do nível de preços, vCores e armazenamento (GB). Para obter mais informações, consulte [os níveis de preços.](./concepts-pricing-tiers.md)
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Como posso ligar e autenticar a uma Base de Dados Azure para o servidor MySQL?
 
@@ -67,5 +67,5 @@ Pode gerir a Base de Dados Azure para servidores MySQL utilizando o portal Azure
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral do serviço, consulte [a Base de Dados Azure para a visão geral do MySQL](./overview.md)
-- Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de serviço](./concepts-service-tiers.md)
+- Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de preços,** consulte [os níveis de preços](./concepts-pricing-tiers.md)
 - Para obter informações sobre a ligação ao serviço, consulte [as bibliotecas connection para Azure Database for MySQL](./concepts-connection-libraries.md).

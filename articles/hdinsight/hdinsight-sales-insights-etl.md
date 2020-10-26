@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: a37729849bc9702fb6823c11d4534cf35df72abf
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 17e4468785ff113a85265a17a8314a0174d5d360
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489528"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535387"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para obter insights de vendas em Azure HDInsight
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Membro do [papel incorporado Azure - proprietário](../role-based-access-control/built-in-roles.md).
 
-* Se utilizar o PowerShell para ativar o gasoduto Data Factory, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Se utilizar o PowerShell para ativar o gasoduto Data Factory, necessitará do [Módulo Az](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) para visualizar insights de negócios no final deste tutorial.
 
@@ -110,7 +110,7 @@ A palavra-passe padrão para o acesso do SSH aos clusters é `Thisisapassword1` 
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verificar a implementação e recolher informações sobre recursos
 
-1. Se quiser verificar o estado da sua implantação, vá ao grupo de recursos do portal Azure. Em **Definições**, selecione **Implementações**e, em seguida, a sua implantação. Aqui pode ver os recursos que foram implementados com sucesso e os recursos que ainda estão em curso.
+1. Se quiser verificar o estado da sua implantação, vá ao grupo de recursos do portal Azure. Em **Definições** , selecione **Implementações** e, em seguida, a sua implantação. Aqui pode ver os recursos que foram implementados com sucesso e os recursos que ainda estão em curso.
 
 1. Para ver os nomes dos clusters, insira o seguinte comando:
 
@@ -214,7 +214,7 @@ Para acionar o oleoduto, pode:
 
     Ou
 
-* Abra a fábrica de dados e selecione **Author & Monitor**. Dispare o `IngestAndTransform` oleoduto do portal. Para obter informações sobre o desencadeamento de gasodutos através do portal, consulte [crie clusters Apache Hadoop a pedido em HDInsight utilizando a Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Abra a fábrica de dados e selecione **Author & Monitor** . Dispare o `IngestAndTransform` oleoduto do portal. Para obter informações sobre o desencadeamento de gasodutos através do portal, consulte [crie clusters Apache Hadoop a pedido em HDInsight utilizando a Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Para verificar se o gasoduto está a funcionar, pode tomar qualquer um dos seguintes passos:
 
@@ -252,19 +252,19 @@ Para outras formas de transformar dados utilizando o HDInsight, consulte [este a
 
 1. Abra o Power BI Desktop.
 
-1. A partir do menu, navegue para **obter mais dados...**  >  **More...**  >  **Rio Azure**  >  **Consulta Interativa HDInsight**.
+1. A partir do menu, navegue para **obter mais dados...**  >  **More...**  >  **Rio Azure**  >  **Consulta Interativa HDInsight** .
 
-1. Selecione **Ligar**.
+1. Selecione **Ligar** .
 
 1. Do diálogo **de consulta interativa HDInsight:**
     1. Na caixa de texto do **Servidor,** insira o nome do seu cluster LLAP no formato de `https://LLAPCLUSTERNAME.azurehdinsight.net` .
     1. Na caixa de texto da **base de dados,** insira `default` .
-    1. Selecione **OK**.
+    1. Selecione **OK** .
 
 1. Do diálogo **AzureHive:**
     1. Na caixa de texto **do nome do utilizador,** insira `admin` .
     1. Na caixa de texto da **palavra-passe,** insira `Thisisapassword1` .
-    1. Selecione **Ligar**.
+    1. Selecione **Ligar** .
 
 1. A partir do **Navigator,** selecione `sales` e/ou `sales_raw` para pré-visualizar os dados. Depois de os dados estiverem carregados, pode experimentar com o painel de instrumentos que pretende criar. Consulte os seguintes links para começar com os dashboards Power BI:
 

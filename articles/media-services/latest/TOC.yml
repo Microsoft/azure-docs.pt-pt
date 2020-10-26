@@ -63,6 +63,7 @@
           href: protect-with-drm.md
         - name: Proteção de conteúdo com o Azure AD
           href: azure-ad-content-protection.md
+          displayName: 'AAD, Active Directory'
     - name: REST
       items:
         - name: Codificar e transmitir em fluxo um ficheiro remoto REST
@@ -129,8 +130,8 @@
         - name: Descrição geral
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Transformações e tarefas
-          href: transforms-jobs-concept.md
+    - name: Transformações e tarefas
+      href: transforms-jobs-concept.md
     - name: Transmissão em direto
       items:
         - name: Descrição geral
@@ -265,6 +266,8 @@
       items:
         - name: Criar transformações
           href: cli-create-transform.md
+        - name: Criar uma transformação de áudio básica com REST
+          href: how-to-create-basic-audio-transform.md
         - name: Criar tarefas
           href: cli-create-jobs.md
         - name: Criar uma entrada de tarefa com um ficheiro local e o .NET
@@ -389,7 +392,7 @@
           href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Ir
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions

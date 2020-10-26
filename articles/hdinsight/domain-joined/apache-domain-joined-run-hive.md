@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397832"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544941"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 
@@ -21,7 +21,7 @@ Saiba como configurar as políticas apache ranger para a Colmeia Apache. Neste a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster HDInsight com pacote de segurança empresarial. Consulte [os clusters Configure HDInsight com ESP](apache-domain-joined-configure.md).
+* Um cluster HDInsight com pacote de segurança empresarial. Consulte [os clusters Configure HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Uma estação de trabalho com aplicativos Microsoft 365 para empresas, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Ligar à IU do Apache Ranger Admin
@@ -49,14 +49,14 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
 **Para criar políticas do Ranger**
 
 1. Abra a IU do Ranger Admin. Consulte Ligar à IU do Apache Ranger Admin.
-2. Selecione **CLUSTERNAME_Hive,** em **Hive**. Deverá ver duas políticas de pré-configuração.
-3. **Selecione Adicionar Nova Política**e, em seguida, insira os seguintes valores:
+2. Selecione **CLUSTERNAME_Hive,** em **Hive** . Deverá ver duas políticas de pré-configuração.
+3. **Selecione Adicionar Nova Política** e, em seguida, insira os seguintes valores:
 
     |Propriedade |Valor |
     |---|---|
     |Nome da Política|read-hivesampletable-all|
     |Base de Dados da Colmeia|predefinição|
-    |table|hivesmpletable|
+    |mesa|hivesmpletable|
     |Coluna da Colmeia|*|
     |Selecionar Utilizador|hiveuser1|
     |Permissões|selecionar|
@@ -74,7 +74,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-devicemake|
     |Base de Dados da Colmeia|predefinição|
-    |table|hivesmpletable|
+    |mesa|hivesmpletable|
     |Coluna de colmeia|cliente, fabricante de dispositivos|
     |Selecionar Utilizador|hiveuser2|
     |Permissões|selecionar|
@@ -87,15 +87,15 @@ As instruções podem ser encontradas em [Criar origem de dados do ODBC do Hive]
  | --- | --- |
  | Nome da Origem de Dados | Atribua um nome para a sua origem de dados |
  | Anfitrião | Introduza CLUSTERNAME.azurehdinsight.net. Por exemplo, myHDICluster.azurehdinsight.net |
- | Porta | Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
- | Base de Dados | Utilizar **predefinido**. |
+ | Porta | Utilize **443** . (Esta porta foi alterada de 563 para 443.) |
+ | Base de Dados | Utilizar **predefinido** . |
  | Tipo de Servidor do Hive | Selecione **Servidor do Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
  | Nome de Utilizador | Introduza hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se for diferente. |
  | Palavra-passe | Introduza a palavra-passe para hiveuser1. |
 
-Certifique-se de que clica em **Teste**, antes de guardar a origem de dados.
+Certifique-se de que clica em **Teste** , antes de guardar a origem de dados.
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>Importe dados para o Excel a partir do HDInsight
 
@@ -107,17 +107,17 @@ Na última secção, configuraste duas apólices.  O hiveuser1 tem a permissão 
 
     ![Abrir o assistente de ligação de dados](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. A partir da lista de drop-down, selecione o nome de origem de dados que criou na última secção e, em seguida, selecione **OK**.
+1. A partir da lista de drop-down, selecione o nome de origem de dados que criou na última secção e, em seguida, selecione **OK** .
 
 1. Para a primeira utilização, abre-se um diálogo do **controlador ODBC.** Selecione **Windows** a partir do menu esquerdo. Em seguida, **selecione Connect** para abrir a janela **Do Navegador.**
 
 1. Aguarde que a caixa de diálogo **Selecionar Base de Dados e Tabela** se abra. Esta ação pode demorar alguns segundos.
 
-1. Selecione **hivesmpletable**e, em seguida, selecione **Seguinte**.
+1. Selecione **hivesmpletable** e, em seguida, selecione **Seguinte** .
 
-1. Selecione **Concluir**.
+1. Selecione **Concluir** .
 
-1. Na caixa de diálogo **Importar Dados**, pode alterar ou especificar a consulta. Para tal, selecione **Propriedades.** Esta ação pode demorar alguns segundos.
+1. Na caixa de diálogo **Importar Dados** , pode alterar ou especificar a consulta. Para tal, selecione **Propriedades.** Esta ação pode demorar alguns segundos.
 
 1. Selecione o **separador Definição.** O texto de comando é:
 
@@ -131,7 +131,7 @@ Na última secção, configuraste duas apólices.  O hiveuser1 tem a permissão 
 
 1. Selecione **OK** para fechar o diálogo **de dados** de importação.  
 
-1. Reintroduza a palavra-passe para hiveuser1 e clique em **OK**. Demora alguns segundos antes de os dados serem importados para o Excel. Quando estiver feito, verá 11 colunas de dados.
+1. Reintroduza a palavra-passe para hiveuser1 e clique em **OK** . Demora alguns segundos antes de os dados serem importados para o Excel. Quando estiver feito, verá 11 colunas de dados.
 
 Para testar a segunda política (read-hivesampletable-devicemake), criou na última secção
 
@@ -158,7 +158,7 @@ Para testar a segunda política (read-hivesampletable-devicemake), criou na últ
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para configurar um cluster HDInsight com pacote de segurança empresarial, consulte [clusters Configure HDInsight com ESP](apache-domain-joined-configure.md).
+* Para configurar um cluster HDInsight com pacote de segurança empresarial, consulte [clusters Configure HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Para gerir um cluster HDInsight com ESP, consulte [Gerir clusters HDInsight com ESP](apache-domain-joined-manage.md).
 * Para executar consultas de Hive utilizando SSH em clusters HDInsight com ESP, consulte [Use SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * Para ligar a colmeia utilizando a Colmeia JDBC, consulte [Connect to Apache Hive on Azure HDInsight usando o controlador Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

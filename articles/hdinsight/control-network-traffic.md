@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631720"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543173"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Tráfego de rede de controlo em Azure HDInsight
 
 O tráfego de rede numa Rede Virtual Azure pode ser controlado utilizando os seguintes métodos:
 
-* **Os grupos de segurança da** rede (NSG) permitem filtrar o tráfego de entrada e saída para a rede. Para obter mais informações, consulte o tráfego da rede Filter com o documento [dos grupos de segurança da rede.](../virtual-network/security-overview.md)
+* **Os grupos de segurança da** rede (NSG) permitem filtrar o tráfego de entrada e saída para a rede. Para obter mais informações, consulte o tráfego da rede Filter com o documento [dos grupos de segurança da rede.](../virtual-network/network-security-groups-overview.md)
 
 * **Os aparelhos virtuais de rede** (NVA) só podem ser utilizados com tráfego de saída. Os NVAs replicam a funcionalidade de dispositivos como firewalls e routers. Para obter mais informações, consulte o documento ["Aparelhos de Rede".](https://azure.microsoft.com/solutions/network-appliances)
 
@@ -40,9 +40,9 @@ Se planeia utilizar **grupos de segurança** de rede para controlar o tráfego d
 
 3. Crie ou modifique os grupos de segurança da rede para a sub-rede em que planeia instalar o HDInsight.
 
-    * __Grupos de segurança da__rede : permitir o tráfego __de entrada na__ porta __443__ a partir dos endereços IP. Isto garantirá que os serviços de gestão HDInsight possam chegar ao cluster de fora da rede virtual. Para clusters de __procuração de Kafka REST,__ permita o tráfego __de entrada no__ porto __9400__ também. Isto garantirá que o servidor proxy Kafka REST está acessível.
+    * __Grupos de segurança da__ rede : permitir o tráfego __de entrada na__ porta __443__ a partir dos endereços IP. Isto garantirá que os serviços de gestão HDInsight possam chegar ao cluster de fora da rede virtual. Para clusters de __procuração de Kafka REST,__ permita o tráfego __de entrada no__ porto __9400__ também. Isto garantirá que o servidor proxy Kafka REST está acessível.
 
-Para obter mais informações sobre grupos de segurança de rede, consulte a [visão geral dos grupos de segurança da rede.](../virtual-network/security-overview.md)
+Para obter mais informações sobre grupos de segurança de rede, consulte a [visão geral dos grupos de segurança da rede.](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controlo do tráfego de saída dos clusters HDInsight
 
@@ -69,6 +69,6 @@ Para obter mais informações sobre as regras de firewall para aparelhos virtuai
 * Para obter amostras de código e exemplos de criação de Redes Virtuais Azure, consulte [criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de configuração hdinsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).
 * Para obter mais informações sobre as redes virtuais Azure, consulte a [visão geral da Rede Virtual Azure](../virtual-network/virtual-networks-overview.md).
-* Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo utilizador, consulte [as rotas definidas pelo Utilizador e o encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 * Para obter mais informações sobre redes virtuais, consulte [Plano VNETs para HDInsight](./hdinsight-plan-virtual-network-deployment.md).

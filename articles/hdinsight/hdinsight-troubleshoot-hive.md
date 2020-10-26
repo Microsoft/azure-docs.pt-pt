@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb522e047ed8bb4929a3aba270df35322256319b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895225"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534894"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Utilizar o Azure HDInsight para resolver problemas do Apache Hive)
 
@@ -120,17 +120,17 @@ O código nas etapas de resolução pressupõe que os caminhos de dados no novo 
    Deve fornecer um programa de exemplo como primeiro argumento.
 
    Os nomes válidos do programa incluem:
-    - **ContainerReuseAnalyzer**: Imprimir detalhes de reutilização de contentores num DAG
-    - **CriticalPath**: Encontre o caminho crítico de um DAG
-    - **LocalidadeAnalyzer**: Imprima detalhes da localidade num DAG
-    - **ShuffleTimeAnalyzer**: Analise os detalhes do tempo de baralhar num DAG
-    - **SkewAnalyzer**: Analise os detalhes distorcidos num DAG
-    - **SlowNodeAnalyzer**: Imprima detalhes do nó num DAG
-    - **SlowTaskIdentifier**: Imprima detalhes de tarefas lentas num DAG
-    - **SlowestVertexAnalyzer**: Imprima detalhes vértuosos mais lentos num DAG
-    - **SpillAnalyzer**: Imprima detalhes de derrame num DAG
-    - **TaskConcurrencyAnalyzer**: Imprima os detalhes da conusciência da tarefa num DAG
-    - **VertexLevelCriticalPathAnalyzer**: Encontre o caminho crítico ao nível do vértice num DAG
+    - **ContainerReuseAnalyzer** : Imprimir detalhes de reutilização de contentores num DAG
+    - **CriticalPath** : Encontre o caminho crítico de um DAG
+    - **LocalidadeAnalyzer** : Imprima detalhes da localidade num DAG
+    - **ShuffleTimeAnalyzer** : Analise os detalhes do tempo de baralhar num DAG
+    - **SkewAnalyzer** : Analise os detalhes distorcidos num DAG
+    - **SlowNodeAnalyzer** : Imprima detalhes do nó num DAG
+    - **SlowTaskIdentifier** : Imprima detalhes de tarefas lentas num DAG
+    - **SlowestVertexAnalyzer** : Imprima detalhes vértuosos mais lentos num DAG
+    - **SpillAnalyzer** : Imprima detalhes de derrame num DAG
+    - **TaskConcurrencyAnalyzer** : Imprima os detalhes da conusciência da tarefa num DAG
+    - **VertexLevelCriticalPathAnalyzer** : Encontre o caminho crítico ao nível do vértice num DAG
 
 ### <a name="additional-reading"></a>Leitura adicional
 
@@ -155,7 +155,7 @@ Existem duas formas de recolher os dados do Tez DAG:
   1. Vai a Ambari.
   2. Vá à vista Tez (sob o ícone de azulejos no canto superior direito).
   3. Selecione o DAG que pretende visualizar.
-  4. Selecione **Baixar os dados**.
+  4. Selecione **Baixar os dados** .
 
 ### <a name="additional-reading"></a><a name="additional-reading-end"></a>Leitura adicional
 
@@ -169,4 +169,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

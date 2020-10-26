@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142235"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535795"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Recursos de pedido de dados do cliente para dispositivos Azure IoT Hub
 
@@ -30,7 +30,7 @@ Se utilizar a função de encaminhamento do serviço Azure IoT Hub para encaminh
 
 Se utilizar a funcionalidade de integração da Azure Event Grid do serviço Azure IoT Hub, então os pedidos de dados devem ser realizados pelo administrador do arrendatário para cada subscritor destes eventos. Para obter mais informações, consulte [reagir aos eventos do IoT Hub utilizando a Grade de Eventos.](iot-hub-event-grid.md)
 
-Se utilizar a função de integração do Azure Monitor do serviço Azure IoT Hub para criar registos de diagnóstico, então os pedidos de dados devem ser realizados pelo administrador do arrendatário contra os registos armazenados. Para mais informações, consulte [Monitorar a saúde do Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Se utilizar a função de integração do Azure Monitor do serviço Azure IoT Hub para criar registos de recursos, então os pedidos de dados devem ser realizados pelo administrador do arrendatário contra os registos armazenados. Para mais informações, consulte [o Monitor IoT Hub](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Eliminação dos dados dos clientes
 

@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404964"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536050"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um hub IoT utilizando o portal Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar e gerir centros IoT utilizando o [portal Azure](
 
 Para utilizar os passos neste tutorial, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -36,13 +36,13 @@ Pode alterar as definições de um hub IoT existente depois de ser criado a part
 
 Aqui estão algumas das propriedades que pode definir para um hub IoT:
 
-**Preços e escala**: Pode utilizar esta propriedade para migrar para um nível diferente ou definir o número de unidades IoT Hub. 
+**Preços e escala** : Pode utilizar esta propriedade para migrar para um nível diferente ou definir o número de unidades IoT Hub. 
 
-**Monitorização de operações**: Ligue ou desligue as diferentes categorias de monitorização, tais como registo de eventos relacionados com mensagens de dispositivo para nuvem ou mensagens nuvem-para-dispositivo.
+**Monitorização de operações** : Ligue ou desligue as diferentes categorias de monitorização, tais como registo de eventos relacionados com mensagens de dispositivo para nuvem ou mensagens nuvem-para-dispositivo.
 
-**Filtro IP**: Especifique uma gama de endereços IP que serão aceites ou rejeitados pelo hub IoT.
+**Filtro IP** : Especifique uma gama de endereços IP que serão aceites ou rejeitados pelo hub IoT.
 
-**Propriedades**: Fornece a lista de propriedades que pode copiar e usar em outros lugares, tais como o ID de recursos, grupo de recursos, localização, e assim por diante.
+**Propriedades** : Fornece a lista de propriedades que pode copiar e usar em outros lugares, tais como o ID de recursos, grupo de recursos, localização, e assim por diante.
 
 ### <a name="shared-access-policies"></a>Políticas de acesso partilhado
 
@@ -74,13 +74,13 @@ Clique em **Roteamento de Mensagens** em **Mensagens** para ver o painel de enca
 
 ### <a name="routes"></a>Rotas
 
-As rotas são o primeiro separador no painel de encaminhamento de mensagens. Para adicionar uma nova rota, clique em +**Adicionar**. Vê o seguinte ecrã. 
+As rotas são o primeiro separador no painel de encaminhamento de mensagens. Para adicionar uma nova rota, clique em + **Adicionar** . Vê o seguinte ecrã. 
 
 ![Screenshot mostrando a adição de uma nova rota](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
 Diga a sua rota. O nome da rota deve ser único dentro da lista de rotas para aquele centro. 
 
-Para **Endpoint,** pode selecionar um da lista de dropdown ou adicionar um novo. Neste exemplo, já estão disponíveis uma conta de armazenamento e um contentor. Para adicioná-los como ponto final, clique em +**Adicione** ao lado do dropdown endpoint e selecione **Blob Storage**. O ecrã a seguir mostra onde a conta de armazenamento e o recipiente são especificados.
+Para **Endpoint,** pode selecionar um da lista de dropdown ou adicionar um novo. Neste exemplo, já estão disponíveis uma conta de armazenamento e um contentor. Para adicioná-los como ponto final, clique em + **Adicione** ao lado do dropdown endpoint e selecione **Blob Storage** . O ecrã a seguir mostra onde a conta de armazenamento e o recipiente são especificados.
 
 ![Screenshot mostrando a adição de um ponto final de armazenamento para a regra de encaminhamento](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
@@ -112,9 +112,9 @@ Para ver um exemplo completo de como usar pontos finais personalizados com encam
 
 Aqui estão duas formas de encontrar um hub IoT específico na sua subscrição:
 
-1. Se conhecer o grupo de recursos a que pertence o hub IoT, clique em **grupos de recursos**e, em seguida, selecione o grupo de recursos da lista. O ecrã do grupo de recursos mostra todos os recursos desse grupo, incluindo os hubs IoT. Clique no centro para o qual está procurando.
+1. Se conhecer o grupo de recursos a que pertence o hub IoT, clique em **grupos de recursos** e, em seguida, selecione o grupo de recursos da lista. O ecrã do grupo de recursos mostra todos os recursos desse grupo, incluindo os hubs IoT. Clique no centro para o qual está procurando.
 
-2. Clique em **Todos os recursos**. No painel **de todos os recursos,** há uma lista de abandono que não tem padrão para `All types` . Clique na lista de dropdown, desmarcada `Select all` . Encontre `IoT Hub` e verifique. Clique na caixa de lista suspensa para fechá-la e as entradas serão filtradas, mostrando apenas os seus hubs IoT.
+2. Clique em **Todos os recursos** . No painel **de todos os recursos,** há uma lista de abandono que não tem padrão para `All types` . Clique na lista de dropdown, desmarcada `Select all` . Encontre `IoT Hub` e verifique. Clique na caixa de lista suspensa para fechá-la e as entradas serão filtradas, mostrando apenas os seus hubs IoT.
 
 ## <a name="delete-the-iot-hub"></a>Apagar o hub IoT
 
@@ -125,5 +125,4 @@ Para eliminar um hub Iot, encontre o hub IoT que pretende eliminar e, em seguida
 Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 
 * [Encaminhamento de mensagens com IoT Hub](tutorial-routing.md)
-* [Métricas IoT Hub](iot-hub-metrics.md)
-* [Monitorização de operações](iot-hub-operations-monitoring.md)
+* [Monitorize o seu hub IoT](monitor-iot-hub.md)

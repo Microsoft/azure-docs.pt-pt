@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319196"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534588"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando Consulta Interativa em Azure HDInsight
 
@@ -30,9 +30,9 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster de consultainternação em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** para **o tipo cluster**.
+* Um cluster de consultainternação em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Consulta Interativa** para **o tipo cluster** .
 
-* Uma base de dados na Base de Dados Azure SQL. Utiliza a base de dados como uma loja de dados de destino. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte [criar uma base de dados na Base de Dados Azure SQL no portal Azure](/azure/sql-database/sql-database-single-database-get-started).
+* Uma base de dados na Base de Dados Azure SQL. Utiliza a base de dados como uma loja de dados de destino. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte [criar uma base de dados na Base de Dados Azure SQL no portal Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
 * Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -48,7 +48,7 @@ Este tutorial abrange as seguintes tarefas:
    | Filtrar Período |Janeiro |
    | Campos |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Selecione **Transferir**. Vai obter um ficheiro .zip com os campos de dados que selecionou.
+3. Selecione **Transferir** . Vai obter um ficheiro .zip com os campos de dados que selecionou.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Carregar os dados para um cluster do HDInsight
 
@@ -97,7 +97,7 @@ Existem muitas formas de executar um trabalho do Hive num cluster do HDInsight. 
 
 Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabela do Hive com o nome **Delays** (Atrasos).
 
-1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar, e edite um novo ficheiro chamado **flightdelays.hql**:
+1. A partir do pedido SSH que já tem para o cluster HDInsight, use o seguinte comando para criar, e edite um novo ficheiro chamado **flightdelays.hql** :
 
     ```bash
     nano flightdelays.hql
@@ -167,7 +167,7 @@ Como parte do trabalho do Hive, importe os dados do ficheiro .csv para uma tabel
 
 3. Para guardar o ficheiro, prima **Ctrl + X,** em seguida, **y,** e depois introduza.
 
-4. Para iniciar o Hive e executar o ficheiro **flightdelays.hql**, utilize o seguinte comando:
+4. Para iniciar o Hive e executar o ficheiro **flightdelays.hql** , utilize o seguinte comando:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql

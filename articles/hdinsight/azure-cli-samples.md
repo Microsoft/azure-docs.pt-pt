@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3181d4a0c605e0b1325f21de6b277e2b41f92d37
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a289a0d963c8e20a3b861ff9964e8afd6665de22
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487301"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542357"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Amostras de CLI Azure
 
@@ -28,7 +28,7 @@ Este artigo fornece scripts de amostra para tarefas comuns. Por exemplo, atualiz
 
 * CLI do Azure. Consulte [a Instalação do Azure CLI](/cli/azure/install-azure-cli) para obter passos.
 
-* Opcional: Bash. Os exemplos deste artigo utilizam a concha Bash no Windows 10. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter etapas de instalação.  Os exemplos funcionarão a partir de uma solicitação do Windows Command com algumas modificações ligeiras.
+* Opcional: Bash. Os exemplos deste artigo utilizam a concha Bash no Windows 10. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](/windows/wsl/install-win10) para obter etapas de instalação.  Os exemplos funcionarão a partir de uma solicitação do Windows Command com algumas modificações ligeiras.
 
 ## <a name="az-login"></a>az login
 

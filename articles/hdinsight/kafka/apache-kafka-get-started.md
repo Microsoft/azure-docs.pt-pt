@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 6198475025ff5222edeeb14cf25634ad2d916a1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f0b3da7d225e4b2adca3f2d4b08cff9b56e2520
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88651442"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534605"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Quickstart: Criar cluster Apache Kafka em Azure HDInsight usando o portal Azure
 
@@ -50,28 +50,28 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
     |Subscrição    |  A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster. |
     |Grupo de recursos     | Crie um grupo de recursos ou selecione crie um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
     |Nome do cluster   | Introduza um nome globalmente exclusivo. O nome pode consistir em até 59 caracteres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
-    |Region    | A partir da lista de drop-down, selecione uma região onde o cluster é criado.  Escolha uma região mais próxima de si para um melhor desempenho. |
+    |Região    | A partir da lista de drop-down, selecione uma região onde o cluster é criado.  Escolha uma região mais próxima de si para um melhor desempenho. |
     |Tipo de cluster| **Selecione Selecionar o tipo de cluster** para abrir uma lista. A partir da lista, selecione **Kafka** como o tipo de cluster.|
     |Versão|A versão padrão para o tipo de cluster será especificada. Selecione a partir da lista de drop-down se desejar especificar uma versão diferente.|
-    |Nome de utilizador e palavra-passe de início de sessão do cluster    | O nome de login predefinido é **administrador**. A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula, e uma letra minúscula, um carácter não alfanumérico (exceto os caracteres ' \) . Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
-    |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser**.  Pode indicar outro nome de utilizador SSH. |
+    |Nome de utilizador e palavra-passe de início de sessão do cluster    | O nome de login predefinido é **administrador** . A palavra-passe deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma maiúscula, e uma letra minúscula, um carácter não alfanumérico (exceto os caracteres ' \) . Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
+    |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser** .  Pode indicar outro nome de utilizador SSH. |
     |Use a palavra-passe de login do cluster para SSH| Selecione esta caixa de verificação para utilizar a mesma palavra-passe para o utilizador SSH que forneceu para o utilizador de login do cluster.|
 
    ![Portal Azure cria básicos de cluster](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
-    Cada região do Azure (localização) fornece _domínios de falha_. Um domínio de falha é um agrupamento lógico de hardware subjacente num centro de dados do Azure. Cada domínio de falha partilha um comutador de rede e uma fonte de alimentação. As máquinas virtuais e os discos geridos que implementam os nós num cluster HDInsight são distribuídos por esses domínios de falha. Esta arquitetura limita o possível impacto de falhas físicas de hardware.
+    Cada região do Azure (localização) fornece _domínios de falha_ . Um domínio de falha é um agrupamento lógico de hardware subjacente num centro de dados do Azure. Cada domínio de falha partilha um comutador de rede e uma fonte de alimentação. As máquinas virtuais e os discos geridos que implementam os nós num cluster HDInsight são distribuídos por esses domínios de falha. Esta arquitetura limita o possível impacto de falhas físicas de hardware.
 
-    Para obter uma elevada disponibilidade de dados, selecione uma região (localização) que contenha __três domínios de falha__. Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+    Para obter uma elevada disponibilidade de dados, selecione uma região (localização) que contenha __três domínios de falha__ . Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-    Selecione o **Seguinte: Separador de >>de armazenamento ** para avançar para as definições de armazenamento.
+    Selecione o **Seguinte: Separador de >>de armazenamento** para avançar para as definições de armazenamento.
 
 1. A partir do separador **Armazenamento,** forneça os seguintes valores:
 
     |Propriedade  |Descrição  |
     |---------|---------|
-    |Tipo de armazenamento primário|Utilize o valor predefinido **Azure Storage**.|
-    |Método de seleção|Utilizar o valor predefinido **Selecione da lista**.|
-    |Conta de armazenamento primária|Utilize a lista de drop-down para selecionar uma conta de armazenamento existente ou selecione **Criar novo**. Se criar uma nova conta, o nome deve ter entre 3 e 24 caracteres de comprimento, e pode incluir apenas números e letras minúsculas|
+    |Tipo de armazenamento primário|Utilize o valor predefinido **Azure Storage** .|
+    |Método de seleção|Utilizar o valor predefinido **Selecione da lista** .|
+    |Conta de armazenamento primária|Utilize a lista de drop-down para selecionar uma conta de armazenamento existente ou selecione **Criar novo** . Se criar uma nova conta, o nome deve ter entre 3 e 24 caracteres de comprimento, e pode incluir apenas números e letras minúsculas|
     |Contentor|Utilize o valor auto-povoado.|
 
     ![HDInsight Linux começa a fornecer valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Fornecer valores de armazenamento para criar um cluster HDInsight")
@@ -80,7 +80,7 @@ Para criar um cluster Apache Kafka em HDInsight, utilize os seguintes passos:
 
 1. Para este Quickstart, deixe as definições de segurança predefinidos. Para saber mais sobre o pacote de Segurança Enterprise, visite [Configurar um cluster do HDInsight com Pacote de Segurança Enterprise com o Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para aprender a usar a sua própria chave para encriptação de disco Apache Kafka, visite [a encriptação do disco gerido pelo Cliente](../disk-encryption.md)
 
-   Se quiser ligar o seu cluster a uma rede virtual, selecione uma rede virtual na lista pendente **Rede Virtual**.
+   Se quiser ligar o seu cluster a uma rede virtual, selecione uma rede virtual na lista pendente **Rede Virtual** .
 
    ![Adicionar o cluster a uma rede virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
@@ -200,15 +200,15 @@ Nesta secção, obtém-se a informação do anfitrião da API Apache Ambari REST
 
 ## <a name="manage-apache-kafka-topics"></a>Gerir tópicos do Apache Kafka
 
-O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kafka-topics.sh` para gerir os tópicos.
+O Kafka armazena fluxos de dados em *tópicos* . Pode utilizar o utilitário `kafka-topics.sh` para gerir os tópicos.
 
-* **Para criar um tópico**, utilize o seguinte comando na ligação SSH:
+* **Para criar um tópico** , utilize o seguinte comando na ligação SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Este comando liga ao Zookeeper com as informações do anfitrião armazenadas em `$KAFKAZKHOSTS`. Em seguida, cria um tópico do Apache Kafka denominado **test**.
+    Este comando liga ao Zookeeper com as informações do anfitrião armazenadas em `$KAFKAZKHOSTS`. Em seguida, cria um tópico do Apache Kafka denominado **test** .
 
     * Os dados armazenados neste tópico estão particionados em oito partições.
 
@@ -218,7 +218,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
         
         * Nas regiões com três domínios de falha, um fator de replicação de 3 permite que as réplicas sejam distribuídas pelos domínios de falha. Nas regiões com dois domínios de falha, um fator de replicação de 4 distribui as réplicas uniformemente pelos domínios.
         
-        * Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        * Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
         * O Apache Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
@@ -230,7 +230,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
             * Aumentar verticalmente um cluster
 
-* **Para listar os tópicos**, utilize o seguinte comando:
+* **Para listar os tópicos** , utilize o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -238,7 +238,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
     Este comando apresenta uma lista de tópicos disponíveis no cluster do Apache Kafka.
 
-* **Para eliminar um tópico**, utilize o seguinte comando:
+* **Para eliminar um tópico** , utilize o seguinte comando:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -257,7 +257,7 @@ Para obter mais informações sobre os comandos disponíveis com o utilitário `
 
 ## <a name="produce-and-consume-records"></a>Produzir e consumir registos
 
-O Kafka armazena *registos* nos tópicos. Os registos são produzidos por *produtores* e consumidos por *consumidores*. Os produtores e consumidores comunicam com o serviço do *mediador do Kafka*. Cada nó de trabalho no cluster do HDInsight é um anfitrião do mediador do Apache Kafka.
+O Kafka armazena *registos* nos tópicos. Os registos são produzidos por *produtores* e consumidos por *consumidores* . Os produtores e consumidores comunicam com o serviço do *mediador do Kafka* . Cada nó de trabalho no cluster do HDInsight é um anfitrião do mediador do Apache Kafka.
 
 Utilize os seguintes passos para armazenar os registos no tópico de teste criado anteriormente e, em seguida, leia-os através de um consumidor:
 
@@ -285,13 +285,13 @@ Utilize os seguintes passos para armazenar os registos no tópico de teste criad
 
 Também podem criar programaticamente produtores e consumidores. Para um exemplo de utilização desta API, consulte o Apache Kafka Producer and Consumer API com o documento [HDInsight.](apache-kafka-producer-consumer-api.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os recursos criados por este início rápido, pode eliminar o grupo de recursos. Ao eliminar o grupo de recursos também elimina o cluster do HDInsight associado e quaisquer outros recursos associados ao grupo de recursos.
 
 Para remover o grupo de recursos através do Portal do Azure:
 
-1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__, para apresentar a lista dos seus grupos de recursos.
+1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__ , para apresentar a lista dos seus grupos de recursos.
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 

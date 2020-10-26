@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: Transcrição de conversas
           items:
-            - name: Descrição geral
-              items:
-                - name: O que é a transcrição de conversas?
-                  href: conversation-transcription.md
+            - name: Descrição geral da Transcrição de Conversas
+              href: conversation-transcription.md
+            - name: Início rápido da Transcrição de Conversas em tempo real
+              href: how-to-use-conversation-transcription.md
             - name: Guias de procedimentos
               items:
                 - name: Lidar com cenários de centros de atendimento telefónico
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: Transcrição de conversas em tempo real
-                  href: how-to-use-conversation-transcription.md
                 - name: Transcrição de conversas assíncrona
                   href: how-to-async-conversation-transcription.md
             - name: Referência
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: Conversas em vários dispositivos
           items:
-            - name: Descrição geral
-              items:
-                - name: O que são as conversas em vários dispositivos?
-                  href: multi-device-conversation.md
-            - name: Início Rápido
-              items:
-                - name: Iniciar e participar numa conversa
-                  href: quickstarts/multi-device-conversation.md
+            - name: Descrição geral das conversas em vários dispositivos
+              href: multi-device-conversation.md
+            - name: Início rápido das conversas em vários dispositivos
+              href: quickstarts/multi-device-conversation.md
             - name: Referência
               items:
                 - name: API de Voz
@@ -363,12 +357,8 @@
       items:
         - name: Documentação dos assistentes de voz
           href: index-voice-assistants.yml
-        - name: Descrição geral
-          items:
-            - name: O que é um assistente de voz?
-              href: voice-assistants.md
-            - name: Exemplos do Assistente de Voz (GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: Descrição geral dos assistentes de voz
+          href: voice-assistants.md
         - name: Comandos Personalizados
           items:
             - name: O que são Comandos Personalizados?
@@ -508,7 +498,7 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: quickstart-custom-speech-commands-create-new.md
-- name: Implementação
+- name: Implementar
   items:
     - name: Ativar registo
       href: how-to-use-logging.md

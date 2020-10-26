@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488916"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544839"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notificação de manutenção planeada na Base de Dados Azure para MySQL - Servidor Único
 
@@ -46,14 +46,14 @@ Pode consultar a notificação de manutenção planeada no portal Azure ou confi
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Verifique a notificação de manutenção planeada do portal Azure
 
-1. No [portal Azure](https://portal.azure.com), selecione **Service Health**.
+1. No [portal Azure](https://portal.azure.com), selecione **Service Health** .
 2. Selecione **separador de manutenção planeado**
-3. Selecione **Subscrição**, **Região e **Serviço** para o qual pretende verificar a notificação de manutenção planeada. 
+3. Selecione **Subscrição** , **Região e **Serviço** para o qual pretende verificar a notificação de manutenção planeada. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Para receber a notificação de manutenção planeada
 
-1. No [portal](https://portal.azure.com), selecione **Service Health**.
-2. Na secção **Alertas,** selecione **Alertas de Saúde**.
+1. No [portal](https://portal.azure.com), selecione **Service Health** .
+2. Na secção **Alertas,** selecione **Alertas de Saúde** .
 3. **Selecione + Adicione o alerta de saúde** do serviço e preencha os campos.
 4. Preencha os campos necessários. 
 5. Escolha o **tipo de Evento,** selecione **manutenção planeada** ou **selecione tudo**
@@ -61,7 +61,7 @@ Pode consultar a notificação de manutenção planeada no portal Azure ou confi
 7. Certifique-se de que a regra enable após a criação está definida para Sim.
 8. Selecione **Criar regra de alerta** para completar o seu alerta
 
-Para obter etapas detalhadas sobre como criar **alertas**de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications.md).
+Para obter etapas detalhadas sobre como criar **alertas** de saúde de serviço, consulte os [alertas de registo de atividades da Create nas notificações do serviço](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Posso cancelar ou adiar a manutenção planeada?
 

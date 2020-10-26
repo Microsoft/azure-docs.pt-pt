@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84700370"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532769"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Resolução de problemas Tempestade Apache usando Azure HDInsight
 
@@ -27,8 +27,8 @@ Você tem duas opções para aceder ao UI storm a partir de um navegador:
 ### <a name="apache-ambari-ui"></a>Apache Ambari UI
 
 1. Vai ao painel Ambari.
-2. Na lista de serviços, selecione **Storm**.
-3. No menu **Links Rápidos,** selecione **Storm UI**.
+2. Na lista de serviços, selecione **Storm** .
+3. No menu **Links Rápidos,** selecione **Storm UI** .
 
 ### <a name="direct-link"></a>Ligação direta
 
@@ -95,7 +95,7 @@ Os binários de tempestade para a atual pilha de HDP estão em `/usr/hdp/current
 
 Pode haver vários binários para versões específicas do HDP em /usr/hdp (por exemplo, `/usr/hdp/2.5.0.1233/storm` ). A `/usr/hdp/current/storm-client` pasta está sisliged para a versão mais recente que está a ser executada no cluster.
 
-Para obter mais informações, consulte [Connect to a HDInsight cluster utilizando SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Apache Storm](https://storm.apache.org/).
+Para obter mais informações, consulte [Connect to a HDInsight cluster utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) e [Apache Storm](https://storm.apache.org/).
 
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Como determino a topologia de implantação de um aglomerado de tempestades?
 
@@ -141,7 +141,7 @@ Para obter mais informações sobre a utilização de ficheiros storm event hub 
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topologia baseada em C #(Mono on HDInsight 3.4+ Linux Storm clusters)
 
-[Eventos de processo de Azure Event Hubs com Apache Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Eventos de processo de Azure Event Hubs com Apache Storm on HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Mais recentes binaries do hub de eventos da Tempestade Apache para hdInsight 3.5+ Clusters de tempestade Linux
 
@@ -186,4 +186,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

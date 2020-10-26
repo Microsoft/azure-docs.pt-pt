@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 1a5a46957c92fb2c14907db728216481f3f57aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087695"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536271"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de Serviços ML em Azure HDInsight
 
@@ -21,14 +21,14 @@ Depois de ter usado o cluster ML Services em HDInsight para completar a modelaç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster ML Services em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **serviços ML** para **o tipo cluster**.
+* Um cluster ML Services em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **serviços ML** para **o tipo cluster** .
 
 * Um cliente Secure Shell (SSH): é utilizado um cliente SSH para ligar remotamente ao cluster do HDInsight e executar comandos diretamente no mesmo. Para obter mais informações, consulte [Use SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster de Serviços ML com configuração de uma caixa
 
 > [!NOTE]  
-> Os passos abaixo são aplicáveis ao R Server 9.0 e ao ML Server 9.1. Para o ML Server 9.3, consulte [a ferramenta de administração para gerir a configuração de operacionalização](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+> Os passos abaixo são aplicáveis ao R Server 9.0 e ao ML Server 9.1. Para o ML Server 9.3, consulte [a ferramenta de administração para gerir a configuração de operacionalização](/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. Aceda através de SSH ao nó de extremidade.
 
@@ -54,11 +54,11 @@ Depois de ter usado o cluster ML Services em HDInsight para completar a modelaç
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. É-lhe apresentadas as opções à escolha. Escolha a primeira opção, como mostra a seguinte imagem, para Configurar o **Servidor ML para operacionalização**.
+1. É-lhe apresentadas as opções à escolha. Escolha a primeira opção, como mostra a seguinte imagem, para Configurar o **Servidor ML para operacionalização** .
 
     ![Seleção de utilitário de administração de servidor R](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-1. É agora apresentada a opção de escolher como pretende operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeira entrando em **A**.
+1. É agora apresentada a opção de escolher como pretende operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeira entrando em **A** .
 
     ![Operacionalização do utilitário de administração de servidor R](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -74,7 +74,7 @@ Depois de ter usado o cluster ML Services em HDInsight para completar a modelaç
 
     ![Diagnóstico de utilidade da administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. No menu Testes de Diagnóstico, selecione **A**. Quando solicitado, insira a palavra-passe que forneceu para o utilizador administrativo local.
+    b. No menu Testes de Diagnóstico, selecione **A** . Quando solicitado, insira a palavra-passe que forneceu para o utilizador administrativo local.
 
     ![Teste de utilidade da administração do servidor R](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
@@ -86,7 +86,7 @@ Depois de ter usado o cluster ML Services em HDInsight para completar a modelaç
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Longos atrasos ao consumir serviço web em Apache Spark
 
-Se encontrar longos atrasos ao tentar consumir um serviço web criado com funções de mrsdeploy num contexto de computação Apache Spark, poderá ter de adicionar algumas pastas em falta. A aplicação Spark pertence a um utilizador chamado "*rserve2*" sempre que é invocado a partir de um serviço Web utilizando funções mrsdeploy. Para contornar este problema:
+Se encontrar longos atrasos ao tentar consumir um serviço web criado com funções de mrsdeploy num contexto de computação Apache Spark, poderá ter de adicionar algumas pastas em falta. A aplicação Spark pertence a um utilizador chamado " *rserve2* " sempre que é invocado a partir de um serviço Web utilizando funções mrsdeploy. Para contornar este problema:
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -103,7 +103,7 @@ chmod 777 /var/RevoShare/rserve2
 rxSparkConnect(reset = TRUE)
 ```
 
-Nesta fase, a configuração da operacionalização está concluída. Agora pode utilizar o `mrsdeploy` pacote no seu RClient para ligar à operacionalização no nó de borda e começar a usar as suas funcionalidades como [execução remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) e [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Consoante o seu cluster estar ou não configurado numa rede virtual, poderá ter de configurar o túnel de encaminhamento de portas através do início de sessão SSH. As secções a seguir explicam como configurar este túnel.
+Nesta fase, a configuração da operacionalização está concluída. Agora pode utilizar o `mrsdeploy` pacote no seu RClient para ligar à operacionalização no nó de borda e começar a usar as suas funcionalidades como [execução remota](/machine-learning-server/r/how-to-execute-code-remotely) e [serviços web](/machine-learning-server/operationalize/concept-what-are-web-services). Consoante o seu cluster estar ou não configurado numa rede virtual, poderá ter de configurar o túnel de encaminhamento de portas através do início de sessão SSH. As secções a seguir explicam como configurar este túnel.
 
 ### <a name="ml-services-cluster-on-virtual-network"></a>Cluster de serviços ML na rede virtual
 
@@ -155,17 +155,17 @@ Siga estes passos para desativar os nóns dos trabalhadores:
 
 1. Selecione os nóns dos trabalhadores (a ser desativado).
 
-1. Clique **em Ações**  >  **Anfitriões Selecionados**  >  **Anfitriões Ligue**o modo de manutenção  >  **.** Por exemplo, na imagem seguinte, selecionámos a desativação de wn3 e wn4.  
+1. Clique **em Ações**  >  **Anfitriões Selecionados**  >  **Anfitriões Ligue** o modo de manutenção  >  **.** Por exemplo, na imagem seguinte, selecionámos a desativação de wn3 e wn4.  
 
    ![Apache Ambari liga o modo de manutenção](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selecione **ações**  >  **Selecionados Anfitriões**  >  **DataNodes** > clique em **Desativação**.
-* Selecione **Ações**  >  **Selecionados**  >  **NodeManagers** > clique em **Desativação**.
-* Selecione **ações**  >  **Selecionados**  >  **DataNodes** > clique em **Stop**.
-* Selecione **Ações**  >  **Selecionados**  >  **NodeManagers** > clique em **Stop**.
-* Selecione **Ações**  >  **Anfitriões**  >  **Selecionados Anfitriões** > clique **em Parar todos os componentes**.
+* Selecione **ações**  >  **Selecionados Anfitriões**  >  **DataNodes** > clique em **Desativação** .
+* Selecione **Ações**  >  **Selecionados**  >  **NodeManagers** > clique em **Desativação** .
+* Selecione **ações**  >  **Selecionados**  >  **DataNodes** > clique em **Stop** .
+* Selecione **Ações**  >  **Selecionados**  >  **NodeManagers** > clique em **Stop** .
+* Selecione **Ações**  >  **Anfitriões**  >  **Selecionados Anfitriões** > clique **em Parar todos os componentes** .
 * Desmarque os nós de trabalho e selecione os nós principais.
-* Selecione **ações**  >  **Hostes selecionados** > "**Hosts**  >  **Restart All Components**.
+* Selecione **ações**  >  **Hostes selecionados** > " **Hosts**  >  **Restart All Components** .
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passo 2: Configurar os nós computacional em cada nó ou nó de trabalhador desativado
 
@@ -177,7 +177,7 @@ Siga estes passos para desativar os nóns dos trabalhadores:
     dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
     ```
 
-1. Introduza **1** para selecionar opções **Configurar O Servidor ML para operacionalização**.
+1. Introduza **1** para selecionar opções **Configurar O Servidor ML para operacionalização** .
 
 1. Introduza **C** para selecionar opção `C. Compute node` . Desta forma, o nó de computação é configurado no nó de trabalho.
 
@@ -189,7 +189,7 @@ Uma vez configurados todos os nós de trabalhador desativados para executar o n�
 
 1. Aceda através de SSH ao nó de extremidade.
 
-1. Execute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Execute o `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
 1. Procure a secção "Uris" e adicione o IP do nó do trabalhador e detalhes do porto.
 
