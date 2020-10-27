@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487318"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548035"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Encriptação dupla Azure HDInsight para dados em repouso
 
@@ -23,7 +23,7 @@ Este documento não aborda os dados armazenados na sua conta de Armazenamento Az
 
 ## <a name="introduction"></a>Introdução
 
-Existem três principais funções de disco gerido no Azure: o disco de dados, o disco DE E e o disco temporário. Para obter mais informações sobre diferentes tipos de discos geridos, consulte [discos geridos introdução ao Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
+Existem três principais funções de disco gerido no Azure: o disco de dados, o disco DE E e o disco temporário. Para obter mais informações sobre diferentes tipos de discos geridos, consulte [discos geridos introdução ao Azure](../virtual-machines/managed-disks-overview.md). 
 
 HDInsight suporta vários tipos de encriptação em duas camadas diferentes:
 
@@ -35,8 +35,8 @@ Estes tipos são resumidos na tabela seguinte.
 
 |Tipo de cluster |Disco OS (Disco gerido) |Disco de dados (Disco gerido) |Disco de dados temporário (SSD local) |
 |---|---|---|---|
-|Kafka, HBase com Escreve Acelerada|Camada1: [Encriptação SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) por padrão|Camada1: [Encriptação SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) por padrão, Camada2: Encriptação opcional em repouso usando CMK|Camada1: Encriptação opcional no anfitrião usando PMK, Camada2: Encriptação opcional em repouso usando CMK|
-|Todos os outros clusters (Spark, Interactive, Hadoop, HBase sem escritas Aceleradas)|Camada1: [Encriptação SSE](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) por padrão|N/D|Camada1: Encriptação opcional no anfitrião usando PMK, Camada2: Encriptação opcional em repouso usando CMK|
+|Kafka, HBase com Escreve Acelerada|Camada1: [Encriptação SSE](../virtual-machines/managed-disks-overview.md#encryption) por padrão|Camada1: [Encriptação SSE](../virtual-machines/managed-disks-overview.md#encryption) por padrão, Camada2: Encriptação opcional em repouso usando CMK|Camada1: Encriptação opcional no anfitrião usando PMK, Camada2: Encriptação opcional em repouso usando CMK|
+|Todos os outros clusters (Spark, Interactive, Hadoop, HBase sem escritas Aceleradas)|Camada1: [Encriptação SSE](../virtual-machines/managed-disks-overview.md#encryption) por padrão|N/D|Camada1: Encriptação opcional no anfitrião usando PMK, Camada2: Encriptação opcional em repouso usando CMK|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>Encriptação em repouso usando chaves geridas pelo Cliente
 
@@ -73,15 +73,15 @@ Consulte [Criar uma identidade gerida atribuída pelo utilizador](../active-dire
 
 Criar um cofre de chaves. Consulte [Create Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para etapas específicas.
 
-HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre, podes importar as tuas chaves para o Cofre da Chave Azure. Lembre-se de que o cofre da chave deve ter **a exclusão soft** ativada. Para mais informações sobre a importação de chaves existentes, visite [Sobre chaves, segredos e certificados.](../key-vault/about-keys-secrets-and-certificates.md)
+HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre, podes importar as tuas chaves para o Cofre da Chave Azure. Lembre-se de que o cofre da chave deve ter **a exclusão soft** ativada. Para mais informações sobre a importação de chaves existentes, visite [Sobre chaves, segredos e certificados.](../key-vault/general/about-keys-secrets-certificates.md)
 
 ### <a name="create-key"></a>Criar chave
 
-1. A partir do seu **Settings**novo cofre-chave, navegue para  >  **Definições Teclas**  >  **+ Gerar/Importar**.
+1. A partir do seu **Settings** novo cofre-chave, navegue para  >  **Definições Teclas**  >  **+ Gerar/Importar** .
 
     ![Gere uma nova chave no Cofre da Chave Azure](./media/disk-encryption/create-new-key.png "Gere uma nova chave no Cofre da Chave Azure")
 
-1. Forneça um nome e, em seguida, **selecione Criar**. Mantenha o tipo de **chave** predefinido de **RSA**.
+1. Forneça um nome e, em seguida, **selecione Criar** . Mantenha o tipo de **chave** predefinido de **RSA** .
 
     ![gera nome chave](./media/disk-encryption/create-key.png "Gerar nome chave")
 
@@ -95,7 +95,7 @@ HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre
 
 ### <a name="create-access-policy"></a>Criar política de acesso
 
-1. A partir do seu novo cofre-chave, navegue para **definições**  >  **Políticas de acesso**+ Adicionar Política de  >  **Acesso**.
+1. A partir do seu novo cofre-chave, navegue para **definições**  >  **Políticas de acesso** + Adicionar Política de  >  **Acesso** .
 
     ![Criar nova política de acesso ao Cofre da Chave Azure](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre
 
     |Propriedade |Descrição|
     |---|---|
-    |Permissões-chave|**Selecione Obter**, **Desembrulhar a tecla**e **embrulhar a tecla**.|
-    |Permissões Secretas|**Selecione Obter,** **Definir**e **Eliminar**.|
+    |Permissões-chave|**Selecione Obter** , **Desembrulhar a tecla** e **embrulhar a tecla** .|
+    |Permissões Secretas|**Selecione Obter,** **Definir** e **Eliminar** .|
     |Selecione principal|Selecione a identidade gerida atribuída pelo utilizador que criou anteriormente.|
 
     ![Definir O principal selecionado para a política de acesso a aacaure key vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Selecione **Adicionar**.
+1. Selecione **Adicionar** .
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
     ![Salvar a política de acesso ao cofre da chave Azure](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ Está agora pronto para criar um novo cluster HDInsight. As chaves geridas pelo 
 
 #### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-Durante a criação do cluster, forneça o **identificador chave**completo, incluindo a versão chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Também precisa atribuir a identidade gerida ao cluster e fornecer o URI chave.
+Durante a criação do cluster, forneça o **identificador chave** completo, incluindo a versão chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Também precisa atribuir a identidade gerida ao cluster e fornecer o URI chave.
 
 ![Criar novo cluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -141,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Utilizar modelos do Azure Resource Manager
 
-O exemplo a seguir mostra como usar um modelo de Gestor de Recursos Azure para criar um novo cluster Apache Spark com encriptação de disco ativada. Para mais informações, veja [quais são os modelos ARM?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+O exemplo a seguir mostra como usar um modelo de Gestor de Recursos Azure para criar um novo cluster Apache Spark com encriptação de disco ativada. Para mais informações, veja [quais são os modelos ARM?](../azure-resource-manager/templates/overview.md)
 
 Este exemplo utiliza o PowerShell para chamar o modelo.
 
@@ -359,7 +359,7 @@ Pode haver cenários em que poderá querer alterar as chaves de encriptação ut
 
 #### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-Para rodar a chave, precisa do cofre uri da chave base. Assim que o tiver feito, aceda à secção de propriedades do cluster HDInsight no portal e clique na **Chave de Alteração** no URL da Chave de **Encriptação do Disco**. Introduza o novo url-chave e submeta-se para rodar a chave.
+Para rodar a chave, precisa do cofre uri da chave base. Assim que o tiver feito, aceda à secção de propriedades do cluster HDInsight no portal e clique na **Chave de Alteração** no URL da Chave de **Encriptação do Disco** . Introduza o novo url-chave e submeta-se para rodar a chave.
 
 ![girar a chave de encriptação do disco](./media/disk-encryption/change-key.png)
 
@@ -420,7 +420,7 @@ A encriptação no anfitrião pode ser ativada durante a criação do cluster no
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Ativar a encriptação no anfitrião.":::
 
-Esta opção permite [a encriptação no anfitrião](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) para discos de dados temporários HDInsight VMs utilizando PMK. A encriptação no anfitrião só é [suportada em certos SKUs VM em regiões limitadas](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) e o HDInsight suporta a [seguinte configuração de nó e SKUs](./hdinsight-supported-node-configuration.md).
+Esta opção permite [a encriptação no anfitrião](../virtual-machines/disks-enable-host-based-encryption-portal.md) para discos de dados temporários HDInsight VMs utilizando PMK. A encriptação no anfitrião só é [suportada em certos SKUs VM em regiões limitadas](../virtual-machines/disks-enable-host-based-encryption-portal.md) e o HDInsight suporta a [seguinte configuração de nó e SKUs](./hdinsight-supported-node-configuration.md).
 
 Para compreender o tamanho VM certo para o seu cluster HDInsight consulte [Selecionar o tamanho VM certo para o seu cluster Azure HDInsight](hdinsight-selecting-vm-size.md). O VM SKU padrão para o nó Zookeeper quando a encriptação no hospedeiro estiver ativada será DS2V2.
 

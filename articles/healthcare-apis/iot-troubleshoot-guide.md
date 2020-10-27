@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558521"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
 
@@ -122,7 +122,7 @@ As cópias do ficheiro de mapeamento devem ser fornecidas ao Suporte Técnico do
 Confira frequentemente perguntas sobre o Conector Azure IoT para FHIR.
 
 >[!div class="nextstepaction"]
->[Conector Azure IoT para FAQs FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Conector Azure IoT para FAQs FHIR](fhir-faq.md)
 
 *No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização).
 

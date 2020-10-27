@@ -7,22 +7,22 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213299"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544533"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache do Azure para Redis
 
-O Azure Cache for Redis fornece um fornecedor de estado de sessão que pode usar para armazenar a sua sessão com a Azure Cache para Redis em vez de uma base de dados SQL Server. Para utilizar o fornecedor de estado de caching, configurar primeiro o seu cache e, em seguida, configurar o seu ASP.NET pedido de cache utilizando o pacote Azure Cache for Redis Session State NuGet. Para aplicações ASP.NET Core, leia [sessão e gestão do estado em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
+O Azure Cache for Redis fornece um fornecedor de estado de sessão que pode usar para armazenar a sua sessão com a Azure Cache para Redis em vez de uma base de dados SQL Server. Para utilizar o fornecedor de estado de caching, configurar primeiro o seu cache e, em seguida, configurar o seu ASP.NET pedido de cache utilizando o pacote Azure Cache for Redis Session State NuGet. Para aplicações ASP.NET Core, leia [sessão e gestão do estado em ASP.NET Core](/aspnet/core/fundamentals/app-state).
 
 Muitas vezes não é prático numa aplicação de nuvem do mundo real para evitar armazenar algum tipo de estado para uma sessão de utilizador, mas algumas abordagens afetam o desempenho e a escalabilidade mais do que outras. Se tiver de armazenar o estado, a melhor solução é manter a quantidade de estado pequena e armazená-la em cookies. Se isso não for viável, a próxima melhor solução é usar ASP.NET estado de sessão com um fornecedor para cache distribuído na memória. A pior solução do ponto de vista de desempenho e escalabilidade é utilizar uma base de dados apoiada pelo estado. Este tópico fornece orientações sobre a utilização do fornecedor de estado de sessão de ASP.NET para a azure cache para redis. Para obter informações sobre outras opções de estado da [sessão, consulte ASP.NET opções do Estado da Sessão](#aspnet-session-state-options).
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Armazenar o estado da sessão do ASP.NET na cache
 
-Para configurar uma aplicação do cliente no Estúdio Visual utilizando o pacote Azure Cache for Redis Session State NuGet, clique em **NuGet Package Manager**, **Package Manager Consola** a partir do menu **Ferramentas.**
+Para configurar uma aplicação do cliente no Estúdio Visual utilizando o pacote Azure Cache for Redis Session State NuGet, clique em **NuGet Package Manager** , **Package Manager Consola** a partir do menu **Ferramentas.**
 
 Execute o seguinte comando a partir da janela `Package Manager Console`.
     
@@ -122,8 +122,8 @@ Uma vez executadas estas etapas, a sua aplicação é configurada para utilizar 
 ## <a name="aspnet-session-state-options"></a>Opções de Estado da Sessão ASP.NET
 
 * In Memory Session State Provider - Este fornecedor armazena o Estado de Sessão na memória. O benefício da utilização deste fornecedor é que é simples e rápido. No entanto, não é possível escalar as suas Aplicações Web se estiver a utilizar no fornecedor de memória, uma vez que não está distribuída.
-* Sql Server Session State Provider - Este fornecedor armazena o Estado de Sessão no Sql Server. Utilize este fornecedor se pretender armazenar o estado de Sessão em armazenamento persistente. Pode escalar a sua Web App, mas usar o Sql Server for Session tem um impacto de desempenho na sua Web App. Também pode utilizar este fornecedor com uma [configuração OLTP in-memory](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) para ajudar a melhorar o desempenho.
-* Fornecedor de Estado distribuído em sessão de memória, como Azure Cache para Redis Session State Provider - Este fornecedor dá-lhe o melhor de ambos os mundos. A sua Web App pode ter um fornecedor de estado de sessão simples, rápido e escalável. Como este fornecedor armazena o estado de Sessão num Cache, a sua aplicação tem de ter em conta todas as características associadas ao falar com uma Cache Distribuída na Memória, como falhas de rede transitórias. Para obter as melhores práticas sobre a utilização da Cache, consulte a orientação de [Caching](../best-practices-caching.md) da Microsoft Patterns & Practices [Azure Cloud Application Design e Orientação de Implementação](https://github.com/mspnp/azure-guidance).
+* Sql Server Session State Provider - Este fornecedor armazena o Estado de Sessão no Sql Server. Utilize este fornecedor se pretender armazenar o estado de Sessão em armazenamento persistente. Pode escalar a sua Web App, mas usar o Sql Server for Session tem um impacto de desempenho na sua Web App. Também pode utilizar este fornecedor com uma [configuração OLTP in-memory](/archive/blogs/sqlserverstorageengine/asp-net-session-state-with-sql-server-in-memory-oltp) para ajudar a melhorar o desempenho.
+* Fornecedor de Estado distribuído em sessão de memória, como Azure Cache para Redis Session State Provider - Este fornecedor dá-lhe o melhor de ambos os mundos. A sua Web App pode ter um fornecedor de estado de sessão simples, rápido e escalável. Como este fornecedor armazena o estado de Sessão num Cache, a sua aplicação tem de ter em conta todas as características associadas ao falar com uma Cache Distribuída na Memória, como falhas de rede transitórias. Para obter as melhores práticas sobre a utilização da Cache, consulte a orientação de [Caching](/azure/architecture/best-practices/caching) da Microsoft Patterns & Practices [Azure Cloud Application Design e Orientação de Implementação](https://github.com/mspnp/azure-guidance).
 
 Para obter mais informações sobre o estado da sessão e outras boas práticas, consulte [as Melhores Práticas de Desenvolvimento Web (Building Real-World Cloud Apps com Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 

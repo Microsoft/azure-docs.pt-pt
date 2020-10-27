@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2d112db720d8ad5a1cba1ec2f35fbb59670e1e92
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996745"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547185"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM numa máquina virtual Azure Linux  
 
@@ -144,7 +144,7 @@ Para obter mais informações sobre a instalação da Oracle ASM, consulte [o Or
 
 ## <a name="set-up-oracle-asm"></a>Configurar o Oracle ASM
 
-Para este tutorial, o utilizador predefinido é *a grelha* e o grupo predefinido é *asmadmin*. Certifique-se de que o utilizador *oráculo* faz parte do grupo asmadmin. Para configurar a sua instalação Oracle ASM, complete os seguintes passos:
+Para este tutorial, o utilizador predefinido é *a grelha* e o grupo predefinido é *asmadmin* . Certifique-se de que o utilizador *oráculo* faz parte do grupo asmadmin. Para configurar a sua instalação Oracle ASM, complete os seguintes passos:
 
 1. A configuração do controlador da biblioteca Oracle ASM implica definir o utilizador predefinido (grelha) e o grupo predefinido (asmadmin), bem como configurar a unidade para iniciar o arranque (escolha y) e procurar discos no arranque (escolha y). Tem de responder às indicações do seguinte comando:
 
@@ -346,7 +346,7 @@ Para descarregar e preparar o software Oracle Grid Infrastructure, complete os s
 
 1. Descarregue a Infraestrutura oracle Grid a partir da [página de descarregamento](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)da Oracle ASM . 
 
-   Sob o download intitulado **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) para Linux x86-64**, descarregue os dois ficheiros .zip.
+   Sob o download intitulado **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) para Linux x86-64** , descarregue os dois ficheiros .zip.
 
 2. Depois de transferir os ficheiros .zip para o seu computador cliente, pode utilizar o Secure Copy Protocol (SCP) para copiar os ficheiros para o seu VM:
 
@@ -385,7 +385,7 @@ Para descarregar e preparar o software Oracle Grid Infrastructure, complete os s
    vi /etc/waagent.conf
    ```
 
-   Procure `ResourceDisk.SwapSizeMB` e altere o valor para **8192**. Terá de pressionar para `insert` introduzir o modo de inserção, digite o valor de **8192** e, em seguida, prima `esc` para voltar ao modo de comando. Para escrever as alterações e deixar o ficheiro, escreva `:wq` e prima `enter` .
+   Procure `ResourceDisk.SwapSizeMB` e altere o valor para **8192** . Terá de pressionar para `insert` introduzir o modo de inserção, digite o valor de **8192** e, em seguida, prima `esc` para voltar ao modo de comando. Para escrever as alterações e deixar o ficheiro, escreva `:wq` e prima `enter` .
    
    > [!NOTE]
    > Recomendamos vivamente que utilize sempre `WALinuxAgent` para configurar o espaço de troca para que seja sempre criado no disco efémero local (disco temporário) para melhor desempenho. Para obter mais informações, consulte [Como adicionar um ficheiro de troca em máquinas virtuais Linux Azure](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines).
@@ -420,11 +420,11 @@ Configurar o Oracle ASM requer uma interface gráfica para completar a instalaç
    > A chave deve conter a `ssh-rsa` corda. Além disso, o conteúdo da chave deve ser uma única linha de texto.
    >  
 
-6. No seu sistema de clientes, inicie o PuTTY. No painel **de categorias,** vá à **Connection**  >  **SSH**  >  **Auth**. No ficheiro chave Privado para a caixa **de autenticação,** consulte a chave que gerou anteriormente.
+6. No seu sistema de clientes, inicie o PuTTY. No painel **de categorias,** vá à **Connection**  >  **SSH**  >  **Auth** . No ficheiro chave Privado para a caixa **de autenticação,** consulte a chave que gerou anteriormente.
 
    ![Screenshot das opções de autenticação SSH](./media/oracle-asm/setprivatekey.png)
 
-7. No painel **de categorias,** vá à **Conexão**  >  **SSH**  >  **X11**. Selecione a caixa **de verificação de encaminhamento Enable X11.**
+7. No painel **de categorias,** vá à **Conexão**  >  **SSH**  >  **X11** . Selecione a caixa **de verificação de encaminhamento Enable X11.**
 
    ![Screenshot das opções de encaminhamento SSH X11](./media/oracle-asm/enablex11.png)
 
@@ -456,9 +456,9 @@ Para instalar a Infraestrutura oracle Grid, complete os seguintes passos:
 
 4. Na página **do Grupo de Discos Criar ASM:**
    - Insira um nome para o grupo de discos.
-   - Sob **Redundância,** selecione **External**.
-   - Sob **o tamanho da unidade de atribuição**, selecione **4**.
-   - Em **Add Disks**, selecione **ORCLASMSP**.
+   - Sob **Redundância,** selecione **External** .
+   - Sob **o tamanho da unidade de atribuição** , selecione **4** .
+   - Em **Add Disks** , selecione **ORCLASMSP** .
    - Clique em `next`.
 
 5. Na página **'Especificar palavra-passe ASM',** selecione as **mesmas palavras-passe para estas contas** e introduza uma palavra-passe.
@@ -508,9 +508,9 @@ Para configurar a sua instalação Oracle ASM, complete os seguintes passos:
 
 3. Na caixa de diálogo **do Grupo Criar Disco:**
 
-   - Introduza o nome do grupo de discos **DATA**.
-   - Em **Discos de Membro Select**, selecione **ORCL_DATA** e **ORCL_DATA1**.
-   - Sob **o tamanho da unidade de atribuição**, selecione **4**.
+   - Introduza o nome do grupo de discos **DATA** .
+   - Em **Discos de Membro Select** , selecione **ORCL_DATA** e **ORCL_DATA1** .
+   - Sob **o tamanho da unidade de atribuição** , selecione **4** .
    - Clique `ok` para criar o grupo de discos.
    - Clique `ok` para fechar a janela de confirmação.
 
@@ -520,14 +520,14 @@ Para configurar a sua instalação Oracle ASM, complete os seguintes passos:
 
 5. Na caixa de diálogo **do Grupo Criar Disco:**
 
-   - Introduza o nome do grupo de discos **FRA**.
-   - Sob **Redundância,** **selecione External (nenhum)**.
-   - Em **Discos de Membro Select**, selecione **ORCL_FRA**.
-   - Sob **o tamanho da unidade de atribuição**, selecione **4**.
+   - Introduza o nome do grupo de discos **FRA** .
+   - Sob **Redundância,** **selecione External (nenhum)** .
+   - Em **Discos de Membro Select** , selecione **ORCL_FRA** .
+   - Sob **o tamanho da unidade de atribuição** , selecione **4** .
    - Clique `ok` para criar o grupo de discos.
    - Clique `ok` para fechar a janela de confirmação.
 
-   ![Screenshot da caixa de diálogo do Grupo De Discos Criar](./media/oracle-asm/asm04.png)
+   ![Screenshot da caixa de diálogo do Grupo De Disco Criar e realça a opção Externa (nenhuma).](./media/oracle-asm/asm04.png)
 
 6. Selecione **Saída** para fechar o Assistente de Configuração ASM.
 
@@ -555,7 +555,7 @@ O software de base de dados Oracle já está instalado na imagem do Azure Market
    - Para **o tipo de armazenamento,** certifique-se de que a **Gestão Automática de Armazenamento (ASM)** está selecionada.
    - Para **a localização dos ficheiros de base de dados,** utilize a localização padrão sugerida pela ASM.
    - Para **a Área de Recuperação Rápida,** utilize a localização asm indicada por defeito.
-   - digite uma **palavra-passe administrativa** e **confirme a palavra-passe**.
+   - digite uma **palavra-passe administrativa** e **confirme a palavra-passe** .
    - garantir que `create as container database` está selecionado.
    - tipo de um `pluggable database name` valor.
 

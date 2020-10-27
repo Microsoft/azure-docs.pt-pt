@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 1cdee99378feb381d75edef0d150089132d1bbc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b04e24541959740ca08c2ec196b2408db0b76b7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435701"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545196"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Submeta empregos da Apache Hadoop em HDInsight
 
@@ -21,7 +21,7 @@ Pode submeter os trabalhos da Apache Hadoop no Azure HDInsight utilizando o Micr
 
 ## <a name="resources"></a>Recursos
 
-- **.NET SDK**:
+- **.NET SDK** :
 
   - [Criar aplicações de autenticação não interativa .NET](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
   - [Executar consultas de Colmeia Apache utilizando o HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
@@ -40,6 +40,6 @@ Pode submeter os trabalhos da Apache Hadoop no Azure HDInsight utilizando o Micr
   - [Use Apache Sqoop com Apache Hadoop em HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Documentação do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)
+- [Documentação do Azure HDInsight](../index.yml)

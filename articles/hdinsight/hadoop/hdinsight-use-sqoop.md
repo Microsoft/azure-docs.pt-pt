@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076883"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545230"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 
@@ -99,7 +99,7 @@ O cluster, base de dados SQL e outros objetos são criados através do portal Az
 
 3. **Selecione Concordo com os termos e condições acima indicados.**
 
-4. Selecione **Comprar**. Você vê um novo azulejo intitulado Submissão para implementação de modelo. A criação do cluster e da SQL Database demora cerca de 20 minutos.
+4. Selecione **Comprar** . Você vê um novo azulejo intitulado Submissão para implementação de modelo. A criação do cluster e da SQL Database demora cerca de 20 minutos.
 
 ## <a name="run-sqoop-jobs"></a>Executar empregos sqoop
 
@@ -120,6 +120,6 @@ HDInsight pode executar trabalhos sqoop usando uma variedade de métodos. Use a 
 
 Agora aprendeste a usar o Sqoop. Para saber mais, veja:
 
-* [Use a Colmeia Apache com HDInsight](../hdinsight-use-hive.md)
+* [Use a Colmeia Apache com HDInsight](./hdinsight-use-hive.md)
 * [Faça upload de dados para HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para enviar dados para o armazenamento HDInsight/Azure Blob.
 * [Utilizar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e a Base de Dados SQL](./apache-hadoop-use-sqoop-mac-linux.md)

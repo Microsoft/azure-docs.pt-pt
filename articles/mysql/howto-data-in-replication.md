@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596500"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544040"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
@@ -53,7 +53,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
 2. Certifique-se de que o servidor de origem permite o tráfego de entrada e saída na porta 3306 e que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN). 
    
-   Teste a conectividade ao servidor de origem tentando ligar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir da [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
+   Teste a conectividade ao servidor de origem tentando ligar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir da [Azure Cloud Shell](../cloud-shell/overview.md) disponível no portal Azure.
 
    Se a sua organização tiver políticas de segurança rigorosas e não permitirá que todos os endereços IP no servidor de origem possam permitir a comunicação do Azure para o seu servidor de origem, pode potencialmente utilizar o comando abaixo para determinar o endereço IP do seu servidor MySQL.
 
@@ -142,7 +142,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
    :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utilizadores e Privilégios":::
  
-   Clique no painel **De Funções Administrativas** e, em seguida, selecione **Replication Slave** da lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar o papel de replicação.
+   Clique no painel **De Funções Administrativas** e, em seguida, selecione **Replication Slave** da lista de **Privilégios Globais** . Em seguida, clique em **Aplicar** para criar o papel de replicação.
 
    :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Utilizadores e Privilégios":::
 
@@ -189,7 +189,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
 1. Definir servidor de origem
 
-   Todas as funções de replicação de dados são feitas por procedimentos armazenados. Pode encontrar todos os procedimentos nos [procedimentos armazenados de replicação de dados.](reference-data-in-stored-procedures.md) Os procedimentos armazenados podem ser executados na concha MySQL ou na bancada MySQL Workbench. 
+   Todas as funções de replicação de dados são feitas por procedimentos armazenados. Pode encontrar todos os procedimentos nos [procedimentos armazenados de replicação de dados.](./reference-stored-procedures.md) Os procedimentos armazenados podem ser executados na concha MySQL ou na bancada MySQL Workbench. 
 
    Para ligar dois servidores e iniciar a replicação, inicie sessão no servidor de réplica alvo no DB Azure para o serviço MySQL e decreva a instância externa como o servidor de origem. Isto é feito utilizando o `mysql.az_replication_change_master` procedimento armazenado no Azure DB para o servidor MySQL.
 
@@ -286,4 +286,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [a replicação de dados](concepts-data-in-replication.md) para a base de dados Azure para o MySQL. 
+- Saiba mais sobre [a replicação de dados](concepts-data-in-replication.md) para a base de dados Azure para o MySQL.

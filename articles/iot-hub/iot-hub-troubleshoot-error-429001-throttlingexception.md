@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3095e398d7e5cfe59085144d5bb4e8dc33618064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f12a6982886eeaa375151c5b8a73acc573aab9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76960701"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545366"
 ---
 # <a name="429001-throttlingexception"></a>429001 ThrottlingException
 
@@ -21,7 +21,7 @@ Este artigo descreve as causas e soluções para **erros de ThrottlingException 
 
 ## <a name="symptoms"></a>Sintomas
 
-Os seus pedidos ao IoT Hub falham com o erro **429001 ThrottlingException**.
+Os seus pedidos ao IoT Hub falham com o erro **429001 ThrottlingException** .
 
 ## <a name="cause"></a>Causa
 
@@ -29,7 +29,7 @@ Os [limites de estrangulamento](./iot-hub-devguide-quotas-throttling.md) do IoT 
 
 ## <a name="solution"></a>Solução
 
-Verifique se está a atingir o limite de estrangulamento comparando a sua *mensagem de Telemetria, enviando tentativas* de tentativas métricas com os limites acima especificados. Também pode verificar a *métrica do número de erros de estrangulamento.* Para obter mais informações sobre estas e outras métricas disponíveis para o IoT Hub, consulte [as métricas do IoT Hub e como usá-las.](./iot-hub-metrics.md#iot-hub-metrics-and-how-to-use-them)
+Verifique se está a atingir o limite de estrangulamento comparando a sua *mensagem de Telemetria, enviando tentativas* de tentativas métricas com os limites acima especificados. Também pode verificar a *métrica do número de erros de estrangulamento.* Para obter informações sobre estas métricas, consulte [as métricas de telemetria do dispositivo](monitor-iot-hub-reference.md#device-telemetry-metrics). Para obter informações sobre como utilizar métricas para ajudá-lo a monitorizar o seu hub IoT, consulte [o Monitor IoT Hub](monitor-iot-hub.md).
 
 O IoT Hub devolve 429 ThrottlingException apenas depois de o limite ter sido violado por um período demasiado longo. Isto é feito para que as suas mensagens não sejam retiradas se o seu hub de IoT tiver tráfego rebentado. Entretanto, o Hub IoT processa as mensagens de acordo com a velocidade de acelerador da operação, que pode ser lenta caso haja demasiado tráfego no registo de tarefas pendentes. Para saber mais, veja [Modelagem de tráfego do Hub IoT](./iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 

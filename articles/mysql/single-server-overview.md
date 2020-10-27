@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91564787"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543819"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor Único da Base de Dados do Azure para MySQL
 
@@ -55,7 +55,7 @@ O serviço de servidor único cria automaticamente cópias de segurança do serv
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
 
-O serviço de servidor único está disponível em três níveis SKU: Básico, Final Geral e Memória Otimizada. O nível básico é mais adequado para o desenvolvimento de baixo custo e cargas de trabalho de baixa concordância. O Objetivo Geral e a Memória Otimizados são mais adequados para cargas de trabalho de produção que requerem alta concordância, escala e desempenho previsível. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. O dimensionamento de armazenamento está on-line e suporta o crescimento automático do armazenamento. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Só paga pelos recursos que consome. Consulte [os níveis de preços](concepts-service-tiers.md) para mais detalhes.
+O serviço de servidor único está disponível em três níveis SKU: Básico, Final Geral e Memória Otimizada. O nível básico é mais adequado para o desenvolvimento de baixo custo e cargas de trabalho de baixa concordância. O Objetivo Geral e a Memória Otimizados são mais adequados para cargas de trabalho de produção que requerem alta concordância, escala e desempenho previsível. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. O dimensionamento de armazenamento está on-line e suporta o crescimento automático do armazenamento. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Só paga pelos recursos que consome. Consulte [Escalões de preço](./concepts-pricing-tiers.md) para obter mais detalhes.
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Segurança, Conformidade e Governança de grau empresarial
 
@@ -63,7 +63,7 @@ O serviço de servidor único utiliza o módulo criptográfico validado FIPS 140
 
 O serviço permite o acesso privado aos servidores utilizando [link privado](concepts-data-access-security-private-link.md) e fornece uma funcionalidade avançada [de proteção contra ameaças.](concepts-data-access-and-security-threat-protection.md) A proteção avançada de ameaças deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados.
 
-Além da autenticação nativa, o serviço de servidor único suporta a autenticação [do Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) A autenticação AZure AD é um mecanismo de ligação aos servidores MySQL utilizando identidades definidas e geridas em Azure AD. Com a autenticação Azure AD, pode gerir as identidades dos utilizadores da base de dados e outros serviços Azure numa localização central, o que simplifica e centraliza o controlo de acessos.
+Além da autenticação nativa, o serviço de servidor único suporta a autenticação [do Azure Ative Directory.](../active-directory/fundamentals/active-directory-whatis.md) A autenticação AZure AD é um mecanismo de ligação aos servidores MySQL utilizando identidades definidas e geridas em Azure AD. Com a autenticação Azure AD, pode gerir as identidades dos utilizadores da base de dados e outros serviços Azure numa localização central, o que simplifica e centraliza o controlo de acessos.
 
 [O registo de auditoria](concepts-audit-logs.md) está disponível para acompanhar toda a atividade do nível da base de dados. 
 
@@ -80,7 +80,7 @@ O serviço de servidor único está equipado com funcionalidades de monitorizaç
 O serviço executa a versão comunitária do MySQL. Isto permite a compatibilidade total da aplicação e requer um custo mínimo de refactor para migrar a aplicação existente desenvolvida no motor MySQL para um único serviço de servidor. A migração para o servidor único pode ser realizada utilizando uma das seguintes opções:
 
 - **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como mysqldump/mydumper podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](concepts-migrate-dump-restore.md) para obter mais detalhes. 
-- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para um único servidor com tempo mínimo de inatividade, [o Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) pode ser alavancado. 
+- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para um único servidor com tempo mínimo de inatividade, [o Serviço de Migração da Base de Dados Azure](../dms/tutorial-mysql-azure-mysql-online.md) pode ser alavancado. 
 - **Replicação de dados** – Para migrações mínimas de tempo de inatividade, a replicação de dados, que se baseia na replicação baseada em binloges, também pode ser alavancada. A replicação de dados é preferível para migrações mínimas de tempo de inatividade por peritos práticos que procuram um maior controlo sobre a migração. Consulte [a replicação de dados](concepts-data-in-replication.md) para obter mais detalhes.
 
 ## <a name="contacts"></a>Contactos
@@ -108,4 +108,3 @@ Agora que leu uma introdução à Base de Dados Azure para o modo de implementa�
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Ir](./connect-go.md)
-  

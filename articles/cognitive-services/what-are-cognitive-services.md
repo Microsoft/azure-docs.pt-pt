@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2cc0ef4ed0e7a63a822efc34e223cbec20815dd9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 82531466c80917087ca007900ca79b3485f38a21
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521480"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546267"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
@@ -93,7 +93,18 @@ As seguintes secções deste artigo fornecem uma lista de serviços que fazem pa
 |[Pesquisa de Negócios Locais do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Pesquisa de Negócios Locais do Bing")| A API de Pesquisa de Negócios Locais permite que as suas aplicações encontrem informações de contacto e localização sobre empresas locais com base em consultas de pesquisa.|
 |[Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Verificação Ortográfica do Bing")|Bing Spell Check permite-lhe realizar gramática contextual e verificação ortográfica.|
 
-## <a name="get-started-with-cognitive-services"></a>Introdução aos Serviços Cognitivos
+## <a name="development-options"></a>Opções de desenvolvimento 
+
+Com a Azure e serviços cognitivos, você tem acesso a várias opções de desenvolvimento, tais como:
+
+* Ferramentas de automação e integração como Apps Lógicas e Power Automamate.
+* Opções de implementação como as Funções Azure e o Serviço de Aplicações. 
+* Serviços Cognitivos Docker contentores para acesso seguro.
+* Ferramentas como Apache Spark, Azure Databricks, Azure Synapse Analytics e Azure Kubernetes Service para cenários de Big Data. 
+
+Para saber mais, consulte [as opções de desenvolvimento dos Serviços Cognitivos.](./cognitive-services-development-options.md)
+
+## <a name="learn-with-the-quickstarts"></a>Aprenda com os Quickstarts
 
 Comece por criar um recurso de Serviços Cognitivos com quickstarts práticos utilizando os seguintes métodos:
 

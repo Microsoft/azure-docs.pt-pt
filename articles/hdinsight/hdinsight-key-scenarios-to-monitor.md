@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075575"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539773"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitor desempenho do cluster em Azure HDInsight
 
@@ -72,9 +72,9 @@ Na UI do Gestor de Recursos, selecione **Scheduler** a partir do menu da mão es
 
 ## <a name="storage-throttling"></a>Limitação de armazenamento
 
-O estrangulamento de desempenho de um cluster pode acontecer ao nível do armazenamento. Este tipo de estrangulamento deve-se, na maioria das vezes, *ao bloqueio* das operações de entrada/saída (IO), que acontecem quando as suas tarefas de funcionamento enviam mais IO do que o serviço de armazenamento pode suportar. Este bloqueio cria uma fila de pedidos de IO à espera de serem processados até que os IOs atuais sejam processados. Os blocos devem-se ao estrangulamento do *armazenamento*, que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um acordo de nível de serviço (SLA). Este limite garante que nenhum cliente ou inquilino possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para armazenamento Azure - para mais detalhes, ver [metas de escalabilidade e desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
+O estrangulamento de desempenho de um cluster pode acontecer ao nível do armazenamento. Este tipo de estrangulamento deve-se, na maioria das vezes, *ao bloqueio* das operações de entrada/saída (IO), que acontecem quando as suas tarefas de funcionamento enviam mais IO do que o serviço de armazenamento pode suportar. Este bloqueio cria uma fila de pedidos de IO à espera de serem processados até que os IOs atuais sejam processados. Os blocos devem-se ao estrangulamento do *armazenamento* , que não é um limite físico, mas sim um limite imposto pelo serviço de armazenamento por um acordo de nível de serviço (SLA). Este limite garante que nenhum cliente ou inquilino possa monopolizar o serviço. O SLA limita o número de IOs por segundo (IOPS) para armazenamento Azure - para mais detalhes, ver [metas de escalabilidade e desempenho para contas de armazenamento padrão](../storage/common/scalability-targets-standard-account.md).
 
-Se estiver a utilizar o Azure Storage, para obter informações sobre questões relacionadas com o armazenamento, incluindo estrangulamento, consulte [o Monitor, o diagnóstico e a resolução de problemas do Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Se estiver a utilizar o Azure Storage, para obter informações sobre questões relacionadas com o armazenamento, incluindo estrangulamento, consulte [o Monitor, o diagnóstico e a resolução de problemas do Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Se a loja de apoio do seu cluster for a Azure Data Lake Storage (ADLS), o seu estrangulamento é provavelmente devido aos limites de largura de banda. Neste caso, a aceleração pode ser identificada observando erros de estrangulamento nos registos de tarefas. Para a ADLS, consulte a secção de estrangulamento para o serviço adequado nestes artigos:
 
@@ -126,6 +126,6 @@ Para obter mais informações sobre problemas no espaço do disco, consulte [for
 
 Visite os seguintes links para obter mais informações sobre a resolução de problemas e monitorização dos seus clusters:
 
-* [Analisar registos do HDInsight](hdinsight-debug-jobs.md)
+* [Analisar registos do HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Aplicativos de depurar com troncos Apache Hadoop YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Ativar depósitos de pilhas para serviços Apache Hadoop em HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

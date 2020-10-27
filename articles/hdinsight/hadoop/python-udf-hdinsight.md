@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462246"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540385"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Use funções definidas do utilizador Python (UDF) com a Colmeia Apache e o Porco Apache em HDInsight
 
@@ -27,11 +27,11 @@ HDInsight também inclui Jython, que é uma implementação python escrita em Ja
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster Hadoop em HDInsight**. Ver [Começar com HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **Um cliente SSH**. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cluster Hadoop em HDInsight** . Ver [Começar com HDInsight no Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **Um cliente SSH** . Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * O [esquema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para o armazenamento primário dos seus clusters. Isto seria `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 ou adl:// para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Azure Storage, o URI será wasbs://.  Consulte também, [transferência segura.](../../storage/common/storage-require-secure-transfer.md)
 * **Possível alteração para a configuração de armazenamento.**  Consulte [a configuração de armazenamento](#storage-configuration) se utilizar o tipo de conta de armazenamento `BlobStorage` .
-* Opcional.  Se planeia utilizar o PowerShell, necessitará do [módulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) instalado.
+* Opcional.  Se planeia utilizar o PowerShell, necessitará do [módulo AZ](/powershell/azure/new-azureps-module-az) instalado.
 
 > [!NOTE]  
 > A conta de armazenamento utilizada neste artigo foi Azure Storage com [transferência segura](../../storage/common/storage-require-secure-transfer.md) ativada e, portanto, é usada ao longo `wasbs` do artigo.
@@ -46,7 +46,7 @@ Não é necessária qualquer ação se a conta de armazenamento utilizada for do
 > * Você cria os scripts Python no seu ambiente de desenvolvimento local.
 > * Você faz o upload dos scripts para HDInsight usando o `scp` comando ou o script PowerShell fornecido.
 >
-> Se quiser usar a [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) para trabalhar com HDInsight, então deve:
+> Se quiser usar a [Azure Cloud Shell (bash)](../../cloud-shell/overview.md) para trabalhar com HDInsight, então deve:
 >
 > * Crie os scripts dentro do ambiente da casca da nuvem.
 > * Utilize `scp` para fazer o upload dos ficheiros da casca de nuvem para o HDInsight.
@@ -423,7 +423,7 @@ Nos comandos abaixo, `sshuser` substitua-o pelo nome de utilizador real se for d
     #from pig_util import outputSchema
     ```
 
-    Esta linha modifica o script Python para trabalhar com C Python em vez de Jython. Uma vez feita a alteração, utilize **ctrl+X** para sair do editor. Selecione **Y**e, em seguida, **introduza** para guardar as alterações.
+    Esta linha modifica o script Python para trabalhar com C Python em vez de Jython. Uma vez feita a alteração, utilize **ctrl+X** para sair do editor. Selecione **Y** e, em seguida, **introduza** para guardar as alterações.
 
 6. Use o `pig` comando para ligar a casca novamente. Uma vez que esteja no `grunt>` pedido, use o seguinte para executar o script Python usando o intérprete C Python.
 
@@ -594,7 +594,7 @@ As informações de erro (STDERR) e o resultado do trabalho (STDOUT) também est
 
 ## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
-Se precisar de carregar módulos Python que não são fornecidos por predefinição, consulte [Como implantar um módulo no Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
+Se precisar de carregar módulos Python que não são fornecidos por predefinição, consulte [Como implantar um módulo no Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Para outras formas de utilizar o Porco, Colmeia e aprender a usar o MapReduce, consulte os seguintes documentos:
 

@@ -8,24 +8,24 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: a54e950286a37c207d902090f015b3732e0ff10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 793cab8b37872788da259e45148e314faa00ea15
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88517587"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545145"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Use Java e JDBC com Base de Dados Azure para MySQL
 
-Este tópico demonstra a criação de uma aplicação de amostra que usa Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações na [Base de Dados Azure para o MySQL](https://docs.microsoft.com/azure/mysql/).
+Este tópico demonstra a criação de uma aplicação de amostra que usa Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações na [Base de Dados Azure para o MySQL](./index.yml).
 
 JDBC é a API padrão de Java para ligar às bases de dados relacionais tradicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure. Se não tiver um, [faça um julgamento gratuito.](https://azure.microsoft.com/free/)
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) ou [Azure CLI](/cli/azure/install-azure-cli). Recomendamos a Azure Cloud Shell para que faça login automaticamente e tenha acesso a todas as ferramentas de que necessita.
-- Um Kit de [Desenvolvimento java](https://aka.ms/azure-jdks)suportado, versão 8 (incluído na Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) ou [Azure CLI](/cli/azure/install-azure-cli). Recomendamos a Azure Cloud Shell para que faça login automaticamente e tenha acesso a todas as ferramentas de que necessita.
+- Um Kit de [Desenvolvimento java](/azure/developer/java/fundamentals/java-jdk-long-term-support)suportado, versão 8 (incluído na Azure Cloud Shell).
 - A ferramenta de construção [Apache Maven.](https://maven.apache.org/)
 
 ## <a name="prepare-the-working-environment"></a>Preparar o ambiente de trabalho
@@ -68,7 +68,7 @@ az group create \
 A primeira coisa que vamos criar é um servidor MySQL gerido.
 
 > [!NOTE]
-> Pode ler informações mais detalhadas sobre a criação de servidores MySQL na [Criação de uma Base de Dados Azure para servidor MySQL utilizando o portal Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> Pode ler informações mais detalhadas sobre a criação de servidores MySQL na [Criação de uma Base de Dados Azure para servidor MySQL utilizando o portal Azure](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 Em [Azure Cloud Shell](https://shell.azure.com/), executar o seguinte script:
 
@@ -167,7 +167,7 @@ password=$AZ_MYSQL_PASSWORD
 
 ### <a name="create-an-sql-file-to-generate-the-database-schema"></a>Criar um ficheiro SQL para gerar o esquema da base de dados
 
-Utilizaremos um *ficheiro src/main/resources/file `schema.sql` * para criar um esquema de base de dados. Crie este ficheiro, com o seguinte conteúdo:
+Utilizaremos um *ficheiro src/main/resources/file `schema.sql`* para criar um esquema de base de dados. Crie este ficheiro, com o seguinte conteúdo:
 
 ```sql
 DROP TABLE IF EXISTS todo;

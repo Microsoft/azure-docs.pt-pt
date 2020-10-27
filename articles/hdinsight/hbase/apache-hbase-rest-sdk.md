@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504864"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540317"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utilize o .NET SDK para Apache HBase
 
@@ -44,7 +44,7 @@ Substitua o CLUSTERNAME pelo seu nome de cluster HDInsight HBase e USERNAME e PA
 
 A HBase armazena dados em tabelas. Uma tabela é constituída por um *Rowkey,* a chave primária, e um ou mais grupos de colunas chamados famílias de *colunas.* Os dados de cada tabela são distribuídos horizontalmente por uma gama Rowkey em *regiões.* Cada região tem uma chave de partida e fim. Uma mesa pode ter uma ou mais regiões. À medida que os dados em tabela crescem, a HBase divide grandes regiões em regiões mais pequenas. As regiões são armazenadas em *servidores da região,* onde um servidor de região pode armazenar várias regiões.
 
-Os dados são armazenados fisicamente em *HFiles*. Um único HFile contém dados para uma tabela, uma região e uma família de colunas. As linhas em HFile são armazenadas no Rowkey. Cada HFile tem um índice *B+ Tree* para uma rápida recuperação das linhas.
+Os dados são armazenados fisicamente em *HFiles* . Um único HFile contém dados para uma tabela, uma região e uma família de colunas. As linhas em HFile são armazenadas no Rowkey. Cada HFile tem um índice *B+ Tree* para uma rápida recuperação das linhas.
 
 Para criar uma nova tabela, especifique uma `TableSchema` e colunas. O código seguinte verifica se a tabela 'RestSDKTable' já existe - se não, a tabela é criada.
 
@@ -190,4 +190,4 @@ finally
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução com um exemplo do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Construa uma aplicação de ponta a ponta com o sentimento do [Twitter em tempo real com a Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Construa uma aplicação de ponta a ponta com o sentimento do [Twitter em tempo real com a Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

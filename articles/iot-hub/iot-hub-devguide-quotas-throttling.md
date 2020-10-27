@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504079"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547695"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -43,7 +43,7 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 | Limitação | Grátis, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operações de registo de identidade](#identity-registry-operations-throttle) (criar, recuperar, listar, atualizar, excluir) | 1,67/seg/unidade (100/min/unidade) | 1,67/seg/unidade (100/min/unidade) | 83.33/seg/unidade (5.000/min/unidade) |
-| [Novas ligações do dispositivo](#device-connections-throttle) (este limite aplica-se à taxa de _novas ligações_, não ao número total de ligações) | Superior de 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24 novas ligações/seg, mas tem pelo menos 100 novas ligações/seg através das suas unidades. Com nove unidades S1, tem 108 novas ligações/seg (9 \* 12) através das suas unidades. | 120 novas ligações/seg/unidade | 6.000 novas ligações/seg/unidade |
+| [Novas ligações do dispositivo](#device-connections-throttle) (este limite aplica-se à taxa de _novas ligações_ , não ao número total de ligações) | Superior de 100/seg ou 12/seg/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24 novas ligações/seg, mas tem pelo menos 100 novas ligações/seg através das suas unidades. Com nove unidades S1, tem 108 novas ligações/seg (9 \* 12) através das suas unidades. | 120 novas ligações/seg/unidade | 6.000 novas ligações/seg/unidade |
 | Envios do dispositivo para a cloud | Mais de 100 operações de envio/seg ou 12 operações de envio/seg/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24/seg, mas tem pelo menos 100 operações de envio/seg através das suas unidades. Com nove unidades S1, tem 108 operações de envio/seg (9 \* 12) através das suas unidades. | 120 operações de envio/seg/unidade | 6.000 operações de envio/seg/unidade |
 | Nuvem-para-dispositivo envia<sup>1</sup> | 1.67 Enviar operações/seg/unidade (100 mensagens/min/unidade) | 1.67 enviar operações/seg/unidade (100 operações de envio/min/unidade) | 83.33 operações de envio/seg/unidade (5.000 operações de envio/min/unidade) |
 | Cloud-to-device recebe<sup>1</sup> <br/> (apenas quando o dispositivo utiliza HTTPS)| 16.67 receber operações/seg/unidade (1.000 operações de receção/min/unidade) | 16.67 receber operações/seg/unidade (1.000 operações de receção/min/unidade) | 833.33 receber operações/seg/unidade (50.000 operações de receção/min/unidade) |
@@ -81,7 +81,7 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 
 Para acomodar o tráfego de rajadas, o IoT Hub aceita pedidos acima do acelerador por um tempo limitado. Os primeiros pedidos são processados imediatamente. No entanto, se o número de pedidos continuar a violar o acelerador, o IoT Hub começa a colocar os pedidos numa fila e processado à taxa limite. Este efeito chama-se *formação de tráfego.* Além disso, o tamanho desta fila é limitado. Se a violação do acelerador continuar, eventualmente a fila enche-se, e o IoT Hub começa a rejeitar pedidos com `429 ThrottlingException` .
 
-Por exemplo, utiliza um dispositivo simulado para enviar 200 mensagens de dispositivo para nuvem por segundo ao seu Hub S1 IoT (que tem um limite de 100/seg D2C envia). Durante o primeiro minuto ou dois, as mensagens são processadas imediatamente. No entanto, uma vez que o dispositivo continua a enviar mais mensagens do que o limite do acelerador, o IoT Hub começa a processar apenas 100 mensagens por segundo e coloca o resto numa fila. Começas a notar um aumento da latência. Eventualmente, começa-se a ficar à medida que `429 ThrottlingException` a fila se enche, e o "número de erros de aceleração" nas [métricas do IoT Hub](iot-hub-metrics.md) começa a aumentar.
+Por exemplo, utiliza um dispositivo simulado para enviar 200 mensagens de dispositivo para nuvem por segundo ao seu Hub S1 IoT (que tem um limite de 100/seg D2C envia). Durante o primeiro minuto ou dois, as mensagens são processadas imediatamente. No entanto, uma vez que o dispositivo continua a enviar mais mensagens do que o limite do acelerador, o IoT Hub começa a processar apenas 100 mensagens por segundo e coloca o resto numa fila. Começas a notar um aumento da latência. Eventualmente, começa-se a ficar à medida que `429 ThrottlingException` a fila se enche, e a [métrica do "Número de erros de estrangulamento" do IoT Hub](monitor-iot-hub-reference.md#device-telemetry-metrics) começa a aumentar. Para aprender a criar alertas e gráficos com base em métricas, consulte [o Monitor IoT Hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Acelerador de operações de registo de identidade
 
@@ -139,3 +139,4 @@ Para uma discussão aprofundada sobre o comportamento de estrangulamento do IoT 
 Outros tópicos de referência neste guia de desenvolvimento do IoT Hub incluem:
 
 * [Pontos finais do Hub IoT](iot-hub-devguide-endpoints.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)

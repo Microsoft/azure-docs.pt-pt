@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086488"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547848"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Use os nódrupes de borda vazios em aglomerados Apache Hadoop em HDInsight
 
@@ -61,7 +61,7 @@ Depois de criar um nó de borda, pode ligar-se ao nó de borda usando SSH e exec
 > [!WARNING]
 > Os componentes personalizados que são instalados no nó de borda recebem suporte comercialmente razoável da Microsoft. Isto pode resultar na resolução de problemas que encontra. Ou, pode ser encaminhado para recursos comunitários para mais assistência. Seguem-se alguns dos locais mais ativos para obter ajuda da comunidade:
 >
-> * [Microsoft Q&Uma página de perguntas para HDInsight] (https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+> * [Microsoft Q&Uma página de perguntas para HDInsight] (/Respostas/tópicos/azure-hdinsight.html
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Se estiver a utilizar uma tecnologia Apache, poderá encontrar assistência através dos sites de projeto Apache [https://apache.org](https://apache.org) em , como o site Apache [Hadoop.](https://hadoop.apache.org/)
@@ -86,7 +86,7 @@ Nesta secção, utilize um modelo de Gestor de Recursos para adicionar um nó de
     |Localização|Selecione a localização do cluster HDInsight existente.|
     |Nome do Cluster|Insira o nome de um cluster HDInsight existente.|
 
-1. Verifique **se concordo com os termos e condições acima indicados**e, em seguida, selecione  **Comprar** para criar o nó de borda.
+1. Verifique **se concordo com os termos e condições acima indicados** e, em seguida, selecione  **Comprar** para criar o nó de borda.
 
 > [!IMPORTANT]  
 > Certifique-se de selecionar o grupo de recursos Azure para o cluster HDInsight existente.  Caso contrário, obtém-se a mensagem de erro "Não pode efetuar a operação solicitada em recursos aninhados. O &lt; clustername dos pais não> encontrados."
@@ -109,15 +109,15 @@ Nesta secção, utilize um modelo de Gestor de Recursos para criar um cluster HD
     |Grupo de recursos|Criar um novo grupo de recursos utilizado para o cluster.|
     |Localização|Selecione uma localização para o grupo de recursos.|
     |Nome do Cluster|Insira um nome para o novo cluster para criar.|
-    |Nome de Utilizador de Início de Sessão do Cluster|Insira o nome de utilizador Hadoop HTTP.  O nome predefinido é **admin**.|
+    |Nome de Utilizador de Início de Sessão do Cluster|Insira o nome de utilizador Hadoop HTTP.  O nome predefinido é **admin** .|
     |Palavra-passe de Início de Sessão do Cluster|Introduza a palavra-passe do utilizador Hadoop HTTP.|
-    |Nome do utilizador Ssh|Insira o nome de utilizador SSH. O nome predefinido é **sshuser**.|
+    |Nome do utilizador Ssh|Insira o nome de utilizador SSH. O nome predefinido é **sshuser** .|
     |Ssh Password|Insira a senha de utilizador SSH.|
     |Instalar ação do script|Mantenha o valor padrão para passar por este artigo.|
 
     Algumas propriedades foram codificadas no modelo: Tipo cluster, contagem de nós de trabalhador cluster, tamanho do nó de borda e nome do nó de borda.
 
-1. Verifique **se concordo com os termos e condições acima indicados**e, em seguida, selecione  **Comprar** para criar o cluster com o nó de borda.
+1. Verifique **se concordo com os termos e condições acima indicados** e, em seguida, selecione  **Comprar** para criar o cluster com o nó de borda.
 
 ## <a name="add-multiple-edge-nodes"></a>Adicione vários nosdes de borda
 
@@ -133,7 +133,7 @@ O nó de borda aparece como uma aplicação no portal Azure.  O portal dá-lhe a
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HDInsight com um nó de borda.
-3. Selecione **Aplicações**. Verá o nó de borda.  O nome predefinido é **new-edgenode**.
+3. Selecione **Aplicações** . Verá o nó de borda.  O nome predefinido é **new-edgenode** .
 4. Selecione o nó de borda. Verá o ponto final do SSH.
 
 **Para usar colmeia no nó de borda**
@@ -158,8 +158,8 @@ Pode apagar um nó de borda do portal Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster HDInsight com um nó de borda.
-3. Selecione **Aplicações**. Verá uma lista de nós de borda.  
-4. Clique com o botão direito no nó de borda que pretende eliminar e, em seguida, **selecione Delete**.
+3. Selecione **Aplicações** . Verá uma lista de nós de borda.  
+4. Clique com o botão direito no nó de borda que pretende eliminar e, em seguida, **selecione Delete** .
 5. Selecione **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -169,6 +169,6 @@ Neste artigo, aprendeu a adicionar um nó de borda e como aceder ao nó de borda
 * [Instalar aplicações HDInsight](hdinsight-apps-install-applications.md): Saiba como instalar aplicações HDInsight nos clusters.
 * [Instale aplicações HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar uma aplicação HDInsight não publicada para o HDInsight.
 * [Publicar aplicações do HDInsight](hdinsight-apps-publish-applications.md): Saiba como publicar as suas aplicações do HDInsight personalizadas no Azure Marketplace.
-* [MSDN: Instalar uma aplicação do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Saiba como definir aplicações do HDInsight.
+* [MSDN: Instalar uma aplicação do HDInsight](/rest/api/hdinsight/hdinsight-application): Saiba como definir aplicações do HDInsight.
 * [Personalizar clusters do HDInsight baseados em Linux através da Ação de Script](hdinsight-hadoop-customize-cluster-linux.md): saiba como utilizar a Ação de Script para instalar outras aplicações.
 * [Criar clusters Apache Hadoop baseados em Linux em HDInsight usando modelos de Gestor de Recursos](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a chamar modelos de Gestor de Recursos para criar clusters HDInsight.

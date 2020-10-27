@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409719"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539416"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Pedido de aumento de quota para Azure HDInsight
 
@@ -30,7 +30,7 @@ Se recebeu um erro que indica que atingiu um limite de quota, utilize o processo
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
     1. Navegue para a página **de visão geral** para o cluster HDInsight.
-    1. No menu à esquerda, **selecione Os limites de Quota**. A página apresenta o número de núcleos em utilização, o número de núcleos disponíveis e o total de núcleos.
+    1. No menu à esquerda, **selecione Os limites de Quota** . A página apresenta o número de núcleos em utilização, o número de núcleos disponíveis e o total de núcleos.
 
 Para solicitar um aumento de quota, faça as seguintes etapas:
 
@@ -39,16 +39,16 @@ Para solicitar um aumento de quota, faça as seguintes etapas:
 
     ![botão de ajuda e suporte](./media/quota-increase-request/help-support-button.png)
 
-1. Selecione **Novo pedido de suporte**.
-1. Na página **Novo pedido de suporte**, no separador **Básicos**, selecione as seguintes opções:
+1. Selecione **Novo pedido de suporte** .
+1. Na página **Novo pedido de suporte** , no separador **Básicos** , selecione as seguintes opções:
 
-   - **Tipo de emissão**: **Limites de serviço e de subscrição (quotas)**
-   - **Subscrição**: a subscrição que pretende modificar
-   - **Tipo de**quota : **HDInsight**
+   - **Tipo de emissão** : **Limites de serviço e de subscrição (quotas)**
+   - **Subscrição** : a subscrição que pretende modificar
+   - **Tipo de** quota : **HDInsight**
 
      ![Crie um pedido de apoio para aumentar a quota de base HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
-1. Selecione **Seguinte: Soluções >>**.
+1. Selecione **Seguinte: Soluções >>** .
 1. Na página **Detalhes,** introduza uma descrição do problema, selecione a gravidade do problema, o seu método de contacto preferido e outros campos necessários. Utilize o modelo listado abaixo, para garantir que fornece as informações necessárias. Os pedidos de aumento de quota são avaliados pela equipa de capacidade da Azure, e não pela equipa de produtos HDInsight. Quanto mais completa for a informação, mais provável será o seu pedido.
 
     ```
@@ -61,15 +61,15 @@ Para solicitar um aumento de quota, faça as seguintes etapas:
 
     ![detalhes do problema](./media/quota-increase-request/problem-details.png)
 
-1. Selecione **Seguinte: Revisão + criar >>**.
+1. Selecione **Seguinte: Revisão + criar >>** .
 1. No **separador 'Rever + criar',** selecione **Criar.**
 
 > [!NOTE]  
 > Se precisar de aumentar a quota-base HDInsight numa região privada, [apresente um pedido de lista aprovado.](https://aka.ms/canaryintwhitelist)
 
-Pode [contactar o suporte para solicitar um aumento de quota.](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)
+Pode [contactar o suporte para solicitar um aumento de quota.](../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
-Há alguns limites de quota fixa. Por exemplo, uma única subscrição do Azure pode ter no máximo 10.000 núcleos. Para obter mais informações sobre estes limites, consulte [os limites de subscrição e serviços da Azure, quotas e constrangimentos.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+Há alguns limites de quota fixa. Por exemplo, uma única subscrição do Azure pode ter no máximo 10.000 núcleos. Para obter mais informações sobre estes limites, consulte [os limites de subscrição e serviços da Azure, quotas e constrangimentos.](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

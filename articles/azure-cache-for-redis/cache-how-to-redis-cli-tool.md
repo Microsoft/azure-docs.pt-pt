@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839049"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538022"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como utilizar a ferramenta de linha de comando Redis com cache Azure para Redis
 
@@ -27,8 +27,8 @@ Se pretender executar a ferramenta de linha de comando noutra plataforma, baixe 
 
 Pode recolher as informações necessárias para aceder à cache utilizando três métodos:
 
-1. Azure CLI usando [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell usando [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+1. Azure CLI usando [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Azure PowerShell usando [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. No portal do Azure.
 
 Nesta secção, irá retirar as chaves do portal Azure.
@@ -46,9 +46,9 @@ Com a Cache Azure para Redis, apenas a porta TLS (6380) está ativada por padrã
 
     Executar **gui stunnel Iniciar** para iniciar o servidor.
 
-    Clique com o botão direito no ícone da barra de tarefas para o servidor atordoado e clique em **Mostrar Janela de Registo**.
+    Clique com o botão direito no ícone da barra de tarefas para o servidor atordoado e clique em **Mostrar Janela de Registo** .
 
-    No menu 'Janela's' **Configuration**stunnel, clique em  >  **Configuração De edição** para abrir o ficheiro de configuração atual.
+    No menu 'Janela's' **Configuration** stunnel, clique em  >  **Configuração De edição** para abrir o ficheiro de configuração atual.
 
     Adicione a seguinte entrada para *redis-cli.exe* na secção **definições de Serviço.** Insira o seu nome de cache real no lugar de `yourcachename` . 
 
@@ -61,12 +61,12 @@ Com a Cache Azure para Redis, apenas a porta TLS (6380) está ativada por padrã
 
     Guarde e feche o ficheiro de configuração. 
   
-    No menu 'Janela's' **Configuration**stunnel, clique em  >  **Configuração De Reload Configuration Reload**.
+    No menu 'Janela's' **Configuration** stunnel, clique em  >  **Configuração De Reload Configuration Reload** .
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Ligue-se utilizando a ferramenta da linha de comando Redis.
 
-Quando utilizar atordoado, corra *redis-cli.exe*, e passe apenas a sua *porta*, e *a chave de acesso* (primária ou secundária) para ligar à cache.
+Quando utilizar atordoado, corra *redis-cli.exe* , e passe apenas a sua *porta* , e *a chave de acesso* (primária ou secundária) para ligar à cache.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Screenshot que mostra que a sua ligação à cache é bem sucedida.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se estiver a utilizar uma cache de teste com a porta não-TLS **insegura,** corra `redis-cli.exe` e passe o nome de *anfitrião,* *porta*e chave *de acesso* (primária ou secundária) para ligar à cache de teste.
+Se estiver a utilizar uma cache de teste com a porta não-TLS **insegura,** corra `redis-cli.exe` e passe o nome de *anfitrião,* *porta* e chave *de acesso* (primária ou secundária) para ligar à cache de teste.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
@@ -88,4 +88,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a utilização da [Consola Redis](cache-configure.md#redis-console) para emitir comandos.
-

@@ -10,18 +10,18 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e30daa3f81ed5dcae1323e721bf85cfed8fa9614
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e017f4df413d6db528bb99756646859d9a74aea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147809"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545400"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gestão automática de módulos e dispositivos IoT no portal do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-A gestão automática de dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gestão de grandes frotas de dispositivos. Com a gestão automática do dispositivo, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e, em seguida, deixar o IoT Hub atualizar os dispositivos quando eles entram no âmbito. Esta atualização é feita utilizando uma _configuração automática do dispositivo_ ou _configuração automática_do módulo , que permite resumir a conclusão e conformidade, lidar com a fusão e conflitos e lançar configurações numa abordagem faseada.
+A gestão automática de dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gestão de grandes frotas de dispositivos. Com a gestão automática do dispositivo, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e, em seguida, deixar o IoT Hub atualizar os dispositivos quando eles entram no âmbito. Esta atualização é feita utilizando uma _configuração automática do dispositivo_ ou _configuração automática_ do módulo , que permite resumir a conclusão e conformidade, lidar com a fusão e conflitos e lançar configurações numa abordagem faseada.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -31,7 +31,7 @@ A gestão automática do dispositivo funciona atualizando um conjunto de gémeos
 
 * O **conteúdo do alvo** define as propriedades desejadas a serem adicionadas ou atualizadas nos gémeos do dispositivo ou gémeos do módulo. O conteúdo inclui um caminho para a secção de propriedades desejadas a ser alterada.
 
-* As **métricas** definem as contagens sumárias de vários estados de configuração, tais como **Sucesso,** **Progresso**e **Erro.** As métricas personalizadas são especificadas como consultas sobre propriedades geminadas reportadas.  As métricas do sistema são as métricas padrão que medem o estado de atualização dupla, como o número de gémeos que são alvo e o número de gémeos que foram atualizados com sucesso.
+* As **métricas** definem as contagens sumárias de vários estados de configuração, tais como **Sucesso,** **Progresso** e **Erro.** As métricas personalizadas são especificadas como consultas sobre propriedades geminadas reportadas.  As métricas do sistema são as métricas padrão que medem o estado de atualização dupla, como o número de gémeos que são alvo e o número de gémeos que foram atualizados com sucesso.
 
 As configurações automáticas são executadas pela primeira vez pouco depois de a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 
@@ -58,9 +58,9 @@ Antes de criar uma configuração, tem de especificar quais os dispositivos ou m
 
 1. No [portal Azure,](https://portal.azure.com)vá ao seu hub IoT. 
 
-2. Selecione **a configuração do dispositivo IoT**.
+2. Selecione **a configuração do dispositivo IoT** .
 
-3. **Selecione Adicionar a configuração do dispositivo** ou adicionar a **configuração do módulo**.
+3. **Selecione Adicionar a configuração do dispositivo** ou adicionar a **configuração do módulo** .
 
    ![Adicionar configuração de dispositivo ou configuração de módulo](./media/iot-hub-automatic-device-management/create-automatic-configuration.png)
 
@@ -96,7 +96,7 @@ Se duas ou mais configurações direcionarem o mesmo caminho duplo, aplicar-se-�
 
 Se desejar remover um imóvel existente, especifique o valor da propriedade para `null` .
 
-Pode adicionar definições adicionais selecionando a **definição de twin do dispositivo de adicionar** ou adicionar a **definição de twin do módulo**.
+Pode adicionar definições adicionais selecionando a **definição de twin do dispositivo de adicionar** ou adicionar a **definição de twin do módulo** .
 
 ### <a name="specify-metrics-optional"></a>Especificar métricas (opcional)
 
@@ -104,9 +104,9 @@ As métricas fornecem contagens sumárias dos vários estados que um dispositivo
 
 Cada configuração pode ter até cinco métricas personalizadas. 
 
-1. Insira um nome para **Nome Métrico**.
+1. Insira um nome para **Nome Métrico** .
 
-2. Introduza uma consulta para **critérios métricos**.  A consulta baseia-se em propriedades reportadas por twin do dispositivo.  A métrica representa o número de linhas devolvidas pela consulta.
+2. Introduza uma consulta para **critérios métricos** .  A consulta baseia-se em propriedades reportadas por twin do dispositivo.  A métrica representa o número de linhas devolvidas pela consulta.
 
 Por exemplo:
 
@@ -138,7 +138,7 @@ As configurações automáticas do dispositivo só podem visar as duas tags do d
 
 Uma vez que várias configurações podem visar o mesmo dispositivo ou módulo, cada configuração precisa de um número prioritário. Se houver algum conflito, a configuração com a maior prioridade ganha. 
 
-1. Introduza um número inteiro positivo para a configuração **Prioridade**. O valor numérico mais elevado é considerado a maior prioridade. Se duas configurações têm o mesmo número de prioridade, a que foi criada mais recentemente ganha. 
+1. Introduza um número inteiro positivo para a configuração **Prioridade** . O valor numérico mais elevado é considerado a maior prioridade. Se duas configurações têm o mesmo número de prioridade, a que foi criada mais recentemente ganha. 
 
 2. Introduza uma **condição de Destino** para determinar quais os dispositivos ou módulos que serão alvo com esta configuração. A condição baseia-se em etiquetas gémeas ou propriedades geminais reportadas e deve corresponder ao formato de expressão. 
 
@@ -150,7 +150,7 @@ Uma vez que várias configurações podem visar o mesmo dispositivo ou módulo, 
 
 ### <a name="review-configuration"></a>Configuração de revisão
 
-Reveja as informações de configuração e, em seguida, **selecione Enviar por isso**.
+Reveja as informações de configuração e, em seguida, **selecione Enviar por isso** .
 
 ## <a name="monitor-a-configuration"></a>Monitorize uma configuração
 
@@ -158,7 +158,7 @@ Para ver os detalhes de uma configuração e monitorizar os dispositivos que o e
 
 1. No [portal Azure,](https://portal.azure.com)vá ao seu hub IoT. 
 
-2. Selecione **a configuração do dispositivo IoT**.
+2. Selecione **a configuração do dispositivo IoT** .
 
 3. Inspecione a lista de configurações. Para cada configuração, pode ver os seguintes detalhes:
 
@@ -180,7 +180,7 @@ Para ver os detalhes de uma configuração e monitorizar os dispositivos que o e
 
    * **Condição do alvo** - os dispositivos ou módulos que correspondem à condição alvo. 
 
-   * **Métricas** - uma lista de métricas do sistema e métricas personalizadas.  Pode ver uma lista de dispositivos ou módulos que são contados para cada métrica selecionando a métrica no drop-down e, em seguida, selecionando Dispositivos de **Visualização** ou **Módulos de Visualização**.
+   * **Métricas** - uma lista de métricas do sistema e métricas personalizadas.  Pode ver uma lista de dispositivos ou módulos que são contados para cada métrica selecionando a métrica no drop-down e, em seguida, selecionando Dispositivos de **Visualização** ou **Módulos de Visualização** .
 
    * **Configurações gémeas do dispositivo** ou **configurações gémeas** do módulo - as definições duplas que são definidas pela configuração. 
 
@@ -202,7 +202,7 @@ Para modificar uma configuração, utilize os seguintes passos:
 
 1. No [portal Azure,](https://portal.azure.com)vá ao seu hub IoT. 
 
-2. Selecione **a configuração do dispositivo IoT**. 
+2. Selecione **a configuração do dispositivo IoT** . 
 
 3. Selecione a configuração que pretende modificar. 
 
@@ -213,7 +213,7 @@ Para modificar uma configuração, utilize os seguintes passos:
    * Prioridade 
    * Métricas
 
-4. Selecione **Guardar**.
+4. Selecione **Guardar** .
 
 5. Siga os passos no [Monitor uma configuração](#monitor-a-configuration) para ver as alterações desenrolar-se. 
 
@@ -223,11 +223,11 @@ Quando elimina uma configuração, qualquer dispositivo que os gémeos assumam a
 
 1. No [portal Azure,](https://portal.azure.com)vá ao seu hub IoT. 
 
-2. Selecione **a configuração do dispositivo IoT**. 
+2. Selecione **a configuração do dispositivo IoT** . 
 
 3. Utilize a caixa de verificação para selecionar a configuração que pretende eliminar. 
 
-4. Selecione **Eliminar**.
+4. Selecione **Eliminar** .
 
 5. Um aviso vai pedir-lhe para confirmar.
 
@@ -236,8 +236,7 @@ Quando elimina uma configuração, qualquer dispositivo que os gémeos assumam a
 Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 
 * [Gerir as identidades do dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
-* [Métricas IoT Hub](iot-hub-metrics.md)
-* [Monitorização de operações](iot-hub-operations-monitoring.md)
+* [Monitorize o seu hub IoT](monitor-iot-hub.md)
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

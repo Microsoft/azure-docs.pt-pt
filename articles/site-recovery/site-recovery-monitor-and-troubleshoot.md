@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68717356"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545808"
 ---
 # <a name="monitor-site-recovery"></a>Monitorizar o Site Recovery
 
@@ -30,13 +30,13 @@ Neste artigo, aprenda a monitorizar a [Recuperação do Sítio](site-recovery-ov
 
 ## <a name="monitor-in-the-dashboard"></a>Monitor no painel de instrumentos
 
-1. No cofre, clique em **Overview**. O painel de instrumentos de recuperação consolida todas as informações de monitorização do cofre num único local. Existem páginas para a Recuperação do Site e para o serviço de backup Azure, e pode alternar entre elas.
+1. No cofre, clique em **Overview** . O painel de instrumentos de recuperação consolida todas as informações de monitorização do cofre num único local. Existem páginas para a Recuperação do Site e para o serviço de backup Azure, e pode alternar entre elas.
 
     ![Painel de recuperação do local](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
 2. Do painel de instrumentos, descame em diferentes áreas. 
 
-    ![Painel de recuperação do local](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Screenshot que mostra as áreas no painel de instrumentos onde você pode perfurar.](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
 3. Em **Itens Replicados,** clique **em Ver Tudo** para ver todos os servidores no cofre.
 4. Clique nos detalhes do estado em cada secção para perfurar.
@@ -109,14 +109,14 @@ Na **visão de Infraestrutura,** monitorize os componentes de infraestrutura env
 
     **Cenário** | **Estado**  | **Vista disponível?**
     --- |--- | ---
-    **Replicação entre locais no local** | Todos os estados | Não 
-    **Replicação Azure VM entre regiões de Azure**  | Replicação ativada/replicação inicial em curso | Sim
-    **Replicação Azure VM entre regiões de Azure** | Falha por cima/falha de volta | Não   
-    **Replicação do VMware para o Azure** | Replicação ativada/replicação inicial em curso | Sim     
-    **Replicação do VMware para o Azure** | Falhou/falhou nas costas | Não      
-    **Replicação do Hyper-V para o Azure** | Falhou/falhou nas costas | Não
+    **Replicação entre locais no local** | Todos os estados | No 
+    **Replicação Azure VM entre regiões de Azure**  | Replicação ativada/replicação inicial em curso | Yes
+    **Replicação Azure VM entre regiões de Azure** | Falha por cima/falha de volta | No   
+    **Replicação do VMware para o Azure** | Replicação ativada/replicação inicial em curso | Yes     
+    **Replicação do VMware para o Azure** | Falhou/falhou nas costas | No      
+    **Replicação do Hyper-V para o Azure** | Falhou/falhou nas costas | No
 
-- Para ver a vista de infraestrutura para uma única máquina de replicação, no menu do cofre, clique em **itens replicados**e selecione um servidor.  
+- Para ver a vista de infraestrutura para uma única máquina de replicação, no menu do cofre, clique em **itens replicados** e selecione um servidor.  
 
 
 
@@ -153,13 +153,13 @@ Em **itens replicados,** obtenha uma lista de máquinas replicadas.
 4. Clique **em Filter** para ver informações com base em parâmetros específicos, como a saúde da replicação, ou uma determinada política de replicação.
 5. Clique com o botão direito numa máquina para iniciar operações como o teste de failover para o mesmo, ou para visualizar detalhes de erro específicos associados a ela.
 6. Clique numa máquina para perfurar mais detalhes para a obter. Os detalhes incluem:
-   - **Informações de replicação**: Estado atual e saúde da máquina.
+   - **Informações de replicação** : Estado atual e saúde da máquina.
    - **RPO** (objetivo do ponto de recuperação): RPO atual para a máquina virtual e o momento em que a RPO foi calculada pela última vez.
-   - **Pontos de recuperação**: Últimos pontos de recuperação disponíveis para a máquina.
-   - **Prontidão de falha**: Indica se foi executado um teste de falha para a máquina, a versão do agente em funcionamento na máquina (para as máquinas que executam o serviço mobility) e quaisquer problemas de configuração.
-   - **Erros**: Lista de sintomas de erro de replicação atualmente observados na máquina e possíveis causas/ações.
-   - **Eventos**: Uma lista cronológica de eventos recentes que impactam a máquina. Os detalhes de erro mostram os sintomas de erro atualmente observáveis, enquanto os eventos são um registo histórico de problemas que impactaram a máquina.
-   - **Vista de infraestrutura**: Mostra estado de infraestrutura para o cenário quando as máquinas estão a replicar-se para Ozure.
+   - **Pontos de recuperação** : Últimos pontos de recuperação disponíveis para a máquina.
+   - **Prontidão de falha** : Indica se foi executado um teste de falha para a máquina, a versão do agente em funcionamento na máquina (para as máquinas que executam o serviço mobility) e quaisquer problemas de configuração.
+   - **Erros** : Lista de sintomas de erro de replicação atualmente observados na máquina e possíveis causas/ações.
+   - **Eventos** : Uma lista cronológica de eventos recentes que impactam a máquina. Os detalhes de erro mostram os sintomas de erro atualmente observáveis, enquanto os eventos são um registo histórico de problemas que impactaram a máquina.
+   - **Vista de infraestrutura** : Mostra estado de infraestrutura para o cenário quando as máquinas estão a replicar-se para Ozure.
 
      ![Detalhes/visão geral replicado da recuperação do site](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
@@ -173,8 +173,8 @@ Pode subscrever notificações por e-mail para estes eventos críticos:
 
 Inscreva-se da seguinte forma:
 
-Na secção de **monitorização** do cofre >, clique em **Eventos de Recuperação do Local**.
-1. Clique em **Notificações por e-mail**.
+Na secção de **monitorização** do cofre >, clique em **Eventos de Recuperação do Local** .
+1. Clique em **Notificações por e-mail** .
 1. Na **notificação por e-mail,** ligue as notificações e especifique para quem enviar. Pode enviar para todos os administradores de subscrição notificações e endereços de e-mail opcionalmente específicos.
 
     ![Notificações por e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)

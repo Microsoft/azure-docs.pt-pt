@@ -3,12 +3,12 @@ title: Selecione uma opção de migração VMware com Azure Migrate Server Migra
 description: Fornece uma visão geral das opções para migrar VMware VMs para Azure com Azure Migrate Server Migration
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950226"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534112"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
 
@@ -29,9 +29,9 @@ Utilize estas comparações selecionadas para ajudá-lo a decidir qual o método
 **Implantação do aparelho** | O [aparelho Azure Migrate](migrate-appliance.md) está implantado no local. | O [aparelho de replicação Azure Migrate](migrate-replication-appliance.md) está implantado no local.
 **Compatibilidade de Recuperação de Sítio** | É compatível. | Não é possível replicar com a migração do servidor Azure Migrate se tiver configurado a replicação para uma máquina que utiliza a Recuperação do Site.
 **Disco-alvo** | Managed disks | Managed disks
-**Limites de disco** | Disco de os: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Discos máximos: 60 | Disco de os: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Discos máximos: 63
+**Limites de disco** | Disco de os: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Discos máximos: 60 | Disco de os: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Discos máximos: 63
 **Discos passthrough** | Não suportado | Suportado
-**Bota UEFI** | Não suportado | O VM migrado em Azure será automaticamente convertido para um VM de arranque BIOS.<br/><br/> O disco de so deve ter até quatro divisórias, e os volumes devem ser formatados com NTFS.
+**Bota UEFI** | Suportado. | Suportado.
 
 ## <a name="compare-deployment-steps"></a>Compare etapas de implementação
 
@@ -45,7 +45,7 @@ Depois de rever as limitações, compreender os passos envolvidos na implementa�
 **Preparar VMware para migração** | Configurar as definições nos servidores VMware e VMs. | Necessário | Necessário
 **Instalar o serviço de Mobilidade em VMs** | O serviço de mobilidade funciona em cada VM que pretende replicar | não é necessário | Necessário
 **Implementar o aparelho de replicação** | O [aparelho de replicação](migrate-replication-appliance.md) é utilizado para migração baseada em agentes. Liga-se entre o serviço de Mobilidade em execução em VMs e a Migração de Servidores. | não é necessário | Necessário
-**VMs replicados**. Ativar a replicação de VM. | Configurar definições de replicação e selecionar VMs para replicar | Necessário | Necessário
+**VMs replicados** . Ativar a replicação de VM. | Configurar definições de replicação e selecionar VMs para replicar | Necessário | Necessário
 **Executar uma migração de teste** | Faça um teste de migração para garantir que tudo está funcionando como esperado. | Necessário | Necessário
 **Executar uma migração completa** | Migrar os VMs. | Necessário | Necessário
 

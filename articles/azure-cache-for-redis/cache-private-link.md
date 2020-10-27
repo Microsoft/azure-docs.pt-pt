@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122709"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546284"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache Azure para Redis com Link Privado Azure (Visualização pública)
 Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para o caso Redis com um ponto final privado usando o portal Azure. Você também vai aprender a adicionar um ponto final privado a um Azure Cache existente para o exemplo de Redis.
@@ -19,7 +19,7 @@ Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para 
 Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura ao Azure Cache para Redis alimentado por Azure Private Link. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
 > Para usar pontos finais privados, o seu Azure Cache para a instância Redis precisa de ter sido criado após 28 de julho de 2020.
@@ -33,11 +33,11 @@ Nesta secção, você vai criar um novo Azure Cache para o caso Redis com um pon
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual 
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso** .
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Selecione Criar um recurso.":::
 
-2. Na página **Nova,** selecione **Networking** e, em seguida, selecione **Rede Virtual**.
+2. Na página **Nova,** selecione **Networking** e, em seguida, selecione **Rede Virtual** .
 
 3. **Selecione Adicionar** para criar uma rede virtual.
 
@@ -56,9 +56,9 @@ Nesta secção, você vai criar um novo Azure Cache para o caso Redis com um pon
 
 7. No **nome da sub-rede,** clique no **padrão** para editar as propriedades da sub-rede.
 
-8. No painel **de sub-redes Editar,** especifique um **nome de sub-rede,** bem como o **intervalo de endereços Sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Deve ser contido no espaço de endereço da rede virtual.
+8. No painel **de sub-redes Editar,** especifique um **nome de sub-rede,** bem como o **intervalo de endereços Sub-rede** . O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Deve ser contido no espaço de endereço da rede virtual.
 
-9. Selecione **Guardar**.
+9. Selecione **Guardar** .
 
 10. Selecione o **separador 'Rever +' ou** clicar no botão **'Rever +' criar.**
 
@@ -67,9 +67,9 @@ Nesta secção, você vai criar um novo Azure Cache para o caso Redis com um pon
 ### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Crie uma Cache Azure para o caso Redis com um ponto final privado
 Para criar uma instância de cache, siga estes passos.
 
-1. Volte para a página inicial do portal Azure ou abra o menu da barra lateral e, em seguida, selecione **Criar um recurso**. 
+1. Volte para a página inicial do portal Azure ou abra o menu da barra lateral e, em seguida, selecione **Criar um recurso** . 
    
-1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
+1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione Criar um recurso.":::
    
@@ -77,7 +77,7 @@ Para criar uma instância de cache, siga estes passos.
    
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
+   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será *\<DNS name> .redis.cache.windows.net* . | 
    | **Subscrição** | Desça e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
    | **Grupo de recursos** | Desça e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
    | **Localização** | Desça e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
@@ -91,7 +91,7 @@ Para criar uma instância de cache, siga estes passos.
 
     :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Selecione Criar um recurso.":::
 
-1. Na página **de ponto final privado,** configufique as definições para o seu ponto final privado com a rede virtual e a sub-rede que criou na última secção e selecione **OK**. 
+1. Na página **de ponto final privado,** configufique as definições para o seu ponto final privado com a rede virtual e a sub-rede que criou na última secção e selecione **OK** . 
 
 1. Selecione o **Seguinte: Separador avançado** ou clique no **seguinte: Botão avançado** na parte inferior da página.
 
@@ -104,11 +104,11 @@ Para criar uma instância de cache, siga estes passos.
 
 1. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso. 
 
-1. Selecione **Review + criar**. É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
+1. Selecione **Rever + criar** . É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
 
-1. Depois de aparecer a mensagem de validação verde, selecione **Criar**.
+1. Depois de aparecer a mensagem de validação verde, selecione **Criar** .
 
-Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.**   Quando **o Estado**aparece como    **Running,** a cache está pronta a ser utilizada. 
+Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.** Quando **o Estado** aparece como **Running,** a cache está pronta a ser utilizada. 
     
 > [!IMPORTANT]
 > 
@@ -135,9 +135,9 @@ Nesta secção, você adicionará um ponto final privado a um Azure Cache existe
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual 
 Para criar uma rede virtual, siga estes passos.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Criar um recurso** .
 
-2. Na página **Nova,** selecione **Networking** e, em seguida, selecione **Rede Virtual**.
+2. Na página **Nova,** selecione **Networking** e, em seguida, selecione **Rede Virtual** .
 
 3. **Selecione Adicionar** para criar uma rede virtual.
 
@@ -156,9 +156,9 @@ Para criar uma rede virtual, siga estes passos.
 
 7. No **nome da sub-rede,** clique no **padrão** para editar as propriedades da sub-rede.
 
-8. No painel **de sub-redes Editar,** especifique um **nome de sub-rede,** bem como o **intervalo de endereços Sub-rede**. O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Deve ser contido no espaço de endereço da rede virtual.
+8. No painel **de sub-redes Editar,** especifique um **nome de sub-rede,** bem como o **intervalo de endereços Sub-rede** . O intervalo de endereços da sub-rede deve estar na notação CIDR (por exemplo, 192.168.1.0/24). Deve ser contido no espaço de endereço da rede virtual.
 
-9. Selecione **Guardar**.
+9. Selecione **Guardar** .
 
 10. Selecione o **separador 'Rever +' ou** clicar no botão **'Rever +' criar.**
 
@@ -174,7 +174,7 @@ Para criar um ponto final privado, siga estes passos.
 
 2. Selecione a instância de cache a que pretende adicionar um ponto final privado.
 
-3. No lado esquerdo do ecrã, selecione **(PREVIEW) Private Endpoint**.
+3. No lado esquerdo do ecrã, selecione **(PREVIEW) Private Endpoint** .
 
 4. Clique no botão **Private Endpoint** para criar o seu ponto final privado.
 
@@ -201,12 +201,11 @@ Para criar um ponto final privado, siga estes passos.
 
 11. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso.
 
-12. Selecione **Review + criar**. É levado para o **separador 'Rever +' onde**o   Azure valida a sua configuração.
+12. Selecione **Rever + criar** . É levado para o **separador 'Rever +' onde** o Azure valida a sua configuração.
 
-13. Depois de aparecer a mensagem **de validação** verde, selecione **Criar**.
+13. Depois de aparecer a mensagem **de validação** verde, selecione **Criar** .
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o Azure Private Link, consulte a documentação do [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
-
+Para saber mais sobre o Azure Private Link, consulte a documentação do [Azure Private Link](../private-link/private-link-overview.md).

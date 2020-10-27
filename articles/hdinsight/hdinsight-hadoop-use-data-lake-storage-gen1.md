@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e05e89cae8688162c6ac6ded5ad56c85394dc8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858774"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539841"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Use data lake storage Gen1 com clusters Azure HDInsight
 
@@ -42,12 +42,12 @@ Atualmente, apenas alguns dos tipos/versões de cluster HDInsight suportam usand
 
 | Tipo de cluster do HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| Notas |
 |------------------------|------------------------------------|---------------------------------------|------|
-| Versão HDInsight 4.0 | Não | Não |A ADLS Gen1 não é suportado com HDInsight 4.0 |
-| HDInsight versão 3.6 | Sim | Sim | Exceto HBase|
-| HDInsight versão 3.5 | Sim | Sim | Exceto HBase|
-| HDInsight versão 3.4 | Não | Sim | |
-| HDInsight versão 3.3 | Não | Não | |
-| HDInsight versão 3.2 | Não | Sim | |
+| Versão HDInsight 4.0 | No | No |A ADLS Gen1 não é suportado com HDInsight 4.0 |
+| HDInsight versão 3.6 | Yes | Yes | Exceto HBase|
+| HDInsight versão 3.5 | Yes | Yes | Exceto HBase|
+| HDInsight versão 3.4 | No | Yes | |
+| HDInsight versão 3.3 | No | No | |
+| HDInsight versão 3.2 | No | Yes | |
 | Storm | | |Você pode usar Data Lake Storage Gen1 para escrever dados de uma topologia storm. Também pode usar data lake storage gen1 para dados de referência que podem ser lidos por uma topologia storm.|
 
 > [!WARNING]  
@@ -62,7 +62,7 @@ Quando o HDInsight é implementado com o Data Lake Storage Gen1 como armazenamen
 * Cluster1 pode utilizar o caminho `adl://mydatalakestore/cluster1storage`
 * Cluster2 pode utilizar o caminho `adl://mydatalakestore/cluster2storage`
 
-Note que ambos os clusters usam a mesma conta de armazenamento de dados Da Gen1 **mydatalakestore**. Cada cluster tem acesso ao seu próprio sistema de ficheiros raiz no Armazenamento do Lago de Dados. A experiência de implantação do portal Azure leva-o a utilizar um nome de pasta como **/clusters/ \<clustername> ** para o caminho da raiz.
+Note que ambos os clusters usam a mesma conta de armazenamento de dados Da Gen1 **mydatalakestore** . Cada cluster tem acesso ao seu próprio sistema de ficheiros raiz no Armazenamento do Lago de Dados. A experiência de implantação do portal Azure leva-o a utilizar um nome de pasta como **/clusters/ \<clustername>** para o caminho da raiz.
 
 Para utilizar a Data Lake Storage Gen1 como armazenamento predefinido, deve conceder ao serviço acesso principal aos seguintes caminhos:
 
@@ -126,7 +126,7 @@ Adicionar uma conta de Armazenamento do Lago de Dados como adicional e adicionar
 
 ## <a name="configure-data-lake-storage-gen1-access"></a>Configure data lake storage gen1 acesso
 
-Para configurar o acesso da Azure Data Lake Storage Gen1 a partir do seu cluster HDInsight, tem de ter um diretório Azure Ative (Azure AD). Apenas um administrador do Azure AD pode criar um principal de serviço. O principal de serviço tem de ser criado com um certificado. Para obter mais informações, veja [Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) e [Criar um principal de serviço com certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+Para configurar o acesso da Azure Data Lake Storage Gen1 a partir do seu cluster HDInsight, tem de ter um diretório Azure Ative (Azure AD). Apenas um administrador do Azure AD pode criar um principal de serviço. O principal de serviço tem de ser criado com um certificado. Para obter mais informações, veja [Início Rápido: Configurar clusters no HDInsight](./hdinsight-hadoop-provision-linux-clusters.md) e [Criar um principal de serviço com certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
 > [!NOTE]  
 > Se você vai usar Azure Data Lake Storage Gen1 como armazenamento adicional para cluster HDInsight, recomendamos vivamente que você faça isso enquanto cria o cluster como descrito neste artigo. Adicionar Azure Data Lake Storage Gen1 como armazenamento adicional a um cluster HDInsight existente não é um cenário suportado.
@@ -137,19 +137,19 @@ Para obter mais informações sobre o modelo de controlo de acesso, consulte o [
 
 Existem várias formas de aceder aos ficheiros no Armazenamento do Lago de Dados a partir de um cluster HDInsight.
 
-* **Utilizar o nome completamente qualificado**. Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
+* **Utilizar o nome completamente qualificado** . Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster com:
+* **Utilizando o formato de caminho abreviado** . Com esta abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     adl:///<file path>
     ```
 
-* **Utilizar o caminho relativo**. Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
+* **Utilizar o caminho relativo** . Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
 
     ```
     /<file.path>/
@@ -220,7 +220,7 @@ Para identificar o caminho completo para a loja padrão configurada, navegue at�
 
 Utilize os seguintes links para instruções detalhadas sobre como criar clusters HDInsight com acesso à Data Lake Storage Gen1.
 
-* [Usando o Portal](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Utilizar o portal](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Utilizando o PowerShell (com data lake storage Gen1 como armazenamento padrão)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Utilizando o PowerShell (com data lake storage gen1 como armazenamento adicional)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Utilizar modelos do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -305,7 +305,7 @@ Neste artigo, você aprendeu a usar Azure Data Lake Storage Gen1 compatível com
 
 Para obter mais informações, consulte:
 
-* [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Início rápido: Configurar clusters no HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Crie um cluster HDInsight para utilizar a Data Lake Storage Gen1 utilizando o Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Upload data to HDInsight (Carregar dados para o HDInsight)](hdinsight-upload-data.md)
 * [Use Azure Blob armazenamento Assinaturas de acesso compartilhados para restringir o acesso a dados com HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
