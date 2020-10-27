@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988257"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547134"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Atualizar as visualizações do Painel de Registos
 
@@ -47,7 +47,7 @@ Quando uma peça fixa do Log Analytics é capaz de ser atualizada, uma nova noti
  
 ![Barra lateral](media/dashboard-upgrade/update-message-1.png)
  
-![Barra lateral](media/dashboard-upgrade/update-message-2.png)
+![Screenshot que mostra como atualizar a visualização de azulejos.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Uma vez publicado o painel de instrumentos, a atualização é irreversível. No entanto, as alterações são descartadas se navegar para longe do painel de instrumentos sem voltar a publicar.  
@@ -56,7 +56,7 @@ Uma vez clicado, a visualização será atualizada para a nova tecnologia. Podem
 
 Depois de atualizar as visualizações, é necessário reeditar o painel de instrumentos para que a alteração produza efeitos.
 
-![Barra lateral](media/dashboard-upgrade/update-message-3.png)
+![Screenshot que mostra visualizações melhoradas.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Fase 2 - Migração de todos os painéis
 
@@ -74,7 +74,7 @@ Como os dashboards podem conter várias visualizações de várias consultas, o 
 
 Os dashboards podem ser visualmente densos e complexos. De forma a reduzir a carga cognitiva ao visualizar um dashboard, otimizamos as visualizações limitando o ecrã a 25 tipos de dados diferentes. Quando há mais de 25, o Log Analytics otimiza os dados. Mostra individualmente os 25 tipos com a maioria dos dados como separados e, em seguida, agrupe os valores restantes num valor "outro". O gráfico que se segue mostra tal caso.  
 
-![Barra lateral](media/dashboard-upgrade/values-25-limit.png)
+![Screenshot que mostra um dashboard com 25 tipos de dados diferentes.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Atualização do painel na carga
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139329"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538498"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorização das operações do IoT Hub (depreciada)
 
 A monitorização das operações do IoT Hub permite-lhe monitorizar o estado das operações no seu hub IoT em tempo real. O IoT Hub acompanha eventos em várias categorias de operações. Pode optar pelo envio de eventos de uma ou mais categorias para um ponto final do seu hub IoT para processamento. Pode monitorizar os dados por erros ou configurar um processamento mais complexo com base em padrões de dados.
 
 >[!NOTE]
->A monitorização das operações do IoT Hub **é depreciada e foi removida do IoT Hub em 10 de março de 2019**. Para monitorizar as operações e a saúde do IoT Hub, consulte [monitorar a saúde do Azure IoT Hub e diagnosticar rapidamente os problemas](iot-hub-monitor-resource-health.md). Para obter mais informações sobre a linha temporal de depreciação, consulte [monitorar as suas soluções Azure IoT com o Azure Monitor e a Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>A monitorização das operações do IoT Hub **é depreciada e foi removida do IoT Hub em 10 de março de 2019** . Para monitorizar as operações e a saúde do IoT Hub, consulte [o Monitor IoT Hub](monitor-iot-hub.md). Para obter mais informações sobre a linha temporal de depreciação, consulte [monitorar as suas soluções Azure IoT com o Azure Monitor e a Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 O IoT Hub monitoriza seis categorias de eventos:
 
@@ -43,7 +43,7 @@ O IoT Hub monitoriza seis categorias de eventos:
 
     ![Configuração de monitorização de operações de acesso no portal](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Selecione as categorias de monitorização que deseja monitorizar e, em seguida, clique em **Guardar**. Os eventos estão disponíveis para leitura a partir do ponto final compatível com o Event Hub listado nas **definições de monitorização.** O ponto final do IoT Hub chama-se `messages/operationsmonitoringevents` .
+3. Selecione as categorias de monitorização que deseja monitorizar e, em seguida, clique em **Guardar** . Os eventos estão disponíveis para leitura a partir do ponto final compatível com o Event Hub listado nas **definições de monitorização.** O ponto final do IoT Hub chama-se `messages/operationsmonitoringevents` .
 
     ![Configure a monitorização das operações no seu hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -197,11 +197,11 @@ Para ligar ao ponto final de monitorização, precisa de uma cadeia de ligação
 
 1. No portal, navegue para a sua lâmina de recurso IoT Hub.
 
-2. Escolha **a monitorização**de operações e tome nota do **nome compatível com** o Event Hub e dos valores **do ponto final compatíveis com o Event Hub:**
+2. Escolha **a monitorização** de operações e tome nota do **nome compatível com** o Event Hub e dos valores **do ponto final compatíveis com o Event Hub:**
 
     ![Valores de ponto final compatíveis com o Hub de Evento](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Escolha **políticas de acesso compartilhado**e escolha o **serviço.** Tome nota do valor da **chave primária:**
+3. Escolha **políticas de acesso compartilhado** e escolha o **serviço.** Tome nota do valor da **chave primária:**
 
     ![Chave primária da política de acesso partilhado do serviço](./media/iot-hub-operations-monitoring/service-key.png)
 

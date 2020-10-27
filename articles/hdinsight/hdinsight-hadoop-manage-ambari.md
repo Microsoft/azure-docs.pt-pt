@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281396"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546165"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU da Web do Apache Ambari
 
@@ -78,17 +78,17 @@ Os alertas são organizados em vários grupos predefinidos, que podem ser vistos
 
 ![Apache Ambari alerta resumo da página](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
-Pode gerir os grupos utilizando o menu **Ações** e selecionando **Grupos de Alerta de Gestão**.
+Pode gerir os grupos utilizando o menu **Ações** e selecionando **Grupos de Alerta de Gestão** .
 
 ![Apache Ambari gere grupos de alerta](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Gere métodos de alerta e cria notificações de alerta a partir do menu **Ações** selecionando __Notificações de Gestão__. Quaisquer notificações atuais são apresentadas. Crie notificações a partir daqui. As notificações podem ser enviadas via **EMAIL** ou **SNMP** quando ocorrem combinações específicas de alerta/gravidade. Por exemplo, pode enviar uma mensagem de e-mail quando qualquer um dos alertas do grupo **YARN Default** estiver definido para **Critical**.
+Gere métodos de alerta e cria notificações de alerta a partir do menu **Ações** selecionando __Notificações de Gestão__ . Quaisquer notificações atuais são apresentadas. Crie notificações a partir daqui. As notificações podem ser enviadas via **EMAIL** ou **SNMP** quando ocorrem combinações específicas de alerta/gravidade. Por exemplo, pode enviar uma mensagem de e-mail quando qualquer um dos alertas do grupo **YARN Default** estiver definido para **Critical** .
 
 ![Apache Ambari cria notificação de alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Por fim, a seleção de Definições de Alerta de __Gestão__ a partir do menu __Ações__ permite-lhe definir o número de vezes que um alerta deve ocorrer antes de uma notificação ser enviada. Esta definição pode ser utilizada para evitar notificações de erros transitórios.
 
-Para obter um tutorial de uma notificação de alerta utilizando uma [conta SendGrid](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)gratuita, consulte [notificações de e-mail Configure Apache Ambari em Azure HDInsight](./apache-ambari-email.md).
+Para obter um tutorial de uma notificação de alerta utilizando uma [conta SendGrid](../sendgrid-dotnet-how-to-send-email.md)gratuita, consulte [notificações de e-mail Configure Apache Ambari em Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Cluster
 
@@ -100,7 +100,7 @@ O **separador Heatmaps** apresenta métricas como máscaras de calor coloridas, 
 
 ![Painel Apache Ambari com máscaras de calor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Para obter mais informações sobre os nós dentro do cluster, **selecione Hosts**. Em seguida, selecione o nó específico que lhe interessa.
+Para obter mais informações sobre os nós dentro do cluster, **selecione Hosts** . Em seguida, selecione o nó específico que lhe interessa.
 
 ![Apache Ambari acolhe detalhes do resumo](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -200,7 +200,7 @@ Para configurar um serviço, utilize os seguintes passos:
 
     ![Configuração de serviço Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Utilize os campos apresentados para modificar a configuração e, em seguida, **selecione Guardar**. Ou selecione uma configuração anterior e, em seguida, **selecione Faça** a corrente para reverter para as definições anteriores.
+3. Utilize os campos apresentados para modificar a configuração e, em seguida, **selecione Guardar** . Ou selecione uma configuração anterior e, em seguida, **selecione Faça** a corrente para reverter para as definições anteriores.
 
 ## <a name="ambari-views"></a>Vistas de Ambari
 
@@ -214,7 +214,7 @@ O Ambari Views permite que os desenvolvedores liguem elementos de UI à UI Web A
 
 As seguintes operações de Ambari não são suportadas na HDInsight:
 
-* __Mover o serviço de Coletor Métricas__. Ao visualizar informações sobre o serviço Metrics Collector, uma das ações disponíveis no menu De ações de Serviço é o __coletor Move Metrics__. Esta ação não é apoiada com HDInsight.
+* __Mover o serviço de Coletor Métricas__ . Ao visualizar informações sobre o serviço Metrics Collector, uma das ações disponíveis no menu De ações de Serviço é o __coletor Move Metrics__ . Esta ação não é apoiada com HDInsight.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085451"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547610"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON utilizando a Colmeia Apache em Azure HDInsight
 
@@ -129,7 +129,7 @@ Existem limitações da get_json_object UDF:
 * Como cada campo na consulta requer a reparas da consulta, afeta o desempenho.
 * **OBTER \_ JSON_OBJECT()** devolve a representação de cordas de uma matriz. Para converter esta matriz numa matriz de Colmeia, tem de usar expressões regulares para substituir os suportes quadrados "[" e "]", e depois também tem de ligar para obter a matriz.
 
-Esta conversão é a razão pela qual a Colmeia wiki recomenda que utilize **json_tuple**.  
+Esta conversão é a razão pela qual a Colmeia wiki recomenda que utilize **json_tuple** .  
 
 ### <a name="use-the-json_tuple-udf"></a>Use o json_tuple UDF
 
@@ -146,7 +146,7 @@ A saída deste script na consola Hive:
 
 ![Apache Hive json resultados de consulta](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-O `json_tuple` UDF utiliza a sintaxe [de visão lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) na Colmeia, que permite que o tuple json crie uma tabela virtual \_ aplicando a função UDT a cada linha da tabela original. Os JSONs complexos tornam-se demasiado desajeitados devido à utilização repetida da **VISTA LATERAL**. Além disso, **JSON_TUPLE** não consegue lidar com JSONs aninhados.
+O `json_tuple` UDF utiliza a sintaxe [de visão lateral](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) na Colmeia, que permite que o tuple json crie uma tabela virtual \_ aplicando a função UDT a cada linha da tabela original. Os JSONs complexos tornam-se demasiado desajeitados devido à utilização repetida da **VISTA LATERAL** . Além disso, **JSON_TUPLE** não consegue lidar com JSONs aninhados.
 
 ### <a name="use-a-custom-serde"></a>Use um SerDe personalizado
 
@@ -154,11 +154,11 @@ SerDe é a melhor escolha para analisar documentos JSON aninhados. Permite defin
 
 ## <a name="summary"></a>Resumo
 
-O tipo de operador JSON na Colmeia que escolher depende do seu cenário. Com um documento JSON simples e um campo para olhar para cima, escolha o **get_json_object**hive UDF . Se tiver mais do que uma chave para olhar para cima, então pode **usá json_tuple**. Para documentos aninhados, utilize o **JSON SerDe**.
+O tipo de operador JSON na Colmeia que escolher depende do seu cenário. Com um documento JSON simples e um campo para olhar para cima, escolha o **get_json_object** hive UDF . Se tiver mais do que uma chave para olhar para cima, então pode **usá json_tuple** . Para documentos aninhados, utilize o **JSON SerDe** .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para artigos relacionados, consulte:
 
-* [Use a Colmeia Apache e a HiveQL com Apache Hadoop em HDInsight para analisar uma amostra do ficheiro Apache log4j](../hdinsight-use-hive.md)
+* [Use a Colmeia Apache e a HiveQL com Apache Hadoop em HDInsight para analisar uma amostra do ficheiro Apache log4j](./hdinsight-use-hive.md)
 * [Analise os dados do atraso de voo utilizando a Consulta Interativa em HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

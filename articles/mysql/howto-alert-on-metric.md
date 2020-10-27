@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 3891d1730648fea3c480cd03921a76fe005c308f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740059"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546896"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utilize o portal Azure para configurar alertas sobre métricas para a base de dados Azure para o MySQL 
 
@@ -27,7 +27,7 @@ Pode configurar um alerta para fazer as seguintes ações quando ativa:
 Pode configurar e obter informações sobre as regras de alerta utilizando:
 * [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica a partir do portal Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor MySQL que pretende monitorizar.
@@ -42,7 +42,7 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selecione Regras de Alerta":::
 
-5. Dentro da secção **Condição,** **selecione Adicionar a condição**.
+5. Dentro da secção **Condição,** **selecione Adicionar a condição** .
 
 6. Selecione uma métrica da lista de sinais a serem alertados. Neste exemplo, selecione "Storage percent".
    
@@ -78,4 +78,4 @@ Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.
+* Obtenha uma [visão geral da recolha de métricas](../azure-monitor/platform/data-platform.md) para se certificar de que o seu serviço está disponível e responsivo.

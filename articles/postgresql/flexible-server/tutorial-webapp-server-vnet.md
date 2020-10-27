@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 35f96080d6a931c3491e119fe6866bc51eff4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490055"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546573"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Tutorial: Criar uma base de dados Azure para PostgreSQL - Servidor Flexível com App Services Web App em rede virtual
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server está em pré-visualização
 
-Este tutorial mostra-lhe como criar uma aplicação Web do Azure App Service com Base de Dados Azure para PostgreSQL - Servidor Flexível (Pré-visualização) dentro de uma [rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Este tutorial mostra-lhe como criar uma aplicação Web do Azure App Service com Base de Dados Azure para PostgreSQL - Servidor Flexível (Pré-visualização) dentro de uma [rede Virtual](../../virtual-network/virtual-networks-overview.md).
 
 Neste tutorial você vai
 >[!div class="checklist"]
@@ -121,4 +121,4 @@ az group delete -n myresourcegroup
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Mapeie um nome DNS personalizado existente para o Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mapeie um nome DNS personalizado existente para o Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

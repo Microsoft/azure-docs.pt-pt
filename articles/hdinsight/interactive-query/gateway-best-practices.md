@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80586980"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546012"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway mergulho profundo e boas práticas para a Colmeia Apache em Azure HDInsight
 
@@ -46,7 +46,7 @@ O diagrama seguinte ilustra os passos envolvidos numa consulta SELECT.
 
 Apache Hive é uma abstração relacional em cima de um sistema de ficheiros compatível com HDFS. Esta abstração significa que as declarações **SELECT** na Hive correspondem às operações **de READ** no sistema de ficheiros. As operações **DE LER** são traduzidas para o esquema apropriado antes de comunicação ao utilizador. A latência deste processo aumenta com o tamanho dos dados e o lúpulo total necessário para chegar ao utilizador final.
 
-Um comportamento semelhante pode ocorrer ao executar demonstrações **DE CRIAR** ou **INSERIR** de grandes dados, uma vez que estes comandos corresponderão às operações **WRITE** no sistema de ficheiros subjacente. Considere escrever dados, como ORC bruto, para o sistema de ficheiros/datalake em vez de os carregar utilizando **INSERT** ou **LOAD**.
+Um comportamento semelhante pode ocorrer ao executar demonstrações **DE CRIAR** ou **INSERIR** de grandes dados, uma vez que estes comandos corresponderão às operações **WRITE** no sistema de ficheiros subjacente. Considere escrever dados, como ORC bruto, para o sistema de ficheiros/datalake em vez de os carregar utilizando **INSERT** ou **LOAD** .
 
 Nos clusters ativados pelo Pack de Segurança empresarial, as políticas apache ranger suficientemente complexas podem causar um abrandamento no tempo de compilação de consultas, o que pode levar a um tempo limite de gateway. Se um tempo limite de gateway for notado num cluster ESP, considere reduzir ou combinar o número de políticas ranger.
 
@@ -54,11 +54,11 @@ Nos clusters ativados pelo Pack de Segurança empresarial, as políticas apache 
 
 Existem vários locais para atenuar e compreender questões de desempenho satisfeitas como parte do comportamento acima. Utilize a seguinte lista de verificação ao experimentar a degradação do desempenho da consulta sobre o gateway HDInsight:
 
-* Utilize a cláusula **LIMIT** ao executar grandes consultas **SELECT.** A cláusula **LIMIT** reduzirá as filas totais comunicadas ao anfitrião do cliente. A cláusula **LIMIT** só afeta a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **LIMIT** ao plano de consulta, utilize a configuração `hive.limit.optimize.enable` . **O LIMIT** pode ser combinado com uma compensação utilizando o formulário de argumento **LIMIT x,y**.
+* Utilize a cláusula **LIMIT** ao executar grandes consultas **SELECT.** A cláusula **LIMIT** reduzirá as filas totais comunicadas ao anfitrião do cliente. A cláusula **LIMIT** só afeta a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **LIMIT** ao plano de consulta, utilize a configuração `hive.limit.optimize.enable` . **O LIMIT** pode ser combinado com uma compensação utilizando o formulário de argumento **LIMIT x,y** .
 
-* Nomeie as suas colunas de interesse ao executar consultas **SELECT** em vez de utilizar **SELECT \* **. Selecionar menos colunas diminuirá a quantidade de dados lidos.
+* Nomeie as suas colunas de interesse ao executar consultas **SELECT** em vez de utilizar * *SELECT \** _. Selecionar menos colunas diminuirá a quantidade de dados lidos.
 
-* Tente passar a consulta de interesse através de Apache Beeline. Se a recuperação do resultado através do Apache Beeline demorar um longo período de tempo, espere atrasos na recuperação dos mesmos resultados através de ferramentas externas.
+_ Tente executar a consulta de interesse através da Apache Beeline. Se a recuperação do resultado através do Apache Beeline demorar um longo período de tempo, espere atrasos na recuperação dos mesmos resultados através de ferramentas externas.
 
 * Teste uma consulta básica da Colmeia para garantir que uma ligação ao Gateway HDInsight pode ser estabelecida. Tente executar uma consulta básica a partir de duas ou mais ferramentas externas para se certificar de que nenhuma ferramenta individual está a ter problemas.
 
@@ -80,7 +80,7 @@ Existem vários locais para atenuar e compreender questões de desempenho satisf
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Apache Beeline em HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Passos de resolução de problemas do gateway HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Redes Virtuais para HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight com Rota Expressa](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache Beeline em HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
+* [Passos de resolução de problemas do gateway HDInsight](./troubleshoot-gateway-timeout.md)
+* [Redes Virtuais para HDInsight](../hdinsight-plan-virtual-network-deployment.md)
+* [HDInsight com Rota Expressa](../connect-on-premises-network.md)

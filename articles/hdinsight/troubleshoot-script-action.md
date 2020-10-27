@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977e3571a24e8be9d9ef6cd79e80e654ca944fa4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079264"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538821"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Ações de script de resolução de problemas em Azure HDInsight
 
@@ -45,7 +45,7 @@ Se a criação de cluster falhar devido a um erro de script, os registos são ma
 
     ![Troncos de ação do script](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    Sob este diretório, os troncos são organizados separadamente para **headnode,** **nóiro operário,** e **nó do zookeeper**. Veja os exemplos seguintes:
+    Sob este diretório, os troncos são organizados separadamente para **headnode,** **nóiro operário,** e **nó do zookeeper** . Veja os exemplos seguintes:
 
     * **Headnode:**`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
@@ -86,7 +86,7 @@ ImportError: cannot import name BlobService
 
 __Porque.__ Este erro ocorre se atualizar o cliente Python Azure Storage que está incluído no cluster HDInsight. A HDInsight espera o cliente Azure Storage 0.20.0.
 
-__Resolução__. Para resolver este erro, ligue manualmente a cada nó de cluster utilizando `ssh` . Executar o seguinte comando para reinstalar a versão correta do cliente de armazenamento:
+__Resolução__ . Para resolver este erro, ligue manualmente a cada nó de cluster utilizando `ssh` . Executar o seguinte comando para reinstalar a versão correta do cliente de armazenamento:
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -116,4 +116,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

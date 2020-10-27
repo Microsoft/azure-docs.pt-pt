@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323779"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547916"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Construa aplicações Java para Apache HBase
 
@@ -25,13 +25,13 @@ Os passos neste documento usam [Apache Maven](https://maven.apache.org/) para cr
 
 * Um aglomerado Apache HBase em HDInsight. Ver [Começar com Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
 * Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Se utilizar o PowerShell, necessitará do [Módulo AZ](https://docs.microsoft.com/powershell/azure/).
+* Se utilizar o PowerShell, necessitará do [Módulo AZ](/powershell/azure/).
 
 * Um editor de texto. Este artigo utiliza o Microsoft Notepad.
 
@@ -48,7 +48,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
-1. Insira o seguinte comando para criar um projeto Maven chamado **hbaseapp**:
+1. Insira o seguinte comando para criar um projeto Maven chamado **hbaseapp** :
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -442,7 +442,7 @@ Os passos seguintes usam `scp` para copiar o JAR para o nó de cabeça primária
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Faça o upload do JAR e executar empregos (PowerShell)
 
-Os passos seguintes utilizam o módulo Azure PowerShell [AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) para carregar o JAR para o armazenamento predefinido para o seu cluster Apache HBase. Os cmdlets HDInsight são então utilizados para executar os exemplos remotamente.
+Os passos seguintes utilizam o módulo Azure PowerShell [AZ](/powershell/azure/new-azureps-module-az) para carregar o JAR para o armazenamento predefinido para o seu cluster Apache HBase. Os cmdlets HDInsight são então utilizados para executar os exemplos remotamente.
 
 1. Depois de instalar e configurar o módulo AZ, crie um ficheiro denominado `hbase-runner.psm1` . Utilize o seguinte texto como o conteúdo desse ficheiro:
 

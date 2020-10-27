@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147729"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547780"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais
 
@@ -43,7 +43,7 @@ Se o seu ponto final personalizado tiver configurações de firewall, considere 
 O IoT Hub suporta atualmente os seguintes pontos finais:
 
  - Ponto final incorporado
- - Storage do Azure
+ - Armazenamento do Azure
  - Filas de autocarros de serviço e tópicos de ônibus de serviço
  - Hubs de Eventos
 
@@ -59,7 +59,7 @@ O IoT Hub suporta a escrita de dados para o Azure Storage no formato [Apache Avr
 
 O formato de codificação só pode ser definido quando o ponto final de armazenamento do blob estiver configurado; não pode ser editado para um ponto final existente. Para mudar os formatos de codificação para um ponto final existente, terá de eliminar e recriar o ponto final personalizado com o formato que pretende. Uma estratégia útil pode ser criar um novo ponto final personalizado com o seu formato de codificação desejado e adicionar uma rota paralela a esse ponto final. Desta forma, pode verificar os seus dados antes de eliminar o ponto final existente.
 
-Pode selecionar o formato de codificação utilizando o IoT Hub Create ou Atualizar a API REST, especificamente o [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal [Azure CLI,](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). A imagem a seguir mostra como selecionar o formato de codificação no portal Azure.
+Pode selecionar o formato de codificação utilizando o IoT Hub Create ou Atualizar a API REST, especificamente o [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal [Azure CLI,](/cli/azure/iot/hub/routing-endpoint)ou o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). A imagem a seguir mostra como selecionar o formato de codificação no portal Azure.
 
 ![Codificação do ponto final de armazenamento de bolhas](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -126,7 +126,7 @@ Pode ativar/desativar a rota de recuo na lâmina de encaminhamento de mensagens 
 
 ## <a name="non-telemetry-events"></a>Eventos de não telemetria
 
-Além da telemetria do dispositivo, o encaminhamento de mensagens também permite o envio de eventos de mudança de dois dispositivos, eventos de ciclo de vida do dispositivo e eventos de mudança de gémeos digitais. Por exemplo, se uma rota for criada com fonte de dados definida para **eventos de mudança dupla**do dispositivo, o IoT Hub envia mensagens para o ponto final que contêm a alteração no twin do dispositivo. Da mesma forma, se uma rota for criada com a origem de dados definida para **eventos de ciclo de vida**do dispositivo, o IoT Hub envia uma mensagem indicando se o dispositivo foi eliminado ou criado. Finalmente, como parte do [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com fonte de dados definidas para **eventos de mudança de gémeos digitais** e o IoT Hub envia mensagens sempre que uma [propriedade](../iot-pnp/iot-plug-and-play-glossary.md) digital twin é definida ou alterada, um [twin digital](../iot-pnp/iot-plug-and-play-glossary.md) é substituído, ou quando um evento de mudança acontece para o twin dispositivo subjacente.
+Além da telemetria do dispositivo, o encaminhamento de mensagens também permite o envio de eventos de mudança de dois dispositivos, eventos de ciclo de vida do dispositivo e eventos de mudança de gémeos digitais. Por exemplo, se uma rota for criada com fonte de dados definida para **eventos de mudança dupla** do dispositivo, o IoT Hub envia mensagens para o ponto final que contêm a alteração no twin do dispositivo. Da mesma forma, se uma rota for criada com a origem de dados definida para **eventos de ciclo de vida** do dispositivo, o IoT Hub envia uma mensagem indicando se o dispositivo foi eliminado ou criado. Finalmente, como parte do [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), um desenvolvedor pode criar rotas com fonte de dados definidas para **eventos de mudança de gémeos digitais** e o IoT Hub envia mensagens sempre que uma [propriedade](../iot-pnp/iot-plug-and-play-glossary.md) digital twin é definida ou alterada, um [twin digital](../iot-pnp/iot-plug-and-play-glossary.md) é substituído, ou quando um evento de mudança acontece para o twin dispositivo subjacente.
 
 [O IoT Hub também se integra com a Azure Event Grid](iot-hub-event-grid.md) para publicar eventos de dispositivos para apoiar integrações em tempo real e automatização de fluxos de trabalho baseados nestes eventos. Consulte as principais [diferenças entre o encaminhamento de mensagens e a Grade de Eventos](iot-hub-event-grid-routing-comparison.md) para saber qual o melhor funciona para o seu cenário.
 
@@ -148,7 +148,9 @@ Na maioria dos casos, o aumento médio da latência é inferior a 500 ms. Pode m
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
-O IoT Hub fornece várias métricas relacionadas com o encaminhamento e pontos finais para lhe dar uma visão geral da saúde do seu hub e mensagens enviadas. [As métricas do IoT Hub](iot-hub-metrics.md) listam todas as métricas que são ativadas por padrão para o seu Hub IoT. Utilizando os registos de diagnóstico de **rotas** nas [definições de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md)do Azure Monitor, pode rastrear erros ocorridos durante a avaliação de uma consulta de encaminhamento e saúde de ponto final, conforme percebido pelo IoT Hub. Pode utilizar a API [Rest Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de [saúde](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos finais. 
+O IoT Hub fornece várias métricas relacionadas com o encaminhamento e pontos finais para lhe dar uma visão geral da saúde do seu hub e mensagens enviadas. Para obter uma lista de todas as métricas do IoT Hub, divididas por categoria funcional, consulte [métricas na referência de dados de monitorização](monitor-iot-hub-reference.md#metrics). Pode rastrear erros que ocorram durante a avaliação de uma consulta de encaminhamento e saúde de ponto final como percebido pelo IoT Hub com a categoria [ **de rotas** em registos de recursos IoT Hub](monitor-iot-hub-reference.md#routes). Para saber mais sobre a utilização de métricas e registos de recursos com o IoT Hub, consulte [o Monitor IoT Hub](monitor-iot-hub.md).
+
+Pode utilizar a API [Rest Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de [saúde](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos finais.
 
 Utilize o [guia de resolução de problemas para encaminhamento](troubleshoot-message-routing.md) para obter mais detalhes e suporte para o encaminhamento de resolução de problemas.
 

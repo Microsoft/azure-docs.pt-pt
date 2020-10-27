@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756539"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545876"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e restauro na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL Flexible Server, cria automaticamente cópias de segura
 
 O Flexible Server retira cópias de segurança instantâneas dos ficheiros de dados e armazena-os num armazenamento redundante local. O servidor também realiza registos de transações de backup e também os armazena em armazenamento redundante local. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente a cópia de segurança da base de dados de 1 a 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits para os dados armazenados em repouso.
 
-Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para operações de restauro no servidor Flexível. Também pode utilizar [o mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   de um cliente MySQL para copiar uma base de dados.
+Estes ficheiros de reserva não podem ser exportados. As cópias de segurança só podem ser utilizadas para operações de restauro no servidor Flexível. Também pode utilizar [o mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) de um cliente MySQL para copiar uma base de dados.
 
 ## <a name="backup-frequency"></a>Frequência de cópia de segurança
 
@@ -40,9 +40,9 @@ O período de retenção de backups regula até onde pode ser realizada uma oper
 
 ## <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 
-O servidor flexível fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento adicional de backup utilizado é cobrado em GB por mês. Por exemplo, se tiver provisionado um servidor com 250 GB de armazenamento, tem 250 GB de armazenamento disponível para cópias de segurança do servidor sem custo adicional. Se o uso diário de backup for de 25GB, então pode ter até 10 dias de armazenamento gratuito de backup. O armazenamento consumido para cópias de segurança superiores a 250 GB é cobrado de acordo com o [modelo de preços.](https://azure.microsoft.com/pricing/details/mysql/)
+O servidor flexível fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento adicional de backup utilizado é cobrado em GB por mês. Por exemplo, se tiver provisionado um servidor com 250 GB de armazenamento, tem 250 GB de armazenamento disponível para cópias de segurança do servidor sem custo adicional. Se o uso diário de backup for de 25GB, então pode ter até 10 dias de armazenamento gratuito de backup. O armazenamento consumido para cópias de segurança superiores a 250 GB é cobrado de acordo com o [modelo de preços.](https://azure.microsoft.com/pricing/details/mysql/)
 
-Pode utilizar a métrica [de armazenamento de backup utilizada](https://docs.microsoft.com/azure/mysql/concepts-monitoring)no   Azure Monitor disponível no portal Azure para monitorizar o armazenamento de cópia de segurança consumido por um servidor. A métrica utilizada no **Armazenamento de Cópia** de Segurança representa a soma de armazenamento consumida por todas as cópias de segurança da base de dados e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. Uma atividade transacional intensa no servidor pode aumentar a utilização do armazenamento de cópias de segurança, independentemente do tamanho total da base de dados.
+Pode utilizar a métrica [de armazenamento de backup utilizada](../concepts-monitoring.md) no Azure Monitor disponível no portal Azure para monitorizar o armazenamento de cópia de segurança consumido por um servidor. A métrica utilizada no **Armazenamento de Cópia** de Segurança representa a soma de armazenamento consumida por todas as cópias de segurança da base de dados e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. Uma atividade transacional intensa no servidor pode aumentar a utilização do armazenamento de cópias de segurança, independentemente do tamanho total da base de dados.
 
 O principal meio de controlar o custo de armazenamento de backup é definindo o período de retenção de backup apropriado. Pode selecionar um período de retenção entre 1 a 35 dias.
 
@@ -68,8 +68,8 @@ A restauração pontual é útil em vários cenários. Alguns dos casos de uso q
 
 Pode escolher entre um último ponto de restauro e um ponto de restauração personalizado através do [portal Azure.](how-to-restore-server-portal.md)
 
--   **Último ponto de restauro**: O último ponto de restauro ajuda-o a restaurar o servidor até à última cópia de segurança realizada no servidor de origem. O tempotampido para restauro também será exibido no portal. Esta opção é útil para restaurar rapidamente o servidor para o estado mais atualizado.
--   **Ponto de restauração personalizado**: Isto permitir-lhe-á escolher qualquer ponto no tempo dentro do período de retenção definido para este servidor flexível. Esta opção é útil para restaurar o servidor no momento exato para recuperar de um erro do utilizador.
+-   **Último ponto de restauro** : O último ponto de restauro ajuda-o a restaurar o servidor até à última cópia de segurança realizada no servidor de origem. O tempotampido para restauro também será exibido no portal. Esta opção é útil para restaurar rapidamente o servidor para o estado mais atualizado.
+-   **Ponto de restauração personalizado** : Isto permitir-lhe-á escolher qualquer ponto no tempo dentro do período de retenção definido para este servidor flexível. Esta opção é útil para restaurar o servidor no momento exato para recuperar de um erro do utilizador.
 
 O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho da cópia de segurança do registo de transações, o tamanho do cálculo do SKU e a hora da restauração também. A recuperação do registo de transações é a parte mais demorada do processo de restauro. Se o tempo de restauração for escolhido mais perto do horário de backup total ou diferencial de instantâneo, os restauros são mais rápidos uma vez que a aplicação de registo de transação é mínima. Para estimar o tempo de recuperação exato para o seu servidor, recomendamos vivamente testá-lo no seu ambiente, uma vez que tem demasiadas variáveis específicas do ambiente.
 
@@ -77,7 +77,7 @@ O tempo estimado de recuperação depende de vários fatores, incluindo os taman
 > Se estiver a restaurar um servidor flexível configurado com alta disponibilidade redundante de zona, o servidor restaurado será configurado na mesma região e zona que o seu servidor primário, e implantado como um único servidor flexível num modo não HA. Consulte a [zona redundante alta disponibilidade](concepts-high-availability.md) para servidor flexível.
 
 > [!IMPORTANT]
-> Os servidores eliminados **não podem**   ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Para proteger os recursos do servidor, a implantação pós-implantação, contra a eliminação acidental ou alterações inesperadas, os administradores podem alavancar [os bloqueios de gestão](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Executar tarefas pós-restauro
 
@@ -91,5 +91,5 @@ Após uma restauração a partir do **último ponto de restauração** ou mecani
 ## <a name="next-steps"></a>Passos seguintes
 
 -   Conheça a [continuidade do negócio](./concepts-business-continuity.md)
--   Saiba mais sobre [zona redundante alta disponibilidade](./concepts-high-availability.md)
+-   Saiba mais sobre [zona redundante alta disponibilidade](./concepts-high-availability.md)
 -   Saiba mais [sobre backup e recuperação](./concepts-backup-restore.md)

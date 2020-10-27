@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c02f9de5b41d58e40001ba103191f3ef015f5c5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873097"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534911"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Use external metadata stores in Azure HDInsight (Utilizar arquivos de metadados externos no Azure HDInsight)
 
@@ -41,7 +41,7 @@ Por padrão, o HDInsight cria uma meta-loja com cada tipo de cluster. Em vez dis
 * A metástore predefinido é recomendada apenas para cargas de trabalho simples. Cargas de trabalho que não requerem múltiplos clusters e não precisam de metadados preservados para além do ciclo de vida do cluster.
 
 > [!IMPORTANT]
-> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)**! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
+> A metástore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)** ! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
 
 ## <a name="custom-metastore"></a>Metástases personalizadas
 
@@ -63,9 +63,9 @@ O HDInsight também suporta metastões personalizadas, que são recomendadas par
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Criar e configurar base de dados Azure SQL para a metásta personalizada
 
-Crie ou tenha uma Base de Dados Azure SQL existente antes de configurar uma metásta de Hive personalizada para um cluster HDInsight.  Para obter mais informações, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Crie ou tenha uma Base de Dados Azure SQL existente antes de configurar uma metásta de Hive personalizada para um cluster HDInsight.  Para obter mais informações, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-Ao criar o cluster, o serviço HDInsight precisa de se conectar à metásta externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure acedam ao servidor. Ative esta opção no portal Azure selecionando **a firewall do servidor set**. Em seguida, **selecione No** under **Deny public network access**, e **Yes** under **Allow Azure services and resources to access this server** for Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Ao criar o cluster, o serviço HDInsight precisa de se conectar à metásta externa e verificar as suas credenciais. Configure as regras de firewall da Base de Dados Azure SQL para permitir que os serviços e recursos da Azure acedam ao servidor. Ative esta opção no portal Azure selecionando **a firewall do servidor set** . Em seguida, **selecione No** under **Deny public network access** , e **Yes** under **Allow Azure services and resources to access this server** for Azure SQL Database. Para obter mais informações, consulte [Criar e gerir as regras de firewall IP](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Os pontos finais privados para lojas SQL não são suportados.
 
@@ -75,7 +75,7 @@ Os pontos finais privados para lojas SQL não são suportados.
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecione uma meta-loja personalizada durante a criação do cluster
 
-Pode apontar o seu cluster para uma Base de Dados Azure SQL previamente criada a qualquer momento. Para a criação de clusters através do portal, a opção é especificada a partir das **definições de Armazenamento > Metastore**.
+Pode apontar o seu cluster para uma Base de Dados Azure SQL previamente criada a qualquer momento. Para a criação de clusters através do portal, a opção é especificada a partir das **definições de Armazenamento > Metastore** .
 
 ![HdInsight Hive Metadata Store Portal Azure](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 

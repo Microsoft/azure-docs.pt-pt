@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851384"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539467"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento Azure em HDInsight
 
@@ -21,7 +21,7 @@ O Azure Storage é uma solução de armazenamento de uso geral robusto que se in
 
 Recomendamos a utilização de recipientes de armazenamento separados para o armazenamento padrão do seu cluster e os dados do seu negócio. A separação consiste em isolar os registos HDInsight e ficheiros temporários dos seus próprios dados de negócio. Recomendamos também a eliminação do recipiente de bolhas predefinidos, que contém registos de aplicação e sistema, após cada utilização para reduzir os custos de armazenamento. Certifique-se de que obtém os registos antes de eliminar o contentor.
 
-Se optar por proteger a sua conta de armazenamento com as restrições **de Firewalls e redes virtuais** em redes **selecionadas,** certifique-se de ativar a exceção **Permitir serviços de Microsoft confiáveis...**. A exceção é para que o HDInsight possa aceder à sua conta de armazenamento.
+Se optar por proteger a sua conta de armazenamento com as restrições **de Firewalls e redes virtuais** em redes **selecionadas,** certifique-se de ativar a exceção **Permitir serviços de Microsoft confiáveis...** . A exceção é para que o HDInsight possa aceder à sua conta de armazenamento.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 
@@ -44,7 +44,7 @@ Considere os seguintes princípios ao utilizar uma conta de Armazenamento Azure 
 * **Contentores públicos ou bolhas públicas em contas de armazenamento que não estejam ligadas a um cluster:** Tem autorização apenas para ler as bolhas nos contentores.
   
   > [!NOTE]  
-  > Os contentores públicos permitem-lhe obter uma lista de todas as bolhas disponíveis nesse contentor e obter metadados de contentores. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+  > Os contentores públicos permitem-lhe obter uma lista de todas as bolhas disponíveis nesse contentor e obter metadados de contentores. Os blobs públicos permitem aceder aos blobs apenas se souber o URL exato. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
 * **Contentores privados em contas de armazenamento que não estão ligadas a um cluster:** Não pode aceder às bolhas nos contentores a menos que defina a conta de armazenamento quando submete os trabalhos do WebHCat.
 

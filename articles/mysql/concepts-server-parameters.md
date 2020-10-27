@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627351"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545162"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -57,9 +57,9 @@ Para melhorar as questões de desempenho de consultas curtas na piscina de fios,
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Na Base de Dados Azure para o MySQL, os registos binários estão sempre ativados (isto `log_bin` é, está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)*. 
+Na Base de Dados Azure para o MySQL, os registos binários estão sempre ativados (isto `log_bin` é, está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)* . 
 
-O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para **TRUE**.
+O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para **TRUE** .
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -215,9 +215,9 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" então é melhor desligar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não é permitido ser modificado globalmente ao nível do servidor porque se o tamanho dos dados de linha for superior a 8k, os dados serão truncados sem um erro que conduza à perda de dados potenciais. Recomendamos modificar o esquema para se ajustar ao limite de tamanho da página. 
+Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" então é melhor desligar o parâmetro **innodb_strict_mode** . O parâmetro do servidor **innodb_strict_mode** não é permitido ser modificado globalmente ao nível do servidor porque se o tamanho dos dados de linha for superior a 8k, os dados serão truncados sem um erro que conduza à perda de dados potenciais. Recomendamos modificar o esquema para se ajustar ao limite de tamanho da página. 
 
-Este parâmetro pode ser definido a um nível de sessão utilizando `init_connect` . Para definir **innodb_strict_mode** ao nível da sessão, consulte o [parâmetro de definição não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Este parâmetro pode ser definido a um nível de sessão utilizando `init_connect` . Para definir **innodb_strict_mode** ao nível da sessão, consulte o [parâmetro de definição não listado](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
 > Se tiver um servidor de réplica de leitura, a definição **innodb_strict_mode** para OFF ao nível da sessão num servidor de origem quebrará a replicação. Sugerimos manter o parâmetro definido para OFF se tiver lido réplicas.

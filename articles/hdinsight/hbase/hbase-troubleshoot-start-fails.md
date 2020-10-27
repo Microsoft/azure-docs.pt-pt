@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032c25969bf477e1163b8db2aca631044c457939
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887211"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539977"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) falha no Azure HDInsight
 
@@ -113,7 +113,7 @@ Longa `regionserver` pausa JVM GC. A pausa fará com que `regionserver` não res
 
 Mude o tempo limite de sessão do Zookeeper, não só `hbase-site` a `zookeeper.session.timeout` definição, mas também a definição do Zookeeper. `zoo.cfg` `maxSessionTimeout`
 
-1. Aceda a Ambari UI, vá a **HBase -> Configs -> Definições**, na secção Timeouts, altere o valor do Tempo de Sessão zookeeper.
+1. Aceda a Ambari UI, vá a **HBase -> Configs -> Definições** , na secção Timeouts, altere o valor do Tempo de Sessão zookeeper.
 
 1. Aceda a Ambari UI, vá ao **Zookeeper -> Configs -> Custom** `zoo.cfg` , adicione/altere a seguinte definição. Certifique-se de que o valor é o mesmo que a HBase `zookeeper.session.timeout` .
 
@@ -149,4 +149,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

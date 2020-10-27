@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008955"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538600"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Resolver problemas de perda de dados da Cache do Azure para Redis
 
@@ -36,7 +36,7 @@ Se descobrir que as chaves desapareceram do seu cache, verifique as seguintes ca
 
 ### <a name="key-expiration"></a>Expiração da chave
 
-A azure Cache para Redis remove automaticamente uma chave se a chave for atribuída a um intervalo e esse período tiver passado. Para obter mais informações sobre a expiração da chave Redis, consulte a documentação do comando [EXPIR.](https://redis.io/commands/expire) Os valores de intervalo também podem ser definidos utilizando os [comandos SET](https://redis.io/commands/set), [SETEX,](https://redis.io/commands/setex) [GETSET](https://redis.io/commands/getset)e outros comandos ** \* STORE.**
+A azure Cache para Redis remove automaticamente uma chave se a chave for atribuída a um intervalo e esse período tiver passado. Para obter mais informações sobre a expiração da chave Redis, consulte a documentação do comando [EXPIR.](https://redis.io/commands/expire) Os valores de intervalo também podem ser definidos utilizando os [comandos SET](https://redis.io/commands/set), [SETEX,](https://redis.io/commands/setex) [GETSET](https://redis.io/commands/getset)e outros comandos **\* STORE.**
 
 Para obter estatísticas sobre quantas teclas já expiraram, utilize o comando [INFO.](https://redis.io/commands/info) A `Stats` secção mostra o número total de chaves caducadas. A `Keyspace` secção fornece mais informações sobre o número de chaves com intervalos de tempo e o valor médio de tempo de desconto.
 
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Seleção de bases de dados incorreta
 
-A azure Cache para Redis utiliza a base de **dados db0** por predefinição. Se mudar para outra base de dados (por exemplo, **db1**) e tentar ler as chaves, a Azure Cache para Redis não as encontrará lá. Cada base de dados é uma unidade logicamente separada e contém um conjunto de dados diferente. Utilize o comando [SELECT](https://redis.io/commands/select) para utilizar outras bases de dados disponíveis e procure chaves em cada uma delas.
+A azure Cache para Redis utiliza a base de **dados db0** por predefinição. Se mudar para outra base de dados (por exemplo, **db1** ) e tentar ler as chaves, a Azure Cache para Redis não as encontrará lá. Cada base de dados é uma unidade logicamente separada e contém um conjunto de dados diferente. Utilize o comando [SELECT](https://redis.io/commands/select) para utilizar outras bases de dados disponíveis e procure chaves em cada uma delas.
 
 ### <a name="redis-instance-failure"></a>Falha de exemplo de Redis
 
@@ -114,7 +114,7 @@ Redis é uma loja de dados na memória. Os dados são mantidos nas máquinas fí
 
 Caches nos níveis Standard e Premium oferecem uma resiliência muito maior contra a perda de dados usando dois VMs numa configuração replicada. Quando o nó primário em tal cache falha, o nó réplica assume-se para servir automaticamente os dados. Estes VMs estão localizados em domínios separados para falhas e atualizações, para minimizar a possibilidade de ambos ficarem indisponíveis simultaneamente. No entanto, se uma grande interrupção do datacenter acontecer, os VMs ainda podem descer juntos. Os seus dados perder-se-ão nestes casos raros.
 
-Considere usar a persistência de [dados redis](https://redis.io/topics/persistence) e [a geo-replicação](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) para melhorar a proteção dos seus dados contra estas falhas de infraestrutura.
+Considere usar a persistência de [dados redis](https://redis.io/topics/persistence) e [a geo-replicação](./cache-how-to-geo-replication.md) para melhorar a proteção dos seus dados contra estas falhas de infraestrutura.
 
 ## <a name="additional-information"></a>Informações adicionais
 

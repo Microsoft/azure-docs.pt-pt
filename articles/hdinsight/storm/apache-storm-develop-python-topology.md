@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872587"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545468"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias de tempestade Apache usando Python em HDInsight
 
@@ -24,13 +24,13 @@ Aprenda a criar uma topologia [da Tempestade Apache](https://storm.apache.org/) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um aglomerado de tempestade Apache em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** for **Cluster type**.
+* Um aglomerado de tempestade Apache em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** for **Cluster type** .
 
 * Um ambiente local de desenvolvimento de tempestades (opcional). Um ambiente local de tempestade só é necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [configurar um ambiente de desenvolvimento.](https://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 * [Python 2.7 ou superior](https://www.python.org/downloads/).
 
-* [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
@@ -114,7 +114,7 @@ Como mencionado anteriormente, há um `storm.py` ficheiro que implementa a defin
     storm kill wordcount
     ```
 
-    Em alternativa, pode utilizar a UI storm. Sob **as ações de Topologia** para a topologia, selecione **Kill**.
+    Em alternativa, pode utilizar a UI storm. Sob **as ações de Topologia** para a topologia, selecione **Kill** .
 
 ## <a name="run-the-topology-locally"></a>Executar a topologia localmente
 
@@ -141,7 +141,7 @@ Assim que a topologia começa, emite informações para a consola local semelhan
 24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 ```
 
-Para parar a topologia, utilize __Ctrl + C__.
+Para parar a topologia, utilize __Ctrl + C__ .
 
 ## <a name="next-steps"></a>Passos seguintes
 
