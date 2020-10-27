@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 527d2d8cb8086ed6b5e87417e2bc80dd52aa6e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188417"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538804"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Falhas na criação de recursos de resolução de problemas em Azure HDInsight
 
@@ -25,7 +25,7 @@ O Azure tem um limite de quota de 800 implementações por grupo de recursos. S�
 
 Para resolver este problema, elimine as implementações que já não são necessárias utilizando o portal Azure, CLI ou PowerShell.
 
-Para obter mais informações, veja [Resolver erros de quotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
+Para obter mais informações, veja [Resolver erros de quotas de recursos](../azure-resource-manager/templates/error-resource-quota.md).
 
 ## <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Erro: O nó máximo excedeu os núcleos disponíveis nesta região
 
@@ -33,15 +33,15 @@ A subscrição pode ser configurada para limitar o número de núcleos de uma re
 
 Para pedir um aumento da quota, sigas os passos seguintes:
 
-1. Vá ao [portal Azure](https://portal.azure.com)e selecione **Ajuda + suporte**.
+1. Vá ao [portal Azure](https://portal.azure.com)e selecione **Ajuda + suporte** .
 
-1. Selecione **Novo pedido de suporte**.
+1. Selecione **Novo pedido de suporte** .
 
 1. No separador Básico da página de pedido de **apoio novo,** forneça as **seguintes** informações:
 
-   * **Tipo de emissão:** Selecione **Limites de Serviço e subscrição (quotas)**.
+   * **Tipo de emissão:** Selecione **Limites de Serviço e subscrição (quotas)** .
    * **Assinatura:** Selecione a subscrição que pretende modificar.
-   * **Tipo de quota:** Selecione **HDInsight**.
+   * **Tipo de quota:** Selecione **HDInsight** .
 
 Para obter mais informações, veja [Criar um pedido de suporte para aumentar o núcleo](hdinsight-capacity-planning.md#quotas).
 
@@ -53,4 +53,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 1de11a07bdbac153b6813915cfa52edfa6484aec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877005"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546726"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Restaurar uma base de dados de Azure abandonada para o servidor MySQL
 
@@ -36,7 +36,7 @@ Para restaurar uma base de dados Azure para o servidor MySQL, precisa de ser:
    
  3. Clique duas vezes no evento Delete MySQL Server e clique no separador JSON e note os atributos "resourceId" e "submissãoTimestamp" na saída JSON. O resourceId está no seguinte formato: /subscrições/ffffff-ff-ff-ff-ffff-ffffff-ffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
- 4. Vá para criar a [página API do Servidor REST](https://docs.microsoft.com/rest/api/mysql/servers/create) e clique no separador "Experimente" realçado em verde e inicie sessão com a sua conta Azure.
+ 4. Vá para criar a [página API do Servidor REST](/rest/api/mysql/servers/create) e clique no separador "Experimente" realçado em verde e inicie sessão com a sua conta Azure.
  
  5. Forneça o nome do Grupo de Recursos, o nome do servidor (nome do servidor eliminado), a subscriçãoId, derivada do atributo resourceId capturado no Passo 3, enquanto a versão api é pré-povoada como mostrado na imagem.
  

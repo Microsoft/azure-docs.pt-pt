@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339548"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536577"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados para uma Cache Premium Azure para Redis
 Neste artigo, você aprenderá a configurar a persistência em um Azure Cache premium para redis exemplo através do portal Azure. O Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e funcionalidades da cache, incluindo características de nível Premium, tais como clustering, persistência e suporte de rede virtual. 
@@ -28,7 +28,7 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
 
 > [!NOTE]
 > 
-> O Azure Storage encripta automaticamente os dados quando estes são persistidos. Podes usar as tuas próprias chaves para a encriptação. Para obter mais informações, consulte [as chaves geridas pelo Cliente com o Cofre da Chave Azure](/azure/storage/common/storage-service-encryption).
+> O Azure Storage encripta automaticamente os dados quando estes são persistidos. Podes usar as tuas próprias chaves para a encriptação. Para obter mais informações, consulte [as chaves geridas pelo Cliente com o Cofre da Chave Azure](../storage/common/storage-service-encryption.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Criar recurso.":::
    
-2. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
+2. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Criar recurso.":::
 
@@ -44,7 +44,7 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
    
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenham apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
+   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenham apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será *\<DNS name> .redis.cache.windows.net* . | 
    | **Subscrição** | Drop-down e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
    | **Grupo de recursos** | Drop-down e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
    | **Localização** | Drop-down e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
@@ -62,7 +62,7 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
    
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Frequência de reserva** | Drop-down e selecione um intervalo de backup, as escolhas incluem **15 Minutos**, **30 minutos**, **60 minutos**, **6 horas**, **12 horas**e **24 horas**. | Este intervalo começa a contagem rebatida após a operação de backup anterior ter sido concluída com sucesso e quando decorrer uma nova cópia de segurança é iniciada. | 
+   | **Frequência de reserva** | Drop-down e selecione um intervalo de backup, as escolhas incluem **15 Minutos** , **30 minutos** , **60 minutos** , **6 horas** , **12 horas** e **24 horas** . | Este intervalo começa a contagem rebatida após a operação de backup anterior ter sido concluída com sucesso e quando decorrer uma nova cópia de segurança é iniciada. | 
    | **Conta de Armazenamento** | Drop-down e selecione a sua conta de armazenamento. | Você deve escolher uma conta de armazenamento na mesma região e subscrição que a cache, e uma conta **de Armazenamento Premium** é recomendada porque o armazenamento premium tem maior rendimento.  | 
    | **Chave de armazenamento** | Desça e escolha a **tecla Primária** ou **a chave secundária** para usar. | Se a chave de armazenamento da sua conta de persistência for regenerada, deve reconfigurar a chave desejada a partir da gota da chave de **armazenamento.** | 
 
@@ -83,9 +83,9 @@ A Persistência escreve dados do Redis numa conta de Armazenamento Azure que pos
 
 11. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso. 
 
-12. Selecione **Rever + criar**. É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
+12. Selecione **Rever + criar** . É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
 
-13. Depois de aparecer a mensagem de validação verde, selecione **Criar**.
+13. Depois de aparecer a mensagem de validação verde, selecione **Criar** .
 
 Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.** Quando **o Estado** aparece como **Running,** a cache está pronta a ser utilizada. 
 
@@ -160,7 +160,7 @@ A persistência da AOF afeta a produção em cerca de 15% – 20% quando a cache
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Como posso remover a segunda conta de armazenamento?
 
-Pode remover a conta de armazenamento secundário de persistência da AOF, definindo a segunda conta de armazenamento como a mesma que a primeira conta de armazenamento. Para caches existentes, a lâmina de persistência de **Dados** é acedida a partir do **menu Recursos** para a sua cache. Para desativar a persistência da AOF, clique **em Desativar**.
+Pode remover a conta de armazenamento secundário de persistência da AOF, definindo a segunda conta de armazenamento como a mesma que a primeira conta de armazenamento. Para caches existentes, a lâmina de persistência de **Dados** é acedida a partir do **menu Recursos** para a sua cache. Para desativar a persistência da AOF, clique **em Desativar** .
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>O que é uma reescrita e como é que isso afeta a minha cache?
 

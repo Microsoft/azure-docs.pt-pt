@@ -7,17 +7,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205383"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537665"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Cache Azure para redis gestão FAQs
 Este artigo fornece respostas a perguntas comuns sobre como gerir a Cache Azure para Redis.
 
-## <a name="common-questions-and-answers"></a>Perguntas e respostas comuns
+## <a name="common-questions-and-answers"></a>Perguntas comuns e respostas
 Esta secção abrange as seguintes PERGUNTAS Frequentes:
 
 * [Quando devo ativar a porta não-TLS/SSL para a ligação ao Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
@@ -63,7 +63,7 @@ Para obter instruções sobre o download das ferramentas Redis, veja como posso 
 * O VM cliente utilizado para testes deve estar na mesma região que o seu Azure Cache para a instância Redis.
 * Recomendamos a utilização de Série VM Dv2 para o seu cliente, uma vez que têm melhor hardware e devem dar os melhores resultados.
 * Certifique-se de que o seu VM do cliente que escolhe tem pelo menos a capacidade de computação e largura de banda como a cache que está a testar.
-* Ativar o VRSS na máquina do cliente se estiver no Windows. [Consulte aqui para mais detalhes.](https://technet.microsoft.com/library/dn383582.aspx)
+* Ativar o VRSS na máquina do cliente se estiver no Windows. [Consulte aqui para mais detalhes.](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11))
 * As instâncias de nível premium Redis têm melhor latência e produção de rede porque estão a executar hardware melhor tanto para CPU como para a Rede.
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Quais são algumas das considerações ao usar comandos redis comuns?
@@ -142,9 +142,9 @@ Como configurar este cenário:
     ```
 
     > [!NOTE]
-    > O valor especificado por este método é uma configuração global, afetando toda a AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de funcionação, utilizará **ThreadPool.SetMinThreads (200, 200)**.
+    > O valor especificado por este método é uma configuração global, afetando toda a AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* a 50 por CPU durante o tempo de funcionação, utilizará **ThreadPool.SetMinThreads (200, 200)** .
 
-* Também é possível especificar a definição de fios mínimos utilizando a [definição de configuração *minIoThreads* ou *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sob o `<processModel>` elemento de configuração em `Machine.config` , normalmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **A definição do número de fios mínimos desta forma não é geralmente recomendada, porque é uma definição de todo o sistema.**
+* Também é possível especificar a definição de fios mínimos utilizando a [definição de configuração *minIoThreads* ou *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) sob o `<processModel>` elemento de configuração em `Machine.config` , normalmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **A definição do número de fios mínimos desta forma não é geralmente recomendada, porque é uma definição de todo o sistema.**
 
   > [!NOTE]
   > O valor especificado neste elemento de configuração é uma definição *por núcleo.* Por exemplo, se tiver uma máquina de 4 núcleos e quiser que a sua definição *de minIoThreads* seja de 200 em tempo de execução, utilizará `<processModel minIoThreads="50"/>` .

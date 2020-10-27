@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 1bad9a7da6f0604f910ce1095b734043be8cf3c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946717"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537937"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Tutorial: Construa uma app PHP (Laravel) e MySQL Flexible Server (Preview) no Azure App Service
 
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PhP Web App em Azure com Servidor Flexível":::
 
-[O Azure App Service](https://docs.microsoft.com/azure/app-service/overview) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial mostra como criar uma aplicação PHP em Azure e conectá-la a uma base de dados MySQL. Quando terminar, terá uma aplicação [Laravel](https://laravel.com/) em execução no Azure App Service no Linux.
+[O Azure App Service](../../app-service/overview.md) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este tutorial mostra como criar uma aplicação PHP em Azure e conectá-la a uma base de dados MySQL. Quando terminar, terá uma aplicação [Laravel](https://laravel.com/) em execução no Azure App Service no Linux.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 > * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Gerir a aplicação no portal do Azure
 
-Se não tiver uma [subscrição do Azure,](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+Se não tiver uma [subscrição do Azure,](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +96,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configurar a ligação ao MySQL
 
-Na raiz do repositório, crie um ficheiro com o nome *.env*. Copie as variáveis seguintes para o ficheiro *.env*. Substitua o espaço reservado _ &lt; root_password>_ pela palavra-passe do utilizador raiz MySQL.
+Na raiz do repositório, crie um ficheiro com o nome *.env* . Copie as variáveis seguintes para o ficheiro *.env* . Substitua o espaço reservado _&lt; root_password>_ pela palavra-passe do utilizador raiz MySQL.
 
 ```txt
 APP_ENV=local
@@ -110,7 +110,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obter informações sobre como o Laravel utiliza o ficheiro _.env_, veja [Configuração do Ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Para obter informações sobre como o Laravel utiliza o ficheiro _.env_ , veja [Configuração do Ambiente do Laravel](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
 ### <a name="run-the-sample-locally"></a>Executar o exemplo localmente
 
@@ -139,7 +139,7 @@ Navegue para `http://localhost:8000` num browser. Adicione algumas tarefas à p�
 Para parar o PHP, escreva `Ctrl + C` no terminal.
 
 ## <a name="create-a-mysql-flexible-server-preview"></a>Criar um Servidor Flexível MySQL (Pré-visualização)
-Neste passo, cria uma base de dados MySQL na [Base de Dados Azure para o MySQL Flexible Server](/azure/mysql) que está em pré-visualização pública. Posteriormente, vai configurar a aplicação PHP para se ligar a esta base de dados. No [Azure Cloud Shell,](https://docs.microsoft.com/azure/cloud-shell/overview)crie um servidor com o [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) comando.
+Neste passo, cria uma base de dados MySQL na [Base de Dados Azure para o MySQL Flexible Server](../index.yml) que está em pré-visualização pública. Posteriormente, vai configurar a aplicação PHP para se ligar a esta base de dados. No [Azure Cloud Shell,](../../cloud-shell/overview.md)crie um servidor com o [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) comando.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -196,7 +196,7 @@ Neste passo, vai ligar a aplicação PHP à base de dados MySQL que criou na Bas
 
 ### <a name="configure-the-database-connection"></a>Configurar a ligação à base de dados
 
-Na raiz do repositório, crie um ficheiro _.env.production_ e copie as variáveis seguintes para o mesmo. Substitua o _ &lt;>de nome do meu servidor_ de espaço reservado em *DB_HOST* e *DB_USERNAME*.
+Na raiz do repositório, crie um ficheiro _.env.production_ e copie as variáveis seguintes para o mesmo. Substitua o _&lt;>de nome do meu servidor_ de espaço reservado em *DB_HOST* e *DB_USERNAME* .
 
 ```
 APP_ENV=production
@@ -280,7 +280,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 
 A FTP e o Git local podem implementar para uma aplicação web Azure utilizando um utilizador de implementação. Uma vez configurar o utilizador de implementação, pode usá-lo para todas as suas implementações Azure. O nome de utilizador e palavra-passe de implementação ao nível da sua conta são diferentes das suas credenciais de subscrição Azure.
 
-Para configurar o utilizador de implementação, executar o comando [de configuração de implementação az webapp](https://docs.microsoft.com/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) em Azure Cloud Shell. Substitua _ &lt; o nome de utilizador>_ e>de _ &lt; palavra-passe_ pelo nome de utilizador e palavra-passe do utilizador da sua implementação.
+Para configurar o utilizador de implementação, executar o comando [de configuração de implementação az webapp](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) em Azure Cloud Shell. Substitua _&lt; o nome de utilizador>_ e>de _&lt; palavra-passe_ pelo nome de utilizador e palavra-passe do utilizador da sua implementação.
 
 O nome de utilizador deve ser único dentro do Azure, e para os pushes git locais, não deve conter o símbolo '@'.
 A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos.
@@ -293,7 +293,7 @@ A saída JSON mostra a palavra-passe como nula. Se tiver um "Conflito". Detalhes
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
-Na Cloud Shell, crie um plano de Serviço de Aplicações no grupo de recursos com o [plano de appservice az criar](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) comando. O exemplo a seguir cria um plano de Serviço de Aplicações chamado myAppServicePlan no nível de preços gratuitos (-sku F1) e num recipiente Linux (--is-linux).
+Na Cloud Shell, crie um plano de Serviço de Aplicações no grupo de recursos com o [plano de appservice az criar](/cli/azure/appservice/plan#az-appservice-plan-create) comando. O exemplo a seguir cria um plano de Serviço de Aplicações chamado myAppServicePlan no nível de preços gratuitos (-sku F1) e num recipiente Linux (--is-linux).
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 
@@ -301,9 +301,9 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-Crie uma [aplicação web](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux) no plano de Serviço de Aplicações myAppServicePlan.
+Crie uma [aplicação web](../../app-service/overview.md#app-service-on-linux) no plano de Serviço de Aplicações myAppServicePlan.
 
-Na Cloud Shell, pode utilizar o comando [de criação de webapp az.](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) No exemplo seguinte, substitua o _ &lt; nome da aplicação>_ por um nome de aplicação globalmente único (caracteres válidos são , e `a-z` `0-9` `-` ). O runtime está definido como `PHP|7.0`. Para ver todos os tempos de execução suportados, executar [az webapp list-runtimes -- linux](https://docs.microsoft.com/cli/azure/webapp#az-webapp-list-runtimes).
+Na Cloud Shell, pode utilizar o comando [de criação de webapp az.](/cli/azure/webapp#az-webapp-create) No exemplo seguinte, substitua o _&lt; nome da aplicação>_ por um nome de aplicação globalmente único (caracteres válidos são , e `a-z` `0-9` `-` ). O runtime está definido como `PHP|7.0`. Para ver todos os tempos de execução suportados, executar [az webapp list-runtimes -- linux](/cli/azure/webapp#az-webapp-list-runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
@@ -336,7 +336,7 @@ Criou uma nova aplicação Web vazia, com a implementação de git ativada.
 
 No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
-O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _ &lt; nome de aplicativos dos_ espaços reservados>e _ &lt; o nome do meu servidor mysql-server>_.
+O comando seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _&lt; nome de aplicativos dos_ espaços reservados>e _&lt; o nome do meu servidor mysql-server>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -359,13 +359,13 @@ Pode utilizar o método [getenv](https://www.php.net/manual/en/function.getenv.p
 
 O Laravel precisa de uma chave de aplicação no Serviço de Aplicações. Pode configurá-la nas definições da aplicação.
 
-Na janela de terminal local, utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em _.env_.
+Na janela de terminal local, utilize `php artisan` para gerar uma chave de aplicação nova sem a guardar em _.env_ .
 
 ```bash
 php artisan key:generate --show
 ```
 
-Na Cloud Shell, desaprove a chave de aplicação na aplicação Do Serviço de Aplicações utilizando o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) comando. Substitua o nome de>de _ &lt; aplicação_ dos espaços reservados e _ &lt; a saídaofphpartisankey:gere>_.
+Na Cloud Shell, desaprove a chave de aplicação na aplicação Do Serviço de Aplicações utilizando o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) comando. Substitua o nome de>de _&lt; aplicação_ dos espaços reservados e _&lt; a saídaofphpartisankey:gere>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -377,17 +377,17 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 O ciclo de vida da [aplicação Laravel](https://laravel.com/docs/5.4/lifecycle) começa no diretório _público_ em vez do diretório de raiz da aplicação. A imagem PHP predefinida do Docker para o Serviço de Aplicações utiliza o Apache e não lhe permite personalizar `DocumentRoot` para o Laravel. No entanto, pode utilizar `.htaccess` para reescrever todos os pedidos para que apontem para _/public_ em vez do diretório de raiz. Na raiz do repositório, já é adicionado um `.htaccess` para este fim. Com o mesmo, a sua aplicação do Laravel está pronta para ser implementada.
 
-Para obter mais informações, consulte [alterar a raiz do site.](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#change-site-root)
+Para obter mais informações, consulte [alterar a raiz do site.](../../app-service/configure-language-php.md?pivots=platform-linux#change-site-root)
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
 
-Regresse à janela de terminal local e adicione um remoto do Azure ao seu repositório Git local. Substitua _ &lt; a implementaçãoLocalGitUrl-from-create-step>_ pelo URL do comando Git que guardou a partir de Criar uma [aplicação web](#create-a-web-app).
+Regresse à janela de terminal local e adicione um remoto do Azure ao seu repositório Git local. Substitua _&lt; a implementaçãoLocalGitUrl-from-create-step>_ pelo URL do comando Git que guardou a partir de Criar uma [aplicação web](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando o Git Credential Manager lhe pedir credenciais, certifique-se de que introduz as credenciais criadas em **Configurar um utilizador de implementação**, e não as credenciais que utiliza para iniciar sessão no portal Azure.
+Envie para o remoto do Azure para implementar a sua aplicação com o comando seguinte. Quando o Git Credential Manager lhe pedir credenciais, certifique-se de que introduz as credenciais criadas em **Configurar um utilizador de implementação** , e não as credenciais que utiliza para iniciar sessão no portal Azure.
 
 ```bash
 git push azure master
@@ -466,11 +466,11 @@ Na janela de terminal local, execute migrações de bases de dados do Laravel pa
 php artisan migrate
 ```
 
-Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), o modelo `Task` (veja _app/Task.php_) mapeia para a tabela `tasks` por predefinição.
+Com base na [convenção de nomenclatura do Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), o modelo `Task` (veja _app/Task.php_ ) mapeia para a tabela `tasks` por predefinição.
 
 ### <a name="update-application-logic"></a>Atualizar a lógica da aplicação
 
-Abra o ficheiro *routes/web.php*. A aplicação define as respetivas rotas e a lógica de negócio aqui.
+Abra o ficheiro *routes/web.php* . A aplicação define as respetivas rotas e a lógica de negócio aqui.
 
 No fim do ficheiro, adicione uma rota com o código abaixo:
 
@@ -493,7 +493,7 @@ O código anterior faz uma simples atualização ao modelo de dados, ao alternar
 
 ### <a name="update-the-view"></a>Atualizar a vista
 
-Abra o ficheiro *resources/views/tasks.blade.php*. Localize o código de início `<tr>` e substitua-o por:
+Abra o ficheiro *resources/views/tasks.blade.php* . Localize o código de início `<tr>` e substitua-o por:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -572,6 +572,6 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como gerir os seus recursos no portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal) <br/>
+> [Como gerir os seus recursos no portal Azure](../../azure-resource-manager/management/manage-resources-portal.md) <br/>
 > [!div class="nextstepaction"]
 > [Como gerir o seu servidor](how-to-manage-server-cli.md)

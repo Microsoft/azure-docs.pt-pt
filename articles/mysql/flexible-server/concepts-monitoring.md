@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939290"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538668"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitor Azure Database para Servidores Flexíveis MySQL com métricas incorporadas
 
@@ -26,7 +26,7 @@ Neste artigo, irá conhecer as várias métricas disponíveis para o seu servido
 
 A Azure Database for MySQL Flexible Server fornece várias métricas para entender como a sua carga de trabalho está a funcionar e com base nestes dados, pode compreender o impacto no seu servidor e aplicação. Por exemplo, no servidor flexível, é possível monitorizar **o CPU anfitrião por cento,** **As Ligações Ativas,** **IO%** e **o Host Memory Percent** para identificar quando há um impacto de desempenho. A partir daí, poderá ter de otimizar a sua carga de trabalho, escalar verticalmente alterando os níveis de cálculo ou escalando horizontalmente usando réplicas de leitura.
 
-Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Para obter orientação passo a passo, consulte [como configurar alertas](./how-to-alert-on-metric.md). Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Para obter orientação passo a passo, consulte [como configurar alertas](./how-to-alert-on-metric.md). Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database para MySQL:
@@ -37,16 +37,16 @@ Estas métricas estão disponíveis para Azure Database para MySQL:
 |Rede de anfitriões em |network_bytes_ingress|Bytes|O tráfego de rede de entrada no servidor, incluindo o tráfego da base de dados do cliente e as funcionalidades Azure MySQL como replicação, monitorização, registos, etc.|
 |Rede de anfitriões fora|network_bytes_egress|Bytes|Tráfego de rede de saída no servidor, incluindo tráfego da base de dados do cliente e funcionalidades Azure MySQL como replicação, monitorização, registos, etc.|
 |Atraso de replicação|replication_lag|Segundos|O tempo desde a última transação reproduzida. Esta métrica está disponível apenas para servidores de réplicas.|
-|Ligações Ativas|active_connection|Contagem|O número de ligações ativas ao servidor.|
+|Ligações Ativas|active_connection|de palavras|O número de ligações ativas ao servidor.|
 |Armazenamento de backup usado|backup_storage_used|Bytes|A quantidade de armazenamento de reserva usado.|
 |IO por cento|io_consumption_percent|Percentagem|A percentagem de IO em uso.|
 |Por cento da Memória do Anfitrião|memory_percent|Percentagem|A percentagem de memória em uso no servidor, incluindo a utilização da memória tanto da carga de trabalho do cliente como dos processos Azure MySQL|
 |Limite de armazenamento|storage_limit|Bytes|O armazenamento máximo para este servidor.|
 |Por cento de Armazenamento|storage_percent|Percentagem|A percentagem de armazenamento utilizada fora do máximo do servidor.|
 |Armazenamento utilizado|storage_used|Bytes|A quantidade de armazenamento em uso. O armazenamento utilizado pelo serviço pode incluir os ficheiros de base de dados, registos de transações e registos do servidor.|
-|Total de ligações|total_connections|Contagem|O número total de ligações ao servidor|
-|Ligações Abortadas|aborted_connections|Contagem|O número de tentativas falhadas de ligação ao MySQL, por exemplo, falhou na ligação devido a más credenciais.|
-|Consultas|consultas|Contagem|O número de consultas por segundo|
+|Total de ligações|total_connections|de palavras|O número total de ligações ao servidor|
+|Ligações Abortadas|aborted_connections|de palavras|O número de tentativas falhadas de ligação ao MySQL, por exemplo, falhou na ligação devido a más credenciais.|
+|Consultas|consultas|de palavras|O número de consultas por segundo|
 
 ## <a name="next-steps"></a>Passos seguintes
 - Veja [como configurar alertas](./how-to-alert-on-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.

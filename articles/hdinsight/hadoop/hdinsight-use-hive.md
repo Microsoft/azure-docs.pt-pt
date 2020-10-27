@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462280"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540402"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é Apache Hive e HiveQL em Azure HDInsight?
 
@@ -72,14 +72,14 @@ Para obter mais informações sobre formatos de ficheiros suportados pela Hive, 
 
 Existem dois tipos de tabelas que pode criar com a Colmeia:
 
-* __Interno__: Os dados são armazenados no armazém de dados da Colmeia. O armazém de dados está localizado `/hive/warehouse/` no armazenamento padrão para o cluster.
+* __Interno__ : Os dados são armazenados no armazém de dados da Colmeia. O armazém de dados está localizado `/hive/warehouse/` no armazenamento padrão para o cluster.
 
     Utilize tabelas internas quando se aplicar uma das seguintes condições:
 
     * Os dados são temporários.
     * Quer que a Hive gere o ciclo de vida da tabela e dos dados.
 
-* __Externo__: Os dados são armazenados fora do armazém de dados. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
+* __Externo__ : Os dados são armazenados fora do armazém de dados. Os dados podem ser armazenados em qualquer armazenamento acessível pelo cluster.
 
     Utilize tabelas externas quando se aplicar uma das seguintes condições:
 
@@ -88,11 +88,11 @@ Existem dois tipos de tabelas que pode criar com a Colmeia:
     * Precisa de uma localização personalizada, como uma conta de armazenamento não padrão.
     * Um programa diferente da colmeia gere o formato de dados, localização, e assim por diante.
 
-Para mais informações, consulte o post de blog de [Introdução de Mesas Internas e Externas da Hive.](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/)
+Para mais informações, consulte o post de blog de [Introdução de Mesas Internas e Externas da Hive.](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro)
 
 ## <a name="user-defined-functions-udf"></a>Funções definidas pelo utilizador (UDF)
 
-A colmeia também pode ser estendida através **de funções definidas pelo utilizador (UDF)**. Um UDF permite-lhe implementar funcionalidade ou lógica que não é facilmente modelada no HiveQL. Para um exemplo de utilização de UDFs com Colmeia, consulte os seguintes documentos:
+A colmeia também pode ser estendida através **de funções definidas pelo utilizador (UDF)** . Um UDF permite-lhe implementar funcionalidade ou lógica que não é facilmente modelada no HiveQL. Para um exemplo de utilização de UDFs com Colmeia, consulte os seguintes documentos:
 
 * [Utilize uma função definida pelo utilizador Java com a Colmeia Apache](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -100,7 +100,7 @@ A colmeia também pode ser estendida através **de funções definidas pelo util
 
 * [Utilize uma função C# definida pelo utilizador com a Colmeia Apache](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função personalizada definida pelo utilizador Apache Hive ao HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Como adicionar uma função personalizada definida pelo utilizador Apache Hive ao HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Um exemplo da função definida pelo utilizador Apache Hive para converter formatos de data/hora para o relógio da Colmeia](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -133,11 +133,11 @@ No exemplo anterior, as declarações da HiveQL realizam as seguintes ações:
 
 |Instrução |Descrição |
 |---|---|
-|MESA DE LANÇAMENTO|Se a tabela já existir, elimine-a.|
+|DROP TABLE|Se a tabela já existir, elimine-a.|
 |CRIAR TABELA EXTERNA|Cria uma nova tabela **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original e no formato original.|
 |FORMATO DE LINHA|Diz à Hive como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
 |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Diz à Hive onde os dados são armazenados (o `example/data` diretório) e que é armazenado como texto. Os dados podem estar num ficheiro ou difundir-se em vários ficheiros dentro do diretório.|
-|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
+|SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]** . Esta afirmação devolve um valor de **3** porque existem três linhas que contêm este valor.|
 |INPUT__FILE__NAME como 'log'.|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que devemos apenas devolver dados de ficheiros que terminam em .log.|
 
 > [!NOTE]  
@@ -197,11 +197,11 @@ A Azure Data Factory permite-lhe utilizar o HDInsight como parte de um oleoduto 
 
 Pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para executar um trabalho de Colmeia. O Azure Feature Pack for SSIS fornece os seguintes componentes que trabalham com trabalhos de Colmeia em HDInsight.
 
-* [Tarefa de Colmeia Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Tarefa de Colmeia Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Gestor de conexão de assinatura Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Gestor de conexão de assinatura Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para mais informações, consulte a documentação do [Azure Feature Pack.](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis)
+Para mais informações, consulte a documentação do [Azure Feature Pack.](/sql/integration-services/azure-feature-pack-for-integration-services-ssis)
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

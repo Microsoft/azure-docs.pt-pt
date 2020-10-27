@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887160"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547899"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Resolver problemas de desempenho do Apache HBase no Azure HDInsight
 
@@ -73,9 +73,9 @@ Seguem-se alguns dos outros parâmetros específicos que afinamos, e que parecia
 
 - Aumente `memstore` o tamanho de 128 MB para 256 MB. Normalmente, esta definição é recomendada para cenários de escrita pesada.
 
-- Aumente o número de fios dedicados à compactação, da definição predefinição de **1** a **4**. Esta definição é relevante se observarmos pequenas compactações frequentes.
+- Aumente o número de fios dedicados à compactação, da definição predefinição de **1** a **4** . Esta definição é relevante se observarmos pequenas compactações frequentes.
 
-- Evite bloquear o `memstore` autoclismo por causa do limite da loja. Para fornecer este tampão, aumente a `Hbase.hstore.blockingStoreFiles` regulação para **100**.
+- Evite bloquear o `memstore` autoclismo por causa do limite da loja. Para fornecer este tampão, aumente a `Hbase.hstore.blockingStoreFiles` regulação para **100** .
 
 - Para controlar as descargas, utilize as seguintes definições:
 
@@ -110,7 +110,7 @@ Seguem-se alguns dos outros parâmetros específicos que afinamos, e que parecia
 
 Seguem-se parâmetros adicionais a considerar a sintonização:
 
-- `Hbase.rs.cacheblocksonwrite` – por padrão no HDI, esta definição é definida como **verdadeira**.
+- `Hbase.rs.cacheblocksonwrite` – por padrão no HDI, esta definição é definida como **verdadeira** .
 
 - Configurações que permitem adiar uma pequena compactação para mais tarde.
 
@@ -124,4 +124,4 @@ Se o seu problema não for resolvido, visite um dos seguintes canais para obter 
 
 - Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) . Esta é a conta oficial da Microsoft Azure para melhorar a experiência do cliente. Liga a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). A sua subscrição do Microsoft Azure inclui acesso à gestão de subscrições e suporte de faturação, e o suporte técnico é fornecido através de um dos planos de suporte do [Azure.](https://azure.microsoft.com/support/plans/)
+- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). A sua subscrição do Microsoft Azure inclui acesso à gestão de subscrições e suporte de faturação, e o suporte técnico é fornecido através de um dos planos de suporte do [Azure.](https://azure.microsoft.com/support/plans/)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207475"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547967"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começa com uma caixa de areia Apache Hadoop, um emulador numa máquina virtual
 
@@ -34,13 +34,13 @@ Saiba como instalar a caixa de areia Apache Hadoop da Hortonworks numa máquina 
 
 Para obter instruções sobre a configuração da caixa de areia, consulte o [Guia de Implantação e Instalação da Caixa](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/)de Areia .
 
-Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os links em **Versão Mais Antiga**.
+Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os links em **Versão Mais Antiga** .
 
 ## <a name="start-the-virtual-machine"></a>Inicie a máquina virtual
 
 1. Abrir Oracle VM VirtualBox.
 1. A partir do menu **Ficheiro,** clique em **"Import Appliance"** e, em seguida, especifique a imagem da Caixa de Areia Hortonworks.
-1. Selecione a Caixa de Areia Hortonworks, clique **em Iniciar**e, em seguida, **Início Normal**. Uma vez terminada a máquina virtual, apresenta instruções de início de sessão.
+1. Selecione a Caixa de Areia Hortonworks, clique **em Iniciar** e, em seguida, **Início Normal** . Uma vez terminada a máquina virtual, apresenta instruções de início de sessão.
 
     ![início normal do gestor de caixa virtual](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
@@ -48,7 +48,7 @@ Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os link
 
 ## <a name="set-sandbox-passwords"></a>Definir palavras-passe sandbox
 
-1. A partir do passo **de arranque** da página De Areia Hortonworks, selecione **Ver Opções Avançadas**. Utilize as informações desta página para iniciar sessão na caixa de areia utilizando sSH. Use o nome e a senha fornecidas.
+1. A partir do passo **de arranque** da página De Areia Hortonworks, selecione **Ver Opções Avançadas** . Utilize as informações desta página para iniciar sessão na caixa de areia utilizando sSH. Use o nome e a senha fornecidas.
 
    > [!NOTE]
    > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseado na web fornecido pela máquina virtual em **http://localhost:4200/** .
@@ -85,7 +85,7 @@ Para descarregar uma caixa de areia de versão HDP mais antiga, consulte os link
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como usar o Visual Studio com a Caixa de Areia Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Saiba como usar o Visual Studio com a Caixa de Areia Hortonworks](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Aprender as cordas da Caixa de Areia de Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 

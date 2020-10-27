@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: b29e4411a104bbcd1d6d5b3320df47a742e2ca84
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dc1da641ba628cef92250549c1c6b6482cf18b51
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461248"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547338"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
 
@@ -37,7 +37,7 @@ Existem dois tipos de componentes de código aberto que estão disponíveis no s
 > [!IMPORTANT]
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados. O Microsoft Support ajuda a isolar e resolver problemas relacionados com estes componentes.
 >
-> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. O suporte da Microsoft pode ser capaz de resolver o problema OU eles podem pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontra uma experiência profunda para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com` . Também os projetos Apache têm sites de projeto em `https://apache.org` .
+> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. O suporte da Microsoft pode ser capaz de resolver o problema OU eles podem pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontra uma experiência profunda para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](/answers/topics/azure-hdinsight.html), `https://stackoverflow.com` . Também os projetos Apache têm sites de projeto em `https://apache.org` .
 
 ## <a name="understand-default-python-installation"></a>Compreender a instalação padrão python
 

@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759588"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538277"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -26,7 +26,7 @@ Este artigo descreve as causas e soluções para **erros ioTHubUnautizados 40100
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-Nos registos de diagnóstico, vê-se um padrão de dispositivos desligados com **401003 IoTHubUnautized**, seguido de **404104 DeviceConnectionClosedRemotely**, e, em seguida, conectando-se com sucesso pouco depois.
+Nos registos, vê-se um padrão de dispositivos desligados com **401003 IoTHubUnautized** , seguido de **404104 DeviceConnectionClosedRemotely** , e, em seguida, conectando-se com sucesso pouco depois.
 
 ### <a name="symptom-2"></a>Sintoma 2
 
@@ -40,7 +40,7 @@ Os pedidos ao IoT Hub falham com uma das seguintes mensagens de erro:
 
 ## <a name="cause"></a>Causa
 
-### <a name="cause-1"></a>Causa 1
+### <a name="cause-1"></a>Motivo 1
 
 Para o MQTT, alguns SDKs confiam no IoT Hub para emitir a desconexão quando o token SAS expirar para saber quando o refrescar. Desta forma, 
 
@@ -50,7 +50,7 @@ Para o MQTT, alguns SDKs confiam no IoT Hub para emitir a desconexão quando o t
 1. O IoT SDK gera um novo token SAS
 1. O dispositivo reconecta-se com o IoT Hub com sucesso
 
-### <a name="cause-2"></a>Causa 2
+### <a name="cause-2"></a>Motivo 2
 
 IoT Hub não podia autenticar o cabeçalho, regra ou chave do auth.
 

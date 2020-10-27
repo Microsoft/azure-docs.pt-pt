@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365794"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547984"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o Pacote de Segurança Enterprise no HDInsight
 
@@ -57,7 +57,7 @@ Para obter mais informações, consulte [clusters Configure HDInsight com ESP ut
 
 Se tiver uma instância ative de diretório ou configurações mais complexas do Ative Directory para o seu domínio, pode sincronizar essas identidades com a Azure AD utilizando o Azure AD Connect. Em seguida, pode ativar a Azure AD DS no inquilino ative directory.
 
-Como kerberos depende de hashes de palavra-passe, você deve [ativar a sincronização de haxixe de palavra-passe em Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Como kerberos depende de hashes de palavra-passe, você deve [ativar a sincronização de haxixe de palavra-passe em Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Se estiver a utilizar a federação com serviços da Federação de Diretórios Ativos (AD FS), tem de ativar a sincronização de haxixe de palavra-passe. (Para uma configuração recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) O hash sync da palavra-passe ajuda na recuperação de desastres no caso da sua infraestrutura AD FS falhar, e também ajuda a fornecer proteção de credencial com fugas. Para obter mais informações, consulte [Ativar a sincronização de haxixe de palavra-passe com a sincronização Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -65,7 +65,7 @@ Utilizar apenas no local o Ative Directory ou o Ative Directory em IaaS VMs, sem
 
 Se a federação estiver a ser utilizada e as hashes de palavra-passe estiverem sincronizadas corretamente, mas está a obter falhas de autenticação, verifique se a autenticação de passwords em nuvem está ativada para o principal do serviço PowerShell. Caso contrário, deve definir uma [política home realm discovery (HRD)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o seu inquilino AZure AD. Para verificar e definir a política de HRD:
 
-1. Instale o [módulo Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Instale o [módulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

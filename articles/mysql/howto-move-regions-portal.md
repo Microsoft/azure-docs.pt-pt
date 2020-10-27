@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: e0333c5cabec597261938765298b622bf2fe79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542517"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546335"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MySQL para outra região utilizando o portal Azure
 
@@ -21,7 +21,7 @@ Existem vários cenários para mover uma Base de Dados Azure existente para o se
 Você pode usar uma [réplica de leitura de azure para a região transversal](concepts-read-replicas.md#cross-region-replication) mySQL para completar a mudança para outra região. Para tal, primeiro crie uma réplica de leitura na região alvo. Em seguida, pare a replicação no servidor de réplicas de leitura para torná-lo um servidor autónomo que aceita tanto ler como escrever tráfego. 
 
 > [!NOTE]
-> Este artigo centra-se em mover o seu servidor para uma região diferente. Se pretender mover o seu servidor para um grupo de recursos ou subscrição diferente, consulte o artigo [de movimento.](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) 
+> Este artigo centra-se em mover o seu servidor para uma região diferente. Se pretender mover o seu servidor para um grupo de recursos ou subscrição diferente, consulte o artigo [de movimento.](../azure-resource-manager/management/move-resource-group-and-subscription.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,8 +35,8 @@ Para criar um servidor de réplica de leitura transversal na região alvo utiliz
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
-1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
-1. Selecione **Adicionar Réplica**.
+1. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
+1. Selecione **Adicionar Réplica** .
 1. Introduza um nome para o servidor de réplica.
 1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma que a do servidor de origem. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação de réplicas, os dados são copiados do servidor de origem para a réplica. Criar tempo pode durar vários minutos ou mais, proporcionalmente ao tamanho do servidor de origem.
@@ -53,19 +53,19 @@ Para criar um servidor de réplica de leitura transversal na região alvo utiliz
 Parar a replicação no servidor de réplicas faz com que se torne um servidor autónomo. Para impedir a replicação da réplica do portal Azure, utilize os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a base de dados Azure para o servidor de origem MySQL. 
-1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
+1. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
 1. Selecione o servidor de réplica.
-1. **Selecione a replicação stop**.
-1. Confirme que pretende parar a replicação clicando **OK**.
+1. **Selecione a replicação stop** .
+1. Confirme que pretende parar a replicação clicando **OK** .
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de fonte
 
 Pode querer eliminar a base de dados Azure de origem para o servidor MySQL. Para isso, siga os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a base de dados Azure para o servidor de origem MySQL.
-1. Na janela **'Vista Geral',** selecione **Delete**.
+1. Na janela **'Vista Geral',** selecione **Delete** .
 1. Digite o nome do servidor de origem para confirmar que pretende eliminar.
-1. Selecione **Eliminar**.
+1. Selecione **Eliminar** .
 
 ## <a name="next-steps"></a>Próximos passos
 

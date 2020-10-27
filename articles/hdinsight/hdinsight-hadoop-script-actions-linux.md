@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486315"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545995"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com HDInsight
 
@@ -256,7 +256,7 @@ Esta secção fornece orientações sobre a implementação de alguns dos padrõ
 
 Em alguns casos, o seu script pode requerer parâmetros. Por exemplo, pode precisar da palavra-passe de administração para o cluster ao utilizar a API Ambari REST.
 
-Os parâmetros passados para o script são conhecidos como *parâmetros posicionais*, e são atribuídos `$1` para o primeiro parâmetro, para o `$2` segundo, e assim-on. `$0` contém o nome do próprio guião.
+Os parâmetros passados para o script são conhecidos como *parâmetros posicionais* , e são atribuídos `$1` para o primeiro parâmetro, para o `$2` segundo, e assim-on. `$0` contém o nome do próprio guião.
 
 Os valores passados para o guião como parâmetros devem ser incluídos por cotações únicas ('). Ao fazê-lo, garante que o valor passado é tratado como literal.
 
@@ -292,7 +292,7 @@ Os scripts utilizados para personalizar um cluster precisam de ser armazenados n
 
 * Um __URI legível publicamente.__ Por exemplo, um URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de ficheiros.
 
-* Uma __conta de armazenamento do Lago de Dados Azure__ que está associada ao cluster HDInsight. Para obter mais informações sobre a utilização do Azure Data Lake Storage com HDInsight, consulte [Quickstart: Configurar clusters em HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Uma __conta de armazenamento do Lago de Dados Azure__ que está associada ao cluster HDInsight. Para obter mais informações sobre a utilização do Azure Data Lake Storage com HDInsight, consulte [Quickstart: Configurar clusters em HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > O principal serviço hdInsight usa para aceder ao Armazenamento do Lago de Dados deve ter lido o acesso ao script.
@@ -338,7 +338,7 @@ Os seguintes são erros que pode encontrar ao utilizar scripts que desenvolveu:
 
 Este problema ocorre mais frequentemente quando o script é da autoria num ambiente Windows, uma vez que CRLF é uma linha comum que termina para muitos editores de texto no Windows.
 
-*Resolução*: Se for uma opção no seu editor de texto, selecione o formato Unix ou LF para o final da linha. Pode também utilizar os seguintes comandos num sistema Unix para alterar o CRLF para um LF:
+*Resolução* : Se for uma opção no seu editor de texto, selecione o formato Unix ou LF para o final da linha. Pode também utilizar os seguintes comandos num sistema Unix para alterar o CRLF para um LF:
 
 > [!NOTE]  
 > Os seguintes comandos são aproximadamente equivalentes na forma como devem alterar as terminações da linha CRLF para LF. Selecione um com base nos utilitários disponíveis no seu sistema.
@@ -352,9 +352,9 @@ Este problema ocorre mais frequentemente quando o script é da autoria num ambie
 
 **Erro:** `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Causa*: Este erro ocorre quando o script foi guardado como UTF-8 com uma Marca de Ordem Byte (BOM).
+*Causa* : Este erro ocorre quando o script foi guardado como UTF-8 com uma Marca de Ordem Byte (BOM).
 
-*Resolução*: Guarde o ficheiro como ASCII, ou como UTF-8 sem um BOM. Pode também utilizar o seguinte comando num sistema Linux ou Unix para criar um ficheiro sem o BOM:
+*Resolução* : Guarde o ficheiro como ASCII, ou como UTF-8 sem um BOM. Pode também utilizar o seguinte comando num sistema Linux ou Unix para criar um ficheiro sem o BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
@@ -366,4 +366,4 @@ awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
 * Saiba como [personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Utilize a [referência HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight) para saber mais sobre a criação de aplicações .NET que gerem o HDInsight
-* Utilize a [API HDInsight REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gestão em clusters HDInsight.
+* Utilize a [API HDInsight REST](/rest/api/hdinsight/) para aprender a usar o REST para executar ações de gestão em clusters HDInsight.

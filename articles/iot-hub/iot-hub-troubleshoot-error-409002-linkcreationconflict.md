@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
-ms.openlocfilehash: 20d39b1f5a11f20eb5d12f34337787b382c820f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b9be6fdb500d9f877659a12e6fdc0e206ea964
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81758750"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538226"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
@@ -22,7 +22,7 @@ Este artigo descreve as causas e soluções para **erros de LinkCreationConflict
 
 ## <a name="symptoms"></a>Sintomas
 
-Vê o erro **409002 LinkCreationConflict** registado em registos de diagnóstico, juntamente com a desconexão do dispositivo ou falha de mensagem nuvem-dispositivo. 
+Vê o erro **409002 LinkCreationConflict** em registos juntamente com a desconexão do dispositivo ou falha de mensagens nuvem-dispositivo.
 
 <!-- When using AMQP? -->
 
@@ -30,11 +30,11 @@ Vê o erro **409002 LinkCreationConflict** registado em registos de diagnóstico
 
 Geralmente, este erro acontece quando o IoT Hub deteta que um cliente tem mais do que uma ligação. De facto, quando um novo pedido de ligação chega para um dispositivo com uma ligação existente, o IoT Hub fecha a ligação existente com este erro.
 
-### <a name="cause-1"></a>Causa 1
+### <a name="cause-1"></a>Motivo 1
 
 No caso mais comum, um problema separado (como [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)) faz com que o dispositivo se desligue. O dispositivo tenta restabelecer a ligação imediatamente, mas o IoT Hub ainda considera o dispositivo ligado. O IoT Hub fecha a ligação anterior e regista este erro.
 
-### <a name="cause-2"></a>Causa 2
+### <a name="cause-2"></a>Motivo 2
 
 A lógica defeituosa do lado do dispositivo faz com que o dispositivo estabeleça a ligação quando um já está aberto.
 

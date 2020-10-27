@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d03579f704879bd8d012bb0bb326659d1f778dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b7a1c600fe81081fbfe8d33c3878f68e730888
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793332"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547368"
 ---
 [Obtenha Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) na API REST dá o estado de saúde dos pontos finais, bem como o último erro conhecido, para identificar a razão pela qual um ponto final não é saudável. A tabela abaixo enumera os erros mais comuns.
 
 |Último erro conhecido|Descrição/quando ocorre|Possível Mitigação|
 |-----|-----|-----|
-|Transitório|Ocorreu um erro transitório e o IoT Hub voltará a tentar a operação.|Observar [registos de diagnóstico de](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)rotas .|
-|InternalError|Ocorreu um erro ao entregar uma mensagem a um ponto final.|Esta é uma exceção interna, mas também observar os [registos de diagnóstico](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)de rotas.|
+|Transitório|Ocorreu um erro transitório e o IoT Hub voltará a tentar a operação.|Observe [os registos de recursos das rotas.](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes)|
+|InternalError|Ocorreu um erro ao entregar uma mensagem a um ponto final.|Esta é uma exceção interna, mas também observar os [registos de recursos das rotas.](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes)|
 |Não autorizado|O IoT Hub não está autorizado a enviar mensagens para o ponto final especificado.|Validar que a cadeia de ligação está atualizada para o ponto final. Se tiver mudado, considere uma atualização no seu Hub IoT. Se o ponto final utilizar a identidade gerida, verifique se o diretor do IoT Hub tem as permissões necessárias no alvo.|
 |Acelerador|O IoT Hub está a ser estrangulado enquanto escreve mensagens no ponto final.|Reveja os limites do acelerador para o ponto final afetado. Modificar as configurações para o ponto final para escalar, se necessário.|
 |Tempo Limite|Tempo de operação.|Repita a operação.|

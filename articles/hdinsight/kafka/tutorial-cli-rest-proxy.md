@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49419853f193336e39ff8f729472342bb137fd39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490225"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539484"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutorial: Criar um aglomerado de proxy Apache Kafka REST em HDInsight usando Azure CLI
 
-Neste tutorial, você aprende a criar um aglomerado de [procuração](./rest-proxy.md) Apache Kafka REST em Azure HDInsight usando interface de linha de comando Azure (CLI). O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. O Apache Kafka é uma plataforma de código aberto de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma [API REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) sobre HTTP. A CLI do Azure é a experiência de linha de comandos para várias plataformas da Microsoft para a gestão de recursos do Azure.
+Neste tutorial, você aprende a criar um aglomerado de [procuração](./rest-proxy.md) Apache Kafka REST em Azure HDInsight usando interface de linha de comando Azure (CLI). O Azure HDInsight é um serviço de análise gerido, de espectro completo e de código aberto para empresas. O Apache Kafka é uma plataforma de código aberto de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma [API REST](/rest/api/hdinsight-kafka-rest-proxy/) sobre HTTP. A CLI do Azure é a experiência de linha de comandos para várias plataformas da Microsoft para a gestão de recursos do Azure.
 
 Só os recursos dentro da mesma rede virtual podem aceder à API do Apache Kafka. Pode aceder diretamente ao cluster utilizando sSH. Para ligar outros serviços, redes ou máquinas virtuais ao Apache Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede. Para obter mais informações, consulte [Connect to Apache Kafka utilizando uma rede virtual.](./apache-kafka-connect-vpn-gateway.md)
 
@@ -56,8 +56,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     |localização|Substitua a LOCALIZAÇÃO por uma região onde o cluster será criado. Para uma lista de locais válidos, use o `az account list-locations` comando|
     |clusterName|Substitua o CLUSTERNAME por um nome globalmente único para o seu novo cluster.|
     |storageAccount|Substitua o STORAGEACCOUNTNAME por um nome para a sua nova conta de armazenamento.|
-    |httpPassword|Substitua a PASSWORD por uma palavra-passe para o login do cluster, **administração**.|
-    |sshPassword|Substitua a PASSWORD por uma palavra-passe para o nome de utilizador de concha segura, **sshuser**.|
+    |httpPassword|Substitua a PASSWORD por uma palavra-passe para o login do cluster, **administração** .|
+    |sshPassword|Substitua a PASSWORD por uma palavra-passe para o nome de utilizador de concha segura, **sshuser** .|
     |nome do Grupo de Segurança|Substitua o NOME SECURITYGROUPNAME pelo nome do grupo de segurança AAD do cliente para Kafka Rest Proxy. A variável será passada para o `--kafka-client-group-name` parâmetro para `az-hdinsight-create` .|
     |securityGroupID|Substitua o SECURITYGROUPID pelo ID do grupo de segurança AAD do cliente para o Kafka Rest Proxy. A variável será passada para o `--kafka-client-group-id` parâmetro para `az-hdinsight-create` .|
     |storageContainer|Recipiente de armazenamento que o cluster irá utilizar, deixe como é para este tutorial. Esta variável será definida com o nome do cluster.|
@@ -131,7 +131,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
         |Parâmetro | Descrição|
         |---|---|
         |-tipo|O valor deve ser **Kafka.**|
-        |--trabalhadornode-dado-discos-por-nó|O número de discos de dados a utilizar por nó de trabalhador. HDInsight Kafka é suportado apenas com discos de dados. Este tutorial usa um valor de **2**.|
+        |--trabalhadornode-dado-discos-por-nó|O número de discos de dados a utilizar por nó de trabalhador. HDInsight Kafka é suportado apenas com discos de dados. Este tutorial usa um valor de **2** .|
 
     1. Parâmetros necessários para o proxy Kafka REST:
 

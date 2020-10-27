@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147716"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547763"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
 
@@ -94,19 +94,19 @@ Os dados do dispositivo que uma determinada solução IoT armazena dependem dos 
 
 ## <a name="device-heartbeat"></a>Batimento cardíaco do dispositivo
 
-O registo de identidade IoT Hub contém um campo chamado **connectionState**. Utilize apenas o **campo de ligaçãoEse** durante o desenvolvimento e depuragem. As soluções IoT não devem consultar o campo no tempo de execução. Por exemplo, não consulte o campo **de ligaçãoEve** para verificar se um dispositivo está ligado antes de enviar uma mensagem nuvem-para-dispositivo ou um SMS. Recomendamos a subscrição do [ **evento desligado** ](iot-hub-event-grid.md#event-types) do dispositivo na Grelha de Eventos para obter alertas e monitorizar o estado de ligação do dispositivo. Utilize este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos ligados ao dispositivo conectados e desligados do dispositivo a partir do IoT Hub na sua solução IoT.
+O registo de identidade IoT Hub contém um campo chamado **connectionState** . Utilize apenas o **campo de ligaçãoEse** durante o desenvolvimento e depuragem. As soluções IoT não devem consultar o campo no tempo de execução. Por exemplo, não consulte o campo **de ligaçãoEve** para verificar se um dispositivo está ligado antes de enviar uma mensagem nuvem-para-dispositivo ou um SMS. Recomendamos a subscrição do [ **evento desligado**](iot-hub-event-grid.md#event-types) do dispositivo na Grelha de Eventos para obter alertas e monitorizar o estado de ligação do dispositivo. Utilize este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos ligados ao dispositivo conectados e desligados do dispositivo a partir do IoT Hub na sua solução IoT.
 
-Se a sua solução IoT precisar de saber se um dispositivo está ligado, pode implementar o *padrão de batimentocardíaco*.
+Se a sua solução IoT precisar de saber se um dispositivo está ligado, pode implementar o *padrão de batimentocardíaco* .
 No padrão de batimentos cardíacos, o dispositivo envia mensagens dispositivo-a-nuvem pelo menos uma vez a cada quantidade fixa de tempo (por exemplo, pelo menos uma vez a cada hora). Portanto, mesmo que um dispositivo não tenha quaisquer dados para enviar, ainda envia uma mensagem vazia de dispositivo para nuvem (geralmente com uma propriedade que o identifica como um batimento cardíaco). Do lado do serviço, a solução mantém um mapa com o último batimento cardíaco recebido para cada dispositivo. Se a solução não receber uma mensagem de batimento cardíaco dentro do tempo esperado do dispositivo, assume que existe um problema com o dispositivo.
 
-Uma implementação mais complexa poderia incluir as informações do [Azure Monitor](../azure-monitor/index.yml) e [da Azure Resource Health](../service-health/resource-health-overview.md) para identificar dispositivos que estão a tentar ligar ou comunicar, mas falhando, consultar o Monitor com o guia de [diagnóstico.](iot-hub-monitor-resource-health.md) Quando implementar o padrão de batimentos cardíacos, certifique-se de verificar [IoT Hub Quotas e Throttles](iot-hub-devguide-quotas-throttling.md).
+Uma implementação mais complexa poderia incluir as informações do [Azure Monitor](../azure-monitor/index.yml) e [da Azure Resource Health](../service-health/resource-health-overview.md) para identificar dispositivos que estão a tentar ligar ou comunicar, mas falhando. Para saber mais, consulte [o Monitor IoT Hub](monitor-iot-hub.md) e verifique a [saúde dos recursos do IoT Hub.](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) Quando implementar o padrão de batimentos cardíacos, certifique-se de verificar [IoT Hub Quotas e Throttles](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > Se uma solução IoT utilizar o estado de ligação apenas para determinar se envia mensagens nuvem-para-dispositivo e as mensagens não são transmitidas para grandes conjuntos de dispositivos, considere usar o padrão de tempo de *validade de curto prazo* mais simples. Este padrão obtém o mesmo resultado que manter um registo estatal de ligação do dispositivo usando o padrão de batimentocardíaco, ao mesmo tempo que é mais eficiente. Se solicitar avisos de mensagens, o IoT Hub pode notificá-lo sobre quais os dispositivos que podem receber mensagens e quais não são.
 
 ## <a name="device-and-module-lifecycle-notifications"></a>Notificações do ciclo de vida do dispositivo e do módulo
 
-O IoT Hub pode notificar a sua solução IoT quando uma identidade é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT necessita de criar uma rota e de definir a Fonte de Dados igual a *DeviceLifecycleEvents* ou *ModuleLifecycleEvents*. Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas pré-existentes. A mensagem de notificação inclui propriedades e corpo.
+O IoT Hub pode notificar a sua solução IoT quando uma identidade é criada ou eliminada através do envio de notificações de ciclo de vida. Para tal, a sua solução IoT necessita de criar uma rota e de definir a Fonte de Dados igual a *DeviceLifecycleEvents* ou *ModuleLifecycleEvents* . Por padrão, não são enviadas notificações de ciclo de vida, ou seja, não existem tais rotas pré-existentes. A mensagem de notificação inclui propriedades e corpo.
 
 Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$` símbolo.
 
@@ -198,7 +198,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | status |obrigatório |Um indicador de acesso. Pode ser **ativado** ou **desativado.** Se **ativado,** o dispositivo pode ligar-se. Se **estiver desativado,** este dispositivo não pode aceder a nenhum ponto final virado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |read-only |Um indicador temporal, mostrando a data e a hora da última atualização do estado. |
-| ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
+| ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado** . Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante** : Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
 | conexãoStateUpdatedTime |read-only |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
 | última Hora de Atividade |read-only |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
 
@@ -206,7 +206,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 > O estado de ligação só pode representar a visão do Hub IoT do estado da ligação. As atualizações a este estado podem ser atrasadas, dependendo das condições e configurações da rede.
 
 > [!NOTE]
-> Atualmente, os SDKs do dispositivo não suportam a utilização do `+` e dos caracteres no `#` **dispositivoId**.
+> Atualmente, os SDKs do dispositivo não suportam a utilização do `+` e dos caracteres no `#` **dispositivoId** .
 
 ## <a name="module-identity-properties"></a>Propriedades de identidade do módulo
 
@@ -223,12 +223,12 @@ As identidades dos módulos são representadas como documentos JSON com as segui
 | status |obrigatório |Um indicador de acesso. Pode ser **ativado** ou **desativado.** Se **ativado,** o dispositivo pode ligar-se. Se **estiver desativado,** este dispositivo não pode aceder a nenhum ponto final virado para o dispositivo. |
 | statusReason |opcional |Uma cadeia de 128 caracteres que armazena a razão para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |read-only |Um indicador temporal, mostrando a data e a hora da última atualização do estado. |
-| ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado**. Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
+| ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado** . Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante** : Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
 | conexãoStateUpdatedTime |read-only |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
 | última Hora de Atividade |read-only |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
 
 > [!NOTE]
-> Atualmente, os SDKs do dispositivo não suportam utilizando o `+` e os caracteres no `#` **dispositivoId** e **móduloId**.
+> Atualmente, os SDKs do dispositivo não suportam utilizando o `+` e os caracteres no `#` **dispositivoId** e **móduloId** .
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
 

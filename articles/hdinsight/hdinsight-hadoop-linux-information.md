@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488117"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546114"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -24,9 +24,9 @@ Os clusters Azure HDInsight fornecem Apache Hadoop num ambiente linux familiar, 
 Muitos dos passos deste documento utilizam os seguintes utilitários, que podem ter de ser instalados no seu sistema.
 
 * [cURL](https://curl.haxx.se/) - usado para comunicar com serviços baseados na web.
-* **jq**, um processador JSON de linha de comando.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)Ver.
+* **jq** , um processador JSON de linha de comando.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)Ver.
 * [Azure CLI](/cli/azure/install-azure-cli) - usado para gerir remotamente os serviços Azure.
-* **Um cliente SSH**. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente SSH** . Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Utilizadores
 
@@ -81,7 +81,7 @@ Este comando devolve um documento JSON descrevendo o serviço, e então [jq](htt
     >
     > A autenticação é texto simples - utilize sempre HTTPS para ajudar a garantir que a ligação está segura.
 
-* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é utilizada para ligar ao cabeçano primário, enquanto 23 é usada para ligar ao secundário. Para obter mais informações sobre os nós da cabeça, consulte [disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net na porta 22 ou 23. A porta 22 é utilizada para ligar ao cabeçano primário, enquanto 23 é usada para ligar ao secundário. Para obter mais informações sobre os nós da cabeça, consulte [disponibilidade e fiabilidade dos clusters Apache Hadoop em HDInsight](./hdinsight-business-continuity.md).
 
     > [!NOTE]  
     > Só é possível aceder aos nós da cabeça do cluster através do SSH a partir de uma máquina cliente. Uma vez ligados, pode então aceder aos nós do trabalhador utilizando SSH a partir de um headnode.
@@ -92,8 +92,8 @@ Para mais informações, consulte os [Ports utilizados pelos serviços Apache Ha
 
 Os ficheiros relacionados com hadoop podem ser encontrados nos nós de cluster em `/usr/hdp` . Este diretório contém as seguintes subdireções:
 
-* **2.6.5.3009-43**: O nome do diretório é a versão da plataforma Hadoop utilizada pela HDInsight. O número do seu aglomerado pode ser diferente do listado aqui.
-* **corrente**: Este diretório contém ligações a subdireções ao abrigo do diretório **2.6.5.3009-43.** Este diretório existe para que não tenha que se lembrar do número da versão.
+* **2.6.5.3009-43** : O nome do diretório é a versão da plataforma Hadoop utilizada pela HDInsight. O número do seu aglomerado pode ser diferente do listado aqui.
+* **corrente** : Este diretório contém ligações a subdireções ao abrigo do diretório **2.6.5.3009-43.** Este diretório existe para que não tenha que se lembrar do número da versão.
 
 Os dados de exemplo e os ficheiros JAR podem ser encontrados no Sistema de Ficheiros Distribuídos Hadoop em `/example` e `/HdiSamples` .
 
@@ -201,7 +201,7 @@ Se utilizar __o armazenamento Azure Blob,__ consulte os seguintes links para obt
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [API REST de Armazenamento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [API REST de Armazenamento](/rest/api/storageservices/Blob-Service-REST-API)
 
 Se utilizar __a Azure Data Lake Storage Gen1,__ consulte os seguintes links para obter formas de aceder aos seus dados:
 
@@ -245,7 +245,7 @@ Para utilizar uma versão diferente de um componente, faça o upload da versão 
 > [!IMPORTANT]
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados e o Microsoft Support ajuda a isolar e resolver problemas relacionados com estes componentes.
 >
-> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontram conhecimentos profundos para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projeto em [https://apache.org](https://apache.org) , por exemplo: [Hadoop,](https://hadoop.apache.org/) [Spark](https://spark.apache.org/).
+> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontram conhecimentos profundos para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projeto em [https://apache.org](https://apache.org) , por exemplo: [Hadoop,](https://hadoop.apache.org/) [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

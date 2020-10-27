@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147785"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547797"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário dos termos do IoT Hub
 
@@ -70,11 +70,11 @@ O [portal Microsoft Azure](https://portal.azure.com) é um local central onde po
 
 [O Azure Resource Manager](../azure-resource-manager/management/overview.md) permite-lhe trabalhar com os recursos na sua solução como grupo. Pode implementar, atualizar ou eliminar os recursos da sua solução numa única operação coordenada.
 
-## <a name="azure-service-bus"></a>Service Bus do Azure
+## <a name="azure-service-bus"></a>Azure Service Bus
 
 [O Service Bus](../service-bus-messaging/index.yml) fornece comunicação ativada em nuvem com mensagens empresariais e comunicação transmitida que o ajuda a conectar soluções no local com a nuvem. Alguns tutoriais do IoT Hub usam [as filas](../service-bus-messaging/service-bus-messaging-overview.md)de Service Bus.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 [O Azure Storage](../storage/common/storage-introduction.md) é uma solução de armazenamento em nuvem. Inclui o serviço blob storage que pode utilizar para armazenar dados de objetos não estruturados. Alguns tutoriais do IoT Hub usam armazenamento de bolhas.
 
@@ -218,7 +218,7 @@ O IoT Hub é um serviço Azure totalmente gerido que permite comunicações bidi
 
 ## <a name="iot-hub-metrics"></a>Métricas IoT Hub
 
-[As métricas IoT Hub](iot-hub-metrics.md) dão-lhe dados sobre o estado dos hubs IoT na sua [subscrição Azure](#subscription). As métricas IoT Hub permitem avaliar a saúde geral do serviço e os dispositivos que lhe estão ligados. As métricas do IoT Hub podem ajudá-lo a ver o que se passa com o seu hub IoT e investigar problemas de causa de raiz sem precisar de contactar o suporte do Azure.
+[As métricas IoT Hub](monitor-iot-hub-reference.md#metrics) dão-lhe dados sobre o estado dos hubs IoT na sua [subscrição Azure](#subscription). As métricas IoT Hub permitem avaliar a saúde geral do serviço e os dispositivos que lhe estão ligados. As métricas do IoT Hub podem ajudá-lo a ver o que se passa com o seu hub IoT e investigar problemas de causa de raiz sem precisar de contactar o suporte do Azure. Para saber mais, consulte [o Monitor IoT Hub.](monitor-iot-hub.md)
 
 ## <a name="iot-hub-query-language"></a>IoT Hub linguagem de consulta
 

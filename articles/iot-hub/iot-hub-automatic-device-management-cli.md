@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147828"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545417"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestão automática de módulos e dispositivos IoT com a CLI do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-A gestão automática de dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gestão de grandes frotas de dispositivos. Com a gestão automática do dispositivo, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e, em seguida, deixar o IoT Hub atualizar os dispositivos quando eles entram no âmbito. Esta atualização é feita utilizando uma _configuração automática do dispositivo_ ou _configuração automática_do módulo , que permite resumir a conclusão e conformidade, lidar com a fusão e conflitos e lançar configurações numa abordagem faseada.
+A gestão automática de dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gestão de grandes frotas de dispositivos. Com a gestão automática do dispositivo, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e, em seguida, deixar o IoT Hub atualizar os dispositivos quando eles entram no âmbito. Esta atualização é feita utilizando uma _configuração automática do dispositivo_ ou _configuração automática_ do módulo , que permite resumir a conclusão e conformidade, lidar com a fusão e conflitos e lançar configurações numa abordagem faseada.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ A gestão automática do dispositivo funciona atualizando um conjunto de gémeos
 
 * O **conteúdo do alvo** define as propriedades desejadas a serem adicionadas ou atualizadas nos gémeos do dispositivo ou gémeos do módulo. O conteúdo inclui um caminho para a secção de propriedades desejadas a ser alterada.
 
-* As **métricas** definem as contagens sumárias de vários estados de configuração, tais como **Sucesso,** **Progresso**e **Erro.** As métricas personalizadas são especificadas como consultas sobre propriedades geminadas reportadas.  As métricas do sistema são as métricas padrão que medem o estado de atualização dupla, como o número de gémeos que são alvo e o número de gémeos que foram atualizados com sucesso.
+* As **métricas** definem as contagens sumárias de vários estados de configuração, tais como **Sucesso,** **Progresso** e **Erro.** As métricas personalizadas são especificadas como consultas sobre propriedades geminadas reportadas.  As métricas do sistema são as métricas padrão que medem o estado de atualização dupla, como o número de gémeos que são alvo e o número de gémeos que foram atualizados com sucesso.
 
 As configurações automáticas são executadas pela primeira vez pouco depois de a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 
@@ -136,7 +136,7 @@ Utilize o seguinte comando para criar uma configuração:
 
 * --**nome do hub** - Nome do hub IoT no qual a configuração será criada. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 
-* --**estado-alvo** - Introduza uma condição de destino para determinar quais os dispositivos ou módulos que serão alvo com esta configuração.Para a configuração automática do dispositivo, a condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades desejadas e devem corresponder ao formato de expressão.Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`.Para a configuração automática do módulo, a condição baseia-se em etiquetas gémeas do módulo ou em propriedades duplas do módulo. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**estado-alvo** - Introduza uma condição de destino para determinar quais os dispositivos ou módulos que serão alvo com esta configuração. Para a configuração automática do dispositivo, a condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades desejadas e devem corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. Para a configuração automática do módulo, a condição baseia-se em etiquetas gémeas do módulo ou em propriedades duplas do módulo. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**prioridade** - Um número inteiro positivo. No caso de duas ou mais configurações serem direcionadas para o mesmo dispositivo ou módulo, aplicar-se-á a configuração com o valor numérico mais elevado de Prioridade.
 
@@ -155,7 +155,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**nome do hub** - Nome do hub IoT no qual a configuração existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 
-Inspecione a configuração na janela de comando.A propriedade **métrica** lista uma contagem para cada métrica que é avaliada por cada hub:
+Inspecione a configuração na janela de comando. A propriedade **métrica** lista uma contagem para cada métrica que é avaliada por cada hub:
 
 * **targetedCount** - Uma métrica do sistema que especifica o número de gémeos do dispositivo ou gémeos módulos no IoT Hub que correspondem à condição de alvo.
 
@@ -229,8 +229,7 @@ az iot hub configuration delete --config-id [configuration id] \
 Neste artigo, aprendeu a configurar e monitorizar dispositivos IoT em escala. Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 
 * [Gerir as identidades do dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
-* [Métricas IoT Hub](iot-hub-metrics.md)
-* [Monitorização de operações](iot-hub-operations-monitoring.md)
+* [Monitorize o seu hub IoT](monitor-iot-hub.md)
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

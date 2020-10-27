@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
-ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71a4f2aa9bebd325b329af335985a37df5cd7263
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82786619"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547406"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planeie uma rede virtual para a Azure HDInsight
 
@@ -84,7 +84,7 @@ Utilize os passos nesta secção para descobrir como adicionar um novo HDInsight
         Para obter mais informações, consulte o documento dos [grupos de segurança da rede Troubleshoot.](../virtual-network/diagnose-network-traffic-filter-problem.md)
 
         > [!IMPORTANT]  
-        > As regras do grupo de segurança da rede são aplicadas com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada, e nenhuma outra é aplicada para esse tráfego. Ordem regras da maioria permissiva a menos permissiva. Para obter mais informações, consulte o tráfego da rede Filter com o documento [dos grupos de segurança da rede.](../virtual-network/security-overview.md)
+        > As regras do grupo de segurança da rede são aplicadas com base na prioridade da regra. A primeira regra que corresponde ao padrão de tráfego é aplicada, e nenhuma outra é aplicada para esse tráfego. Ordem regras da maioria permissiva a menos permissiva. Para obter mais informações, consulte o tráfego da rede Filter com o documento [dos grupos de segurança da rede.](../virtual-network/network-security-groups-overview.md)
 
     * Rotas definidas pelo utilizador
 
@@ -148,7 +148,7 @@ Para permitir a resolução de nomes entre a rede virtual e os recursos em redes
 
          * Encaminhe todos os outros pedidos para o servidor DNS no local. O DNS no local trata de todos os outros pedidos de resolução de nomes, mesmo pedidos de recursos da Internet, como Microsoft.com.
 
-     * __No local DNS__: Encaminhar os pedidos para o sufixo DNS da rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha-se para o Azure recursive resolver.
+     * __No local DNS__ : Encaminhar os pedidos para o sufixo DNS da rede virtual para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha-se para o Azure recursive resolver.
 
        Esta configuração encaminha os pedidos de nomes de domínio totalmente qualificados que contenham o sufixo DNS da rede virtual para o servidor DNS personalizado. Todos os outros pedidos (mesmo para endereços de internet público) são tratados pelo servidor DNS no local.
 
@@ -210,6 +210,6 @@ Quando cria um cluster HDInsight, também é criado um equilibrador de carga. O 
 * Para obter amostras de código e exemplos de criação de Redes Virtuais Azure, consulte [criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obter um exemplo de configuração hdinsight para ligar a uma rede no local, consulte [Connect HDInsight a uma rede no local](./connect-on-premises-network.md).
 * Para obter mais informações sobre as redes virtuais Azure, consulte a [visão geral da Rede Virtual Azure](../virtual-network/virtual-networks-overview.md).
-* Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/network-security-groups-overview.md).
 * Para obter mais informações sobre as rotas definidas pelo utilizador, consulte [as rotas definidas pelo Utilizador e o encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 * Para obter mais informações sobre o controlo do tráfego, consulte [o tráfego da rede de controlo.](./control-network-traffic.md)

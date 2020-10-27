@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: b886f51bcb2bb7308c49c76563dcb70148bbc583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed12c9629506fa8defb23b987fe672bb3b384418
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887296"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540096"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Cenário: Problemas de conectividade Apache Phoenix em Azure HDInsight
 
@@ -28,7 +28,7 @@ IP incorreto do nó do Zookeeper ativo.
 
 ### <a name="resolution"></a>Resolução
 
-O IP do nó zookeeper ativo pode ser identificado a partir do UI Ambari seguindo as ligações com **HBase**  >  **Quick Links**  >  **ZK (Ative)**  >  **Zookeeper Info**. Corrija o IP conforme necessário.
+O IP do nó zookeeper ativo pode ser identificado a partir do UI Ambari seguindo as ligações com **HBase**  >  **Quick Links**  >  **ZK (Ative)**  >  **Zookeeper Info** . Corrija o IP conforme necessário.
 
 ---
 
@@ -50,7 +50,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 A partir do Apache Ambari UI, complete os seguintes passos para reiniciar o serviço HMaster em todos os nós do ZooKeeper:
 
-1. A partir da secção **Sumária** da HBase, vá ao **HBase**  >  **Ative HBase Master**.
+1. A partir da secção **Sumária** da HBase, vá ao **HBase**  >  **Ative HBase Master** .
 
 1. A partir da secção **Componentes,** reinicie o serviço HBase Master.
 
@@ -66,4 +66,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

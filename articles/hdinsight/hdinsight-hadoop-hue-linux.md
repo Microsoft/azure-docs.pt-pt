@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: ef30672e250e598688d1b81fd33fe0a995e78c7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80df5d1c3d2b2195e76622964406cc65c933a63
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087729"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546199"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instale e utilize o Hue nos clusters hdInsight Hadoop
 
@@ -33,7 +33,7 @@ Hue é um conjunto de aplicações Web usadas para interagir com um cluster Apac
 > [!WARNING]  
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados e o Microsoft Support ajudará a isolar e resolver problemas relacionados com estes componentes.
 >
-> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontram conhecimentos profundos para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projeto [https://apache.org](https://apache.org) em , por exemplo: [Hadoop](https://hadoop.apache.org/).
+> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Isto pode resultar na resolução do problema ou pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontram conhecimentos profundos para essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, como: [Microsoft Q&Uma página de perguntas para HDInsight](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) . Também os projetos Apache têm sites de projeto [https://apache.org](https://apache.org) em , por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Instale o Hue usando ações de script
 
@@ -87,7 +87,7 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
 
 ### <a name="run-a-hive-query"></a>Executar uma consulta do Hive
 
-1. A partir do portal Hue, selecione **Os Editores de Consulta**e, em seguida, selecione **Hive** para abrir o editor da Hive.
+1. A partir do portal Hue, selecione **Os Editores de Consulta** e, em seguida, selecione **Hive** para abrir o editor da Hive.
 
     ![HdInsight hue portal usar editor de colmeia](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Use a Colmeia")
 
@@ -129,4 +129,4 @@ Só pode ter uma conta de utilizador com o Hue em agrupamentos regulares. Para a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Instale R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md). Utilize a personalização do cluster para instalar R nos clusters HDInsight Hadoop. R é uma linguagem e ambiente de código aberto para a computação estatística. Fornece centenas de funções estatísticas incorporadas e a sua própria linguagem de programação que combina aspetos da programação funcional e orientada para os objetos. Também fornece extensas capacidades gráficas.
+[Instale R em clusters HDInsight](./r-server/r-server-overview.md). Utilize a personalização do cluster para instalar R nos clusters HDInsight Hadoop. R é uma linguagem e ambiente de código aberto para a computação estatística. Fornece centenas de funções estatísticas incorporadas e a sua própria linguagem de programação que combina aspetos da programação funcional e orientada para os objetos. Também fornece extensas capacidades gráficas.

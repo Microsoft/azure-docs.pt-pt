@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974673"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547814"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Gestão de endereços IP do HDInsight
 
@@ -57,9 +57,9 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | Ásia | Ásia Leste | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
-| &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
+| &nbsp; | Austrália Sudeste | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
-| Canada | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
+| Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
 | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
 | China | Norte da China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
 | &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
@@ -79,7 +79,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | Reino Unido | Oeste do Reino Unido | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
 | &nbsp; | Sul do Reino Unido | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
 | Estados Unidos da América | E.U.A. Central | 13.89.171.122</br>13.89.171.124 | \*:443 | Entrada |
-| &nbsp; | E.U.A. Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
+| &nbsp; | E.U.A Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Norte | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Centro-Oeste | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
 | &nbsp; | E.U.A. Oeste | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
@@ -87,7 +87,7 @@ Permitir o tráfego dos endereços IP listados para os serviços de saúde e ges
 | &nbsp; | Uae Norte | 65.52.252.96</br>65.52.252.97 | \*:443 | Entrada |
 | &nbsp; | Centro dos Emirados Árabes Unidos | 20.37.76.96</br>20.37.76.99 | \*:443 | Entrada |
 
-Para obter informações sobre os endereços IP a utilizar para o Governo Azure, consulte o documento [Azure Government Intelligence + Analytics.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)
+Para obter informações sobre os endereços IP a utilizar para o Governo Azure, consulte o documento [Azure Government Intelligence + Analytics.](../azure-government/compare-azure-government-global-azure.md)
 
 Para obter mais informações, consulte [o tráfego da rede de controlo.](./control-network-traffic.md)
 

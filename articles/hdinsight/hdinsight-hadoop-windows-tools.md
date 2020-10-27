@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484768"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539705"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabalhar no ecossistema Apache Hadoop em HDInsight a partir de um PC windows
 
@@ -31,17 +31,17 @@ Exemplos de tarefas que pode fazer com o PowerShell:
 * [Executar consultas de Colmeia Apache usando PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Gerir agrupamentos com PowerShell](hdinsight-administer-use-powershell.md).
 
-Siga os passos para [instalar e configurar a Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter a versão mais recente.
+Siga os passos para [instalar e configurar a Azure Powershell](/powershell/azure/install-az-ps) para obter a versão mais recente.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilitários que você pode executar em um navegador
 
 Os seguintes utilitários têm uma UI web que funciona num browser:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** é uma concha interativa de linha de comando que funciona no seu navegador e dentro do portal Azure.
+* **[Azure Cloud Shell](../cloud-shell/overview.md)** é uma concha interativa de linha de comando que funciona no seu navegador e dentro do portal Azure.
 
 * **[A Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** é uma utilidade de gestão e monitorização disponível no portal Azure que pode ser usada para gerir diferentes tipos de empregos, tais como:
     * [Use Apache Ambari com a API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Vista de Colmeia Apache em Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Vista Apache Tez em Apache Ambari](hdinsight-debug-ambari-tez-view.md)
+    * [Vista Apache Tez em Apache Ambari](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Ferramentas do Lago de Dados (Hadoop) para Estúdio Visual
 
@@ -84,7 +84,7 @@ Os aglomerados apache spark em HDInsight incluem cadernos Apache Zeppelin e núc
 
 Se encontrar uma situação em que deve utilizar uma ferramenta ou tecnologia que só esteja disponível no Linux, considere as seguintes opções:
 
-* **A Bash on Ubuntu no Windows 10** fornece um subsistema Linux no Windows. A Bash permite-lhe executar diretamente os utilitários Linux sem ter de manter uma instalação linux dedicada. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter etapas de instalação.  Outras [conchas Unix](https://www.gnu.org/software/bash/) também funcionarão.
+* **A Bash on Ubuntu no Windows 10** fornece um subsistema Linux no Windows. A Bash permite-lhe executar diretamente os utilitários Linux sem ter de manter uma instalação linux dedicada. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](/windows/wsl/install-win10) para obter etapas de instalação.  Outras [conchas Unix](https://www.gnu.org/software/bash/) também funcionarão.
 * **O Docker for Windows** fornece acesso a muitas ferramentas baseadas no Linux e pode ser executado diretamente a partir do Windows. Por exemplo, podes usar o Docker para executar o cliente Beeline para a Hive diretamente a partir do Windows. Também pode usar o Docker para executar um bloco de notas jupyter local e ligar-se remotamente ao Spark on HDInsight. [Começa com o Docker para o Windows](https://docs.docker.com/docker-for-windows/)
 * **[O MobaXTerm](https://mobaxterm.mobatek.net/)** permite-lhe navegar graficamente no sistema de ficheiros de cluster sobre uma ligação SSH.
 
