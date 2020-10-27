@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906594"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547236"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Base de Dados Azure para a Proteção Avançada de Ameaças MySQL
 
@@ -34,14 +34,14 @@ A Advanced Threat Protection for Azure Database for MySQL fornece uma nova camad
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertas avançados de proteção contra ameaças 
 A Advanced Threat Protection for Azure Database for MySQL deteta atividades anómalas que indiquem tentativas incomuns e potencialmente nocivas de aceder ou explorar bases de dados e pode desencadear os seguintes alertas:
-- **Acesso a partir de localização invulgar**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MySQL, onde alguém iniciou sessão na Base de Dados Azure para o servidor MySQL a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso a partir de um centro de dados Azure incomum**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MySQL, onde alguém iniciou sessão no servidor a partir de um centro de dados Azure incomum que foi visto neste servidor durante o período recente. Em alguns casos, o alerta deteta uma ação legítima (a sua nova aplicação em Azure, Power BI, Azure Database for MySQL Query Editor). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
-- **Acesso a partir de um principal desconhecido**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MySQL, onde alguém iniciou sessão no servidor utilizando um principal incomum (Base de Dados Azure para utilizador mySQL). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso de uma localização potencialmente prejudicial**: este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
-- **Base de dados Azure força bruta para credenciais MySQL**: Este alerta é acionado quando há um número anormal elevado de logins falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
+- **Acesso a partir de localização invulgar** : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MySQL, onde alguém iniciou sessão na Base de Dados Azure para o servidor MySQL a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso a partir de um centro de dados Azure incomum** : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MySQL, onde alguém iniciou sessão no servidor a partir de um centro de dados Azure incomum que foi visto neste servidor durante o período recente. Em alguns casos, o alerta deteta uma ação legítima (a sua nova aplicação em Azure, Power BI, Azure Database for MySQL Query Editor). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
+- **Acesso a partir de um principal desconhecido** : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MySQL, onde alguém iniciou sessão no servidor utilizando um principal incomum (Base de Dados Azure para utilizador mySQL). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso de uma localização potencialmente prejudicial** : este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
+- **Base de dados Azure força bruta para credenciais MySQL** : Este alerta é acionado quando há um número anormal elevado de logins falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Saiba mais sobre [o Azure Security Center](../security-center/security-center-introduction.md)
 * Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços mySQL](https://azure.microsoft.com/pricing/details/mysql/) 
-* Configure [Base de Dados Azure para a Proteção avançada de ameaças do MySQL](howto-database-threat-protection-portal.md) utilizando o portal Azure  
+* Configure [Base de Dados Azure para a Proteção avançada de ameaças do MySQL](howto-database-threat-protection-portal.md) utilizando o portal Azure

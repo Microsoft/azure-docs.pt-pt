@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019414"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540759"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -99,9 +99,9 @@ cd djangoapp
 
 # <a name="download"></a>[Transferência](#tab/download)
 
-Visite [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , selecione **Clone**e, em seguida, selecione **Download ZIP**. 
+Visite [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , selecione **Clone** e, em seguida, selecione **Download ZIP** . 
 
-Desembale o ficheiro ZIP numa pasta chamada *djangoapp*. 
+Desembale o ficheiro ZIP numa pasta chamada *djangoapp* . 
 
 Em seguida, abra uma janela terminal naquela pasta *de djangoapp.*
 
@@ -111,7 +111,7 @@ A amostra do Djangoapp contém a aplicação de sondagens Django orientada por d
 
 A amostra também é modificada para funcionar num ambiente de produção como o App Service:
 
-- As definições de produção estão no ficheiro *azuresite/production.py.* Os detalhes do desenvolvimento estão em *azuresite/definições.py*.
+- As definições de produção estão no ficheiro *azuresite/production.py.* Os detalhes do desenvolvimento estão em *azuresite/definições.py* .
 - A aplicação utiliza definições de produção quando a `DJANGO_ENV` variável ambiente está definida para "produção". Você cria esta variável de ambiente mais tarde no tutorial juntamente com outros usados para a configuração da base de dados PostgreSQL.
 
 Estas alterações são específicas para configurar o Django para funcionar em qualquer ambiente de produção e não são particulares para o App Service. Para mais informações, consulte a [lista de verificação de implementação do Django.](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) Consulte também [as definições de Produção de Django em Azure](configure-language-python.md#production-settings-for-django-apps) para obter detalhes sobre algumas das alterações.
@@ -138,7 +138,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 ```
 
 - Substitua *\<postgres-server-name>* por um nome único em todo o Azure (o ponto final do servidor torna-se). `https://<postgres-server-name>.postgres.database.azure.com` Um bom padrão é usar uma combinação do nome da sua empresa e outro valor único.
-- Para *\<admin-username>* e *\<admin-password>* , especificar credenciais para criar um utilizador de administrador para este servidor Postgres.
+- Para *\<admin-username>* e *\<admin-password>* , especificar credenciais para criar um utilizador de administrador para este servidor Postgres. Não utilize o `$` carácter no nome de utilizador ou na palavra-passe. Mais tarde cria-se variáveis ambientais com estes valores onde o `$` personagem tem um significado especial dentro do recipiente Linux usado para executar aplicações Python.
 - O B_Gen5_1 (Básico, Gen5, 1 core) [nível de preços](../postgresql/concepts-pricing-tiers.md) usado aqui é o menos caro. Para as bases de dados de produção, omita o `--sku-name` argumento de utilizar o nível GP_Gen5_2 (Final geral, Gen 5, 2 núcleos).
 
 Este comando executa as seguintes ações, que podem demorar alguns minutos:
@@ -153,7 +153,7 @@ Este comando executa as seguintes ações, que podem demorar alguns minutos:
 
 Pode fazer todos os passos separadamente com `az postgres` `psql` outros comandos, mas `az postgres up` faz todos os passos juntos.
 
-Quando o comando termina, produz um objeto JSON que contém diferentes cadeias de ligação para a base de dados juntamente com o URL do servidor, um nome de utilizador gerado (como " joyfulKoala@msdocs-djangodb-12345 "), e uma palavra-passe GUID. Copie o nome de utilizador e a palavra-passe para um ficheiro de texto temporário, pois necessita deles mais tarde neste tutorial.
+Quando o comando termina, produz um objeto JSON que contém diferentes cadeias de ligação para a base de dados juntamente com o URL do servidor, um nome de utilizador gerado (como " joyfulKoala@msdocs-djangodb-12345 "), e uma palavra-passe GUID. Copie o nome de utilizador curto (antes do @) e a palavra-passe para um ficheiro de texto temporário, pois necessita deles mais tarde neste tutorial.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
@@ -188,7 +188,7 @@ Este comando executa as seguintes ações, que podem demorar alguns minutos:
 - Crie a aplicação De Serviço de Aplicações se não existir.
 - Ativar o registo predefinido para a aplicação, se ainda não estiver ativado.
 - Faça o upload do repositório utilizando a implementação ZIP com automatização de construção ativada.
-- Cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config*. Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros. Os comandos provenientes de extensões CLI, tais `az postgres up` como, no entanto, não utilizam atualmente a cache, razão pela qual precisava de especificar o grupo de recursos e a localização aqui com a utilização inicial de `az webapp up` .
+- Cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config* . Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros. Os comandos provenientes de extensões CLI, tais `az postgres up` como, no entanto, não utilizam atualmente a cache, razão pela qual precisava de especificar o grupo de recursos e a localização aqui com a utilização inicial de `az webapp up` .
 
 Após uma implementação bem sucedida, o comando gera saída JSON como o seguinte exemplo:
 
@@ -212,7 +212,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 
 - *\<postgres-server-name>* Substitua-o pelo nome que usou anteriormente pelo `az postgres up` comando. O código em *azuresite/production.py* anexa automaticamente `.postgres.database.azure.com` para criar o URL completo do servidor Postgres.
-- Substitua *\<username>* e *\<password>* pelas credenciais de administrador que usou com o `az postgres up` comando anterior, ou pelas que `az postgres up` geraram para si. O código em *azuresite/production.py* constrói automaticamente o nome de utilizador completo postgres de `DBUSER` e `DBHOST` .
+- Substitua *\<username>* e *\<password>* pelas credenciais de administrador que usou com o `az postgres up` comando anterior, ou pelas que `az postgres up` geraram para si. O código em *azuresite/production.py* constrói automaticamente o nome de utilizador completo postgres `DBUSER` de `DBHOST` e, por isso, não inclua a `@server` parte. (Além disso, como já foi notado anteriormente, não deve utilizar o `$` personagem em nenhum dos valores, uma vez que tem um significado especial para variáveis ambientais Linux.)
 - O grupo de recursos e os nomes das aplicações são extraídos dos valores em cache no ficheiro *.azure/config.*
 
 No seu código Python, acede a estas definições como variáveis ambientais com declarações como `os.environ.get('DJANGO_ENV')` . Para obter mais informações, consulte [as variáveis do ambiente Access.](configure-language-python.md#access-environment-variables)
@@ -235,7 +235,7 @@ As migrações na base de dados de Django asseguram que o esquema no PostgreSQL 
 
     Se não conseguir ligar-se à sessão SSH, então a própria aplicação falhou em arrancar. [Verifique os registos de diagnóstico](#stream-diagnostic-logs) para obter mais detalhes. Por exemplo, se não tiver criado as definições de aplicações necessárias na secção anterior, os registos indicarão `KeyError: 'DBNAME'` .
 
-1. Na sessão SSH, executar os seguintes comandos (pode colar comandos usando **Ctrl** + **Shift** + **V**):
+1. Na sessão SSH, executar os seguintes comandos (pode colar comandos usando **Ctrl** + **Shift** + **V** ):
 
     ```bash
     # Change to the folder where the app code is deployed
@@ -268,7 +268,7 @@ As migrações na base de dados de Django asseguram que o esquema no PostgreSQL 
 
     Depois de atualizar as definições para corrigir quaisquer erros, dê à app um minuto para reiniciar e, em seguida, refresque o navegador.
 
-1. Navegue para `http://<app-name>.azurewebsites.net/admin`. Inscreva-se utilizando credenciais de super-utilização da secção anterior `root` (e `Pollsdb1` . In **Polls**, selecione **Adicionar** ao Lado **das Perguntas** e crie uma pergunta de sondagem com algumas escolhas.
+1. Navegue para `http://<app-name>.azurewebsites.net/admin`. Inscreva-se utilizando credenciais de super-utilização da secção anterior `root` (e `Pollsdb1` . In **Polls** , selecione **Adicionar** ao Lado **das Perguntas** e crie uma pergunta de sondagem com algumas escolhas.
 
 1. Procure novamente `http://<app-name>.azurewebsites.net` para confirmar que as perguntas são agora apresentadas ao utilizador. Responda a perguntas como quiser gerar alguns dados na base de dados.
 
@@ -348,11 +348,11 @@ Teste a aplicação localmente com os seguintes passos:
 
 1. Aceda a `http://localhost:8000` um browser, que deve exibir a mensagem "Não há sondagens disponíveis". 
 
-1. Vá `http:///localhost:8000/admin` e inscreva-se utilizando o utilizador de administração que criou anteriormente. Em **Sondagens**, mais uma vez selecione **Adicionar** ao Lado **das Perguntas** e criar uma pergunta de sondagem com algumas escolhas. 
+1. Vá `http:///localhost:8000/admin` e inscreva-se utilizando o utilizador de administração que criou anteriormente. Em **Sondagens** , mais uma vez selecione **Adicionar** ao Lado **das Perguntas** e criar uma pergunta de sondagem com algumas escolhas. 
 
 1. Vá a *http: \/ /localhost:8000* novamente e responda à pergunta para testar a app. 
 
-1. Pare o servidor Django pressionando **o Ctrl** + **C**.
+1. Pare o servidor Django pressionando **o Ctrl** + **C** .
 
 Ao correr localmente, a aplicação está a usar uma base de dados local do Sqlite3 e não interfere com a sua base de dados de produção. Também pode utilizar uma base de dados postgreSQL local, se desejar, para simular melhor o seu ambiente de produção.
 
@@ -374,9 +374,9 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Executar novamente o servidor de desenvolvimento com `python manage.py runserver` e testar a aplicação em *http: \/ /localhost:8000/administrador*:
+Executar novamente o servidor de desenvolvimento com `python manage.py runserver` e testar a aplicação em *http: \/ /localhost:8000/administrador* :
 
-Pare o servidor web do Django novamente com **ctrl** + **C**.
+Pare o servidor web do Django novamente com **ctrl** + **C** .
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -427,7 +427,7 @@ az webapp log tail
 
 Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
-Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C**.
+Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C** .
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -452,7 +452,7 @@ Por predefinição, o portal mostra a página **geral** da sua aplicação, que 
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser manter a app ou continuar com os tutoriais adicionais, avance para os [próximos passos.](#next-steps) Caso contrário, para evitar incorrer em encargos em curso, pode eliminar o grupo de recursos criado para este tutorial:
 

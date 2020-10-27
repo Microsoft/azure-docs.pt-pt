@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834d3512c95e77e6ce45472ff8f2e1b4b2ed456
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064155"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545587"
 ---
 # <a name="safely-manage-jar-dependencies"></a>Gerir dependências jar com segurança
 
@@ -79,6 +79,6 @@ Depois podes correr `sbt clean` e construir o ficheiro do frasco `sbt assembly` 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Use ferramentas HDInsight IntelliJ](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [Use ferramentas HDInsight IntelliJ](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* [Criar uma aplicação Scala Maven para Faísca em IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [Criar uma aplicação Scala Maven para Faísca em IntelliJ](./apache-spark-create-standalone-application.md)

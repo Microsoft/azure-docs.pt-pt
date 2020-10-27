@@ -1,5 +1,5 @@
 ---
-title: Conector Azure IoT exportação para métricas FHIR (pré-visualização) através de definições de diagnóstico
+title: Exportar métricas do Conector IoT do Azure para FHIR (pré-visualização) através das definições Diagnóstico
 description: Este artigo explica como exportar o Conector Azure IoT para métricas de FHIR (pré-visualização) através de definições de diagnóstico
 services: healthcare-apis
 author: msjasteppe
@@ -8,14 +8,14 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: c81dcdd2e79f5d89a0766415b47ad118874e5ad2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210032"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558555"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Conector Azure IoT exportação para métricas FHIR (pré-visualização) através de definições de diagnóstico
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportar métricas do Conector IoT do Azure para FHIR (pré-visualização) através das definições Diagnóstico
 
 Neste artigo, você vai aprender a exportar Azure IoT Connector para registos de métricas FHIR*. A funcionalidade que permite a registo métrico são as [**definições de Diagnóstico**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) no portal Azure. 
 
@@ -58,7 +58,7 @@ Ter acesso a registos métricos é essencial para a monitorização e resoluçã
 Confira frequentemente perguntas sobre o Conector Azure IoT para FHIR.
 
 >[!div class="nextstepaction"]
->[Conector Azure IoT para FAQs FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Conector Azure IoT para FAQs FHIR](fhir-faq.md)
 
 *No portal Azure, o Conector Azure IoT para FHIR é referido como Conector IoT (pré-visualização).
 

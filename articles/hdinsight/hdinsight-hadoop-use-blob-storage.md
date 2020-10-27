@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855672"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547440"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
@@ -46,21 +46,21 @@ A partilha de um recipiente blob como o sistema de ficheiros predefinidos para v
 
 Existem várias formas de aceder aos ficheiros no Armazenamento do Lago de Dados a partir de um cluster HDInsight. O regime URI proporciona acesso não encriptado (com o *wasb:* prefixo) e acesso encriptado TLS (com *wasbs).* Recomendamos a utilização de *wasbs* sempre que possível, mesmo ao aceder a dados que se encontrem dentro da mesma região no Azure.
 
-* **Utilizar o nome completamente qualificado**. Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
+* **Utilizar o nome completamente qualificado** . Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster com:
+* **Utilizando o formato de caminho abreviado** . Com esta abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Utilizar o caminho relativo**. Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
+* **Utilizar o caminho relativo** . Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
 
     ```
     /<file.path>/
@@ -151,7 +151,7 @@ Para obter o caminho utilizando a AMBAri REST API, consulte [obter o armazenamen
 
 ## <a name="blob-containers"></a>Contentores de blobs
 
-Para utilizar blobs, primeiro tem de criar uma [Conta do Storage do Azure](../storage/common/storage-create-storage-account.md). Como parte deste passo, você especifica uma região Azure onde a conta de armazenamento é criada. O cluster e a conta do Storage têm de estar alojados na mesma região. A base de dados do Hive metastore SQL Server e a base de dados do Servidor SQL da metatore Apache Oozie devem estar localizadas na mesma região.
+Para utilizar blobs, primeiro tem de criar uma [Conta do Storage do Azure](../storage/common/storage-account-create.md). Como parte deste passo, você especifica uma região Azure onde a conta de armazenamento é criada. O cluster e a conta do Storage têm de estar alojados na mesma região. A base de dados do Hive metastore SQL Server e a base de dados do Servidor SQL da metatore Apache Oozie devem estar localizadas na mesma região.
 
 Independentemente do local onde se encontre, cada blob que criar pertence a um contentor na sua conta do Storage do Azure. Este recipiente pode ser uma bolha existente criada fora do HDInsight. Ou pode ser um recipiente que é criado para um cluster HDInsight.
 

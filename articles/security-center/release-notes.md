@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 4618b315f12257c11391b76ac7ed4dab23fec259
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 047bfac9179fd10383fc91155c7cb6e737fda516
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460908"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558708"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -25,8 +25,11 @@ O Centro de Segurança está em desenvolvimento ativo e recebe melhorias de form
 
 Esta página é atualizada com frequência, por isso revisite-a com frequência. 
 
+Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao Centro de Segurança, consulte [as próximas alterações importantes para o Azure Security Center](upcoming-changes.md). 
+
 > [!TIP]
 > Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
 
 
 ## <a name="october-2020"></a>Outubro de 2020
@@ -636,7 +639,7 @@ Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente D
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**
 
-Estas novas recomendações aparecerão nos mesmos quatro controlos de segurança que a recomendação existente (relacionada), o **agente de monitorização deve ser instalado nas suas máquinas**: remediar as configurações de segurança, aplicar o controlo adaptativo da aplicação de aplicações, aplicar atualizações do sistema e permitir a proteção do ponto final.
+Estas novas recomendações aparecerão nos mesmos quatro controlos de segurança que a recomendação existente (relacionada), o **agente de monitorização deve ser instalado nas suas máquinas** : remediar as configurações de segurança, aplicar o controlo adaptativo da aplicação de aplicações, aplicar atualizações do sistema e permitir a proteção do ponto final.
 
 As recomendações também incluem a capacidade de correção rápida para ajudar a acelerar o processo de implementação. 
 
@@ -675,7 +678,7 @@ O controlo de segurança "implementar as melhores práticas de segurança" inclu
 
 - **Máquinas virtuais não orientadas para a Internet devem ser protegidas com grupos de segurança de rede**
 
-Uma recomendação existente, **as máquinas virtuais viradas para a Internet devem ser protegidas com grupos**de segurança de rede, não distinguindo entre VMs virados para a Internet e não virados para a Internet. Para ambos, uma recomendação de alta gravidade foi gerada se um VM não fosse atribuído a um grupo de segurança de rede. Esta nova recomendação separa as máquinas que não se estamos a passar pela Internet para reduzir os falsos positivos e evitar alertas desnecessários de alta gravidade.
+Uma recomendação existente, **as máquinas virtuais viradas para a Internet devem ser protegidas com grupos** de segurança de rede, não distinguindo entre VMs virados para a Internet e não virados para a Internet. Para ambos, uma recomendação de alta gravidade foi gerada se um VM não fosse atribuído a um grupo de segurança de rede. Esta nova recomendação separa as máquinas que não se estamos a passar pela Internet para reduzir os falsos positivos e evitar alertas desnecessários de alta gravidade.
 
 Saiba mais na tabela [de recomendações da Rede.](recommendations-reference.md#recs-network)
 

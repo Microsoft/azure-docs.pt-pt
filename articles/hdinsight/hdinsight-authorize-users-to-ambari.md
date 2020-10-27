@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086539"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547933"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar utilizadores para as Vistas do Apache Ambari
 
@@ -24,7 +24,7 @@ Os utilizadores do Ative Directory podem iniciar sação nos nós do cluster uti
 > [!WARNING]  
 > Não altere a palavra-passe do cão de guarda Ambari (hdinsightwatchdog) no seu cluster HDInsight baseado em Linux. Alterar a palavra-passe quebra a capacidade de usar ações de script ou realizar operações de escala com o seu cluster.
 
-Se ainda não o fez, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para obter um novo cluster ESP.
+Se ainda não o fez, siga [estas instruções](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) para obter um novo cluster ESP.
 
 ## <a name="access-the-ambari-management-page"></a>Aceda à página de gestão de Ambari
 
@@ -40,9 +40,9 @@ Para chegar à **página de gestão Ambari** no [Apache Ambari Web UI,](hdinsigh
 
     ![Utilizadores da página de gestão Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Selecione **+ Criar Utilizador Local**.
+1. Selecione **+ Criar Utilizador Local** .
 
-1. Fornecer **nome de utilizador** e **senha**. Selecione **guardar**.
+1. Fornecer **nome de utilizador** e **senha** . Selecione **guardar** .
 
 ### <a name="add-users-through-powershell"></a>Adicionar utilizadores através do PowerShell
 
@@ -191,14 +191,14 @@ Ambari vem com exemplos de visualização para [Apache Hive](https://hive.apache
 
    * Selecione ou termine a dactilografia, o nome de utilizador. Para adicionar este nome de utilizador como um novo utilizador, selecione o botão **Novo.**
 
-   * Para guardar as alterações, selecione a **caixa de verificação azul**.
+   * Para guardar as alterações, selecione a **caixa de verificação azul** .
 
      ![Apache Ambari concede permissões aos utilizadores](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Para adicionar um grupo, selecione o botão **Adicionar Grupo.**
 
    * Comece a escrever o nome do grupo. O processo de seleção de um nome de grupo existente, ou a adição de um novo grupo, é o mesmo que para adicionar utilizadores.
-   * Para guardar as alterações, selecione a **caixa de verificação azul**.
+   * Para guardar as alterações, selecione a **caixa de verificação azul** .
 
      ![Apache Ambari concede permissões](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 98e062b159b2df639923cb3cd3aac286f6051016
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490905"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535098"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Resolver problemas de um trabalho lento ou com falhas num cluster HDInsight
 
@@ -90,8 +90,8 @@ A HDInsight conta com vários serviços Azure. Executa servidores virtuais no Az
 
 #### <a name="check-azure-service-usage-limits"></a>Verifique os limites de utilização do serviço Azure
 
-Se estiver a lançar um grande cluster, ou tiver lançado muitos clusters simultaneamente, um cluster pode falhar se tiver excedido um limite de serviço Azure. Os limites de serviço variam, dependendo da subscrição do Azure. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-Pode solicitar que a Microsoft aumente o número de recursos HDInsight disponíveis (tais como núcleos VM e instâncias VM) com um pedido de [aumento de quota de base do Gestor de Recursos](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Se estiver a lançar um grande cluster, ou tiver lançado muitos clusters simultaneamente, um cluster pode falhar se tiver excedido um limite de serviço Azure. Os limites de serviço variam, dependendo da subscrição do Azure. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Pode solicitar que a Microsoft aumente o número de recursos HDInsight disponíveis (tais como núcleos VM e instâncias VM) com um pedido de [aumento de quota de base do Gestor de Recursos](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### <a name="check-the-release-version"></a>Verifique a versão de lançamento
 
@@ -172,7 +172,7 @@ Ao nível do YARN, existem dois tipos de intervalos:
 
     Se abrir o `/var/log/webhcat/webhcat.log` ficheiro de registo e procurar "trabalho na fila", poderá ver várias entradas em que o tempo de execução é excessivamente longo (>2000 ms), com as entradas a mostrarem um aumento dos tempos de espera.
 
-    O tempo para os postos de trabalho em fila continua a aumentar, porque a taxa a que são apresentados novos postos de trabalho é superior à taxa a que os antigos postos de trabalho estão concluídos. Uma vez que a memória YARN é 100% utilizada, a *fila do joblauncher* já não pode pedir capacidade emprestada da *fila predefinida*. Por conseguinte, não podem ser aceites mais novos postos de trabalho na fila do emprego. Este comportamento pode fazer com que o tempo de espera se torne cada vez mais longo, causando um erro de tempo limite que é geralmente seguido por muitos outros.
+    O tempo para os postos de trabalho em fila continua a aumentar, porque a taxa a que são apresentados novos postos de trabalho é superior à taxa a que os antigos postos de trabalho estão concluídos. Uma vez que a memória YARN é 100% utilizada, a *fila do joblauncher* já não pode pedir capacidade emprestada da *fila predefinida* . Por conseguinte, não podem ser aceites mais novos postos de trabalho na fila do emprego. Este comportamento pode fazer com que o tempo de espera se torne cada vez mais longo, causando um erro de tempo limite que é geralmente seguido por muitos outros.
 
     A imagem a seguir mostra a fila de joblauncher em 714,4% sobreuso. Isto é aceitável desde que ainda haja capacidade livre na fila padrão para pedir emprestado. No entanto, quando o cluster é totalmente utilizado e a memória yarn está a 100% da capacidade, novos empregos devem esperar, o que eventualmente causa intervalos de tempo.
 
@@ -206,7 +206,7 @@ Para diagnosticar estas questões:
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Passo 4: Rever a pilha de ambiente e versões
 
-A página Ambari UI **Stack and Version** fornece informações sobre a configuração dos serviços de cluster e o histórico da versão de serviço.  As versões incorretas da biblioteca de serviços Hadoop podem ser uma causa de falha do cluster.  Na UI Ambari, selecione o menu **Admin** e, em seguida,  **Stacks e Versões**.  Selecione o separador **Versões** na página para ver as informações da versão de serviço:
+A página Ambari UI **Stack and Version** fornece informações sobre a configuração dos serviços de cluster e o histórico da versão de serviço.  As versões incorretas da biblioteca de serviços Hadoop podem ser uma causa de falha do cluster.  Na UI Ambari, selecione o menu **Admin** e, em seguida,  **Stacks e Versões** .  Selecione o separador **Versões** na página para ver as informações da versão de serviço:
 
 ![Pilha e versões Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -262,7 +262,7 @@ Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluste
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
-* [Analisar registos HDInsight](hdinsight-debug-jobs.md)
+* [Analisar registos HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Aceder a sinal de aplicação Apache Hadoop YARN em HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Ativar depósitos de pilhas para serviços Apache Hadoop em HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Problemas conhecidos para o aglomerado de faíscas Apache em HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Problemas conhecidos para o aglomerado de faíscas Apache em HDInsight](./spark/apache-spark-known-issues.md)

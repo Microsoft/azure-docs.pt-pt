@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167054"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537954"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -66,7 +66,7 @@ Consulte [conceitos de backup](concepts-backup-restore.md) para saber mais.
 
 ## <a name="network-isolation"></a>Isolamento de Rede
 
-Tem duas opções de ligação em rede para ligar à sua Base de Dados Azure para o MySQL Flexible Server. As opções são **acesso privado (integração VNet)** e **acesso público (endereços IP permitidos)**. 
+Tem duas opções de ligação em rede para ligar à sua Base de Dados Azure para o MySQL Flexible Server. As opções são **acesso privado (integração VNet)** e **acesso público (endereços IP permitidos)** . 
 
 * **Acesso privado (Integração VNet)** – Pode implantar o seu servidor flexível na sua [Rede Virtual Azure.](../../virtual-network/virtual-networks-overview.md) As redes virtuais Azure fornecem comunicação de rede privada e segura. Os recursos numa rede virtual podem comunicar através de endereços IP privados.
 
@@ -99,7 +99,7 @@ O serviço encripta dados em movimento com a segurança da camada de transporte 
 
 Veja [como usar ligações encriptadas em servidores flexíveis](https://docs.mongodb.com/manual/tutorial/configure-ssl) para saber mais.
 
-Servidores flexíveis permitem o acesso privado completo aos servidores utilizando a integração [da rede virtual Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet). Os servidores da rede virtual Azure só podem ser alcançados e conectados através de endereços IP privados. Com a integração do VNet, o acesso público é negado e os servidores não podem ser alcançados usando pontos finais públicos. 
+Servidores flexíveis permitem o acesso privado completo aos servidores utilizando a integração [da rede virtual Azure](../../virtual-network/virtual-networks-overview.md) (VNet). Os servidores da rede virtual Azure só podem ser alcançados e conectados através de endereços IP privados. Com a integração do VNet, o acesso público é negado e os servidores não podem ser alcançados usando pontos finais públicos. 
 
 Consulte [conceitos de networking](concepts-networking.md) para saber mais.
 
@@ -115,7 +115,7 @@ Consulte [conceitos de monitorização](concepts-monitoring.md) para saber mais.
 O serviço executa a versão comunitária do MySQL. Isto permite a compatibilidade total da aplicação e requer um custo mínimo de refactor para migrar a aplicação existente desenvolvida no motor MySQL para um único serviço de servidor. A migração para o servidor único pode ser realizada utilizando uma das seguintes opções:
 
 - **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como mysqldump/mydumper podem fornecer uma forma mais rápida de migrar. Consulte a Migração utilizando o despejo e restaure-o para obter mais detalhes. 
-- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para um único servidor com tempo mínimo de inatividade, [o Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) pode ser alavancado. 
+- **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para um único servidor com tempo mínimo de inatividade, [o Serviço de Migração da Base de Dados Azure](../../dms/tutorial-mysql-azure-mysql-online.md) pode ser alavancado. 
 
 ## <a name="azure-regions"></a>Regiões do Azure
 

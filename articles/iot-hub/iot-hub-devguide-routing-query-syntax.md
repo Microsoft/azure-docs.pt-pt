@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767356"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547712"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta do encaminhamento de mensagens do Hub IoT
 
@@ -23,7 +23,7 @@ O encaminhamento de mensagens permite que os utilizadores encaminhem diferentes 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-O encaminhamento de mensagens permite-lhe consultar as propriedades da mensagem e o corpo da mensagem, bem como as etiquetas gémeas do dispositivo e as propriedades gémeas do dispositivo. Se o corpo da mensagem não for JSON, o encaminhamento de mensagens ainda pode encaminhar a mensagem, mas as consultas não podem ser aplicadas ao corpo da mensagem.  As consultas são descritas como expressões booleanas onde um boolean verdadeiro faz a consulta ter sucesso que encaminha todos os dados de entrada, e Boolean falso falha a consulta e nenhum dado é encaminhado. Se a expressão avaliar a nulidade ou indefinida, é tratada como falsa e um erro será gerado em registos de diagnóstico em caso de falha. A sintaxe de consulta deve estar correta para que a rota seja guardada e avaliada.  
+O encaminhamento de mensagens permite-lhe consultar as propriedades da mensagem e o corpo da mensagem, bem como as etiquetas gémeas do dispositivo e as propriedades gémeas do dispositivo. Se o corpo da mensagem não for JSON, o encaminhamento de mensagens ainda pode encaminhar a mensagem, mas as consultas não podem ser aplicadas ao corpo da mensagem.  As consultas são descritas como expressões booleanas onde um boolean verdadeiro faz a consulta ter sucesso que encaminha todos os dados de entrada, e Boolean falso falha a consulta e nenhum dado é encaminhado. Se a expressão avaliar a nulidade ou indefinida, é tratada como falsa e um erro será gerado nas rotas IoT Hub registos de [registos](monitor-iot-hub-reference.md#routes) em caso de falha. A sintaxe de consulta deve estar correta para que a rota seja guardada e avaliada.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de encaminhamento de mensagens com base em propriedades de mensagens 
 
@@ -62,7 +62,7 @@ As propriedades do sistema ajudam a identificar o conteúdo e a origem das mensa
 | dt-dataschema | string |  Este valor é definido pelo hub IoT em mensagens dispositivo-a-nuvem. Contém o iD do modelo do dispositivo na ligação do dispositivo. Para consultar, use `$dt-dataschema` . |
 | dt-sujeito | string | O nome do componente que está a enviar as mensagens dispositivo-a-nuvem. Para consultar, use `$dt-subject` . |
 
-Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Além das propriedades acima na tabela anterior, pode ainda consultar **a ligaçãoDeviceId,** **connectionModuleId**.
+Como descrito nas [Mensagens IoT Hub,](iot-hub-devguide-messages-construct.md)existem propriedades adicionais do sistema numa mensagem. Além das propriedades acima na tabela anterior, pode ainda consultar **a ligaçãoDeviceId,** **connectionModuleId** .
 
 ### <a name="application-properties"></a>Propriedades da aplicação
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma amostra em C#, descarregue as [amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. O ficheiro de Program.cs da solução Visual Studio *SimulatedDevice*mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento de mensagens, como explicado no [tutorial de encaminhamento de mensagens](tutorial-routing.md). Na parte inferior da Program.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo de volta como ASCII para que possa lê-lo. 
+> Isto mostra como lidar com a codificação do corpo em javascript. Se quiser ver uma amostra em C#, descarregue as [amostras Azure IoT C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Desaperte o ficheiro master.zip. O ficheiro de Program.cs da solução Visual Studio *SimulatedDevice* mostra como codificar e enviar mensagens para um Hub IoT. Esta é a mesma amostra utilizada para testar o encaminhamento de mensagens, como explicado no [tutorial de encaminhamento de mensagens](tutorial-routing.md). Na parte inferior da Program.cs, também tem um método para ler num dos ficheiros codificados, descodificá-lo e escrevê-lo de volta como ASCII para que possa lê-lo. 
 
 
 ### <a name="query-expressions"></a>Expressões de consulta

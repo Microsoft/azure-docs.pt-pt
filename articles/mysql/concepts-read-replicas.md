@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151177"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537971"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -38,7 +38,7 @@ Como as réplicas são apenas de leitura, não reduzem diretamente os encargos d
 A funcionalidade de réplica de leitura utiliza a replicação assíncronea mySQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
 > [!IMPORTANT]
-> A Base de Dados do Azure para MySQL utiliza o registo binário baseado em **LINHA**. Se a sua tabela não tiver uma chave primária, todas as linhas da tabela são analisadas à procura de operações DML. Tal causa um aumento no atraso da replicação. Para garantir que a réplica seja capaz de acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar ou recriar o servidor de réplica, se já tiver um.
+> A Base de Dados do Azure para MySQL utiliza o registo binário baseado em **LINHA** . Se a sua tabela não tiver uma chave primária, todas as linhas da tabela são analisadas à procura de operações DML. Tal causa um aumento no atraso da replicação. Para garantir que a réplica seja capaz de acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar ou recriar o servidor de réplica, se já tiver um.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Pode criar uma réplica de leitura numa região diferente do seu servidor de origem. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
@@ -71,7 +71,7 @@ No entanto, existem limitações a considerar:
 
 Se um servidor de origem não tiver servidores de réplica existentes, a fonte reiniciará primeiro para se preparar para a replicação.
 
-Quando inicia o fluxo de trabalho de réplicas, é criada uma Base de Dados Azure em branco para o servidor MySQL. O novo servidor está preenchido com os dados que estavam no servidor de origem. O tempo de criação depende da quantidade de dados sobre a fonte e do tempo desde o último backup completo semanal. O tempo pode variar entre alguns minutos e várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma subscrição que o servidor de origem. Se pretender criar um servidor de réplica para um grupo de recursos diferente ou uma subscrição diferente, pode [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação.
+Quando inicia o fluxo de trabalho de réplicas, é criada uma Base de Dados Azure em branco para o servidor MySQL. O novo servidor está preenchido com os dados que estavam no servidor de origem. O tempo de criação depende da quantidade de dados sobre a fonte e do tempo desde o último backup completo semanal. O tempo pode variar entre alguns minutos e várias horas. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma subscrição que o servidor de origem. Se pretender criar um servidor de réplica para um grupo de recursos diferente ou uma subscrição diferente, pode [mover o servidor de réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) após a criação.
 
 Todas as réplicas estão ativadas para o armazenamento [de crescimento automático.](concepts-pricing-tiers.md#storage-auto-grow) A funcionalidade de crescimento automático permite que a réplica acompanhe os dados replicados e evite uma interrupção na replicação causada por erros fora de armazenamento.
 
@@ -208,7 +208,7 @@ GTID está desligado por defeito. Uma vez ativado o GTID, não é possível desl
 
 Se o GTID estiver ativado num servidor de origem, as réplicas recém-criadas também terão GTID ativada e utilizam a replicação GTID. Para manter a replicação consistente, não é possível atualizar `gtid_mode` na fonte ou no servidor de réplicas.
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 
 - A criação de uma réplica de uma réplica não é suportada.
 - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações.

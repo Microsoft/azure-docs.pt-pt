@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8cd5969e4362b1581a7b9aebf39f8c6871839918
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371380"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558763"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
@@ -30,11 +30,9 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 * Uma subscrição do Azure.
 
     Se ainda não tem uma subscrição do Azure, inscreva-se no [Azure Free Trial](https://azure.microsoft.com/free/).
-
 * Um domínio Azure Ative Directory (Azure AD).
 
     Se não tiver um domínio AD Azure, crie este domínio com a sua subscrição Azure. Para obter mais informações, consulte [Gerir nomes de domínio personalizados no seu AD AZure](../../active-directory/enterprise-users/domains-manage.md)
-
 * Um utilizador no seu domínio Azure AD com uma função **de administrador de aplicação.** Utilizará este membro ao ligar a sua conta de Indexer de Vídeo ao Azure.
 
     Este utilizador deve ser um utilizador AZure AD com uma conta de trabalho ou escola. Não utilize uma conta pessoal, como outlook.com, live.com ou hotmail.com.
@@ -55,50 +53,48 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 
 * Registe o fornecedor de recursos EventGrid utilizando o portal Azure.
 
-    No [portal Azure](https://portal.azure.com/), vá a **Subscrições**->[subscrição]->**ResourceProviders**.
+    No [portal Azure](https://portal.azure.com/), vá a **Subscrições** ->[subscrição]-> **ResourceProviders** .
 
-    Procure por **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estado "Registado", clique em **Registar**. Leva alguns minutos para se registar.
+    Procure por **Microsoft.Media** e **Microsoft.EventGrid** . Se não estiver no estado "Registado", clique em **Registar** . Leva alguns minutos para se registar.
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>Ligar ao Azure
+## <a name="create-a-new-account"></a>Criar uma nova conta
 
 > [!NOTE]
 > Se a sua subscrição Azure utilizar a autenticação multi-factor baseada em certificados, é crucial que execute os seguintes passos num dispositivo que tenha os certificados necessários instalados.
 
 1. Aceda ao site do [Video Indexer](https://www.videoindexer.ai/) e inicie sessão.
+1. Selecione o botão **de conta ilimitada Create:**
 
-2. Selecione o novo botão **de conta Criar:**
+    ![Criar nova conta de Indexer de Vídeo](./media/create-account/create-unlimited-account.png)
+1. Quando a lista de subscrições aparecer, selecione a subscrição que pretende utilizar.
 
-    ![Criar nova conta de Indexer de Vídeo](./media/create-account/connect-to-azure.png)
-
-3. Quando a lista de subscrições aparecer, selecione a subscrição que pretende utilizar.
-
-    ![Ligue o Indexador de Vídeo ao Azure](./media/create-account/connect-vi-to-azure-subscription.png)
-
-4. Selecione uma região de Azure a partir dos locais suportados: West US 2, Norte da Europa ou Ásia Oriental.
-5. Na **conta Azure Media Services,** escolha uma destas opções:
+    ![Ligue o Indexador de Vídeo ao Azure](./media/create-account/new-account-on-azure-subscription.png)
+1. Selecione uma região de Azure a partir dos locais suportados: West US 2, Norte da Europa ou Ásia Oriental.
+1. Na **conta Azure Media Services,** escolha uma destas opções:
 
     * Para criar uma nova conta de Serviços de Mídia, selecione **Criar um novo grupo de recursos.** Forneça um nome para o seu grupo de recursos.
 
-        O Azure criará a sua nova conta na sua subscrição, incluindo uma nova conta de Armazenamento Azure. A sua nova conta De Serviços de Media tem uma configuração inicial padrão com um ponto final de streaming e 10 unidades reservadas S3.
+        O Azure criará a sua nova conta na sua subscrição, incluindo uma nova conta de Armazenamento Azure.  
     * Para utilizar uma conta de Serviços de Mídia existente, selecione **Utilize o recurso existente.** Na lista de contas, selecione a sua conta.
 
         A sua conta de Media Services deve ter a mesma região que a sua conta de Indexer de Vídeo.
 
         > [!NOTE]
-        > Para minimizar a duração da indexação e baixa produção, é altamente recomendado ajustar o tipo e o número de [Unidades Reservadas](../previous/media-services-scale-media-processing-overview.md ) na sua conta de Serviços de Mídia a **10 Unidades Reservadas S3**. Consulte [o portal Utilizar para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
-
+        > Para minimizar a duração da indexação e baixa produção, é altamente recomendado ajustar o tipo e o número de [Unidades Reservadas](../previous/media-services-scale-media-processing-overview.md ) na sua conta de Serviços de Mídia a **10 Unidades Reservadas S3** . Consulte [o portal Utilizar para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md). As unidades reservadas são cobradas na sua conta, ver [detalhes de preços](https://azure.microsoft.com/pricing/details/media-services/#analytics).
     * Para configurar manualmente a sua ligação, selecione o Interruptor para o link **de configuração manual.**
 
         Para obter informações detalhadas, consulte a secção ['Ligar ao Azure' manualmente](#connect-to-azure-manually-advanced-option) (opção avançada) que se segue.
-6. Quando terminar, escolha **Connect**. Esta operação pode demorar alguns minutos.
+1. Quando tiver terminado, escolha **Create** (Criar). Esta operação pode demorar alguns minutos.
 
     Depois de estar ligado ao Azure, a sua nova conta de Indexer de Vídeo aparece na lista de contas:
 
     ![nova conta](./media/create-account/new-account.png)
+1. Certifique-se de que o Ponto final de streaming da conta Media Services está a funcionar antes de poder reproduzir os seus vídeos na aplicação web do Indexer de Vídeo (prima o início se for o estado parado).
 
-7. Navegue pela sua nova conta.
+> [!TIP]
+> Para dar um hame de exibição amigável à sua conta aceda a **Definições** .
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Ligue-se ao Azure manualmente (opção avançada)
 
@@ -111,27 +107,27 @@ Se a ligação ao Azure falhar, pode tentar resolver o problema ligando manualme
 
 1. Utilize o portal [Azure](https://portal.azure.com/) para criar uma conta Azure Media Services, conforme descrito na [Criar uma conta](../previous/media-services-portal-create-account.md).
 
-    Ao criar uma conta de armazenamento para a sua conta De Serviços de Mídia, selecione **StorageV2** para o tipo de conta e **Geo-redundante (GRS)** para campos de replicação.
+    Ao criar uma conta de armazenamento para a sua conta De Serviços de Mídia, selecione **StorageV2** para o tipo de conta e **Geo-redundante** (GRS) para campos de replicação.
 
     ![Nova conta AMS](./media/create-account/create-ams-account1.png)
 
     > [!NOTE]
     > Certifique-se de escrever os nomes dos recursos e contas dos Serviços de Comunicação Social. Vai precisar deles para os passos na próxima secção.
+1. Ajuste o tipo e o número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md ) a **10 Unidades Reservadas S3** na conta serviços de comunicação que criou. Consulte [o portal Utilizar para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
 
-2. Ajuste o tipo e o número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md ) a **10 Unidades Reservadas S3** na conta serviços de comunicação que criou. Consulte [o portal Utilizar para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md).
-3. Antes de poder reproduzir os seus vídeos na aplicação web do Video Indexer, tem de iniciar o **ponto final** de streaming predefinido da nova conta de Media Services.
+    As unidades reservadas são cobradas na sua conta, ver [detalhes de preços](https://azure.microsoft.com/pricing/details/media-services/#analytics).s
+1. Antes de poder reproduzir os seus vídeos na aplicação web do Video Indexer, tem de iniciar o **ponto final** de streaming predefinido da nova conta de Media Services.
 
-    Na nova conta dos Serviços de Comunicação Social, selecione **Streaming endpoints**. Em seguida, selecione o ponto final de streaming e prima o início.
+    Na nova conta dos Serviços de Comunicação Social, selecione **Streaming endpoints** . Em seguida, selecione o ponto final de streaming e prima o início.
 
-    ![Nova conta AMS](./media/create-account/create-ams-account2.png)
-
+    ![Pontos finais de transmissões em fluxo](./media/create-account/create-ams-account2.png)
 4. Para que o Indexante de Vídeo autentica com a API dos Serviços de Mídia, é necessário criar uma aplicação AD. Os seguintes passos guiam-no através do processo de autenticação AD Azure descrito em [Get start with Azure AD authentication utilizando o portal Azure:](../previous/media-services-portal-get-started-with-aad.md)
 
-    1. Na nova conta dos Serviços de Comunicação Social, selecione **acesso API**.
+    1. Na nova conta dos Serviços de Comunicação Social, selecione **acesso API** .
     2. Selecione [o método de autenticação principal do Serviço](../previous/media-services-portal-get-started-with-aad.md).
     3. Obtenha a iD do cliente e o segredo do cliente
 
-        Depois de **Settings**selecionar -> **Definições Chaves**, adicione **Descrição**, prima **Guardar**, e o valor da chave é povoado.
+        Depois de **Settings** selecionar -> **Definições Chaves** , adicione **Descrição** , prima **Guardar** , e o valor da chave é povoado.
 
         Se a chave expirar, o proprietário da conta terá de contactar o suporte do Video Indexer para renovar a chave.
 
@@ -140,7 +136,7 @@ Se a ligação ao Azure falhar, pode tentar resolver o problema ligando manualme
 
 ### <a name="connect-manually"></a>Conecte-se manualmente
 
-No Indexador de Vídeo Connect para um diálogo de **subscrição Azure** da sua página [de Indexer](https://www.videoindexer.ai/) de Vídeo, selecione o Interruptor para o link **de configuração manual.**
+Na nova conta Criar um novo relato num diálogo de **subscrição Azure** da sua página [de Indexer](https://www.videoindexer.ai/) de Vídeo, selecione o Interruptor para o link **de configuração manual.**
 
 No diálogo, forneça as seguintes informações:
 
@@ -156,33 +152,38 @@ No diálogo, forneça as seguintes informações:
 
 ## <a name="import-your-content-from-the-trial-account"></a>Importe o seu conteúdo da conta *experimental*
 
-Ao [criar uma nova conta,](#connect-to-azure)tem a opção de importar o seu conteúdo da conta *experimental* para a nova conta. Se verificar a opção *de importação* na Criação de uma nova conta num diálogo de **subscrição Azure,** todas as personalizações de modelos de mídia e conteúdo serão copiadas da conta *experimental* para a nova conta.
+Ao criar uma nova conta, tem a opção de importar o seu conteúdo da conta *experimental* para a nova conta. Se verificar a opção *de importação* na Criação de uma nova conta num diálogo de **subscrição Azure,** todas as personalizações de modelos de mídia e conteúdo serão copiadas da conta *experimental* para a nova conta.
 
 A capacidade de importar o conteúdo é válida para abordagens automatizadas e manuais acima descritas.
 
 > [!NOTE]
 > O conteúdo só pode ser importado uma vez a partir de cada conta.
 
+## <a name="delete-the-account"></a>Apagar a conta
+
+Se mais tarde pretender apagar a conta, pode eliminar a conta do website do Indexer de Vídeo. Para apagar a conta, tem de ser o proprietário.
+
+Selecione a conta -> **Definições**  ->  **Elimine esta conta** . 
+
+A conta será permanentemente apagada em 90 dias.
+
 ## <a name="considerations"></a>Considerações
 
 Aplicam-se as seguintes considerações relacionadas com os Serviços de Comunicação Social da Azure:
 
-* Se ligar automaticamente, vê um novo Grupo de Recursos, uma conta de Serviços de Mídia e uma conta de Armazenamento na sua assinatura Azure.
-* Se ligar automaticamente, o Indexante de Vídeo define as **unidades reservadas** para 10 unidades S3:
-
-    ![Unidades reservadas dos Serviços de Mídia](./media/create-account/ams-reserved-units.png)
-
+* Se ligar automaticamente, vê um novo grupo de recursos, uma conta de Serviços de Mídia e uma conta de Armazenamento na sua assinatura Azure.
 * Se ligar a uma conta de Serviços de Comunicação existente, o Índice de Vídeo não altera a configuração de **Unidades Reservadas** para os meios de comunicação existentes.
 
    Poderá ser necessário ajustar o tipo e o número de Unidades Reservadas de Mídia de acordo com a sua carga planeada. Tenha em mente que se a sua carga for elevada e não tiver unidades ou velocidade suficientes, o processamento de vídeos pode resultar em falhas de tempo.
-
 * Se ligar a uma nova conta de Serviços de Mídia, o Video Indexer inicia automaticamente o **ponto de final de streaming** predefinido:
 
     ![Ponto final de streaming de serviços de mídia](./media/create-account/ams-streaming-endpoint.png)
 
     Os pontos finais de streaming têm um tempo considerável de arranque. Portanto, pode demorar vários minutos desde o momento em que ligou a sua conta ao Azure até que os seus vídeos possam ser transmitidos e assistidos na aplicação web do Indexer de Vídeo.
+* Se ligar a uma conta de Serviços de Mídia existente, o Índice de Vídeo não altera a configuração padrão do Ponto Final de Streaming. Se não houver **streaming endpoint** em execução, não pode ver vídeos desta conta de Media Services ou no Video Indexer.
+* Se ligar automaticamente, o Indexante de Vídeo define as **unidades reservadas** para 10 unidades S3:
 
-* Se ligar a uma conta de Serviços de Mídia existente, o Índice de Vídeo não altera a configuração padrão do Ponto Final de Streaming. Se não houver **streaming endpoint**em execução, não pode ver vídeos desta conta de Media Services ou no Video Indexer.
+    ![Unidades reservadas dos Serviços de Mídia](./media/create-account/ams-reserved-units.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

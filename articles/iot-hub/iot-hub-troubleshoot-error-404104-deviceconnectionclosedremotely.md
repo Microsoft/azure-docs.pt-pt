@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673a76417739fa59a91979cca7c6807a584868f0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81758721"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538260"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
@@ -24,25 +24,25 @@ Este artigo descreve as causas e soluções para **erros de 404104 DeviceConnect
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-Os dispositivos desligam-se num intervalo regular (a cada 65 minutos, por exemplo) e vê **404104 DeviceConnectionClosedRemotely** em registos de diagnóstico IoT Hub. Por vezes, também se vê **401003 IoTHubUnautized** e um evento de conexão de dispositivo bem sucedido menos de um minuto depois.
+Os dispositivos desligam-se num intervalo regular (a cada 65 minutos, por exemplo) e vê **404104 DeviceConnectionClosedRemotely** em registos de recursos IoT Hub. Por vezes, também se vê **401003 IoTHubUnautized** e um evento de conexão de dispositivo bem sucedido menos de um minuto depois.
 
 ### <a name="symptom-2"></a>Sintoma 2
 
-Os dispositivos desligam-se aleatoriamente e vê **404104 DeviceConnectionClosedRemotely** em registos de diagnóstico IoT Hub.
+Os dispositivos desligam-se aleatoriamente e vê **404104 DeviceConnectionClosedRemotely** em registos de recursos do IoT Hub.
 
 ### <a name="symptom-3"></a>Sintoma 3
 
-Muitos dispositivos desligam-se ao mesmo tempo, vê-se um mergulho na métrica dos [dispositivos ligados](iot-hub-metrics.md), e há mais **404104 DeviceConnectionClosedRemotely** e [500xxX Erros internos](iot-hub-troubleshoot-error-500xxx-internal-errors.md) em registos de diagnóstico do que o habitual.
+Muitos dispositivos desligam-se ao mesmo tempo, vê-se um mergulho na [métrica dos dispositivos ligados (connectedDeviceCount),](monitor-iot-hub-reference.md)e existem mais **404104 DeviceConnectionClosedRemotely** e [500xxx Erros internos](iot-hub-troubleshoot-error-500xxx-internal-errors.md) em Registos monitores Azure do que o habitual.
 
 ## <a name="causes"></a>Causas
 
-### <a name="cause-1"></a>Causa 1
+### <a name="cause-1"></a>Motivo 1
 
 O [símbolo SAS usado para ligar ao IoT Hub](iot-hub-devguide-security.md#security-tokens) expirou, o que faz com que o IoT Hub desligue o dispositivo. A ligação é restabelecida quando o token é atualizado pelo dispositivo. Por exemplo, [o token SAS expira a cada hora por padrão para C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), o que pode levar a desconexões regulares.
 
 Para saber mais, consulte [a causa ioTHubUnautizada 401003.](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#cause-1)
 
-### <a name="cause-2"></a>Causa 2
+### <a name="cause-2"></a>Motivo 2
 
 Algumas possibilidades incluem:
 

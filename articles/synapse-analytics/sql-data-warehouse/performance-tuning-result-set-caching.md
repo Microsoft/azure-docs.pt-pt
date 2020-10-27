@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362270"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541286"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Otimização do desempenho com a colocação em cache dos resultados
 
@@ -36,11 +36,15 @@ Quando o caching do resultado está ativado, a consulta de caches Synapse SQL au
 
 Uma vez que o caching do resultado é ligado para uma base de dados, os resultados são em cache para todas as consultas até que a cache esteja cheia, exceto para estas consultas:
 
-- Consultas utilizando funções não determinísticas como DateTime.Now()
+- Consultas com funções incorporadas ou expressões de tempo de execução que não são deterministas mesmo quando não há alteração nos dados ou consulta das tabelas base. Por exemplo, DateTime.Now(), GetDate().
 - Consultas usando funções definidas pelo utilizador
 - Consultas usando tabelas com segurança de nível de linha ou segurança de nível de coluna ativada
 - Consultas devolvendo dados com tamanho de linha maior que 64KB
 - Consultas devolvendo grandes dados em tamanho (>10GB) 
+>[!NOTE]
+> - Algumas funções não determinísticas e expressões de tempo de execução podem ser deterministas a consultas repetitivas contra os mesmos dados. Por exemplo, ROW_NUMBER().  
+> - Utilize ORDER BY na sua consulta se a ordem/sequência de linhas no conjunto de resultados de consulta é importante para a lógica da sua aplicação.
+> - Se os dados nas colunas ORDER BY não forem únicos, não existe uma ordem de linha garantida para linhas com os mesmos valores nas colunas ORDER BY, independentemente de o caching conjunto de resultados estiver ativado ou desativado.
 
 > [!IMPORTANT]
 > As operações para criar cache de conjunto de resultados e obter dados da cache acontecem no nó de controlo de uma placa de piscina Sinapse SQL.

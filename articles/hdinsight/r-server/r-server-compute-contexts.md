@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087610"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536339"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto computacional para serviços ML em HDInsight
 
@@ -23,7 +23,7 @@ O nó de borda de um cluster fornece um lugar conveniente para se conectar ao cl
 
 ## <a name="ml-services-on-azure-hdinsight"></a>Serviços ML em Azure HDInsight
 
-[ML Services on Azure HDInsight](r-server-overview.md) fornece as mais recentes capacidades para análise baseada em R. Pode utilizar dados que são armazenados num recipiente Apache Hadoop HDFS na sua conta de armazenamento [Azure Blob,](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") na Data Lake Store ou no sistema de ficheiros Linux local. Uma vez que os Serviços ML são construídos em R de código aberto, as aplicações baseadas em R que você constrói podem aplicar qualquer um dos mais de 8000 pacotes R de código aberto. Também podem utilizar as rotinas no [RevoScaleR,](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)o pacote de análise de big data da Microsoft que está incluído nos Serviços ML.  
+[ML Services on Azure HDInsight](r-server-overview.md) fornece as mais recentes capacidades para análise baseada em R. Pode utilizar dados que são armazenados num recipiente Apache Hadoop HDFS na sua conta de armazenamento [Azure Blob,](../../storage/common/storage-introduction.md "Armazenamento de Blobs do Azure") na Data Lake Store ou no sistema de ficheiros Linux local. Uma vez que os Serviços ML são construídos em R de código aberto, as aplicações baseadas em R que você constrói podem aplicar qualquer um dos mais de 8000 pacotes R de código aberto. Também podem utilizar as rotinas no [RevoScaleR,](/machine-learning-server/r-reference/revoscaler/revoscaler)o pacote de análise de big data da Microsoft que está incluído nos Serviços ML.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de cálculo para um nó de borda
 
@@ -59,7 +59,7 @@ Tendo em conta estes princípios, as seguintes secções oferecem algumas regras
 
 ### <a name="local"></a>Local
 
-- Se a quantidade de dados a analisar for pequena e não necessitar de análise repetida, em seguida, transmita-a diretamente para a rotina de análise *utilizando* local ou *localpar*.
+- Se a quantidade de dados a analisar for pequena e não necessitar de análise repetida, em seguida, transmita-a diretamente para a rotina de análise *utilizando* local ou *localpar* .
 - Se a quantidade de dados a analisar for pequena ou média e necessitar de análise repetida, copie-os para o sistema de ficheiros local, importe-os para XDF e analise-os através de *localidade* ou *local.*
 
 ### <a name="apache-spark"></a>Apache Spark
@@ -77,7 +77,7 @@ Para obter mais informações e exemplos de contextos de computação RevoScaleR
 > ?rxSetComputeContext
 ```
 
-Também pode consultar a [visão geral](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) da computação distribuída na [documentação do Servidor de Aprendizagem automática](https://docs.microsoft.com/machine-learning-server/).
+Também pode consultar a [visão geral](/machine-learning-server/r/how-to-revoscaler-distributed-computing) da computação distribuída na [documentação do Servidor de Aprendizagem automática](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

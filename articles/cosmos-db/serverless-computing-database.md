@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263266"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538651"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor usando funções Azure Cosmos DB e Azure
 
@@ -23,9 +23,9 @@ Com a integração nativa entre as [funções Azure Cosmos DB](https://azure.mic
 
 As funções Azure Cosmos DB e Azure permitem-lhe integrar as suas bases de dados e aplicações sem servidor das seguintes formas:
 
-* Crie um **gatilho de funções Azure orientado por eventos para Cosmos DB**. Este gatilho baseia-se em fluxos [de alimentação](change-feed.md) de mudança para monitorizar o seu contentor Azure Cosmos para alterações. Quando são efetuadas alterações num recipiente, o fluxo de alimentação de alteração é enviado para o gatilho, que invoca a Função Azure.
-* Alternativamente, ligue uma Função Azure a um recipiente Azure Cosmos utilizando uma **ligação de entrada**. As ligações de entrada lêem os dados de um recipiente quando uma função é executada.
-* Ligue uma função a um recipiente Azure Cosmos utilizando uma **ligação de saída**. As ligações de saída escrevem dados para um recipiente quando uma função termina.
+* Crie um **gatilho de funções Azure orientado por eventos para Cosmos DB** . Este gatilho baseia-se em fluxos [de alimentação](change-feed.md) de mudança para monitorizar o seu contentor Azure Cosmos para alterações. Quando são efetuadas alterações num recipiente, o fluxo de alimentação de alteração é enviado para o gatilho, que invoca a Função Azure.
+* Alternativamente, ligue uma Função Azure a um recipiente Azure Cosmos utilizando uma **ligação de entrada** . As ligações de entrada lêem os dados de um recipiente quando uma função é executada.
+* Ligue uma função a um recipiente Azure Cosmos utilizando uma **ligação de saída** . As ligações de saída escrevem dados para um recipiente quando uma função termina.
 
 > [!NOTE]
 > Atualmente, o gatilho das funções Azure, as ligações de entrada e as ligações de saída para Cosmos DB são suportadas apenas para utilização com o API SQL. Para todas as outras APIs DB Azure Cosmos, deverá aceder à base de dados a partir da sua função utilizando o cliente estático para a sua API.
@@ -69,7 +69,7 @@ Nas implementações financeiras, pode invocar uma função quando um saldo de c
 
 **Implementação:** Um gatilho temporizador com uma ligação de entrada Azure Cosmos DB
 
-1. Utilizando um [gatilho temporizador,](../azure-functions/functions-bindings-timer.md)pode obter a informação do saldo da conta bancária armazenada num recipiente Azure Cosmos em intervalos cronometrado utilizando uma **ligação de entrada**.
+1. Utilizando um [gatilho temporizador,](../azure-functions/functions-bindings-timer.md)pode obter a informação do saldo da conta bancária armazenada num recipiente Azure Cosmos em intervalos cronometrado utilizando uma **ligação de entrada** .
 2. Se o saldo estiver abaixo do limiar de saldo baixo definido pelo utilizador, então acompanhe uma ação da Função Azure.
 3. A imução de saída pode ser uma [integração SendGrid](../azure-functions/functions-bindings-sendgrid.md) que envia um e-mail de uma conta de serviço para os endereços de e-mail identificados para cada uma das contas de baixo saldo.
 
@@ -81,12 +81,12 @@ As imagens que se seguem mostram o código no portal Azure para este cenário.
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de jogos - Azure Functions trigger e ligação de saída para Cosmos DB 
 
-Nos jogos, quando um novo utilizador é criado, pode pesquisar outros utilizadores que possam conhecê-los utilizando a [API API AZure Cosmos DB Gremlin](graph-introduction.md). Em seguida, pode escrever os resultados para uma base de [dados Azure Cosmos DB ou SQL]() para uma fácil recuperação.
+Nos jogos, quando um novo utilizador é criado, pode pesquisar outros utilizadores que possam conhecê-los utilizando a [API API AZure Cosmos DB Gremlin](graph-introduction.md). Em seguida, pode escrever os resultados para uma base de dados Azure Cosmos DB ou SQL para uma fácil recuperação.
 
 **Implementação:** Use um gatilho de funções Azure e ligação de saída para Cosmos DB
 
 1. Utilizando uma [base de dados de gráficos](graph-introduction.md) DB da Azure Cosmos para armazenar todos os utilizadores, pode criar uma nova função com um gatilho de Funções Azure para Cosmos DB. 
-2. Sempre que um novo utilizador é inserido, a função é invocada e, em seguida, o resultado é armazenado com uma **ligação de saída**.
+2. Sempre que um novo utilizador é inserido, a função é invocada e, em seguida, o resultado é armazenado com uma **ligação de saída** .
 3. A função consulta a base de dados do gráfico para procurar todos os utilizadores que estejam diretamente relacionados com o novo utilizador e retorne esse conjunto de dados à função.
 4. Estes dados são então armazenados num DB Azure Cosmos que pode ser facilmente recuperado por qualquer aplicação frontal que mostre ao novo utilizador os seus amigos conectados.
 
@@ -122,7 +122,7 @@ As Funções Azure proporcionam a capacidade de criar unidades de trabalho escal
 
 Azure Cosmos DB é a base de dados recomendada para a sua arquitetura de computação sem servidor pelas seguintes razões:
 
-* **Acesso instantâneo a todos os seus dados**: Tem acesso granular a todos os valores armazenados porque a Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por padrão, e disponibiliza esses índices imediatamente. Isto significa que é capaz de consultar, atualizar e adicionar novos itens à sua base de dados e ter acesso instantâneo através de Funções Azure.
+* **Acesso instantâneo a todos os seus dados** : Tem acesso granular a todos os valores armazenados porque a Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por padrão, e disponibiliza esses índices imediatamente. Isto significa que é capaz de consultar, atualizar e adicionar novos itens à sua base de dados e ter acesso instantâneo através de Funções Azure.
 
 * **Schemaless.** A azure Cosmos DB é sem esquemas - por isso é únicamente capaz de lidar com qualquer saída de dados de uma Função Azure. Esta abordagem de "lidar com qualquer coisa" torna simples criar uma variedade de Funções que todas as saídas para Azure Cosmos DB.
 

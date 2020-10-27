@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839695"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536883"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a geo-replicação para Azure Cache para Redis
 
@@ -75,7 +75,7 @@ Após a configuração da geo-replicação, aplicam-se as seguintes restrições
 
     ![Screenshot que realça como ver o estado de ligação para as caches primárias e secundárias.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Uma vez concluído o processo de replicação, **o estado de Ligação** muda para **Sucesso**.
+    Uma vez concluído o processo de replicação, **o estado de Ligação** muda para **Sucesso** .
 
     ![Estado da cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -145,8 +145,8 @@ Sim, a geo-replicação de caches em VNETs é suportada com ressalvas:
 
 - A geo-replicação entre caches no mesmo VNET é suportada.
 - A geo-replicação entre caches em diferentes VNETs também é suportada.
-  - Se os VNETs estiverem na mesma região, pode ligá-los utilizando [o ntenet VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou uma [ligação VPN Gateway VNET-to-VNET](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se os VNETs estiverem em diferentes regiões, a geo-replicação utilizando o peering VNET é suportada, mas um cliente VM em VNET 1 (região 1) não será capaz de aceder à cache em VNET 2 (região 2) através do seu nome DNS devido a uma restrição com os equilibradores internos básicos. Para obter mais informações sobre as restrições de observação do VNET, consulte [Rede Virtual - Peering - Requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é utilizar uma ligação VPN Gateway VNET-to-VNET.
+  - Se os VNETs estiverem na mesma região, pode ligá-los utilizando [o ntenet VNET](../virtual-network/virtual-network-peering-overview.md) ou uma [ligação VPN Gateway VNET-to-VNET](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - Se os VNETs estiverem em diferentes regiões, a geo-replicação utilizando o peering VNET é suportada, mas um cliente VM em VNET 1 (região 1) não será capaz de aceder à cache em VNET 2 (região 2) através do seu nome DNS devido a uma restrição com os equilibradores internos básicos. Para obter mais informações sobre as restrições de observação do VNET, consulte [Rede Virtual - Peering - Requisitos e restrições](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). A solução recomendada é utilizar uma ligação VPN Gateway VNET-to-VNET.
   
 Utilizando [este modelo Azure,](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)pode rapidamente implantar duas caches geo-replicadas num VNET ligado a uma ligação VNET-vNET do Gateway VPN.
 
@@ -166,7 +166,7 @@ Para obter um ponto de recuperação, [exporte](cache-how-to-import-export-data.
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Posso usar o PowerShell ou o Azure CLI para gerir a geo-replicação?
 
-Sim, a geo-replicação pode ser gerida usando o portal Azure, PowerShell ou Azure CLI. Para obter mais informações, consulte os [docs PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [Azure CLI](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Sim, a geo-replicação pode ser gerida usando o portal Azure, PowerShell ou Azure CLI. Para obter mais informações, consulte os [docs PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) ou [Azure CLI](/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto custa replicar os meus dados nas regiões de Azure?
 
@@ -188,7 +188,7 @@ Para iniciar uma falha iniciada pelo cliente, primeiro desvincula as caches. Em 
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Posso configurar uma firewall com geo-replicação?
 
-Sim, pode configurar uma [firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) com geo-replicação. Para que a geo-replicação funcione ao lado de uma firewall, certifique-se de que o endereço IP da cache secundária é adicionado às regras de firewall da cache primária.
+Sim, pode configurar uma [firewall](./cache-configure.md#firewall) com geo-replicação. Para que a geo-replicação funcione ao lado de uma firewall, certifique-se de que o endereço IP da cache secundária é adicionado às regras de firewall da cache primária.
 
 ## <a name="next-steps"></a>Passos seguintes
 

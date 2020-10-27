@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 0f69b30f477f99e2a4cae10edc7443b0630175c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487811"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547083"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -49,7 +49,7 @@ A Azure Cosmos DB garante que 100% dos pedidos de leitura cumprem a garantia de 
 
 A semântica dos cinco níveis de consistência é descrita aqui:
 
-- **Forte**: Forte consistência oferece uma garantia de linearizabilidade. Linearizability refere-se a servir pedidos simultaneamente. As leituras são garantidas para devolver a versão mais recente comprometida de um item. Um cliente nunca vê uma escrita não comprometida ou parcial. Os utilizadores têm sempre a garantia de ler a mais recente escrita comprometida.
+- **Forte** : Forte consistência oferece uma garantia de linearizabilidade. Linearizability refere-se a servir pedidos simultaneamente. As leituras são garantidas para devolver a versão mais recente comprometida de um item. Um cliente nunca vê uma escrita não comprometida ou parcial. Os utilizadores têm sempre a garantia de ler a mais recente escrita comprometida.
 
   O gráfico que se segue ilustra a forte consistência com notas musicais. Depois de os dados terem sido escritos para a região "West US 2", quando lê os dados de outras regiões, obtém-se o valor mais recente:
 
@@ -84,7 +84,7 @@ Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Consistência como espectro":::
 
-- **Prefixo consistente**: As atualizações devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
+- **Prefixo consistente** : As atualizações devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
 
 Se as gravações forem realizadas na `A, B, C` ordem, então um cliente vê ou `A` , ou , mas nunca `A,B` `A,B,C` permutações fora de ordem como `A,C` ou `B,A,C` . O Prefixo consistente fornece latências de escrita, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de encomenda que se adequam às necessidades dos cenários em que a ordem é importante.
 
@@ -108,7 +108,7 @@ A consistência eventual é a forma mais fraca de consistência porque um client
 
 Na prática, pode muitas vezes obter garantias de consistência mais fortes. As garantias de consistência para uma operação de leitura correspondem à frescura e ao pedido da base de dados que solicita. A consistência de leitura está ligada à ordem e propagação das operações de escrita/atualização.  
 
-Se não houver operações de escrita na base de dados, uma operação de leitura com **eventuais,** **sessão**ou níveis consistentes de consistência **prefixo** é suscetível de produzir os mesmos resultados que uma operação de leitura com forte nível de consistência.
+Se não houver operações de escrita na base de dados, uma operação de leitura com **eventuais,** **sessão** ou níveis consistentes de consistência **prefixo** é suscetível de produzir os mesmos resultados que uma operação de leitura com forte nível de consistência.
 
 Se a sua conta Azure Cosmos estiver configurada com um nível de consistência diferente da forte consistência, pode descobrir a probabilidade de os seus clientes ficarem fortes e consistentes com leituras para as suas cargas de trabalho, olhando para a métrica *Probabilisticamente Bounded Staleness* (PBS). Esta métrica está exposta no portal Azure, para saber mais, consulte a [métrica de Staleness (PBS) (Monitor Probabilisisticamente Bounded).](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
 
@@ -187,8 +187,6 @@ Para saber mais sobre conceitos de consistência, leia os seguintes artigos:
 
 Para saber mais sobre os níveis de consistência no Azure Cosmos DB, leia os seguintes artigos:
 
-- [Escolha o nível de consistência certo para a sua aplicação]()
-- [Níveis de consistência em Azure Cosmos DB APIs]()
 - [Configurar o nível de consistência predefinido](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Substituir o nível de consistência predefinido](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

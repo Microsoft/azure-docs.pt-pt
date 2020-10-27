@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142813"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536084"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades do dispositivo do Hub IoT em massa
 
 Cada hub IoT tem um registo de identidade que pode usar para criar recursos por dispositivo no serviço. O registo de identidade também permite controlar o acesso aos pontos finais virados para o dispositivo. Este artigo descreve como importar e exportar identidades de dispositivos a granel de e para um registo de identidade. Para ver uma amostra de trabalho em C# e aprender como pode usar esta capacidade ao clonar um hub para uma região diferente, veja [Como Clonar um Hub IoT](iot-hub-how-to-clone.md).
 
 > [!NOTE]
-> O IoT Hub adicionou recentemente suporte de rede virtual em um número limitado de regiões. Esta funcionalidade assegura as operações de importação e exportação e elimina a necessidade de passar chaves para a autenticação.  Inicialmente, o suporte à rede virtual só está disponível nestas regiões: *WestUS2,* *EastUS*e *SouthCentralUS.* Para saber mais sobre o suporte à rede virtual e as chamadas da API para implementá-lo, consulte [o IoT Hub Support para redes virtuais.](virtual-network-support.md)
+> O IoT Hub adicionou recentemente suporte de rede virtual em um número limitado de regiões. Esta funcionalidade assegura as operações de importação e exportação e elimina a necessidade de passar chaves para a autenticação.  Inicialmente, o suporte à rede virtual só está disponível nestas regiões: *WestUS2,* *EastUS* e *SouthCentralUS.* Para saber mais sobre o suporte à rede virtual e as chamadas da API para implementá-lo, consulte [o IoT Hub Support para redes virtuais.](virtual-network-support.md)
 
 As operações de importação e exportação ocorrem no contexto de *Jobs* que lhe permitem executar operações de serviço a granel contra um hub IoT.
 
@@ -61,7 +61,7 @@ Para encontrar a cadeia de ligação para o seu hub IoT, no portal Azure:
 
 - Navegue até ao seu hub IoT.
 
-- Selecione **políticas de acesso compartilhado**.
+- Selecione **políticas de acesso compartilhado** .
 
 - Selecione uma apólice, tendo em conta as permissões necessárias.
 
@@ -134,7 +134,7 @@ while(true)
 }
 ```
 
-O trabalho armazena a sua produção no recipiente de bolhas fornecido como uma bolha de bloco com o nome **devices.txt**. Os dados de saída consistem em dados de dispositivo serializados JSON, com um dispositivo por linha.
+O trabalho armazena a sua produção no recipiente de bolhas fornecido como uma bolha de bloco com o nome **devices.txt** . Os dados de saída consistem em dados de dispositivo serializados JSON, com um dispositivo por linha.
 
 O exemplo a seguir mostra os dados de saída:
 
@@ -226,7 +226,7 @@ O método **ImportDevicesAsync** tem dois parâmetros:
    SharedAccessBlobPermissions.Read
    ```
 
-* Uma *corda* que contém um URI de um recipiente de bolhas [de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/) para usar como *saída* do trabalho. O trabalho cria uma bolha de bloco neste recipiente para armazenar qualquer informação de erro a partir da importação concluída **Job**. O token SAS deve incluir estas permissões:
+* Uma *corda* que contém um URI de um recipiente de bolhas [de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/) para usar como *saída* do trabalho. O trabalho cria uma bolha de bloco neste recipiente para armazenar qualquer informação de erro a partir da importação concluída **Job** . O token SAS deve incluir estas permissões:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -264,13 +264,13 @@ Utilize a importação opcional **PropriedadeMode** nos dados de serialização 
 
 | importMode | Descrição |
 | --- | --- |
-| **createOrUpdate** |Se um dispositivo não existir com o **ID**especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
-| **criar** |Se um dispositivo não existir com o **ID**especificado, está recentemente registado. <br/>Se o dispositivo já existir, é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
-| **atualizar** |Se um dispositivo já existir com o **ID**especificado, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
-| **atualizaçãoIfMatchETag** |Se um dispositivo já existir com o **ID**especificado, as informações existentes só são substituídas com os dados de entrada fornecidos se houver uma correspondência **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se houver uma incompatibilidade **do ETag,** é escrito um erro no ficheiro de registo. |
-| **createOrUpdateIfMatchETag** |Se um dispositivo não existir com o **ID**especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes só são substituídas com os dados de entrada fornecidos se houver uma correspondência **ETag.** <br/>Se houver uma incompatibilidade **do ETag,** é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
-| **eliminar** |Se já existir um dispositivo com o **ID**especificado, é eliminado sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
-| **deleteIfMatchETag** |Se já existir um dispositivo com o **ID**especificado, este só é eliminado se houver uma correspondência **ETag.** Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se houver uma incompatibilidade do ETag, é escrito um erro no ficheiro de registo. |
+| **createOrUpdate** |Se um dispositivo não existir com o **ID** especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
+| **criar** |Se um dispositivo não existir com o **ID** especificado, está recentemente registado. <br/>Se o dispositivo já existir, é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
+| **atualizar** |Se um dispositivo já existir com o **ID** especificado, as informações existentes são substituídas com os dados de entrada fornecidos sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
+| **atualizaçãoIfMatchETag** |Se um dispositivo já existir com o **ID** especificado, as informações existentes só são substituídas com os dados de entrada fornecidos se houver uma correspondência **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se houver uma incompatibilidade **do ETag,** é escrito um erro no ficheiro de registo. |
+| **createOrUpdateIfMatchETag** |Se um dispositivo não existir com o **ID** especificado, está recentemente registado. <br/>Se o dispositivo já existir, as informações existentes só são substituídas com os dados de entrada fornecidos se houver uma correspondência **ETag.** <br/>Se houver uma incompatibilidade **do ETag,** é escrito um erro no ficheiro de registo. <br> O utilizador pode especificar opcionalmente dados duplos juntamente com os dados do dispositivo. O etag do gémeo, se especificado, é processado independentemente do etag do dispositivo. Se houver uma incompatibilidade com o etag do gémeo existente, é escrito um erro no ficheiro de registo. |
+| **delete** |Se já existir um dispositivo com o **ID** especificado, é eliminado sem ter em conta o valor **ETag.** <br/>Se o dispositivo não existir, é escrito um erro no ficheiro de registo. |
+| **deleteIfMatchETag** |Se já existir um dispositivo com o **ID** especificado, este só é eliminado se houver uma correspondência **ETag.** Se o dispositivo não existir, é escrito um erro no ficheiro de registo. <br/>Se houver uma incompatibilidade do ETag, é escrito um erro no ficheiro de registo. |
 
 > [!NOTE]
 > Se os dados de serialização não definirem explicitamente uma bandeira **de importeMode** para um dispositivo, este não cria **oOrUpdate** durante a operação de importação.
@@ -432,8 +432,7 @@ O artigo de clonagem tem uma amostra de trabalho associada a ele, que está loca
 
 Para saber mais sobre a gestão do Azure IoT Hub, confira os seguintes artigos:
 
-* [Métricas IoT Hub](iot-hub-metrics.md)
-* [Troncos IoT Hub](iot-hub-monitor-resource-health.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

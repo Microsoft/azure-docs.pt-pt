@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c0f5d8cdc7dda72f21fc1cf372e3796b26a3054a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127425"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545927"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurar aparelho virtual de rede em Azure HDInsight
 
 > [!Important]
-> As seguintes informações **só** são necessárias se desejar configurar um aparelho virtual de rede (NVA) que não [seja o Azure Firewall](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic).
+> As seguintes informações **só** são necessárias se desejar configurar um aparelho virtual de rede (NVA) que não [seja o Azure Firewall](./hdinsight-restrict-outbound-traffic.md).
 
 A marca FQDN de Firewall Azure Firewall é configurada automaticamente para permitir o tráfego de muitas das FQDNs importantes comuns. A utilização de outro aparelho virtual de rede exigirá que configurá uma série de funcionalidades adicionais. Tenha em mente os seguintes fatores ao configurar o seu aparelho virtual de rede:
 
@@ -34,14 +34,14 @@ Pode opcionalmente ativar um ou mais dos seguintes pontos finais de serviço que
 | **Ponto final** |
 |---|
 | SQL do Azure |
-| Storage do Azure |
+| Armazenamento do Azure |
 | Azure Active Directory |
 
 ### <a name="ip-address-dependencies"></a>Dependências de endereços IP
 
 | **Ponto final** | **Detalhes** |
 |---|---|
-| IPs publicado [aqui](hdinsight-management-ip-addresses.md) | Estes IPs são para o fornecedor de recursos HDInsight e devem ser incluídos na UDR para evitar o encaminhamento assimétrico. Esta regra só é necessária se o ResourceProviderConnection estiver definido para *Entrada*. Se o ResourceProviderConnection estiver definido para *Outbound,* estes IPs não são necessários na UDR.  |
+| IPs publicado [aqui](hdinsight-management-ip-addresses.md) | Estes IPs são para o fornecedor de recursos HDInsight e devem ser incluídos na UDR para evitar o encaminhamento assimétrico. Esta regra só é necessária se o ResourceProviderConnection estiver definido para *Entrada* . Se o ResourceProviderConnection estiver definido para *Outbound,* estes IPs não são necessários na UDR.  |
 | IPs privados AAD-DS | Só é necessário para os agrupamentos de ESP, se os VNETs não forem espezinhados.|
 
 

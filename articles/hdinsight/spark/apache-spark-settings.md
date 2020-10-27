@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188162"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545944"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -23,13 +23,13 @@ O cluster HDInsight Apache Spark padrão inclui os seguintes nóns: três nóns 
 
 ![Arquitetura Spark HDInsight](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-O número de tamanhos de VM e VM para os nós no seu cluster HDInsight pode afetar a sua configuração de Faísca. Os valores de configuração hdinsight não padrão requerem frequentemente valores de configuração de faísca não padrão. Quando cria um cluster HDInsight Spark, é-lhe mostrado tamanhos VM sugeridos para cada um dos componentes. Atualmente, os [tamanhos Linux VM otimizados](../../virtual-machines/linux/sizes-memory.md) para memória para Azure são D12 v2 ou superiores.
+O número de tamanhos de VM e VM para os nós no seu cluster HDInsight pode afetar a sua configuração de Faísca. Os valores de configuração hdinsight não padrão requerem frequentemente valores de configuração de faísca não padrão. Quando cria um cluster HDInsight Spark, é-lhe mostrado tamanhos VM sugeridos para cada um dos componentes. Atualmente, os [tamanhos Linux VM otimizados](../../virtual-machines/sizes-memory.md) para memória para Azure são D12 v2 ou superiores.
 
 ## <a name="apache-spark-versions"></a>Versões Apache Spark
 
 Use a melhor versão Spark para o seu cluster.  O serviço HDInsight inclui várias versões tanto da Spark como da própria HDInsight.  Cada versão do Spark inclui um conjunto de definições de cluster predefinidos.  
 
-Quando cria um novo cluster, existem várias versões Spark para escolher. Para ver a lista completa,  [Componentes e Versões HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Quando cria um novo cluster, existem várias versões Spark para escolher. Para ver a lista completa,  [Componentes e Versões HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > A versão padrão do Apache Spark no serviço HDInsight pode ser alterada sem aviso prévio. Se tiver uma dependência de versão, a Microsoft recomenda que especifique essa versão específica quando cria clusters utilizando .NET SDK, Azure PowerShell e Azure Classic CLI.
@@ -60,7 +60,7 @@ Verifique as definições atuais de configuração do cluster HDInsight antes de
 
 O Apache Ambari Web UI aparece, com um dashboard de métricas de utilização de recursos de cluster chave.  O Dashboard Ambari mostra-lhe a configuração Apache Spark e outros serviços instalados. O Dashboard inclui um separador **Config History,** onde vê informações para serviços instalados, incluindo o Spark.
 
-Para ver os valores de configuração para Apache Spark, selecione **Config History**, em seguida, selecione **Spark2**.  Selecione o **separador Configs** e, em seguida, selecione o `Spark` link `Spark2` (ou, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
+Para ver os valores de configuração para Apache Spark, selecione **Config History** , em seguida, selecione **Spark2** .  Selecione o **separador Configs** e, em seguida, selecione o `Spark` link `Spark2` (ou, dependendo da sua versão) na lista de serviços.  Vê uma lista de valores de configuração para o seu cluster:
 
 ![Configurações de faíscas](./media/apache-spark-settings/spark-configurations.png)
 

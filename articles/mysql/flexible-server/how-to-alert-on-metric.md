@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a099a9850289a046435b4e1763d7f54a702c0d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940520"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545094"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Utilize o portal Azure para configurar alertas em métricas para a base de dados Azure para MySQL - Servidor Flexível 
 
@@ -30,19 +30,19 @@ Pode configurar um alerta para fazer as seguintes ações quando ativa:
 Pode configurar e obter informações sobre as regras de alerta utilizando:
 * [Portal do Azure](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI do Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica a partir do portal Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor flexível MySQL que pretende monitorizar.
-2. Na secção **de monitorização** da barra lateral, selecione **Alertas**.
-3. Selecione **+ Nova regra de alerta**.
+2. Na secção **de monitorização** da barra lateral, selecione **Alertas** .
+3. Selecione **+ Nova regra de alerta** .
 4. A página **Criar regra** é apresentada. Preencha as informações necessárias:
 5. Dentro da secção **Condição,** escolha **a condição de seleção.**
 6. Verá uma lista de sinais suportados, selecione a métrica em que pretende criar um alerta. Por exemplo, selecione "Storage percent".
 7. Verá um gráfico para a métrica nas últimas seis horas. Utilize o período de entrega do **gráfico** para selecionar para ver um histórico mais longo para a métrica.
 8. Selecione o tipo **Threshold** (ex. "Estático" ou "Dinâmico"), **Operador** (ex. "Maior do que"), e **tipo de agregação** (ex. média). Isto determinará a lógica que a regra de alerta métrico irá avaliar.
     - Se estiver a utilizar um limiar **estático,** continue a definir um **valor limiar** (ex. 85 por cento). O gráfico métrico pode ajudar a determinar o que pode ser um limiar razoável.
-    - Se estiver a utilizar um limiar **Dinâmico,** continue a definir a **sensibilidade Threshold**. O gráfico métrico apresentará os limiares calculados com base em dados recentes. [Saiba mais sobre o tipo de condições e opções de sensibilidade dos Limiares Dinâmicos](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
+    - Se estiver a utilizar um limiar **Dinâmico,** continue a definir a **sensibilidade Threshold** . O gráfico métrico apresentará os limiares calculados com base em dados recentes. [Saiba mais sobre o tipo de condições e opções de sensibilidade dos Limiares Dinâmicos](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Refinar a condição ajustando o intervalo **de granularidade de agregação (Período)** sobre o qual os pontos de dados são agrupados utilizando a função do tipo de agregação (ex. "30 minutos"), e **Frequência** (ex "A cada 15 minutos").
 10. Clique em **Done** (Concluído).
 11. Adicione um grupo de ação. Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Dentro da secção **Grupos de Ação,** escolha **Selecionar grupo de ação** para selecionar um grupo de ação já existente para anexar à regra de alerta.
@@ -57,7 +57,7 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
-15. Preencha **os detalhes da regra de alerta** como o nome da regra de **alerta**, **Descrição**, **Guarde a regra de alerta para o grupo de recursos** e a **Severidade**.
+15. Preencha **os detalhes da regra de alerta** como o nome da regra de **alerta** , **Descrição** , **Guarde a regra de alerta para o grupo de recursos** e a **Severidade** .
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 

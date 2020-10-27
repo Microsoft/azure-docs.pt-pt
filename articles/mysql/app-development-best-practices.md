@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538913"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547253"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Melhores práticas para a construção de uma aplicação com Base de Dados Azure para o MySQL 
 
@@ -23,12 +23,12 @@ Aqui estão algumas boas práticas para ajudá-lo a construir uma aplicação pr
 Certifique-se de que todas as suas dependências estão na mesma região ao implementar a sua aplicação em Azure. A difusão de casos em regiões ou zonas de disponibilidade cria latência de rede, o que pode afetar o desempenho global da sua aplicação. 
 
 ### <a name="keep-your-mysql-server-secure"></a>Mantenha o seu servidor MySQL seguro
-Configure o servidor MySQL para ser [seguro](https://docs.microsoft.com/azure/mysql/concepts-security) e não acessível publicamente. Utilize uma destas opções para proteger o seu servidor: 
-- [Regras da firewall](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules)
-- [Redes virtuais](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet) 
-- [Azure Private Link](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)
+Configure o servidor MySQL para ser [seguro](./concepts-security.md) e não acessível publicamente. Utilize uma destas opções para proteger o seu servidor: 
+- [Regras da firewall](./concepts-firewall-rules.md)
+- [Redes virtuais](./concepts-data-access-and-security-vnet.md) 
+- [Azure Private Link](./concepts-data-access-security-private-link.md)
 
-Para obter segurança, deve sempre ligar-se ao seu servidor MySQL sobre SSL e configurar o seu servidor MySQL e a sua aplicação para utilizar o TLS 1.2. Ver [Como configurar o SSL/TLS](https://docs.microsoft.com/azure/mysql/concepts-ssl-connection-security). 
+Para obter segurança, deve sempre ligar-se ao seu servidor MySQL sobre SSL e configurar o seu servidor MySQL e a sua aplicação para utilizar o TLS 1.2. Ver [Como configurar o SSL/TLS](./concepts-ssl-connection-security.md). 
 
 ### <a name="tune-your-server-parameters"></a>Sintonize os parâmetros do servidor
 Para cargas de trabalho pesadas de leitura, afinando os parâmetros do `tmp_table_size` servidor, e `max_heap_table_size` pode ajudar a otimizar para um melhor desempenho. Para calcular os valores necessários para estas variáveis, olhe para os valores totais de memória por ligação e para a memória base. A soma dos parâmetros de memória por ligação, `tmp_table_size` excluindo, combinados com as contas da memória base para a memória total do servidor.
@@ -38,15 +38,15 @@ Para calcular o maior tamanho possível `tmp_table_size` de `max_heap_table_size
 ```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
 
 >[!NOTE]
-> A memória total indica a quantidade total de memória que o servidor tem através dos vCores previstos.  Por exemplo, numa Base de Dados Azure de dois vCore para o servidor MySQL, a memória total será de 5 GB * 2. Pode encontrar mais detalhes sobre a memória para cada nível na documentação do [nível de preços.](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers)
+> A memória total indica a quantidade total de memória que o servidor tem através dos vCores previstos.  Por exemplo, numa Base de Dados Azure de dois vCore para o servidor MySQL, a memória total será de 5 GB * 2. Pode encontrar mais detalhes sobre a memória para cada nível na documentação do [nível de preços.](./concepts-pricing-tiers.md)
 >
 > A memória base indica as variáveis de memória, como `query_cache_size` `innodb_buffer_pool_size` e, que o MySQL rubricará e alocará no início do servidor. Memória por ligação, como `sort_buffer_size` `join_buffer_size` e, é memória que é atribuída apenas quando uma consulta precisa dela.
 
 ### <a name="create-non-admin-users"></a>Criar utilizadores não administrativos 
-[Criar utilizadores não administrativos](https://docs.microsoft.com/azure/mysql/howto-create-users) para cada base de dados. Normalmente, os nomes de utilizador são identificados como os nomes da base de dados.
+[Criar utilizadores não administrativos](./howto-create-users.md) para cada base de dados. Normalmente, os nomes de utilizador são identificados como os nomes da base de dados.
 
 ### <a name="reset-your-password"></a>Repor a palavra-passe
-Pode [redefinir a sua palavra-passe](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) para o seu servidor MySQL utilizando o portal Azure. 
+Pode [redefinir a sua palavra-passe](./howto-create-manage-server-portal.md#update-admin-password) para o seu servidor MySQL utilizando o portal Azure. 
 
 Redefinir a palavra-passe do servidor para uma base de dados de produção pode reduzir a sua aplicação. É uma boa prática redefinir a palavra-passe para quaisquer cargas de trabalho de produção fora do pico para minimizar o impacto nos utilizadores da sua aplicação.
 
@@ -54,29 +54,29 @@ Redefinir a palavra-passe do servidor para uma base de dados de produção pode 
 Aqui estão algumas ferramentas e práticas que pode usar para ajudar a depurar problemas de desempenho com a sua aplicação.
 
 ### <a name="enable-slow-query-logs-to-identify-performance-issues"></a>Permitir registos de consulta lenta para identificar problemas de desempenho
-Pode ativar [registos de consultas lentas](https://docs.microsoft.com/azure/mysql/concepts-server-logs) e [registos de auditoria](https://docs.microsoft.com/azure/mysql/concepts-audit-logs) no seu servidor. Analisar registos de consultas lentas pode ajudar a identificar estrangulamentos de desempenho para a resolução de problemas. 
+Pode ativar [registos de consultas lentas](./concepts-server-logs.md) e [registos de auditoria](./concepts-audit-logs.md) no seu servidor. Analisar registos de consultas lentas pode ajudar a identificar estrangulamentos de desempenho para a resolução de problemas. 
 
-Os registos de auditoria também estão disponíveis através de registos Azure Diagnostics em registos do Azure Monitor, Azure Event Hubs e contas de armazenamento. Ver [Como resolver problemas de problemas questões de desempenho](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-query-performance).
+Os registos de auditoria também estão disponíveis através de registos Azure Diagnostics em registos do Azure Monitor, Azure Event Hubs e contas de armazenamento. Ver [Como resolver problemas de problemas questões de desempenho](./howto-troubleshoot-query-performance.md).
 
 ### <a name="use-connection-pooling"></a>Utilize agrupamento de ligação
-A gestão de ligações de base de dados pode ter um impacto significativo no desempenho da aplicação como um todo. Para otimizar o desempenho, é necessário reduzir o número de vezes que as ligações são estabelecidas e o tempo para estabelecer ligações em caminhos-chave de código. Utilize [o agrupamento de ligação](https://docs.microsoft.com/azure/mysql/concepts-connectivity#access-databases-by-using-connection-pooling-recommended) para ligar à Base de Dados Azure para o MySQL para melhorar a resiliência e o desempenho. 
+A gestão de ligações de base de dados pode ter um impacto significativo no desempenho da aplicação como um todo. Para otimizar o desempenho, é necessário reduzir o número de vezes que as ligações são estabelecidas e o tempo para estabelecer ligações em caminhos-chave de código. Utilize [o agrupamento de ligação](./concepts-connectivity.md#access-databases-by-using-connection-pooling-recommended) para ligar à Base de Dados Azure para o MySQL para melhorar a resiliência e o desempenho. 
 
 Pode utilizar o pooler de ligação [ProxySQL](https://proxysql.com/) para gerir eficientemente as ligações. A utilização de um pooler de ligação pode diminuir as ligações ociosas e reutilizar as ligações existentes, o que ajudará a evitar problemas. Veja [como configurar o ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) para saber mais. 
 
 ### <a name="retry-logic-to-handle-transient-errors"></a>Relemgar lógica para lidar com erros transitórios
-A sua aplicação pode sofrer [erros transitórios](https://docs.microsoft.com/azure/mysql/concepts-connectivity#handling-transient-errors) quando as ligações à base de dados são largadas ou perdidas intermitentemente. Nestas situações, o servidor está a funcionar depois de uma a duas retrações em 5 a 10 segundos. 
+A sua aplicação pode sofrer [erros transitórios](./concepts-connectivity.md#handling-transient-errors) quando as ligações à base de dados são largadas ou perdidas intermitentemente. Nestas situações, o servidor está a funcionar depois de uma a duas retrações em 5 a 10 segundos. 
 
-Um bom treino é esperar 5 segundos antes da primeira repetição. Em seguida, siga cada redandid, aumentando a espera gradualmente, até 60 segundos. Limite o número máximo de retretes em que o seu pedido considera que a operação falhou, para que possa então investigar mais aprofundadamente. Veja [como resolver erros de ligação](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) para saber mais. 
+Um bom treino é esperar 5 segundos antes da primeira repetição. Em seguida, siga cada redandid, aumentando a espera gradualmente, até 60 segundos. Limite o número máximo de retretes em que o seu pedido considera que a operação falhou, para que possa então investigar mais aprofundadamente. Veja [como resolver erros de ligação](./howto-troubleshoot-common-connection-issues.md) para saber mais. 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Permitir a replicação de leitura para mitigar falhas
-Pode utilizar [a replicação de dados](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) para cenários de falha. Quando se utiliza réplicas de leitura, não ocorre qualquer falha automatizada entre servidores de origem e réplica. 
+Pode utilizar [a replicação de dados](./howto-data-in-replication.md) para cenários de falha. Quando se utiliza réplicas de leitura, não ocorre qualquer falha automatizada entre servidores de origem e réplica. 
 
 Vai notar um desfasamento entre a fonte e a réplica porque a replicação é assíncronea. O lag de rede pode ser influenciado por muitos fatores, como o tamanho da carga de trabalho que funciona no servidor de origem e a latência entre centros de dados. Na maioria dos casos, o lag de réplica varia de alguns segundos a alguns minutos.
 
 ## <a name="database-deployment"></a>Implantação de bases de dados 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Configure uma base de dados Azure para a tarefa MySQL no seu pipeline de implantação CI/CD
-De vez em quando, tem de implementar alterações na sua base de dados. Nesses casos, pode utilizar a integração contínua (CI) e a entrega contínua (CD) através [dos Pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/) e utilizar uma tarefa para [o seu servidor MySQL](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) atualizar a base de dados executando um script personalizado contra ele.
+De vez em quando, tem de implementar alterações na sua base de dados. Nesses casos, pode utilizar a integração contínua (CI) e a entrega contínua (CD) através [dos Pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/) e utilizar uma tarefa para [o seu servidor MySQL](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) atualizar a base de dados executando um script personalizado contra ele.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Utilize um processo eficaz para a implementação de bases de dados manuais 
 Durante a implementação da base de dados manual, siga estes passos para minimizar o tempo de inatividade ou reduzir o risco de implantação falhada: 
@@ -119,6 +119,4 @@ A utilização do tipo de dados certo com base no tipo de dados que pretende arm
 Para evitar consultas lentas, pode usar índices. Os índices podem ajudar a encontrar linhas com colunas específicas rapidamente. Ver [como utilizar índices no MySQL](https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html).
 
 ### <a name="use-explain-for-your-select-queries"></a>Use EXPLICA PARA as suas consultas SELECT
-Use a `EXPLAIN` declaração para obter informações sobre o que o MySQL está a fazer para executar a sua consulta. Pode ajudá-lo a detetar estrangulamentos ou problemas com a sua consulta. Ver [Como utilizar EXPLICA para o desempenho da consulta de perfil](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-query-performance).
-
-
+Use a `EXPLAIN` declaração para obter informações sobre o que o MySQL está a fazer para executar a sua consulta. Pode ajudá-lo a detetar estrangulamentos ou problemas com a sua consulta. Ver [Como utilizar EXPLICA para o desempenho da consulta de perfil](./howto-troubleshoot-query-performance.md).

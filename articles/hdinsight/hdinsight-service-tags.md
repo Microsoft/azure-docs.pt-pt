@@ -7,16 +7,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399961"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535251"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de serviço NSG para Azure HDInsight
 
-As etiquetas de serviço Azure HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gestão. Estes grupos ajudam a minimizar a complexidade da criação de regras de segurança. [As tags](../virtual-network/security-overview.md#service-tags) de serviço permitem o tráfego de entrada a partir de IPs específicos sem introduzir cada um dos [endereços IP](hdinsight-management-ip-addresses.md) de gestão nos seus NSGs.
+As etiquetas de serviço Azure HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gestão. Estes grupos ajudam a minimizar a complexidade da criação de regras de segurança. [As tags](../virtual-network/network-security-groups-overview.md#service-tags) de serviço permitem o tráfego de entrada a partir de IPs específicos sem introduzir cada um dos [endereços IP](hdinsight-management-ip-addresses.md) de gestão nos seus NSGs.
 
 O serviço HDInsight gere estas tags de serviço. Não é possível criar a sua própria etiqueta de serviço ou modificar uma etiqueta existente. A Microsoft gere os prefixos de endereço que correspondem à etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
@@ -26,9 +26,9 @@ Se você gostaria de usar uma determinada região e a etiqueta de serviço ainda
 
 Tem duas opções para utilizar tags de serviço nos seus grupos de segurança de rede:
 
-- **Utilize uma única etiqueta global de serviço HDInsight**: Esta opção abre a sua rede virtual a todos os endereços IP que o serviço HDInsight utiliza para monitorizar clusters em todas as regiões. Esta opção é o método mais simples, mas pode não ser apropriado se tiver requisitos de segurança restritivos.
+- **Utilize uma única etiqueta global de serviço HDInsight** : Esta opção abre a sua rede virtual a todos os endereços IP que o serviço HDInsight utiliza para monitorizar clusters em todas as regiões. Esta opção é o método mais simples, mas pode não ser apropriado se tiver requisitos de segurança restritivos.
 
-- **Utilize várias tags de serviço regionais**: Esta opção abre a sua rede virtual apenas para os endereços IP que o HDInsight utiliza nessa região específica. No entanto, se estiver a utilizar várias regiões, terá de adicionar várias tags de serviço à sua rede virtual.
+- **Utilize várias tags de serviço regionais** : Esta opção abre a sua rede virtual apenas para os endereços IP que o HDInsight utiliza nessa região específica. No entanto, se estiver a utilizar várias regiões, terá de adicionar várias tags de serviço à sua rede virtual.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Use uma única etiqueta global de serviço HDInsight
 
@@ -36,11 +36,11 @@ A maneira mais fácil de começar a usar tags de serviço com o seu cluster HDIn
 
 1. A partir do [portal Azure,](https://portal.azure.com/)selecione o seu grupo de segurança de rede.
 
-1. Em **Definições**, selecione **as regras de segurança de entrada**e, em seguida, selecione + **Adicionar**.
+1. Em **Definições** , selecione **as regras de segurança de entrada** e, em seguida, selecione + **Adicionar** .
 
-1. A partir **da** lista de drop-down Source, selecione Tag de **Serviço**.
+1. A partir **da** lista de drop-down Source, selecione Tag de **Serviço** .
 
-1. A partir da lista de drop-down da etiqueta de **serviço Source,** selecione **HDInsight**.
+1. A partir da lista de drop-down da etiqueta de **serviço Source,** selecione **HDInsight** .
 
     ![Adicione uma etiqueta de serviço do portal Azure](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -59,7 +59,7 @@ Se o seu cluster estiver localizado numa região listada nesta tabela, só preci
 | Country | Region | Etiqueta de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight.AustraliaEast |
-| &nbsp; | Sudeste da Austrália | HDInsight.AustraliaSoutheast |
+| &nbsp; | Austrália Sudeste | HDInsight.AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight.AustraliaCentral |
 | China | China Leste 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China Norte 2 | HDInsight.ChinaNorth2 |
@@ -102,7 +102,7 @@ Por exemplo, se o seu cluster for criado na `East US 2` região, terá de adicio
 | &nbsp; | E.U.A. Central | HDInsight.centralus |
 | &nbsp; | NorteCentral EUA | HDInsight. NorthCentralus |
 | &nbsp; | E.U.A. Centro-Sul | HDInsight.SouthCentralus |
-| &nbsp; | E.U.A. Leste | HDInsight.EastUS |
+| &nbsp; | E.U.A Leste | HDInsight.EastUS |
 | &nbsp; | E.U.A. Oeste | HDInsight.Westus |
 | Japão | Leste do Japão | HDInsight.JapanEast |
 | Europa | Europa do Norte | HDInsight.NorthEurope |
@@ -125,5 +125,5 @@ Os aglomerados nas regiões da *Alemanha Central* e Alemanha *O Nordeste* tem de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Grupos de segurança da rede: tags de serviço](../virtual-network/security-overview.md#security-rules)
+- [Grupos de segurança da rede: tags de serviço](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Criar redes virtuais para clusters Azure HDInsight](hdinsight-create-virtual-network.md)

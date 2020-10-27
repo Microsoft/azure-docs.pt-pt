@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893650"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546947"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuidade do negócio Azure HDInsight
 
@@ -39,7 +39,7 @@ Esta secção discute algumas boas práticas para você considerar durante o pla
 
 * Utilize ferramentas de monitorização Azure em HDInsight para detetar comportamentos anormais no cluster e definir notificações de alerta correspondentes. Pode implementar as soluções de gestão específicas do cluster HDInsight pré-configuradas que recolhem métricas de desempenho importantes do tipo de cluster específico. Para obter mais informações, consulte [a Azure Monitoring for HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Subscreva os alertas de saúde da Azure para ser notificado sobre questões de serviço, manutenção planeada, avisos de saúde e segurança para uma subscrição, serviço ou região. Notificações de saúde que incluem a causa do problema e ETA resoluta ajudam-no a executar melhor o failover e os failbacks. Para mais informações, consulte [a documentação do Serviço Azure Health.](/azure/service-health/)
+* Subscreva os alertas de saúde da Azure para ser notificado sobre questões de serviço, manutenção planeada, avisos de saúde e segurança para uma subscrição, serviço ou região. Notificações de saúde que incluem a causa do problema e ETA resoluta ajudam-no a executar melhor o failover e os failbacks. Para mais informações, consulte [a documentação do Serviço Azure Health.](../service-health/index.yml)
 
 ## <a name="single-region-availability"></a>Disponibilidade de uma região única
 

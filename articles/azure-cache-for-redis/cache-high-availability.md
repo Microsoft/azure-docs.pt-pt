@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
-ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654167"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536798"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidade para Azure Cache para Redis
 
@@ -28,7 +28,7 @@ Azure Cache para Redis implementa alta disponibilidade usando vários VMs, *cham
 
 ## <a name="standard-replication"></a>Replicação padrão
 
-Um Cache Azure para Redis no nível Standard ou Premium funciona por defeito num par de servidores Redis. Os dois servidores estão hospedados em VMs dedicados. O Redis de código aberto permite que apenas um servidor lide com pedidos de escrita de dados. Este servidor é o nó *primário,* enquanto o outro *replica*. Depois de providenciar os nós do servidor, a Cache Azure para Redis atribui-lhes funções primárias e réplicas. O nó primário geralmente é responsável pela manutenção da escrita, bem como por pedidos de leitura de clientes Redis. Numa operação de escrita, compromete uma nova chave e uma atualização chave para a sua memória interna e responde imediatamente ao cliente. Remete a operação para a réplica assíncronea.
+Um Cache Azure para Redis no nível Standard ou Premium funciona por defeito num par de servidores Redis. Os dois servidores estão hospedados em VMs dedicados. O Redis de código aberto permite que apenas um servidor lide com pedidos de escrita de dados. Este servidor é o nó *primário,* enquanto o outro *replica* . Depois de providenciar os nós do servidor, a Cache Azure para Redis atribui-lhes funções primárias e réplicas. O nó primário geralmente é responsável pela manutenção da escrita, bem como por pedidos de leitura de clientes Redis. Numa operação de escrita, compromete uma nova chave e uma atualização chave para a sua memória interna e responde imediatamente ao cliente. Remete a operação para a réplica assíncronea.
 
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="Configuração da replicação de dados":::
    
@@ -37,7 +37,7 @@ Um Cache Azure para Redis no nível Standard ou Premium funciona por defeito num
 >
 >
 
-Se o nó primário numa cache Redis não estiver disponível, a réplica promover-se-á para se tornar o novo primário automaticamente. Este processo é chamado de *failover*. A réplica vai esperar muito tempo antes de assumir o caso de o nó primário recuperar rapidamente. Quando um failover acontece, Azure Cache for Redis fornece um novo VM e junta-o à cache como o nó de réplica. A réplica executa uma sincronização completa de dados com a primária de modo a ter outra cópia dos dados da cache.
+Se o nó primário numa cache Redis não estiver disponível, a réplica promover-se-á para se tornar o novo primário automaticamente. Este processo é chamado de *failover* . A réplica vai esperar muito tempo antes de assumir o caso de o nó primário recuperar rapidamente. Quando um failover acontece, Azure Cache for Redis fornece um novo VM e junta-o à cache como o nó de réplica. A réplica executa uma sincronização completa de dados com a primária de modo a ter outra cópia dos dados da cache.
 
 Um nó primário pode sair de serviço como parte de uma atividade de manutenção planeada, como software Redis ou atualização do sistema operativo. Também pode deixar de funcionar devido a eventos não planeados, como falhas em hardware, software ou rede subjacentes. [Failover e patching para Azure Cache para Redis](cache-failover.md) fornece uma explicação detalhada sobre tipos de failovers Redis. Um Azure Cache para Redis passará por muitas falhas durante a sua vida. A arquitetura de alta disponibilidade é projetada para tornar estas mudanças dentro de uma cache o mais transparente possível para os seus clientes.
 
@@ -57,7 +57,7 @@ Azure Cache para Redis permite nómada de réplica adicional no nível Premium. 
 >
 >
 
-A azure Cache para Redis suporta configurações redundantes de zona no nível Premium. Uma [cache redundante de zona](cache-how-to-zone-redundancy.md) pode colocar os seus nós em [diferentes Zonas de Disponibilidade de Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) na mesma região. Elimina o datacenter ou a paragem de AZ como um único ponto de falha e aumenta a disponibilidade global do seu cache.
+A azure Cache para Redis suporta configurações redundantes de zona no nível Premium. Uma [cache redundante de zona](cache-how-to-zone-redundancy.md) pode colocar os seus nós em [diferentes Zonas de Disponibilidade de Azure](../availability-zones/az-overview.md) na mesma região. Elimina o datacenter ou a paragem de AZ como um único ponto de falha e aumenta a disponibilidade global do seu cache.
 
 O diagrama a seguir ilustra a configuração redundante da zona:
 

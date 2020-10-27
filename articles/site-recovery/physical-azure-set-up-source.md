@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: d2cc3627222bcd8de5a5cb1b5c83b04c5d4ef880
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327e995a8fe2f66903548fba054804768d2538ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86130206"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534299"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre dos servidores físicos para Azure
 
@@ -36,19 +36,19 @@ A tabela seguinte lista os requisitos mínimos de hardware, software e rede para
 ## <a name="choose-your-protection-goals"></a>Escolha os seus objetivos de proteção
 
 1. No portal Azure, vá à lâmina dos cofres dos **Serviços de Recuperação** e selecione o seu cofre.
-2. No menu **de recursos** do cofre, clique em **Iniciar o**Passo de  >  **Recuperação do Local**  >  **1: Prepare o**objetivo de  >  **proteção da**infraestrutura .
+2. No menu **de recursos** do cofre, clique em **Iniciar o** Passo de  >  **Recuperação do Local**  >  **1: Prepare o** objetivo de  >  **proteção da** infraestrutura .
 
-    ![Selecione os objetivos](./media/physical-azure-set-up-source/choose-goals.png)
-3. Na **meta proteção**, selecione **Para Azure** e **Não virtualizado/Outros**, e clique em **OK**.
+    ![Screenshot que mostra onde selecionar o objetivo de proteção.](./media/physical-azure-set-up-source/choose-goals.png)
+3. Na **meta proteção** , selecione **Para Azure** e **Não virtualizado/Outros** , e clique em **OK** .
 
     ![Selecione os objetivos](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-1. Na **fonte Preparar**, se não tiver um servidor de configuração, clique em **+Servidor de Configuração** para adicionar um.
+1. Na **fonte Preparar** , se não tiver um servidor de configuração, clique em **+Servidor de Configuração** para adicionar um.
 
-   ![Configurar a origem](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. Na lâmina **do Servidor de Adicionar,** verifique se o **Servidor de Configuração** aparece no **tipo servidor**.
+   ![Screenshot que mostra como selecionar o servidor de configuração.](./media/physical-azure-set-up-source/plus-config-srv.png)
+2. Na lâmina **do Servidor de Adicionar,** verifique se o **Servidor de Configuração** aparece no **tipo servidor** .
 4. Descarregue o ficheiro de instalação de configuração unificada de recuperação do site.
 5. Transfira a chave de registo do cofre. Precisa da chave de registo quando executar a Configuração Unificada. A chave é válida durante cinco dias depois de gerá-la.
 
