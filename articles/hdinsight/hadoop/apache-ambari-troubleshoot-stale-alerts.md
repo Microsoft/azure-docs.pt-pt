@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539115"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533840"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Cenário: Alertas apache ambari em Azure HDInsight
 
@@ -47,16 +47,16 @@ Pode aumentar o valor de um intervalo de alerta individual, com base no tempo de
 1. No Apache Ambari UI, selecione o **separador Alertas.**
 1. Selecione o nome de definição de alerta que deseja.
 1. A partir da definição, **selecione Editar.**
-1. Aumente o valor **do intervalo de verificação** e, em seguida, selecione **Guardar**.
+1. Aumente o valor **do intervalo de verificação** e, em seguida, selecione **Guardar** .
 
 ### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Aumente o intervalo de alerta para alertas de servidores Ambari
 
 1. No Apache Ambari UI, selecione o **separador Alertas.**
-1. Na lista de **grupos** de down-down, selecione **AMBARI Predefinido**.
+1. Na lista de **grupos** de down-down, selecione **AMBARI Predefinido** .
 1. Selecione o alerta **de alertas do servidor Ambari.**
 1. A partir da definição, **selecione Editar.**
 1. Aumente o valor **do Intervalo de Verificação.**
-1. Aumente o valor **multiplicador de intervalo** e, em seguida, selecione **Guardar**.
+1. Aumente o valor **multiplicador de intervalo** e, em seguida, selecione **Guardar** .
 
 ### <a name="disable-and-reenable-the-alert"></a>Desativar e reenuendível o alerta
 
@@ -65,10 +65,10 @@ Para descartar um alerta velho, desative-o e, em seguida, reensipe-o:
 1. No Apache Ambari UI, selecione o **separador Alertas.**
 1. Selecione o nome de definição de alerta que deseja.
 1. A partir da definição, **selecione Ativado** na parte extrema-direita da UI.
-1. Na janela pop-up **de confirmação,** selecione **Confirmar Desativar**.
+1. Na janela pop-up **de confirmação,** selecione **Confirmar Desativar** .
 1. Aguarde alguns segundos para que todas as "instâncias" de alerta mostradas na página sejam apuradas.
 1. A partir da definição, **selecione Disabled** na parte extrema-direita da UI.
-1. Na janela pop-up **de confirmação,** selecione **Confirmar Ativar**.
+1. Na janela pop-up **de confirmação,** selecione **Confirmar Ativar** .
 
 ### <a name="increase-the-alert-grace-period"></a>Aumente o período de alerta
 
@@ -84,6 +84,6 @@ Se o seu problema não foi mencionado aqui ou se não conseguir resolvê-lo, vis
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) no Twitter. Esta é a conta oficial da Microsoft Azure para melhorar a experiência do cliente. Liga a comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, envie um pedido de apoio do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para lá chegar, selecione Ajuda **(?**) do menu do portal ou abra o painel **de suporte Help +.** Para mais informações, consulte Como criar um pedido de [suporte Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+* Se precisar de mais ajuda, envie um pedido de apoio do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Para lá chegar, selecione Ajuda **(?** ) do menu do portal ou abra o painel **de suporte Help +.** Para mais informações, consulte Como criar um pedido de [suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   O suporte para gestão de subscrição e faturação está incluído na sua subscrição Microsoft Azure. O suporte técnico está disponível através dos [Planos de Apoio Azure.](https://azure.microsoft.com/support/plans/)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874032"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541711"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux em HDInsight utilizando o portal Azure
 
@@ -48,23 +48,23 @@ A partir do separador **Básicos,** forneça as seguintes informações:
 |Propriedade |Descrição |
 |---|---|
 |Subscrição|A partir da lista de drop-down, selecione a subscrição Azure que é usada para o cluster.|
-|Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo**.|
+|Grupo de recursos|A partir da lista de drop-down, selecione o seu grupo de recursos existente ou selecione **Criar novo** .|
 |Nome do cluster|Introduza um nome globalmente exclusivo.|
-|Region|A partir da lista de drop-down, selecione uma região onde o cluster é criado.|
+|Região|A partir da lista de drop-down, selecione uma região onde o cluster é criado.|
 |Tipo de cluster|Clique **em Selecionar o tipo de cluster** para abrir uma lista. Na lista, selecione o tipo de cluster procurado. Os clusters HDInsight vêm em diferentes tipos. Correspondem à carga de trabalho ou à tecnologia para a qual o cluster está sintonizado. Não há um método suportado para criar um cluster que combine vários tipos.|
-|Versão|A partir da lista de drop-down, selecione uma **versão**. Utilize a versão padrão se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).|
-|Nome de utilizador de início de sessão do cluster|Forneça o nome de utilizador, o padrão é **administrador**.|
+|Versão|A partir da lista de drop-down, selecione uma **versão** . Utilize a versão padrão se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).|
+|Nome de utilizador de início de sessão do cluster|Forneça o nome de utilizador, o padrão é **administrador** .|
 |Palavra-passe de início de sessão do cluster|Forneça a senha.|
 |Confirme a senha de login do cluster|Reentre na senha|
 |Nome de utilizador de Secure Shell (SSH)|Forneça o nome de utilizador, o padrão é **sshuser**|
 |Use a palavra-passe de login do cluster para SSH|Se pretender a mesma palavra-passe SSH que a palavra-passe de administração especificada anteriormente, selecione a palavra-passe de login do cluster Utilizar para a caixa de verificação **SSH.** Caso contrário, forneça uma **PALAVRA-passe** ou **UMA CHAVE PÚBLICA** para autenticar o utilizador SSH. Uma chave pública é a abordagem que recomendamos. Escolha **Selecione** na parte inferior para guardar a configuração das credenciais.  Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
-Selecione **Seguinte: >>de armazenamento ** para avançar para o separador seguinte.
+Selecione **Seguinte: >>de armazenamento** para avançar para o separador seguinte.
 
 ## <a name="storage"></a>Armazenamento
 
 > [!WARNING] 
-> A partir de 15 de junho de 2020 os clientes não poderão criar um novo diretor de serviços utilizando o HDInsight. Consulte [Criar O Título de Serviço e Certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) utilizando o Diretório Ativo Azure.
+> A partir de 15 de junho de 2020 os clientes não poderão criar um novo diretor de serviços utilizando o HDInsight. Consulte [Criar O Título de Serviço e Certificados](../active-directory/develop/howto-create-service-principal-portal.md) utilizando o Diretório Ativo Azure.
 
 ![HDInsight criar armazenamento de cluster](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Criação de um novo cluster no portal Azure - armazenamento")
 
@@ -72,9 +72,9 @@ Selecione **Seguinte: >>de armazenamento ** para avançar para o separador segui
 
 A partir da lista de drop-down para **o tipo de armazenamento primário,** selecione o seu tipo de armazenamento predefinido. Os campos posteriores a completar variarão em função da sua seleção. Para **armazenamento Azure:**
 
-1. Para **o método seleção**, escolha **a lista**ou use **a tecla de acesso**.
-    * Para **Selecionar a partir da lista,** em seguida, selecione a sua conta de **armazenamento primário** na lista de drop-down ou selecione Criar **novo**.
-    * Para **utilizar a tecla de acesso,** insira o nome da sua **conta de Armazenamento**. Em seguida, forneça a **chave de acesso**.
+1. Para **o método seleção** , escolha **a lista** ou use **a tecla de acesso** .
+    * Para **Selecionar a partir da lista,** em seguida, selecione a sua conta de **armazenamento primário** na lista de drop-down ou selecione Criar **novo** .
+    * Para **utilizar a tecla de acesso,** insira o nome da sua **conta de Armazenamento** . Em seguida, forneça a **chave de acesso** .
 
 1. Para **o Contentor,** aceite o valor predefinido ou introduza um novo.
 
@@ -87,7 +87,7 @@ Opcional: **Selecione Adicionar armazenamento Azure** para armazenamento adicion
 Opcional: Especifique uma base de dados SQL existente para salvar a Colmeia Apache, Apache Oozie e, ou os metadados Apache Ambari fora do cluster. A Base de Dados Azure SQL que é utilizada para a meta-loja deve permitir a conectividade a outros serviços Azure, incluindo Azure HDInsight. Quando criar uma meta-loja, não diga o nome de uma base de dados com traços ou hífens. Estes caracteres podem fazer com que o processo de criação do cluster falhe.
 
 > [!IMPORTANT]
-> Para formas de cluster que suportam metastões, a metastore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)**! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
+> Para formas de cluster que suportam metastões, a metastore predefinida fornece uma Base de Dados Azure SQL com um **limite básico de DTU de nível 5 (não atualizável)** ! Adequado para fins básicos de teste. Para cargas de trabalho grandes ou de produção, recomendamos migrar para uma meta-loja externa.
 
 Selecione **Seguinte: Segurança + rede >>** para avançar para o separador seguinte.
 
@@ -99,7 +99,7 @@ A partir do separador **Segurança + rede,** forneça as seguintes informações
 
 |Propriedade |Descrição |
 |---|---|
-|Pacote de segurança da empresa|Opcional: Selecione a caixa de verificação para utilizar o **Pacote de Segurança Empresarial**. Para obter mais informações, consulte [configurar um cluster HDInsight com pacote de segurança empresarial utilizando os Serviços de Domínio do Diretório Ativo Azure](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Pacote de segurança da empresa|Opcional: Selecione a caixa de verificação para utilizar o **Pacote de Segurança Empresarial** . Para obter mais informações, consulte [configurar um cluster HDInsight com pacote de segurança empresarial utilizando os Serviços de Domínio do Diretório Ativo Azure](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Opcional: Selecione uma versão TLS da lista de drop-down. Para mais informações, consulte [a Segurança da Camada de Transporte.](./transport-layer-security.md)|
 |Rede virtual|Opcional: Selecione uma rede virtual existente e sub-rede da lista de drop-down. Para obter informações, consulte [Plan uma implementação de rede virtual para clusters Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). O artigo inclui requisitos específicos de configuração para a rede virtual.|
 |Definições de encriptação de discos|Opcional: Selecione a caixa de verificação para utilizar a encriptação. Para obter mais informações, consulte a [encriptação do disco de chaves gerida pelo Cliente](./disk-encryption.md).|

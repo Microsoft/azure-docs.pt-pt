@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532567"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533415"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: Clusters Azure HDInsight com encriptação de disco perdem acesso ao Cofre da Chave
 
@@ -26,7 +26,7 @@ O alerta do Centro de Saúde de Recursos (RHC), `The HDInsight cluster is unable
 
 O alerta garante que o KV está acessível a partir dos nós do cluster, garantindo assim a ligação da rede, a saúde do KV e a política de acesso ao utilizador designado Identidade Gerida. Este alerta é apenas um aviso de encerramento de corretor iminente em reboots de nó posteriores, o cluster continua a funcionar até que os nós reiniciem.
 
-Navegue até Apache Ambari UI para encontrar mais informações sobre o alerta a partir do estado do cofre da chave de **encriptação do disco**. Este alerta terá detalhes sobre o motivo da falha de verificação.
+Navegue até Apache Ambari UI para encontrar mais informações sobre o alerta a partir do estado do cofre da chave de **encriptação do disco** . Este alerta terá detalhes sobre o motivo da falha de verificação.
 
 ## <a name="resolution"></a>Resolução
 
@@ -36,7 +36,7 @@ Veja a [disponibilidade e redundância do Azure Key Vault](../../key-vault/gener
 
 ### <a name="kv-accidental-deletion"></a>Eliminação acidental do KV
 
-* Restaurar a chave apagada no KV para recuperar automaticamente. Para obter mais informações, consulte [a Chave Eliminada de Recuperar.](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey)
+* Restaurar a chave apagada no KV para recuperar automaticamente. Para obter mais informações, consulte [a Chave Eliminada de Recuperar.](/rest/api/keyvault/recoverdeletedkey)
 * Contacte a equipa KV para recuperar de supressões acidentais.
 
 ### <a name="kv-access-policy-changed"></a>A política de acesso ao KV foi alterada
@@ -88,4 +88,4 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).

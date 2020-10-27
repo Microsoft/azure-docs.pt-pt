@@ -41,7 +41,7 @@ As alterações na pré-visualização incluem:
 
 A pré-visualização é ligada por defeito, para que possa usá-la imediatamente. Pode consultar as mais recentes funcionalidades e melhorias selecionando **funcionalidades de pré-visualização** na página **de todos os utilizadores.** Todas as páginas que tenham sido atualizadas como parte desta pré-visualização apresentarão uma etiqueta de pré-visualização. Se tiver algum problema, pode voltar à experiência do legado:
 
-1. Inscreva-se no [centro de administração AdD Azure](https://aad.portal.azure.com) e selecione **Utilizadores**.
+1. Inscreva-se no [centro de administração AdD Azure](https://aad.portal.azure.com) e selecione **Utilizadores** .
 1. A partir da página **Utilizadores – Todos os utilizadores,** selecione o banner no topo da página.
 1. No painel **de funcionalidades de pré-visualização,** desligue a gestão do **utilizador melhorada.**
 

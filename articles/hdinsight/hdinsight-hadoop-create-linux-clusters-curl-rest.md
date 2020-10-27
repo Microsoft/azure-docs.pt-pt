@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b67ddd57c3a0787213763253cef5083f420cefe0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490361"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541677"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters Apache Hadoop usando a API Azure REST
 
@@ -219,7 +219,7 @@ Siga os passos documentados em [Começar com o Azure CLI](/cli/azure/get-started
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 > [!NOTE]  
-> Estes passos são uma versão abreviada do *principal do serviço Create com* secção de senha do Use [Azure CLI para criar um principal serviço para aceder ao](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) documento de recursos. Estes passos criam um principal de serviço que é usado para autenticar a API AZURE REST.
+> Estes passos são uma versão abreviada do *principal do serviço Create com* secção de senha do Use [Azure CLI para criar um principal serviço para aceder ao](/cli/azure/create-an-azure-service-principal-azure-cli) documento de recursos. Estes passos criam um principal de serviço que é usado para autenticar a API AZURE REST.
 
 1. A partir de uma linha de comando, utilize o seguinte comando para listar as suas subscrições Azure.
 
@@ -274,7 +274,7 @@ Definir `$TENANTID` , e aos `$APPID` `$PASSWORD` valores obtidos ou utilizados a
 
 Se este pedido for bem sucedido, recebe uma resposta de 200 séries e o organismo de resposta contém um documento JSON.
 
-O documento JSON devolvido por este pedido contém um elemento nomeado **access_token**. O valor do **access_token** é utilizado para pedidos de autenticação à API REST.
+O documento JSON devolvido por este pedido contém um elemento nomeado **access_token** . O valor do **access_token** é utilizado para pedidos de autenticação à API REST.
 
 ```json
 {

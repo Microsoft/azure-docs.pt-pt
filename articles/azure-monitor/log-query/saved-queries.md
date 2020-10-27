@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959847"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542612"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Consultas guardadas no Azure Monitor Log Analytics
 
@@ -38,7 +38,7 @@ Você pode obter consultas de exemplo de dois locais diferentes.
 
 ### <a name="example-query-dialog"></a>Diálogo de consulta de exemplo
 
-Quando inseriu pela primeira vez a experiência Log Analytics, o *diálogo de consultas exemplo* é mostrado automaticamente.  Também pode ser acedido clicando no canto superior direito do ecrã em **consultas exemplo**.
+Quando inseriu pela primeira vez a experiência Log Analytics, o *diálogo de consultas exemplo* é mostrado automaticamente.  Também pode ser acedido clicando no canto superior direito do ecrã em **consultas exemplo** .
 
 ![Barra lateral](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Cada consulta de exemplo é representada por um cartão. Pode digitalizar rapida
 
 Todas as mesmas funcionalidades da experiência do diálogo podem ser acedidas a partir do painel de consultas na barra lateral esquerda do Log Analytics. Pode pairar sobre um nome de consulta para obter a descrição da consulta e funcionalidade adicional.
 
-![Barra lateral](media/saved-queries/sidebar-3.png)
+![Screenshot que mostra o painel de consultas.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Consultas de descoberta e filtragem
 
@@ -86,7 +86,7 @@ O diálogo suporta o agrupamento:
 
 Os valores de agrupamento também funcionam como uma tabela ativa de conteúdos. Ao clicar num dos valores no lado esquerdo do ecrã, as consultas visualizam diretamente o item clicado.
 
-### <a name="filter"></a>Filtrar
+### <a name="filter"></a>Filtro
 
 Também pode filtrar as consultas de acordo com os valores de grupo mencionados anteriormente. No diálogo de consulta de exemplo, os filtros encontram-se na parte superior.
 

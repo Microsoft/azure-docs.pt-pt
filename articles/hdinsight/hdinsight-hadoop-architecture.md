@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: cbd1303417f008da476356a274dde30d7d02d36f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 389aee77ac56407f3a116d42ad62fbd94de1bb4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505510"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541949"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
 
@@ -37,7 +37,7 @@ Quando uma aplicação MapReduce funciona num cluster, o ResourceManager fornece
 
 O ResourceManager também executa um processo de servidor web que fornece uma interface de utilizador web para monitorizar o estado das aplicações.
 
-Quando um utilizador submete uma aplicação MapReduce para executar no cluster, a aplicação é submetida ao ResourceManager. Por sua vez, o ResourceManager atribui um contentor nos nós NodeManager disponíveis. Os nós NodeManager são onde a aplicação realmente executa. O primeiro contentor atribuído executa uma aplicação especial chamada ApplicationMaster. Este ApplicationMaster é responsável pela aquisição de recursos, sob a forma de contentores subsequentes, necessários para executar a aplicação submetida. O ApplicationMaster examina as fases da aplicação, como a fase do mapa e reduz a fase, e fatores na quantidade de dados que precisam de ser processados. O ApplicationMaster solicita então (*negoceia*) os recursos do ResourcesManager em nome da aplicação. O ResourceManager, por sua vez, concede recursos dos NodeManagers no cluster ao ApplicationMaster para que possa utilizar na execução da aplicação.
+Quando um utilizador submete uma aplicação MapReduce para executar no cluster, a aplicação é submetida ao ResourceManager. Por sua vez, o ResourceManager atribui um contentor nos nós NodeManager disponíveis. Os nós NodeManager são onde a aplicação realmente executa. O primeiro contentor atribuído executa uma aplicação especial chamada ApplicationMaster. Este ApplicationMaster é responsável pela aquisição de recursos, sob a forma de contentores subsequentes, necessários para executar a aplicação submetida. O ApplicationMaster examina as fases da aplicação, como a fase do mapa e reduz a fase, e fatores na quantidade de dados que precisam de ser processados. O ApplicationMaster solicita então ( *negoceia* ) os recursos do ResourcesManager em nome da aplicação. O ResourceManager, por sua vez, concede recursos dos NodeManagers no cluster ao ApplicationMaster para que possa utilizar na execução da aplicação.
 
 Os NodeManagers executam as tarefas que compõem a aplicação, reportam o seu progresso e estatuto de volta ao ApplicationMaster. O ApplicationMaster, por sua vez, informa o estado da aplicação de volta ao ResourceManager. O ResourceManager devolve quaisquer resultados ao cliente.
 
@@ -51,14 +51,14 @@ Todos os tipos de cluster HDInsight implementam YARN. O ResourceManager é impla
 
 Para desembrulhá-lo da sua Conta de Armazenamento, consulte:
 
-### <a name="azure-storage"></a>Storage do Azure
+### <a name="azure-storage"></a>Armazenamento do Azure
 
-* [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../storage/blobs/storage-blob-soft-delete.md)
-* [Undelete Blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+* [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../storage/blobs/soft-delete-blob-overview.md)
+* [Undelete Blob](/rest/api/storageservices/undelete-blob)
 
 ### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
-[Restaurar-AzDataStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+[Restaurar-AzDataStoreDeletedItem](/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen2
 

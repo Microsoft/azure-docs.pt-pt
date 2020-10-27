@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999954"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543156"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (pré-visualização)
 
@@ -43,7 +43,7 @@ Neste diagrama, o cliente (isto é, um browser ou app) precisa adquirir primeiro
 
 Ainda pode haver muitas aplicações antigas que apenas suportam a autenticação básica (isto é, nome de utilizador e senha). Para estes cenários, ainda pode utilizar a autenticação básica HTTP para ligar aos gateways de cluster. Nesta configuração, deve garantir a conectividade da rede desde os nós de gateway até ao ponto final dos Serviços da Federação de Diretório Ativo (AD FS) para garantir uma linha de visão direta a partir de nós de gateway.
 
-O diagrama seguinte mostra o fluxo básico de autenticação para os utilizadores federados. Em primeiro lugar, o gateway tenta completar a autenticação utilizando o [fluxo ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). Caso não existam hashes de palavra-passe sincronizados com a Azure AD, volta a descobrir o ponto final AD FS e completa a autenticação acedendo ao ponto final da AD FS.
+O diagrama seguinte mostra o fluxo básico de autenticação para os utilizadores federados. Em primeiro lugar, o gateway tenta completar a autenticação utilizando o [fluxo ROPC](../../active-directory/develop/v2-oauth-ropc.md). Caso não existam hashes de palavra-passe sincronizados com a Azure AD, volta a descobrir o ponto final AD FS e completa a autenticação acedendo ao ponto final da AD FS.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra fluxo de autenticação com corretor de ID HDInsight.":::
 
@@ -54,7 +54,7 @@ Para criar um cluster de pacotes de segurança empresarial com corretor de ID HD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Siga os passos básicos de criação para um cluster de pacotes de segurança da empresa. Para obter mais informações, consulte [Criar um cluster HDInsight com Pacote de Segurança Empresarial.](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)
-1. Selecione **Ative HdInsight ID Broker**.
+1. Selecione **Ative HdInsight ID Broker** .
 
 A função hdInsight ID Broker adiciona um VM extra ao cluster. Este VM é o nó de corretor de id de id de aparência HD, e inclui componentes do servidor para suportar a autenticação. O nó de corretor de ID HDInsight é um domínio associado ao domínio Azure AD DS.
 
@@ -103,7 +103,7 @@ Se adicionar uma nova função chamada `idbrokernode` com os seguintes atributos
 
 ## <a name="tool-integration"></a>Integração de ferramentas
 
-As ferramentas HDInsight são atualizadas para suportar de forma nativa o OAuth. Use estas ferramentas para o acesso moderno baseado em OAuth aos clusters. O plug-in HDInsight [IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) pode ser utilizado para aplicações baseadas em Java, como o Scala. [As ferramentas de faísca e colmeia para código de estúdio visual](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) podem ser usadas para trabalhos PySpark e Hive. As ferramentas suportam trabalhos de lote e interativos.
+As ferramentas HDInsight são atualizadas para suportar de forma nativa o OAuth. Use estas ferramentas para o acesso moderno baseado em OAuth aos clusters. O plug-in HDInsight [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) pode ser utilizado para aplicações baseadas em Java, como o Scala. [As ferramentas de faísca e colmeia para código de estúdio visual](../hdinsight-for-vscode.md) podem ser usadas para trabalhos PySpark e Hive. As ferramentas suportam trabalhos de lote e interativos.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acesso SSH sem um hash de senha em Azure AD DS
 
@@ -117,11 +117,11 @@ Para o SSH a um VM de domínio ou para executar o `kinit` comando, tem de fornec
 
 Se a sua organização não sincronizar as hashes de password para Azure AD DS, como uma boa prática, crie um utilizador apenas em nuvem em Azure AD. Em seguida, atribua-o como administrador de cluster quando criar o cluster, e use-o para fins de administração. Pode usá-lo para obter acesso à raiz aos VMs via SSH.
 
-Para resolver problemas de autenticação, consulte [este guia](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+Para resolver problemas de autenticação, consulte [este guia](./domain-joined-authentication-issues.md).
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>Clientes que usam OAuth para ligar a uma porta de entrada HDInsight com hdInsight ID Broker
 
-Na configuração do HDInsight ID Broker, as aplicações personalizadas e os clientes que se conectam ao gateway podem ser atualizados para adquirir primeiro o token OAuth necessário. Siga os passos [neste documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir o token com as seguintes informações:
+Na configuração do HDInsight ID Broker, as aplicações personalizadas e os clientes que se conectam ao gateway podem ser atualizados para adquirir primeiro o token OAuth necessário. Siga os passos [neste documento](../../storage/common/storage-auth-aad-app.md) para adquirir o token com as seguintes informações:
 
 *   OAu uri recurso uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a

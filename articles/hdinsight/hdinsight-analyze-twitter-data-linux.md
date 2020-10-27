@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086726"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533296"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analise os dados do Twitter usando Apache Hive e Apache Hadoop em HDInsight
 
@@ -30,9 +30,9 @@ O Twitter permite-lhe recuperar os dados de cada tweet como um documento javaScr
 
 1. A partir de um navegador web, inscreva-se para [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Selecione a ligação **de inscrição agora** se não tiver uma conta no Twitter.
 
-2. Selecione **Criar nova aplicação**.
+2. Selecione **Criar nova aplicação** .
 
-3. Inserir **Nome,** **Descrição,** **Website**. Pode fazer um URL para o campo **do Site.** A tabela a seguir mostra alguns valores da amostra a utilizar:
+3. Inserir **Nome,** **Descrição,** **Website** . Pode fazer um URL para o campo **do Site.** A tabela a seguir mostra alguns valores da amostra a utilizar:
 
    | Campo | Valor |
    |--- |--- |
@@ -40,21 +40,21 @@ O Twitter permite-lhe recuperar os dados de cada tweet como um documento javaScr
    | Descrição |MyHDInsightApp |
    | Site |`https://www.myhdinsightapp.com` |
 
-4. Selecione **Sim, concordo**e, em seguida, selecione **Criar a sua aplicação twitter**.
+4. Selecione **Sim, concordo** e, em seguida, selecione **Criar a sua aplicação twitter** .
 
-5. Selecione o separador **Permissões.** A permissão por defeito é **apenas ler**.
+5. Selecione o separador **Permissões.** A permissão por defeito é **apenas ler** .
 
 6. Selecione o **separador Chaves e Tokens de acesso.**
 
-7. **Selecione Crie o meu token de acesso**.
+7. **Selecione Crie o meu token de acesso** .
 
 8. Selecione **Test OAuth** no canto superior direito da página.
 
-9. Escreva a **chave do consumidor,** **segredo do consumidor,** **ficha de acesso**e acesso **ao segredo.**
+9. Escreva a **chave do consumidor,** **segredo do consumidor,** **ficha de acesso** e acesso **ao segredo.**
 
 ### <a name="download-tweets"></a>Baixar tweets
 
-O seguinte código Python descarrega 10.000 tweets do Twitter e guarda-os para um ficheiro chamado **tweets.txt**.
+O seguinte código Python descarrega 10.000 tweets do Twitter e guarda-os para um ficheiro chamado **tweets.txt** .
 
 > [!NOTE]  
 > Os seguintes passos são realizados no cluster HDInsight, uma vez que python já está instalado.
@@ -283,7 +283,7 @@ Estes comandos armazenam os dados num local a que todos os nós do cluster podem
    WHERE (length(json_response) > 500);
    ```
 
-1. Prima **Ctrl + X**e, em seguida, pressione **Y** para guardar o ficheiro.
+1. Prima **Ctrl + X** e, em seguida, pressione **Y** para guardar o ficheiro.
 
 1. Utilize o seguinte comando para executar o HiveQL contido no ficheiro:
 
@@ -313,4 +313,4 @@ Estes comandos armazenam os dados num local a que todos os nós do cluster podem
 Aprendeste a transformar um conjunto de dados JSON não estruturado numa estrutura da tabela [da Colmeia Apache.](https://hive.apache.org/) Para saber mais sobre a Colmeia em HDInsight, consulte os seguintes documentos:
 
 * [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analise os dados de atraso de voo usando HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analise os dados de atraso de voo usando HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

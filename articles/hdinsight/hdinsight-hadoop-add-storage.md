@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856233"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542000"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicione contas de armazenamento adicionais ao HDInsight
 
@@ -26,7 +26,7 @@ Saiba como usar as ações de script para adicionar *contas* adicionais de Armaz
 
 * Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nome e chave da conta de armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../storage/common/storage-account-keys-manage.md).
-* Se utilizar o PowerShell, necessitará do módulo AZ.  Ver [visão geral da Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* Se utilizar o PowerShell, necessitará do módulo AZ.  Ver [visão geral da Azure PowerShell](/powershell/azure/).
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net` para, onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue para **o núcleo**avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
+1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
 
 1. Observe as chaves que começam `fs.azure.account.key` com . O nome da conta será uma parte da chave vista nesta imagem de amostra:
 
@@ -107,7 +107,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. A partir de um navegador web, navegue `https://CLUSTERNAME.azurehdinsight.net` para, onde `CLUSTERNAME` está o nome do seu cluster.
 
-1. Navegue para **o núcleo**avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
+1. Navegue para **o núcleo** avançado de  >  **hdfs Configs.**  >  **Advanced**  >  **Custom core-site**
 
 1. Retire as seguintes teclas:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 3fd1ae82450c6203833a1e7b9947d516950c0330
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146596"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541524"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimentos de mensagens para mensagens IoT Hub de dispositivo para nuvem
 
@@ -37,7 +37,7 @@ O **valor** pode ser qualquer um dos seguintes exemplos:
 
 * O nome do hub IoT enviando a mensagem. Este valor é *$iothubname.*
 
-* Informação do dispositivo twin, como o seu caminho. Exemplos seriam *$twin.tags.field* e *$twin.tags.latitude*.
+* Informação do dispositivo twin, como o seu caminho. Exemplos seriam *$twin.tags.field* e *$twin.tags.latitude* .
 
    > [!NOTE]
    > Neste momento, apenas $iothubname, $twin.tags, $twin.properties.desejadas, e $twin.properties.relatados são variáveis suportadas para enriquecimento de mensagens.
@@ -63,7 +63,7 @@ Os enriquecimentos podem ser configurados utilizando os seguintes métodos:
 | **Método** | **Comando** |
 | ----- | -----| 
 | Portal | [Portal do Azure](https://portal.azure.com) | Veja o [tutorial de enriquecementos de mensagens](tutorial-message-enrichments.md) | 
-| CLI do Azure   | [az iot hub mensagem-enriquecimento](/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| CLI do Azure   | [az iot hub mensagem-enriquecimento](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Adicionar enriquecimentos de mensagens não adiciona latência ao encaminhamento de mensagens.
@@ -84,7 +84,7 @@ Para experimentar enriquecimentos de mensagens, consulte o [tutorial de enriquec
 
 * As atualizações a um dispositivo gémeo podem demorar até cinco minutos a refletir-se no valor de enriquecimento correspondente.
 
-* O tamanho total da mensagem, incluindo os enriquecimentos, não pode exceder 256 KB. Se o tamanho de uma mensagem exceder 256 KB, o Hub IoT deixará cair a mensagem. Pode utilizar [métricas do IoT Hub](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são largadas. Por exemplo, pode monitorizar d2c.telemetria.egress.inválido.
+* O tamanho total da mensagem, incluindo os enriquecimentos, não pode exceder 256 KB. Se o tamanho de uma mensagem exceder 256 KB, o Hub IoT deixará cair a mensagem. Pode utilizar [métricas do IoT Hub](monitor-iot-hub-reference.md#metrics) para identificar e depurar erros quando as mensagens são largadas. Por exemplo, pode monitorizar incompatível com as mensagens de *telemetria* *(d2c.telemetria.egress.inválido)* nas [métricas](monitor-iot-hub-reference.md#routing-metrics)de encaminhamento . Para saber mais, consulte [o Monitor IoT Hub.](monitor-iot-hub.md)
 
 * Os enriquecimentos de mensagens não se aplicam a eventos digitais de mudança de gémeos.
 

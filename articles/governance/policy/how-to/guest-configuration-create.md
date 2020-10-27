@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ef571857664739c055912cb6460c4638d4cad32b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893123"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542867"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -16,7 +16,7 @@ Antes de criar definições de política personalizadas, é uma boa ideia ler a 
  
 Para aprender a criar políticas de Configuração de Hóspedes para Linux, consulte a página [Como criar políticas de Configuração de Hóspedes para Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
+Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível** .
 
 [A configuração do hóspede Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar definições dentro de máquinas. A reparação de configurações dentro das máquinas ainda não está disponível.
 
@@ -26,7 +26,7 @@ Utilize as seguintes ações para criar a sua própria configuração para valid
 > A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
 > Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
-## <a name="install-the-powershell-module"></a>Instale o módulo PowerShell
+## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
 O módulo de Configuração do Hóspede automatiza o processo de criação de conteúdo personalizado, incluindo:
 
@@ -92,13 +92,13 @@ Os parâmetros na Política Azure que passam valores para as atribuições de Co
 
 A função `Get-TargetResource` tem requisitos especiais para a Configuração do Hóspede que não foram necessários para a Configuração do Estado do Windows Desired.
 
-- O haxixe que é devolvido deve incluir uma propriedade chamada **Reasons**.
+- O haxixe que é devolvido deve incluir uma propriedade chamada **Reasons** .
 - A propriedade Reasons deve ser uma matriz.
-- Cada item na matriz deve ser um haxixe com as teclas chamadas **Código** e **Frase**.
+- Cada item na matriz deve ser um haxixe com as teclas chamadas **Código** e **Frase** .
 
 A propriedade Reasons é utilizada pelo serviço para normalizar a forma como a informação é apresentada quando uma máquina está fora de conformidade. Pode pensar em cada item em Reasons como uma "razão" de que o recurso não está em conformidade. A propriedade é uma matriz porque um recurso pode estar fora de conformidade por mais de uma razão.
 
-As propriedades **Código** e **Frase** são esperadas pelo serviço. Ao autorizar um recurso personalizado, desenrida o texto (tipicamente estaladudo) que pretende mostrar como a razão pela qual o recurso não está em conformidade como o valor da **Frase**. **O código** tem requisitos específicos de formatação para que a comunicação possa apresentar claramente informações sobre o recurso utilizado para fazer a auditoria. Esta solução torna a configuração do hóspede extensível. Qualquer comando pode ser executado desde que a saída possa ser devolvida como um valor de corda para a propriedade **Frase.**
+As propriedades **Código** e **Frase** são esperadas pelo serviço. Ao autorizar um recurso personalizado, desenrida o texto (tipicamente estaladudo) que pretende mostrar como a razão pela qual o recurso não está em conformidade como o valor da **Frase** . **O código** tem requisitos específicos de formatação para que a comunicação possa apresentar claramente informações sobre o recurso utilizado para fazer a auditoria. Esta solução torna a configuração do hóspede extensível. Qualquer comando pode ser executado desde que a saída possa ser devolvida como um valor de corda para a propriedade **Frase.**
 
 - **Código** (cadeia): O nome do recurso, repetido e, em seguida, um nome curto sem espaços como identificador pela razão. Estes três valores devem ser delimitados pelo cólon sem espaços.
   - Um exemplo seria `registry:registry:keynotpresent`
@@ -140,7 +140,7 @@ O nome da configuração personalizada deve ser consistente em todo o lado. O no
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Andaime um projeto de configuração de hóspedes
 
-Os desenvolvedores que gostariam de acelerar o processo de começar e trabalhar a partir do código de amostra pode instalar um projeto comunitário chamado **Guest Configuration Project**. O projeto instala um modelo para o módulo [Plaster](https://github.com/powershell/plaster) PowerShell. Esta ferramenta pode ser usada para empaar o projeto, incluindo uma configuração de trabalho e recurso de amostra, e um conjunto de testes [de Pester](https://github.com/pester/pester) para validar o projeto. O modelo também inclui corredores de tarefas para Código de Estúdio Visual para automatizar a construção e validar o pacote de Configuração de Convidados. Para mais informações, consulte o [Projeto de Configuração do Convidado do](https://github.com/microsoft/guestconfigurationproject)projeto GitHub.
+Os desenvolvedores que gostariam de acelerar o processo de começar e trabalhar a partir do código de amostra pode instalar um projeto comunitário chamado **Guest Configuration Project** . O projeto instala um modelo para o módulo [Plaster](https://github.com/powershell/plaster) PowerShell. Esta ferramenta pode ser usada para empaar o projeto, incluindo uma configuração de trabalho e recurso de amostra, e um conjunto de testes [de Pester](https://github.com/pester/pester) para validar o projeto. O modelo também inclui corredores de tarefas para Código de Estúdio Visual para automatizar a construção e validar o pacote de Configuração de Convidados. Para mais informações, consulte o [Projeto de Configuração do Convidado do](https://github.com/microsoft/guestconfigurationproject)projeto GitHub.
 
 Para obter mais informações sobre o trabalho com configurações em geral, consulte [Write, Compile e Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
@@ -198,9 +198,9 @@ Uma vez compilados os ficheiros de suporte, os ficheiros de apoio devem ser emba
 
 O `New-GuestConfigurationPackage` cmdlet cria o pacote. Os módulos necessários pela configuração devem estar disponíveis em `$Env:PSModulePath` . Parâmetros do `New-GuestConfigurationPackage` cmdlet ao criar conteúdo do Windows:
 
-- **Nome**: Nome do pacote de configuração do hóspede.
-- **Configuração**: Documento de configuração DSC compilado no caminho completo.
-- **Caminho**: Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
+- **Nome** : Nome do pacote de configuração do hóspede.
+- **Configuração** : Documento de configuração DSC compilado no caminho completo.
+- **Caminho** : Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
 
 Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
 
@@ -216,9 +216,9 @@ Uma vez que o agente está realmente a avaliar o ambiente local, na maioria dos 
 
 Parâmetros do `Test-GuestConfigurationPackage` cmdlet:
 
-- **Nome**: Nome da política de configuração do hóspede.
-- **Parâmetro**: Parâmetros de política fornecidos em formato haxixe.
-- **Caminho**: Percurso completo do pacote de Configuração de Convidados.
+- **Nome** : Nome da política de configuração do hóspede.
+- **Parâmetro** : Parâmetros de política fornecidos em formato haxixe.
+- **Caminho** : Percurso completo do pacote de Configuração de Convidados.
 
 Executar o seguinte comando para testar o pacote criado pelo passo anterior:
 
@@ -233,74 +233,23 @@ O cmdlet também suporta a entrada do gasoduto PowerShell. Encaneie a saída do 
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-O próximo passo é publicar o ficheiro no Azure Blob Storage. O script abaixo contém uma função que pode utilizar para automatizar esta tarefa. Os comandos utilizados na `publish` função requerem o `Az.Storage` módulo.
+O próximo passo é publicar o ficheiro no Azure Blob Storage. O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditBitlocker.zip `
-  -blobName 'AuditBitlocker'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 Uma vez criado e carregado um pacote de política personalizada de Configuração de Convidados, crie a definição de política de Configuração de Convidados. O `New-GuestConfigurationPolicy` cmdlet pega num pacote de política personalizado e cria uma definição de política.
 
 Parâmetros do `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri**: Public http http(s) uri do pacote de conteúdo de configuração de hóspedes.
-- **DisplayName**: Nome do visor da política.
-- **Descrição**: Descrição da política.
-- **Parâmetro**: Parâmetros de política fornecidos em formato haxixe.
-- **Versão**: Versão política.
-- **Caminho**: Caminho de destino onde são criadas definições políticas.
-- **Plataforma**: Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
+- **ContentUri** : Public http http(s) uri do pacote de conteúdo de configuração de hóspedes.
+- **DisplayName** : Nome do visor da política.
+- **Descrição** : Descrição da política.
+- **Parâmetro** : Parâmetros de política fornecidos em formato haxixe.
+- **Versão** : Versão política.
+- **Caminho** : Caminho de destino onde são criadas definições políticas.
+- **Plataforma** : Plataforma-alvo (Windows/Linux) para a política de configuração de hóspedes e pacote de conteúdo.
 - **Tag** adiciona um ou mais filtros de etiqueta à definição de política
 - **Categoria** define o campo de metadados de categoria na definição de política
 
@@ -320,8 +269,6 @@ New-GuestConfigurationPolicy `
 Os seguintes ficheiros são criados `New-GuestConfigurationPolicy` por:
 
 - **auditIfNotExists.js**
-- **deployIfNotExists.js**
-- **Initiative.js**
 
 A saída do cmdlet devolve um objeto que contém o nome de visualização da iniciativa e o caminho dos ficheiros de política.
 
@@ -344,25 +291,7 @@ New-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
 ```
 
-Com a política criada em Azure, o último passo é atribuir a iniciativa. Veja como atribuir a iniciativa ao [Portal,](../assign-policy-portal.md) [Azure CLI](../assign-policy-azurecli.md)e [Azure PowerShell.](../assign-policy-powershell.md)
-
-> [!IMPORTANT]
-> As políticas de configuração de hóspedes devem ser **sempre** atribuídas utilizando a iniciativa que combina as políticas _auditIfNotExists_ e _DeployIfNotExists._ Se apenas a política _auditIfNotExists_ for atribuída, os pré-requisitos não são implementados e a política mostra sempre que os servidores '0' estão em conformidade.
-
-Atribuir uma definição de política com o efeito _DeployIfNotExists_ requer um nível de acesso adicional. Para conceder o menor privilégio, pode criar uma definição de papel personalizada que alarga o **Contribuinte para a Política de Recursos.** O exemplo abaixo cria uma função chamada **Resource Policy Contributor DINE** com a permissão adicional _Microsoft.Authorization/roleAssignments/write_.
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
+Com a política criada em Azure, o último passo é atribuir a definição. Veja como atribuir a definição ao [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md)e [Azure PowerShell](../assign-policy-powershell.md).
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar as políticas de configuração do hóspede usando Tags
 
@@ -396,7 +325,7 @@ Um exemplo de uma definição de política que filtra para tags é dado abaixo.
 
 A Configuração do Hóspede suporta propriedades dominantes de uma Configuração no tempo de execução. Esta funcionalidade significa que os valores no ficheiro MOF na embalagem não têm de ser considerados estáticos. Os valores de sobreposição são fornecidos através da Política Azure e não têm impacto na forma como as Configurações são da autoria ou compiladas.
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro**. Este parâmetro requer uma definição de haxixe, incluindo todos os detalhes sobre cada parâmetro e cria as secções necessárias de cada ficheiro utilizado para a definição de Política Azure.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro** . Este parâmetro requer uma definição de haxixe, incluindo todos os detalhes sobre cada parâmetro e cria as secções necessárias de cada ficheiro utilizado para a definição de Política Azure.
 
 O exemplo a seguir cria uma definição de política para auditar um serviço, onde o utilizador seleciona a partir de uma lista no momento da atribuição de políticas.
 
@@ -541,10 +470,10 @@ Os ficheiros de apoio devem ser embalados em conjunto. O pacote completo é util
 
 O `New-GuestConfigurationPackage` cmdlet cria o pacote. Para conteúdos de terceiros, utilize o parâmetro **FilesToInclude** para adicionar o conteúdo InSpec à embalagem. Você não precisa especificar o **ChefProfilePath** como para pacotes Linux.
 
-- **Nome**: Nome do pacote de configuração do hóspede.
-- **Configuração**: Documento de configuração compilado no caminho completo.
-- **Caminho**: Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
-- **FilesoInclude**: Caminho completo para o perfil InSpec.
+- **Nome** : Nome do pacote de configuração do hóspede.
+- **Configuração** : Documento de configuração compilado no caminho completo.
+- **Caminho** : Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
+- **FilesoInclude** : Caminho completo para o perfil InSpec.
 
 Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
 
@@ -560,8 +489,8 @@ New-GuestConfigurationPackage `
 
 Se quiser lançar uma atualização da política, existem dois campos que requerem atenção.
 
-- **Versão**: Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Hóspedes para que o agente reconheça o pacote atualizado.
-- **contentHash**: Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
+- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Hóspedes para que o agente reconheça o pacote atualizado.
+- **contentHash** : Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
 
 A forma mais fácil de lançar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Este processo garante que todas as propriedades foram corretamente atualizadas.
 
@@ -581,8 +510,8 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parâmetros do `Protect-GuestConfigurationPackage` cmdlet:
 
-- **Caminho**: Percurso completo do pacote de Configuração de Convidados.
-- **Certificado**: Certificado de assinatura de código para assinar o pacote. Este parâmetro só é suportado ao assinar conteúdo para o Windows.
+- **Caminho** : Percurso completo do pacote de Configuração de Convidados.
+- **Certificado** : Certificado de assinatura de código para assinar o pacote. Este parâmetro só é suportado ao assinar conteúdo para o Windows.
 
 O agente de configuração de hóspedes espera que a chave pública do certificado esteja presente em "Autoridades de Certificados de Raiz Fidedignas" em máquinas Windows e no caminho `/usr/local/share/ca-certificates/extra` nas máquinas Linux. Para que o nó verifique o conteúdo assinado, instale a chave pública do certificado na máquina antes de aplicar a política personalizada. Este processo pode ser feito utilizando qualquer técnica dentro do VM ou utilizando a Política Azure. Um modelo de exemplo é [fornecido aqui.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)
 A política de acesso ao Cofre-Chave deve permitir ao fornecedor de recursos compute aceder a certificados durante as implementações. Para obter etapas detalhadas, consulte [Configurar o Cofre de Chaves para máquinas virtuais no Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

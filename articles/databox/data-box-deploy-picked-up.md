@@ -47,7 +47,7 @@ Neste tutorial, irá obter informações sobre tópicos, como:
 Antes de começar, confirme que:
 
 * Concluiu o [Tutorial: Copiar dados para o Azure Data Box e verificar](data-box-deploy-copy-data.md).
-* Os trabalhos de cópia estão concluídos e não há erros na página **Ligar e copiar**. Se os trabalhos de cópia estiverem em curso ou se existirem erros na página **Ligar e copiar**, a preparação para envio não pode ser executada.
+* Os trabalhos de cópia estão concluídos e não há erros na página **Ligar e copiar** . Se os trabalhos de cópia estiverem em curso ou se existirem erros na página **Ligar e copiar** , a preparação para envio não pode ser executada.
 
 ## <a name="prepare-to-ship"></a>Preparar para enviar
 

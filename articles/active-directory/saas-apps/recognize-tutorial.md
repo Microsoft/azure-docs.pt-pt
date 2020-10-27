@@ -49,7 +49,7 @@ Para configurar a integração do Recognise em AD Azure, é necessário adiciona
 
 **Para adicionar Reconhecimento da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Recognise em AD Azure, é necessário adiciona
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **escreva Reconheça**, selecione **Reconheça** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, **escreva Reconheça** , selecione **Reconheça** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
      ![Reconhecer na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa a Azure AD um único sinal de sação com Reconhecimento baseado num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa a Azure AD um único sinal de sação com Reconhecimento baseado num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Reconhecimento.
 
 Para configurar e testar o Azure AD com o Recognise, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD um único sinal de inscrição com o Recognise, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Recognise,** selecione **Single sign-on**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Recognise,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -102,11 +102,11 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
     >[!NOTE]
     >Obtém-se o **ficheiro de metadados do Fornecedor** de Serviços na secção **Configure Recognise Single Sign-On** do tutorial.
 
-    a. Clique **em Carregar o ficheiro de metadados**.
+    a. Clique **em Carregar o ficheiro de metadados** .
 
     ![Carregar ficheiro de metadados](common/upload-metadata.png)
 
-    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
+    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload** .
 
     ![escolher arquivo de metadados](common/browse-upload-metadata.png)
 
@@ -137,11 +137,11 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
 1. Numa janela diferente do navegador web, inscreva-se no seu inquilino reconhecido como administrador.
 
-2. No canto superior direito, clique no **Menu**. Vá ao **Administrador da Empresa.**
+2. No canto superior direito, clique no **Menu** . Vá ao **Administrador da Empresa.**
    
     ![O Screenshot mostra o Administrador da Empresa selecionado a partir do menu Definições.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-3. No painel de navegação à esquerda, clique em **Definições**.
+3. No painel de navegação à esquerda, clique em **Definições** .
    
     ![A screenshot mostra definições selecionadas a partir da página de navegação.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
@@ -149,7 +149,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
    
     ![A screenshot mostra as definições S S O onde pode introduzir os valores descritos.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-    a. Como **Enable SSO**, selecione **ON**.
+    a. Como **Enable SSO** , selecione **ON** .
 
     b. Na caixa de texto **IDP Entity ID,** cole o valor do **Identificador AD Azure** que copiou do portal Azure.
     
@@ -161,7 +161,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
     
     f. Clique no botão **Guardar definições.** 
 
-5. Ao lado da secção **definições SSO,** copie o URL no **url do fornecedor de serviços metadados**.
+5. Ao lado da secção **definições SSO,** copie o URL no **url do fornecedor de serviços metadados** .
    
     ![A screenshot mostra notas, onde pode copiar os metadados do Fornecedor de Serviços.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
@@ -173,7 +173,7 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -185,27 +185,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Reconhecimento.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Reconhecer**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Reconhecer** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, **selecione Recognise**.
+2. Na lista de candidaturas, **selecione Recognise** .
 
     ![O link Reconhecer na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -229,17 +229,17 @@ Esta aplicação não suporta o fornecimento scim, mas tem uma sincronização a
 
 1. Inscreva-se no site da empresa Recognise como administrador.
 
-2. No canto superior direito, clique no **Menu**. Vá ao **Administrador da Empresa.**
+2. No canto superior direito, clique no **Menu** . Vá ao **Administrador da Empresa.**
 
-3. No painel de navegação à esquerda, clique em **Definições**.
+3. No painel de navegação à esquerda, clique em **Definições** .
 
 4. Execute os seguintes passos na secção **'Sincronização do Utilizador'.**
    
     ![Novo Utilizador](./media/recognize-tutorial/tutorial_recognize_005.png "Novo Utilizador")
    
-    a. Como **Sync Enabled**, selecione **ON**.
+    a. Como **Sync Enabled** , selecione **ON** .
    
-    b. Como **Escolher o fornecedor de sincronização**, selecione Microsoft / Office **365**.
+    b. Como **Escolher o fornecedor de sincronização** , selecione Microsoft / Office **365** .
    
     c. Clique **em Executar 'Sincronização do utilizador'.**
 

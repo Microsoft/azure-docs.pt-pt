@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083105"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542306"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - melhores práticas de infraestrutura
 
@@ -27,7 +27,7 @@ As principais escolhas a fazer para o planeamento da capacidade do cluster HDIns
 A região de Azure determina onde o aglomerado é fisicamente a provisionado. Para minimizar a latência das leituras e das gravações, o cluster deve estar na mesma Região que os dados.
 
 **Local de armazenamento e tamanho**  
-O armazenamento predefinido deve estar na mesma região que o aglomerado.Para um cluster de 48 nós, recomenda-se ter 4 a 8 contas de armazenamento. Embora já possa haver armazenamento total suficiente, cada conta de armazenamento fornece largura de banda adicional para os nós de computação. Quando houver várias contas de armazenamento, utilize um nome aleatório para cada conta de armazenamento, sem prefixo. O objetivo do naming aleatório é reduzir a possibilidade de estrangulamentos de armazenamento (estrangulamento) ou falhas de modo comum em todas as contas. Para um melhor desempenho, utilize apenas um recipiente por conta de armazenamento.
+O armazenamento predefinido deve estar na mesma região que o aglomerado. Para um cluster de 48 nós, recomenda-se ter 4 a 8 contas de armazenamento. Embora já possa haver armazenamento total suficiente, cada conta de armazenamento fornece largura de banda adicional para os nós de computação. Quando houver várias contas de armazenamento, utilize um nome aleatório para cada conta de armazenamento, sem prefixo. O objetivo do naming aleatório é reduzir a possibilidade de estrangulamentos de armazenamento (estrangulamento) ou falhas de modo comum em todas as contas. Para um melhor desempenho, utilize apenas um recipiente por conta de armazenamento.
 
 **Tamanho e tipo VM (agora suporta a série G)**  
 Cada tipo de cluster tem um conjunto de tipos de nós, e cada tipo de nó tem opções específicas para o seu tamanho e tipo VM. O tamanho e tipo VM é determinado pelo poder de processamento da CPU, tamanho RAM e latência da rede. Uma carga de trabalho simulada pode ser usada para determinar o tamanho e o tipo de VM ideais para cada tipo de nó.
@@ -52,35 +52,35 @@ Aplicações ou componentes que estavam disponíveis em clusters no local, mas q
 |**Aplicação**|**Integração**
 |---|---|
 |Fluxo de ar|Nó de borda iaaS ou HDInsight
-|Rio Alluxio|IaaS  
-|Arcádia|IaaS 
+|Rio Alluxio|IaaS  
+|Arcádia|IaaS 
 |Atlas|Nenhum (apenas HDP)
 |Datameer|Nó de borda HDInsight
 |Datastax (Cassandra)|IaaS (CosmosDB uma alternativa em Azure)
-|DataTorrent|IaaS 
-|Drill|IaaS 
+|DataTorrent|IaaS 
+|Drill|IaaS 
 |Ignição|IaaS
-|Rio Jethro|IaaS 
-|Mapador|IaaS 
+|Rio Jethro|IaaS 
+|Mapador|IaaS 
 |Rio Mongo|IaaS (CosmosDB uma alternativa em Azure)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|Nó de borda iaaS ou HDInsight
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SAS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SAS|IaaS 
 |Vertica|IaaS (SQLDW uma alternativa em Azure)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Linha de água|Nó de borda HDInsight
-|StreamSets|Borda HDInsight 
-|Palantir|IaaS 
-|Ponto de navegação|Iaas 
+|StreamSets|Borda HDInsight 
+|Palantir|IaaS 
+|Ponto de navegação|Iaas 
 
 Para mais informações, consulte o artigo [Componentes Apache Hadoop disponíveis com diferentes versões HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalize clusters HDInsight usando ações de script
 
-O HDInsight fornece um método de configuração de cluster chamado **ação de script**. Uma ação de script é o script Bash que executa os nós num cluster HDInsight e pode ser usado para instalar componentes adicionais e alterar definições de configuração.
+O HDInsight fornece um método de configuração de cluster chamado **ação de script** . Uma ação de script é o script Bash que executa os nós num cluster HDInsight e pode ser usado para instalar componentes adicionais e alterar definições de configuração.
 
 As ações do script devem ser armazenadas num URI acessível a partir do cluster HDInsight. Podem ser utilizados durante ou após a criação do cluster e também podem ser restringidos a funcionar apenas em certos tipos de nós.
 
@@ -101,7 +101,7 @@ O HDInsight fornece scripts pré-escritos para instalar os seguintes componentes
 
 As ações de script também podem ser publicadas no Azure Marketplace como uma aplicação HDInsight.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Instalar aplicações Apache Hadoop de terceiros em HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalize clusters HDInsight usando ações de script](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -109,7 +109,7 @@ Para obter mais informações, veja os artigos seguintes:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalize configurações HDInsight usando Bootstrap
 
-Alterações nas configurações nos ficheiros config tais como `core-site.xml` , e podem ser `hive-site.xml` `oozie-env.xml` feitas usando Bootstrap. O seguinte script é um exemplo usando o módulo PowerShell [AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Alterações nas configurações nos ficheiros config tais como `core-site.xml` , e podem ser `hive-site.xml` `oozie-env.xml` feitas usando Bootstrap. O seguinte script é um exemplo usando o módulo PowerShell [AZ](/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -172,7 +172,7 @@ O HDInsight pode ser adicionado a uma nova rede virtual Azure ou existente. Se o
 > [!Note]  
 > HdInsight não suporta atualmente a escavação forçada. O túnel forçado é uma definição de sub-rede que força o tráfego de saída da Internet a um dispositivo de inspeção e registo. Remova o túnel forçado antes de instalar o HDInsight numa sub-rede ou crie uma nova sub-rede para o HDInsight. O HDInsight também não suporta restringir a conectividade da rede de saída.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Visão geral das redes virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Expandir o Azure HDInsight com uma Rede Virtual do Azure](../hdinsight-plan-virtual-network-deployment.md)
@@ -181,7 +181,7 @@ Para obter mais informações, veja os artigos seguintes:
 
 O HDInsight suporta [pontos finais de serviço de rede virtuais,](../../virtual-network/virtual-network-service-endpoints-overview.md)que lhe permitem ligar-se de forma segura ao Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB e bases de dados SQL. Ao permitir um Ponto de Serviço para Azure HDInsight, o tráfego flui através de uma rota segura a partir de dentro do centro de dados Azure. Com este nível de segurança melhorado na camada de rede, pode bloquear as grandes contas de armazenamento de dados nas suas redes virtuais especificadas (VNETs) e ainda utilizar clusters HDInsight de forma perfeita para aceder e processar esses dados.
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - [Pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Aumentar a segurança HDInsight com pontos finais de serviço](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)

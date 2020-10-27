@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127085"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542425"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Construir um painel de fornecedores de Power BI
 
@@ -29,7 +29,7 @@ A arquitetura básica seguirá esta estrutura:
 >[!div class="mx-imgBorder"] 
 >![Painel de Triagem fornecedor](media/dashboard-architecture.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Dados de exportação da Azure IoT Central para os Hubs de Eventos Azure
@@ -139,16 +139,16 @@ O próximo passo será analisar os dados provenientes do seu Centro de Eventos p
 }
 ```
 
-2. Agora que inspecionou as suas cargas JSON, volte ao seu Designer de Aplicações Lógica e selecione **+ Novo Passo**. Pesse e adicione **a variável Initialize** como o seu próximo passo e introduza os seguintes parâmetros:
+2. Agora que inspecionou as suas cargas JSON, volte ao seu Designer de Aplicações Lógica e selecione **+ Novo Passo** . Pesse e adicione **a variável Initialize** como o seu próximo passo e introduza os seguintes parâmetros:
 
     |Parâmetro|Valor|
     |---|---|
     |Nome|Nome da interface|
     |Tipo|String|
 
-    Prima **Guardar**. 
+    Prima **Guardar** . 
 
-3. Adicione outra variável chamada **Corpo** com Tipo de **Corda**. A sua Aplicação Lógica terá estas ações adicionadas:
+3. Adicione outra variável chamada **Corpo** com Tipo de **Corda** . A sua Aplicação Lógica terá estas ações adicionadas:
 
     >[!div class="mx-imgBorder"]
     >![Inicializar variáveis](media/initialize-string-variables.png)
@@ -168,14 +168,14 @@ O próximo passo será analisar os dados provenientes do seu Centro de Eventos p
 
 9. Adicione uma ação **variável definida** e atualize a variável **Body** com o **Corpo** a partir do JSON analisado no passo 7.
 
-10. Adicione um **Controlo de Condições** como a sua próxima ação e desembra a condição para **o Corpo,** **contém,** **HeartRate**. Isto irá certificar-se de que tem o conjunto certo de dados provenientes do Smart Vitals Patch antes de povoar o conjunto de dados Power BI. Passos 7-9 será assim:
+10. Adicione um **Controlo de Condições** como a sua próxima ação e desembra a condição para **o Corpo,** **contém,** **HeartRate** . Isto irá certificar-se de que tem o conjunto certo de dados provenientes do Smart Vitals Patch antes de povoar o conjunto de dados Power BI. Passos 7-9 será assim:
 
     >[!div class="mx-imgBorder"] 
     >![Smart Vitals adiciona condição](media/smart-vitals-pbi.png)
 
 11. Para o **caso verdadeiro** da Condição, adicione uma ação que chame as linhas Add a uma funcionalidade power bi de conjunto **de dados.** Terá de assinar no Power BI para isto. A sua **mala falsa** pode voltar a utilizar o controlo **"Fim".**
 
-12. Escolha o **espaço de trabalho**apropriado, conjunto de **dados**e **tabela**. Mapear os parâmetros especificados ao criar o seu conjunto de dados de streaming no Power BI para os valores JSON analisados que estão vindo do seu Centro de Eventos. As tuas ações preenchidas devem ser assim:
+12. Escolha o **espaço de trabalho** apropriado, conjunto de **dados** e **tabela** . Mapear os parâmetros especificados ao criar o seu conjunto de dados de streaming no Power BI para os valores JSON analisados que estão vindo do seu Centro de Eventos. As tuas ações preenchidas devem ser assim:
 
     >[!div class="mx-imgBorder"] 
     >![Adicione linhas ao Power BI](media/add-rows-yesenia.png)
@@ -183,27 +183,27 @@ O próximo passo será analisar os dados provenientes do seu Centro de Eventos p
 13. Para o estojo de interruptor **de joelheira Smart Knee,** adicione uma ação **Parse JSON** para analisar o conteúdo, semelhante ao Passo 7. Em **seguida, adicione linhas a um conjunto de dados** para atualizar o conjunto de dados teddy Silvers no Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Smart Vitals adiciona condição](media/knee-brace-pbi.png)
+    >![Screenshot que mostra como adicionar linhas a um conjunto de dados.](media/knee-brace-pbi.png)
 
 14. Pressione **Guardar** e, em seguida, executar a sua App Lógica.
 
 ## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Construir um dashboard em tempo real para os sinais vitais do paciente
-Agora volte ao Power BI e selecione **+ Criar** para criar um novo **Dashboard**. Dê ao seu painel um nome e bata **Create**.
+Agora volte ao Power BI e selecione **+ Criar** para criar um novo **Dashboard** . Dê ao seu painel um nome e bata **Create** .
 
-Selecione os três pontos na barra de navegação superior e, em seguida, selecione **+ Adicionar azulejos**.
+Selecione os três pontos na barra de navegação superior e, em seguida, selecione **+ Adicionar azulejos** .
 
 >[!div class="mx-imgBorder"] 
 >![Adicione azulejo ao tablier](media/add-tile.png)
 
 Escolha o tipo de azulejo que gostaria de adicionar e personalize a sua aplicação como quiser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine os seus recursos com os seguintes passos:
 
 1. A partir do portal Azure, pode eliminar os recursos do Event Hub e das Aplicações Lógicas que criou.
 
-2. Para a sua aplicação IoT Central, vá ao separador Administração e selecione **Delete**.
+2. Para a sua aplicação IoT Central, vá ao separador Administração e selecione **Delete** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

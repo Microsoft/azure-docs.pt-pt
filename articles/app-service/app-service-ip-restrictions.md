@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168227"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533959"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao Serviço de Aplicações Azure
 
@@ -61,7 +61,8 @@ Os pontos finais de serviço não podem ser utilizados para restringir o acesso 
 Com os pontos finais de serviço, pode configurar a sua aplicação com gateways de aplicações ou outros dispositivos WAF. Também pode configurar aplicações de vários níveis com backends seguros. Para mais detalhes sobre algumas das possibilidades, leia funcionalidades de [Networking e](networking-features.md) Integração do Serviço de Aplicações e [Gateway de Aplicações com pontos finais de serviço.](networking/app-gateway-with-service-endpoints.md)
 
 > [!NOTE]
-> Os pontos finais de serviço atualmente não são suportados para aplicações web que usam IP virtual IP (VIP) IP. 
+> - Os pontos finais de serviço atualmente não são suportados para aplicações web que usam IP virtual IP (VIP) IP.
+> - Existe um limite de 512 linhas de restrições de IP ou de ponto final de serviço. Se necessitar de mais de 512 linhas de restrições, sugerimos que procure um produto de segurança autónomo, como a Porta Frontal Azure, o Gateway da Aplicação Azure ou uma Firewall de Aplicação Web (WAF).
 >
 
 ## <a name="managing-access-restriction-rules"></a>Gerir regras de restrição de acesso
@@ -74,7 +75,7 @@ Quando edita uma regra, não é possível alterar o tipo entre uma regra de ende
 
 ![Screenshot do diálogo de restrição IP editar no portal Azure mostrando as definições de uma regra de Rede Virtual.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Para eliminar uma regra, clique **na** sua regra e clique em **Remover**.
+Para eliminar uma regra, clique **na** sua regra e clique em **Remover** .
 
 ![eliminar regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -111,7 +112,7 @@ Os valores também podem ser definidos manualmente com uma operação [Azure RES
 
 A localização desta informação no Gestor de Recursos é:
 
-**management.azure.com/subscriptions/ subscrição ID**/resourceGroups/**grupos de recursos**/fornecedores/Microsoft.Web/sites/ web app**name**/config/web?api-version=2018-02-01
+**management.azure.com/subscriptions/ subscrição ID** /resourceGroups/ **grupos de recursos** /fornecedores/Microsoft.Web/sites/ web app **name** /config/web?api-version=2018-02-01
 
 A sintaxe JSON para o exemplo anterior é:
 ```json

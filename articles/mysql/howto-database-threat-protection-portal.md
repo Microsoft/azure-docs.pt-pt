@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 43b85ba58ed7163a896054ab9e77ddf82e3461a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902804"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541456"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Proteção Avançada de Ameaças para Base de Dados Azure para O MySQL
 
@@ -28,7 +28,7 @@ A Advanced Threat Protection faz parte da oferta avançada de Segurança de Dado
 
 ## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças
 1. Lançar o portal Azure em [https://portal.azure.com](https://portal.azure.com) .
-2. Navegue para a página de configuração da Base de Dados Azure para o servidor MySQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (Preview)**.
+2. Navegue para a página de configuração da Base de Dados Azure para o servidor MySQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (Preview)** .
 3. Na página de configuração **da Proteção de Ameaças Avançadas (Pré-visualização):**
 
    - Ativar a Proteção Avançada de Ameaças no servidor.
@@ -63,5 +63,5 @@ Clique **em alerta de deteção de ameaças** para lançar a página de alertas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços mySQL](https://azure.microsoft.com/pricing/details/mysql/)  
+* Saiba mais sobre [o Azure Security Center](../security-center/security-center-introduction.md)
+* Para obter mais informações sobre preços, consulte a [Base de Dados Azure para a página de preços mySQL](https://azure.microsoft.com/pricing/details/mysql/)
