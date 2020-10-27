@@ -16,11 +16,11 @@ O passo final é preparar o dispositivo para envio. Neste passo, todas as partil
 > [!IMPORTANT]
 > A preparação para envio é necessária, pois sinaliza os dados que não estão em conformidade com as convenções de nomenclatura do Azure. Este passo impede potenciais falhas no carregamento de dados devido a dados não conformes.
 
-1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. Por predefinição, as somas de verificação são calculadas enquanto os dados estão a ser copiados. A preparação para envio conclui o cálculo da soma de verificação e cria a lista de ficheiros (*ficheiros -BOM*). O cálculo de soma de verificação pode demorar horas ou dias, consoante o tamanho dos dados. 
+1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação** . Por predefinição, as somas de verificação são calculadas enquanto os dados estão a ser copiados. A preparação para envio conclui o cálculo da soma de verificação e cria a lista de ficheiros ( *ficheiros -BOM* ). O cálculo de soma de verificação pode demorar horas ou dias, consoante o tamanho dos dados. 
    
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
-    Se, por qualquer motivo, quiser parar a preparação do dispositivo, clique em **Parar preparação**. Pode retomar a preparação para envio mais tarde.
+    Se, por qualquer motivo, quiser parar a preparação do dispositivo, clique em **Parar preparação** . Pode retomar a preparação para envio mais tarde.
         
     ![Preparar para enviar 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
     
@@ -30,11 +30,11 @@ O passo final é preparar o dispositivo para envio. Neste passo, todas as partil
 
     Se quiser copiar mais dados para o dispositivo, poderá desbloquear o dispositivo, copiar mais dados e executar a preparação para envio novamente.
 
-    Caso haja erros neste passo, o estado é atualizado para *Análise concluída com erros*. Desbloqueie o dispositivo e aceda à página **Ligar e copiar**, transfira a lista de problemas e resolva os erros.
+    Caso haja erros neste passo, o estado é atualizado para *Análise concluída com erros* . Desbloqueie o dispositivo e aceda à página **Ligar e copiar** , transfira a lista de problemas e resolva os erros.
 
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 
-    Depois de os erros estarem resolvidos, execute a **Preparação para envio**.
+    Depois de os erros estarem resolvidos, execute a **Preparação para envio** .
 
 4. Depois da conclusão da preparação para envio (sem erros), siga estes passos:
 
@@ -45,6 +45,6 @@ O passo final é preparar o dispositivo para envio. Neste passo, todas as partil
     3. Selecione e transfira as instruções de envio do dispositivo. As instruções de envio são diferentes consoante o país da sua localização.
     4. Se o E-ink não estiver a apresentar a guia de remessa, pode transferir a guia de remessa inversa aqui. 
 
-5. Encerre o dispositivo. Aceda à página **Encerrar ou reiniciar** e clique em **Encerrar**. Quando lhe for pedida a confirmação, clique em **OK** para continuar.
+5. Encerre o dispositivo. Aceda à página **Encerrar ou reiniciar** e clique em **Encerrar** . Quando lhe for pedida a confirmação, clique em **OK** para continuar.
 
 6. Remova os cabos. O passo seguinte é enviar o dispositivo para a Microsoft.
