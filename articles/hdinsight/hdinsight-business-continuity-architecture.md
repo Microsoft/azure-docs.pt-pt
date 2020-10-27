@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207585"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547032"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight arquiteturas de continuidade de negócios
 
@@ -58,7 +58,7 @@ Numa *primária ativa com suporte secundário,* as aplicações escrevem para a 
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Colmeia e arquitetura de consulta interativa":::
 
-Para obter mais informações sobre a replicação da Colmeia e as amostras de código refere-se [a replicação da Colmeia Apache em clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
+Para obter mais informações sobre a replicação da Colmeia e as amostras de código refere-se [a replicação da Colmeia Apache em clusters Azure HDInsight](./interactive-query/apache-hive-replication.md)
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -97,7 +97,7 @@ As aplicações lêem e escrevem para os agrupamentos spark e colmeia na região
 
 A HBase Export e a HBase Replication são formas comuns de permitir a continuidade do negócio entre clusters HBase HDInsight.
 
-HBase Export é um processo de replicação de lote que usa o Utilitário de Exportação HBase para exportar tabelas do cluster HBase primário para o seu armazenamento subjacente Azure Data Lake Storage Gen 2. Os dados exportados podem então ser acedidos a partir do cluster HBase secundário e importados em tabelas que devem ser pré-visualizadas no secundário. Enquanto a HBase Export oferece granularidade de nível de mesa, em situações de atualização incremental, o motor de automação de exportação controla a gama de linhas incrementais a incluir em cada execução. Para obter mais informações, consulte [a cópia de segurança e replicação hbase hdinsight](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import).
+HBase Export é um processo de replicação de lote que usa o Utilitário de Exportação HBase para exportar tabelas do cluster HBase primário para o seu armazenamento subjacente Azure Data Lake Storage Gen 2. Os dados exportados podem então ser acedidos a partir do cluster HBase secundário e importados em tabelas que devem ser pré-visualizadas no secundário. Enquanto a HBase Export oferece granularidade de nível de mesa, em situações de atualização incremental, o motor de automação de exportação controla a gama de linhas incrementais a incluir em cada execução. Para obter mais informações, consulte [a cópia de segurança e replicação hbase hdinsight](./hbase/apache-hbase-backup-replication.md#export-then-import).
 
 A replicação da HBase utiliza a replicação em tempo real entre os clusters HBase de forma totalmente automatizada. A replicação é feita ao nível da mesa. Ou todas as tabelas ou tabelas específicas podem ser direcionadas para a replicação. A replicação da HBase é eventualmente consistente, o que significa que as edições recentes para uma mesa na região primária podem não estar disponíveis para todos os secundários imediatamente. Os secundários são garantidos para eventualmente se tornarem consistentes com as primárias. A replicação hbase pode ser configurada entre dois ou mais clusters HDInsight HBase se:
 
@@ -105,9 +105,9 @@ A replicação da HBase utiliza a replicação em tempo real entre os clusters H
 * Primária e secundária estão em VNets diferentes na mesma região.
 * Primária e secundária estão em diferentes VNets espreitadas em diferentes regiões.
 
-Para obter mais informações, consulte [configurar a replicação do cluster Apache HBase nas redes virtuais Azure](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication).
+Para obter mais informações, consulte [configurar a replicação do cluster Apache HBase nas redes virtuais Azure](./hbase/apache-hbase-replication.md).
 
-Existem algumas outras formas de realizar backups de clusters HBase como [copiar a pasta hbase,](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder) [copiar tabelas](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) e [Snapshots](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots).
+Existem algumas outras formas de realizar backups de clusters HBase como [copiar a pasta hbase,](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder) [copiar tabelas](./hbase/apache-hbase-backup-replication.md#copy-tables) e [Snapshots](./hbase/apache-hbase-backup-replication.md#snapshots).
 
 ### <a name="hbase-rpo--rto"></a>HBase RPO & RTO
 
@@ -147,7 +147,7 @@ O modelo de replicação multi-região/cíclica é uma extensão da replicação
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-Para permitir a disponibilidade de região cruzada HDInsight 4.0 suporta Kafka MirrorMaker que pode ser usado para manter uma réplica secundária do cluster primário kafka em uma região diferente. O MirrorMaker funciona como um par de produtores de consumo de alto nível, consome a partir de um tópico específico no cluster primário e produz para um tópico com o mesmo nome no secundário. A replicação do cluster transversal para a recuperação de desastres de alta disponibilidade utilizando o MirrorMaker vem com o pressuposto de que os produtores e consumidores precisam de falhar no cluster de réplicas. Para obter mais informações, consulte [Use MirrorMaker para replicar tópicos Apache Kafka com Kafka em HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring)
+Para permitir a disponibilidade de região cruzada HDInsight 4.0 suporta Kafka MirrorMaker que pode ser usado para manter uma réplica secundária do cluster primário kafka em uma região diferente. O MirrorMaker funciona como um par de produtores de consumo de alto nível, consome a partir de um tópico específico no cluster primário e produz para um tópico com o mesmo nome no secundário. A replicação do cluster transversal para a recuperação de desastres de alta disponibilidade utilizando o MirrorMaker vem com o pressuposto de que os produtores e consumidores precisam de falhar no cluster de réplicas. Para obter mais informações, consulte [Use MirrorMaker para replicar tópicos Apache Kafka com Kafka em HDInsight](./kafka/apache-kafka-mirroring.md)
 
 Dependendo da vida útil do tópico quando a replicação começou, a replicação do tópico MirrorMaker pode levar a diferentes compensações entre tópicos de origem e réplica. Os clusters HDInsight Kafka também suportam a replicação da partição de tópicos, que é uma característica de alta disponibilidade a nível de cluster individual.
 
@@ -192,7 +192,7 @@ Desvantagens:
 
 ## <a name="hdinsight-enterprise-security-package"></a>Pacote de segurança da empresa HDInsight
 
-Esta configuração é usada para permitir a funcionalidade de vários utilizadores tanto em grupos primários como secundários, bem como [em conjuntos de réplicas AD DS Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) para garantir que os utilizadores podem autenticar em ambos os clusters. Durante as operações normais, as políticas ranger devem ser criadas no Secundário para garantir que os utilizadores estão restritos às operações de Leitura. A arquitetura abaixo explica como um ESP permitiu a Colmeia Ative Primary – Standby Secondary configuração pode parecer.
+Esta configuração é usada para permitir a funcionalidade de vários utilizadores tanto em grupos primários como secundários, bem como [em conjuntos de réplicas AD DS Azure](../active-directory-domain-services/tutorial-create-replica-set.md) para garantir que os utilizadores podem autenticar em ambos os clusters. Durante as operações normais, as políticas ranger devem ser criadas no Secundário para garantir que os utilizadores estão restritos às operações de Leitura. A arquitetura abaixo explica como um ESP permitiu a Colmeia Ative Primary – Standby Secondary configuração pode parecer.
 
 Replicação da Metastore Ranger:
 

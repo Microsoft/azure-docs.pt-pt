@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/11/2017
-ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 332233873bfbcb2ae77f5a70b4aaa5a6102cecec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213333"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537852"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como escalar cache Azure para Redis
 A Azure Cache para Redis tem diferentes ofertas de cache, que proporcionam flexibilidade na escolha do tamanho e características da cache. Depois de uma cache ser criada, pode escalar o tamanho e o nível de preços da cache se os requisitos da sua aplicação mudarem. Este artigo mostra-lhe como escalar a sua cache usando o portal Azure, e ferramentas como Azure PowerShell e Azure CLI.
@@ -30,11 +30,11 @@ Pode monitorizar as seguintes métricas para ajudar a determinar se precisa de e
 Se determinar que o seu cache já não está a cumprir os requisitos da sua aplicação, pode escalar para um nível de preços de cache maior ou menor que seja adequado para a sua aplicação. Para obter mais informações sobre qual o nível de preços da cache a utilizar, consulte [escolher o nível certo](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="scale-a-cache"></a>Escalar uma cache
-Para escalar a sua cache, [navegue até à cache](cache-configure.md#configure-azure-cache-for-redis-settings) no [portal Azure](https://portal.azure.com) e clique em **Escala** a partir do **menu Recursos**.
+Para escalar a sua cache, [navegue até à cache](cache-configure.md#configure-azure-cache-for-redis-settings) no [portal Azure](https://portal.azure.com) e clique em **Escala** a partir do **menu Recursos** .
 
 ![Escala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-Selecione o nível de preços pretendido a partir da lâmina de **nível de preços Select** e clique em **Select**.
+Selecione o nível de preços pretendido a partir da lâmina de **nível de preços Select** e clique em **Select** .
 
 ![Escalão de preço][redis-cache-pricing-tier-blade]
 
@@ -52,7 +52,7 @@ Enquanto a cache está a escalonar para o novo nível de preços, é apresentado
 
 ![Dimensionamento][redis-cache-scaling]
 
-Quando o escalonamento está completo, o estado muda de **Escala para** **Running**.
+Quando o escalonamento está completo, o estado muda de **Escala para** **Running** .
 
 ## <a name="how-to-automate-a-scaling-operation"></a>Como automatizar uma operação de escala
 Além de escalar as suas instâncias de cache no portal Azure, pode escalar usando cmdlets PowerShell, Azure CLI, e utilizando as Bibliotecas de Gestão do Azure da Microsoft (MAML). 
@@ -65,7 +65,7 @@ Além de escalar as suas instâncias de cache no portal Azure, pode escalar usan
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode escalar o seu Cache Azure para instâncias Redis com PowerShell utilizando o [cmdlet Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) quando o `Size` , ou propriedades são `Sku` `ShardCount` modificados. O exemplo a seguir mostra como escalar uma cache chamada `myCache` para uma cache de 2,5 GB. 
+Pode escalar o seu Cache Azure para instâncias Redis com PowerShell utilizando o [cmdlet Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) quando o `Size` , ou propriedades são `Sku` `ShardCount` modificados. O exemplo a seguir mostra como escalar uma cache chamada `myCache` para uma cache de 2,5 GB. 
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
@@ -174,7 +174,7 @@ Se uma operação de escala falhar, o serviço tenta reverter a operação e a c
 O tempo de escala depende da quantidade de dados que existe na cache, com maiores quantidades de dados a demorarem mais tempo a ser concluídos. A escala leva aproximadamente 20 minutos. Para caches agrupados, a escala leva aproximadamente 20 minutos por fragmento.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Como posso saber quando a escala está completa?
-No portal Azure, pode ver a operação de escala em andamento. Quando o escalonamento estiver completo, o estado da cache muda para **executar**.
+No portal Azure, pode ver a operação de escala em andamento. Quando o escalonamento estiver completo, o estado da cache muda para **executar** .
 
 <!-- IMAGES -->
 

@@ -140,7 +140,7 @@
             - name: SDK de .NET (C#) - origem
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: SDK Java
-              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
+              href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar'
             - name: SDK de Java - referência
               href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
             - name: SDK de Java - origem
@@ -153,8 +153,8 @@
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: SDK de Python - origem
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
-            - name: SDK de Go - origem
-              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins'
+            - name: SDK Go
+              href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
         - name: Plano de dados
           items:
             - name: Swagger
@@ -175,6 +175,8 @@
               href: 'https://www.npmjs.com/package/@azure/digital-twins/'
             - name: SDK de JavaScript - referência
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: SDK de Python - PyPi
+              href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
     - name: CLI do Digital Twins
       items:
         - name: Referência da CLI do Digital Twins

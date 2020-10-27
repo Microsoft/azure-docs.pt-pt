@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ebe9f936e3d0dfafec23842fcdbfd225995d546b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac42407945196bd60c5ef466497ea6a86b5816c4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88720254"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547304"
 ---
 # <a name="common-errors"></a>Erros comuns
 
@@ -36,13 +36,13 @@ BEGIN
 END;
 ```
 
-**Resolução**: Para resolver o erro, desacrie log_bin_trust_function_creators a 1 a partir da lâmina dos [parâmetros](howto-server-parameters.md) do servidor no portal, execute as declarações DDL ou importe o esquema para criar os objetos pretendidos e reverta o parâmetro log_bin_trust_function_creators para o seu valor anterior após a criação.
+**Resolução** : Para resolver o erro, desacrie log_bin_trust_function_creators a 1 a partir da lâmina dos [parâmetros](howto-server-parameters.md) do servidor no portal, execute as declarações DDL ou importe o esquema para criar os objetos pretendidos e reverta o parâmetro log_bin_trust_function_creators para o seu valor anterior após a criação.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERRO 1227 (42000) na linha 101: Acesso negado; você precisa (pelo menos um dos) privilégios SUPER(s) para esta operação. A operação falhou com o código de saída 1
 
 O erro acima pode ocorrer durante a importação de um ficheiro de despejo ou criando um procedimento que contenha [definidores](https://dev.mysql.com/doc/refman/5.7/en/create-procedure.html). 
 
-**Resolução**: Para resolver este erro, o utilizador administrativo pode conceder privilégios para criar ou executar procedimentos executando o comando GRANT como nos seguintes exemplos:
+**Resolução** : Para resolver este erro, o utilizador administrativo pode conceder privilégios para criar ou executar procedimentos executando o comando GRANT como nos seguintes exemplos:
 
 ```sql
 GRANT CREATE ROUTINE ON mydb.* TO 'someuser'@'somehost';
@@ -64,7 +64,7 @@ DELIMITER ;
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se não encontrou a resposta que procurava, considere seguir:
-- Publique a sua pergunta no [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Publique a sua pergunta no [Microsoft Q&Uma página de perguntas](/answers/topics/azure-database-mysql.html) ou Stack [Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Envie um e-mail para a Base de Dados Azure para mySQL Team [ @Ask Azure DB para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Este endereço de e-mail não é um pseudónimo de suporte técnico.
 - Contacte o Suporte Azure, [preencha um bilhete a partir do portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).

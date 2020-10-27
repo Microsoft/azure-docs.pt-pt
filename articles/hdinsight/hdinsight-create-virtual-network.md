@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4fcf7830250e5e6d2e4255ddb88867023606d0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484819"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547559"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Criar redes virtuais para clusters Azure HDInsight
 
@@ -27,7 +27,7 @@ Antes de executar qualquer uma das amostras de código deste artigo, tenha uma c
 
 Outros pré-requisitos para as amostras do presente artigo incluem os seguintes itens:
 
-* Se estiver a utilizar o PowerShell, terá de instalar o [Módulo AZ](https://docs.microsoft.com/powershell/azure/).
+* Se estiver a utilizar o PowerShell, terá de instalar o [Módulo AZ](/powershell/azure/).
 * Se pretender utilizar o Azure CLI e ainda não o tiver instalado, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
@@ -377,6 +377,6 @@ Após completar estes passos, pode ligar-se a recursos na rede virtual utilizand
 * Para configurar a geo-replicação apache HBase, consulte [configurar a replicação do cluster Apache HBase em redes virtuais Azure](hbase/apache-hbase-replication.md).
 * Para obter mais informações sobre as redes virtuais Azure, consulte a [visão geral da Rede Virtual Azure](../virtual-network/virtual-networks-overview.md).
 
-* Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/security-overview.md).
+* Para obter mais informações sobre grupos de segurança de rede, consulte [os grupos de segurança da rede](../virtual-network/network-security-groups-overview.md).
 
 * Para obter mais informações sobre as rotas definidas pelo utilizador, consulte [as rotas definidas pelo Utilizador e o encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).

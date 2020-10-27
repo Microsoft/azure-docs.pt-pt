@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 583a5bcac71265596127c7860c0509963f76b2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080946"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534333"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Use o cluster HDInsight Spark para analisar dados na Data Lake Storage Gen1
 
@@ -23,7 +23,7 @@ Neste artigo, você usa [o Jupyter Notebook](https://jupyter.org/) disponível c
 
 * Conta Azure Data Lake Storage Gen1. Siga as instruções da [Azure Data Lake Storage Gen1 utilizando o portal Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Aglomerado de faíscas Azure HDInsight com data lake storage gen1 como armazenamento. Siga as instruções no [Quickstart: Instale clusters em HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Aglomerado de faíscas Azure HDInsight com data lake storage gen1 como armazenamento. Siga as instruções no [Quickstart: Instale clusters em HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
@@ -58,24 +58,24 @@ Se criou um cluster HDInsight com o Data Lake Storage como armazenamento adicion
     Copy Completed. 1 file copied.
     ```
 
-    O ficheiro de dados** (HVAC.csv) **será copiado sob uma pasta **/hvac** na conta de Armazenamento do Lago de Dados.
+    O ficheiro de dados **(HVAC.csv)** será copiado sob uma pasta **/hvac** na conta de Armazenamento do Lago de Dados.
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Use um cluster HDInsight Spark com data lake storage gen1
 
-1. A partir do [portal Azure](https://portal.azure.com/), a partir da placa de partida, clique no azulejo para o seu cluster Apache Spark (se o fixar na placa de partida). Também pode navegar para o seu cluster em **Browse All**  >  **HDInsight Clusters**.
+1. A partir do [portal Azure](https://portal.azure.com/), a partir da placa de partida, clique no azulejo para o seu cluster Apache Spark (se o fixar na placa de partida). Também pode navegar para o seu cluster em **Browse All**  >  **HDInsight Clusters** .
 
-2. No painel do cluster do Spark, clique em **Ligações Rápidas** e, em seguida, no painel **Dashboard de Clusters**, clique em **Bloco de Notas do Jupyter**. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
+2. No painel do cluster do Spark, clique em **Ligações Rápidas** e, em seguida, no painel **Dashboard de Clusters** , clique em **Bloco de Notas do Jupyter** . Se lhe for solicitado, introduza as credenciais de administrador do cluster.
 
    > [!NOTE]  
    > Também pode aceder ao Bloco de Notas do Jupyter para o cluster abrindo o seguinte URL no seu browser. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. Crie um novo bloco de notas. Clique em **Novo** e, em seguida, clique em **PySpark**.
+3. Crie um novo bloco de notas. Clique em **Novo** e, em seguida, clique em **PySpark** .
 
     ![Criar um novo bloco de notas do Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de notas do Jupyter")
 
-4. Uma vez que criou um bloco de notas com o kernel do PySpark, não é necessário criar quaisquer contextos explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Pode começar por importar os tipos necessários para este cenário. Para o fazer, cole o seguinte fragmento de código numa célula e prima **SHIFT + ENTER**.
+4. Uma vez que criou um bloco de notas com o kernel do PySpark, não é necessário criar quaisquer contextos explicitamente. Os contextos do Spark e do Hive serão criados automaticamente quando executa a primeira célula do código. Pode começar por importar os tipos necessários para este cenário. Para o fazer, cole o seguinte fragmento de código numa célula e prima **SHIFT + ENTER** .
 
     ```scala
     from pyspark.sql.types import *
@@ -105,7 +105,7 @@ Se criou um cluster HDInsight com o Data Lake Storage como armazenamento adicion
         adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
         ```
 
-     Numa célula vazia, cole o seguinte exemplo de código, substitua **MYDATALAKESTORE** pelo nome da sua conta de armazenamento de data lake, e prima **SHIFT + ENTER**. Este exemplo de código regista os dados numa tabela temporária denominada **hvac**.
+     Numa célula vazia, cole o seguinte exemplo de código, substitua **MYDATALAKESTORE** pelo nome da sua conta de armazenamento de data lake, e prima **SHIFT + ENTER** . Este exemplo de código regista os dados numa tabela temporária denominada **hvac** .
 
       ```scala
       # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster
@@ -138,7 +138,7 @@ Se criou um cluster HDInsight com o Data Lake Storage como armazenamento adicion
 
      ![Gráfico de área do resultado da consulta](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Gráfico de área do resultado da consulta")
 
-8. Depois de terminar a execução da aplicação, deve encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Deste modo, o bloco de notas é encerrado e fechado.
+8. Depois de terminar a execução da aplicação, deve encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar** . Deste modo, o bloco de notas é encerrado e fechado.
 
 
 ## <a name="next-steps"></a>Passos seguintes

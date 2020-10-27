@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca796b09f10127c68c5a22ff58f95c89cbda2610
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681812"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534401"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
 
@@ -34,7 +34,7 @@ Para obter mais informações sobre as APIs, veja a documentação do Apache ded
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Apache Kafka no aglomerado HDInsight. Para aprender a criar o cluster, consulte [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
-* [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks) ou equivalente, como OpenJDK.
+* [Java Developer Kit (JDK) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) ou equivalente, como OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 * Um cliente da SSH como o Putty. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -213,7 +213,7 @@ O consumo pelos clientes dentro do mesmo grupo é processado pelas partições d
 > [!IMPORTANT]  
 > Não podem existir mais instâncias de consumidor num grupo de consumidores do que partições. Neste exemplo, um grupo de consumidores pode incluir até oito consumidores, pois esse é o número de partições no tópico. Também pode ter vários grupos de consumidores, em que cada grupo não tem mais do que oito consumidores.
 
-Os registos armazenados em Kafka são armazenados na ordem em que são recebidos dentro de uma divisória. Para obter uma entrega por ordem dos registos *dentro de uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
+Os registos armazenados em Kafka são armazenados na ordem em que são recebidos dentro de uma divisória. Para obter uma entrega por ordem dos registos *dentro de uma partição* , crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico* , crie um grupo de consumidores com apenas uma instância de consumidor.
 
 ## <a name="common-issues-faced"></a>Questões Comuns enfrentadas
 
@@ -227,7 +227,7 @@ Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recu
 
 Para remover o grupo de recursos através do Portal do Azure:
 
-1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__, para apresentar a lista dos seus grupos de recursos.
+1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__ , para apresentar a lista dos seus grupos de recursos.
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 

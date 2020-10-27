@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 0d886fc6797011ff3a0adeb69f50358ece9c5f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf1c558474cfde85dd2c9ba8c85dc553fe5d9b56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252180"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547508"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: utilizar um dispositivo simulado para testar a conectividade com o seu hub do IoT
 
@@ -62,7 +62,7 @@ Transfira o projeto Node.js de simulador de dispositivos de exemplo em https://g
 
 Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste tutorial utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Se tiver criado um hub do IoT gratuito ou padrão no tutorial ou guia de início rápido anterior, pode ignorar este passo.
 
@@ -72,15 +72,15 @@ Se tiver criado um hub do IoT gratuito ou padrão no tutorial ou guia de início
 
 Um dispositivo tem de ser autenticado com o seu hub antes de poder trocar dados com o mesmo. Pode utilizar a ferramenta **Dispositivos IoT** na secção **Gestão de Dispositivos** do portal para gerir os seus dispositivos e verificar as chaves de autenticação que estão a ser utilizadas. Nesta secção do tutorial, irá adicionar um novo dispositivo de teste, obter a chave e verificar se o dispositivo de teste consegue estabelecer ligação ao hub. Posteriormente, irá repor a chave de autenticação para observar o que acontece quando um dispositivo tenta utilizar uma chave desatualizada. Esta secção do tutorial utiliza o portal do Azure para criar, gerir e monitorizar um dispositivo e o simulador de dispositivos Node.js de exemplo.
 
-Inicie sessão no portal e navegue para o seu hub do IoT. Em seguida, navegue para a ferramenta **Dispositivos IoT**:
+Inicie sessão no portal e navegue para o seu hub do IoT. Em seguida, navegue para a ferramenta **Dispositivos IoT** :
 
 ![Ferramenta Dispositivos IoT](media/tutorial-connectivity/iot-devices-tool.png)
 
-Para registar um novo dispositivo, clique em **+ Adicionar**, defina o **ID do Dispositivo** como **MyTestDevice** e clique em **Guardar**:
+Para registar um novo dispositivo, clique em **+ Adicionar** , defina o **ID do Dispositivo** como **MyTestDevice** e clique em **Guardar** :
 
 ![Adicionar um novo dispositivo](media/tutorial-connectivity/add-device.png)
 
-Para obter a cadeia de ligação de **MyTestDevice**, clique na mesma na lista de dispositivos e copie o valor **Cadeia de ligação - chave primária**. A cadeia de ligação inclui a *chave de acesso partilhado* do dispositivo.
+Para obter a cadeia de ligação de **MyTestDevice** , clique na mesma na lista de dispositivos e copie o valor **Cadeia de ligação - chave primária** . A cadeia de ligação inclui a *chave de acesso partilhado* do dispositivo.
 
 ![Obter a cadeia de ligação do dispositivo](media/tutorial-connectivity/copy-connection-string.png)
 
@@ -105,7 +105,7 @@ Efetuou a autenticação com êxito a partir de um dispositivo através de uma c
 
 Nesta secção, irá repor a chave do dispositivo e observar o erro quando o dispositivo simulado tenta estabelecer ligação.
 
-Para repor a chave primária do dispositivo **MyTestDevice**, execute os seguintes comandos:
+Para repor a chave primária do dispositivo **MyTestDevice** , execute os seguintes comandos:
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
@@ -200,7 +200,7 @@ A janela de terminal mostra informações à medida que envia dados telemétrico
 
 ![Dispositivo simulado a enviar mensagens](media/tutorial-connectivity/sim-3-sending.png)
 
-Pode utilizar **métricas** no portal para verificar se as mensagens de telemetria estão a chegar ao seu hub IoT. Selecione o seu hub do IoT no menu pendente **Recurso**, selecione **Mensagens de telemetria enviadas** como a métrica e defina o intervalo de tempo para **Última hora**. O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
+Pode utilizar **métricas** no portal para verificar se as mensagens de telemetria estão a chegar ao seu hub IoT. Selecione o seu hub do IoT no menu pendente **Recurso** , selecione **Mensagens de telemetria enviadas** como a métrica e defina o intervalo de tempo para **Última hora** . O gráfico mostra a contagem agregada de mensagens enviadas pelo dispositivo simulado:
 
 ![Mostrar métricas do Hub IoT](media/tutorial-connectivity/metrics-portal.png)
 
@@ -266,11 +266,11 @@ Além de receber as alterações de propriedades pretendidas à medida que são 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
+Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar** .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a verificar as chaves do dispositivo, a verificar a conectividade do dispositivo para a cloud, a verificar a conectividade da cloud para o dispositivo e a verificar a sincronização de dispositivos duplos. Para saber mais sobre como monitorizar o seu hub do IoT, aceda ao artigo de procedimentos de monitorização do Hub IoT.
 
 > [!div class="nextstepaction"]
-> [Monitorizar com diagnósticos](iot-hub-monitor-resource-health.md)
+> [Monitor IoT Hub](monitor-iot-hub.md)

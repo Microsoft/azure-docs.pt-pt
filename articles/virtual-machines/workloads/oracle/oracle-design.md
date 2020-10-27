@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996632"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534078"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -101,11 +101,11 @@ Uma coisa que você pode olhar são os cinco melhores eventos de primeiro plano 
 
 Por exemplo, no diagrama seguinte, a sincronização do ficheiro de registo está na parte superior. Indica o número de esperas que são necessárias antes de o LGWR escrever o tampão de registo para o ficheiro de registo de redo. Estes resultados indicam que são necessários armazenamento ou discos de melhor desempenho. Além disso, o diagrama também mostra o número de CPU (núcleos) e a quantidade de memória.
 
-![Screenshot da página de relatório da AWR](./media/oracle-design/cpu_memory_info.png)
+![Screenshot que mostra a sincronização do ficheiro de registo na parte superior da tabela.](./media/oracle-design/cpu_memory_info.png)
 
 O diagrama seguinte mostra o total de E/O de ler e escrever. Foram 59 GB lidos e 247,3 GB escritos durante o período do relatório.
 
-![Screenshot da página de relatório da AWR](./media/oracle-design/io_info.png)
+![Screenshot que mostra o total de E/O de ler e escrever.](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Escolha um VM
 
@@ -143,13 +143,13 @@ Com base nos requisitos de largura de banda da sua rede, existem vários tipos d
 
 ### <a name="disk-types-and-configurations"></a>Tipos e configurações de discos
 
-- *Discos de OS predefinidos*: Estes tipos de disco oferecem dados persistentes e cacheing. São otimizados para acesso ao SISTEMA no arranque, e não são projetados para cargas de trabalho transacionais ou de data warehouse (analítico).
+- *Discos de OS predefinidos* : Estes tipos de disco oferecem dados persistentes e cacheing. São otimizados para acesso ao SISTEMA no arranque, e não são projetados para cargas de trabalho transacionais ou de data warehouse (analítico).
 
-- *Discos não geridos*: Com estes tipos de discos, gere as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Os ficheiros VHD são armazenados como bolhas de página nas contas de armazenamento Azure.
+- *Discos não geridos* : Com estes tipos de discos, gere as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Os ficheiros VHD são armazenados como bolhas de página nas contas de armazenamento Azure.
 
-- *Discos geridos*: O Azure gere as contas de armazenamento que utiliza para os discos VM. Especifica o tipo de disco (premium ou standard) e o tamanho do disco de que necessita. O Azure cria e gere o disco para si.
+- *Discos geridos* : O Azure gere as contas de armazenamento que utiliza para os discos VM. Especifica o tipo de disco (premium ou standard) e o tamanho do disco de que necessita. O Azure cria e gere o disco para si.
 
-- *Discos de armazenamento premium*: Estes tipos de disco são os mais adequados para cargas de trabalho de produção. O armazenamento premium suporta discos VM que podem ser ligados a VMs específicos da série de tamanho, tais como DS, DSv2, GS e VMs sérieS F. O disco premium vem com diferentes tamanhos, e você pode escolher entre discos que variam de 32 GB a 4,096 GB. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos da sua aplicação, pode anexar um ou mais discos ao seu VM.
+- *Discos de armazenamento premium* : Estes tipos de disco são os mais adequados para cargas de trabalho de produção. O armazenamento premium suporta discos VM que podem ser ligados a VMs específicos da série de tamanho, tais como DS, DSv2, GS e VMs sérieS F. O disco premium vem com diferentes tamanhos, e você pode escolher entre discos que variam de 32 GB a 4,096 GB. Cada tamanho do disco tem as suas próprias especificações de desempenho. Dependendo dos requisitos da sua aplicação, pode anexar um ou mais discos ao seu VM.
 
 Quando criar um novo disco gerido a partir do portal, pode escolher o **tipo de Conta** para o tipo de disco que pretende utilizar. Tenha em mente que nem todos os discos disponíveis são mostrados no menu suspenso. Depois de escolher um determinado tamanho VM, o menu mostra apenas os SKUs de armazenamento premium disponíveis que são baseados nesse tamanho VM.
 
@@ -196,7 +196,7 @@ Existem três opções para o caching hospedeiro:
 
 Para maximizar a produção, recomendamos que comece com **Nenhum** para o caching hospedeiro. Para o Armazenamento Premium, tenha em mente que deve desativar as "barreiras" quando monta o sistema de ficheiros com as opções **ReadOnly** ou **None.** Atualize o ficheiro /etc/fstab com o UUID para os discos.
 
-![Screenshot da página de disco gerido](./media/oracle-design/premium_disk02.png)
+![Screenshot da página de disco gerida que mostra as opções ReadOnly e None.](./media/oracle-design/premium_disk02.png)
 
 - Para discos OS, utilize o cache padrão **de leitura/escrita.**
 - Para SISTEMA, TEMP e UNDO utilize **Nenhum** para caching.
@@ -208,9 +208,9 @@ Depois de a definição do disco de dados ser guardada, não pode alterar a defi
 
 Depois de configurar e configurar o seu ambiente Azure, o próximo passo é proteger a sua rede. Aqui estão algumas recomendações:
 
-- *Política NSG*: O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso ao nível da sub-rede, tanto para segurança como para encaminhamento de forças para coisas como firewalls de aplicações.
+- *Política NSG* : O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso ao nível da sub-rede, tanto para segurança como para encaminhamento de forças para coisas como firewalls de aplicações.
 
-- *Jumpbox*: Para um acesso mais seguro, os administradores não devem ligar-se diretamente ao serviço de aplicações ou à base de dados. Uma caixa de salto é usada como um meio de comunicação entre a máquina de administrador e os recursos Azure.
+- *Jumpbox* : Para um acesso mais seguro, os administradores não devem ligar-se diretamente ao serviço de aplicações ou à base de dados. Uma caixa de salto é usada como um meio de comunicação entre a máquina de administrador e os recursos Azure.
 ![Screenshot da página de topologia jumpbox](./media/oracle-design/jumpbox.png)
 
     A máquina de administrador deve oferecer acesso restrito a IP apenas à caixa de salto. A caixa de salto deve ter acesso à aplicação e à base de dados.

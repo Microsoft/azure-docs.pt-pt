@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103344"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535472"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
@@ -23,7 +23,7 @@ Este artigo fornece os passos para que você proteja o tráfego de saída do seu
 
 Os clusters HDInsight são normalmente implantados numa rede virtual. O cluster tem dependências de serviços fora daquela rede virtual.
 
-O tráfego de gestão de entrada não pode ser enviado através de uma firewall. Pode utilizar etiquetas de serviço NSG para o tráfego de entrada, conforme documentado [aqui.](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags) 
+O tráfego de gestão de entrada não pode ser enviado através de uma firewall. Pode utilizar etiquetas de serviço NSG para o tráfego de entrada, conforme documentado [aqui.](./hdinsight-service-tags.md) 
 
 As dependências de tráfego de saída HDInsight são quase inteiramente definidas com FQDNs. Que não têm endereços IP estáticos por trás deles. A falta de endereços estáticos significa que os Grupos de Segurança da Rede (NSGs) não podem bloquear o tráfego de saída de um cluster. Os endereços IP mudam muitas vezes o suficiente para não se poder estabelecer regras com base na resolução e utilização do nome atual.
 
@@ -53,7 +53,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
 1. Selecione a nova firewall **Test-FW01** do portal Azure.
 
-1. Navegar para **Definições**  >  **Regras**  >  **Regras Recolha de regras de aplicação**  >  **+ Adicionar coleção de regras de aplicação**.
+1. Navegar para **Definições**  >  **Regras**  >  **Regras Recolha de regras de aplicação**  >  **+ Adicionar coleção de regras de aplicação** .
 
     ![Denominação: Adicionar a recolha de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -75,7 +75,7 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
     **Seção FQDNs alvo**
 
-    | Nome | Endereços de origem | Protocolo:Porto | Alvo FQDNS | Notas |
+    | Nome | Endereços de origem | Protocolo:Porta | Alvo FQDNS | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite atividade de login do Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite atividade de login do Windows |
@@ -83,13 +83,13 @@ Crie uma coleção de regras de aplicação que permita ao cluster enviar e rece
 
    ![Denominação: Introduzir detalhes da recolha de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Selecione **Adicionar**.
+1. Selecione **Adicionar** .
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configure a firewall com regras de rede
 
 Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
 
-1. Continuando a partir do passo anterior, navegue para a **coleção de regras da rede**+ Adicione a recolha de  >  **regras de rede**.
+1. Continuando a partir do passo anterior, navegue para a **coleção de regras da rede** + Adicione a recolha de  >  **regras de rede** .
 
 1. No ecrã de **recolha de regras de rede Add,** forneça as seguintes informações:
 
@@ -110,23 +110,23 @@ Crie as regras de rede para configurar corretamente o seu cluster HDInsight.
     
    ![Denominação: Introduzir a recolha da regra de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Selecione **Adicionar**.
+1. Selecione **Adicionar** .
 
 ### <a name="create-and-configure-a-route-table"></a>Criar e configurar uma tabela de rotas
 
 Criar uma tabela de rotas com as seguintes entradas:
 
-* Todos os endereços IP dos serviços de [saúde e gestão](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) com um próximo tipo de **Internet**hop. Deve incluir 4 IPs das regiões genéricas, bem como 2 IPs para a sua região específica. Esta regra só é necessária se o ResourceProviderConnection estiver definido para *Entrada*. Se o ResourceProviderConnection estiver definido para *Outbound,* estes IPs não são necessários na UDR. 
+* Todos os endereços IP dos serviços de [saúde e gestão](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) com um próximo tipo de **Internet** hop. Deve incluir 4 IPs das regiões genéricas, bem como 2 IPs para a sua região específica. Esta regra só é necessária se o ResourceProviderConnection estiver definido para *Entrada* . Se o ResourceProviderConnection estiver definido para *Outbound,* estes IPs não são necessários na UDR. 
 
 * Uma rota de Aparelho Virtual para endereço IP 0.0.0.0/0 com o próximo lúpulo sendo o seu endereço IP privado Azure Firewall.
 
 Por exemplo, para configurar a tabela de rotas para um cluster criado na região dos EUA de "Leste dos EUA", use os seguintes passos:
 
-1. Selecione o seu Teste Azure firewall **Test-FW01**. Copie o **endereço IP privado** listado na página **'Vista Geral'.** Para este exemplo, usaremos um **endereço de amostra de 10.0.2.4**.
+1. Selecione o seu Teste Azure firewall **Test-FW01** . Copie o **endereço IP privado** listado na página **'Vista Geral'.** Para este exemplo, usaremos um **endereço de amostra de 10.0.2.4** .
 
 1. Em seguida, navegue para **todas as tabelas**  >  **de rota de networking de**  >  **serviços** e crie tabela de **rotas.**
 
-1. A partir da sua **Settings**nova rota, navegue para  >  **Definições Rotas**  >  **+ Adicionar**. Adicione as seguintes rotas:
+1. A partir da sua **Settings** nova rota, navegue para  >  **Definições Rotas**  >  **+ Adicionar** . Adicione as seguintes rotas:
 
 | Nome da rota | Prefixo de endereço | Tipo de salto seguinte | Endereço do próximo salto |
 |---|---|---|---|
@@ -140,13 +140,13 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 Preencha a configuração da tabela de rotas:
 
-1. Atribua a tabela de rotas criada para a sua sub-rede HDInsight selecionando **sub-redes** em **Definições**.
+1. Atribua a tabela de rotas criada para a sua sub-rede HDInsight selecionando **sub-redes** em **Definições** .
 
-1. Selecione **+ Associado**.
+1. Selecione **+ Associado** .
 
 1. No ecrã da **sub-rede Associate,** selecione a rede virtual em que o seu cluster foi criado. E a **sub-rede** que usaste para o teu cluster HDInsight.
 
-1. Selecione **OK**.
+1. Selecione **OK** .
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Tráfego de aplicações de nó de borda ou personalizado
 
@@ -160,7 +160,7 @@ Se as suas aplicações tiverem outras dependências, elas têm de ser adicionad
 
 ## <a name="logging-and-scale"></a>Registo e escala
 
-O Azure Firewall pode enviar registos para alguns sistemas de armazenamento diferentes. Para obter instruções sobre a configuração do registo de registo para a sua firewall, siga os passos em [Tutorial: Monitor Azure Firewall registos e métricas](../firewall/tutorial-diagnostics.md).
+O Azure Firewall pode enviar registos para alguns sistemas de armazenamento diferentes. Para obter instruções sobre a configuração do registo de registo para a sua firewall, siga os passos em [Tutorial: Monitor Azure Firewall registos e métricas](../firewall/firewall-diagnostics.md).
 
 Uma vez concluída a configuração de registo, se estiver a utilizar o Log Analytics, pode visualizar o tráfego bloqueado com uma consulta como:
 

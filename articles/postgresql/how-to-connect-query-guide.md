@@ -1,18 +1,18 @@
 ---
 title: Conecte-se e consulta - Servidor Único PostgreSQL
-description: Links para Azure My SQL Database quickstarts mostrando como ligar ao seu servidor e executar consultas.
+description: Links para quickstarts que mostram como ligar à sua Base de Dados Azure para o Servidor Único Pós-SQL e executar consultas.
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490021"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546556"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Conecte e consulta visão geral para base de dados Azure para PostgreSQL- Servidor Único
 
@@ -33,13 +33,12 @@ O documento que se segue inclui links para exemplos que mostram como conectar e 
 |[Python](connect-python.md)|Este quickstart demonstra como usar python para ligar a uma base de dados e usar trabalho com objetos de base de dados para consultar dados. |
 |[Ruby](connect-ruby.md)|Este quickstart demonstra como usar a Ruby para criar um programa para ligar a uma base de dados e usar o trabalho com objetos de base de dados para consultar dados.|
 
-
 ## <a name="tls-considerations-for-database-connectivity"></a>Considerações TLS para conectividade de base de dados
 
-A Segurança da Camada de Transporte (TLS) é utilizada por todos os controladores que a Microsoft fornece ou suporta para se ligar a bases de dados em Azure Database for PostgreSQL. Não é necessária nenhuma configuração especial, mas faça cumprir o TLS 1.2 para os servidores recém-criados. Recomendamos que se estiver a utilizar TLS 1.0 e 1.1, então atualize a versão TLS para os seus servidores. Ver [ Como Configurar TLS](howto-tls-configurations.md)
+A Segurança da Camada de Transporte (TLS) é utilizada por todos os controladores que a Microsoft fornece ou suporta para se ligar a bases de dados em Azure Database for PostgreSQL. Não é necessária nenhuma configuração especial, mas faça cumprir o TLS 1.2 para os servidores recém-criados. Recomendamos que se estiver a utilizar TLS 1.0 e 1.1, então atualize a versão TLS para os seus servidores. Ver [Como Configurar TLS](howto-tls-configurations.md)
 
+## <a name="postgresql-extensions"></a>Extensões do PostgreSQL
 
-## <a name="postgresql-extensions"></a>Extensões Pós-SQL
 O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dados utilizando extensões. As extensões agrupam múltiplos objetos SQL relacionados num pacote individual, o qual pode ser carregado ou removido a partir da base de dados com um único comando. Após ser carregado para a base de dados, as extensões funcionam como funcionalidades incorporadas.
 
 - [Extensões postgres 11](./concepts-extensions.md#postgres-11-extensions)
@@ -49,7 +48,7 @@ O PostgreSQL fornece a capacidade de alargar a funcionalidade da sua base de dad
 
 Para obter mais detalhes, consulte [como utilizar as extensões PostgreSQL no servidor Single](concepts-extensions.md).
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes
 
 - [Migrar dados usando o despejo e restaurar](howto-migrate-using-dump-and-restore.md)
 - [Migrar dados utilizando a importação e exportação](howto-migrate-using-export-and-import.md)

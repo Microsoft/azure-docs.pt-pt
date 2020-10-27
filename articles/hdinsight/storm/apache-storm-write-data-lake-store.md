@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73241207"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545451"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Escreva para Apache Hadoop HDFS da Tempestade Apache em Azure HDInsight
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks)
+* [Java Developer Kit (JDK) versão 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache Maven](https://maven.apache.org/download.cgi) devidamente [instalado de](https://maven.apache.org/install.html) acordo com Apache.  Maven é um sistema de construção de projetos para projetos java.
 
@@ -160,7 +160,7 @@ Para obter informações sobre a utilização deste script com o seu cluster, co
     hdfs.url: wasbs:///
     ```
 
-    Para guardar o ficheiro, utilize __ctrl + X,__ em __seguida, Y__, e finalmente __Insira__. Os valores deste ficheiro definem o URL de armazenamento e o nome do diretório a que os dados estão escritos.
+    Para guardar o ficheiro, utilize __ctrl + X,__ em __seguida, Y__ , e finalmente __Insira__ . Os valores deste ficheiro definem o URL de armazenamento e o nome do diretório a que os dados estão escritos.
 
 1. Utilize o seguinte comando para iniciar a topologia:
 
@@ -205,7 +205,7 @@ Para limpar os recursos criados por este tutorial, pode eliminar o grupo de recu
 
 Para remover o grupo de recursos através do Portal do Azure:
 
-1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__, para apresentar a lista dos seus grupos de recursos.
+1. No Portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e, em seguida, escolha __Grupos de Recursos__ , para apresentar a lista dos seus grupos de recursos.
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 

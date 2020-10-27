@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 978312c6238315cf836cf7c26a2ee63e452d3b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c7fe3db3f85824dc2cfbe87fc22b63a59e931ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884637"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546369"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migração mínima para a Base de Dados Azure para o MySQL
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
@@ -25,4 +25,4 @@ O Azure DMS realiza uma carga inicial das suas instalações para a Azure Databa
 
 ## <a name="next-steps"></a>Passos seguintes
 - Veja o vídeo [Migrar facilmente as aplicações MySQL/PostgreSQL para o serviço gerido Azure](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), que contém uma demonstração que mostra como migrar as aplicações mySQL para Azure Database para o MySQL.
-- Consulte o tutorial [Migrate MySQL para Azure Database for MySQL on-line usando DMS](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).
+- Consulte o tutorial [Migrate MySQL para Azure Database for MySQL on-line usando DMS](../dms/tutorial-mysql-azure-mysql-online.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505034"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542782"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix em HDInsight
 
@@ -52,7 +52,7 @@ Depois de eliminar o cluster, pode deixar os dados no lugar ou copiar os dados p
 
 * Crie um novo exemplo hdInsight que indique a localização de armazenamento atual. A nova instância é criada com todos os dados existentes.
 
-* Copie a `hbase` pasta para um recipiente de blob de armazenamento Azure ou para o armazenamento do Data Lake e, em seguida, inicie um novo cluster com esses dados. Para armazenamento Azure, utilize [a AzCopy,](../../storage/common/storage-use-azcopy.md)e para o armazenamento de data lake use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copie a `hbase` pasta para um recipiente de blob de armazenamento Azure ou para o armazenamento do Data Lake e, em seguida, inicie um novo cluster com esses dados. Para armazenamento Azure, utilize [a AzCopy,](../../storage/common/storage-use-azcopy-v10.md)e para o armazenamento de data lake use [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exportar então Importar
 
@@ -245,4 +245,4 @@ Para ativar a replicação no HDInsight, aplique uma Ação de Script no seu clu
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar a replicação apache HBase](apache-hbase-replication.md)
-* [Trabalhar com a HBase Import and Export Utility](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Trabalhar com a HBase Import and Export Utility](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

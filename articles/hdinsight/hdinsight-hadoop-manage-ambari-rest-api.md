@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081071"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546080"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerir os clusters HDInsight utilizando a API Apache Ambari REST
 
@@ -29,7 +29,7 @@ A Apache Ambari simplifica a gestão e monitorização dos clusters Hadoop, prop
 
 * Um aglomerado hadoop em HDInsight. Ver [Começar com HDInsight no Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bata no Ubuntu no Windows 10.  Os exemplos deste artigo utilizam a concha Bash no Windows 10. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para obter etapas de instalação.  Outras [conchas Unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos, com algumas modificações ligeiras, podem funcionar numa solicitação do Windows Command.  Ou pode usar o Windows PowerShell.
+* Bata no Ubuntu no Windows 10.  Os exemplos deste artigo utilizam a concha Bash no Windows 10. Consulte [o subsistema Windows para o Guia de Instalação do Linux para o Windows 10](/windows/wsl/install-win10) para obter etapas de instalação.  Outras [conchas Unix](https://www.gnu.org/software/bash/) também funcionarão.  Os exemplos, com algumas modificações ligeiras, podem funcionar numa solicitação do Windows Command.  Ou pode usar o Windows PowerShell.
 
 * jq, um processador JSON de linha de comando.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)Ver.
 
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Análise de dados JSON
 
-O exemplo a seguir utiliza [jq](https://stedolan.github.io/jq/) ou [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) para analisar o documento de resposta JSON e exibir apenas as `health_report` informações dos resultados.
+O exemplo a seguir utiliza [jq](https://stedolan.github.io/jq/) ou [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) para analisar o documento de resposta JSON e exibir apenas as `health_report` informações dos resultados.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -253,7 +253,7 @@ O valor de retorno é semelhante a um dos seguintes exemplos:
     O valor de retorno é semelhante a `/clusters/CLUSTERNAME/` . Este valor é um caminho dentro da conta de Armazenamento do Lago de Dados. Este caminho é a raiz do sistema de ficheiros compatível com HDFS para o cluster.  
 
 > [!NOTE]  
-> A cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fornecida pela [Azure PowerShell](/powershell/azure/) também devolve as informações de armazenamento do cluster.
+> A cmdlet [Get-AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) fornecida pela [Azure PowerShell](/powershell/azure/) também devolve as informações de armazenamento do cluster.
 
 ### <a name="get-all-configurations"></a>Obtenha todas as configurações
 

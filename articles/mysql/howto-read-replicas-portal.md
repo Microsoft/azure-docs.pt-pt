@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740127"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546811"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para o MySQL utilizando o portal Azure
 
@@ -35,9 +35,9 @@ Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 
 2. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como mestre. Esta ação abre a página **de visão geral.**
 
-3. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
+3. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
 
-4. Selecione **Adicionar Réplica**.
+4. Selecione **Adicionar Réplica** .
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Base de Dados Azure para MySQL - Replicação":::
 
@@ -55,7 +55,7 @@ Um servidor de réplica de leitura pode ser criado usando os seguintes passos:
 7. Selecione **OK** para confirmar a criação da réplica.
 
 > [!NOTE]
-> As réplicas de leitura são criadas com a mesma configuração do servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de ter sido criada. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma subscrição que o servidor de origem. Se pretender criar um servidor de réplica para um grupo de recursos diferente ou uma subscrição diferente, pode [mover o servidor de réplica](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) após a criação. Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou superiores à fonte para garantir que a réplica seja capaz de acompanhar o mestre.
+> As réplicas de leitura são criadas com a mesma configuração do servidor que o mestre. A configuração do servidor de réplica pode ser alterada depois de ter sido criada. O servidor de réplica é sempre criado no mesmo grupo de recursos e na mesma subscrição que o servidor de origem. Se pretender criar um servidor de réplica para um grupo de recursos diferente ou uma subscrição diferente, pode [mover o servidor de réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) após a criação. Recomenda-se que a configuração do servidor de réplica seja mantida em valores iguais ou superiores à fonte para garantir que a réplica seja capaz de acompanhar o mestre.
 
 Uma vez criado o servidor de réplica, pode ser visto a partir da lâmina de **replicação.**
 
@@ -70,17 +70,17 @@ Para parar a replicação entre uma fonte e um servidor de réplica do portal Az
 
 1. No portal Azure, selecione a base de dados Azure de origem para o servidor MySQL. 
 
-2. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
+2. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
 
 3. Selecione o servidor de réplica para o quais deseja parar a replicação.
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Base de Dados Azure para MySQL - Replicação":::
 
-4. **Selecione a replicação stop**.
+4. **Selecione a replicação stop** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Base de Dados Azure para MySQL - Replicação":::
 
-5. Confirme que pretende parar a replicação clicando **OK**.
+5. Confirme que pretende parar a replicação clicando **OK** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Base de Dados Azure para MySQL - Replicação":::
 
@@ -90,7 +90,7 @@ Para eliminar um servidor de réplica de leitura do portal Azure, utilize os seg
 
 1. No portal Azure, selecione a base de dados Azure de origem para o servidor MySQL.
 
-2. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
+2. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
 
 3. Selecione o servidor de réplica que deseja eliminar.
 
@@ -113,7 +113,7 @@ Para eliminar um servidor de origem do portal Azure, utilize os seguintes passos
 
 1. No portal Azure, selecione a base de dados Azure de origem para o servidor MySQL.
 
-2. A partir do **Resumo,** selecione **Delete**.
+2. A partir do **Resumo,** selecione **Delete** .
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Base de Dados Azure para MySQL - Replicação":::
 

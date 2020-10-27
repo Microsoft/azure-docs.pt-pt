@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086267"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534384"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Suporte de software de código aberto em Azure HDInsight
 
@@ -40,7 +40,7 @@ Como utilizador do cluster, pode instalar ou utilizar na sua carga de trabalho q
 > [!WARNING]  
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados. O Microsoft Support ajuda a isolar e resolver problemas relacionados com estes componentes.
 >
-> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. O Microsoft Support poderá ser capaz de resolver o problema. Ou podem pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontra uma experiência profunda para essa tecnologia. Muitos sites comunitários podem ser usados. Exemplos são [Microsoft Q&Uma página de perguntas para HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) e Stack [Overflow](https://stackoverflow.com).
+> Os componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. O Microsoft Support poderá ser capaz de resolver o problema. Ou podem pedir-lhe para envolver canais disponíveis para as tecnologias de código aberto onde se encontra uma experiência profunda para essa tecnologia. Muitos sites comunitários podem ser usados. Exemplos são [Microsoft Q&Uma página de perguntas para HDInsight](/answers/topics/azure-hdinsight.html) e Stack [Overflow](https://stackoverflow.com).
 >
 > Os projetos Apache também têm sites de projeto no [site da Apache.](https://apache.org) Um exemplo é [Hadoop.](https://hadoop.apache.org/)
 

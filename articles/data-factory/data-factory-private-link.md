@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328569"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546675"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Ligação privada Azure para Azure Data Factory
 
@@ -67,7 +67,7 @@ Ativar o serviço Private Link para cada um dos canais de comunicação anterior
 > Quando criar um serviço ligado, certifique-se de que as suas credenciais estão guardadas num cofre de chaves Azure. Caso contrário, as credenciais não funcionarão quando ativar o Private Link na Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para a fábrica de dados Azure
-Pode criar pontos finais privados utilizando [o portal Azure,](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)o PowerShell ou o Azure CLI.
+Pode criar pontos finais privados utilizando [o portal Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
 
 Você também pode ir à sua fábrica de dados Azure no portal Azure e criar um ponto final privado, como mostrado aqui:
 

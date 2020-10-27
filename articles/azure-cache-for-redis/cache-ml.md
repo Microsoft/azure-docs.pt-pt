@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650192"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537580"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implementar um modelo de aprendizagem automática para funções Azure com cache Azure para Redis 
 
@@ -24,10 +24,10 @@ Azure Cache para Redis é extremamente performante e escalável – quando empar
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Azure subscription - [crie uma gratuitamente](https://azure.microsoft.com/free/).
-* Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-* Um modelo de aprendizagem automática treinado registado no seu espaço de trabalho. Se não tiver um modelo, use o tutorial de [classificação de imagem: modelo de comboio](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) para treinar e registar um.
+* Azure subscription - [crie uma gratuitamente](https://azure.microsoft.com/free/).
+* Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](../machine-learning/how-to-manage-workspace.md)
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Um modelo de aprendizagem automática treinado registado no seu espaço de trabalho. Se não tiver um modelo, use o tutorial de [classificação de imagem: modelo de comboio](../machine-learning/tutorial-train-models-with-aml.md) para treinar e registar um.
 
 > [!IMPORTANT]
 > Os códigos de corte neste artigo assumem que definiu as seguintes variáveis:
@@ -36,14 +36,14 @@ Azure Cache para Redis é extremamente performante e escalável – quando empar
 > * `model` - O modelo registado que será implantado.
 > * `inference_config` - A configuração da inferência para o modelo.
 >
-> Para obter mais informações sobre a definição destas variáveis, consulte [implementar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> Para obter mais informações sobre a definição destas variáveis, consulte [implementar modelos com Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Criar uma Cache Azure para a instância Redis 
 Poderá implementar um modelo de machine learning para funções Azure com qualquer instância de cache Básica, Padrão ou Premium. Para criar uma instância de cache, siga estes passos.  
 
-1. Vá à página inicial do portal Azure ou abra o menu da barra lateral e, em seguida, **selecione Criar um recurso**. 
+1. Vá à página inicial do portal Azure ou abra o menu da barra lateral e, em seguida, **selecione Criar um recurso** . 
    
-1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
+1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione Azure Cache para Redis.":::
    
@@ -51,7 +51,7 @@ Poderá implementar um modelo de machine learning para funções Azure com qualq
    
    | Definição      | Valor sugerido  | Descrição |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será * \<DNS name> .redis.cache.windows.net*. | 
+   | **Nome DNS** | Introduza um nome globalmente exclusivo. | O nome da cache deve ser uma cadeia entre 1 e 63 caracteres que contenha apenas números, letras ou hífenes. O nome deve começar e terminar com um número ou letra, e não pode conter hífenes consecutivos. O nome de *anfitrião* do seu caso de cache será *\<DNS name> .redis.cache.windows.net* . | 
    | **Subscrição** | Desça e selecione a sua subscrição. | A subscrição sob a qual criar este novo Azure Cache para a instância Redis. | 
    | **Grupo de recursos** | Desça e selecione um grupo de recursos, ou **selecione Criar novo** e introduza um novo nome de grupo de recursos. | Nome para o grupo de recursos para criar o seu cache e outros recursos. Ao colocar todos os recursos da sua aplicação num único grupo de recursos, pode facilmente geri-los ou eliminá-los em conjunto. | 
    | **Localização** | Desça e selecione um local. | Selecione uma [região](https://azure.microsoft.com/regions/) perto de outros serviços que utilizarão o seu cache. |
@@ -71,11 +71,11 @@ Poderá implementar um modelo de machine learning para funções Azure com qualq
 
 1. Opcionalmente, no separador **Tags, insira** o nome e o valor se desejar categorizar o recurso. 
 
-1. Selecione **Review + criar**. É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
+1. Selecione **Rever + criar** . É levado para o separador 'Rever +' onde o Azure valida a sua configuração.
 
-1. Depois de aparecer a mensagem de validação verde, selecione **Criar**.
+1. Depois de aparecer a mensagem de validação verde, selecione **Criar** .
 
-Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.**   Quando **o Estado**aparece como    **Running,** a cache está pronta a ser utilizada. 
+Demora um pouco para a cache criar. Pode monitorizar o progresso na cache Azure para a página Redis **Overview.** Quando **o Estado** aparece como **Running,** a cache está pronta a ser utilizada. 
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implementação
 
@@ -88,7 +88,7 @@ Antes de implementar, deve definir o que é necessário para executar o modelo c
     >
     > Se os dados do pedido estiverem num formato que não seja utilizável pelo seu modelo, o script pode transformá-lo num formato aceitável. Também pode transformar a resposta antes de devolvê-la ao cliente.
     >
-    > Por predefinição, quando a embalagem para funções, a entrada é tratada como texto. Se estiver interessado em consumir os bytes crus da entrada (por exemplo, para os gatilhos Blob), deve utilizar [o AMLRequest para aceitar dados brutos](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
+    > Por predefinição, quando a embalagem para funções, a entrada é tratada como texto. Se estiver interessado em consumir os bytes crus da entrada (por exemplo, para os gatilhos Blob), deve utilizar [o AMLRequest para aceitar dados brutos](../machine-learning/how-to-deploy-advanced-entry-script.md#binary-data).
 
 Para a função de funcionamento, certifique-se de que se liga a um ponto final do Redis.
 
@@ -106,12 +106,12 @@ def init():
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
-@input_schema('data', NumpyParameterType(input_sample))
+@input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
-        input = azrediscache.get(data)
-        result = model.predict(input)
+        input = azrediscache.get(data)
+        result = model.predict(input)
         data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
@@ -121,14 +121,14 @@ def run(data):
         return error
 ```
 
-Para obter mais informações sobre o script de entrada, consulte [o código de pontuação De definir.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
+Para obter mais informações sobre o script de entrada, consulte [o código de pontuação De definir.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
-* **Dependências**, tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
+* **Dependências** , tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
 
 Estas entidades são encapsuladas numa __configuração de inferência.__ A configuração de inferência referencia o script de entrada e outras dependências.
 
 > [!IMPORTANT]
-> Ao criar uma configuração de inferência para utilização com Funções Azure, deve utilizar um objeto [Ambiente.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) Por favor, note que se estiver a definir um ambiente personalizado, deve adicionar azureml-padrão com >versão = 1.0.45 como dependência de pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. O exemplo a seguir demonstra a criação de um objeto ambiental e a sua utilização com uma configuração de inferência:
+> Ao criar uma configuração de inferência para utilização com Funções Azure, deve utilizar um objeto [Ambiente.](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) Por favor, note que se estiver a definir um ambiente personalizado, deve adicionar azureml-padrão com >versão = 1.0.45 como dependência de pip. Este pacote contém a funcionalidade necessária para hospedar o modelo como um serviço web. O exemplo a seguir demonstra a criação de um objeto ambiental e a sua utilização com uma configuração de inferência:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -144,12 +144,12 @@ Estas entidades são encapsuladas numa __configuração de inferência.__ A conf
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes de formação e implantação.](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)
+Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes de formação e implantação.](../machine-learning/how-to-use-environments.md)
 
-Para obter mais informações sobre a configuração de inferência, consulte [implementar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-inference-configuration).
+Para obter mais informações sobre a configuração de inferência, consulte [implementar modelos com Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> Ao implementar para funções, não necessita de criar uma __configuração de implementação__.
+> Ao implementar para funções, não necessita de criar uma __configuração de implementação__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Instale o pacote de pré-visualização SDK para suporte a funções
 
@@ -161,10 +161,10 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem Docker que é implantada para funções Azure, utilize [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) ou a função de pacote específica para o gatilho que está interessado em utilizar. O seguinte corte de código demonstra como criar um novo pacote com um gatilho HTTP a partir do modelo e configuração de inferência:
+Para criar a imagem Docker que é implantada para funções Azure, utilize [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) ou a função de pacote específica para o gatilho que está interessado em utilizar. O seguinte corte de código demonstra como criar um novo pacote com um gatilho HTTP a partir do modelo e configuração de inferência:
 
 > [!NOTE]
-> O código de corte assume que `model` contém um modelo registado, e que contém `inference_config` a configuração para o ambiente de inferência. Para obter mais informações, consulte [implementar modelos com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> O código de corte assume que `model` contém um modelo registado, e que contém `inference_config` a configuração para o ambiente de inferência. Para obter mais informações, consulte [implementar modelos com Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -178,7 +178,7 @@ print(model_package.location)
 Quando `show_output=True` , a saída do processo de construção do Docker é mostrada. Uma vez terminado o processo, a imagem foi criada no Registo do Contentor Azure para o seu espaço de trabalho. Uma vez construída a imagem, é visualizada a localização do registo do seu contentor Azure. A localização devolvida está no `<acrinstance>.azurecr.io/package@sha256:<imagename>` formato.
 
 > [!NOTE]
-> A embalagem para funções suporta atualmente os gatilhos HTTP Triggers, Blob e os gatilhos do autocarro service. Para obter mais informações sobre os gatilhos, consulte [as ligações Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> A embalagem para funções suporta atualmente os gatilhos HTTP Triggers, Blob e os gatilhos do autocarro service. Para obter mais informações sobre os gatilhos, consulte [as ligações Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Guarde as informações de localização, tal como é utilizada ao implementar a imagem.
@@ -288,7 +288,7 @@ Neste ponto, a aplicação de função começa a carregar a imagem.
 Vamos agora executar e testar o nosso gatilho Azure Function HTTP.
 
 1. Aceda à sua aplicação Azure Function no portal Azure.
-1. No âmbito do programador, selecione **Código + Teste**. 
+1. No âmbito do programador, selecione **Código + Teste** . 
 1. No lado direito, selecione o **separador Entrada.** 
 1. Clique no botão **Executar** para testar o gatilho HTTP da Função Azure. 
 
@@ -305,18 +305,17 @@ Caso contrário, se terminar com o arranque rápido, pode apagar os recursos Azu
 
 ### <a name="to-delete-a-resource-group"></a>Para eliminar um grupo de recursos
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos** .
 
-2. Na caixa **Filtrar por nome...**, escreva o nome do grupo de recursos. No grupo de recursos na lista de resultados, selecione **...** e, em seguida, selecione **Eliminar grupo de recursos**.
+2. Na caixa **Filtrar por nome...** , escreva o nome do grupo de recursos. No grupo de recursos na lista de resultados, selecione **...** e, em seguida, selecione **Eliminar grupo de recursos** .
 
-É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e, em seguida, selecione **Eliminar**.
+É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e, em seguida, selecione **Eliminar** .
 
 Após alguns instantes, o grupo de recursos e todos os respetivos recursos são eliminados.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
-* Saiba mais sobre [a Azure Cache para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
-* Aprenda a configurar a sua App funções na documentação [funções.](/azure/azure-functions/functions-create-function-linux-custom-image)
-* [Referência da API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* Crie uma [aplicação Python que usa Azure Cache para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
-
+* Saiba mais sobre [a Azure Cache para Redis](./cache-overview.md)
+* Aprenda a configurar a sua App funções na documentação [funções.](../azure-functions/functions-create-function-linux-custom-image.md)
+* [Referência da API](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* Crie uma [aplicação Python que usa Azure Cache para Redis](./cache-python-get-started.md)

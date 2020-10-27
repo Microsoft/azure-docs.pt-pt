@@ -8,28 +8,28 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150313"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538209"
 ---
 # <a name="500xxx-internal-errors"></a>Erros Internos 500xxx
 
-Este artigo descreve as causas e soluções para **500xxx Erros internos**.
+Este artigo descreve as causas e soluções para **500xxx Erros internos** .
 
 ## <a name="symptoms"></a>Sintomas
 
 O seu pedido para o IoT Hub falha com um erro que começa com 500 e/ou algum tipo de "erro do servidor". Algumas possibilidades são:
 
-* **500001 ServerError**: IoT Hub deparou-se com um problema do lado do servidor.
+* **500001 ServerError** : IoT Hub deparou-se com um problema do lado do servidor.
 
-* **500008 GenericTimeout**: IoT Hub não conseguiu completar o pedido de ligação antes de terminar o tempo.
+* **500008 GenericTimeout** : IoT Hub não conseguiu completar o pedido de ligação antes de terminar o tempo.
 
-* **ServiçoUn disponível (sem código de erro)**: O IoT Hub encontrou um erro interno.
+* **ServiçoUn disponível (sem código de erro)** : O IoT Hub encontrou um erro interno.
 
-* **InternalServerError (sem código de erro)**: O IoT Hub encontrou um erro interno.
+* **InternalServerError (sem código de erro)** : O IoT Hub encontrou um erro interno.
 
 ## <a name="cause"></a>Causa
 
@@ -37,4 +37,4 @@ Pode haver uma série de causas para uma resposta de erro de 500xxx. Em todos os
 
 ## <a name="solution"></a>Solução
 
-Para atenuar os erros de 500xxx, emita uma nova mente a partir do dispositivo. Para [gerir automaticamente as retrações,](./iot-hub-reliability-features-in-sdks.md#connection-and-retry)certifique-se de que utiliza a versão mais recente dos [SDKs Azure IoT](./iot-hub-devguide-sdks.md). Para melhores práticas no manuseamento transitório de falhas e retróções, consulte [o manuseamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).  Se o problema persistir, verifique a [Saúde dos Recursos](./iot-hub-monitor-resource-health.md#use-azure-resource-health) e [o Estado do Azure](https://status.azure.com/) para ver se o IoT Hub tem um problema conhecido. Também pode utilizar a [função de failover manual](./tutorial-manual-failover.md). Se não houver problemas conhecidos e a questão continuar, [contacte o apoio](https://azure.microsoft.com/support/options/) para uma investigação mais aprofundada.
+Para atenuar os erros de 500xxx, emita uma nova mente a partir do dispositivo. Para [gerir automaticamente as retrações,](./iot-hub-reliability-features-in-sdks.md#connection-and-retry)certifique-se de que utiliza a versão mais recente dos [SDKs Azure IoT](./iot-hub-devguide-sdks.md). Para melhores práticas no manuseamento transitório de falhas e retróções, consulte [o manuseamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).  Se o problema persistir, verifique a [Saúde dos Recursos](./iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) e [o Estado do Azure](https://status.azure.com/) para ver se o IoT Hub tem um problema conhecido. Também pode utilizar a [função de failover manual](./tutorial-manual-failover.md). Se não houver problemas conhecidos e a questão continuar, [contacte o apoio](https://azure.microsoft.com/support/options/) para uma investigação mais aprofundada.

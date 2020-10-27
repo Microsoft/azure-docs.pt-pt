@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dac56059455a75f4d64a698c416dc22793432bc8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000316"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545604"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Eventos de processo de Azure Event Hubs com Apache Storm on HDInsight (C#)
 
@@ -43,10 +43,10 @@ A Microsoft fornece um conjunto de componentes Java que podem ser usados para co
 
 Neste exemplo são utilizados os seguintes componentes:
 
-* __EventHubSpout__: Lê dados dos Centros de Eventos.
-* __EventHubBolt__: Escreve dados para os Centros de Eventos.
-* __EventHubSpoutConfig__: Usado para configurar eventHubSpout.
-* __EventHubBoltConfig__: Usado para configurar o EventHubBolt.
+* __EventHubSpout__ : Lê dados dos Centros de Eventos.
+* __EventHubBolt__ : Escreve dados para os Centros de Eventos.
+* __EventHubSpoutConfig__ : Usado para configurar eventHubSpout.
+* __EventHubBoltConfig__ : Usado para configurar o EventHubBolt.
 
 ### <a name="example-spout-usage"></a>Uso de bico de exemplo
 
@@ -64,7 +64,7 @@ SCP.NET fornece métodos para adicionar um EventHubSpout à sua topologia. Estes
     eventHubPartitions);
 ```
 
-O exemplo anterior cria um novo componente de bico chamado __EventHubSpout__, e configura-o para comunicar com um centro de eventos. A indicação do paralelismo para o componente é definida para o número de divisórias no centro de eventos. Esta definição permite que a Tempestade crie uma instância do componente para cada divisória.
+O exemplo anterior cria um novo componente de bico chamado __EventHubSpout__ , e configura-o para comunicar com um centro de eventos. A indicação do paralelismo para o componente é definida para o número de divisórias no centro de eventos. Esta definição permite que a Tempestade crie uma instância do componente para cada divisória.
 
 ### <a name="example-bolt-usage"></a>Uso de parafusos de exemplo
 
@@ -91,7 +91,7 @@ topologyBuilder.SetJavaBolt(
 ```
 
 > [!NOTE]  
-> Este exemplo usa uma expressão Clojure passada como uma corda, em vez de usar **JavaComponentConstructor** para criar um **EventHubBoltConfig**, como o exemplo do bico fez. Qualquer um dos métodos funciona. Usa o método que te parece melhor.
+> Este exemplo usa uma expressão Clojure passada como uma corda, em vez de usar **JavaComponentConstructor** para criar um **EventHubBoltConfig** , como o exemplo do bico fez. Qualquer um dos métodos funciona. Usa o método que te parece melhor.
 
 ## <a name="download-the-completed-project"></a>Descarregue o projeto concluído
 
@@ -99,7 +99,7 @@ Você pode baixar uma versão completa do projeto criado neste artigo a partir d
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um aglomerado de tempestade Apache em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** for **Cluster type**.
+* Um aglomerado de tempestade Apache em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** for **Cluster type** .
 
 * Um [centro de eventos Azure.](../../event-hubs/event-hubs-create.md)
 
@@ -107,7 +107,7 @@ Você pode baixar uma versão completa do projeto criado neste artigo a partir d
 
 * As [ferramentas HDInsight para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 ou mais tarde no seu ambiente de desenvolvimento. Os downloads JDK estão disponíveis na [Oracle.](https://aka.ms/azure-jdks)
+* Java JDK 1.8 ou mais tarde no seu ambiente de desenvolvimento. Os downloads JDK estão disponíveis na [Oracle.](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
   * A variável **ambiente JAVA_HOME** deve apontar para o diretório que contém Java.
   * O **diretório %JAVA_HOME%/bin** deve estar no caminho.
@@ -122,7 +122,7 @@ Crie um diretório chamado `eventhubspout` , e guarde o ficheiro para o diretór
 
 O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na secção "Criar um centro de [eventos" de Começar com Os Centros de Eventos.](../../event-hubs/event-hubs-create.md)
 
-1. Depois de criado o centro de eventos, veja as definições do **EventHub** no portal Azure e selecione **políticas de acesso partilhado**. **Selecione + Adicionar** para criar as seguintes políticas:
+1. Depois de criado o centro de eventos, veja as definições do **EventHub** no portal Azure e selecione **políticas de acesso partilhado** . **Selecione + Adicionar** para criar as seguintes políticas:
 
    | Nome | Permissões |
    | --- | --- |
@@ -139,7 +139,7 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 2. Descarregue a solução a partir de [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. **Evento AbertoHubExample.sln**. No projeto **EventHubWriter,** abra o ficheiro **App.config.** Utilize as informações do centro de eventos que configuraste anteriormente para preencher o valor das seguintes teclas:
+3. **Evento AbertoHubExample.sln** . No projeto **EventHubWriter,** abra o ficheiro **App.config.** Utilize as informações do centro de eventos que configuraste anteriormente para preencher o valor das seguintes teclas:
 
    | Chave | Valor |
    | --- | --- |
@@ -155,7 +155,7 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 1. Abra o projeto **EventHubReader.**
 
-2. Abra o ficheiro **App.config** para o **EventHubReader**. Utilize as informações do centro de eventos que configuraste anteriormente para preencher o valor das seguintes teclas:
+2. Abra o ficheiro **App.config** para o **EventHubReader** . Utilize as informações do centro de eventos que configuraste anteriormente para preencher o valor das seguintes teclas:
 
    | Chave | Valor |
    | --- | --- |
@@ -169,11 +169,11 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 ## <a name="deploy-the-topologies"></a>Implementar as topologias
 
-1. A partir do **Solution Explorer,** clique à direita no projeto **EventHubReader** e selecione **Submeter à Tempestade em HDInsight**.
+1. A partir do **Solution Explorer,** clique à direita no projeto **EventHubReader** e selecione **Submeter à Tempestade em HDInsight** .
 
     ![Screenshot do Solution Explorer, com Submissão à Tempestade em HDInsight em destaque](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
-2. Na caixa de diálogo **De Topologia de Submissão,** selecione o seu **Cluster de Tempestades**. Expandir **Configurações Adicionais**, selecione **Java File Paths**, selecione... e selecione o diretório que contém o ficheiro JAR que descarregou anteriormente. **...** Finalmente, clique **em Enviar por isso.**
+2. Na caixa de diálogo **De Topologia de Submissão,** selecione o seu **Cluster de Tempestades** . Expandir **Configurações Adicionais** , selecione **Java File Paths** , selecione... e selecione o diretório que contém o ficheiro JAR que descarregou anteriormente. **...** Finalmente, clique **em Enviar por isso.**
 
     ![Screenshot da caixa de diálogo de Topologia de Submissão](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
@@ -181,13 +181,13 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
     ![Screenshot do espectador de Topologias da Tempestade](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
-4. A partir do **Solution Explorer,** clique à direita no projeto **EventHubWriter** e selecione **Submeter à Tempestade em HDInsight**.
+4. A partir do **Solution Explorer,** clique à direita no projeto **EventHubWriter** e selecione **Submeter à Tempestade em HDInsight** .
 
-5. Na caixa de diálogo **De Topologia de Submissão,** selecione o seu **Cluster de Tempestades**. Expandir **Configurações Adicionais**, selecione **Java File Paths**, selecione... e selecione o diretório que contém o ficheiro JAR que descarregou anteriormente. **...** Finalmente, clique **em Enviar por isso.**
+5. Na caixa de diálogo **De Topologia de Submissão,** selecione o seu **Cluster de Tempestades** . Expandir **Configurações Adicionais** , selecione **Java File Paths** , selecione... e selecione o diretório que contém o ficheiro JAR que descarregou anteriormente. **...** Finalmente, clique **em Enviar por isso.**
 
 6. Quando a topologia tiver sido submetida, refresque a lista de topologias no Espectador de **Topologias para** verificar se ambas as topologias estão a funcionar no cluster.
 
-7. No **Storm Toplogies Viewer**, selecione a topologia **EventHubReader.**
+7. No **Storm Toplogies Viewer** , selecione a topologia **EventHubReader.**
 
 8. Para abrir o resumo do componente para o perno, clique duas vezes no componente **LogBolt** no diagrama.
 
@@ -201,7 +201,7 @@ O Event Hubs é a fonte de dados para este exemplo. Utilize as informações na 
 
 ## <a name="stop-the-topologies"></a>Parar as topologias
 
-Para parar as topologias, selecione cada topologia no **Storm Topology Viewer**e, em seguida, clique em **Kill**.
+Para parar as topologias, selecione cada topologia no **Storm Topology Viewer** e, em seguida, clique em **Kill** .
 
 ![Screenshot do Storm Topology Viewer, com botão Kill em destaque](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 

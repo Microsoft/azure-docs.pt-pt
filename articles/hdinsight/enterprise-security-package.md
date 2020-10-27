@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d77d9877fbc49fbb147965b30e299b75b60ccce3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327897"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546658"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Pacote de segurança da empresa para Azure HDInsight
 
@@ -28,7 +28,7 @@ Enterprise Security é um pacote opcional que pode adicionar no seu cluster HDIn
 
     * [Plan Azure juntam-se a aglomerados Apache Hadoop em HDInsight](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [Configurar o ambiente sandbox associado a um domínio](./domain-joined/apache-domain-joined-configure.md)
+    * [Configurar o ambiente sandbox associado a um domínio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [Configurar clusters HDInsight unidos pelo domínio usando serviços de domínio de diretório ativo Azure](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 

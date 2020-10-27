@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006607"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545213"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar trabalhos de MapReduce com Apache Hadoop em HDInsight usando PowerShell
 
@@ -25,7 +25,7 @@ Este documento fornece um exemplo de utilização do Azure PowerShell para execu
 
 * Um aglomerado Apache Hadoop em HDInsight. Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* O Módulo PowerShell [Az](https://docs.microsoft.com/powershell/azure/) instalado.
+* O Módulo PowerShell [Az](/powershell/azure/) instalado.
 
 ## <a name="run-a-mapreduce-job"></a>Executar um trabalho mapReduce
 
@@ -43,7 +43,7 @@ Os cmdlets seguintes são usados quando executam trabalhos MapReduce num cluster
 
 Os passos a seguir demonstram como usar estes cmdlets para executar um trabalho no seu cluster HDInsight.
 
-1. Utilizando um editor, guarde o seguinte código como **mapreducejob.ps1**.
+1. Utilizando um editor, guarde o seguinte código como **mapreducejob.ps1** .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

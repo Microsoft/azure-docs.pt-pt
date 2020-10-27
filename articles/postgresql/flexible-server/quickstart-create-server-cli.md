@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc
-ms.openlocfilehash: b0c0fd1b540251b5a7dfefde5fc33adb2813bb8e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490072"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547627"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Quickstart: Criar uma base de dados Azure para o Servidor Flexível PostgreSQL utilizando O Azure CLI
 
-Este quickstart mostra como usar os comandos [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma Base de Dados Azure para o Servidor Flexível PostgreSQL em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Este quickstart mostra como usar os comandos [Azure CLI](/cli/azure/get-started-with-azure-cli) em [Azure Cloud Shell](https://shell.azure.com) para criar uma Base de Dados Azure para o Servidor Flexível PostgreSQL em cinco minutos. Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!IMPORTANT] 
 > A base de dados Azure para o PostgreSQL Flexible Server está atualmente em pré-visualização.
@@ -46,7 +46,7 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-flexible-server"></a>Criar um servidor flexível
 
-Crie um [grupo de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) utilizando o `az group create` comando e, em seguida, crie o seu servidor flexível PostgreSQL dentro deste grupo de recursos. Deverá indicar um nome exclusivo. O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
+Crie um [grupo de recursos Azure](../../azure-resource-manager/management/overview.md) utilizando o `az group create` comando e, em seguida, crie o seu servidor flexível PostgreSQL dentro deste grupo de recursos. Deverá indicar um nome exclusivo. O exemplo seguinte cria um grupo de recursos com o nome `myresourcegroup` na localização `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -79,7 +79,7 @@ Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informaç�
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin**.
+O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin** .
 
 <!--FIXME-->
 ```json
@@ -112,7 +112,7 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
 
 ## <a name="connect-using-postgresql-command-line-client"></a>Conecte-se utilizando o cliente da linha de comando PostgreSQL
 
-Uma vez que o servidor flexível foi criado com *acesso privado (VNet Integration)*, terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada. 
+Uma vez que o servidor flexível foi criado com *acesso privado (VNet Integration)* , terá de se ligar ao seu servidor a partir de um recurso dentro do mesmo VNet que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada. 
 
 Uma vez criado o seu VM, pode entrar na máquina e instalar a ferramenta **[psql](https://www.postgresql.org/download/)** command-line.
 

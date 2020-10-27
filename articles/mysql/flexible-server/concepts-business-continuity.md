@@ -1,17 +1,17 @@
 ---
-title: Visão geral da continuidade do negócio com base de dados Azure para o MySQL Flexible Server
+title: Visão geral da continuidade do negócio - Base de Dados Azure para MySQL Flexible Server
 description: Conheça os conceitos de continuidade de negócios com Azure Database para MySQL Flexible Server
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107849"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546420"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Visão geral da continuidade do negócio com base de dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107849"
 A Azure Database for MySQL Flexible Server permite capacidades de continuidade de negócios que protegem as suas bases de dados em caso de uma paragem planeada e não planeada. Funcionalidades como cópias de segurança automatizadas e endereços de alta disponibilidade endereços diferentes níveis de proteção contra falhas com diferentes tempos de recuperação e exposições de perda de dados. Ao arquitetar a sua aplicação para proteger contra falhas, deve considerar o objetivo do tempo de recuperação (RTO) e o objetivo do ponto de recuperação (RPO) para cada aplicação. O RTO é a tolerância ao tempo de inatividade e a RPO é a tolerância à perda de dados após uma interrupção do serviço de base de dados.
 
 A tabela abaixo ilustra as funcionalidades que o servidor flexível oferece.
-
 
 | **Funcionalidade** | **Descrição** | **Restrições** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ A tabela abaixo ilustra as funcionalidades que o servidor flexível oferece.
 > Durante o período de pré-visualização, não são oferecidos tempo de uptime, RTO e RPO SLA. Detalhes fornecidos nesta página apenas para as suas finalidades de informação e planeamento.
 
 ## <a name="planned-downtime-mitigation"></a>Mitigação prevista para o tempo de inatividade
+
 Aqui estão alguns cenários de manutenção planeados que incorrem em tempo de inatividade:
 
 | **Cenário** | **Processo**|
 | :------------ | :----------- |
 | **Escala de cálculo (Utilizador)**| Quando executa a operação de escala de cálculo, um novo servidor flexível é a provisionado usando a configuração de computação em escala. No servidor de base de dados existente, os pontos de verificação ativos são autorizados a ser concluídos, as ligações do cliente são drenadas, quaisquer transações não comprometidas são canceladas e, em seguida, é desligado. O armazenamento é então anexado ao novo servidor e a base de dados é iniciada que realiza a recuperação se necessário antes de aceitar ligações ao cliente. |
 | **Nova implementação de software (Azure)** | As novas funcionalidades de lançamento ou correções de bugs acontecem automaticamente como parte da manutenção planeada do serviço, e pode agendar quando essas atividades acontecerem. Para mais informações, consulte a [documentação](https://aka.ms/servicehealthpm)e verifique também o seu [portal](https://aka.ms/servicehealthpm) |
-| **Upgrades de versão menores (Azure)** | A Azure Database for MySQL remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Isto incorreria num curto período de inatividade em termos de segundos, e o servidor de base de dados é automaticamente reiniciado com a nova versão menor. Para mais informações, consulte a [documentação](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
+| **Upgrades de versão menores (Azure)** | A Azure Database for MySQL remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Isto incorreria num curto período de inatividade em termos de segundos, e o servidor de base de dados é automaticamente reiniciado com a nova versão menor. Para mais informações, consulte a [documentação](../concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
 
 Quando o servidor flexível é configurado com **zona de alta disponibilidade redundante,** o servidor flexível executa as operações no servidor de espera primeiro e depois no servidor primário sem uma falha. Consulte os [Conceitos - Alta disponibilidade](./concepts-high-availability.md) para mais detalhes.
 
-##  <a name="unplanned-downtime-mitigation"></a>Mitigação não planeada do tempo de inatividade
+## <a name="unplanned-downtime-mitigation"></a>Mitigação não planeada do tempo de inatividade
 
 Os tempos de inatividade não planeados podem ocorrer em resultado de falhas imprevistas, incluindo falhas subjacentes ao hardware, problemas de rede e bugs de software. Se o servidor de base de dados se avariar inesperadamente, se configurado com alta disponibilidade [HA], então a réplica de espera é ativada. Caso contrário, um novo servidor de base de dados é automaticamente a provisionado. Embora não seja possível evitar um tempo de inatividade não planeado, o servidor flexível atenua o tempo de inatividade, realizando automaticamente operações de recuperação tanto no servidor de base de dados como nas camadas de armazenamento sem necessidade de intervenção humana.
 
@@ -60,12 +60,10 @@ Aqui estão alguns cenários de falha não planeados e o processo de recuperaç�
 | **Falha na zona de disponibilidade** | Embora seja um evento raro, se quiser recuperar de uma falha de nível de zona, pode realizar uma recuperação pontual usando a cópia de segurança e escolhendo o ponto de restauro personalizado para chegar aos dados mais recentes. Um novo servidor flexível será implantado noutra zona. O tempo de restauro depende da cópia de segurança anterior e do número de registos de transações para recuperar. | O servidor flexível executa falhas automáticas no local de espera. Consulte a [página de conceitos HA](./concepts-high-availability.md) para mais detalhes. |
 | **Falha na região** | As réplicas transversais e as funcionalidades de geo-restauro ainda não são suportadas na pré-visualização. | |
 
-
 > [!IMPORTANT]
-> Os servidores eliminados **não podem**   ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Utilize [o bloqueio de recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)para evitar a   eliminação acidental do seu servidor.
-
+> Os servidores eliminados **não podem** ser restaurados. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminadas e não podem ser recuperadas. Utilize [o bloqueio de recursos Azure](../../azure-resource-manager/management/lock-resources.md) para evitar a eliminação acidental do seu servidor.
 
 ## <a name="next-steps"></a>Passos seguintes
 
--   Saiba mais sobre [zona redundante alta disponibilidade](./concepts-high-availability.md)
--   Saiba mais [sobre backup e recuperação](./concepts-backup-restore.md)
+- Saiba mais sobre [zona redundante alta disponibilidade](./concepts-high-availability.md)
+- Saiba mais [sobre backup e recuperação](./concepts-backup-restore.md)

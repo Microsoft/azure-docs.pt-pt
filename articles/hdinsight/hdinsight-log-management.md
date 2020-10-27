@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487233"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546029"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerir registos de um cluster do HDInsight
 
@@ -77,11 +77,11 @@ Um cluster típico de HDInsight utiliza vários serviços e pacotes de software 
 
 Apache Ambari simplifica a gestão, configuração e monitorização de um cluster HDInsight fornecendo uma UI web e uma API REST. Ambari está incluído em clusters HDInsight baseados em Linux. Selecione o painel **de painel do cluster** na página HDInsight do portal Azure para abrir a página de link do Cluster **Dashboards.**  Em seguida, selecione o painel **de painel de painel hdInsight** para abrir o UI Ambari.  É solicitado para as suas credenciais de login.
 
-Para abrir uma lista de visualizações de serviço, selecione o painel **Ambari Views** na página do portal Azure para HDInsight.  Esta lista varia, dependendo das bibliotecas que instalou.  Por exemplo, pode ver YARN Queue Manager, Hive View e Tez View.  Selecione qualquer link de serviço para ver a configuração e informações de serviço.  A página Ambari UI **Stack and Version** fornece informações sobre o histórico de configuração e versão de serviço dos serviços de cluster. Para navegar nesta secção da UI Ambari, selecione o menu **Admin** e, em seguida, **Stacks e Versões**.  Selecione o separador **Versões** para ver as informações da versão de serviço.
+Para abrir uma lista de visualizações de serviço, selecione o painel **Ambari Views** na página do portal Azure para HDInsight.  Esta lista varia, dependendo das bibliotecas que instalou.  Por exemplo, pode ver YARN Queue Manager, Hive View e Tez View.  Selecione qualquer link de serviço para ver a configuração e informações de serviço.  A página Ambari UI **Stack and Version** fornece informações sobre o histórico de configuração e versão de serviço dos serviços de cluster. Para navegar nesta secção da UI Ambari, selecione o menu **Admin** e, em seguida, **Stacks e Versões** .  Selecione o separador **Versões** para ver as informações da versão de serviço.
 
 ![Apache Ambari admin Stack e versões](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Utilizando o UI Ambari, pode descarregar a configuração para qualquer (ou todos) serviços em execução num determinado anfitrião (ou nó) no cluster.  Selecione o menu **Anfitriões** e, em seguida, o link para o anfitrião de interesse. Na página do anfitrião, selecione o botão **Ações de Anfitrião** e, em seguida, **Baixe o Cliente Configs**.
+Utilizando o UI Ambari, pode descarregar a configuração para qualquer (ou todos) serviços em execução num determinado anfitrião (ou nó) no cluster.  Selecione o menu **Anfitriões** e, em seguida, o link para o anfitrião de interesse. Na página do anfitrião, selecione o botão **Ações de Anfitrião** e, em seguida, **Baixe o Cliente Configs** .
 
 ![Apache Ambari descarrega cliente anfitrião configs](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -109,7 +109,7 @@ O próximo passo é rever os ficheiros de registo de execução de emprego para 
 
 ### <a name="access-the-hadoop-log-files"></a>Aceda aos ficheiros de registo de Hadoop
 
-O HDInsight armazena os seus ficheiros de registo tanto no sistema de ficheiros de cluster como no Azure Storage. Pode examinar ficheiros de registo no cluster abrindo uma ligação [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ao cluster e navegando no sistema de ficheiros, ou utilizando o portal Hadoop YARN Status no servidor de nó de cabeça remoto. Pode examinar os ficheiros de registo no Azure Storage utilizando qualquer uma das ferramentas que podem aceder e descarregar dados a partir do Azure Storage. Exemplos são [AzCopy,](../storage/common/storage-use-azcopy.md) [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Server Explorer. Também pode utilizar as bibliotecas powerShell e Azure Storage Client, ou os Azure .NET SDKs, para aceder a dados no armazenamento de blob Azure.
+O HDInsight armazena os seus ficheiros de registo tanto no sistema de ficheiros de cluster como no Azure Storage. Pode examinar ficheiros de registo no cluster abrindo uma ligação [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ao cluster e navegando no sistema de ficheiros, ou utilizando o portal Hadoop YARN Status no servidor de nó de cabeça remoto. Pode examinar os ficheiros de registo no Azure Storage utilizando qualquer uma das ferramentas que podem aceder e descarregar dados a partir do Azure Storage. Exemplos são [AzCopy,](../storage/common/storage-use-azcopy-v10.md) [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Server Explorer. Também pode utilizar as bibliotecas powerShell e Azure Storage Client, ou os Azure .NET SDKs, para aceder a dados no armazenamento de blob Azure.
 
 Hadoop dirige o trabalho dos trabalhos como tentativas de *tarefa em vários* nós no cluster. O HDInsight pode iniciar tentativas de tarefas especulativas, terminando quaisquer outras tentativas de tarefa que não completem primeiro. Isto gera uma atividade significativa que é registada no controlador, stderr e syslog log files on-the-fly. Além disso, várias tentativas de tarefa estão a ser executando simultaneamente, mas um ficheiro de registo só pode exibir resultados linearmente.
 
@@ -144,13 +144,13 @@ A UI YARN ResourceManager funciona no nó de cabeça de cluster, e é acedida at
 
 1. Num browser, navegue até `https://CLUSTERNAME.azurehdinsight.net`. Substitua CLUSTERNAME pelo nome do cluster do HDInsight.
 2. Da lista de serviços à esquerda, selecione YARN.
-3. A partir do dropdown de Links Rápidos, selecione um dos nós da cabeça do cluster e, em seguida, selecione **registos ResourceManager**. É-lhe apresentada uma lista de links para registos DE FIOS.
+3. A partir do dropdown de Links Rápidos, selecione um dos nós da cabeça do cluster e, em seguida, selecione **registos ResourceManager** . É-lhe apresentada uma lista de links para registos DE FIOS.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Passo 4: Previsão de tamanhos e custos de armazenamento de volume de registo
 
 Depois de completar os passos anteriores, tem uma compreensão dos tipos e volumes de ficheiros de registo que o seu(s) cluster(s) HDInsight(s) está a produzir.
 
-Em seguida, analise o volume de dados de registo em locais de armazenamento de registo sonoro durante um período de tempo. Por exemplo, pode analisar volume e crescimento ao longo de períodos de 30-60-90 dias.  Grave estas informações numa folha de cálculo ou utilize outras ferramentas como o Visual Studio, o Azure Storage Explorer ou a Power Query for Excel. Para obter mais informações, consulte [os registos HDInsight](hdinsight-debug-jobs.md).  
+Em seguida, analise o volume de dados de registo em locais de armazenamento de registo sonoro durante um período de tempo. Por exemplo, pode analisar volume e crescimento ao longo de períodos de 30-60-90 dias.  Grave estas informações numa folha de cálculo ou utilize outras ferramentas como o Visual Studio, o Azure Storage Explorer ou a Power Query for Excel. ```
 
 Agora tem informações suficientes para criar uma estratégia de gestão de registos para os registos de chaves.  Utilize a sua folha de cálculo (ou ferramenta de eleição) para prever o crescimento do tamanho do registo e os custos de serviço de armazenamento de registos Azure.  Considere também quaisquer requisitos de retenção de registos para o conjunto de registos que está a examinar.  Agora pode reformular os custos futuros de armazenamento de registos, depois de determinar quais os ficheiros de registo que podem ser eliminados (se houver) e quais os registos que devem ser conservados e arquivados para o Armazenamento Azure mais barato.
 
@@ -186,6 +186,6 @@ Para recolher os registos de todos os nós para uma localização central, pode 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Prática de Monitorização e Registo para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Prática de Monitorização e Registo para HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Aceder a registos de aplicações Apache Hadoop YARN em HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Como controlar o tamanho dos ficheiros de registo para vários componentes apache Hadoop](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

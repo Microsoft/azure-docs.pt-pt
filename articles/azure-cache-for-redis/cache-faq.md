@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 197decbb263391a32b8bf01cdbb6c2f34b750111
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4e554a3354b9cfdce7d0c367f757251f44e4599
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003569"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536829"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Aprenda as respostas a perguntas, padrões e boas práticas comuns para Azure Cache para Redis.
@@ -33,12 +33,11 @@ Para ver documentação arquivada, consulte a [documentação do serviço de cac
 
 Para visualizar documentação arquivada, consulte [a Documentação de Cache arquivada In-Role.](/previous-versions/azure/azure-services/dn386103(v=azure.100))
 
-["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: /previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
 Se a sua pergunta não estiver listada aqui, avise-nos e nós o ajudaremos a encontrar uma resposta.
 
-* Para chegar a um público mais vasto, pode publicar uma pergunta na página de perguntas do [Microsoft Q&Uma página de perguntas para Azure Cache](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) e envolver-se com a equipa do Azure Cache e outros membros da comunidade.
+* Para chegar a um público mais vasto, pode publicar uma pergunta na página de perguntas do [Microsoft Q&Uma página de perguntas para Azure Cache](/answers/topics/azure-cache-redis.html) e envolver-se com a equipa do Azure Cache e outros membros da comunidade.
 * Se quiser fazer um pedido de funcionalidade, pode submeter os seus pedidos e ideias ao [Azure Cache para a Voz do Utilizador Redis.](https://feedback.azure.com/forums/169382-cache)
 * Também pode enviar-nos a sua pergunta [azurecache@microsoft.com](mailto:azurecache@microsoft.com) em.
-

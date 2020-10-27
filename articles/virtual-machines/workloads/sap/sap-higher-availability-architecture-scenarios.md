@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c112896e78c07fafa2d714b0533db1f58dd57ffd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361641"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535608"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilizar a infraestrutura Azure VM reiniciar para alcançar "maior disponibilidade" de um sistema SAP
 
@@ -228,7 +228,7 @@ Os discos geridos Azure são automaticamente colocados no domínio de avaria da 
 
 Uma arquitetura de amostra de um sistema SAP NetWeaver que utiliza a infraestrutura Azure alta disponibilidade e contas de armazenamento pode ser assim:
 
-![Utilizar infraestrutura Azure alta disponibilidade para alcançar aplicação SAP "maior disponibilidade"][planning-guide-figure-2900]
+![Diagrama que mostra a arquitetura de um sistema SAP NetWeaver que utiliza a infraestrutura Azure alta disponibilidade e contas de armazenamento.][planning-guide-figure-2900]
 
 Uma arquitetura de amostra de um sistema SAP NetWeaver que utiliza a infraestrutura Azure alta disponibilidade e discos geridos podem ser assim:
 

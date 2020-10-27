@@ -51,7 +51,7 @@ Para configurar a integração do Panopto no AD Azure, precisa adicionar Panopto
 
 **Para adicionar Panopto da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -69,7 +69,7 @@ Para configurar a integração do Panopto no AD Azure, precisa adicionar Panopto
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Panopto com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, você configura e testa Azure AD single sign-on com Panopto com base em um utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Panopto.
 
 Para configurar e testar o Azure AD com panopto, você precisa completar os seguintes blocos de construção:
@@ -87,7 +87,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com Panopto, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Panopto,** selecione **Single sign-on**.
+1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Panopto,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -126,11 +126,11 @@ Para configurar o Azure AD com Panopto, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa Panopto como administrador.
 
-2. Na barra de ferramentas à esquerda, clique em **Sistema**e, em seguida, clique em **Fornecedores de Identidade**.
+2. Na barra de ferramentas à esquerda, clique em **Sistema** e, em seguida, clique em **Fornecedores de Identidade** .
    
     ![Sistema](./media/panopto-tutorial/ic777670.png "Sistema")
 
-3. Clique **em Adicionar Fornecedor**.
+3. Clique **em Adicionar Fornecedor** .
    
     ![Fornecedores de Identidade](./media/panopto-tutorial/ic777671.png "Fornecedores de Identidade")
    
@@ -138,7 +138,7 @@ Para configurar o Azure AD com Panopto, execute os seguintes passos:
    
     ![Configuração saaS](./media/panopto-tutorial/ic777672.png "Configuração saaS")
     
-    a. Na lista **de Tipo fornecedor,** selecione **SAML20**.    
+    a. Na lista **de Tipo fornecedor,** selecione **SAML20** .    
     
     b. Na **caixa de** texto Name Instance, escreva um nome para o caso.
 
@@ -150,13 +150,13 @@ Para configurar o Azure AD com Panopto, execute os seguintes passos:
 
     f. Abra o certificado codificado base-64, que descarregou do portal Azure, copie o conteúdo do mesmo para a sua área de transferência e, em seguida, cole-o para a caixa de texto **da Chave Pública.**
 
-5. Clique em **Guardar**.
+5. Clique em **Guardar** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -168,28 +168,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Panopto.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Panopto**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Panopto** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Panopto**.
+2. Na lista de candidaturas, selecione **Panopto** .
 
     ![O link Panopto na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

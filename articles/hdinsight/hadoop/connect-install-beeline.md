@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754961"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547593"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conecte-se ao Apache Beeline no HDInsight ou instale-o localmente
 
@@ -104,7 +104,7 @@ Ao ligar diretamente do nó da cabeça do cluster, ou de um recurso dentro da me
 
 ## <a name="install-beeline-client"></a>Instalar cliente Beeline
 
-Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la localmente.  Os passos de instalação de uma máquina local baseiam-se num [Subsistema Windows para o Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la localmente.  Os passos de instalação de uma máquina local baseiam-se num [Subsistema Windows para o Linux](/windows/wsl/install-win10).
 
 1. Atualizar listas de pacotes. Introduza o seguinte comando na sua concha de bash:
 
@@ -128,7 +128,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Em seguida, pressione **Ctrl+X,** em **seguida, Y**, e depois entre.
+        Em seguida, pressione **Ctrl+X,** em **seguida, Y** , e depois entre.
 
 1. Descarregue os arquivos Hadoop e Beeline, insira os seguintes comandos:
 
@@ -144,7 +144,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Alterar ainda mais o ficheiro bashrc. Tens de identificar o caminho para onde os arquivos foram desempacotados. Se utilizar o [Subsistema Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10), e seguisse exatamente os passos, o seu caminho seria `/mnt/c/Users/user/` , onde está o seu nome de `user` utilizador.
+1. Alterar ainda mais o ficheiro bashrc. Tens de identificar o caminho para onde os arquivos foram desempacotados. Se utilizar o [Subsistema Windows para Linux](/windows/wsl/install-win10), e seguisse exatamente os passos, o seu caminho seria `/mnt/c/Users/user/` , onde está o seu nome de `user` utilizador.
 
     1. Abra o ficheiro: `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Embora a Beeline esteja incluída nos nós da cabeça, é melhor instalá-la loc
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Em seguida, pressione **Ctrl+X,** em **seguida, Y**, e depois entre.
+    1. Em seguida, pressione **Ctrl+X,** em **seguida, Y** , e depois entre.
 
 1. Feche e, em seguida, reabra a sessão de festa.
 

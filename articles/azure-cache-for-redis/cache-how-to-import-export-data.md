@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8bb1457bbf5d610518c3bc84768186972734099
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004328"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536866"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Dados de importação e exportação em Azure Cache para Redis
 Import/Export é uma operação de gestão de dados Azure Cache para Redis, que permite importar dados para a Azure Cache para Redis ou exportar dados da Azure Cache para Redis importando e exportando uma cache Azure para Redis Database (RDB) de uma cache premium para uma bolha numa Conta de Armazenamento Azure.
@@ -32,7 +32,7 @@ Este artigo fornece um guia para importar e exportar dados com a Azure Cache par
 A importação pode ser usada para trazer ficheiros RDB compatíveis com Redis de qualquer servidor Redis em qualquer nuvem ou ambiente, incluindo Redis em execução em Linux, Windows ou qualquer fornecedor de nuvem, como Amazon Web Services e outros. Importar dados é uma maneira fácil de criar uma cache com dados pré-povoados. Durante o processo de importação, a Azure Cache for Redis carrega os ficheiros RDB do armazenamento Azure na memória e, em seguida, insere as chaves na cache.
 
 > [!NOTE]
-> Antes de iniciar a operação de importação, certifique-se de que o seu ficheiro ou ficheiros Redis Database (RDB) são enviados para a página ou bloquear bolhas no armazenamento Azure, na mesma região e subscrição que o seu Azure Cache para a instância Redis. Para obter mais informações, consulte [Começar com o armazenamento Azure Blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Se exportar o seu ficheiro RDB utilizando a função [Azure Cache for Redis Export,](#export) o seu ficheiro RDB já está armazenado numa bolha de página e está pronto para ser importado.
+> Antes de iniciar a operação de importação, certifique-se de que o seu ficheiro ou ficheiros Redis Database (RDB) são enviados para a página ou bloquear bolhas no armazenamento Azure, na mesma região e subscrição que o seu Azure Cache para a instância Redis. Para obter mais informações, consulte [Começar com o armazenamento Azure Blob](../storage/blobs/storage-quickstart-blobs-dotnet.md). Se exportar o seu ficheiro RDB utilizando a função [Azure Cache for Redis Export,](#export) o seu ficheiro RDB já está armazenado numa bolha de página e está pronto para ser importado.
 >
 >
 
@@ -45,7 +45,7 @@ A importação pode ser usada para trazer ficheiros RDB compatíveis com Redis d
 3. Clique no recipiente que contém os dados para importar.
 
     ![Escolha o recipiente](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
-4. Selecione uma ou mais bolhas para importar clicando na área à esquerda do nome blob e, em seguida, clique em **Select**.
+4. Selecione uma ou mais bolhas para importar clicando na área à esquerda do nome blob e, em seguida, clique em **Select** .
 
     ![Escolha bolhas](./media/cache-how-to-import-export-data/cache-import-choose-blobs.png)
 5. Clique **em Importar** para iniciar o processo de importação.
@@ -74,7 +74,7 @@ A exportação permite exportar os dados armazenados em Cache Azure para Redis p
    >
 
     ![Conta de armazenamento](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
-3. Escolha o recipiente blob desejado e clique em **Select**. Para utilizar um novo recipiente, clique em **Adicionar Recipiente** para o adicionar primeiro e, em seguida, selecione-o da lista.
+3. Escolha o recipiente blob desejado e clique em **Select** . Para utilizar um novo recipiente, clique em **Adicionar Recipiente** para o adicionar primeiro e, em seguida, selecione-o da lista.
 
     ![Escolha o recipiente de armazenamento](./media/cache-how-to-import-export-data/cache-export-data-container.png)
 4. Digite um **prefixo de nome Blob** e clique em **Exportar** para iniciar o processo de exportação. O prefixo do nome blob é utilizado para pré-fixar os nomes dos ficheiros gerados por esta operação de exportação.

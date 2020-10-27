@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222911"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537478"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Cache Azure para opções de isolamento da rede Redis 
 Neste artigo, você vai aprender como determinar a melhor solução de isolamento de rede para suas necessidades. Vamos analisar os fundamentos da Azure Private Link, da injeção da Rede Virtual Azure (VNet) e das Regras de Firewall do Azure Com as suas vantagens e limitações.  
@@ -21,7 +21,7 @@ O Azure Private Link fornece conectividade privada de uma rede virtual para os s
 
 ### <a name="advantages"></a>Vantagens
 * Suportado em Cache Basic, Standard e Premium Azure para instâncias Redis. 
-* Ao utilizar [o Azure Private Link,](/azure/private-link/private-link-overview)pode ligar-se a uma instância Azure Cache a partir da sua rede virtual através de um ponto final privado, que é atribuído um endereço IP privado numa sub-rede dentro da rede virtual. Com isto, as instâncias cache estão disponíveis tanto dentro do VNet como publicamente.  
+* Ao utilizar [o Azure Private Link,](../private-link/private-link-overview.md)pode ligar-se a uma instância Azure Cache a partir da sua rede virtual através de um ponto final privado, que é atribuído um endereço IP privado numa sub-rede dentro da rede virtual. Com isto, as instâncias cache estão disponíveis tanto dentro do VNet como publicamente.  
 * Uma vez criado um ponto final privado, o acesso à rede pública pode ser restringido através da `publicNetworkAccess` bandeira. Esta bandeira é definida `Enabled` por padrão, dando-lhe a opção de permitir o acesso de ligação pública e privada à cache. Se estiver `Disabled` definido, só permitirá o acesso de ligação privada. Pode definir o valor `Disabled` com um pedido PATCH. Para obter mais informações, consulte [Azure Cache for Redis com Azure Private Link (Preview)](cache-private-link.md). 
 * Todas as dependências de cache externas não afetarão as regras NSG da VNet.
 
@@ -51,7 +51,7 @@ O VNet é o bloco de construção fundamental para a sua rede privada em Azure. 
 
 
 ## <a name="azure-firewall-rules"></a>Regras do Firewall de Azure
-[O Azure Firewall](/azure/firewall/overview) é um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos Azure VNet. É uma firewall totalmente imponente como um serviço com alta disponibilidade incorporada e escalabilidade de nuvem sem restrições. Pode criar, impor e registar centralmente políticas de conectividade de rede e aplicações entre subscrições e redes virtuais.  
+[O Azure Firewall](../firewall/overview.md) é um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos Azure VNet. É uma firewall totalmente imponente como um serviço com alta disponibilidade incorporada e escalabilidade de nuvem sem restrições. Pode criar, impor e registar centralmente políticas de conectividade de rede e aplicações entre subscrições e redes virtuais.  
 
 ### <a name="advantages"></a>Vantagens
 * Quando as regras de firewall são configuradas, apenas as ligações do cliente a partir das gamas de endereços IP especificadas podem ligar-se à cache. As ligações da Cache Azure para sistemas de monitorização Redis são sempre permitidas, mesmo que as regras de firewall estejam configuradas. As regras NSG que define também são permitidas.  
@@ -63,4 +63,4 @@ O VNet é o bloco de construção fundamental para a sua rede privada em Azure. 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como configurar uma [cache injetada VNet para uma Cache Premium Azure para o exemplo de Redis](cache-how-to-premium-vnet.md).  
 * Saiba como configurar [as regras de firewall para todos os níveis Azure Cache para os níveis Redis](cache-configure.md#firewall). 
-* Saiba como [configurar pontos finais privados para todos os níveis Azure Cache para os níveis Redis](cache-private-link.md). 
+* Saiba como [configurar pontos finais privados para todos os níveis Azure Cache para os níveis Redis](cache-private-link.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 021bfc0b87b0da800728eda26d9f5222bd52bc1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbae7254949eaa642b8344b4e550de4a44b2f33f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086964"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545978"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Understand and resolve errors received from WebHCat on HDInsight (Compreender e resolver erros recebidos do WebHCat no HDInsight)
 
@@ -39,7 +39,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="too-many-requests"></a>Muitos pedidos
 
-**Código de estado HTTP**: 429
+**Código de estado HTTP** : 429
 
 | Causa | Resolução |
 | --- | --- |
@@ -47,7 +47,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="server-unavailable"></a>Servidor indisponível
 
-**Código de estado HTTP**: 503
+**Código de estado HTTP** : 503
 
 | Causa | Resolução |
 | --- | --- |
@@ -55,7 +55,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="bad-request-content-could-not-find-job"></a>Mau pedido Conteúdo: Não consegui encontrar emprego
 
-**CÓDIGO DE ESTADO HTTP**: 400
+**CÓDIGO DE ESTADO HTTP** : 400
 
 | Causa | Resolução |
 | --- | --- |
@@ -65,7 +65,7 @@ Se os seguintes valores predefinidos forem ultrapassados, pode degradar o desemp
 
 ## <a name="bad-gateway"></a>Mau portal
 
-**CÓDIGO DE ESTADO HTTP**: 502
+**CÓDIGO DE ESTADO HTTP** : 502
 
 | Causa | Resolução |
 | --- | --- |
@@ -83,7 +83,7 @@ Se não viu o seu problema ou não conseguir resolver o seu problema, visite um 
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
 
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

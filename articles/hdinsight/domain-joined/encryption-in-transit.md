@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85382ecd627ec8afc63a85de0debd98f94a89849
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89668767"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544890"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Encriptação IPSec em trânsito para Azure HDInsight
 
@@ -27,7 +27,7 @@ O Azure HDInsight oferece uma variedade de funcionalidades de segurança para ga
 
 A encriptação em repouso é coberta pela encriptação do lado do servidor nas contas de armazenamento Azure, bem como a encriptação de discos nos VMs Azure que fazem parte do seu cluster HDInsight.
 
-A encriptação de dados em trânsito em HDInsight é conseguida com [a Segurança da Camada de Transporte (TLS)](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) para a adaptação dos gateways de cluster e segurança do protocolo de Internet [(IPSec)](https://en.wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente ativado entre todos os nós da cabeça, nós de trabalhadores, nós de borda e nós de zookeeper. Não está ativado para o tráfego entre os nós de gateway ou [de id broker](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker) que são VMs baseados no Windows e outros nós baseados em linux no cluster.
+A encriptação de dados em trânsito em HDInsight é conseguida com [a Segurança da Camada de Transporte (TLS)](../transport-layer-security.md) para a adaptação dos gateways de cluster e segurança do protocolo de Internet [(IPSec)](https://en.wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente ativado entre todos os nós da cabeça, nós de trabalhadores, nós de borda e nós de zookeeper. Não está ativado para o tráfego entre os nós de gateway ou [de id broker](./identity-broker.md) que são VMs baseados no Windows e outros nós baseados em linux no cluster.
 
 ## <a name="enable-encryption-in-transit"></a>Ativar a encriptação em trânsito
 

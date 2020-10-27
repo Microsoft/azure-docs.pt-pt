@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 334eaa88ae927ae61ebb445343494cfdce570563
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b139e2f14379e0cd52ca72c347d49bcb4512c473
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167496"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542085"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versões postgresQL suportadas na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -30,7 +30,7 @@ A libertação menor atual é de 11,9. Consulte a [documentação PostgreSQL](ht
 
 ## <a name="postgresql-version-10-and-older"></a>Versão Pós-SQL 10 ou mais
 
-Não suportamos a versão 10 do PostgreSQL para Azure Database para PostgreSQL - Servidor Flexível. Por favor, utilize a opção de implementação [do Servidor Único](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) se necessitar de versões mais antigas.
+Não suportamos a versão 10 do PostgreSQL para Azure Database para PostgreSQL - Servidor Flexível. Por favor, utilize a opção de implementação [do Servidor Único](../concepts-supported-versions.md) se necessitar de versões mais antigas.
 
 ## <a name="managing-upgrades"></a>Gerir upgrades
 

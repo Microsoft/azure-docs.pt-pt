@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308389"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534690"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0
 
@@ -39,7 +39,7 @@ Crie uma nova cópia da sua metástase externa. Se estiver a utilizar uma metás
 ### <a name="3-upgrade-metastore-schema"></a>3. Atualizar o esquema da metástaria
 Assim que a **cópia** da metástore estiver concluída, execute um script de atualização de esquemas em [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) no cluster HDInsight 3.6 existente para atualizar a nova metastore para o esquema da Hive 3. (Este passo não requer que a nova meta-loja seja ligada a um cluster.) Isto permite que a base de dados seja anexada como metásta de HDInsight 4.0.
 
-Utilize os valores na tabela mais abaixo. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`Substitua-os pelos valores adequados para a **cópia**da metástasia da Colmeia, separada por espaços. Não inclua ".database.windows.net" ao especificar o nome do servidor SQL.
+Utilize os valores na tabela mais abaixo. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`Substitua-os pelos valores adequados para a **cópia** da metástasia da Colmeia, separada por espaços. Não inclua ".database.windows.net" ao especificar o nome do servidor SQL.
 
 |Propriedade | Valor |
 |---|---|
@@ -117,7 +117,7 @@ Os clusters HDInsight 3.6 e 4.0 devem utilizar a mesma Conta de Armazenamento.
 
 1. Ligue-se ao cluster HDInsight 3.6 utilizando um [cliente Secure Shell (SSH).](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
-1. A partir da sessão SSH aberta, descarregue o seguinte ficheiro script para gerar um ficheiro chamado **Alltables.hql**.
+1. A partir da sessão SSH aberta, descarregue o seguinte ficheiro script para gerar um ficheiro chamado **Alltables.hql** .
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -208,7 +208,7 @@ Depois de ter confirmado que o lançamento está completo e totalmente operacion
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Execução de consultas em versões HDInsight
 
-Existem duas formas de executar e depurar consultas de Hive/LLAP dentro de um cluster HDInsight 3.6. A HiveCLI proporciona uma experiência de linha de comando e a [vista Tez/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) proporciona um fluxo de trabalho baseado em GUI.
+Existem duas formas de executar e depurar consultas de Hive/LLAP dentro de um cluster HDInsight 3.6. A HiveCLI proporciona uma experiência de linha de comando e a [vista Tez/Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) proporciona um fluxo de trabalho baseado em GUI.
 
 Em HDInsight 4.0, HiveCLI foi substituído por Beeline. A vista Tez/Hive proporciona um fluxo de trabalho baseado em GUI. A HiveCLI é cliente da Hiveserver 1, e a Beeline é um cliente JDBC que dá acesso à Hiveserver 2. Beeline também pode ser usado para ligar a qualquer outro ponto final de base de dados compatível com JDBC. A Beeline está disponível fora de caixa no HDInsight 4.0 sem necessidade de qualquer instalação.
 

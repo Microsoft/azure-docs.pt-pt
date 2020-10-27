@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564003"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545723"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -91,9 +91,10 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Azure Database for MariaDB
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>A azure Data Factory Rede Virtual Gerida está disponível nas seguintes regiões do Azure:
-- E.U.A. Leste
+- E.U.A Leste
 - E.U.A. Leste 2
 - E.U.A. Centro-Oeste
+- E.U.A. Oeste
 - E.U.A. Oeste 2
 - E.U.A. Centro-Sul
 - E.U.A. Central
@@ -102,6 +103,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Sul do Reino Unido
 - Sudeste Asiático
 - Leste da Austrália
+- Austrália Sudeste
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída através de ponto final público da ADF Managed Virtual Network
 - Apenas a porta 443 está aberta para comunicações de saída.

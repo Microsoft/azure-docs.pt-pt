@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e2b106e64aed08b0586575d4d77602329454a673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142269"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536016"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de ficheiros IoT Hub usando PowerShell
 
@@ -99,15 +99,15 @@ Agora pode configurar o seu hub IoT para [fazer o upload de ficheiros para o hub
 
 A configuração requer os seguintes valores:
 
-* **Recipiente de armazenamento**: Um recipiente de bolhas numa conta de armazenamento Azure na sua subscrição atual do Azure para associar ao seu hub IoT. Recuperou as informações necessárias da conta de armazenamento na secção anterior. O IoT Hub gera automaticamente URIs SAS com permissões de escrita para este recipiente blob para os dispositivos utilizarem quando carregam ficheiros.
+* **Recipiente de armazenamento** : Um recipiente de bolhas numa conta de armazenamento Azure na sua subscrição atual do Azure para associar ao seu hub IoT. Recuperou as informações necessárias da conta de armazenamento na secção anterior. O IoT Hub gera automaticamente URIs SAS com permissões de escrita para este recipiente blob para os dispositivos utilizarem quando carregam ficheiros.
 
-* **Receber notificações para ficheiros carregados**: Ative ou desative notificações de upload de ficheiros.
+* **Receber notificações para ficheiros carregados** : Ative ou desative notificações de upload de ficheiros.
 
-* **SAS TTL**: Esta definição é o tempo de vida dos SAS URIs devolvidos ao dispositivo pelo IoT Hub. Programado para uma hora por defeito.
+* **SAS TTL** : Esta definição é o tempo de vida dos SAS URIs devolvidos ao dispositivo pelo IoT Hub. Programado para uma hora por defeito.
 
-* **Definições de notificação de ficheiros predefinidoS TTL**: O tempo de vida de uma notificação de upload de ficheiros antes de expirar. Definido para um dia por defeito.
+* **Definições de notificação de ficheiros predefinidoS TTL** : O tempo de vida de uma notificação de upload de ficheiros antes de expirar. Definido para um dia por defeito.
 
-* **Contagem máxima de entrega**da notificação de ficheiros : O número de vezes que o IoT Hub tenta entregar uma notificação de upload de ficheiros. Definir para 10 por defeito.
+* **Contagem máxima de entrega** da notificação de ficheiros : O número de vezes que o IoT Hub tenta entregar uma notificação de upload de ficheiros. Definir para 10 por defeito.
 
 Utilize o seguinte cmdlet PowerShell para configurar as definições de upload de ficheiros no seu hub IoT:
 
@@ -130,8 +130,7 @@ Para obter mais informações sobre as capacidades de upload de ficheiros do IoT
 Siga estes links para saber mais sobre a gestão do Azure IoT Hub:
 
 * [Gerir dispositivos IoT em massa](iot-hub-bulk-identity-mgmt.md)
-* [Métricas IoT Hub](iot-hub-metrics.md)
-* [Monitorização de operações](iot-hub-operations-monitoring.md)
+* [Monitorize o seu hub IoT](monitor-iot-hub.md)
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 

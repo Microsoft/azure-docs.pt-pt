@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: cd81a15853f1c3b0eb1b1cdd40cc4c7ebf713308
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490310"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547491"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalize os clusters HDInsight usando Bootstrap
 
@@ -48,14 +48,14 @@ Para obter informações sobre a instalação de componentes adicionais no clust
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se utilizar o PowerShell, necessitará do [Módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Se utilizar o PowerShell, necessitará do [Módulo Az](/powershell/azure/).
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
 O seguinte código PowerShell personaliza uma configuração [apache hive:](https://hive.apache.org/)
 
 > [!IMPORTANT]  
-> O parâmetro `Spark2Defaults` pode ter de ser utilizado com [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Pode passar valores vazios para o parâmetro como mostrado no exemplo de código abaixo.
+> O parâmetro `Spark2Defaults` pode ter de ser utilizado com [Add-AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Pode passar valores vazios para o parâmetro como mostrado no exemplo de código abaixo.
 
 ```powershell
 # hive-site.xml configuration
@@ -143,7 +143,7 @@ Corte do modelo do Gestor de Recursos da Amostra para mudar a configuração em 
 * [Criar clusters Apache Hadoop em HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Instale e utilize o Apache Spark em clusters HDInsight](spark/apache-spark-jupyter-spark-sql-use-portal.md)
-* [Instale e utilize o Apache Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
+* [Instale e utilize o Apache Giraph em clusters HDInsight](./hdinsight-hadoop-hue-linux.md).
 
 ## <a name="appendix-powershell-sample"></a>Apêndice: Amostra PowerShell
 
