@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: ca796b09f10127c68c5a22ff58f95c89cbda2610
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534401"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629311"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
 
@@ -217,9 +217,9 @@ Os registos armazenados em Kafka são armazenados na ordem em que são recebidos
 
 ## <a name="common-issues-faced"></a>Questões Comuns enfrentadas
 
-1. **Criação de tópicos falha** Se o seu cluster estiver ativado no Pack de Segurança Empresarial, utilize os [ficheiros JAR pré-construídos para produtor e consumidor.](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar) O frasco ESP pode ser construído a partir do código na [ `DomainJoined-Producer-Consumer` subdiretória](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Note que o produtor e as propriedades do consumidor procuram um imóvel adicional `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` para clusters habilitados pela ESP.
+1. **Criação de tópicos falha** Se o seu cluster estiver ativado no Pack de Segurança Empresarial, utilize os [ficheiros JAR pré-construídos para produtor e consumidor.](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar) O frasco ESP pode ser construído a partir do código na [ `DomainJoined-Producer-Consumer` subdireção](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). O produtor e as propriedades de consumo têm uma propriedade adicional `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` para clusters habilitados pela ESP.
 
-2. **Problema de enfrentar com clusters habilitados a ESP** Se as operações de produção e consumo falharem e estiver a utilizar um cluster ativado por ESP, verifique se o utilizador `kafka` está presente em todas as políticas ranger. Se não estiver presente, adicione-o a todas as políticas dos Rangers.
+2. **Falha nos clusters ativados por ESP** : Se as operações de produção e consumo falharem e estiver a utilizar um cluster ativado por ESP, verifique se o utilizador `kafka` está presente em todas as políticas ranger. Se não estiver presente, adicione-o a todas as políticas dos Rangers.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221427"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628682"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
@@ -42,7 +42,7 @@ No seu espaço de trabalho Azure Machine Learning, crie um novo caderno Jupyter 
 Para criar um novo caderno: 
 
 1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
-1. Do lado esquerdo, selecione **Cadernos**. 
+1. Do lado esquerdo, selecione **Cadernos** . 
 1. Selecione o novo ícone **de ficheiro** acima da lista **Ficheiros do utilizador** na secção **'Os meus ficheiros'.**
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar novo ficheiro":::
@@ -50,7 +50,7 @@ Para criar um novo caderno:
 1. Diga o nome do ficheiro. 
 1. Para ficheiros de cadernos Jupyter, selecione **Notebook** como o tipo de ficheiro.
 1. Selecione um diretório de ficheiros.
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
 Também pode criar ficheiros de texto.  Selecione **Texto** como o tipo de ficheiro e adicione a extensão ao nome (por exemplo, myfile.py ou myfile.txt)  
 
@@ -75,14 +75,14 @@ Pode aceder a todas as operações do Git utilizando uma janela terminal. Todos 
 Para aceder ao terminal:
 
 1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
-1. Do lado esquerdo, selecione **Cadernos**.
+1. Do lado esquerdo, selecione **Cadernos** .
 1. Selecione qualquer caderno localizado na secção **de ficheiros do Utilizador** no lado esquerdo.  Se não tem nenhum caderno lá, primeiro [crie um caderno](#create)
 1. Selecione um alvo **compute** ou crie um novo e espere até estar em funcionamento.
 1. Selecione o ícone **do terminal Aberto.**
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Criar novo ficheiro":::
 
-1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal**.
+1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Criar novo ficheiro":::
 
@@ -113,8 +113,8 @@ Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas Note
 
 Utilize o modo de focagem para expandir a sua visão atual para que possa concentrar-se nos separadores ativos. O modo focus esconde o explorador de ficheiros Notebooks.
 
-1. Na barra de ferramentas da janela do terminal, selecione **o modo Focus**para ligar o modo de   focagem. Dependendo da largura da janela, este pode estar localizado sob o item do **menu na** sua barra de ferramentas.
-1. Enquanto está no modo de focagem, volte à vista padrão selecionando a **vista Standard**.
+1. Na barra de ferramentas da janela do terminal, selecione **o modo Focus** para ligar o modo de focagem. Dependendo da largura da janela, este pode estar localizado sob o item do **menu na** sua barra de ferramentas.
+1. Enquanto está no modo de focagem, volte à vista padrão selecionando a **vista Standard** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Criar novo ficheiro":::
 
@@ -143,13 +143,13 @@ O novo caderno contém apenas células de código, com todas as células necess�
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Guardar e checkpoint um caderno
 
-A Azure Machine Learning cria um ficheiro de checkpoint quando cria um ficheiro *ipynb.*  
+A Azure Machine Learning cria um ficheiro de checkpoint quando cria um ficheiro *ipynb.*
 
-Na barra de ferramentas do portátil, selecione o menu e, em seguida, ** &gt; Guarde e registe** para guardar manualmente o portátil e adicionará um ficheiro de verificação associado ao portátil.
+Na barra de ferramentas do portátil, selecione o menu e, em seguida, **&gt; Guarde e registe** para guardar manualmente o portátil e adicionará um ficheiro de verificação associado ao portátil.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Criar novo ficheiro":::
 
-Todos os cadernos são automaticamente a cada 30 segundos.Faça automaticamente atualizações apenas no ficheiro *ipynb*   inicial, não no ficheiro de verificação.
+Todos os cadernos são automaticamente a cada 30 segundos. Faça automaticamente atualizações apenas no ficheiro *ipynb* inicial, não no ficheiro de verificação.
  
 Selecione **Checkpoints** no menu do portátil para criar um ponto de verificação nomeado e reverter o caderno para um ponto de verificação guardado.
 
@@ -181,7 +181,7 @@ Para executar uma experiência a partir de um Caderno, você primeiro se conecta
 
 1. Selecione **+** na barra de ferramentas Do Notebook. 
 2. Nomeie o Compute e escolha um **tamanho de máquina virtual.** 
-3. Selecione **Criar**.
+3. Selecione **Criar** .
 4. A instância computacional está ligada automaticamente ao Caderno e agora pode executar as suas células.
 
 Só você pode ver e usar as instâncias de cálculo que cria.  Os **ficheiros do** utilizador são armazenados separadamente do VM e são partilhados entre todas as instâncias computacional no espaço de trabalho.
@@ -218,7 +218,7 @@ O Notebook irá automaticamente encontrar todos os núcleos jupyter instalados n
 1. Selecione [**o terminal aberto**](#terminal) na barra de ferramentas do Bloco de Notas.
 1. Utilize a janela do terminal para criar um novo ambiente.  Por exemplo, o código abaixo `newenv` cria:
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Ative o ambiente.  Por exemplo, depois de `newenv` criar:
 
@@ -228,13 +228,13 @@ O Notebook irá automaticamente encontrar todos os núcleos jupyter instalados n
 1. Instale o pacote pip e ipykernel para o novo ambiente e crie um núcleo para esse conda env
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 
 > [!NOTE]
-> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento**, em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
+> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento** , em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
 
 Qualquer um dos [Jupyter Kernels disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
 

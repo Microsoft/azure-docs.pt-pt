@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546046"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628699"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combine Scaler e SparkR em HDInsight
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Pontuação em outro lugar
 
-Também podemos usar o modelo para marcar dados noutra plataforma. Ao guardá-lo para um ficheiro RDS e, em seguida, transferindo e importando esse RDS para um ambiente de pontuação de destino, como MIcrosoft SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondem aos dos quais o modelo foi construído. Esta correspondência pode ser conseguida extraindo e guardando as informações da coluna associadas aos dados de modelação através da função da ScaleR `rxCreateColInfo()` e, em seguida, aplicando essa informação de coluna à fonte de dados de entrada para previsão. No seguinte, guardamos algumas linhas do conjunto de dados de teste e extraímos e utilizamos as informações da coluna desta amostra no roteiro de previsão:
+Também podemos usar o modelo para marcar dados noutra plataforma. Ao guardá-lo para um ficheiro RDS e, em seguida, transferindo e importando esse RDS para um ambiente de pontuação de destino, como o Microsoft SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondem aos dos quais o modelo foi construído. Esta correspondência pode ser conseguida extraindo e guardando as informações da coluna associadas aos dados de modelação através da função da ScaleR `rxCreateColInfo()` e, em seguida, aplicando essa informação de coluna à fonte de dados de entrada para previsão. No seguinte exemplo de código, guardamos algumas linhas do conjunto de dados de teste e extraímos e utilizamos as informações da coluna desta amostra no script de previsão:
 
 ```
 # save the model and a sample of the test dataset 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6c8c93c8721527d506847e394a02fc4eb5a98c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248365"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631738"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copiar dados do Blob Storage para a Base de Dados SQL utilizando a Data Factory
 > [!div class="op_single_selector"]
@@ -45,10 +45,10 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. Utiliz
 ## <a name="prerequisites-for-the-tutorial"></a>Pré-requisitos para o tutorial
 Antes de começar este tutorial, tem de ter os seguintes pré-requisitos:
 
-* **Assinatura Azure**.  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte o artigo [Free Trial](https://azure.microsoft.com/pricing/free-trial/) para mais detalhes.
-* **Conta de Armazenamento Azure**. Você usa o armazenamento de bolhas como uma loja de dados **de origem** neste tutorial. se não tiver uma conta de armazenamento Azure, consulte o artigo de [conta de armazenamento Criar um](../../storage/common/storage-account-create.md) artigo de conta de armazenamento para etapas para criar uma.
-* **Base de Dados Azure SQL**. Utiliza a Base de Dados Azure SQL como uma loja de dados de **destino** neste tutorial. Se não tiver uma base de dados na Base de Dados Azure SQL que pode utilizar no tutorial, consulte [como criar e configurar uma base de dados na Base de Dados Azure SQL](../../sql-database/sql-database-get-started.md) para criar uma.
-* **SQL Server 2012/2014 ou Visual Studio 2013**. Utiliza o SQL Server Management Studio ou o Visual Studio para criar uma base de dados de amostras e para visualizar os dados dos resultados na base de dados.  
+* **Assinatura Azure** .  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte o artigo [Free Trial](https://azure.microsoft.com/pricing/free-trial/) para mais detalhes.
+* **Conta de Armazenamento Azure** . Você usa o armazenamento de bolhas como uma loja de dados **de origem** neste tutorial. se não tiver uma conta de armazenamento Azure, consulte o artigo de [conta de armazenamento Criar um](../../storage/common/storage-account-create.md) artigo de conta de armazenamento para etapas para criar uma.
+* **Base de Dados Azure SQL** . Utiliza a Base de Dados Azure SQL como uma loja de dados de **destino** neste tutorial. Se não tiver uma base de dados na Base de Dados Azure SQL que pode utilizar no tutorial, consulte [como criar e configurar uma base de dados na Base de Dados Azure SQL](../../azure-sql/database/single-database-create-quickstart.md) para criar uma.
+* **SQL Server 2012/2014 ou Visual Studio 2013** . Utiliza o SQL Server Management Studio ou o Visual Studio para criar uma base de dados de amostras e para visualizar os dados dos resultados na base de dados.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Colete o nome e a chave da conta de armazenamento blob
 Precisa do nome da conta e da chave da conta da sua conta de armazenamento Azure para fazer este tutorial. Note o **nome da conta** e a chave de **conta** para a sua conta de armazenamento Azure.
@@ -58,29 +58,29 @@ Precisa do nome da conta e da chave da conta da sua conta de armazenamento Azure
 
     ![Procurar - Contas de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. Na lâmina **'Contas de Armazenamento',** selecione a **conta de armazenamento Azure** que pretende utilizar neste tutorial.
-4. Selecione o link **de teclas** de acesso **em DEFINIÇÕES**.
+4. Selecione o link **de teclas** de acesso **em DEFINIÇÕES** .
 5. Clique no botão **de cópia** (imagem) ao lado da caixa de texto do nome da conta **de armazenamento** e guarde-o/cole-o em algum lugar (por exemplo: num ficheiro de texto).
-6. Repita o passo anterior para copiar ou anotar a **tecla1**.
+6. Repita o passo anterior para copiar ou anotar a **tecla1** .
 
     ![Chave de acesso ao armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
-7. Feche todas as lâminas clicando **em X**.
+7. Feche todas as lâminas clicando **em X** .
 
 ## <a name="collect-sql-server-database-user-names"></a>Recolher servidor SQL, base de dados, nomes de utilizadores
-Precisa dos nomes do servidor, base de dados e utilizador lógicos do SQL para fazer este tutorial. Note os nomes do **servidor,** **base de dados**e **utilizador** da Base de Dados Azure SQL.
+Precisa dos nomes do servidor, base de dados e utilizador lógicos do SQL para fazer este tutorial. Note os nomes do **servidor,** **base de dados** e **utilizador** da Base de Dados Azure SQL.
 
-1. No **portal Azure,** clique em **Todos os serviços** à esquerda e selecione **bases de dados SQL**.
+1. No **portal Azure,** clique em **Todos os serviços** à esquerda e selecione **bases de dados SQL** .
 2. Na lâmina de **bases de dados SQL,** selecione a **base de dados** que pretende utilizar neste tutorial. Note o nome da **base de dados.**  
-3. Na lâmina de **base de dados SQL,** clique em **Propriedades** em **DEFINIÇÕES**.
-4. Note os valores para **O NOME DO SERVIDOR** e O INÍCIO DE LOGIN DO SERVIDOR **ADMIN**.
-5. Feche todas as lâminas clicando **em X**.
+3. Na lâmina de **base de dados SQL,** clique em **Propriedades** em **DEFINIÇÕES** .
+4. Note os valores para **O NOME DO SERVIDOR** e O INÍCIO DE LOGIN DO SERVIDOR **ADMIN** .
+5. Feche todas as lâminas clicando **em X** .
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Permitir que os serviços da Azure acedam ao servidor SQL
 Certifique-se de que permitir o acesso à definição **de serviços Azure** **foi** ligado para o seu servidor para que o serviço Data Factory possa aceder ao seu servidor. Para verificar e ativar desta definição, execute os passos seguintes:
 
-1. Clique em **Todos os centros de serviços** à esquerda e clique nos **servidores SQL**.
-2. Selecione o seu servidor e clique em **Firewall** em **DEFINIÇÕES**.
-3. No painel **Definições da firewall**, clique em **ATIVAR** para **Permitir acesso aos serviços do Azure**.
-4. Feche todas as lâminas clicando **em X**.
+1. Clique em **Todos os centros de serviços** à esquerda e clique nos **servidores SQL** .
+2. Selecione o seu servidor e clique em **Firewall** em **DEFINIÇÕES** .
+3. No painel **Definições da firewall** , clique em **ATIVAR** para **Permitir acesso aos serviços do Azure** .
+4. Feche todas as lâminas clicando **em X** .
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Preparar armazenamento blob e base de dados SQL
 Agora, prepare o seu armazenamento de bolhas Azure e base de dados Azure SQL para o tutorial realizando os seguintes passos:  
@@ -107,9 +107,9 @@ Agora, prepare o seu armazenamento de bolhas Azure e base de dados Azure SQL par
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Se tiver o SQL Server 2012/2014 instalado no seu computador:** siga as instruções da [Managing Azure SQL Database utilizando](../../sql-database/sql-database-manage-azure-ssms.md) o SQL Server Management Studio para ligar ao seu servidor e executar o script SQL.
+    **Se tiver o SQL Server 2012/2014 instalado no seu computador:** siga as instruções da [Managing Azure SQL Database utilizando](../../azure-sql/database/single-database-manage.md) o SQL Server Management Studio para ligar ao seu servidor e executar o script SQL.
 
-    Se o seu cliente não estiver autorizado a aceder ao servidor lógico SQL, tem de configurar firewall para o seu servidor para permitir o acesso a partir da sua máquina (Endereço IP). Consulte [este artigo](../../sql-database/sql-database-configure-firewall-settings.md) para obter etapas para configurar a firewall do seu servidor.
+    Se o seu cliente não estiver autorizado a aceder ao servidor lógico SQL, tem de configurar firewall para o seu servidor para permitir o acesso a partir da sua máquina (Endereço IP). Consulte [este artigo](../../azure-sql/database/firewall-configure.md) para obter etapas para configurar a firewall do seu servidor.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Completou os pré-requisitos. Pode criar uma fábrica de dados utilizando uma das seguintes formas. Clique numa das opções na lista de drop-down no topo ou nos seguintes links para realizar o tutorial.     

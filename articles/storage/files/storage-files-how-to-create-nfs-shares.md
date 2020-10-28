@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220752"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633506"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar uma quota NFS
 
@@ -89,14 +89,14 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
 1. Navegue para a sua conta de armazenamento e selecione **ações de ficheiros.**
 1. Selecione **+ Partilha de ficheiros** para criar uma nova partilha de ficheiros.
 1. Nomeie a sua parte do ficheiro, selecione uma capacidade a provisionada.
-1. Para **o protocolo** selecione **NFS (pré-visualização)**.
+1. Para **o protocolo** selecione **NFS (pré-visualização)** .
 1. Para **Root Squash** fazer uma seleção.
 
     - Squash raiz (padrão) - O acesso ao superuser remoto (raiz) é mapeado para UID (65534) e GID (65534).
     - Sem abóbora de raiz - O superuser remoto (raiz) recebe acesso como raiz.
     - Todas as abóboras - Todo o acesso ao utilizador está mapeado para UID (65534) e GID (65534).
     
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot da lâmina de criação de partilha de ficheiros":::
 
@@ -120,7 +120,7 @@ Agora que criou uma conta FileStorage e configurar a rede, pode criar uma partil
 
 1. Feche e, em seguida, reabra a consola PowerShell.
 
-1. Instale a versão do módulo de pré-visualização **Az.Storage** **2.5.2-preview**.
+1. Instale a versão do módulo de pré-visualização **Az.Storage** **2.5.2-preview** .
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Para criar uma partilha de ficheiros premium com o Azure CLI, utilize o comando 
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

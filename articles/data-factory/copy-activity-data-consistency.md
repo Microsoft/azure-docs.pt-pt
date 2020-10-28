@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522912"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634917"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verificação da consistência dos dados na atividade de cópia (Pré-visualização)
 
@@ -70,7 +70,7 @@ O exemplo a seguir fornece uma definição JSON para permitir a verificação da
 } 
 ```
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
 validarDataConsistency | Se se definir como verdadeiro para esta propriedade, ao copiar ficheiros binários, a atividade de cópia verificará o tamanho do ficheiro, o último TermodifiedDate e a caixa de verificação MD5 para cada ficheiro binário copiado da fonte para a loja de destino para garantir a consistência dos dados entre a loja de origem e destino. Ao copiar dados tabulares, a atividade de cópia verificará a contagem total de filas após o cumprimento do trabalho para garantir que o número total de linhas lidas a partir da fonte é o mesmo que o número de linhas copiadas para o destino mais o número de linhas incompatíveis que foram ignoradas. Esteja ciente de que o desempenho da cópia será afetado ativando esta opção.  | Verdadeiro<br/>Falso (predefinição) | Não
 dataInconsistency | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar os ficheiros inconsistentes. <br/> -Verdade: quer copiar o resto ignorando ficheiros inconsistentes.<br/> - Falso: pretende abortar a atividade de cópia uma vez encontrado um ficheiro inconsistente.<br/>Esteja ciente de que esta propriedade só é válida quando estiver a copiar ficheiros binários e definir validar aDataConsistency como True.  | Verdadeiro<br/>Falso (predefinição) | Não
@@ -79,7 +79,7 @@ linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-bl
 caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
 
 >[!NOTE]
->- Ao copiar ficheiros binários de, ou para Azure Blob ou Azure Data Lake Storage Gen2, a ADF faz o nível de verificação de verificação MD5 alavancando [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se o ContentMD5 em ficheiros existir no Azure Blob ou no Azure Data Lake Storage Gen2 como fontes de dados, a ADF faz verificação de nível de ficheiro MD5 após a leitura dos ficheiros também. Depois de copiar ficheiros para Azure Blob ou Azure Data Lake Storage Gen2 como destino de dados, a ADF escreve ConteúdoMD5 a Azure Blob ou Azure Data Lake Storage Gen2 que podem ser ainda mais consumidos por aplicações a jusante para verificação da consistência de dados.
+>- Ao copiar ficheiros binários de, ou para Azure Blob ou Azure Data Lake Storage Gen2, a ADF faz o nível de verificação de verificação MD5 alavancando [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Se o ContentMD5 em ficheiros existir no Azure Blob ou no Azure Data Lake Storage Gen2 como fontes de dados, a ADF faz verificação de nível de ficheiro MD5 após a leitura dos ficheiros também. Depois de copiar ficheiros para Azure Blob ou Azure Data Lake Storage Gen2 como destino de dados, a ADF escreve ConteúdoMD5 a Azure Blob ou Azure Data Lake Storage Gen2 que podem ser ainda mais consumidos por aplicações a jusante para verificação da consistência de dados.
 >- A ADF faz verificação do tamanho do ficheiro ao copiar ficheiros binários entre quaisquer armazéns.
 
 ## <a name="monitoring"></a>Monitorização
@@ -108,13 +108,13 @@ Pode ver os detalhes da verificação da consistência dos dados a partir de "da
 
 Valor da **VerificaçãoResult:** 
 -   **Verificado:** Os seus dados copiados foram verificados para serem consistentes entre a loja de origem e destino. 
--   **Notificável**: Os seus dados copiados não foram verificados para serem consistentes porque não habilitava a validação DataConsistency na atividade de cópia. 
--   **Não suportados**: Os seus dados copiados não foram verificados para serem consistentes porque a verificação da consistência dos dados não é suportada para este par de cópias em particular. 
+-   **Notificável** : Os seus dados copiados não foram verificados para serem consistentes porque não habilitava a validação DataConsistency na atividade de cópia. 
+-   **Não suportados** : Os seus dados copiados não foram verificados para serem consistentes porque a verificação da consistência dos dados não é suportada para este par de cópias em particular. 
 
 Valor do **InconsistenteData:** 
 -   **Encontrado:** A atividade de cópia da ADF encontrou dados inconsistentes. 
 -   **Ignorado:** A atividade de cópia da ADF encontrou e ignorou dados inconsistentes. 
--   **Nenhum**: A atividade de cópia da ADF não encontrou dados inconsistentes. Pode ser porque os seus dados foram verificados para serem consistentes entre a loja de origem e destino ou porque desativou a Validação doDataConsisency na atividade de cópia. 
+-   **Nenhum** : A atividade de cópia da ADF não encontrou dados inconsistentes. Pode ser porque os seus dados foram verificados para serem consistentes entre a loja de origem e destino ou porque desativou a Validação doDataConsisency na atividade de cópia. 
 
 ### <a name="session-log-from-copy-activity"></a>Registo de sessão da atividade de cópia
 
@@ -142,7 +142,5 @@ A partir do ficheiro de registo acima, pode ver sample1.csv foi ignorado porque 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de Atividade de Cópia:
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Copiar a tolerância à falha da atividade](copy-activity-fault-tolerance.md)
-
-

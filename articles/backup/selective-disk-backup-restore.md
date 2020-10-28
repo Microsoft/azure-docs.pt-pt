@@ -4,12 +4,12 @@ description: Neste artigo, aprenda sobre a cópia de segurança seletiva do disc
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1052e7e531f6762de660ba89e22c7fbb0d01f808
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174114"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628767"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup seletivo de disco e restauro para máquinas virtuais Azure
 
@@ -46,7 +46,7 @@ az account set -s {subscriptionID}
 
 ### <a name="configure-backup-with-azure-cli"></a>Configure backup com Azure CLI
 
-Durante a operação de proteção de configuração, é **inclusion**necessário especificar a definição da lista de discos com um parâmetro de  /  **exclusão** de inclusão, dando aos números LUN dos discos a incluir ou excluídos na cópia de segurança.
+Durante a operação de proteção de configuração, é **inclusion** necessário especificar a definição da lista de discos com um parâmetro de  /  **exclusão** de inclusão, dando aos números LUN dos discos a incluir ou excluídos na cópia de segurança.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -185,14 +185,18 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 Quando executar estes comandos, `"diskExclusionProperties": null` verá.
 
-## <a name="using-powershell"></a>Utilizar o PowerShell
+## <a name="using-powershell"></a>Com o PowerShell
 
 Certifique-se de que está a utilizar a versão 3.7.0 ou superior do Azure PowerShell.
 
 ### <a name="enable-backup-with-powershell"></a>Ativar backup com PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -DiskListSetting "Include"/"Exclude" -DisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>Backup apenas disco DE DURANTE Configurar backup com PowerShell
@@ -212,7 +216,11 @@ Tem de passar o objeto **$item** obtido acima para o parâmetro **-Item** nos cm
 ### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>Modifique a proteção para VMs já apoiados com PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Include"/"Exclude" -DisksList[Strings]   -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>Backup apenas disco DE DURANTE Modificar proteção com PowerShell
@@ -224,7 +232,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ### <a name="reset-disk-exclusion-setting-with-powershell"></a>Redefinir a definição de exclusão do disco com o PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Reset" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
 ### <a name="restore-selective-disks-with-powershell"></a>Restaurar discos seletivos com PowerShell

@@ -9,15 +9,15 @@ ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9faca55f8440a28a845e892ee38df2de3489f97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b4fff4a58685873e99332b00864ee95f569416
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259497"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628597"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Amostras javaScript para utilização no Azure Ative Directory B2C
 
@@ -42,13 +42,13 @@ Este artigo descreve como pode alterar a sua política personalizada para ativar
 
 * Selecione um [layout de página](contentdefinitions.md#select-a-page-layout) para os elementos de interface do utilizador da sua aplicação.
 
-    Se pretender utilizar o JavaScript, tem de [definir uma versão de layout](contentdefinitions.md#migrating-to-page-layout) de página com a versão de página para todas `contract` *as* definições de conteúdo na sua política personalizada.
+    Se pretender utilizar o JavaScript, tem de [definir uma versão de layout](contentdefinitions.md#migrating-to-page-layout) de página com a versão de página para todas `contract` *as* definições de conteúdo na sua política personalizada. Aprenda a [migrar para o layout da página](contentdefinitions.md#migrating-to-page-layout) com a versão da página. 
 
 ## <a name="add-the-scriptexecution-element"></a>Adicione o elemento ScriptExecution
 
 Ativa a execução do script adicionando o elemento **ScriptExecution** ao elemento [RelyingParty.](relyingparty.md)
 
-1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml. *
+1. Abra o seu ficheiro de política personalizado. Por exemplo, *SignUpOrSignin.xml.*
 2. Adicione o elemento **ScriptExecution** ao elemento **UserJourneyBehaviors** da **RelyingParty:**
 
     ```xml

@@ -3,17 +3,17 @@ title: Migrar para ferramentas do Azure Resource Manager para HDInsight
 description: Como migrar para ferramentas de desenvolvimento do Azure Resource Manager para clusters HDInsight
 ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: deaf98077e0652dac8bb327839ffa2bf34007c9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57dec799cbda03e20717a402a88f1d818d9acd92
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546216"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629481"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrar para ferramentas de desenvolvimento baseadas em recursos Azure para clusters HDInsight
 
@@ -83,7 +83,7 @@ Para obter informações sobre outras formas de executar Apache Hadoop MapReduce
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migração Azure PowerShell para Azure Resource Manager
 As informações gerais sobre o Azure PowerShell no modo Azure Resource Manager podem ser encontradas na [Utilização do Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
-Os cmdlets Azure PowerShell Resource Manager podem ser instalados lado a lado com os cmdlets ASM. Os cmdlets dos dois modos podem ser distinguidos pelos seus nomes.  O modo Gestor de Recursos tem *AzHDInsight* nos nomes cmdlet comparando com *AzureHDInsight* no modo ASM.  Por exemplo, *New-AzHDInsightCluster* vs. *New-AzureHDInsightCluster* . Parâmetros e comutadores podem ter nomes de notícias, e há muitos novos parâmetros disponíveis quando se utiliza o Gestor de Recursos.  Por exemplo, vários cmdlets requerem um novo interruptor chamado *-ResourceGroupName* . 
+Os cmdlets Azure PowerShell Resource Manager podem ser instalados lado a lado com os cmdlets ASM. Os cmdlets dos dois modos podem ser distinguidos pelos seus nomes.  O modo Gestor de Recursos tem *AzHDInsight* nos nomes cmdlet comparando com *AzureHDInsight* no modo de Gestão de Serviços Azure mais antigo.  Por exemplo, *New-AzHDInsightCluster* vs. *New-AzureHDInsightCluster* . Parâmetros e comutadores podem ter nomes de notícias, e há muitos novos parâmetros disponíveis quando se utiliza o Gestor de Recursos.  Por exemplo, vários cmdlets requerem um novo interruptor chamado *-ResourceGroupName* .
 
 Antes de poder utilizar os cmdlets HDInsight, tem de ligar-se à sua conta Azure e criar um novo grupo de recursos:
 

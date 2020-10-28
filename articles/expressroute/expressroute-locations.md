@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 09bd46f3265656a1f8ea28279ce1a9ebea5e83f5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 52f0b3a09b4c58bd9123308a508e08f8ca15e230
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368643"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633523"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -109,6 +109,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **Emirados Árabes Unidos** |Suportado |Suportado |Rio Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Londres |
 | **FarEasTone** |Suportado |Suportado |Taipé|
+| **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Suportado |Suportado |Milão|
 | **Fibrenoire** |Suportado |Suportado |Montreal|
 | **GÉANT** |Suportado |Suportado |Amsterdão, Amesterdão2, Dublin, Frankfurt, Marselha |
 | **GTT** |Suportado |Suportado |Londres2 |

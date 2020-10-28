@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -15,13 +15,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639085"
 ---
-1. A partir do menu do portal Azure ou da **página Inicial,** selecione **Criar um recurso**.
+1. A partir do menu do portal Azure ou da **página Inicial,** selecione **Criar um recurso** .
 
-1. Na página **Nova,** procure e selecione **Azure Cosmos DB**.
+1. Na página **Nova,** procure e selecione **Azure Cosmos DB** .
 
-1. Na página DB do **Azure Cosmos,** selecione **Criar**.
+1. Na página DB do **Azure Cosmos,** selecione **Criar** .
 
-1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
+1. Na página **Criar Conta do Azure Cosmos DB** , introduza as definições básicas da nova conta do Azure Cosmos DB. 
 
     |Definição|Valor|Descrição |
     |---|---|---|
@@ -38,16 +38,16 @@ ms.locfileid: "88639085"
     > Pode ter até uma conta DB Azure Cosmos de nível gratuito por subscrição Azure e deve optar pela criação da conta. Se não vir a opção de aplicar o desconto de nível livre, isto significa que outra conta na subscrição já foi ativada com nível gratuito.
    
     > [!NOTE]
-    > As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade**:
+    > As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade** :
     > - Aplicar Desconto de Escalão Gratuito
     > - Georredundância
     > - Escritas de várias regiões
     
     :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt-text="A página da nova conta do Azure Cosmos DB":::
 
-1. Selecione **Rever + criar**. Pode ignorar as secções **Rede** e **Etiquetas**.
+1. Selecione **Rever + criar** . Pode ignorar as secções **Rede** e **Etiquetas** .
 
-1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
+1. Reveja as definições da conta e, em seguida, selecione **Criar** . A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída** . 
 
     :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png" alt-text="A página da nova conta do Azure Cosmos DB":::
 

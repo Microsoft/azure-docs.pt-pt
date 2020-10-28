@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984869"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634169"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utilize a Azure SQL Managed Instance com serviços de integração de servidores SQL (SSIS) na Azure Data Factory
 
@@ -50,17 +50,17 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
     - Sobre o ponto final público
 
-        Azure SQL Managed Instances pode fornecer conectividade sobre [os pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Os requisitos de entrada e saída devem ser cumpridos para permitir o tráfego entre a SQL Managed Instance e a Azure-SSIS IR:
+        Azure SQL Managed Instances pode fornecer conectividade sobre [os pontos finais públicos](../azure-sql/managed-instance/public-endpoint-configure.md). Os requisitos de entrada e saída devem ser cumpridos para permitir o tráfego entre a SQL Managed Instance e a Azure-SSIS IR:
 
         - quando o Azure-SSIS IR não está dentro de uma rede virtual (preferencial)
 
             **Requisito de entrada de SQL Managed Instance,** para permitir o tráfego de entrada a partir de Azure-SSIS IR.
 
-            | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino |
+            | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino |
             |---|---|---|---|---|
             |TCP|Tag de serviço Azure Cloud|*|VirtualNetwork|3342|
 
-            Para obter mais informações, consulte [Permitir o tráfego de ponto final público no grupo de segurança da rede.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group)
+            Para obter mais informações, consulte [Permitir o tráfego de ponto final público no grupo de segurança da rede.](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group)
 
         - quando o Azure-SSIS IR dentro de uma rede virtual
 
@@ -68,35 +68,35 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
             1. **Requisito de entrada de SQL Managed Instance,** para permitir o tráfego de entrada a partir de Azure-SSIS IR.
 
-                | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino |Intervalo de portas de destino |
+                | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino |Intervalo de portas de destino |
                 |---|---|---|---|---|
                 |TCP|Endereço IP estático do Azure-SSIS IR <br> Para mais informações, consulte [Bring Your Own Public IP for Azure-SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md#publicIP).|*|VirtualNetwork|3342|
 
              1. **Requisito de saída da Azure-SSIS IR,** para permitir o tráfego de saída para a SQL Managed Instance.
 
-                | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino |Intervalo de portas de destino |
+                | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino |Intervalo de portas de destino |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[Sql Managed Instance endereço IP público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[Sql Managed Instance endereço IP público](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
 
 ### <a name="configure-virtual-network"></a>Configurar uma rede virtual
 
-1. **Permissão do utilizador**. O utilizador que criar o Azure-SSIS IR deve ter a atribuição de [funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) pelo menos no recurso Azure Data Factory com uma das opções abaixo:
+1. **Permissão do utilizador** . O utilizador que criar o Azure-SSIS IR deve ter a atribuição de [funções](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) pelo menos no recurso Azure Data Factory com uma das opções abaixo:
 
-    - Utilize a função de contribuinte de rede incorporada. Esta função vem com a permissão _Microsoft.Network/ \* _ que tem um âmbito muito maior do que o necessário.
+    - Utilize a função de contribuinte de rede incorporada. Esta função vem com a permissão _Microsoft.Network/ \*_ que tem um âmbito muito maior do que o necessário.
     - Crie uma função personalizada que inclua apenas a necessária _microsoft.network/virtualNetworks/ \* /join/action_ permission. Se também pretender trazer os seus próprios endereços IP públicos para Azure-SSIS IR ao mesmo tempo que o une a uma rede virtual do Azure Resource Manager, também inclua _microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
 
-1. **Rede virtual**.
+1. **Rede virtual** .
 
     1. Certifique-se de que o grupo de recursos da rede virtual pode criar e eliminar certos recursos de rede Azure.
 
         O Azure-SSIS IR precisa de criar certos recursos de rede no mesmo grupo de recursos que a rede virtual. Estes recursos incluem:
-        - Um equilibrador de carga Azure, com o nome * \<Guid> -azurebatch-cloudserviceloadanceancer*
+        - Um equilibrador de carga Azure, com o nome *\<Guid> -azurebatch-cloudserviceloadanceancer*
         - Um grupo de segurança de rede, com o nome * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - Um endereço IP público Azure, com o nome -azurebatch-cloudservicepublicip
 
         Esses recursos serão criados quando o seu IR Azure-SSIS começar. Serão apagados quando o seu Azure-SSIS IR parar. Para evitar que o seu Azure-SSIS IR pare, não reutilize estes recursos de rede nos seus outros recursos.
 
-    1. Certifique-se de que não tem [nenhum bloqueio](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) de recursos no grupo de recursos/subscrição a que pertence a rede virtual. Se configurar um bloqueio apenas de leitura/apagar, iniciar e parar o seu Azure-SSIS IR falhará, ou deixará de responder.
+    1. Certifique-se de que não tem [nenhum bloqueio](../azure-resource-manager/management/lock-resources.md) de recursos no grupo de recursos/subscrição a que pertence a rede virtual. Se configurar um bloqueio apenas de leitura/apagar, iniciar e parar o seu Azure-SSIS IR falhará, ou deixará de responder.
 
     1. Certifique-se de que não tem uma política Azure que impeça a criação dos seguintes recursos no âmbito do grupo de recursos/subscrição a que a rede virtual pertence:
         - Microsoft.Network/LoadBalancers
@@ -105,23 +105,23 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
     1. Permitir o tráfego na regra do Grupo de Segurança da Rede (NSG), para permitir o tráfego entre a SQL Managed Instance e a Azure-SSIS IR, e o tráfego necessário pela Azure-SSIS IR.
         1. **Requisito de entrada de SQL Managed Instance,** para permitir o tráfego de entrada a partir de Azure-SSIS IR.
 
-            | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+            | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
             |---|---|---|---|---|---|
-            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Se a sua política de ligação ao servidor SQL Database estiver definida como **Proxy** em vez de **Redirecionar**, apenas é necessária a porta 1433.|
+            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Se a sua política de ligação ao servidor SQL Database estiver definida como **Proxy** em vez de **Redirecionar** , apenas é necessária a porta 1433.|
 
         1. **Requisito de saída da Azure-SSIS IR,** para permitir o tráfego de saída para a SQL Managed Instance, e outro tráfego necessário pela Azure-SSIS IR.
 
-        | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+        | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Permitir o tráfego de saída para a SQL Managed Instance. Se a política de ligação for definida como **Proxy** em vez de **Redirecionar,** apenas a porta 1433 é necessária. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para aceder aos serviços Azure, como o Azure Storage e o Azure Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | (Opcional) Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para descarregar uma lista de revogação de certificados da internet. Se bloquear este tráfego, poderá experimentar uma degradação de desempenho quando iniciar o IR e perder capacidade de verificar a lista de revogação de certificados para utilização do certificado. Se pretender reduzir ainda mais o destino a determinados FQDNs, consulte a [Utilização Azure ExpressRoute ou a Rota Definida pelo Utilizador (UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
+        | TCP | VirtualNetwork | * | Internet | 80 | (Opcional) Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para descarregar uma lista de revogação de certificados da internet. Se bloquear este tráfego, poderá experimentar uma degradação de desempenho quando iniciar o IR e perder capacidade de verificar a lista de revogação de certificados para utilização do certificado. Se pretender reduzir ainda mais o destino a determinados FQDNs, consulte a [Utilização Azure ExpressRoute ou a Rota Definida pelo Utilizador (UDR)](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
         | TCP | VirtualNetwork | * | Armazenamento | 445 | (Opcional) Esta regra só é necessária quando pretender executar o pacote SSIS armazenado em Ficheiros Azure. |
         |||||||
 
         1. **Requisito de entrada da Azure-SSIS IR,** para permitir o tráfego necessário pela Azure-SSIS IR.
 
-        | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+        | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
         |---|---|---|---|---|---|
         | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (se aderir ao IR a uma rede virtual do Gestor de Recursos) <br/><br/>10100, 20100, 30100 (se juntar o IR a uma rede virtual clássica)| O serviço Data Factory utiliza estas portas para comunicar com os nós do seu Azure-SSIS IR na rede virtual. <br/><br/> Quer crie ou não um NSG de nível sub-rede, a Data Factory configura sempre um NSG ao nível dos cartões de interface de rede (NICs) ligados às máquinas virtuais que acolhem o Azure-SSIS IR. Apenas o tráfego de entrada a partir de endereços IP da Data Factory nas portas especificadas é permitido por esse NSG de nível NIC. Mesmo que abra estas portas ao tráfego de internet ao nível da sub-rede, o tráfego de endereços IP que não são endereços IP da Data Factory está bloqueado ao nível do NIC. |
         | TCP | Serra CorpNet | * | VirtualNetwork | 3389 | (Opcional) Esta regra só é necessária quando o apoiante da Microsoft pede ao cliente para abrir para uma resolução avançada de problemas, e pode ser fechada logo após a resolução de problemas. A tag de serviço **CorpNetSaw** permite apenas estações de trabalho de acesso segura na rede corporativa da Microsoft para utilizar o ambiente de trabalho remoto. E esta etiqueta de serviço não pode ser selecionada a partir do portal e só está disponível através do Azure PowerShell ou do Azure CLI. <br/><br/> No nível NIC NSG, a porta 3389 está aberta por defeito e permitimos que controle a porta 3389 no nível de sub-rede NSG, enquanto a Azure-SSIS IR não permitiu a saída da porta 3389 por defeito na regra de firewall do Windows firewall em cada nó DE IDS para proteção. |
@@ -163,7 +163,7 @@ Para obter mais informações sobre como criar um Azure-SSIS IR, consulte [Criar
 
 ## <a name="clean-up-ssisdb-logs"></a>Limpe os registos SSISDB
 
-A política de retenção de registos SSISDB é definida por propriedades abaixo em [catalog.catalog_properties](https://docs.microsoft.com/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
+A política de retenção de registos SSISDB é definida por propriedades abaixo em [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
 
 - OPERATION_CLEANUP_ENABLED
 

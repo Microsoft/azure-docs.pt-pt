@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280805"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635104"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -70,10 +70,10 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade web | Cadeia | Sim
-tipo | Tem de ser definido para **WebActivity**. | Cadeia | Sim
+name | Nome da atividade web | String | Sim
+tipo | Tem de ser definido para **WebActivity** . | String | Sim
 método | Desarre-se o método API para o ponto final do alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final. | Sim
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir a língua e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Corda (ou expressão com resultadoType de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
@@ -81,7 +81,7 @@ body | Representa a carga útil que é enviada para o ponto final.  | Corda (ou 
 autenticação | Método de autenticação utilizado para chamar o ponto final. Os Tipos Suportados são "Básico, ou Certificado cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoType de corda) | Não
 conjuntos de dados | Lista de conjuntos de dados passados para o ponto final. | Conjunto de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServes | Lista de serviços ligados passados para ponto final. | Conjunto de referências de serviço ligadas. Pode ser uma matriz vazia. | Sim
-connectVia | O [tempo de integração](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. | A referência de tempo de integração. | Não 
+connectVia | O [tempo de integração](./concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. | A referência de tempo de integração. | Não 
 
 > [!NOTE]
 > Os pontos finais REST que a atividade Web invoca têm de devolver uma resposta do tipo JSON. A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final.
@@ -130,7 +130,7 @@ Especifique o conteúdo codificado de base64 de um ficheiro PFX e a palavra-pass
 
 ### <a name="managed-identity"></a>Identidade Gerida
 
-Especifique o recurso uri para o qual o token de acesso será solicitado usando a identidade gerida para a fábrica de dados. Para ligar para a API de Gestão de Recursos Azure, utilize `https://management.azure.com/` . Para obter mais informações sobre como as identidades geridas funcionam consulte as [identidades geridas para a página geral dos recursos Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Especifique o recurso uri para o qual o token de acesso será solicitado usando a identidade gerida para a fábrica de dados. Para ligar para a API de Gestão de Recursos Azure, utilize `https://management.azure.com/` . Para obter mais informações sobre como as identidades geridas funcionam consulte as [identidades geridas para a página geral dos recursos Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

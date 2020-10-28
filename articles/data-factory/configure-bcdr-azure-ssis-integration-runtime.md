@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761841c1f2146a33b35cdddc4adc4d3eb1a4b139
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195719"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635291"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>Configure o tempo de integração Azure-SSIS com a geo-replicação e failover da Base de Dados SQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "84195719"
 
 Este artigo descreve como configurar o tempo de integração Azure-SSIS (IR) com a geo-replicação da base de dados Azure SQL para a base de dados SSISDB. Quando ocorre uma falha, pode garantir que o Azure-SSIS IR continua a trabalhar com a base de dados secundária.
 
-Para obter mais informações sobre a geo-replicação e failover para a Base de Dados SQL, consulte [a visão geral: Geo-replicação ativa e grupos de falha automática](../sql-database/sql-database-geo-replication-overview.md).
+Para obter mais informações sobre a geo-replicação e failover para a Base de Dados SQL, consulte [a visão geral: Geo-replicação ativa e grupos de falha automática](../azure-sql/database/auto-failover-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +33,7 @@ Para obter mais informações sobre a geo-replicação e failover para a Base de
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Um Azure SQL Managed Instance utiliza uma *chave principal de base de dados (DMK)* para ajudar a proteger dados, credenciais e informações de conexão que estão armazenadas numa base de dados. Para ativar a desencriptação automática de DMK, uma cópia da chave é encriptada através da tecla principal do *servidor (SMK)*. 
+Um Azure SQL Managed Instance utiliza uma *chave principal de base de dados (DMK)* para ajudar a proteger dados, credenciais e informações de conexão que estão armazenadas numa base de dados. Para ativar a desencriptação automática de DMK, uma cópia da chave é encriptada através da tecla principal do *servidor (SMK)* . 
 
 O SMK não é replicado num grupo de falhanços. É necessário adicionar uma palavra-passe nas instâncias primárias e secundárias para a desencriptação de DMK após o failover.
 
