@@ -1,20 +1,20 @@
 ---
-title: Configurar o Cofre da Chave Azure para os VMs Linux
-description: Como configurar o Key Vault para utilização com uma máquina virtual Azure Resource Manager com o Azure CLI.
+title: Configurar o Cofre da Chave Azure usando o CLI
+description: Como configurar o Key Vault para máquina virtual utilizando o Azure CLI.
 author: mimckitt
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/24/2017
 ms.author: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fac9e9cb4bc6a4589e27efcf9ec18a378d7407d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94a48662d2a81b5475b63df99c3f1a7f492e3561
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501547"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678348"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Como configurar o Key Vault para máquinas virtuais com o Azure CLI
 

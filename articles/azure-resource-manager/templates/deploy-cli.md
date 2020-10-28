@@ -2,13 +2,13 @@
 title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 8d033bb9ad1c841614ee1e48aa7edc6b8fe18550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372175"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676198"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
@@ -18,13 +18,11 @@ Os comandos de implantação foram alterados na versão 2.2.0 do Azure CLI. Os e
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Se não tiver o Azure CLI instalado, pode utilizar o [Cloud Shell](#deploy-template-from-cloud-shell).
+Se não tiver o Azure CLI instalado, pode utilizar a Cloud Shell. Para obter mais informações, consulte [os modelos ARM da Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Âmbito de implantação
 
-Pode direcionar a sua implementação para um grupo de recursos, subscrição, grupo de gestão ou inquilino. Na maioria dos casos, terás como alvo a implantação de um grupo de recursos. Para aplicar políticas e atribuições de papéis em um âmbito maior, use subscrição, grupo de gestão ou implantações de inquilinos. Ao implementar uma subscrição, pode criar um grupo de recursos e implementar recursos para o mesmo.
-
-Dependendo do alcance da implantação, utiliza-se diferentes comandos.
+Pode direcionar a sua implementação para um grupo de recursos, subscrição, grupo de gestão ou inquilino. Dependendo do alcance da implantação, utiliza-se diferentes comandos.
 
 * Para implementar num **grupo de recursos,** utilize [o grupo de implantação az create](/cli/azure/deployment/group#az-deployment-group-create):
 
@@ -56,26 +54,25 @@ Dependendo do alcance da implantação, utiliza-se diferentes comandos.
 
   Para obter mais informações sobre as implementações de nível de inquilino, consulte [Criar recursos ao nível do arrendatário.](deploy-to-tenant.md)
 
-Os exemplos deste artigo utilizam implementações de grupos de recursos.
+Para cada âmbito, o utilizador que implementa o modelo deve ter as permissões necessárias para criar recursos.
 
-## <a name="deploy-local-template"></a>Implementar modelo local
+## <a name="deploy-local-template"></a>Implementar um modelo local
 
-Ao mobilizar recursos para Azure, você:
+Pode implementar um modelo a partir da sua máquina local ou um que seja armazenado externamente. Esta secção descreve a implementação de um modelo local.
 
-1. Inicie sessão na sua conta do Azure
-2. Criar um grupo de recursos que sirva de recipiente para os recursos implantados. O nome do grupo de recursos só pode incluir caracteres alfanuméricos, períodos, sublinhados, hífens e parênteses. Pode chegar a 90 caracteres. Não pode acabar num período.
-3. Implemente para o grupo de recursos o modelo que define os recursos para criar.
-
-Um modelo pode incluir parâmetros que lhe permitem personalizar a implementação. Por exemplo, pode fornecer valores adaptados para um ambiente específico (como dev, teste e produção). O modelo de amostra define um parâmetro para a conta de armazenamento SKU.
-
-O exemplo a seguir cria um grupo de recursos e implementa um modelo a partir da sua máquina local:
+Se estiver a implantar para um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos só pode incluir caracteres alfanuméricos, períodos, sublinhados, hífens e parênteses. Pode chegar a 90 caracteres. O nome não pode acabar num período.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
+```
+
+Para implementar um modelo local, utilize o `--template-file` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro que vem do modelo.
+
+```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file azuredeploy.json \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -85,9 +82,31 @@ A implementação pode demorar alguns minutos a concluir. Quando terminar, vê-s
 "provisioningState": "Succeeded",
 ```
 
+## <a name="deploy-remote-template"></a>Implementar o modelo remoto
+
+Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de código fonte (como o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
+
+Se estiver a implantar para um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos só pode incluir caracteres alfanuméricos, períodos, sublinhados, hífens e parênteses. Pode chegar a 90 caracteres. O nome não pode acabar num período.
+
+```azurecli-interactive
+az group create --name ExampleGroup --location "Central US"
+```
+
+Para implementar um modelo externo, utilize o parâmetro `template-uri`.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+```
+
+O exemplo anterior requer um URI acessível ao público para o modelo, que funciona para a maioria dos cenários porque o seu modelo não deve incluir dados sensíveis. Se precisar de especificar dados sensíveis (como uma palavra-passe de administração), passe esse valor como parâmetro seguro. No entanto, se quiser gerir o acesso ao modelo, considere usar [as especificações do modelo.](#deploy-template-spec)
+
 ## <a name="deployment-name"></a>Nome de implantação
 
-No exemplo anterior, nomeou o `ExampleDeployment` destacamento. Se não fornecer um nome para a implementação, o nome do ficheiro de modelo é usado. Por exemplo, se implementar um modelo nomeado `azuredeploy.json` e não especificar um nome de implantação, a implementação é nomeada `azuredeploy` .
+Ao colocar um modelo ARM, pode dar um nome à implantação. Este nome pode ajudá-lo a recuperar a implantação do histórico de implantação. Se não fornecer um nome para a implementação, o nome do ficheiro de modelo é usado. Por exemplo, se implementar um modelo nomeado `azuredeploy.json` e não especificar um nome de implantação, a implementação é nomeada `azuredeploy` .
 
 Sempre que executa uma implantação, uma entrada é adicionada ao histórico de implantação do grupo de recursos com o nome de implantação. Se executar outra implantação e lhe der o mesmo nome, a entrada anterior é substituída pela implementação atual. Se pretender manter entradas únicas no histórico de implantação, dê a cada implementação um nome único.
 
@@ -111,30 +130,13 @@ Quando especificar um nome único para cada implantação, pode executá-los sim
 
 Para evitar conflitos com implementações simultâneas e para garantir entradas únicas no histórico de implantação, dê a cada implementação um nome único.
 
-## <a name="deploy-remote-template"></a>Implementar o modelo remoto
-
-Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de origem (como o GitHub). Ou pode armazená-los numa conta de armazenamento Azure para acesso partilhado na sua organização.
-
-Para implementar um modelo externo, utilize o parâmetro **modelo-uri.** Utilize o URI no exemplo para implementar o modelo de amostra do GitHub.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-O exemplo anterior requer um URI acessível ao público para o modelo, que funciona para a maioria dos cenários porque o seu modelo não deve incluir dados sensíveis. Se precisar de especificar dados sensíveis (como uma palavra-passe de administração), passe esse valor como parâmetro seguro. No entanto, se não quiser que o seu modelo seja acessível ao público, pode protegê-lo armazenando-o num recipiente de armazenamento privado. Para obter informações sobre a implementação de um modelo que requer um token de assinatura de acesso partilhado (SAS), consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).
-
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
 Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
 Os exemplos a seguir mostram como criar e implementar uma especificação de modelo. Estes comandos só estão disponíveis se se [ter inscrito para a pré-visualização](https://aka.ms/templateSpecOnboarding).
 
-Em primeiro lugar, cria-se a especificação do modelo fornecendo o modelo ARM.
+Em primeiro lugar, crie a especificação do modelo fornecendo o modelo ARM.
 
 ```azurecli
 az ts create \
@@ -145,7 +147,7 @@ az ts create \
   --template-file "./mainTemplate.json"
 ```
 
-Em seguida, obtém-se o ID para especificação de modelo e implemente-o.
+Em seguida, obtenha o ID para especificação de modelo e implemente-o.
 
 ```azurecli
 id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
@@ -160,17 +162,6 @@ Para obter mais informações, consulte [as especificações do modelo do Gestor
 ## <a name="preview-changes"></a>Pré-visualizar alterações
 
 Antes de implementar o seu modelo, pode visualizar as alterações que o modelo irá fazer para o seu ambiente. Utilize a [operação "e se"](template-deploy-what-if.md) para verificar se o modelo faz as alterações que espera. E se também valida o modelo para erros.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Na Cloud Shell, utilize os seguintes comandos:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az deployment group create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -233,9 +224,9 @@ Use citações duplas em torno do JSON que pretende passar para o objeto.
 
 ### <a name="parameter-files"></a>Ficheiros de parâmetros
 
-Em vez de passar parâmetros como valores inline no seu script, pode ser mais fácil usar um ficheiro JSON que contenha os valores dos parâmetros. O ficheiro do parâmetro deve ser um ficheiro local. Os ficheiros de parâmetros externos não são suportados com O Azure CLI.
+Em vez de transmitir parâmetros como valores inline no seu script, poderá considerar mais fácil utilizar um ficheiro JSON que contenha os valores dos parâmetros. O ficheiro do parâmetro deve ser um ficheiro local. Os ficheiros de parâmetros externos não são suportados com O Azure CLI.
 
-Para obter mais informações sobre o ficheiro parâmetro, consulte o [ficheiro de parâmetros Do Gestor de Recursos](parameter-files.md).
+Para obter mais informações sobre o ficheiro de parâmetros, veja [Criar ficheiro de parâmetros do Resource Manager](parameter-files.md).
 
 Para passar um ficheiro de parâmetro local, use `@` para especificar um ficheiro local chamado storage.parameters.jsligado.
 
@@ -275,4 +266,3 @@ Para implementar um modelo com cordas ou comentários multi-linhas utilizando o 
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
 - Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
 - Para obter dicas sobre a resolução de erros comuns de implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-- Para obter informações sobre a implementação de um modelo que requer um token SAS, consulte [implementar o modelo privado com o token SAS](secure-template-with-sas-token.md).

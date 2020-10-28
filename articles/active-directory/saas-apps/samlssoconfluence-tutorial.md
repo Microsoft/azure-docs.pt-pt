@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 87c24cf61974c284772aae23e48ffc907792895b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c36dd87ac305db62d2d80b74de09f4389722da9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543487"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO for Confluence por resolução GmbH
 
@@ -27,7 +27,7 @@ A integração do SSO SAML para a Confluência por resolução a GmbH com a Azur
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no SSO SAML para Confluência através da resolução GmbH (Sign-On Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,7 +49,7 @@ Para configurar a integração do SSO SAML para Confluência através da resolu�
 
 **Para adicionar SSO SAML para Confluência por resolução GmbH da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -67,7 +67,7 @@ Para configurar a integração do SSO SAML para Confluência através da resolu�
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com sSo sso para confluência por resolução GmbH com base num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com sSo sso para confluência por resolução GmbH com base num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no SSO saml para confluência por resolução, a GmbH.
 
 Para configurar e testar o Azure AD com sSo sso para confluência por resolução GmbH, você precisa completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Confluência por resolução GmbH, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), no **SSO saml para confluência por resolução página** de integração de aplicações GmbH, selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), no **SSO saml para confluência por resolução página** de integração de aplicações GmbH, selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
 1. Numa janela diferente do navegador web, inicie sessão no seu **SSO SAML para Confluence por resolução O portal de administração GmbH** como administrador.
 
-2. Hover on cog e clique nos **Add-ons**.
+2. Hover on cog e clique nos **Add-ons** .
     
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon1.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon2.png)
 
-4. No **separador ATLASSIAN MARKETPLACE,** clique **em Localizar novos addons**. 
+4. No **separador ATLASSIAN MARKETPLACE,** clique **em Localizar novos addons** . 
 
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon.png)
 
@@ -138,13 +138,13 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon7.png)
 
-6. A instalação plugin irá arrancar. Clique em **Close** (Fechar).
+6. A instalação plugin irá arrancar. Clique em **Fechar** .
 
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon8.png)
 
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon9.png)
 
-7.  Clique em **Gerir**.
+7.  Clique em **Gerir** .
 
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon10.png)
     
@@ -170,7 +170,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     
     c. Adicionar **Descrição** do Fornecedor de Identidade (por exemplo, Azure AD).
     
-    d. Clique em **Seguinte**.
+    d. Clique em **Seguinte** .
     
 12. Na página **de configuração do fornecedor de identidade,** clique no botão **Seguinte.**
 
@@ -200,7 +200,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. Na leitura do diálogo que **aparece, ignorando o teste significa...** clique **em OK**.
+17. Na leitura do diálogo que **aparece, ignorando o teste significa...** clique **em OK** .
     
     ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -208,7 +208,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -220,28 +220,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon utilize a Azure um único sinal, concedendo acesso ao SSO SAML para Confluência por resolução GmbH.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SAML SSO para Confluência por resolução GmbH**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **SAML SSO para Confluência por resolução GmbH** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, escreva e selecione **SAML SSO para Confluência por resolução GmbH**.
+2. Na lista de candidaturas, escreva e selecione **SAML SSO para Confluência por resolução GmbH** .
 
     ![O SSO SAML para Confluência por resolução Ligação GmbH na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -264,7 +264,7 @@ No SSO SAML for Confluence por resolução GmbH, o provisionamento é uma tarefa
 
 1. Inicie sessão no seu SSO SAML para Confluence por resolução do site da empresa GmbH como administrador.
 
-2. Hover on cog e clique na **gestão**do Utilizador .
+2. Hover on cog e clique na **gestão** do Utilizador .
 
     ![Adicionar Empregado](./media/samlssoconfluence-tutorial/user1.png) 
 
@@ -288,13 +288,12 @@ No SSO SAML for Confluence por resolução GmbH, o provisionamento é uma tarefa
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no SSO SAML para Confluência por resolução, o azulejo gmbH no Painel de Acesso, deverá ser automaticamente inscrito no SSO SAML for Confluence por resolução, para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no SSO SAML para Confluência por resolução, o azulejo gmbH no Painel de Acesso, deverá ser automaticamente inscrito no SSO SAML for Confluence por resolução, para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

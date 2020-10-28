@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905410"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677343"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2 pode escalar para fornecer a produção necessária para 
 
 Ao ingerir dados de um sistema de origem para data lake storage gen2, é importante considerar que o hardware de origem, hardware de rede de origem e conectividade de rede para data lake storage Gen2 pode ser o estrangulamento.  
 
-![Desempenho da Gen2 de armazenamento de data lake](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Diagrama que mostra os fatores a ter em conta ao ingerir dados de um sistema de origem para a Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 É importante garantir que o movimento de dados não seja afetado por estes fatores.
 
@@ -107,7 +107,7 @@ Existem três camadas dentro de um cluster HDInsight que podem ser sintonizadas 
 
 **Executar o cluster com mais nós e/ou VMs de tamanho maior.**  Um cluster maior permitir-lhe-á executar mais recipientes DE FIOS, como mostra a imagem abaixo.
 
-![Desempenho da Gen2 de armazenamento de data lake](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Diagrama que mostra como um cluster maior lhe permitirá executar mais recipientes DE FIOS.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **Utilize VMs com mais largura de banda de rede.**  A quantidade de largura de banda de rede pode ser um estrangulamento se houver menos largura de banda de rede do que a produção de Data Lake Storage Gen2.  Diferentes VMs terão diferentes tamanhos de largura de banda de rede.  Escolha um tipo VM que tenha a maior largura de banda de rede possível.
 
@@ -115,7 +115,7 @@ Existem três camadas dentro de um cluster HDInsight que podem ser sintonizadas 
 
 **Utilize recipientes de YARN mais pequenos.**  Reduza o tamanho de cada recipiente YARN para criar mais contentores com a mesma quantidade de recursos.
 
-![Desempenho da Gen2 de armazenamento de data lake](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Diagrama que mostra o resultado quando reduz o tamanho de cada recipiente DE YARN para criar mais recipientes.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 Dependendo da sua carga de trabalho, haverá sempre um tamanho mínimo de recipiente YARN que é necessário. Se escolheres um recipiente muito pequeno, os teus empregos vão ficar sem memória. Normalmente, os recipientes DE FIOS não devem ser inferiores a 1GB. É comum ver recipientes de 3GB de YARN. Para algumas cargas de trabalho, poderá necessitar de recipientes de YARN maiores.  
 
@@ -125,7 +125,7 @@ Dependendo da sua carga de trabalho, haverá sempre um tamanho mínimo de recipi
 
 **Utilize todos os recipientes disponíveis.**  Deite o número de tarefas iguais ou maiores do que o número de contentores disponíveis de modo a que todos os recursos sejam utilizados.
 
-![Desempenho da Gen2 de armazenamento de data lake](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Diagrama que mostra a utilização de todos os recipientes.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **As tarefas falhadas são dispendiosas.** Se cada tarefa tiver uma grande quantidade de dados para processar, então a falha de uma tarefa resulta numa reequimia dispendiosa.  Portanto, é melhor criar mais tarefas, cada uma das quais processa uma pequena quantidade de dados.
 
@@ -138,5 +138,5 @@ Além das diretrizes gerais acima, cada aplicação tem diferentes parâmetros d
 | [MapReduce em HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduzir.memória</li><li>Mapreduce.job.reduz</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalhadores</li><li>Número de casos de executor de bico</li><li>Número de instâncias executores de parafusos </li><li>Número de tarefas de bico</li><li>Número de tarefas de parafuso</li></ul>|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

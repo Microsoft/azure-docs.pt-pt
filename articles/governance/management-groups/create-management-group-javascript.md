@@ -3,13 +3,13 @@ title: 'Quickstart: Criar um grupo de gestão com JavaScript'
 description: Neste quickstart, você usa o JavaScript para criar um grupo de gestão para organizar os seus recursos numa hierarquia de recursos.
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a234a6619eafd650451ae5d6bce37388c824f33
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-js
+ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604681"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676224"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Quickstart: Criar um grupo de gestão com JavaScript
 
@@ -100,7 +100,7 @@ Para permitir que o JavaScript questione o Azure Resource Graph, o ambiente deve
 
 O resultado da criação do grupo de gestão é a saída para a consola.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover as bibliotecas instaladas da sua aplicação, execute o seguinte comando.
 

@@ -1,20 +1,20 @@
 ---
 title: FedRAMP Controlos de amostras de planta moderada
 description: Controlo do mapeamento da amostra de planta moderada da FedRAMP. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 07/31/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: fdc605b1021ce3ab1e188a29a9deb513c2eb5816
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3963e8915903ed91f28fc49bab33d6d8eeb4b12d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929307"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675882"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controlo da amostra de planta moderada do FedRAMP
 
 O artigo seguinte detalha como o Azure Blueprints FedRAMP Moderate mapes de amostra para os controlos moderados da FedRAMP. Para obter mais informações sobre os controlos, consulte [a Linha de Base dos Controlos de Segurança da FedRAMP](https://www.fedramp.gov/).
 
-Os seguintes mapeamentos são para os controlos moderados da **FedRAMP.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ Pré-visualização \] : Audit FedRAMP Controlos moderados e implementar extensões VM específicas para apoiar os requisitos** de auditoria incorporados na iniciativa política.
+Os seguintes mapeamentos são para os controlos moderados da **FedRAMP.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a **\[ Pré-visualização \] : Audit FedRAMP Controlos moderados e implementar extensões VM específicas para apoiar os requisitos** de auditoria incorporados na iniciativa política.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-m/control-mapping.md).

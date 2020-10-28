@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d680dfaaf93528c51e2fb92454d2ae48f92f1cb6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8fde6939cf28585d066bac1b5da09f105f5106ca
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379839"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678262"
 ---
 Começa com a biblioteca de clientes Da Visão Personalizada para .NET. Siga estes passos para instalar o pacote e experimente o código de exemplo para a construção de um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -46,11 +46,11 @@ Utilizando o Visual Studio, crie uma nova aplicação .NET Core.
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente 
 
-Depois de criar um novo projeto, instale a biblioteca do cliente clicando corretamente na solução de projeto no **Solution Explorer** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar,** verificar **Incluir pré-relançar,** e procurar `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` e `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction` . Selecione a versão mais recente e, em seguida, **instale**. 
+Depois de criar um novo projeto, instale a biblioteca do cliente clicando corretamente na solução de projeto no **Solution Explorer** e selecione **Gerir pacotes NuGet** . No gestor de pacotes que abre **selecione Navegar,** verificar **Incluir pré-relançar,** e procurar `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` e `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction` . Selecione a versão mais recente e, em seguida, **instale** . 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `custom-vision-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *program.cs*. 
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `custom-vision-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *program.cs* . 
 
 ```console
 dotnet new console -n custom-vision-quickstart
@@ -96,7 +96,7 @@ No método **principal** da aplicação, crie variáveis para a chave e ponto fi
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Aceda ao portal do Azure. Se os recursos de Visão Personalizada que criou na secção **Pré-Requisitos implementados** com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar as suas chaves e ponto final nas **páginas chave e ponto final** dos recursos, sob **gestão de recursos.** Tens de ter as chaves do treino e da previsão.
+> Aceda ao portal do Azure. Se os recursos de Visão Personalizada que criou na secção **Pré-Requisitos implementados** com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes** . Pode encontrar as suas chaves e ponto final nas **páginas chave e ponto final** dos recursos, sob **gestão de recursos.** Tens de ter as chaves do treino e da previsão.
 >
 > Lembre-se de remover as chaves do seu código quando terminar, e nunca postá-las publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
 
@@ -170,7 +170,7 @@ Este método cria a primeira iteração de formação no projeto. Consulta o ser
 
 ## <a name="publish-the-current-iteration"></a>Publique a iteração atual
 
-Este método disponibiliza a iteração atual do modelo para consulta. Pode utilizar o nome do modelo como referência para enviar pedidos de previsão. Tens de introduzir o teu próprio valor `predictionResourceId` para. Pode encontrar o ID do recurso de previsão no **separador Visão Geral** do recurso no portal Azure, listado como **ID de subscrição**.
+Este método disponibiliza a iteração atual do modelo para consulta. Pode utilizar o nome do modelo como referência para enviar pedidos de previsão. Tens de introduzir o teu próprio valor `predictionResourceId` para. Pode encontrar o ID do recurso de previsão no **separador Visão Geral** do recurso no portal Azure, listado como **ID de subscrição** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_publish)]
 
@@ -211,7 +211,7 @@ Making a prediction:
         Japanese Cherry: 0.0%
 ```
 
-Depois, pode confirmar se a imagem de teste (que se encontra em **Images/Test/**) está etiquetada adequadamente. Prima qualquer tecla para sair da aplicação. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
+Depois, pode confirmar se a imagem de teste (que se encontra em **Images/Test/** ) está etiquetada adequadamente. Prima qualquer tecla para sair da aplicação. Também pode regressar ao [site da Visão Personalizada](https://customvision.ai) e ver o estado atual do projeto criado recentemente.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
@@ -223,4 +223,5 @@ Agora já deu todos os passos do processo de classificação de imagem em códig
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
 
 * [O que é a Visão Personalizada?](../../overview.md)
+* O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs)
 * [Documentação de referência da SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

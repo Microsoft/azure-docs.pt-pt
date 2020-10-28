@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 277acbc84ab435ce1076c30a1e49f6ffdd2a0586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543725"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Tutorial: Azure Ative Directory integração única (SSO) com Salesforce Sandbox
 
@@ -26,7 +26,7 @@ Neste tutorial, você vai aprender a integrar Salesforce Sandbox com Azure Ative
 * Permita que os seus utilizadores sejam automaticamente inscritos na Salesforce Sandbox com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 * Salesforce Sandbox suporta **SP e IDP** iniciado SSO
 * Salesforce Sandbox suporta **provisão de** utilizadores just in time
 * Salesforce Sandbox suporta fornecimento [ **automatizado** de utilizadores](salesforce-sandbox-provisioning-tutorial.md)
-* Assim que configurar a Salesforce Sandbox, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Assim que configurar a Salesforce Sandbox, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Adicionar Salesforce Sandbox da galeria
 
@@ -50,15 +50,15 @@ Para configurar a integração da Salesforce Sandbox no AZure AD, é necessário
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Adicionar a partir da secção **de galeria,** **digite Salesforce Sandbox** na caixa de pesquisa.
 1. Selecione **Salesforce Sandbox** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce-sandbox"></a>Configurar e testar Azure AD único sign-on para Salesforce Sandbox
 
-Configure e teste Azure AD SSO com Salesforce Sandbox usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Salesforce Sandbox.
+Configure e teste Azure AD SSO com Salesforce Sandbox usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Salesforce Sandbox.
 
 Para configurar e testar a Azure AD SSO com a Salesforce Sandbox, complete os seguintes blocos de construção:
 
@@ -74,18 +74,18 @@ Para configurar e testar a Azure AD SSO com a Salesforce Sandbox, complete os se
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Salesforce Sandbox,** encontre a secção **Gerir** e selecione **um único sinal de sing.**
-1. Na página de método **de inscrição** única, selecione **SAML**.
+1. Na página de método **de inscrição** única, selecione **SAML** .
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** se tiver **um ficheiro de metadados do Fornecedor de Serviços** e desejar configurar no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    a. Clique **em Carregar o ficheiro de metadados**.
+    a. Clique **em Carregar o ficheiro de metadados** .
 
     ![Carregar ficheiro de metadados](common/upload-metadata.png)
 
-    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
+    b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload** .
 
     ![escolher arquivo de metadados](common/browse-upload-metadata.png)
 
@@ -117,21 +117,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Salesforce Sandbox.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Salesforce Sandbox**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Salesforce Sandbox** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -151,7 +151,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure1.png)
 
-3. Desloque-se para baixo para as **DEFINIÇÕES** no painel de navegação esquerdo, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas**.
+3. Desloque-se para baixo para as **DEFINIÇÕES** no painel de navegação esquerdo, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
@@ -159,15 +159,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure3.png)
 
-5. Selecione **SAML Ativado**e, em seguida, clique em **Guardar**.
+5. Selecione **SAML Ativado** e, em seguida, clique em **Guardar** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-6. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados**.
+6. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-7. Clique **em Escolher Ficheiro** para carregar o ficheiro XML dos metadados que descarregou a partir do portal Azure e clique em **Criar**.
+7. Clique **em Escolher Ficheiro** para carregar o ficheiro XML dos metadados que descarregou a partir do portal Azure e clique em **Criar** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
@@ -204,7 +204,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure1.png)
 
-14. Desloque-se para baixo para as **DEFINIÇÕES** no painel de navegação esquerdo, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas**.
+14. Desloque-se para baixo para as **DEFINIÇÕES** no painel de navegação esquerdo, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
@@ -212,15 +212,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure3.png)
 
-16. Selecione **SAML Ativado**e, em seguida, clique em **Guardar**.
+16. Selecione **SAML Ativado** e, em seguida, clique em **Guardar** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-17. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados**.
+17. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-18. Clique **em Escolher O Ficheiro** para carregar o ficheiro XML dos metadados e clique em **Criar**.
+18. Clique **em Escolher O Ficheiro** para carregar o ficheiro XML dos metadados e clique em **Criar** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
@@ -233,15 +233,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     > [!NOTE]
     > Antes de ativar o domínio, precisa de criar o mesmo na Salesforce Sandbox. Para obter mais informações, consulte [definindo o nome do seu domínio.](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US) Uma vez criado o domínio, certifique-se de que está configurado corretamente.
 
-21. No painel de navegação à esquerda na Salesforce Sandbox, clique em **Definições da Empresa** para expandir a secção relacionada e, em seguida, clique em **My Domain**.
+21. No painel de navegação à esquerda na Salesforce Sandbox, clique em **Definições da Empresa** para expandir a secção relacionada e, em seguida, clique em **My Domain** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
-22. Na secção Configuração de **Autenticação,** clique em **Editar**.
+22. Na secção Configuração de **Autenticação,** clique em **Editar** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-23. Na secção Configuração de **Autenticação,** como **Serviço de Autenticação**, selecione o nome da Definição de Sign-On Única SAML que definiu durante a configuração SSO na Caixa de Areia Salesforce e clique em **Guardar**.
+23. Na secção Configuração de **Autenticação,** como **Serviço de Autenticação** , selecione o nome da Definição de Sign-On Única SAML que definiu durante a configuração SSO na Caixa de Areia Salesforce e clique em **Guardar** .
 
     ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure2.png)
 
@@ -253,20 +253,20 @@ Nesta secção, um utilizador chamado Britta Simon é criado na Salesforce Sandb
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo da Salesforce Sandbox no Painel de Acesso, deverá ser automaticamente inscrito na Caixa de Areia Salesforce para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo da Salesforce Sandbox no Painel de Acesso, deverá ser automaticamente inscrito na Caixa de Areia Salesforce para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
 
 - [Experimente a Salesforce Sandbox com Azure AD](https://aad.portal.azure.com/)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/protect-salesforce)
 
 - [Configurar o Provisionamento do Utilizador](salesforce-sandbox-provisioning-tutorial.md)
 
-- [Como proteger a Salesforce Sandbox com visibilidade e controlos avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Como proteger a Salesforce Sandbox com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c670c011f911e9b27f1280800508124d32e696cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489848"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676263"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Quickstart: Route storage events to web endpoint with Azure CLI
 
@@ -24,7 +24,7 @@ Normalmente, envia eventos para um ponto final que processa os dados de eventos 
 
 Quando concluir os passos descritos neste artigo, pode ver que os dados do evento foram enviados para a aplicação Web.
 
-![Ver evento da subscrição](./media/storage-blob-event-quickstart/view-results.png)
+![Screenshot do Azure Event Grid Viewer que mostra dados do evento que foram enviados para a aplicação web.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num gru
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` na localização *westcentralus*.  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
+O exemplo seguinte cria um grupo de recursos com o nome `<resource_group_name>` na localização *westcentralus* .  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

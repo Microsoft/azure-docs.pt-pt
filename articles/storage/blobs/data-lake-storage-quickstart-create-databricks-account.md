@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 908bf21d2fe101731b11e3a8ad783f17728c8ed3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86109778"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677332"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
 
@@ -25,7 +25,7 @@ Neste quickstart, executa um trabalho apache spark usando Azure Databricks para 
 
 * O nome da sua conta de armazenamento Azure Data Lake Gen2. [Crie uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* O ID do inquilino, iD de aplicativo e senha de um diretor de serviço Azure com um papel atribuído de **Storage Blob Data Contributor**. [Criar um principal de serviço.](../../active-directory/develop/howto-create-service-principal-portal.md)
+* O ID do inquilino, iD de aplicativo e senha de um diretor de serviço Azure com um papel atribuído de **Storage Blob Data Contributor** . [Criar um principal de serviço.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
   > [!IMPORTANT]
   > Atribua a função no âmbito da conta de armazenamento do Data Lake Gen2. Pode atribuir uma função ao grupo de recursos-mãe ou subscrição, mas receberá erros relacionados com permissões até que essas atribuições de funções se propaguem na conta de armazenamento.
@@ -34,11 +34,11 @@ Neste quickstart, executa um trabalho apache spark usando Azure Databricks para 
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks**.
+1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks** .
 
     ![Databricks no portal Azure](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks no portal Azure")
 
-2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
+2. Em **Serviço Azure Databricks** , forneça os valores para criar uma área de trabalho do Databricks.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Criar uma área de trabalho do Azure Databricks")
 
@@ -49,22 +49,22 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/management/overview.md). |
-    |**Localização**     | Selecione **E.U.A. Oeste 2**. Pode selecionar outra região pública, se preferir.        |
-    |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Localização**     | Selecione **E.U.A. Oeste 2** . Pode selecionar outra região pública, se preferir.        |
+    |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium** . Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
 3. A criação da conta demora alguns minutos. Para monitorizar o estado de funcionamento, veja a barra de progresso no topo.
 
-4. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar**.
+4. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar** .
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster do Spark no Databricks
 
-1. No portal do Azure, aceda à área de trabalho do Databricks que criou e, em seguida, selecione **Iniciar Área de Trabalho**.
+1. No portal do Azure, aceda à área de trabalho do Databricks que criou e, em seguida, selecione **Iniciar Área de Trabalho** .
 
-2. Será redirecionado para o portal do Azure Databricks. A partir do portal, selecione **Novo**  >  **Cluster**.
+2. Será redirecionado para o portal do Azure Databricks. A partir do portal, selecione **Novo**  >  **Cluster** .
 
     ![Databricks em Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Databricks em Azure")
 
-3. Na página **Novo cluster**, indique os valores para criar um cluster.
+3. Na página **Novo cluster** , indique os valores para criar um cluster.
 
     ![Criar conjunto de faíscas de dados no Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Criar conjunto de faíscas de dados no Azure")
 
@@ -72,9 +72,9 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     - Introduza um nome para o cluster.
      
-    - Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+    - Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade** . Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
-4. Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
+4. Selecione **Criar cluster** . Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
 Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -82,17 +82,17 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databricks e, em seguida, executar fragmentos de código para configurar a conta de armazenamento.
 
-1. No [Portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho**.
+1. No [Portal do Azure](https://portal.azure.com), aceda à área de trabalho do Azure Databricks que criou e selecione **Iniciar Área de Trabalho** .
 
-2. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
+2. No painel esquerdo, selecione **Área de Trabalho** . No menu pendente **Área de Trabalho** , selecione **Criar** > **Bloco de Notas** .
 
-    ![Criar caderno em Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar caderno em Databricks")
+    ![Screenshot que mostra como criar um bloco de notas em Databricks e destaca a opção de menu Create > Notebook.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar caderno em Databricks")
 
-3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Scala** como a linguagem e selecione o cluster do Spark que criou anteriormente.
+3. Na caixa de diálogo **Criar Bloco de Notas** , introduza um nome para o bloco de notas. Selecione **Scala** como a linguagem e selecione o cluster do Spark que criou anteriormente.
 
     ![Criar caderno em Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-details.png "Criar caderno em Databricks")
 
-    Selecione **Criar**.
+    Selecione **Criar** .
 
 4. Copie e cole o seguinte bloco de código na primeira célula, mas não execute este código ainda.
 
@@ -135,7 +135,7 @@ Na célula, prima **SHIFT + ENTER** para executar o código.
 
 Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
-1. Execute uma instrução SQL para criar uma tabela temporária com dados do ficheiro de dados JSON de exemplo, **small_radio_json.json**. No fragmento seguinte, substitua os valores dos marcadores de posição pelo nome do contentor e o nome da conta de armazenamento. Com o bloco de notas que criou anteriormente, cole o fragmento numa nova célula de código no bloco de notas e prima SHIFT + ENTER.
+1. Execute uma instrução SQL para criar uma tabela temporária com dados do ficheiro de dados JSON de exemplo, **small_radio_json.json** . No fragmento seguinte, substitua os valores dos marcadores de posição pelo nome do contentor e o nome da conta de armazenamento. Com o bloco de notas que criou anteriormente, cole o fragmento numa nova célula de código no bloco de notas e prima SHIFT + ENTER.
 
     ```sql
     %sql
@@ -151,7 +151,7 @@ Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
     O comando mágico de linguagem `%sql` permite executar um código SQL a partir do bloco de notas, mesmo se o bloco de notas for de outro tipo. Para obter mais informações, veja [Misturar linguagens num bloco de notas](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-2. Vamos ver um instantâneo dos dados JSON de exemplo para compreender melhor a consulta que irá executar. Cole o fragmento seguinte na célula de código e prima **SHIFT + ENTER**.
+2. Vamos ver um instantâneo dos dados JSON de exemplo para compreender melhor a consulta que irá executar. Cole o fragmento seguinte na célula de código e prima **SHIFT + ENTER** .
 
     ```sql
     %sql
@@ -164,28 +164,28 @@ Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
     Entre outros detalhes, os dados da amostra captam o sexo da audiência de um canal de rádio (nome da coluna, **género)** e se a sua subscrição é gratuita ou paga (nome da coluna, **nível).**
 
-4. Agora, vai criar uma representação visual destes dados para mostrar para cada género, quantos utilizadores têm contas gratuitas e quantos têm subscrições pagas. Na parte inferior da saída tabular, clique no ícone de **Gráfico de barras** e, em seguida, clique em **Opções de Desenho**.
+4. Agora, vai criar uma representação visual destes dados para mostrar para cada género, quantos utilizadores têm contas gratuitas e quantos têm subscrições pagas. Na parte inferior da saída tabular, clique no ícone de **Gráfico de barras** e, em seguida, clique em **Opções de Desenho** .
 
     ![Criar gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/create-plots-databricks-notebook.png "Criar gráfico de barras")
 
-5. Em **Personalizar Desenho**, arraste e largue os valores, conforme mostra a captura de ecrã.
+5. Em **Personalizar Desenho** , arraste e largue os valores, conforme mostra a captura de ecrã.
 
-    ![Personalizar gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalizar gráfico de barras")
+    ![Screenshot que mostra o ecrã De Design Personalizado e os valores que pode arrastar e largar.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalizar gráfico de barras")
 
-    - Defina **Chaves** como **género**.
-    - Defina **Agrupamentos de séries** como **nível**.
-    - Defina **Valores** como **nível**.
-    - Defina **Agregação** como **CONTAGEM**.
+    - Defina **Chaves** como **género** .
+    - Defina **Agrupamentos de séries** como **nível** .
+    - Defina **Valores** como **nível** .
+    - Defina **Agregação** como **CONTAGEM** .
 
-6. Clique em **Aplicar**.
+6. Clique em **Aplicar** .
 
 7. A saída mostra a representação visual, tal como ilustrado na captura de ecrã seguinte:
 
      ![Personalizar gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sql-query-output-bar-chart.png "Personalizar gráfico de barras")
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalho do Azure Databricks, selecione **Clusters** e localize o cluster que pretende terminar. Paire o cursor do rato sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**.
+Assim que terminar este artigo, pode terminar o agrupamento. Na área de trabalho do Azure Databricks, selecione **Clusters** e localize o cluster que pretende terminar. Paire o cursor do rato sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar** .
 
 ![Pare um cluster Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Pare um cluster Databricks")
 

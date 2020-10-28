@@ -7,14 +7,14 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331299"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677820"
 ---
-# <a name="vm-certification-troubleshooting"></a>Resolução de problemas de certificação VM
+# <a name="vm-certification-troubleshooting"></a>Resolução de problemas da certificação de VM
 
 Ao publicar a sua imagem de máquina virtual (VM) no Azure Marketplace, a equipa da Azure valida-a para garantir a sua compatibilidade de bootability, segurança e Azure. Se algum dos testes de alta qualidade falhar, a publicação falhará e receberá uma mensagem de erro que descreve o problema.
 
@@ -37,6 +37,9 @@ Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alte
 > [!Note]
 > Se estiver a utilizar uma imagem base linux não tirada do Azure Marketplace, pode compensar a primeira partição até 2048 KB. Isto permite que o espaço não testado seja utilizado para adicionar novas informações de faturação e permite que a Azure avance com a publicação do seu VM para o Azure Marketplace.  
 
+> [!Note]
+> Se estiver a utilizar uma imagem base linux não tirada do Marketplace, pode compensar a primeira partição até 2048 KB. Isto permite que o espaço não testado seja utilizado para adicionar novas informações de faturação e permite que a Azure avance com a publicação do seu VM no Marketplace.  
+
 ## <a name="vm-extension-failure"></a>Falha de extensão VM
 
 Verifique se a sua imagem suporta extensões VM.
@@ -44,15 +47,15 @@ Verifique se a sua imagem suporta extensões VM.
 Para ativar as extensões de VM, faça o seguinte:
 
 1. Selecione o seu Linux VM.
-1. Ir para as **definições de Diagnóstico**.
+1. Ir para as **definições de Diagnóstico** .
 1. Ativar as matrizes base atualizando a **conta de Armazenamento.**
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
    ![Ativar a monitorização ao nível do convidado](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Para verificar se as extensões VM estão corretamente ativadas, faça o seguinte:
 
-1. No VM, selecione o separador **de extensões VM** e, em seguida, verifique o estado da extensão de **diagnóstico linux**.
+1. No VM, selecione o separador **de extensões VM** e, em seguida, verifique o estado da extensão de **diagnóstico linux** .
 1. 
     * Se o estado for *Provisioning Succeeded,* o caso do teste de extensões passou.  
     * Se o estado for *Provisioning Failed,* o caso de teste de extensões falhou e tem de definir a bandeira endurecida.
@@ -120,8 +123,8 @@ A tabela que se segue enumera erros comuns que são encontrados durante a execu�
 |---|---|---|---|
 |1|Caso de teste de versão linux agente|A versão mínima do agente Linux é 2.2.41 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020.|Por favor, atualize a versão do agente Linux e deverá ser 2.241 ou mais tarde. Para mais informações, pode visitar a [página de atualização da versão do Agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Caso de teste de história de bash|Verá um erro se o tamanho do histórico de bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente sensível não seja capturada no seu ficheiro histórico de bash.|Para resolver este problema, monte o VHD em qualquer outro VM de trabalho e faça quaisquer alterações que pretenda (por exemplo, eliminar os ficheiros *históricos .bash)* para reduzir o tamanho para menos ou igual a 1 KB.|
-|3|Caso de teste do parâmetro do núcleo necessário|Receberá este erro quando o valor para **a consola** não estiver definido para **ttyS0**. Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Descreva o valor da **consola** para **o ttyS0**e reenvia o pedido.|
-|4|Caso de teste de intervalo clientealive|Se o resultado do toolkit lhe der um resultado falhado para este caso de teste, existe um valor inadequado para **o ClientAliveInterval**.|Descreva o valor para **ClientAliveInterval** para menos ou igual a 235 e, em seguida, reenvia o pedido.|
+|3|Caso de teste do parâmetro do núcleo necessário|Receberá este erro quando o valor para **a consola** não estiver definido para **ttyS0** . Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Descreva o valor da **consola** para **o ttyS0** e reenvia o pedido.|
+|4|Caso de teste de intervalo clientealive|Se o resultado do toolkit lhe der um resultado falhado para este caso de teste, existe um valor inadequado para **o ClientAliveInterval** .|Descreva o valor para **ClientAliveInterval** para menos ou igual a 235 e, em seguida, reenvia o pedido.|
 
 ### <a name="windows-test-cases"></a>Casos de teste do Windows
 
@@ -148,7 +151,7 @@ A tabela que se segue lista os casos de teste do Windows que o conjunto de ferra
 |17|Serviço LAN Sem Fios|Serviço LAN sem fios. Esta funcionalidade do servidor ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
 |
 
-Se encontrar falhas com os casos de teste anteriores, consulte a coluna **Descrição** na tabela para obter a solução. Se precisar de mais informações, contacte a equipa de Apoio.
+Se encontrar falhas com os casos de teste anteriores, consulte a coluna **Descrição** na tabela para obter a solução. Se precisar de mais informações, contacte a equipa de Apoio. 
 
 ## <a name="data-disk-size-verification"></a>Verificação do tamanho do disco de dados
 
@@ -181,7 +184,7 @@ Como os VMs permitem o acesso ao sistema operativo subjacente, certifique-se de 
 
 Para evitar um possível ataque relacionado com o vírus WannaCry, certifique-se de que todos os pedidos de imagem do Windows são atualizados com o mais recente patch.
 
-Para verificar a versão corrigida do Windows Server para o detalhe oss e a versão mínima que irá suportar, consulte a tabela seguinte:
+Para verificar a versão corrigida do Windows Server para o detalhe oss e a versão mínima que irá suportar, consulte a tabela seguinte: 
 
 A versão do ficheiro de imagem pode ser verificada a partir `C:\windows\system32\drivers\srv.sys` de ou `srv2.sys` .
 
@@ -205,13 +208,13 @@ Atualize o núcleo com uma versão aprovada e reenvia o pedido. Pode encontrar a
 
 Se a sua imagem não estiver instalada com uma das seguintes versões de kernel, atualize-a com as correções corretas. Solicite a aprovação necessária da equipa de Suporte após a atualização da imagem com estes patches necessários:
 
-- CVE-2019-11477
-- CVE-2019-11478
+- CVE-2019-11477 
+- CVE-2019-11478 
 - CVE-2019-11479
 
 |Família osa|Versão|Kernel|
 |---|---|---|
-|Ubuntu|14.04 LTS|4.4.0-151|
+|Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049-*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
@@ -242,7 +245,7 @@ Se a sua imagem não estiver instalada com uma das seguintes versões de kernel,
 ||SLES15|4.12.14-5.30.1 (kernel-azure)|
 ||SLES15 para SAP|4.12.14-5.30.1 (kernel-azure)|
 ||SLES15SP1|4.12.14-5.30.1 (kernel-azure)|
-|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RISSA 2.6.32-754.15.3
+|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RISSA 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK segue RHEL acima|
 ||7.6|RISSA 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS Estável 2079.6.0|4.19.43*|
@@ -267,13 +270,22 @@ Se encontrar acesso a problemas negados enquanto está a executar os casos de te
 
 Verifique se o acesso adequado está ativado para a conta em que os casos de auto-teste estão a decorrer. Se o acesso não estiver ativado, ative-o para executar os casos de teste. Se não quiser ativar o acesso, poderá partilhar os resultados do caso de auto-teste com a equipa de Suporte.
 
-## <a name="download-failure"></a>Falha no download
+Se pretender submeter o seu pedido com imagem desativada SSH para o processo de certificação, siga os passos abaixo
 
+1. Execute o conjunto de ferramentas Azure na sua imagem. (Por favor, baixe [o mais recente Toolkit](https://aka.ms/AzureCertificationTestTool)
+
+2. Levante um [bilhete de apoio,](https://aka.ms/marketplacepublishersupport)anexe o relatório do toolkit e forneça detalhes da oferta- nome da oferta, nome do editor, id/SKU e versão.
+
+3. Por favor, reenvie o seu pedido de certificação..
+
+
+## <a name="download-failure"></a>Falha no download
+    
 Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega a imagem VM utilizando um URL de assinatura de acesso partilhado (SAS).
 
 |Cenário|Erro|Razão|Solução|
 |---|---|---|---|
-|1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.||
+|1|Blob não encontrado|O VHD pode ser eliminado ou deslocado do local especificado.|| 
 |2|Bolha em uso|O VHD é utilizado por outro processo interno.|O VHD deve estar num estado usado quando o descarrega utilizando um URL SAS.|
 |3|URL DE SAS inválido|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
 |4|Assinatura inválida|O URL SAS associado para o VHD está incorreto.|Obtenha o URL SAS correto.|
@@ -288,13 +300,98 @@ Quando submeter o VHD, certifique-se de que o primeiro KB de 2048 do VHD está v
 >[!NOTE]
 >*Para certas imagens especiais, como as construídas em cima das imagens base do Azure Windows tiradas do Azure Marketplace, verificamos uma etiqueta de Faturação e ignoramos a partição MB se a etiqueta de faturação estiver presente e corresponder aos nossos valores internos disponíveis.
 
+
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-on-an-empty-vhd"></a>Passos para criar a primeira partição MB (2048 KB) (Apenas para Linux) num VHD vazio
+
+Passo 1: Criar qualquer tipo de VM (Exemplo: Ubuntu, Cent OS, etc). Preencha os campos necessários e clique em "Next:Disks>" \
+![Seguinte: Comando de discos](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Passo 2: Criar um disco não gerido para o VM acima.
+![Criar um disco não gerido](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Por favor, note que, ou pode ir com valores predefinidos ou especificar qualquer valor para campos como NIC, NSG e IP público.
+
+Passo 3: Depois de criar o VM, clique em "Discos" que está no lado esquerdo, como mostrado abaixo ![ Clique em "Discos"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Passo 4: Por favor, prenda o seu VHD como disco de dados ao VM acima para criar a tabela partição como abaixo.
+![Anexe o seu VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Clique em Adicionar DataDisk -> Blob existente -> navegue na sua conta de armazenamento VHD -> Container -> Select VHD -> Clique OK como abaixo \ \
+![Selecione VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+O seu VHD será adicionado como disco de dados LUN 0 e, por favor, reinicie o VM depois de adicionar o disco
+
+Passo 5: Depois de reiniciar o VM, inicie sessão no VM utilizando o Putty (ou qualquer outro cliente) e executar o comando "sudo-i" para obter acesso à raiz.
+
+![Iniciar sessão no VM](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Passo 6: Siga os passos abaixo para criar partição no seu VHD.
+
+a) Tipo fdisk /dev/sdb comando
+
+b) Para visualizar a lista de divisórias existente a partir do seu VHD, tipo p
+
+c) Tipo d para eliminar todas as divisórias existentes disponíveis no seu VHD (Pode saltar este passo, se não for necessário) ![ Eliminar todas as divisórias existentes](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) Tipo n para criar uma nova partição e selecionar p para (partição primária).
+
+e) Introduza 2048 como valor "Primeiro Setor" e pode deixar o "último Setor", uma vez que terá valor predefinido. Por favor, note que quaisquer dados serão apagados até 2048 KB.
+           
+>[!NOTE]
+>*Por favor, note que ao criar a partição como acima de quaisquer dados existentes será apagado até 2048 KB, pelo que é aconselhável fazer uma cópia de segurança do VHD antes de executar o comando acima.
+
+Por favor, encontre a imagem abaixo para a sua referência.
+![Dados apagados](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) Tipo w para confirmar a criação de partição. 
+
+![Criação de partição](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) Pode verificar a tabela de partição executando o comando n fdisk /dev/sdb e digitando p, então pode ver como abaixo, que a partição é criada com valor de compensação de 2048. 
+
+ ![Compensação de 2048](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+Passo 7: retire o VHD da VM e apague o VM.
+
+         
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-by-moving-the-existing-data-on-vhd"></a>Passos para a criação da primeira partição MB (2048 KB) (Apenas para Linux) movendo os dados existentes em VHD
+
+Passo 1: Criar qualquer tipo de VM (Exemplo: Ubuntu, Cent OS, etc). Preencha os campos necessários e clique em "Next:Disks>" \
+![Clique em "Next:Disks>"](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Passo 2: Criar um disco não gerido para o VM acima.
+![Criar um disco não gerido](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Por favor, note que, ou pode ir com valores predefinidos ou especificar qualquer valor para campos como NIC, NSG e IP público.
+
+Passo 3: Depois de criar o VM, clique em "Discos" que está no lado esquerdo, como mostrado abaixo ![ Clique em "Discos"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Passo 4: Por favor, prenda o seu VHD como disco de dados ao VM acima para criar a tabela partição como abaixo.
+![Mesa de partição](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Clique em Adicionar DataDisk -> Blob existente -> navegue na sua conta de armazenamento VHD -> Container -> Select VHD -> Clique OK como abaixo \ \
+![Selecione VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+O seu VHD será adicionado como disco de dados LUN 0 e, por favor, reinicie o VM depois de adicionar o disco
+
+Passo 5: Depois de reiniciar o VM, inicie sessão no VM utilizando o Putty e faça o comando "sudo-i" para obter acesso à raiz. \
+![Faça login após o reinício](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Passo 6: Por favor excori o eco de comando '+1M', / sfdisk --move-data /dev/sdc -N 1 ![ Executar comando](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>*Por favor, note que o comando acima pode levar mais tempo para ser concluído, uma vez que depende do tamanho do disco
+
+Passo 7: retire o VHD da VM e apague o VM.
+
+
 ## <a name="default-credentials"></a>Credenciais padrão
 
 Certifique-se sempre de que as credenciais predefinidas não são enviadas com o VHD submetido. A adição de credenciais padrão torna o VHD mais vulnerável a ameaças à segurança. Em vez disso, crie as suas próprias credenciais quando submeter o VHD.
   
 ## <a name="datadisk-mapped-incorrectly"></a>DataDisk mapeado incorretamente
 
-Quando um pedido é submetido com vários discos de dados, mas a sua encomenda não está em sequência, este é considerado um problema de mapeamento. Por exemplo, se existirem três discos de dados, a ordem de numeração deve ser *0, 1, 2*. Qualquer outra ordem é tratada como um problema de mapeamento.
+Quando um pedido é submetido com vários discos de dados, mas a sua encomenda não está em sequência, este é considerado um problema de mapeamento. Por exemplo, se existirem três discos de dados, a ordem de numeração deve ser *0, 1, 2* . Qualquer outra ordem é tratada como um problema de mapeamento.
 
 Reenviar o pedido com a sequenciação adequada dos discos de dados.
 
@@ -326,7 +423,7 @@ Para soluções para erros relacionados com o disco de dados, utilize o seguinte
 
 ## <a name="remote-access-issue"></a>Problema de acesso remoto
 
-Se a opção "Remote Desktop Protocol" (RDP) não estiver ativada para a imagem do Windows, receberá este erro.
+Se a opção "Remote Desktop Protocol" (RDP) não estiver ativada para a imagem do Windows, receberá este erro. 
 
 Ativar o acesso rdp às imagens do Windows antes de as submeter.
 
@@ -404,28 +501,28 @@ Para fornecer uma imagem VM fixa para substituir uma imagem VM que tenha uma vul
 Para completar estes passos, terá de preparar os ativos técnicos para a imagem VM que pretende adicionar. Para obter mais informações, consulte [Criar uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou criar uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md), e Gerar [um SAS URI para a sua imagem VM](azure-vm-get-sas-uri.md).
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
 3. Na coluna **'Oferta' é a** seguinte, selecione a oferta.
 4. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano a que pretende adicionar o VM.
-5. No separador **de configuração técnica,** em **Imagens VM,** selecione **+ Adicionar Imagem VM**.
+5. No separador **de configuração técnica,** em **Imagens VM,** selecione **+ Adicionar Imagem VM** .
 
 > [!NOTE]
 > Pode adicionar apenas uma imagem VM a um plano de cada vez. Para adicionar várias imagens VM, publique a primeira ao vivo antes de adicionar a próxima imagem VM.
 
 6. Nas caixas que aparecem, forneça uma nova versão em disco e a imagem da máquina virtual.
-7. Selecione **Guardar rascunho**.
+7. Selecione **Guardar rascunho** .
 
 Continue com a secção seguinte abaixo para remover a imagem VM com a vulnerabilidade de segurança.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Remova a imagem VM com a vulnerabilidade de segurança ou exploração
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
 3. Na coluna **'Oferta' é a** seguinte, selecione a oferta.
 4. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano com o VM que pretende remover.
-5. No separador **de configuração técnica,** em **Imagens VM,** junto à imagem VM que pretende remover, selecione **Remover imagem VM**.
-6. Na caixa de diálogo que aparece, selecione **Continue**.
-7. Selecione **Guardar rascunho**.
+5. No separador **de configuração técnica,** em **Imagens VM,** junto à imagem VM que pretende remover, selecione **Remover imagem VM** .
+6. Na caixa de diálogo que aparece, selecione **Continue** .
+7. Selecione **Guardar rascunho** .
 
 Continue com a secção seguinte abaixo para republicar a oferta.
 
@@ -433,12 +530,12 @@ Continue com a secção seguinte abaixo para republicar a oferta.
 
 1. Selecione **Rever e publicar.**
 2. Se precisar de fornecer alguma informação à equipa de certificação, adicione-a às Notas para caixa **de certificação.**
-3. Selecione **Publicar**.
+3. Selecione **Publicar** .
 
 Para completar o processo de publicação, consulte [Rever e publicar ofertas.](review-publish-offer.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configure VM oferecer propriedades](azure-vm-create-properties.md)
+- [Configurar as propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)
 - Se tiver dúvidas ou feedback para melhorar, contacte o [suporte](https://aka.ms/marketplacepublishersupport)do Partner Center .

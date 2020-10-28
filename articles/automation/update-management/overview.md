@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92d8c52ee9da1df67be27ea0867e788e2aaed37b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222488"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677702"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -18,15 +18,18 @@ Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atual
 
 Pode ativar a Gestão de Atualização de VMs das seguintes formas:
 
-* Da sua [Azure Automation conta](enable-from-automation-account.md) para uma ou mais máquinas Azure e não-Azure.
-* Manualmente para máquinas não-Azure, incluindo máquinas ou servidores registados com [servidores ativados Azure Arc](../../azure-arc/servers/overview.md) (pré-visualização).
-* Para um único Azure VM da página da máquina Virtual no portal Azure. Este cenário está disponível para [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-* Para [vários VMs Azure](enable-from-portal.md) selecionando-os a partir da página de máquinas Virtuais no portal Azure.
+- Da sua [Azure Automation conta](enable-from-automation-account.md) para uma ou mais máquinas Azure e não-Azure.
+
+- Manualmente para máquinas não-Azure, incluindo máquinas ou servidores registados com [servidores ativados Azure Arc](../../azure-arc/servers/overview.md).
+
+- Para um único Azure VM da [página da máquina Virtual](enable-from-vm.md) no portal Azure. Este cenário está disponível para Linux e Windows VMs.
+
+- Para [vários VMs Azure](enable-from-portal.md) selecionando-os a partir da página de máquinas Virtuais no portal Azure.
 
 > [!NOTE]
 > A Gestão de Atualização requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
-Um [modelo de Gestor de Recursos Azure](enable-from-template.md) está disponível para ajudá-lo a implementar a Gestão de Atualização para uma nova conta de Automação ou espaço de trabalho log Analytics na sua subscrição.
+Um [modelo de Gestor de Recursos Azure](enable-from-template.md) está disponível para ajudá-lo a ativar a funcionalidade de Gestão de Atualização numa conta de Automação nova ou existente e espaço de trabalho Log Analytics na sua subscrição. Não permite que os VMs Azure ou não-Azure com a funcionalidade, esse passo seja realizado posteriormente utilizando um dos métodos listados anteriormente.
 
 > [!NOTE]
 > Não é possível utilizar uma máquina configurada com a Update Management para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft.
@@ -106,7 +109,7 @@ As seguintes informações descrevem os requisitos do cliente específicos do si
 
 #### <a name="windows"></a>Windows
 
-Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS, ou necessitam de acesso ao Microsoft Update. Para obter informações sobre como instalar o agente Log Analytics para windows, consulte [os computadores Do Windows para o Azure Monitor.](../../azure-monitor/platform/agent-windows.md)
+Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS, ou necessitam de acesso ao Microsoft Update. Para obter informações sobre como instalar o agente Log Analytics para windows, consulte [os computadores Do Windows para o Azure Monitor.](../../azure-monitor/platform/agent-windows.md) Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas incorporadas do Windows Azure Arc.](../../governance/policy/samples/built-in-policies.md#monitoring) Se também planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
 Pode utilizar a Gestão de Atualização com o Gestor de Configuração do Ponto Final do Microsoft. Para saber mais sobre cenários de integração, consulte [integrar a gestão de atualização com o Gestor de Configuração de Pontos finais do Windows](mecmintegration.md). O [agente Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente de Gestor de Configuração. 
 
@@ -122,7 +125,7 @@ Para o Linux, a máquina requer acesso a um repositório de atualização, priva
 > [!NOTE]
 > A avaliação atualizada das máquinas Linux só é suportada em determinadas regiões. Consulte a tabela de [mapeamentos](../how-to/region-mappings.md#supported-mappings)do espaço de trabalho Da Automatização e do Log Analytics .
 
-Para obter informações sobre como instalar o agente Log Analytics para o Linux e para descarregar a versão mais recente, consulte o [agente Log Analytics para Linux](../../azure-monitor/platform/agent-linux.md).
+Para obter informações sobre como instalar o agente Log Analytics para o Linux e para descarregar a versão mais recente, consulte o [agente Log Analytics para Linux](../../azure-monitor/platform/agent-linux.md). Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas do Arco Linux Azure.](../../governance/policy/samples/built-in-policies.md#monitoring) Se planeia também monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
 Os VMs criados a partir das imagens on-demand Red Hat Enterprise Linux (RHEL) que estão disponíveis no Azure Marketplace estão registados para aceder à [Infraestrutura de Atualização de Chapéus Vermelhos (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) que está implantada em Azure. Qualquer outra distribuição linux deve ser atualizada a partir do repositório de ficheiros online da distribuição utilizando métodos suportados pela distribuição.
 
@@ -166,9 +169,9 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 | Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -191,7 +194,7 @@ São necessários os seguintes endereços especificamente para a Gestão de Atua
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
-Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor** . Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 Para as máquinas Windows, também deve permitir o tráfego para quaisquer pontos finais exigidos pelo Windows Update. Pode encontrar uma lista atualizada de pontos finais necessários em [Questões relacionadas com HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se tiver um servidor local [de Atualização do Windows,](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)também deve permitir o tráfego para o servidor especificado na sua [tecla WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 

@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 918ba128eca8ebf8b452c0f1126e4b7e611542d8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/22/2020
+ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514474"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675587"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerir chaves api para um serviço de Pesquisa Cognitiva Azure
 
-Todos os pedidos a um serviço de pesquisa precisam de uma chave api apenas de leitura que foi gerada especificamente para o seu serviço. A chave api é o único mecanismo para autenticar o acesso ao ponto final do seu serviço de pesquisa e deve ser incluída em todos os pedidos. Nas [soluções REST,](search-get-started-postman.md)a chave api é tipicamente especificada num cabeçalho de pedido. Em [soluções .NET,](search-howto-dotnet-sdk.md#core-scenarios)uma chave é frequentemente especificada como uma definição de configuração e depois passou como [Credenciais](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (tecla de [administração) ou SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (chave de consulta) no [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient).
+Todos os pedidos a um serviço de pesquisa precisam de uma leitura única `api-key` que foi gerada especificamente para o seu serviço. Este `api-key` é o único mecanismo para autenticar o acesso ao ponto final do seu serviço de pesquisa e deve ser incluído em cada pedido. 
+
++ Em [soluções REST](search-get-started-postman.md), a chave api é tipicamente especificada num cabeçalho de pedido
+
++ Em [soluções .NET](search-howto-dotnet-sdk.md), uma chave é frequentemente especificada como uma configuração e depois passada como [um AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
 As chaves são criadas com o seu serviço de pesquisa durante a prestação de serviços. Pode visualizar e obter valores-chave no [portal Azure](https://portal.azure.com).
 
@@ -43,9 +47,9 @@ São utilizados dois tipos de chaves para aceder ao seu serviço de pesquisa: ad
 
 Pode obter chaves de acesso no portal ou através da [API Management REST](/rest/api/searchmanagement/). Para obter mais informações, consulte [Gerir a administração e consultar as teclas api.](search-security-api-keys.md)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Enuse os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  da sua subscrição.
-3. Selecione o serviço e na **Settings**página 'Vista Geral', clique em  > **Definições Teclas** para visualizar as teclas de administração e consulta.
+3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas** para visualizar as teclas de administração e consulta.
 
    :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página do portal, configurações de recuperação, secção de chaves" border="false":::
 
@@ -55,10 +59,10 @@ As chaves de consulta são utilizadas para o acesso apenas à leitura de documen
 
 Restringir o acesso e as operações em aplicações de clientes é essencial para salvaguardar os ativos de pesquisa no seu serviço. Utilize sempre uma chave de consulta em vez de uma chave de administração para qualquer consulta originária de uma aplicação do cliente.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Enuse os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  da sua subscrição.
-3. Selecione o serviço e na **Settings**página 'Vista Geral', clique em  > **Definições Teclas**.
-4. Clique **em Gerir as teclas de consulta**.
+3. Selecione o serviço e na **Settings** página 'Vista Geral', clique em  > **Definições Teclas** .
+4. Clique **em Gerir as teclas de consulta** .
 5. Utilize a tecla de consulta já gerada para o seu serviço ou crie até 50 novas teclas de consulta. A chave de consulta padrão não está nomeada, mas as chaves de consulta adicionais podem ser nomeadas para a gestão.
 
    :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Página do portal, configurações de recuperação, secção de chaves" border="false":::

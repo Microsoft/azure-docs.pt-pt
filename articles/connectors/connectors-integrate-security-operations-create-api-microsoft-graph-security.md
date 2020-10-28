@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: a5842c5f3130b39f75b5339274b84feb2e0f283f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547100"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677501"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças integrando operações de segurança com a Microsoft Graph Security & Azure Logic Apps
 
@@ -30,13 +30,13 @@ Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o conector Mic
 
 O fluxo de trabalho da sua aplicação lógica pode usar ações que obtenham respostas do conector microsoft Graph Security e disponibilizar essa saída para outras ações no seu fluxo de trabalho. Também pode ter outras ações no seu fluxo de trabalho, utilizar a saída das ações do conector de Segurança do Gráfico microsoft. Por exemplo, se receber alertas de alta gravidade através do conector Microsoft Graph Security, pode enviar esses alertas numa mensagem de correio eletrónico utilizando o conector Outlook. 
 
-Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](https://aka.ms/graphsecuritydocs). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura o Microsoft Flow ou PowerApps, veja [o que é Flow ou](https://flow.microsoft.com/) O que é [PowerApps?](https://powerapps.microsoft.com/)
+Para saber mais sobre a Microsoft Graph Security, consulte a visão geral da API de [Segurança de Gráficos da Microsoft](/graph/security-concept-overview). Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Se procura o Microsoft Flow ou PowerApps, veja [o que é Flow ou](https://flow.microsoft.com/) O que é [PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Para utilizar o conector de Segurança do Microsoft Graph, tem de lhe ser *dado explicitamente* o consentimento de um administrador de inquilinos do Azure Active Directory (AD), o que faz parte dos [requisitos da Autenticação de Segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Este consentimento requer o ID e nome da aplicação do conector de segurança do Gráfico microsoft, que também pode encontrar no [portal Azure:](https://portal.azure.com)
+* Para utilizar o conector de Segurança do Microsoft Graph, tem de lhe ser *dado explicitamente* o consentimento de um administrador de inquilinos do Azure Active Directory (AD), o que faz parte dos [requisitos da Autenticação de Segurança do Microsoft Graph](/graph/security-authorization). Este consentimento requer o ID e nome da aplicação do conector de segurança do Gráfico microsoft, que também pode encontrar no [portal Azure:](https://portal.azure.com)
 
   | Propriedade | Valor |
   |----------|-------|
@@ -93,7 +93,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicações lógi
 
    | Propriedade | Propriedade (JSON) | Necessário | Tipo | Descrição |
    |----------|-----------------|----------|------|-------------|
-   | **Intervalo** | `interval` | Yes | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
+   | **Intervalo** | `interval` | Sim | Número inteiro | Um inteiro positivo que descreve com que frequência o fluxo de trabalho funciona com base na frequência. Aqui estão os intervalos mínimos e máximos: <p><p>- Mês: 1-16 meses <br>- Dia: 1-500 dias <br>- Hora: 1-12.000 horas <br>- Minuto: 1-72.000 minutos <br>- Segundo: 1-9.999,999 segundos <p>Por exemplo, se o intervalo for 6, e a frequência for "Mês", então a recorrência é a cada 6 meses. |
    | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo,** **Minuto,** **Hora,** **Dia,** **Semana** ou **Mês** |
    | **Fuso horário** | `timeZone` | Não | String | Aplica-se apenas quando especifica uma hora de início porque este gatilho não aceita [a compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
    | **Hora de início** | `startTime` | Não | String | Fornecer uma data e hora de início neste formato: <p><p>YYYY-MM-DDThh:mm:mm se selecionar um fuso horário <p>-ou- <p>YYYY-MM-DDThh:mm:ssZ se não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14:00, então especifique "2017-09-18T14:00:00" e selecione um fuso horário como o Horário Padrão do Pacífico. Ou, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Este horário de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data UTC,](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)mas sem [compensação UTC](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, deve adicionar a letra "Z" no final sem espaços. Este "Z" refere-se ao [tempo náutico](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para horários simples, a hora de início é a primeira ocorrência, enquanto para horários complexos, o gatilho não dispara tão cedo quanto a hora de início. [*Quais são as maneiras que posso usar a data de início e a hora?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
@@ -159,9 +159,8 @@ Para obter mais informações sobre as consultas que pode utilizar com este cone
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição openAPI (anteriormente Swagger) do conector, consulte a página de [referência](https://aka.ms/graphsecurityconnectorreference)do conector .
+Para obter detalhes técnicos sobre gatilhos, ações e limites, descritos pela descrição openAPI (anteriormente Swagger) do conector, consulte a página de [referência](/connectors/microsoftgraphsecurity/)do conector .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
-

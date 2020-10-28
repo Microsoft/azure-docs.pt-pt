@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6aa08f91a9289984d15beac5fb215d112a5558da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999120"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676041"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implemente um modelo usando uma imagem base personalizada do Docker
 
@@ -41,7 +41,7 @@ Este documento é dividido em duas secções:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um grupo de trabalho de aprendizagem automática Azure. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](how-to-manage-workspace.md)
+* Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](how-to-manage-workspace.md)
 * [O Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) 
 * O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * A [extensão CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -204,7 +204,7 @@ Para utilizar uma imagem personalizada, precisa das seguintes informações:
 
 * Se a imagem estiver num __repositório privado,__ precisa das seguintes informações:
 
-    * O __endereço__do registo. Por exemplo, `myregistry.azureecr.io`.
+    * O __endereço__ do registo. Por exemplo, `myregistry.azureecr.io`.
     * Um nome de utilizador principal __de__ serviço e __senha__ que leu o acesso ao registo.
 
     Se não tiver esta informação, fale com o administrador do Registo do Contentor Azure que contenha a sua imagem.
@@ -213,7 +213,7 @@ Para utilizar uma imagem personalizada, precisa das seguintes informações:
 
 A Microsoft fornece várias imagens de estivadores num repositório acessível ao público, que pode ser usado com os passos nesta secção:
 
-| Imagem | Description |
+| Imagem | Descrição |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem central para Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contém tempo de execução ONNX para inferencing CPU |
@@ -231,7 +231,7 @@ Para mais informações, consulte o repositório de [recipientes de aprendizagem
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Use uma imagem com o Azure Machine Learning SDK
 
-Para utilizar uma imagem armazenada no Registo do **Contentor Azure para**o seu espaço de trabalho, ou um **registo de contentores acessível ao público,** deite os seguintes atributos [ambientais:](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)
+Para utilizar uma imagem armazenada no Registo do **Contentor Azure para** o seu espaço de trabalho, ou um **registo de contentores acessível ao público,** deite os seguintes atributos [ambientais:](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)
 
 + `docker.enabled=True`
 + `docker.base_image`: Definir o registo e o caminho para a imagem.

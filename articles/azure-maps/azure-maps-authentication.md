@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091411"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678187"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -90,7 +90,7 @@ Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma t
 
 Existem os seguintes tipos de definição de função para apoiar cenários de aplicação.
 
-| Definição de papel azul       | Description                                                                                              |
+| Definição de papel azul       | Descrição                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Leitor de dados Azure Maps      | Fornece acesso a APIs de REST Imutável do Azure Maps.                                                       |
 | Colaborador de dados do Azure Maps | Fornece acesso a AZure Maps REST APIs mutáveis. A mutabilidade é definida pelas ações: escrever e apagar. |
@@ -104,7 +104,7 @@ Alguns serviços da Azure Maps podem necessitar de privilégios elevados para ex
 | Creator            | Colaborador de dados do Azure Maps |
 | Espacial            | Colaborador de dados do Azure Maps |
 
-Para obter informações sobre a visualização das suas definições de RBAC Azure, consulte [Como configurar o Azure RBAC para Azure Maps](https://aka.ms/amrbac).
+Para obter informações sobre a visualização das suas definições de RBAC Azure, consulte [Como configurar o Azure RBAC para Azure Maps](./how-to-manage-authentication.md).
 
 #### <a name="custom-role-definitions"></a>Definições de função personalizadas
 

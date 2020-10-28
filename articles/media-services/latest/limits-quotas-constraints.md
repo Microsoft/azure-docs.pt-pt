@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265495"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678113"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quotas e limites da Azure Media Services
@@ -32,7 +32,7 @@ Este artigo lista alguns dos limites mais comuns da Microsoft Azure Media Servic
 
 | Recurso | Limite Predefinido |
 | --- | --- |
-| [Contas de Serviços de Mídia](media-services-account-concept.md) numa única subscrição | 25 (fixo) |
+| [Contas de Serviços de Mídia](media-services-account-concept.md) numa única subscrição | 100 (fixo) |
 
 ## <a name="asset-limits"></a>Limites de ativos
 
@@ -90,7 +90,7 @@ Qualquer registo de Trabalho na sua conta com mais de 90 dias será automaticame
 
 | Recurso | Limite Predefinido |
 | --- | --- |
-| [Streaming Endpoints](streaming-endpoint-concept.md) (parado ou em execução) por conta de Serviços de Mídia|2 |
+| [Streaming Endpoints](streaming-endpoint-concept.md) (parado ou em execução) por conta de Serviços de Mídia | 2 |
 | Unidades de streaming premium | 10 |
 | [Filtros do Manifesto Dinâmico](filters-dynamic-manifest-overview.md)|100|
 | [Políticas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -102,9 +102,9 @@ Qualquer registo de Trabalho na sua conta com mais de 90 dias será automaticame
 
 ## <a name="protection-limits"></a>Limites de proteção
 
-| Recurso | Limite Predefinido | 
-| --- | --- | 
-| Opções por [Política chave de conteúdo](content-key-policy-concept.md) |30 | 
+| Recurso | Limite Predefinido |
+| --- | --- |
+| Opções por [Política chave de conteúdo](content-key-policy-concept.md) |30 |
 | Licenças por mês para cada um dos tipos de DRM no serviço de entrega de chaves de Serviços de Mídia por conta|1 000 000|
 
 ## <a name="support-ticket"></a>Bilhete de apoio

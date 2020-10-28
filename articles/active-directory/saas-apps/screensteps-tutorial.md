@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f23f9763d25d5edfebd0e4cff7f3b7772ef1554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf43875be0088f9f9c8c8f209f97c8443bd305bb
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543360"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676609"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integração do Diretório Ativo Azure com ScreenSteps
 
@@ -27,7 +27,7 @@ A integração de ScreenSteps com Azure AD proporciona-lhe os seguintes benefíc
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no ScreenSteps (Sign-On Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,7 +49,7 @@ Para configurar a integração do ScreenSteps no AD Azure, é necessário adicio
 
 **Para adicionar ScreenSteps da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do ScreenSteps no AD Azure, é necessário adicio
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **ScreenSteps**, selecione **ScreenSteps** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, digite **ScreenSteps** , selecione **ScreenSteps** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
      ![ScreenSteps na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com ScreenSteps baseado num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com um único sign-on com ScreenSteps baseado num utilizador de teste chamado **Britta Simon** .
 Para um único s-on para o trabalho, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no ScreenSteps.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com ScreenSteps, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o ScreenSteps, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **ScreenSteps,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **ScreenSteps,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -124,11 +124,11 @@ Para configurar o Azure AD com o ScreenSteps, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa ScreenSteps como administrador.
 
-1. Clique em **Definições de Conta**.
+1. Clique em **Definições de Conta** .
 
-    ![Gestão de contas](./media/screensteps-tutorial/ic778523.png "Gestão de contas")
+    ![Gestão de conta](./media/screensteps-tutorial/ic778523.png "Gestão de contas")
 
-1. Clique **em 'S sign-on' único**.
+1. Clique **em 'S sign-on' único** .
 
     ![Autenticação remota](./media/screensteps-tutorial/ic778524.png "Autenticação remota")
 
@@ -142,9 +142,9 @@ Para configurar o Azure AD com o ScreenSteps, execute os seguintes passos:
 
     a. Na caixa de texto **do título,** digite um título.
 
-    b. Na lista **de Modo,** selecione **SAML**.
+    b. Na lista **de Modo,** selecione **SAML** .
 
-    c. Clique em **Criar**.
+    c. Clique em **Criar** .
 
 1. **Editar** o novo ponto final.
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD com o ScreenSteps, execute os seguintes passos:
 
     ![Ponto final de autenticação remota](./media/screensteps-tutorial/ic778527.png "Ponto final de autenticação remota")
 
-    a. Clique **em Carregar novo ficheiro de Certificado SAML**e, em seguida, faça o upload do certificado, que descarregou a partir do portal Azure.
+    a. Clique **em Carregar novo ficheiro de Certificado SAML** e, em seguida, faça o upload do certificado, que descarregou a partir do portal Azure.
 
     b. Cole o valor **URL do Login,** que copiou do portal Azure para a caixa de texto **URL do Início Remoto.**
 
@@ -162,19 +162,19 @@ Para configurar o Azure AD com o ScreenSteps, execute os seguintes passos:
 
     d. Selecione um **Grupo** para atribuir utilizadores quando estiverem a provisionados.
 
-    e. Clique em **Atualizar**.
+    e. Clique em **Atualizar** .
 
     f. Copie o **URL do consumidor SAML** para a prancheta e **cole-a** na caixa de texto URL de acesso em **Configuração Básica SAML** no portal Azure.
 
     exemplo, Voltar ao **ponto final de inscrição única de edição.**
 
-    h. Clique no **botão 'Fazer predefinição' para** utilizar este ponto final para todos os utilizadores que iniciarem sessão no ScreenSteps. Em alternativa, pode clicar no botão **Adicionar ao Site para** utilizar este ponto final para sites específicos em **ScreenSteps**.
+    h. Clique no **botão 'Fazer predefinição' para** utilizar este ponto final para todos os utilizadores que iniciarem sessão no ScreenSteps. Em alternativa, pode clicar no botão **Adicionar ao Site para** utilizar este ponto final para sites específicos em **ScreenSteps** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -186,28 +186,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, concedendo acesso a ScreenSteps.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **ScreenSteps**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **ScreenSteps** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **ScreenSteps**.
+2. Na lista de aplicações, selecione **ScreenSteps** .
 
     ![O link ScreenSteps na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -223,18 +223,18 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 ### <a name="create-screensteps-test-user"></a>Criar utilizador de teste ScreenSteps
 
-Nesta secção, cria-se um utilizador chamado Britta Simon em ScreenSteps. Trabalhe com a [equipa de suporte do cliente ScreenSteps](https://www.screensteps.com/contact)para adicionar os   utilizadores na plataforma ScreenSteps. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado Britta Simon em ScreenSteps. Trabalhe com a [equipa de suporte do cliente ScreenSteps](https://www.screensteps.com/contact) para adicionar os utilizadores na plataforma ScreenSteps. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo ScreenSteps no Painel de Acesso, deverá ser automaticamente inscrito nos ScreenSteps para os quais configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo ScreenSteps no Painel de Acesso, deverá ser automaticamente inscrito nos ScreenSteps para os quais configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

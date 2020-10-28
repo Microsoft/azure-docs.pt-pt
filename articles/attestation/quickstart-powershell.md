@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6050dd43b91299cd776d1121d7398f46e95bc096
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316011"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678200"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Quickstart: Configurar a Azure Attestation com a Azure PowerShell
 
@@ -231,4 +231,4 @@ Para obter mais informações sobre os cmdlets e seus parâmetros, consulte [os 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
-- [Atestar um enclave SGX usando amostras de código](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Atestar um enclave SGX usando amostras de código](/samples/browse/?expanded=azure&terms=attestation)

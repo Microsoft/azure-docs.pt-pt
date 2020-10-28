@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613290"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675931"
 ---
 # <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
 
@@ -43,9 +43,9 @@ As APIs contêm documentação técnica da Swagger. Para obter informações sob
 
 ## <a name="authentication"></a>Autenticação
 
-FarmBeats usa o Microsoft Azure [Ative Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). O Azure App Service fornece suporte de autenticação e autorização incorporado. 
+FarmBeats usa o Microsoft Azure [Ative Directory](../../app-service/overview-authentication-authorization.md) (Azure AD). O Azure App Service fornece suporte de autenticação e autorização incorporado. 
 
-Para mais informações sobre a Azure AD, consulte [o Azure Ative Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+Para mais informações sobre a Azure AD, consulte [o Azure Ative Directory](../../app-service/overview-authentication-authorization.md).   
 
 FarmBeats Datahub utiliza autenticação ao portador, que necessita das seguintes credenciais:
 
@@ -138,10 +138,10 @@ Depois de o parceiro ter credenciais para ligar ao FarmBeats Datahub, o parceiro
 
 1.  Criar um novo tipo estendido para os seguintes campos, de acordo com o tipo de imagens a carregar:
 
-    - **Fonte de cena**: Por exemplo, drone_partner_name
-    - **Tipo de cena**: Por exemplo, drone
-    - **Tipo de arquivo de**cena : Por exemplo, índice de clorofila
-    - **Tipo de conteúdo de ficheiro de**cena : Por exemplo, imagem/tiff
+    - **Fonte de cena** : Por exemplo, drone_partner_name
+    - **Tipo de cena** : Por exemplo, drone
+    - **Tipo de arquivo de** cena : Por exemplo, índice de clorofila
+    - **Tipo de conteúdo de ficheiro de** cena : Por exemplo, imagem/tiff
 
 2.  Ligue para a API /Farms para obter a lista de fazendas dentro do sistema Azure FarmBeats.
 3.  Forneça ao cliente a capacidade de escolher uma única quinta da lista de quintas.

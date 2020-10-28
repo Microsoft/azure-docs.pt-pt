@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7de9de7e1ba8028cbdb24744775294a4890afe40
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547746"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677164"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -350,7 +350,7 @@ Utilize o seguinte procedimento para criar uma ligação à Provance:
 | **Dados de Sincronização** | Digite o número de dias passados de onde deseja os dados. **Limite máximo:** 120 dias. |
 | **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionado, o ITSMC cria os TEC afetados como itens de configuração (em caso de TEC não existentes) no sistema ITSM suportado. **Predefinição:** desativado.|
 
-![Conexão provance](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Screenshot que realça as listas de Nome de Ligação e Tipo de Parceiro.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **Quando conectado com sucesso, e sincronizado:**
 

@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776498"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678362"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 
@@ -22,15 +22,15 @@ Ative Learning altera a Base de Conhecimento ou Serviço de Pesquisa depois de a
 
 ## <a name="turn-on-active-learning"></a>Ativar a aprendizagem ativa
 
-Para ver as perguntas sugeridas, deve [ligar a aprendizagem ativa](use-active-learning.md) para o seu recurso QnA Maker.
+Para ver as perguntas sugeridas, deve [ligar a aprendizagem ativa](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) para o seu recurso QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Ver perguntas sugeridas
 
-1. Para ver as perguntas sugeridas, na página base de conhecimento **editar,** selecione **Ver Opções**e, em seguida, selecione **Mostrar sugestões de aprendizagem ativa**.
+1. Para ver as perguntas sugeridas, na página base de conhecimento **editar,** selecione **Ver Opções** e, em seguida, selecione **Mostrar sugestões de aprendizagem ativa** .
 
     [![Na secção Editar do portal, selecione Mostrar Sugestões para ver as novas alternativas de perguntas da aprendizagem ativa.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtrar a base de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtro por Sugestões**.
+1. Filtrar a base de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtro por Sugestões** .
 
     [![Utilize o Filtro através de sugestões para visualizar apenas as alternativas de pergunta sugeridas pela aprendizagem ativa.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -132,10 +132,10 @@ Content-Type: application/json
 
 |HTTP solicitar propriedade|Nome|Tipo|Objetivo|
 |--|--|--|--|
-|Parâmetro de rota URL|ID da base de conhecimento|string|O GUID para a sua base de conhecimento.|
-|Subdomínio personalizado|Nome de recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isto está disponível na página Definições depois de publicar a base de conhecimento. Está listado `host` como.|
-|Cabeçalho|Content-Type|string|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
-|Cabeçalho|Autorização|string|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx).|
+|Parâmetro de rota URL|ID da base de conhecimento|cadeia|O GUID para a sua base de conhecimento.|
+|Subdomínio personalizado|Nome de recurso QnAMaker|cadeia|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isto está disponível na página Definições depois de publicar a base de conhecimento. Está listado `host` como.|
+|Cabeçalho|Content-Type|cadeia|O tipo de mídia do corpo enviado para a API. O valor predefinido é: `application/json`|
+|Cabeçalho|Autorização|cadeia|A sua chave de ponto final (EndpointKey xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx).|
 |Corpo do Correio|Objeto JSON|JSON|O feedback do treino|
 
 O corpo JSON tem várias configurações:
@@ -143,8 +143,8 @@ O corpo JSON tem várias configurações:
 |Propriedade corporal JSON|Tipo|Objetivo|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|string|Identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato de ID do utilizador é da sua mente. Por exemplo, um endereço de e-mail pode ser um ID válido do utilizador na sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do utilizador. Obrigatório.|
+|`userId`|cadeia|Identificação do utilizador da pessoa que aceita as perguntas sugeridas. O formato de ID do utilizador é da sua mente. Por exemplo, um endereço de e-mail pode ser um ID válido do utilizador na sua arquitetura. Opcional.|
+|`userQuestion`|cadeia|Texto exato da consulta do utilizador. Obrigatório.|
 |`qnaID`|número|ID de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON parece:

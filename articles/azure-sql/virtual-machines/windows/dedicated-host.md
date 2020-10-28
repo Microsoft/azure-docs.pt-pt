@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669108"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677677"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Executar SQL Server VM em um anfitrião dedicado Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,15 +30,14 @@ Este artigo detalha as especificidades da utilização de uma máquina virtual S
 
 ## <a name="limitations"></a>Limitações
 
-- Os conjuntos de escala de máquinas virtuais não são suportados atualmente em anfitriões dedicados.
-- As seguintes séries VM são suportadas: DSv3 e ESv3. 
+- Nem todas as séries VM são suportadas em anfitriões dedicados, e a disponibilidade da série VM varia por região. Para mais informações, consulte [a visão geral dos anfitriões dedicados Azure.](../../../virtual-machines/dedicated-hosts.md)
 
 ## <a name="licensing"></a>Licenciamento
 
 Pode escolher entre duas opções de licenciamento diferentes quando colocar o seu SQL Server VM num Anfitrião Dedicado Azure. 
 
-  - **Licenciamento SQL VM**: Esta é a opção de licenciamento existente, onde você paga por cada licença SQL Server VM individualmente. 
-  - **Licenciamento dedicado ao anfitrião**: O novo modelo de licenciamento disponível para o Azure Dedicated Host, onde as licenças sql Server são agregadas e pagas ao nível do anfitrião. 
+  - **Licenciamento SQL VM** : Esta é a opção de licenciamento existente, onde você paga por cada licença SQL Server VM individualmente. 
+  - **Licenciamento dedicado ao anfitrião** : O novo modelo de licenciamento disponível para o Azure Dedicated Host, onde as licenças sql Server são agregadas e pagas ao nível do anfitrião. 
 
 
 Opções de nível de anfitrião para a utilização das licenças existentes do SQL Server: 

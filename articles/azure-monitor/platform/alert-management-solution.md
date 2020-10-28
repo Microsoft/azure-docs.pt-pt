@@ -6,21 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108410"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677578"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gestão de Alerta em Azure Log Analytics
 
 ![Ícone de gestão de alerta](media/alert-management-solution/icon.png)
-
-> [!NOTE]
->  O Azure Monitor suporta agora capacidades reforçadas para [gerir os seus alertas em escala,](./alerts-overview.md)incluindo os gerados por [ferramentas de monitorização como System Center Operations Manager, Zabbix ou Nagios](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
->  
-
 
 A solução Gestão de Alerta ajuda-o a analisar todos os alertas no seu repositório Log Analytics.  Estes alertas podem ter vindo de uma variedade de fontes, incluindo as fontes [criadas pela Log Analytics](./alerts-overview.md) ou [importadas de Nagios ou Zabbix.](../learn/quick-collect-linux-computer.md) A solução também importa alertas de quaisquer [grupos de gestão de gestores](./om-agents.md)de operações do System Center ligados.
 
@@ -45,7 +40,7 @@ Para obter mais informações sobre como são atualizados os pacotes de gestão 
 ### <a name="agents"></a>Agentes
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suporte | Description |
+| Origem Ligada | Suporte | Descrição |
 |:--- |:--- |:--- |
 | [Agentes do Windows](agent-windows.md) | Não |Os agentes do Windows diretos não geram alertas.  Os alertas do Log Analytics podem ser criados a partir de eventos e dados de desempenho recolhidos a partir de agentes do Windows. |
 | [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não |Os agentes Linux diretos não geram alertas.  Os alertas do Log Analytics podem ser criados a partir de eventos e dados de desempenho recolhidos a partir de agentes Linux.  Os alertas de Nagios e Zabbix são recolhidos dos servidores que requerem o agente Linux. |
@@ -106,7 +101,7 @@ A solução importa alertas do Gestor de Operações do Centro de Sistema e cria
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela a seguir fornece pesquisas de registo de amostras para registos de alerta recolhidos por esta solução: 
 
-| Consulta | Description |
+| Consulta | Descrição |
 |:---|:---|
 | Alerta &#124; onde SourceSystem == "OpsManager" e AlertSeverity == "error" e TimeRaised > (24h) |Alertas críticos levantados nas últimas 24 horas |
 | Alerta &#124; onde alertSeverity == "warning" e TimeRaised > ago (24h) |Alertas de alerta levantados nas últimas 24 horas |

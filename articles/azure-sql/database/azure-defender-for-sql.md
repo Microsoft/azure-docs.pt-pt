@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678076"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -31,7 +31,7 @@ O Azure Defender fornece um conjunto de capacidades avançadas de segurança SQL
 - [A Avaliação de Vulnerabilidades](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, rastrear e ajudar a corrigir potenciais vulnerabilidades de base de dados. Ele fornece visibilidade para o seu estado de segurança, e inclui medidas accuíveis para resolver problemas de segurança e melhorar as fortificações da sua base de dados.
 - A [Advanced Threat Protection](threat-detection-overview.md) deteta atividades anómalas indicadoras de tentativas potencialmente perigosas e invulgares de acesso ou exploração da sua base de dados. Monitoriza continuamente a sua base de dados para atividades suspeitas, e fornece alertas de segurança imediatos sobre potenciais vulnerabilidades, ataques de injeção Azure SQL e padrões anómalos de acesso à base de dados. Os alertas do Advanced Threat Protection fornecem detalhes sobre a atividade suspeita e recomendam ações de investigação e mitigação da ameaça.
 
-Ativar o Azure Defender para o SQL uma vez para ativar todas estas funcionalidades incluídas. Com um clique, pode ativar o Azure Defender para todas as bases de dados do seu [servidor](logical-servers.md) em Azure ou na sua SQL Managed Instance. Ativar ou gerir as definições do Azure Defender requer pertencer à função [de gestor de segurança SQL,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) ou a uma das funções de administração da base de dados ou do servidor.
+Ative uma vez o Azure Defender para SQL para ativar todas estas funcionalidades incluídas. Com um clique, pode ativar o Azure Defender para todas as bases de dados do seu [servidor](logical-servers.md) em Azure ou na sua SQL Managed Instance. Ativar ou gerir as definições do Azure Defender requer pertencer à função [de gestor de segurança SQL,](../../role-based-access-control/built-in-roles.md#sql-security-manager) ou a uma das funções de administração da base de dados ou do servidor.
 
 Para obter mais informações sobre o Azure Defender para preços SQL, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -62,10 +62,10 @@ Para anular as definições do Azure Defender para uma determinada base de dados
 
 Uma vez selecionada a caixa de verificação, pode configurar as definições relevantes para esta base de dados.
 
-O Azure Defender para as definições DE SQL para o seu servidor ou instância gerida também pode ser alcançado a partir do painel de base de dados do Azure Defender. Clique em **Definições** no painel principal do Azure Defender e, em seguida, clique em **Ver Defender Azure para as definições do servidor SQL**.
+O Azure Defender para as definições DE SQL para o seu servidor ou instância gerida também pode ser alcançado a partir do painel de base de dados do Azure Defender. Clique em **Definições** no painel principal do Azure Defender e, em seguida, clique em **Ver Defender Azure para as definições do servidor SQL** .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Avaliação de Vulnerabilidades](sql-vulnerability-assessment.md)
 - Saiba mais sobre [a Proteção Avançada de Ameaças](threat-detection-configure.md)
-- Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Saiba mais sobre [o Azure Security Center](../../security-center/security-center-introduction.md)

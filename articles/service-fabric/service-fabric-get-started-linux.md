@@ -4,12 +4,12 @@ description: Instale o runtime e o SDK e crie um cluster de desenvolvimento loca
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168414"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675280"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168414"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-Para implementar e executar (aplicações Azure Service Fabric)[service-fabric-application-model.md] na sua máquina de desenvolvimento Linux, instale o tempo de funcionamento e o SDK comum. Também pode instalar SDKs opcionais para programação em Java e .NET Core. 
+Para implementar e executar [aplicações do Azure Service Fabric](service-fabric-application-model.md) no seu computador de desenvolvimento Linux, instale o runtime e o SDK comum. Também pode instalar SDKs opcionais para programação em Java e .NET Core. 
 
-Os passos deste artigo pressupõem que se instala de forma nativa no Linux ou utiliza a (imagem do contentor OneBox do tecido de serviço)[ [imagem de contentor de tecido de serviço)[ https://hub.docker.com/_/microsoft-service-fabric-onebox [...] `mcr.microsoft.com/service-fabric/onebox:u18`
+Os passos deste artigo pressupõem que instale de forma nativa no Linux ou utilize a imagem do [contentor OneBox do tecido de serviço,](https://hub.docker.com/_/microsoft-service-fabric-onebox)ou seja, `mcr.microsoft.com/service-fabric/onebox:u18` .
 
 Pode gerir as entidades de Tecido de Serviço hospedadas na nuvem ou no local com a interface de linha de comando do Azure Service Fabric (CLI). Para obter mais informações sobre como instalar a CLI, veja [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
 
@@ -298,21 +298,21 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse, em vez de utilizar um instalador de pacote (`apt` ou `apt-get`). Se o fizer, assegura que obtém a versão mais recente do Eclipse. Pode instalar o Eclipse IDE para Programadores de Java ou para Programadores de Java EE.
 
-1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados selecionando Detalhes de **Instalação de Ajuda**Sobre  >  **Eclipse**  >  **.** Pode atualizar o Buildship com as instruções apresentadas em [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
+1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados selecionando Detalhes de **Instalação de Ajuda** Sobre  >  **Eclipse**  >  **.** Pode atualizar o Buildship com as instruções apresentadas em [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Plug-ins do Eclipse para Gradle).
 
-2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a**instalar  >  **novos softwares**.
+2. Para instalar o plug-in do Tecido de Serviço, selecione **Ajuda a** instalar  >  **novos softwares** .
 
-3. No **Trabalho com** caixa, **insira https: \/ /dl.microsoft.com/eclipse**.
+3. No **Trabalho com** caixa, **insira https: \/ /dl.microsoft.com/eclipse** .
 
-4. Selecione **Adicionar**.
+4. Selecione **Adicionar** .
 
     ![Página Software Disponível][sf-eclipse-plugin]
 
-5. Selecione o plug-in **ServiceFabric** e selecione **Seguinte**.
+5. Selecione o plug-in **ServiceFabric** e selecione **Seguinte** .
 
 6. Execute os passos de instalação. Em seguida, aceite o contrato de licença do utilizador final.
 
-Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique selecionando **Ajuda**  >  **Sobre Detalhes de**  >  **Instalação do Eclipse**. Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se uma versão mais recente estiver disponível.
+Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique selecionando **Ajuda**  >  **Sobre Detalhes de**  >  **Instalação do Eclipse** . Em seguida, procure o Tecido de Serviço na lista de plug-ins instalados. Selecione **Update** se uma versão mais recente estiver disponível.
 
 Para obter mais informações, veja [Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse](service-fabric-get-started-eclipse.md).
 

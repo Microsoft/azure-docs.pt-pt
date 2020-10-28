@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 0261c495ad08000f9041390658e0f19954b71669
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 124c8fca569365a4b892dc325518f45c7f98900c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517026"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675929"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar uma app de processamento de formulários com OI Builder
 
@@ -40,10 +40,10 @@ Neste tutorial, ficará a saber como:
 ## <a name="create-a-form-processing-project"></a>Criar um projeto de processamento de formulários
 
 1. Vá a [Power Apps](https://make.powerapps.com/) ou [Power Automamate](https://flow.microsoft.com/signin), e inscreva-se na sua conta da organização.
-1. No painel esquerdo, selecione **AI Builder**  >  **Build**.
+1. No painel esquerdo, selecione **AI Builder**  >  **Build** .
 1. Selecione o cartão **de processamento de** formulários.
 1. Escreva um nome para o seu modelo.
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
 ## <a name="upload-and-analyze-documents"></a>Carregar e analisar documentos
 
@@ -61,15 +61,15 @@ Na página **de documentos Adicionar,** precisa de fornecer documentos de amostr
 
 ### <a name="upload-your-documents"></a>Carregar os documentos
 
-1. Selecione **Adicionar documentos**, selecione um mínimo de cinco documentos e, em seguida, selecione **Carregar**.
-1. Depois de concluído o upload, selecione **Close**.
-1. Em seguida, **selecione Analisar**.
+1. Selecione **Adicionar documentos** , selecione um mínimo de cinco documentos e, em seguida, selecione **Carregar** .
+1. Depois de concluído o upload, selecione **Close** .
+1. Em seguida, **selecione Analisar** .
 
 > [!NOTE] 
 > Depois de carregar estes documentos, ainda pode remover alguns documentos ou carregar documentos adicionais.
 
 > [!div class="mx-imgBorder"]
-> ![adicionar página de documentos](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Screenshot que realça o botão adicionar documentos.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>Analisar os documentos
 
@@ -89,8 +89,8 @@ Na página de seleção de campo, você escolhe os campos que lhe interessam:
 
     Quando clica num campo detetado, aparecem as seguintes informações:
 
-    - **Nome do**campo : O nome da etiqueta para o campo detetado.
-    - **Valor do**campo : O valor para o campo detetado.
+    - **Nome do** campo : O nome da etiqueta para o campo detetado.
+    - **Valor do** campo : O valor para o campo detetado.
 
 > [!div class="mx-imgBorder"]
 > ![página de marcação](./media/tutorial-ai-builder/select-fields-page.png)
@@ -105,12 +105,12 @@ Se o campo que pretende rotular não tiver sido detetado automaticamente pelo mo
 
     > [!div class="mx-imgBorder"]
     > ![página de formação](./media/tutorial-ai-builder/summary-train-page.png)
-1. Quando a preparação estiver concluída, selecione **Ir para a página Detalhes** no ecrã **Preparação concluída**.
+1. Quando a preparação estiver concluída, selecione **Ir para a página Detalhes** no ecrã **Preparação concluída** .
 ## <a name="quick-test-your-model"></a>Testar rapidamente o modelo
 
 A página Detalhes permite-lhe testar o modelo antes de o publicar ou utilizar:
 
-1. Na página Detalhes, selecione **Teste rápido**.
+1. Na página Detalhes, selecione **Teste rápido** .
 2. Pode arrastar e largar um documento ou selecionar **upload do meu dispositivo** para carregar o seu ficheiro de teste. O teste rápido só deverá demorar alguns segundos a apresentar os resultados.
 3. Pode selecionar **Recomeçar** para executar outro teste ou **fechar** se estiver acabado.
 
@@ -120,7 +120,7 @@ Se estiver a obter maus resultados ou pontuações de baixa confiança para dete
 
 - Reforçár a utilização de formulários com valores diferentes em cada campo.
 - Retreine usando um conjunto maior de documentos de treino. Quanto mais documentos marcar, mais construtor de IA aprenderá a reconhecer melhor os campos.
-- Pode otimizar ficheiros PDF selecionando apenas determinadas páginas para treinar. Utilize **Print**a  >  opção Imprimir em**PDF para** selecionar determinadas páginas dentro do seu documento.
+- Pode otimizar ficheiros PDF selecionando apenas determinadas páginas para treinar. Utilize **Print** a  >  opção Imprimir em **PDF para** selecionar determinadas páginas dentro do seu documento.
 
 ## <a name="publish-your-model"></a>Publicar o modelo
 

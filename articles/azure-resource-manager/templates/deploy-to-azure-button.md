@@ -2,17 +2,24 @@
 title: Botão Implementar no Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079447"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675396"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
-Este artigo descreve como usar o botão **Implementar para Azure** para implementar modelos a partir de um repositório GitHub. Pode adicionar o botão diretamente ao ficheiro README.md no seu repositório GitHub ou a uma página web que faz referência ao repositório. Este método suporta apenas a implementação do nível de grupo de recursos.
+Este artigo descreve como usar o botão **Implementar para Azure** para implementar modelos a partir de um repositório GitHub. Pode adicionar o botão diretamente ao ficheiro README.md no seu repositório GitHub. Ou, pode adicionar o botão a uma página web que faz referência ao repositório.
+
+O âmbito de implantação é determinado pelo esquema do modelo. Para obter mais informações, consulte:
+
+* [grupos de recursos](deploy-to-resource-group.md)
+* [assinaturas](deploy-to-subscription.md)
+* [grupos de gestão](deploy-to-management-group.md)
+* [inquilinos](deploy-to-tenant.md).
 
 ## <a name="use-common-image"></a>Use imagem comum
 
@@ -28,7 +35,7 @@ A imagem aparece como:
 
 ## <a name="create-url-for-deploying-template"></a>Criar URL para implementar o modelo
 
-Para criar o URL para o seu modelo, comece com o URL cru para o modelo no seu repo. Para ver o URL cru, selecione **Raw**.
+Para criar o URL para o seu modelo, comece com o URL cru para o modelo no seu repo. Para ver o URL cru, selecione **Raw** .
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="selecionar Raw":::
 
@@ -38,7 +45,7 @@ O formato do URL é:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Então, a URL codifica-o. Pode utilizar um codificader on-line ou executar um comando. O exemplo seguinte do PowerShell mostra como codificar um valor url.
+Em seguida, converta o URL num valor codificado por URL. Pode utilizar um codificader on-line ou executar um comando. O exemplo seguinte do PowerShell mostra como codificar um valor url.
 
 ```powershell
 [uri]::EscapeDataString($url)

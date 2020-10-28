@@ -11,14 +11,17 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 14ae5f01e23a7922f508c4a2674e1a3f29e354b8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166068"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675761"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explore a aprendizagem da máquina de Azure com cadernos Jupyter
+
+> [!NOTE] 
+> Um repositório de exemplos orientado pela comunidade pode ser encontrado em https://github.com/Azure/azureml-examples .
 
 O [exemplo do repositório de cadernos de aprendizagem de máquinas Azure](https://github.com/azure/machinelearningnotebooks) inclui as mais recentes amostras de Python SDK de aprendizagem de máquinas Azure. Estes cadernos Juypter são projetados para ajudá-lo a explorar o SDK e servir como modelos para seus próprios projetos de machine learning.
 

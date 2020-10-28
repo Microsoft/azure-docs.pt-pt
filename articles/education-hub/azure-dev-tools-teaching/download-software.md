@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: dbfb2d32b6aab7660f4fc11865122ad44e9732fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87098031"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675346"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ajude os estudantes a descarregar ferramentas de desenvolvimento de software do Azure Education Hub
 
@@ -26,7 +26,7 @@ Faça com que os seus alunos sigam este procedimento para descarregar as ferrame
 1. Inscreva-se com as suas credenciais de subscrição Azure for Students.
 1. Selecione qualquer uma das ferramentas de desenvolvedor de software no Education Hub para abrir o painel de descarregamento.
 1. Leia as informações do software para se certificar de que o software é compatível com o seu sistema informático.
-1. Depois de confirmar que o software é compatível com o seu sistema, selecione **Download**.
+1. Depois de confirmar que o software é compatível com o seu sistema, selecione **Download** .
 1. Siga as instruções no ecrã para descarregar e instalar o software.
 
    Azure for Students dá-lhe 100 dólares de crédito por 12 meses. Inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bases de dados. Quaisquer encargos incorridos durante este período são deduzidos do crédito. 
@@ -36,5 +36,5 @@ Faça com que os seus alunos sigam este procedimento para descarregar as ferrame
 - [Obtenha ajuda com erros de login](troubleshoot-login.md)
 - [Azure for Students](azure-students-program.md)
 - [Azure for Students Starter](azure-students-starter-program.md)
-- [Microsoft Learn: uma plataforma de aprendizagem online gratuita](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: uma plataforma de aprendizagem online gratuita](/learn/)
 - [Perguntas mais frequentes](program-faq.md#azure-for-students)

@@ -3,13 +3,13 @@ title: Monitorar um cluster do Serviço Azure Kubernetes (AKS) implantado Micros
 description: Saiba como permitir a monitorização de um cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contentores já implantados na sua subscrição.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 9f3b9240bc10f4eaa4c9967d8c7bbb956eeab4e1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165405"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735127"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 
@@ -24,11 +24,11 @@ Pode ativar a monitorização de um cluster AKS que já foi implantado utilizand
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-using-azure-cli"></a>Ativar através do CLI do Azure
 
-O passo seguinte permite a monitorização do seu cluster AKS utilizando o Azure CLI. Neste exemplo, não é obrigado a pré-criar ou especificar um espaço de trabalho existente. Este comando simplifica o processo para si, criando um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster AKS se já não existir na região.  O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<GUID> - \<Region> *.
+O passo seguinte permite a monitorização do seu cluster AKS utilizando o Azure CLI. Neste exemplo, não é obrigado a pré-criar ou especificar um espaço de trabalho existente. Este comando simplifica o processo para si, criando um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster AKS se já não existir na região.  O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<GUID> - \<Region>* .
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -58,7 +58,7 @@ Se preferir integrar-se com um espaço de trabalho existente, execute os seguint
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Copie o valor para **SubscriçãoId**.
+    Copie o valor para **SubscriçãoId** .
 
 2. Mude para a subscrição que hospeda o espaço de trabalho Log Analytics utilizando o seguinte comando:
 
@@ -72,7 +72,7 @@ Se preferir integrar-se com um espaço de trabalho existente, execute os seguint
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, encontre o nome do espaço de trabalho e, em seguida, copie o ID completo do espaço de trabalho Log Analytics sob o **id**de campo .
+    Na saída, encontre o nome do espaço de trabalho e, em seguida, copie o ID completo do espaço de trabalho Log Analytics sob o **id** de campo .
 
 4. Executar o seguinte comando para ativar o addon de monitorização, substituindo o valor do `--workspace-resource-id` parâmetro. O valor das cordas deve estar dentro das cotações duplas:
 
@@ -105,13 +105,13 @@ Se preferir integrar-se com um espaço de trabalho existente, execute os seguint
 
 Para permitir a monitorização do seu cluster AKS no portal Azure a partir do Azure Monitor, faça o seguinte:
 
-1. No portal Azure, selecione **Monitor**.
+1. No portal Azure, selecione **Monitor** .
 
 2. Selecione **recipientes** da lista.
 
-3. Na página **Monitor - recipientes,** selecione **clusters não monitorizados**.
+3. Na página **Monitor - recipientes,** selecione **clusters não monitorizados** .
 
-4. A partir da lista de aglomerados não monitorizados, encontre o recipiente na lista e clique em **Enable**.
+4. A partir da lista de aglomerados não monitorizados, encontre o recipiente na lista e clique em **Enable** .
 
 5. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o da lista de espera.
     A lista pré-seleciona o espaço de trabalho predefinido e a localização para a qual o contentor AKS é implantado na subscrição.
@@ -127,15 +127,15 @@ Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até p
 
 Para ativar a monitorização diretamente de um dos seus clusters AKS no portal Azure, faça o seguinte:
 
-1. No portal Azure, selecione **Todos os serviços**.
+1. No portal Azure, selecione **Todos os serviços** .
 
 2. Na lista de recursos, comece a escrever **contentores.**  Os filtros da lista com base na sua entrada.
 
-3. Selecione **serviços Kubernetes**.
+3. Selecione **serviços Kubernetes** .
     
 4. Na lista de serviços da Kubernetes, selecione um serviço.
 
-5. Na página geral do serviço Kubernetes, selecione **Monitoring - Insights**.
+5. Na página geral do serviço Kubernetes, selecione **Monitoring - Insights** .
 
 6. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o na lista de espera.
     A lista pré-seleciona o espaço de trabalho predefinido e a localização para a qual o contentor AKS é implantado na subscrição.
@@ -226,7 +226,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
     }
     ```
 
-2. Guarde este ficheiro à medida ** queexistingClusterOnboarding.jsnuma** pasta local.
+2. Guarde este ficheiro à medida **queexistingClusterOnboarding.jsnuma** pasta local.
 
 3. Cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -259,7 +259,7 @@ Se optar por utilizar o Azure CLI, primeiro tem de instalar e utilizar o CLI loc
 
     Editar os **valores para aksResourceTagValues** para corresponder aos valores de etiqueta existentes especificados para o cluster AKS.
 
-5. Guarde este ficheiro à medida ** queexistingClusterParam.jsnuma** pasta local.
+5. Guarde este ficheiro à medida **queexistingClusterParam.jsnuma** pasta local.
 
 6. Está pronto para implementar este modelo.
 

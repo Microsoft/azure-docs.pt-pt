@@ -4,15 +4,15 @@ description: Compreenda as definições de proxy e firewall do Azure File Sync. 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903719"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675782"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização de vários locais e funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de cloud Azure.
@@ -109,7 +109,7 @@ Se &ast; .afs.azure.net ou &ast; .one.microsoft.com for demasiado amplo, pode li
 
 Por razões de continuidade de negócios e recuperação de desastres (BCDR), pode ter especificado as suas ações de ficheiroS Azure numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, as suas ações de ficheiroS Azure falharão na região emparelhada em caso de uma paragem regional duradoura. O Azure File Sync utiliza os mesmos emparelhamentos regionais que o armazenamento. Por isso, se utilizar contas de armazenamento GRS, tem de ativar URLs adicionais para permitir que o seu servidor fale com a região emparelhada para o Azure File Sync. A tabela abaixo chama a esta "região emparelhada". Além disso, há um URL de perfil de gestor de tráfego que precisa ser ativado também. Isto garantirá que o tráfego de rede pode ser reencaminhado perfeitamente para a região emparelhada em caso de falha e é chamado de "DISCOVERY URL" na tabela abaixo.
 
-| Cloud  | Region | URL de ponto final primário | Região emparelhada | URL de descoberta |
+| Cloud  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
 | Público |Leste da Austrália | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | Sudeste da Austrália | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
 | Público |Sudeste da Austrália | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | Leste da Austrália | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
@@ -121,6 +121,8 @@ Por razões de continuidade de negócios e recuperação de desastres (BCDR), po
 | Público | Ásia Leste | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | Sudeste Asiático | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
 | Público | E.U.A. Leste | https: \/ /eastus01.afs.azure.net<br>https: \/ /kailani1.one.microsoft.com | E.U.A. Oeste | https: \/ /tm-eastus01.afs.azure.net<br>https: \/ /tm-kailani1.one.microsoft.com |
 | Público | E.U.A. Leste 2 | https: \/ /eastus201.afs.azure.net<br>https: \/ /kailani-ess.one.microsoft.com | E.U.A. Central | https: \/ /tm-eastus201.afs.azure.net<br>https: \/ /tm-kailani-ess.one.microsoft.com |
+| Público | Alemanha Norte | https: \/ /germanynorth01.afs.azure.net | Alemanha Centro-Oeste | https: \/ /tm-germanywestcentral01.afs.azure.net |
+| Público | Alemanha Centro-Oeste | https: \/ /germanywestcentral01.afs.azure.net | Alemanha Norte | https: \/ /tm-germanynorth01.afs.azure.net |
 | Público | Leste do Japão | https: \/ /japaneast01.afs.azure.net | Oeste do Japão | https: \/ /tm-japaneast01.afs.azure.net |
 | Público | Oeste do Japão | https: \/ /japanwest01.afs.azure.net | Leste do Japão | https: \/ /tm-japanwest01.afs.azure.net |
 | Público | Coreia do Sul Central | https: \/ /koreacentral01.afs.azure.net/ | Sul da Coreia do Sul | https: \/ /tm-koreacentral01.afs.azure.net/ |

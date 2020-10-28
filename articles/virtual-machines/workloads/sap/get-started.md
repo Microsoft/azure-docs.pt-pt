@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ea5995dbd6397c37f88c302754bc7ac1e5ef089
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e9b27224058b41e34995fc0ea8104301c426ea9a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478274"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676079"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -79,6 +79,7 @@ Nesta secção, encontra documentos sobre a integração do PowerBI em fontes de
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 10/26/2020: Alterar algumas tabelas para configuração de armazenamento premium Azure para clarificar a produção de reprodução em [instalações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/22/2020: Alteração em [HA para SAP NW em Azure VMs em SLES para aplicações SAP](./high-availability-guide-suse.md), HA para SAP NW em [VMs Azure em SLES com ANF](./high-availability-guide-suse-netapp-files.md), [HA para SAP NW em VMs Azure em Azure para aplicações SAP](./high-availability-guide-rhel.md) e HA para SAP NW em [Azure VMs em RHEL com ANF](./high-availability-guide-rhel-netapp-files.md) para ajustar a recomendação para net.ipv4.tcp_keepalive_time  
 - 10/16/2020: Alteração em [HA da IBM Db2 LUW em VMs Azure em SLES com Pacemaker,](./dbms-guide-ha-ibm.md) [HA para SAP NW em VMs Azure em RHEL para aplicações SAP](./high-availability-guide-rhel.md), HA ibm [Db2 LUW em Azure VMs on RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md), HA for SAP NW on [Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md), [HA para SAP NW em Azure VMs em SLES para aplicações SAP](./high-availability-guide-suse.md), HA para SAP [NNW em VMs Azure no guia SLES multi-SID](./high-availability-guide-suse-multi-sid.md), [HA para SAP NW em VMs Azure em SLES com ANF para aplicações SAP](./high-availability-guide-suse-netapp-files.md), HA for [NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [HA of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) , [HA de SAP HANA em Azure VMs em RHEL](./sap-hana-high-availability-rhel.md), SAP [HANA escala-out HSR com Pacemaker em Azure VMs em RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [Prepare a infraestrutura Azure para SAP ASCS/SCS com WSFC e disco partilhado](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [multi-SID HA guia para SAP ASCS/SCS com disco partilhado WSFC e Azure e](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) guia [multi-SID HA para SAP ASCS/SCS com WSFC e disco partilhado](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) para adicionar uma declaração de que o IP flutuante não é suportado em cenários de equilíbrio de carga em IPs secundários 
 - 10/16/2020: Adicionar documentação para controlar instantâneos de armazenamento de HANA Large Instances em [Backup e restaurar o SAP HANA em HANA Grandes Instâncias](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)

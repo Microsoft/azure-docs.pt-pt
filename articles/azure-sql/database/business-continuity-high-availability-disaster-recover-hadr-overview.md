@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327566"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678054"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ A SQL Database e a SQL Managed Instance também fornecem várias funcionalidades
 
 - As [tabelas temporais](../temporal-tables.md) permitem-lhe restaurar as versões de linhas a partir de qualquer ponto no tempo.
 - [Cópias de segurança automatizadas incorporadas](automated-backups-overview.md) e [Point in Time Restore](recovery-using-backups.md#point-in-time-restore) permitem-lhe restaurar a base de dados completa até algum ponto no tempo dentro do período de retenção configurado até 35 dias.
-- Pode [restaurar uma base de dados eliminada](recovery-using-backups.md#deleted-database-restore) ao ponto em que foi eliminada se o **servidor não tiver sido eliminado**.
+- Pode [restaurar uma base de dados eliminada](recovery-using-backups.md#deleted-database-restore) ao ponto em que foi eliminada se o **servidor não tiver sido eliminado** .
 - [A retenção de backup](long-term-retention-overview.md) a longo prazo permite-lhe manter as cópias de segurança até 10 anos. Isto está em pré-visualização pública limitada para SQL Managed Instance
 - [A geo-replicação ativa permite-lhe](active-geo-replication-overview.md) criar réplicas legíveis e falhar manualmente em qualquer réplica em caso de interrupção do datacenter ou atualização de aplicações.
 - [O grupo de falha automática](auto-failover-group-overview.md#terminology-and-capabilities) permite que a aplicação seja automaticamente recuperada em caso de interrupção do datacenter.
@@ -141,7 +141,7 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 
 - Redirecione os clientes e as aplicações do cliente para o novo servidor e para a base de dados restaurada.
 - Certifique-se de que existem regras adequadas de firewall IP ao nível do servidor para que os utilizadores conectem ou utilizem [firewalls de nível de base de dados](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) para permitir regras apropriadas.
-- Certifique-se de que estão em vigor os logins adequados e as permissões de nível de base de dados principais (ou utilize [utilizadores contidos).](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)
+- Certifique-se de que estão em vigor os logins adequados e as permissões de nível de base de dados principais (ou utilize [utilizadores contidos).](/sql/relational-databases/security/contained-database-users-making-your-database-portable)
 - Configurar a auditoria, conforme apropriado.
 - Alertas de configuração, conforme apropriado.
 

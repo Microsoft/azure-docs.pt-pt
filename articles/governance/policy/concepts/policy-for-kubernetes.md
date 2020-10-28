@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1747e770da420a3448e97628806733459fe07a49
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366994"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676703"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -25,7 +25,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 - [Motor AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização**. A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
+> Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização** . A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Descrição geral
 
@@ -62,7 +62,7 @@ As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os
 As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
 
 - [A política de segurança AKS Pod](../../../aks/use-pod-security-policies.md) e o Add-on de Política Azure para a AKS não podem ser ambos ativados. Para obter mais informações, consulte [a limitação de segurança da cápsula AKS](../../../aks/use-pod-security-on-azure-policy.md#limitations).
-- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_e _aks-periscope_.
+- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_ e _aks-periscope_ .
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -160,7 +160,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Por último, verifique se o último add-on é instalado executando este comando Azure CLI, substituindo `<rg>` pelo nome do seu grupo de recursos e com o nome do seu cluster `<cluster-name>` AKS: `az aks show -g <rg> -n <cluster-name>` . O resultado deve ser semelhante à seguinte saída e **config.versão** deve `v2` ser:
+Por último, verifique se o último add-on é instalado executando este comando Azure CLI, substituindo `<rg>` pelo nome do seu grupo de recursos e com o nome do seu cluster `<cluster-name>` AKS: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>` . O resultado deve ser semelhante à seguinte saída e **config.versão** deve `v2` ser:
 
 ```output
 "addonProfiles": {
@@ -217,7 +217,7 @@ Antes de instalar o Azure Policy Add-on ou permitir qualquer uma das funcionalid
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Atribua a atribuição de funções 'Policy Insights Data Writer (Preview)' ao Azure Arc ativado pelo cluster Kubernetes. `<subscriptionId>`Substitua-se pelo seu ID de subscrição, `<rg>` com o Azure Arc ativado pelo grupo de recursos do cluster Kubernetes, e `<clusterName>` com o nome do Azure Arc ativado o cluster Kubernetes. Acompanhe os valores devolvidos para _appId,_ _senha_e _inquilino_ para as etapas de instalação.
+1. Atribua a atribuição de funções 'Policy Insights Data Writer (Preview)' ao Azure Arc ativado pelo cluster Kubernetes. `<subscriptionId>`Substitua-se pelo seu ID de subscrição, `<rg>` com o Azure Arc ativado pelo grupo de recursos do cluster Kubernetes, e `<clusterName>` com o nome do Azure Arc ativado o cluster Kubernetes. Acompanhe os valores devolvidos para _appId,_ _senha_ e _inquilino_ para as etapas de instalação.
 
    - CLI do Azure
 
@@ -384,11 +384,11 @@ Para atribuir uma definição de política ao seu cluster Kubernetes, deve ser-l
 
 Encontre as definições de política incorporadas para gerir o seu cluster utilizando o portal Azure com os seguintes passos:
 
-1. Inicie o serviço Azure Policy no portal Azure. Selecione **Todos os serviços** no painel esquerdo e, em seguida, procure e selecione **Política**.
+1. Inicie o serviço Azure Policy no portal Azure. Selecione **Todos os serviços** no painel esquerdo e, em seguida, procure e selecione **Política** .
 
-1. No painel esquerdo da página Política Azure, selecione **Definições**.
+1. No painel esquerdo da página Política Azure, selecione **Definições** .
 
-1. A partir da caixa de lista de categorias, utilize **Selecione tudo** para limpar o filtro e, em seguida, selecione **Kubernetes**.
+1. A partir da caixa de lista de categorias, utilize **Selecione tudo** para limpar o filtro e, em seguida, selecione **Kubernetes** .
 
 1. Selecione a definição de política e, em seguida, selecione o botão **Atribuir.**
 
@@ -405,13 +405,13 @@ Encontre as definições de política incorporadas para gerir o seu cluster util
 
    - **Desativado** - Não aplique a política no cluster. Os pedidos de admissão de Kubernetes com violações não são negados. Os resultados da avaliação da conformidade ainda estão disponíveis. Ao lançar novas definições de política para executar clusters, a opção _de desativada_ é útil para testar a definição de política, uma vez que os pedidos de admissão com violações não são negados.
 
-1. Selecione **Seguinte**.
+1. Selecione **Seguinte** .
 
 1. Definir **valores de parâmetros**
 
-   - Para excluir os espaços de nomes de Kubernetes da avaliação de políticas, especifique a lista de espaços de nome em exclusões de espaço **de nome de parâmetros**. É recomendado excluir: _sistema kube,_ _gatekeeper-system,_ e _azure-arc_.
+   - Para excluir os espaços de nomes de Kubernetes da avaliação de políticas, especifique a lista de espaços de nome em exclusões de espaço **de nome de parâmetros** . É recomendado excluir: _sistema kube,_ _gatekeeper-system,_ e _azure-arc_ .
 
-1. Selecione **Rever + criar**.
+1. Selecione **Rever + criar** .
 
 Alternadamente, utilize a [política De atribuir uma política - Portal](../assign-policy-portal.md) quickstart para encontrar e atribuir uma política de Kubernetes. Procure uma definição de política de Kubernetes em vez da amostra 'audit vms'.
 

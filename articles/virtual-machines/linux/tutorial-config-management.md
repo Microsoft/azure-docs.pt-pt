@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: e233c7c4eb76e79e73d0c5fc386a9d908f0e35b5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 175c92c02196105e9fb1249e5b88d73bc8b87d48
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216696"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735229"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual Linux em Azure
 
 O Azure [Change Tracking](../../automation/change-tracking/overview.md) permite-lhe identificar facilmente alterações e [a Gestão de Atualização](../../automation/update-management/overview.md) permite-lhe gerir as atualizações do sistema operativo para os seus VMs Azure Linux.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Gerir atualizações do Linux
@@ -42,13 +42,13 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer que exec
 
 ## <a name="create-vm"></a>Criar VM
 
-Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupMonitor* na localização *eastus*.
+Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupMonitor* na localização *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/* :
 
 ```azurecli-interactive
 az vm create \
@@ -70,9 +70,9 @@ Para obter informações sobre preços, consulte [os preços da Automatização 
 
 Ativar a Gestão de atualizações para a VM:
 
-1. No lado esquerdo do ecrã, selecione **Máquinas virtuais**.
+1. No lado esquerdo do ecrã, selecione **Máquinas virtuais** .
 2. Na lista, selecione uma VM.
-3. No ecrã da VM, na secção **Operações**, selecione **Gestão de atualizações**. É aberto o ecrã **Ativar Gestão de Atualizações**.
+3. No ecrã da VM, na secção **Operações** , selecione **Gestão de atualizações** . É aberto o ecrã **Ativar Gestão de Atualizações** .
 
 A validação é executada para determinar se a Gestão de atualizações está ativada para esta VM.
 A validação inclui a verificação da existência de uma área de trabalho do Log Analytics e da conta de Automatização ligada, e se a solução está na área de trabalho.
@@ -91,7 +91,7 @@ Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a i
 * [Conta de automação](../../automation/index.yml)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
-O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, log Analytics espaço de trabalho e conta de automação para utilizar e selecionar **Enable**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, log Analytics espaço de trabalho e conta de automação para utilizar e selecionar **Enable** . Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 ![Ativar a solução de Gestão de atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -99,7 +99,7 @@ A ativação da solução pode demorar até 15 minutos. Durante este período, n
 
 ### <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
-Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atualizações** aparece. Após a conclusão da avaliação de atualizações, verá uma lista de atualizações em falta no separador **Atualizações em falta**.
+Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atualizações** aparece. Após a conclusão da avaliação de atualizações, verá uma lista de atualizações em falta no separador **Atualizações em falta** .
 
  ![Ver o estado de atualização](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
@@ -107,16 +107,16 @@ Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atuali
 
 Para instalar atualizações, agende uma implementação que siga o seu agendamento e o período de administração da versão. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
-Para agendar uma nova Implementação de Atualização para a VM, clique em **Agendar a implementação da atualização** na parte superior do ecrã **Gestão de atualizações**. No ecrã **Nova implementação de atualização**, especifique as seguintes informações:
+Para agendar uma nova Implementação de Atualização para a VM, clique em **Agendar a implementação da atualização** na parte superior do ecrã **Gestão de atualizações** . No ecrã **Nova implementação de atualização** , especifique as seguintes informações:
 
-Para criar uma nova implementação de atualização, selecione **a implementação da atualização do calendário**. A nova página **de implementação da nova atualização** abre. Introduza os valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **Criar**:
+Para criar uma nova implementação de atualização, selecione **a implementação da atualização do calendário** . A nova página **de implementação da nova atualização** abre. Introduza os valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **Criar** :
 
 | Propriedade | Descrição |
 | --- | --- |
 | Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Linux ou Windows|
 | Grupos a atualizar |Para máquinas Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags para construir um grupo dinâmico de VMs Azure para incluir na sua implementação. </br></br>Para máquinas não-Azure, selecione uma pesquisa guardada existente para selecionar um grupo de máquinas não-Azure para incluir na implementação. </br></br>Para saber mais, consulte [Grupos Dinâmicos](../../automation/update-management/configure-groups.md)|
-| Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do drop-down e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
+| Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do drop-down e selecione máquinas individuais. Se escolher **Máquinas** , a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE** .</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
 |Incluir/excluir atualizações|Isto abre a página **Incluir/Excluir.** As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Implementação de Atualização](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Definições de agenda|Selecione a hora de início e selecione uma vez ou recorrente para a recorrência|
@@ -131,9 +131,9 @@ Tenha em atenção que a tabela **Agendada** mostra o agendamento da implementa�
 
 ### <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
-Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** no ecrã **Gestão de atualizações**.
-Se estiver em execução, o respetivo estado é apresentado como **Em curso**. Depois de concluir, se for bem sucedida, muda para **Com êxito**.
-Se existir uma falha numa ou mais atualizações na implementação, o estado é **Falha parcial**.
+Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** no ecrã **Gestão de atualizações** .
+Se estiver em execução, o respetivo estado é apresentado como **Em curso** . Depois de concluir, se for bem sucedida, muda para **Com êxito** .
+Se existir uma falha numa ou mais atualizações na implementação, o estado é **Falha parcial** .
 Selecione a implementação da atualização concluída para ver o dashboard relativo a essa implementação de atualização.
 
 ![Dashboard de estado de Implementação de Atualização para uma implementação específica](./media/tutorial-monitoring/manage-updates-view-results.png)
@@ -159,11 +159,11 @@ Pode recolher e visualizar o inventário para software, ficheiros, daemons Linux
 
 Ativar a Gestão de alterações e de inventário na VM:
 
-1. No lado esquerdo do ecrã, selecione **Máquinas virtuais**.
+1. No lado esquerdo do ecrã, selecione **Máquinas virtuais** .
 2. Na lista, selecione uma VM.
-3. No ecrã da VM, na secção **Operações**, selecione **Inventário** ou **Controlo de alterações**. É aberto o ecrã **Ativar o Controlo de Alterações e Inventário**.
+3. No ecrã da VM, na secção **Operações** , selecione **Inventário** ou **Controlo de alterações** . É aberto o ecrã **Ativar o Controlo de Alterações e Inventário** .
 
-Configure a localização, log Analytics espaço de trabalho e conta de automação para utilizar e selecionar **Enable**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
+Configure a localização, log Analytics espaço de trabalho e conta de automação para utilizar e selecionar **Enable** . Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
 
 ![Ativar o Controlo de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -171,23 +171,23 @@ Após a ativação da solução, o inventário poderá demorar algum tempo a ser
 
 ### <a name="track-changes"></a>Controlar as alterações
 
-Na sua VM, selecione **Controlo de Alterações**, em **OPERAÇÕES**. Selecione **Editar Definições**. É apresentada a página **Controlo de Alterações**. Selecione o tipo de definição que pretende controlar e selecione **+Adicionar** para configurar as definições. A opção disponível no Linux é **Linux Files**
+Na sua VM, selecione **Controlo de Alterações** , em **OPERAÇÕES** . Selecione **Editar Definições** . É apresentada a página **Controlo de Alterações** . Selecione o tipo de definição que pretende controlar e selecione **+Adicionar** para configurar as definições. A opção disponível no Linux é **Linux Files**
 
 Para obter informações detalhadas sobre o Controlo de Alterações, veja [Resolver problemas relacionados com alterações numa VM](../../automation/automation-tutorial-troubleshoot-changes.md)
 
 ### <a name="view-inventory"></a>Ver inventário
 
-Na sua VM, selecione **Inventário**, em **OPERAÇÕES**. No separador **Software**, existe uma tabela que lista o software que foi encontrado. Os detalhes de alto nível para cada registo de software são visíveis na tabela. Estes detalhes incluem o nome, a versão, o fabricante e a hora da última atualização do software.
+Na sua VM, selecione **Inventário** , em **OPERAÇÕES** . No separador **Software** , existe uma tabela que lista o software que foi encontrado. Os detalhes de alto nível para cada registo de software são visíveis na tabela. Estes detalhes incluem o nome, a versão, o fabricante e a hora da última atualização do software.
 
 ![Ver inventário](./media/tutorial-monitoring/inventory-view-results.png)
 
 ### <a name="monitor-activity-logs-and-changes"></a>Monitorizar os Registos de Atividade e as alterações
 
-Na página **Controlo de alterações** da sua VM, selecione **Gerir Ligação de Registo de Atividades**. Esta tarefa abre a página **Registo de atividades do Azure**. Selecione **Ligar** para ligar o Controlo de alterações ao registo de atividades do Azure para a sua VM.
+Na página **Controlo de alterações** da sua VM, selecione **Gerir Ligação de Registo de Atividades** . Esta tarefa abre a página **Registo de atividades do Azure** . Selecione **Ligar** para ligar o Controlo de alterações ao registo de atividades do Azure para a sua VM.
 
 Com esta definição ativada, navegue para a página **Descrição Geral** da sua VM e selecione **Parar** para parar a VM. Quando lhe for pedido, selecione **Sim** para parar a VM. Quando esta estiver desalocada, selecione **Iniciar** para reiniciar a sua VM.
 
-As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página **Controlo de alterações**. Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. É possível selecionar cada um dos eventos para ver informações detalhadas sobre os mesmos.
+As operações de paragem e início de uma VM registam um evento no respetivo registo de atividades. Regresse à página **Controlo de alterações** . Selecione o separador **Eventos** na parte inferior da página. Passado algum tempo, os eventos são apresentados no gráfico e na tabela. É possível selecionar cada um dos eventos para ver informações detalhadas sobre os mesmos.
 
 ![Ver alterações no registo de atividades](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/22/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, Kubernetes
-ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999694"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677438"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos Azure
 
@@ -45,21 +45,21 @@ Os recursos dos Serviços Cognitivos estão disponíveis no [Microsoft Azure.](h
 
 ## <a name="features-and-benefits"></a>Características e benefícios
 
-- **Infraestrutura imutável**: Permitir que as equipas de DevOps aproveitem um conjunto consistente e fiável de parâmetros conhecidos do sistema, ao mesmo tempo que podem adaptar-se à mudança. Os recipientes proporcionam a flexibilidade para girar dentro de um ecossistema previsível e evitar a deriva de configuração.
-- **Controlo sobre os dados**: Escolha onde os seus dados são tratados pelos Serviços Cognitivos. Isto pode ser essencial se não puder enviar dados para a nuvem, mas precisa de acesso a APIs de Serviços Cognitivos. Apoiar a consistência em ambientes híbridos – através de dados, gestão, identidade e segurança.
-- **Controlo sobre atualizações de modelos**: Flexibilidade na versão e atualização dos modelos implementados nas suas soluções.
-- **Arquitetura portátil**: Permite a criação de uma arquitetura de aplicações portáteis que possa ser implantada em Azure, no local e na borda. Os contentores podem ser implantados diretamente no [Serviço Azure Kubernetes](../aks/index.yml), [Instâncias de Contentores Azure](../container-instances/index.yml)ou num cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implementar Kubernetes para Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Alta produção / baixa latência**: Forneça aos clientes a capacidade de escalar para elevados requisitos de produção e baixa latência, permitindo que os Serviços Cognitivos corram fisicamente perto da sua lógica e dados de aplicação. Os contentores não fazem limites às transações por segundo (TPS) e podem ser feitos para escalar tanto para cima como para fora para lidar com a procura se fornecer os recursos de hardware necessários.
-- **Escalabilidade**: Com a crescente popularidade do software de containerização e orquestração de contentores, como Kubernetes; a escalabilidade está na vanguarda dos avanços tecnológicos. Com base numa fundação de cluster escalável, o desenvolvimento de aplicações atende à alta disponibilidade.
+- **Infraestrutura imutável** : Permitir que as equipas de DevOps aproveitem um conjunto consistente e fiável de parâmetros conhecidos do sistema, ao mesmo tempo que podem adaptar-se à mudança. Os recipientes proporcionam a flexibilidade para girar dentro de um ecossistema previsível e evitar a deriva de configuração.
+- **Controlo sobre os dados** : Escolha onde os seus dados são tratados pelos Serviços Cognitivos. Isto pode ser essencial se não puder enviar dados para a nuvem, mas precisa de acesso a APIs de Serviços Cognitivos. Apoiar a consistência em ambientes híbridos – através de dados, gestão, identidade e segurança.
+- **Controlo sobre atualizações de modelos** : Flexibilidade na versão e atualização dos modelos implementados nas suas soluções.
+- **Arquitetura portátil** : Permite a criação de uma arquitetura de aplicações portáteis que possa ser implantada em Azure, no local e na borda. Os contentores podem ser implantados diretamente no [Serviço Azure Kubernetes](../aks/index.yml), [Instâncias de Contentores Azure](../container-instances/index.yml)ou num cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implementar Kubernetes para Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Alta produção / baixa latência** : Forneça aos clientes a capacidade de escalar para elevados requisitos de produção e baixa latência, permitindo que os Serviços Cognitivos corram fisicamente perto da sua lógica e dados de aplicação. Os contentores não fazem limites às transações por segundo (TPS) e podem ser feitos para escalar tanto para cima como para fora para lidar com a procura se fornecer os recursos de hardware necessários.
+- **Escalabilidade** : Com a crescente popularidade do software de containerização e orquestração de contentores, como Kubernetes; a escalabilidade está na vanguarda dos avanços tecnológicos. Com base numa fundação de cluster escalável, o desenvolvimento de aplicações atende à alta disponibilidade.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contentores nos Serviços Cognitivos Azure
 
 Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipientes Docker, cada um dos quais contém um subconjunto de funcionalidades de serviços nos Serviços Cognitivos Azure:
 
-| Serviço | Nível de Preços Suportados | Contentor | Description |
+| Serviço | Nível de Preços Suportados | Contentor | Descrição |
 |--|--|--|--|
 | [Detetor de anomalias][ad-containers] | F0, S0 | **Detetor de Anomalias** [(imagem)](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector)  | A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática.<br>[Pedir acesso][request-access] |
-| [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** OCR[(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read) | O recipiente Read OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](./computer-vision/concept-recognizing-text.md)<br>[Pedir acesso][request-access] |
+| [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** OCR [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read) | O recipiente Read OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](./computer-vision/concept-recognizing-text.md)<br>[Pedir acesso][request-access] |
 | [Face][fa-containers] | F0, S0 | **Face** | Deteta rostos humanos em imagens e identifica atributos, incluindo marcos faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança, ou comparar rostos com uma base de dados para ver se já existe um rosto semelhante ou idêntico. Também pode organizar rostos semelhantes em grupos, usando traços visuais partilhados. |
 | [Reconhecedor de formulários][fr-containers] | F0, S0 | **Reconhecedor de Formato** | A Form Understanding aplica tecnologia de aprendizagem automática para identificar e extrair pares e tabelas de valor-chave a partir de formulários. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409) | Carrega um modelo de Compreensão de Linguagem treinado ou publicado, também conhecido como app LUIS, num recipiente de estivadores e fornece acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consultas a partir do contentor e enviá-los de volta para o [portal LUIS](https://www.luis.ai) para melhorar a precisão de previsão da aplicação. |
@@ -95,11 +95,11 @@ Os contentores Azure Cognitive Services estão disponíveis publicamente atravé
 
 Deve satisfazer os seguintes pré-requisitos antes de utilizar os recipientes dos Serviços Cognitivos Azure:
 
-**Docker Engine**: Deve ter o Motor Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente Docker no [macOS,](https://docs.docker.com/docker-for-mac/) [Linux](https://docs.docker.com/engine/installation/#supported-platforms)e [Windows.](https://docs.docker.com/docker-for-windows/) No Windows, o Docker tem de ser configurado para suportar recipientes Linux. Os contentores docker também podem ser implantados diretamente para o [Serviço Azure Kubernetes](../aks/index.yml) ou [instâncias de contentores Azure](../container-instances/index.yml).
+**Docker Engine** : Deve ter o Motor Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente Docker no [macOS,](https://docs.docker.com/docker-for-mac/) [Linux](https://docs.docker.com/engine/installation/#supported-platforms)e [Windows.](https://docs.docker.com/docker-for-windows/) No Windows, o Docker tem de ser configurado para suportar recipientes Linux. Os contentores docker também podem ser implantados diretamente para o [Serviço Azure Kubernetes](../aks/index.yml) ou [instâncias de contentores Azure](../container-instances/index.yml).
 
 O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure.
 
-**Familiaridade com o Microsoft Container Registry e Docker**: Deve ter uma compreensão básica tanto dos conceitos microsoft container registry como docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.
+**Familiaridade com o Microsoft Container Registry e Docker** : Deve ter uma compreensão básica tanto dos conceitos microsoft container registry como docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.
 
 Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 

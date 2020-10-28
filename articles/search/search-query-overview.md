@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537723"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675804"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos de consulta e composição em Pesquisa Cognitiva Azure
 
@@ -61,7 +61,7 @@ Se você seguiu este [quickstart para criar o índice de demonstração de hoté
 
 O design de índice e o design de consulta estão fortemente acopdos na Pesquisa Cognitiva Azure. Um facto essencial a saber à frente é que o esquema de *índice,* com atributos em cada campo, determina o tipo de consulta que se pode construir. 
 
-Os atributos de índice num campo definem as operações permitidas - se um campo é *pesmável* no índice, *recuperável* em resultados, *ordenado,* *filtrado*, e assim por diante. Na cadeia de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo de Classificação é marcado como classificado como *classificado* no esquema de índice. 
+Os atributos de índice num campo definem as operações permitidas - se um campo é *pesmável* no índice, *recuperável* em resultados, *ordenado,* *filtrado* , e assim por diante. Na cadeia de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo de Classificação é marcado como classificado como *classificado* no esquema de índice. 
 
 ![Definição de índice para a amostra do hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para a amostra do hotel")
 
@@ -78,8 +78,8 @@ Os elementos necessários num pedido de consulta incluem os seguintes componente
 
 + Recolha de documentos de ponto final e índice de serviço, expressa em URL contendo componentes fixos e definidos pelo utilizador: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (APENAS REST) é necessário porque mais de uma versão da API está sempre disponível. 
-+ **`api-key`**, seja uma consulta ou uma chave api-administrador, autentica o pedido ao seu serviço.
-+ **`queryType`**, simples ou cheio, que pode ser omitido se estiver a utilizar a sintaxe simples incorporada.
++ **`api-key`** , seja uma consulta ou uma chave api-administrador, autentica o pedido ao seu serviço.
++ **`queryType`** , simples ou cheio, que pode ser omitido se estiver a utilizar a sintaxe simples incorporada.
 + **`search`** ou **`filter`** fornece os critérios de correspondência, que podem não ser especificados se quiser realizar uma pesquisa vazia. Ambos os tipos de consulta são discutidos em termos do simples parser, mas mesmo consultas avançadas requerem o parâmetro de pesquisa para passar expressões de consulta complexas.
 
 Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista completa de atributos, consulte [Criar Índice (REST)](/rest/api/searchservice/create-index). Para ver mais de perto como os parâmetros são usados durante o processamento, consulte [como funciona a pesquisa de texto completo na Pesquisa Cognitiva de Azure](search-lucene-query-architecture.md).
@@ -92,7 +92,7 @@ A tabela que se segue lista as APIs e as abordagens baseadas em ferramentas para
 |-------------|-------------|
 | [Explorador de procura (portal)](search-explorer.md) | Fornece uma barra de pesquisa e opções para seleções de versão index e api. Os resultados são devolvidos como documentos JSON. Recomendado para exploração, teste e validação. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
 | [Carteiro ou outras ferramentas REST](search-get-started-postman.md) | As ferramentas de teste web são uma excelente escolha para formular chamadas REST. A API REST suporta todas as operações possíveis na Pesquisa Cognitiva Azure. Neste artigo, aprenda a configurar um cabeçalho e corpo de pedidos HTTP para o envio de pedidos para a Azure Cognitive Search.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Cliente que pode ser usado para consultar um índice de Pesquisa Cognitiva Azure.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md)  |
 | [Documentos de pesquisa (REST API)](/rest/api/searchservice/search-documents) | Métodos GET ou POST num índice, utilizando parâmetros de consulta para entrada adicional.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Escolha um parser: simples / cheio
@@ -159,13 +159,13 @@ Pode saber mais sobre os resultados da pesquisa de paging no artigo [Como págin
 ### <a name="ordering-results"></a>Ordenar resultados
 Ao receber resultados de uma consulta de pesquisa, pode solicitar que a Azure Cognitive Search sirva os resultados ordenados por valores num campo específico. Por predefinição, a Azure Cognitive Search ordena os resultados de pesquisa com base no grau de pontuação de pesquisa de cada documento, que é derivado da [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Se quiser que a Azure Cognitive Search retorna os seus resultados encomendados por um valor diferente da pontuação de pesquisa, pode utilizar o **`orderby`** parâmetro de pesquisa. Pode especificar o valor do parâmetro para incluir nomes de **`orderby`** campo e chamadas para a [** `geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespacial. Cada expressão pode ser seguida por `asc` indicar que os resultados são solicitados por ordem ascendente, e **`desc`** para indicar que os resultados são solicitados por ordem descendente. A ordem ascendente de classificação predefinida.
+Se quiser que a Azure Cognitive Search retorna os seus resultados encomendados por um valor diferente da pontuação de pesquisa, pode utilizar o **`orderby`** parâmetro de pesquisa. Pode especificar o valor do parâmetro para incluir nomes de **`orderby`** campo e chamadas para a [**`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespacial. Cada expressão pode ser seguida por `asc` indicar que os resultados são solicitados por ordem ascendente, e **`desc`** para indicar que os resultados são solicitados por ordem descendente. A ordem ascendente de classificação predefinida.
 
 
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
 Na Pesquisa Cognitiva Azure, enfatizar a parte exata dos resultados de pesquisa que correspondem à consulta de pesquisa é facilitada através da utilização de **`highlight`** **`highlightPreTag`** , e **`highlightPostTag`** parâmetros. Pode especificar quais os campos *pes pesjáveis* que devem ter o seu texto combinado realçado, bem como especificar as etiquetas de corda exatas para anexar ao início e fim do texto combinado que a Azure Cognitive Search retorna.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Como funciona a pesquisa completa de texto na Azure Cognitive Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)

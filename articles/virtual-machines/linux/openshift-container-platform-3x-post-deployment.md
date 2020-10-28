@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
-ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-ansible, devx-track-azurecli
+ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373577"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735109"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas pós-implantação
 
@@ -30,7 +30,7 @@ Depois de implantar um cluster OpenShift, pode configurar itens adicionais. Este
 
 Para utilizar o Azure Ative Directory para autenticação, primeiro precisa de criar um registo de aplicações AD Azure. Este processo envolve duas etapas: criar o registo da aplicação e configurar permissões.
 
-### <a name="create-an-app-registration"></a>Criar um registo de aplicativos
+### <a name="create-an-app-registration"></a>Criar um registo de aplicação
 
 Estes passos utilizam o CLI Azure para criar o registo da aplicação, e o GUI (portal) para definir as permissões. Para criar o registo da aplicação, precisa das seguintes cinco informações:
 
@@ -70,23 +70,23 @@ Tome nota da propriedade appId devolvida do comando para um passo posterior.
 
 No portal do Azure:
 
-1. Selecione **Azure Ative Directory**  >  **App Registration**.
+1. Selecione **Azure Ative Directory**  >  **App Registration** .
 2. Procure o seu registo de aplicações (por exemplo, OCPAzureAD).
 3. Nos resultados, clique no registo da aplicação.
-4. Em **Definições**, selecione **permissões necessárias**.
-5. Sob **permissões necessárias**, selecione **Add**.
+4. Em **Definições** , selecione **permissões necessárias** .
+5. Sob **permissões necessárias** , selecione **Add** .
 
    ![Registo de Aplicações](media/openshift-post-deployment/app-registration.png)
 
-6. Clique no Passo 1: Selecione API e, em seguida, clique no **Windows Azure Ative Directory (Microsoft.Azure.ActiveDirectory)**. Clique em **Selecionar** na parte inferior.
+6. Clique no Passo 1: Selecione API e, em seguida, clique no **Windows Azure Ative Directory (Microsoft.Azure.ActiveDirectory)** . Clique em **Selecionar** na parte inferior.
 
    ![Registo de aplicações Selecione API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. No passo 2: Selecione Permissões, selecione **Iniciar sessão e leia o perfil do utilizador** em **Permissões Delegadas**e, em seguida, clique em **Selecionar**.
+7. No passo 2: Selecione Permissões, selecione **Iniciar sessão e leia o perfil do utilizador** em **Permissões Delegadas** e, em seguida, clique em **Selecionar** .
 
    ![Acesso ao Registo de Aplicações](media/openshift-post-deployment/app-registration-access.png)
 
-8. Selecione **Concluído**.
+8. Selecione **Concluído** .
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurar OpenShift para autenticação Azure AD
 

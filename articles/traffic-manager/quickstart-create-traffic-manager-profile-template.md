@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299155"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676006"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Quickstart: Criar um perfil de Gestor de Tráfego usando um modelo ARM
 
@@ -21,7 +21,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (Modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-traffic-manager-external-endpoint%2Fazuredeploy.json)
 
@@ -43,7 +43,7 @@ Para encontrar mais modelos relacionados com O Gestor de Tráfego Azure, consult
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione **Experimentá-lo** a partir do bloco de código que se segue para abrir a Azure Cloud Shell e, em seguida, siga as instruções para iniciar súm no Azure. 
+1. Selecione **Experimentá-lo** a partir do bloco de código que se segue para abrir a Azure Cloud Shell e, em seguida, siga as instruções para iniciar súm no Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -62,11 +62,11 @@ Para encontrar mais modelos relacionados com O Gestor de Tráfego Azure, consult
 
 1. Selecione **Copiar** do bloco de código anterior para copiar o script PowerShell.
 
-1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta**.
+1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta** .
 
 1. Insira os valores.
 
-    A implementação do modelo cria um perfil com dois pontos finais externos. **O Endpoint1** utiliza um ponto final-alvo de *w<span>ww.microsoft.com</span>* com a localização no **Norte da Europa**. **O Ponto Final2** utiliza um ponto final de destino d *<span>ocs.microsoft.com</span>* com a localização em **South Central US**. 
+    A implementação do modelo cria um perfil com dois pontos finais externos. **O ponto final1** utiliza um ponto final-alvo `www.microsoft.com` com a localização no **Norte da Europa.** **O ponto final2** usa um ponto final de `docs.microsoft.com` destino com a localização em South Central **US** .
 
     O nome do grupo de recursos é o nome do projeto com **rg** anexado.
 
@@ -87,23 +87,25 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
     Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
     ```
 
-    Copie o valor **relativo do Nome Denas.** O nome DNS do seu perfil de Gestor de Tráfego é relativo nome *<* *>.trafficmanager.net*. 
+    Copie o valor **relativo do Nome Denas.** O nome DNS do seu perfil de Gestor de Tráfego é `<relativednsname>.trafficmanager.net` .
 
-1. A partir de um powershell local executar o seguinte comando substituindo a variável **{relativeDNSname}** por *<* nome relativo *>.trafficmanager.net*.
+1. A partir de um powershell local executar o seguinte comando substituindo a variável **{relativeDNSname}** por `<relativednsname>.trafficmanager.net` .
 
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    Você deve obter um NameHost de *w<span>ww.microsoft.com</span>* ou *d<span>ocs.microsoft.com</span>* dependendo da região mais próxima de você.
 
-1. Para verificar se consegue resolver o outro ponto final, desative o ponto final para o alvo que obteve no último passo. Substitua o **{endpointName}** por **um ponto final1** ou **ponto final2** para desativar o alvo para *w<span>ww.microsoft.com</span>* ou *d<span>ocs.microsoft</span>.com* respectivamente.
+    Você deve obter um NameHost de qualquer um `www.microsoft.com` ou `docs.microsoft.com` dependendo de qual região está mais próxima de você.
+
+1. Para verificar se consegue resolver o outro ponto final, desative o ponto final para o alvo que obteve no último passo. Substitua o **nome {endpointName}** por um **ponto final1** ou **ponto final2** para desativar o alvo para `www.microsoft.com` ou `docs.microsoft.com` respectivamente.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
     ```
-1. Executar o comando do Passo 2 novamente em um PowerShell local. Desta vez, deves arranjar o outro NameHost para o outro ponto final. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+1. Executar o comando do Passo 2 novamente em um PowerShell local. Desta vez, deves arranjar o outro NameHost para o outro ponto final.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar do perfil do Gestor de Tráfego, elimine o grupo de recursos. Isto remove o perfil do Gestor de Tráfego e todos os recursos relacionados.
 
@@ -115,8 +117,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um:
-* Perfil do Gestor de Tráfego
+Neste arranque rápido, criou um perfil de Gestor de Tráfego.
 
 Para saber mais sobre o tráfego de encaminhamento, continue para os tutoriais do Traffic Manager.
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb177afa804788632f22d24bbd376d64cbe1c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250696"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676660"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Track experiment executa e implanta modelos ML com MLflow e Azure Machine Learning (pré-visualização)
 
@@ -50,7 +50,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
 
  O MLflow Tracking oferece funcionalidades de registo métrico e de armazenamento de artefactos que só estão disponíveis de outra forma através do [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
-| Funcionalidade | Implementação de & de rastreio de fluxo mlflow | Azure Máquina aprendendo Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
+| Capacidade | Implementação de & de rastreio de fluxo mlflow | Azure Máquina aprendendo Python SDK |  CLI do Azure Machine Learning | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Gerir espaço de trabalho |   | ✓ | ✓ | ✓ |
 | Utilizar lojas de dados  |   | ✓ | ✓ | |
@@ -353,13 +353,16 @@ Se não planeia utilizar as métricas e artefactos registados no seu espaço de 
 
 1. Na lista, selecione o grupo de recursos que criou.
 
-1. Selecione **Eliminar grupo de recursos**.
+1. Selecione **Eliminar grupo de recursos** .
 
-1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
+1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar** .
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
 O [fluxo ML com os cadernos Azure ML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstram e expandem-se sobre conceitos apresentados neste artigo.
+
+> [!NOTE]
+> Um repositório de exemplos orientado pela comunidade pode ser encontrado em https://github.com/Azure/azureml-examples .
 
 ## <a name="next-steps"></a>Passos seguintes
 

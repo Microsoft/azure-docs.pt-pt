@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba0c53b9d0b9791364f532d999d86c74fa21177
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443980"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678065"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso Condicional com Base de Dados Azure SQL e Azure Synapse Analytics
 
@@ -37,21 +37,21 @@ Os passos a seguir mostram como configurar a Base de Dados Azure SQL, SQL Manage
 > [!NOTE]
 > O exemplo abaixo utiliza a Base de Dados Azure SQL, mas deve selecionar o produto apropriado que pretende configurar o acesso condicional.
 
-1. Inscreva-se no portal Azure, selecione **Azure Ative Directory**e, em seguida, selecione **Acesso Condicional**. Para mais informações, consulte a referência técnica de Acesso Condicional do [Azure Ative Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference)  
+1. Inscreva-se no portal Azure, selecione **Azure Ative Directory** e, em seguida, selecione **Acesso Condicional** . Para mais informações, consulte a referência técnica de Acesso Condicional do [Azure Ative Directory.](../../active-directory/conditional-access/concept-conditional-access-conditions.md)  
    ![Lâmina de acesso condicional](./media/conditional-access-configure/conditional-access-blade.png)
 
-2. Na lâmina **De Acesso Condicional,** clique em **Nova política,** forneça um nome e, em seguida, clique nas **regras de Configuração**.  
-3. Em **Atribuições**, selecione **Utilizadores e grupos,** verifique **selecione utilizadores e grupos**e, em seguida, selecione o utilizador ou grupo para acesso condicional. Clique **em Selecionar**e, em seguida, clique em **Fazer** para aceitar a sua seleção.  
+2. Na lâmina **De Acesso Condicional,** clique em **Nova política,** forneça um nome e, em seguida, clique nas **regras de Configuração** .  
+3. Em **Atribuições** , selecione **Utilizadores e grupos,** verifique **selecione utilizadores e grupos** e, em seguida, selecione o utilizador ou grupo para acesso condicional. Clique **em Selecionar** e, em seguida, clique em **Fazer** para aceitar a sua seleção.  
    ![selecione utilizadores e grupos](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Selecione **aplicativos Cloud**, clique **em Selecionar apps**. Vê todas as aplicações disponíveis para Acesso Condicional. Selecione **Azure SQL Database**, no clique inferior **Selecione**e, em seguida, clique em **Fazer**.  
+4. Selecione **aplicativos Cloud** , clique **em Selecionar apps** . Vê todas as aplicações disponíveis para Acesso Condicional. Selecione **Azure SQL Database** , no clique inferior **Selecione** e, em seguida, clique em **Fazer** .  
    ![selecionar Base de Dados SQL](./media/conditional-access-configure/select-sql-database.png)  
    Se não conseguir encontrar **a Base de Dados Azure SQL** listada na terceira imagem seguinte, complete os seguintes passos:
    - Conecte-se à sua base de dados na Base de Dados Azure SQL utilizando SSMS com uma conta de administração AD Azure.  
    - Executar `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER` .  
    - Inscreva-se no Azure AD e verifique se a Base de Dados Azure SQL, a SQL Managed Instance ou a Azure Synapse estão listadas nas aplicações no seu exemplo AD Azure.  
 
-5. Selecione **controlos de acesso,** selecione **Grant**e, em seguida, verifique a política que pretende aplicar. Para este exemplo, selecionamos **Requerer a autenticação multi-factor**.  
+5. Selecione **controlos de acesso,** selecione **Grant** e, em seguida, verifique a política que pretende aplicar. Para este exemplo, selecionamos **Requerer a autenticação multi-factor** .  
    ![selecionar acesso de concessão](./media/conditional-access-configure/grant-access.png)  
 
 ## <a name="summary"></a>Resumo

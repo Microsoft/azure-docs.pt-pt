@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 4c2faa6f015a8c1ce8f360155abdc14367d3057b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330745"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675217"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonização automática na Base de Dados Azure SQL e Azure SQL Gestão de Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 A afinação automática Azure SQL Database e Azure SQL Managed Instance proporciona o desempenho máximo e cargas de trabalho estáveis através de afinação contínua do desempenho com base na IA e machine learning.
 
-A sintonização automática é um serviço de desempenho inteligente totalmente gerido que utiliza inteligência incorporada para monitorizar continuamente as consultas executadas numa base de dados, e que automaticamente melhora o seu desempenho. Isto é conseguido através da adaptação dinâmica da base de dados às mudanças de carga de trabalho e da aplicação de recomendações de sintonização. A sintonização automática aprende horizontalmente a partir de todas as bases de dados em Azure através de IA e melhora dinamicamente as suas ações de afinação. Quanto mais tempo uma base de dados funcionar com sintonização automática, melhor funciona.
+O ajuste automático é um serviço de desempenho inteligente totalmente gerido que utiliza inteligência incorporada para monitorizar continuamente as consultas executadas numa base de dados e melhora automaticamente o desempenho das mesmas. Isto é conseguido através da adaptação dinâmica da base de dados às mudanças de carga de trabalho e da aplicação de recomendações de sintonização. A sintonização automática aprende horizontalmente a partir de todas as bases de dados em Azure através de IA e melhora dinamicamente as suas ações de afinação. Quanto mais tempo uma base de dados funcionar com sintonização automática, melhor funciona.
 
 A afinação automática Azure SQL Database e Azure SQL Managed Instance pode ser uma das funcionalidades mais importantes que pode permitir fornecer cargas de trabalho de base de dados estáveis e de pico.
 
@@ -46,7 +46,7 @@ Os mecanismos de afinação automática são maduros e foram aperfeiçoados em v
 
 ![Como funciona a afinação automática](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-A afinação automática Azure SQL Database está a partilhar a sua lógica principal com a função de sintonização automática SQL Server no motor da base de dados. Para obter informações técnicas adicionais sobre o mecanismo de inteligência incorporado, consulte [a sintonização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+A afinação automática Azure SQL Database está a partilhar a sua lógica principal com a função de sintonização automática SQL Server no motor da base de dados. Para obter informações técnicas adicionais sobre o mecanismo de inteligência incorporado, consulte [a sintonização automática do SQL Server](/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 Para uma visão geral de como funciona a sintonização automática e para cenários típicos de utilização, consulte o vídeo incorporado:
 
@@ -54,8 +54,8 @@ Para uma visão geral de como funciona a sintonização automática e para cená
 
 ## <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 
-- [Ativa a sintonização automática da Base de Dados Azure SQL no portal Azure](automatic-tuning-enable.md) ou utilizando a declaração [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
-- Ativa a sintonização automática para Azure SQL Managed Instance utilizando a declaração [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
+- [Ativa a sintonização automática da Base de Dados Azure SQL no portal Azure](automatic-tuning-enable.md) ou utilizando a declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL.
+- Ativa a sintonização automática para Azure SQL Managed Instance utilizando a declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL.
 
 ## <a name="automatic-tuning-options"></a>Opções de afinação automática
 
@@ -69,7 +69,7 @@ As opções de afinação automática disponíveis na Base de Dados Azure SQL e 
 
 ### <a name="automatic-tuning-for-sql-database"></a>Sintonização automática para base de dados SQL
 
-A sintonização automática para a Base de Dados Azure SQL utiliza as recomendações do consultor de base de dados **CREATE INDEX**, **DROP Index**e FORCE LAST **GOOD PLAN** para otimizar o desempenho da sua base de dados. Para mais informações, consulte [recomendações do advisor da Base de Dados no portal Azure](database-advisor-find-recommendations-portal.md), em [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+A sintonização automática para a Base de Dados Azure SQL utiliza as recomendações do consultor de base de dados **CREATE INDEX** , **DROP Index** e FORCE LAST **GOOD PLAN** para otimizar o desempenho da sua base de dados. Para mais informações, consulte [recomendações do advisor da Base de Dados no portal Azure](database-advisor-find-recommendations-portal.md), em [PowerShell,](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)e na [API REST](/rest/api/sql/serverautomatictuning).
 
 Pode aplicar manualmente recomendações de sintonização utilizando o portal Azure ou pode deixar que a sintonização automática aplique recomendações de sintonização automáticas para si. O benefício de deixar o sistema aplicar de forma autónoma recomendações de sintonização para si é que valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho, e se não houver uma melhoria significativa do desempenho detetada, reverterá automaticamente a recomendação de sintonização. Por favor, note que em caso de consultas afetadas por recomendações de sintonização que não são executadas com frequência, a fase de validação pode demorar até 72 horas por design.
 
@@ -90,7 +90,7 @@ Para saber mais sobre a construção de notificações por email para recomenda�
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Sintonização automática para Azure SQL Caso Gerido
 
-A sintonização automática para SQL Managed Instance só suporta **FORCE LAST GOOD PLAN**. Para obter mais informações sobre a configuração das opções de afinação automática através do T-SQL, consulte [a sintonização automática introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a correção automática do [plano](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+A sintonização automática para SQL Managed Instance só suporta **FORCE LAST GOOD PLAN** . Para obter mais informações sobre a configuração das opções de afinação automática através do T-SQL, consulte [a sintonização automática introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a correção automática do [plano](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Passos seguintes
 

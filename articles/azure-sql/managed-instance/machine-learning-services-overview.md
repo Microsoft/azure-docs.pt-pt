@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263272"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676820"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Aprendizagem automática em Azure SQL Gestded Instance (pré-visualização)
 
@@ -28,7 +28,7 @@ Machine Learning Services é uma característica do Azure SQL Managed Instance (
 > Esta funcionalidade de pré-visualização está inicialmente disponível num número limitado de regiões dos EUA, Ásia Europa e Austrália, com regiões adicionais a serem adicionadas mais tarde.
 >
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > [Inscreva-se para a pré-visualização](#signup) abaixo.
 
@@ -54,21 +54,29 @@ Esta pré-visualização pública limitada está sujeita aos [termos de pré-vis
 
 Se você está interessado em aderir ao programa de pré-visualização e aceitar estes termos, então você pode solicitar a inscrição criando um bilhete de apoio Azure em [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
+1. Na página **'Criar um bilhete de apoio',** clique em **Criar um Incidente.**
+
+1. Na página **de suporte Help +,** clique em **Novo pedido de suporte** para criar um novo bilhete.
+
 1. Selecione as seguintes opções:
    - Tipo de emissão - **Técnico**
    - Subscrição - *selecione a sua subscrição*
-   - Serviço - **SQL Database Managed Instance**
+   - Serviço - **SQL Gestdibilly Instance**
+   - Recurso - *selecione a sua instância gerida*
    - Resumo - *insira uma breve descrição do seu pedido*
    - Tipo de problema - **Serviços de aprendizagem automática para exemplo gerido do SQL (Pré-visualização)**
    - Subtipo de problema - **Outras questões ou "Como Fazer"**
 
-1. Clique **em seguida: Soluções**.
+1. Clique **em seguida: Soluções** .
 
-1. Leia as informações sobre a pré-visualização e, em seguida, clique em **Detalhes**.
+1. Leia as informações sobre a pré-visualização e, em seguida, clique em **Seguinte: Detalhes** .
 
-1. Em **Descrição,** insira as especificidades do seu pedido, incluindo o nome do servidor lógico, região e ID de subscrição que gostaria de inscrever na pré-visualização. Insira outros detalhes conforme apropriado.
+1. Nesta página:
+   - Para a pergunta **Está a tentar inscrever-se para a Pré-visualização?** **Yes** 
+   - Para **descrição,** insira as especificidades do seu pedido, incluindo o nome do servidor lógico, região e ID de subscrição que pretende inscrever na pré-visualização. Insira outros detalhes conforme apropriado.
+   - Selecione o seu método de contacto preferido. 
 
-1. Quando terminar, clique em **Seguinte: Rever + criar**e, em seguida, clicar em **Criar**.
+1. Quando terminar, clique em **Seguinte: Review + create** e, em seguida, clique em **Criar** .
 
 Assim que estiver inscrito no programa, a Microsoft vai incluí-lo na pré-visualização pública e ativar o Machine Learning Services para a base de dados existente ou nova.
 

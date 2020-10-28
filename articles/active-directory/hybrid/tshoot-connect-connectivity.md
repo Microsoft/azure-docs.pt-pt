@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370224"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677064"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Problemas Azure AD conectividade
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o AD Azure e como resolver problemas de conectividade. Estes problemas são mais prováveis de serem vistos num ambiente com um servidor proxy.
@@ -32,7 +32,7 @@ O Azure AD Connect está a utilizar a Autenticação Moderna (utilizando a bibli
 
 Neste artigo, mostramos como a Fabrikam se conecta ao Azure AD através do seu representante. O servidor proxy chama-se fabrikamproxy e está a usar a porta 8080.
 
-Em primeiro lugar, temos de ter a certeza [** demachine.config**](how-to-connect-install-prerequisites.md#connectivity) está corretamente configurado e o serviço **Microsoft Azure AD Sync** foi reiniciado uma vez após a atualização de ficheiros machine.config.
+Em primeiro lugar, temos de ter a certeza [**demachine.config**](how-to-connect-install-prerequisites.md#connectivity) está corretamente configurado e o serviço **Microsoft Azure AD Sync** foi reiniciado uma vez após a atualização de ficheiros machine.config.
 ![A screenshot mostra parte do ficheiro de pontos config da máquina.](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -52,6 +52,14 @@ Destes URLs, a tabela a seguir é o mínimo absoluto para poder ligar-se ao Azur
 | \*.windows.net |HTTPS/443 |Costumava entrar no Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Usado para MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Usado para configurar o seu diretório AD Azure e dados de importação/exportação. |
+| \*.crl3.digicert.com |HTTP/80 |Usado para verificar certificados. |
+| \*.crl4.digicert.com |HTTP/80 |Usado para verificar certificados. |
+| \*.ocsp.digicert.com |HTTP/80 |Usado para verificar certificados. |
+| \*.www.d-trust.net |HTTP/80 |Usado para verificar certificados. |
+| \*.root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |Usado para verificar certificados. |
+| \*.crl.microsoft.com |HTTP/80 |Usado para verificar certificados. |
+| \*.oneocsp.microsoft.com |HTTP/80 |Usado para verificar certificados. |
+| \*.ocsp.msocsp.com |HTTP/80 |Usado para verificar certificados. |
 
 ## <a name="errors-in-the-wizard"></a>Erros no assistente
 O assistente de instalação está a utilizar dois contextos de segurança diferentes. Na página **Connect to Azure AD,** está a utilizar o utilizador atualmente assinado. Na página **Configure,** está a mudar para a conta que [executa o serviço para o motor de sincronização](reference-connect-accounts-permissions.md#adsync-service-account). Se houver algum problema, parece que já está na página **De AD Do Connect to Azure** no assistente, uma vez que a configuração de procuração é global.
@@ -87,7 +95,7 @@ O PowerShell utiliza a configuração em machine.config para contactar o proxy. 
 
 Se o proxy estiver corretamente configurado, deverá obter um estado de sucesso: ![ Screenshot que mostre o estado de sucesso quando o representante está configurado corretamente.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Se receber **Não conseguir ligar-se ao servidor remoto,** então o PowerShell está a tentar fazer uma chamada direta sem utilizar o proxy ou o DNS não está corretamente configurado. Certifique-se de que o ** ficheiromachine.config** está corretamente configurado.
+Se receber **Não conseguir ligar-se ao servidor remoto,** então o PowerShell está a tentar fazer uma chamada direta sem utilizar o proxy ou o DNS não está corretamente configurado. Certifique-se de que o **ficheiromachine.config** está corretamente configurado.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 Se o representante não estiver corretamente configurado, obtém-se um erro: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -117,26 +125,26 @@ Aqui está uma lixeira de um registo de procuração real e a página de assiste
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-âncora*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect:// *bba800-âncora* .microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect:// *bwsc02-relay* .microsoftonline.com:443 |
 
 **Configurar**
 
 | Hora | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-âncora*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect:// *bba800-âncora* .microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-âncora*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba900-âncora* .microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-âncora*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba800-âncora* .microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect:// *bwsc02-relay* .microsoftonline.com:443 |
 
 **Sincronização inicial**
 
@@ -144,8 +152,8 @@ Aqui está uma lixeira de um registo de procuração real e a página de assiste
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-âncora*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-âncora*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba900-âncora* .microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba800-âncora* .microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Erros de autenticação
 Esta secção cobre erros que podem ser devolvidos da ADAL (a biblioteca de autenticação utilizada por Azure AD Connect) e PowerShell. O erro explicado deve ajudá-lo a entender os próximos passos.

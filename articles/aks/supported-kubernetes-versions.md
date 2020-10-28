@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335539"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735060"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Pode utilizar uma versão menor mais antiga ou mais recente em `kubectl` relação à sua versão *kube-apiserver,* que é consistente com a política de [suporte kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Por exemplo, se o seu *kube-apiserver* estiver a *1.17*, então pode utilizar as versões *1.16* a *1.18* de `kubectl` com aquele *kube-apiserver*.
+Por exemplo, se o seu *kube-apiserver* estiver a *1.17* , então pode utilizar as versões *1.16* a *1.18* de `kubectl` com aquele *kube-apiserver* .
 
 Para instalar ou atualizar a sua versão de `kubectl` , executar `az aks install-cli` .
 
@@ -121,7 +121,7 @@ As versões específicas do patch podem ser ignoradas ou aceleradas dependendo d
 
 ## <a name="azure-portal-and-cli-versions"></a>Versões do portal Azure e CLI
 
-Quando implementa um cluster AKS no portal ou com o CLI Azure, o cluster é padrão para a versão menor N-1 e para o patch mais recente. Por exemplo, se a AKS suportar *1.17.a*, *1.17.b*, *1.16.c*, *1.16.d*, *1.15.e*, e *1.15.f*, a versão padrão selecionada é *1.16.c*.
+Quando implementa um cluster AKS no portal ou com o CLI Azure, o cluster é padrão para a versão menor N-1 e para o patch mais recente. Por exemplo, se a AKS suportar *1.17.a* , *1.17.b* , *1.16.c* , *1.16.d* , *1.15.e* , e *1.15.f* , a versão padrão selecionada é *1.16.c* .
 
 Para saber quais as versões que estão atualmente disponíveis para a sua subscrição e região, utilize o comando [az aks get-verss.][az-aks-get-versions] O exemplo a seguir lista as versões Kubernetes disponíveis para a região *eastus:*
 
@@ -135,11 +135,12 @@ Para a história do lançamento passado, veja [aqui.](https://en.wikipedia.org/w
 
 |  Versão K8s | Liberação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da Vida |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | 1.19 GA | 
+| 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | Jan 2021* | 
 | 1.17  | Dez-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
 | 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA | 
+\* Devido à época de férias, a AKS prolonga a vida útil de 1,16 de novembro de 2020 até janeiro de 2021. Leia mais [aqui](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
 ## <a name="faq"></a>FAQ
 
@@ -176,7 +177,7 @@ O plano de controlo deve estar dentro de uma janela de versões de todas as pisc
 
 Quando atualiza um cluster AKS suportado, as versões menores de Kubernetes não podem ser ignoradas. Por exemplo, são permitidas atualizações entre *1.12.x*  ->  *1.13.x* ou *1.13.x*  ->  *1.14.x,* no entanto *1.12.x*  ->  *1.14.x* não é.
 
-Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de *1.12.x*  ->  *1.13.x,* em seguida, upgrade a partir de *1.13.x*  ->  *1.14.x*.
+Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de *1.12.x*  ->  *1.13.x,* em seguida, upgrade a partir de *1.13.x*  ->  *1.14.x* .
 
 Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 

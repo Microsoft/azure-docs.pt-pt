@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5257e8730830c6b51808d5d014bc3bdec6036bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3cbda70fd836482448aa381f6e781ed15666f2c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843975"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675172"
 ---
 # <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use Python para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ Para concluir este guia de início rápido, precisa de:
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Para instalar o Homebrew e o Python, o controlador ODBC e o SQLCMD, e o controlador Python para o SQL Server, utilize os passos **1.2**, **1.3**e **2.1** na [criação de aplicações Python utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+  Para instalar o Homebrew e o Python, o controlador ODBC e o SQLCMD, e o controlador Python para o SQL Server, utilize os passos **1.2** , **1.3** e **2.1** na [criação de aplicações Python utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   Para mais informações, consulte [o controlador microsoft ODBC no macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
@@ -81,7 +81,7 @@ Para explorar ainda mais a Python e a base de dados na Base de Dados Azure SQL, 
 
 Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Aceda à página **SQL Databases** ou **SQL Managed Instances.**
 
@@ -92,7 +92,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 ## <a name="create-code-to-query-your-database"></a>Crie código para consultar a sua base de dados 
 
-1. Num editor de texto, crie um novo ficheiro chamado *sqltest.py*.  
+1. Num editor de texto, crie um novo ficheiro chamado *sqltest.py* .  
    
 1. Adicione o seguinte código. Substitua os seus próprios valores \<server> \<database> \<username> por, e \<password> .
    
@@ -130,6 +130,5 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
-- [Controladores Microsoft Python para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Controladores Microsoft Python para SQL Server](/sql/connect/python/python-driver-for-sql-server/)
 - [Centro de desenvolvimento python](https://azure.microsoft.com/develop/python/?v=17.23h)
-

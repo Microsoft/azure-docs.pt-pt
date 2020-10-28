@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444528"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677252"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento por trás do VNet e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -41,16 +41,16 @@ Para que a auditoria escreva numa conta de armazenamento por trás de um VNet ou
 >
 > * Uma conta de armazenamento v2 para fins gerais. Se tiver uma conta de armazenamento v1 ou blob para fins gerais, [faça upgrade para uma conta de armazenamento V2 para fins gerais](../../storage/common/storage-account-upgrade.md). Para obter mais informações, consulte [tipos de contas de armazenamento.](../../storage/common/storage-account-overview.md#types-of-storage-accounts)
 > * A conta de armazenamento deve estar na mesma subscrição e no mesmo local que o [servidor lógico SQL](logical-servers.md).
-> * A conta de Armazenamento Azure requer `Allow trusted Microsoft services to access this storage account` . Coloque isto nas **firewalls**de conta de armazenamento e nas redes virtuais.
+> * A conta de Armazenamento Azure requer `Allow trusted Microsoft services to access this storage account` . Coloque isto nas **firewalls** de conta de armazenamento e nas redes virtuais.
 > * Tem de ter `Microsoft.Authorization/roleAssignments/write` permissão na conta de armazenamento selecionada. Para obter mais informações, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Configurar no portal do Azure
 
 Ligue-se ao [portal Azure](https://portal.azure.com) com a sua subscrição. Navegue para o grupo de recursos e servidor.
 
-1. Clique em **Auditoria sob** o título de Segurança. **Selecione on**.
+1. Clique em **Auditoria sob** o título de Segurança. **Selecione on** .
 
-2. Selecione **Armazenamento**. Selecione a conta de armazenamento onde os registos serão guardados. A conta de armazenamento deve estar em conformidade com os requisitos enumerados nos [Pré-requisitos](#prerequisites).
+2. Selecione **Armazenamento** . Selecione a conta de armazenamento onde os registos serão guardados. A conta de armazenamento deve estar em conformidade com os requisitos enumerados nos [Pré-requisitos](#prerequisites).
 
 3. Detalhes **de armazenamento aberto**
 
@@ -61,7 +61,7 @@ Ligue-se ao [portal Azure](https://portal.azure.com) com a sua subscrição. Nav
   >
   >Se não vir esta mensagem, então a conta de armazenamento não está por trás de um VNet.
 
-4. Selecione o número de dias para o período de retenção. Em seguida, clique em **OK**. Os registos mais antigos do que o período de retenção são eliminados.
+4. Selecione o número de dias para o período de retenção. Em seguida, clique em **OK** . Os registos mais antigos do que o período de retenção são eliminados.
 
 5. **Selecione Guardar** nas definições de auditoria.
 
@@ -93,7 +93,7 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API:**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)
+   [**REST API:**](/rest/api/sql/servers/createorupdate)
 
    Pedido de amostra
 
@@ -117,12 +117,12 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
    }
    ```
 
-2. Abre o [Portal do Azure](https://portal.azure.com). Navegue até à sua conta de armazenamento. Localizar **controlo de acesso (IAM)** e clicar em adicionar a atribuição de **função**. Atribua o papel de Azure **do Contribuinte de Dados de Armazenamento blob** ao servidor que hospeda a base de dados que registou no Azure Ative Directory (AD) como no passo anterior.
+2. Abre o [Portal do Azure](https://portal.azure.com). Navegue até à sua conta de armazenamento. Localizar **controlo de acesso (IAM)** e clicar em adicionar a atribuição de **função** . Atribua o papel de Azure **do Contribuinte de Dados de Armazenamento blob** ao servidor que hospeda a base de dados que registou no Azure Ative Directory (AD) como no passo anterior.
 
    > [!NOTE]
    > Só os membros com privilégio proprietário podem realizar este passo. Para vários papéis embutidos em Azure, consulte as [funções incorporadas do Azure.](../../role-based-access-control/built-in-roles.md)
 
-3. Configure a [política de auditoria do blob do servidor,](/rest/api/sql/server%20auditing%20settings/createorupdate)sem especificar um *armazenamentoAccountAccessKey*:
+3. Configure a [política de auditoria do blob do servidor,](/rest/api/sql/server%20auditing%20settings/createorupdate)sem especificar um *armazenamentoAccountAccessKey* :
 
    Pedido de amostra
 

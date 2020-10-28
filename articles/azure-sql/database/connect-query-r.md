@@ -5,7 +5,7 @@ description: Este artigo mostra-lhe como utilizar um script R com os Serviços d
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: python
 ms.topic: quickstart
 author: garyericson
@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a939c816cac44ed85802ecfa591564effc1ee73
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328839"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675150"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Quickstart: Use R com Azure SQL Database Machine Learning Services (pré-visualização) para consultar uma base de dados 
 
@@ -33,7 +33,7 @@ Neste arranque rápido, utiliza R com Azure SQL Database Machine Learning Servic
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Uma [base de dados Azure SQL](single-database-create-quickstart.md)
-- [Serviços de Machine Learning](machine-learning-services-overview.md) com R ativado.
+- [Serviços de Machine Learning](../managed-instance/machine-learning-services-overview.md) com R ativado.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Machine Learning Services with R é uma característica da Base de Dados Azure S
 
 Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
 
@@ -57,7 +57,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
    Se precisar de ajuda para ligar, consulte [Quickstart: Use o SQL Server Management Studio para ligar e consultar uma base de dados na Base de Dados Azure SQL](connect-query-ssms.md).
 
-1. Passe o guião R completo para o [procedimento sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) armazenado.
+1. Passe o guião R completo para o [procedimento sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) armazenado.
 
    O guião é passado através do `@script` argumento. Tudo dentro do `@script` argumento deve ser código R válido.
    
@@ -76,12 +76,12 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Execute o [procedimento sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) armazenado.
+1. Execute o [procedimento sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) armazenado.
 
 1. Verifique se as linhas top 20 categoria/produto são devolvidas na janela **Mensagens.**
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
-- [Azure SQL Database Machine Learning Services (com R)](machine-learning-services-overview.md)
-- [Criar e executar scripts R simples em Azure SQL Database Machine Learning Services (pré-visualização)](r-script-create-quickstart.md)
+- [Azure SQL Database Machine Learning Services (com R)](../managed-instance/machine-learning-services-overview.md)
+- [Criar e executar scripts R simples em Azure SQL Database Machine Learning Services (pré-visualização)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)

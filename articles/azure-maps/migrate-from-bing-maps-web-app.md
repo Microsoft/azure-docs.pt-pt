@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 168b3d51b66078b3d4c2e113711d3124820dd6bd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876520"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677793"
 ---
 # <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Tutorial - Migrar uma aplicação web de Bing Maps
 
@@ -668,7 +668,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Recursos adicionais**
 
--   [Adicione linhas ao mapa](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-lines-to-the-map)
+-   [Adicione linhas ao mapa](https://docs.microsoft.com/azure/azure-maps/map-add-line-layer)
 -   [Opções de camada de linha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 -   [Utilizar expressões de estilo com base em dados](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
 
@@ -744,7 +744,7 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Recursos adicionais**
 
--   [Adicione um polígono ao mapa](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-polygon-to-the-map)
+-   [Adicione um polígono ao mapa](https://docs.microsoft.com/azure/azure-maps/map-add-shape#use-a-polygon-layer)
 -   [Adicione um círculo ao mapa](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-circle-to-the-map)
 -   [Opções de camada de polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 -   [Opções de camada de linha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
@@ -935,9 +935,9 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 | Nome da propriedade               | Tipo    | Descrição                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Indica se a característica representa um cluster.     |
-| `cluster_id`                | string  | Um ID único para o cluster que pode ser usado com as `DataSource` `getClusterExpansionZoom` `getClusterChildren` classes, e `getClusterLeaves` funções. |
+| `cluster_id`                | cadeia  | Um ID único para o cluster que pode ser usado com as `DataSource` `getClusterExpansionZoom` `getClusterChildren` classes, e `getClusterLeaves` funções. |
 | `point_count`               | número  | O número de pontos que o cluster contém.     |
-| `point_count_abbreviated`   | string  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K) |
+| `point_count_abbreviated`   | cadeia  | Uma corda que abrevia o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K) |
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 
@@ -1467,7 +1467,7 @@ Executar este código num browser apresentará um mapa que se parece com a segui
 
 **Depois: Mapas Azure**
 
-No Azure Maps, o GeoJSON é o principal formato de dados utilizado na web SDK, os formatos de dados espaciais adicionais podem ser facilmente integrados na utilização do [módulo IO espacial.](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/) Este módulo tem funções tanto para ler como escrever dados espaciais e também inclui uma camada de dados simples que pode facilmente renderizar dados de qualquer um destes formatos de dados espaciais. Para ler os dados num ficheiro de dados espaciais, passe num URL ou dados brutos como string ou blob para a  `atlas.io.read`   função. Isto irá devolver todos os dados analisados do ficheiro que podem ser adicionados ao mapa. O KML é um pouco mais complexo do que a maioria do formato de dados espaciais, pois inclui muito mais informações de estilo. A  `SpatialDataLayer`   classe suporta a renderização da maioria destes estilos, no entanto as imagens de ícones têm de ser carregadas no mapa antes de carregar os dados da funcionalidade, e as sobreposições do solo têm de ser adicionadas como camadas ao mapa separadamente. Ao carregar dados através de um URL, deve ser hospedado num ponto final ativado por CORs, ou um serviço de procuração deve ser transmitido como uma opção para a função de leitura.
+No Azure Maps, o GeoJSON é o principal formato de dados utilizado na web SDK, os formatos de dados espaciais adicionais podem ser facilmente integrados na utilização do [módulo IO espacial.](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/) Este módulo tem funções tanto para ler como escrever dados espaciais e também inclui uma camada de dados simples que pode facilmente renderizar dados de qualquer um destes formatos de dados espaciais. Para ler os dados num ficheiro de dados espaciais, passe num URL ou dados brutos como string ou blob para a `atlas.io.read` função. Isto irá devolver todos os dados analisados do ficheiro que podem ser adicionados ao mapa. O KML é um pouco mais complexo do que a maioria do formato de dados espaciais, pois inclui muito mais informações de estilo. A `SpatialDataLayer` classe suporta a renderização da maioria destes estilos, no entanto as imagens de ícones têm de ser carregadas no mapa antes de carregar os dados da funcionalidade, e as sobreposições do solo têm de ser adicionadas como camadas ao mapa separadamente. Ao carregar dados através de um URL, deve ser hospedado num ponto final ativado por CORs, ou um serviço de procuração deve ser transmitido como uma opção para a função de leitura.
 
 ```html
 <!DOCTYPE html>

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961345"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734947"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerir a disponibilidade de máquinas virtuais Linux
 
@@ -34,7 +34,7 @@ Existem três cenários que podem levar a que a máquina virtual em Azure seja a
 
 Para reduzir o impacto do período de indisponibilidade devido a um ou mais destes eventos, recomendamos as seguintes melhores práticas de elevada disponibilidade para as máquinas virtuais:
 
-* Utilize zonas de Availabiilty para proteger contra falhas no datacenter
+* Utilizar Zonas de Disponibilidade para proteger contra falhas do datacenter
 * Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância
 * Utilizar discos geridos para VMs num conjunto de disponibilidade
 * Use eventos programados para responder proativamente aos eventos com impacto em VM

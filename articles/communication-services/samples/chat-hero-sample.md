@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9be94183fc34c2dbee3503d21e2e643d5296a82b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461129"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677422"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -52,9 +52,9 @@ Assim que configurar o nome do ecrã e o emoji, pode juntar-se à sessão de cha
 
 Componentes do ecrã principal do chat:
 
-- **Principal Área de Chat**: Esta é a experiência principal de chat onde os utilizadores podem enviar e receber mensagens. Para enviar mensagens, pode utilizar a área de entrada e premir a entrada (ou utilizar o botão enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e emoji corretos. Verá dois tipos de notificações na área do chat: 1) digitando notificações quando um utilizador está a escrever e 2) enviados e ler notificações para mensagens.
-- **Cabeçalho**: É aqui que o utilizador verá o título do fio de chat e os controlos para toggling participante e definições barras laterais, e um botão de deixar para sair da sessão de chat.
-- **Barra lateral**: É aqui que os participantes e a definição de informações são mostrados quando alternados utilizando os comandos no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral das definições permite-lhe configurar o título do fio de conversação. 
+- **Principal Área de Chat** : Esta é a experiência principal de chat onde os utilizadores podem enviar e receber mensagens. Para enviar mensagens, pode utilizar a área de entrada e premir a entrada (ou utilizar o botão enviar). As mensagens de chat recebidas são categorizadas pelo remetente com o nome e emoji corretos. Verá dois tipos de notificações na área do chat: 1) digitando notificações quando um utilizador está a escrever e 2) enviados e ler notificações para mensagens.
+- **Cabeçalho** : É aqui que o utilizador verá o título do fio de chat e os controlos para toggling participante e definições barras laterais, e um botão de deixar para sair da sessão de chat.
+- **Barra lateral** : É aqui que os participantes e a definição de informações são mostrados quando alternados utilizando os comandos no cabeçalho. A barra lateral dos participantes contém uma lista de participantes no chat e um link para convidar os participantes para a sessão de chat. A barra lateral das definições permite-lhe configurar o título do fio de conversação. 
 
 Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 
@@ -77,7 +77,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 ## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
 
 1. Abra uma instância de PowerShell, Windows Terminal, Command Prompt ou equivalente e navegue para o diretório ao qual pretende clonar a amostra.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
 4. Assim que tiver `Connection String` a , Adicione o fio de ligação ao **Chat/appsettings.jsno** ficheiro encontrado por baixo da pasta Chat. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
 

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308100"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676204"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Criar um teste de Analisador de Internet utilizando CLI (Pré-visualização)
 
@@ -37,7 +37,7 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 
 ## <a name="profile-and-test-creation"></a>Criação de Perfis e Testes
 1. Obtenha acesso de pré-visualização do Analisador de Internet seguindo [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)as instruções **de pré-visualização?**
-2. [Instale o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Executar o `login` comando para iniciar uma sessão de CLI:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 
 5. Selecione o seu ID de subscrição que tenha tido acesso à pré-visualização pública do Internet Analyzer.
 
-    Depois de iniciar sessão, vê uma lista de subscrições associadas à sua conta Azure. A informação de subscrição com `isDefault: true` é a subscrição ativada atualmente após o início de sessão. Para selecionar outra subscrição, utilize o comando [conjunto de conta az](https://docs.microsoft.com/cli/azure/account#az-account-set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Depois de iniciar sessão, vê uma lista de subscrições associadas à sua conta Azure. A informação de subscrição com `isDefault: true` é a subscrição ativada atualmente após o início de sessão. Para selecionar outra subscrição, utilize o comando [conjunto de conta az](/cli/azure/account#az-account-set) com o ID de subscrição para mudar. Para obter mais informações sobre a seleção de subscrição, consulte [utilizar várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Existem formas de iniciar sessão de forma não interativa, que são abordadas em detalhe em [Iniciar sessão com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Existem formas de iniciar sessão de forma não interativa, que são abordadas em detalhe em [Iniciar sessão com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Opcional]** Criar um novo Grupo de Recursos Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ O Internet Analyzer CLI expõe os seguintes tipos de recursos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Navegue na [referência CLI do Analisador de Internet](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para a lista completa de comandos e exemplos de utilização suportados.
+* Navegue na [referência CLI do Analisador de Internet](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para a lista completa de comandos e exemplos de utilização suportados.
 * Leia o [Analisador de Internet FAQ.](internet-analyzer-faq.md)
-* Saiba mais sobre a incorporação do [Cliente Analisador de Internet](internet-analyzer-embed-client.md) e a criação de um ponto final [personalizado.](internet-analyzer-custom-endpoint.md) 
+* Saiba mais sobre a incorporação do [Cliente Analisador de Internet](internet-analyzer-embed-client.md) e a criação de um ponto final [personalizado.](internet-analyzer-custom-endpoint.md)

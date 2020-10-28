@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539603"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676179"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interaja com os clusters Apache Kafka em Azure HDInsight usando um representante rest
 
-Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma API REST sobre HTTP. Esta ação significa que os seus clientes Kafka podem estar fora da sua rede virtual. Os clientes podem fazer chamadas HTTP simples para o cluster Kafka, em vez de confiar em bibliotecas kafka. Este artigo irá mostrar-lhe como criar um cluster de proxy REST habilitado para Kafka. Também fornece um código de amostra que mostra como fazer chamadas para o proxy REST.
+O Kafka REST Proxy permite-lhe interagir com o seu cluster Kafka através de uma API REST sobre HTTPS. Esta ação significa que os seus clientes Kafka podem estar fora da sua rede virtual. Os clientes podem fazer chamadas HTTPS simples e seguras para o cluster Kafka, em vez de confiarem nas bibliotecas kafka. Este artigo irá mostrar-lhe como criar um cluster de proxy REST habilitado para Kafka. Também fornece um código de amostra que mostra como fazer chamadas para o proxy REST.
 
 ## <a name="rest-api-reference"></a>Referência da API REST
 
@@ -37,7 +37,7 @@ A criação de um cluster HDInsight Kafka com proxy REST cria um novo ponto fina
 
 O acesso ao representante kafka REST é gerido com grupos de segurança do Azure Ative Directory. Ao criar o cluster Kafka, forneça ao grupo de segurança Azure AD acesso ao ponto final REST. Os clientes kafka que precisam de acesso ao representante rest deve ser registado neste grupo pelo proprietário do grupo. O proprietário do grupo pode registar-se através do Portal ou via PowerShell.
 
-Para pedidos de ponto final de procuração REST, as aplicações do cliente devem obter um token OAuth. O símbolo é usado para verificar a adesão ao grupo de segurança. Encontre uma [amostra de aplicação do Cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. O pedido de cliente passa o token OAuth no pedido HTTP ao representante DO REST.
+Para pedidos de ponto final de procuração REST, as aplicações do cliente devem obter um token OAuth. O símbolo é usado para verificar a adesão ao grupo de segurança. Encontre uma [amostra de aplicação do Cliente](#client-application-sample) abaixo que mostre como obter um token OAuth. A aplicação do cliente transmite o token OAuth no pedido HTTPS ao representante DO REST.
 
 > [!NOTE]
 > Consulte [a aplicação Manage e o acesso a recursos utilizando grupos Azure Ative Directory,](../../active-directory/fundamentals/active-directory-manage-groups.md)para saber mais sobre grupos de segurança AAD. Para obter mais informações sobre o funcionamento dos tokens da OAuth, consulte [o acesso autorizado às aplicações web do Azure Ative Directory utilizando o fluxo de concessão de código OAuth 2.0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).

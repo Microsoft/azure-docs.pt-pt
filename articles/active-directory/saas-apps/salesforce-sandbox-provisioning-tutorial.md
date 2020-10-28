@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 38fac23b3fdc5820a7a407a4a7d89d0064cf8e93
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cc094376ed6d5a183b65a598ca9d0a55670be70e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101788"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676720"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Caixa de Areia Salesforce para o provisionamento automático do utilizador
 
@@ -33,7 +33,7 @@ O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 O Azure Ative Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores que devem ter acesso a aplicações selecionadas. No contexto do provisionamento automático da conta de utilizador, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação em AZure AD são sincronizados.
 
-Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os utilizadores ou grupos em Azure AD que precisam de acesso à sua aplicação Salesforce Sandbox. Depois de tomar esta decisão, pode atribuir estes utilizadores à sua app Salesforce Sandbox seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Antes de configurar e ativar o serviço de fornecimento, tem de decidir quais os utilizadores ou grupos em Azure AD que precisam de acesso à sua aplicação Salesforce Sandbox. Depois de tomar esta decisão, pode atribuir estes utilizadores à sua app Salesforce Sandbox seguindo as instruções em [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Dicas importantes para atribuir utilizadores à Salesforce Sandbox
 
@@ -61,7 +61,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 1. Selecione a sua instância de Salesforce Sandbox e, em seguida, selecione o **separador Provisioning.**
 
-1. Defina o **Modo de Aprovisionamento** como **Automático**.
+1. Defina o **Modo de Aprovisionamento** como **Automático** .
 
     ![O Screenshot mostra a página de Provisionamento de Sandbox Salesforce, com o modo de provisionamento definido para Automático e outros valores que pode definir.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
@@ -71,11 +71,11 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
    
     b. Na caixa de texto da **Palavra-passe Admin,** digite a palavra-passe para esta conta.
 
-1. Para obter o seu token de segurança Salesforce Sandbox, abra um novo separador e inscreva-se na mesma conta de administração salesforce Sandbox. No canto superior direito da página, clique no seu nome e, em seguida, clique em **Definições**.
+1. Para obter o seu token de segurança Salesforce Sandbox, abra um novo separador e inscreva-se na mesma conta de administração salesforce Sandbox. No canto superior direito da página, clique no seu nome e, em seguida, clique em **Definições** .
 
      ![A screenshot mostra o link Definições selecionado.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Permitir o fornecimento automático do utilizador")
 
-1. No painel de navegação à esquerda, clique em **My Personal Information** para expandir a secção relacionada e, em seguida, clique em Redefinir o **Token de Segurança**.
+1. No painel de navegação à esquerda, clique em **My Personal Information** para expandir a secção relacionada e, em seguida, clique em Redefinir o **Token de Segurança** .
   
     ![A screenshot mostra reset My Security Token selecionado a partir de My Personal Information.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Permitir o fornecimento automático do utilizador")
 
@@ -109,4 +109,4 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 * [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configurar o único sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Configurar o único sign-on](./salesforce-sandbox-tutorial.md)

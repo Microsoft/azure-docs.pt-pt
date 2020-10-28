@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987476"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677747"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -118,15 +118,15 @@ Pode configurar o ambiente OpenFrame utilizando vários padrões de implementaç
 
 1. Vá ao portal Azure <https://portal.azure.com> e inscreva-se na sua conta.
 
-2. Clique em **Máquinas virtuais**.
+2. Clique em **Máquinas virtuais** .
 
     ![Lista de recursos no portal Azure](media/vm-01.png)
 
-3. Clique em **Adicionar**.
+3. Clique em **Adicionar** .
 
     ![Adicionar opção no portal Azure](media/vm-02.png)
 
-4. À direita dos **Sistemas Operativos,** clique em **Mais**.
+4. À direita dos **Sistemas Operativos,** clique em **Mais** .
 
      ![Mais opção no portal Azure](media/vm-03.png)
 
@@ -134,9 +134,9 @@ Pode configurar o ambiente OpenFrame utilizando vários padrões de implementaç
 
      ![Opções do Sistema Operativo no portal Azure](media/vm-04.png)
 
-6. Nas **definições básicas,** introduza o **Nome**, **Nome de Utilizador**, Tipo de **Autenticação**, **Assinatura** (Pay-As-You-Go é o estilo de pagamento AWS) e grupo **de Recursos** (utilize um grupo TmaxSoft existente).
+6. Nas **definições básicas,** introduza o **Nome** , **Nome de Utilizador** , Tipo de **Autenticação** , **Assinatura** (Pay-As-You-Go é o estilo de pagamento AWS) e grupo **de Recursos** (utilize um grupo TmaxSoft existente).
 
-7. Quando estiver concluído (incluindo o par de chaves público/privado para **tipo de autenticação),** clique **em Enviar por isso**.
+7. Quando estiver concluído (incluindo o par de chaves público/privado para **tipo de autenticação),** clique **em Enviar por isso** .
 
 > [!NOTE]
 > Se utilizar uma chave pública SSH para o **tipo de autenticação,** consulte os passos na secção seguinte para gerar o par de chaves público/privado e, em seguida, retome os passos aqui.
@@ -164,9 +164,9 @@ Ao dar acesso a novos indivíduos ao VM:
 
 3.  Clique em **Generate** (Gerar).
 
-    ![Caixa de diálogo do gerador de chaves PuTTY](media/puttygen-02.png)
+    ![Screenshot que mostra a caixa de diálogo do gerador de chave PuTTY e realça o botão Gerar.](media/puttygen-02.png)
 
-4.  Após geração, guarde a chave pública e a chave privada. Cole o conteúdo da chave pública na secção **chave pública SSH** do painel de bases da **máquina virtual Create \> ** (indicado nos passos 6 e 7 na secção anterior).
+4.  Após geração, guarde a chave pública e a chave privada. Cole o conteúdo da chave pública na secção **chave pública SSH** do painel de bases da **máquina virtual Create \>** (indicado nos passos 6 e 7 na secção anterior).
 
     ![Caixa de diálogo do gerador de chaves PuTTY](media/puttygen-03.png)
 
@@ -189,17 +189,17 @@ Ao dar acesso a novos indivíduos ao VM:
 
 6. Abra o PuTTY.
 
-7. Para **o Nome do Anfitrião,** escreva o seu nome de utilizador e o endereço IP público que copiou. Por exemplo, **o nome de utilizador \@ publicip**.
+7. Para **o Nome do Anfitrião,** escreva o seu nome de utilizador e o endereço IP público que copiou. Por exemplo, **o nome de utilizador \@ publicip** .
 
-    ![Caixa de diálogo de configuração PuTTY](media/putty-01.png)
+    ![Screenshot que mostra a caixa de diálogo de configuração PuTTY e realça o campo Nome do Anfitrião (ou endereço IP).](media/putty-01.png)
 
-8. Na caixa **Categoria,** clique em **Connection \> SSH \> Auth**. Forneça o caminho para o seu ficheiro **chave privado.**
+8. Na caixa **Categoria,** clique em **Connection \> SSH \> Auth** . Forneça o caminho para o seu ficheiro **chave privado.**
 
     ![Caixa de diálogo de configuração PuTTY](media/putty-02.png)
 
 9. Clique **em Abrir** para lançar a janela PuTTY. Se for bem sucedido, está ligado ao seu novo CentOS VM em execução no Azure.
 
-10. Para iniciar sessão como utilizador de raiz, **escreva sudo bash**.
+10. Para iniciar sessão como utilizador de raiz, **escreva sudo bash** .
 
     ![Início de síman do utilizador raiz na janela de comando](media/putty-03.png)
 
@@ -1389,11 +1389,11 @@ Antes de instalar o JEUS, instale o pacote Apache Ant, que fornece as biblioteca
      > [!NOTE]
      > Se tiver algum problema com a segurança do porto, abra a porta 9736 ou desative a firewall `systemctl stop firewall` ().
 
-14. Para alterar o nome de anfitrião para o servidor1, clique em **Bloquear & Editar**e, em seguida, clique no **servidor1**. Na janela do Servidor, mude o nome de anfitrião da seguinte forma:
+14. Para alterar o nome de anfitrião para o servidor1, clique em **Bloquear & Editar** e, em seguida, clique no **servidor1** . Na janela do Servidor, mude o nome de anfitrião da seguinte forma:
 
-    1.  Mude **Nodename** para **ofdemo**.
+    1.  Mude **Nodename** para **ofdemo** .
     2.  Clique **em OK** no lado direito da janela.
-    3.  Clique **Em Aplicar alterações** no lado inferior esquerdo da janela e, para descrição, insira *a alteração do nome anfitrião*.
+    3.  Clique **Em Aplicar alterações** no lado inferior esquerdo da janela e, para descrição, insira *a alteração do nome anfitrião* .
 
     ![Ecrã JEUS WebAdmin](media/jeus-02.png)
 

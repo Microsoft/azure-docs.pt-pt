@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257321"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675638"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
@@ -38,7 +38,7 @@ A plataforma de identidade da Microsoft fornece **duas** opções para permitir 
 
 ![Aplicações de uma só página-auth](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2.0 fluxo implícito](./v2-oauth2-implicit-grant-flow.md). O fluxo de subvenção implícita permite que a aplicação obtenha **ID** e tokens de **acesso.** Ao contrário do fluxo de código de autorização, o fluxo de subvenção implícita não devolve um **token Refresh**.
+- [OAuth 2.0 fluxo implícito](./v2-oauth2-implicit-grant-flow.md). O fluxo de subvenção implícita permite que a aplicação obtenha **ID** e tokens de **acesso.** Ao contrário do fluxo de código de autorização, o fluxo de subvenção implícita não devolve um **token Refresh** .
 
 ![Aplicações de uma página única implícitas](./media/scenarios/spa-app.svg)
 

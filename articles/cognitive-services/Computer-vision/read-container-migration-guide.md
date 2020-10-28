@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973127"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676158"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
 
@@ -29,21 +29,11 @@ Se estiver a utilizar a versão 2 do recipiente OCR de Leitura de Visão de Comp
 
 ## <a name="api-changes"></a>Alterações na API
 
-Os recipientes Read v3.x utilizam a versão 3 da API de Visão Computacional e têm os seguintes pontos finais:
-
-#### <a name="version-31-preview"></a>[Versão 3.1-pré-visualização](#tab/version-3-1)
+O recipiente Read v3.1 utiliza a versão 3 da API de Visão Computacional e tem os seguintes pontos finais:
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 Consulte o [guia de migração da API da API com Visão De Computador v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) PARA obter informações detalhadas sobre a atualização das suas aplicações para utilizar a versão 3 da API de leitura baseada na nuvem. Esta informação aplica-se também ao contentor. Note que as operações de sincronização só são suportadas em contentores.
 
@@ -53,8 +43,7 @@ Os requisitos e recomendações baseiam-se em parâmetros de referência com um 
 
 |Contentor  |Mínimo | Recomendado  |
 |---------|---------|------|
-|Ler 3.0 pré-visualização     | 8 núcleos, memória de 16 GB         | 8 núcleos, memória de 24 GB
-|Ler 3.1 pré-visualização | 8 núcleos, memória de 16 GB         | 8 núcleos, memória de 24 GB
+|Ler 3.1 pré-visualização | 8 núcleos, memória de 16 GB         | 8 núcleos, memória de 24 GB |
 
 Cada núcleo deve ser pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 

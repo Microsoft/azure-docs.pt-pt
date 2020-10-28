@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510271"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675826"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos do histórico
 
@@ -52,7 +52,7 @@ Siga estes passos:
 
     ![Barra de ferramentas do portal Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Certifique-se de que o ambiente está definido para **PowerShell**. Por defeito, está definido para Bash.
+4. Certifique-se de que o ambiente está definido para **PowerShell** . Por defeito, está definido para Bash.
 
     ![Definição da barra de ferramentas PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -70,7 +70,7 @@ Siga estes passos:
 
 7. Execute o seguinte comando. Isto irá descarregar um script para o seu diretório de casa.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -84,7 +84,7 @@ Siga estes passos:
 
     ```
 
-9. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente**e Cadeia de **Conexão EventHub**.
+9. Siga as instruções no ecrã para capturar os valores para **API Endpoint,** **ID do Inquilino,** **Identificação de Clientes,** **Segredo do Cliente** e Cadeia de **Conexão EventHub** .
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Criar metadados de dispositivo ou sensor
@@ -96,10 +96,10 @@ Siga estes passos:
  > [!NOTE]
  > Como parceiro tem acesso apenas para ler, criar e atualizar os metadados; **A opção de eliminação é restrita ao parceiro.**
 
-- /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é ou um porta de entrada ou um nó.
-- /**Dispositivo**: O dispositivo corresponde a um dispositivo físico presente na exploração.
-- /**SensorModel**: SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
-- /**Sensor**: O sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
+- /**DeviceModel** : DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é ou um porta de entrada ou um nó.
+- /**Dispositivo** : O dispositivo corresponde a um dispositivo físico presente na exploração.
+- /**SensorModel** : SensorModel corresponde aos metadados do sensor, como o fabricante, o tipo de sensor, que é analógico ou digital, e a medição do sensor, como temperatura ambiente e pressão.
+- /**Sensor** : O sensor corresponde a um sensor físico que regista valores. Um sensor é normalmente ligado a um dispositivo com um ID do dispositivo.
 
 
 |        DeviceModel   |  Sugestões   |
@@ -192,8 +192,8 @@ access_token = token_response.get('access_token')
 
 Aqui estão os cabeçalhos de pedido mais comuns que devem ser especificados quando escruisse uma chamada da API para FarmBeats Datahub:
 
-- **Tipo de Conteúdo**: aplicação/json
-- **Autorização**: <Access-Token> portador
+- **Tipo de Conteúdo** : aplicação/json
+- **Autorização** : <Access-Token> portador
 - **Aceitar:** candidatura/json
 
 ### <a name="input-payload-to-create-metadata"></a>Carga útil de entrada para criar metadados
@@ -336,7 +336,7 @@ Agora que criou os dispositivos e sensores no FarmBeats, pode enviar as mensagen
 
 ### <a name="create-a-telemetry-client"></a>Criar um cliente de telemetria
 
-Tem de enviar a telemetria para a Azure Event Hubs para processamento. O Azure Event Hubs é um serviço que permite a ingestão de dados em tempo real (telemetria) a partir de dispositivos e aplicações conectados. Para enviar dados de telemetria para FarmBeats, crie um cliente que envie mensagens para um centro de eventos em FarmBeats. Para obter mais informações sobre o envio de telemetria, consulte [o Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Tem de enviar a telemetria para a Azure Event Hubs para processamento. O Azure Event Hubs é um serviço que permite a ingestão de dados em tempo real (telemetria) a partir de dispositivos e aplicações conectados. Para enviar dados de telemetria para FarmBeats, crie um cliente que envie mensagens para um centro de eventos em FarmBeats. Para obter mais informações sobre o envio de telemetria, consulte [o Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Envie uma mensagem de telemetria como cliente
 
@@ -431,7 +431,7 @@ Aqui está um exemplo de uma mensagem de telemetria:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível ver dados de telemetria depois de ingerir dados históricos/de streaming dos seus sensores
 
-**Sintoma**: Dispositivos ou sensores são implantados, e você criou os dispositivos/sensores em FarmBeats e ingeriu telemetria para o EventHub, mas você não pode obter ou ver dados de telemetria em FarmBeats.
+**Sintoma** : Dispositivos ou sensores são implantados, e você criou os dispositivos/sensores em FarmBeats e ingeriu telemetria para o EventHub, mas você não pode obter ou ver dados de telemetria em FarmBeats.
 
 **Ação corretiva:**
 

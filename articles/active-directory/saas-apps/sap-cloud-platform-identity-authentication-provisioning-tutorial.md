@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2a0c94dc4691c17eebe235055015a2853bacb4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273420"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677591"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Tutorial: Configurar a autenticação de identidade da plataforma de nuvem SAP para o fornecimento automático de utilizadores
 
@@ -50,14 +50,14 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deverá
 
 ## <a name="setup-sap-cloud-platform-identity-authentication-for-provisioning"></a>Configuração Instalação Instalação Cloud Platform I autenticação para provisionamento
 
-1. Inscreva-se na sua [consola de autenticação de identidade](https://sapmsftintegration.accounts.ondemand.com/admin)da plataforma SAP Cloud. Navegue para **utilizadores & Autorizações > Administradores**.
+1. Inscreva-se na sua [consola de autenticação de identidade](https://sapmsftintegration.accounts.ondemand.com/admin)da plataforma SAP Cloud. Navegue para **utilizadores & Autorizações > Administradores** .
 
     ![Consola de autenticação de identidade da plataforma de nuvem SAP](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
 2.  Prima o botão **+Adicionar** no painel do lado esquerdo para adicionar um novo administrador à lista. Escolha **o Sistema de Adição** e introduza o nome do sistema.   
 
 > [!NOTE]
-> O utilizador do administrador na autenticação de identidade da plataforma de nuvem SAP deve ser do tipo **Sistema**. A criação de um utilizador administrador normal pode levar a erros *não autorizados* durante o provisionamento.   
+> O utilizador do administrador na autenticação de identidade da plataforma de nuvem SAP deve ser do tipo **Sistema** . A criação de um utilizador administrador normal pode levar a erros *não autorizados* durante o provisionamento.   
 
 3.  Ao abrigo de Autorizações de Configuração, ligue o botão de alternação contra **gerir os utilizadores** e **gerir grupos.**
 
@@ -73,11 +73,11 @@ Antes de configurar a Autenticação de Identidade da Plataforma CLOUD SAP para 
 
 **Para adicionar a Autenticação de Identidade da Plataforma CLOUD SAP da galeria de aplicações Azure AD, execute os seguintes passos:**
 
-1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory**.
+1. No **[portal Azure,](https://portal.azure.com)** no painel de navegação à esquerda, selecione **Azure Ative Directory** .
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações** .
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -94,23 +94,23 @@ Antes de configurar a Autenticação de Identidade da Plataforma CLOUD SAP para 
 Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos na Autenticação de Identidade da Plataforma de Nuvem SAP com base nas atribuições de utilizador e/ou grupo em Azure AD.
 
 > [!TIP]
-> Pode também optar por ativar um único sinal de autenticação baseado em SAML para a autenticação de identidade da plataforma SAP Cloud, seguindo as instruções fornecidas no [tutorial de autenticação de identidade única da plataforma SAP Cloud.](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
+> Pode também optar por ativar um único sinal de autenticação baseado em SAML para a autenticação de identidade da plataforma SAP Cloud, seguindo as instruções fornecidas no [tutorial de autenticação de identidade única da plataforma SAP Cloud.](./sap-hana-cloud-platform-identity-authentication-tutorial.md) O único sinal pode ser configurado independentemente do fornecimento automático do utilizador, embora estas duas funcionalidades se elogiem mutuamente
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Autenticação de Identidade da Plataforma de Nuvem SAP em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **A Autenticação de Identidade da Plataforma de Nuvem SAP**.
+2. Na lista de aplicações, selecione **A Autenticação de Identidade da Plataforma de Nuvem SAP** .
 
     ![O link de autenticação de identidade da plataforma de nuvem SAP na lista de aplicações](common/all-applications.png)
 
-3. Selecione o separador **Aprovisionamento**.
+3. Selecione o separador **Aprovisionamento** .
 
     ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
-4. Defina o **Modo de Aprovisionamento** como **Automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático** .
 
     ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
@@ -118,13 +118,13 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![INQUILINO URL + Token](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
-6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
+6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha** .
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Guardar**.
+7. Clique em **Guardar** .
 
-8. Na secção **mapeamentos,** selecione **Synchronize Azure Ative Directory Users to SAP Cloud Platform Authentication**.
+8. Na secção **mapeamentos,** selecione **Synchronize Azure Ative Directory Users to SAP Cloud Platform Authentication** .
 
     ![Mapeamentos de autenticação de identidade da plataforma de nuvem SAP](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -142,7 +142,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para aprovisionar, clique em **Guardar**.
+13. Quando estiver pronto para aprovisionar, clique em **Guardar** .
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
@@ -162,4 +162,3 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
-

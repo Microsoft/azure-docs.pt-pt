@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5499402e94cad8673da597afd68571b77047192a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310106"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677694"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python)
 
 A energia eólica é uma fonte de energia alternativa para os combustíveis fósseis combaterem as alterações climáticas. Como o vento não é consistente por natureza, os operadores de energia eólica precisam de construir modelos de machine learning (ML) para prever a capacidade de energia eólica. Esta previsão é necessária para satisfazer a procura de eletricidade e garantir a estabilidade da rede. Neste tutorial, passamos pela forma como os dados da previsão meteorológica do Azure Maps são combinados com dados de demonstração para leituras meteorológicas. Os dados da previsão meteorológica são solicitados ligando para o serviço Azure Maps Weather.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Trabalhe com ficheiros de dados em [Cadernos Azure](https://docs.microsoft.com/azure/notebooks) na nuvem.
@@ -41,7 +41,7 @@ Para completar este tutorial, primeiro precisa:
 
 Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
 
-Para se familiarizar com os cadernos Azure e saber como começar, siga as instruções [Criar um Caderno Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
+Para se familiarizar com os cadernos Azure e saber como começar, siga as instruções [Criar um Caderno Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebooks-project).
 
 > [!Note]
 > O arquivo de caderno Jupyter para este projeto pode ser descarregado do [repositório de cadernos Weather Maps Jupyter.](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data)

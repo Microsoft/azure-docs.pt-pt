@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 8aeb44c6cbcb18bcd18408142bdfdeccffbbe055
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 96f2c96e7770ec7acc690a1d057fef16db5b88ed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Tutorial: Integração do Diretório Ativo Azure com Degreed
 
@@ -56,14 +56,14 @@ Para configurar a integração de Degreed em AD Azure, você precisa adicionar D
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Adicionar da secção **da galeria,** **escreva Degreed** na caixa de pesquisa.
 1. Selecione **Degreed** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-Nesta secção, você configura e testa Azure AD um único sign-on com Degreed com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, você configura e testa Azure AD um único sign-on com Degreed com base em um utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Degreed.
 
 Para configurar e testar o Azure AD com Degreed, você precisa completar os seguintes blocos de construção:
@@ -79,8 +79,8 @@ Para configurar e testar o Azure AD com Degreed, você precisa completar os segu
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Degreed,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
-1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Degreed,** encontre a secção **Gerir** e selecione um único sinal de **sação** .
+1. Na página de método **de inscrição** única, selecione **SAML** .
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -116,21 +116,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste chamado B.Simon no portal Azure.
 
-1. No painel esquerdo do portal Azure, selecione **O Diretório Ativo Azure,** selecione **Utilizadores,** e, em seguida, selecione **Todos os utilizadores**.
-1. Na parte superior do ecrã, selecione **Novo utilizador**.
+1. No painel esquerdo do portal Azure, selecione **O Diretório Ativo Azure,** selecione **Utilizadores,** e, em seguida, selecione **Todos os utilizadores** .
+1. Na parte superior do ecrã, selecione **Novo utilizador** .
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome,** insira **B.Simon**.  
+   1. No campo **Nome,** insira **B.Simon** .  
    1. No campo **nome do utilizador,** insira `<username>@<companydomain>.<extension>` . Por exemplo: `B.Simon@contoso.com`.
    1. Selecione a caixa de verificação de **palavra-passe Show** e, em seguida, tome nota do valor que é apresentado na caixa **palavra-passe.**
-   1. Selecione **Criar**.
+   1. Selecione **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Degreed.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Degreed**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Degreed** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -144,7 +144,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="configure-degreed-sso"></a>Configurar SSO acordado
 
-Para configurar um único sign-on no lado **Degreed,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a [equipa de suporte Degreed](mailto:admin@degreed.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único sign-on no lado **Degreed,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a [equipa de suporte Degreed](mailto:sso@degreed.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ### <a name="create-degreed-test-user"></a>Criar utilizador de teste desacordo
 
@@ -153,7 +153,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Degreed
 Não há nenhum item de ação para si nesta secção. Um novo utilizador é criado durante uma tentativa de aceder a Degreed se ainda não existir.
 
 > [!NOTE]
-> Se precisar de criar um utilizador manualmente, tem de contactar a [equipa de suporte Degreed](mailto:admin@degreed.com).
+> Se precisar de criar um utilizador manualmente, tem de contactar a [equipa de suporte Degreed](mailto:sso@degreed.com).
 
 
 ## <a name="test-sso"></a>Teste SSO

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 5c87344c4cd179beae6502901a23b2dace6591a7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169421"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677229"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -45,7 +45,7 @@ Pode utilizar a auditoria da Base de Dados SQL para:
 ### <a name="auditing-limitations"></a>Limitações de auditoria
 
 - **O armazenamento premium** não é suportado **atualmente.**
-- **O espaço hierárquico** para **a conta de armazenamento de Azure Data Lake Gen2** **não**é suportado atualmente.
+- **O espaço hierárquico** para **a conta de armazenamento de Azure Data Lake Gen2** **não** é suportado atualmente.
 - Não é apoiado o financiamento da auditoria a um **Azure Synapse** pausado. Para permitir a auditoria, retomar a Azure Synapse.
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir a política de auditoria ao nível do servidor vs. nível de base de dados
@@ -54,14 +54,14 @@ Uma política de auditoria pode ser definida para uma base de dados específica 
 
 - Uma política de servidor aplica-se a todas as bases de dados existentes e recém-criadas no servidor.
 
-- Se *a auditoria do servidor estiver ativada,* *aplica-se sempre à base de dados*. A base de dados será auditada, independentemente das definições de auditoria da base de dados.
+- Se *a auditoria do servidor estiver ativada,* *aplica-se sempre à base de dados* . A base de dados será auditada, independentemente das definições de auditoria da base de dados.
 
 - Ativar a auditoria na base de dados, além de a permitir no servidor, *não* substitui nem altera nenhuma das definições da auditoria do servidor. Ambas as auditorias existirão lado a lado. Por outras palavras, a base de dados é auditada duas vezes em paralelo; uma vez pela política do servidor e uma vez pela política de base de dados.
 
    > [!NOTE]
    > Deve evitar permitir a auditoria do servidor e a auditoria de blob de base de dados em conjunto, a menos que:
     >
-    > - Pretende utilizar uma *conta de armazenamento*diferente, *período de retenção* ou *log analytics workspace* para uma base de dados específica.
+    > - Pretende utilizar uma *conta de armazenamento* diferente, *período de retenção* ou *log analytics workspace* para uma base de dados específica.
     > - Pretende auditar tipos ou categorias de eventos para uma base de dados específica que difere do resto das bases de dados do servidor. Por exemplo, pode ter inserções de mesa que precisam de ser auditadas apenas para uma base de dados específica.
    >
    > Caso contrário, recomendamos que permita apenas uma auditoria ao nível do servidor e deixe a auditoria ao nível da base de dados desativada para todas as bases de dados.
@@ -80,7 +80,7 @@ A Azure SQL Database e a Azure Synapse Audit armazenam 4000 caracteres de dados 
 A secção seguinte descreve a configuração da auditoria utilizando o portal Azure.
 
   > [!NOTE]
-  > Não é possível permitir a auditoria a uma piscina SQL de Sinaapse pausada. Para permitir a auditoria, desempasse a piscina Synapse SQL. Saiba mais sobre [a piscina Synapse SQL.](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool)
+  > Não é possível permitir a auditoria a uma piscina SQL de Sinaapse pausada. Para permitir a auditoria, desempasse a piscina Synapse SQL. Saiba mais sobre [a piscina Synapse SQL.](../../synapse-analytics/sql/best-practices-sql-pool.md)
 
 1. Aceda ao [portal do Azure](https://portal.azure.com).
 2. Navegue para **a Auditoria** sob o título de Segurança na sua base **de dados SQL** ou painel **de servidor SQL.**
@@ -88,7 +88,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 
     ![Screenshot que mostra o link de definições do servidor Ver realçado na página de auditoria da base de dados.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
-4. Se preferir ativar a auditoria ao nível da base de dados, **altere a Auditoria** para **ON**. Se a auditoria do servidor estiver ativada, a auditoria configurada pela base de dados existirá lado a lado com a auditoria do servidor.
+4. Se preferir ativar a auditoria ao nível da base de dados, **altere a Auditoria** para **ON** . Se a auditoria do servidor estiver ativada, a auditoria configurada pela base de dados existirá lado a lado com a auditoria do servidor.
 
 5. Tem várias opções para configurar onde os registos de auditoria serão escritos. Pode escrever registos numa conta de armazenamento Azure, num espaço de trabalho Log Analytics para consumo por registos Azure Monitor (pré-visualização) ou para o centro de eventos para consumo utilizando o centro de eventos (pré-visualização). Pode configurar qualquer combinação destas opções, e os registos de auditoria serão escritos a cada um.
   
@@ -98,7 +98,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 
 A auditoria das operações de Suporte do Microsoft (Preview) para O Azure SQL Server permite-lhe auditar as operações dos engenheiros de suporte da Microsoft quando precisam de aceder ao seu servidor durante um pedido de suporte. A utilização desta capacidade, juntamente com a sua auditoria, permite uma maior transparência na sua força de trabalho e permite a deteção de anomalias, visualização de tendências e prevenção de perda de dados.
 
-Para ativar a auditoria das operações de suporte do Microsoft (Preview) navegue para **a Auditoria** sob a rubrica de Segurança no painel de **servidores Azure SQL** e **altere a auditoria das operações de suporte da Microsoft (Preview)** para **ON**.
+Para ativar a auditoria das operações de suporte do Microsoft (Preview) navegue para **a Auditoria** sob a rubrica de Segurança no painel de **servidores Azure SQL** e **altere a auditoria das operações de suporte da Microsoft (Preview)** para **ON** .
 
   > [!IMPORTANT]
   > A auditoria das operações de suporte da Microsoft (Preview) não suporta o destino da conta de armazenamento. Para ativar a capacidade, um espaço de trabalho log Analytics ou um destino Event Hub tem de ser configurado.
@@ -107,7 +107,7 @@ Para ativar a auditoria das operações de suporte do Microsoft (Preview) navegu
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoria ao destino de armazenamento
 
-Para configurar registos de auditoria de escrita numa conta de armazenamento, selecione **Storage** e abra **detalhes de Armazenamento**. Selecione a conta de armazenamento Azure onde os registos serão guardados e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os registos mais antigos do que o período de retenção são eliminados.
+Para configurar registos de auditoria de escrita numa conta de armazenamento, selecione **Storage** e abra **detalhes de Armazenamento** . Selecione a conta de armazenamento Azure onde os registos serão guardados e, em seguida, selecione o período de retenção. Em seguida, clique em **OK** . Os registos mais antigos do que o período de retenção são eliminados.
 
 - O valor predefinido para o período de retenção é 0 (retenção ilimitada). Pode alterar este valor movendo o slider **de Retenção (Dias)** nas **definições de Armazenamento** ao configurar a conta de armazenamento para auditoria.
   - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, note que a retenção só se aplicará aos registos escritos após a alteração do valor da retenção (os registos escritos durante o período em que a retenção foi definida para ilimitada são preservados, mesmo após a retenção ser ativada).
@@ -117,25 +117,25 @@ Para configurar registos de auditoria de escrita numa conta de armazenamento, se
 #### <a name="remarks"></a>Observações
 
 - Os registos de auditoria são escritos para **Append Blobs** num armazenamento Azure Blob na sua subscrição Azure
-- Os registos de auditoria estão em formato .xel e podem ser abertos utilizando [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
-- Para configurar uma loja de registos imutável para os eventos de auditoria ao nível do servidor ou da base de dados, siga as [instruções fornecidas pelo Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Certifique-se de que selecionou **Deixe os apêndices adicionais** quando configurar o armazenamento de bolhas imutáveis.
+- Os registos de auditoria estão em formato .xel e podem ser abertos utilizando [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- Para configurar uma loja de registos imutável para os eventos de auditoria ao nível do servidor ou da base de dados, siga as [instruções fornecidas pelo Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Certifique-se de que selecionou **Deixe os apêndices adicionais** quando configurar o armazenamento de bolhas imutáveis.
 - Pode escrever registos de auditoria numa conta de Armazenamento Azure por trás de um VNet ou firewall. Para obter instruções específicas, [escreva a auditoria para uma conta de armazenamento por trás do VNet e da firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Depois de configurar as definições de auditoria, pode ligar a nova funcionalidade de deteção de ameaças e configurar e-mails para receber alertas de segurança. Quando utiliza a deteção de ameaças, recebe alertas proactivos sobre atividades anómalas de bases de dados que podem indicar potenciais ameaças à segurança. Para obter mais informações, consulte [Começar com a deteção de ameaças.](threat-detection-overview.md)
-- Para obter mais informações sobre o formato de registo, hierarquia da pasta de armazenamento e convenções de nomeação, consulte a [Referência do Formato do Registo de Auditoria blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Para obter mais informações sobre o formato de registo, hierarquia da pasta de armazenamento e convenções de nomeação, consulte a [Referência do Formato do Registo de Auditoria blob](./audit-log-format.md).
 - Ao utilizar a autenticação AD AD Azure, os registos de logins falhados *não* aparecerão no registo de auditoria SQL. Para visualizar registos de auditoria de login falhados, é necessário visitar o [portal Azure Ative Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista detalhes destes eventos.
 - A auditoria em [Réplicas Só de Leitura](read-scale-out.md) é automaticamente ativada. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](audit-log-format.md).
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoria ao destino Log Analytics
   
-Para configurar os registos de auditoria de escrita para um espaço de trabalho do Log Analytics, selecione **Log Analytics (Preview)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho Log Analytics onde os registos serão escritos e, em seguida, clique em **OK**.
+Para configurar os registos de auditoria de escrita para um espaço de trabalho do Log Analytics, selecione **Log Analytics (Preview)** e abra **detalhes do Log Analytics** . Selecione ou crie o espaço de trabalho Log Analytics onde os registos serão escritos e, em seguida, clique em **OK** .
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Para obter mais detalhes sobre o espaço de trabalho do Azure Monitor Log Analytics, consulte [a implementação de Registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+Para obter mais detalhes sobre o espaço de trabalho do Azure Monitor Log Analytics, consulte [a implementação de Registos do Monitor Azure](../../azure-monitor/platform/design-logs-deployment.md)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria ao destino Event Hub
 
-Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub (Preview)** e abra detalhes do **Event Hub**. Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
+Para configurar registos de auditoria de escrita para um centro de eventos, selecione **Event Hub (Preview)** e abra detalhes do **Event Hub** . Selecione o centro de eventos onde os registos serão escritos e, em seguida, clique em **OK** . Certifique-se de que o centro de eventos está na mesma região que a sua base de dados e servidor.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -161,7 +161,7 @@ Se optar por escrever registos de auditoria para os registos do Azure Monitor:
 
     ![Insights de Segurança de Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
-- Em alternativa, também pode aceder aos registos de auditoria da lâmina Log Analytics. Abra o seu espaço de trabalho Log Analytics e na secção **Geral,** clique em **Registars**. Pode começar com uma consulta simples, como: *pesquisar "SQLSecurityAuditEvents"* para ver os registos de auditoria.
+- Em alternativa, também pode aceder aos registos de auditoria da lâmina Log Analytics. Abra o seu espaço de trabalho Log Analytics e na secção **Geral,** clique em **Registars** . Pode começar com uma consulta simples, como: *pesquisar "SQLSecurityAuditEvents"* para ver os registos de auditoria.
     A partir daqui, também pode utilizar [registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)  para executar pesquisas avançadas nos dados do seu registo de auditoria. Os registos do Azure Monitor dão-lhe informações operacionais em tempo real utilizando painéis de pesquisa integrados e dashboards personalizados para analisar facilmente milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o Azure Monitor regista linguagem e comandos de pesquisa, consulte a referência de pesquisa de registos do [Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 Se optar por escrever registos de auditoria ao Event Hub:
@@ -171,7 +171,7 @@ Se optar por escrever registos de auditoria ao Event Hub:
 
 Se optar por escrever registos de auditoria numa conta de armazenamento Azure, existem vários métodos que pode utilizar para visualizar os registos:
 
-- Os registos de auditoria são agregados na conta que escolheu durante a configuração. Pode explorar registos de auditoria utilizando uma ferramenta como [o Azure Storage Explorer.](https://storageexplorer.com/) No armazenamento Azure, os registos de auditoria são guardados como uma coleção de ficheiros blob dentro de um recipiente chamado **sqldbauditlogs**. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](https://go.microsoft.com/fwlink/?linkid=829599).
+- Os registos de auditoria são agregados na conta que escolheu durante a configuração. Pode explorar registos de auditoria utilizando uma ferramenta como [o Azure Storage Explorer.](https://storageexplorer.com/) No armazenamento Azure, os registos de auditoria são guardados como uma coleção de ficheiros blob dentro de um recipiente chamado **sqldbauditlogs** . Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](./audit-log-format.md).
 
 - Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da página de **Auditoria** da base de **dados,** clique em Ver registos de auditoria .
 
@@ -180,7 +180,7 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
     **Os registos** de auditoria abrem, a partir dos quais poderá ver os registos.
 
   - Pode ver datas específicas clicando em **Filtro** no topo da página de registos de **auditoria.**
-  - Pode alternar entre os registos de auditoria que foram criados pela *política de auditoria* do servidor e a política de auditoria da base de *dados* através da toggling **Audit Source**.
+  - Pode alternar entre os registos de auditoria que foram criados pela *política de auditoria* do servidor e a política de auditoria da base de *dados* através da toggling **Audit Source** .
   - Só pode ver os registos de auditoria relacionados com a injeção DE SQL verificando apenas os registos de auditoria do Show para a caixa de verificação **de injeções SQL.**
 
        ![Screenshot que mostra as opções para visualizar os registos de auditoria.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
@@ -188,7 +188,7 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
 - Utilize a função do sistema **sys.fn_get_audit_file** (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **ficheiros de auditoria de fusão** no SQL Server Management Studio (a começar pelo SSMS 17):
-    1. A partir do menu SSMS, selecione **Ficheiros**de Auditoria de Fusão  >  **Aberta**  >  **de Ficheiros.**
+    1. A partir do menu SSMS, selecione **Ficheiros** de Auditoria de Fusão  >  **Aberta**  >  **de Ficheiros.**
 
         ![Screenshot que mostra a opção do menu De Ficheiros de Auditoria de Fusão.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. Abre a caixa de diálogo **'Add Audit Files'.** Selecione uma das opções **Add** para escolher se funde ficheiros de auditoria a partir de um disco local ou os importe do Azure Storage. É-lhe exigido que forneça os seus dados de Armazenamento Azure e a chave da conta.
@@ -214,11 +214,11 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
 
 ### <a name="auditing-geo-replicated-databases"></a>Auditoria de bases de dados geo-replicadas
 
-Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados primária, a base de dados secundária terá uma política de auditoria idêntica. Também é possível configurar a auditoria na base de dados secundária, permitindo a auditoria no **servidor secundário**, independentemente da base de dados primária.
+Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados primária, a base de dados secundária terá uma política de auditoria idêntica. Também é possível configurar a auditoria na base de dados secundária, permitindo a auditoria no **servidor secundário** , independentemente da base de dados primária.
 
-- Nível do servidor **(recomendado**): Ligue a auditoria tanto no **servidor primário** como no **servidor secundário** - as bases de dados primárias e secundárias serão auditadas independentemente com base na respetiva política de nível do servidor.
+- Nível do servidor **(recomendado** ): Ligue a auditoria tanto no **servidor primário** como no **servidor secundário** - as bases de dados primárias e secundárias serão auditadas independentemente com base na respetiva política de nível do servidor.
 - Nível de base de dados: A auditoria ao nível da base de dados para bases de dados secundárias só pode ser configurada a partir das definições de auditoria da base de dados primária.
-  - A auditoria deve ser ativada na *própria base de dados primária*, e não no servidor.
+  - A auditoria deve ser ativada na *própria base de dados primária* , e não no servidor.
   - Após a auditoria ser ativada na base de dados primária, também será ativada na base de dados secundária.
 
     > [!IMPORTANT]
@@ -228,20 +228,20 @@ Com bases de dados geo-replicadas, quando permitir a auditoria na base de dados 
 
 Na produção, é provável que refresque as chaves de armazenamento periodicamente. Ao escrever registos de auditoria para o armazenamento do Azure, tem de ressatar a sua política de auditoria ao refrescar as suas chaves. O processo é o seguinte:
 
-1. Detalhes **de armazenamento abertos**. Na caixa chave de acesso ao **armazenamento,** selecione **Secondary**, e clique **em OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
+1. Detalhes **de armazenamento abertos** . Na caixa chave de acesso ao **armazenamento,** selecione **Secondary** , e clique **em OK** . Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
 
     ![Screenshot que mostra o processo de seleção de uma chave de acesso de armazenamento secundário.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Vá à página de configuração de armazenamento e regenera a chave de acesso primário.
 
     ![Painel de navegação](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)
-3. Volte para a página de configuração de auditoria, altere a chave de acesso ao armazenamento de secundário para primário e, em seguida, clique **em OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
+3. Volte para a página de configuração de auditoria, altere a chave de acesso ao armazenamento de secundário para primário e, em seguida, clique **em OK** . Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regenerar a chave de acesso secundário (em preparação para o ciclo de atualização da próxima chave).
 
 ## <a name="manage-azure-sql-database-auditing"></a><a id="manage-auditing"></a>Gerir a auditoria da Base de Dados Azure SQL
 
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
-**Cmdlets PowerShell (incluindo suporte à cláusula WHERE para filtragem adicional)**:
+**Cmdlets PowerShell (incluindo suporte à cláusula WHERE para filtragem adicional)** :
 
 - [Criar ou atualizar a política de auditoria da base de dados (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Criar ou atualizar a política de auditoria do servidor (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457996"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676129"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento do Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>Out 2020
+
+| Melhorias de serviços | Detalhes |
+| --- | --- |
+|**Funções de Table-Valued inline T-SQL (pré-visualização)**|Com esta versão, pode agora criar funções de valor de tabela com Transact-SQL e consultar os seus resultados como se fosse uma tabela. Esta funcionalidade encontra-se atualmente em Pré-Visualização e será suportada na ferramenta em GA. Para obter mais informações, consulte [CREATE FUNCTION (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**Comando MERGE (pré-visualização)**|Pode agora executar inserir, atualizar ou apagar operações numa tabela alvo a partir dos resultados de uma tabela de origem. Por exemplo, pode sincronizar duas tabelas inserindo, atualizando ou eliminando linhas numa tabela com base nas diferenças encontradas na outra tabela.  Verifique [a MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) para obter mais detalhes.|
 
 ## <a name="aug-2020"></a>Agosto 2020
 
@@ -173,7 +180,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 
 | Melhorias da documentação | Detalhes |
 | --- | --- |
-|nenhuma | |
+|nenhum | |
 | | |
 
 ## <a name="december-2018"></a>Dezembro de 2018
