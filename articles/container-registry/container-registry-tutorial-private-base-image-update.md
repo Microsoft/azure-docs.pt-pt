@@ -3,13 +3,13 @@ title: Tutorial - Trigger imagem construída por atualização de imagem base pr
 description: Neste tutorial, configura uma Tarefa de Registo de Contentores Azure para ativar automaticamente a imagem do contentor na nuvem quando uma imagem base em outro registo privado do contentor Azure é atualizada.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739557"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatizar a imagem do contentor quando uma imagem base é atualizada em outro registo privado de contentores 
 
@@ -78,7 +78,7 @@ Neste tutorial, a sua tarefa ACR constrói e empurra uma imagem de recipiente de
 
 ## <a name="build-the-base-image"></a>Compilar a imagem de base
 
-Comece por construir a imagem base com uma *tarefa rápida*ACR Tasks, utilizando [a construção az acr][az-acr-build]. Tal como explicado no [primeiro tutorial](container-registry-tutorial-quick-task.md) da série, este processo não só compila a imagem como a envia para o seu registo de contentor, caso a compilação seja concluída com êxito. Neste exemplo, a imagem é empurrada para o registo de imagem base.
+Comece por construir a imagem base com uma *tarefa rápida* ACR Tasks, utilizando [a construção az acr][az-acr-build]. Tal como explicado no [primeiro tutorial](container-registry-tutorial-quick-task.md) da série, este processo não só compila a imagem como a envia para o seu registo de contentor, caso a compilação seja concluída com êxito. Neste exemplo, a imagem é empurrada para o registo de imagem base.
 
 ```azurecli-interactive
 az acr build --registry $BASE_ACR --image baseimages/node:9-alpine --file Dockerfile-base .

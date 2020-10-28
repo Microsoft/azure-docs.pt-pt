@@ -3,13 +3,13 @@ title: Tutorial - Tarefa ACR em várias etapas
 description: Neste tutorial, aprende-se a configurar uma Tarefa de Registo de Contentores Azure para acionar automaticamente um fluxo de trabalho em várias etapas para construir, executar e empurrar imagens de contentores na nuvem quando se compromete código fonte a um repositório de Git.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402312"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739602"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contentor em várias etapas na nuvem quando cometer código fonte
 
@@ -316,7 +316,7 @@ Esta tarefa em várias etapas faz o seguinte:
 
 ### <a name="task-command"></a>Comando de tarefa
 
-Utilizando as variáveis ambiente shell definidas anteriormente, crie a tarefa executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. Substitua o nome do seu registo por *ptocontainerregistrydate*.
+Utilizando as variáveis ambiente shell definidas anteriormente, crie a tarefa executando a seguinte [tarefa az acr criar][az-acr-task-create] comando. Substitua o nome do seu registo por *ptocontainerregistrydate* .
 
 ```azurecli-interactive
 az acr task create \

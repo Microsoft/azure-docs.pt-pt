@@ -13,6 +13,7 @@
     - name: Criar um perfil do Gestor de Tráfego - CLI do Azure
       href: quickstart-create-traffic-manager-profile-cli.md
     - name: Criar um perfil do Gestor de Tráfego - Modelo do ARM
+      displayName: Resource Manager
       href: quickstart-create-traffic-manager-profile-template.md
   expanded: true
 - name: Tutoriais

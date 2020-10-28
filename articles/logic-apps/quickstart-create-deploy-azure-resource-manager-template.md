@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078126"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739336"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Quickstart: Criar e implementar um fluxo de trabalho de aplicações lógicas usando um modelo ARM
 
@@ -20,7 +20,7 @@ ms.locfileid: "87078126"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https:/
 
 Este quickstart utiliza o modelo [**de aplicação lógica Create,**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) que pode encontrar na [Galeria de Modelos Azure Quickstart,](https://azure.microsoft.com/resources/templates) mas é muito tempo para ser mostrado aqui. Em vez disso, pode rever o ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) do modelo de arranque rápido na galeria de modelos.
 
-O modelo de arranque rápido cria um fluxo de trabalho de aplicações lógicas que utiliza o gatilho Recorrence, que está programado para ser executado a cada hora, e uma [ação *incorporada* ](../connectors/apis-list.md#connector-types)HTTP , que chama um URL que devolve o estado de Azure. Uma ação incorporada é nativa da plataforma Azure Logic Apps.
+O modelo de arranque rápido cria um fluxo de trabalho de aplicações lógicas que utiliza o gatilho Recorrence, que está programado para ser executado a cada hora, e uma [ação *incorporada*](../connectors/apis-list.md#connector-types)HTTP , que chama um URL que devolve o estado de Azure. Uma ação incorporada é nativa da plataforma Azure Logic Apps.
 
 Este modelo cria o seguinte recurso Azure:
 
@@ -78,7 +78,7 @@ Siga a opção que pretende utilizar para implementar o modelo de arranque rápi
 
    ![Fornecer informações para o modelo de arranque rápido](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Quando terminar, selecione **Review + create**.
+1. Quando terminar, selecione **Review + create** .
 
 1. Continue com os passos em [Revisão dos recursos mobilizados.](#review-deployed-resources)
 
@@ -234,7 +234,7 @@ Para visualizar a aplicação lógica, pode utilizar o portal Azure, executar um
 
 1. Quando o Logic App Designer abrir, reveja a aplicação lógica criada pelo modelo quickstart.
 
-1. Para testar a aplicação lógica, na barra de ferramentas do designer, selecione **Run**.
+1. Para testar a aplicação lógica, na barra de ferramentas do designer, selecione **Run** .
 
 ### <a name="cli"></a>[CLI](#tab/azure-cli)
 
@@ -280,7 +280,7 @@ Para obter mais informações, consulte [As Aplicações Lógicas REST API: Work
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia continuar a trabalhar com os acessos rápidos e tutoriais subsequentes, talvez queira manter estes recursos. Quando já não precisar da aplicação lógica, elimine o grupo de recursos utilizando o portal Azure CLI, Azure PowerShell ou a API de Gestão de Recursos.
 
@@ -288,7 +288,7 @@ Se planeia continuar a trabalhar com os acessos rápidos e tutoriais subsequente
 
 1. No portal Azure, encontre e selecione o grupo de recursos que pretende eliminar, que está `Check-Azure-Status-RG` neste exemplo.
 
-1. No menu do grupo de recursos, selecione **Overview** se ainda não estiver selecionado. Na página geral, selecione **Eliminar o grupo de recursos**.
+1. No menu do grupo de recursos, selecione **Overview** se ainda não estiver selecionado. Na página geral, selecione **Eliminar o grupo de recursos** .
 
 1. Para confirmar, insira o nome para o grupo de recursos.
 

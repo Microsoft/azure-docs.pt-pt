@@ -1,7 +1,6 @@
 ---
-title: Referência de dados de monitorização / Microsoft Docs
-titleSuffix: Azure Machine Learning
-description: Conheça os dados e recursos recolhidos para a Azure Machine Learning e disponível no Azure Monitor. O Azure Monitor recolhe e sobrea parece dados sobre o seu espaço de trabalho de aprendizagem de máquinas Azure, e permite-lhe visualizar métricas, definir alertas e analisar dados registados.
+title: Monitor Azure Machine Learning referência de dados Microsoft Docs
+description: Material de referência importante necessário quando monitoriza a aprendizagem automática do Azure. Conheça os dados e recursos recolhidos para a Azure Machine Learning e disponível no Azure Monitor. O Azure Monitor recolhe e sobrea parece dados sobre o seu espaço de trabalho de aprendizagem de máquinas Azure, e permite-lhe visualizar métricas, definir alertas e analisar dados registados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +8,127 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 04/27/2020
-ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650597"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739141"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitorização de machine learning Azure
+# <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
 Conheça os dados e recursos recolhidos pelo Azure Monitor a partir do seu espaço de trabalho Azure Machine Learning. Consulte [a Monitorização da Aprendizagem automática Azure](monitor-azure-machine-learning.md) para obter detalhes sobre a recolha e análise de dados de monitorização.
 
+## <a name="metrics"></a>Métricas
+
+Esta secção lista todas as métricas da plataforma recolhidas automaticamente para a Azure Machine Learning. O fornecedor de recursos para estas métricas é [o Microsoft.MachineLearningServices/workspaces](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+
+**Modelo**
+
+| Métrica | Unidade | Descrição |
+| ----- | ----- | ----- |
+| A implementação do modelo falhou | de palavras | O número de implementações de modelos que falharam. |
+| Implementação de modelos iniciado | de palavras | O número de implementações de modelos começou. |
+| Implementação de modelos conseguiu | de palavras | O número de implementações de modelos que conseguiram. |
+| Registo modelo falhou | de palavras | O número de registos de modelos que falharam. |
+| Registo modelo conseguiu | de palavras | O número de registos de modelos que se sucederam. |
+
+**Quota**
+
+A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
+
+| Métrica | Unidade | Descrição |
+| ----- | ----- | ----- |
+| Núcleos ativos | de palavras | O número de núcleos de computação ativo. |
+| Nódes ativos | de palavras | O número de nós ativos. |
+| Núcleos ociosos | de palavras | O número de núcleos de computação ocioso. |
+| Nódoas ociosas | de palavras | O número de nós de computação ocioso. |
+| Deixando núcleos | de palavras | O número de núcleos de saída. |
+| Deixando os nódoas | de palavras | O número de nós de saída. |
+| Núcleos preemptidos | de palavras | O número de núcleos preempted. |
+| Nódoas presas | de palavras | O número de nós preempted. |
+| Percentagem de utilização de quotas | Percentagem | A percentagem de quota utilizada. |
+| Total de núcleos | de palavras | Os núcleos totais. |
+| Nódoas totais | de palavras | Os nós totais. |
+| Núcleos inutilizáveis | de palavras | O número de núcleos inutilizáveis. |
+| Nódes inutilizáveis | de palavras | O número de nós inutilizáveis. |
+
+**Recurso**
+
+| Métrica | Unidade | Descrição |
+| ----- | ----- | ----- |
+| CpuUtilização | Percentagem | Quanto por cento do CPU foi usado para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a funcionar num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
+| GpuUtilização | Percentagem | Quanto percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
+
+**Executar**
+
+Informação sobre treinos.
+
+| Métrica | Unidade | Descrição |
+| ----- | ----- | ----- |
+| Execuções concluídas | de palavras | O número de execuções completas. |
+| Corridas falhadas | de palavras | O número de corridas falhadas. |
+| Começou a correr | de palavras | O número de corridas iniciadas. |
+
+## <a name="metric-dimensions"></a>Dimensões métricas
+
+Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)
+
+A Azure Machine Learning tem as seguintes dimensões associadas às suas métricas.
+
+| Dimensão | Descrição |
+| ---- | ---- |
+| Nome do Cluster | O nome da instância computacional. Disponível para todas as métricas de quota. |
+| Nome da família VM | O nome da família VM usado pelo aglomerado. Disponível para percentagem de utilização de cots. |
+| Prioridade Vm | A prioridade do VM. Disponível para percentagem de utilização de cots.
+| CreatedTime | Disponível apenas para CpuUtilization e GpuUtilization. |
+| DeviceId | ID do dispositivo (GPU). Disponível apenas para gpuutilização. |
+| NodeId | Identificação do nó criado onde o trabalho está a funcionar. Disponível apenas para CpuUtilization e GpuUtilization. |
+| RunId | Identificação da corrida/trabalho. Disponível apenas para CpuUtilization e GpuUtilization. |
+| ComputeType | O tipo de cálculo que a corrida usou. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
+| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
+| PublishedPipelineId | A identificação do oleoduto publicado usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
+| RunType | O tipo de corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
+
+Os valores válidos para a dimensão RunType são:
+
+| Valor | Descrição |
+| ----- | ----- |
+| Experimentação | Não oleoduto funciona. |
+| PipelineRun | Um oleoduto, que é o pai de um StepRun. |
+| StepRun | Uma corrida para um passo de oleoduto. |
+| ReusedStepRun | Uma corrida para um passo de oleoduto que reutiliza uma corrida anterior. |
+
+## <a name="activity-log"></a>Registo de atividades
+
+A tabela que se segue lista as operações relacionadas com a Azure Machine Learning que podem ser criadas no registo de Atividades.
+
+| Operação | Descrição |
+|:---|:---|
+| Cria ou atualiza um espaço de trabalho de Machine Learning | Um espaço de trabalho foi criado ou atualizado |
+| CheckComputeNameAvailability | Verifique se um nome de computação já está em uso |
+| Cria ou atualiza os recursos computacional | Um recurso compute foi criado ou atualizado |
+| Elimina os recursos computacional | Um recurso compute foi eliminado |
+| Listar segredos | Na operação listado segredos para um espaço de trabalho machine learning |
+
 ## <a name="resource-logs"></a>Registos do recurso
 
-A tabela que se segue lista as propriedades dos registos de recursos Azure Machine Learning quando são recolhidos em Registos monitores Azure ou Azure Storage.
+Esta secção lista os tipos de registos de recursos que pode recolher para o espaço de trabalho Azure Machine Learning.
+
+Fornecedor e Tipo de Recursos: [Microsoft.MachineLearningServices/workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+
+| Categoria | Nome a Apresentar |
+| ----- | ----- |
+| AmlComputeClusterEvent | AmlComputeClusterEvent |
+| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
+| AmlComputeJobEvent | AmlComputeJobEvent |
+| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+
+## <a name="schemas"></a>Esquemas
+
+Os seguintes esquemas estão em uso pela Azure Machine Learning
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
@@ -42,8 +147,8 @@ A tabela que se segue lista as propriedades dos registos de recursos Azure Machi
 | ResourceGroupName | Nome do grupo de recursos |
 | Nome de emprego | Nome do Trabalho |
 | ClusterId | ID do cluster |
-| EventType | Tipo de evento Job, por exemplo, JobSubmitted, JobRunning, JobFailed, JobSucceed, etc. |
-| ExecutionState | Estado do trabalho (a corrida), por exemplo, Queued, Running, Succeeded, Failed |
+| EventType | Tipo de evento job. Por exemplo, JobSubmitted, JobRunning, JobFailed, JobSucceeded. |
+| ExecutionState | Estado do trabalho (a Corrida). Por exemplo, Queued, Running, Succeeded, Failed |
 | ErrorDetails | Detalhes do erro de trabalho |
 | CriaçãoApiVersão | Versão Api usada para criar o trabalho |
 | ClusterResourceGroupName | Nome do grupo de recursos do cluster |
@@ -109,7 +214,7 @@ A tabela que se segue lista as propriedades dos registos de recursos Azure Machi
 | VmSize | Tamanho Vm do nó |
 | VmFamilyName | Família Vm a que o nó pertence |
 | VmPriority | Prioridade do nó criado Dedicado/LowPriority |
-| Publisher | Editor da imagem vm, por exemplo, microsoft-dsvm |
+| Publisher | Editor da imagem vm. Por exemplo, microsoft-dsvm |
 | Oferta | Oferta associada à criação de VM |
 | Sku | Sku do nó/VM criado |
 | Versão | Versão da imagem utilizada enquanto o nó/VM é criado |
@@ -122,93 +227,8 @@ A tabela que se segue lista as propriedades dos registos de recursos Azure Machi
 | StartTaskEndTime | Tempo quando a tarefa atribuída a um nó terminou |
 | TotalE2ETimeInSegundos | O nó de tempo total estava ativo |
 
-### <a name="metrics"></a>Métricas
 
-As tabelas que se seguem listam as métricas da plataforma recolhidas para a Azure Machine Learning Todas as métricas são armazenadas no espaço de trabalho **de aprendizagem da máquina Azure.**
-
-**Modelo**
-
-| Métrica | Unidade | Descrição |
-| ----- | ----- | ----- |
-| A implementação do modelo falhou | Contagem | O número de implementações de modelos que falharam. |
-| Implementação de modelos iniciado | Contagem | O número de implementações de modelos começou. |
-| Implementação de modelos conseguiu | Contagem | O número de implementações de modelos que conseguiram. |
-| Registo modelo falhou | Contagem | O número de registos de modelos que falharam. |
-| Registo modelo conseguiu | Contagem | O número de registos de modelos que se sucederam. |
-
-**Quota**
-
-A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
-
-| Métrica | Unidade | Descrição |
-| ----- | ----- | ----- |
-| Núcleos ativos | Contagem | O número de núcleos de computação ativo. |
-| Nódes ativos | Contagem | O número de nós ativos. |
-| Núcleos ociosos | Contagem | O número de núcleos de computação ocioso. |
-| Nódoas ociosas | Contagem | O número de nós de computação ocioso. |
-| Deixando núcleos | Contagem | O número de núcleos de saída. |
-| Deixando os nódoas | Contagem | O número de nós de saída. |
-| Núcleos preemptidos | Contagem | O número de núcleos preempted. |
-| Nódoas presas | Contagem | O número de nós preempted. |
-| Percentagem de utilização de quotas | Percentagem | A percentagem de quota utilizada. |
-| Total de núcleos | Contagem | Os núcleos totais. |
-| Nódoas totais | Contagem | Os nós totais. |
-| Núcleos inutilizáveis | Contagem | O número de núcleos inutilizáveis. |
-| Nódes inutilizáveis | Contagem | O número de nós inutilizáveis. |
-
-Seguem-se as dimensões que podem ser utilizadas para filtrar métricas de quota:
-
-| Dimensão | Métrica(s) disponível com | Descrição |
-| ---- | ---- | ---- |
-| Nome do Cluster | Todas as métricas de quota | O nome da instância computacional. |
-| Nome da família VM | Percentagem de utilização de quotas | O nome da família VM usado pelo aglomerado. |
-| Prioridade Vm | Percentagem de utilização de quotas | A prioridade do VM.
-
-**Recurso**
-
-| Métrica | Unidade | Descrição |
-| ----- | ----- | ----- |
-| CpuUtilização | Percentagem | Quanto por cento do CPU foi usado para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a funcionar num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
-| GpuUtilização | Percentagem | Quanto percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
-
-Seguem-se as dimensões que podem ser utilizadas para filtrar métricas de recursos:
-
-| Dimensão | Descrição |
-| ----- | ----- |
-| CreatedTime | |
-| DeviceId | ID do dispositivo (GPU). Disponível apenas para gpuutilização. |
-| NodeId | Identificação do nó criado onde o trabalho está a funcionar. |
-| RunId | Identificação da corrida/trabalho. |
-
-**Correr**
-
-Informação sobre treinos.
-
-| Métrica | Unidade | Descrição |
-| ----- | ----- | ----- |
-| Execuções concluídas | Contagem | O número de execuções completas. |
-| Corridas falhadas | Contagem | O número de corridas falhadas. |
-| Começou a correr | Contagem | O número de corridas iniciadas. |
-
-Seguem-se as dimensões que podem ser utilizadas para filtrar métricas de execução:
-
-| Dimensão | Descrição |
-| ---- | ---- |
-| ComputeType | O tipo de cálculo que a corrida usou. |
-| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) usado na corrida. |
-| PublishedPipelineId | A identificação do oleoduto publicado usado na corrida. |
-| RunType | O tipo de corrida. |
-
-Os valores válidos para a dimensão RunType são:
-
-| Valor | Descrição |
-| ----- | ----- |
-| Experimentação | Não oleoduto funciona. |
-| PipelineRun | Um oleoduto, que é o pai de um StepRun. |
-| StepRun | Uma corrida para um passo de oleoduto. |
-| ReusedStepRun | Uma corrida para um passo de oleoduto que reutiliza uma corrida anterior. |
-
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - Consulte [a monitorização da aprendizagem automática Azure](monitor-azure-machine-learning.md) para uma descrição da monitorização da aprendizagem automática do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter informações sobre a monitorização dos recursos do Azure.

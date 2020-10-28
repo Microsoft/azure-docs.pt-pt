@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678097"
+ms.locfileid: "92739902"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implementar monitor de Azure para soluções SAP com portal Azure
 
@@ -54,7 +54,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com
 
 4. Insira o nome do inquilino da Base de Dados que pretende utilizar. No entanto, pode escolher qualquer inquilino, recomendamos a utilização **do SYSTEMDB,** pois permite um leque mais alargado de áreas de monitorização. 
 
-5. Insira o número da porta SQL associado à sua base de dados HANA. O número da porta deve estar no formato de **[3]**  +  **[instância#]**  +  **[13]** ou **[3]**  +  **[instância#]**  +  **[15]** . Por exemplo, 30013 ou 30015. 
+5. Insira o número da porta SQL associado à sua base de dados HANA. O número da porta deve estar no formato de **[3]**  +  **[instância#]**  +  **[13]** . Por exemplo, 30013. 
 
 6. Insira o nome de utilizador da Base de Dados que pretende utilizar. Certifique-se de que o utilizador da base de dados tem as funções **de monitorização** e leitura do **catálogo** atribuídas. 
 

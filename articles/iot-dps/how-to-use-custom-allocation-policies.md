@@ -7,13 +7,13 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.custom: devx-track-csharp
-ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 48b8737fc37a183405f42b958e38c328a2ce7cb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530901"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739595"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizadas
 
@@ -25,8 +25,8 @@ Por exemplo, talvez queira examinar o certificado que um dispositivo está a usa
 
 Este artigo demonstra uma política de atribuição personalizada utilizando uma Função Azure escrita em C#. Dois novos hubs IoT são criados representando uma Divisão de *Torradeiras Contoso* e uma *Divisão de Bombas de Calor Contoso.* Os dispositivos que solicitem o provisionamento devem ter uma identificação de registo com um dos seguintes sufixos a aceitar para o provisionamento:
 
-* **-contoso-tstrsd-007**: Divisão de Torradeiras Contoso
-* **-contoso-hpsd-088**: Divisão de Bombas de Calor Contoso
+* **-contoso-tstrsd-007** : Divisão de Torradeiras Contoso
+* **-contoso-hpsd-088** : Divisão de Bombas de Calor Contoso
 
 Os dispositivos serão abastados com base num destes sufixos necessários no ID de registo. Estes dispositivos serão simulados utilizando uma amostra de provisionamento incluída no [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
@@ -66,9 +66,9 @@ Nesta secção, você usa a Azure Cloud Shell para criar um serviço de fornecim
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Utilize o Azure Cloud Shell para criar um serviço de fornecimento de dispositivos com os [dps az iot criar](/cli/azure/iot/dps#az-iot-dps-create) comando. O serviço de prestação será adicionado ao *grupo contoso-us-resource- group*.
+2. Utilize o Azure Cloud Shell para criar um serviço de fornecimento de dispositivos com os [dps az iot criar](/cli/azure/iot/dps#az-iot-dps-create) comando. O serviço de prestação será adicionado ao *grupo contoso-us-resource- group* .
 
-    O exemplo a seguir cria um serviço de prestação denominado *contoso-provisioning-service-1098* no local *westus.* Deve usar um nome de serviço único. Faça o seu próprio sufixo no nome de serviço em **1098**.
+    O exemplo a seguir cria um serviço de prestação denominado *contoso-provisioning-service-1098* no local *westus.* Deve usar um nome de serviço único. Faça o seu próprio sufixo no nome de serviço em **1098** .
 
     ```azurecli-interactive 
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
@@ -98,44 +98,44 @@ Nesta secção, você usa a Azure Cloud Shell para criar um serviço de fornecim
 
 ## <a name="create-the-custom-allocation-function"></a>Criar a função de atribuição personalizada
 
-Nesta secção, cria-se uma função Azure que implementa a sua política de atribuição personalizada. Esta função decide em que hub IoT divisional um dispositivo deve ser registado com base no facto de o seu ID de registo conter a cadeia **-contoso-tstrsd-007** ou **-contoso-hpsd-088**. Também define o estado inicial do dispositivo gémeo com base no facto de o dispositivo ser uma torradeira ou uma bomba de calor.
+Nesta secção, cria-se uma função Azure que implementa a sua política de atribuição personalizada. Esta função decide em que hub IoT divisional um dispositivo deve ser registado com base no facto de o seu ID de registo conter a cadeia **-contoso-tstrsd-007** ou **-contoso-hpsd-088** . Também define o estado inicial do dispositivo gémeo com base no facto de o dispositivo ser uma torradeira ou uma bomba de calor.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Na sua página inicial, selecione **+ Criar um recurso.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Na sua página inicial, selecione **+ Criar um recurso.**
 
-2. Na caixa de pesquisa *do Marketplace,* escreva "App de função". A partir da lista de drop-down selecione **App de função**e, em seguida, selecione **Criar**.
+2. Na caixa de pesquisa *do Marketplace,* escreva "App de função". A partir da lista de drop-down selecione **App de função** e, em seguida, selecione **Criar** .
 
-3. Na **página de criação da App de Função,** no separador **Básicos,** introduza as seguintes definições para a sua nova aplicação de função e selecione Review **+ create**:
+3. Na **página de criação da App de Função,** no separador **Básicos,** introduza as seguintes definições para a sua nova aplicação de função e selecione Review **+ create** :
 
-    **Grupo de Recursos**: Selecione o **grupo de recursos contoso-us-resource** para manter todos os recursos criados neste artigo juntos.
+    **Grupo de Recursos** : Selecione o **grupo de recursos contoso-us-resource** para manter todos os recursos criados neste artigo juntos.
 
-    **Função Nome da aplicação**: Introduza um nome de aplicação de função única. Este exemplo utiliza **contoso-function-app-1098**.
+    **Função Nome da aplicação** : Introduza um nome de aplicação de função única. Este exemplo utiliza **contoso-function-app-1098** .
 
     **Publicar:** Verifique se o **Código** está selecionado.
 
-    **Pilha de tempo de**execução : Selecione **.NET Core** a partir do drop-down.
+    **Pilha de tempo de** execução : Selecione **.NET Core** a partir do drop-down.
 
-    **Região**: Selecione a mesma região que o seu grupo de recursos. Este exemplo usa **o Oeste dos EUA.**
+    **Região** : Selecione a mesma região que o seu grupo de recursos. Este exemplo usa **o Oeste dos EUA.**
 
     > [!NOTE]
-    > Por predefinição, o Application Insights está ativado. A Application Insights não é necessária para este artigo, mas pode ajudá-lo a compreender e investigar quaisquer problemas que encontre com a alocação personalizada. Se preferir, pode desativar insights de aplicação selecionando o **separador Monitoring** e, em seguida, selecionando **O** para **Ativar insights de aplicação**.
+    > Por predefinição, o Application Insights está ativado. A Application Insights não é necessária para este artigo, mas pode ajudá-lo a compreender e investigar quaisquer problemas que encontre com a alocação personalizada. Se preferir, pode desativar insights de aplicação selecionando o **separador Monitoring** e, em seguida, selecionando **O** para **Ativar insights de aplicação** .
 
     ![Criar uma App de função Azure para acolher a função de atribuição personalizada](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-4. Na página **Resumo,** selecione **Criar** para criar a aplicação de função. A implementação poderá demorar vários minutos. Quando estiver concluído, selecione **Ir para o recurso**.
+4. Na página **Resumo,** selecione **Criar** para criar a aplicação de função. A implementação poderá demorar vários minutos. Quando estiver concluído, selecione **Ir para o recurso** .
 
 5. No painel esquerdo da página **de visão geral** da aplicação de funções, selecione ao lado de **+** **Funções** para adicionar uma nova função.
 
     ![Adicionar uma função à App de Função](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-6. Nas **Funções Azure para .NET - começar** página, para o passo **ESCOLHA UM AMBIENTE DE IMPLEMENTAÇÃO,** selecione o azulejo **in-portal** e, em seguida, selecione **Continue**.
+6. Nas **Funções Azure para .NET - começar** página, para o passo **ESCOLHA UM AMBIENTE DE IMPLEMENTAÇÃO,** selecione o azulejo **in-portal** e, em seguida, selecione **Continue** .
 
     ![Selecione o ambiente de desenvolvimento do portal](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
-7. Na página seguinte, para o passo **CREATE A FUNCTION,** selecione o **teia Webhook + API** e, em seguida, selecione **Criar**. É criada uma função chamada **HttpTrigger1** e o portal exibe o conteúdo do ficheiro de código **run.csx.**
+7. Na página seguinte, para o passo **CREATE A FUNCTION,** selecione o **teia Webhook + API** e, em seguida, selecione **Criar** . É criada uma função chamada **HttpTrigger1** e o portal exibe o conteúdo do ficheiro de código **run.csx.**
 
 8. Referência necessária pacotes Nuget. Para criar o twin do dispositivo inicial, a função de atribuição personalizada utiliza classes que são definidas em dois pacotes Nuget que devem ser carregados no ambiente de hospedagem. Com as Funções Azure, os pacotes Nuget são referenciados através de um ficheiro *fun.host.* Neste passo, guarde e carreize um ficheiro *fun.host.*
 
-    1. Copie as seguintes linhas para o seu editor favorito e guarde o ficheiro no seu computador como *fun.host*.
+    1. Copie as seguintes linhas para o seu editor favorito e guarde o ficheiro no seu computador como *fun.host* .
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -306,33 +306,33 @@ Nesta secção, você vai criar um novo grupo de inscrições que usa a polític
 
 3. No **Grupo de Inscrição adicionar,** introduza as seguintes informações e selecione o botão **Guardar.**
 
-    **Nome do grupo**: **Insira os dispositivos contoso-personalizados**.
+    **Nome do grupo** : **Insira os dispositivos contoso-personalizados** .
 
-    **Tipo de Atestado**: Selecione **Chave Simétrica**.
+    **Tipo de Atestado** : Selecione **Chave Simétrica** .
 
-    **Chaves de geração automática**: Esta caixa de verificação já deve ser verificada.
+    **Chaves de geração automática** : Esta caixa de verificação já deve ser verificada.
 
-    **Selecione como pretende atribuir dispositivos aos hubs**: Selecione **Custom (Use Azure Function)**.
+    **Selecione como pretende atribuir dispositivos aos hubs** : Selecione **Custom (Use Azure Function)** .
 
     ![Adicione o grupo de inscrição de atribuição personalizada para atestado de chave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. No **Add Registration Group**, selecione Link um novo hub **IoT** para ligar ambos os seus novos hubs de IoT divisionários.
+4. No **Add Registration Group** , selecione Link um novo hub **IoT** para ligar ambos os seus novos hubs de IoT divisionários.
 
     Execute este passo para ambos os seus centros IoT divisionários.
 
-    **Subscrição**: Se tiver várias subscrições, escolha a subscrição onde criou os hubs IoT divisionários.
+    **Subscrição** : Se tiver várias subscrições, escolha a subscrição onde criou os hubs IoT divisionários.
 
-    **Hub IoT**: Selecione um dos centros de divisão que criou.
+    **Hub IoT** : Selecione um dos centros de divisão que criou.
 
-    **Política de Acesso**: Escolha **iothubowner**.
+    **Política de Acesso** : Escolha **iothubowner** .
 
     ![Ligue os hubs ioT divisionários com o serviço de fornecimento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
-5. No **Add Registration Group**, uma vez ligados os dois hubs IoT divisionais, deve selecioná-los como o grupo IoT Hub para o grupo de inscrição, como mostrado abaixo:
+5. No **Add Registration Group** , uma vez ligados os dois hubs IoT divisionais, deve selecioná-los como o grupo IoT Hub para o grupo de inscrição, como mostrado abaixo:
 
     ![Crie o grupo de centros divisionais para a inscrição](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
 
-6. No **Grupo de Inscrição adicionar**, desloque-se até à secção **'Função Select Azure',** selecione a aplicação 'Função' que criou na secção anterior. Em seguida, selecione a função criada e selecione Guardar para salvar o grupo de inscrição.
+6. No **Grupo de Inscrição adicionar** , desloque-se até à secção **'Função Select Azure',** selecione a aplicação 'Função' que criou na secção anterior. Em seguida, selecione a função criada e selecione Guardar para salvar o grupo de inscrição.
 
     ![Selecione a função e salve o grupo de inscrição](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
@@ -461,7 +461,7 @@ Nesta secção, você atualizou uma amostra de **provisão chamada prov \_ dev \
 
 Este código de amostra simula uma sequência de arranque do dispositivo que envia o pedido de provisionamento para a sua instância de Serviço de Provisionamento de Dispositivos. A sequência de arranque fará com que o dispositivo da torradeira seja reconhecido e atribuído ao hub IoT utilizando a política de atribuição personalizada.
 
-1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_**.
+1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_** .
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -471,7 +471,7 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
     azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
-3. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue para a pasta **Provision\_Samples**. Expanda o projeto de exemplo com o nome **prov\_dev\_client\_sample**. Expanda **Source Files** (Ficheiros de Origem) e abra **prov\_dev\_client\_sample.c**.
+3. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue para a pasta **Provision\_Samples** . Expanda o projeto de exemplo com o nome **prov\_dev\_client\_sample** . Expanda **Source Files** (Ficheiros de Origem) e abra **prov\_dev\_client\_sample.c** .
 
 4. Localize a constante `id_scope` e substitua o valor pelo seu **Âmbito do ID** que copiou anteriormente. 
 
@@ -488,11 +488,11 @@ Este código de amostra simula uma sequência de arranque do dispositivo que env
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**.
+6. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque** .
 
 ### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de torradeira Contoso
 
-1. Para simular o dispositivo de torradeira, encontre a chamada para `prov_dev_set_symmetric_key_info()` **a amostra do cliente prov \_ dev \_ \_ ** que é comentada.
+1. Para simular o dispositivo de torradeira, encontre a chamada para `prov_dev_set_symmetric_key_info()` **a amostra do cliente prov \_ dev \_ \_** que é comentada.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -572,7 +572,7 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 
 Se pretender continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar os recursos, use os seguintes passos para eliminar todos os recursos criados neste artigo para evitar encargos desnecessários.
 
-Os passos aqui pressupõem que criou todos os recursos neste artigo, tal como instruído no mesmo grupo de recursos chamado **contoso-us-resource-group**.
+Os passos aqui pressupõem que criou todos os recursos neste artigo, tal como instruído no mesmo grupo de recursos chamado **contoso-us-resource-group** .
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado o Hub IoT no interior de um grupo de recursos existente que contenha recursos que pretende manter, elimine apenas o recurso do Hub IoT, em vez de eliminar o grupo de recursos.
@@ -580,13 +580,13 @@ Os passos aqui pressupõem que criou todos os recursos neste artigo, tal como in
 
 Para eliminar o grupo de recursos pelo nome:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos** .
 
-2. No **Filtro pelo nome...** textbox, digite o nome do grupo de recursos que contém os seus recursos, **contoso-us-resource-group**. 
+2. No **Filtro pelo nome...** textbox, digite o nome do grupo de recursos que contém os seus recursos, **contoso-us-resource-group** . 
 
-3. À direita do seu grupo de recursos **...** na lista de resultados, selecione... e depois **elimine o grupo de recursos**.
+3. À direita do seu grupo de recursos **...** na lista de resultados, selecione... e depois **elimine o grupo de recursos** .
 
-4. Ser-lhe-á pedido que confirme a supressão do grupo de recursos. Escreva novamente o nome do seu grupo de recursos para confirmar e, em seguida, selecione **Delete**. Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
+4. Ser-lhe-á pedido que confirme a supressão do grupo de recursos. Escreva novamente o nome do seu grupo de recursos para confirmar e, em seguida, selecione **Delete** . Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

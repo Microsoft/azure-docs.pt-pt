@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742609"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739766"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações Híbridas do Serviço de Aplicações do Azure
 
@@ -56,15 +56,15 @@ As coisas que não pode fazer com ligações híbridas incluem:
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Adicione e crie conexões híbridas na sua aplicação ##
 
-Para criar uma Ligação Híbrida, vá ao [portal Azure][portal] e selecione a sua aplicação. **Selecione Configurar a rede**  >  **configurar os seus pontos finais de ligação híbrida**. Aqui pode ver as Conexões Híbridas que estão configuradas para a sua aplicação.  
+Para criar uma Ligação Híbrida, vá ao [portal Azure][portal] e selecione a sua aplicação. **Selecione Configurar a rede**  >  **configurar os seus pontos finais de ligação híbrida** . Aqui pode ver as Conexões Híbridas que estão configuradas para a sua aplicação.  
 
 ![Screenshot da lista de conexão híbrida][2]
 
-Para adicionar uma nova Ligação Híbrida, selecione **[+] Adicionar ligação híbrida**.  Verá uma lista das Ligações Híbridas que já criou. Para adicionar um ou mais deles à sua aplicação, selecione as que pretende e, em seguida, **selecione Adicionar a Ligação Híbrida selecionada**.  
+Para adicionar uma nova Ligação Híbrida, selecione **[+] Adicionar ligação híbrida** .  Verá uma lista das Ligações Híbridas que já criou. Para adicionar um ou mais deles à sua aplicação, selecione as que pretende e, em seguida, **selecione Adicionar a Ligação Híbrida selecionada** .  
 
 ![Screenshot do portal De Ligação Híbrida][3]
 
-Se pretender criar uma nova Ligação Híbrida, **selecione Criar uma nova ligação híbrida**. Especificar: 
+Se pretender criar uma nova Ligação Híbrida, **selecione Criar uma nova ligação híbrida** . Especificar: 
 
 - Nome de ligação híbrida.
 - Nome de anfitrião de ponto final.
@@ -75,7 +75,7 @@ Se pretender criar uma nova Ligação Híbrida, **selecione Criar uma nova liga�
 
 Cada Conexão Híbrida está ligada a um espaço de nomes de ônibus de serviço, e cada espaço de nome de Service Bus está numa região de Azure. É importante tentar usar um espaço de nome de Service Bus na mesma região que a sua aplicação, para evitar a latência induzida pela rede.
 
-Se pretender remover a sua Ligação Híbrida da sua aplicação, clique com o botão direito e selecione **Disconnect**.  
+Se pretender remover a sua Ligação Híbrida da sua aplicação, clique com o botão direito e selecione **Disconnect** .  
 
 Quando uma Ligação Híbrida é adicionada à sua aplicação, pode ver detalhes sobre ela simplesmente selecionando-o. 
 
@@ -113,7 +113,7 @@ Além de existir um requisito de SKU do plano de serviço de aplicações, exist
 
 ## <a name="hybrid-connection-manager"></a>Gestor de Conexão Híbrida ##
 
-A função Ligações Híbridas requer um agente de retransmissão na rede que hospeda o seu ponto de terminação de Ligação Híbrida. Este agente de retransmissão chama-se Gestor de Ligação Híbrida (HCM). Para baixar o HCM, a partir da sua aplicação no [portal Azure,][portal]selecione **Networking**  >  **Configure seus pontos finais de Ligação Híbrida**.  
+A função Ligações Híbridas requer um agente de retransmissão na rede que hospeda o seu ponto de terminação de Ligação Híbrida. Este agente de retransmissão chama-se Gestor de Ligação Híbrida (HCM). Para baixar o HCM, a partir da sua aplicação no [portal Azure,][portal]selecione **Networking**  >  **Configure seus pontos finais de Ligação Híbrida** .  
 
 Esta ferramenta é executado no Windows Server 2012 e posteriormente. O HCM funciona como um serviço e liga a saída ao Azure Relay na porta 443.  
 
@@ -126,7 +126,7 @@ Quando inicia o HCM UI, a primeira coisa que vê é uma tabela que lista todas a
 Para adicionar uma ou mais ligações híbridas ao seu HCM:
 
 1. Inicie a UI HCM.
-2. Selecione **Configurar outra Ligação Híbrida**.
+2. Selecione **Configurar outra Ligação Híbrida** .
 ![Screenshot de Configurar novas ligações híbridas][8]
 
 1. Faça sô-9 com a sua conta Azure para obter as suas Ligações Híbridas disponíveis com as suas subscrições. O HCM não continua a utilizar a sua conta Azure para além disso. 
@@ -134,7 +134,7 @@ Para adicionar uma ou mais ligações híbridas ao seu HCM:
 1. Selecione as Ligações Híbridas que pretende que o HCM retransmite.
 ![Screenshot de conexões híbridas][9]
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 Agora pode ver as Ligações Híbridas que adicionou. Também pode selecionar a Ligação Híbrida configurada para ver detalhes.
 
@@ -160,7 +160,7 @@ Para permitir que alguém fora da sua subscrição apresente uma instância HCM 
 
 ![Adicione manualmente uma ligação híbrida][11]
 
-### <a name="upgrade"></a>Atualizar ###
+### <a name="upgrade"></a>Atualização ###
 
 Existem atualizações periódicas ao Gestor de Ligação Híbrida para corrigir problemas ou fornecer melhorias. Quando as atualizações forem lançadas, um pop-up aparecerá na UI HCM. A aplicação da atualização aplicará as alterações e reiniciará o HCM. 
 

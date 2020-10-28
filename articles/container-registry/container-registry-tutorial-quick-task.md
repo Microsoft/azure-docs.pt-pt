@@ -3,17 +3,17 @@ title: Tutorial - Construção rápida da imagem do recipiente
 description: Neste tutorial, vai aprender a compilar uma imagem do contentor de Docker no Azure com o Azure Container Registry Tasks (ACR Tasks) e, em seguida, implementá-la no Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259490"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739532"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilar e implementar imagens de contentor na cloud com Tarefas do Azure Container Registry
 
-O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry que fornece compilações de imagens do contentor de Docker simplificadas e eficientes no Azure. Neste artigo, vai aprender a utilizar a funcionalidade *tarefa rápida * do ACR Tasks.
+O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry que fornece compilações de imagens do contentor de Docker simplificadas e eficientes no Azure. Neste artigo, vai aprender a utilizar a funcionalidade *tarefa rápida* do ACR Tasks.
 
 O ciclo de desenvolvimento de "ciclo interno" é o processo iterativo de escrita de código, compilar e testar a sua aplicação antes de a consolidar para o controlo de origem. Uma tarefa rápida expande o seu “ciclo interno” para a cloud, fornecendo-lhe a validação da compilação com êxito e o envio automático de imagens compiladas com êxito para o registo de contentor. As imagens são compiladas de forma nativa na cloud, junto do seu registo, o que permite uma implementação mais rápida.
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Agora que tem um registo, utilize o ACR Tasks para compilar uma imagem do contentor a partir do código de exemplo. Execute o comando [az acr build][az-acr-build] para realizar uma *tarefa rápida*:
+Agora que tem um registo, utilize o ACR Tasks para compilar uma imagem do contentor a partir do código de exemplo. Execute o comando [az acr build][az-acr-build] para realizar uma *tarefa rápida* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O `--role` argumento no comando anterior configura o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto o impulso como o acesso, mude o `--role` argumento para *acrpush*.
+O `--role` argumento no comando anterior configura o diretor de serviço com a função *acrpull,* que lhe concede acesso apenas ao registo. Para conceder tanto o impulso como o acesso, mude o `--role` argumento para *acrpush* .
 
 Em seguida, armazene o *appId* do principal de serviço no cofre, que é o **nome de utilizador** que passa para o Azure Container Registry para autenticação:
 

@@ -3,13 +3,13 @@ title: Tutorial - Criar registo geo-replicado
 description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148393"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739482"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -42,18 +42,18 @@ Para este tutorial, você precisa de um registo de contentores Azure no nível d
 > [!TIP]
 > Se criou previamente um registo e precisa de atualizar, consulte [níveis de alteração](container-registry-skus.md#changing-tiers). 
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-Selecione **Criar um**registo de  >  **contentores de**recursos  >  **Azure Container**.
+Selecione **Criar um** registo de  >  **contentores de** recursos  >  **Azure Container** .
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Criar um registo de contentor no portal do Azure":::
 
 Configure o seu novo registo com as seguintes definições. No separador **Básico:**
 
-* **Nome do registo**: crie um nome de registo que seja globalmente exclusivo no Azure e contenha apenas 5-50 carateres alfanuméricos
-* **Grupo de Recursos**: **Criar novos** > `myResourceGroup`
-* **Localização**: `West US`
-* **SKU**: `Premium` (necessário para a geo-replicação)
+* **Nome do registo** : crie um nome de registo que seja globalmente exclusivo no Azure e contenha apenas 5-50 carateres alfanuméricos
+* **Grupo de Recursos** : **Criar novos** > `myResourceGroup`
+* **Localização** : `West US`
+* **SKU** : `Premium` (necessário para a geo-replicação)
 
 Selecione **Rever + criar** e, em seguida, **criar** para criar a instância de registo.
 
@@ -68,7 +68,7 @@ Durante todo o resto deste tutorial, utilizamos `<acrName>` como espaço reserva
 
 Agora que tem um registo Premium, pode configurar a georreplicação. A sua aplicação web, que vai configurar no próximo tutorial para que execute em duas regiões, pode então puxar as suas imagens de contentor a partir do registo mais próximo.
 
-Navegue para o seu novo registo de contentores no portal Azure e selecione **Replicações** em **Serviços**:
+Navegue para o seu novo registo de contentores no portal Azure e selecione **Replicações** em **Serviços** :
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Criar um registo de contentor no portal do Azure":::
 
@@ -76,7 +76,7 @@ Navegue para o seu novo registo de contentores no portal Azure e selecione **Rep
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Criar um registo de contentor no portal do Azure":::
 
-Replique o seu registo para a região E.U.A. Leste ao selecionar o respetivo hexágono verde, selecione **Criar** em **Criar replicação**:
+Replique o seu registo para a região E.U.A. Leste ao selecionar o respetivo hexágono verde, selecione **Criar** em **Criar replicação** :
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Criar um registo de contentor no portal do Azure":::
 
@@ -89,7 +89,7 @@ Quando a replicação estiver completa, o portal reflete *Pronto* para ambas as 
 
 Em tutoriais subsequentes, você implanta uma imagem de recipiente do registo diretamente para Web App para Contentores. Para ativar esta capacidade, deve também ativar a [conta de administração](container-registry-authentication.md#admin-account)do registo .
 
-Navegue para o seu novo registo de contentores no portal Azure e selecione **as teclas de acesso** em **Definições**. Em **Utilizador administrador**, selecione **Ativar**.
+Navegue para o seu novo registo de contentores no portal Azure e selecione **as teclas de acesso** em **Definições** . Em **Utilizador administrador** , selecione **Ativar** .
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Criar um registo de contentor no portal do Azure":::
 
@@ -169,7 +169,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Em seguida, atualize a linha `ENV DOCKER_REGISTRY` com o FQDN do seu servidor de sessão do registo. Este exemplo reflete o nome do registo de exemplo, *uniqueregistryname*:
+Em seguida, atualize a linha `ENV DOCKER_REGISTRY` com o FQDN do seu servidor de sessão do registo. Este exemplo reflete o nome do registo de exemplo, *uniqueregistryname* :
 
 ```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io

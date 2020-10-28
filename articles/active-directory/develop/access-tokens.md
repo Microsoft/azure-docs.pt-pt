@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3b091fb66172fad85b604d8eb621f1bebb750a46
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366025"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740169"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -32,7 +32,8 @@ Consulte as seguintes secções para saber como um recurso pode validar e utiliz
 
 > [!IMPORTANT]
 > Os tokens de acesso são criados com base no *público* do token, o que significa a aplicação que detém os âmbitos no token.  É assim que uma definição de recursos `accessTokenAcceptedVersion` na [aplicação se manifesta](reference-app-manifest.md#manifest-reference) para permitir que um cliente que liga para o ponto final `2` v1.0 receba um token de acesso v2.0.  Da mesma forma, é por isso que a alteração das [reclamações opcionais](active-directory-optional-claims.md) de acesso ao seu cliente não altera o token de acesso recebido quando é solicitado um token `user.read` , que é propriedade do recurso.
-> Pela mesma razão, ao testar a sua aplicação de cliente com uma conta pessoal (como hotmail.com ou outlook.com), poderá descobrir que o token de acesso recebido pelo seu cliente é uma cadeia opaca. Isto porque o recurso que está a ser acedido solicitou bilhetes MSA (conta Microsoft) que são encriptados e não podem ser compreendidos pelo cliente.
+>
+> Pela mesma razão, ao testar a sua aplicação de cliente com uma API da Microsoft que suporta uma conta pessoal (como hotmail.com ou outlook.com), irá descobrir que o token de acesso recebido pelo seu cliente é uma cadeia opaca. Isto porque o recurso que está a ser acedido utiliza fichas encriptadas e não pode ser compreendido pelo cliente.  Isto é esperado, e não deve ser um problema para a sua app - as aplicações do cliente nunca devem ter uma dependência do formato do token de acesso. 
 
 ## <a name="sample-tokens"></a>Fichas de amostra
 
@@ -103,7 +104,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 | `wids` | Matriz de [GUIDs RoleTemplateID](../roles/permissions-reference.md#role-template-ids) | Denota as funções atribuídas a este utilizador, a partir da secção de funções presentes na [página de funções de administração](../roles/permissions-reference.md#role-template-ids).  Esta reclamação é configurada numa base por aplicação, através da `groupMembershipClaims` propriedade do manifesto de [aplicação.](reference-app-manifest.md)  É necessário defini-lo para "All" ou "DirectoryRole".  Não pode estar presente em fichas obtidas através do fluxo implícito devido a preocupações de comprimento simbólico. |
 | `groups` | JSON array de GUIDs | Fornece iDs de objeto que representam os membros do grupo do sujeito. Estes valores são únicos (ver Object ID) e podem ser utilizados com segurança para gerir o acesso, como impor autorização de acesso a um recurso. Os grupos incluídos nos grupos afirmam que são configurados por aplicação, através `groupMembershipClaims` da propriedade do manifesto de [aplicação.](reference-app-manifest.md) Um valor de nulo excluirá todos os grupos, um valor de "SecurityGroup" incluirá apenas membros do Ative Directory Security Group, e um valor de "All" incluirá tanto grupos de segurança como Listas de Distribuição microsoft 365. <br><br>Consulte a `hasgroups` reclamação abaixo para obter mais informações sobre a utilização da `groups` reclamação com a subvenção implícita. <br>Para outros fluxos, se o número de grupos em que o utilizador se encontra ultrapassar um limite (150 para o SAML, 200 para o JWT), então será adicionada uma reclamação por excesso de informação às fontes de reclamação que apontam para o ponto final do Microsoft Graph contendo a lista de grupos para o utilizador. |
 | `hasgroups` | Booleano | Se estiver presente, `true` denota sempre, o utilizador está em pelo menos um grupo. Utilizado em vez da reclamação de `groups` JWTs em fluxos de subvenções implícitos se os grupos completos alegarem estender o fragmento URI para além dos limites de comprimento do URL (atualmente 6 ou mais grupos). Indica que o cliente deve utilizar a API do Microsoft Graph para determinar os grupos do utilizador `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` (). |
-| `groups:src1` | Objeto JSON | Para pedidos simbólicos que não sejam limitados (ver `hasgroups` acima) mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como uma reclamação distribuída, para a SAML como uma nova reivindicação em vez da `groups` reclamação. <br><br>**Exemplo JWT Valor**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
+| `groups:src1` | Objeto JSON | Para pedidos simbólicos que não sejam limitados (ver `hasgroups` acima) mas ainda demasiado grandes para o token, será incluído um link para a lista completa de grupos para o utilizador. Para os JWTs como uma reclamação distribuída, para a SAML como uma nova reivindicação em vez da `groups` reclamação. <br><br>**Exemplo JWT Valor** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String | O principal sobre o qual o token afirma informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização com segurança, como quando o token é usado para aceder a um recurso, e pode ser usado como chave em tabelas de bases de dados. Como o assunto está sempre presente nos tokens que a Azure AD emite, recomendamos a utilização deste valor num sistema de autorização para fins gerais. O sujeito é, no entanto, um identificador de pares - é exclusivo de um determinado ID de aplicação. Portanto, se um único utilizador assinar duas aplicações diferentes usando dois IDs de clientes diferentes, essas aplicações receberão dois valores diferentes para a reivindicação do assunto. Isto pode ou não ser desejado dependendo da sua arquitetura e requisitos de privacidade. Consulte também a `oid` reclamação (que permanece a mesma entre aplicações dentro de um inquilino). |
 | `oid` | String, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, neste caso, uma conta de utilizador. Também pode ser utilizado para efetuar verificações de autorização com segurança e como chave nas tabelas de bases de dados. Este ID identifica exclusivamente o utilizador através de aplicações - duas aplicações diferentes que assinam no mesmo utilizador receberão o mesmo valor na `oid` reclamação. Assim, `oid` pode ser usado ao fazer consultas aos serviços online da Microsoft, como o Microsoft Graph. O Microsoft Graph devolverá este ID como `id` propriedade para uma determinada conta de [utilizador.](/graph/api/resources/user) Uma vez `oid` que permite que várias aplicações correlacionem os utilizadores, o `profile` âmbito é necessário para receber esta reclamação. Note que se um único utilizador existir em vários inquilinos, o utilizador conterá um ID de objeto diferente em cada inquilino - são considerados contas diferentes, mesmo que o utilizador faça logins em cada conta com as mesmas credenciais. |
 | `tid` | String, um GUID | Representa o inquilino AZure AD de que o utilizador é. Para contas de trabalho e escola, o GUID é o imutável ID de inquilino da organização a que o utilizador pertence. Para contas pessoais, o valor `9188040d-6c67-4c5b-b112-36a304b66dad` é. O `profile` âmbito é necessário para receber esta reclamação. |
@@ -177,7 +178,7 @@ Fornecemos bibliotecas e amostras de código que mostram como lidar com a valida
 
 ### <a name="validating-the-signature"></a>Validação da assinatura
 
-Um JWT contém três segmentos, que são separados pelo `.` personagem. O primeiro segmento é conhecido como o **cabeçalho**, o segundo como o **corpo**, e o terceiro como **a assinatura**. O segmento de assinatura pode ser usado para validar a autenticidade do token para que possa ser confiável pela sua app.
+Um JWT contém três segmentos, que são separados pelo `.` personagem. O primeiro segmento é conhecido como o **cabeçalho** , o segundo como o **corpo** , e o terceiro como **a assinatura** . O segmento de assinatura pode ser usado para validar a autenticidade do token para que possa ser confiável pela sua app.
 
 Os tokens emitidos pela Azure AD são assinados usando algoritmos de encriptação assimétrica padrão da indústria, tais como RS256. O cabeçalho do JWT contém informações sobre a chave e o método de encriptação utilizado para assinar o token:
 

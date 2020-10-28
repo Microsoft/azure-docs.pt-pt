@@ -4,13 +4,13 @@ description: Saiba como criar rapidamente um cluster Kubernetes utilizando um mo
 services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2695126b8ad515735907558e3c316b87ac5dfbdc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc,subject-armqs, devx-track-azurecli
+ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070746"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740287"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Quickstart: Implementar um cluster de serviço Azure Kubernetes (AKS) usando um modelo ARM
 
@@ -22,7 +22,7 @@ O Azure Kubernetes Service (AKS) é um serviço gerido pela Kubernetes que permi
 
 Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para obter mais informações, consulte [os conceitos fundamentais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
@@ -70,7 +70,7 @@ O resultado é semelhante ao seguinte exemplo:
 }
 ```
 
-Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos passos seguintes.
+Anote o *appId* e a *palavra-passe* . São utilizados os seguintes valores nos passos seguintes.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
@@ -88,22 +88,22 @@ Para obter mais amostras de AKS, consulte o site [de modelos de arranque rápido
 
 2. Selecione ou introduza os seguintes valores.
 
-    Para este arranque rápido, deixe os valores padrão para o tamanho do *disco oss GB*, *Contagem de agentes,* *tamanho do agente VM,* *tipo OS*e *Versão Kubernetes*. Forneça os seus próprios valores para os seguintes parâmetros do modelo:
+    Para este arranque rápido, deixe os valores padrão para o tamanho do *disco oss GB* , *Contagem de agentes,* *tamanho do agente VM,* *tipo OS* e *Versão Kubernetes* . Forneça os seus próprios valores para os seguintes parâmetros do modelo:
 
-    * **Assinatura**: Selecione uma subscrição Azure.
-    * **Grupo de recursos**: Selecione **Criar novo**. Introduza um nome único para o grupo de recursos, como *o myResourceGroup,* em seguida, escolha **OK**.
-    * **Localização**: Selecione uma localização, como **East US**.
-    * **Nome do cluster**: Introduza um nome único para o cluster AKS, como *myAKSCluster*.
-    * **Prefixo DNS**: Introduza um prefixo DNS único para o seu cluster, como *o myakscluster*.
-    * **Nome de utilizador Linux Admin**: Introduza um nome de utilizador para ligar utilizando sSH, como *azureuser*.
-    * **Tecla pública SSH RSA**: Copiar e colar a parte *pública* do seu par de chaves SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub).*
+    * **Assinatura** : Selecione uma subscrição Azure.
+    * **Grupo de recursos** : Selecione **Criar novo** . Introduza um nome único para o grupo de recursos, como *o myResourceGroup,* em seguida, escolha **OK** .
+    * **Localização** : Selecione uma localização, como **East US** .
+    * **Nome do cluster** : Introduza um nome único para o cluster AKS, como *myAKSCluster* .
+    * **Prefixo DNS** : Introduza um prefixo DNS único para o seu cluster, como *o myakscluster* .
+    * **Nome de utilizador Linux Admin** : Introduza um nome de utilizador para ligar utilizando sSH, como *azureuser* .
+    * **Tecla pública SSH RSA** : Copiar e colar a parte *pública* do seu par de chaves SSH (por padrão, o conteúdo de *~/.ssh/id_rsa.pub).*
     * **Id do Cliente Principal de Serviço:** Copiar e colar o *appId* do seu principal de serviço a partir do `az ad sp create-for-rbac` comando.
-    * **Serviço Principal Cliente Secreto**: Copiar e colar a *palavra-passe* do seu diretor de serviço a partir do `az ad sp create-for-rbac` comando.
+    * **Serviço Principal Cliente Secreto** : Copiar e colar a *palavra-passe* do seu diretor de serviço a partir do `az ad sp create-for-rbac` comando.
     * **Concordo com os termos e condições acima:** Verifique esta caixa para concordar.
 
     ![Modelo de Gestor de Recursos para criar um cluster de serviço Azure Kubernetes no portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Selecione **Comprar**.
+3. Selecione **Comprar** .
 
 A criação do cluster do AKS demora alguns minutos. Aguarde que o cluster seja implantado com sucesso antes de passar ao passo seguinte.
 
@@ -257,7 +257,7 @@ Para monitorizar o progresso, utilize o comando [kubectl get service][kubectl-ge
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente, o *IP EXTERNO* para o serviço de frente de *voto azul* é apresentado como *pendente*.
+Inicialmente, o *IP EXTERNO* para o serviço de frente de *voto azul* é apresentado como *pendente* .
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -274,7 +274,7 @@ Para ver a aplicação Azure Vote em ação, abra um navegador web para o endere
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o cluster já não for necessário, utilize o comando [az group delete][az-group-delete] para remover o grupo de recursos, o serviço de contentores e todos os recursos relacionados.
 

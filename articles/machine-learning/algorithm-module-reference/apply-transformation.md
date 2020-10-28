@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898873"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739203"
 ---
 # <a name="apply-transformation-module"></a>Aplicar módulo de transformação
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
-Utilize este módulo para modificar um conjunto de dados de entrada com base numa transformação previamente calculada.
+Utilize este módulo para modificar um conjunto de dados de entrada com base numa transformação previamente calculada. Este módulo é necessário se precisar de atualizar as transformações em oleodutos de inferência.
 
 Por exemplo, se usasse as pontuações z para normalizar os seus dados de treino utilizando o módulo **de Dados Normalizados,** também quereria utilizar o valor de z-score que foi calculado para treinar durante a fase de pontuação. No Azure Machine Learning, pode guardar o método de normalização como uma transformação e, em seguida, usar **a Apply Transformation** para aplicar a pontuação z nos dados de entrada antes de marcar.
 
@@ -46,7 +46,14 @@ O designer permite-lhe guardar as transformações de dados como **conjuntos de 
   
 1. Ligue a saída do conjunto de dados do módulo pretendido à porta de entrada certa do módulo **De Transformação De Aplicar.**
   
-1. Para aplicar uma transformação no novo conjunto de dados, executar o oleoduto.  
+1. Para aplicar uma transformação no novo conjunto de dados, submeta o pipeline.  
+
+> [!IMPORTANT]
+> Para garantir que a transformação atualizada nos gasodutos de formação também é viável em gasodutos de inferência, é necessário seguir os passos abaixo cada vez que houver uma transformação atualizada no gasoduto de treino:
+> 1. No pipeline de treino, registe a saída da [Select Columns Transform](select-columns-transform.md) como um conjunto de dados.
+> ![Registar conjunto de dados da saída do módulo](media/module/select-columns-transform-register-dataset.png)
+> 1. No gasoduto de inferência, retire o módulo **TD** e substitua-o pelo conjunto de dados registado no passo anterior.
+> ![Substituir módulo TD](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
