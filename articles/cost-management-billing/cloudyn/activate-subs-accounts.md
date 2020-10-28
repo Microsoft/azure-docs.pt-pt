@@ -3,25 +3,25 @@ title: Ativar as subscrições e contas do Azure
 description: Ative o acesso através das APIs do Azure Resource Manager para contas novas e existentes, e resolva problemas comuns com contas.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b1b7ea7467be107bd1af9daf0869c77ff0b94c70
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131433"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537355"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar subscrições e contas do Azure com o Cloudyn
 
 Adicionar ou atualizar as suas credenciais do Azure Resource Manager permite que o Cloudyn detete todas as contas e subscrições no seu Inquilino do Azure. Se também tiver ativado a extensão do Diagnóstico do Azure nas suas máquinas virtuais, o Cloudyn pode recolher métricas expandidas, como, por exemplo, da CPU e da memória. Este artigo descreve como ativar o acesso através das APIs do Azure Resource Manager para contas novas e existentes. Descreve também como resolver problemas comuns com contas.
 
-O Cloudyn não consegue aceder à maior parte dos seus dados de subscrição do Azure quando a subscrição está _desativada_. Tem de editar contas _desativadas_ para que o Cloudyn possa aceder às mesmas.
+O Cloudyn não consegue aceder à maior parte dos seus dados de subscrição do Azure quando a subscrição está _desativada_ . Tem de editar contas _desativadas_ para que o Cloudyn possa aceder às mesmas.
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
@@ -39,12 +39,12 @@ Se estiver atribuída a função **Contribuidor** à sua conta, não tem permiss
 ### <a name="check-azure-active-directory-permissions"></a>Verificar as permissões do Azure Active Directory
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. No portal do Azure, selecione **Azure Active Directory**.
-3. No Azure Active Directory, selecione **Definições do utilizador**.
-4. Verifique a opção **Registos das aplicações**.
-    - Se estiver definida para **Sim**, os utilizadores que não forem administradores podem registar aplicações do AD. Esta definição significa que qualquer utilizador no inquilino do Azure AD pode registar uma aplicação.  
+2. No portal do Azure, selecione **Azure Active Directory** .
+3. No Azure Active Directory, selecione **Definições do utilizador** .
+4. Verifique a opção **Registos das aplicações** .
+    - Se estiver definida para **Sim** , os utilizadores que não forem administradores podem registar aplicações do AD. Esta definição significa que qualquer utilizador no inquilino do Azure AD pode registar uma aplicação.  
     ![selecionar Registos de aplicações nas Definições do utilizador](./media/activate-subs-accounts/app-register.png)
-    - Se a opção **Registos das aplicações** estiver definida para **Não**, apenas os utilizadores administrativos do inquilino podem registar aplicações do Azure Active Directory. O administrador do seu inquilino tem de registar a aplicação CloudynCollector.
+    - Se a opção **Registos das aplicações** estiver definida para **Não** , apenas os utilizadores administrativos do inquilino podem registar aplicações do Azure Active Directory. O administrador do seu inquilino tem de registar a aplicação CloudynCollector.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Adicionar uma conta ou atualizar uma subscrição
@@ -53,8 +53,8 @@ Ao adicionar uma conta ou atualizar uma subscrição, concede ao Cloudyn acesso 
 
 ### <a name="add-a-new-account-subscription"></a>Adicionar uma nova conta (subscrição)
 
-1. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**.
-2. Clique em **Adicionar nova conta** para apresentar a caixa **Adicionar nova conta**. Introduza as informações necessárias.  
+1. No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud** .
+2. Clique em **Adicionar nova conta** para apresentar a caixa **Adicionar nova conta** . Introduza as informações necessárias.  
     ![introduzir as informações necessárias na caixa Adicionar nova conta](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Atualizar uma subscrição
@@ -63,19 +63,19 @@ Ao adicionar uma conta ou atualizar uma subscrição, concede ao Cloudyn acesso 
     ![selecionar o ID de inquilino na caixa Detetar subscrições novamente](./media/activate-subs-accounts/existing-sub.png)
 2. Se for necessário, introduza o ID de Inquilino. Se não souber o ID de Inquilino, siga os passos abaixo para o encontrar:
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-    2. No portal do Azure, selecione **Azure Active Directory**.
+    2. No portal do Azure, selecione **Azure Active Directory** .
     3. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
     4. Copie o GUID do ID do Diretório. Este valor é o ID do inquilino.
     Para obter mais informações, veja [Obter o ID de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Se for necessário, selecione o ID de Taxa. Se não souber o ID de Taxa, siga os passos abaixo para o encontrar:
-    1. No canto superior direito do portal do Azure, clique nas suas informações de utilizador e em **Ver a minha fatura**.
-    2. Em **Conta de Faturação**, clique em **Subscrições**.
-    3. Em **As minhas subscrições**, selecione a subscrição.
-    4. O ID de Taxa é apresentado em **ID de Oferta**. Copie o ID de Oferta para a subscrição.
-4. Na caixa Adicionar nova conta (ou Editar Subscrição), clique em **Guardar** (ou **Seguinte**). Será redirecionado para o portal do Azure.
+    1. No canto superior direito do portal do Azure, clique nas suas informações de utilizador e em **Ver a minha fatura** .
+    2. Em **Conta de Faturação** , clique em **Subscrições** .
+    3. Em **As minhas subscrições** , selecione a subscrição.
+    4. O ID de Taxa é apresentado em **ID de Oferta** . Copie o ID de Oferta para a subscrição.
+4. Na caixa Adicionar nova conta (ou Editar Subscrição), clique em **Guardar** (ou **Seguinte** ). Será redirecionado para o portal do Azure.
 5. Inicie sessão no portal. Clique em **Aceitar** para autorizar o acesso do Recoletor do Cloudyn à sua conta do Azure.
 
-    Será redirecionado para a página de gestão de Contas do Cloudyn e a sua subscrição será atualizada com o Estado de Conta **ativa**. Deverá ser apresentado um símbolo de marca de verificação verde na coluna do Resource Manager.
+    Será redirecionado para a página de gestão de Contas do Cloudyn e a sua subscrição será atualizada com o Estado de Conta **ativa** . Deverá ser apresentado um símbolo de marca de verificação verde na coluna do Resource Manager.
 
     Se não for apresentado um símbolo de marca de verificação verde para uma ou mais subscrições, isso significa que não tem permissões para criar a aplicação de leitor (CloudynCollector) para a subscrição. Este processo tem de ser repetido por um utilizador com permissões superiores para a subscrição.
 
@@ -87,16 +87,16 @@ Veja o vídeo [Connecting to Azure Resource Manager with Cloudyn](https://youtu.
 
 Ao utilizar o portal do Cloudyn pela primeira vez, poderão ser apresentadas as seguintes mensagens se for utilizador do Contrato Enterprise ou Fornecedor de Soluções Cloud (CSP):
 
-- *A chave de API especificada não é uma chave de inscrição de nível superior*, apresentada no assistente de **Configuração do Cloudyn**.
-- *Inscrição Direta – Não*, apresentada no portal do Contrato Enterprise.
-- *Não foram encontrados dados de utilização nos últimos 30 dias. Contacte o seu distribuidor para garantir que a marcação foi ativada para a sua conta do Azure*, apresentada no portal do Cloudyn.
+- *A chave de API especificada não é uma chave de inscrição de nível superior* , apresentada no assistente de **Configuração do Cloudyn** .
+- *Inscrição Direta – Não* , apresentada no portal do Contrato Enterprise.
+- *Não foram encontrados dados de utilização nos últimos 30 dias. Contacte o seu distribuidor para garantir que a marcação foi ativada para a sua conta do Azure* , apresentada no portal do Cloudyn.
 
 As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. O seu revendedor ou CSP tem de ativar a _marcação_ para a sua conta do Azure, para que possa ver os dados no Cloudyn.
 
 Eis como resolver os problemas:
 
 1. O seu revendedor tem de ativar a _marcação_ para a sua conta. Para obter instruções, consulte o [Guia de Introdução do Cliente Indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. A chave do Contrato Enterprise do Azure para utilizar com o Cloudyn é gerida por si. Para obter instruções, veja [Registar um Contrato Enterprise do Azure e ver dados de custos](./quick-register-ea.md).
+2. A chave do Contrato Enterprise do Azure para utilizar com o Cloudyn é gerida por si.
 
 Para poder gerar a chave de API do Contrato Enterprise do Azure, para configurar o Cloudyn, tem de ativar a API de Faturação do Azure ao seguir as instruções em:
 
@@ -133,6 +133,6 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Se ainda não tiver concluído o primeiro tutorial para o Cloudyn, leia-o em [Rever a utilização e os custos](tutorial-review-usage.md).
