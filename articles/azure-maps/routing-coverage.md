@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030899"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896179"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de encaminhamento Azure Maps
 
@@ -37,7 +37,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 <br>  
 
 
-## <a name="africa"></a>África
+## <a name="africa"></a>Africa
 
 | País/Região                 | Encaminhamento         | Encaminhamento com Tráfego | Encaminhamento de camiões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -152,7 +152,7 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 | Vietname                        |        ✓       |         ✓            |             |
 
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | País/Região                 | Encaminhamento         | Encaminhamento com Tráfego | Encaminhamento de camiões |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -245,4 +245,4 @@ A tabela seguinte fornece informações de cobertura para o encaminhamento do Az
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o encaminhamento do Azure Maps, consulte as páginas de referência do [Encaminhamento.](https://docs.microsoft.com/rest/api/maps/route)
+Para obter mais informações sobre o encaminhamento do Azure Maps, consulte as páginas de referência do [Encaminhamento.](/rest/api/maps/route)

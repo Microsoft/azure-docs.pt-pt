@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976893"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896621"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura meteorológica do Azure Maps
 
-Este artigo fornece informações de cobertura para [os serviços Azure](https://aka.ms/AzureMapsWeatherService)Maps Weather . Azure Maps Os serviços de dados meteorológicos retornam detalhes como azulejos de radar, condições meteorológicas atuais, previsões meteorológicas e o tempo ao longo de uma rota.
+Este artigo fornece informações de cobertura para [os serviços Azure](/rest/api/maps/weather)Maps Weather . Azure Maps Os serviços de dados meteorológicos retornam detalhes como azulejos de radar, condições meteorológicas atuais, previsões meteorológicas e o tempo ao longo de uma rota.
 
 O Azure Maps não tem o mesmo nível de informação e precisão para todos os países e regiões.
 
@@ -239,7 +239,7 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Wallis e Futuna                 | ✓ |   | | ✓| 
 
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | Pais/região              |  Azulejos de satélite | Previsão de Minutos, Azulejos de Radar | Alertas meteorológicos severos | Outros* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:|
@@ -299,4 +299,4 @@ A tabela seguinte fornece informações sobre que tipo de informações meteorol
 | Turquia                 | ✓ |   | | ✓| 
 | Ucrânia                | ✓ |   | | ✓| 
 | Reino Unido         | ✓ | ✓ | ✓| ✓| 
-| Cidade do Vaticano           | ✓ |   |✓ | ✓| 
+| Cidade do Vaticano           | ✓ |   |✓ | ✓|

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037444"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897216"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocoding Azure Maps
 
-O serviço Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) suporta geocoding, o que significa que o seu pedido de API pode ter termos de pesquisa, como um endereço ou o nome de um lugar, e devolve o resultado como coordenadas de latitude e longitude. Por exemplo, o Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) recebe consultas que contêm informações de localização e devolve resultados como coordenadas de latitude e longitude.
+O serviço Azure Maps [Search](/rest/api/maps/search) suporta geocoding, o que significa que o seu pedido de API pode ter termos de pesquisa, como um endereço ou o nome de um lugar, e devolve o resultado como coordenadas de latitude e longitude. Por exemplo, o Azure Maps [Get Search Address API](/rest/api/maps/search/getsearchaddress) recebe consultas que contêm informações de localização e devolve resultados como coordenadas de latitude e longitude.
 
-No entanto, o serviço de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) Azure Maps não tem o mesmo nível de informação e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais pode procurar de forma fiável em cada região.
+No entanto, o serviço de [pesquisa](/rest/api/maps/search) Azure Maps não tem o mesmo nível de informação e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais pode procurar de forma fiável em cada região.
 
 A capacidade de geocódificar num país/região depende da cobertura de dados rodoviários e da precisão geocodificante do serviço de geocodagem. As seguintes categorizações são utilizadas para especificar o nível de apoio à geocodagem em cada país/região.
 
@@ -148,7 +148,7 @@ A capacidade de geocódificar num país/região depende da cobertura de dados ro
 | Vietname                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis e Futuna                                   |                 |                |              |      ✓     |          ✓         |
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | País/Região                                      | Pontos de endereço |Números da casa | Nível de rua | Nível da cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
@@ -301,4 +301,4 @@ A capacidade de geocódificar num país/região depende da cobertura de dados ro
 
 Saiba mais sobre geocoding Azure Maps:
 > [!div class="nextstepaction"]
-> [Serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Serviço de pesquisa do Azure Maps](/rest/api/maps/search)

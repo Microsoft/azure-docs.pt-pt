@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b0b2cbf3fc637d7ad53be911c0171f6bb971bc6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688625"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896128"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com Rede Acelerada usando O Azure CLI
 
@@ -58,7 +58,7 @@ As seguintes distribuições são suportadas fora da caixa da Galeria Azure:
 ### <a name="supported-vm-instances"></a>Instâncias VM apoiadas
 O Networking Acelerado é suportado na maioria dos tamanhos de instância otimizados para o cálculo com 2 ou mais vCPUs.  Estas séries suportadas são: D/DSv2 e F/Fs
 
-Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
+Em casos que suportam a hiper-leitura, o Networking Acelerado é suportado em instâncias VM com 4 ou mais vCPUs. As séries apoiadas são: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Para obter mais informações sobre os casos de VM, consulte os [tamanhos do Linux VM](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -87,7 +87,7 @@ Após a criação da máquina virtual, pode confirmar que a rede acelerada está
 ## <a name="cli-creation"></a>Criação do CLI
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Instale o mais recente [Azure CLI](/cli/azure/install-azure-cli) e faça login numa conta Azure utilizando [o login az](/cli/azure/reference-index). Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myNic*e *myVm*.
+Instale o mais recente [Azure CLI](/cli/azure/install-azure-cli) e faça login numa conta Azure utilizando [o login az](/cli/azure/reference-index). Nos exemplos seguintes, substitua os nomes dos parâmetros de exemplo pelos seus próprios valores. Os nomes dos parâmetros incluem *myResourceGroup,* *myNic* e *myVm* .
 
 Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *central:*
 
@@ -109,7 +109,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
-Criar um grupo de segurança de rede com [a criação de nsg de rede Az](/cli/azure/network/nsg). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
+Criar um grupo de segurança de rede com [a criação de nsg de rede Az](/cli/azure/network/nsg). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup* :
 
 ```azurecli
 az network nsg create \
@@ -175,7 +175,7 @@ az vm create \
 
 Para obter uma lista de todos os tamanhos e características VM, consulte os [tamanhos linux VM](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Uma vez criado o VM, a saída semelhante à saída de exemplo a seguir é devolvida. Anote o **publicIpAddress**. Este endereço é utilizado para aceder ao VM nos passos seguintes.
+Uma vez criado o VM, a saída semelhante à saída de exemplo a seguir é devolvida. Anote o **publicIpAddress** . Este endereço é utilizado para aceder ao VM nos passos seguintes.
 
 ```output
 {
@@ -200,10 +200,10 @@ ssh azureuser@<your-public-ip-address>
 
 A partir da concha Bash, insira `uname -r` e confirme que a versão kernel é uma das seguintes versões, ou maior:
 
-* **Ubuntu 16.04**: 4.11.0-1013
-* **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 7.4.2017120423
-* **CentOS**: 7.4.20171206
+* **Ubuntu 16.04** : 4.11.0-1013
+* **SLES SP3** : 4.4.92-6.18
+* **RHEL** : 7.4.2017120423
+* **CentOS** : 7.4.20171206
 
 
 Confirme que o dispositivo VF Mellanox está exposto ao VM com o `lspci` comando. A saída devolvida é semelhante à seguinte saída:

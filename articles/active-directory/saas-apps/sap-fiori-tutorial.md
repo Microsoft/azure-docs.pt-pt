@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1776518816a9b01ce803edfb39e147136dba08d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35bb05eb019a1284a8a418df0197960130e8d013
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675460"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897301"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Azure Ative Directory integração única (SSO) com SAP Fiori
 
@@ -272,11 +272,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     1. No SAP, em **Detalhes do Formato NameID "Não Especificado",** note os detalhes:
 
-        ![Os detalhes da caixa de diálogo "Não Especificado" do Formato NameID em SAP](./media/sapfiori-tutorial/nameiddetails.png)
+        ![Screenshot que mostra a caixa de diálogo "Detalhes do Formato NameID "Não Especificado" em S A P.](./media/sapfiori-tutorial/nameiddetails.png)
 
     1. No portal Azure, nos **termos dos Atributos do Utilizador & Reclamações,** note as reclamações exigidas da Azure AD.
 
-        ![A caixa de diálogo & Claims do Utilizador no portal Azure](./media/sapfiori-tutorial/claimsaad1.png)
+        ![Screenshot que mostra a caixa de diálogo "User Atributos & Claims".](./media/sapfiori-tutorial/claimsaad1.png)
 
     **Cenário 2** : Selecione o ID do utilizador SAP com base no endereço de e-mail configurado em SU01. Neste caso, o ID de e-mail deve ser configurado em SU01 para cada utilizador que necessite de SSO.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037410"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897199"
 ---
 # <a name="geofencing-geojson-data"></a>Geofencing Dados geojSON
 
@@ -30,17 +30,17 @@ Os dados relativos à geofência ou conjunto de geofências são representados p
 * É `expiredTime` a data de validade e a hora dos dados de geofencagem. Se o valor do `userTime` pedido for posterior a este valor, os dados de geofência correspondentes são considerados dados caducados e não são consultados. Sobre o qual a geometriaId destes dados de geofência será incluída na `expiredGeofenceGeometryId` matriz dentro da resposta de geofência.
 * `validityPeriod`Trata-se de uma lista de períodos de validade da geo-fence. Se o valor do `userTime` pedido ficar fora do período de validade, os dados de geofência correspondentes são considerados inválidos e não serão consultados. A geometriaId destes dados de geofência está incluída na `invalidPeriodGeofenceGeometryId` matriz dentro da resposta de geofência. A tabela a seguir mostra as propriedades do elemento validadePeriod.
 
-| Nome | Tipo | Necessário  | Descrição |
+| Nome | Tipo | Obrigatório  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data de início do período de tempo de validade. |
 | endTime   | Datetime  | true |  A data de fim do período de tempo de validade. |
-| recorrênciaType | string | false |   O tipo de recorrência do período. O valor pode `Daily` `Weekly` ser, `Monthly` , ou . `Yearly` . O valor predefinido é `Daily`.|
+| recorrênciaType | cadeia | false |   O tipo de recorrência do período. O valor pode `Daily` `Weekly` ser, `Monthly` , ou . `Yearly` . O valor predefinido é `Daily`.|
 | businessDayOnly | Booleano | false |  Indicar se os dados são válidos apenas durante os dias úteis. O valor predefinido é `false`.|
 
 
 * Todos os valores de coordenadas são representados como [longitude, latitude] definido em `WGS84` .
 * Para cada Recurso, que contém `MultiPoint` , ou , as propriedades são `MultiLineString` `MultiPolygon` `GeometryCollection` aplicadas a todos os elementos. por exemplo: Todos os pontos em `MultiPoint` vão usar o mesmo raio para formar uma geofência de múltiplos círculos.
-* Em cenário de círculo pontual, uma geometria do círculo pode ser representada usando um `Point` objeto de geometria com propriedades elaboradas na [extensão das geometrias geoJSON.](https://docs.microsoft.com/azure/azure-maps/extend-geojson)      
+* Em cenário de círculo pontual, uma geometria do círculo pode ser representada usando um `Point` objeto de geometria com propriedades elaboradas na [extensão das geometrias geoJSON.](./extend-geojson.md)      
 
 Segue-se um corpo de pedido de amostra para uma geofence representada como geometria de geofência de círculo na `GeoJSON` utilização de um ponto central e um raio. O período válido dos dados de geofência começa de 2018-10-22, das 9h às 17h, repetidos todos os dias, exceto ao fim de semana. `expiredTime` indica que estes dados de geofência serão considerados expirados, se `userTime` no pedido for mais tarde do que `2019-01-01` .  
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335267"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896854"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
 
@@ -76,7 +76,7 @@ Pode [descarregar o livro excel.](https://github.com/Azure-Samples/AzureMapsCode
 
 Olhando para a imagem dos dados, podemos fazer as seguintes observações:
 
-* As informações de localização são armazenadas utilizando as **colunas AddressLine**, **City**, **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
+* As informações de localização são armazenadas utilizando as **colunas AddressLine** , **City** , **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
 * As colunas **Latitude** e **Longitude** contêm as coordenadas para cada café Contoso. Se não tiver informações de coordenadas, pode utilizar os serviços de Pesquisa no Azure Maps para determinar as coordenadas de localização.
 * Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para Wi-Fi e acessibilidade em cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
 
@@ -87,7 +87,7 @@ Existem muitas formas de expor o conjunto de dados à aplicação. Uma abordagem
 
 Outra abordagem é converter este conjunto de dados num ficheiro de texto plano que o navegador pode facilmente analisar. O ficheiro em si pode ser hospedado com o resto da aplicação. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados mais pequenos porque o utilizador descarrega todos os dados. Utilizamos o ficheiro de texto plano para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
 
-Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As**. Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)**. Diga o nome do * ficheiroContosoCoffee.txt*.
+Para converter o livro num ficheiro de texto plano, guarde o livro como um ficheiro delimitado por separadores. Cada coluna é delimitada por um caráter de separador, o que torna as colunas fáceis de analisar no nosso código. Você poderia usar o formato de valor separado de vírgula (CSV), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula à volta seria embrulhado com aspas. Para exportar estes dados como um ficheiro delimitado por separadores no Excel, selecione **Save As** . Na lista Desacompanhada **do tipo** Deslimited **Text (Tab delimitado)(*.txt)** . Diga o nome do *ficheiroContosoCoffee.txt* .
 
 ![Screenshot do Save como caixa de diálogo tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,7 +97,7 @@ Se abrir o ficheiro de texto no Bloco de Notas, este é semelhante ao seguinte v
 
 ## <a name="set-up-the-project"></a>Configurar o projeto
 
-Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na sua pasta de projeto, crie três ficheiros: *index.html,* *index.css*e *index.js*. Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta com o nome *de dados* e adicione *ContosoCoffee.txt* à pasta. Criar outra pasta nomeada *imagens*. Usamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [baixar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A sua pasta de projeto deve agora parecer-se com a seguinte figura:
+Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código à sua escolha. Na sua pasta de projeto, crie três ficheiros: *index.html,* *index.css* e *index.js* . Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta com o nome *de dados* e adicione *ContosoCoffee.txt* à pasta. Criar outra pasta nomeada *imagens* . Usamos 10 imagens nesta aplicação para ícones, botões e marcadores no mapa. Pode [baixar estas imagens.](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data) A sua pasta de projeto deve agora parecer-se com a seguinte figura:
 
 ![Screenshot da pasta do projeto do localizador de loja simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
@@ -105,7 +105,7 @@ Para criar o projeto, pode utilizar o [Visual Studio](https://visualstudio.micro
 
 Para criar a interface do utilizador, adicione código a *index.html:*
 
-1. Adicione as `meta` seguintes etiquetas à `head`index.htm* l*. A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
+1. Adicione as `meta` seguintes etiquetas à `head`index.htm *l* . A `charset` etiqueta define o conjunto de caracteres (UTF-8). O valor dos `http-equiv` indicações ao Internet Explorer e Microsoft Edge para utilizarem as versões mais recentes do navegador. E, a última `meta` etiqueta especifica um viewport que funciona bem para layouts responsivos.
 
     ```HTML
     <meta charset="utf-8">
@@ -158,7 +158,7 @@ Para criar a interface do utilizador, adicione código a *index.html:*
     </main>
     ```
 
-Quando terminar, *index.htmdevo* parecer este exemplo index.htm[ficheiro l.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
+Quando terminar, *index.htmdevo* parecer este exemplo index.htm [ficheiro l.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
 O próximo passo é definir os estilos CSS. Os estilos CSS definem como os componentes da aplicação são definidos e a aparência da aplicação. Abra *index.css* e adicione-lhe o seguinte código. O `@media` estilo define opções de estilo alternativo para usar quando a largura do ecrã é menor que 700 pixels.  
 
@@ -385,7 +385,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código a *index.js*. O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
+1. Adicione código a *index.js* . O seguinte código rubrica o mapa. Adicionámos um [ouvinte do evento](/javascript/api/azure-maps-control/atlas.map#events) para esperar até que a página termine de carregar. Em seguida, ligamos eventos para monitorizar o carregamento do mapa, e dar funcionalidade ao botão de pesquisa e ao botão de localização.
 
    Quando o utilizador seleciona o botão de pesquisa ou escreve uma localização na caixa de pesquisa e, em seguida, pressiona a entrada, é iniciada uma pesquisa difusa contra a consulta do utilizador. Passe num conjunto de valores ISO 2 de país/região à `countrySet` opção de limitar os resultados de pesquisa a esses países/regiões. Limitar os países/regiões à procura ajuda a aumentar a precisão dos resultados que são devolvidos. 
   
@@ -910,7 +910,7 @@ Tudo está agora configurado na interface do utilizador. Ainda precisamos adicio
     }
     ```
 
-Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o * ficheiroindex.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar uma localização utilizando a caixa de pesquisa, selecionando o botão 'Localização' , selecionando um cluster ou fazendo zoom no mapa para ver as localizações individuais.
+Agora, tem um localizador de loja totalmente funcional. Num navegador web, abra o *ficheiroindex.html* para o localizador da loja. Quando os clusters aparecem no mapa, pode procurar uma localização utilizando a caixa de pesquisa, selecionando o botão 'Localização' , selecionando um cluster ou fazendo zoom no mapa para ver as localizações individuais.
 
 A primeira vez que um utilizador seleciona o botão 'Localização' o navegador apresenta um aviso de segurança que pede permissão para aceder à localização do utilizador. Se o utilizador concordar em partilhar a sua localização, o mapa faz zooms na localização do utilizador e nas cafetarias próximas são mostrados.
 
@@ -931,8 +931,8 @@ Neste tutorial, aprendeu a criar um localizador de lojas básica usando o Azure 
  * Deixe o utilizador [filtrar as localizações ao longo de uma rota](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
  * Adicione a capacidade de [definir filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
  * Adicione suporte para especificar um valor inicial de pesquisa utilizando uma cadeia de consulta. Quando incluir esta opção no localizador da sua loja, os utilizadores podem marcar e partilhar pesquisas. Também fornece um método fácil para que você passe pesquisas para esta página a partir de outra página.  
- * Implemente o localizador da sua loja como uma [Aplicação Web do Serviço de Aplicações Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
- * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os [tipos de dados espaciais sql server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) e os [dados espaciais de consulta para o vizinho mais próximo.](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true)
+ * Implemente o localizador da sua loja como uma [Aplicação Web do Serviço de Aplicações Azure](../app-service/quickstart-html.md). 
+ * Guarde os seus dados numa base de dados e procure locais próximos. Para saber mais, consulte os [tipos de dados espaciais sql server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) e os [dados espaciais de consulta para o vizinho mais próximo.](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017)
 
 Pode [ver código fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [ver amostra ao vivo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) e saber mais sobre a cobertura e capacidades do Azure Maps utilizando níveis de Zoom e rede [de azulejos.](zoom-levels-and-tile-grid.md) Também pode [utilizar expressões de estilo orientadas por dados](data-driven-style-expressions-web-sdk.md) para aplicar à sua lógica de negócio.
 

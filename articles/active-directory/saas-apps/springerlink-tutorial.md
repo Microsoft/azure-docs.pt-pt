@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Springer Link Microsoft Docs'
+title: 'Tutorial: Azure Ative Directy integração única (SSO) com Springer Link Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Springer Link.
 services: active-directory
 author: jeevansd
@@ -9,107 +9,80 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 4a64e2ab2748b7354f9bb779c1efa98865cd60e8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3c03bb91320e79d5ea54ad43802073795bfbd4cb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514695"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896491"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Diretório Ativo Azure com Springer Link
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-springer-link"></a>Tutorial: Azure Ative Directory integração única (SSO) com Springer Link
 
-Neste tutorial, você aprende a integrar Springer Link com Azure Ative Directory (Azure AD).
-A integração da Springer Link com a AZure AD proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar Springer Link com Azure Ative Directory (Azure AD). Quando integrar a Springer Link com a AD Azure, pode:
 
-* Você pode controlar em Azure AD que tem acesso a Springer Link.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos no Link Springer (Single Sign-On) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Controlo em Azure AD que tem acesso a Springer Link.
+* Ative os seus utilizadores a serem automaticamente inscritos no Link Springer com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AD da Azure com a Springer Link, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Subscrição ativada por Springer Link
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Subscrição única ativada por Springer Link (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configura e testa Azure AD single sign-on.
+Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* Springer Link suporta **SP** e **IDP** iniciado SSO
+* Springer Link suporta **SP e IDP** iniciado SSO
 
 ## <a name="adding-springer-link-from-the-gallery"></a>Adicionando Link Springer da galeria
 
 Para configurar a integração do Springer Link no Azure AD, é necessário adicionar springer Link da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Springer Link da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Na secção Adicionar a partir da secção **da galeria,** **digite Springer Link** na caixa de pesquisa.
+1. Selecione **Springer Link** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com Springer Link usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Springer Link.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar o Azure AD SSO com springer link, execute os seguintes passos:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+2. **[Configure o Springer Link SSO](#configure-springer-link-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, **digite Springer Link**, selecione **Link Springer** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+1. No portal Azure, na página de integração da aplicação **Springer Link,** encontre a secção **Gerir** e selecione **um único sinal de sação** .
+1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-     ![Link Springer na lista de resultados](common/search-new-app.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
+1. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** insira os valores para os seguintes campos:
 
-Nesta secção, configura e testa o Azure AD com springer link baseado num utilizador de teste chamado **Britta Simon**.
+    a. Na caixa de texto **identifier,** digite o URL: `https://fsso.springer.com`
 
-Para configurar e testar o único sinal de Azure AD com Springer Link, é necessário completar os seguintes blocos de construção:
+    b. Na caixa de texto **URL de resposta,** digite o URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o link de mola único sign-on](#configure-springer-link-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
+    c. Clique **em Definir URLs adicionais** .
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD com springer link, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Springer Link,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
-
-4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
-
-    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-relay.png)
-
-    a. Na caixa de texto **identifier,** digite um URL: `https://fsso.springer.com`
-
-    b. Na caixa de texto **URL de resposta,** digite um URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
-
-    c. Clique **em Definir URLs adicionais**.
-
-    d. Na caixa de texto **do Estado de Retransmissão,** digite um URL: `https://link.springer.com`
+    d. Na caixa de texto **do Estado de Retransmissão,** digite o URL: `https://link.springer.com`
 
 5. Se desejar configurar a aplicação no modo iniciado pela **SP,** execute o seguinte passo:
-
-    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both-signonurl.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
@@ -120,71 +93,57 @@ Para configurar o Azure AD com springer link, execute os seguintes passos:
 
     ![O link de descarregamento de metadados](common/copy_metadataurl.png)
 
-### <a name="configure-springer-link-single-sign-on"></a>Configurar a ligação de mola Sign-On
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-Para configurar um único sinal no lado **springer link,** é necessário enviar o **url de metadados da Federação de Aplicações** copiada para a [equipa de suporte da Springer Link](mailto:onlineservice@springernature.com). A equipa de suporte de ligação Springer utiliza este URL para configurar corretamente a ligação SSO SAML de ambos os lados.
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
-Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Springer Link.
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Springer Link.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Springer Link**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Springer Link** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
+## <a name="configure-springer-link-sso"></a>Configure a ligação springer SSO
 
-2. Na lista de candidaturas, selecione **Springer Link**.
+Para configurar um único sinal no lado **springer link,** é necessário enviar o **url de metadados da Federação de Aplicações** copiada para a [equipa de suporte da Springer Link](mailto:onlineservice@springernature.com). A equipa de suporte de ligação Springer utiliza este URL para configurar corretamente a ligação SSO SAML de ambos os lados.
 
-    ![O link Springer Link na lista de Aplicações](common/all-applications.png)
+### <a name="create-springer-link-test-user"></a>Criar utilizador de teste de Link Springer
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+Nesta secção, cria-se um utilizador chamado Britta Simon em Springer Link. Trabalhe com a [equipa de suporte springer Link](mailto:onlineservice@springernature.com) para adicionar os utilizadores na plataforma Springer Link. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+## <a name="test-sso"></a>Teste SSO 
 
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-    ![O painel de atribuição de adição](common/add-assign-user.png)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Sinal de Link Springer no URL, onde pode iniciar o fluxo de login.  
 
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+* Vá diretamente ao URL de acesso de link springer e inicie o fluxo de login a partir daí.
 
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Link Springer para o qual configura o SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo do Link Springer no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Link Springer para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Quando clicar no azulejo springer link no Painel de Acesso, deverá ser automaticamente inscrito no Link Springer para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="additional-resources"></a>Recursos Adicionais
+Uma vez configurado Springer Link, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
-
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

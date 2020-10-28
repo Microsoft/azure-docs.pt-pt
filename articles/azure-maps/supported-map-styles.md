@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310361"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896944"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps suportado estilos de mapa incorporado
 
@@ -27,8 +27,8 @@ Um **roteiro** é um mapa padrão que exibe estradas. Também exibe característ
 
 **APIs aplicáveis:**
 
-* [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Azulejo do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Imagem do mapa](/rest/api/maps/render/getmapimage)
+* [Azulejo do mapa](/rest/api/maps/render/getmaptile)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
 * Elemento visual do Power BI
@@ -52,7 +52,7 @@ O estilo **satélite** é uma combinação de imagens de satélite e aéreas.
 
 **APIs aplicáveis:**
 
-* [Azulejo de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Azulejo de satélite](/rest/api/maps/render/getmapimagerytilepreview)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
 * Elemento visual do Power BI
@@ -77,8 +77,8 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 
 **APIs aplicáveis:**
 
-* [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Azulejo do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Imagem do mapa](/rest/api/maps/render/getmapimage)
+* [Azulejo do mapa](/rest/api/maps/render/getmaptile)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
 * Elemento visual do Power BI
@@ -114,7 +114,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 
 **APIs aplicáveis:**
 
-* [Azulejo do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Azulejo do mapa](/rest/api/maps/render/getmaptile)
 * Controlo de mapas Web SDK
 * Controlo de mapas android
 * Elemento visual do Power BI
@@ -134,4 +134,4 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos em cima de
 
 Saiba como definir um estilo de mapa no Azure Maps:
 
-[Escolher um estilo de mapa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Escolher um estilo de mapa](./choose-map-style.md)

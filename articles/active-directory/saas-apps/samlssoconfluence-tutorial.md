@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 7c36dd87ac305db62d2d80b74de09f4389722da9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c8f85c6dd42f1f4505474e03e378c0fe48d70005
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675506"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO for Confluence por resolução GmbH
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
 4. Na secção **de Configuração Básica SAML** execute os seguintes passos, se desejar configurar a aplicação no modo iniciado pelo **IDP:**
 
-    ![SAML SSO para Confluência por resolução GmbH Domain e URLs informações únicas de sinal-on](common/idp-intiated.png)
+    ![Screenshot que mostra a configuração "Basic S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas, e a ação "Save" selecionada.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -124,45 +124,45 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
 
 2. Hover on cog e clique nos **Add-ons** .
     
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon1.png)
+    ![Screenshot que mostra o ícone "Cog" selecionado e "Add-ons" selecionados a partir do drop-down.](./media/samlssoconfluence-tutorial/addon1.png)
 
 3. É redirecionado para a página de Acesso ao Administrador. Introduza a palavra-passe e clique no botão **Confirmar.**
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon2.png)
+    ![Screenshot que mostra a página "Acesso ao administrador" com o botão "Confirmar" selecionado.](./media/samlssoconfluence-tutorial/addon2.png)
 
 4. No **separador ATLASSIAN MARKETPLACE,** clique **em Localizar novos addons** . 
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon.png)
+    ![Screenshot que mostra o separador "Attlassian Marketplace" com "Encontre novos addons" selecionados.](./media/samlssoconfluence-tutorial/addon.png)
 
 5. Procure **o sinal único SAML On (SSO) para confluência** e clique no botão **Instalar** para instalar o novo plugin SAML.
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon7.png)
+    ![Screenshot que mostra a página "Encontrar novos add-ons" com "S A M L Single Sign On (S O) for Confluence" na caixa de pesquisa e no botão "Instalar" selecionado.](./media/samlssoconfluence-tutorial/addon7.png)
 
 6. A instalação plugin irá arrancar. Clique em **Fechar** .
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon8.png)
+    ![Screenshot que mostra o diálogo "Instalar".](./media/samlssoconfluence-tutorial/addon8.png)
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon9.png)
+    ![Screenshot que mostra o "Instalado e pronto para ir!" diálogo com a ação "Fechar" selecionada.](./media/samlssoconfluence-tutorial/addon9.png)
 
 7.  Clique em **Gerir** .
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon10.png)
+    ![Screenshot que mostra a página de aplicação "S A M L Single Sign On (S O) for Confluence" com o botão "Gerir" selecionado.](./media/samlssoconfluence-tutorial/addon10.png)
     
 8. Clique **em Configurar** para configurar o novo plugin.
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon11.png)
+    ![Screenshot que mostra a página "Gerir" com o botão "Configurar" selecionado.](./media/samlssoconfluence-tutorial/addon11.png)
 
 9. Este novo plugin também pode ser encontrado no separador & SEGURANÇA dos **UTILIZADORES.**
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon3.png)
+    ![Screenshot que mostra o separador "Utilizadores & Security" com "S A M L SingleSignOn" selecionado.](./media/samlssoconfluence-tutorial/addon3.png)
     
 10. Na página **de configuração do plugin singleSignOn SAML,** clique em Adicionar novo botão **IdP** para configurar as definições do Fornecedor de Identidade.
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon4.png)
+    ![Screenshot que mostra a página "S A M L SingleSignOn Plugin Configuration", com o botão "Adicionar novo I d P" selecionado.](./media/samlssoconfluence-tutorial/addon4.png)
 
 11. Na escolha da sua página **de Fornecedor de Identidade SAML,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5a.png)
+    ![Screenshot que mostra a página "Escolha o seu Fornecedor de Identidade S A M L" com as caixas de texto "I d P Type", "Name" e "Descrição" em destaque.](./media/samlssoconfluence-tutorial/addon5a.png)
  
     a. Desagrafe **o AD AD** como o tipo IdP.
     
@@ -174,11 +174,11 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     
 12. Na página **de configuração do fornecedor de identidade,** clique no botão **Seguinte.**
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5b.png)
+    ![Screenshot que mostra a página "Configuração do fornecedor de identidade" com o botão "Seguinte" selecionado.](./media/samlssoconfluence-tutorial/addon5b.png)
 
 13. Na página **de Metadados IdP de Importação SAML,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5c.png)
+    ![Screenshot que mostra a página "Import S A M L I d P Metadados" com os botões "Import", "Load File" e "Next" selecionados.](./media/samlssoconfluence-tutorial/addon5c.png)
 
     a. Clique no botão **'Ficheiro de Carga'** e escolha o ficheiro XML dos metadados que descarregou no Passo 5.
 
@@ -190,15 +190,15 @@ Para configurar o Azure AD um único sinal de inscrição com o SSO SAML para Co
     
 14. Na página de id do utilizador e página **de transformação,** clique no botão **Seguinte.**
 
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon5d.png)
+    ![Screenshot que mostra a página "Atributo e transformação do ID do utilizador" com o botão "Seguinte" selecionado.](./media/samlssoconfluence-tutorial/addon5d.png)
     
 15. Na **página de criação e atualização do Utilizador,** clique em **Guardar & Seguinte** para guardar as definições.   
     
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6a.png)
+    ![Screenshot que mostra a página "Criação e atualização do utilizador" com o botão "Save & Next" selecionado.](./media/samlssoconfluence-tutorial/addon6a.png)
     
 16. Na página **de Teste das definições,** clique em **fazer o teste de saltar & configurar manualmente** para saltar o teste do utilizador por enquanto. Isto será realizado na secção seguinte e requer algumas configurações no portal Azure. 
     
-    ![Configurar Sign-On Individuais](./media/samlssoconfluence-tutorial/addon6b.png)
+    ![Screenshot que mostra a página "Testar as suas definições" com o botão "Saltar teste & configurar manualmente" selecionado.](./media/samlssoconfluence-tutorial/addon6b.png)
     
 17. Na leitura do diálogo que **aparece, ignorando o teste significa...** clique **em OK** .
     
@@ -266,7 +266,7 @@ No SSO SAML for Confluence por resolução GmbH, o provisionamento é uma tarefa
 
 2. Hover on cog e clique na **gestão** do Utilizador .
 
-    ![Adicionar Empregado](./media/samlssoconfluence-tutorial/user1.png) 
+    ![Screenshot que mostra o ícone "Cog" selecionado e "Gestão do utilizador" selecionado no menu.](./media/samlssoconfluence-tutorial/user1.png) 
 
 3. Na secção Utilizadores, clique no **separador Adicionar utilizadores.** Na página de diálogo **"Adicionar um Utilizador",** execute os seguintes passos:
 

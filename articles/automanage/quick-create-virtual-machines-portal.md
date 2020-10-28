@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 69f43b626bb50171ceaca1b7a8761bec040d1dd6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91445796"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897233"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 > As contas de teste gratuitas não têm acesso às máquinas virtuais utilizadas neste tutorial. Por favor, atualize para uma subscrição Pay-As-You-Go.
 
 > [!IMPORTANT]
-> É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessário ter a função **de Contribuinte** no grupo de recursos que contém os seus VMs para ativar a Automanage utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, necessita das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador** na sua subscrição.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -40,7 +40,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Na barra de pesquisa, procure e selecione **Automanage – Azure virtual machine boas práticas.**
 
-2. **Selecione a Ativação em VM existente**.
+2. **Selecione a Ativação em VM existente** .
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Ativar em VM existente.":::
 
@@ -61,7 +61,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Ativar em VM existente.":::
 
-6. Clique no botão **Ativar**.
+6. Clique no botão **Ativar** .
 
 
 ## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Permitir a auto-produção de VMs num novo VM
@@ -74,7 +74,7 @@ Inscreva-se [aqui](https://aka.ms/automanageportalnextstep) no portal Azure para
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Ativar em VM existente.":::
 
-3. Nos **próximos passos**, selecione **Ativar as melhores práticas da máquina virtual de auto-geração**.
+3. Nos **próximos passos** , selecione **Ativar as melhores práticas da máquina virtual de auto-geração** .
 
 4. Na página **de auto-mutilação – Azure, as** **máquinas** virtuais serão automaticamente povoadas pelo seu VM recém-criado.
 
@@ -88,7 +88,7 @@ Inscreva-se [aqui](https://aka.ms/automanageportalnextstep) no portal Azure para
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Ativar em VM existente.":::
 
-7. Clique no botão **Ativar**.
+7. Clique no botão **Ativar** .
 
 ## <a name="disable-automanage-for-vms"></a>Desativar a auto-mutilação para VMs
 
@@ -99,18 +99,18 @@ Pare rapidamente de utilizar a auto-gestão Azure para máquinas virtuais desati
 1. Vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente.
 1. Selecione a caixa de verificação ao lado da máquina virtual que pretende desativar.
 1. Clique no botão **de desativação desativar.**
-1. Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
+1. Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento** .
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se criou um novo grupo de recursos para experimentar a Azure Automanage para máquinas virtuais e já não precisa, pode eliminar o grupo de recursos. A eliminação do grupo também elimina o VM e todos os recursos do grupo de recursos.
 
 A Azure Automanage cria grupos de recursos predefinidos para armazenar recursos em. Consulte os grupos de recursos que têm a convenção de nomeação "DefaultResourceGroupRegionName" e "AzureBackupRGRegionName" para limpar todos os recursos.
 
-1. Selecione o **grupo De Recursos**.
-1. Na página para o grupo de recursos, **selecione Delete**.
-1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, **selecione Delete**.
+1. Selecione o **grupo De Recursos** .
+1. Na página para o grupo de recursos, **selecione Delete** .
+1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, **selecione Delete** .
 
 
 ## <a name="next-steps"></a>Passos seguintes

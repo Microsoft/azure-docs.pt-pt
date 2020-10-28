@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896213"
 ---
 # <a name="add-a-tile-layer"></a>Adicionar uma camada de mosaico
 
@@ -57,11 +57,11 @@ O URL de azulejos um URL https para um modelo de URL de azulejos que utiliza os 
 -   `{quadkey}` - `quadkey` Identificador de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
 -   `{bbox-epsg-3857}` - Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no sistema de referência espacial EPSG 3857.
 
-Como exemplo, o seguinte é um URL de azulejos formatado para o [serviço de azulejos de radar meteorológico](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) em Azure Maps. Note que `[subscription-key]` é um espaço reservado para a sua chave de subscrição Azure Maps.
+Como exemplo, o seguinte é um URL de azulejos formatado para o [serviço de azulejos de radar meteorológico](/rest/api/maps/renderv2/getmaptilepreview) em Azure Maps. Note que `[subscription-key]` é um espaço reservado para a sua chave de subscrição Azure Maps.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-Para obter mais informações sobre o sistema de inclinação Azure Maps, consulte [os níveis de Zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
+Para obter mais informações sobre o sistema de inclinação Azure Maps, consulte [os níveis de Zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

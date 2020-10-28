@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261938"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896230"
 ---
 # <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
@@ -90,7 +90,7 @@ Adicione mais contexto ao mapa:
 Personalize o visual:
 
 > [!div class="nextstepaction"]
-> [Sugestões e truques para a formatação de cores no Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Sugestões e truques para a formatação de cores no Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalizar os títulos, fundos e legendas das visualizações](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalizar os títulos, fundos e legendas das visualizações](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

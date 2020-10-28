@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888098"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896145"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Criar um trabalho de streaming de dados em Azure SQL Edge 
 
@@ -38,9 +38,9 @@ A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como ent
 
 | Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | S | S | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
 | SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
-| Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. Atualmente, este adaptador apenas se encontra disponível para versões Intel ou AMD do Azure SQL Edge. Não está disponível para a versão ARM64 do Azure SQL Edge.|
+| Kafka | Y | N | Fonte de dados para ler dados de streaming de um tópico kafka. Atualmente, este adaptador apenas se encontra disponível para versões Intel ou AMD do Azure SQL Edge. Não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemplo: Criar um objeto de entrada/saída de fluxo externo para o hub Azure IoT Edge
 
@@ -103,7 +103,7 @@ O exemplo a seguir cria um objeto de fluxo externo para a base de dados local em
 
 3. Criar uma fonte de dados externa com CREATE EXTERNAL DATA SOURCE. O seguinte exemplo:
 
-    * Cria uma fonte de dados externa chamada *LocalSQLOutput*.
+    * Cria uma fonte de dados externa chamada *LocalSQLOutput* .
     * Identifica a fonte de dados externa (LOCALIZAÇÃO = <vendor> ' <server> <port> []'). No exemplo, aponta para um caso local de Azure SQL Edge.
     * Usa a credencial criada anteriormente.
 
@@ -117,7 +117,7 @@ O exemplo a seguir cria um objeto de fluxo externo para a base de dados local em
     go
     ```
 
-4. Crie o objeto de fluxo externo. O exemplo a seguir cria um objeto de fluxo externo que aponta para um *dbo de mesa. Medidas de temperatura,* na base de dados *MySQLDatabase*.
+4. Crie o objeto de fluxo externo. O exemplo a seguir cria um objeto de fluxo externo que aponta para um *dbo de mesa. Medidas de temperatura,* na base de dados *MySQLDatabase* .
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

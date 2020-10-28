@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311313"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897131"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicione uma forma a um mapa usando Azure Maps Android SDK
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como renderizar formas num mapa usando O Azure Maps Andro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar o processo neste artigo, precisa instalar [o Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para completar o processo neste artigo, precisa instalar [o Azure Maps Android SDK](./how-to-use-android-map-control-library.md) para carregar um mapa.
 
 
 ## <a name="add-a-line-to-the-map"></a>Adicione uma linha ao mapa

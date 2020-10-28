@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119315"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896995"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Condição de utilização em modelos ARM
 
@@ -54,8 +54,8 @@ Para concluir este artigo, precisa de:
 
 Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
-1. em **Nome de ficheiro**, cole o seguinte URL:
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros** .
+1. em **Nome de ficheiro** , cole o seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -73,14 +73,14 @@ Azure Quickstart Templates é um repositório para modelos ARM. Em vez de criar 
 
     É útil rever a referência do modelo antes de personalizar um modelo.
 
-1. Selecione **File** > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado**.
+1. Selecione **File** > **'Guardar ficheiros' para** guardar uma cópia do ficheiro no computador local com o nome **azuredeploy.jsligado** .
 
 ## <a name="modify-the-template"></a>Modificar o modelo
 
 Introduza duas alterações ao modelo existente:
 
 * Adicionar um parâmetro do nome da conta de armazenamento. Os utilizadores podem especificar um novo nome da conta de armazenamento ou um nome da conta de armazenamento existente.
-* Adicionar um novo parâmetro denominado **newOrExisting**. A implementação utiliza este parâmetro para determinar se cria uma nova conta de armazenamento ou se utiliza uma conta de armazenamento existente.
+* Adicionar um novo parâmetro denominado **newOrExisting** . A implementação utiliza este parâmetro para determinar se cria uma nova conta de armazenamento ou se utiliza uma conta de armazenamento existente.
 
 Este é o procedimento para fazer as alterações:
 
@@ -88,7 +88,7 @@ Este é o procedimento para fazer as alterações:
 1. Substitua as três **variáveis ('storageAccountName')** por **parâmetros ('storageAccountName')** em todo o modelo.
 1. Remova a definição de variável seguinte:
 
-    ![Diagrama de condição do gestor de recursos](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Screenshot que realça as definições variáveis que precisa remover.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Adicione os dois parâmetros seguintes ao início da secção de parâmetros:
 
@@ -117,11 +117,11 @@ Este é o procedimento para fazer as alterações:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    A condição verifica o valor de um parâmetro denominado **newOrExisting**. Se o valor do parâmetro for **New** (novo), a implementação cria a conta de armazenamento.
+    A condição verifica o valor de um parâmetro denominado **newOrExisting** . Se o valor do parâmetro for **New** (novo), a implementação cria a conta de armazenamento.
 
     A definição de conta de armazenamento atualizada assemelha-se a:
 
-    ![Condição de utilização do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Screenshot que mostra a definição atualizada da conta de armazenamento.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Atualizar a propriedade **de armazenamentoUri** da definição de recurso de máquina virtual com o seguinte valor:
 
     ```json
@@ -140,7 +140,7 @@ Este é o procedimento para fazer as alterações:
 
     ![Arquivo de upload do portal Azure Cloud Shell](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**. Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
+1. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar** . Veja a captura de ecrã anterior. Selecione o ficheiro que guardou na secção anterior. Depois de carregar o ficheiro, pode utilizar o comando **ls** e o comando do **gato** para verificar se o ficheiro é carregado com sucesso.
 
 1. Executar o seguinte script PowerShell para implementar o modelo.
 
@@ -178,7 +178,7 @@ Tente fazer outra implementação com **o novo ConjuntoOrExisting** para "existe
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **Experimente-o** para abrir o Cloud Shell. Para colar o script PowerShell, clique com o botão direito da vidraça e, em seguida, **selecione Pasta**.
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **Experimente-o** para abrir o Cloud Shell. Para colar o script PowerShell, clique com o botão direito da vidraça e, em seguida, **selecione Pasta** .
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"

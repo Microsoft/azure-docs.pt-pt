@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b82478338603750a76718da956d74e23d242692e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280445"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896539"
 ---
 # <a name="managed-application-metered-billing"></a>Faturação gerida com medidos de aplicação 
 
@@ -56,9 +56,9 @@ Um cliente Azure que subscreve o serviço CoA pode analisar e gerar relatórios 
 
 As dimensões de faturação são usadas para comunicar ao cliente sobre como serão faturadas para usar o software.  Estas dimensões também são usadas para comunicar eventos de uso à Microsoft. São definidos da seguinte forma:
 
-* **Identificador de dimensão**: o identificador imutável referenciado ao emitir eventos de utilização.
-* **Nome de dimensão**: o nome de exibição associado à dimensão, por exemplo "mensagens de texto enviadas".
-* **Unidade de medida**: descrição da unidade de faturação, por exemplo "por mensagem de texto" ou "por 100 e-mails".
+* **Identificador de dimensão** : o identificador imutável referenciado ao emitir eventos de utilização.
+* **Nome de dimensão** : o nome de exibição associado à dimensão, por exemplo "mensagens de texto enviadas".
+* **Unidade de medida** : descrição da unidade de faturação, por exemplo "por mensagem de texto" ou "por 100 e-mails".
 * **Preço por unidade:** o preço de uma unidade da dimensão.
 * **Quantidade incluída para o prazo mensal:** quantidade de dimensão incluída por mês para os clientes que pagam a mensalidade recorrente, deve ser um número inteiro.
 
@@ -107,7 +107,7 @@ Uma vez publicado um plano, os detalhes do plano já não podem ser alterados:
 
 ### <a name="upper-limits"></a>Limites superiores
 
-O número máximo de dimensões que podem ser configuradas para uma única oferta é de 18 dimensões únicas.
+O número máximo de dimensões que podem ser configuradas para uma única oferta é de 30 dimensões únicas.
 
 ## <a name="get-support"></a>Obter suporte
 

@@ -1,18 +1,17 @@
 ---
 title: incluir ficheiro
-description: incluir ficheiro
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116770"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897695"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -46,7 +45,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos:
 
 As definições de imagem são um agrupamento lógico para versões de uma imagem. A definição de imagem contém informações sobre o porquê da imagem ter sido criada, para que é o SISTEMA, e outras informações sobre a utilização da imagem. Uma definição de imagem é como um plano para todos os detalhes em torno da criação de uma imagem específica. Não se implanta um VM a partir de uma definição de imagem, mas a partir das versões de imagem criadas a partir da definição.
 
-Existem três parâmetros para cada definição de imagem que são usados em combinação - **Publisher,** **Offer** e **SKU**. Estes são usados para encontrar uma definição de imagem específica. Pode ter versões de imagem que partilham um ou dois, mas não os três valores.  Por exemplo, aqui estão três definições de imagem e os seus valores:
+Existem três parâmetros para cada definição de imagem que são usados em combinação - **Publisher,** **Offer** e **SKU** . Estes são usados para encontrar uma definição de imagem específica. Pode ter versões de imagem que partilham um ou dois, mas não os três valores.  Por exemplo, aqui estão três definições de imagem e os seus valores:
 
 |Definição da Imagem|Publisher|Oferta|Sku|
 |---|---|---|---|
@@ -116,7 +115,7 @@ Para obter mais informações, [consulte a utilização do recurso contra limite
 ## <a name="scaling"></a>Dimensionamento
 A Galeria de Imagens Partilhada permite especificar o número de réplicas que pretende que o Azure guarde as imagens. Isto ajuda em cenários de implantação multi-VM, uma vez que as implementações de VM podem ser espalhadas para diferentes réplicas reduzindo a possibilidade de processamento de criação de instância ser estrangulado devido à sobrecarga de uma única réplica.
 
-Com a Shared Image Gallery, pode agora implementar até 1.000 vM instâncias numa escala de máquina virtual (até 600 com imagens geridas). As réplicas de imagem proporcionam um melhor desempenho de implantação, fiabilidade e consistência. Pode definir uma contagem de réplicas diferente em cada região alvo, com base nas necessidades de escala para a região. Uma vez que cada réplica é uma cópia profunda da sua imagem, isto ajuda a escalar as suas implementações linearmente com cada réplica extra. Embora compreendamos que não há duas imagens ou regiões iguais, eis a nossa orientação geral sobre como usar réplicas numa região:
+Com a Shared Image Gallery, pode agora implementar até 1.000 vM instâncias numa escala de máquina virtual (até 600 com imagens geridas). As réplicas de imagem proporcionam um melhor desempenho de implantação, fiabilidade e consistência.  Pode definir uma contagem de réplicas diferente em cada região alvo, com base nas necessidades de escala para a região. Uma vez que cada réplica é uma cópia profunda da sua imagem, isto ajuda a escalar as suas implementações linearmente com cada réplica extra. Embora compreendamos que não há duas imagens ou regiões iguais, eis a nossa orientação geral sobre como usar réplicas numa região:
 
 - Para implementações não virtual da balança de máquinas (VMSS) - Para cada 20 VMs que cria simultaneamente, recomendamos que mantenha uma réplica. Por exemplo, se estiver a criar 120 VMs simultaneamente usando a mesma imagem numa região, sugerimos que guarde pelo menos 6 réplicas da sua imagem. 
 - Para as implementações do Conjunto de Escala de Máquina Virtual (VMSS) - Para cada escala definida com até 600 instâncias, recomendamos que mantenha pelo menos uma réplica. Por exemplo, se estiver a criar conjuntos de 5 escalas simultaneamente, cada um com 600 VM de instâncias usando a mesma imagem numa única região, sugerimos que guarde pelo menos 5 réplicas da sua imagem. 
@@ -140,7 +139,7 @@ As regiões para ver uma imagem partilhada são replicadas para serem atualizada
 
 ![Gráfico mostrando como pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acesso
 
 Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são todos recursos, podem ser partilhados usando os controlos Azure RBAC nativos incorporados. Utilizando o RBAC, pode partilhar estes recursos com outros utilizadores, diretores de serviços e grupos. Pode até partilhar o acesso a indivíduos fora do inquilino onde foram criados. Uma vez que um utilizador tenha acesso à versão Imagem Partilhada, pode implementar um VM ou um Conjunto de Escala de Máquina Virtual.  Aqui está a matriz de partilha que ajuda a entender a que o utilizador tem acesso:
 
@@ -155,20 +154,23 @@ As imagens também podem ser partilhadas, em escala, mesmo através de inquilino
 
 ## <a name="billing"></a>Faturação
 Não existe qualquer custo extra para a utilização do serviço Image Gallery Partilhado. Serão cobrados os seguintes recursos:
-- Custos de armazenamento de armazenamento das versões Imagem Partilhada. O custo depende do número de réplicas da versão de imagem e do número de regiões a que a versão é replicada. Por exemplo, se tiver 2 imagens e ambas forem replicadas em 3 regiões, então será cobrado por 6 discos geridos com base no seu tamanho. Para obter mais informações, consulte [os preços dos Discos Geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
-- A rede cobra taxas para a replicação da primeira versão de imagem da região origem para as regiões replicadas. As réplicas subsequentes são tratadas dentro da região, pelo que não há encargos adicionais. 
+-   Custos de armazenamento de armazenamento de cada réplica. O custo de armazenamento é cobrado como instantâneo e baseia-se no tamanho ocupado da versão de imagem, no número de réplicas da versão de imagem e no número de regiões a que a versão é replicada. 
+-   A rede cobra taxas para a replicação da primeira versão de imagem da região origem para as regiões replicadas. As réplicas subsequentes são tratadas dentro da região, pelo que não há encargos adicionais. 
+
+Por exemplo, digamos que tem uma imagem de um disco oss de 127 GB, que ocupa apenas 10GB de armazenamento, e um disco de dados vazio de 32 GB. O tamanho ocupado de cada imagem seria de apenas 10 GB. A imagem é replicada em 3 regiões e cada região tem duas réplicas. Haverá seis instantâneos totais, cada um com 10GB. Será cobrado o custo de armazenamento de cada instantâneo com base no tamanho ocupado de 10 GB. Pagará taxas de saída de rede para a primeira réplica ser copiada para as duas regiões adicionais. Para obter mais informações sobre o preço dos instantâneos em cada região, consulte [os preços dos discos geridos.](https://azure.microsoft.com/pricing/details/managed-disks/) Para obter mais informações sobre a saída da rede, consulte [os preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Atualizar recursos
 
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Description
+- Descrição
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Description
+- Descrição
 - Data de fim de vida
 
 Versão de imagem:
@@ -220,9 +222,9 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 Para listar todos os recursos da Galeria de Imagens Partilhadas através de subscrições a que tem acesso no portal Azure, siga os passos abaixo:
 
 1. Abra o [portal do Azure](https://portal.azure.com).
-1. Percorra a página e selecione **Todos os recursos**.
+1. Percorra a página e selecione **Todos os recursos** .
 1. Selecione todas as subscrições sob as quais gostaria de listar todos os recursos.
-1. Procure recursos de galeria de **imagens partilhadas,**.
+1. Procure recursos de galeria de **imagens partilhadas,** .
   
 Para listar todos os recursos da Galeria de Imagens Partilhadas através de subscrições às para as as que tem permissões, utilize o seguinte comando no CLI Azure:
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b839d35c27e86a754c19faff65039d350a66c6bd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 28fb3cb02d978c0a64884771727f33d01d8a4ceb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755779"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897709"
 ---
 > [!IMPORTANT]
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
@@ -123,8 +123,6 @@ Também terá de adicionar referências aos URLs para os seus dados de treino e 
 * Para recuperar o URL SAS para os seus dados de treino de modelo personalizados, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e **selecione Obter assinatura de acesso partilhado** . Certifique-se de que as permissões **de Leitura** e **Lista** são verificadas e clique em **Criar** . Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Utilize a amostra e as imagens de receção incluídas nas amostras abaixo (também disponíveis no [GitHub)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)ou pode utilizar os passos acima para obter o URL SAS de um documento individual no armazenamento de bolhas. 
 
-> [!NOTE]
-> Os fragmentos de código neste guia utilizam formulários remotos acedidos por URLs. Se pretender processar documentos de formulário local, consulte os métodos relacionados na [documentação](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) de referência e [nas amostras.](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="recognize-form-content"></a>Reconhecer o conteúdo da forma
 
@@ -132,7 +130,11 @@ Pode utilizar o Form Recogniser para reconhecer tabelas, linhas e palavras em do
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
-### <a name="output"></a>Saída
+
+> [!TIP]
+> Também pode obter conteúdo de um ficheiro local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) tais como **startRecognizeContent** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
+
+### <a name="output"></a>Resultado
 
 ```console
 Page 1: width 8.5 and height 11 with unit inch
@@ -156,8 +158,10 @@ Para reconhecer os recibos de um URI, utilize o `beginRecognizeReceiptsFromUrl` 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
+> [!TIP]
+> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) tais como **startRecognizeReceipts** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 status: notStarted
@@ -188,7 +192,7 @@ A função seguinte treina um modelo num determinado conjunto de documentos e im
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_train)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 Esta é a saída para um modelo treinado com os dados de formação disponíveis no [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). Esta produção de amostra foi truncada para a legibilidade.
 
@@ -231,7 +235,7 @@ Também pode treinar modelos personalizados rotulando manualmente os documentos 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
 
-### <a name="output"></a>Saída 
+### <a name="output"></a>Resultado 
 
 Esta é a saída para um modelo treinado com os dados de formação disponíveis no [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). Esta produção de amostra foi truncada para a legibilidade.
 
@@ -274,8 +278,11 @@ Vais usar o `beginRecognizeCustomFormsFromUrl` método. O valor devolvido é uma
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
+> [!TIP]
+> Também pode analisar ficheiros locais. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) tais como **startRecognizeCustomForms** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para cenários que envolvam imagens locais.
 
-### <a name="output"></a>Saída
+
+### <a name="output"></a>Resultado
 
 ```console
 status: notStarted
@@ -331,7 +338,7 @@ O bloco de códigos que se segue fornece uma lista completa dos modelos disponí
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 model 0:
@@ -371,7 +378,7 @@ Este bloco de códigos fornece uma lista paginada de modelos e IDs de modelos.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_listpages)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 model 1: 453cc2e6-e3eb-4e9f-aab6-e1ac7b87e09e
@@ -393,7 +400,7 @@ Também pode eliminar um modelo da sua conta fazendo referência ao seu ID. Esta
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_delete)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted

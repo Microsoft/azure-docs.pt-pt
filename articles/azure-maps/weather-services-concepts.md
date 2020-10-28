@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972035"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896732"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos em Azure Maps
 
-Este artigo introduz conceitos que se aplicam aos [Serviços Meteorológicos Azure Maps.](https://aka.ms/AzureMapsWeatherService) Recomendamos que se recomende a passar por este artigo antes de começar com as APIs meteorológicas.
+Este artigo introduz conceitos que se aplicam aos [Serviços Meteorológicos Azure Maps.](/rest/api/maps/weather) Recomendamos que se recomende a passar por este artigo antes de começar com as APIs meteorológicas.
 
 ## <a name="unit-types"></a>Tipos de unidades
 
@@ -100,7 +100,7 @@ Algumas das APIs do serviço meteorológico devolvem `iconCode` a resposta. É `
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e de satélite
 
-Através [do Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) os utilizadores podem solicitar imagens de satélite de radar e infravermelhos mais recentes. Consulte abaixo o guia para ajudar a interpretar as cores utilizadas para os azulejos de radar e satélite.
+Através [do Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) os utilizadores podem solicitar imagens de satélite de radar e infravermelhos mais recentes. Consulte abaixo o guia para ajudar a interpretar as cores utilizadas para os azulejos de radar e satélite.
 
 ### <a name="radar-images"></a>Imagens radar
 
@@ -475,7 +475,7 @@ Paleta de cores detalhada para azulejos de satélite infravermelhos é mostrada 
 
 ## <a name="index-ids-and-index-groups-ids"></a>IDs de índice e IDs de grupos de índice
 
-[A API dos Índices Diários](https://aka.ms/AzureMapsWeatherDailyIndices) permite que os utilizadores restringam os resultados devolvidos a tipos de índices específicos ou grupos de índices.
+[A API dos Índices Diários](/rest/api/maps/weather) permite que os utilizadores restringam os resultados devolvidos a tipos de índices específicos ou grupos de índices.
 
 Abaixo está uma tabela de IDs de índice disponíveis, seus nomes, e um link para os seus conjuntos de gama. Abaixo desta tabela está uma tabela listando os vários grupos de índice.
 
@@ -547,7 +547,7 @@ Abaixo está a lista de grupos de índices disponíveis (indexGroupId):
 
 ## <a name="daily-index-range-sets"></a>Conjuntos diários de gama de índices
 
-[A API do Índice Diário](https://aka.ms/AzureMapsWeatherDailyIndices) devolve o valor variado e o nome da categoria associada para cada ID de índice. Os conjuntos de alcance não são os mesmos para todos os índices. As tabelas abaixo mostram os vários conjuntos de gama utilizados pelos índices suportados listados nos [IDs de índice e nos grupos de índices IDs](#index-ids-and-index-groups-ids). Para saber quais os índices que usam quais os conjuntos de gama, aceda à secção [de IDs](#index-ids-and-index-groups-ids) de Índice e Grupos de Índice deste documento.
+[A API do Índice Diário](/rest/api/maps/weather) devolve o valor variado e o nome da categoria associada para cada ID de índice. Os conjuntos de alcance não são os mesmos para todos os índices. As tabelas abaixo mostram os vários conjuntos de gama utilizados pelos índices suportados listados nos [IDs de índice e nos grupos de índices IDs](#index-ids-and-index-groups-ids). Para saber quais os índices que usam quais os conjuntos de gama, aceda à secção [de IDs](#index-ids-and-index-groups-ids) de Índice e Grupos de Índice deste documento.
 
 ### <a name="poor-excellent-1"></a>Poor-Excellent 1
 
@@ -573,7 +573,7 @@ Abaixo está a lista de grupos de índices disponíveis (indexGroupId):
 
  | Nome da Categoria | Gama Iniciar | Gama final |
   ----------------|--------------|------------
-  Excelente      |     0.00        |    1,00
+  Excelente      |     0,00        |    1,00
   Muito bom        |   1.01          |  3,00
   Bom             |   3.01          |  5.00
   Razoável             |   5.01          |  7.00
@@ -613,7 +613,7 @@ Abaixo está a lista de grupos de índices disponíveis (indexGroupId):
 
  | Nome da Categoria | Gama Iniciar | Gama final |
   ----------------|--------------|------------
-  Muito improvável      |  0.00     |         1,00
+  Muito improvável      |  0,00     |         1,00
   Improvável           |  1.01     |         3,00
   Possivelmente           |  3.01     |         5.00
   Provavelmente             |  5.01     |         7.00

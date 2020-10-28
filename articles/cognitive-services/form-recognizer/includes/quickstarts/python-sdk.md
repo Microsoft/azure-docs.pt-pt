@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: a9aa51e46595c7c65b1f83776eb72caca13e0180
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5ff9c95e51f63de77ca20dee965718687daae5f4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755544"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897733"
 ---
 > [!IMPORTANT]
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
@@ -109,12 +109,14 @@ Terá de adicionar referências aos URLs para os seus dados de treino e teste.
 
 Pode utilizar o Form Recogniser para reconhecer tabelas, linhas e palavras em documentos, sem precisar de treinar um modelo.
 
-Para reconhecer o conteúdo de um ficheiro num dado URL, utilize o `begin_recognize_content` método. O valor devolvido é uma coleção de `FormPage` objetos: um para cada página no documento submetido. O código seguinte itera através destes objetos e imprime os pares de chave/valor extraídos e os dados de tabela.
+Para reconhecer o conteúdo de um ficheiro num dado URL, utilize o `begin_recognize_content_from_url` método. O valor devolvido é uma coleção de `FormPage` objetos: um para cada página no documento submetido. O código seguinte itera através destes objetos e imprime os pares de chave/valor extraídos e os dados de tabela.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_getcontent)]
 
+> [!TIP]
+> Também pode obter conteúdo a partir de imagens locais. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) tais como `begin_recognize_content` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 Table found on page 1:
@@ -144,8 +146,10 @@ Esta secção demonstra como reconhecer e extrair campos comuns a partir de reci
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
+> [!TIP]
+> Também pode reconhecer imagens de recibo local. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) tais como `begin_recognize_receipts` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 ReceiptType: Itemized has confidence 0.659
@@ -183,7 +187,7 @@ O seguinte código utiliza o cliente de formação com a `begin_training` funç�
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_train)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)
 
@@ -226,7 +230,7 @@ Também pode treinar modelos personalizados rotulando manualmente os documentos 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_trainlabels)]
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 Esta é a saída para um modelo treinado com os dados de treino disponíveis no [Python SDK.](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training)
 
@@ -272,8 +276,11 @@ Vais usar o `begin_recognize_custom_forms_from_url` método. O valor devolvido �
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_analyze)]
 
+> [!TIP]
+> Também pode analisar imagens locais. Consulte os métodos [FormRecognizerClient,](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) tais como `begin_recognize_custom_forms` . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para cenários que envolvam imagens locais.
 
-### <a name="output"></a>Saída
+
+### <a name="output"></a>Resultado
 
 Utilizando o modelo a partir do exemplo anterior, é fornecida a seguinte saída.
 
@@ -307,7 +314,7 @@ O bloco de códigos que se segue verifica quantos modelos guardou na sua conta D
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 Our account has 5 custom models, and we can have at most 5000 custom models
@@ -320,7 +327,7 @@ O bloco de códigos que se segue lista os modelos atuais na sua conta e imprime 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_list)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 Esta é uma amostra da conta de teste.
 
@@ -340,7 +347,7 @@ O bloco de código que se segue utiliza o ID do modelo guardado na secção ante
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 Esta é a saída da amostra para o modelo personalizado criado no exemplo anterior.
 

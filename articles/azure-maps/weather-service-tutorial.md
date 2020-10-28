@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 5499402e94cad8673da597afd68571b77047192a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677694"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896604"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python)
 
@@ -23,11 +23,11 @@ A energia eólica é uma fonte de energia alternativa para os combustíveis fós
 Neste tutorial, vai:
 
 > [!div class="checklist"]
-> * Trabalhe com ficheiros de dados em [Cadernos Azure](https://docs.microsoft.com/azure/notebooks) na nuvem.
+> * Trabalhe com ficheiros de dados em [Cadernos Azure](../notebooks/index.yml) na nuvem.
 > * Carregar dados de demonstração a partir de ficheiros.
 > * Ligue para Azure Maps REST APIs em Python.
 > * Entregue os dados de localização no mapa.
-> * Enriqueça os dados de demonstração com os dados meteorológicos Azure Maps [Daily Forecast.](https://aka.ms/AzureMapsWeatherDailyForecast)
+> * Enriqueça os dados de demonstração com os dados meteorológicos Azure Maps [Daily Forecast.](/rest/api/maps/weather/getdailyforecastpreview)
 > * Traçar dados de previsão em gráficos.
 
 
@@ -41,7 +41,7 @@ Para completar este tutorial, primeiro precisa:
 
 Para obter mais informações sobre a autenticação no Azure Maps, consulte [a autenticação de gestão no Azure Maps.](./how-to-manage-authentication.md)
 
-Para se familiarizar com os cadernos Azure e saber como começar, siga as instruções [Criar um Caderno Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebooks-project).
+Para se familiarizar com os cadernos Azure e saber como começar, siga as instruções [Criar um Caderno Azure](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
 > O arquivo de caderno Jupyter para este projeto pode ser descarregado do [repositório de cadernos Weather Maps Jupyter.](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data)
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Solicitar dados de previsão diária
 
-No nosso cenário, gostaríamos de solicitar a previsão diária para cada localização do sensor. O seguinte roteiro chama a [API de Previsão Diária](https://aka.ms/AzureMapsWeatherDailyForecast) do serviço meteorológico Azure Maps. Esta API devolve a previsão meteorológica para cada turbina eólica, para os próximos 15 dias a partir da data atual.
+No nosso cenário, gostaríamos de solicitar a previsão diária para cada localização do sensor. O seguinte roteiro chama a [API de Previsão Diária](/rest/api/maps/weather/getdailyforecastpreview) do serviço meteorológico Azure Maps. Esta API devolve a previsão meteorológica para cada turbina eólica, para os próximos 15 dias a partir da data atual.
 
 
 ```python
@@ -107,7 +107,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-O script abaixo torna as localizações da turbina no mapa, chamando o serviço Azure Maps [Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
+O script abaixo torna as localizações da turbina no mapa, chamando o serviço Azure Maps [Get Map Image](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -184,18 +184,18 @@ Os gráficos abaixo visualizam os dados da previsão. Para a mudança da velocid
 
 Neste tutorial você aprendeu, como chamar Azure Maps REST APIs para obter dados de previsão do tempo. Também aprendeu a visualizar os dados em gráficos.
 
-Para saber mais sobre como chamar Azure Maps REST APIs dentro de Cadernos Azure, consulte [o encaminhamento EV usando cadernos Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
+Para saber mais sobre como chamar Azure Maps REST APIs dentro de Cadernos Azure, consulte [o encaminhamento EV usando cadernos Azure](./tutorial-ev-routing.md).
 
 Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
 
-* [Previsão Diária](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [Render - Obter imagem de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Previsão Diária](/rest/api/maps/weather/getdailyforecastpreview)
+* [Render - Obter imagem de mapa](/rest/api/maps/render/getmapimage)
 
-Para obter uma lista completa de APIs DE REST Azure Maps, consulte [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+Para obter uma lista completa de APIs DE REST Azure Maps, consulte [Azure Maps REST APIs](./consumption-model.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre cadernos Azure, ver
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)
+> [Azure Notebooks](../notebooks/index.yml)

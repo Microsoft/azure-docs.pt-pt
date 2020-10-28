@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: jeedes
-ms.openlocfilehash: feb65d11c525b396e272c8a43ad9619d10a010d8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9b244d5e6aa9dd732aa670fd645b6bbc266c9535
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671201"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897284"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutorial: Azure Ative Directy integração única de sign-on (SSO) com a NUVEM SAP para o Cliente
 
@@ -86,13 +86,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação SAP Cloud para Cliente espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
 1. Na secção **Atributos** do Utilizador no **diálogo "Atributos & Reclamações** do Utilizador", execute os seguintes passos:
 
     a. Clique **em Editar o ícone** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![Screenshot que mostra o "User Atributos & Claims" com o ícone "Editar" selecionado.](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -149,11 +149,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. A partir do lado esquerdo do menu, clique em **Fornecedores** de Identidade De Identidade  >  **Corporativa**  >  **Adicionar** e no pop-up adicionar o nome do fornecedor de identidade como **Azure AD,** clique em **Guardar** e clicar na **Configuração SAML 2.0** .
 
-    ![Configuração SAP](./media/sap-customer-cloud-tutorial/configure01.png)
+    ![Screenshot que mostra a página "Fornecedores de Identidade" com a caixa de texto de diálogo "Adicionar Fornecedor de Identidade" realçada e o botão "Guardar" selecionado.](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. Na secção **de configuração SAML 2.0,** execute os seguintes passos:
 
-    ![Configuração SAP](./media/sap-customer-cloud-tutorial/configure02.png)
+    ![Screenshot que mostra a configuração "S A M L 2.0" com o botão "Procurar" selecionado.](./media/sap-customer-cloud-tutorial/configure02.png)
 
     a. Clique **em Procurar** para carregar o ficheiro XML dos Metadados da Federação, que descarregou a partir do portal Azure.
 
@@ -169,7 +169,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se na NUVEM SAP para Cli
 
 2. Do lado esquerdo do menu, clique em **Utilizadores & Dedesem o**  >  **Utilizador de Gestão do Utilizador**  >  **Add User** .
 
-    ![Configuração SAP](./media/sap-customer-cloud-tutorial/configure03.png)
+    ![Screenshot que mostra a página "Gestão do Utilizador" com o botão "Adicionar utilizador" selecionado.](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. Na secção **Adicionar Novo Utilizador,** execute os seguintes passos:
 

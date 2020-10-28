@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 934c19d9bd09b9c9d8d13f20c1b1271336739ec3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 12bc1de62217a598a478d8d7e4d71a4b60e000b9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514559"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896638"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutorial: Azure Ative Directory integração única (SSO) com Zscaler Three
 
@@ -52,14 +52,14 @@ Para configurar a integração do Zscaler Three em AD Azure, precisa adicionar Z
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Adicionar da secção **da galeria,** **digite Zscaler 3** na caixa de pesquisa.
 1. Selecione **Zscaler Três** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Configurar e testar Azure AD único sinal para Zscaler Três
 
-Configure e teste Azure AD SSO com Zscaler Three usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Zscaler Three.
+Configure e teste Azure AD SSO com Zscaler Three usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Zscaler Three.
 
 Para configurar e testar o Azure AD SSO com o Zscaler Three, complete os seguintes blocos de construção:
 
@@ -75,7 +75,7 @@ Para configurar e testar o Azure AD SSO com o Zscaler Three, complete os seguint
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Zscaler Three,** encontre a secção **Gerir** e selecione um único sinal de **sing.**
-1. Na página de método **de inscrição** única, selecione **SAML**.
+1. Na página de método **de inscrição** única, selecione **SAML** .
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -86,7 +86,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A sua aplicação Zscaler Three espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 6. Além de acima, a aplicação Zscaler Three espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com o seu requisito.
     
@@ -109,35 +109,35 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Zscaler Three.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Zscaler Three**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Zscaler Three** .
 1. No diálogo **de Utilizadores e grupos,** selecione o utilizador como **Britta Simon** da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+    ![A screenshot mostra a caixa de diálogo dos Utilizadores e grupos onde pode selecionar um utilizador.](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
 1. A partir do diálogo **'Escolha',** escolha a função de utilizador apropriada na lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+    ![A screenshot mostra a caixa de diálogo Select Role onde pode escolher uma função de utilizador.](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
 1. No diálogo **'Adicionar Atribuição'** selecione o botão **'Atribuir'.**
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+    ![A screenshot mostra a caixa de diálogo de atribuição de adicionar onde pode selecionar Atribua.](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ## <a name="configure-zscaler-three-sso"></a>Configure Zscaler Três SSO
 
-1. Para automatizar a configuração dentro do Zscaler 3, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+1. Para automatizar a configuração dentro do Zscaler 3, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
@@ -149,11 +149,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Vá à **Administração > Autenticação > Definições de Autenticação** e execute os seguintes passos:
    
-    ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administração")
+    ![A screenshot mostra o site Zscaler One com passos como descrito.](./media/zscaler-three-tutorial/ic800206.png "Administração")
 
-    a. No Tipo de Autenticação, escolha **SAML**.
+    a. No Tipo de Autenticação, escolha **SAML** .
 
-    b. Clique **em Configurar SAML**.
+    b. Clique **em Configurar SAML** .
 
 5. Na janela **Editar SAML,** execute os seguintes passos: e clique em Guardar.  
             
@@ -161,11 +161,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     
     a. Na caixa de texto **URL do PORTAL SAML,** cole o **URL de login** que copiou do portal Azure.
 
-    b. Na caixa de texto **atributo de nome de login,** insira o **NameID**.
+    b. Na caixa de texto **atributo de nome de login,** insira o **NameID** .
 
-    c. Clique em **Upload**, para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público**.
+    c. Clique em **Upload** , para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público** .
 
-    d. Alternar o **Enable SAML Auto-Provisioning**.
+    d. Alternar o **Enable SAML Auto-Provisioning** .
 
     e. Na caixa de texto **do nome de visualização** do utilizador, **introduza o nome do ecrã** Se pretender ativar o fornecimento automático de SAML para os atributos do nome de visualização.
 
@@ -173,20 +173,20 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     exemplo, No **departamento** **de Atributos de Nome do Departamento,** se pretender ativar o fornecimento automático da SAML para atributos do departamento.
 
-    h. Clique em **Guardar**.
+    h. Clique em **Guardar** .
 
 6. Na página de diálogo de autenticação do **utilizador configurar,** execute os seguintes passos:
 
-    ![Administração](./media/zscaler-three-tutorial/ic800207.png)
+    ![A screenshot mostra a caixa de diálogo de autenticação do utilizador configurar com ativação selecionada.](./media/zscaler-three-tutorial/ic800207.png)
 
     a. Passe por cima do menu **de ativação** perto do canto inferior esquerdo.
 
-    b. Clique **em Ativar**.
+    b. Clique **em Ativar** .
 
 ## <a name="configuring-proxy-settings"></a>Definir configurações de proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para configurar as definições de procuração no Internet Explorer
 
-1. Iniciar **o Internet Explorer**.
+1. Iniciar **o Internet Explorer** .
 
 2. Selecione **as opções** de Internet do menu **Ferramentas** para abrir o diálogo Opções de **Internet.**   
     
@@ -202,13 +202,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
    
     ![Servidor proxy](./media/zscaler-three-tutorial/ic769494.png "Servidor proxy")
 
-    a. Selecione **Utilize um servidor proxy para o seu LAN**.
+    a. Selecione **Utilize um servidor proxy para o seu LAN** .
 
     b. Na caixa de texto do Endereço, escreva **gateway. Zscaler Three.net.**
 
-    c. Na caixa de texto do Porto, tipo **80**.
+    c. Na caixa de texto do Porto, tipo **80** .
 
-    d. Selecione **o servidor de procuração de bypass para endereços locais**.
+    d. Selecione **o servidor de procuração de bypass para endereços locais** .
 
     e. Clique **em OK** para fechar o diálogo de **definições da Rede local (LAN).**
 

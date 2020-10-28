@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311094"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897097"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicione uma camada de azulejo a um mapa usando o Azure Maps Android SDK
 
@@ -39,7 +39,7 @@ O URL de azulejos passados para uma camada de azulejos deve ser um URL http/http
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar o processo neste artigo, precisa instalar [o Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para carregar um mapa.
+Para completar o processo neste artigo, precisa instalar [o Azure Maps Android SDK](./how-to-use-android-map-control-library.md) para carregar um mapa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Adicione uma camada de azulejo ao mapa
@@ -179,4 +179,4 @@ Se executar a sua aplicação agora, deve ver uma linha no mapa como visto abaix
 Veja o seguinte artigo para saber mais sobre formas de definir estilos de mapa
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa em mapas Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa em mapas Android](./set-android-map-styles.md)

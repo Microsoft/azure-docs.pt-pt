@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441866"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896471"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B utilizadores em Azure AD acesso às suas aplicações no local
 
@@ -39,8 +39,8 @@ Deve fazer as duas coisas:
 
 Para fornecer aos utilizadores B2B acesso a aplicações no local que estejam protegidas com autenticação integrada do Windows e delegação restrita kerberos, precisa dos seguintes componentes:
 
-- **Autenticação através do Azure AD Application Proxy**. Os utilizadores B2B devem poder autenticar a aplicação no local. Para isso, tem de publicar a aplicação no local através do Azure AD Application Proxy. Para obter mais informações, consulte [Começar com o Application Proxy e instalar as](../manage-apps/application-proxy-add-on-premises-application.md) aplicações de conector e publicação utilizando o [Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Autorização através de um objeto utilizador B2B no diretório no local**. A aplicação deve ser capaz de realizar verificações de acesso ao utilizador e conceder acesso aos recursos corretos. A IWA e a KCD requerem um objeto de utilizador no Windows Server Ative Directory para completar esta autorização. Como descrito em [Como funciona um único s-on com o KCD,](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)o Application Proxy precisa deste objeto do utilizador para personificar o utilizador e obter um token Kerberos para a aplicação. 
+- **Autenticação através do Azure AD Application Proxy** . Os utilizadores B2B devem poder autenticar a aplicação no local. Para isso, tem de publicar a aplicação no local através do Azure AD Application Proxy. Para mais informações, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Autorização através de um objeto utilizador B2B no diretório no local** . A aplicação deve ser capaz de realizar verificações de acesso ao utilizador e conceder acesso aos recursos corretos. A IWA e a KCD requerem um objeto de utilizador no Windows Server Ative Directory para completar esta autorização. Como descrito em [Como funciona um único s-on com o KCD,](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)o Application Proxy precisa deste objeto do utilizador para personificar o utilizador e obter um token Kerberos para a aplicação. 
 
    > [!NOTE]
    > Ao configurar o Proxy de aplicação AD Azure, certifique-se de que a **identidade de logon delegada** está definida para o **nome principal do utilizador** (predefinido) na configuração de sinalização única para autenticação integrada do Windows (IWA).

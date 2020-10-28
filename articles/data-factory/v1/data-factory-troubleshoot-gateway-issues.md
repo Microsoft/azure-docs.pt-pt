@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319072"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896570"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre problemas de resolução de problemas com a utilização do Data Management Gateway.
@@ -86,7 +86,7 @@ Pode ver a seguinte mensagem de erro quando estiver a registar um portal.
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![A chave gateway é inválida ou vazia](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Screenshot que realça a mensagem de erro que indica que a tecla gateway é inválida ou vazia.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
 A chave de porta de entrada foi regenerada ou o portal foi apagado no portal Azure. Também pode acontecer se a configuração do Gateway de Gestão de Dados não for a mais recente.
@@ -114,7 +114,7 @@ Se o gateway ainda existir mas a sua chave foi regenerada, use a nova chave para
 ### <a name="7-problem"></a>7. Problema
 Quando estiver a registar um portal, poderá ter de introduzir caminho e senha para obter um certificado.
 
-![Especifique o certificado](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Screenshot que mostra onde você entra no caminho e senha para o certificado.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Causa
 O portal já foi registado noutras máquinas antes. Durante o registo inicial de um gateway, um certificado de encriptação foi associado com o gateway. O certificado pode ser autogerado pelo gateway ou fornecido pelo utilizador.  Este certificado é utilizado para encriptar credenciais da loja de dados (serviço ligado).  
@@ -204,7 +204,7 @@ O certificado TLS/SSL pode ter sido perdido na máquina de gateway. O computador
 Siga estes passos para resolver o problema:
 
 1. Iniciar gestor de configuração gateway de gestão de dados.
-2. Mudar para o separador **Definições**.  
+2. Mudar para o separador **Definições** .  
 3. Clique no botão **Alterar** para alterar o certificado TLS/SSL.
 
    ![Alterar botão de certificado](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
@@ -233,7 +233,7 @@ Se vir a ligação à loja de dados ou erros relacionados com o condutor, comple
 
 1. Iniciar gestor de configuração gateway de gestão de dados na máquina de gateway.
 2. Mude para o **separador Diagnósticos.**
-3. Em **Test Connection**, adicione os valores do grupo gateway.
+3. Em **Test Connection** , adicione os valores do grupo gateway.
 4. Clique em **Testar** para ver se consegue ligar à fonte de dados no local a partir da máquina de gateway utilizando as informações e credenciais de ligação. Depois de instalar um controlador, se a ligação de teste continuar a falhar, reinicie o gateway para que este possa escolher a mais recente.
 
 ![Ligação de teste no separador diagnósticos](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -252,7 +252,7 @@ Quando contactar o Microsoft Support para obter ajuda com problemas de resoluç�
 4. (Opcional) Clique **em privacidade** para rever a declaração de privacidade dos serviços web da Microsoft.
 5. Quando estiver satisfeito com o que está **prestes** a carregar, clique em Enviar Registos para enviar os registos dos últimos sete dias para a Microsoft para resolução de problemas. Deve ver o estado da operação de registos de envio, tal como mostrado na imagem seguinte.
 
-    ![Gateway de Gestão de Dados Enviar registos](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Screenshot que mostra onde ver o estado da operação de registos de envio.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. Depois de concluída a operação, vê uma caixa de diálogo como mostrado na imagem seguinte.
 
     ![Gateway de Gestão de Dados Enviar registos](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
@@ -278,7 +278,7 @@ Clique no link de **registos de gateway Archive** para arquivar e guardar regist
 ### <a name="locate-gateway-logs"></a>Localizar registos de gateway
 Pode encontrar informações detalhadas sobre registos de gateway nos registos de eventos do Windows.
 
-1. Iniciar **o visualizador de eventos do Windows**.
+1. Iniciar **o visualizador de eventos do Windows** .
 2. Localizar registos na pasta Gateway de Gestão de Dados de **Registos de Aplicações e Serviços.**  >  **Data Management Gateway**
 
    Quando estiver a resolver problemas relacionados com gateways, procure eventos de nível de erro no espectador do evento.
