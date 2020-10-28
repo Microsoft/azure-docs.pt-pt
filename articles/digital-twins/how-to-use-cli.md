@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c8eabd7d2ef02a92684b51de0bf45bdf7d995421
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 5e4c49e7aea05b6f430860eb6975713f59ad8080
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494463"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635988"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Utilizar a CLI do Azure Digital Twins
 
-Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Digital Twins tem uma **interface de linha de comando (CLI)** que pode utilizar para realizar a maioria das principais ações com o serviço, incluindo:
+Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Digital Twins tem um **conjunto de comando para o [CLI Azure](/cli/azure/what-is-azure-cli)** que pode utilizar para realizar a maioria das principais ações com o serviço, incluindo:
 * Gerir um exemplo de Gémeos Digitais Azure
 * Gestão de modelos
 * Gerir gémeos digitais
@@ -25,17 +25,32 @@ Além de gerir a sua instância Azure Digital Twins no portal Azure, a Azure Dig
 * Gerir [rotas](concepts-route-events.md)
 * Configurar a [segurança](concepts-security.md) através do controlo de acesso baseado em funções Azure (Azure RBAC)
 
+O conjunto de comandos é chamado **az dt,** e faz parte da [extensão Azure IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Pode ver a lista completa de comandos e a sua utilização como parte da documentação de referência para o conjunto de `az iot` comandos: referência de comando [ *az dt*](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+
 ## <a name="uses-deploy-and-validate"></a>Utilizações (implantar e validar)
 
 Além de gerir geralmente o seu caso, o CLI é também uma ferramenta útil para implementação e validação.
 * Os comandos do plano de controlo podem ser utilizados para tornar a implantação de uma nova instância repetível ou automatizada.
 * Os comandos do plano de dados podem ser usados para verificar rapidamente os valores no seu caso, e verificar se as operações foram concluídas como esperado.
 
-## <a name="get-the-extension"></a>Obtenha a extensão
+## <a name="get-the-command-set"></a>Obter o conjunto de comando
 
-Os comandos Azure Digital Twins fazem parte da [extensão Azure IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension). Pode ver a lista completa de comandos e a sua utilização como parte da documentação de referência para o conjunto de `az iot` comandos: referência de comando [ *az dt* ](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+Os comandos Azure Digital Twins fazem parte da [extensão Azure IoT para Azure CLI (azure-iot)](https://github.com/Azure/azure-iot-cli-extension)– por isso siga estes passos para se certificar de que tem a mais recente `azure-iot` extensão com os comandos **az dt.**
 
-Pode certificar-se de que tem a versão mais recente da extensão com estes passos. Pode executar estes comandos na [Azure Cloud Shell](../cloud-shell/overview.md) ou num [Azure CLI local.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
+### <a name="cli-version-requirements"></a>Requisitos da versão CLI
+
+Se estiver a utilizar o Azure CLI com PowerShell, o pacote de extensão requer que a sua versão Azure CLI seja **2.3.1** ou superior.
+
+Pode consultar a versão do seu Azure CLI com este comando CLI:
+```azurecli
+az --version
+```
+
+Para obter instruções sobre como instalar ou atualizar o CLI Azure para uma versão mais recente, consulte [*instalar o Azure CLI*](/cli/azure/install-azure-cli).
+
+### <a name="get-the-extension"></a>Obtenha a extensão
+
+Pode certificar-se de que tem a versão mais recente da `azure-iot` extensão com estes passos. Pode executar estes comandos na [Azure Cloud Shell](../cloud-shell/overview.md) ou num [Azure CLI local.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 

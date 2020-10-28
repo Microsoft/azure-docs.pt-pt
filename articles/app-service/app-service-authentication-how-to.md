@@ -4,12 +4,12 @@ description: Aprenda a personalizar a funcionalidade de autenticação e autoriz
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93c697162bfcb51b77c2e6f48b5824b81070bf51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6120283ec240441cc62cad642bbeda0b735abc0f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637331"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado da autenticação e autorização no Serviço de Aplicações Azure
 
@@ -31,7 +31,7 @@ A configuração do portal não oferece uma forma chave-na-mão de apresentar v�
 
 Em primeiro lugar, na página **Autenticação/Autorização** no portal Azure, configurar cada um dos fornecedores de identidade que pretende ativar.
 
-Em **Ação a tomar quando o pedido não for autenticado,** selecione Permitir **pedidos anónimos (nenhuma ação)**.
+Em **Ação a tomar quando o pedido não for autenticado,** selecione Permitir **pedidos anónimos (nenhuma ação)** .
 
 Na página de iniciar s indicado, ou na barra de navegação, ou em qualquer outro local da sua aplicação, adicione um link de inscrição a cada um dos fornecedores que ativou `/.auth/login/<provider>` (). Por exemplo:
 
@@ -170,21 +170,21 @@ A partir do seu código cliente (como uma aplicação móvel ou javaScript no na
 
 Quando o token de acesso do seu fornecedor (não o token da [sessão)](#extend-session-token-expiration-grace-period)expirar, tem de reautorá-lo antes de voltar a utilizar esse token. Pode evitar a expiração do token fazendo uma `GET` chamada para o ponto final da sua `/.auth/refresh` aplicação. Quando chamado, o Serviço de Aplicações atualiza automaticamente os tokens de acesso na [loja simbólica](overview-authentication-authorization.md#token-store) para o utilizador autenticado. Os pedidos subsequentes de tokens pelo seu código de aplicação recebem os tokens renovados. No entanto, para que a atualização simbólica funcione, a loja simbólica deve conter [fichas de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização é documentada por cada fornecedor, mas a seguinte lista é um breve resumo:
 
-- **Google**: Apeia um `access_type=offline` parâmetro de cadeia de consulta à sua chamada `/.auth/login/google` API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (ver [Google Refresh Tokens).](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)
-- **Facebook**: Não fornece fichas de atualização. As fichas de longa duração expiram em 60 dias (ver [Expiração do Facebook e Extensão de Fichas de Acesso).](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)
-- **Twitter**: Os tokens de acesso não expiram (ver [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Conta Microsoft**: Ao [configurar as Definições de Autenticação da Conta microsoft,](configure-authentication-provider-microsoft.md)selecione o `wl.offline_access` âmbito.
-- **Diretório Ativo Azure**: Em [https://resources.azure.com](https://resources.azure.com) , faça os seguintes passos:
+- **Google** : Apeia um `access_type=offline` parâmetro de cadeia de consulta à sua chamada `/.auth/login/google` API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro a uma das `LogicAsync` sobrecargas (ver [Google Refresh Tokens).](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)
+- **Facebook** : Não fornece fichas de atualização. As fichas de longa duração expiram em 60 dias (ver [Expiração do Facebook e Extensão de Fichas de Acesso).](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)
+- **Twitter** : Os tokens de acesso não expiram (ver [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Conta Microsoft** : Ao [configurar as Definições de Autenticação da Conta microsoft,](configure-authentication-provider-microsoft.md)selecione o `wl.offline_access` âmbito.
+- **Diretório Ativo Azure** : Em [https://resources.azure.com](https://resources.azure.com) , faça os seguintes passos:
     1. No topo da página, selecione **Ler/Escrever.**
-    2. No navegador esquerdo, navegue para **subscrições** > **_ \<subscription\_name_** > **recursos Os grupos** > **_ \<resource\_group\_name> _** ** > **fornecedores**  >  **microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings**. 
-    3. Clique em **Editar**.
+    2. No navegador esquerdo, navegue para **subscrições** > ** _\<subscription\_name_** > **recursos Os grupos** > **_ \<resource\_group\_name> _** ** > **fornecedores**  >  **microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings** . 
+    3. Clique em **Editar** .
     4. Modifique a seguinte propriedade. _\<app\_id>_ Substitua-se pelo ID da aplicação Azure Ative Do serviço a que pretende aceder.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Clique **em Colocar**. 
+    5. Clique **em Colocar** . 
 
 Uma vez configurado o seu fornecedor, pode [encontrar o token de atualização e o tempo de validade para o token](#retrieve-tokens-in-app-code) de acesso na loja simbólica. 
 
@@ -221,11 +221,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitar o domínio das contas de inscrição
 
-Tanto a Microsoft Account como o Azure Ative Directory permitem iniciar seduções a partir de vários domínios. Por exemplo, a Microsoft Account permite _outlook.com_, _live.com_e _contas hotmail.com._ O Azure AD permite qualquer número de domínios personalizados para as contas de inscrição. No entanto, é possível que queira acelerar os seus utilizadores diretamente para a sua própria página de inscrição Azure AD (tal `contoso.com` como). Para sugerir o nome de domínio das contas de inscrição, siga estes passos.
+Tanto a Microsoft Account como o Azure Ative Directory permitem iniciar seduções a partir de vários domínios. Por exemplo, a Microsoft Account permite _outlook.com_ , _live.com_ e _contas hotmail.com._ O Azure AD permite qualquer número de domínios personalizados para as contas de inscrição. No entanto, é possível que queira acelerar os seus utilizadores diretamente para a sua própria página de inscrição Azure AD (tal `contoso.com` como). Para sugerir o nome de domínio das contas de inscrição, siga estes passos.
 
-Em [https://resources.azure.com](https://resources.azure.com) , navegar para **subscrições** > **_ \<subscription\_name_** > **recursos Grupos** > ** **_ \<resource\_group\_name> _** ** > **fornecedores**  >  **Microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings**. 
+Em [https://resources.azure.com](https://resources.azure.com) , navegar para **subscrições** > ** _\<subscription\_name_** > **recursos Grupos** > ** **_ \<resource\_group\_name> _** ** > **fornecedores**  >  **Microsoft.Web**  >  **sites** > **_ \<app\_name> _** > **config**  >  **authsettings** . 
 
-Clique **em Editar,** modifique a seguinte propriedade e, em seguida, clique em **Colocar**. Certifique-se de que substitui _\<domain\_name>_ pelo domínio que deseja.
+Clique **em Editar,** modifique a seguinte propriedade e, em seguida, clique em **Colocar** . Certifique-se de que substitui _\<domain\_name>_ pelo domínio que deseja.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -247,13 +247,13 @@ Embora o Serviço de Aplicações cuide do caso de autorização mais simples (o
 
 ### <a name="server-level-windows-apps-only"></a>Nível de servidor (apenas aplicações do Windows)
 
-Para qualquer aplicação do Windows, pode definir o comportamento de autorização do servidor web IIS, editando o ficheiro *Web.config.* As aplicações Linux não usam IIS e não podem ser configuradas através * deWeb.config*.
+Para qualquer aplicação do Windows, pode definir o comportamento de autorização do servidor web IIS, editando o ficheiro *Web.config.* As aplicações Linux não usam IIS e não podem ser configuradas através *deWeb.config* .
 
 1. Navegue para `https://<app-name>.scm.azurewebsites.net/DebugConsole`
 
-1. No navegador explorador dos seus ficheiros de Serviço de Aplicações, navegue para *o site/wwwroot*. Se não existir uma *Web.config,* crie-a selecionando **+**  >  **Novo Ficheiro**. 
+1. No navegador explorador dos seus ficheiros de Serviço de Aplicações, navegue para *o site/wwwroot* . Se não existir uma *Web.config,* crie-a selecionando **+**  >  **Novo Ficheiro** . 
 
-1. Selecione o lápis para *Web.config* para editá-lo. Adicione o seguinte código de configuração e clique em **Guardar**. Se *Web.config* já existe, basta adicionar o `<authorization>` elemento com tudo o que está nele. Adicione as contas que pretende permitir no `<allow>` elemento.
+1. Selecione o lápis para *Web.config* para editá-lo. Adicione o seguinte código de configuração e clique em **Guardar** . Se *Web.config* já existe, basta adicionar o `<authorization>` elemento com tudo o que está nele. Adicione as contas que pretende permitir no `<allow>` elemento.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -393,7 +393,7 @@ Os seguintes esgotam possíveis opções de configuração dentro do ficheiro:
             "graphApiVersion": "v3.3",
             "login": {
                 "scopes": [
-                    "profile",
+                    "public_profile",
                     "email"
                 ]
             },

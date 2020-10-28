@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276678"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635325"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução da integração Azure-SSIS para um alto desempenho
 
@@ -118,11 +118,11 @@ O eixo y é o número de pacotes que completaram a execução em uma hora. Por f
 
 ## <a name="azuressisnodenumber"></a>AzuressISNodeNumber
 
-**O AzureSSISNodeNumber** ajusta a escalabilidade do tempo de integração. O funcionamento da integração é proporcional ao **AzuresSISNodeNumber**. Desafie o **AzureSSSISNodeNumber** a um pequeno valor no início, monitorize a produção do tempo de execução da integração e, em seguida, ajuste o valor para o seu cenário. Para reconfigurar a contagem de nóiros, consulte [Gerir um tempo de integração Azure-SSIS](manage-azure-ssis-integration-runtime.md).
+**O AzureSSISNodeNumber** ajusta a escalabilidade do tempo de integração. O funcionamento da integração é proporcional ao **AzuresSISNodeNumber** . Desafie o **AzureSSSISNodeNumber** a um pequeno valor no início, monitorize a produção do tempo de execução da integração e, em seguida, ajuste o valor para o seu cenário. Para reconfigurar a contagem de nóiros, consulte [Gerir um tempo de integração Azure-SSIS](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando já está a usar um poderoso nó de trabalhador para executar pacotes, o aumento **do AzureSSISMaxParallelExecutionsPerNode** pode aumentar o rendimento geral do tempo de execução da integração. Se pretender aumentar o valor máximo, precisa de utilizar o Azure PowerShell para atualizar **o AzureSSISMaxParallelExecutionsPerNode**. Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes configurações para os nós do trabalhador. Para obter mais informações, consulte [os tamanhos da máquina virtual para fins gerais.](../virtual-machines/windows/sizes-general.md)
+Quando já está a usar um poderoso nó de trabalhador para executar pacotes, o aumento **do AzureSSISMaxParallelExecutionsPerNode** pode aumentar o rendimento geral do tempo de execução da integração. Se pretender aumentar o valor máximo, precisa de utilizar o Azure PowerShell para atualizar **o AzureSSISMaxParallelExecutionsPerNode** . Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes configurações para os nós do trabalhador. Para obter mais informações, consulte [os tamanhos da máquina virtual para fins gerais.](../virtual-machines/sizes-general.md)
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -161,7 +161,7 @@ Aqui estão as diretrizes para a definição do valor certo para a propriedade *
 
 -   Escolha uma base de dados mais poderosa, como o S3, se o nível de registo estiver definido para verbose. De acordo com os nossos testes não oficiais internos, o nível de preços s3 pode suportar a execução do pacote SSIS com 2 nós, 128 contagens paralelas e nível de registo verboso.
 
-Também pode ajustar o nível de preços da base de dados com base na informação de utilização da [unidade de transação de bases de dados](../sql-database/sql-database-what-is-a-dtu.md) (DTU) disponível no portal Azure.
+Também pode ajustar o nível de preços da base de dados com base na informação de utilização da [unidade de transação de bases de dados](../azure-sql/database/service-tiers-dtu.md) (DTU) disponível no portal Azure.
 
 ## <a name="design-for-high-performance"></a>Conceber o elevado desempenho
 Conceber um pacote SSIS para funcionar em Azure é diferente de desenhar um pacote para execução no local. Em vez de combinar várias tarefas independentes no mesmo pacote, separe-as em vários pacotes para uma execução mais eficiente no Azure-SSIS IR. Crie uma execução de pacote para cada pacote, para que não tenham que esperar um pelo outro para terminar. Esta abordagem beneficia da escalabilidade do tempo de integração Azure-SSIS e melhora a produção global.

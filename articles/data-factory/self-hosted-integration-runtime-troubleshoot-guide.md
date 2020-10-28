@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629398"
+ms.locfileid: "92637195"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolução de problemas de integração auto-acolagem
 
@@ -183,7 +183,7 @@ A partir do erro abaixo, pode ver claramente o *sistema de montagem.ValueTuple* 
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-Para mais informações sobre o GAC, consulte [este artigo.](https://docs.microsoft.com/dotnet/framework/app-domains/gac)
+Para mais informações sobre o GAC, consulte [este artigo.](/dotnet/framework/app-domains/gac)
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Como auditar a chave do IR Autoalojado em falta
@@ -468,7 +468,7 @@ Segue-se a resposta esperada:
 
 > [!NOTE] 
 > Considerações de procuração:
-> *    Verifique se o servidor proxy precisa de ser colocado na lista de destinatários seguros. Em caso afirmativo, certifique-se de que [estes domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista de destinatários seguros.
+> *    Verifique se o servidor proxy precisa de ser colocado na lista de destinatários seguros. Em caso afirmativo, certifique-se de que [estes domínios](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) estão na lista de destinatários seguros.
 > *    Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é fidedigno no servidor proxy.
 > *    Se estiver a utilizar a autenticação ative directory no proxy, altere a conta de serviço para a conta de utilizador que possa aceder ao proxy como "Serviço de Tempo de Execução de Integração".
 
@@ -632,7 +632,7 @@ Como determinar se é impactado:
 - Não é afetado se estiver a definir regras de firewall com base em nomes FQDN utilizando a abordagem descrita neste documento: [configuração de firewall e permitir a configuração da lista para endereço ip](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
 - No entanto, é impactado se estiver a ativar explicitamente a lista de permitir iPs de saída na sua firewall corporativa.
 
-Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar a sua configuração de rede para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
+Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar a sua configuração de rede para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)
 
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Cenário 2: Comunicação de saída do Self-hosted Integration Runtime em execução em um Azure VM dentro do cliente gerido rede virtual Azure
 Como determinar se é impactado:
@@ -641,14 +641,14 @@ Como determinar se é impactado:
  ![Verificação de destino](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - No entanto, é impactado se estiver a ativar explicitamente a lista de autorizações para endereços IP de saída na definição de regras NSG na rede virtual Azure.
 
-Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar as regras NSG na sua configuração de rede virtual Azure para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
+Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar as regras NSG na sua configuração de rede virtual Azure para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Cenário 3: Comunicação de saída do SSIS Integration Runtime na rede virtual Azure gerida pelo cliente
 - Verifique se tem alguma regra NSG de saída na sua rede privada que contenha tempo de execução de integração SSIS. Se não houver restrições de saída, então não há impacto.
 - Se tiver restrições de regras de saída, verifique se utiliza ou não a etiqueta de serviço. Se utilizar a etiqueta de serviço, então não precisa de alterar ou adicionar nada, uma vez que as novas gamas IP estão na etiqueta de serviço existente.
 - No entanto, é impactado se estiver a ativar explicitamente a lista de autorizações para endereço IP de saída na definição de regras NSG na rede virtual Azure.
 
-Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar as regras NSG na sua configuração de rede virtual Azure para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
+Ação a tomar se tiver impacto: notifique a sua equipa de infraestruturas de rede para atualizar as regras NSG na sua configuração de rede virtual Azure para utilizar os mais recentes endereços IP da Data Factory até 8 de novembro de 2020.  Para descarregar os mais recentes endereços IP, aceda ao [link de descarregamento do intervalo de descarregamento de tags de serviço.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)
 
 ### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Não foi possível estabelecer uma relação de confiança para o canal seguro SSLTLS 
 
@@ -709,7 +709,7 @@ Para obter mais ajuda na resolução de problemas, experimente os seguintes recu
 *  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&Uma página de perguntas](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum para data factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guia de desempenho de fluxos de dados de mapeamento](concepts-data-flow-performance.md)

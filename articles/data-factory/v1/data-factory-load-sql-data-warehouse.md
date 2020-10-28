@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a5bf53597c0706a5ef435d6ab8cc06e14726db8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0138603cad52c40b3471c60104f091367e88e9
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442484"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636906"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Carregue 1 TB em Azure Synapse Analytics em menos de 15 minutos com data factory
 > [!NOTE]
@@ -26,10 +26,10 @@ ms.locfileid: "89442484"
 
 [A Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é uma base de dados baseada na nuvem, capaz de processar volumes maciços de dados, tanto relacionais como não relacionais.  Construído sobre a arquitetura de processamento massivamente paralelo (MPP), o Azure Synapse Analytics está otimizado para a carga de trabalho do armazém de dados da empresa.  Oferece elasticidade em nuvem com a flexibilidade para escalar o armazenamento e calcular de forma independente.
 
-Começar com a Azure Synapse Analytics é agora mais fácil do que nunca usando **a Azure Data Factory**.  A Azure Data Factory é um serviço de integração de dados totalmente gerido em nuvem, que pode ser usado para povoar o Azure Synapse Analytics com os dados do seu sistema existente, e economizar tempo valioso enquanto avalia o Azure Synapse Analytics e construir as suas soluções de análise. Aqui estão os principais benefícios de carregar dados em Azure Synapse Analytics usando Azure Data Factory:
+Começar com a Azure Synapse Analytics é agora mais fácil do que nunca usando **a Azure Data Factory** .  A Azure Data Factory é um serviço de integração de dados totalmente gerido em nuvem, que pode ser usado para povoar o Azure Synapse Analytics com os dados do seu sistema existente, e economizar tempo valioso enquanto avalia o Azure Synapse Analytics e construir as suas soluções de análise. Aqui estão os principais benefícios de carregar dados em Azure Synapse Analytics usando Azure Data Factory:
 
 * **Fácil de configurar:** assistente intuitivo de 5 etapas sem necessidade de scripts.
-* Suporte rico em **lojas**de dados: suporte incorporado para um conjunto rico de lojas de dados no local e lojas de dados baseadas em nuvem.
+* Suporte rico em **lojas** de dados: suporte incorporado para um conjunto rico de lojas de dados no local e lojas de dados baseadas em nuvem.
 * **Seguro e compatível:** os dados são transferidos sobre HTTPS ou ExpressRoute, e a presença global de serviços garante que os seus dados nunca saiam da fronteira geográfica
 * **Desempenho incomparável utilizando o PolyBase** – Usar a Polybase é a forma mais eficiente de mover dados para a Azure Synapse Analytics. Utilizando a função blob de preparação, pode obter altas velocidades de carga de todos os tipos de lojas de dados, além do armazenamento Azure Blob, que a Base Polibase suporta por padrão.
 
@@ -56,7 +56,7 @@ Este artigo fornece instruções passo a passo para mover dados para a Azure Syn
     Agora copie os ficheiros gerados para a Azure Blob.  Consulte para [mover dados de e para um sistema de ficheiros no local, utilizando a Azure Data Factory](data-factory-onprem-file-system-connector.md) para saber como fazê-lo usando a Cópia ADF.    
 * Azure Synapse Analytics: esta experiência carrega dados em Azure Synapse Analytics criado com 6.000 DWUs
 
-    Consulte a [Create a Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para obter instruções detalhadas sobre como criar uma base de dados Azure Synapse Analytics.  Para obter o melhor desempenho de carga possível no Azure Synapse Analytics usando a Polybase, escolhemos o número máximo de Unidades de Armazém de Dados (DWUs) permitidas na definição de Desempenho, que é de 6.000 DWUs.
+    Consulte a [Create a Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para obter instruções detalhadas sobre como criar uma base de dados Azure Synapse Analytics.  Para obter o melhor desempenho de carga possível no Azure Synapse Analytics usando a Polybase, escolhemos o número máximo de Unidades de Armazém de Dados (DWUs) permitidas na definição de Desempenho, que é de 6.000 DWUs.
 
   > [!NOTE]
   > Ao carregar a partir de Azure Blob, o desempenho de carregamento de dados é diretamente proporcional ao número de DWUs que configura para Azure Synapse Analytics:
@@ -79,7 +79,7 @@ Este artigo fornece instruções passo a passo para mover dados para a Azure Syn
 
     Esta experiência carrega dados em Azure Synapse Analytics usando `xlargerc` a classe de recursos.
 
-    Para obter o melhor resultado possível, a cópia precisa de ser executada utilizando um utilizador Azure Synapse Analytics pertencente à `xlargerc` classe de recursos.  Aprenda a fazê-lo seguindo [O exemplo da classe de recursos do utilizador.](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md)  
+    Para obter o melhor resultado possível, a cópia precisa de ser executada utilizando um utilizador Azure Synapse Analytics pertencente à `xlargerc` classe de recursos.  Aprenda a fazê-lo seguindo [O exemplo da classe de recursos do utilizador.](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md)  
 * Criar esquema de tabela de destino na base de dados Azure Synapse Analytics, executando a seguinte declaração DDL:
 
     ```SQL  
@@ -112,22 +112,22 @@ Este artigo fornece instruções passo a passo para mover dados para a Azure Syn
 
 ## <a name="launch-copy-wizard"></a>Inicie o Assistente de Cópia
 1. Faça login no [portal Azure](https://portal.azure.com).
-2. Clique **em Criar um recurso** a partir do canto superior esquerdo, clique em Inteligência + **análise,** e clique em **Data Factory**.
+2. Clique **em Criar um recurso** a partir do canto superior esquerdo, clique em Inteligência + **análise,** e clique em **Data Factory** .
 3. No novo painel de **fábrica de dados:**
 
-   1. **Insira LoadIntoSQLDWDataFactory** para o **nome**.
+   1. **Insira LoadIntoSQLDWDataFactory** para o **nome** .
        O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: O **nome da fábrica de dados "LoadIntoSQLDWDataFactory" não está disponível,** altere o nome da fábrica de dados (por exemplo, o seu nomeLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory – Naming Rules (Data Factory – Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.  
-   2. Selecione a sua **subscrição Azure**.
+   2. Selecione a sua **subscrição Azure** .
    3. No Grupo de Recursos, siga um destes passos:
       1. Selecione **Utilizar existente** para selecionar um grupo de recursos já existente.
       2. Selecione **Criar novo** para introduzir um nome para um grupo de recursos.
    4. Selecione uma **localização** para a fábrica de dados.
-   5. Selecione a caixa de verificação **Afixar ao dashboard**, na parte inferior do painel.  
-   6. Clique em **Criar**.
+   5. Selecione a caixa de verificação **Afixar ao dashboard** , na parte inferior do painel.  
+   6. Clique em **Criar** .
 4. Após a criação estar concluída, vê a lâmina da **Fábrica de Dados** como mostrado na seguinte imagem:
 
    ![Home page da fábrica de dados](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
-5. Na home page do Data Factory, clique no mosaico **Copiar dados** para iniciar o **Assistente de Cópia**.
+5. Na home page do Data Factory, clique no mosaico **Copiar dados** para iniciar o **Assistente de Cópia** .
 
    > [!NOTE]
    > Se vir que o browser bloqueia enquanto estiver a "A autorizar…", desative/desmarque a definição **Bloquear cookies de terceiros e dados do site** (ou) mantenha-a ativada e crie uma exceção para **login.microsoftonline.com** e, em seguida, tente iniciar novamente o assistente.
@@ -137,26 +137,26 @@ Este artigo fornece instruções passo a passo para mover dados para a Azure Syn
 ## <a name="step-1-configure-data-loading-schedule"></a>Passo 1: Configurar o calendário de carregamento de dados
 O primeiro passo é configurar o calendário de carregamento de dados.  
 
-Na página **Propriedades**:
+Na página **Propriedades** :
 
 1. **Insira copyFromBlobToAzureSqlDataWarehouse** para **nome de tarefa**
 2. Selecione **Executar uma vez agora** a opção.   
-3. Clique em **Seguinte**.  
+3. Clique em **Seguinte** .  
 
     ![Copy Wizard - Página de propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Passo 2: Configure fonte
 Esta secção mostra-lhe os passos para configurar a fonte: Azure Blob contendo os ficheiros de item da linha 1-TB TPC-H.
 
-1. Selecione o **Azure Blob Storage** como a loja de dados e clique em **Seguinte**.
+1. Selecione o **Azure Blob Storage** como a loja de dados e clique em **Seguinte** .
 
     ![Copy Wizard - Selecione a página de origem](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. Preencha as informações de ligação para a conta de armazenamento Azure Blob e clique em **Seguinte**.
+2. Preencha as informações de ligação para a conta de armazenamento Azure Blob e clique em **Seguinte** .
 
     ![Copy Wizard - Informações de ligação de origem](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. Escolha a **pasta** que contém os ficheiros de item da linha TPC-H e clique em **Seguinte**.
+3. Escolha a **pasta** que contém os ficheiros de item da linha TPC-H e clique em **Seguinte** .
 
     ![Copy Wizard - selecione a pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
@@ -167,11 +167,11 @@ Esta secção mostra-lhe os passos para configurar a fonte: Azure Blob contendo 
 ## <a name="step-3-configure-destination"></a>Passo 3: Destino configure
 Esta secção mostra-lhe como configurar o destino: `lineitem` tabela na base de dados Azure Synapse Analytics.
 
-1. Escolha **a Azure Synapse Analytics** como loja de destino e clique em **Seguinte**.
+1. Escolha **a Azure Synapse Analytics** como loja de destino e clique em **Seguinte** .
 
     ![Copy Wizard - selecione a loja de dados de destino](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Preencha as informações de ligação para a Azure Synapse Analytics.  Certifique-se de que especifica o utilizador que é membro da função `xlargerc` (consulte a secção **pré-requisitos** para instruções detalhadas) e clique em **Seguinte**.
+2. Preencha as informações de ligação para a Azure Synapse Analytics.  Certifique-se de que especifica o utilizador que é membro da função `xlargerc` (consulte a secção **pré-requisitos** para instruções detalhadas) e clique em **Seguinte** .
 
     ![Copy Wizard - informação de conexão de destino](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
@@ -179,11 +179,11 @@ Esta secção mostra-lhe como configurar o destino: `lineitem` tabela na base de
 
     ![Copy Wizard - página de mapeamento de mesa](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Na página de mapeamento de Schema, deixe a opção "Apply column mapping" desmarcada e clique em **Seguinte**.
+4. Na página de mapeamento de Schema, deixe a opção "Apply column mapping" desmarcada e clique em **Seguinte** .
 
 ## <a name="step-4-performance-settings"></a>Passo 4: Definições de desempenho
 
-**Permitir que a base polibase** seja verificada por defeito.  Clique em **Seguinte**.
+**Permitir que a base polibase** seja verificada por defeito.  Clique em **Seguinte** .
 
 ![Copy Wizard - página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

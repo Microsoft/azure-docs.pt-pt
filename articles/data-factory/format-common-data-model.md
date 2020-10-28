@@ -7,17 +7,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042597"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636413"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-O sistema de metadados Common Data Model (CDM) permite que os dados e o seu significado sejam facilmente partilhados entre aplicações e processos de negócio. Para saber mais, consulte a visão geral [do Modelo de Dados Comum.](https://docs.microsoft.com/common-data-model/)
+O sistema de metadados Common Data Model (CDM) permite que os dados e o seu significado sejam facilmente partilhados entre aplicações e processos de negócio. Para saber mais, consulte a visão geral [do Modelo de Dados Comum.](/common-data-model/)
 
 Na Azure Data Factory, os utilizadores podem transformar dados de entidades de CDM em ambos os formulários model.jse manifesto armazenados na [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) usando fluxos de dados de mapeamento. Também pode afundar dados em formato CDM utilizando referências de entidades CDM que irão aterrar os seus dados em formato CSV ou Parquet em pastas divididas. 
 
@@ -37,10 +37,10 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser `cdm` | sim | `cdm` | formato |
+| Formato | Formato deve ser `cdm` | yes | `cdm` | formato |
 | Formato de metadados | Onde a entidade se refere aos dados está localizada. Se utilizar a versão 1.0 do CDM, escolha manifesto. Se utilizar uma versão CDM antes do 1.0, escolha model.jsligado. | Sim | `'manifest'` ou `'model'` | manifestoType |
-| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
-| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
+| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | yes | String | sistema de ficheiros |
+| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | yes | String | folderPath |
 | Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
 | Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido'  | Não | String | manifestoName |
 | Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes | 
@@ -49,7 +49,7 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de MDL. Pode edit
 | Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se usar manifesto e corpus no GitHub | String | github_repository |
 | Ramo de referência de entidade | Ramo de repositório GitHub | Sim, se usar manifesto e corpus no GitHub | String |  github_branch |
 | Pasta Corpus | a localização raiz do corpus | Sim, se usar manifesto | String | corpusPath |
-| Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
+| Entidade corpus | Caminho para referência de entidade | yes | String | entidade |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 Se a definição de entidade que pretende utilizar na sua transformação Source estiver localizada no mesmo diretório que a sua pasta de dados, pode desmarcar "Use entity from corpus" e simplesmente digitar na entidade da entidade que pretende utilizar como referência da sua entidade.
@@ -116,17 +116,17 @@ A tabela abaixo lista as propriedades suportadas por um lavatório CDM. Pode edi
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser `cdm` | sim | `cdm` | formato |
-| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | sim | String | sistema de ficheiros |
-| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | sim | String | folderPath |
+| Formato | Formato deve ser `cdm` | yes | `cdm` | formato |
+| Localização da raiz: recipiente | Nome do recipiente da pasta CDM | yes | String | sistema de ficheiros |
+| Localização da raiz: caminho da pasta | Localização da pasta raiz da pasta CDM | yes | String | folderPath |
 | Arquivo manifesto: Caminho da entidade | Caminho da pasta da entidade dentro da pasta raiz | não | String | entidadePata |
 | Arquivo manifesto: Nome manifesto | Nome do ficheiro manifesto. O valor predefinido é 'predefinido' | Não | String | manifestoName |
-| Serviço ligado a Schema | O serviço ligado onde o corpus está localizado | sim | `'adlsgen2'` ou `'github'` | corpusStore | 
+| Serviço ligado a Schema | O serviço ligado onde o corpus está localizado | yes | `'adlsgen2'` ou `'github'` | corpusStore | 
 | Recipiente de referência de entidade | Container corpus está em | Sim, se corpus na ADLS Gen2 | String | adlsgen2_fileSystem |
 | Repositório de referência de entidade | Nome do repositório do GitHub | Sim, se corpus em GitHub | String | github_repository |
 | Ramo de referência de entidade | Ramo de repositório GitHub | Sim, se corpus em GitHub | String |  github_branch |
-| Pasta Corpus | a localização raiz do corpus | sim | String | corpusPath |
-| Entidade corpus | Caminho para referência de entidade | sim | String | entidade |
+| Pasta Corpus | a localização raiz do corpus | yes | String | corpusPath |
+| Entidade corpus | Caminho para referência de entidade | yes | String | entidade |
 | Caminho da partição | Local onde a partição será escrita | não | String | partitionPath |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
 | Tipo de formato | Escolha especificar o formato parquet | não | `parquet` se especificado | subformat |

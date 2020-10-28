@@ -2,16 +2,14 @@
 title: Aceder aos recursos de Kubernetes a partir do portal Azure (Preview)
 description: Saiba como interagir com os recursos da Kubernetes para gerir um cluster Azure Kubernetes Service (AKS) a partir do portal Azure.
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
-ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070644"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635614"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Aceder aos recursos de Kubernetes a partir do portal Azure (Preview)
 
@@ -62,7 +60,7 @@ A vista de recursos de Kubernetes também inclui um editor YAML. Um editor YAML 
 
 :::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Informações do pod kubernetes exibidas no portal Azure.":::
 
-Após a edição do YAML, as alterações são aplicadas selecionando **Review + save**, confirmando as alterações e, em seguida, economizando novamente.
+Após a edição do YAML, as alterações são aplicadas selecionando **Review + save** , confirmando as alterações e, em seguida, economizando novamente.
 
 >[!WARNING]
 > Não é aconselhável realizar alterações de produção diretas via UI ou CLI, deve aproveitar as [melhores práticas de integração contínua (CI) e de implantação contínua (CD).](kubernetes-action.md) As capacidades de gestão do Azure Portal Kubernetes e o editor yaML são construídos para aprender e voar novas implementações num ambiente de desenvolvimento e teste.

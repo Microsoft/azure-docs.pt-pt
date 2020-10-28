@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368864"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637688"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -49,7 +49,7 @@ Os fluxos de dados de mapeamento são transformações de dados visualmente proj
 
 ### <a name="wrangling-data-flows"></a>Fluxos de dados de estrangulamento
 
-Os fluxos de dados de escoaragem na Azure Data Factory permitem-lhe fazer a preparação de dados sem código em iterativas à escala de nuvem. Os fluxos de dados de estrangulamento integram-se com [a Power Query Online](https://docs.microsoft.com/power-query/) e disponibilizam funções de Power Query M para a luta de dados à escala de nuvem através da execução de faíscas. Para obter mais informações, consulte [os fluxos de dados](wrangling-data-flow-overview.md)de estrangulamento.
+Os fluxos de dados de escoaragem na Azure Data Factory permitem-lhe fazer a preparação de dados sem código em iterativas à escala de nuvem. Os fluxos de dados de estrangulamento integram-se com [a Power Query Online](/power-query/) e disponibilizam funções de Power Query M para a luta de dados à escala de nuvem através da execução de faíscas. Para obter mais informações, consulte [os fluxos de dados](wrangling-data-flow-overview.md)de estrangulamento.
 
 ## <a name="external-transformations"></a>Transformações externas
 
@@ -103,8 +103,8 @@ Pode criar uma atividade personalizada para executar scripts R no seu cluster do
 ### <a name="compute-environments"></a>Ambientes computacional
 Cria um serviço ligado para o ambiente computacional e, em seguida, utiliza o serviço ligado ao definir uma atividade de transformação. Existem dois tipos de ambientes computativos suportados pela Data Factory. 
 
-- **A pedido**: Neste caso, o ambiente de computação é totalmente gerido pela Data Factory. É automaticamente criado pelo serviço Data Factory antes de um trabalho ser submetido para processar dados e removido quando o trabalho estiver concluído. Você pode configurar e controlar configurações granulares do ambiente de computação a pedido para execução de emprego, gestão de clusters e ações de bootstrapping. 
-- **Bring Your Own**: Neste caso, pode registar o seu próprio ambiente de computação (por exemplo, cluster HDInsight) como um serviço ligado na Data Factory. O ambiente de computação é gerido por si e o serviço Data Factory utiliza-o para executar as atividades. 
+- **A pedido** : Neste caso, o ambiente de computação é totalmente gerido pela Data Factory. É automaticamente criado pelo serviço Data Factory antes de um trabalho ser submetido para processar dados e removido quando o trabalho estiver concluído. Você pode configurar e controlar configurações granulares do ambiente de computação a pedido para execução de emprego, gestão de clusters e ações de bootstrapping. 
+- **Bring Your Own** : Neste caso, pode registar o seu próprio ambiente de computação (por exemplo, cluster HDInsight) como um serviço ligado na Data Factory. O ambiente de computação é gerido por si e o serviço Data Factory utiliza-o para executar as atividades. 
 
 Consulte o artigo [da Compute Linked Services](compute-linked-services.md) para saber mais sobre os serviços de computação suportados pela Data Factory. 
 

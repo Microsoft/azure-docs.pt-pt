@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707383"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636872"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados das lojas de dados da ODBC usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -47,9 +47,9 @@ Além do Gateway de Gestão de Dados, também é necessário instalar o controla
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados ODBC utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -94,7 +94,7 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Utilização da autenticação básica com credenciais encriptadas
-Pode encriptar as credenciais utilizando o cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (versão 1.0 do Azure PowerShell) ou [o New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 ou versão anterior do Azure PowerShell).
+Pode encriptar as credenciais utilizando o cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (versão 1.0 do Azure PowerShell) ou [o New-AzureDataFactoryEncryptValue](/previous-versions/azure/dn834940(v=azure.100)) (0.9 ou versão anterior do Azure PowerShell).
 
 ```json
 {
@@ -147,7 +147,7 @@ As propriedades disponíveis na secção **de tipoProperties** da atividade, por
 
 Na atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o ODBC), as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Sim |
 
@@ -293,7 +293,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Copiar a atividade num oleoduto com fonte ODBC (RelationalSource) e pia Blob (BlobSink)**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **RelationalSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **de consulta** seleciona os dados na hora passada para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **RelationalSource** e o tipo **de pia** é definido para **BlobSink** . A consulta SQL especificada para a propriedade **de consulta** seleciona os dados na hora passada para copiar.
 
 ```json
 {
@@ -346,7 +346,7 @@ Conforme mencionado no artigo [de atividades](data-factory-data-movement-activit
 1. Converter de tipos de origem nativa para .NET tipo
 2. Converter de tipo .NET para tipo de pia nativa
 
-Ao mover dados de lojas de dados ODBC, os tipos de dados ODBC são mapeados para os tipos de .NET, conforme mencionado no tópico [de Mapeamentos do Tipo de Dados ODBC.](https://msdn.microsoft.com/library/cc668763.aspx)
+Ao mover dados de lojas de dados ODBC, os tipos de dados ODBC são mapeados para os tipos de .NET, conforme mencionado no tópico [de Mapeamentos do Tipo de Dados ODBC.](/dotnet/framework/data/adonet/odbc-data-type-mappings)
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas
 Para obter informações sobre as colunas de mapeamento em conjunto de dados de origem para colunas no conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
@@ -355,9 +355,9 @@ Para obter informações sobre as colunas de mapeamento em conjunto de dados de 
 Ao copiar dados de lojas de dados relacionais, tenha em mente a repetibilidade para evitar resultados não intencionais. Na Azure Data Factory, pode repetir manualmente uma fatia. Também pode configurar a política de reagem para um conjunto de dados para que uma fatia seja re-executada quando ocorre uma falha. Quando uma fatia é reexame de qualquer forma, você precisa ter certeza de que os mesmos dados são lidos, não importa quantas vezes uma fatia é executada. Ver [leitura repetível de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
-Para resolver problemas de conexão, utilize o separador diagnóstico do Gestor de Configuração gateway de **gestão**de **dados** .
+Para resolver problemas de conexão, utilize o separador diagnóstico do Gestor de Configuração gateway de **gestão** de **dados** .
 
-1. Gestor **de configuração gateway de gestão de dados de lançamento**. Pode executar "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) procurar **gateway** para encontrar um link para a aplicação **Do Gateway de Gestão de Dados** do Microsoft, como mostrado na imagem seguinte.
+1. Gestor **de configuração gateway de gestão de dados de lançamento** . Pode executar "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) procurar **gateway** para encontrar um link para a aplicação **Do Gateway de Gestão de Dados** do Microsoft, como mostrado na imagem seguinte.
 
     ![Gateway de pesquisa](./media/data-factory-odbc-connector/search-gateway.png)
 2. Mude para o **separador Diagnósticos.**

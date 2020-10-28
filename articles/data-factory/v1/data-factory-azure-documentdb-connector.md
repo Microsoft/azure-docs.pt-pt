@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91f2b338ac9cda96521a5fe1d555de054826e273
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84702299"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637637"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para a Azure Cosmos DB usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -39,9 +39,9 @@ Para copiar dados de/para ficheiros JSON ou outra coleção de Coss, consulte [d
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de/para Azure Cosmos DB utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -487,7 +487,7 @@ AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas est
 2. **Pergunta:** Como é que uma nova tentou uma cópia para a Azure Cosmos DB lidar com registos já copiados?
 
     **Resposta:** Se os registos tiverem um campo de identificação e a operação de cópia tentar inserir um registo com o mesmo ID, a operação de cópia lança um erro.
-3. **Pergunta:** A Data Factory suporta [gama ou partição de dados baseada em haxixe?](../../cosmos-db/sql-api-partition-data.md)
+3. **Pergunta:** A Data Factory suporta [gama ou partição de dados baseada em haxixe?](../../cosmos-db/partitioning-overview.md)
 
     **Resposta:** Não.
 4. **Pergunta:** Posso especificar mais do que uma coleção de DB da Azure Cosmos para uma mesa?

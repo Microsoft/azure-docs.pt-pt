@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
-ms.author: metan
-ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761554"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636532"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência SDK do leitor imersivo JavaScript (v1.1)
 
@@ -46,7 +46,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | `token` | cadeia (de carateres) | O sinal de autenticação AD Azure. Consulte [como criar um recurso de leitor imersivo](./how-to-create-immersive-reader.md) para mais detalhes. |
-| `subdomain` | string | O subdomínio personalizado do seu recurso Immersive Reader em Azure. Consulte [como criar um recurso de leitor imersivo](./how-to-create-immersive-reader.md) para mais detalhes. |
+| `subdomain` | cadeia | O subdomínio personalizado do seu recurso Immersive Reader em Azure. Consulte [como criar um recurso de leitor imersivo](./how-to-create-immersive-reader.md) para mais detalhes. |
 | `content` | [Conteúdo](#content) | Um objeto que contenha o conteúdo a ser mostrado no Leitor Imersivo. |
 | `options` | [Opções](#options) | Opções para configurar certos comportamentos do Leitor Imersivo. Opcional. |
 
@@ -159,7 +159,7 @@ Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Note que uma 
 | Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
 | contentor | HTMLDivElement | Elemento HTML que contém o iframe imivemero reader. |
-| sessionId | Cadeia | Identificador globalmente único para esta sessão, usado para depurar. |
+| sessionId | String | Identificador globalmente único para esta sessão, usado para depurar. |
  
 ## <a name="error"></a>Erro
 
@@ -176,8 +176,8 @@ Contém informações sobre um erro.
 
 | Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
-| code | Cadeia | Um de um conjunto de códigos de erro. Ver [códigos de erro](#error-codes). |
-| message | Cadeia | Representação legível pelo erro. |
+| code | String | Um de um conjunto de códigos de erro. Ver [códigos de erro](#error-codes). |
+| message | String | Representação legível pelo erro. |
 
 #### <a name="error-codes"></a>Códigos de erro
 
@@ -242,9 +242,9 @@ Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersiv
 
 | Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
-| conteúdo | Cadeia | A cadeia que contém o conteúdo enviado ao Leitor Imersivo. |
-| Lang | Cadeia | Linguagem do texto, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. A linguagem será detetada automaticamente se não for especificada. Veja [Supported Languages](#supported-languages) (Idiomas Suportados). |
-| mímicaType | string | Texto simples, MathML, HTML & os formatos Microsoft Word DOCX são suportados. Consulte [os tipos de MIME suportados](#supported-mime-types) para obter mais detalhes. |
+| conteúdo | String | A cadeia que contém o conteúdo enviado ao Leitor Imersivo. |
+| Lang | String | Linguagem do texto, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. A linguagem será detetada automaticamente se não for especificada. Veja [Supported Languages](#supported-languages) (Idiomas Suportados). |
+| mímicaType | cadeia | Texto simples, MathML, HTML & os formatos Microsoft Word DOCX são suportados. Consulte [os tipos de MIME suportados](#supported-mime-types) para obter mais detalhes. |
 
 ##### `content`
 ```Parameters
@@ -307,7 +307,7 @@ Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
 
 | Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
-| uiLang | Cadeia | Idioma da UI, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. Predefinições no idioma do navegador se não for especificado. |
+| uiLang | String | Idioma da UI, o valor está no formato iETF BCP 47 imposições, por exemplo, en, es-ES. Predefinições no idioma do navegador se não for especificado. |
 | tempo limite | Número | Duração (em milissegundos) antes [do lançamentoAsync](#launchasync) falha com um erro de tempo limite (por defeito é 15000 ms). Este intervalo aplica-se apenas ao lançamento inicial da página Reader, onde o sucesso é observado quando a página Reader abre e o girador começa. Não deve ser necessário um ajuste do tempo limite. |
 | uiZIndex | Número | Z-index do iframe que será criado (o padrão é 1000). |
 | useWebview | Booleano| Utilize uma etiqueta webview em vez de um iframe, para compatibilidade com as Aplicações do Chrome (o padrão é falso). |
@@ -319,9 +319,9 @@ Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opções para configurar Leia em voz alta. |
 | traduções Opções | [Opções de Tradução](#translationoptions) | Opções para configurar a tradução. |
 | displayOptions | [DisplayOptions](#displayoptions) | Opções para configurar o tamanho do texto, fonte, etc. |
-| preferências | Cadeia | String retornado de onPreferencesChanged representando as preferências do utilizador no Leitor Imersivo. Consulte [parâmetros de definições](#settings-parameters) e [como armazenar as preferências do utilizador](./how-to-store-user-preferences.md) para obter mais informações. |
+| preferências | String | String retornado de onPreferencesChanged representando as preferências do utilizador no Leitor Imersivo. Consulte [parâmetros de definições](#settings-parameters) e [como armazenar as preferências do utilizador](./how-to-store-user-preferences.md) para obter mais informações. |
 | onPreferencesOdado | Função | Executa quando as preferências do utilizador mudaram. Consulte [as preferências do utilizador para](./how-to-store-user-preferences.md) obter mais informações. |
-| CustomDomain | Cadeia | Reservado para uso interno. Domínio personalizado onde o webapp imersivo do Leitor está hospedado (o padrão é nulo). |
+| CustomDomain | String | Reservado para uso interno. Domínio personalizado onde o webapp imersivo do Leitor está hospedado (o padrão é nulo). |
 
 ##### `uiLang`
 ```Parameters
@@ -392,7 +392,7 @@ type ReadAloudOptions = {
 
 | Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
-| voz | Cadeia | Voz, "Feminino" ou "Macho". Note que nem todas as línguas apoiam ambos os sexos. |
+| voz | String | Voz, "Feminino" ou "Macho". Note que nem todas as línguas apoiam ambos os sexos. |
 | velocidade | Número | Velocidade de reprodução, deve ser entre 0,5 e 2,5, inclusive. |
 | autoPlay | Booleano | Comece automaticamente a ler em voz alta quando o leitor imersivo estiver carregado. |
 
@@ -431,7 +431,7 @@ type TranslationOptions = {
 
 | Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
-| language | Cadeia | Define a língua de tradução, o valor está no formato iETF BCP 47 imposição de tag, por exemplo, fr-FR, es-MX, zh-Hans-CN. É necessário ativar automaticamente a tradução de palavras ou documentos. |
+| language | String | Define a língua de tradução, o valor está no formato iETF BCP 47 imposição de tag, por exemplo, fr-FR, es-MX, zh-Hans-CN. É necessário ativar automaticamente a tradução de palavras ou documentos. |
 | autoEnableDocumentTranslation | Booleano | Traduza automaticamente todo o documento. |
 | autoEnableWordTranslation | Booleano | Ativar automaticamente a tradução de palavras. |
 
@@ -461,7 +461,7 @@ type DisplayOptions = {
 | ---- | ---- |------------ |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | aumentar O espaçamento | Booleano | Define se o espaçamento do texto é alternado dentro ou fora. |
-| fonteFamily | Cadeia | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
+| fonteFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 
 ##### `textSize`
 ```Parameters
@@ -487,26 +487,26 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**As definições listadas abaixo são apenas para fins informativos**. O Leitor Imersivo armazena as suas definições, ou preferências do utilizador, em cookies. Esta opção *cookiePolicy* **desativa** o uso de cookies por padrão para cumprir as leis de Conformidade com cookies da UE. Caso pretenda voltar a ativar os cookies e restaurar a funcionalidade padrão para as preferências do utilizador do Leitor Imersivo, terá de garantir que o seu website ou aplicação obtém o consentimento adequado do utilizador para ativar os cookies. Em seguida, para reecamar os cookies no Leitor Imersivo, tem de definir explicitamente a opção *cookiePolicy* para *CookiePolicy.Enable* ao lançar o Leitor Imersivo. A tabela abaixo descreve quais as configurações que o Leitor Imersivo armazena no seu cookie quando a opção *cookiePolicy* está ativada.
+**As definições listadas abaixo são apenas para fins informativos** . O Leitor Imersivo armazena as suas definições, ou preferências do utilizador, em cookies. Esta opção *cookiePolicy* **desativa** o uso de cookies por padrão para cumprir as leis de Conformidade com cookies da UE. Caso pretenda voltar a ativar os cookies e restaurar a funcionalidade padrão para as preferências do utilizador do Leitor Imersivo, terá de garantir que o seu website ou aplicação obtém o consentimento adequado do utilizador para ativar os cookies. Em seguida, para reecamar os cookies no Leitor Imersivo, tem de definir explicitamente a opção *cookiePolicy* para *CookiePolicy.Enable* ao lançar o Leitor Imersivo. A tabela abaixo descreve quais as configurações que o Leitor Imersivo armazena no seu cookie quando a opção *cookiePolicy* está ativada.
 
 #### <a name="settings-parameters"></a>Parâmetros de definição
 
 | Definição | Tipo | Descrição |
 | ------- | ---- | ----------- |
 | textSize | Número | Define o tamanho do texto escolhido. |
-| fonteFamily | Cadeia | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
+| fonteFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
 | textSpacing | Número | Define se o espaçamento do texto é alternado dentro ou fora. |
 | formattingEnabled | Booleano | Define se a formatação HTML é alternada ou desligada. |
-| tema | Cadeia | Define o tema escolhido (por exemplo, "Luz", "Escuro"...). |
+| tema | String | Define o tema escolhido (por exemplo, "Luz", "Escuro"...). |
 | syllabificationEnabled | Booleano | Define se a syllabificação alternada ou desligada. |
 | substantivo | Booleano | que define se o destaque do substantivo é alternado dentro ou fora. |
-| substantivo | Cadeia | Define a cor de destaque do substantivo escolhido. |
+| substantivo | String | Define a cor de destaque do substantivo escolhido. |
 | verboHighlightingEnabled | Booleano | Define se o realce do verbo é alternado dentro ou fora. |
-| verbHighlightingColor | Cadeia | Define a cor de destaque do verbo escolhido. |
+| verbHighlightingColor | String | Define a cor de destaque do verbo escolhido. |
 | adjetivoHighlightingEnabled | Booleano | Define se o realce adjetivo é alternado dentro ou fora. |
-| adjectivoHighlightingColor | Cadeia | Define a cor de realce adjetivo escolhida. |
+| adjectivoHighlightingColor | String | Define a cor de realce adjetivo escolhida. |
 | adverbHighlightingEnabled | Booleano | Define se o realce do advérte é alternado dentro ou fora. |
-| adverbHighlightingColor | Cadeia | Define a cor de destaque do advérônio escolhido. |
+| adverbHighlightingColor | String | Define a cor de destaque do advérônio escolhido. |
 | pictureDictionaryEnabled | Booleano | Define se o Dicionário de Imagens é alternado dentro ou fora. |
 | posLabelsEnabled | Booleano | Define se o rótulo de texto sobrescrito de cada Parte de Discurso realçado é alternado dentro ou fora.  |
 

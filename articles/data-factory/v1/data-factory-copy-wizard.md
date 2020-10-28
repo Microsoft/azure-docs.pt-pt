@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086913"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636923"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover facilmente dados com o Assistente de Cópia da Fábrica de Dados Azure
 > [!NOTE]
@@ -62,7 +62,7 @@ No exemplo, a consulta SQL utiliza a `Text.Format` função e `WindowStart` a va
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados numa pasta de bolhas Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base em [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}** **{day}** **,{hour}**, **{minute}**, e **{custom}**. Exemplo: inputfolder/{year}/{month}/{day}.
+Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base em [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}** , **{month}** **{day}** **,{hour}** , **{minute}** , e **{custom}** . Exemplo: inputfolder/{year}/{month}/{day}.
 
 Suponha que tenha pastas de entrada no seguinte formato:
 
@@ -73,11 +73,11 @@ Suponha que tenha pastas de entrada no seguinte formato:
 ...
 ```
 
-Clique no botão **procurar** **ficheiro ou pasta,** navegue por uma destas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher**. Devia ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{day}** e **02** por **{hora}**, e prima a Guia. Deve ver listas de drop-down para selecionar o formato destas quatro variáveis:
+Clique no botão **procurar** **ficheiro ou pasta,** navegue por uma destas pastas (por exemplo, 2016->03->01->02) e clique em **Escolher** . Devia ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** por **{ano}** , **03** por **{mês}** , **01** por **{day}** e **02** por **{hora}** , e prima a Guia. Deve ver listas de drop-down para selecionar o formato destas quatro variáveis:
 
 ![Usando variáveis do sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Como mostrado na imagem seguinte, também pode utilizar uma variável **personalizada** e quaisquer [cordas de formato suportados](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com esta estrutura, utilize primeiro o botão **Procurar.** Em seguida, substitua um valor por **{custom}** e pressione o Separador para ver a caixa de texto onde pode escrever a cadeia de formato.     
+Como mostrado na imagem seguinte, também pode utilizar uma variável **personalizada** e quaisquer [cordas de formato suportados](/dotnet/standard/base-types/custom-date-and-time-format-strings). Para selecionar uma pasta com esta estrutura, utilize primeiro o botão **Procurar.** Em seguida, substitua um valor por **{custom}** e pressione o Separador para ver a caixa de texto onde pode escrever a cadeia de formato.     
 
 ![Usando variável personalizada](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -95,4 +95,3 @@ Uma operação de cópia única permite o movimento de dados de uma fonte para u
 
 ## <a name="next-steps"></a>Passos seguintes
 Para uma rápida passagem da utilização do Assistente de Cópia da Fábrica de Dados para criar um oleoduto com a Atividade de Cópia, consulte [Tutorial: Crie um oleoduto utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
-

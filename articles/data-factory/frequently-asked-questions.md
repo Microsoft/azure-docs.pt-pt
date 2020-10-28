@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440512"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635767"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 
@@ -67,10 +67,10 @@ Os utilizadores também podem utilizar as APIs de REST documentadas para interag
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Desenvolvimento iterativo e depuragem utilizando ferramentas visuais
 As ferramentas visuais da Azure Data Factory permitem o desenvolvimento iterativo e a depuração. Pode criar os seus oleodutos e fazer ensaios utilizando a capacidade **de Debug** na tela do gasoduto sem escrever uma única linha de código. Pode ver os resultados dos seus testes na janela **de saída** da sua tela de pipeline. Após o seu teste ter sucesso, pode adicionar mais atividades ao seu oleoduto e continuar a depurar de forma iterativa. Também pode cancelar os seus testes depois de estarem em curso. 
 
-Não é obrigado a publicar as suas alterações no serviço de fábrica de dados antes de selecionar a **Debug**. Isto é útil em cenários em que pretende certificar-se de que as novas adições ou alterações funcionarão como esperado antes de atualizar os fluxos de trabalho da sua fábrica de dados em ambientes de desenvolvimento, teste ou produção. 
+Não é obrigado a publicar as suas alterações no serviço de fábrica de dados antes de selecionar a **Debug** . Isto é útil em cenários em que pretende certificar-se de que as novas adições ou alterações funcionarão como esperado antes de atualizar os fluxos de trabalho da sua fábrica de dados em ambientes de desenvolvimento, teste ou produção. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Capacidade de implantar pacotes SSIS para a Azure 
-Se quiser mover as suas cargas de trabalho SSIS, pode criar uma Fábrica de Dados e providenciar um tempo de integração Azure-SSIS. Um tempo de integração Azure-SSIS é um cluster totalmente gerido de VMs (nóns) Azure que se dedicam a executar os seus pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte os [pacotes SSIS de implantação para o tutorial de Azure.](tutorial-create-azure-ssis-runtime-portal.md) 
+Se quiser mover as suas cargas de trabalho SSIS, pode criar uma Fábrica de Dados e providenciar um tempo de integração Azure-SSIS. Um tempo de integração Azure-SSIS é um cluster totalmente gerido de VMs (nóns) Azure que se dedicam a executar os seus pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte os [pacotes SSIS de implantação para o tutorial de Azure.](./tutorial-deploy-ssis-packages-azure.md) 
  
 ### <a name="sdks"></a>SDKs
 Se é um utilizador avançado e procura uma interface programática, a Data Factory fornece um rico conjunto de SDKs que pode utilizar para autor, gerir ou monitorizar os oleodutos utilizando o seu IDE favorito. O suporte linguístico inclui .NET, PowerShell, Python e REST.
@@ -95,9 +95,9 @@ Desde o lançamento inicial de pré-visualização pública em 2017, a Data Fact
 ## <a name="what-is-the-integration-runtime"></a>Qual é o tempo de integração?
 O tempo de integração é a infraestrutura de computação que a Azure Data Factory utiliza para fornecer as seguintes capacidades de integração de dados em vários ambientes de rede:
 
-- **Movimento de dados**: Para o movimento de dados, o tempo de integração move os dados entre as lojas de dados de origem e destino, ao mesmo tempo que fornece suporte para conectores incorporados, conversão de formato, mapeamento de colunas e transferência de dados performante e escalável.
-- **Atividades de**expedição : Para transformação, o tempo de integração proporciona capacidade para executar pacotes SSIS de forma nativa.
-- **Executar pacotes SSIS**: O tempo de integração executa de forma nativa pacotes SSIS num ambiente computacional gerido do Azure. O tempo de integração também suporta o envio e monitorização de atividades de transformação em execução em uma variedade de serviços de computação, tais como Azure HDInsight, Azure Machine Learning, SQL Database e SQL Server.
+- **Movimento de dados** : Para o movimento de dados, o tempo de integração move os dados entre as lojas de dados de origem e destino, ao mesmo tempo que fornece suporte para conectores incorporados, conversão de formato, mapeamento de colunas e transferência de dados performante e escalável.
+- **Atividades de** expedição : Para transformação, o tempo de integração proporciona capacidade para executar pacotes SSIS de forma nativa.
+- **Executar pacotes SSIS** : O tempo de integração executa de forma nativa pacotes SSIS num ambiente computacional gerido do Azure. O tempo de integração também suporta o envio e monitorização de atividades de transformação em execução em uma variedade de serviços de computação, tais como Azure HDInsight, Azure Machine Learning, SQL Database e SQL Server.
 
 Pode implementar um ou muitos casos do tempo de execução da integração, conforme necessário para mover e transformar dados. O tempo de integração pode funcionar numa rede pública Azure ou numa rede privada (no local, rede virtual Azure ou nuvem privada virtual da Amazon Web Services [VPC]). 
 
@@ -159,7 +159,7 @@ Para obter detalhes sobre os preços da Azure Data Factory, consulte [os detalhe
 Para obter as informações mais atualizadas sobre a Azure Data Factory, aceda aos seguintes sites:
 
 - [Blogue](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Página inicial da documentação](/azure/data-factory)
+- [Página inicial da documentação](./index.yml)
 - [Página inicial do produto](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Mergulho profundo técnico 

@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441113"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637348"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -36,6 +36,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Atualmente, a configuração só pode ser executada utilizando pedidos CLI ou REST. Não é possível utilizar o portal Azure ou o PowerShell.
+- A ```--export-all-tables``` opção em CLI e REST não é suportada e será removida. Deve fornecer explicitamente a lista de tabelas nas regras de exportação.
 - As tabelas suportadas são atualmente limitadas às específicas na secção de [tabelas suportadas](#supported-tables) abaixo. Se a regra de exportação de dados incluir uma tabela não apoiada, a operação terá sucesso, mas nenhum dado será exportado para esse quadro. Se a regra de exportação de dados incluir uma tabela que não existe, falhará com o erro ```Table <tableName> does not exist in the workspace.```
 - O seu espaço de trabalho Log Analytics pode estar em qualquer região, exceto no seguinte:
   - Suíça Norte
@@ -63,9 +64,9 @@ Atualmente, não existem encargos adicionais para a funcionalidade de exportaç�
 ## <a name="export-destinations"></a>Destinos de exportação
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Os dados são enviados para as contas de armazenamento a cada hora. A configuração de exportação de dados cria um recipiente para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um contentor chamado *am-SecurityEvent*.
+Os dados são enviados para as contas de armazenamento a cada hora. A configuração de exportação de dados cria um recipiente para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um contentor chamado *am-SecurityEvent* .
 
-O caminho da conta de armazenamento é *WorkspaceResourceId=/subscrições/subscrição-id/grupos de recursos/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> \<two-digit numeric month\> /m= \<two-digit numeric day\> /d= /h= \<two-digit 24-hour clock hour\> /m=00/PT1H.jsem*. Uma vez que as bolhas de apêndice estão limitadas a 50 mil escritos em armazenamento, o número de bolhas exportadas pode estender-se se o número de apêndices for elevado. O padrão de nomeação para bolhas em tal caso seria PT1H_#.json, onde # é a contagem incremental de bolhas.
+O caminho da conta de armazenamento é *WorkspaceResourceId=/subscrições/subscrição-id/grupos de recursos/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> \<two-digit numeric month\> /m= \<two-digit numeric day\> /d= /h= \<two-digit 24-hour clock hour\> /m=00/PT1H.jsem* . Uma vez que as bolhas de apêndice estão limitadas a 50 mil escritos em armazenamento, o número de bolhas exportadas pode estender-se se o número de apêndices for elevado. O padrão de nomeação para bolhas em tal caso seria PT1H_#.json, onde # é a contagem incremental de bolhas.
 
 O formato de dados da conta de armazenamento são [linhas JSON.](diagnostic-logs-append-blobs.md) Isto significa que cada registo é delimitado por uma nova linha, sem matriz de registos externos e sem vírgulas entre os registos da JSON. 
 
@@ -74,7 +75,7 @@ O formato de dados da conta de armazenamento são [linhas JSON.](diagnostic-logs
 A exportação de dados do Log Analytics pode escrever blobs de apêndice para contas de armazenamento imutáveis quando as políticas de retenção baseadas no tempo têm a definição *de admissão Dedesempretes* habilitadas ativadas. Isto permite escrever novos blocos para uma bolha de apêndice, mantendo ao mesmo tempo a proteção e a conformidade da imutabilidade. Ver Permita que as bolhas de [apêndice protegidas escrevam](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Hub de eventos
-Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent*. Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todas as tabelas para ele.
+Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent* . Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todos os dados para tabelas definidas para ele.
 
 O volume de dados exportados aumenta frequentemente ao longo do tempo, e a escala do centro de eventos precisa de ser aumentada para lidar com taxas de transferência maiores e evitar cenários de estrangulamento e latência de dados. Deve utilizar a função de insuflado automático dos Centros de Eventos para aumentar automaticamente e aumentar o número de unidades de produção e satisfazer as necessidades de utilização. Consulte automaticamente as unidades de produção do [Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md) para obter mais detalhes.
 
@@ -98,7 +99,7 @@ O seguinte fornecedor de recursos Azure precisa de se registar para a sua subscr
 
 - Microsoft.Insights
 
-Este fornecedor de recursos provavelmente já estará registado para a maioria dos utilizadores do Azure Monitor. Para verificar, **aceda** a Subscrições no portal Azure. Selecione a sua subscrição e, em seguida, clique em **fornecedores** de recursos na secção **Definições** do menu. Localizar **microsoft.insights**. Se o seu estado está **registado,** então já está registado. Caso contrário, clique em **Registar** para registá-lo.
+Este fornecedor de recursos provavelmente já estará registado para a maioria dos utilizadores do Azure Monitor. Para verificar, **aceda** a Subscrições no portal Azure. Selecione a sua subscrição e, em seguida, clique em **fornecedores** de recursos na secção **Definições** do menu. Localizar **microsoft.insights** . Se o seu estado está **registado,** então já está registado. Caso contrário, clique em **Registar** para registá-lo.
 
 Também pode utilizar qualquer um dos métodos disponíveis para registar um fornecedor de recursos, conforme descrito nos [fornecedores e tipos de recursos Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Segue-se um comando de amostra utilizando o PowerShell:
 
@@ -113,7 +114,12 @@ Se configurar a sua Conta de Armazenamento para permitir o acesso a partir de re
 
 
 ### <a name="create-or-update-data-export-rule"></a>Criar ou atualizar regra de exportação de dados
-Uma regra de exportação de dados define os dados a exportar de todas as tabelas ou de um determinado conjunto de tabelas para um único destino. Crie várias regras se precisar enviar para vários destinos.
+Uma regra de exportação de dados define os dados a exportar para um conjunto de tabelas para um único destino. Pode criar uma regra para cada destino.
+
+Utilize o seguinte comando CLI para visualizar as tabelas no seu espaço de trabalho. Pode ajudar a copiar as tabelas que deseja e incluir na regra de exportação de dados.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Utilize o seguinte comando para criar uma regra de exportação de dados para uma conta de armazenamento utilizando o CLI.
 
@@ -142,8 +148,8 @@ O corpo do pedido especifica o destino das tabelas. Segue-se um corpo de amostra
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ Segue-se um corpo de amostra para o pedido DE REST para um centro de eventos.
         "enable": true
     }
 }
-
 ```
 
+Segue-se um corpo de amostra para o pedido DEE para um centro de eventos onde é fornecido o nome do hub do evento. Neste caso, todos os dados exportados são enviados para o centro deste evento.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>Ver configuração de exportação de dados
 Utilize o seguinte comando para visualizar a configuração de uma regra de exportação de dados utilizando O LÍI.

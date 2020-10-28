@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262285"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636447"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Lançar o Leitor Imersivo (Node.js)
 
@@ -69,7 +69,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-Assim que tiver estes valores, crie um novo ficheiro chamado _.env_e cole-o o seguinte código, fornecendo os valores de propriedade personalizados de cima. Não inclua aspas ou os caracteres "{" e "}".
+Assim que tiver estes valores, crie um novo ficheiro chamado _.env_ e cole-o o seguinte código, fornecendo os valores de propriedade personalizados de cima. Não inclua aspas ou os caracteres "{" e "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -133,14 +133,14 @@ O ponto final da API **getimmersivereaderlaunchparams** deve ser protegido por t
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Lançar o Leitor Imersivo com conteúdo de amostra
 
-1. Abra _as vistas\layout.pug_, e adicione o seguinte código na `head` etiqueta, antes da `body` etiqueta. Estas `script` etiquetas carregam o SDK e jQuery [do Leitor Imersivo.](https://github.com/microsoft/immersive-reader-sdk)
+1. Abra _as vistas\layout.pug_ , e adicione o seguinte código na `head` etiqueta, antes da `body` etiqueta. Estas `script` etiquetas carregam o SDK e jQuery [do Leitor Imersivo.](https://github.com/microsoft/immersive-reader-sdk)
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Vistas _abertas\index.pug_, e substitua o seu conteúdo pelo seguinte código. Este código povoa a página com algum conteúdo da amostra e adiciona um botão que lança o Leitor Imersivo.
+2. Vistas _abertas\index.pug_ , e substitua o seu conteúdo pelo seguinte código. Este código povoa a página com algum conteúdo da amostra e adiciona um botão que lança o Leitor Imersivo.
 
     ```pug
     extends layout

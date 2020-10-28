@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cf8d847bd4e950ab17cc1f04b52be2589607f99c
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 55a27dbb6c2ec3569bae9d6fb96fcd8087f08daf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629498"
+ms.locfileid: "92637671"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia da fábrica de dados Azure
 
@@ -78,7 +78,7 @@ Clique no botão **procurar** **ficheiro ou pasta,** navegue por uma destas past
 
 ![Usando variáveis do sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Como mostrado na imagem seguinte, também pode utilizar uma variável **personalizada** e quaisquer [cordas de formato suportados](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com esta estrutura, utilize primeiro o botão **Procurar.** Em seguida, substitua um valor por **{custom}** e prima a tecla **'Separador'** para ver a caixa de texto onde pode escrever a cadeia de formato.     
+Como mostrado na imagem seguinte, também pode utilizar uma variável **personalizada** e quaisquer [cordas de formato suportados](/dotnet/standard/base-types/custom-date-and-time-format-strings). Para selecionar uma pasta com esta estrutura, utilize primeiro o botão **Procurar.** Em seguida, substitua um valor por **{custom}** e prima a tecla **'Separador'** para ver a caixa de texto onde pode escrever a cadeia de formato.     
 
 ![Usando variável personalizada](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

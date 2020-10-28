@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7324115c880fb1ee4d5a1730a3b84a289cee4b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55582fb8c4fc80ab005a01ec015035963404e639
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490144"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637416"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para a Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -50,9 +50,9 @@ O conector Azure Synapse Analytics suporta a autenticação básica.
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de/para um Azure Synapse Analytics utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um pipeline que copie dados de/para a Azure Synapse Analytics é utilizar o assistente de dados Copy. Consulte [Tutorial: Carregue os dados em Synapse Analytics com Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para uma rápida passagem pela criação de um pipeline utilizando o assistente de dados Copy.
+A forma mais fácil de criar um pipeline que copie dados de/para a Azure Synapse Analytics é utilizar o assistente de dados Copy. Consulte [Tutorial: Carregue os dados em Synapse Analytics com Data Factory](../load-azure-sql-data-warehouse.md) para uma rápida passagem pela criação de um pipeline utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -74,7 +74,7 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 | conexãoStragem |Especifique as informações necessárias para ligar à instância Azure Synapse Analytics para a propriedade connectionString. Apenas a autenticação básica é suportada. |Sim |
 
 > [!IMPORTANT]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e o servidor de base de dados para permitir que os [Serviços Azure acedam ao servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Além disso, se estiver a copiar dados para a Azure Synapse Analytics de fora do Azure, incluindo de fontes de dados no local com porta de entrada de fábrica de dados, configufique a gama de endereços IP apropriada para a máquina que está a enviar dados para a Azure Synapse Analytics.
+> Configure [Azure SQL Database Firewall](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) e o servidor de base de dados para permitir que os [Serviços Azure acedam ao servidor](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure). Além disso, se estiver a copiar dados para a Azure Synapse Analytics de fora do Azure, incluindo de fontes de dados no local com porta de entrada de fábrica de dados, configufique a gama de endereços IP apropriada para a máquina que está a enviar dados para a Azure Synapse Analytics.
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, Azure blob, Azure table, etc.).
@@ -96,7 +96,7 @@ Enquanto que as propriedades disponíveis na secção de tipos de atividade vari
 ### <a name="sqldwsource"></a>SqlDWSource
 Quando a fonte é do tipo **SqlDWSource,** as seguintes propriedades estão disponíveis na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Não |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. |Nome do procedimento armazenado. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
@@ -142,15 +142,15 @@ GO
 ### <a name="sqldwsink"></a>SqlDWSink
 **SqlDWSink** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | sqlWriterCleanUpScript |Especifique uma consulta para a Copy Activity para executar de modo a que os dados de uma fatia específica seja limpo. Para mais detalhes, consulte a [secção de repetibilidade](#repeatability-during-copy). |Uma declaração de consulta. |Não |
 | permitir A Base DePoly |Indica se deve utilizar a PolyBase (quando aplicável) em vez do mecanismo BULKINSERT. <br/><br/> **A utilização do PolyBase é a forma recomendada de carregar dados no Azure Synapse Analytics.** Consulte [o PolyBase para carregar dados na secção Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter constrangimentos e detalhes. |Verdadeiro <br/>Falso (predefinição) |Não |
-| poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira**. |&nbsp; |Não |
-| rejeitarValue |Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção **de Argumentos** do tema CREATE EXTERNAL [TABLE (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) |0 (padrão), 1, 2, ... |Não |
+| poliBaseSettings |Um grupo de propriedades que podem ser especificadas quando a propriedade **allowPolybase** é definida como **verdadeira** . |&nbsp; |Não |
+| rejeitarValue |Especifica o número ou percentagem de linhas que podem ser rejeitadas antes da consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição da PolyBase na secção **de Argumentos** do tema CREATE EXTERNAL [TABLE (Transact-SQL).](/sql/t-sql/statements/create-external-table-transact-sql) |0 (padrão), 1, 2, ... |Não |
 | rejeitarType |Especifica se a opção rejeitar oValue é especificada como um valor literal ou uma percentagem. |Valor (padrão), Percentagem |Não |
 | rejeitarSampleValue |Determina o número de linhas a recuperar antes que o PolyBase recalcule a percentagem de linhas rejeitadas. |1, 2, ... |Sim, se **rejeitarType** é **percentagem** |
-| utilizarTypeDefault |Especifica como lidar com valores em falta em ficheiros de texto delimitados quando o PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Verdadeiro, Falso (padrão) |Não |
+| utilizarTypeDefault |Especifica como lidar com valores em falta em ficheiros de texto delimitados quando o PolyBase recupera dados do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade a partir da secção Argumentos em [FORMATO DE FICHEIRO EXTERNO (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql). |Verdadeiro, Falso (padrão) |Não |
 | escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
 | escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
@@ -164,7 +164,7 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Utilize a PolyBase para carregar dados em Azure Synapse Analytics
-A utilização do **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** é uma forma eficiente de carregar uma grande quantidade de dados no Azure Synapse Analytics com alta produção. Pode ver um grande ganho na produção utilizando o PolyBase em vez do mecanismo padrão BULKINSERT. Consulte [o número de referência de desempenho da cópia](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+A utilização do **[PolyBase](/sql/relational-databases/polybase/polybase-guide)** é uma forma eficiente de carregar uma grande quantidade de dados no Azure Synapse Analytics com alta produção. Pode ver um grande ganho na produção utilizando o PolyBase em vez do mecanismo padrão BULKINSERT. Consulte [o número de referência de desempenho da cópia](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 * Se os seus dados de origem estiverem na **Azure Blob ou na Azure Data Lake Store,** e o formato for compatível com a PolyBase, pode copiar diretamente para a Azure Synapse Analytics utilizando o PolyBase. Consulte **[a cópia direta utilizando o PolyBase](#direct-copy-using-polybase)** com detalhes.
 * Se a sua loja de dados de origem e o seu formato não forem originalmente suportados pela PolyBase, pode utilizar a Cópia Encenada utilizando a funcionalidade **[PolyBase.](#staged-copy-using-polybase)** Também lhe proporciona uma melhor produção, convertendo automaticamente os dados em formato compatível com a PolyBase e armazenando os dados no armazenamento do Azure Blob. Em seguida, carrega dados em Azure Synapse Analytics.
@@ -189,18 +189,18 @@ Desconfiem da `allowPolyBase` propriedade como mostrado no exemplo seguinte para
 A Azure Synapse Analytics PolyBase suporta diretamente a Azure Blob e a Azure Data Lake Store (usando o principal serviço) como fonte e com requisitos específicos de formato de ficheiro. Se os seus dados de origem satisfaçam os critérios descritos nesta secção, pode copiar diretamente da loja de dados de origem para a Azure Synapse Analytics utilizando o PolyBase. Caso contrário, pode utilizar [a Cópia Encenada utilizando a PolyBase](#staged-copy-using-polybase).
 
 > [!TIP]
-> Para copiar dados da Data Lake Store para a Azure Synapse Analytics de forma eficiente, saiba mais com [a Azure Data Factory, tornando ainda mais fácil e conveniente descobrir insights a partir de dados ao utilizar a Data Lake Store com a Azure Synapse Analytics.](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)
+> Para copiar dados da Data Lake Store para a Azure Synapse Analytics de forma eficiente, saiba mais com [a Azure Data Factory, tornando ainda mais fácil e conveniente descobrir insights a partir de dados ao utilizar a Data Lake Store com a Azure Synapse Analytics.](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse)
 
 Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definições e volta automaticamente ao mecanismo BULKINSERT para o movimento de dados.
 
-1. **O serviço ligado à fonte** é do tipo: **AzureStorage** ou **AzureDataLakeStore com autenticação principal do serviço**.
-2. O conjunto de **dados** de entrada é do tipo: **AzureBlob** ou **AzureDataLakeStore,** e o tipo de formato sob `type` propriedades é **OrcFormat,** **ParquetFormat**ou **TextFormat** com as seguintes configurações:
+1. **O serviço ligado à fonte** é do tipo: **AzureStorage** ou **AzureDataLakeStore com autenticação principal do serviço** .
+2. O conjunto de **dados** de entrada é do tipo: **AzureBlob** ou **AzureDataLakeStore,** e o tipo de formato sob `type` propriedades é **OrcFormat,** **ParquetFormat** ou **TextFormat** com as seguintes configurações:
 
-   1. `rowDelimiter` deve ser **\n**.
-   2. `nullValue` está definido para **corda vazia** (""), ou está definido `treatEmptyAsNull` para **verdade**.
-   3. `encodingName`está definido para **utf-8**, que é o valor **padrão.**
+   1. `rowDelimiter` deve ser **\n** .
+   2. `nullValue` está definido para **corda vazia** (""), ou está definido `treatEmptyAsNull` para **verdade** .
+   3. `encodingName`está definido para **utf-8** , que é o valor **padrão.**
    4. `escapeChar`, `quoteChar` `firstRowAsHeader` e `skipLineCount` não estão especificados.
-   5. `compression` não pode ser **compressões,** **GZip,** ou **Deflate**.
+   5. `compression` não pode ser **compressões,** **GZip,** ou **Deflate** .
 
       ```JSON
       "typeProperties": {
@@ -260,7 +260,7 @@ Para utilizar esta função, crie um [serviço ligado ao Azure Storage](data-fac
 As seguintes secções fornecem boas práticas adicionais às que são mencionadas nas [melhores práticas para o Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### <a name="required-database-permission"></a>Autorização de base de dados necessária
-Para utilizar o PolyBase, requer que o utilizador seja utilizado para carregar dados no Azure Synapse Analytics tem a [permissão "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) na base de dados-alvo. Uma forma de o conseguir é adicionar esse utilizador como membro do papel "db_owner". Aprenda a fazê-lo seguindo [esta secção.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)
+Para utilizar o PolyBase, requer que o utilizador seja utilizado para carregar dados no Azure Synapse Analytics tem a [permissão "CONTROL"](/sql/relational-databases/security/permissions-database-engine) na base de dados-alvo. Uma forma de o conseguir é adicionar esse utilizador como membro do papel "db_owner". Aprenda a fazê-lo seguindo [esta secção.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)
 
 ### <a name="row-size-and-data-type-limitation"></a>Tamanho da linha e limitação do tipo de dados
 As cargas de base poli-base limitam-se a cargas inferiores a **1 MB** e não podem ser carregadas para VARCHR(MAX), NVARCHAR(MAX) ou VARBINARY (MAX). Consulte [aqui.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)
@@ -268,7 +268,7 @@ As cargas de base poli-base limitam-se a cargas inferiores a **1 MB** e não pod
 Se tiver dados de origem com linhas de tamanho superior a 1 MB, pode querer dividir as tabelas de origem verticalmente em várias pequenas onde o maior tamanho de linha de cada um deles não excede o limite. As tabelas mais pequenas podem então ser carregadas usando a PolyBase e fundidas em Azure Synapse Analytics.
 
 ### <a name="azure-synapse-analytics-resource-class"></a>Classe de recursos Azure Synapse Analytics
-Para obter o melhor rendimento possível, considere atribuir uma classe de recursos maior ao utilizador que está a ser utilizado para carregar dados em Azure Synapse Analytics via PolyBase. Aprenda a fazê-lo seguindo [O exemplo da classe de recursos do utilizador.](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md)
+Para obter o melhor rendimento possível, considere atribuir uma classe de recursos maior ao utilizador que está a ser utilizado para carregar dados em Azure Synapse Analytics via PolyBase. Aprenda a fazê-lo seguindo [O exemplo da classe de recursos do utilizador.](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md)
 
 ### <a name="tablename-in-azure-synapse-analytics"></a>nome de mesa em Azure Synapse Analytics
 A tabela seguinte fornece exemplos sobre como especificar a propriedade **tableName** no conjunto de dados JSON para várias combinações de esquema e nome de mesa.
@@ -340,7 +340,7 @@ Conforme mencionado no artigo [de atividades](data-factory-data-movement-activit
 
 Ao mover dados para & da Azure Synapse Analytics, os seguintes mapeamentos são usados do tipo SQL para .NET tipo e vice-versa.
 
-O mapeamento é o mesmo que o Mapeamento do [Tipo de Dados do Servidor SQL para ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
+O mapeamento é o mesmo que o Mapeamento do [Tipo de Dados do Servidor SQL para ADO.NET](/dotnet/framework/data/adonet/sql-server-data-type-mappings).
 
 | Tipo de motor de base de dados de servidor SQL | .NET Tipo de quadro |
 | --- | --- |
@@ -511,7 +511,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Copiar atividade num oleoduto com SqlDWSource e BlobSink:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **SqlDWSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na hora passada para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **SqlDWSource** e o tipo **de pia** é definido para **BlobSink** . A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na hora passada para copiar.
 
 ```JSON
 {
@@ -695,7 +695,7 @@ A amostra copia dados para uma tabela chamada "MyTable" em Azure Synapse Analyti
 ```
 **Copiar a atividade num oleoduto com BlobSource e SqlDWSink:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **SqlDWSink**.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **SqlDWSink** .
 
 ```JSON
 {
@@ -744,7 +744,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para utilizar o
   }
 }
 ```
-Para uma passagem, consulte a [carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com Azure Data Factory](data-factory-load-sql-data-warehouse.md) e Load data com o artigo [Azure Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) na documentação Azure Synapse Analytics.
+Para uma passagem, consulte a [carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com Azure Data Factory](data-factory-load-sql-data-warehouse.md) e Load data com o artigo [Azure Data Factory](../load-azure-sql-data-warehouse.md) na documentação Azure Synapse Analytics.
 
 ## <a name="performance-and-tuning"></a>Performance e Afinação
 Consulte [copy Activity Performance & Guia de Afinação](data-factory-copy-activity-performance.md) para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Azure Data Factory e várias formas de otimizá-lo.

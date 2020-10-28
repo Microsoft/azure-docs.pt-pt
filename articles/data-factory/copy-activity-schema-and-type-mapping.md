@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249657"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637263"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapeamento do tipo de dados na atividade da cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Pode configurar o mapeamento na Data Factory autoriando uI -> copy activity -> m
 | caminho     | Expressão do caminho JSON para cada campo para extrair ou mapear. Solicite fonte hierárquica e afunde, por exemplo, Conectores Cosmos DB, MongoDB ou REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com `$` raiz; para campos dentro da matriz escolhida por `collectionReference` propriedade, o caminho JSON começa a partir do elemento matriz sem `$` . | Não       |
 | tipo     | Data Factory tipo de dados provisórios da coluna de origem ou pia. Em geral, não precisa de especificar ou alterar esta propriedade. Saiba mais sobre [o mapeamento do tipo de dados.](#data-type-mapping) | Não       |
 | cultura  | Cultura da origem ou coluna de pia. Aplicar quando o tipo é `Datetime` ou `Datetimeoffset` . . A predefinição é `en-us`.<br>Em geral, não precisa de especificar ou alterar esta propriedade. Saiba mais sobre [o mapeamento do tipo de dados.](#data-type-mapping) | Não       |
-| formato   | Cadeia de formato a utilizar quando o tipo é `Datetime` ou `Datetimeoffset` . Consulte as [cordas de data e formato de hora personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data. Em geral, não precisa de especificar ou alterar esta propriedade. Saiba mais sobre [o mapeamento do tipo de dados.](#data-type-mapping) | Não       |
+| formato   | Cadeia de formato a utilizar quando o tipo é `Datetime` ou `Datetimeoffset` . Consulte as [cordas de data e formato de hora personalizadas](/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar a data. Em geral, não precisa de especificar ou alterar esta propriedade. Saiba mais sobre [o mapeamento do tipo de dados.](#data-type-mapping) | Não       |
 
 As seguintes propriedades são suportadas `translator` em além `mappings` de:
 
@@ -170,7 +170,7 @@ Por exemplo, se tiver um documento mongoDB com o seguinte conteúdo:
 }
 ```
 
-E pretende copiá-lo num ficheiro de texto no seguinte formato com linha de cabeçalho, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)*:
+E pretende copiá-lo num ficheiro de texto no seguinte formato com linha de cabeçalho, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)* :
 
 | número de encomendas | ordemDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -314,9 +314,9 @@ As seguintes propriedades são suportadas na atividade de cópia para conversão
 | *Sob `typeConversionSettings`* |                                                              |          |
 | permitirDataTruncation              | Permitir a truncação de dados ao converter dados de origem para afundar com diferente tipo durante a cópia, por exemplo, de decimal a inteiro, de DatetimeOffset a Datetime. <br>O valor predefinido é verdadeiro. | Não       |
 | treatBooleanAsNumber             | Trate os booleanos como números, por exemplo, verdadeiros como 1.<br>O valor predefinido é falso. | Não       |
-| dataTimeFormat                   | Cadeia de formato ao converter entre datas sem offset de fuso horário e cordas, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte as cordas de data e formato de hora personalizadas para obter informações [detalhadas.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) | Não       |
-| dataTimeOffsetFormat             | Cadeia de formato ao converter entre datas com offset de fuso horário e cordas, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte as cordas de data e formato de hora personalizadas para obter informações [detalhadas.](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) | Não       |
-| timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cordas, por exemplo, `dd\.hh\:mm` . Consulte as [cadeias de formato TimeSpan personalizadas](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
+| dataTimeFormat                   | Cadeia de formato ao converter entre datas sem offset de fuso horário e cordas, por exemplo, `yyyy-MM-dd HH:mm:ss.fff` .  Consulte as cordas de data e formato de hora personalizadas para obter informações [detalhadas.](/dotnet/standard/base-types/custom-date-and-time-format-strings) | Não       |
+| dataTimeOffsetFormat             | Cadeia de formato ao converter entre datas com offset de fuso horário e cordas, por exemplo, `yyyy-MM-dd HH:mm:ss.fff zzz` .  Consulte as cordas de data e formato de hora personalizadas para obter informações [detalhadas.](/dotnet/standard/base-types/custom-date-and-time-format-strings) | Não       |
+| timeSpanFormat                   | Cadeia de formato ao converter entre períodos de tempo e cordas, por exemplo, `dd\.hh\:mm` . Consulte as [cadeias de formato TimeSpan personalizadas](/dotnet/standard/base-types/custom-timespan-format-strings) para obter informações detalhadas. | Não       |
 | cultura                          | Informações culturais a utilizar quando convertem tipos, por exemplo, `en-us` ou `fr-fr` . | Não       |
 
 **Exemplo:**
@@ -356,7 +356,7 @@ As seguintes propriedades são suportadas na atividade de cópia para conversão
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Mapeamento de colunas alternativa (modelo legado)
 
-Pode especificar a atividade de cópia -> `translator`  ->  `columnMappings` para mapear entre dados em forma de tabular. Neste caso, a secção "estrutura" é necessária tanto para os conjuntos de dados de entrada como para a saída. O mapeamento da coluna suporta **o mapeamento de todas ou subconjuntos de colunas na "estrutura" do conjunto de dados de origem para todas as colunas da "estrutura" do conjunto de dados do lavatório**. Seguem-se as condições de erro que resultam numa exceção:
+Pode especificar a atividade de cópia -> `translator`  ->  `columnMappings` para mapear entre dados em forma de tabular. Neste caso, a secção "estrutura" é necessária tanto para os conjuntos de dados de entrada como para a saída. O mapeamento da coluna suporta **o mapeamento de todas ou subconjuntos de colunas na "estrutura" do conjunto de dados de origem para todas as colunas da "estrutura" do conjunto de dados do lavatório** . Seguem-se as condições de erro que resultam numa exceção:
 
 - O resultado da consulta da loja de dados de origem não tem um nome de coluna especificado na secção "estrutura" do conjunto de dados de entrada.
 - A loja de dados de sumidouro (se com esquema pré-definido) não tiver um nome de coluna especificado na secção "estrutura" do conjunto de dados de saída.
@@ -455,7 +455,7 @@ Pode especificar a atividade de cópia -> `translator`  ->  `schemaMapping` para
 | Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | tipo                | A propriedade tipo do tradutor de atividade de cópia deve ser definida para: **TabularTranslator** | Sim      |
-| schemaMapping       | Uma coleção de pares de valores-chave, que representa a relação de mapeamento **do lado da fonte para o lado da pia.**<br/>- **Chave:** representa a fonte. Para **a fonte tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a fonte hierárquica**, especifique a expressão do caminho JSON para cada campo extrair e mapear.<br>- **Valor:** representa a pia. Para **a pia tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a pia hierárquica**, especifique a expressão do caminho JSON para cada campo extrair e mapear. <br>No caso dos dados hierárquicos, para campos sob objeto raiz, o caminho JSON começa com raiz $; para campos dentro da matriz escolhida por `collectionReference` propriedade, o caminho JSON começa a partir do elemento matriz. | Sim      |
+| schemaMapping       | Uma coleção de pares de valores-chave, que representa a relação de mapeamento **do lado da fonte para o lado da pia.**<br/>- **Chave:** representa a fonte. Para **a fonte tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a fonte hierárquica** , especifique a expressão do caminho JSON para cada campo extrair e mapear.<br>- **Valor:** representa a pia. Para **a pia tabular,** especifique o nome da coluna tal como definido na estrutura do conjunto de dados; para **a pia hierárquica** , especifique a expressão do caminho JSON para cada campo extrair e mapear. <br>No caso dos dados hierárquicos, para campos sob objeto raiz, o caminho JSON começa com raiz $; para campos dentro da matriz escolhida por `collectionReference` propriedade, o caminho JSON começa a partir do elemento matriz. | Sim      |
 | coleçãoReferência | Se pretender iteração e extrair dados dos objetos dentro de **um campo** de matriz com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON dessa matriz para fazer a aplicação cruzada. Esta propriedade só é suportada quando os dados hierárquicos são fonte. | Não       |
 
 **Exemplo: cópia de MongoDB para o Oráculo:**
@@ -487,7 +487,7 @@ Por exemplo, se tiver documento MongoDB com o seguinte conteúdo:
 }
 ```
 
-e pretende copiá-lo numa tabela Azure SQL no seguinte formato, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)*:
+e pretende copiá-lo numa tabela Azure SQL no seguinte formato, achatando os dados dentro da matriz *(order_pd e order_price)* e cruzando a junção com a informação raiz comum *(número, data e cidade)* :
 
 | número de encomendas | ordemDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -526,4 +526,4 @@ Configure a regra do mapeamento de esquemas como a seguinte amostra JSON da ativ
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de Atividade de Cópia:
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)

@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545723"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635784"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -55,7 +55,7 @@ A Azure Data Factory suporta ligações privadas. O link privado permite-lhe ace
 
 Quando utiliza uma ligação privada, o tráfego entre as suas lojas de dados e a Rede Virtual gerida atravessa inteiramente a rede de espinha dorsal da Microsoft. A Private Link protege contra riscos de exfiltração de dados. Estabelece-se uma ligação privada a um recurso criando um ponto final privado.
 
-O ponto final privado utiliza um endereço IP privado na Rede Virtual gerida para efetivamente trazer o serviço para o mesmo. Os pontos finais privados são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. Saiba mais sobre [links privados e pontos finais privados.](https://docs.microsoft.com/azure/private-link/)
+O ponto final privado utiliza um endereço IP privado na Rede Virtual gerida para efetivamente trazer o serviço para o mesmo. Os pontos finais privados são mapeados para um recurso específico em Azure e não em todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado pela sua organização. Saiba mais sobre [links privados e pontos finais privados.](../private-link/index.yml)
 
 > [!NOTE]
 > Recomenda-se que crie pontos finais privados geridos para se conectar a todas as suas fontes de dados Azure. 
@@ -91,7 +91,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Azure Database for MariaDB
 
 ### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>A azure Data Factory Rede Virtual Gerida está disponível nas seguintes regiões do Azure:
-- E.U.A Leste
+- E.U.A. Leste
 - E.U.A. Leste 2
 - E.U.A. Centro-Oeste
 - E.U.A. Oeste

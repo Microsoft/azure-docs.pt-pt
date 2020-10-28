@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666968"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636940"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando o portal Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Este artigo descreve como monitorizar, gerir e depurar os seus oleodutos utiliza
 > A aplicação de gestão de & de monitorização proporciona um melhor suporte para monitorizar e gerir os seus oleodutos de dados e resolver problemas. Para obter mais informações sobre a utilização da aplicação, consulte [monitor e gere os oleodutos data factory utilizando a aplicação de Monitorização e Gestão.](data-factory-monitor-manage-app.md) 
 
 > [!IMPORTANT]
-> A versão 1 da Azure Data Factory utiliza agora a nova [infraestrutura de alerta Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). A antiga infraestrutura de alerta está deprecada. Como resultado, os seus alertas existentes configurados para a versão 1 fábricas de dados já não funcionam. Os alertas existentes para as fábricas de dados V1 não são migrados automaticamente. Tens de recriar estes alertas sobre a nova infraestrutura de alerta. Faça login no portal Azure e selecione **Monitor** para criar novos alertas em métricas (como corridas falhadas ou corridas bem sucedidas) para a sua versão 1 fábricas de dados.
+> A versão 1 da Azure Data Factory utiliza agora a nova [infraestrutura de alerta Azure Monitor](../../azure-monitor/platform/alerts-metric.md). A antiga infraestrutura de alerta está deprecada. Como resultado, os seus alertas existentes configurados para a versão 1 fábricas de dados já não funcionam. Os alertas existentes para as fábricas de dados V1 não são migrados automaticamente. Tens de recriar estes alertas sobre a nova infraestrutura de alerta. Faça login no portal Azure e selecione **Monitor** para criar novos alertas em métricas (como corridas falhadas ou corridas bem sucedidas) para a sua versão 1 fábricas de dados.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,8 +46,8 @@ Ao utilizar o portal Azure, pode:
 Esta secção também descreve como uma fatia de conjunto de dados transita de um estado para outro estado.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue para a sua fábrica de dados
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Clique em **Fábricas de Dados** no menu à esquerda. Se não o vir, clique em **Mais serviços >**, e clique em **Fábricas de Dados** na categoria **INTELLIGENCE + ANALYTICS.**
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. Clique em **Fábricas de Dados** no menu à esquerda. Se não o vir, clique em **Mais serviços >** , e clique em **Fábricas de Dados** na categoria **INTELLIGENCE + ANALYTICS.**
 
    ![Navegue em todas as fábricas de dados >](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Na lâmina das **fábricas de dados,** selecione a fábrica de dados em que está interessado.
@@ -163,7 +163,7 @@ Depois de implantar uma fábrica de dados e os oleodutos terem um período ativo
 
 O fluxo de transição do estado do conjunto de dados na fábrica de dados é o seguinte: Espera -> Em Curso/Em Progresso (Validação) -> Pronto/Falhado.
 
-A fatia começa num estado **de espera,** à espera que as condições prévias sejam cumpridas antes de ser executada. Então, a atividade começa a executar, e a fatia vai para um estado **em progresso.** A execução da atividade pode ter sucesso ou falhar. A fatia é marcada como **Ready** or **Failed**, com base no resultado da execução.
+A fatia começa num estado **de espera,** à espera que as condições prévias sejam cumpridas antes de ser executada. Então, a atividade começa a executar, e a fatia vai para um estado **em progresso.** A execução da atividade pode ter sucesso ou falhar. A fatia é marcada como **Ready** or **Failed** , com base no resultado da execução.
 
 Pode redefinir a fatia para voltar do estado **pronto** ou **falhado** para o estado **de Espera.** Também pode marcar o estado da fatia para **Skip,** o que impede que a atividade execute e não processe a fatia.
 
@@ -205,7 +205,7 @@ A Azure Data Factory fornece capacidades ricas para depurar e resolver problemas
 Se a atividade funcionar falhar num oleoduto, o conjunto de dados produzido pelo pipeline encontra-se num estado de erro devido à falha. Pode depurar e resolver problemas na Azure Data Factory utilizando os seguintes métodos.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Use o portal Azure para depurar um erro
-1. Na lâmina de **mesa,** clique na fatia de problema que tem o **estado** definido para **Falhado**.
+1. Na lâmina de **mesa,** clique na fatia de problema que tem o **estado** definido para **Falhado** .
 
    ![Lâmina de mesa com fatia de problema](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 2. Na lâmina da **fatia de dados,** clique na execução da atividade que falhou.
@@ -216,8 +216,8 @@ Se a atividade funcionar falhar num oleoduto, o conjunto de dados produzido pelo
    ![Lâmina de detalhes de execução de atividade com erro](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Use o PowerShell para depurar um erro
-1. **Launch PowerShell**.
-2. Executar o comando **Get-AzDataFactorySlice** para ver as fatias e os seus estados. Deve ver uma fatia com o estado de **Falhado**.        
+1. **Launch PowerShell** .
+2. Executar o comando **Get-AzDataFactorySlice** para ver as fatias e os seus estados. Deve ver uma fatia com o estado de **Falhado** .        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -288,7 +288,7 @@ Caso a fatia tenha falhado na validação devido a uma falha de política (por e
 ![Corrija erros e valide](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
-Pode reenexer as falhas utilizando o **cmdlet Set-AzDataFactorySliceStatus.** Consulte o tópico [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter sintaxe e outros detalhes sobre o cmdlet.
+Pode reenexer as falhas utilizando o **cmdlet Set-AzDataFactorySliceStatus.** Consulte o tópico [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter sintaxe e outros detalhes sobre o cmdlet.
 
 **Exemplo:**
 

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101907"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637569"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -50,7 +50,7 @@ Abaixo está uma lista de algumas das vantagens que a integração git proporcio
 
 ## <a name="author-with-azure-repos-git-integration"></a>Criar com a integração em Repositórios do Azure
 
-A autoria visual com a integração Azure Repos Git suporta o controlo de fontes e a colaboração para o trabalho nos seus oleodutos de fábrica de dados. Você pode associar uma fábrica de dados a um repositório de organização Azure Repos Git para controlo de origem, colaboração, versão, e assim por diante. Uma única organização Azure Repos Git pode ter vários repositórios, mas um repositório Azure Repos Git pode ser associado a apenas uma fábrica de dados. Se não tiver uma organização ou repositório do Azure Repos, siga [estas instruções](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os seus recursos.
+A autoria visual com a integração Azure Repos Git suporta o controlo de fontes e a colaboração para o trabalho nos seus oleodutos de fábrica de dados. Você pode associar uma fábrica de dados a um repositório de organização Azure Repos Git para controlo de origem, colaboração, versão, e assim por diante. Uma única organização Azure Repos Git pode ter vários repositórios, mas um repositório Azure Repos Git pode ser associado a apenas uma fábrica de dados. Se não tiver uma organização ou repositório do Azure Repos, siga [estas instruções](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para criar os seus recursos.
 
 > [!NOTE]
 > Pode armazenar scripts e ficheiros de dados num repositório Azure Repos Git. No entanto, tem de fazer o upload manual dos ficheiros para o Azure Storage. Um gasoduto Data Factory não faz o upload automaticamente de scripts ou ficheiros de dados armazenados num repositório Azure Repos Git para o Azure Storage.
@@ -61,12 +61,12 @@ Você pode configurar um repositório Azure Repos Git com uma fábrica de dados 
 
 #### <a name="configuration-method-1-azure-data-factory-home-page"></a>Método de configuração 1: Página inicial da Azure Data Factory
 
-Na página inicial da Azure Data Factory, selecione **Configurar o Repositório de Código**.
+Na página inicial da Azure Data Factory, selecione **Configurar o Repositório de Código** .
 
 ![Configurar um repositório de código Azure Repos](media/author-visually/configure-repo.png)
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de autoria UX
-Na tela de autoria Azure Data Factory UX, selecione o menu de entrega da **Data Factory** e, em seguida, selecione **Configurar o Repositório de Código**.
+Na tela de autoria Azure Data Factory UX, selecione o menu de entrega da **Data Factory** e, em seguida, selecione **Configurar o Repositório de Código** .
 
 ![Configure as definições de repositório de código para a autoria ux](media/author-visually/configure-repo-2.png)
 
@@ -93,13 +93,13 @@ O painel de configuração mostra as seguintes definições de repositório de c
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Use um inquilino azure ative inquilina diferente
 
-O Azure Repos Git repo pode estar em um inquilino azure ative diretório diferente. Para especificar um inquilino do Azure AD diferente, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar. Para mais informações, consulte [o administrador de subscrição de alteração](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator)
+O Azure Repos Git repo pode estar em um inquilino azure ative diretório diferente. Para especificar um inquilino do Azure AD diferente, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar. Para mais informações, consulte [o administrador de subscrição de alteração](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator)
 
 ### <a name="use-your-personal-microsoft-account"></a>Utilize a sua conta pessoal da Microsoft
 
 Para utilizar uma conta pessoal da Microsoft para a integração do Git, pode ligar o seu Azure Repo pessoal ao Ative Directory da sua organização.
 
-1. Adicione a sua conta pessoal da Microsoft ao Ative Directory da sua organização como hóspede. Para mais informações, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../active-directory/b2b/add-users-administrator.md).
+1. Adicione a sua conta pessoal da Microsoft ao Ative Directory da sua organização como hóspede. Para mais informações, consulte [os utilizadores de colaboração do Add Azure Ative Directory B2B no portal Azure](../active-directory/external-identities/add-users-administrator.md).
 
 2. Faça login no portal Azure com a sua conta pessoal da Microsoft. Em seguida, mude para o Diretório Ativo da sua organização.
 
@@ -111,7 +111,7 @@ Para obter mais informações sobre a ligação do Azure Repos ao Ative Director
 
 ## <a name="author-with-github-integration"></a>Criar com a integração no GitHub
 
-A autoria visual com a integração do GitHub suporta o controlo de fontes e a colaboração para o trabalho nos seus oleodutos de fábrica de dados. Pode associar uma fábrica de dados a um repositório de conta GitHub para controlo de origem, colaboração, versão. Uma única conta GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas uma fábrica de dados. Se não tiver uma conta GitHub ou repositório, siga [estas instruções](https://github.com/join)   para criar os seus recursos.
+A autoria visual com a integração do GitHub suporta o controlo de fontes e a colaboração para o trabalho nos seus oleodutos de fábrica de dados. Pode associar uma fábrica de dados a um repositório de conta GitHub para controlo de origem, colaboração, versão. Uma única conta GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas uma fábrica de dados. Se não tiver uma conta GitHub ou repositório, siga [estas instruções](https://github.com/join) para criar os seus recursos.
 
 A integração do GitHub com a Data Factory suporta tanto o GitHub público (isto [https://github.com](https://github.com) é,) como a GitHub Enterprise. Você pode usar repositórios públicos e privados gitHub com data factory desde que tenha lido e escrito permissão para o repositório em GitHub.
 
@@ -127,13 +127,13 @@ Você pode configurar um repositório GitHub com uma fábrica de dados através 
 
 #### <a name="configuration-method-1-azure-data-factory-home-page"></a>Método de configuração 1: Página inicial da Azure Data Factory
 
-Na página inicial da Azure Data Factory, selecione **Configurar o Repositório de Código**.
+Na página inicial da Azure Data Factory, selecione **Configurar o Repositório de Código** .
 
 ![Configurar um repositório de código Azure Repos](media/author-visually/configure-repo.png)
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de autoria UX
 
-Na tela de autoria Azure Data Factory UX, selecione o menu de entrega da **Data Factory** e, em seguida, selecione **Configurar o Repositório de Código**.
+Na tela de autoria Azure Data Factory UX, selecione o menu de entrega da **Data Factory** e, em seguida, selecione **Configurar o Repositório de Código** .
 
 ![Configure as definições de repositório de código para a autoria ux](media/author-visually/configure-repo-2.png)
 
@@ -177,7 +177,7 @@ Cada repositório Azure Repos Git que está associado a uma fábrica de dados te
 
 ![Criar um novo ramo](media/author-visually/new-branch.png)
 
-Quando estiver pronto para fundir as alterações do seu ramo de recurso para o seu ramo de colaboração, clique no dropdown do ramo e selecione **Criar pedido de puxar**. Esta ação leva-o ao Azure Repos Git onde pode levantar pedidos de puxar, fazer revisões de código e fundir alterações no seu ramo de colaboração. (é `master` o padrão). Só pode publicar no serviço data factory a partir da sua filial de colaboração. 
+Quando estiver pronto para fundir as alterações do seu ramo de recurso para o seu ramo de colaboração, clique no dropdown do ramo e selecione **Criar pedido de puxar** . Esta ação leva-o ao Azure Repos Git onde pode levantar pedidos de puxar, fazer revisões de código e fundir alterações no seu ramo de colaboração. (é `master` o padrão). Só pode publicar no serviço data factory a partir da sua filial de colaboração. 
 
 ![Criar um novo pedido de puxar](media/author-visually/create-pull-request.png)
 
@@ -244,7 +244,7 @@ Abaixo estão alguns exemplos de situações que podem causar uma sucursal de pu
 
 ## <a name="switch-to-a-different-git-repository"></a>Mude para um repositório de Git diferente
 
-Para mudar para um repositório de Git diferente, aceda à página de configuração git no centro de gestão sob **controlo source**. **Selecione Desligar**. 
+Para mudar para um repositório de Git diferente, aceda à página de configuração git no centro de gestão sob **controlo source** . **Selecione Desligar** . 
 
 ![Ícone de Git](media/author-visually/remove-repository.png)
 

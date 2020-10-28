@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: dabb7b8cd8023fe88a8c8d6dc507a09623bd11dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537685"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637739"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Crie um oleoduto preditivo utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory
 
@@ -39,7 +39,7 @@ Com o tempo, os modelos preditivos no Azure Machine Learning Studio (clássico) 
 1. Publique a experiência de formação (não experiência preditiva) como um serviço web. Você faz este passo no Azure Machine Learning Studio (clássico) como fez para expor a experiência preditiva como um serviço web no cenário anterior.
 2. Utilize o Azure Machine Learning Studio (clássico) Batch Execution Activity para invocar o serviço web para a experiência de treino. Basicamente, você pode usar a atividade de execução de lote Azure Machine Learning Studio (clássico) para invocar tanto o serviço web de formação como o serviço web de pontuação.
 
-Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
+Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** . Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning Studio (clássico) serviço ligado
 
@@ -130,7 +130,7 @@ O seguinte snippet JSON define uma atividade de execução de lote Azure Machine
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nome da atividade no oleoduto     | Sim      |
 | descrição       | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo              | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution**. | Sim      |
+| tipo              | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution** . | Sim      |
 | linkedServiceName | Serviços ligados ao Azure Machine Learning Studio (clássico) Linked Service. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
 | webServiceInputs  | Chave, pares de valor, mapeando os nomes do Azure Machine Learning Studio (clássico) Web Service Inputs. A chave deve corresponder aos parâmetros de entrada definidos no Azure Machine Learning Studio (clássico) Do Azure Machine Learning Studio (clássico). Value é um par de serviços ligados ao armazenamento Azure e par de propriedades FilePath especificando as localizações blob de entrada. | Não       |
 | webServiceOutputs | Chave, pares de valor, mapeando os nomes de Azure Machine Learning Studio (clássico) Web Service Outputs. A chave deve corresponder aos parâmetros de saída definidos no Azure Machine Learning Studio (clássico) Serviço Web. Value é um par de serviços ligados ao armazenamento Azure e um par de propriedades FilePath especificando as localizações blob de saída. | Não       |
@@ -190,7 +190,7 @@ Neste cenário, o serviço Web Azure Machine Learning Studio (clássico) faz pre
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário 2: Experiências utilizando módulos de leitor/escritor para se referir a dados em vários armazenamentos
-Outro cenário comum ao criar experiências do Azure Machine Learning Studio (clássico) é utilizar módulos de dados de importação e dados de saída. O módulo De Dados de Importação é utilizado para carregar dados numa experiência e o módulo dados de saída é para guardar dados das suas experiências. Para mais detalhes sobre os módulos de dados de importação e dados de saída, consulte [dados de importação](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [dados de saída](https://msdn.microsoft.com/library/azure/dn905984.aspx) na Biblioteca MSDN.
+Outro cenário comum ao criar experiências do Azure Machine Learning Studio (clássico) é utilizar módulos de dados de importação e dados de saída. O módulo De Dados de Importação é utilizado para carregar dados numa experiência e o módulo dados de saída é para guardar dados das suas experiências. Para mais detalhes sobre os módulos de dados de importação e dados de saída, consulte [dados de importação](/azure/machine-learning/studio-module-reference/import-data) e [dados de saída](/azure/machine-learning/studio-module-reference/export-data) na Biblioteca MSDN.
 
 Ao utilizar os módulos de Dados de Importação e Dados de Saída, é uma boa prática utilizar um parâmetro de serviço Web para cada propriedade destes módulos. Estes parâmetros web permitem configurar os valores durante o tempo de funcionamento. Por exemplo, pode criar uma experiência com um módulo de Dados de Importação que utiliza uma Base de Dados Azure SQL: XXX.database.windows.net. Depois de o serviço web ter sido implementado, pretende permitir que os consumidores do serviço web especifiquem outro servidor lógico sql chamado `YYY.database.windows.net` . Pode utilizar um parâmetro de serviço Web para permitir que este valor seja configurado.
 
@@ -213,7 +213,7 @@ Vamos olhar para um cenário para usar parâmetros de serviço Web. Tem um servi
 > [!NOTE]
 > Os parâmetros do serviço Web são sensíveis a casos, por isso certifique-se de que os nomes especificados na atividade JSON correspondem aos expostos pelo serviço Web.
 
-Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
+Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** . Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas:

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322126"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636770"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando atividade de procedimento armazenado na Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS a partir de um oleoduto Azure Data Factory utilizando uma atividade de procedimento armazenado. 
@@ -32,7 +32,7 @@ Este artigo descreve como invocar um pacote SSIS a partir de um oleoduto Azure D
 A passagem por este artigo utiliza a Base de Dados Azure SQL. Também pode utilizar uma Instância Gerida Azure SQL.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Criar um integration runtime do Azure-SSIS
-Crie um tempo de integração Azure-SSIS se não tiver um seguindo a instrução passo a passo no [Tutorial: Implementar pacotes SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Não é possível utilizar a versão 1 da Data Factory para criar um tempo de integração Azure-SSIS. 
+Crie um tempo de integração Azure-SSIS se não tiver um seguindo a instrução passo a passo no [Tutorial: Implementar pacotes SSIS](../tutorial-deploy-ssis-packages-azure.md). Não é possível utilizar a versão 1 da Data Factory para criar um tempo de integração Azure-SSIS. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 Nesta secção utiliza-se a Azure PowerShell para criar um oleoduto Data Factory com uma atividade de procedimento armazenado que invoca um pacote SSIS.
@@ -79,7 +79,7 @@ Tenha em atenção os seguintes pontos:
     ```
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
+* Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário** , ou um **administrador** da subscrição do Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço ligado da Base de Dados SQL do Azure
 Crie um serviço ligado para ligar a sua base de dados na Base de Dados Azure SQL que hospeda o catálogo SSIS à sua fábrica de dados. A Data Factory utiliza informações neste serviço ligado para ligar à base de dados SSISDB e executa um procedimento armazenado para executar um pacote SSIS. 
@@ -101,7 +101,7 @@ Crie um serviço ligado para ligar a sua base de dados na Base de Dados Azure SQ
         }
     ```
 2. No **Azure PowerShell,** mude para a pasta **C:\ADF\RunSSISPackage.**
-3. Executar o **cmdlet New-AzDataFactoryLinkedService** para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
+3. Executar o **cmdlet New-AzDataFactoryLinkedService** para criar o serviço ligado: **AzureSqlDatabaseLinkedService** . 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -188,7 +188,7 @@ Neste passo, cria-se um oleoduto com uma atividade de procedimento armazenado. A
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Pode continuar a executar este cmdlet até ver o setor no estado **Pronto** ou **Falhou**. 
+    Pode continuar a executar este cmdlet até ver o setor no estado **Pronto** ou **Falhou** . 
 
     Pode executar a seguinte consulta com a base de dados SSISDB no seu servidor para verificar se a embalagem foi executada. 
 
@@ -198,4 +198,3 @@ Neste passo, cria-se um oleoduto com uma atividade de procedimento armazenado. A
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a atividade do procedimento armazenado, consulte o artigo [de atividade do Procedimento Armazenado.](data-factory-stored-proc-activity.md)
-

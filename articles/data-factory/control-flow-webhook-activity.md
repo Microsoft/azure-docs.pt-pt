@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417883"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634985"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
 
@@ -53,16 +53,16 @@ Uma atividade webhook pode controlar a execução de oleodutos através do seu c
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 **nome** | O nome da atividade webhook. | String | Sim |
 **tipo** | Deve ser definido como "WebHook". | String | Sim |
 **método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Sim |
 **url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim |
 **cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define o idioma e o tipo num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
-**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
-**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Não |
-**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | Não |
+**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
+**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](./control-flow-web-activity.md#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Não |
+**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d* . *hh* : *mm* : *ss* . | String | Não |
 **Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | Não |
 
 ## <a name="authentication"></a>Autenticação
@@ -99,7 +99,7 @@ Especifique o conteúdo codificado base64 de um ficheiro PFX e uma palavra-passe
 
 ### <a name="managed-identity"></a>Identidade gerida
 
-Utilize a identidade gerida da fábrica de dados para especificar o recurso URI para o qual o token de acesso é solicitado. Para ligar para a API de Gestão de Recursos Azure, utilize `https://management.azure.com/` . Para obter mais informações sobre como funcionam as identidades geridas, consulte [as identidades geridas para a visão geral dos recursos Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Utilize a identidade gerida da fábrica de dados para especificar o recurso URI para o qual o token de acesso é solicitado. Para ligar para a API de Gestão de Recursos Azure, utilize `https://management.azure.com/` . Para obter mais informações sobre como funcionam as identidades geridas, consulte [as identidades geridas para a visão geral dos recursos Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -119,7 +119,7 @@ A atividade webhook falha quando a chamada para o ponto final personalizado falh
 
 Para cada chamada da API REST, o cliente termina se o ponto final não responder dentro de um minuto. Este comportamento é a melhor prática padrão HTTP. Para resolver este problema, implementar um padrão de 202. No caso em atualmente, o ponto final devolve 202 (Aceitos) e as sondagens dos clientes.
 
-O tempo limite de um minuto no pedido não tem nada a ver com o tempo limite de atividade. Este último é utilizado para aguardar a chamada especificada por **callbackUri**.
+O tempo limite de um minuto no pedido não tem nada a ver com o tempo limite de atividade. Este último é utilizado para aguardar a chamada especificada por **callbackUri** .
 
 O corpo passado de volta para o URI de retorno deve ser válido JSON. Desa estale o `Content-Type` cabeçalho para `application/json` .
 

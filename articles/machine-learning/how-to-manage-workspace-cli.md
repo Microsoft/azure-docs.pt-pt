@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 45f9f61712903436d63f483673705650f5470b3f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426356"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635954"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 
@@ -24,7 +24,7 @@ Neste artigo, você aprende a criar um espaço de trabalho Azure Machine Learnin
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **subscrição do Azure** . Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Para utilizar os comandos CLI neste documento a partir do seu **ambiente local,** necessita do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
@@ -71,8 +71,8 @@ O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou
 | Serviço | Parâmetro para especificar uma instância existente |
 | ---- | ---- |
 | **Grupo de recursos Azure** | `-g <resource-group-name>`
-| **Conta de Armazenamento do Azure** | `--storage-account <service-id>` |
-| **Azure Application Insights** | `--application-insights <service-id>` |
+| **Conta de Armazenamento Azure** | `--storage-account <service-id>` |
+| **Insights de Aplicação Azure** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
@@ -160,18 +160,17 @@ Por padrão, as métricas e metadados para o espaço de trabalho são armazenado
 
 Em vez de utilizar a chave gerida pela Microsoft, pode utilizar a sua própria chave. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena métricas e metadados na sua subscrição Azure. Utilize o `--cmk-keyvault` parâmetro para especificar o Cofre da Chave Azure que contém a chave e `--resource-cmk-uri` especificar o URL da chave dentro do cofre.
 
-> [!IMPORTANT]
-> Antes de utilizar os `--cmk-keyvault` parâmetros e `--resource-cmk-uri` parâmetros, deve primeiro executar as seguintes ações:
->
-> 1. Autorize a __App de Aprendizagem automática__ (em Gestão de Identidade e Acesso) com permissões de colaboradores na sua subscrição.
-> 1. Siga os passos em [Chaves geridas pelo cliente](/azure/cosmos-db/how-to-setup-cmk) para:
->     * Registe-se no fornecedor Azure Cosmos DB
->     * Criar e configurar um Cofre de Chaves Azure
->     * Gerar uma chave
->
->     Não precisa de criar manualmente o exemplo DB do Azure Cosmos, um deles será criado para si durante a criação do espaço de trabalho. Esta instância DB Azure Cosmos será criada num grupo de recursos separado usando um nome baseado neste padrão: `<your-resource-group-name>_<GUID>` .
->
-> Não é possível alterar esta definição após a criação do espaço de trabalho. Se eliminar o Azure Cosmos DB utilizado pelo seu espaço de trabalho, também deve eliminar o espaço de trabalho que o está a utilizar.
+Antes de utilizar os `--cmk-keyvault` parâmetros e `--resource-cmk-uri` parâmetros, deve primeiro executar as seguintes ações:
+
+1. Autorize a __App de Aprendizagem automática__ (em Gestão de Identidade e Acesso) com permissões de colaboradores na sua subscrição.
+1. Siga os passos em [Chaves geridas pelo cliente](/azure/cosmos-db/how-to-setup-cmk) para:
+    * Registe-se no fornecedor Azure Cosmos DB
+    * Criar e configurar um Cofre de Chaves Azure
+    * Gerar uma chave
+
+Não precisa de criar manualmente o exemplo DB do Azure Cosmos, um deles será criado para si durante a criação do espaço de trabalho. Esta instância DB Azure Cosmos será criada num grupo de recursos separado usando um nome baseado neste padrão: `<your-resource-group-name>_<GUID>` .
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, utilize o `--hbi-workspace` parâmetro. 
 

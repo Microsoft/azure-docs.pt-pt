@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: f48e9f039917fbd7f4437b8a0d3b81e65a0f9b62
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f62e746a189a14838227a40be3bca9d05553a642
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520290"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integração do Azure Ative Directory com wikispaces
 
@@ -49,7 +49,7 @@ Para configurar a integração dos Wikispaces no Azure AD, é necessário adicio
 
 **Para adicionar Wikispaces da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -67,7 +67,7 @@ Para configurar a integração dos Wikispaces no Azure AD, é necessário adicio
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Wikispaces com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, você configura e testa Azure AD single sign-on com Wikispaces com base em um utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Wikispaces.
 
 Para configurar e testar o Azure AD com wikispaces, você precisa completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com wikispaces, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **wikispaces,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **wikispaces,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -130,7 +130,7 @@ Para configurar um único sign-on no lado **wikispaces,** você precisa enviar o
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -142,27 +142,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Wikispaces.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Wikispaces**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Wikispaces** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Wikispaces**.
+2. Na lista de aplicações, selecione **Wikispaces** .
 
     ![O link Wikispaces na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -190,15 +190,15 @@ Para permitir que os utilizadores de Azure AD inscrevam-se nos Wikispaces, devem
 
 3. Clique no **Pessoas convidadas.**
    
-    ![Convidar pessoas](./media/wikispaces-tutorial/ic787194.png "Convidar pessoas")
+    ![A screenshot mostra a página dos membros onde pode selecionar Pessoas convidadas.](./media/wikispaces-tutorial/ic787194.png "Convidar pessoas")
 
 4. Na secção **Pessoas Convidadas,** execute os seguintes passos:
    
-    ![Convidar pessoas](./media/wikispaces-tutorial/ic787208.png "Convidar pessoas")
+    ![A screenshot mostra a secção Pessoas convidadas onde pode introduzir dados do utilizador.](./media/wikispaces-tutorial/ic787208.png "Convidar pessoas")
    
     a. Digite os nomes de utilizador ou endereço de **e-mail** de uma conta AD Azure válida que pretenda obter nas caixas de texto relacionadas.
    
-    b. Clique em **Enviar**.  
+    b. Clique em **Enviar** .  
       
     > [!NOTE]
     > O titular da conta Azure Ative Directory recebe um e-mail incluindo um link para confirmar a conta antes de ficar ativa.

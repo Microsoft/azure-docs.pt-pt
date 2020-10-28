@@ -3,14 +3,14 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 10/21/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426401"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637603"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -20,7 +20,7 @@ Em cada cenário, a implementação cria alvos que selecionou máquina ou servid
 
 * O sistema operativo é automaticamente pré-selecionado com base no SO da máquina
 * A máquina-alvo a atualizar é definida para se direcionar automaticamente
-* Ao configurar o horário, pode especificar **Update now**, ocorre uma vez, ou utiliza um horário recorrente.
+* Ao configurar o horário, pode especificar **Update now** , ocorre uma vez, ou utiliza um horário recorrente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -43,9 +43,9 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
 
 2. Dependendo do recurso selecionado, para navegar para a Gestão de Atualização:
 
-   * Se selecionou a sua conta Demômes, vá à **gestão de Atualização** sob **gestão de Atualização**e, em seguida, selecione **a implementação da atualização da Agenda**.
-   * Se selecionou um Azure VM, vá a **atualizações do Anfitrião +** e, em seguida, selecione **Ir para a Gestão de Atualização**.
-   * Se selecionou um servidor ativado pelo Arco, vá à **Gestão de Atualização**e, em seguida, selecione **a implementação da atualização da agenda**.
+   * Se selecionou a sua conta Demômes, vá à **gestão de Atualização** sob **gestão de Atualização** e, em seguida, selecione **a implementação da atualização da Agenda** .
+   * Se selecionou um Azure VM, vá a **atualizações do Anfitrião +** e, em seguida, selecione **Ir para a Gestão de Atualização** .
+   * Se selecionou um servidor ativado pelo Arco, vá à **Gestão de Atualização** e, em seguida, selecione **a implementação da atualização da agenda** .
 
 3. Sob **nova implementação de atualização,** no campo **Nome** introduza um nome único para a sua implementação.
 
@@ -68,7 +68,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
 
     Se a sua implementação for destinada a aplicar apenas um conjunto selecionado de atualizações, é necessário desmarcar todas as classificações de atualização pré-selecionadas ao configurar a opção **de atualizações Incluir/excluir,** conforme descrito no passo seguinte. Isto garante apenas que as atualizações especificadas para *incluir* nesta implementação são instaladas nas máquinas-alvo.
 
-8. Utilize a região **de atualizações Incluir/excluir** para adicionar ou excluir atualizações selecionadas da implementação. Na página **Incluir/Excluir,** introduz os números de ID do artigo KB para incluir ou excluir.
+8. Utilize a região **de atualizações Incluir/excluir** para adicionar ou excluir atualizações selecionadas da implementação. Na página **Incluir/Excluir,** introduz os números de ID do artigo KB para incluir ou excluir para atualizações do Windows. Para distros Linux suportados, especifique o nome do pacote.
 
    > [!IMPORTANT]
    > Lembre-se que as exclusões substituem as inclusãos. Por exemplo, se definir uma regra de exclusão de , A Gestão de `*` Atualização exclui todos os patches ou pacotes da instalação. Os remendos excluídos ainda mostram como desaparecidos das máquinas. Para as máquinas Linux, se incluir um pacote que tem um pacote dependente que foi excluído, a Update Management não instala o pacote principal.
@@ -76,12 +76,15 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
    > [!NOTE]
    > Não é possível especificar atualizações que tenham sido substituídos para incluir na implementação da atualização.
 
-9. Selecione **definições de agendamento**. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
+   > [!IMPORTANT]
+   > Para a Red Hat Enterprise, as atualizações de kernel também aparecem como pacotes em YUM. Se não excluir atualizações que incluam atualizações de kernel, a Update Management aplicará essas atualizações.
+
+9. Selecione **definições de agendamento** . A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 
     > [!NOTE]
     > Esta opção é diferente se selecionar um servidor ativado pelo Arc. Pode selecionar **Update agora** ou uma hora de início 20 minutos para o futuro.
 
-10. Utilize a **Recorrência** para especificar se a implementação ocorre uma vez ou utiliza um horário recorrente e, em seguida, selecione **OK**.
+10. Utilize a **Recorrência** para especificar se a implementação ocorre uma vez ou utiliza um horário recorrente e, em seguida, selecione **OK** .
 
 11. Na região **pré-scripts + Post-scripts,** selecione os scripts para executar antes e depois da sua implantação. Para saber mais, consulte [Gerir pré-scripts e post-scripts](pre-post-scripts.md).
 
@@ -102,14 +105,14 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
     * Apenas reiniciar; esta opção não instala atualizações
 
     > [!NOTE]
-    > As teclas de registo listadas nas [teclas de registo utilizadas para gerir o reinício](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) podem causar um evento de reinicialização se **as opções de Reboot** estiverem **definidas**para Nunca reiniciar .
+    > As teclas de registo listadas nas [teclas de registo utilizadas para gerir o reinício](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) podem causar um evento de reinicialização se **as opções de Reboot** estiverem **definidas** para Nunca reiniciar .
 
-14. Quando terminar de configurar o calendário de implementação, selecione **Criar**.
+14. Quando terminar de configurar o calendário de implementação, selecione **Criar** .
 
     ![Painel Definições de Agendamento de Atualizações](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > Quando terminar de configurar o calendário de implementação de um servidor ativado pelo Arco selecionado, selecione **Review + create**.
+    > Quando terminar de configurar o calendário de implementação de um servidor ativado pelo Arco selecionado, selecione **Review + create** .
 
 15. Volta ao dashboard de estado. Selecione **horários de implementação** para mostrar o calendário de implementação que criou. Um máximo de 500 horários estão listados. Se tiver mais de 500 horários e pretender rever a lista completa, consulte as Configurações de [Atualização](/rest/api/automation/softwareupdateconfigurations/list) de Software - Método API da Lista REST. Especifique a versão API 2019-06-01 ou superior.
 
@@ -121,7 +124,7 @@ Pode utilizar um livro de amostras para criar uma atualização semanal. Para sa
 
 ## <a name="check-deployment-status"></a>Verificar o estado da implementação
 
-Após o início da sua implementação programada, pode ver o seu estado no **separador Histórico** sob **gestão de Atualização.** O estado será **Em curso**, se a implementação estiver em execução. Quando a implantação termina com sucesso, o estado muda para **Sucesso**. Se houver falhas com uma ou mais atualizações na implementação, o estado é **Falhado**.
+Após o início da sua implementação programada, pode ver o seu estado no **separador Histórico** sob **gestão de Atualização.** O estado será **Em curso** , se a implementação estiver em execução. Quando a implantação termina com sucesso, o estado muda para **Sucesso** . Se houver falhas com uma ou mais atualizações na implementação, o estado é **Falhado** .
 
 ## <a name="view-results-of-a-completed-update-deployment"></a>Ver resultados de uma implementação de atualização concluída
 

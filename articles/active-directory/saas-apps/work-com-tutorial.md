@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: c549e8169ad7fc7a5eb7f810d76deb33af0e5f65
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508966"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Diretório Ativo Azure com Work.com
 
@@ -129,11 +129,11 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
 2. Ir para **a Configuração** .
    
-    ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
+    ![A screenshot mostra a configuração selecionada a partir do menu do utilizador.](./media/work-com-tutorial/ic794108.png "Configuração")
 
 3. No painel de navegação à esquerda, na secção Gestão de **Dados,** clique em **Gestão de Domínio** para expandir a secção relacionada e, em seguida, clique em My **Domain** para abrir a página **My Domain.** 
    
-    ![Meu Domínio](./media/work-com-tutorial/ic767825.png "Meu Domínio")
+    ![A screenshot mostra My Domain Select Domain Management in the Administrar painel.](./media/work-com-tutorial/ic767825.png "Meu Domínio")
 
 4. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no " **Passo 4 Implantado para os Utilizadores** " e reveja as suas " **Definições de Domínio** ".
    
@@ -143,7 +143,7 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
 6. Ir para **a Configuração** .
     
-    ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
+    ![A screenshot mostra a configuração selecionada a partir do menu do utilizador.](./media/work-com-tutorial/ic794108.png "Configuração")
 
 7. Expanda o menu **Controlos de Segurança** e, em seguida, clique em **Definições de Sign-On únicas** .
     
@@ -186,15 +186,15 @@ Para configurar o Azure AD com Work.com, execute os seguintes passos:
 
 10. No seu portal clássico Work.com, no painel de navegação à esquerda, clique em **Gestão de Domínio** para expandir a secção relacionada e, em seguida, clique em **My Domain** para abrir a página **My Domain.** 
     
-    ![Meu Domínio](./media/work-com-tutorial/ic794115.png "Meu Domínio")
+    ![A screenshot mostra o meu domínio selecionado a partir da Gestão de Domínios.](./media/work-com-tutorial/ic794115.png "Meu Domínio")
 
 11. Na página **My Domain,** na secção de Marcação de Página de Início de **Sessão,** clique em **Editar** .
     
-    ![Marcação de página de login](./media/work-com-tutorial/ic767826.png "Marcação de página de login")
+    ![A screenshot mostra a secção de marcação de página de login onde pode selecionar editar.](./media/work-com-tutorial/ic767826.png "Marcação de página de login")
 
 12. Na página de **marcação de página de início de sessão,** na secção Serviço de **Autenticação,** é apresentado o nome das suas **Definições SSO SAML.** Selecione-o e, em seguida, clique em **Guardar** .
     
-    ![Marcação de página de login](./media/work-com-tutorial/ic784366.png "Marcação de página de login")
+    ![A screenshot mostra o início de página de marcação onde pode selecionar o nome da sua definição, que é P E.](./media/work-com-tutorial/ic784366.png "Marcação de página de login")
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
@@ -256,11 +256,11 @@ Para que os utilizadores do Azure Ative Directory possam inscrever-se, devem ser
 
 2. Ir para **a Configuração** .
    
-    ![Configuração](./media/work-com-tutorial/IC794108.png "Configuração")
+    ![A screenshot mostra a configuração selecionada a partir do menu do utilizador.](./media/work-com-tutorial/ic794108.png "Configuração")
 
 3. Vá a **Gerir \> utilizadores.**
    
-    ![Gerir Utilizadores](./media/work-com-tutorial/IC784369.png "Gerir Utilizadores")
+    ![Gerir utilizadores](./media/work-com-tutorial/IC784369.png "Gerir Utilizadores")
 
 4. Clique **em Novo Utilizador** .
    

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440563"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635818"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para o movimento de dados na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -51,8 +51,8 @@ Se estiver interessado na conformidade do Azure e na forma como o Azure assegura
 
 Neste artigo, analisamos considerações de segurança nos seguintes dois cenários de movimento de dados: 
 
-- **Cenário em nuvem**: Neste cenário, tanto a sua fonte como o seu destino são acessíveis ao público através da internet. Estes incluem serviços de armazenamento em nuvem geridos, tais como Azure Storage, Azure Synapse Analytics (anteriormente SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce, e protocolos web como FTP e OData. Encontre uma lista completa de fontes de dados suportadas em [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
-- **Cenário híbrido**: Neste cenário, a sua fonte ou o seu destino está por trás de uma firewall ou dentro de uma rede corporativa no local. Ou, a loja de dados está numa rede privada ou rede virtual (na maioria das vezes a fonte) e não é acessível ao público. Os servidores de base de dados alojados em máquinas virtuais também se enquadram neste cenário.
+- **Cenário em nuvem** : Neste cenário, tanto a sua fonte como o seu destino são acessíveis ao público através da internet. Estes incluem serviços de armazenamento em nuvem geridos, tais como Azure Storage, Azure Synapse Analytics (anteriormente SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce, e protocolos web como FTP e OData. Encontre uma lista completa de fontes de dados suportadas em [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
+- **Cenário híbrido** : Neste cenário, a sua fonte ou o seu destino está por trás de uma firewall ou dentro de uma rede corporativa no local. Ou, a loja de dados está numa rede privada ou rede virtual (na maioria das vezes a fonte) e não é acessível ao público. Os servidores de base de dados alojados em máquinas virtuais também se enquadram neste cenário.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,8 +60,8 @@ Neste artigo, analisamos considerações de segurança nos seguintes dois cenár
 
 ### <a name="securing-data-store-credentials"></a>Garantir credenciais de armazenamento de dados
 
-- **Armazenar credenciais encriptadas numa loja gerida pela Azure Data Factory**. A Data Factory ajuda a proteger as suas credenciais de loja de dados encriptando-as com certificados geridos pela Microsoft. Estes certificados são rodados de dois em dois anos (que inclui a renovação de certificados e a migração de credenciais). Para obter mais informações sobre a segurança do Azure Storage, consulte [a visão geral da segurança do Azure Storage](../security/fundamentals/storage-overview.md).
-- **Armazenar credenciais no Cofre da Chave Azure**. Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
+- **Armazenar credenciais encriptadas numa loja gerida pela Azure Data Factory** . A Data Factory ajuda a proteger as suas credenciais de loja de dados encriptando-as com certificados geridos pela Microsoft. Estes certificados são rodados de dois em dois anos (que inclui a renovação de certificados e a migração de credenciais). Para obter mais informações sobre a segurança do Azure Storage, consulte [a visão geral da segurança do Azure Storage](../storage/blobs/security-recommendations.md).
+- **Armazenar credenciais no Cofre da Chave Azure** . Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
 
 ### <a name="data-encryption-in-transit"></a>Encriptação de dados em trânsito
 Se a loja de dados em nuvem suportar HTTPS ou TLS, todas as transferências de dados entre os serviços de movimento de dados na Data Factory e uma loja de dados em nuvem são através de um canal seguro HTTPS ou TLS.
@@ -84,7 +84,7 @@ Algumas lojas de dados suportam encriptação de dados em repouso. Recomendamos 
 A Encriptação de Dados Transparente (TDE) no Azure Synapse Analytics ajuda a proteger contra a ameaça de atividade maliciosa, realizando encriptação em tempo real e desencriptação dos seus dados em repouso. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [Secure a database in Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
-O Azure SQL Database também suporta encriptação de dados transparentes (TDE), que ajuda a proteger contra a ameaça de atividade maliciosa através da encriptação e desencriptação em tempo real dos dados, sem exigir alterações na aplicação. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [encriptação de dados transparente para a Base de Dados SQL e o Data Warehouse.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+O Azure SQL Database também suporta encriptação de dados transparentes (TDE), que ajuda a proteger contra a ameaça de atividade maliciosa através da encriptação e desencriptação em tempo real dos dados, sem exigir alterações na aplicação. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [encriptação de dados transparente para a Base de Dados SQL e o Data Warehouse.](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 A Azure Data Lake Store também fornece encriptação para dados armazenados na conta. Quando ativada, a Data Lake Store encripta automaticamente os dados antes de persistir e desencriptar antes da recuperação, tornando-os transparentes para o cliente que acede aos dados. Para mais informações, consulte [a Segurança na Azure Data Lake Store.](../data-lake-store/data-lake-store-security-overview.md) 
@@ -102,7 +102,7 @@ A Amazon Redshift suporta a encriptação do cluster para os dados em repouso. P
 Salesforce suporta encriptação da plataforma Shield que permite encriptação de todos os ficheiros, anexos e campos personalizados. Para obter mais informações, consulte [compreender o fluxo de autenticação de autenticação OAuth do servidor web](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Cenários híbridos
-Os cenários híbridos requerem que o tempo de integração auto-hospedado seja instalado numa rede no local, dentro de uma rede virtual (Azure), ou dentro de uma nuvem privada virtual (Amazon). O tempo de integração auto-acolôdo deve ser capaz de aceder às lojas de dados locais. Para obter mais informações sobre o tempo de integração auto-hospedado, consulte [Como criar e configurar o tempo de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
+Os cenários híbridos requerem que o tempo de integração auto-hospedado seja instalado numa rede no local, dentro de uma rede virtual (Azure), ou dentro de uma nuvem privada virtual (Amazon). O tempo de integração auto-acolôdo deve ser capaz de aceder às lojas de dados locais. Para obter mais informações sobre o tempo de integração auto-hospedado, consulte [Como criar e configurar o tempo de integração auto-hospedado](./create-self-hosted-integration-runtime.md). 
 
 ![canais de execução de integração auto-hospedados](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -111,11 +111,11 @@ O canal de comando permite a comunicação entre os serviços de movimento de da
 ### <a name="on-premises-data-store-credentials"></a>Credenciais de loja de dados no local
 As credenciais podem ser armazenadas dentro da fábrica de dados ou ser [referenciadas pela fábrica](store-credentials-in-key-vault.md) de dados durante o tempo de funcionamento do Azure Key Vault. Se armazenar credenciais dentro da fábrica de dados, é sempre armazenado encriptado no tempo de integração auto-hospedado. 
  
-- **Armazenar credenciais localmente.** Se utilizar diretamente o cmdlet **Set-AzDataFactoryV2LinkedService** com as cordas de ligação e credenciais em linha no JSON, o serviço ligado é encriptado e armazenado em tempo de integração auto-hospedado.  Neste caso, as credenciais fluem através do serviço de backend Azure, que é extremamente seguro, para a máquina de integração auto-hospedada onde é finalmente encriptada e armazenada. O tempo de integração auto-hospedado utiliza o [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) do Windows para encriptar os dados sensíveis e informações credenciais.
+- **Armazenar credenciais localmente.** Se utilizar diretamente o cmdlet **Set-AzDataFactoryV2LinkedService** com as cordas de ligação e credenciais em linha no JSON, o serviço ligado é encriptado e armazenado em tempo de integração auto-hospedado.  Neste caso, as credenciais fluem através do serviço de backend Azure, que é extremamente seguro, para a máquina de integração auto-hospedada onde é finalmente encriptada e armazenada. O tempo de integração auto-hospedado utiliza o [DPAPI](/previous-versions/ms995355(v=msdn.10)) do Windows para encriptar os dados sensíveis e informações credenciais.
 
-- **Armazenar credenciais no Cofre da Chave Azure**. Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
+- **Armazenar credenciais no Cofre da Chave Azure** . Também pode armazenar a credencial da loja de dados no [Cofre da Chave Azure.](https://azure.microsoft.com/services/key-vault/) A Data Factory recupera a credencial durante a execução de uma atividade. Para obter mais informações, consulte [a credencial da Loja no Cofre da Chave Azure.](store-credentials-in-key-vault.md)
 
-- **Armazenar credenciais localmente sem fluir as credenciais através do backend de Azure para o tempo de integração auto-hospedado**. Se pretender encriptar e armazenar credenciais localmente no tempo de integração auto-hospedado sem ter de fluir as credenciais através do backend da fábrica de dados, siga os passos nas [credenciais de Encriptação para lojas de dados no local na Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores suportam esta opção. O tempo de integração auto-hospedado utiliza o [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) do Windows para encriptar os dados sensíveis e informações credenciais. 
+- **Armazenar credenciais localmente sem fluir as credenciais através do backend de Azure para o tempo de integração auto-hospedado** . Se pretender encriptar e armazenar credenciais localmente no tempo de integração auto-hospedado sem ter de fluir as credenciais através do backend da fábrica de dados, siga os passos nas [credenciais de Encriptação para lojas de dados no local na Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores suportam esta opção. O tempo de integração auto-hospedado utiliza o [DPAPI](/previous-versions/ms995355(v=msdn.10)) do Windows para encriptar os dados sensíveis e informações credenciais. 
 
    Utilize o **cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** para encriptar credenciais de serviço ligadas e detalhes sensíveis no serviço ligado. Em seguida, pode utilizar o JSON devolvido (com o elemento **CriptografadoCredential** na cadeia de ligação) para criar um serviço ligado utilizando o **cmdlet Set-AzDataFactoryV2LinkedService.**  
 
@@ -159,7 +159,7 @@ As imagens que se seguem mostram a utilização do tempo de integração auto-ho
 > Poderá ter de gerir portas ou configurar a lista de autorizações para domínios ao nível da firewall corporativa, conforme exigido pelas respetivas fontes de dados. Esta tabela utiliza apenas a Base de Dados Azure SQL, Azure Synapse Analytics e Azure Data Lake Store como exemplos.
 
 > [!NOTE] 
-> Para mais informações sobre estratégias de acesso a dados através da Azure Data Factory, consulte [este artigo.](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory)
+> Para mais informações sobre estratégias de acesso a dados através da Azure Data Factory, consulte [este artigo.](./data-access-strategies.md#data-access-strategies-through-azure-data-factory)
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para as redes no local/rede privada    
 Numa empresa, uma firewall corporativa funciona no router central da organização. O Windows Firewall funciona como um daemon na máquina local em que o tempo de funcionação de integração auto-hospedado é instalado. 
@@ -185,9 +185,9 @@ Algumas lojas de dados na nuvem também exigem que você permita o endereço IP 
 As seguintes lojas de dados em nuvem requerem que você permita o endereço IP da máquina de execução de integração auto-hospedada. Algumas destas lojas de dados, por padrão, podem não necessitar de uma lista de autorizações. 
 
 - [Base de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [BD do Cosmos para o Azure](../cosmos-db/firewall-support.md)
+- [BD do Cosmos para o Azure](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -204,4 +204,3 @@ O tempo de integração auto-hospedado faz ligações baseadas em HTTP para aced
 ## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre o desempenho da Atividade de Cópia da Fábrica de Dados Azure, consulte [o desempenho da Atividade de Cópia e o guia de afinação](copy-activity-performance.md).
 
- 

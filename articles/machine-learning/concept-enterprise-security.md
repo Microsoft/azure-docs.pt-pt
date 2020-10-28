@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496002"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637093"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -158,12 +158,7 @@ Para permitir o provisionamento de uma instância de DB cosmos na sua subscriç�
         > [!NOTE]
         > Esta instância do cofre chave pode ser diferente do cofre chave que é criado pela Azure Machine Learning quando você forja o espaço de trabalho. Se pretender utilizar a mesma instância de cofre para o espaço de trabalho, passe o mesmo cofre-chave enquanto abaste o espaço de trabalho utilizando o [parâmetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instância de Coss DB é criada num grupo de recursos gerido pela Microsoft na sua subscrição, juntamente com todos os recursos de que necessita. O grupo de recursos geridos está nomeado no `<AML Workspace Resource Group Name><GUID>` formato. Se o seu espaço de trabalho Azure Machine Learning utiliza um ponto final privado, uma rede virtual também é criada para a instância DeSB cosmos. Este VNet é usado para garantir a comunicação entre Cosmos DB e Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Não elimine o grupo de recursos que contém esta instância Descs DB cosmos, ou qualquer dos recursos automaticamente criados neste grupo. Se precisar de eliminar o grupo de recursos, instância Cosmos DB, etc., deve eliminar o espaço de trabalho Azure Machine Learning que o utiliza. O grupo de recursos, a instância de Cosmos DB e outros recursos automaticamente criados são eliminados quando o espaço de trabalho associado é eliminado.
-> * As [__Unidades de Pedido__](../cosmos-db/request-units.md) predefinidos para esta conta Cosmos DB estão definidas em __8000__. Mudar este valor não é suportado.
-> * Não é possível fornecer o seu próprio VNet para uso com a instância de Cosmos DB que é criada. Também não é possível modificar a rede virtual. Por exemplo, não é possível alterar o intervalo de endereço IP que utiliza.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Se precisar de __rodar ou revogar__ a sua chave, pode fazê-lo a qualquer momento. Ao rodar uma chave, a Cosmos DB começará a usar a nova chave (versão mais recente) para encriptar dados em repouso. Ao revogar (desativar) uma chave, a Cosmos DB cuida de pedidos falhados. Normalmente demora uma hora para que a rotação ou a revogação sejam eficazes.
 
@@ -371,8 +366,8 @@ Aqui estão os detalhes:
 
 [A Azure Policy](/azure/governance/policy) é uma ferramenta de governação que lhe permite garantir que os recursos da Azure estão em conformidade com as suas políticas. Com a Azure Machine Learning, pode atribuir as seguintes políticas:
 
-* **Chave gerida pelo cliente**: Auditar ou impor se os espaços de trabalho devem utilizar uma chave gerida pelo cliente.
-* **Ligação privada**: Audite se os espaços de trabalho utilizam um ponto final privado para comunicar com uma rede virtual.
+* **Chave gerida pelo cliente** : Auditar ou impor se os espaços de trabalho devem utilizar uma chave gerida pelo cliente.
+* **Ligação privada** : Audite se os espaços de trabalho utilizam um ponto final privado para comunicar com uma rede virtual.
 
 Para obter mais informações sobre a Política Azure, consulte a documentação da [Política Azure](/azure/governance/policy/overview).
 

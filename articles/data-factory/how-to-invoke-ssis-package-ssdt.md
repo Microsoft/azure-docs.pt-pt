@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
-ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3c94023daf51559623f69e34b8e2b1f42fde92
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504949"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637246"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Executar pacotes SSIS em Azure a partir de SSDT
 
@@ -29,7 +29,7 @@ Com esta funcionalidade, pode anexar um novo e já existente Azure-SSIS IR a pro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar esta funcionalidade, descarregue e instale a mais recente extensão SSDT com SSIS Projects para Visual Studio (VS) a partir [daqui.](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) Em alternativa, também pode descarregar e instalar o mais recente SSDT como instalador autónomo a partir [daqui.](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)
+Para utilizar esta funcionalidade, descarregue e instale a mais recente extensão SSDT com SSIS Projects para Visual Studio (VS) a partir [daqui.](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) Em alternativa, também pode descarregar e instalar o mais recente SSDT como instalador autónomo a partir [daqui.](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)
 
 ## <a name="azure-enable-ssis-projects"></a>Projetos SSIS habilitados para a Azure
 
@@ -49,15 +49,15 @@ Se quiser ligar-se imediatamente ao seu Azure-SSIS IR, consulte [Connecting to A
 
 Para os projetos SSIS existentes, pode a azure-os-capacitar seguindo estes passos:
 
-1. Clique com o botão direito no nó do projeto na janela Solution Explorer do SSDT para aparecer um menu. Em seguida, selecione o item **do Projeto Azure-Enabled** em SSIS no submenu **Azure Data Factory** para lançar o **Azure-Enabled Project Wizard**.
+1. Clique com o botão direito no nó do projeto na janela Solution Explorer do SSDT para aparecer um menu. Em seguida, selecione o item **do Projeto Azure-Enabled** em SSIS no submenu **Azure Data Factory** para lançar o **Azure-Enabled Project Wizard** .
 
    ![Projeto SSIS com ativação ativa do Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-for-existing-project.png)
 
-2. Na página **De Configuração do Estúdio Visual Select,** selecione a configuração VS existente para aplicar as definições de execução de pacotes em Azure. Também pode criar um novo caso ainda não o tenha feito, consulte [criar uma nova configuração VS.](https://docs.microsoft.com/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019) Recomendamos que tenha pelo menos duas configurações VS diferentes para execuções de pacotes nos ambientes locais e em nuvem, para que possa ativar o seu projeto contra a configuração da nuvem. Desta forma, se tiver parametrizado o seu projeto ou pacotes, pode atribuir diferentes valores ao seu projeto ou parâmetros de pacote em tempo de execução com base nos diferentes ambientes de execução (seja na sua máquina local ou em Azure). Por exemplo, consulte [os ambientes de execução do pacote de comutação](#switchenvironment).
+2. Na página **De Configuração do Estúdio Visual Select,** selecione a configuração VS existente para aplicar as definições de execução de pacotes em Azure. Também pode criar um novo caso ainda não o tenha feito, consulte [criar uma nova configuração VS.](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019) Recomendamos que tenha pelo menos duas configurações VS diferentes para execuções de pacotes nos ambientes locais e em nuvem, para que possa ativar o seu projeto contra a configuração da nuvem. Desta forma, se tiver parametrizado o seu projeto ou pacotes, pode atribuir diferentes valores ao seu projeto ou parâmetros de pacote em tempo de execução com base nos diferentes ambientes de execução (seja na sua máquina local ou em Azure). Por exemplo, consulte [os ambientes de execução do pacote de comutação](#switchenvironment).
 
    ![Selecione configuração do Estúdio Visual](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. O Azure-enableing seus projetos SSIS existentes requer que você definir a sua versão de servidor alvo para ser o mais recente suportado pela Azure-SSIS IR. A Azure-SSIS IR é atualmente baseada no **SQL Server 2017**. Certifique-se de que as suas embalagens não contêm componentes adicionais que não sejam suportados no SQL Server 2017. Certifique-se também de que todos os componentes adicionais compatíveis também foram instalados no seu Azure-SSIS IR através de configurações personalizadas, consulte [Personalizar o seu Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Selecione o botão **Seguinte** para continuar.
+3. O Azure-enableing seus projetos SSIS existentes requer que você definir a sua versão de servidor alvo para ser o mais recente suportado pela Azure-SSIS IR. A Azure-SSIS IR é atualmente baseada no **SQL Server 2017** . Certifique-se de que as suas embalagens não contêm componentes adicionais que não sejam suportados no SQL Server 2017. Certifique-se também de que todos os componentes adicionais compatíveis também foram instalados no seu Azure-SSIS IR através de configurações personalizadas, consulte [Personalizar o seu Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md). Selecione o botão **Seguinte** para continuar.
 
    ![Verlige-se ao servidor alvo](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
@@ -74,7 +74,7 @@ Ao ligar os seus projetos ativados pelo Azure ao SSIS em ADF, pode enviar os seu
 2. Na página **Select SSIS IR na página ADF,** selecione o seu ADF e Azure-SSIS IR existentes para executar pacotes. Também pode criar novos se não tiver.
    - Para selecionar o seu Azure-SSIS IR existente, selecione primeiro a subscrição Azure relevante e a ADF.
    - Se selecionar o seu ADF existente que não tenha qualquer Azure-SSIS IR, selecione o botão **Create SSIS IR** para criar um novo no portal ADF. Uma vez criado, pode voltar a esta página para selecionar o seu novo Azure-SSIS IR.
-   - Se selecionar a subscrição Azure existente que não tenha ADF, selecione o botão **Create SSIS IR** para lançar o Assistente de **Criação de Tempo de Execução**de Integração . No assistente, pode introduzir o seu local designado e prefixo para que criemos automaticamente um novo Grupo de Recursos Azure, Data Factory e SSIS IR em seu nome, nomeado no seguinte padrão: **YourPrefix-RG/DF/IR-YourCreationTime**. Uma vez criado, pode voltar a esta página para selecionar os seus novos ADF e Azure-SSIS IR.
+   - Se selecionar a subscrição Azure existente que não tenha ADF, selecione o botão **Create SSIS IR** para lançar o Assistente de **Criação de Tempo de Execução** de Integração . No assistente, pode introduzir o seu local designado e prefixo para que criemos automaticamente um novo Grupo de Recursos Azure, Data Factory e SSIS IR em seu nome, nomeado no seguinte padrão: **YourPrefix-RG/DF/IR-YourCreationTime** . Uma vez criado, pode voltar a esta página para selecionar os seus novos ADF e Azure-SSIS IR.
 
    ![Selecione SSIS IR em ADF](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard2.png)
 
@@ -109,7 +109,7 @@ Uma vez que tenha certeza de que alguns potenciais problemas de compatibilidade 
 
    ![Definições de supressão de regras de avaliação](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
 
--  Em alternativa, clique com o botão direito no nó do projeto na janela Solution Explorer do SSDT para aparecer um menu. Selecione o item **definições ativadas pelo Azure** no **submenu SSIS no** submenu da Azure Data Factory para abrir uma janela contendo as páginas de propriedade do seu projeto. Selecione a propriedade **de IDs de regra de avaliação suprimida** na secção **Definições Ativadas pelo Azure.** Por fim, selecione o botão elipse **(...**) para abrir a janela **'Definições de Supressão da Regra de Avaliação',** onde pode selecionar as regras de avaliação para suprimir.
+-  Em alternativa, clique com o botão direito no nó do projeto na janela Solution Explorer do SSDT para aparecer um menu. Selecione o item **definições ativadas pelo Azure** no **submenu SSIS no** submenu da Azure Data Factory para abrir uma janela contendo as páginas de propriedade do seu projeto. Selecione a propriedade **de IDs de regra de avaliação suprimida** na secção **Definições Ativadas pelo Azure.** Por fim, selecione o botão elipse **(...** ) para abrir a janela **'Definições de Supressão da Regra de Avaliação',** onde pode selecionar as regras de avaliação para suprimir.
 
    ![Definições ativadas pelo Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
@@ -125,11 +125,11 @@ Antes de executar as suas encomendas em Azure, pode configurar as suas definiç�
 
    ![Definições ativadas pelo Azure](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
-2. Selecione a propriedade **De autenticação ativação do Windows** na secção **Definições Ativadas pelo Azure** e, em seguida, selecione **True** no seu menu suspenso. Em seguida, selecione a propriedade **Credenciais de Autenticação** do Windows e, em seguida, selecione o botão elipse **(...**) para aparecer na janela **De credenciais de autenticação** do Windows.
+2. Selecione a propriedade **De autenticação ativação do Windows** na secção **Definições Ativadas pelo Azure** e, em seguida, selecione **True** no seu menu suspenso. Em seguida, selecione a propriedade **Credenciais de Autenticação** do Windows e, em seguida, selecione o botão elipse **(...** ) para aparecer na janela **De credenciais de autenticação** do Windows.
 
    ![Ativar a autenticação do Windows](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-open.png)
 
-3. Introduza as suas credenciais de autenticação do Windows. Por exemplo, para aceder aos Ficheiros Azure, pode introduzir `Azure` `YourStorageAccountName` , e para `YourStorageAccountKey` **Domínio**, Nome **de Utilizador**e **Password,** respectivamente.
+3. Introduza as suas credenciais de autenticação do Windows. Por exemplo, para aceder aos Ficheiros Azure, pode introduzir `Azure` `YourStorageAccountName` , e para `YourStorageAccountKey` **Domínio** , Nome **de Utilizador** e **Password,** respectivamente.
 
    ![Credenciais de autenticação do Windows](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-credential.png)
 
@@ -180,7 +180,7 @@ Se parametrizar o seu projeto/pacotes no Modelo de Implementação de Projetos, 
 
    ![Parametrizar a ligação de origem](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-update-task-with-parameters.png)
 
-3. Por padrão, tem uma configuração VS existente para execuções de pacotes no ambiente local chamado **Desenvolvimento**. Crie uma nova configuração VS para execuções de pacotes no ambiente de nuvem chamado **Azure**, ver [Criar uma nova configuração VS](https://docs.microsoft.com/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019), se ainda não o fez.
+3. Por padrão, tem uma configuração VS existente para execuções de pacotes no ambiente local chamado **Desenvolvimento** . Crie uma nova configuração VS para execuções de pacotes no ambiente de nuvem chamado **Azure** , ver [Criar uma nova configuração VS](/visualstudio/ide/how-to-create-and-edit-configurations?view=vs-2019), se ainda não o fez.
 
 4. Ao visualizar os parâmetros do seu pacote, selecione o botão **Adicionar Parâmetros às Configurações** para abrir a janela **Valores de Parâmetros de Gestão** para o seu pacote. Em seguida, atribua diferentes valores do caminho do ficheiro-alvo para o parâmetro do pacote **FilePath** nas configurações **de Desenvolvimento** e **Azure.**
 
@@ -206,4 +206,4 @@ Depois de iniciar a execução do seu pacote, vamos formatar e exibir os seus re
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que estiver satisfeito com a execução dos seus pacotes em Azure a partir de SSDT, pode implantá-los e executá-los como atividades do Pacote SSIS executado em oleodutos ADF, consulte [os pacotes Running SSIS como executar atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+Assim que estiver satisfeito com a execução dos seus pacotes em Azure a partir de SSDT, pode implantá-los e executá-los como atividades do Pacote SSIS executado em oleodutos ADF, consulte [os pacotes Running SSIS como executar atividades do Pacote SSIS em oleodutos ADF.](./how-to-invoke-ssis-package-ssis-activity.md)

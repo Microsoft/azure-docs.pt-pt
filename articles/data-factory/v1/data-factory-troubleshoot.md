@@ -13,12 +13,12 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7afc16beaacee5b75d57c4e4216a105734d20a09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195905"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637076"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
@@ -67,7 +67,7 @@ Lance o **Gestor de Configuração gateway de gestão de dados** na máquina de 
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problema: As fatias de entrada estão em estado de espera para sempre
 As fatias podem estar em estado **de espera** por várias razões. Uma das razões comuns é que a propriedade **externa** não é definida como **verdadeira.** Qualquer conjunto de dados produzido fora do âmbito da Azure Data Factory deve ser marcado com propriedade **externa.** Esta propriedade indica que os dados são externos e não são apoiados por quaisquer oleodutos dentro da fábrica de dados. Os setores de dados são marcados como **Pronto** assim que os dados estiverem disponíveis no respetivo arquivo.
 
-Veja o seguinte exemplo para saber como utilizar a propriedade **external**. Pode especificar opcionalmente **externalData*** quando configurar externo para verdadeiro.
+Veja o seguinte exemplo para saber como utilizar a propriedade **external** . Pode especificar opcionalmente **externalData** _ quando configurar externo para verdadeiro.
 
 Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter mais detalhes sobre esta propriedade.
 
@@ -97,7 +97,7 @@ Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter m
 }
 ```
 
-Para resolver o erro, adicione a propriedade **external** e a secção opcional **externalData** à definição JSON da tabela de entrada e recrie a tabela.
+Para resolver o erro, adicione a propriedade _ *externa* * e a secção **opcional externalData** à definição JSON da tabela de entrada e recrie a tabela.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problema: Falha na operação de cópia híbrida
 Consulte [problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) de resolução de problemas para as medidas para resolver problemas com a cópia de/para uma loja de dados no local utilizando o Gateway de Gestão de Dados.
@@ -130,9 +130,9 @@ Consulte [os oleodutos Monitor Data Factory utilizando a Azure PowerShell](data-
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
+[json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/
 

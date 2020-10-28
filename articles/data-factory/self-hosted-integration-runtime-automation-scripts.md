@@ -11,19 +11,19 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 068586a96ad3655cb70171266bd58f56ed320fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83664383"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636974"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatização da instalação de tempo de execução de integração auto-hospedada usando scripts locais do PowerShell
 Para automatizar a instalação do Tempo de Execução de Integração Auto-hospedado em máquinas locais (com além de VMs Azure onde podemos aproveitar o modelo de Gestor de Recursos), pode utilizar scripts locais do PowerShell. Este artigo introduz dois scripts que pode usar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Lançar PowerShell na sua máquina local. Para executar os scripts, tem de escolher **Executar como Administrador**.
+* Lançar PowerShell na sua máquina local. Para executar os scripts, tem de escolher **Executar como Administrador** .
 * [Descarregue](https://www.microsoft.com/download/details.aspx?id=39717) o software de execução de integração auto-hospedado. Copie o caminho onde está o ficheiro descarregado. 
 * Também precisa de uma chave de **autenticação** para registar o tempo de integração auto-hospedado.
 * Para automatizar atualizações manuais, é necessário ter um tempo de integração auto-organizado pré-configurado.
@@ -31,7 +31,7 @@ Para automatizar a instalação do Tempo de Execução de Integração Auto-hosp
 ## <a name="scripts-introduction"></a>Introdução de scripts 
 
 > [!NOTE]
-> Estes scripts são criados usando a utilidade da linha de [comando documentada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#set-up-an-existing-self-hosted-ir-via-local-powershell) no tempo de execução de integração auto-hospedado. Se necessário, pode-se personalizar estes scripts de acordo com as suas necessidades de automação.
+> Estes scripts são criados usando a utilidade da linha de [comando documentada](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) no tempo de execução de integração auto-hospedado. Se necessário, pode-se personalizar estes scripts de acordo com as suas necessidades de automação.
 > Os scripts precisam de ser aplicados por nó, por isso certifique-se de executá-lo em todos os nós em caso de configuração de alta disponibilidade (2 ou mais nós).
 
 * Para automatizar a configuração: Instale e registe um novo nó de tempo de execução de integração auto-hospedado utilizando **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** - O script pode ser utilizado para instalar um nó de tempo de execução de integração auto-hospedado e registá-lo com uma chave de autenticação. O script aceita dois argumentos, **especificando primeiro** a localização do tempo de [integração auto-hospedado](https://www.microsoft.com/download/details.aspx?id=39717) num disco local, **em segundo lugar** especificando a chave de **autenticação** (para registar o nó IV auto-hospedado).
@@ -44,7 +44,7 @@ Para automatizar a instalação do Tempo de Execução de Integração Auto-hosp
 
 ### <a name="for-automating-setup"></a>Para automatizar a configuração
 1. Descarregue o IR auto-hospedado a partir [daqui.](https://www.microsoft.com/download/details.aspx?id=39717) 
-1. Especifique o caminho onde está o SHIR MSI (ficheiro de instalação) já descarregado. Por exemplo, se o caminho for *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi*, então pode utilizar abaixo o exemplo da linha de comando PowerShell para esta tarefa:
+1. Especifique o caminho onde está o SHIR MSI (ficheiro de instalação) já descarregado. Por exemplo, se o caminho for *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi* , então pode utilizar abaixo o exemplo da linha de comando PowerShell para esta tarefa:
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\InstallGatewayOnLocalMachine.ps1 -path "C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi" -authKey "[key]"

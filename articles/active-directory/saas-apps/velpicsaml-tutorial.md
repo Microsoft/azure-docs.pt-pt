@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2916c4c849a602b906a8992b290e3f0887483290
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 81523a1c11b6a3da4e7d1db5d8249921ad5047ff
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517740"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635869"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Tutorial: Azure Ative Directory integração única (SSO) com Velpic SAML
 
@@ -136,23 +136,23 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 4. Clique no **separador Gerir** e vá à secção **de Integração** onde precisa clicar no botão **Plugins** para criar um novo plugin para iniciar sessão.
 
-    ![Plugin](./media/velpicsaml-tutorial/velpic_1.png)
+    ![A screenshot mostra a página de Integração onde pode selecionar Plugins.](./media/velpicsaml-tutorial/velpic_1.png)
 
 5. Clique no botão **'Adicionar plugin'.**
     
-    ![Plugin](./media/velpicsaml-tutorial/velpic_2.png)
+    ![A screenshot mostra o botão Add Plugin selecionado.](./media/velpicsaml-tutorial/velpic_2.png)
 
 6. Clique no azulejo **SAML** na página Add Plugin.
     
-    ![Plugin](./media/velpicsaml-tutorial/velpic_3.png)
+    ![A screenshot mostra SAML selecionado na página Add Plugin.](./media/velpicsaml-tutorial/velpic_3.png)
 
 7. Introduza o nome do novo plugin SAML e clique no botão **'Adicionar'.**
 
-    ![Plugin](./media/velpicsaml-tutorial/velpic_4.png)
+    ![A screenshot mostra a nova caixa de diálogo plugin SAML com Azure A D inserida.](./media/velpicsaml-tutorial/velpic_4.png)
 
 8. Insira os detalhes da seguinte forma:
 
-    ![Plugin](./media/velpicsaml-tutorial/velpic_5.png)
+    ![A screenshot mostra a página Azure A D onde pode introduzir os valores descritos.](./media/velpicsaml-tutorial/velpic_5.png)
 
     a. Na caixa de texto **Name,** digite o nome do plugin SAML.
 
@@ -198,7 +198,7 @@ Nesta secção, testa a configuração de inscrição única AZure AD utilizando
 
 1. Quando clicar no azulejo Velpic SAML no Painel de Acesso, deverá obter a página de login da aplicação Velpic SAML. Deverá ver o botão **'Iniciar sessão com Azure AD'** na página.
 
-    ![Plugin](./media/velpicsaml-tutorial/velpic_6.png)
+    ![A screenshot mostra o Portal de Aprendizagem com Log In Com Azure A D selecionado.](./media/velpicsaml-tutorial/velpic_6.png)
 
 1. Clique no botão **'Iniciar sessão com Azure AD'** para iniciar sessão no Velpic utilizando a sua conta AZure AD.
 

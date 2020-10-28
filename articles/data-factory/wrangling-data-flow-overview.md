@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082873"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636073"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que estão a mexer nos fluxos de dados?
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082873"
 
 As organizações precisam de fazer a preparação de dados e a luta para uma análise precisa de dados complexos que continuam a crescer todos os dias. A preparação de dados é necessária para que as organizações possam usar os dados em vários processos de negócio e reduzir o tempo de valor.
 
-Os fluxos de dados de escoaragem na Azure Data Factory permitem-lhe fazer a preparação de dados sem código em iterativas à escala de nuvem. Os fluxos de dados de esticão integram-se com [a Power Query Online](https://docs.microsoft.com/power-query/) e disponibilizam funções de Power Query M para os utilizadores da fábrica de dados.
+Os fluxos de dados de escoaragem na Azure Data Factory permitem-lhe fazer a preparação de dados sem código em iterativas à escala de nuvem. Os fluxos de dados de esticão integram-se com [a Power Query Online](/power-query/) e disponibilizam funções de Power Query M para os utilizadores da fábrica de dados.
 
 O fluxo de dados de wrangling traduz M gerado pelo Power Query Online Mashup Editor em código de faísca para a execução em escala de nuvem.
 

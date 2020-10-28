@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c8958062c7430f98db0925c2b3996887bfe5548
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827147"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637365"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados utilizando a Azure Data Factory e a Azure Data Share
 
@@ -28,17 +28,17 @@ Os dados usados neste laboratório são dados de táxi de Nova Iorque. Para impo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Subscrição do Azure** : se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-* **Base de Dados Azure SQL**: Se não tiver um DB SQL, aprenda a [criar uma conta DB SQL](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)
+* **Base de Dados Azure SQL** : Se não tiver um DB SQL, aprenda a [criar uma conta DB SQL](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Conta de armazenamento Azure Data Lake Storage Gen2**: Se não tiver uma conta de armazenamento ADLS Gen2, aprenda a [criar uma conta de armazenamento ADLS Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
+* **Conta de armazenamento Azure Data Lake Storage Gen2** : Se não tiver uma conta de armazenamento ADLS Gen2, aprenda a [criar uma conta de armazenamento ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anteriormente SQL DW)**: Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), aprenda a [criar um exemplo de Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal).
+* **Azure Synapse Analytics (anteriormente SQL DW)** : Se não tiver um Azure Synapse Analytics (anteriormente SQL DW), aprenda a [criar um exemplo de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory**: Se ainda não criou uma fábrica de dados, veja como [criar uma fábrica de dados.](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal)
+* **Azure Data Factory** : Se ainda não criou uma fábrica de dados, veja como [criar uma fábrica de dados.](./quickstart-create-data-factory-portal.md)
 
-* **Azure Data Share**: Se não criou uma partilha de dados, veja como [criar uma partilha de dados](https://docs.microsoft.com/azure/data-share/share-your-data#create-a-data-share-account).
+* **Azure Data Share** : Se não criou uma partilha de dados, veja como [criar uma partilha de dados](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Confiem do seu ambiente Azure Data Factory
 
@@ -73,25 +73,25 @@ Na Azure Data Factory os serviços ligados definem a informação de ligação a
 1. O primeiro serviço ligado que irá configurar é um Azure SQL DB. Pode utilizar a barra de pesquisa para filtrar a lista de data store. Clique no azulejo da **Base de Dados Azure SQL** e clique em continuar.
 
     ![Configuração do portal 4](media/lab-data-flow-data-share/configure4.png)
-1. No painel de configuração SQL DB, introduza 'SQLDB' como o nome de serviço ligado. Introduza as suas credenciais para permitir que a fábrica de dados se conecte à sua base de dados. Se estiver a utilizar a autenticação SQL, insira o nome do servidor, a base de dados, o nome de utilizador e a palavra-passe. Pode verificar se as informações de ligação estão corretas clicando na **ligação test**. Clique em **Criar** quando terminar.
+1. No painel de configuração SQL DB, introduza 'SQLDB' como o nome de serviço ligado. Introduza as suas credenciais para permitir que a fábrica de dados se conecte à sua base de dados. Se estiver a utilizar a autenticação SQL, insira o nome do servidor, a base de dados, o nome de utilizador e a palavra-passe. Pode verificar se as informações de ligação estão corretas clicando na **ligação test** . Clique em **Criar** quando terminar.
 
     ![Configuração do portal 5](media/lab-data-flow-data-share/configure5.png)
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Criar um serviço Azure Synapse Analytics ligado
 
-1. Repita o mesmo processo para adicionar um serviço Azure Synapse Analytics ligado. No separador de ligações, clique em **Novo**. Selecione o **azulejo Azure Synapse Analytics (anteriormente SQL DW)** e clique em continuar.
+1. Repita o mesmo processo para adicionar um serviço Azure Synapse Analytics ligado. No separador de ligações, clique em **Novo** . Selecione o **azulejo Azure Synapse Analytics (anteriormente SQL DW)** e clique em continuar.
 
     ![Configuração do portal 6](media/lab-data-flow-data-share/configure6.png)
-1. No painel de configuração de serviço ligado, introduza 'SQLDW' como o nome de serviço ligado. Introduza as suas credenciais para permitir que a fábrica de dados se conecte à sua base de dados. Se estiver a utilizar a autenticação SQL, insira o nome do servidor, a base de dados, o nome de utilizador e a palavra-passe. Pode verificar se as informações de ligação estão corretas clicando na **ligação test**. Clique em **Criar** quando terminar.
+1. No painel de configuração de serviço ligado, introduza 'SQLDW' como o nome de serviço ligado. Introduza as suas credenciais para permitir que a fábrica de dados se conecte à sua base de dados. Se estiver a utilizar a autenticação SQL, insira o nome do servidor, a base de dados, o nome de utilizador e a palavra-passe. Pode verificar se as informações de ligação estão corretas clicando na **ligação test** . Clique em **Criar** quando terminar.
 
     ![Configuração do portal 7](media/lab-data-flow-data-share/configure7.png)
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Criar um serviço ligado ao Azure Data Lake Storage Gen2
 
-1. O último serviço ligado necessário para este laboratório é um Azure Data Lake Storage gen2.  No separador de ligações, clique em **Novo**. Selecione o azulejo **Azure Data Lake Storage Gen2** e clique em continuar.
+1. O último serviço ligado necessário para este laboratório é um Azure Data Lake Storage gen2.  No separador de ligações, clique em **Novo** . Selecione o azulejo **Azure Data Lake Storage Gen2** e clique em continuar.
 
     ![Configuração do portal 8](media/lab-data-flow-data-share/configure8.png)
-1. No painel de configuração de serviço ligado, insira 'ADLSGen2' como o nome de serviço ligado. Se estiver a utilizar a autenticação da chave conta, selecione a sua conta de armazenamento ADLS Gen2 a partir do dropdown do **nome da conta de Armazenamento.** Pode verificar se as informações de ligação estão corretas clicando na **ligação test**. Clique em **Criar** quando terminar.
+1. No painel de configuração de serviço ligado, insira 'ADLSGen2' como o nome de serviço ligado. Se estiver a utilizar a autenticação da chave conta, selecione a sua conta de armazenamento ADLS Gen2 a partir do dropdown do **nome da conta de Armazenamento.** Pode verificar se as informações de ligação estão corretas clicando na **ligação test** . Clique em **Criar** quando terminar.
 
     ![Configuração do portal 9](media/lab-data-flow-data-share/configure9.png)
 
@@ -111,7 +111,7 @@ Na Azure Data Factory, um pipeline é um agrupamento lógico de atividades que j
 
 ### <a name="create-a-pipeline-with-a-copy-activity"></a>Criar um oleoduto com uma atividade de cópia
 
-1. No painel de recursos da fábrica, clique no ícone plus para abrir o novo menu de recursos. Selecione **Pipeline**.
+1. No painel de recursos da fábrica, clique no ícone plus para abrir o novo menu de recursos. Selecione **Pipeline** .
 
     ![Cópia do portal 1](media/lab-data-flow-data-share/copy1.png)
 1. No separador **Geral** da tela do gasoduto, nomeie o seu pipeline como 'IngestAndTransformTaxiData'.
@@ -123,7 +123,7 @@ Na Azure Data Factory, um pipeline é um agrupamento lógico de atividades que j
 
 ### <a name="configure-azure-sql-db-source-dataset"></a>Configurar conjunto de dados de origem DB Azure SQL
 
-1. Clique no separador **'Fonte'** da atividade da cópia. Para criar um novo conjunto de dados, clique em **New**. Sua fonte será a mesa dbo. TripData' localizado no serviço ligado 'SQLDB' configurado anteriormente.
+1. Clique no separador **'Fonte'** da atividade da cópia. Para criar um novo conjunto de dados, clique em **New** . Sua fonte será a mesa dbo. TripData' localizado no serviço ligado 'SQLDB' configurado anteriormente.
 
     ![Cópia do portal 4](media/lab-data-flow-data-share/copy4.png)
 1. Procure a **Base de Dados Azure SQL** e clique em continuar.
@@ -137,7 +137,7 @@ Criou com sucesso o seu conjunto de dados de origem. Certifique-se de que, nas d
 
 ### <a name="configure-adls-gen2-sink-dataset"></a>Configurar conjunto de dados de pia ADLS Gen2
 
-1. Clique no **separador Sink** da atividade da cópia. Para criar um novo conjunto de dados, clique em **New**.
+1. Clique no **separador Sink** da atividade da cópia. Para criar um novo conjunto de dados, clique em **New** .
 
     ![Cópia do portal 7](media/lab-data-flow-data-share/copy7.png)
 1. Procure **por Azure Data Lake Storage Gen2** e clique em continuar.
@@ -146,7 +146,7 @@ Criou com sucesso o seu conjunto de dados de origem. Certifique-se de que, nas d
 1. No painel de formato selecionado, selecione **DelimitedText** enquanto está a escrever para um ficheiro csv. Clique para continuar.
 
     ![Cópia do portal 9](media/lab-data-flow-data-share/copy9.png)
-1. Nomeie o seu conjunto de dados da pia 'TripDataCSV'. Selecione 'ADLSGen2' como o seu serviço ligado. Insira onde pretende escrever o seu ficheiro csv. Por exemplo, pode escrever os seus dados para arquivar `trip-data.csv` no recipiente `staging-container` . Desa **estação como cabeçalho** para verdade, pois pretende que os seus dados de saída tenham cabeçalhos. Uma vez que ainda não existe nenhum ficheiro no destino, desemote **o esquema de importação** para **Nenhum**. Clique em OK quando terminar.
+1. Nomeie o seu conjunto de dados da pia 'TripDataCSV'. Selecione 'ADLSGen2' como o seu serviço ligado. Insira onde pretende escrever o seu ficheiro csv. Por exemplo, pode escrever os seus dados para arquivar `trip-data.csv` no recipiente `staging-container` . Desa **estação como cabeçalho** para verdade, pois pretende que os seus dados de saída tenham cabeçalhos. Uma vez que ainda não existe nenhum ficheiro no destino, desemote **o esquema de importação** para **Nenhum** . Clique em OK quando terminar.
 
     ![Cópia do portal 10](media/lab-data-flow-data-share/copy10.png)
 
@@ -161,7 +161,7 @@ Criou com sucesso o seu conjunto de dados de origem. Certifique-se de que, nas d
 1. A visão de monitorização da cópia fornece os detalhes de execução da atividade e as características de desempenho. Pode ver informações como a leitura/escrita de dados, linhas lidas/escritas, ficheiros lidos/escritos e produção. Se configurar tudo corretamente, deverá ver 49.999 linhas escritas num único ficheiro na pia do ADLS.
 
     ![Cópia do portal 13](media/lab-data-flow-data-share/copy13.png)
-1. Antes de passar para a secção seguinte, sugere-se que publique as suas alterações no serviço de fábrica de dados clicando em **Publicar tudo** na barra de topo da fábrica. Embora não seja abrangida por este laboratório, a Azure Data Factory suporta a integração total do git. A integração do Git permite o controlo da versão, a poupança iterativa num repositório e a colaboração numa fábrica de dados. Para mais informações, consulte [o controlo de fontes na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#troubleshooting-git-integration).
+1. Antes de passar para a secção seguinte, sugere-se que publique as suas alterações no serviço de fábrica de dados clicando em **Publicar tudo** na barra de topo da fábrica. Embora não seja abrangida por este laboratório, a Azure Data Factory suporta a integração total do git. A integração do Git permite o controlo da versão, a poupança iterativa num repositório e a colaboração numa fábrica de dados. Para mais informações, consulte [o controlo de fontes na Azure Data Factory](./source-control.md#troubleshooting-git-integration).
 
     ![Portal publicar 1](media/lab-data-flow-data-share/publish1.png)
 
@@ -176,7 +176,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
 1. No painel de atividades da tela do gasoduto, abra o acordeão **Move and Transform** e arraste a atividade de fluxo de **dados** para a tela.
 
     ![Fluxo de dados do portal 1](media/lab-data-flow-data-share/dataflow1.png)
-1. No painel lateral que se abre, **selecione Criar um novo fluxo de dados** e escolha o fluxo de **dados de mapeamento**. Clique em **OK**.
+1. No painel lateral que se abre, **selecione Criar um novo fluxo de dados** e escolha o fluxo de **dados de mapeamento** . Clique em **OK** .
 
     ![Fluxo de dados do portal 2](media/lab-data-flow-data-share/dataflow2.png)
 1. Você será direcionado para a tela de fluxo de dados onde você vai construir a sua lógica de transformação. No separador geral, nomeie o seu fluxo de dados 'JoinAndAggregateData'.
@@ -191,7 +191,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
 1. Nomeie a sua fonte 'TripDataCSV' e selecione o conjunto de dados 'TripDataCSV' a partir da entrega de origem. Se se lembrar, não importou um esquema inicialmente ao criar este conjunto de dados, uma vez que não havia dados. Uma vez `trip-data.csv` que existe agora, clique em **Editar** para ir ao separador definições de conjunto de dados.
 
     ![Fluxo de dados do portal 5](media/lab-data-flow-data-share/dataflow5.png)
-1. Vá ao separador **Schema** e clique em **Esquema de Importação**. Selecione **Da ligação/loja** para importar diretamente da loja de ficheiros. Devem aparecer 14 colunas de corda tipo.
+1. Vá ao separador **Schema** e clique em **Esquema de Importação** . Selecione **Da ligação/loja** para importar diretamente da loja de ficheiros. Devem aparecer 14 colunas de corda tipo.
 
     ![Fluxo de dados do portal 6](media/lab-data-flow-data-share/dataflow6.png)
 1. Volte ao fluxo de dados 'JoinAndAggregateData'. Se o seu cluster de depurador tiver começado (indicado por um círculo verde ao lado do depurador de depurador), pode obter uma imagem instantânea dos dados no **separador Data Preview.** Clique em **Refresh** para obter uma pré-visualização de dados.
@@ -209,7 +209,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
 1. Nomeie esta fonte 'TripFaresSQL'. Clique em **Novo** ao lado do campo de conjunto de dados de origem para criar um novo conjunto de dados SQL DB.
 
     ![Fluxo de dados do portal 9](media/lab-data-flow-data-share/dataflow9.png)
-1. Selecione o azulejo **da Base de Dados Azure SQL** e clique em continuar. *Nota: Pode notar que muitos dos conectores na fábrica de dados não são suportados no fluxo de dados de mapeamento. Para transformar dados de uma destas fontes, ingere-os numa fonte suportada utilizando a atividade de cópia*.
+1. Selecione o azulejo **da Base de Dados Azure SQL** e clique em continuar. *Nota: Pode notar que muitos dos conectores na fábrica de dados não são suportados no fluxo de dados de mapeamento. Para transformar dados de uma destas fontes, ingere-os numa fonte suportada utilizando a atividade de cópia* .
 
     ![Fluxo de dados do portal 10](media/lab-data-flow-data-share/dataflow10.png)
 1. Ligue para o seu conjunto de dados 'TripFares'. Selecione 'SQLDB' como o seu serviço ligado. Selecione o nome da mesa 'dbo. TripFares do dropdown do nome da mesa. Importar o esquema **Da ligação/loja.** Clique em OK quando terminar.
@@ -224,7 +224,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
 1. Para adicionar uma nova transformação, clique no ícone plus no canto inferior direito de 'TripDataCSV'. Em **várias entradas/saídas,** selecione **'Juntar-se'.**
 
     ![Portal aderir 1](media/lab-data-flow-data-share/join1.png)
-1. Nomeie a sua transformação de junção 'InnerJoinWithTripFares'. Selecione 'TripFaresSQL' a partir do dropdown de fluxo certo. Selecione **Interior** como o tipo de junção. Para saber mais sobre os diferentes tipos de junção no fluxo de dados de mapeamento, consulte [os tipos de junção](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
+1. Nomeie a sua transformação de junção 'InnerJoinWithTripFares'. Selecione 'TripFaresSQL' a partir do dropdown de fluxo certo. Selecione **Interior** como o tipo de junção. Para saber mais sobre os diferentes tipos de junção no fluxo de dados de mapeamento, consulte [os tipos de junção](./data-flow-join.md#join-types).
 
     Selecione quais as colunas que deseja combinar a partir de cada corrente através do dropdown **das condições de Junção.** Para adicionar uma condição adicional de junção, clique no ícone plus ao lado de uma condição existente. Por predefinição, todas as condições de junção são combinadas com um operador E, o que significa que todas as condições devem ser satisfeitas para uma correspondência. Neste laboratório, queremos combinar com `medallion` `hack_license` colunas, `vendor_id` e `pickup_datetime`
 
@@ -235,7 +235,7 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
 
 ### <a name="aggregate-by-payment_type"></a>Agregado por payment_type
 
-1. Depois de completar a sua transformação de junção, adicione uma transformação agregada clicando no ícone plus ao lado de 'InnerJoinWithTripFares. Escolha **agregado** sob **o modificador Schema**.
+1. Depois de completar a sua transformação de junção, adicione uma transformação agregada clicando no ícone plus ao lado de 'InnerJoinWithTripFares. Escolha **agregado** sob **o modificador Schema** .
 
     ![Portal agg 1](media/lab-data-flow-data-share/agg1.png)
 1. Nomeie a sua transformação agregada 'Agregação PorPaymentType'. Selecione `payment_type` como grupo por coluna.
@@ -248,12 +248,12 @@ O fluxo de dados criado neste passo interior junta-se ao conjunto de dados 'Trip
     Primeiro, vai criar a expressão de tarifa média. Na caixa de texto com a etiqueta **Adicionar ou selecionar uma coluna,** introduza 'average_fare'.
 
     ![Portal agg 3](media/lab-data-flow-data-share/agg3.png)
-1. Para introduzir uma expressão de agregação, clique na caixa azul com a etiqueta **Entrar expressão**. Isto abrirá o construtor de expressão de fluxo de dados, uma ferramenta usada para criar visualmente expressões de fluxo de dados utilizando esquemas de entrada, funções e operações incorporadas e parâmetros definidos pelo utilizador. Para obter mais informações sobre as capacidades do construtor de expressão, consulte a documentação do [construtor de expressão.](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder)
+1. Para introduzir uma expressão de agregação, clique na caixa azul com a etiqueta **Entrar expressão** . Isto abrirá o construtor de expressão de fluxo de dados, uma ferramenta usada para criar visualmente expressões de fluxo de dados utilizando esquemas de entrada, funções e operações incorporadas e parâmetros definidos pelo utilizador. Para obter mais informações sobre as capacidades do construtor de expressão, consulte a documentação do [construtor de expressão.](./concepts-data-flow-expression-builder.md)
 
     Para obter a tarifa média, utilize a `avg()` função de agregação para agregar a `total_amount` coluna fundida a um inteiro com `toInteger()` . Na linguagem de expressão de fluxo de dados, isto é definido como `avg(toInteger(total_amount))` . Clique **em Guardar e termine** quando terminar.
 
     ![Portal agg 4](media/lab-data-flow-data-share/agg4.png)
-1. Para adicionar uma expressão de agregação adicional, clique no ícone plus ao lado `average_fare` de . Selecione **Adicionar coluna**.
+1. Para adicionar uma expressão de agregação adicional, clique no ícone plus ao lado `average_fare` de . Selecione **Adicionar coluna** .
 
     ![Portal agg 5](media/lab-data-flow-data-share/agg5.png)
 1. Na caixa de texto com a etiqueta **Adicionar ou selecionar uma coluna,** introduza 'total_trip_distance'. Como no último passo, abra o construtor de expressão para entrar na expressão.
@@ -320,7 +320,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
     ![Anúncios de portal](media/lab-data-flow-data-share/portal-ads.png)
 
-1. Selecione a conta de partilha de dados com 'Fornecedor' no nome. Por exemplo, **DataProvider0102**. 
+1. Selecione a conta de partilha de dados com 'Fornecedor' no nome. Por exemplo, **DataProvider0102** . 
 
 1. Selecione **Começar a partilhar os seus dados**
 
@@ -330,13 +330,13 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
 1. Em **nome de partilha,** especifique um nome à sua escolha. Este é o nome da partilha que será visto pelo seu consumidor de dados, por isso certifique-se de lhe dar um nome descritivo como TaxiData.
 
-1. Em **Descrição**, coloque uma frase que descreve o conteúdo da partilha de dados. A partilha de dados conterá dados mundiais de viagem de táxi que são armazenados em várias lojas, incluindo a Azure Synapse Analytics e a Azure Data Lake Store. 
+1. Em **Descrição** , coloque uma frase que descreve o conteúdo da partilha de dados. A partilha de dados conterá dados mundiais de viagem de táxi que são armazenados em várias lojas, incluindo a Azure Synapse Analytics e a Azure Data Lake Store. 
 
-1. Nos **Termos de Utilização**, especifique um conjunto de termos aos quais pretende que o seu consumidor de dados adira. Alguns exemplos incluem "Não distribua estes dados fora da sua organização" ou "Consulte o acordo legal". 
+1. Nos **Termos de Utilização** , especifique um conjunto de termos aos quais pretende que o seu consumidor de dados adira. Alguns exemplos incluem "Não distribua estes dados fora da sua organização" ou "Consulte o acordo legal". 
 
     ![Partilhar detalhes](media/lab-data-flow-data-share/ads-details.png)
 
-1. Selecione **Continuar**. 
+1. Selecione **Continuar** . 
 
 1. Selecione **Adicionar conjuntos de dados** 
 
@@ -362,7 +362,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
     
 1. Volte para Azure Data Share onde estava a adicionar conjuntos de dados à sua partilha de dados. 
 
-1. Selecione **EDW**e, em seguida, selecione **AggregatedTaxiData** para a tabela. 
+1. Selecione **EDW** e, em seguida, selecione **AggregatedTaxiData** para a tabela. 
 
 1. Selecione **Adicionar conjunto de dados**
 
@@ -374,7 +374,7 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
 1. Selecione **Seguinte**
 
-1. Expandir *wwtaxidata*. Expandir *dados de táxi de Boston.* Note que pode partilhar até o nível de ficheiro. 
+1. Expandir *wwtaxidata* . Expandir *dados de táxi de Boston.* Note que pode partilhar até o nível de ficheiro. 
 
 1. Selecione a pasta *Dados de Táxi de Boston* para adicionar toda a pasta à sua partilha de dados. 
 
@@ -396,11 +396,11 @@ Uma vez criada uma partilha de dados, trocará de chapéus e tornar-se-á o *con
 
 1. Verifique **o Horário instantâneo** e configuure uma atualização horária dos seus dados utilizando a queda de *Recorrência.*  
 
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
     Tem agora uma partilha ativa de dados. Permite rever o que pode ver como um fornecedor de dados quando cria uma partilha de dados. 
 
-1. Selecione a partilha de dados que criou, intitulada **DataProvider**. Pode navegar para ele selecionando **Ações Enviadas** em **Partilha de Dados.** 
+1. Selecione a partilha de dados que criou, intitulada **DataProvider** . Pode navegar para ele selecionando **Ações Enviadas** em **Partilha de Dados.** 
 
 1. Clique na programação snapshot. Pode desativar o horário de instantâneo se escolher. 
 
@@ -428,21 +428,21 @@ No e-mail que deveria ter recebido, clique em "Ver convite >". Neste momento, va
 
 Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar a subscrição em que tem trabalhado para este laboratório. 
 
-1. Clique no convite intitulado *DataProvider*. 
+1. Clique no convite intitulado *DataProvider* . 
 
 1. Neste ecrã de Convite, irá notar vários detalhes sobre a partilha de dados que configuraram anteriormente como provedor de dados. Reveja os detalhes e aceite os termos de utilização se fornecido.
 
 1. Selecione o Grupo de Subscrição e Recursos que já existe para o seu laboratório. 
 
-1. Para **conta de partilha de dados**, selecione **DataConsumer**. Também pode criar uma nova conta de partilha de dados. 
+1. Para **conta de partilha de dados** , selecione **DataConsumer** . Também pode criar uma nova conta de partilha de dados. 
 
-1. Ao lado **do nome de partilha Recebido,** irá notar que o nome de ação padrão é o nome especificado pelo provedor de dados. Dê à partilha um nome amigável que descreva os dados que está prestes a receber, por **exemplo, TaxiDataShare**.
+1. Ao lado **do nome de partilha Recebido,** irá notar que o nome de ação padrão é o nome especificado pelo provedor de dados. Dê à partilha um nome amigável que descreva os dados que está prestes a receber, por **exemplo, TaxiDataShare** .
 
     ![Convite aceita](media/lab-data-flow-data-share/consumer-accept.png)
 
 1. Pode optar por **aceitar e configurar agora** ou aceitar e **configurar mais tarde.** Se optar por aceitar e configurar agora, irá especificar uma conta de armazenamento onde todos os dados devem ser copiados. Se optar por aceitar e configurar mais tarde, os conjuntos de dados da partilha serão desapeitados e terá de os mapear manualmente. Vamos optar por isso mais tarde. 
 
-1. Selecione **Aceitar e configurar mais tarde**. 
+1. Selecione **Aceitar e configurar mais tarde** . 
 
     Ao configurar esta opção, é criada uma subscrição de ações, mas não há lugar para os dados aterrarem uma vez que nenhum destino foi mapeado. 
 
@@ -456,7 +456,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
 
     ![conjuntos de dados não mapeados](media/lab-data-flow-data-share/unmapped.png)
 
-1. Selecione a Tabela de Análise Sinapse Azure e, em seguida, selecione **+ Mapa para Alvo**.
+1. Selecione a Tabela de Análise Sinapse Azure e, em seguida, selecione **+ Mapa para Alvo** .
 
 1. No lado direito do ecrã, selecione o **tipo de dados alvo** para baixo. 
 
@@ -470,7 +470,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
     
     (Opcional) Pode optar por receber os dados no seu lago de dados em formato csv ou parquet. 
 
-1. Junto ao **tipo de dados Target**, selecione Azure SQL Database. 
+1. Junto ao **tipo de dados Target** , selecione Azure SQL Database. 
 
 1. Selecione a conta de Subscrição, Grupo de Recursos e Armazenamento em que tem estado a trabalhar. 
 
@@ -480,7 +480,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
 
 1. Abra um novo separador do portal Azure. Não feche a conta existente, pois terá de voltar a ele num instante. 
 
-1. No novo separador que abriu, navegue para **as bases de dados SQL**.
+1. No novo separador que abriu, navegue para **as bases de dados SQL** .
 
 1. Selecione a base de dados SQL (deve haver apenas uma na sua subscrição). Tenha cuidado para não selecionar o armazém de dados. 
 
@@ -492,7 +492,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
 
     Este comando permite que o serviço Azure Data Share utilize identidades geridas para serviços Azure para autenticar no SQL Server para poder copiar dados nele. 
 
-1. Volte para o separador original e selecione **Map para o alvo**.
+1. Volte para o separador original e selecione **Map para o alvo** .
 
 1. Em seguida, selecione a pasta Azure Data Lake Gen2 que faz parte do conjunto de dados e mapeeei-la para uma conta de Armazenamento Azure Blob. 
 
@@ -502,7 +502,7 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
 
     ![mapeado](media/lab-data-flow-data-share/all-mapped.png)
     
-1. Selecione **Detalhes**. 
+1. Selecione **Detalhes** . 
 
     Note que **o trigger snapshot** já não está acinzentado, uma vez que a partilha de dados tem agora destinos para copiar.
 
@@ -519,5 +519,3 @@ Pode ser solicitado que selecione uma subscrição. Certifique-se de selecionar 
 1. Volte para a partilha de dados do consumidor de dados. Assim que o estado do gatilho for bem sucedido, navegue até à base de dados SQL de destino e ao lago de dados para ver se os dados aterraram nas respetivas lojas. 
 
 Parabéns, completou o laboratório!
-
-
