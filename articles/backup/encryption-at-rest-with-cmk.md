@@ -3,12 +3,12 @@ title: Encriptação de dados de backup usando chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378292"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895992"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
 
@@ -29,7 +29,7 @@ Este artigo aborda o seguinte:
 
 - Uma vez ativado para um cofre dos Serviços de Recuperação, a encriptação utilizando chaves geridas pelo cliente não pode ser revertida para usar as teclas geridas pela plataforma (padrão). Pode alterar as chaves de encriptação de acordo com os seus requisitos.
 
-- Atualmente, esta funcionalidade **não suporta cópias de segurança utilizando o agente MARS**, e pode não ser capaz de utilizar um cofre encriptado cmk para o mesmo. O agente MARS utiliza uma encriptação baseada em palavras de utilizador. Esta funcionalidade também não suporta cópias de segurança dos VM clássicos.
+- Atualmente, esta funcionalidade **não suporta cópias de segurança utilizando o agente MARS** , e pode não ser capaz de utilizar um cofre encriptado cmk para o mesmo. O agente MARS utiliza uma encriptação baseada em palavras de utilizador. Esta funcionalidade também não suporta cópias de segurança dos VM clássicos.
 
 - Esta funcionalidade não está relacionada com a [Encriptação do Disco Azure,](../security/fundamentals/azure-disk-encryption-vms-vmss.md)que utiliza encriptação baseada em convidados de discos de um VM utilizando BitLocker (para Windows) e DM-Crypt (para Linux)
 
@@ -66,7 +66,7 @@ O Azure Backup utiliza o sistema atribuído à identidade gerida para autenticar
 
     ![Definições de identidade](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Alterar o **Estado** para **On** e selecionar **Guardar**.
+1. Alterar o **Estado** para **On** e selecionar **Guardar** .
 
 1. Um ID de objeto é gerado, que é a identidade gerida do sistema do cofre.
 
@@ -78,7 +78,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
     ![Adicionar Políticas de Acesso](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. Sob **permissões de chave**, selecione **Obter,** **Lista,** **Desembrulhar** as operações da chave de embrulho e **de embrulho.** Isto especifica as ações na chave que serão permitidas.
+1. Sob **permissões de chave** , selecione **Obter,** **Lista,** **Desembrulhar** as operações da chave de embrulho e **de embrulho.** Isto especifica as ações na chave que serão permitidas.
 
     ![Atribuir permissões-chave](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -94,7 +94,7 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
 Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](../key-vault/general/soft-delete-overview.md)
 
-![Permitir a proteção suave de eliminação e purga](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
+![Ativar a eliminação recuperável e a remoção da proteção](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
 Também pode ativar a proteção de eliminação e purga suave através do PowerShell utilizando os passos abaixo:
 
@@ -148,7 +148,7 @@ Para atribuir a chave:
 
     ![Definições de encriptação](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Selecione **Atualização** em **Definições de Encriptação**.
+1. Selecione **Atualização** em **Definições de Encriptação** .
 
 1. No painel de Definições de Encriptação, selecione **Use a sua própria tecla** e continue a especificar a chave utilizando uma das seguintes formas. **Certifique-se de que a chave que pretende utilizar é uma chave RSA 2048, que está em estado ativado.**
 
@@ -160,9 +160,9 @@ Para atribuir a chave:
 
         ![Selecione a chave do cofre da chave](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
-1. **Rastreio do progresso da atualização da chave de encriptação:** Pode acompanhar o progresso da atribuição de chave utilizando o **Registo de Atividades** no cofre dos Serviços de Recuperação. O estatuto deve em breve mudar para **Sucesso**. O seu cofre irá agora encriptar todos os dados com a chave especificada como KEK.
+1. **Rastreio do progresso da atualização da chave de encriptação:** Pode acompanhar o progresso da atribuição de chave utilizando o **Registo de Atividades** no cofre dos Serviços de Recuperação. O estatuto deve em breve mudar para **Sucesso** . O seu cofre irá agora encriptar todos os dados com a chave especificada como KEK.
 
     ![Acompanhe o progresso com o log de atividade](./media/encryption-at-rest-with-cmk/activity-log.png)
 
@@ -184,7 +184,6 @@ Antes de proceder à proteção de configuração, recomendamos vivamente que ce
 >[!IMPORTANT]
 > Antes de proceder à proteção de configuração, deve ter concluído **com sucesso** os seguintes passos:
 >
->1. Permitiu que a sua subscrição usasse chaves geridas pelo cliente para o seu cofre de reserva.
 >1. Criei o seu cofre de reserva
 >1. Habilitado a identidade gerida do cofre de reserva atribuído ao sistema
 >1. Permissões atribuídas ao seu Cofre de Reserva para aceder a chaves de encriptação a partir do seu Cofre de Chaves
@@ -215,7 +214,7 @@ Pode encriptar o disco restaurado /VM após a restauração estar concluída, in
 
 O Conjunto de Encriptação do Disco é especificado nas Definições de Encriptação no painel de restauro, como mostrado abaixo:
 
-1. **No(s) do (s) disco criptografe utilizando a sua tecla,** selecione **Sim**.
+1. **No(s) do (s) disco criptografe utilizando a sua tecla,** selecione **Sim** .
 
 1. A partir do dropdown, selecione o DES que pretende utilizar para o ous disco restaurado. **Certifique-se de ter acesso ao DES.**
 

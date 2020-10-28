@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968854"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896009"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em um VM Azure usando chamadas REST API
 
@@ -33,13 +33,13 @@ Neste artigo, utilizando o CURL para fazer chamadas para o ponto final do Azure 
 - Ativar e desativar a identidade gerida atribuída pelo sistema num VM Azure
 - Adicione e remova uma identidade gerida atribuída pelo utilizador num VM Azure
 
+Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
-- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Pode executar todos os comandos deste artigo na nuvem ou localmente:
-    - Para correr na nuvem, use a [Azure Cloud Shell](../../cloud-shell/overview.md).
-    - Para executar localmente, instale o [curl](https://curl.haxx.se/download.html) e o [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no [Azure](/cli/azure/reference-index#az-login) usando o login az com uma conta que está associada à subscrição Azure que gostaria de gerir o sistema ou identidades geridas atribuídas pelo utilizador.
+- Se não está familiarizado com identidades geridas para recursos Azure, veja [o que são identidades geridas para os recursos do Azure?](overview.md) Para saber mais sobre os tipos de identidade geridos atribuídos pelo sistema e atribuídos pelo utilizador, consulte [os tipos de identidade geridos](overview.md#managed-identity-types).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
 
@@ -55,7 +55,7 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
    az group create --name myResourceGroup --location westus
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para o seu VM:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para o seu VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -67,7 +67,7 @@ Para criar um VM Azure com a identidade gerida atribuída pelo sistema, a sua co
    az account get-access-token
    ``` 
 
-4. Crie um VM utilizando o CURL para chamar o ponto final do Azure Resource Manager REST. O exemplo a seguir cria um VM chamado *myVM* com uma identidade gerida atribuída ao sistema, conforme identificado no organismo de pedido pelo valor `"identity":{"type":"SystemAssigned"}` . `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+4. Utilizando a Azure Cloud Shell, crie um VM utilizando o CURL para chamar o ponto final do Azure Resource Manager REST. O exemplo a seguir cria um VM chamado *myVM* com uma identidade gerida atribuída ao sistema, conforme identificado no organismo de pedido pelo valor `"identity":{"type":"SystemAssigned"}` . `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -154,7 +154,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
    az account get-access-token
    ```
 
-2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu VM, tal como identificado no organismo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um VM nomeado *myVM*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu VM, tal como identificado no organismo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um VM nomeado *myVM* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
    
    > [!IMPORTANT]
    > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao VM, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuída ao VM como identificada no `identity` valor da resposta, salte para o passo 3 que lhe mostre como reter identidades geridas atribuídas pelo utilizador, permitindo a identidade gerida atribuída pelo sistema no seu VM.
@@ -264,7 +264,7 @@ Para desativar a identidade gerida atribuída pelo sistema num VM, a sua conta n
    az account get-access-token
    ```
 
-2. Atualize o VM utilizando o CURL para ligar para o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo seguinte desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um VM chamado *myVM*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+2. Atualize o VM utilizando o CURL para ligar para o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo seguinte desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um VM chamado *myVM* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    > [!IMPORTANT]
    > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao VM, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuída ao VM como identificada no `identity` valor da resposta, salte para o passo 3 que lhe mostre como reter identidades geridas atribuídas pelo utilizador, ao mesmo tempo que desativa a identidade gerida atribuída pelo sistema no seu VM.
@@ -293,7 +293,7 @@ Para desativar a identidade gerida atribuída pelo sistema num VM, a sua conta n
     }
    ```
 
-   Para remover a identidade gerida atribuída ao sistema a partir de uma máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01**. Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
+   Para remover a identidade gerida atribuída ao sistema a partir de uma máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01** . Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
 
 ## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
@@ -309,7 +309,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
    az account get-access-token
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para o seu VM:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para o seu VM:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -517,7 +517,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
 
 4. Se não tiver identidades geridas atribuídas ao utilizador atribuídas ao seu VM, utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para atribuir a primeira identidade gerida atribuída ao VM.
 
-   O exemplo seguinte atribui uma identidade gerida atribuída ao utilizador `ID1` a um VM nomeado *myVM* no grupo de recursos *myResourceGroup*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+   O exemplo seguinte atribui uma identidade gerida atribuída ao utilizador `ID1` a um VM nomeado *myVM* no grupo de recursos *myResourceGroup* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    **VERSÃO API 2018-06-01**
 

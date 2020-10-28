@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361539"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895941"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erros de conversão de desenho e avisos
 
-O [serviço de Conversão Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) permite converter pacotes de desenho carregados em dados de mapas. As embalagens de desenho devem respeitar os [requisitos](drawing-requirements.md)do pacote de desenho . Se um ou mais requisitos não forem cumpridos, o serviço de Conversão devolverá erros ou avisos. Este artigo lista os códigos de erro de conversão e de aviso, com recomendações sobre como resolvê-los. Também fornece alguns exemplos de desenhos que podem fazer com que o serviço de Conversão devolva estes códigos.
+O [serviço de Conversão Azure Maps](/rest/api/maps/conversion) permite converter pacotes de desenho carregados em dados de mapas. As embalagens de desenho devem respeitar os [requisitos](drawing-requirements.md)do pacote de desenho . Se um ou mais requisitos não forem cumpridos, o serviço de Conversão devolverá erros ou avisos. Este artigo lista os códigos de erro de conversão e de aviso, com recomendações sobre como resolvê-los. Também fornece alguns exemplos de desenhos que podem fazer com que o serviço de Conversão devolva estes códigos.
 
 O serviço de Conversão terá sucesso se houver avisos de conversão. No entanto, recomenda-se que reveja e resolva todos os avisos. Um aviso significa que parte da conversão foi ignorada ou fixada automaticamente. Não resolver os avisos pode resultar em erros nestes últimos processos.
 
@@ -159,7 +159,7 @@ O aviso **redundanteAttribution** ocorre quando o manifesto contém propriedades
 
 #### <a name="how-to-fix-redundantattribution"></a>*Como corrigir distribuição redundante*
 
-Para corrigir um aviso de*atribuição de anúncios de pré-distribuição * redundante,* remova propriedades de objetos redundantes ou conflituosos.
+Para corrigir um aviso de *atribuição de anúncios de pré-distribuição * redundante,* remova propriedades de objetos redundantes ou conflituosos.
 
 ### <a name="manifestwarning"></a>**manifesto Aconsesendo**
 
@@ -311,7 +311,7 @@ Um erro **inválido DoArchiveFormat** também ocorrerá se o arquivo ZIP estiver
 
 Para corrigir um erro **inválido DoArquiteFormat,** verifique se:
 
-* O nome do seu ficheiro de arquivo termina em _.zip_.
+* O nome do seu ficheiro de arquivo termina em _.zip_ .
 * O seu arquivo ZIP contém dados.
 * Pode abrir o seu arquivo ZIP.
 
@@ -370,7 +370,7 @@ Para corrigir um erro **de InvalidJsonFormat,** utilize um linter JSON para dete
 
 #### <a name="description-for-missingrequiredfield"></a>*Descrição para o Campo Desaparecido*
 
-Um erro **desaparecido do Campo Desaguisado** ocorre quando omanifest.js_ no_ ficheiro está a faltar dados necessários.
+Um erro **desaparecido do Campo Desaguisado** ocorre quando omanifest.js _no_ ficheiro está a faltar dados necessários.
 
 #### <a name="how-to-fix-missingrequiredfield"></a>*Como corrigir o Campo Desaparecido*
 

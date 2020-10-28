@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088929"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896060"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Quickstart: Criar uma porta frontal usando um modelo ARM
 
@@ -27,7 +27,7 @@ Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (Modelo
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
 
@@ -40,7 +40,7 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-Neste arranque rápido, irá criar uma configuração da Porta frontal com um único backend e um único caminho padrão que corresponda a "/*". 
+Neste arranque rápido, irá criar uma configuração da Porta da Frente com um único backend e um único caminho padrão correspondente `/*` .
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ No modelo, está definido um recurso do Azure:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione **Experimentá-lo** a partir do bloco de código que se segue para abrir a Azure Cloud Shell e, em seguida, siga as instruções para iniciar súm no Azure. 
+1. Selecione **Experimentá-lo** a partir do bloco de código que se segue para abrir a Azure Cloud Shell e, em seguida, siga as instruções para iniciar súm no Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -69,11 +69,11 @@ No modelo, está definido um recurso do Azure:
 
 1. Selecione **Copiar** do bloco de código anterior para copiar o script PowerShell.
 
-1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta**.
+1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta** .
 
 1. Insira os valores.
 
-    A implementação do modelo cria uma porta frontal com um único backend. Neste * <span>exemplo, a Microsoft.</span> com* é usado como **backendAddress**.
+    A implementação do modelo cria uma porta frontal com um único backend. Neste exemplo `microsoft.com` é utilizado como **backendAddress** .
 
     O nome do grupo de recursos é o nome do projeto com **rg** anexado.
 
@@ -98,7 +98,7 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
     :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Saída de implementação do powerShell do gestor de recursos da porta da frente":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar do serviço Porta da Frente, elimine o grupo de recursos. Isto remove a Porta da Frente e todos os recursos relacionados.
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um:
-* Front Door
+Neste arranque rápido, criaste uma Porta da Frente.
 
 Para aprender a adicionar um domínio personalizado à sua Porta da Frente, continue para os tutoriais da Porta da Frente.
 

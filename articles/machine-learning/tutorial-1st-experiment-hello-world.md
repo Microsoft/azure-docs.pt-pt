@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372549"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895890"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um "Olá mundo!" Escrita python (parte 2 de 4)
 
@@ -24,7 +24,7 @@ Neste tutorial, aprende-se a usar o Azure Machine Learning SDK para python para 
 
 Este tutorial é *parte 2 de uma série tutorial* de quatro partes na qual você aprende os fundamentos do Azure Machine Learning e completa tarefas de aprendizagem automática baseadas em empregos em Azure. Este tutorial baseia-se no trabalho que concluiu na [Parte 1: Crie a sua máquina local para a Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Criar e executar um "Olá mundo!" Python roteiro localmente.
@@ -142,6 +142,9 @@ Executa o teu script de controlo, que por sua vez funciona `hello.py` no cluster
 ```bash
 python 03-run-hello.py
 ```
+
+> [!TIP]
+> Se executar este código lhe dá um erro no qual não tem acesso à subscrição, consulte [Ligar a um espaço de trabalho](how-to-manage-workspace.md?tab=python#connect-multi-tenant) para obter informações sobre opções de autenticação.
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitorize o seu código na nuvem usando o estúdio
 

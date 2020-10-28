@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 75d2833a5b270fcfdcffa668ec0e308399edab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895924"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
 O Azure Maps Web SDK armazena dados em fontes de dados. A utilização de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente existem dois tipos de fontes de dados:
 
-- **GeoJSON fonte**: Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
-- **Fonte de azulejos vetoriais**: Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
+- **GeoJSON fonte** : Gere dados de localização bruta em formato GeoJSON localmente. Bom para pequenos a médios conjuntos de dados (mais de centenas de milhares de formas).
+- **Fonte de azulejos vetoriais** : Carrega dados formatados como azulejos vetoriais para a visão do mapa atual, com base no sistema de inclinação de mapas. Ideal para grandes e maciços conjuntos de dados (milhões ou biliões de formas).
 
 ## <a name="geojson-data-source"></a>Fonte de dados da GeoJSON
 
-Uma carga de fonte de dados baseada em GeoJSON e armazena dados localmente usando a `DataSource` classe. Os dados da GeoJSON podem ser criados manualmente ou criados utilizando as classes de ajudantes no espaço de [nomes atlas.data.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) A `DataSource` classe fornece funções para importar ficheiros GeoJSON locais ou remotos. Os ficheiros GeoJSON remotos devem ser alojados num ponto final ativado por CORs. A `DataSource` classe fornece funcionalidade para os dados de ponto de agrupamento. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código que se segue mostra como os dados da GeoJSON podem ser criados no Azure Maps.
+Uma carga de fonte de dados baseada em GeoJSON e armazena dados localmente usando a `DataSource` classe. Os dados da GeoJSON podem ser criados manualmente ou criados utilizando as classes de ajudantes no espaço de [nomes atlas.data.](/javascript/api/azure-maps-control/atlas.data) A `DataSource` classe fornece funções para importar ficheiros GeoJSON locais ou remotos. Os ficheiros GeoJSON remotos devem ser alojados num ponto final ativado por CORs. A `DataSource` classe fornece funcionalidade para os dados de ponto de agrupamento. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código que se segue mostra como os dados da GeoJSON podem ser criados no Azure Maps.
 
 ```javascript
 //Create raw GeoJSON object.
@@ -46,7 +46,7 @@ var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
 }); 
 ```
 
-Uma vez criados, as fontes de dados podem ser adicionadas ao mapa através da `map.sources` propriedade, que é um [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). O código que se segue mostra como criar um `DataSource` e adicioná-lo ao mapa.
+Uma vez criados, as fontes de dados podem ser adicionadas ao mapa através da `map.sources` propriedade, que é um [SourceManager](/javascript/api/azure-maps-control/atlas.sourcemanager). O código que se segue mostra como criar um `DataSource` e adicioná-lo ao mapa.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>Fonte de azulejos do vetor
 
-Uma fonte de azulejos do vetor descreve como aceder a uma camada de azulejo vetorial. Use a classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para instantaneaizar uma fonte de azulejos vetoriais. As camadas de azulejos vetoriais são semelhantes às camadas de azulejos, mas não são as mesmas. Uma camada de azulejo é uma imagem raster. As camadas de azulejos vetoriais são um ficheiro comprimido, em formato **PBF.** Este ficheiro comprimido contém dados de mapas de vetores e uma ou mais camadas. O ficheiro pode ser renderizado e modelado no cliente, com base no estilo de cada camada. Os dados de um azulejo vetorial contêm características geográficas sob a forma de pontos, linhas e polígonos. Existem várias vantagens de usar camadas de azulejos vetoriais em vez de camadas de azulejos rasteres:
+Uma fonte de azulejos do vetor descreve como aceder a uma camada de azulejo vetorial. Use a classe [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) para instantaneaizar uma fonte de azulejos vetoriais. As camadas de azulejos vetoriais são semelhantes às camadas de azulejos, mas não são as mesmas. Uma camada de azulejo é uma imagem raster. As camadas de azulejos vetoriais são um ficheiro comprimido, em formato **PBF.** Este ficheiro comprimido contém dados de mapas de vetores e uma ou mais camadas. O ficheiro pode ser renderizado e modelado no cliente, com base no estilo de cada camada. Os dados de um azulejo vetorial contêm características geográficas sob a forma de pontos, linhas e polígonos. Existem várias vantagens de usar camadas de azulejos vetoriais em vez de camadas de azulejos rasteres:
 
  - Um tamanho de arquivo de um azulejo vetorial é tipicamente muito menor do que um azulejo raster equivalente. Como tal, é utilizada menos largura de banda. Significa menor latência, um mapa mais rápido, e uma melhor experiência de utilizador.
  - Uma vez que os azulejos vetoriais são renderizados no cliente, eles adaptam-se à resolução do dispositivo em que estão a ser exibidos. Como resultado, os mapas renderizados parecem mais bem definidos, com rótulos cristalinos.
@@ -83,10 +83,10 @@ Uma fonte de azulejos do vetor descreve como aceder a uma camada de azulejo veto
 
 Azure Maps adere à [especificação do azulejo do vetor mapbox,](https://github.com/mapbox/vector-tile-spec)um padrão aberto. A Azure Maps fornece os seguintes serviços de azulejos vetoriais como parte da plataforma:
 
-- Detalhes do formato de dados [de documentação](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)de azulejos  |  [de estrada](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- Incidentes de [tráfego documentação](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [dados detalhes do formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- Detalhes do formato de [dados de documentação](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- O Azure Maps Creator também permite que os azulejos vetores personalizados sejam criados e acedidos através do [Get Tile Render V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- Detalhes do formato de dados [de documentação](/rest/api/maps/renderv2/getmaptilepreview)de azulejos  |  [de estrada](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- Incidentes de [tráfego documentação](/rest/api/maps/traffic/gettrafficincidenttile)  |  [dados detalhes do formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- Detalhes do formato de [dados de documentação](/rest/api/maps/traffic/gettrafficflowtile)de fluxo de tráfego  |  [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- O Azure Maps Creator também permite que os azulejos vetores personalizados sejam criados e acedidos através do [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > Ao utilizar azulejos de imagem vetor ou raster do Azure Maps, o serviço de prestação de dados com a web SDK, pode `atlas.microsoft.com` substituir-se pelo espaço reservado `{azMapsDomain}` . Este espaço reservado será substituído pelo mesmo domínio utilizado pelo mapa e anexará automaticamente os mesmos detalhes de autenticação também. Isto simplifica consideravelmente a autenticação com o serviço de prestação quando se utiliza a autenticação do Azure Ative Directory.
@@ -213,16 +213,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Fonte de Dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [Fonte de Dados](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [Opções DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [Opções DataSource](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
+> [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [Opções VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
+> [Opções VectorTileSource](/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 
@@ -248,4 +248,4 @@ Consulte os seguintes artigos para obter mais amostras de código para adicionar
 > [Adicione um mapa de calor](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Amostras de código](/samples/browse/?products=azure-maps)

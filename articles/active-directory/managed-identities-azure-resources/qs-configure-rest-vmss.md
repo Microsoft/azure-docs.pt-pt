@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2b776ba64d96d092ad51ad2888b891e19e8b521
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c79942aad2ce450bc22aa0a0cfc32e67a667bd48
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968870"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895958"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando chamadas REST API
 
@@ -33,21 +33,24 @@ Neste artigo, utilizando o CURL para fazer chamadas para o ponto final do Azure 
 - Ativar e desativar a identidade gerida atribuída pelo sistema num conjunto de escala de máquina virtual Azure
 - Adicione e remova uma identidade gerida atribuída pelo utilizador num conjunto de escala de máquina virtual Azure
 
+Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
-- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Se não está familiarizado com identidades geridas para recursos Azure, veja [o que são identidades geridas para os recursos do Azure?](overview.md) Para saber mais sobre os tipos de identidade geridos atribuídos pelo sistema e atribuídos pelo utilizador, consulte [os tipos de identidade geridos](overview.md#managed-identity-types).
+
 - Para realizar as operações de gestão neste artigo, a sua conta necessita das seguintes atribuições de funções Azure:
 
-    > [!NOTE]
-    > Não são necessárias atribuições adicionais de diretório ad AD.
+  - [Contribuinte de máquinas virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
 
-    - [Contribuinte de máquinas virtuais](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para criar um conjunto de escala de máquina virtual e ativar e remover sistema e/ou identidade gerida atribuída pelo utilizador a partir de um conjunto de escala de máquina virtual.
-    - [Papel de Contribuinte de Identidade Gerido](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
-    - [Função de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para atribuir e remover uma identidade atribuída ao utilizador de e para um conjunto de escala de máquina virtual.
-- Pode executar todos os comandos deste artigo na nuvem ou localmente:
-    - Para correr na nuvem, use a [Azure Cloud Shell](../../cloud-shell/overview.md).
-    - Para executar localmente, instale o [curl](https://curl.haxx.se/download.html) e o [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no [Azure](/cli/azure/reference-index#az-login) usando o login az com uma conta que está associada à subscrição Azure que gostaria de gerir o sistema ou identidades geridas atribuídas pelo utilizador.
+  - [Papel de Contribuinte de Identidade Gerido](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para criar uma identidade gerida atribuída pelo utilizador.
+
+  - [Função de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para atribuir e remover uma identidade atribuída ao utilizador de e para um conjunto de escala de máquina virtual.
+
+  > [!NOTE]
+  > Não são necessárias atribuições adicionais de diretório ad AD.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
 
@@ -63,7 +66,7 @@ Para criar um conjunto de escala de máquina virtual com identidade gerida atrib
    az group create --name myResourceGroup --location westus
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para o seu conjunto de escala de máquina virtual:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para o seu conjunto de escala de máquina virtual:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -75,7 +78,7 @@ Para criar um conjunto de escala de máquina virtual com identidade gerida atrib
    az account get-access-token
    ``` 
 
-4. Crie um conjunto de balança de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST. O exemplo a seguir cria um conjunto de escala de máquina virtual denominado *myVMSS* no *myResourceGroup* com uma identidade gerida atribuída ao sistema, tal como identificado no organismo de pedido pelo valor `"identity":{"type":"SystemAssigned"}` . `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+4. Utilizando a Azure Cloud Shell, crie um conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST. O exemplo a seguir cria um conjunto de escala de máquina virtual denominado *myVMSS* no *myResourceGroup* com uma identidade gerida atribuída ao sistema, tal como identificado no organismo de pedido pelo valor `"identity":{"type":"SystemAssigned"}` . `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -167,7 +170,7 @@ Para ativar a identidade gerida atribuída pelo sistema num conjunto de escala d
    az account get-access-token
    ```
 
-2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual, tal como identificado no corpo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um conjunto de escala de máquina virtual denominado *myVMSS*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+2. Utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para permitir a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual, tal como identificado no corpo de pedido pelo valor `{"identity":{"type":"SystemAssigned"}` de um conjunto de escala de máquina virtual denominado *myVMSS* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
    
    > [!IMPORTANT]
    > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuída à escala de máquina virtual identificada como identificada no valor da `identity` resposta, salte para o passo 3 que lhe mostre como reter identidades geridas atribuídas pelo utilizador, permitindo a identidade gerida atribuída pelo sistema no seu conjunto de escala de máquina virtual.
@@ -278,7 +281,7 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
    az account get-access-token
    ```
 
-2. Atualize o conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo a seguir desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um conjunto de escala de máquina virtual denominado *myVMSS*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+2. Atualize o conjunto de escala de máquina virtual utilizando o CURL para chamar o ponto final do Azure Resource Manager REST para desativar a identidade gerida atribuída pelo sistema.  O exemplo a seguir desativa a identidade gerida atribuída pelo sistema, identificada no organismo de pedido pelo valor `{"identity":{"type":"None"}}` de um conjunto de escala de máquina virtual denominado *myVMSS* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    > [!IMPORTANT]
    > Para garantir que não elimina quaisquer identidades geridas atribuídas ao utilizador que sejam atribuídas ao conjunto de escalas de máquinas virtuais, é necessário listar as identidades geridas atribuídas pelo utilizador utilizando este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` . Se tiver alguma identidade gerida atribuída ao utilizador atribuído à balança de máquinas virtual, salte para o passo 3 que lhe mostre como reter as identidades geridas atribuídas pelo utilizador, ao mesmo tempo que remove a identidade gerida atribuída pelo sistema do seu conjunto de escala de máquina virtual.
@@ -308,7 +311,7 @@ Para desativar uma identidade atribuída ao sistema num conjunto de escala de m�
     }
    ```
 
-   Para remover a identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01**. Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
+   Para remover a identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual que tenha identidades geridas atribuídas ao utilizador, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor mantendo o valor e os `UserAssigned` valores do dicionário se estiver a `userAssignedIdentities` utilizar a versão **API 2018-06-01** . Se estiver a utilizar **a versão API 2017-12-01** ou mais cedo, mantenha a `identityIds` matriz.
 
 ## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
@@ -322,7 +325,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
    az account get-access-token
    ```
 
-2. Crie uma [interface de rede](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para o seu conjunto de escala de máquina virtual:
+2. Crie uma [interface de rede](/cli/azure/network/nic#az-network-nic-create) para o seu conjunto de escala de máquina virtual:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -539,7 +542,7 @@ Nesta secção, aprende-se a adicionar e remover a identidade gerida atribuída 
 
 4. Se não tiver identidades geridas atribuídas ao utilizador ou sistema atribuído ao seu conjunto de escala de máquina virtual, utilize o seguinte comando CURL para ligar para o ponto final do Azure Resource Manager REST para atribuir a primeira identidade gerida atribuída ao conjunto de escala de máquina virtual.  Se tiver uma identidade gerida atribuída ao utilizador ou ao sistema atribuído à escala de máquina virtual, salte para o passo 5 que lhe mostre como adicionar várias identidades geridas atribuídas ao utilizador a um conjunto de escala de máquina virtual, mantendo também a identidade gerida atribuída pelo sistema.
 
-   O exemplo a seguir atribui uma identidade gerida atribuída ao utilizador a `ID1` um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup*.  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
+   O exemplo a seguir atribui uma identidade gerida atribuída ao utilizador a `ID1` um conjunto de escala de máquina virtual denominado *myVMSS* no grupo de recursos *myResourceGroup* .  `<ACCESS TOKEN>`Substitua-o pelo valor que recebeu no passo anterior quando solicitou um token de acesso ao Bearer e o `<SUBSCRIPTION ID>` valor adequado para o seu ambiente.
 
    **VERSÃO API 2018-06-01**
 

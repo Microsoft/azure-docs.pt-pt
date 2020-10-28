@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524748"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895856"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Utilizando o visualizador de erro de desenho de mapas Azure
 
-O Visualizador de Erro de Desenho é uma aplicação web autónoma que exibe [avisos e erros de pacote de desenho detetados](drawing-conversion-error-codes.md) durante o processo de conversão. A aplicação web Error Visualizer consiste numa página estática que pode utilizar sem se ligar à internet.  Pode utilizar o Error Visualizer para corrigir erros e avisos de acordo com os [requisitos do pacote de desenho](drawing-requirements.md). A [AZure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) apenas devolve uma resposta com uma ligação ao Error Visualizer apenas quando um erro é detetado.
+O Visualizador de Erro de Desenho é uma aplicação web autónoma que exibe [avisos e erros de pacote de desenho detetados](drawing-conversion-error-codes.md) durante o processo de conversão. A aplicação web Error Visualizer consiste numa página estática que pode utilizar sem se ligar à internet.  Pode utilizar o Error Visualizer para corrigir erros e avisos de acordo com os [requisitos do pacote de desenho](drawing-requirements.md). A [AZure Maps Conversion API](/rest/api/maps/conversion) apenas devolve uma resposta com uma ligação ao Error Visualizer apenas quando um erro é detetado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,8 +58,8 @@ Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas voc
 
 Dentro do pacote fechado descarregado a partir do `diagnosticPackageLocation` link, você encontrará dois ficheiros.
 
-* _VisualizationTool.zip_: Contém o código de origem, os meios de comunicação e a página web do Visualizador de Erros de Desenho.
-* _ConversionWarningsAndErrors.jsem_: Contém uma lista formatada de advertências, erros e detalhes adicionais que são utilizados pelo Visualizador de Erros de Desenho.
+* _VisualizationTool.zip_ : Contém o código de origem, os meios de comunicação e a página web do Visualizador de Erros de Desenho.
+* _ConversionWarningsAndErrors.jsem_ : Contém uma lista formatada de advertências, erros e detalhes adicionais que são utilizados pelo Visualizador de Erros de Desenho.
 
 Desaperte a pasta _VisualizationTool.zip._ Contém os seguintes itens:
 
@@ -90,7 +90,7 @@ Assim que o _ConversionWarningsAndErrors.jsem_ cargas de ficheiros, verá uma li
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez que o seu [pacote De desenho satisfaça os requisitos,](drawing-requirements.md)pode utilizar o [serviço Azure Maps Dataset](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote Drawing num conjunto de dados. Em seguida, pode utilizar o módulo web Indoor Maps para desenvolver a sua aplicação. Saiba mais lendo os seguintes artigos:
+Uma vez que o seu [pacote De desenho satisfaça os requisitos,](drawing-requirements.md)pode utilizar o [serviço Azure Maps Dataset](/rest/api/maps/conversion) para converter o pacote Drawing num conjunto de dados. Em seguida, pode utilizar o módulo web Indoor Maps para desenvolver a sua aplicação. Saiba mais lendo os seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Códigos de erro de conversão de desenho](drawing-conversion-error-codes.md)
