@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741878"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 
@@ -25,8 +25,8 @@ Aprenda a autenticar o seu espaço de trabalho Azure Machine Learning e a modelo
 
 Em geral, existem dois tipos de autenticação que pode utilizar com a Azure Machine Learning:
 
-* __Interativo__: Utilize a sua conta no Azure Ative Directory para autenticar diretamente ou para obter um token que seja utilizado para a autenticação. A autenticação interativa é utilizada durante a experimentação e o desenvolvimento iterativo. Ou onde pretende controlar o acesso a recursos (como um serviço web) por utilizador.
-* __Principal de serviço__: Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um processo automatizado para autenticar o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda. Também pode utilizar um principal de serviço para recuperar um token para autenticar num serviço web, caso não pretenda exigir que o utilizador final do serviço autente. Ou onde a autenticação do utilizador final não é realizada diretamente usando o Diretório Azure Ative.
+* __Interativo__ : Utilize a sua conta no Azure Ative Directory para autenticar diretamente ou para obter um token que seja utilizado para a autenticação. A autenticação interativa é utilizada durante a experimentação e o desenvolvimento iterativo. Ou onde pretende controlar o acesso a recursos (como um serviço web) por utilizador.
+* __Principal de serviço__ : Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um processo automatizado para autenticar o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda. Também pode utilizar um principal de serviço para recuperar um token para autenticar num serviço web, caso não pretenda exigir que o utilizador final do serviço autente. Ou onde a autenticação do utilizador final não é realizada diretamente usando o Diretório Azure Ative.
 
 Independentemente do tipo de autenticação utilizado, o controlo de acesso baseado em funções Azure (Azure RBAC) é utilizado para estender o nível de acesso permitido aos recursos. Por exemplo, uma conta que é usada para obter o token de acesso para um modelo implantado só precisa de ler o acesso ao espaço de trabalho. Para obter mais informações sobre o Azure RBAC, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
 
@@ -285,8 +285,8 @@ Use `token_response["accessToken"]` para ir buscar o símbolo auth. Consulte a d
 
 As implementações de modelos criadas pela Azure Machine Learning fornecem dois métodos de autenticação:
 
-* **baseado em teclas**: Uma tecla estática é usada para autenticar o serviço web.
-* **Baseado em símbolos**: Um símbolo temporário deve ser obtido a partir do espaço de trabalho e utilizado para autenticar para o serviço web. Este token expira após um período de tempo, e deve ser atualizado para continuar a trabalhar com o serviço web.
+* **baseado em teclas** : Uma tecla estática é usada para autenticar o serviço web.
+* **Baseado em símbolos** : Um símbolo temporário deve ser obtido a partir do espaço de trabalho e utilizado para autenticar para o serviço web. Este token expira após um período de tempo, e deve ser atualizado para continuar a trabalhar com o serviço web.
 
     > [!NOTE]
     > A autenticação baseada em token só está disponível quando é implantada no Serviço Azure Kubernetes.
@@ -319,7 +319,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Para ir buscar as teclas auth, `aci_service.get_keys()` use. Para regenerar uma chave, utilize a `regen_key()` função e passe tanto **no Primário** como **no Secundário**.
+Para ir buscar as teclas auth, `aci_service.get_keys()` use. Para regenerar uma chave, utilize a `regen_key()` função e passe tanto **no Primário** como **no Secundário** .
 
 ```python
 aci_service.regen_key("Primary")

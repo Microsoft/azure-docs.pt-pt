@@ -5,36 +5,23 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d26354d8c247f0839bb96564c4e004158743bd88
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677702"
+ms.locfileid: "92742208"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
 Pode utilizar a Gestão de Atualização na Azure Automation para gerir as atualizações do sistema operativo para as suas máquinas Windows e Linux em Azure, em ambientes no local e em outros ambientes em nuvem. Pode avaliar rapidamente o estado das atualizações disponíveis em todas as máquinas de agente e gerir o processo de instalação das atualizações necessárias para os servidores.
 
-Pode ativar a Gestão de Atualização de VMs das seguintes formas:
-
-- Da sua [Azure Automation conta](enable-from-automation-account.md) para uma ou mais máquinas Azure e não-Azure.
-
-- Manualmente para máquinas não-Azure, incluindo máquinas ou servidores registados com [servidores ativados Azure Arc](../../azure-arc/servers/overview.md).
-
-- Para um único Azure VM da [página da máquina Virtual](enable-from-vm.md) no portal Azure. Este cenário está disponível para Linux e Windows VMs.
-
-- Para [vários VMs Azure](enable-from-portal.md) selecionando-os a partir da página de máquinas Virtuais no portal Azure.
-
-> [!NOTE]
-> A Gestão de Atualização requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
-
-Um [modelo de Gestor de Recursos Azure](enable-from-template.md) está disponível para ajudá-lo a ativar a funcionalidade de Gestão de Atualização numa conta de Automação nova ou existente e espaço de trabalho Log Analytics na sua subscrição. Não permite que os VMs Azure ou não-Azure com a funcionalidade, esse passo seja realizado posteriormente utilizando um dos métodos listados anteriormente.
-
 > [!NOTE]
 > Não é possível utilizar uma máquina configurada com a Update Management para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft.
 
 Para descarregar e instalar *patches* de *Segurança* e Crítica disponíveis automaticamente no seu Azure VM, reveja o patch [de hóspedes VM automático](../../virtual-machines/windows/automatic-vm-guest-patching.md) para VMs windows.
+
+Antes de implementar a Gestão de Atualização e de ativar as suas máquinas para gestão, certifique-se de que compreende as informações nas seguintes secções.  
 
 ## <a name="about-update-management"></a>Sobre a Gestão de Atualizações
 
@@ -44,6 +31,7 @@ As máquinas que são geridas pela Atualização De Gestão utilizam as seguinte
 * Configuração de Estado Pretendido do PowerShell (DSC) para Linux
 * Função de Trabalho de Runbook Híbrida da Automatização
 * Microsoft Update ou Serviços de Atualização do Servidor do Windows (WSUS) para máquinas Windows
+* Ou um repositório de atualização privada ou pública para máquinas Linux
 
 O diagrama a seguir ilustra como a Gestão de Atualização avalia e aplica atualizações de segurança a todos os servidores windows server e Linux conectados num espaço de trabalho:
 
@@ -79,7 +67,7 @@ Não é suportado um sistema de máquinas registada para a Gestão de Atualizaç
 A tabela que se segue lista os sistemas operativos suportados para avaliações de atualização e remendos. Remendar requer um Trabalhador de Runbook Híbrido. Para obter informações sobre os requisitos do Trabalhador do Runbook Híbrido Híbrido, consulte [implementar um trabalhador de runbook híbrido do Windows](../automation-windows-hrw-install.md) e um Trabalhador de [Runbook Híbrido Linux](../automation-linux-hrw-install.md).
 
 > [!NOTE]
-> A avaliação da atualização das máquinas Linux só é suportada em certas regiões conforme listado na tabela de [mapeamentos](../how-to/region-mappings.md#supported-mappings)do espaço de trabalho da Conta Automation e do Log Analytics . 
+> A avaliação da atualização das máquinas Linux só é suportada em certas regiões conforme listado na tabela de [mapeamentos](../how-to/region-mappings.md#supported-mappings)do espaço de trabalho da Conta Automation e do Log Analytics .
 
 |Sistema operativo  |Notas  |
 |---------|---------|
@@ -109,7 +97,7 @@ As seguintes informações descrevem os requisitos do cliente específicos do si
 
 #### <a name="windows"></a>Windows
 
-Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS, ou necessitam de acesso ao Microsoft Update. Para obter informações sobre como instalar o agente Log Analytics para windows, consulte [os computadores Do Windows para o Azure Monitor.](../../azure-monitor/platform/agent-windows.md) Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas incorporadas do Windows Azure Arc.](../../governance/policy/samples/built-in-policies.md#monitoring) Se também planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
+Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS, ou necessitam de acesso ao Microsoft Update. Para obter informações sobre o agente Log Analytics, consulte [a visão geral do agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas incorporadas do Windows Azure Arc.](../../governance/policy/samples/built-in-policies.md#monitoring) Se também planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
 Pode utilizar a Gestão de Atualização com o Gestor de Configuração do Ponto Final do Microsoft. Para saber mais sobre cenários de integração, consulte [integrar a gestão de atualização com o Gestor de Configuração de Pontos finais do Windows](mecmintegration.md). O [agente Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente de Gestor de Configuração. 
 
@@ -125,7 +113,7 @@ Para o Linux, a máquina requer acesso a um repositório de atualização, priva
 > [!NOTE]
 > A avaliação atualizada das máquinas Linux só é suportada em determinadas regiões. Consulte a tabela de [mapeamentos](../how-to/region-mappings.md#supported-mappings)do espaço de trabalho Da Automatização e do Log Analytics .
 
-Para obter informações sobre como instalar o agente Log Analytics para o Linux e para descarregar a versão mais recente, consulte o [agente Log Analytics para Linux](../../azure-monitor/platform/agent-linux.md). Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas do Arco Linux Azure.](../../governance/policy/samples/built-in-policies.md#monitoring) Se planeia também monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
+Para obter informações sobre o agente Log Analytics, consulte [a visão geral do agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para o Linux, ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas do Arco Linux Azure.](../../governance/policy/samples/built-in-policies.md#monitoring) Se planeia também monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
 Os VMs criados a partir das imagens on-demand Red Hat Enterprise Linux (RHEL) que estão disponíveis no Azure Marketplace estão registados para aceder à [Infraestrutura de Atualização de Chapéus Vermelhos (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) que está implantada em Azure. Qualquer outra distribuição linux deve ser atualizada a partir do repositório de ficheiros online da distribuição utilizando métodos suportados pela distribuição.
 
@@ -206,7 +194,7 @@ Se as suas políticas de segurança informática não permitirem que as máquina
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
-A tabela a seguir define as classificações que a Atualização de Gestão suporta para atualizações do Windows. 
+A tabela a seguir define as classificações que a Atualização de Gestão suporta para atualizações do Windows.
 
 |Classificação  |Descrição  |
 |---------|---------|
@@ -253,14 +241,18 @@ A Atualização Conta com o repositório de atualização configurado localmente
 
 ## <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
 
-Um modelo [de Gestor de Recursos](enable-from-template.md) Azure está disponível para ajudá-lo a implementar a Gestão de Atualização para uma nova conta de Automação ou existente e espaço de trabalho Azure Monitor Log Analytics na sua subscrição. Não configura o âmbito das máquinas que devem ser geridas, isto é executado como um passo separado após a utilização do gabarito.
-
 Aqui estão as formas de permitir a gestão de atualização e selecionar máquinas para ser gerido:
 
-* [De uma máquina virtual Azure](enable-from-vm.md)
-* [Da navegação de várias máquinas virtuais Azure](enable-from-portal.md)
-* [De uma conta de Automação Azure](enable-from-automation-account.md)
-* Para as máquinas ativadas pelo Arc (pré-visualização) ou não-Azure, instale o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) e, em seguida, ative as [máquinas no espaço de trabalho](enable-from-automation-account.md#enable-machines-in-the-workspace) para atualizar a Gestão.
+- Utilizando um [modelo de Gestor de Recursos](enable-from-template.md) Azure para implementar a Gestão de Atualização para uma nova conta de Automação ou existente e espaço de trabalho Azure Monitor Log Analytics na sua subscrição. Não configura o âmbito das máquinas que devem ser geridas, isto é executado como um passo separado após a utilização do gabarito.
+
+- Da sua [conta de Automação](enable-from-automation-account.md) para uma ou mais máquinas Azure e não-Azure, incluindo servidores ativados pelo Arc.
+
+- Para um [Azure VM selecionado](enable-from-vm.md) a partir da página da máquina Virtual no portal Azure. Este cenário está disponível para Linux e Windows VMs.
+
+- Para [vários VMs Azure](enable-from-portal.md) selecionando-os a partir da página de máquinas Virtuais no portal Azure.
+
+> [!NOTE]
+> A Gestão de Atualização requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,21 +3,21 @@ title: 'Quickstart: Criar uma aplicação Python'
 description: Começa com o Azure App Service implementando a sua primeira aplicação Python num contentor Linux no Serviço de Aplicações.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813190"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741109"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
 Neste quickstart, você implementa uma aplicação web Python para [o App Service no Linux,](overview.md#app-service-on-linux)o serviço de hospedagem web altamente escalável e auto-remendado da Azure. Utilize a [interface de linha de comando Azure local (CLI)](/cli/azure/install-azure-cli) num computador Mac, Linux ou Windows para implementar uma amostra com as estruturas do Flask ou do Django. A aplicação web que configura utiliza um nível de Serviço de Aplicações gratuito, para que não incorre em custos no decurso deste artigo.
 
 > [!TIP]
-> Se preferir usar o Código do Estúdio Visual, siga o nosso **[Serviço de Aplicações visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
+> Se preferir usar o Código do Estúdio Visual, siga o nosso **[Serviço de Aplicações visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
 
@@ -114,7 +114,7 @@ A amostra contém código específico de enquadramento que o Azure App Service r
     flask run
     ```
     
-    Por predefinição, o servidor assume que o módulo de entrada da aplicação se encontra em *app.py*, como é utilizado na amostra. (Se utilizar um nome de módulo diferente, desaprote a `FLASK_APP` variável ambiente para esse nome.)
+    Por predefinição, o servidor assume que o módulo de entrada da aplicação se encontra em *app.py* , como é utilizado na amostra. (Se utilizar um nome de módulo diferente, desaprote a `FLASK_APP` variável ambiente para esse nome.)
 
 1. Abra um navegador web e vá para a aplicação de amostras em `http://localhost:5000/` . A aplicação exibe a mensagem **Hello, World!**
 
@@ -157,7 +157,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Se o `az` comando não for reconhecido, certifique-se de que tem o CLI Azure instalado como descrito no [Conjunto do seu ambiente inicial](#set-up-your-initial-environment).
 - Se o `webapp` comando não for reconhecido, porque a sua versão Azure CLI é 2.0.80 ou superior. Caso contrário, [instale a versão mais recente](/cli/azure/install-azure-cli).
-- Substitua `<app_name>` por um nome único em todo o Azure *(caracteres válidos `a-z` `0-9` são, e `-` *. Um bom padrão é usar uma combinação do nome da sua empresa e um identificador de aplicativos.
+- Substitua `<app_name>` por um nome único em todo o Azure *(caracteres válidos `a-z` `0-9` são, e `-`* . Um bom padrão é usar uma combinação do nome da sua empresa e um identificador de aplicativos.
 - O `--sku F1` argumento cria a aplicação web no nível de preços gratuitos. Omita este argumento para usar um nível premium mais rápido, que incorre num custo de hora a hora.
 - Pode opcionalmente incluir o argumento `--location <location-name>` onde `<location_name>` está uma região de Azure disponível. Pode recuperar uma lista de regiões admissíveis para a sua conta Azure, executando o [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) comando.
 - Se vir o erro, "Não consegui detetar automaticamente a pilha de tempo de execução da sua aplicação", certifique-se de que está a executar o comando na pasta *python-docs-hello-world* (Flask) ou na pasta *python-docs-hello-django* (Django) que contém o ficheiro *requirements.txt.* (Ver [problemas de deteção automática de problemas com webapp az](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)

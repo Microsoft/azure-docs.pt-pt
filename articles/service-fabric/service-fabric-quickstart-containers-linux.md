@@ -3,13 +3,13 @@ title: Criar uma aplicação de recipiente Linux no Tecido de Serviço em Azure
 description: Neste início rápido, irá criar uma imagem do Docker com a sua aplicação, enviá-la para um registo de contentor e, em seguida, implementar o contentor para um cluster do Service Fabric.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91541514"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741923"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
 
@@ -89,7 +89,7 @@ O Service Fabric fornece várias ferramentas que pode utilizar para gerir um clu
 
 Neste arranque rápido, utilize o Service Fabric CLI e o Service Fabric Explorer (uma ferramenta baseada na web). Para utilizar o Service Fabric Explorer, é necessário importar o certificado ficheiro PFX para o navegador. Por predefinição, o ficheiro PFX não tem senha.
 
-Mozilla Firefox é o navegador padrão em Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu browser e, em seguida, clique em **Opções**. Na página **Preferências**, utilize a caixa de pesquisa para procurar "certificados". Clique em **Ver Certificados**, selecione o separador **Os Seus Certificados**, clique em **Importar** e siga as instruções para importar o certificado.
+Mozilla Firefox é o navegador padrão em Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu browser e, em seguida, clique em **Opções** . Na página **Preferências** , utilize a caixa de pesquisa para procurar "certificados". Clique em **Ver Certificados** , selecione o separador **Os Seus Certificados** , clique em **Importar** e siga as instruções para importar o certificado.
 
    ![Instalar o certificado no Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -143,13 +143,13 @@ Os serviços do Service Fabric podem ser facilmente dimensionados num cluster pa
 Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
 1. Abra o Service Fabric Explorer no seu cluster; por exemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080`.
-2. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/azurevotefront** na vista de árvore e escolha **Dimensionar Serviço**.
+2. Clique nas reticências (três pontos) junto ao nó **fabric:/Voting/azurevotefront** na vista de árvore e escolha **Dimensionar Serviço** .
 
     ![Início do serviço de dimensionamento do Service Fabric Explorer][containersquickstartscale]
 
     Agora, pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
 
-3. Altere o número para **2** e clique em **Dimensionar Serviço**.
+3. Altere o número para **2** e clique em **Dimensionar Serviço** .
 4. Clique no nó **fabric:/Voting/azurevotefront** na vista de árvore e expanda o nó de partição (representado por um GUID).
 
     ![Serviço de dimensionamento do Service Fabric Explorer concluído][containersquickstartscaledone]
@@ -158,7 +158,7 @@ Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
 Através desta simples tarefa de gestão, duplicou os recursos disponíveis para o serviço de front-end processar a carga de utilizador. É importante compreender que não precisa de várias instâncias de um serviço para que o mesmo seja executado de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância do serviço é executada no cluster.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Utilize o script de desinstalação (uninstall.sh) fornecido no modelo para eliminar a instância da aplicação do cluster local e anular o registo do tipo de aplicação. Este script demora algum tempo a limpar a instância, pelo que não deve executar o script de instalação imediatamente após este script. Pode utilizar o Service Fabric Explorer para determinar quando a instância foi removida e o tipo de aplicação cujo registo foi anulado.
 

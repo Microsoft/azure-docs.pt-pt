@@ -9,18 +9,50 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6e18599e83a301ecda94525949f9f4cd077085a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139373"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742027"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
+
+## <a name="2020-10-26"></a>2020-10-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1170"></a>Azure Machine Learning SDK para Python v1.17.0
++ **novos exemplos**
+  + Um novo repositório de exemplos orientado pela comunidade está disponível em https://github.com/Azure/azureml-examples
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    + Corrigi um problema em que get_output pode levantar um XGBoostError.
+  + **azureml-automl-runtime**
+    + As funcionalidades baseadas em tempo/calendário criadas por AutoML terão agora o prefixo.
+    + Fixo um IndexError que ocorre durante a formação do StackEnsemble para conjuntos de dados de classificação com um grande número de classes e sub-amostras ativadas.
+    + Corrigiu um problema em que as previsões do VotingRegssor podem ser imprecisas após a reinstalação do modelo.
+  + **azureml-core**
+    + Detalhes adicionais adicionados sobre a relação entre a configuração de implementação AKS e os conceitos de Serviço Azure Kubernetes.
+    + O cliente pode utilizar o serviço ligado SDK para ligar o espaço de trabalho da sinapse ao espaço de trabalho AML. OS CRUD são apoiados.
+    + Suporte de etiquetas de clientes ambientais. O utilizador pode rotular Ambientes e faz referência por etiqueta.
+  + **azureml-dataprep**
+    + Melhor mensagem de erro quando utilizar a spark não suportada atualmente com o Scala 2.12.
+  + **azureml-explain-modelo**
+    + O pacote azureml-explain-model é oficialmente depreciado
+  + **azureml-mlflow**
+    + Resolveu um bug em mlflow.projects.run contra o backend azureml onde o estado finalizador não foi tratado corretamente.
+  + **azureml-pipeline-core**
+    + Adicione suporte para criar, listar e obter o calendário do gasoduto baseado num ponto final do gasoduto.
+    +  Melhorar a documentação de PipelineData.as_dataset com um exemplo de utilização inválido - Usar PipelineData.as_dataset de forma imprópria resultará agora no lançamento de um ValueException
+    + Alterou o portátil de gasodutos HyperDriveStep para registar o melhor modelo dentro de um PipelineStep logo após a execução do HyperDriveStep.
+  + **azureml-pipeline-steps**
+    + Alterou o portátil de gasodutos HyperDriveStep para registar o melhor modelo dentro de um PipelineStep logo após a execução do HyperDriveStep.
+  + **azureml-train-automl-client**
+    + Corrigi um problema em que get_output pode levantar um XGBoostError.
+
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -122,7 +154,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Desde que a propriedade da Swaggerurl para a entidade de ponta de gasoduto através desse utilizador possa ver a definição de esquema para o ponto final do gasoduto publicado.
   + **azureml-pipeline-steps**
     + Novo Kusto Step e Kusto Compute Target.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Atualizar a descrição do pacote para a página geral do pypi.
   + **azureml-train**
     + Atualizar a descrição do pacote para a página geral do pypi.
@@ -179,7 +211,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
   + Nova Página de aterragem começada 
   
 + **Funcionalidades de pré-visualização**
-    + Reúna o recurso em Cadernos. Com a funcionalidade [Recolha,](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)   os utilizadores podem agora limpar facilmente os cadernos com, o Gather utiliza uma análise automatizada de dependência do seu caderno, garantindo que o código essencial é mantido, mas removendo quaisquer peças irrelevantes.
+    + Reúna o recurso em Cadernos. Com a funcionalidade [Recolha,](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview) os utilizadores podem agora limpar facilmente os cadernos com, o Gather utiliza uma análise automatizada de dependência do seu caderno, garantindo que o código essencial é mantido, mas removendo quaisquer peças irrelevantes.
 
 + **Correções e melhorias de bugs**
   + Melhoria da velocidade e fiabilidade
@@ -1718,7 +1750,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1880,7 +1912,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
   + **azureml-pipeline-steps**
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
-    + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
+    + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro* .
   + **azureml-telemetria**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
@@ -1912,7 +1944,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
 
 + **Novas funcionalidades**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** está agora disponível como **conjuntos de dados abertos azureml**. O antigo pacote ainda pode funcionar, mas recomendamos que utilize **conjuntos de dados abertos azureml** para avançar para capacidades e melhorias mais ricas.
+    + **azureml-contrib-opendatasets** está agora disponível como **conjuntos de dados abertos azureml** . O antigo pacote ainda pode funcionar, mas recomendamos que utilize **conjuntos de dados abertos azureml** para avançar para capacidades e melhorias mais ricas.
     + Este novo pacote permite-lhe registar conjuntos de dados abertos como Dataset no espaço de trabalho Azure Machine Learning e aproveitar todas as funcionalidades que o Dataset oferece.
     + Também inclui capacidades existentes, tais como o consumo de conjuntos de dados abertos como os dataframes pandas/SPARK, e a localização junta-se para alguns conjuntos de dados como o tempo.
 
@@ -2031,7 +2063,7 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 + **Novas funcionalidades**
   + O Azure Machine Learning SDK agora suporta Python 3.7.
-  + Os estimadores Azure Machine Learning DNN agora fornecem suporte multi-versão incorporado. Por exemplo, `TensorFlow`   o estimador agora aceita um `framework_version` parâmetro, e os utilizadores podem especificar as versões '1.10' ou '1.12'. Para obter uma lista das versões suportadas pela sua versão atual do SDK, ligue `get_supported_versions()` para a classe-quadro desejada (por exemplo, `TensorFlow.get_supported_versions()` ).
+  + Os estimadores Azure Machine Learning DNN agora fornecem suporte multi-versão incorporado. Por exemplo, `TensorFlow` o estimador agora aceita um `framework_version` parâmetro, e os utilizadores podem especificar as versões '1.10' ou '1.12'. Para obter uma lista das versões suportadas pela sua versão atual do SDK, ligue `get_supported_versions()` para a classe-quadro desejada (por exemplo, `TensorFlow.get_supported_versions()` ).
   Para obter uma lista das versões suportadas pela mais recente versão SDK, consulte a documentação do [Estimador DNN](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py&preserve-view=true).
 
 ## <a name="2019-03-25"></a>2019-03-25

@@ -556,8 +556,6 @@
               href: platform/alerts-managing-smart-groups.md
             - name: Gerir estados de alertas e de grupos inteligentes
               href: platform/alerts-managing-alert-states.md
-            - name: Gerir alertas a partir de outros serviços de monitorização
-              href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: API de Alerta
           href: platform/api-alerts.md
         - name: Alertas de resolução de problemas
@@ -576,8 +574,6 @@
               href: platform/itsmc-service-manager-script.md
             - name: Corrigir problemas de sincronização do ITSM da ServiceNow
               href: platform/itsmc-resync-servicenow.md
-        - name: Solução de Gestão de Alertas
-          href: platform/alert-management-solution.md
         - name: Migrar regras de alerta clássicas
           items:
             - name: Acerca dos alertas clássicos
@@ -1138,6 +1134,8 @@
               href: insights/vmware.md
             - name: Solução Wire Data
               href: insights/wire-data.md
+            - name: Solução de Gestão de Alertas
+              href: platform/alert-management-solution.md
     - name: Livros
       items:
         - name: Descrição geral

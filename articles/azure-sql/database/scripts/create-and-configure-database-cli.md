@@ -4,19 +4,19 @@ description: Utilize este script de exemplo Azure CLI para criar uma única base
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: cb8850adaf638aca3ed69c3939916e132f66062d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc17ab55cb473036d8c40bd1e533bcc20c4c6259
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86504568"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742252"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Utilize o CLI Azure para criar uma única base de dados e configurar uma regra de firewall
 

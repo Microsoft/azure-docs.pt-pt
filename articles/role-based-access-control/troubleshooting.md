@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741061"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -120,7 +120,7 @@ Se convidou recentemente um utilizador ao criar uma atribuição de funções, e
 
 No entanto, se este diretor de segurança não for um utilizador recentemente convidado, poderá ser um diretor de segurança eliminado. Se atribuir uma função a um diretor de segurança e depois apagar esse diretor de segurança sem primeiro retirar a atribuição de funções, o diretor de segurança será listado como **Identidade não encontrado** e um tipo **desconhecido.**
 
-Se listar esta tarefa de função utilizando a Azure PowerShell, poderá ver um vazio `DisplayName` e um conjunto para `ObjectType` **Desconhecido**. Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte saída:
+Se listar esta tarefa de função utilizando a Azure PowerShell, poderá ver um vazio `DisplayName` e um conjunto para `ObjectType` **Desconhecido** . Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte saída:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -239,7 +239,7 @@ Se não conseguir aceder a nenhum destes azulejos, peça ao seu administrador ac
 
 ## <a name="azure-functions-and-write-access"></a>Funções Azure e escrever acesso
 
-Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overview.md) requerem acesso de escrita. Por exemplo, se um utilizador for atribuído à função [Reader,](built-in-roles.md#reader) não será capaz de visualizar as funções dentro de uma aplicação de função. O portal apresentará **(Sem acesso)**.
+Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overview.md) requerem acesso de escrita. Por exemplo, se um utilizador for atribuído à função [Reader,](built-in-roles.md#reader) não será capaz de visualizar as funções dentro de uma aplicação de função. O portal apresentará **(Sem acesso)** .
 
 ![Aplicativos de função sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 

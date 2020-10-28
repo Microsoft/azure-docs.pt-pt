@@ -5,13 +5,13 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
-ms.custom: seodec18
-ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77152997"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741300"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação local de Git para o Serviço de Aplicações Azure
 
@@ -104,22 +104,22 @@ Para ativar a implementação local do Git para a sua aplicação com Azure Pipe
 
 1. Selecione a sua aplicação Azure App Service e selecione **o Centro de Implementação** no menu esquerdo.
    
-1. Na página **'Centro de Implantação',** selecione **Local Git**e, em seguida, selecione **Continue**. 
+1. Na página **'Centro de Implantação',** selecione **Local Git** e, em seguida, selecione **Continue** . 
    
    ![Selecione Git local e, em seguida, selecione Continue](media/app-service-deploy-local-git/portal-enable.png)
    
-1. Na página do **fornecedor Build,** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue**. 
+1. Na página do **fornecedor Build,** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue** . 
    
    ![Selecione Azure Pipelines (Preview) e, em seguida, selecione Continue.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. Na página **Configure,** configurar uma nova organização Azure DevOps, ou especificar uma organização existente, e, em seguida, selecionar **Continue**.
+1. Na página **Configure,** configurar uma nova organização Azure DevOps, ou especificar uma organização existente, e, em seguida, selecionar **Continue** .
    
    > [!NOTE]
    > Se a sua organização Azure DevOps existente não estiver listada, poderá ter de ligá-la à sua subscrição Azure. Para obter mais informações, consulte [Definir o seu pipeline de desbloqueio de CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. Dependendo do nível de preços do seu [plano de aplicação,](https://azure.microsoft.com/pricing/details/app-service/plans/)poderá ver uma **página de paragem para a paragem.** Escolha se [ativar as ranhuras de implantação](deploy-staging-slots.md)e, em seguida, selecione **Continue**.
+1. Dependendo do nível de preços do seu [plano de aplicação,](https://azure.microsoft.com/pricing/details/app-service/plans/)poderá ver uma **página de paragem para a paragem.** Escolha se [ativar as ranhuras de implantação](deploy-staging-slots.md)e, em seguida, selecione **Continue** .
    
-1. Na página **Resumo,** reveja as definições e, em seguida, **selecione Terminar**.
+1. Na página **Resumo,** reveja as definições e, em seguida, **selecione Terminar** .
    
 1. Quando o Gasoduto Azure estiver pronto, copie o URL do repositório Git da página **do Centro de Implantação** para utilizar no passo seguinte. 
    

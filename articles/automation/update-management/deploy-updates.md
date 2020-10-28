@@ -3,14 +3,14 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637603"
+ms.locfileid: "92742285"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -75,9 +75,6 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
 
    > [!NOTE]
    > Não é possível especificar atualizações que tenham sido substituídos para incluir na implementação da atualização.
-
-   > [!IMPORTANT]
-   > Para a Red Hat Enterprise, as atualizações de kernel também aparecem como pacotes em YUM. Se não excluir atualizações que incluam atualizações de kernel, a Update Management aplicará essas atualizações.
 
 9. Selecione **definições de agendamento** . A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 

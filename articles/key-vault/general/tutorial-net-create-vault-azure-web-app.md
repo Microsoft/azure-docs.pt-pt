@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336688"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741384"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma App Web Azure com .NET
 
@@ -173,7 +173,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 
 O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Guarde esta URL, como precisar mais tarde.
 
-Navegue pela sua aplicação recém-criada. Substitua _ &lt; o seu nome webapp>_ pelo nome da sua aplicação.
+Navegue pela sua aplicação recém-criada. Substitua _&lt; o seu nome webapp>_ pelo nome da sua aplicação.
 
 ```bash
 https://<your-webapp-name>.azurewebsites.net

@@ -7,13 +7,13 @@ ms.topic: overview
 ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 5c846bc126d6a6a8b0a8ed4a599c6d43a4d83616
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 66c331a79a4da7b8fb397e7d0209b24e00645783
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421225"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741713"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Restringir o acesso à importação/exportação de discos geridos com ligações privadas
 

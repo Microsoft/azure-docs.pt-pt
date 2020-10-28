@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486162"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740882"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Provisão de produção de escala automática na base de dados ou contentor em Azure Cosmos DB - SQL API
 
@@ -29,11 +29,11 @@ Se estiver a utilizar uma API diferente, consulte [a API para a MongoDB,](how-to
 
 1. Navegue na sua conta DB Azure Cosmos e abra o **separador Data Explorer.**
 
-1. Selecione **Novo Recipiente.** Insira um nome para a sua base de dados, recipiente e uma chave de partição. No **Âmbito do 'Under Throughput**' ' '' selecione a opção **de autoescala** e desagreda a [potência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) a que pretende que a base de dados ou o recipiente se dimensionem.
+1. Selecione **Novo Recipiente.** Insira um nome para a sua base de dados, recipiente e uma chave de partição. No **Âmbito do 'Under Throughput** ' ' '' selecione a opção **de autoescala** e desagreda a [potência máxima (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) a que pretende que a base de dados ou o recipiente se dimensionem.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Criação de um contentor e configuração de produção de autoescala":::
 
-1. Selecione **OK**.
+1. Selecione **OK** .
 
 Para obter uma escala automática na base de dados de produção partilhada, selecione a opção **de produção de base de dados de provisão de Provisão** ao criar uma nova base de dados. 
 
@@ -48,7 +48,7 @@ Para obter uma escala automática na base de dados de produção partilhada, sel
 
 1. Selecione **Escala e Definições** para o seu recipiente ou **Escala** para a sua base de dados.
 
-1. Em **Escala**, selecione a opção **Autoscale** e **Guarde**.
+1. Em **Escala** , selecione a opção **Autoscale** e **Guarde** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Criação de um contentor e configuração de produção de autoescala":::
 
