@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488971"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780194"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FaQ de hiperescala da base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -128,15 +128,15 @@ Não neste momento, no entanto, pode escalar o seu cálculo e o número de répl
 
 ### <a name="can-i-provision-a-compute-replica-with-extra-ram-for-my-memory-intensive-workload"></a>Posso providenciar uma réplica computacional com RAM extra para a minha carga de trabalho intensiva de memória
 
-N.º Para obter mais RAM, você precisa atualizar para um tamanho de cálculo mais alto. Para obter mais informações, consulte os tamanhos de armazenamento e cálculo de [Hiperescala.](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)
+Não. Para obter mais RAM, você precisa atualizar para um tamanho de cálculo mais alto. Para obter mais informações, consulte os tamanhos de armazenamento e cálculo de [Hiperescala.](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5)
 
 ### <a name="can-i-provision-multiple-compute-replicas-of-different-sizes"></a>Posso providenciar réplicas de cálculo múltiplas de diferentes tamanhos
 
-N.º
+Não.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Quantas réplicas de escala de leitura são suportadas
 
-As bases de dados de Hiperescala são criadas com uma réplica de Escala de Leitura (duas réplicas incluindo primária) por padrão. Pode escalar o número de réplicas apenas de leitura entre 0 e 4 utilizando [o portal Azure](https://portal.azure.com) ou [a API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+As bases de dados de Hiperescala são criadas com uma réplica de Escala de Leitura (duas réplicas incluindo primária) por padrão. Pode escalar o número de réplicas apenas de leitura entre 0 e 4 utilizando [o portal Azure](https://portal.azure.com) ou [a API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Para uma elevada disponibilidade, preciso de providenciar réplicas de computação adicionais
 
@@ -178,11 +178,11 @@ Em Hyperscale, os ficheiros de dados são armazenados no armazenamento padrão A
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>Posso gerir ou definir ficheiros ou grupos de ficheiros com Hyperscale
 
-N.º Os ficheiros de dados são adicionados automaticamente. As razões comuns para a criação de grupos de ficheiros adicionais não se aplicam na arquitetura de armazenamento Hyperscale.
+Não. Os ficheiros de dados são adicionados automaticamente. As razões comuns para a criação de grupos de ficheiros adicionais não se aplicam na arquitetura de armazenamento Hyperscale.
 
 ### <a name="can-i-provision-a-hard-cap-on-the-data-growth-for-my-database"></a>Posso providenciar um limite rígido para o crescimento dos dados para a minha base de dados
 
-N.º
+Não.
 
 ### <a name="how-are-data-files-laid-out-with-hyperscale"></a>Como são apresentados ficheiros de dados com Hyperscale
 
@@ -190,7 +190,7 @@ Os ficheiros de dados são controlados por servidores de página, com um servido
 
 ### <a name="is-database-shrink-supported"></a>É a base de dados suportada
 
-N.º
+Não.
 
 ### <a name="is-data-compression-supported"></a>É suportado com compressão de dados
 
@@ -198,7 +198,7 @@ Sim, incluindo compressão de linha, página e loja de colunas.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Se eu tiver uma mesa enorme, os dados da minha tabela são espalhados por vários ficheiros de dados
 
-Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários ficheiros de dados, que fazem parte do mesmo grupo de ficheiros. O SQL Server utiliza [uma estratégia de preenchimento proporcional](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados por ficheiros de dados.
+Sim. As páginas de dados associadas a uma determinada tabela podem acabar em vários ficheiros de dados, que fazem parte do mesmo grupo de ficheiros. O SQL Server utiliza [uma estratégia de preenchimento proporcional](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir dados por ficheiros de dados.
 
 ## <a name="data-migration-questions"></a>Questões de migração de dados
 
@@ -210,7 +210,7 @@ O tempo necessário para mover uma base de dados existente para Hyperscale consi
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>Posso mover as minhas bases de dados de Hiperescala para outros níveis de serviço
 
-N.º Neste momento, não se pode mover uma base de dados hyperscale para outro nível de serviço.
+Não. Neste momento, não se pode mover uma base de dados hyperscale para outro nível de serviço.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Se perco alguma funcionalidade ou capacidade após a migração para o nível de serviço hyperscale
 
@@ -231,15 +231,15 @@ A hiperescala é capaz de consumir 100 MB/s de dados novos/alterados, mas o temp
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Posso ler dados do armazenamento de bolhas e fazer carga rápida (como a Polybase in Azure Synapse Analytics)
 
-Pode ter uma aplicação do cliente a ler dados a partir do Azure Storage e carregar a carga de dados numa base de dados de Hiperescala (tal como pode com qualquer outra base de dados na Base de Dados Azure SQL). A Polybase não é suportada atualmente na Base de Dados Azure SQL. Como alternativa para fornecer carga rápida, pode utilizar [a Azure Data Factory,](https://docs.microsoft.com/azure/data-factory/)ou utilizar uma função spark em [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) com o [conector Spark para SQL](spark-connector.md). O conector Spark para SQL suporta a inserção a granel.
+Pode ter uma aplicação do cliente a ler dados a partir do Azure Storage e carregar a carga de dados numa base de dados de Hiperescala (tal como pode com qualquer outra base de dados na Base de Dados Azure SQL). A Polybase não é suportada atualmente na Base de Dados Azure SQL. Como alternativa para fornecer carga rápida, pode utilizar [a Azure Data Factory,](../../data-factory/index.yml)ou utilizar uma função spark em [Azure Databricks](/azure/azure-databricks/) com o [conector Spark para SQL](spark-connector.md). O conector Spark para SQL suporta a inserção a granel.
 
-Também é possível ler em massa dados da loja Azure Blob utilizando Azure Blob store usando AZURE Insert ou OPENROWSET: [Exemplos de acesso a granel a dados no armazenamento de blob Azure.](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)
+Também é possível ler em massa dados da loja Azure Blob utilizando Azure Blob store usando AZURE Insert ou OPENROWSET: [Exemplos de acesso a granel a dados no armazenamento de blob Azure.](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)
 
 O modelo simples de recuperação ou de registo a granel não é suportado em Hyperscale. É necessário um modelo de recuperação total para proporcionar elevada disponibilidade e recuperação pontual. No entanto, a arquitetura de registo de hiperescala fornece uma melhor taxa de ingestão de dados em comparação com outros níveis de serviço de base de dados Azure SQL.
 
 ### <a name="does-hyperscale-allow-provisioning-multiple-nodes-for-parallel-ingesting-of-large-amounts-of-data"></a>A Hyperscale permite o fornecimento de múltiplos nosdes para ingestão paralela de grandes quantidades de dados
 
-N.º A hiperescala é uma arquitetura multi-processamento simétrica (SMP) e não é um processamento massivamente paralelo (MPP) ou uma arquitetura multi-master. Só é possível criar múltiplas réplicas para escalar cargas de trabalho apenas de leitura.
+Não. A hiperescala é uma arquitetura multi-processamento simétrica (SMP) e não é um processamento massivamente paralelo (MPP) ou uma arquitetura multi-master. Só é possível criar múltiplas réplicas para escalar cargas de trabalho apenas de leitura.
 
 ### <a name="what-is-the-oldest-sql-server-version-supported-for-migration-to-hyperscale"></a>Qual é a versão mais antiga do SQL Server suportada para migração para Hyperscale
 
@@ -273,11 +273,11 @@ A RPO é 0 min. A maioria das operações de restauro completa em 60 minutos, in
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>A cópia de segurança da base de dados afeta o desempenho do cálculo nas minhas réplicas primárias ou secundárias
 
-N.º As cópias de segurança são geridas pelo subsistema de armazenamento e aproveitam as imagens de armazenamento. Não afetam as cargas de trabalho dos utilizadores.
+Não. As cópias de segurança são geridas pelo subsistema de armazenamento e aproveitam as imagens de armazenamento. Não afetam as cargas de trabalho dos utilizadores.
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Posso realizar geo-restauro com uma base de dados de Hiperescala
 
-Sim. Geo-restauro é totalmente suportado. Ao contrário da restauração pontual, a geo-restauração requer uma operação de tamanho de dados. Os ficheiros de dados são copiados em paralelo, pelo que a duração desta operação depende principalmente do tamanho do maior ficheiro na base de dados, em vez do tamanho total da base de dados. O tempo de geo-restauração será significativamente mais curto se a base de dados for restaurada na região de Azure que é [emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) com a região da base de dados de origem.
+Sim. Geo-restauro é totalmente suportado. Ao contrário da restauração pontual, a geo-restauração requer uma operação de tamanho de dados. Os ficheiros de dados são copiados em paralelo, pelo que a duração desta operação depende principalmente do tamanho do maior ficheiro na base de dados, em vez do tamanho total da base de dados. O tempo de geo-restauração será significativamente mais curto se a base de dados for restaurada na região de Azure que é [emparelhada](../../best-practices-availability-paired-regions.md) com a região da base de dados de origem.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Posso configurar a geo-replicação com base de dados de hiperescala
 
@@ -285,7 +285,7 @@ Neste momento, não.
 
 ### <a name="can-i-take-a-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-on-sql-server-in-a-vm"></a>Posso pegar numa base de dados hyperscale e restaurá-la para o meu servidor no local, ou no SQL Server num VM
 
-N.º O formato de armazenamento para bases de dados hyperscale é diferente de qualquer versão lançada do SQL Server, e você não controla cópias de segurança ou tem acesso a elas. Para retirar os seus dados de uma base de dados de hiperescala, pode extrair dados utilizando quaisquer tecnologias de movimento de dados, ou seja, Azure Databricks, SSIS, etc.
+Não. O formato de armazenamento para bases de dados hyperscale é diferente de qualquer versão lançada do SQL Server, e você não controla cópias de segurança ou tem acesso a elas. Para retirar os seus dados de uma base de dados de hiperescala, pode extrair dados utilizando quaisquer tecnologias de movimento de dados, ou seja, Azure Databricks, SSIS, etc.
 
 ## <a name="cross-feature-questions"></a>Perguntas cruzadas
 
@@ -295,7 +295,7 @@ Sim. Algumas funcionalidades da Base de Dados Azure SQL não são suportadas em 
 
 ### <a name="will-polybase-work-with-hyperscale"></a>A Polybase funcionará com a Hyperscale
 
-N.º A base de polibase não é suportada na Base de Dados Azure SQL.
+Não. A base de polibase não é suportada na Base de Dados Azure SQL.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>A Hyperscale tem apoio para R e Python
 
@@ -303,7 +303,7 @@ Neste momento, não.
 
 ### <a name="are-compute-nodes-containerized"></a>São nódoas de computação contentorizadas
 
-N.º Processos de hiperescala funcionam nos nós [de tecido](https://azure.microsoft.com/services/service-fabric/) de serviço (VMs), não em recipientes.
+Não. Processos de hiperescala funcionam nos nós [de tecido](https://azure.microsoft.com/services/service-fabric/) de serviço (VMs), não em recipientes.
 
 ## <a name="performance-questions"></a>Questões de desempenho
 
@@ -317,7 +317,7 @@ A latência do IOPS e da IO variará em função dos padrões de carga de trabal
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>Será que a minha produção é afetada por backups
 
-N.º A computação é dissociada da camada de armazenamento. Isto elimina o impacto de desempenho da cópia de segurança.
+Não. A computação é dissociada da camada de armazenamento. Isto elimina o impacto de desempenho da cópia de segurança.
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>Será que a minha produção é afetada à medida que eu proviso réplicas adicionais de computação
 
@@ -335,7 +335,7 @@ A escala do cálculo para cima ou para baixo normalmente leva até 2 minutos, in
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>A minha base de dados está offline enquanto a operação de escala para cima/para baixo está em andamento
 
-N.º A escalada para cima e para baixo estará online.
+Não. A escalada para cima e para baixo estará online.
 
 ### <a name="should-i-expect-connection-drop-when-the-scaling-operations-are-in-progress"></a>Devo esperar que a ligação caia quando as operações de escala estiverem em andamento
 
@@ -351,13 +351,13 @@ Sim. A `tempdb` base de dados e o tamanho da [cache RBPEX](service-tier-hypersca
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Posso providenciar múltiplas réplicas primárias de computação, como um sistema multi-mestre, onde várias cabeças de computação primária podem conduzir a um nível mais elevado de concordância
 
-N.º Apenas a réplica do cálculo primário aceita pedidos de leitura/escrita. As réplicas de computação secundária só aceitam pedidos de leitura.
+Não. Apenas a réplica do cálculo primário aceita pedidos de leitura/escrita. As réplicas de computação secundária só aceitam pedidos de leitura.
 
 ## <a name="read-scale-out-questions"></a>Leia questões de escala
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Quantas réplicas de computação secundária posso providenciar
 
-Criamos uma réplica secundária para bases de dados de hiperescala por defeito. Se quiser ajustar o número de réplicas, pode fazê-lo utilizando [o portal Azure](https://portal.azure.com) ou [a API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Criamos uma réplica secundária para bases de dados de hiperescala por defeito. Se quiser ajustar o número de réplicas, pode fazê-lo utilizando [o portal Azure](https://portal.azure.com) ou [a API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Como posso ligar-me a estas réplicas de computação secundária
 
@@ -370,23 +370,23 @@ O resultado é `READ_ONLY` se estiver ligado a uma réplica secundária apenas d
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-a-read-scale-out-replica"></a>Posso criar um ponto final dedicado para uma réplica de escala de leitura
 
-N.º Só é possível ligar-se a réplicas de escala de leitura especificando `ApplicationIntent=ReadOnly` .
+Não. Só é possível ligar-se a réplicas de escala de leitura especificando `ApplicationIntent=ReadOnly` .
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>O sistema faz o equilíbrio inteligente da carga de trabalho
 
-N.º Uma nova ligação com a intenção apenas de leitura é redirecionada para uma réplica arbitrária de escala de leitura.
+Não. Uma nova ligação com a intenção apenas de leitura é redirecionada para uma réplica arbitrária de escala de leitura.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>Posso escalar para cima/para baixo as réplicas de computação secundária independentemente da réplica primária
 
-N.º A réplica de computação secundária também é usada como alvos de falha de alta disponibilidade, por isso precisam de ter a mesma configuração que a principal para fornecer o desempenho esperado após o failover.
+Não. A réplica de computação secundária também é usada como alvos de falha de alta disponibilidade, por isso precisam de ter a mesma configuração que a principal para fornecer o desempenho esperado após o failover.
 
 ### <a name="do-i-get-different-tempdb-sizing-for-my-primary-compute-and-my-additional-secondary-compute-replicas"></a>Recebo `tempdb` tamanhos diferentes para o meu cálculo primário e as minhas réplicas adicionais de computação secundária
 
-N.º A sua `tempdb` base de dados está configurada com base no fornecimento do tamanho do cálculo, as suas réplicas de computação secundária têm o mesmo tamanho que o cálculo primário.
+Não. A sua `tempdb` base de dados está configurada com base no fornecimento do tamanho do cálculo, as suas réplicas de computação secundária têm o mesmo tamanho que o cálculo primário.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-replicas"></a>Posso adicionar índices e pontos de vista sobre as minhas réplicas de computação secundária
 
-N.º Bases de dados de hiperescala têm armazenamento compartilhado, o que significa que todas as réplicas computacional vêem as mesmas tabelas, índices e vistas. Se quiser índices adicionais otimizados para leituras secundárias, deve adicioná-los na primária.
+Não. Bases de dados de hiperescala têm armazenamento compartilhado, o que significa que todas as réplicas computacional vêem as mesmas tabelas, índices e vistas. Se quiser índices adicionais otimizados para leituras secundárias, deve adicioná-los na primária.
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Quanto atraso vai haver entre as réplicas de computação primária e secundária
 

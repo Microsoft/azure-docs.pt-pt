@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: c1302822715a37ef1b85007130067ac02a8fd17a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887583"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778385"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrar um perfil Azure CDN de Standard Verizon para Premium Verizon
 
@@ -42,7 +42,7 @@ Para atualizar um **Azure CDN Standard a partir do** perfil verizon, contacte o 
 
 **O Azure CDN Premium dos** perfis Verizon tem as seguintes funcionalidades adicionais:
 - [Autenticação simbólica](cdn-token-auth.md): Permite que os utilizadores obtenham e utilizem um símbolo para obter recursos seguros.
-- [Regras do motor](cdn-rules-engine.md): Permite-lhe personalizar a forma como os pedidos HTTP são tratados.
+- [Regras do motor](./cdn-verizon-premium-rules-engine.md): Permite-lhe personalizar a forma como os pedidos HTTP são tratados.
 - Ferramentas de análise avançadas:
    - [Análise detalhada http](cdn-advanced-http-reports.md)
    - [Análise de desempenho de borda](cdn-edge-performance.md)
@@ -50,5 +50,4 @@ Para atualizar um **Azure CDN Standard a partir do** perfil verizon, contacte o 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre o motor de regras, consulte [a referência do motor das regras da Azure CDN](cdn-rules-engine-reference.md).
-
+Para saber mais sobre o motor de regras, consulte [a referência do motor das regras da Azure CDN](./cdn-verizon-premium-rules-engine-reference.md).

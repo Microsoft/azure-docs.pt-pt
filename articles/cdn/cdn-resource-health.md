@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887065"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778168"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorizar o estado de funcionamento dos recursos da CDN do Azure
   
-A azure CDN Resource health é um subconjunto de saúde de [recursos Azure](../resource-health/resource-health-overview.md).  Pode utilizar a saúde dos recursos Azure para monitorizar a saúde dos recursos da CDN e receber orientações acccionáveis para resolver problemas.
+A azure CDN Resource health é um subconjunto de saúde de [recursos Azure](../service-health/resource-health-overview.md).  Pode utilizar a saúde dos recursos Azure para monitorizar a saúde dos recursos da CDN e receber orientações acccionáveis para resolver problemas.
 
 >[!IMPORTANT] 
 >A saúde dos recursos Azure CDN apenas atualmente é responsável pela saúde da entrega global de CDN e das capacidades de API.  A saúde dos recursos Azure CDN não verifica pontos finais individuais do CDN.
@@ -51,7 +51,7 @@ A azure CDN Resource health é um subconjunto de saúde de [recursos Azure](../r
 
 Os estados relacionados com a saúde dos recursos Azure CDN podem ser encontrados abaixo.
 
-|Mensagem | Ação Recomendada |
+|Mensagem | Ação Recomendada |
 |---|---|
 |Pode ter parado, removido ou configurado de forma incorreta um ou mais dos seus pontos finais da CDN | Pode ter parado, removido ou configurado de forma incorreta um ou mais dos seus pontos finais da CDN.|
 |Lamentamos, mas o serviço de gestão da CDN está indisponível neste momento | Consulte aqui as atualizações de estado; Se o seu problema persistir após o tempo de resolução esperado, contacte o suporte.|
@@ -62,6 +62,6 @@ Lamentamos, estamos a ter problemas com alguns dos nossos fornecedores da CDN | 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Leia uma visão geral da saúde dos recursos Azure](../resource-health/resource-health-overview.md)
+- [Leia uma visão geral da saúde dos recursos Azure](../service-health/resource-health-overview.md)
 - [Problemas de resolução de problemas com compressão CDN](./cdn-troubleshoot-compression.md)
 - [Problemas de resolução de problemas com 404 erros](./cdn-troubleshoot-endpoint.md)

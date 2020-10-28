@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 297190a99f9231cd07cffe1364202a1acbe75323
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490004"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777933"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerir o Link Privado para Azure Database para PostgreSQL - Servidor único usando CLI
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma Rede Virtual
-Criar uma Rede Virtual com [a rede Az vnet criar.](/cli/azure/network/vnet) Este exemplo cria uma Rede Virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mySubnet*:
+Criar uma Rede Virtual com [a rede Az vnet criar.](/cli/azure/network/vnet) Este exemplo cria uma Rede Virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mySubnet* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -70,7 +70,7 @@ az vm create \
  Note o endereço IP público do VM. Utilizará este endereço para ligar ao VM a partir da internet no passo seguinte.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Criar uma base de dados Azure para PostgreSQL - Servidor Único 
-Crie uma Base de Dados Azure para PostgreSQL com o servidor az postgres criar comando. Lembre-se que o nome do seu Servidor PostgreSQL deve ser único em todo o Azure, por isso substitua o valor do espaço reservado nos parênteses pelo seu próprio valor único: 
+Crie uma Base de Dados Azure para PostgreSQL com o servidor az postgres criar comando. Lembre-se que o nome do seu Servidor PostgreSQL deve ser único em todo o Azure, por isso substitua o valor do espaço reservado pelos seus próprios valores únicos que utilizou acima: 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -132,24 +132,24 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Ligue-se ao *myVm VM* da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, introduza *myVm*.
+1. Na barra de pesquisa do portal, introduza *myVm* .
 
-1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
+1. Selecione o botão **Ligar** . Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP** . O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o *ficheiro.rdp descarregado.*
 
-    1. Se lhe for pedido, selecione **Ligar**.
+    1. Se lhe for pedido, selecione **Ligar** .
 
     1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente**, para especificar as credenciais que introduziu quando criou o VM.
+        > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente** , para especificar as credenciais que introduziu quando criou o VM.
 
-1. Selecione **OK**.
+1. Selecione **OK** .
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar** .
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
@@ -174,11 +174,11 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Tipo de servidor| Selecione **PostgresQL**.|
+    | Tipo de servidor| Selecione **PostgresQL** .|
     | Nome do servidor| Selecione *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | Nome de utilizador | Introduza o nome de utilizador como username@servername o fornecido durante a criação do servidor PostgreSQL. |
     |Palavra-passe |Introduza uma palavra-passe fornecida durante a criação do servidor PostgreSQL. |
-    |SSL|**Selecione Necessário**.|
+    |SSL|**Selecione Necessário** .|
     ||
 
 5. Selecione Ligar.

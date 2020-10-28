@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936950"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778600"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Manage expiration of web content in Azure CDN (Gerir a expiração do conteúdo Web na CDN do Azure)
 > [!div class="op_single_selector"]
@@ -42,56 +42,56 @@ Também pode controlar as definições de cache a partir do portal Azure definin
 O método preferido para configurar o cabeçalho de um servidor web `Cache-Control` é utilizar as regras de caching no portal Azure. Para obter mais informações sobre as regras de caching CDN, consulte [o comportamento do caching do Control Azure CDN com as regras de caching](cdn-caching-rules.md).
 
 > [!NOTE] 
-> As regras de caching estão disponíveis apenas para **Azure CDN Standard da Verizon** e **Azure CDN Standard a partir de** perfis Akamai. Para **o Azure CDN Premium a partir de** perfis Verizon, deve utilizar o motor de [regras Azure CDN](cdn-rules-engine.md) no portal **Manage** para obter funcionalidades semelhantes.
+> As regras de caching estão disponíveis apenas para **Azure CDN Standard da Verizon** e **Azure CDN Standard a partir de** perfis Akamai. Para **o Azure CDN Premium a partir de** perfis Verizon, deve utilizar o motor de [regras Azure CDN](./cdn-verizon-premium-rules-engine.md) no portal **Manage** para obter funcionalidades semelhantes.
 
-**Para navegar na página de regras do caching CDN**:
+**Para navegar na página de regras do caching CDN** :
 
 1. No portal Azure, selecione um perfil CDN e, em seguida, selecione o ponto final para o servidor web.
 
-1. No painel esquerdo, em Definições, selecione **Regras de colocação em cache**.
+1. No painel esquerdo, em Definições, selecione **Regras de colocação em cache** .
 
    ![Botão de regras de caching CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
-   É apresentada a página **Regras de colocação em cache**.
+   É apresentada a página **Regras de colocação em cache** .
 
    ![Página de caching CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
 **Para definir os cabeçalhos de Cache-Control de um servidor web utilizando regras globais de caching:**
 
-1. De acordo com **as regras globais de caching**, desempenhar **o comportamento de caching de cordas de consulta** para ignorar as cordas de **consulta** e definir o comportamento **de Caching** para **Override**.
+1. De acordo com **as regras globais de caching** , desempenhar **o comportamento de caching de cordas de consulta** para ignorar as cordas de **consulta** e definir o comportamento **de Caching** para **Override** .
       
-1. Para **a duração de validade da Cache**, introduza 3600 na caixa **Seconds** ou 1 na caixa **Horas.** 
+1. Para **a duração de validade da Cache** , introduza 3600 na caixa **Seconds** ou 1 na caixa **Horas.** 
 
    ![CdN global caching regras exemplo](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Esta regra global de cache define uma duração de cache de uma hora e afeta todos os pedidos para o ponto final. Substitui qualquer `Cache-Control` cabeçalho ou `Expires` HTTP que são enviados pelo servidor de origem especificado pelo ponto final.   
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 **Para definir os cabeçalhos de Cache-Control de um ficheiro de servidor web utilizando regras de caching personalizadas:**
 
 1. De acordo com **as regras de caching personalizado,** crie duas condições de jogo:
 
-     a. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/*` **introduza o valor de Match**. **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
+     a. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/*` **introduza o valor de Match** . **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
 
-     b. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/file1.txt` **introduza o valor do Match**. **Desentuê-lo** para **substituir** e introduza 2 na caixa **Horas.**
+     b. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/file1.txt` **introduza o valor do Match** . **Desentuê-lo** para **substituir** e introduza 2 na caixa **Horas.**
 
     ![CdN costume caching regras exemplo](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     A primeira regra de cache personalizada define uma duração de cache de quatro horas para quaisquer ficheiros `/webfolder1` na pasta no servidor de origem especificado pelo seu ponto final. A segunda regra substitui apenas a primeira regra do `file1.txt` ficheiro e define uma duração de cache de duas horas para o mesmo.
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Definição de cabeçalhos Cache-Control utilizando ficheiros de configuração
 Para conteúdos estáticos, como imagens e folhas de estilo, pode controlar a frequência de atualização modificando os ficheiros de configuração **applicationHost.config** ou **Web.config** para a sua aplicação web. Para definir o `Cache-Control` cabeçalho para o seu conteúdo, utilize o `<system.webServer>/<staticContent>/<clientCache>` elemento em qualquer ficheiro.
 
 ### <a name="using-applicationhostconfig-files"></a>Utilização de ficheiros ApplicationHost.config
-O ** ficheiroApplicationHost.config** é o ficheiro raiz do sistema de configuração IIS. As definições de configuração num ficheiro **ApplicationHost.config** afetam todas as aplicações no site, mas são ultrapassadas pelas definições de quaisquer ** ficheirosWeb.config** que existam para uma aplicação web.
+O **ficheiroApplicationHost.config** é o ficheiro raiz do sistema de configuração IIS. As definições de configuração num ficheiro **ApplicationHost.config** afetam todas as aplicações no site, mas são ultrapassadas pelas definições de quaisquer **ficheirosWeb.config** que existam para uma aplicação web.
 
 ### <a name="using-webconfig-files"></a>Utilização de ficheiros Web.config
-Com um ficheiro **Web.config, ** pode personalizar a forma como toda a sua aplicação web ou um diretório específico na sua aplicação web se comporta. Normalmente, tem pelo menos um ** ficheiroWeb.config** na pasta raiz da sua aplicação web. Para cada **Web.config** ficheiro numa pasta específica, as definições de configuração afetam tudo nessa pasta e nas suas sub-dobradeiras, a menos que sejam ultrapassadas ao nível da sub-fase por outro ficheiro **Web.config.** 
+Com um ficheiro **Web.config,** pode personalizar a forma como toda a sua aplicação web ou um diretório específico na sua aplicação web se comporta. Normalmente, tem pelo menos um **ficheiroWeb.config** na pasta raiz da sua aplicação web. Para cada **Web.config** ficheiro numa pasta específica, as definições de configuração afetam tudo nessa pasta e nas suas sub-dobradeiras, a menos que sejam ultrapassadas ao nível da sub-fase por outro ficheiro **Web.config.** 
 
 Por exemplo, pode definir um `<clientCache>` elemento num ficheiro **Web.config** na pasta raiz da sua aplicação web para cache de todo o conteúdo estático na sua aplicação web durante três dias. Também pode adicionar um ficheiro **Web.config** numa sub-dobradeira com mais conteúdo variável (por exemplo, `\frequent` ) e definir o seu elemento para cache o conteúdo `<clientCache>` da sub-dobradeira durante seis horas. O resultado líquido é que o conteúdo em todo o site é cached por três dias, exceto para qualquer conteúdo no `\frequent` diretório, que é em cache por apenas seis horas.  
 

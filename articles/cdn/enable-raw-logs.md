@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321250"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778039"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Métricas de Monitorização e Registos Brutos para Azure CDN da Microsoft
 Com o Azure CDN da Microsoft, pode monitorizar os recursos das seguintes formas para ajudá-lo a resolver problemas, rastrear e depurar problemas. 
@@ -40,34 +40,34 @@ Para configurar registos Raw para o seu Azure CDN a partir do perfil da Microsof
 
 1. A partir do menu do portal Azure, selecione **Todos os**  >>  **\<your-CDN-profile>** Recursos.
 
-2. Em **Monitorização**, selecione **Definições de Diagnóstico**.
+2. Em **Monitorização** , selecione **Definições de Diagnóstico** .
 
-3. **Selecione + Adicione a definição de diagnóstico**.
+3. **Selecione + Adicione a definição de diagnóstico** .
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
     
     > [!IMPORTANT]
     > Os registos brutos só estão disponíveis no nível de perfil, enquanto os registos de código de estado http agregados estão disponíveis no nível do ponto final.
 
-4. Nas **definições de Diagnóstico,** introduza um nome para a definição de diagnóstico no **nome de definições de Diagnóstico**.
+4. Nas **definições de Diagnóstico,** introduza um nome para a definição de diagnóstico no **nome de definições de Diagnóstico** .
 
 5. Selecione o **AzureCdnAccessLog** e deslocá-lo em dias.
 
 6. Selecione os **detalhes do Destino.** As opções de destino são:
     * **Enviar para o Log Analytics**
-        * Selecione o espaço de trabalho **subscrição** e **Log Analytics**.
+        * Selecione o espaço de trabalho **subscrição** e **Log Analytics** .
     * **Arquivar para uma conta de armazenamento**
         * Selecione a **Subscrição** e a **Conta de Armazenamento.**
     * **Transmita para um centro de eventos**
-        * Selecione o espaço de nome do centro de **eventos,** **nome do hub do evento (opcional)** e nome de política do centro de **eventos**. **Subscription**
+        * Selecione o espaço de nome do centro de **eventos,** **nome do hub do evento (opcional)** e nome de política do centro de **eventos** . **Subscription**
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
-7. Selecione **Guardar**.
+7. Selecione **Guardar** .
 
 ## <a name="configuration---azure-powershell"></a>Configuração - Azure PowerShell
 
-Utilize [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para configurar a definição de diagnóstico para troncos brutos.
+Utilize [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para configurar a definição de diagnóstico para troncos brutos.
 
 Os dados de retenção são definidos pela opção **-RetentionInDays** no comando.
 
@@ -178,7 +178,7 @@ A Azure CDN do Microsoft Service fornece atualmente registos Raw. Os registos br
     ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Enviado para a deprecação do escudo de origem
-A propriedade de log cru **isSentToOriginShield** foi depreciada e substituída por um novo campo **éReceivedFromClient**. Use o novo campo se já estiver a utilizar o campo deprecado. 
+A propriedade de log cru **isSentToOriginShield** foi depreciada e substituída por um novo campo **éReceivedFromClient** . Use o novo campo se já estiver a utilizar o campo deprecado. 
 
 Os registos brutos incluem troncos gerados tanto a partir da borda cdN (child POP) como do escudo de origem. O escudo de origem refere-se aos nós dos pais que estão estrategicamente localizados em todo o mundo. Estes nós comunicam com servidores de origem e reduzem a carga de tráfego na origem. 
 
@@ -201,7 +201,7 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> A funcionalidade de registos HTTP Raw está disponível automaticamente para quaisquer perfis criados ou atualizados após **25 de fevereiro de 2020**. Para os perfis cdN criados anteriormente, deve-se atualizar o ponto final do CDN após a configuração do registo. Por exemplo, pode-se navegar para a geo filtragem sob os pontos finais da CDN e bloquear qualquer país/região que não seja relevante para a sua carga de trabalho e salvar.
+> A funcionalidade de registos HTTP Raw está disponível automaticamente para quaisquer perfis criados ou atualizados após **25 de fevereiro de 2020** . Para os perfis cdN criados anteriormente, deve-se atualizar o ponto final do CDN após a configuração do registo. Por exemplo, pode-se navegar para a geo filtragem sob os pontos finais da CDN e bloquear qualquer país/região que não seja relevante para a sua carga de trabalho e salvar.
 
 
 ## <a name="metrics"></a>Métricas
@@ -211,7 +211,7 @@ As Métricas são apresentadas em gráficos e acessíveis através de PowerShell
 
 O Azure CDN da Microsoft mede e envia as suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no portal. 
 
-Para obter mais informações, consulte as [métricas do Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
+Para obter mais informações, consulte as [métricas do Monitor Azure.](../azure-monitor/platform/data-platform-metrics.md)
 
 **Métricas suportadas pela Azure CDN da Microsoft**
 
@@ -220,9 +220,9 @@ Para obter mais informações, consulte as [métricas do Monitor Azure.](https:/
 | Rácio bytes Hit* | A percentagem de saídas da cache CDN, calculada contra a saída total.                                      | Ponto final                                                                                    |
 | PedidoCount    | O número de pedidos de clientes servidos pela CDN.                                                                     | Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP. |
 | Tamanho das respostas    | O número de bytes enviados como respostas da borda da CDN aos clientes.                                                  |Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP.                                                                                          |
-| TotalLatency    | O tempo total do pedido de cliente recebido pela CDN **até à última resposta byte enviar da CDN para o cliente**. |Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP.                                                                                             |
+| TotalLatency    | O tempo total do pedido de cliente recebido pela CDN **até à última resposta byte enviar da CDN para o cliente** . |Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP.                                                                                             |
 
-***Bytes Hit Ration = (saída da borda - saída da origem)/saída da borda**
+**_Bytes Hit Ration = (saída da borda - saída da origem)/saída da borda_*
 
 Cenários excluídos no cálculo do rácio de impacto dos bytes:
 
@@ -255,13 +255,13 @@ Cenários excluídos no cálculo do rácio de impacto dos bytes:
 
 ### <a name="alerts"></a>Alertas
 
-Pode configurar alertas no Microsoft CDN selecionando Alertas **de Monitorização**  >>  **Alerts**.
+Pode configurar alertas no Microsoft CDN selecionando Alertas **de Monitorização**  >>  **Alerts** .
 
 Selecione **nova regra de alerta** para as métricas listadas na secção Métricas:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::
 
-O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](../azure-monitor/platform/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métricas Adicionais
 Pode ativar métricas adicionais usando Azure Log Analytics e troncos crus por um custo adicional.
@@ -276,13 +276,13 @@ Pode ativar métricas adicionais usando Azure Log Analytics e troncos crus por u
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
  
-4. Selecione **perfis CDN**.  Selecione uma consulta de exemplo para RUN ou feche o ecrã de exemplo para introduzir uma consulta personalizada:
+4. Selecione **perfis CDN** .  Selecione uma consulta de exemplo para RUN ou feche o ecrã de exemplo para introduzir uma consulta personalizada:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true":::   
 
-4. Para ver dados por gráfico, selecione **Gráfico**.  Selecione **Pin para painel de instrumentos** para fixar a tabela no painel Azure:
+4. Para ver dados por gráfico, selecione **Gráfico** .  Selecione **Pin para painel de instrumentos** para fixar a tabela no painel Azure:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Adicione a definição de diagnóstico para o perfil de CDN." border="true"::: 
 
@@ -293,6 +293,6 @@ Para obter mais informações sobre a Azure CDN e os outros serviços Azure menc
 
 * [Analisar](cdn-log-analysis.md) Padrões de utilização de Azure CDN.
 
-* Saiba mais sobre [o Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/overview)
+* Saiba mais sobre [o Azure Monitor.](../azure-monitor/overview.md)
 
-* Configurar [o Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+* Configurar [o Log Analytics no Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

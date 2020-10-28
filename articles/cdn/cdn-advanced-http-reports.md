@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84886062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779327"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar estatísticas de utilização com relatórios HTTP avançados da CDN do Azure
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +33,7 @@ Este documento explica relatórios HTTP avançados no Microsoft Azure CDN. Estes
     ![Botão de gestão da lâmina de perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     O portal de gestão cdn abre.
-2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o voo **de relatórios HTTP Avançados.**  Clique na **plataforma HTTP Large**.
+2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o voo **de relatórios HTTP Avançados.**  Clique na **plataforma HTTP Large** .
    
     ![Portal de gestão CDN - Menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -199,9 +199,8 @@ O lado esquerdo do gráfico (eixo y) indica o nome do ficheiro de cada um dos 10
 
 Diretamente abaixo da tabela de barras, serão listadas as seguintes informações para os 250 principais ativos solicitados: percurso relativo (incluindo nome de ficheiro), número de pedidos que resultaram num código de estado 404 Não Encontrados, o número total de vezes que o ativo foi solicitado, e a percentagem de pedidos que resultaram num código de estado 404 Não Encontrado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real no Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-rules-engine.md)
+* [Comportamento HTTP predefinido que predefinindo usando o motor de regras](./cdn-verizon-premium-rules-engine.md)
 * [Analisar desempenho da borda](cdn-edge-performance.md)
-

@@ -12,23 +12,23 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676141"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780364"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo descreve os fundamentos da garantia do nível de dados de uma aplicação utilizando a Base de [Dados Azure SQL](sql-database-paas-overview.md) e [a Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). A estratégia de segurança descrita segue a abordagem em camadas de defesa em profundidade, como mostrado na imagem abaixo, e move-se de fora para:
+Este artigo descreve os fundamentos da garantia do nível de dados de uma aplicação utilizando a Base de [Dados Azure SQL](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), e [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). A estratégia de segurança descrita segue a abordagem em camadas de defesa em profundidade, como mostrado na imagem abaixo, e move-se de fora para:
 
 ![Diagrama de defesa em camadas em profundidade. Os dados dos clientes estão envoltos em camadas de segurança da rede, gestão de acessos e proteções contra ameaças e informações.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Segurança da rede
 
-A Base de Dados SQL do Microsoft Azure e a SQL Managed Instance fornecem um serviço de base de dados relacional para aplicações em nuvem e empresa. Para ajudar a proteger os dados dos clientes, as firewalls impedem o acesso à rede ao servidor até que o acesso seja explicitamente concedido com base no endereço IP ou na origem do tráfego da rede Virtual Azure.
+A Base de Dados DO MICROSOFT Azure SQL, SQL Managed Instance e Azure Synapse Analytics fornecem um serviço de base de dados relacional para aplicações em nuvem e empresa. Para ajudar a proteger os dados dos clientes, as firewalls impedem o acesso à rede ao servidor até que o acesso seja explicitamente concedido com base no endereço IP ou na origem do tráfego da rede Virtual Azure.
 
 ### <a name="ip-firewall-rules"></a>Regras de firewall IP
 
@@ -36,7 +36,7 @@ As regras de firewall IP concedem acesso a bases de dados com base no endereço 
 
 ### <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
-[Os pontos finais do serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) alargam a conectividade da rede virtual sobre a espinha dorsal do Azure e permitem ao Azure SQL Database identificar a sub-rede de rede virtual de que o tráfego é originário. Para permitir que o tráfego chegue à Base de Dados Azure SQL, utilize as tags de serviço SQL para permitir o tráfego de saída através de [Grupos](../../virtual-network/security-overview.md) de Segurança de Rede.
+[Os pontos finais do serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) alargam a conectividade da rede virtual sobre a espinha dorsal do Azure e permitem ao Azure SQL Database identificar a sub-rede de rede virtual de que o tráfego é originário. Para permitir que o tráfego chegue à Base de Dados Azure SQL, utilize as tags de serviço SQL para permitir o tráfego de saída através de [Grupos](../../virtual-network/network-security-groups-overview.md) de Segurança de Rede.
 
 [As regras de rede virtual](vnet-service-endpoint-rule-overview.md) permitem ao Azure SQL Database apenas aceitar comunicações que são enviadas a partir de sub-redes selecionadas dentro de uma rede virtual.
 
@@ -99,7 +99,7 @@ A Advanced Threat Protection está a analisar os seus registos para detetar comp
 
 Base de Dados SQL, SQL Managed Instance e Azure Synapse Analytics protegem os dados dos clientes encriptando dados em movimento com [a Segurança da Camada de Transporte (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-Base de Dados SQL, SQL Managed Instance e Azure Synapse aplicam encriptação (SSL/TLS) em todos os momentos para todas as ligações. Isto garante que todos os dados são encriptados "em trânsito" entre o cliente e o servidor, independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
+Base de Dados SQL, SQL Managed Instance e Azure Synapse Analytics impõem encriptação (SSL/TLS) em todos os momentos para todas as ligações. Isto garante que todos os dados são encriptados "em trânsito" entre o cliente e o servidor, independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
 
 Como melhor prática, recomende que na cadeia de ligação utilizada pela aplicação, especifique uma ligação encriptada e _**não**_ confie no certificado do servidor. Isto força a sua aplicação a verificar o certificado do servidor e assim impede que a sua aplicação seja vulnerável ao homem nos ataques do tipo médio.
 

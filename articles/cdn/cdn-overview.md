@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0c8170947b59b3d40a388642dac3df772238197
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88783819"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778344"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de entrega de conteúdos (CND) no Azure?
 As redes de entrega de conteúdos (CDN) são redes distribuídas de servidores que podem entregar, de forma eficiente, conteúdos da Web aos utilizadores. O conteúdo em cache da LOJA CDNs em servidores de borda em locais de ponto de presença (POP) que estão perto dos utilizadores finais, para minimizar a latência. 
@@ -38,7 +38,7 @@ Para obter uma lista das localizações de nós da CDN atual, veja [Azure CDN PO
 ## <a name="how-it-works"></a>Como funciona
 ![Descrição geral da CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Um utilizador (Alice) solicita um ficheiro (também chamado de ativo) utilizando um URL com um nome de domínio especial, como _ &lt; o nome &gt; de ponto final_.azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
+1. Um utilizador (Alice) solicita um ficheiro (também chamado de ativo) utilizando um URL com um nome de domínio especial, como _&lt; o nome &gt; de ponto final_ .azureedge.net. Este nome pode ser um nome de anfitrião de ponto final ou um domínio personalizado. O DNS encaminha o pedido para o melhor desempenho de localização POP, que é normalmente o POP que está geograficamente mais próximo do utilizador.
     
 2. Se nenhuns servidores Edge no POP tiverem o ficheiro na respetiva cache, o POP solicita o ficheiro do servidor de origem. O servidor de origem pode ser uma aplicação Web do Azure, um Serviço em Nuvem do Azure, uma conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
    
@@ -59,7 +59,7 @@ Cada subscrição do Azure tem limites predefinidos para os recursos seguintes:
  - O número de pontos finais que podem ser criados num perfil da CDN. 
  - O número de domínios personalizados que podem ser mapeados para um ponto final.
 
-Para obter mais informações sobre os limites das subscrições da CDN, veja [CDN limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) (Limites da CDN).
+Para obter mais informações sobre os limites das subscrições da CDN, veja [CDN limits](../azure-resource-manager/management/azure-subscription-service-limits.md) (Limites da CDN).
     
 ## <a name="azure-cdn-features"></a>Funcionalidades da CDN do Azure
 A CDN do Azure oferece as seguintes funcionalidades principais:

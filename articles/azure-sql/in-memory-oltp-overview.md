@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985195"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779956"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimizar o desempenho utilizando tecnologias de memória na Base de Dados Azure SQL e na Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ As tecnologias na memória podem melhorar o desempenho destas cargas de trabalho
 
 Azure SQL Database e Azure SQL Managed Instance têm as seguintes tecnologias de memória:
 
-- *[O OLTP em Memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta o número de transações por segundo e reduz a latência para o processamento de transações. Os cenários que beneficiam de In-Memory OLTP são: processamento de transações de alto rendimento, como trading e jogos, ingestão de dados de eventos ou dispositivos IoT, caching, carga de dados e cenários temporários de tabela e tabela variável.
+- *[O OLTP em Memória](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta o número de transações por segundo e reduz a latência para o processamento de transações. Os cenários que beneficiam de In-Memory OLTP são: processamento de transações de alto rendimento, como trading e jogos, ingestão de dados de eventos ou dispositivos IoT, caching, carga de dados e cenários temporários de tabela e tabela variável.
 - *Os índices de lojas de colunas agrupadas* reduzem a sua pegada de armazenamento (até 10 vezes) e melhoram o desempenho para consultas de reporte e análise. Pode usá-lo com tabelas de fatos nas suas contas de dados para encaixar mais dados na sua base de dados e melhorar o desempenho. Além disso, pode usá-lo com dados históricos na sua base de dados operacional para arquivar e ser capaz de consultar até 10 vezes mais dados.
 - *Os índices de loja de colunas não agrupados* para hTAP ajudam-no a obter informações em tempo real no seu negócio através da consulta direta da base de dados operacional, sem a necessidade de executar um processo caro de extrato, transformação e carga (ETL) e esperar que o armazém de dados seja povoado. Os índices de lojas de colunas não agrupados permitem uma rápida execução de consultas de análise na base de dados OLTP, reduzindo ao mesmo tempo o impacto na carga de trabalho operacional.
 - *Os índices de loja de colunas agrupados otimizados* para HTAP permitem-lhe realizar o processamento rápido de transações e executar simultaneamente consultas de análise muito *rapidamente* nos mesmos dados.
@@ -93,7 +93,7 @@ Um primer rápido sobre In-Memory OLTP: [Quickstart 1: In-Memory OLTP Technologi
 Vídeos aprofundados sobre as tecnologias:
 
 - [In-Memory OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (que contém uma demonstração de benefícios de desempenho e passos para reproduzir estes resultados por si mesmo)
-- [Vídeos OLTP em Memória: O que é e Quando/Como usá-lo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [Vídeos OLTP em Memória: O que é e Quando/Como usá-lo](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it)
 
 Existe uma forma programática de perceber se uma determinada base de dados suporta In-Memory OLTP. Pode executar a seguinte consulta Transact-SQL:
 
@@ -101,7 +101,7 @@ Existe uma forma programática de perceber se uma determinada base de dados supo
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Se a consulta devolver **1**, In-Memory OLTP é suportado nesta base de dados. As seguintes consultas identificam todos os objetos que precisam de ser removidos antes de uma base de dados poder ser desclassificado para Final Geral, Padrão ou Básico:
+Se a consulta devolver **1** , In-Memory OLTP é suportado nesta base de dados. As seguintes consultas identificam todos os objetos que precisam de ser removidos antes de uma base de dados poder ser desclassificado para Final Geral, Padrão ou Básico:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Tamanho de dados e tampa de armazenamento para In-Memory OLTP
 
-In-Memory OLTP inclui tabelas otimizadas para a memória, que são usadas para armazenar dados do utilizador. Estas mesas são necessárias para caber na memória. Como gere a memória diretamente na Base de Dados SQL, temos o conceito de quota para dados do utilizador. Esta ideia é referida como *armazenamento OLTP in-memory*.
+In-Memory OLTP inclui tabelas otimizadas para a memória, que são usadas para armazenar dados do utilizador. Estas mesas são necessárias para caber na memória. Como gere a memória diretamente na Base de Dados SQL, temos o conceito de quota para dados do utilizador. Esta ideia é referida como *armazenamento OLTP in-memory* .
 
 Cada nível de preços de base de dados único suportado e cada nível elástico de preços da piscina inclui uma certa quantidade de In-Memory armazenamento OLTP.
 
@@ -149,7 +149,7 @@ Mas a degradação do nível pode ter um impacto negativo na sua base de dados. 
 
 Antes de desclassificar a base de dados para Finalidade Geral, Standard ou Básico, remova todas as tabelas e tipos de tabelas otimizados para a memória, bem como todos os módulos T-SQL compilados de forma nativa.
 
-*Recursos de escala no nível Business Critical*: Os dados em tabelas otimizadas para a memória devem caber no armazenamento OLTP In-Memory que esteja associado ao nível da base de dados ou à instância gerida, ou esteja disponível na piscina elástica. Se tentar reduzir o nível ou mover a base de dados para uma piscina que não tenha In-Memory armazenamento OLTP suficiente, a operação falha.
+*Recursos de escala no nível Business Critical* : Os dados em tabelas otimizadas para a memória devem caber no armazenamento OLTP In-Memory que esteja associado ao nível da base de dados ou à instância gerida, ou esteja disponível na piscina elástica. Se tentar reduzir o nível ou mover a base de dados para uma piscina que não tenha In-Memory armazenamento OLTP suficiente, a operação falha.
 
 ## <a name="in-memory-columnstore"></a>Loja de colunas na memória
 
@@ -164,13 +164,13 @@ Existem dois tipos de modelos de loja de colunas que pode utilizar para organiza
 
 Vídeo aprofundado sobre a tecnologia:
 
-- [Índice de Colunas: Vídeos analíticos na memória da Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Índice de Colunas: Vídeos analíticos na memória da Ignite 2016](/archive/blogs/sqlserverstorageengine/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Tamanho de dados e armazenamento para índices de loja de colunas
 
 Os índices de loja de colunas não são necessários para caber na memória. Portanto, o único limite para o tamanho dos índices é o tamanho máximo global da base de dados, que é documentado no modelo de compra baseado em [DTU](database/service-tiers-dtu.md) e artigos [de modelo de compra baseados em vCore.](database/service-tiers-vcore.md)
 
-Quando utiliza índices de loja de colunas agrupados, é utilizada compressão colunar para o armazenamento da tabela base. Esta compressão pode reduzir significativamente a pegada de armazenamento dos dados dos seus utilizadores, o que significa que pode encaixar mais dados na base de dados. E a compressão pode ser aumentada com compressão de [arquivo colunar.](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression) A quantidade de compressão que pode obter depende da natureza dos dados, mas 10 vezes a compressão não é incomum.
+Quando utiliza índices de loja de colunas agrupados, é utilizada compressão colunar para o armazenamento da tabela base. Esta compressão pode reduzir significativamente a pegada de armazenamento dos dados dos seus utilizadores, o que significa que pode encaixar mais dados na base de dados. E a compressão pode ser aumentada com compressão de [arquivo colunar.](/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression) A quantidade de compressão que pode obter depende da natureza dos dados, mas 10 vezes a compressão não é incomum.
 
 Por exemplo, se tiver uma base de dados com um tamanho máximo de 1 terabyte (TB) e conseguir 10 vezes a compressão utilizando índices de loja de colunas, pode encaixar um total de 10 TB de dados do utilizador na base de dados.
 
@@ -189,7 +189,7 @@ Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indispon
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart 1: In-Memory Tecnologias OLTP para um desempenho T-SQL mais rápido](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Quickstart 1: In-Memory Tecnologias OLTP para um desempenho T-SQL mais rápido](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [Utilize In-Memory OLTP numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
 - [Monitor In-Memory armazenamento OLTP](in-memory-oltp-monitor-space.md) para In-Memory OLTP
 - [Experimentar as funcionalidades dentro da memória](in-memory-sample.md)
@@ -200,18 +200,18 @@ Se tiver um índice de loja de colunas **agrupado,** toda a tabela fica indispon
 
 - [Saiba como o Qurum duplica a carga de trabalho da base de dados chave enquanto baixa a DTU em 70% com In-Memory OLTP na Base de Dados SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [In-Memory OLTP Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [Saiba mais sobre In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Saiba mais sobre índices de lojas de colunas](https://msdn.microsoft.com/library/gg492088.aspx)
-- [Conheça a análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
-- Ver [Padrões de Carga de Trabalho Comuns e Considerações de Migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve padrões de carga de trabalho em que In-Memory OLTP geralmente proporciona ganhos significativos de desempenho)
+- [Saiba mais sobre In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Saiba mais sobre índices de lojas de colunas](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Conheça a análise operacional em tempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- Ver [Padrões de Carga de Trabalho Comuns e Considerações de Migração](/previous-versions/dn673538(v=msdn.10)) (que descreve padrões de carga de trabalho em que In-Memory OLTP geralmente proporciona ganhos significativos de desempenho)
 
 ### <a name="application-design"></a>Design da aplicação
 
-- [OLTP in-memory (otimização na memória)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP in-memory (otimização na memória)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Utilize In-Memory OLTP numa aplicação Azure SQL existente](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Ferramentas
 
 - [Portal do Azure](https://portal.azure.com/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

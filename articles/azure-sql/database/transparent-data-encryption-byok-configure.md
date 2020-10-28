@@ -5,19 +5,19 @@ description: Aprenda a configurar uma Base de Dados Azure SQL e Azure Synapse An
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619122"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779973"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -40,7 +40,7 @@ Este artigo percorre como usar uma chave do Cofre de Chaves Azure para encripta�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obter instruções de instalação do módulo Az, veja [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Para obter instruções de instalação do módulo Az, veja [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para obter cmdlets específicos, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 Para obter detalhes no Cofre de Chaves, consulte [as instruções powerShell do Key Vault](../../key-vault/secrets/quick-create-powershell.md) e Como utilizar o Key Vault [soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
-Para instalar a versão necessária do Azure CLI (versão 2.0 ou posterior) e ligar-se à sua subscrição Azure, consulte [instalar e configurar a Interface Command-Line Interface 2.0 da Plataforma Cruzada Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Para instalar a versão necessária do Azure CLI (versão 2.0 ou posterior) e ligar-se à sua subscrição Azure, consulte [instalar e configurar a Interface Command-Line Interface 2.0 da Plataforma Cruzada Azure.](/cli/azure/install-azure-cli)
 
 Para obter detalhes no Key Vault, consulte [Gerir o Cofre de Chaves utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md) e como utilizar o Key Vault [soft-delete com o CLI](../../key-vault/general/soft-delete-cli.md).
 
@@ -239,7 +239,7 @@ Verifique se ocorre um problema:
 
 - Se a nova chave não puder ser adicionada ao servidor, ou se a nova chave não puder ser atualizada como protetor TDE, verifique o seguinte:
    - A chave não deve ter uma data de validade
-   - A chave deve ter a *chave get*, *wrap key*, e *desembrulhar* as operações das chaves ativadas.
+   - A chave deve ter a *chave get* , *wrap key* , e *desembrulhar* as operações das chaves ativadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

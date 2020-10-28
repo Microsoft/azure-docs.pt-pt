@@ -1,22 +1,22 @@
 ---
-title: Complete uma recuperação de desastres de máquinas virtuais
-description: Este artigo mostra como completar uma recuperação de desastres de máquinas virtuais usando Azure VMware Solution
+title: Recuperação completa de desastres de máquinas virtuais
+description: Este artigo mostra como completar a recuperação de desastres de máquinas virtuais usando a Azure VMware Solution
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508439"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779616"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Complete uma recuperação de desastres de máquinas virtuais usando Azure VMware Solution
+# <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Recuperação completa de desastres de máquinas virtuais usando Azure VMware Solution
 
-Este artigo contém o processo para completar uma recuperação de desastres das suas máquinas virtuais (VMs) com solução VMware HCX e utilizando uma nuvem privada Azure VMware Solution como local de recuperação ou alvo.
+Este artigo contém o processo para concluir a recuperação de desastres das suas máquinas virtuais (VMs) com solução VMware HCX e utilizando uma nuvem privada Azure VMware Solution como local de recuperação ou alvo.
 
 O VMware HCX fornece várias operações que proporcionam um controlo fino e granularidade nas políticas de replicação. As Operações disponíveis incluem:
 
-- **Inverter** – Depois de um desastre. O reverso ajuda a fazer do Site B o local de origem e o local A onde o VM protegido agora vive.
+- **Inverter** – Depois de um desastre. O reverso ajuda a fazer do Site B o local de origem e o local A, onde o VM protegido agora vive.
 
 - **Pausa** – Pausa na atual política de replicação associada ao VM selecionado.
 
@@ -26,7 +26,7 @@ O VMware HCX fornece várias operações que proporcionam um controlo fino e gra
 
 - **Sync Now** – Fora da fonte de sincronização ligada VM para o VM protegido.
 
-Neste guia são abordados os seguintes cenários de replicação:
+Este guia abrange os seguintes cenários de replicação:
 
 - Proteja um VM ou um grupo de VMs.
 
@@ -38,11 +38,11 @@ Neste guia são abordados os seguintes cenários de replicação:
 
 ## <a name="protect-vms"></a>Proteger VMs
 
-1. Inicie sessão no **vSphere Cliente** no site de origem e aceda **ao plugin HCX**.
+1. Inicie sessão no **vSphere Cliente** no site de origem e aceda **ao plugin HCX** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Opção HCX em vSphere" border="true":::
 
-1. Introduza a área **de recuperação de desastres** e selecione **PROTECT VMS**.
+1. Introduza a área **de recuperação de desastres** e selecione **PROTECT VMS** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Opção HCX em vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
@@ -56,13 +56,13 @@ Neste guia são abordados os seguintes cenários de replicação:
 
    - **Ativar a Quiescence:** Pausa o VM para garantir que uma cópia consistente é sincronizada com o site remoto.
 
-   - **Armazenamento de destino:** Loja de dados remota para os VMs protegidos, e numa nuvem privada Azure VMware Solution, esta deve ser a loja de dados vSAN.
+   - **Armazenamento de destino:** Loja de dados remoto para os VMs protegidos, e numa nuvem privada Azure VMware Solution, que deve ser a loja de dados vSAN.
 
    - **Recipiente de computação:** Cluster remoto vSphere ou Piscina de Recursos.
 
-   - **Pasta de destino:** A pasta de destino remoto, que é opcional, e se não for selecionada nenhuma pasta, os VMs serão colocados diretamente sob o cluster selecionado.
+   - **Pasta de destino:** Pasta de destino remota, que é opcional, e se não for selecionada nenhuma pasta, os VMs são colocados diretamente sob o cluster selecionado.
 
-   - **RPO:** Intervalo de sincronização entre a fonte VM e o VM protegido e pode ser de 5 minutos a 24 horas.
+   - **RPO:** Intervalo de sincronização entre a fonte VM e o VM protegido. Pode ser em qualquer lugar de 5 minutos a 24 horas.
 
    - **Intervalo instantâneo:** Intervalo entre os instantâneos.
 
@@ -84,14 +84,14 @@ Neste guia são abordados os seguintes cenários de replicação:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="Opção HCX em vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
-   O triângulo amarelo significa que os instantâneos e o virtual não foram testados numa operação de recuperação de testes.
+   O triângulo amarelo significa que as imagens e as máquinas virtuais não foram testadas numa operação de recuperação de testes.
 
-   Há diferenças fundamentais entre um VM que é desligado e um que é ligado. A imagem mostra o processo de sincronização para um alimentado em VM. Inicia o processo de sincronização até terminar o primeiro instantâneo, que é uma cópia completa do VM, e depois completa os seguintes no intervalo configurado. Para um VM desligado, sincroniza uma cópia e, em seguida, o VM aparece como inativo e a operação de proteção mostra como concluído.  Quando o VM é ligado, inicia o processo de sincronização para o local remoto.
+   Há diferenças-chave entre um VM que é desligado e um ligado. A imagem mostra o processo de sincronização para um VM alimentado. Inicia o processo de sincronização até terminar o primeiro instantâneo, que é uma cópia completa do VM, e depois completa os seguintes no intervalo configurado. Sincroniza uma cópia para um VM desligado, e então o VM aparece como inativo, e a operação de proteção mostra como concluída.  Quando o VM é ligado, inicia o processo de sincronização para o local remoto.
 
 ## <a name="complete-a-test-recover-of-vms"></a>Complete um teste de recuperação de VMs
 
 1. Inicie sessão no **vSphere Client** no site remoto, que é a nuvem privada Azure VMware Solution. 
-1. Dentro do **plugin HCX**, na área de Recuperação de Desastres, selecione as elipses verticais em qualquer VM para visualizar o menu de operações e, em seguida, selecione **Test Recover VM**.
+1. Dentro do **plugin HCX** , na área de Recuperação de Desastres, selecione as elipses verticais em qualquer VM para visualizar o menu de operações e, em seguida, selecione **Test Recover VM** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Opção HCX em vSphere" border="true":::
 
@@ -111,11 +111,11 @@ Neste guia são abordados os seguintes cenários de replicação:
 
 ## <a name="recover-vms"></a>Recuperar VMs
 
-1. Inicie sessão no **vSphere Client** no site remoto, que é a nuvem privada Azure VMware Solution, e aceda ao **plugin HCX**.
+1. Inicie sessão no **vSphere Client** no site remoto, que é a nuvem privada Azure VMware Solution, e aceda ao **plugin HCX** .
 
    Para o cenário de recuperação, um grupo de VMs usados para este exemplo.
 
-1. Selecione o VM a recuperar da lista, abra o menu **AÇÕES** e selecione **Recuperar VMs**.
+1. Selecione o VM a recuperar da lista, abra o menu **AÇÕES** e selecione **Recuperar VMs** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Opção HCX em vSphere" border="true":::
 
@@ -127,12 +127,12 @@ Neste guia são abordados os seguintes cenários de replicação:
 
 ## <a name="complete-a-reverse-replication-on-vms"></a>Complete uma replicação inversa em VMs
 
-1. Inicie sessão no **cliente vSphere** na sua nuvem privada Azure VMware Solution e aceda **ao plugin HCX**.
+1. Inicie sessão no **cliente vSphere** na sua nuvem privada Azure VMware Solution e aceda **ao plugin HCX** .
    
    >[!NOTE]
-   >Certifique-se de que os VM originais no local de origem estão desligados antes de iniciar a replicação inversa. A operação falha se os VM não forem desligados.
+   > Certifique-se de que os VM originais no local de origem estão desligados antes de iniciar a replicação inversa. A operação falha se os VM não forem desligados.
 
-1. Na lista, selecione os VMs a replicar de volta para o site de origem, abra o menu **AÇÕES** e selecione **Reverso**. 
+1. Na lista, selecione os VMs a replicar de volta para o site de origem, abra o menu **AÇÕES** e selecione **Reverso** . 
 1. Selecione **Reverso** para iniciar a replicação.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Opção HCX em vSphere" border="true":::
@@ -145,7 +145,7 @@ Neste guia são abordados os seguintes cenários de replicação:
 
 A VMware HCX não tem atualmente um mecanismo incorporado para criar e automatizar um plano de recuperação de desastres. No entanto, o VMware HCX fornece um conjunto de APIs de REST, incluindo APIs para a operação de recuperação de desastres. A especificação API pode ser acedida dentro do VMware HCX Manager no URL.
 
-As seguintes operações de recuperação de desastres são abrangidas por estas APIs.
+Estas APIs cobrem as seguintes operações na Recuperação de Desastres.
 
 - Proteger
 
@@ -241,4 +241,4 @@ Um exemplo de uma carga útil de operação de recuperação em JSON é mostrado
 ]
 ```
 
-Utilizando estas APIs, um cliente pode construir um mecanismo personalizado para automatizar a criação e execução de um plano de recuperação de desastres.
+Com estas APIs, você pode construir um mecanismo personalizado para automatizar a criação e execução de um plano de recuperação de desastres.

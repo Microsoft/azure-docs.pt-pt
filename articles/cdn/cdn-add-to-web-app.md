@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079914"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779549"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar a CDN do Azure a uma aplicação Web do Serviço de Aplicações do Azure
 
@@ -43,20 +43,20 @@ O que irá aprender:
 Para concluir este tutorial:
 
 - [Instalar o Git](https://git-scm.com/)
-- [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Criar a aplicação Web
 
-Para criar a aplicação Web com que irá trabalhar, siga o [início rápido HTML estático](../app-service/quickstart-html.md), através do passo **Navegar para a aplicação**.
+Para criar a aplicação Web com que irá trabalhar, siga o [início rápido HTML estático](../app-service/quickstart-html.md), através do passo **Navegar para a aplicação** .
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Abra um browser e navegue para o [portal do Azure](https://portal.azure.com).
 
 ### <a name="dynamic-site-acceleration-optimization"></a>Otimização de aceleração de site dinâmico
-Se quiser otimizar o seu ponto final de CDN para a aceleração de site dinâmica (DSA), deve utilizar o [portal da CDN](cdn-create-new-endpoint.md) para criar o seu perfil e o ponto final. Com [otimização DSA](cdn-dynamic-site-acceleration.md), o desempenho das páginas web com o conteúdos dinâmicos foi consideravelmente melhorado. Para obter instruções sobre como otimizar um ponto final de CDN para DSA a partir do portal de CDN, veja [Configuração do ponto final de CDN para acelerar a entrega de ficheiros dinâmicos](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Caso contrário, se não quiser otimizar o seu novo ponto final, pode utilizar o portal da aplicação Web para criá-lo ao seguir os passos da próxima secção. Note que para os perfis de **CDN do Azure da Verizon**, não pode alterar a otimização de um ponto final de CDN após ter sido criado.
+Se quiser otimizar o seu ponto final de CDN para a aceleração de site dinâmica (DSA), deve utilizar o [portal da CDN](cdn-create-new-endpoint.md) para criar o seu perfil e o ponto final. Com [otimização DSA](cdn-dynamic-site-acceleration.md), o desempenho das páginas web com o conteúdos dinâmicos foi consideravelmente melhorado. Para obter instruções sobre como otimizar um ponto final de CDN para DSA a partir do portal de CDN, veja [Configuração do ponto final de CDN para acelerar a entrega de ficheiros dinâmicos](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Caso contrário, se não quiser otimizar o seu novo ponto final, pode utilizar o portal da aplicação Web para criá-lo ao seguir os passos da próxima secção. Note que para os perfis de **CDN do Azure da Verizon** , não pode alterar a otimização de um ponto final de CDN após ter sido criado.
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Criar um perfil da CDN e ponto final
 
@@ -64,34 +64,34 @@ No painel de navegação esquerdo, selecione **Serviço de Aplicações** e, em 
 
 ![Selecione a aplicação de Serviço de Aplicações no portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 
-Na página **Serviço de Aplicações**, na secção **Definições**, selecione **Redes > Configurar a CDN do Azure para a sua aplicação**.
+Na página **Serviço de Aplicações** , na secção **Definições** , selecione **Redes > Configurar a CDN do Azure para a sua aplicação** .
 
 ![Selecione a CDN no portal](media/cdn-add-to-web-app/portal-select-cdn.png)
 
-Na página **Azure Content Delivery Network**(Rede de Entrega de Conteúdos do Azure), indique as definições **Novo ponto final** conforme especificado na tabela.
+Na página **Azure Content Delivery Network** (Rede de Entrega de Conteúdos do Azure), indique as definições **Novo ponto final** conforme especificado na tabela.
 
 ![Criar perfil e ponto final no portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
 | Definição | Valor sugerido | Descrição |
 | ------- | --------------- | ----------- |
 | **Perfil da CDN** | myCDNProfile | Um perfil da CDN é uma coleção de pontos finais da CDN com o mesmo escalão de preços. |
-| **Escalão de preço** | Standard Akamai | O [escalão de preço](cdn-features.md) especifica o fornecedor e as funcionalidades disponíveis. Este tutorial utiliza o *Standard da Akamai*. |
-| **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Aceda aos seus recursos em cache no nome final do * &lt; ponto &gt; de*domínio .azureedge.net.
+| **Escalão de preço** | Standard Akamai | O [escalão de preço](cdn-features.md) especifica o fornecedor e as funcionalidades disponíveis. Este tutorial utiliza o *Standard da Akamai* . |
+| **Nome do ponto final da CDN** | Qualquer nome que é exclusivo no domínio azureedge.net | Aceda aos seus recursos em cache no nome final do *&lt; ponto &gt; de* domínio .azureedge.net.
 
 Selecione **Criar** para criar um perfil de CDN.
 
-O Azure cria o perfil e o ponto final. O novo ponto final é apresentado na lista **Pontos finais** e, quando está aprovisionado, o estado é **A executar**.
+O Azure cria o perfil e o ponto final. O novo ponto final é apresentado na lista **Pontos finais** e, quando está aprovisionado, o estado é **A executar** .
 
 ![Novo ponto final na lista](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
 ### <a name="test-the-cdn-endpoint"></a>Testar o ponto final da CDN
 
  Dado que a propagação do registo demora algum tempo, o ponto final não está imediatamente disponível para utilização: 
-   - Para os perfis **CDN do Azure Standard da Microsoft**, a propagação normalmente fica concluída em 10 minutos. 
-   - Para os perfis **CDN do Azure Standard da Akamai**, a propagação normalmente fica concluída num minuto. 
-   - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon**, a propagação normalmente fica concluída no prazo de 90 minutos. 
+   - Para os perfis **CDN do Azure Standard da Microsoft** , a propagação normalmente fica concluída em 10 minutos. 
+   - Para os perfis **CDN do Azure Standard da Akamai** , a propagação normalmente fica concluída num minuto. 
+   - Para os perfis **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** , a propagação normalmente fica concluída no prazo de 90 minutos. 
 
-A aplicação de exemplo tem um ficheiro *index.html* e pastas *css*, *img* e *js* que contêm outros elementos estáticos. Os caminhos de conteúdo para todos estes ficheiros são os mesmos no ponto final da CDN. Por exemplo, ambos os seguintes URLs acedem ao ficheiro *bootstrap.css* na pasta *css*:
+A aplicação de exemplo tem um ficheiro *index.html* e pastas *css* , *img* e *js* que contêm outros elementos estáticos. Os caminhos de conteúdo para todos estes ficheiros são os mesmos no ponto final da CDN. Por exemplo, ambos os seguintes URLs acedem ao ficheiro *bootstrap.css* na pasta *css* :
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -166,13 +166,13 @@ Na lista de recursos, selecione o ponto final de CDN.
 
 ![Selecione o ponto final](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
-Na parte superior da página **Ponto final**, selecione **Remover**.
+Na parte superior da página **Ponto final** , selecione **Remover** .
 
 ![Selecione Remover](media/cdn-add-to-web-app/portal-select-purge.png)
 
-Introduza os caminhos do conteúdo que quer remover. Pode transmitir um caminho de ficheiro completo para remover um ficheiro individual ou um segmento de caminho para remover e atualizar todo o conteúdo numa pasta. Como alterou o *index.html*, certifique-se de que está num dos caminhos.
+Introduza os caminhos do conteúdo que quer remover. Pode transmitir um caminho de ficheiro completo para remover um ficheiro individual ou um segmento de caminho para remover e atualizar todo o conteúdo numa pasta. Como alterou o *index.html* , certifique-se de que está num dos caminhos.
 
-Na parte inferior da página, selecione **Remover**.
+Na parte inferior da página, selecione **Remover** .
 
 ![Remover página](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
 
@@ -182,7 +182,7 @@ Aguarde até que o pedido de remoção conclua o processamento, que demora norma
 
 ![Remover notificação](media/cdn-add-to-web-app/portal-purge-notification.png)
 
-Ao navegar para o URL de ponto final da CDN para *index.html*, verá o *V2* que adicionou ao título na home page, que indica que a cache da CDN foi atualizada.
+Ao navegar para o URL de ponto final da CDN para *index.html* , verá o *V2* que adicionou ao título na home page, que indica que a cache da CDN foi atualizada.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -206,11 +206,11 @@ Nesta secção do tutorial, pode alterar o comportamento de colocação em cache
 
 ### <a name="change-the-cache-behavior"></a>Alterar o comportamento de cache
 
-Na página **Ponto Final CDN** do portal do Azure, selecione **Cache**.
+Na página **Ponto Final CDN** do portal do Azure, selecione **Cache** .
 
 Selecione **Colocar em cache todos os URL exclusivos** relativo ao **comportamento de colocação em cache da Cadeia de consulta** na lista pendente.
 
-Selecione **Guardar**.
+Selecione **Guardar** .
 
 ![Selecione o comportamento de colocação em cache de cadeia de consulta](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 
@@ -226,14 +226,14 @@ A CDN do Azure devolve o conteúdo da aplicação Web atual, que inclui *V2* no 
 
 Para se certificar de que esta página está colocada em cache no CDN, atualize-a. 
 
-Abra *index.html*, altere *V2* para *V3* e, em seguida, implemente a alteração. 
+Abra *index.html* , altere *V2* para *V3* e, em seguida, implemente a alteração. 
 
 ```bash
 git commit -am "version 3"
 git push azure master
 ```
 
-Num browser, aceda ao URL de ponto final da CDN com uma nova cadeia de consulta, como `q=2`. A CDN do Azure obtém o ficheiro *index.html* atual e apresenta *V3*. No entanto, se navegar para o ponto final da CDN com a cadeia de consulta `q=1`, verá *V2*.
+Num browser, aceda ao URL de ponto final da CDN com uma nova cadeia de consulta, como `q=2`. A CDN do Azure obtém o ficheiro *index.html* atual e apresenta *V3* . No entanto, se navegar para o ponto final da CDN com a cadeia de consulta `q=1`, verá *V2* .
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -269,5 +269,3 @@ Saiba como otimizar o desempenho da CDN nos seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
-
-

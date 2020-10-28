@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887708"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778653"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -55,7 +55,7 @@ Este painel é composto por:
     ![Botão de gestão da lâmina de perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gestão cdn abre.
-2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique no **Dashboard**.
+2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique no **Dashboard** .
    
     É apresentado o painel de análise do nó de borda.
 
@@ -143,7 +143,7 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
     ![Botão de gestão da lâmina de perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gestão cdn abre.
-2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique em **HTTP Large Object**.
+2. Passe por cima do **separador Analytics** e, em seguida, paire sobre o flyout **Edge Performance Analytics.**  Clique em **HTTP Large Object** .
    
     É apresentado o ecrã de relatórios de análise de nó de borda.
 
@@ -183,9 +183,8 @@ Cada relatório deste módulo contém um gráfico e estatísticas sobre a largur
 | 502 Erros |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta Bad Gateway 502. Um código de resposta Bad Gateway 502 ocorre quando ocorre uma falha do protocolo HTTP entre um servidor e um representante HTTP. No caso do nosso CDN, um código de resposta Bad Gateway 502 ocorre normalmente quando um servidor de origem do cliente devolve uma resposta inválida a um servidor de borda. Uma resposta é inválida se não puder ser analisada ou se estiver incompleta. |
 | Erros 5xx |Contém um gráfico de barras que lhe permite ver os 10 principais pedidos que resultaram num código de resposta na gama 500.  Excluídos deste relatório estão 502 Bad Gateway e 504 códigos de resposta gateway timeout. |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Descrição geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real no Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Comportamento HTTP predefinido que predefinindo usando o motor de regras](cdn-rules-engine.md)
+* [Comportamento HTTP predefinido que predefinindo usando o motor de regras](./cdn-verizon-premium-rules-engine.md)
 * [Advanced HTTP Reports](cdn-advanced-http-reports.md) (Relatórios HTTP avançados)
-

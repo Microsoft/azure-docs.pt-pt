@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201797"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778626"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
@@ -65,7 +65,7 @@ Dois cabeçalhos podem ser usados para definir a frescura da cache: `Cache-Contr
 ## <a name="cache-directive-headers"></a>Cabeçalhos da diretiva em cache
 
 > [!IMPORTANT]
-> Por padrão, um ponto final Azure CDN que é otimizado para DSA ignora cabeçalhos de diretiva cache e contorna o cache. Para **o Azure CDN Standard de Verizon** e **Azure CDN Standard a partir de** perfis Akamai, pode ajustar como um ponto final do Azure CDN trata estes cabeçalhos utilizando [regras de caching CDN](cdn-caching-rules.md) para permitir o caching. Apenas para **o Azure CDN Premium a partir de** perfis Verizon, utilize o motor de [regras](cdn-rules-engine.md) para permitir o caching.
+> Por padrão, um ponto final Azure CDN que é otimizado para DSA ignora cabeçalhos de diretiva cache e contorna o cache. Para **o Azure CDN Standard de Verizon** e **Azure CDN Standard a partir de** perfis Akamai, pode ajustar como um ponto final do Azure CDN trata estes cabeçalhos utilizando [regras de caching CDN](cdn-caching-rules.md) para permitir o caching. Apenas para **o Azure CDN Premium a partir de** perfis Verizon, utilize o motor de [regras](./cdn-verizon-premium-rules-engine.md) para permitir o caching.
 
 O Azure CDN suporta os seguintes cabeçalhos de diretiva http cache, que definem a duração da cache e a partilha de cache.
 
@@ -129,14 +129,11 @@ A tabela seguinte descreve o comportamento padrão de caching para os produtos A
 | **Origem de honra**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
 | **Duração da cache CDN** | 2 dias |7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
 
-**Origem de honra**: Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.
+**Origem de honra** : Especifica se deve honrar os cabeçalhos de diretiva de cache suportados se existirem na resposta HTTP do servidor de origem.
 
-**Duração da cache cdN**: Especifica a quantidade de tempo para a qual um recurso está em cache no Azure CDN. No entanto, se **a origem honor** é Sim e a resposta HTTP do servidor de origem inclui o cabeçalho da diretiva cache `Expires` ou , `Cache-Control: max-age` Azure CDN usa o valor de duração especificado pelo cabeçalho. 
+**Duração da cache cdN** : Especifica a quantidade de tempo para a qual um recurso está em cache no Azure CDN. No entanto, se **a origem honor** é Sim e a resposta HTTP do servidor de origem inclui o cabeçalho da diretiva cache `Expires` ou , `Cache-Control: max-age` Azure CDN usa o valor de duração especificado pelo cabeçalho. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a personalizar e sobrepor o comportamento padrão de caching no CDN através de regras de caching, consulte o [comportamento do caching do Control Azure CDN com regras de caching](cdn-caching-rules.md). 
 - Para aprender a usar cordas de consulta para controlar o comportamento do caching, consulte [o comportamento do Caching Do Control Azure CDN com cordas de consulta](cdn-query-string.md).
-
-
-

@@ -1,18 +1,18 @@
 ---
 title: Abrir portas a um VM utilizando o portal Azure
-description: Saiba como abrir uma porta / crie um ponto final para o seu Windows VM utilizando o portal Azure
+description: Saiba como abrir uma porta / crie um ponto final para o seu VM utilizando o portal Azure
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973993"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777763"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas a uma máquina virtual com o portal Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -23,9 +23,9 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-1. Procure e selecione o grupo de recursos para o VM, escolha **Adicionar,** em seguida, procure e selecione **grupo de segurança da Rede**.
+1. Procure e selecione o grupo de recursos para o VM, escolha **Adicionar,** em seguida, procure e selecione **grupo de segurança da Rede** .
 
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
     A janela **do grupo de segurança de rede Create** abre.- Abre-se.
 
@@ -41,15 +41,15 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 1. Selecione o seu novo grupo de segurança de rede. 
 
-1. Selecione **as regras de segurança de entrada** no menu esquerdo e, em seguida, selecione **Adicionar**.
+1. Selecione **as regras de segurança de entrada** no menu esquerdo e, em seguida, selecione **Adicionar** .
 
     ![Alternar para a página avançada](./media/nsg-quickstart-portal/advanced.png)
 
 1. Na página **De adicionar uma regra de segurança de entrada,** alternar para **Advanced** from **Basic** no topo da página. 
 
-1. Escolha um **serviço** comum no menu suspenso, como **HTTP**. Também pode selecionar **Custom** se quiser fornecer uma porta específica para usar. 
+1. Escolha um **serviço** comum no menu suspenso, como **HTTP** . Também pode selecionar **Custom** se quiser fornecer uma porta específica para usar. 
 
-1. Opcionalmente, altere a **Prioridade** ou **Nome**. A prioridade afeta a ordem em que as regras são aplicadas: quanto menor o valor numérico, mais cedo a regra é aplicada.
+1. Opcionalmente, altere a **Prioridade** ou **Nome** . A prioridade afeta a ordem em que as regras são aplicadas: quanto menor o valor numérico, mais cedo a regra é aplicada.
 
 1. **Selecione Adicionar** para criar a regra.
 
@@ -57,13 +57,13 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 O passo final é associar o grupo de segurança de rede a uma sub-rede ou uma interface de rede específica. Para este exemplo, associaremos o grupo de segurança da rede a uma sub-rede. 
 
-1. Selecione **sub-redes** do menu esquerdo e, em seguida, **selecione Associate**.
+1. Selecione **sub-redes** do menu esquerdo e, em seguida, **selecione Associate** .
 
 1. Selecione a rede virtual e, em seguida, selecione a sub-rede apropriada.
 
     ![Associar um grupo de segurança de rede com networking virtual](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-1. Quando tiver terminado, selecione **OK**.
+1. Quando tiver terminado, selecione **OK** .
 
 ## <a name="additional-information"></a>Informações adicionais
 

@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes (FAQ)
+title: Perguntas Mais Frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627623"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779871"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Para funcionalidades novas e de pré-visualização, consulte [as notas de lanç
 
 **Como posso providenciar sql Caso Gerido?**
 
-Pode providenciar uma instância a partir do [portal Azure,](instance-create-quickstart.md) [modelos](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates) [PowerShell,](scripts/create-configure-managed-instance-powershell.md) [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e ARM .
+Pode providenciar uma instância a partir do [portal Azure,](instance-create-quickstart.md) [modelos](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates) [PowerShell,](scripts/create-configure-managed-instance-powershell.md) [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e ARM .
 
 **Posso providenciar casos geridos numa subscrição existente?**
 
@@ -94,7 +94,7 @@ Trata-se de uma limitação atual do componente subjacente que verifica o nome d
 
 **Como posso escalar o meu caso?**
 
-Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover o meu Caso Gerido de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, pode. Para obter instruções, consulte [mover recursos através das regiõ
 
 **Como posso apagar o meu Caso Gerido?**
 
-Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0) [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo demora a criar ou atualizar um caso, ou a restaurar uma base de dados?**
 
@@ -118,7 +118,7 @@ A alteração de um nome de instância gerida não é suportada.
 
 Sim, A zona de DNS padrão de Instância Gerida *(database.windows.net DS) pode* ser alterada. 
 
-Para utilizar outra zona DNS em vez do padrão, por exemplo, *.contoso.com*: 
+Para utilizar outra zona DNS em vez do padrão, por exemplo, *.contoso.com* : 
 - Use o CliConfig para definir um pseudónimo. A ferramenta é apenas um invólucro de definições de registo, para que possa ser feito usando a política de grupo ou um script também.
 - Utilize *CNAME* com a opção *TrustServerCertificate=true.*
 
@@ -137,7 +137,7 @@ Uma opção é [exportar uma base de dados para BACPAC](../database/database-exp
 
 [A replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) pode ser utilizada se todas as tabelas da base de dados tiverem chaves *primárias* e não existirem objetos OLTP na base de dados.
 
-As cópias de segurança nativas COPY_ONLY retiradas de instâncias geridas não podem ser restauradas no SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server. Para obter mais detalhes, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true)
+As cópias de segurança nativas COPY_ONLY retiradas de instâncias geridas não podem ser restauradas no SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server. Para obter mais detalhes, consulte [a cópia de segurança.](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)
 
 **Como posso migrar a minha instância do SQL Server para o SQL Managed Instance?**
 
@@ -180,15 +180,15 @@ Se a sua carga de trabalho consistir em muitas pequenas transações, considere 
 
 **Quais são as opções de monitorização e alerta para o meu caso gerido?**
 
-Para todas as opções possíveis para monitorizar e alertar sobre o consumo e desempenho de exemplos geridos [sql SQL, consulte o blog de monitorização de instâncias geridas Azure SQL](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Para a monitorização de desempenho em tempo real para o SQL MI, consulte [a monitorização do desempenho em tempo real para Azure SQL DB Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+Para todas as opções possíveis para monitorizar e alertar sobre o consumo e desempenho de exemplos geridos [sql SQL, consulte o blog de monitorização de instâncias geridas Azure SQL](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Para a monitorização de desempenho em tempo real para o SQL MI, consulte [a monitorização do desempenho em tempo real para Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
 
 **Posso usar o PERFIL SQL para rastreio de desempenho?**
 
-Sim, o Perfil SQL é suportado ou SQL Managed Instance. Para mais detalhes, consulte [o SqL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
+Sim, o Perfil SQL é suportado ou SQL Managed Instance. Para mais detalhes, consulte [o SqL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15).
 
 **O Database Advisor e o Questionry Performance Insight são suportados para bases de dados de casos geridos?**
 
-Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.md) e [Loja de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) juntamente com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) e [xEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) para monitorizar as suas bases de dados.
+Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.md) e [Loja de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) juntamente com o [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) e [xEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) para monitorizar as suas bases de dados.
 
 **Posso criar alertas métricos no SQL Managed Instance?**
 
@@ -228,11 +228,11 @@ Para acompanhar quando foram realizadas cópias de segurança automatizadas em C
 
 **O apoio a pedido é apoiado?**
 
-Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
+Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
 
 **A restauração nativa (de ficheiros .bak) para Instância Gerida é suportada?**
 
-Sim, é suportado e disponível para versões SQL Server 2005+.  Para utilizar a restauração nativa, faça o upload do seu ficheiro .bak para o armazenamento de blob Azure e execute os comandos T-SQL. Para mais detalhes, consulte [a restauração nativa da URL.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url)
+Sim, é suportado e disponível para versões SQL Server 2005+.  Para utilizar a restauração nativa, faça o upload do seu ficheiro .bak para o armazenamento de blob Azure e execute os comandos T-SQL. Para mais detalhes, consulte [a restauração nativa da URL.](./migrate-to-instance-from-sql-server.md#native-restore-from-url)
 
 ## <a name="business-continuity"></a>Continuidade do negócio
 
@@ -254,7 +254,7 @@ Isto é para garantir um fluxo ininterrupto do tráfego de gestão, a fim de cum
 
 **Posso obter os intervalos ip de origem que são usados para o tráfego de gestão de entrada?**
 
-Sim. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Sim. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **Posso definir o NSG para controlar o acesso ao ponto final de dados (porta 1433)?**
 
@@ -262,7 +262,7 @@ Sim. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que 
 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
-N.º Isto não é apoiado por várias razões:
+Não. Isto não é apoiado por várias razões:
 -   O tráfego de encaminhamento que represente a resposta ao pedido de gestão de entrada seria assimétrico e não podia funcionar.
 -   O tráfego de encaminhamento que vai para o armazenamento seria afetado por restrições de produção e latência para que desta forma não sejamos capazes de fornecer qualidade e disponibilidade de serviço esperada.
 -   Com base na experiência, estas configurações são propensas a erros e não são reutilizáveis.
@@ -273,7 +273,7 @@ Sim. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR asso
  
 **Quantos endereços IP preciso para uma Instância Gerida?**
 
-A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis . Para determinar o tamanho da sub-rede VNet para a ocorrência gerida do SQL, consulte [determine o tamanho e o intervalo da sub-rede necessárias para a instância gerida](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis . Para determinar o tamanho da sub-rede VNet para a ocorrência gerida do SQL, consulte [determine o tamanho e o intervalo da sub-rede necessárias para a instância gerida](./vnet-subnet-determine-size.md). 
 
 **E se não houver endereços IP suficientes para a realização de operação de atualização de instâncias?**
 
@@ -281,23 +281,23 @@ Caso não existam [endereços IP suficientes](connectivity-architecture-overview
 
 **Preciso de uma sub-rede vazia para criar uma Instância Gerida?**
 
-N.º Pode utilizar uma sub-rede vazia ou uma sub-rede que já contenha Instâncias Geridas. 
+Não. Pode utilizar uma sub-rede vazia ou uma sub-rede que já contenha Instâncias Geridas. 
 
 **Posso alterar o intervalo de endereços da sub-rede?**
 
-Não se houver casos geridos dentro. Esta é uma limitação de infraestrutura de rede Azure. Só é permitido adicionar espaço adicional ao [endereço a uma sub-rede vazia.](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings) 
+Não se houver casos geridos dentro. Esta é uma limitação de infraestrutura de rede Azure. Só é permitido adicionar espaço adicional ao [endereço a uma sub-rede vazia.](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings) 
 
 **Posso mudar o meu caso para outra sub-rede?**
 
-N.º Esta é uma limitação de design de instância gerida atual. No entanto, pode prever uma nova instância noutra sub-rede e fazer retrocevesimento manual e restaurar dados entre o antigo e o novo caso ou realizar [restauro pontual](point-in-time-restore.md?tabs=azure-powershell)transversal .
+Não. Esta é uma limitação de design de instância gerida atual. No entanto, pode prever uma nova instância noutra sub-rede e fazer retrocevesimento manual e restaurar dados entre o antigo e o novo caso ou realizar [restauro pontual](point-in-time-restore.md?tabs=azure-powershell)transversal .
 
 **Preciso de uma rede virtual vazia para criar uma Instância Gerida?**
 
-Isto não é necessário. Pode [criar uma rede virtual para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) ou [configurar uma rede virtual existente para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+Isto não é necessário. Pode [criar uma rede virtual para Azure SQL Managed Instance](./virtual-network-subnet-create-arm-template.md) ou [configurar uma rede virtual existente para Azure SQL Managed Instance](./vnet-existing-add-subnet.md).
 
 **Posso colocar uma Instância Gerida com outros serviços numa sub-rede?**
 
-N.º Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
+Não. Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
 
 ## <a name="connectivity"></a>Conectividade 
 
@@ -316,13 +316,13 @@ Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma v
 
 **A Managed Instance tem um ponto final público?**
 
-Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](./public-endpoint-overview.md). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
 
 **Como é que a Managed Instance controla o acesso ao ponto final público?**
 
 A Instância Gerida controla o acesso ao ponto final público tanto a nível da rede como ao nível da aplicação.
 
-Os serviços de gestão e implantação conectam-se a uma instância gerida utilizando um [ponto final de gestão](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) que mapeia para um equilibrador de carga externo. O tráfego só é encaminhado para os nós se for recebido num conjunto de portas predefinido que apenas os componentes de gestão da instância gerida usam. Uma firewall incorporada nos nós é configurada para permitir o tráfego apenas a partir das gamas IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre componentes de gestão e o plano de gestão. Para mais detalhes, consulte [a arquitetura de conectividade para sql Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+Os serviços de gestão e implantação conectam-se a uma instância gerida utilizando um [ponto final de gestão](./connectivity-architecture-overview.md#management-endpoint) que mapeia para um equilibrador de carga externo. O tráfego só é encaminhado para os nós se for recebido num conjunto de portas predefinido que apenas os componentes de gestão da instância gerida usam. Uma firewall incorporada nos nós é configurada para permitir o tráfego apenas a partir das gamas IP da Microsoft. Os certificados autenticam mutuamente toda a comunicação entre componentes de gestão e o plano de gestão. Para mais detalhes, consulte [a arquitetura de conectividade para sql Managed Instance](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
 **Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
 
@@ -337,9 +337,9 @@ Não, esta opção não está disponível.  Para o ponto final de dados privados
 O prescêdo do circuito da Rota Expresso é a forma preferida de o fazer. O espreitamento global da rede virtual é suportado com a limitação descrita na nota abaixo.  
 
 > [!IMPORTANT]
-> [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
+> [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
 
-Se o perspitamento do circuito de Rota Expresso e o espreitamento da rede virtual global não forem possíveis, a única outra opção é criar a ligação VPN site-to-site[(portal Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI).](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)
+Se o perspitamento do circuito de Rota Expresso e o espreitamento da rede virtual global não forem possíveis, a única outra opção é criar a ligação VPN site-to-site[(portal Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI).](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Mitigar riscos de exfiltração de dados  
 
@@ -347,19 +347,19 @@ Se o perspitamento do circuito de Rota Expresso e o espreitamento da rede virtua
 
 Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos clientes a aplicação de um conjunto de definições e controlos de segurança:
 
-- Ligue [encriptação de dados transparentes (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) em todas as bases de dados.
+- Ligue [encriptação de dados transparentes (TDE)](../database/transparent-data-encryption-tde-overview.md) em todas as bases de dados.
 - Desligue o tempo de execução da linguagem comum (CLR). Isto também é recomendado no local.
 - Utilize apenas a autenticação do Azure Ative Directory (Azure AD).
 - Aceda ao caso com uma conta DBA de baixo privilégio.
 - Configure o acesso à caixa de salto JIT para a conta sysadmin.
-- Ligue [a auditoria DO SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integre-a com mecanismos de alerta.
-- Ligue [a Deteção](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) de Ameaças do [Azure Defender para](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) a suite SQL.
+- Ligue [a auditoria DO SQL](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integre-a com mecanismos de alerta.
+- Ligue [a Deteção](../database/threat-detection-configure.md) de Ameaças do [Azure Defender para](../database/azure-defender-for-sql.md) a suite SQL.
 
 ## <a name="dns"></a>DNS
 
 **Posso configurar um DNS personalizado para sql Managed Instance?**
 
-Sim. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Sim. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](./custom-dns-configure.md).
 
 **Posso refrescar o DNS?**
 
@@ -378,22 +378,22 @@ Como uma solução alternativa, desclasse a SQL Managed Instance para 4 vCores e
 
 A configuração do fuso horário pode ser definida quando uma instância gerida é prevista pela primeira vez. Mudar o fuso horário de um caso gerido existente não é suportado. Para mais informações, consulte [as limitações do fuso horário.](timezones-overview.md#limitations)
 
-As soluções alternativas incluem a criação de uma nova instância gerida com o fuso horário adequado e, em seguida, ou executar uma cópia de segurança manual e restaurar, ou o que recomendamos, realizando uma [restauração pontual transversal no tempo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
+As soluções alternativas incluem a criação de uma nova instância gerida com o fuso horário adequado e, em seguida, ou executar uma cópia de segurança manual e restaurar, ou o que recomendamos, realizando uma [restauração pontual transversal no tempo](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance).
 
 
 ## <a name="security-and-database-encryption"></a>Encriptação de segurança e base de dados
 
 **A função do servidor sysadmin está disponível para a SQL Managed Instance?**
 
-Sim, os clientes podem criar logins que são membros do papel sysadmin.  Os clientes que assumem o privilégio sysadmin também assumem a responsabilidade pela exploração do caso, o que pode ter um impacto negativo no compromisso do SLA. Para adicionar login à função do servidor Sysadmin, consulte [a autenticação AD do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
+Sim, os clientes podem criar logins que são membros do papel sysadmin.  Os clientes que assumem o privilégio sysadmin também assumem a responsabilidade pela exploração do caso, o que pode ter um impacto negativo no compromisso do SLA. Para adicionar login à função do servidor Sysadmin, consulte [a autenticação AD do Azure](./aad-security-configure-tutorial.md#azure-ad-authentication).
 
 **A Encriptação de Dados Transparente é suportada para a SQL Managed Instance?**
 
-Sim, a Encriptação de Dados Transparente é suportada para a SQL Managed Instance. Para mais detalhes, consulte [a encriptação de dados transparente para a sql Managed Instance](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
+Sim, a Encriptação de Dados Transparente é suportada para a SQL Managed Instance. Para mais detalhes, consulte [a encriptação de dados transparente para a sql Managed Instance](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).
 
 **Posso aproveitar o modelo "traga a sua própria chave" para o TDE?**
 
-Sim, o Azure Key Vault para o cenário BYOK está disponível para Azure SQL Managed Instance. Para mais detalhes, consulte [a Encriptação de Dados Transparente com a chave gerida pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
+Sim, o Azure Key Vault para o cenário BYOK está disponível para Azure SQL Managed Instance. Para mais detalhes, consulte [a Encriptação de Dados Transparente com a chave gerida pelo cliente](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
 **Posso migrar uma base de dados de servidor SQL encriptada?**
 
@@ -409,8 +409,8 @@ Pode rodar o protetor TDE para Instância Gerida utilizando a Azure Cloud Shell.
 
 Sim, não precisa de desencriptar a sua base de dados para a restaurar para a SQL Managed Instance. É necessário fornecer um certificado/chave utilizado como protetor de chave de encriptação no sistema de origem para a SQL Managed Instance para ser capaz de ler dados a partir do ficheiro de backup encriptado. Há duas maneiras possíveis de fazê-lo:
 
-- *Faça o upload do certificado-protector para a SQL Managed Instance*. Pode ser feito apenas com o PowerShell. O [guião da amostra](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) descreve todo o processo.
-- *Faça o upload assimétrico do protector-chave para o Cofre da Chave Azure e aponte para o SQL Managed Instance .* Esta abordagem assemelha-se a uma caixa de utilização TDE (BYOK) que também utiliza a integração do Key Vault para armazenar a chave de encriptação. Se não quiser utilizar a chave como protetor de chave de encriptação e apenas quiser disponibilizar a chave para a SQL Managed Instance para restaurar a(s) base de dados encriptada, siga as instruções para configurar o [BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption), e não verifique a caixa de verificação **Faça da chave selecionada o protetor TDE predefinido**.
+- *Faça o upload do certificado-protector para a SQL Managed Instance* . Pode ser feito apenas com o PowerShell. O [guião da amostra](./tde-certificate-migrate.md) descreve todo o processo.
+- *Faça o upload assimétrico do protector-chave para o Cofre da Chave Azure e aponte para o SQL Managed Instance .* Esta abordagem assemelha-se a uma caixa de utilização TDE (BYOK) que também utiliza a integração do Key Vault para armazenar a chave de encriptação. Se não quiser utilizar a chave como protetor de chave de encriptação e apenas quiser disponibilizar a chave para a SQL Managed Instance para restaurar a(s) base de dados encriptada, siga as instruções para configurar o [BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption), e não verifique a caixa de verificação **Faça da chave selecionada o protetor TDE predefinido** .
 
 Assim que disponibilizar o protetor de encriptação para a SQL Managed Instance, pode proceder ao procedimento de restauro da base de dados padrão.
 
@@ -423,17 +423,17 @@ SQL Managed Instance oferece [modelo de compra baseado em vCore.](sql-managed-in
 **Que benefícios de custo estão disponíveis para a SQL Managed Instance?**
 
 Pode economizar custos com os benefícios Azure SQL das seguintes formas:
--   Maximizar os investimentos existentes em licenças no local e economizar até 55% com [a Azure Hybrid Benefit.](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell) 
--   Comprometa-se a fazer uma reserva de recursos computacional e poupe até 33 por cento com [o Benefício de Instância Reservada.](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity) Combine isto com o benefício Azure Hybrid para uma poupança até 82%. 
+-   Maximizar os investimentos existentes em licenças no local e economizar até 55% com [a Azure Hybrid Benefit.](../azure-hybrid-benefit.md?tabs=azure-powershell) 
+-   Comprometa-se a fazer uma reserva de recursos computacional e poupe até 33 por cento com [o Benefício de Instância Reservada.](../database/reserved-capacity-overview.md) Combine isto com o benefício Azure Hybrid para uma poupança até 82%. 
 -   Poupe até 55% contra os preços da lista com [o Azure Dev/Test Pricing Benefit](https://azure.microsoft.com/pricing/dev-test/) que oferece tarifas com desconto para o seu desenvolvimento contínuo e teste de cargas de trabalho.
 
 **Quem é elegível para o benefício da Instância Reservada?**
 
-Para ser elegível para benefício de instância reservada, o seu tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para obter mais informações sobre reservas, consulte [O Benefício de Instância Reservada.](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity) 
+Para ser elegível para benefício de instância reservada, o seu tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para obter mais informações sobre reservas, consulte [O Benefício de Instância Reservada.](../database/reserved-capacity-overview.md) 
 
 **É possível cancelar, trocar ou reembolsar reservas?**
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>Faturação para Instância Gerida e armazenamento de backup
 
@@ -443,7 +443,7 @@ Para explorar as opções de preços de Exemplos Geridos, consulte [a página de
 
 **Como posso rastrear o custo da faturação para o meu caso gerido?**
 
-Pode fazê-lo utilizando a [solução Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/). Navegue para **subscrições** no [portal Azure](https://portal.azure.com) e selecione **Análise de Custos.** 
+Pode fazê-lo utilizando a [solução Azure Cost Management](../../cost-management-billing/index.yml). Navegue para **subscrições** no [portal Azure](https://portal.azure.com) e selecione **Análise de Custos.** 
 
 Utilize a opção **custos acumulados** e, em seguida, filtre pelo **tipo de recurso** como `microsoft.sql/managedinstances` .
 
@@ -453,7 +453,7 @@ Obtém a mesma quantidade de espaço de armazenamento de backup gratuito que o e
 
 **Como posso monitorizar os custos de faturação para o meu consumo de armazenamento de reserva?**
 
-Pode monitorizar o custo do armazenamento de cópias de segurança através do portal Azure. Para obter instruções, consulte [os custos do Monitor para cópias de segurança automatizadas.](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs) 
+Pode monitorizar o custo do armazenamento de cópias de segurança através do portal Azure. Para obter instruções, consulte [os custos do Monitor para cópias de segurança automatizadas.](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs) 
 
 **Como posso otimizar os meus custos de armazenamento de reserva na área gerida?**
 
@@ -515,11 +515,11 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 **O que é a alteração root CA para Azure SQL Database & SQL Managed Instance?**
 
-Consulte [a rotação do certificado para a base de dados Azure SQL & sql Caso gerido](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
+Consulte [a rotação do certificado para a base de dados Azure SQL & sql Caso gerido](../updates/ssl-root-certificate-expiring.md). 
 
 **O que é um evento de manutenção planeado para a SQL Managed Instance?**
 
-Ver [Plano para eventos de manutenção do Azure em SqL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+Ver [Plano para eventos de manutenção do Azure em SqL Managed Instance](../database/planned-maintenance.md). 
 
 
 ## <a name="azure-feedback-and-support"></a>Feedback e suporte do Azure
@@ -530,5 +530,4 @@ Pode votar num novo recurso de Instância Gerida ou colocar uma nova ideia de me
 
 **Como posso criar um pedido de apoio ao Azure?**
 
-Para aprender a criar o pedido de suporte do Azure, consulte [Como criar o pedido de suporte do Azure.](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
-
+Para aprender a criar o pedido de suporte do Azure, consulte [Como criar o pedido de suporte do Azure.](../../azure-portal/supportability/how-to-create-azure-support-request.md)

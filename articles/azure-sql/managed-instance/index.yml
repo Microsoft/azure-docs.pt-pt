@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: 825623878e6d86a359dbc0fb9341a9d08a2218f3
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 8396dc248f9b525fb6c6cddd5f8a4b6399b68975
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91325152"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92779582"
 landingContent:
 - title: Instância Gerida do Azure SQL
   linkLists:
@@ -72,7 +72,7 @@ landingContent:
     - text: SQL do Azure para principiantes
       url: https://aka.ms/azuresql4beginners
     - text: Princípios fundamentais do SQL do Azure
-      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+      url: /learn/paths/azure-sql-fundamentals/
     - text: Laboratórios práticos do SQL do Azure
       url: https://aka.ms/asqlworkshop
     - text: Bootcamp do SQL do Azure
@@ -106,11 +106,11 @@ landingContent:
     - text: Transact-SQL (T-SQL)
       url: /sql/t-sql/language-reference
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/sql
+      url: /cli/azure/sql
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.sql
+      url: /powershell/module/az.sql
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/sql/
+      url: /rest/api/sql/
 - title: Continuidade do negócio
   linkLists:
   - linkListType: how-to-guide
