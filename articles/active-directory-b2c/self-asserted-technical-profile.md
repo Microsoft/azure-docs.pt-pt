@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096220"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670123"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autoafirmado numa política personalizada do Azure Ative Directory B2C
 
@@ -53,7 +53,7 @@ Num perfil técnico autoafirmado, pode utilizar os **elementos InputClaims** e *
 
 ## <a name="display-claims"></a>Apresentar reclamações
 
-A funcionalidade de reclamações do visor encontra-se atualmente em **pré-visualização**.
+A funcionalidade de reclamações do visor encontra-se atualmente em **pré-visualização** .
 
 O elemento **DisplayClaims** contém uma lista de reclamações a apresentar no ecrã para recolher dados do utilizador. Para pré-povoar os valores das reclamações do visor, utilize as alegações de entrada que foram previamente descritas. O elemento também pode conter um valor predefinido.
 
@@ -114,7 +114,7 @@ Se uma política de folhas que herda essa base especificar posteriormente `offic
 </TechnicalProfile>
 ```
 
-A `age` alegação na política de base já não é apresentada no ecrã ao utilizador - é efetivamente "escondida". Para apresentar a `age` reclamação e recolher o valor de idade do utilizador, tem de adicionar um `age` **DisplayClaim**.
+A `age` alegação na política de base já não é apresentada no ecrã ao utilizador - é efetivamente "escondida". Para apresentar a `age` reclamação e recolher o valor de idade do utilizador, tem de adicionar um `age` **DisplayClaim** .
 
 ## <a name="output-claims"></a>Reclamações de saída
 
@@ -136,7 +136,7 @@ Utilize reclamações de saída quando:
 - **As reclamações são a transformação de pedidos de produção por produção.**
 - **Definir um valor predefinido numa reclamação de saída** sem recolher dados do utilizador ou devolver os dados do perfil técnico de validação. O `LocalAccountSignUpWithLogonEmail` perfil técnico autoafirmado define a reivindicação **executada-SelfAsserted-Input** para `true` .
 - **Um perfil técnico de validação devolve as reclamações de saída** - O seu perfil técnico pode chamar um perfil técnico de validação que devolve algumas reclamações. Pode querer borbulhar as reclamações e devolvê-las aos próximos passos de orquestração na jornada do utilizador. Por exemplo, ao iniciar sessão com uma conta local, o perfil técnico autoafirmado chamado `SelfAsserted-LocalAccountSignin-Email` chama o perfil técnico de validação denominado `login-NonInteractive` . Este perfil técnico valida as credenciais do utilizador e também devolve o perfil do utilizador. Como 'userPrincipalName', 'displayName', 'givenName' e 'surName'.
-- **Um controlo de visualização devolve as reclamações de saída** - O seu perfil técnico pode ter uma referência a um [controlo de exibição](display-controls.md). O controlo do ecrã devolve algumas reclamações, tais como o endereço de e-mail verificado. Pode querer borbulhar as reclamações e devolvê-las aos próximos passos de orquestração na jornada do utilizador. A função de controlo do ecrã encontra-se atualmente em **pré-visualização**.
+- **Um controlo de visualização devolve as reclamações de saída** - O seu perfil técnico pode ter uma referência a um [controlo de exibição](display-controls.md). O controlo do ecrã devolve algumas reclamações, tais como o endereço de e-mail verificado. Pode querer borbulhar as reclamações e devolvê-las aos próximos passos de orquestração na jornada do utilizador. A função de controlo do ecrã encontra-se atualmente em **pré-visualização** .
 
 O exemplo a seguir demonstra a utilização de um perfil técnico autoafirmado que utiliza reivindicações de exibição e reivindicações de saída.
 
@@ -175,6 +175,14 @@ O exemplo a seguir demonstra a utilização de um perfil técnico autoafirmado q
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Saída reclama inscrição ou página de inscrição
+
+Numa página combinada de inscrição e inscrição, note o seguinte ao utilizar um elemento [DataUri](contentdefinitions.md#datauri) de definição de conteúdo que especifica um `unifiedssp` ou tipo de `unifiedssd` página:
+
+- Apenas o nome de utilizador e as reclamações de palavra-passe são prestados.
+- As duas primeiras reclamações de saída devem ser o nome de utilizador e a palavra-passe (nesta ordem). 
+- Quaisquer outras reclamações não são prestadas; para estas reclamações, terá de definir ou invocar um perfil técnico de validação de `defaultValue` formulários de reclamações. 
+
 ## <a name="persist-claims"></a>Persistir reivindicações
 
 O elemento PersistedClaims não é utilizado. O perfil técnico autoafirmado não persiste os dados do Azure AD B2C. Em vez disso, é feita uma chamada para um perfil técnico de validação que é responsável pela persistência dos dados. Por exemplo, a política de inscrição utiliza o `LocalAccountSignUpWithLogonEmail` perfil técnico autoafirmado para recolher o novo perfil de utilizador. O `LocalAccountSignUpWithLogonEmail` perfil técnico chama o perfil técnico de validação para criar a conta em Azure AD B2C.
@@ -203,7 +211,7 @@ Também pode chamar um perfil técnico de API REST com a sua lógica de negócio
 | definição.forgotPasswordLinkLocation <sup>2</sup>| Não| Apresenta o link de senha esquecido. Valores possíveis: `AfterInput` (predefinido) o link é apresentado na parte inferior da página ou `None` remove o link de senha esquecido.|
 | definição.enableRememberMe <sup>2</sup>| Não| Exibe o [Keep me assinado na](custom-policy-keep-me-signed-in.md) caixa de verificação. Valores possíveis: `true` , ou `false` (predefinição). |
 | definição.inputVerificationDelayTimeMliseconds <sup>3</sup>| Não| Melhora a experiência do utilizador, esperando que o utilizador pare de digitar e, em seguida, valide o valor. Valor padrão 2000 milissegundos. |
-| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false`   (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
+| IncluirClaimResolvingInClaimsHandling  | Não | Para pedidos de entradas e saídas, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` , ou `false` (predefinição). Se pretender utilizar uma reclamação no perfil técnico, desa um pouco `true` para . |
 
 Notas:
 1. Disponível para definição de conteúdo [DataUri](contentdefinitions.md#datauri) tipo de `unifiedssp` , ou `unifiedssd` .

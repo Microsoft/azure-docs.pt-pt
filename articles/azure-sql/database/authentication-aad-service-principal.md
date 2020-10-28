@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ded60f8c57d8c9db374bf77efe6dfd1a71690bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482932"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669822"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Ative Directory service principal com Azure SQL
 
@@ -34,7 +34,7 @@ Quando uma aplicação AD Azure é registada usando o portal Azure ou um comando
 - Um objeto da aplicação
 - Um objeto do principal de serviço
 
-Para obter mais informações sobre aplicações AD Azure, consulte [os objetos principais de aplicação e serviço no Azure Ative Directory](../../active-directory/develop/app-objects-and-service-principals.md) e [Crie um diretor de serviço Azure com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps).
+Para obter mais informações sobre aplicações AD Azure, consulte [os objetos principais de aplicação e serviço no Azure Ative Directory](../../active-directory/develop/app-objects-and-service-principals.md) e [Crie um diretor de serviço Azure com a Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
 Base de Dados SQL, Azure Synapse e SQL Managed Instance suportam os seguintes objetos AD Azure:
 
@@ -59,7 +59,7 @@ Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure 
     New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    Para mais informações, consulte o comando [New-AzSqlServer.](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver)
+    Para mais informações, consulte o comando [New-AzSqlServer.](/powershell/module/az.sql/new-azsqlserver)
 
     - Para os servidores Azure SQL Logical existentes, execute o seguinte comando:
     
@@ -67,12 +67,12 @@ Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure 
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
     ```
 
-    Para mais informações, consulte o comando [Set-AzSqlServer.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)
+    Para mais informações, consulte o comando [Set-AzSqlServer.](/powershell/module/az.sql/set-azsqlserver)
 
     - Para verificar se a identidade do servidor é atribuída ao servidor, execute o comando Get-AzSqlServer.
 
     > [!NOTE]
-    > A identidade do servidor também pode ser atribuída usando comandos CLI. Para obter mais informações, consulte [a criação do servidor Az Sql](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) e [a atualização do servidor Az Sql](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
+    > A identidade do servidor também pode ser atribuída usando comandos CLI. Para obter mais informações, consulte [a criação do servidor Az Sql](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) e [a atualização do servidor Az Sql](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
 
 2. Conceda ao Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) a permissão do servidor criado ou atribuído ao servidor.
     - Para conceder esta permissão, siga a descrição utilizada para a SQL Managed Instance que está disponível no seguinte artigo: [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
@@ -81,7 +81,7 @@ Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure 
 > [!IMPORTANT]
 > Os passos 1 e 2 devem ser executados na ordem acima. Em primeiro lugar, criar ou atribuir a identidade do servidor, seguida da concessão da permissão dos [**Leitores de Diretório.**](../../active-directory/roles/permissions-reference.md#directory-readers) Omitir um destes passos, ou ambos causarão um erro de execução durante uma criação de objeto AD Azure em Azure SQL em nome de uma aplicação AD Azure.
 >
-> Se estiver a utilizar o principal de serviço para definir ou desaparasitar o administrador Azure AD, o pedido também deve ter a permissão de API [de aplicação.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API em Azure AD. Para obter mais informações sobre [permissões necessárias para definir um administrador AD Azure](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin), e instruções passo a passo para criar um utilizador AD Azure em nome de uma aplicação AD Azure, consulte [Tutorial: Criar utilizadores de AD Azure utilizando aplicações AD Azure](authentication-aad-service-principal-tutorial.md).
+> Se estiver a utilizar o principal de serviço para definir ou desaparasitar o administrador Azure AD, o pedido também deve ter a permissão de API [de aplicação.Read.All](/graph/permissions-reference#application-permissions-18) Application API em Azure AD. Para obter mais informações sobre [permissões necessárias para definir um administrador AD Azure](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin), e instruções passo a passo para criar um utilizador AD Azure em nome de uma aplicação AD Azure, consulte [Tutorial: Criar utilizadores de AD Azure utilizando aplicações AD Azure](authentication-aad-service-principal-tutorial.md).
 >
 > Na **pré-visualização pública,** pode atribuir o papel **de Leitores** de Diretório a um grupo em Azure AD. Os proprietários do grupo podem então adicionar a identidade gerida como membro deste grupo, o que contornaria a necessidade de um **Administrador Global** ou Administrador **de Funções Privilegiadas** conceder o papel de Leitores de **Diretório.** Para obter mais informações sobre esta funcionalidade, consulte o [papel dos Leitores de Diretório no Diretório Ativo Azure para a Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -94,7 +94,7 @@ Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure 
       - Para o erro acima, siga os passos para [atribuir uma identidade ao servidor lógico Azure SQL](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) e atribuir [permissão aos Leitores de Diretório para a identidade do servidor lógico SQL](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
     > [!NOTE]
     > As mensagens de erro indicadas acima serão alteradas antes da funcionalidade GA para identificar claramente o requisito de configuração em falta para o suporte à aplicação AD do Azure.
-- Definir a aplicação AD AZure como um administrador AD Azure para SQL Managed Instance é suportado apenas usando o comando CLI, e o comando PowerShell com [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) ou superior. Para obter mais informações, consulte os comandos [az sql mi admin](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create&preserve-view=true) e os comandos [Set-AzSqlInstanceActiveDirectoryAdministrator.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) 
+- Definir a aplicação AD AZure como um administrador AD Azure para SQL Managed Instance é suportado apenas usando o comando CLI, e o comando PowerShell com [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) ou superior. Para obter mais informações, consulte os comandos [az sql mi admin](/cli/azure/sql/mi/ad-admin?view=azure-cli-latest&preserve-view=true#az-sql-mi-ad-admin-create) e os comandos [Set-AzSqlInstanceActiveDirectoryAdministrator.](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) 
     - Se pretender utilizar o portal Azure para a SQL Managed Instance para definir o administrador AD Azure, uma possível solução é criar um grupo AD Azure. Em seguida, adicione o principal de serviço (aplicação AD AD) a este grupo, e coloque este grupo como um administrador AD Azure para a SQL Managed Instance.
     - A definição do principal de serviço (aplicação Azure AD) como um administrador AD AZure para base de dados SQL e Azure Synapse é suportado através dos comandos Azure portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse)e [CLI.](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse)
 - A utilização de uma aplicação AD AZure com o principal serviço de outro inquilino AZure AD falhará ao aceder à Base de Dados SQL ou à SQL Managed Instance criada num inquilino diferente. Um principiante de serviço atribuído a esta aplicação deve ser do mesmo inquilino que o servidor lógico SQL ou a Instância Gerida.
@@ -104,5 +104,3 @@ Para permitir a criação de um objeto AD Azure na Base de Dados SQL e na Azure 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure](authentication-aad-service-principal-tutorial.md)
-
-

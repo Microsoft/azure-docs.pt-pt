@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069850"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670930"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integre a solução de monitorização remota com a Azure Data Lake Store
 
@@ -38,7 +38,7 @@ Crie um grupo de consumidores dedicado no centro IoT da sua solução de Monitor
 > [!NOTE]
 > Os grupos de consumidores são utilizados por aplicações para retirar dados do Azure IoT Hub. Deve criar um novo grupo de consumidores para cada cinco consumidores de produção. Pode criar até 32 grupos de consumidores.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 1. No portal Azure, clique no botão **Cloud Shell.**
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 Crie um trabalho Azure Stream Analytics para transmitir os dados do seu hub IoT para a sua loja Azure Data Lake.
 
-1. Clique **em Criar um recurso,** selecione Internet of Things a partir do Marketplace e clique em Stream Analytics **job**.
+1. Clique **em Criar um recurso,** selecione Internet of Things a partir do Marketplace e clique em Stream Analytics **job** .
 
     ![Novo trabalho de análise de fluxo](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
@@ -65,9 +65,9 @@ Crie um trabalho Azure Stream Analytics para transmitir os dados do seu hub IoT 
 
 1. Selecione uma localização na região próxima ou na mesma região que a sua Data Lake Store. Aqui estamos a usar os Eua Orientais.
 
-1. Certifique-se de deixar o ambiente de hospedagem como a **Nuvem**padrão .
+1. Certifique-se de deixar o ambiente de hospedagem como a **Nuvem** padrão .
 
-1. Clique em **Criar**.
+1. Clique em **Criar** .
 
     ![Criar trabalho de análise de fluxo](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
@@ -75,7 +75,7 @@ Crie um trabalho Azure Stream Analytics para transmitir os dados do seu hub IoT 
 
 1. Vá ao **trabalho stream Analytics** no seu grupo de recursos de monitorização remota.
 
-1. Na página 'Vista Geral', clique **em Entradas**.
+1. Na página 'Vista Geral', clique **em Entradas** .
 
     ![Página geral](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview.png)
 
@@ -83,15 +83,15 @@ Crie um trabalho Azure Stream Analytics para transmitir os dados do seu hub IoT 
 
     ![Adicionar entrada](./media/iot-accelerators-integrate-data-lake/stream-analytics-add-input.png)
 
-1. No novo separador de entrada, insira um pseudónimo de Entrada do **IoTHub**.
+1. No novo separador de entrada, insira um pseudónimo de Entrada do **IoTHub** .
 
 1. A partir do grupo de consumidores, selecione o grupo de consumidores que criou anteriormente. Aqui estamos a usar **o trabalho de streamanalytics.**
 
     ![Selecione Entrada](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. Clique em **Guardar**.
+1. Clique em **Guardar** .
 
-1. Na página 'Vista Geral', clique em **Saídas**.
+1. Na página 'Vista Geral', clique em **Saídas** .
 
     ![Adicionar data lake store](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview-2.png)
 
@@ -103,11 +103,11 @@ Crie um trabalho Azure Stream Analytics para transmitir os dados do seu hub IoT 
 
 1. Selecione a conta Data Lake Store que criou em etapas anteriores e forneça a estrutura da pasta para transmitir dados para a loja.
 
-1. No campo do formato Data, introduza **/streaming/{date}/{time}**. Deixe o formato de data padrão de YYYY/MM/DD e formato tempo de HH.
+1. No campo do formato Data, introduza **/streaming/{date}/{time}** . Deixe o formato de data padrão de YYYY/MM/DD e formato tempo de HH.
 
     ![Fornecer estrutura de pasta](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
-1. Clique **em Autorizor**.
+1. Clique **em Autorizor** .
 
     Terá de autorizar com a Data Lake Store que dê acesso ao stream analytics para o sistema de ficheiros.
 
@@ -118,13 +118,13 @@ Crie um trabalho Azure Stream Analytics para transmitir os dados do seu hub IoT 
     > [!NOTE]
     > Se vir um erro na janela popup, abra uma nova janela do navegador no Modo Incógnito e tente novamente.
 
-1. Clique em **Guardar**.
+1. Clique em **Guardar** .
 
 ## <a name="edit-the-stream-analytics-query"></a>Editar a consulta Stream Analytics
 
 O Azure Stream Analytics utiliza uma linguagem de consulta semelhante ao SQL para especificar uma fonte de entrada que transmite dados, transforma esses dados conforme desejado, e a saída para uma variedade de destinos de armazenamento ou processamento.
 
-1. No separador Vista Geral, clique em **Editar consulta**.
+1. No separador Vista Geral, clique em **Editar consulta** .
 
     ![Editar Consulta](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
 
@@ -141,12 +141,12 @@ O Azure Stream Analytics utiliza uma linguagem de consulta semelhante ao SQL par
 
     ![Consulta de Análise de Fluxo](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. Clique em **Guardar**.
+1. Clique em **Guardar** .
 1. Clique **em Sim** para aceitar as alterações.
 
 ## <a name="start-the-stream-analytics-job"></a>Inicie o trabalho stream analytics
 
-1. No separador Visão Geral, clique em **Iniciar**.
+1. No separador Visão Geral, clique em **Iniciar** .
 
     ![Iniciar trabalho de analítica de fluxo](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
 
@@ -154,7 +154,7 @@ O Azure Stream Analytics utiliza uma linguagem de consulta semelhante ao SQL par
 
 1. Desaça o tempo personalizado para voltar algumas horas para recolher dados a partir de quando o seu dispositivo começou a ser transmitido.
 
-1. Clique em **Iniciar**.
+1. Clique em **Iniciar** .
 
     ![Escolha data personalizada](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 
@@ -170,9 +170,9 @@ O Azure Stream Analytics utiliza uma linguagem de consulta semelhante ao SQL par
 
 1. No separador 'Vista Geral', clique no **explorador de dados.**
 
-1. No explorador de dados, desaca a pasta **/streaming.** Verá pastas criadas com formato YYYY/MM/DD/HH.
+1. No explorador de dados, desaca a pasta **/streaming.** Verá pastas criadas com formato YYYY/MM/DD.
 
-    ![Explore dados de streaming](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
+    ![Screenshot que mostra o caminho para a pasta /streaming/YYYY/MM/DD/HH.](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
 
     Verá ficheiros json com um ficheiro por hora.
 

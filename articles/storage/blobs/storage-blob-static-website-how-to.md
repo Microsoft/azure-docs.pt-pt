@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289876"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671103"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
 
@@ -38,15 +38,15 @@ O alojamento estático do site é uma funcionalidade que tem de ativar na conta 
 
 4. Selecione **Ativado** para permitir hospedagem estática do site para a conta de armazenamento.
 
-5. No campo **de nome do documento Index,** especifique uma página de índice predefinido (por exemplo:index.htm* l*). 
+5. No campo **de nome do documento Index,** especifique uma página de índice predefinido (por exemplo:index.htm *l* ). 
 
    A página de índice predefinido é apresentada quando um utilizador navega para a raiz do seu website estático.  
 
-6. No campo de trajetória do **documento Erro,** especifique uma página de erro por defeito (Por exemplo: *404.html*). 
+6. No campo de trajetória do **documento Erro,** especifique uma página de erro por defeito (Por exemplo: *404.html* ). 
 
    A página de erro predefinida é exibida quando um utilizador tenta navegar para uma página que não existe no seu website estático.
 
-7. Clique em **Guardar**. O portal Azure apresenta agora o seu ponto final estático do site. 
+7. Clique em **Guardar** . O portal Azure apresenta agora o seu ponto final estático do site. 
 
     ![Ativar hospedagem estática no site para uma conta de armazenamento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -138,7 +138,7 @@ Pode ativar o alojamento estático do site utilizando o módulo Azure PowerShell
 
 Estas instruções mostram-lhe como fazer o upload de ficheiros utilizando a versão do Storage Explorer que aparece no portal Azure. No entanto, também pode utilizar a versão do [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) que corre fora do portal Azure. Pode utilizar [AzCopy,](../common/storage-use-azcopy-v10.md)PowerShell, CLI ou qualquer aplicação personalizada que possa enviar ficheiros para **o** $web recipiente da sua conta. Para obter um tutorial passo a passo que faça upload de ficheiros utilizando o código Visual Studio, consulte [Tutorial: Hospedar um website estático no Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-1. Selecione **Explorador de Armazenamento (pré-visualização)**.
+1. Selecione **Explorador de Armazenamento (pré-visualização)** .
 
 2. Expanda o nó **BLOB CONTAINERS** e, em seguida, selecione **o** $web recipiente.
 
@@ -151,7 +151,7 @@ Estas instruções mostram-lhe como fazer o upload de ficheiros utilizando a ver
    ![Verifique tipos de conteúdo](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > O Storage Explorer define automaticamente esta propriedade `text/html` para extensões geralmente reconhecidas, tais como `.html` . No entanto, em alguns casos, terá que definir isto por si mesmo. Caso não desafie esta propriedade, o navegador irá solicitar aos `text/html` utilizadores que descarreguem o ficheiro em vez de renderizarem o conteúdo. Para definir esta propriedade, clique com o botão direito no ficheiro e, em seguida, clique em **Propriedades**.
+   > O Storage Explorer define automaticamente esta propriedade `text/html` para extensões geralmente reconhecidas, tais como `.html` . No entanto, em alguns casos, terá que definir isto por si mesmo. Caso não desafie esta propriedade, o navegador irá solicitar aos `text/html` utilizadores que descarreguem o ficheiro em vez de renderizarem o conteúdo. Para definir esta propriedade, clique com o botão direito no ficheiro e, em seguida, clique em **Propriedades** .
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -204,7 +204,7 @@ Pode ver as páginas do seu site a partir de um browser utilizando o URL públic
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No painel que aparece ao lado da página geral da conta da sua conta de armazenamento, selecione **Estática Website**. O URL do seu site aparece no campo **do ponto final primário.**
+No painel que aparece ao lado da página geral da conta da sua conta de armazenamento, selecione **Estática Website** . O URL do seu site aparece no campo **do ponto final primário.**
 
 ![Métricas de métricas de websites estáticos de armazenamento Azure](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -249,7 +249,7 @@ Uma vez ativadas as métricas, as estatísticas de tráfego sobre ficheiros no *
    > [!NOTE]
    > Os dados das métricas são gerados ligando-se a diferentes métricas APIs. O portal apenas apresenta membros da API utilizados dentro de um determinado prazo para se concentrar apenas nos membros que devolvem dados. Para garantir que é capaz de selecionar o membro da API necessário, o primeiro passo é expandir o prazo.
 
-2. Clique no botão de tempograma, escolha um prazo e, em seguida, clique em **Aplicar**.
+2. Clique no botão de tempograma, escolha um prazo e, em seguida, clique em **Aplicar** .
 
    ![Intervalo de tempo de métricas de métricas de websites estáticos de armazenamento Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
@@ -259,7 +259,7 @@ Uma vez ativadas as métricas, as estatísticas de tráfego sobre ficheiros no *
 
 4. Em seguida, selecione a métrica **Egress.**
 
-   ![Métricas de métricas de websites estáticos de armazenamento Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Screenshot que mostra os sites estáticos Azure Storage Egress métrica.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Selecione **Soma** no seletor *de agregação.*
 

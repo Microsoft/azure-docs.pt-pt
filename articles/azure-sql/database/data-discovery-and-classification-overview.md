@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886504"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672086"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Os seus dados mais sensíveis podem incluir informações empresariais, financei
 - Controlar o acesso e endurecer a segurança das bases de dados que contêm dados altamente sensíveis.
 
 > [!NOTE]
-> Para obter informações sobre o SQL Server no local, consulte [a Classificação de & de descoberta de dados SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Para obter informações sobre o SQL Server no local, consulte [a Classificação de & de descoberta de dados SQL](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>O que é a classificação & data Discovery?
 
@@ -55,18 +55,18 @@ Esta secção descreve os passos para:
 
 A classificação inclui dois atributos de metadados:
 
-- **Etiquetas**: Os principais atributos de classificação, utilizados para definir o nível de sensibilidade dos dados armazenados na coluna.  
-- **Tipos de informação**: Atributos que fornecem mais informações granulares sobre o tipo de dados armazenados na coluna.
+- **Etiquetas** : Os principais atributos de classificação, utilizados para definir o nível de sensibilidade dos dados armazenados na coluna.  
+- **Tipos de informação** : Atributos que fornecem mais informações granulares sobre o tipo de dados armazenados na coluna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Defina e personalize a sua taxonomia de classificação
 
 Data Discovery & Classification vem com um conjunto incorporado de etiquetas de sensibilidade e um conjunto incorporado de tipos de informação e lógica de descoberta. Pode agora personalizar esta taxonomia e definir um conjunto e uma classificação de construções específicas para o seu ambiente.
 
-Você define e personaliza a sua taxonomia de classificação em um lugar central para toda a sua organização Azure. Essa localização está no [Centro de Segurança Azure,](https://docs.microsoft.com/azure/security-center/security-center-intro)como parte da sua política de segurança. Só alguém com direitos administrativos no grupo de gestão de raiz da organização pode fazer esta tarefa.
+Você define e personaliza a sua taxonomia de classificação em um lugar central para toda a sua organização Azure. Essa localização está no [Centro de Segurança Azure,](../../security-center/security-center-introduction.md)como parte da sua política de segurança. Só alguém com direitos administrativos no grupo de gestão de raiz da organização pode fazer esta tarefa.
 
 Como parte da gestão de políticas para a proteção da informação, pode definir etiquetas personalizadas, classificá-las e associá-las a um conjunto selecionado de tipos de informação. Também pode adicionar os seus próprios tipos de informações personalizadas e configurá-los com padrões de cordas. Os padrões são adicionados à lógica de descoberta para identificar este tipo de dados nas suas bases de dados.
 
-Para obter mais informações, consulte [Personalizar a política de proteção de informação SQL no Azure Security Center (Preview)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+Para obter mais informações, consulte [Personalizar a política de proteção de informação SQL no Azure Security Center (Preview)](../../security-center/security-center-info-protection-policy.md).
 
 Depois de definida a política em toda a organização, pode continuar a classificar bases de dados individuais utilizando a sua política personalizada.
 
@@ -91,7 +91,7 @@ Depois de definida a política em toda a organização, pode continuar a classif
 
    - Para aceitar uma recomendação para uma coluna específica, selecione a caixa de verificação na coluna esquerda da linha relevante. Para marcar todas as recomendações conforme aceite, selecione a caixa de verificação mais à esquerda no cabeçalho da tabela de recomendações.
 
-   - Para aplicar as recomendações selecionadas, **selecione Aceite recomendações selecionadas**.
+   - Para aplicar as recomendações selecionadas, **selecione Aceite recomendações selecionadas** .
 
 1. Também pode classificar as colunas manualmente, como alternativa ou para além da classificação baseada em recomendações:
 
@@ -125,7 +125,7 @@ Estas funções incorporadas podem modificar a classificação de dados de uma b
 - Contribuinte
 - Gestor de Segurança SQL
 
-Saiba mais sobre permissões baseadas em funções no [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Saiba mais sobre permissões baseadas em funções no [Azure RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Gerir classificações
 
@@ -140,42 +140,42 @@ Pode utilizar o T-SQL para adicionar ou remover classificações de colunas e pa
 
 Para obter informações sobre a utilização do T-SQL para classificações, consulte as seguintes referências:
 
-- Para adicionar ou atualizar a classificação de uma ou mais colunas: [CLASSIFICAÇÃO DE SENSIBILIDADE ADD](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Para remover a classificação de uma ou mais colunas: [CLASSIFICAÇÃO DE SENSIBILIDADE DROP](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-- Para ver todas as classificações na base de dados: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Para adicionar ou atualizar a classificação de uma ou mais colunas: [CLASSIFICAÇÃO DE SENSIBILIDADE ADD](/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Para remover a classificação de uma ou mais colunas: [CLASSIFICAÇÃO DE SENSIBILIDADE DROP](/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Para ver todas as classificações na base de dados: [sys.sensitivity_classifications](/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="use-powershell-cmdlets"></a>Utilizar cmdlets do PowerShell
 Gerir classificações e recomendações para Azure SQL Database e Azure SQL Managed Instance usando PowerShell.
 
 #### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets PowerShell para Base de Dados Azure SQL
 
-- [Receber-AzSqlDatabaseSensibilidadeClassificação](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
-- [Set-AzSqlDatabaseSensibilidadeClassificação](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
-- [Remoção-AzSqlDatabaseSensibilidadeClassificação](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
-- [Get-AzSqlDatabaseSensibilidadeRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
-- [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
-- [Desativação-AzSqlDatabaseSensibilidadeRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
+- [Receber-AzSqlDatabaseSensibilidadeClassificação](/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensibilidadeClassificação](/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remoção-AzSqlDatabaseSensibilidadeClassificação](/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensibilidadeRecommendation](/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+- [Enable-AzSqlDatabaSesensitivityRecommendation](/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
+- [Desativação-AzSqlDatabaseSensibilidadeRecommendation](/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
 #### <a name="powershell-cmdlets-for-azure-sql-managed-instance"></a>Cmdlets PowerShell para Azure SQL Gestd Instance
 
-- [Get-AzSqlInstanceDatabaseSensibilidadeClassifica](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
-- [Set-AzSqlInstanceDatabaseSensibilidadeClassifica](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
-- [Remoção-AzSqlInstanceDatabaseSensibilidadeClassifica](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
-- [Get-AzSqlInstanceDatabaseSensibilidadeRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
-- [Enable-AzSqlInstanceDatabaseSensibilidadeRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
-- [Desativação-AzSqlInstanceDatabaseSensibilidadeRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
+- [Get-AzSqlInstanceDatabaseSensibilidadeClassifica](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensibilidadeClassifica](/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remoção-AzSqlInstanceDatabaseSensibilidadeClassifica](/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensibilidadeRecommendation](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+- [Enable-AzSqlInstanceDatabaseSensibilidadeRecommendation](/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
+- [Desativação-AzSqlInstanceDatabaseSensibilidadeRecommendation](/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
 ### <a name="use-the-rest-api"></a>Use a API de Descanso
 
 Pode utilizar a API REST para gerir programáticamente classificações e recomendações. A API REST publicada apoia as seguintes operações:
 
-- [Criar ou atualizar:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)Cria ou atualiza o rótulo de sensibilidade da coluna especificada.
-- [Excluir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Elimina a etiqueta de sensibilidade da coluna especificada.
-- [Recomendação para desativar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): Desativa as recomendações de sensibilidade na coluna especificada.
-- [Ativar recomendação](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): Ativa recomendações de sensibilidade na coluna especificada. (As recomendações são ativadas por padrão em todas as colunas.)
-- [Obter:](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)Obtém a etiqueta de sensibilidade da coluna especificada.
-- [Lista Corrente por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém as etiquetas de sensibilidade atuais da base de dados especificada.
-- [Lista Recomendada por Base de Dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Obtém as etiquetas de sensibilidade recomendadas da base de dados especificada.
+- [Criar ou atualizar:](/rest/api/sql/sensitivitylabels/createorupdate)Cria ou atualiza o rótulo de sensibilidade da coluna especificada.
+- [Excluir](/rest/api/sql/sensitivitylabels/delete): Elimina a etiqueta de sensibilidade da coluna especificada.
+- [Recomendação para desativar](/rest/api/sql/sensitivitylabels/disablerecommendation): Desativa as recomendações de sensibilidade na coluna especificada.
+- [Ativar recomendação](/rest/api/sql/sensitivitylabels/enablerecommendation): Ativa recomendações de sensibilidade na coluna especificada. (As recomendações são ativadas por padrão em todas as colunas.)
+- [Obter:](/rest/api/sql/sensitivitylabels/get)Obtém a etiqueta de sensibilidade da coluna especificada.
+- [Lista Corrente por Base de Dados](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém as etiquetas de sensibilidade atuais da base de dados especificada.
+- [Lista Recomendada por Base de Dados](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Obtém as etiquetas de sensibilidade recomendadas da base de dados especificada.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes
 

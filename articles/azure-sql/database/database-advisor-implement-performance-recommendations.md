@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284368"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672113"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendações de desempenho do Advisor da Base de Dados para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,10 @@ A visão geral do desempenho fornece um resumo do desempenho da sua base de dado
 
 ![Visão geral do desempenho para Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-overview-annotated.png)
 
-- O azulejo **recomendações** fornece uma desagregação das recomendações de sintonização para a sua base de dados (as três principais recomendações são mostradas se houver mais). Clicar neste azulejo leva-o às **[opções de recomendação de desempenho](database-advisor-find-recommendations-portal.md#viewing-recommendations)**.
+- O azulejo **recomendações** fornece uma desagregação das recomendações de sintonização para a sua base de dados (as três principais recomendações são mostradas se houver mais). Clicar neste azulejo leva-o às **[opções de recomendação de desempenho](database-advisor-find-recommendations-portal.md#viewing-recommendations)** .
 - O azulejo da **atividade de Afinação** fornece um resumo das ações de afinação em curso e concluídas para a sua base de dados, dando-lhe uma visão rápida da história da atividade de afinação. Clicar neste azulejo leva-o à visualização completa do histórico de sintonização para a sua base de dados.
 - O **azulejo de afinação automática** mostra a **[configuração de afinação automática](automatic-tuning-enable.md)** da sua base de dados (opções de afinação que são automaticamente aplicadas na sua base de dados). Clicar neste azulejo abre o diálogo de configuração da automatização.
-- O azulejo **de consultas de base de dados** mostra o resumo do desempenho da consulta para a sua base de dados (utilização geral do DTU e consultas de consumo de recursos de topo). Clicar neste azulejo leva-o a consultar o **[Insight de Desempenho da Consulta](query-performance-insight-use.md)**.
+- O azulejo **de consultas de base de dados** mostra o resumo do desempenho da consulta para a sua base de dados (utilização geral do DTU e consultas de consumo de recursos de topo). Clicar neste azulejo leva-o a consultar o **[Insight de Desempenho da Consulta](query-performance-insight-use.md)** .
 
 ## <a name="performance-recommendation-options"></a>Opções de recomendação de desempenho
 
@@ -55,9 +55,9 @@ Você também pode encontrar um histórico completo de ações de afinação que
 
 A Azure SQL Database monitoriza continuamente as consultas que estão em execução e identifica os índices que podem melhorar o desempenho. Depois de haver confiança suficiente de que um determinado índice está em falta, uma nova recomendação **de índice create** é criada.
 
-A Azure SQL Database constrói confiança estimando o ganho de desempenho que o índice traria através do tempo. Dependendo do ganho de desempenho estimado, as recomendações são classificadas como altas, médias ou baixas.
+A Azure SQL Database constrói confiança estimando o ganho de desempenho que o índice traria através do tempo. Dependendo do ganho de desempenho estimado, as recomendações são categorizadas como altas, médias ou baixas.
 
-Os índices criados através de recomendações são sempre sinalizados como índices criados automaticamente. Pode ver quais os índices que são criados automaticamente olhando para a [vista sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Os índices criados automaticamente não bloqueiam os comandos ALTER/RENAME.
+Os índices criados através de recomendações são sempre sinalizados como índices criados automaticamente. Pode ver quais os índices que são criados automaticamente olhando para a [vista sys.indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Os índices criados automaticamente não bloqueiam os comandos ALTER/RENAME.
 
 Se tentar largar a coluna que tem um índice auto-criado sobre ela, o comando passa. O índice auto-criado também é reduzido com o comando. Os índices regulares bloqueiam o comando ALTER/RENAME nas colunas indexadas.
 
@@ -114,7 +114,7 @@ A recomendação "Fix schema issue" aparece quando a Base de Dados Azure SQL not
 
 ## <a name="custom-applications"></a>Aplicações personalizadas
 
-Os desenvolvedores podem considerar desenvolver aplicações personalizadas usando recomendações de desempenho para Azure SQL Database. Todas as recomendações listadas no portal para uma base de dados podem ser acedidas através da [API get-AzSqlDataBaseRecommendedAction.](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)
+Os desenvolvedores podem considerar desenvolver aplicações personalizadas usando recomendações de desempenho para Azure SQL Database. Todas as recomendações listadas no portal para uma base de dados podem ser acedidas através da [API get-AzSqlDataBaseRecommendedAction.](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)
 
 ## <a name="next-steps"></a>Passos seguintes
 

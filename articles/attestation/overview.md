@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90033001"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670537"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (pré-visualização)
 
@@ -73,7 +73,7 @@ A azure Attestation é a escolha preferida para atestar tees, uma vez que oferec
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Apoio à continuidade do negócio e recuperação de desastres (BCDR)
 
-[A Continuidade do Negócio e Recuperação de Desastres](/azure/best-practices-availability-paired-regions) (BCDR) para o Azure Attestation permite mitigar as perturbações do serviço resultantes de problemas de disponibilidade significativos ou eventos de desastres numa região.
+[A Continuidade do Negócio e Recuperação de Desastres](../best-practices-availability-paired-regions.md) (BCDR) para o Azure Attestation permite mitigar as perturbações do serviço resultantes de problemas de disponibilidade significativos ou eventos de desastres numa região.
 
 Abaixo estão as regiões que são atualmente apoiadas pelo BCDR
 - Leste DOS EUA 2 => Emparelhado com os EUA Centrais.
@@ -91,4 +91,3 @@ Os aglomerados implantados em duas regiões funcionarão de forma independente e
 - Conheça os [conceitos básicos do Azure Attestation](basic-concepts.md)
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)
-

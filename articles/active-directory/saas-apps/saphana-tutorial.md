@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: fc3b5b096e339d0c0f4bca7afc92d7315246fcd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d3a3a068a4efb2dea7d7df4bc2b88e2c33dc18b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552293"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integração do Diretório Ativo Azure com SAP HANA
 
@@ -27,7 +27,7 @@ A integração da SAP HANA com a Azure AD proporciona-lhe os seguintes benefíci
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no SAP HANA (Sign-On Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -60,7 +60,7 @@ Para configurar a integração do SAP HANA em Azure AD, precisa adicionar o SAP 
 
 **Para adicionar SAP HANA da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -72,13 +72,13 @@ Para configurar a integração do SAP HANA em Azure AD, precisa adicionar o SAP 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **escreva SAP HANA**, selecione **SAP HANA** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, **escreva SAP HANA** , selecione **SAP HANA** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
 
      ![SAP HANA na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com SAP HANA baseado num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com um único sign-on com SAP HANA baseado num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no SAP HANA.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com o SAP HANA, é necessário completar os seguintes blocos de construção:
@@ -96,7 +96,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o SAP HANA, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SAP HANA,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SAP HANA,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -131,11 +131,11 @@ Para configurar o Azure AD com o SAP HANA, execute os seguintes passos:
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Na lista **de Transformação,** selecione **ExtractMailPrefix()**.
+    b. Na lista **de Transformação,** selecione **ExtractMailPrefix()** .
 
-    c. Na lista **do Parâmetro 1,** selecione **user.mail**.
+    c. Na lista **do Parâmetro 1,** selecione **user.mail** .
 
-    d. Clique em **Guardar**.
+    d. Clique em **Guardar** .
 
 7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -169,7 +169,7 @@ Para configurar o Azure AD com o SAP HANA, execute os seguintes passos:
 
     ![Botão Guardar](./media/saphana-tutorial/sap4.png)
 
-4. No Estúdio HANA, dentro das propriedades do sistema do **separador Configuração,** filtrar as definições por **saml**. Em seguida, ajuste o **assertion_timeout** de **10 segundos** para **120 segundos**.
+4. No Estúdio HANA, dentro das propriedades do sistema do **separador Configuração,** filtrar as definições por **saml** . Em seguida, ajuste o **assertion_timeout** de **10 segundos** para **120 segundos** .
 
     ![assertion_timeout definição](./media/saphana-tutorial/sap7.png)
 
@@ -177,7 +177,7 @@ Para configurar o Azure AD com o SAP HANA, execute os seguintes passos:
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -189,28 +189,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a SAP HANA.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SAP HANA**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **SAP HANA** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, escreva e selecione **SAP HANA**.
+2. Na lista de candidaturas, escreva e selecione **SAP HANA** .
 
     ![O link SAP HANA na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -227,7 +227,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 ### <a name="create-sap-hana-test-user"></a>Criar utilizador de teste SAP HANA
 
 Para permitir que os utilizadores da Azure AD entrem no SAP HANA, deve forerá-los em SAP HANA.
-O SAP HANA suporta **o provisionamento just-in-time**, que é ativado por padrão.
+O SAP HANA suporta **o provisionamento just-in-time** , que é ativado por padrão.
 
 Se precisar de criar um utilizador manualmente, tome os seguintes passos:
 
@@ -238,11 +238,11 @@ Se precisar de criar um utilizador manualmente, tome os seguintes passos:
 
     ![Criar utilizador](./media/saphana-tutorial/sap5.png)
 
-2. Selecione a caixa de verificação invisível à esquerda da **SAML**e, em seguida, selecione o link **Configure.**
+2. Selecione a caixa de verificação invisível à esquerda da **SAML** e, em seguida, selecione o link **Configure.**
 
-3. **Selecione Adicionar** para adicionar o IDP SAML.  Selecione o IDP SAML apropriado e, em seguida, selecione **OK**.
+3. **Selecione Adicionar** para adicionar o IDP SAML.  Selecione o IDP SAML apropriado e, em seguida, selecione **OK** .
 
-4. Adicione a **Identidade Externa** (neste caso, BrittaSimon) ou escolha **Qualquer**. Em seguida, selecione **OK**.
+4. Adicione a **Identidade Externa** (neste caso, BrittaSimon) ou escolha **Qualquer** . Em seguida, selecione **OK** .
 
    > [!Note]
    > Se a caixa de verificação **Any** não for selecionada, então o nome de utilizador em HANA precisa de corresponder exatamente o nome do utilizador na UPN antes do sufixo de domínio. (Por exemplo, BrittaSimon@contoso.com torna-se BrittaSimon em HANA.)
@@ -260,13 +260,12 @@ Se precisar de criar um utilizador manualmente, tome os seguintes passos:
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo SAP HANA no Painel de Acesso, deverá ser automaticamente inscrito no SAP HANA para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo SAP HANA no Painel de Acesso, deverá ser automaticamente inscrito no SAP HANA para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570479"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670105"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Visão geral das chaves de política no Azure Ative Directory B2C
 
@@ -36,7 +36,7 @@ Pode configurar segredos e certificados para estabelecer confiança entre servi�
 
 O recurso de nível superior para chaves de política em Azure AD B2C é o recipiente **Keyset.** Cada tecla contém pelo menos uma **tecla.** Uma chave tem os seguintes atributos:
 
-| Atributo |  Necessário | Observações |
+| Atributo |  Obrigatório | Observações |
 | --- | --- |--- |
 | `use` | Sim | Utilização: Identifica a utilização pretendida da chave pública. Encriptar dados `enc` , ou verificar a assinatura nos dados `sig` .|
 | `nbf`| Não | Data e hora de ativação. |
@@ -58,7 +58,7 @@ Por razões de segurança, o Azure AD B2C pode passar as chaves periodicamente o
 
 Se um conjunto de teclas AD B2C Azure tiver várias teclas, apenas uma das teclas está ativa a qualquer momento, com base nos seguintes critérios:
 
-- A ativação da chave baseia-se na **data de ativação**.
+- A ativação da chave baseia-se na **data de ativação** .
   - As teclas são classificadas por data de ativação por ordem ascendente. As teclas com datas de ativação mais para o futuro aparecem mais baixas na lista. As chaves sem data de ativação estão localizadas na parte inferior da lista.
   - Quando a data e hora atuais for maior do que a data de ativação de uma chave, o Azure AD B2C ativará a tecla e deixará de utilizar a tecla ativa anterior.
 - Quando o tempo de validade da tecla atual tiver decorrido e o recipiente de teclas contiver uma nova chave com prazos válidos *e não antes* e prazos de *validade,* a nova tecla ficará ativa automaticamente.
@@ -71,13 +71,20 @@ Para obter a chave ativa atual dentro de um recipiente chave, utilize o ponto fi
 
 Para adicionar ou eliminar as chaves de assinatura e encriptação:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de Inscrição + Diretório** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
-1. No portal Azure, procure e selecione **Azure AD B2C**.
-1. Na página geral, no âmbito de **Políticas,** selecione **Identity Experience Framework**.
+1. No portal Azure, procure e selecione **Azure AD B2C** .
+1. Na página geral, no âmbito de **Políticas,** selecione **Identity Experience Framework** .
 1. Selecione **teclas de política** 
-    1. Para adicionar uma nova chave, **selecione Adicionar**.
-    1. Para remover uma nova chave, selecione a chave e, em seguida, **selecione Delete**. Para eliminar a chave, digite o nome do recipiente da chave para eliminar. O Azure AD B2C apagará a chave e criará uma cópia da chave com o sufixo .bak.
+    1. Para adicionar uma nova chave, **selecione Adicionar** .
+    1. Para remover uma nova chave, selecione a chave e, em seguida, **selecione Delete** . Para eliminar a chave, digite o nome do recipiente da chave para eliminar. O Azure AD B2C apagará a chave e criará uma cópia da chave com o sufixo .bak.
+
+### <a name="replace-a-key"></a>Substitua uma chave
+
+As teclas num tecla não são substituíveis ou removíveis. Se precisar de alterar uma chave existente:
+
+- Recomendamos a adição de uma nova chave com a **data de ativação** definida para a data e hora atuais. O Azure AD B2C ativará a nova chave e deixará de utilizar a tecla ativa anterior.
+- Em alternativa, pode criar um novo conjunto de teclas com as teclas corretas. Atualize a sua política para utilizar o novo tecla e, em seguida, remova o conjunto de teclas antigo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

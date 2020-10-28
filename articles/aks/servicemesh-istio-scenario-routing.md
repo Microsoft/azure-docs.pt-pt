@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83799946"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670935"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utilize lançamentos inteligentes de encaminhamento e canário com istio no Serviço Azure Kubernetes (AKS)
 
@@ -53,7 +53,7 @@ Uma vez que está confiante de que a versão `2.0` funciona como esperado no seu
 
 Comecemos por implementar a aplicação no seu cluster Azure Kubernetes Service (AKS). O seguinte diagrama mostra o que funciona até ao final desta secção - versão `1.0` de todos os componentes com pedidos de entrada servidos através do gateway istio ingress:
 
-![Os componentes e encaminhamento da aplicação AKS Vote.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagrama que mostra a versão 1.0 de todos os componentes com pedidos de entrada servidos através do gateway de entrada istio.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 Os artefactos que precisa de seguir juntamente com este artigo estão disponíveis na app GitHub de [Azure-Samples/aks-vote.][github-azure-sample] Pode descarregar os artefactos ou clonar o repo da seguinte forma:
 
@@ -180,7 +180,7 @@ Vamos implementar uma nova versão do componente de análise. Esta nova versão 
 
 O diagrama seguinte mostra o que vai ser em execução no final desta secção - apenas a versão `1.1` do nosso componente tem o tráfego desviado do `voting-analytics` `voting-app` componente. Apesar de a versão `1.0` do nosso componente continuar a funcionar e ser `voting-analytics` referenciada pelo `voting-analytics` serviço, os proxies istio não autorizam o tráfego de e para ele.
 
-![Os componentes e encaminhamento da aplicação AKS Vote.](media/servicemesh/istio/scenario-routing-components-02.png)
+![O diagrama que mostra apenas a versão 1.1 da componente de análise de voto tem o tráfego desviado da componente da aplicação de voto.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Vamos implementar a versão `1.1` do `voting-analytics` componente. Crie este componente no `voting` espaço de nomes:
 
@@ -361,7 +361,7 @@ O diagrama que se segue mostra o que terá em execução no final desta secção
 * A versão `2.0` do `voting-app` componente, a versão `2.0` do componente e a versão do componente são `voting-analytics` `2.0` `voting-storage` capazes de comunicar entre si.
 * A versão `2.0` do componente só é `voting-app` acessível aos utilizadores que tenham um conjunto de bandeiras de funcionalidades específicas. Esta alteração é gerida através de uma bandeira de recurso através de um cookie.
 
-![Os componentes e encaminhamento da aplicação AKS Vote.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagrama que mostra o que vai ter a correr no final desta secção.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 Em primeiro lugar, atualize as Regras de Destino istio e serviços virtuais para atender a estes novos componentes. Estas atualizações garantem que não encaminha o tráfego incorretamente para os novos componentes e os utilizadores não têm acesso inesperado:
 
@@ -415,7 +415,7 @@ As contagens de voto são diferentes entre as versões da app. Esta diferença r
 
 Depois de ter testado com sucesso o lançamento do canário, atualize o `voting-app` Serviço Virtual para encaminhar todo o tráfego para a versão `2.0` do `voting-app` componente. Todos os utilizadores vêem então a versão `2.0` da aplicação, independentemente de a bandeira da funcionalidade estar definida ou não:
 
-![Os componentes e encaminhamento da aplicação AKS Vote.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagrama que mostra que os utilizadores vêem a versão 2.0 da aplicação, independentemente de a bandeira da funcionalidade estar ou não definida.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Atualize todas as Regras de Destino para remover as versões dos componentes que já não deseja ativa. Em seguida, atualize todos os Serviços Virtuais para parar de fazer referência a essas versões.
 

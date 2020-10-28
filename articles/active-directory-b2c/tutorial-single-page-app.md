@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e485065588fefa95868df9865f317de54e6ef020
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628784"
+ms.locfileid: "92670042"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
 
@@ -117,13 +117,13 @@ Agora que obteve a amostra, atualize o código com o nome do seu inquilino Azure
     };
     ```
 
-1. Abra o `authConfig.js` ficheiro dentro da pasta *JavaScriptSPA.*
+1. Abra o ficheiro *authConfig.js* dentro da pasta *JavaScriptSPA.*
 1. No `msalConfig` objeto, atualize:
     * `clientId` com o **ID de Aplicação (cliente)** que gravou num passo anterior
     * `authority`URI com o seu nome de inquilino Azure AD B2C e o nome do fluxo de utilizador de inscrição/inscrição que criou como parte dos pré-requisitos (por exemplo, *B2C_1_signupsignin1)*
-1. Abra o ficheiro `policies.js`.
+1. Abra o ficheiro *policies.js.*
 1. Encontre as entradas `names` e `authorities` substitua-as conforme apropriado pelos nomes das políticas que criou no Passo 2. `fabrikamb2c.onmicrosoft.com`Substitua-o pelo nome do seu inquilino Azure AD B2C, por `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` exemplo.
-1. Abra o ficheiro `apiConfig.js`.
+1. Abra o ficheiro *apiConfig.js.*
 1. Encontre a atribuição para os âmbitos `b2cScopes` e substitua o URL pelo URL de âmbito que criou para a API web, por exemplo `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
 1. Encontre a atribuição para o URL da API `webApi` e substitua o URL atual pelo URL onde implementou a sua API Web no Passo 4, por exemplo `webApi: http://localhost:5000/hello` .
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: f1908e243b7cb1def2eac8a1d46d5f087a25f8c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32ea1dd2141a8df1fb495af64848f87e9f152328
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936406"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669728"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET Core (C#) para consultar uma base de dados na Base de Dados Azure SQL ou na Instância Gerida Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "88936406"
 Neste arranque rápido, utilizará o código [.NET Core](https://www.microsoft.com/net/) e C# para ligar a uma base de dados. Em seguida, irá executar uma declaração Transact-SQL para consultar dados.
 
 > [!TIP]
-> O módulo seguinte do Microsoft Learn ajuda-o a aprender gratuitamente como [desenvolver e configurar uma aplicação ASP.NET que consulta uma base de dados na Base de Dados Azure SQL](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+> O módulo seguinte do Microsoft Learn ajuda-o a aprender gratuitamente como [desenvolver e configurar uma aplicação ASP.NET que consulta uma base de dados na Base de Dados Azure SQL](/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ Para concluir este guia de início rápido, precisa de:
 
 Obtenha a informação de ligação necessária para ligar à base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Navegue para a **página SQL Databases** ou **SQL Managed Instances.**
 
@@ -68,7 +68,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 ## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Obtenha informações de ligação ADO.NET (opcional - apenas base de dados SQL)
 
-1. Navegue na página **mySampleDatabase** e, em **Definições,** selecione **cadeias de ligação**.
+1. Navegue na página **mySampleDatabase** e, em **Definições,** selecione **cadeias de ligação** .
 
 2. Reveja a cadeia de ligação **ADO.NET** completa.
 
@@ -78,7 +78,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
   
 ## <a name="create-a-new-net-core-project"></a>Criar um novo projeto .NET Core
 
-1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest**. Navegue para esta pasta e execute este comando.
+1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest** . Navegue para esta pasta e execute este comando.
 
     ```cmd
     dotnet new console
@@ -207,4 +207,4 @@ namespace sqltest
 - [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
 - Saiba [como conectar e consultar a Base de Dados Azure SQL ou Azure SQL Managed Instance, utilizando o .NET Framework and Visual Studio](connect-query-dotnet-visual-studio.md).  
 - Saiba como desenhar a [sua primeira base de dados com SSMS](design-first-database-tutorial.md) ou [Desenhe uma base de dados e conecte-se com C# e ADO.NET](design-first-database-csharp-tutorial.md).
-- Para obter mais informações sobre o .NET, veja a [Documentação .NET](https://docs.microsoft.com/dotnet/).
+- Para obter mais informações sobre o .NET, veja a [Documentação .NET](/dotnet/).

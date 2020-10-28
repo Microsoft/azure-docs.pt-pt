@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078175"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671604"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utilizar identidades geridas para aceder ao App Configuration
 
@@ -49,9 +49,9 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. Crie uma instância de Serviços de Aplicações no [portal Azure](https://portal.azure.com) como normalmente faz. Vai até ao portal.
 
-1. Desloque-se até ao grupo **Definições** no painel esquerdo e selecione **Identidade**.
+1. Desloque-se até ao grupo **Definições** no painel esquerdo e selecione **Identidade** .
 
-1. No separador **'Sistema designado',** altere **o Estado** para **ligar** e selecione **Guardar**.
+1. No separador **'Sistema designado',** altere **o Estado** para **ligar** e selecione **Guardar** .
 
 1. Resposta **Sim** quando solicitado para ativar o sistema atribuído identidade gerida.
 
@@ -65,11 +65,11 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. No **separador de acesso do Cheque,** selecione **Adicionar** o cartão de atribuição de **funções** Add UI.
 
-1. Em **Função**, selecione **App Configuration Data Reader**. No **acesso de Atribuição a**, selecione Serviço de **Aplicações** no **Sistema atribuído identidade gerida.**
+1. Em **Função** , selecione **App Configuration Data Reader** . No **acesso de Atribuição a** , selecione Serviço de **Aplicações** no **Sistema atribuído identidade gerida.**
 
 1. Em **Subscrição,** selecione a sua subscrição Azure. Selecione o recurso Serviço de Aplicações para a sua aplicação.
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
     ![Adicionar uma identidade gerida](./media/add-managed-identity.png)
 
@@ -85,7 +85,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
 
 1. Encontre o ponto final na sua loja de Configuração de Aplicações. Este URL está listado no separador **chaves de acesso** para a loja no portal Azure.
 
-1. Abra *appsettings.jsligado*e adicione o seguinte script. Substitua *\<service_endpoint>* , incluindo os suportes, com o URL na sua loja de Configuração de Aplicações.
+1. Abra *appsettings.jsligado* e adicione o seguinte script. Substitua *\<service_endpoint>* , incluindo os suportes, com o URL na sua loja de Configuração de Aplicações.
 
     ```json
     "AppConfig": {
@@ -93,7 +93,7 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     }
     ```
 
-1. Abra *Program.cs*, e adicione uma referência aos `Azure.Identity` espaços e `Microsoft.Azure.Services.AppAuthentication` nomes:
+1. Abra *Program.cs* , e adicione uma referência aos `Azure.Identity` espaços e `Microsoft.Azure.Services.AppAuthentication` nomes:
 
     ```csharp-interactive
     using Azure.Identity;
@@ -107,30 +107,32 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   config.AddAzureAppConfiguration(options =>
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
-                var settings = config.Build();
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -139,46 +141,48 @@ Para configurar uma identidade gerida no portal, primeiro cria uma aplicação e
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-                WebHost.CreateDefaultBuilder(args)
-                    .ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>();
+                   config.AddAzureAppConfiguration(options =>
+                   {
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                           .ConfigureKeyVault(kv =>
+                           {
+                              kv.SetCredential(credentials);
+                           });
+                   });
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+            {
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>());
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                    });
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -268,7 +272,7 @@ Por exemplo, pode atualizar a aplicação de consola .NET Framework criada no ar
     </appSettings>
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

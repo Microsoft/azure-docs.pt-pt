@@ -3,14 +3,14 @@ title: Rastreio de alteração de alteração de automação Azure e visão gera
 description: Este artigo descreve a funcionalidade De Rastreio e Inventário de Alterações, que o ajuda a identificar o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210279"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670730"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -48,7 +48,7 @@ Alterar Rastreio e Inventário não suporta ou tem as seguintes limitações:
 - Recursão para rastreio do registo do Windows
 - Sistemas de ficheiros de rede
 - Diferentes métodos de instalação
-- ***.exe** ficheiros armazenados no Windows
+- **_.exe_* ficheiros armazenados no Windows
 - A coluna e os valores **do Tamanho do Ficheiro Max** não são bem-utados na implementação atual.
 - Se tentar recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho do Change Tracking e do Inventário poderá ser degradado.
 - Se o tráfego da rede for elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
@@ -73,17 +73,19 @@ São necessários os seguintes endereços especificamente para o Rastreio de Alt
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor** . Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
-Aqui estão as formas de permitir o Rastreio de Alterações e Inventário e selecionar máquinas:
+Pode ativar o Rastreio e o Inventário de Alterações das seguintes formas:
 
-* [De uma máquina virtual Azure.](enable-from-vm.md)
-* [De navegar em várias máquinas virtuais Azure](enable-from-portal.md).
-* [A partir de uma conta Azure Automation](enable-from-automation-account.md).
-* Para servidores ativados pelo Arc ou máquinas não-Azure, instale o agente Log Analytics a partir de servidores ativados pelo Arco Azure utilizando a [extensão VM](../../azure-arc/servers/manage-vm-extensions.md) e, em seguida, [ative as máquinas no espaço de trabalho](enable-from-automation-account.md#enable-machines-in-the-workspace) para alterar o tracking e o inventário.
-* [Utilizando um livro de automação](enable-from-runbook.md).
+- Da sua [conta de Automação](enable-from-automation-account.md) para uma ou mais máquinas Azure e não-Azure.
+
+- Manualmente para máquinas não-Azure, incluindo máquinas ou servidores registados com [servidores ativados Azure Arc](../../azure-arc/servers/overview.md). Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas de *Aríaco Linux* ou *Windows* Azure Arc incorporadas.](../../governance/policy/samples/built-in-policies.md#monitoring) Se planeia também monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
+
+- Para um único Azure VM da [página da máquina Virtual](enable-from-vm.md) no portal Azure. Este cenário está disponível para Linux e Windows VMs.
+
+- Para [vários VMs Azure](enable-from-portal.md) selecionando-os a partir da página de máquinas Virtuais no portal Azure.
 
 ## <a name="tracking-file-changes"></a>Alterações de ficheiros de rastreio
 
@@ -106,8 +108,8 @@ O Change Tracking and Inventory permite monitorizar as alterações nas chaves d
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitoriza os scripts que funcionam no encerramento.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitoriza as teclas que são carregadas antes do utilizador entrar na conta do Windows. A chave é usada para aplicações de 32 bits em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitorize alterações nas definições de aplicações.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoriza os manipuladores de menus de contexto que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de ganchos de cópia que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoriza os manipuladores de menus de contexto que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de ganchos de cópia que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe** .
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para o registo do manipulador de sobreposição de ícones.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para o registo do manipulador de sobreposição de ícones para aplicações de 32 bits em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitores para novos plugins de objetos de ajuda ao navegador para o Internet Explorer. Utilizado para aceder ao Modelo de Objeto de Documento (DOM) da página atual e para controlar a navegação.
@@ -117,7 +119,7 @@ O Change Tracking and Inventory permite monitorizar as alterações nas chaves d
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados com amapper, onda1 e onda2, msacm.imaadpcm, .msadpcm, .msgsm610, e vidc. Semelhante à secção [de motoristas] no ficheiro **system.ini.**
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitores condutores de 32 bits associados com massa de onda, onda1 e onda2, msacm.imaadpcm, .msadpcm, .msgsm610, e vidc para aplicações de 32 bits em computadores de 64 bits. Semelhante à secção [de motoristas] no ficheiro **system.ini.**
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoriza a lista de DLLs de sistema conhecidos ou comumente utilizados. A monitorização impede que as pessoas explorem permissões fracas de diretório de aplicações, largando nas versões de cavalos de Troia dos DLLs do sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes que podem receber notificações de eventos ** dewinlogon.exe, **o modelo de suporte de início de são interativo para o Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoriza a lista de pacotes que podem receber notificações de eventos **dewinlogon.exe,** o modelo de suporte de início de são interativo para o Windows.
 
 ## <a name="recursion-support"></a>Suporte à recursão
 
@@ -125,7 +127,7 @@ O Change Tracking and Inventory suporta a recursão, que permite especificar wil
 
 - Wildcards são necessários para rastrear vários ficheiros.
 
-- Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, ** \\ c:\ficheiro de pasta*** ou **/etc//**.conf**.
+- Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, **\\ c:\ficheiro de pasta** _ ou _ */etc/* .conf**.
 
 - Se uma variável ambiental tem um caminho inválido, a validação tem sucesso, mas o caminho falha durante a execução.
 
@@ -160,7 +162,7 @@ O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tr
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 
-A frequência de recolha padrão dos serviços da Microsoft é de 30 minutos. Pode configurar a frequência utilizando um slider no separador **de serviços** da Microsoft em **Definições de Edição**.
+A frequência de recolha padrão dos serviços da Microsoft é de 30 minutos. Pode configurar a frequência utilizando um slider no separador **de serviços** da Microsoft em **Definições de Edição** .
 
 ![Slider de serviços da Microsoft](./media/overview/windowservices.png)
 

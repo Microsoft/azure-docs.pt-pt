@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282307"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669625"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -34,7 +34,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 
 [Ver Traduzir documentação de referência de operação](reference/v3-0-translate.md)
 
-|Idioma|  Código do idioma|
+|Linguagem|  Código do idioma|
 |:-----|:-----:|
 |Afrikaans| `af`|
 |Árabe|    `ar`    |
@@ -126,7 +126,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 
 [Ver Detetar documentação de referência de operação](reference/v3-0-detect.md)
 
-|Idioma|  Código do idioma|
+|Linguagem|  Código do idioma|
 |:-----|:-----:|
 |Afrikaans| `af`|
 |Árabe|    `ar`    |
@@ -165,8 +165,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 |Rio Pashto|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
-|Português (Brasil)|   `pt-br` |
-|Português (Portugal)| `pt-pt` |
+|Português|    `pt`    |
 |Romeno|  `ro`    |
 |Russo|   `ru`    |
 |Sérvio (Cirílico)|    `sr-Cyrl`|
@@ -192,7 +191,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 [Ver documentação de referência de operação transliterada](reference/v3-0-translate.md)
 
 
-| Idioma    | Código do idioma | Script | Para/De | Script|
+| Linguagem    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -221,7 +220,7 @@ O dicionário suporta as seguintes línguas de ou para o inglês usando os méto
 
 Ver documentação de referência para as operações [de Procura](reference/v3-0-dictionary-lookup.md) do Dicionário e [Exemplos de Dicionário.](reference/v3-0-dictionary-examples.md)
 
-| Idioma    | Código do idioma |
+| Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |
@@ -284,7 +283,7 @@ Pode obter uma lista de línguas apoiadas para Tradutor utilizando o método idi
 
 Os seguintes idiomas estão disponíveis para personalização de ou para inglês usando [o Tradutor Personalizado.](https://aka.ms/CustomTranslator)
 
-| Idioma    | Código do idioma |
+| Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 |Afrikaans| `af`|
 | Árabe       | `ar`          |
@@ -353,7 +352,7 @@ A tradução da fala está disponível utilizando o serviço de Discurso de Trad
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 Converta a fala em texto para traduzir para a linguagem de texto à sua escolha. A palavra-a-texto é usada para a tradução de texto ou para tradução fala-a-fala quando usada em conjunto com a síntese da fala.
 
-| Idioma    |
+| Linguagem    |
 |:----------- |
 |Árabe|
 |Cantonês (Tradicional)|
@@ -388,7 +387,7 @@ Converta a fala em texto para traduzir para a linguagem de texto à sua escolha.
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 Converter texto em discurso. O texto-a-discurso é usado para adicionar produção audível dos resultados de tradução, ou para tradução fala-a-fala quando usado com discurso-a-texto. 
 
-| Idioma    |
+| Linguagem    |
 |:----------- |
 |Árabe|
 |Búlgaro|

@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eecd4220cdda471807e4b84261d7f76c31b9ba70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824155"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672339"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91824155"
 Este artigo introduz configurações que controlam a conectividade com o servidor para Azure SQL Database e Azure Synapse Analytics. Estas definições aplicam-se a **todas as** bases de dados SQL Database e Azure Synapse associadas ao servidor.
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica a **Azure SQL Managed Instance**.
+> Este artigo *não* se aplica a **Azure SQL Managed Instance** .
 
 As definições de conectividade estão acessíveis a partir do ecrã **de Firewalls e redes virtuais,** como mostrado na imagem seguinte:
 
@@ -40,7 +40,7 @@ Quando a definição **de acesso à rede pública deny** está definida para **S
 Qualquer tentativa de definir a definição **de acesso à rede pública** de Deny para **Sim** sem quaisquer pontos finais privados existentes no servidor lógico falhará com uma mensagem de erro semelhante a:  
 
 > [!NOTE]
-> Para definir as regras de firewall de rede virtual num servidor lógico que já está configurado com pontos finais privados, defina **o acesso da rede pública** ao **Nº**.
+> Para definir as regras de firewall de rede virtual num servidor lógico que já está configurado com pontos finais privados, defina **o acesso da rede pública** ao **Nº** .
 
 ```output
 Error 42102
@@ -68,7 +68,7 @@ To manage server or database level firewall rules, please enable the public netw
 ## <a name="change-public-network-access-via-powershell"></a>Alterar acesso à rede pública via PowerShell
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 O seguinte script PowerShell mostra como `Get` e a propriedade de Acesso à Rede `Set` **Pública** ao nível do servidor:
 
@@ -85,7 +85,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="change-public-network-access-via-cli"></a>Alterar acesso à rede pública via CLI
 
 > [!IMPORTANT]
-> Todos os scripts desta secção requerem [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Todos os scripts desta secção requerem [Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de bash
 
@@ -124,7 +124,7 @@ Login failed with invalid TLS version
 ## <a name="set-minimal-tls-version-via-powershell"></a>Definir a versão mínima TLS via PowerShell
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 O seguinte script PowerShell mostra como `Get` e a propriedade de versão Minimal `Set` **TLS** ao nível do servidor lógico:
 
@@ -141,7 +141,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="set-minimal-tls-version-via-azure-cli"></a>Definir versão mínima de TLS via Azure CLI
 
 > [!IMPORTANT]
-> Todos os scripts desta secção requerem [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Todos os scripts desta secção requerem [Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de bash
 
@@ -164,7 +164,7 @@ az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVers
 ## <a name="change-connection-policy-via-powershell"></a>Alterar a política de ligação via PowerShell
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer o [módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 O seguinte script PowerShell mostra como alterar a política de ligação utilizando o PowerShell:
 
@@ -185,7 +185,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## <a name="change-connection-policy-via-azure-cli"></a>Alterar a política de conexão via Azure CLI
 
 > [!IMPORTANT]
-> Todos os scripts desta secção requerem [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Todos os scripts desta secção requerem [Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI em uma concha de bash
 
@@ -223,7 +223,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Arquitetura de Conectividade](connectivity-architecture.md)
-- Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png

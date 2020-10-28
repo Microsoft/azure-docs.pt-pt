@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: cd08b02cb3b67ce615ffa1003ee1e4441a281c17
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92285141"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669752"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Utilize ações do GitHub para ligar à Base de Dados Azure SQL
 
@@ -26,7 +26,7 @@ Vai precisar de:
 - Um repositório GitHub com um pacote dacpac `Database.dacpac` (). Se não tiver uma conta GitHub, [inscreva-se gratuitamente.](https://github.com/join)  
 - Uma base de dados Azure SQL.
     - [Quickstart: Criar uma base de dados única Azure SQL Database](single-database-create-quickstart.md)
-    - [Como criar um pacote dacpac a partir da sua base de dados de servidor SQL existente](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [Como criar um pacote dacpac a partir da sua base de dados de servidor SQL existente](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## <a name="workflow-file-overview"></a>Visão geral do ficheiro do fluxo de trabalho
 
@@ -68,7 +68,7 @@ A saída é um objeto JSON com as credenciais de atribuição de funções que f
 
 ## <a name="copy-the-sql-connection-string"></a>Copie a cadeia de ligação SQL 
 
-No portal Azure, aceda à sua Base de **Dados**Azure SQL e abra as  >  **cordas de ligação**de definições . Copie a cadeia de ligação de **ADO.NET**. Substitua os valores de espaço reservado `your_database` para e `your_password` . A cadeia de ligação será semelhante a esta saída. 
+No portal Azure, aceda à sua Base de **Dados** Azure SQL e abra as  >  **cordas de ligação** de definições . Copie a cadeia de ligação de **ADO.NET** . Substitua os valores de espaço reservado `your_database` para e `your_password` . A cadeia de ligação será semelhante a esta saída. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,7 +80,7 @@ Vais usar a cadeia de ligação como segredo do GitHub.
 
 1. No [GitHub,](https://github.com/)navegue no seu repositório.
 
-1. Selecione **Definições > Segredos > Novo segredo**.
+1. Selecione **Definições > Segredos > Novo segredo** .
 
 1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 
@@ -101,7 +101,7 @@ Vais usar a cadeia de ligação como segredo do GitHub.
 
 1. Vá às **ações** para o seu repositório GitHub. 
 
-2. Selecione **Configurar o seu fluxo de trabalho por si mesmo**. 
+2. Selecione **Configurar o seu fluxo de trabalho por si mesmo** . 
 
 2. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
 
@@ -194,4 +194,4 @@ Quando a sua base de dados EST E o repositório Azure já não forem necessário
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Conheça a integração de Azure e GitHub](https://docs.microsoft.com/azure/developer/github/)
+> [Conheça a integração de Azure e GitHub](/azure/developer/github/)

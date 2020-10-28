@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e2e2d3329db2474e331f13ad2c3fd9a74bd5b7b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c296276012963a2ec8652a91e265bb6c94df73b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547890"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Diretório Ativo Azure com o SCC LifeCycle
 
@@ -27,7 +27,7 @@ A integração do SCC LifeCycle com a Azure AD proporciona-lhe os seguintes bene
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no SCC LifeCycle (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -49,7 +49,7 @@ Para configurar a integração do SCC LifeCycle em AD Azure, é necessário adic
 
 **Para adicionar O Ciclo de Vida SCC da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do SCC LifeCycle em AD Azure, é necessário adic
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **SCC LifeCycle**, selecione **SCC LifeCycle** a partir do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
+4. Na caixa de pesquisa, tipo **SCC LifeCycle** , selecione **SCC LifeCycle** a partir do painel de resultados e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
     ![SCC LifeCycle na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com o SCC LifeCycle com base num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com um único sign-on com o SCC LifeCycle com base num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no SCC LifeCycle.
 
 Para configurar e testar o único sinal de Azure AD com o SCC LifeCycle, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o SCC LifeCycle, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SCC LifeCycle,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **SCC LifeCycle,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -106,7 +106,7 @@ Para configurar o Azure AD com o SCC LifeCycle, execute os seguintes passos:
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão:
     
     - `https://bs1.scc.com/<entity>`
-    - `https://lifecycle.scc.com/<entity>`
+    - `https://lifecycle.scc.com/<entity>`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente SCC LifeCycle](mailto:lifecycle.support@scc.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -136,7 +136,7 @@ Para configurar um único sign-on no lado **do SCC LifeCycle,** é necessário e
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -148,28 +148,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador**`brittasimon@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, permitindo o acesso ao SCC LifeCycle.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **SCC LifeCycle**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **SCC LifeCycle** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **SCC LifeCycle**.
+2. Na lista de candidaturas, selecione **SCC LifeCycle** .
 
     ![O link SCC LifeCycle na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -196,12 +196,12 @@ Quando um utilizador designado tenta iniciar sessão no SCC LifeCycle, uma conta
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo SCC LifeCycle no Painel de Acesso, deverá ser automaticamente inscrito no SCC LifeCycle para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo SCC LifeCycle no Painel de Acesso, deverá ser automaticamente inscrito no SCC LifeCycle para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

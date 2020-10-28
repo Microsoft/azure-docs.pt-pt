@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825580"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669710"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use .NET e C# no Estúdio Visual para ligar e consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Para concluir este guia de início rápido, precisa de:
 
 Obtenha a informação de ligação que precisa para ligar à base de dados. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as **bases de dados SQL** ou página **sql Managed Instances.**
 
@@ -64,19 +64,19 @@ Obtenha a informação de ligação que precisa para ligar à base de dados. Voc
 
 1. No Visual Studio, crie um novo projeto. 
    
-1. No diálogo New **Project,** selecione o **Visual C#**, **App de Consola (.NET Framework)**.
+1. No diálogo New **Project,** selecione o **Visual C#** , **App de Consola (.NET Framework)** .
    
-1. Introduza *o sqltest* para o nome do projeto e, em seguida, selecione **OK**. O novo projeto é criado. 
+1. Introduza *o sqltest* para o nome do projeto e, em seguida, selecione **OK** . O novo projeto é criado. 
    
-1. Selecione **Projeto**  >  **Gerir Pacotes NuGet**. 
+1. Selecione **Projeto**  >  **Gerir Pacotes NuGet** . 
    
-1. No **NuGet Package Manager**, selecione o separador **Browse** e, em seguida, procure e selecione **Microsoft.Data.SqlClient**.
+1. No **NuGet Package Manager** , selecione o separador **Browse** e, em seguida, procure e selecione **Microsoft.Data.SqlClient** .
    
-1. Na página **Microsoft.Data.SqlClient,** **selecione Instalar**. 
+1. Na página **Microsoft.Data.SqlClient,** **selecione Instalar** . 
    - Se solicitado, selecione **OK** para continuar com a instalação. 
-   - Se aparecer uma janela **de aceitação da licença,** selecione **I Accept**.
+   - Se aparecer uma janela **de aceitação da licença,** selecione **I Accept** .
    
-1. Quando a instalação estiver concluída, pode fechar **o Gestor de Pacotes NuGet**. 
+1. Quando a instalação estiver concluída, pode fechar **o Gestor de Pacotes NuGet** . 
    
 1. No editor de código, substitua o **Program.cs** conteúdo pelo seguinte código. Substitua os seus valores por `<your_server>` `<your_username>` , e `<your_password>` `<your_database>` .
    
@@ -139,7 +139,7 @@ Obtenha a informação de ligação que precisa para ligar à base de dados. Voc
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Para executar a aplicação, selecione **Debug**  >  **Start Debugging**, ou selecione **Iniciar** na barra de ferramentas ou prima **F5**.
+1. Para executar a aplicação, selecione **Debug**  >  **Start Debugging** , ou selecione **Iniciar** na barra de ferramentas ou prima **F5** .
 1. Verifique se as 20 linhas de categoria/produto da sua base de dados são devolvidas e, em seguida, feche a janela da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -147,11 +147,10 @@ Obtenha a informação de ligação que precisa para ligar à base de dados. Voc
 - Saiba [como conectar e consultar uma base de dados na Base de Dados Azure SQL utilizando .NET Core](connect-query-dotnet-core.md) no Windows/Linux/macOS.  
 - Saiba mais sobre a [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
 - Saiba como desenhar a [sua primeira base de dados na Base de Dados Azure SQL utilizando sSMS](design-first-database-tutorial.md) ou [desenhe a sua primeira base de dados na Base de Dados Azure SQL utilizando .NET](design-first-database-csharp-tutorial.md).
-- Para obter mais informações sobre o .NET, veja a [Documentação .NET](https://docs.microsoft.com/dotnet/).
+- Para obter mais informações sobre o .NET, veja a [Documentação .NET](/dotnet/).
 - Relem os exemplos lógicos: [Ligue-se resilientemente ao Azure SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/22/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce41f979a46ae2bda568b5db79f0e0304705dd8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922199"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670186"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um inquilino do Azure AD B2C
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Inscreva-se com uma conta Azure que foi atribuída pelo menos a função [de Contribuinte](../role-based-access-control/built-in-roles.md) dentro da subscrição ou um grupo de recursos dentro da subscrição.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Inscreva-se com uma conta Azure que foi atribuída pelo menos a função [de Contribuinte](../role-based-access-control/built-in-roles.md) dentro da subscrição ou um grupo de recursos dentro da subscrição.
 
 1. Selecione o diretório que contém a sua subscrição.
 
@@ -45,24 +45,30 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     ![Inquilino de assinatura, Diretório + Filtro de subscrição com inquilino de assinatura selecionado](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
-1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
-1. Procure por **Azure Ative Directory B2C**e, em seguida, selecione **Create**.
-1. Selecione **Criar um novo inquilino do Azure AD B2C**.
+1. No menu do portal do Azure ou a partir da **Home page** , selecione **Criar um recurso** .
+1. Procure por **Azure Ative Directory B2C** e, em seguida, selecione **Create** .
+1. Selecione **Criar um novo inquilino do Azure AD B2C** .
 
     ![Criar um novo inquilino Azure AD B2C selecionado no portal Azure](media/tutorial-create-tenant/portal-02-create-tenant.png)
+    
+1. Introduza um **nome de organização** e nome de domínio **inicial.** Selecione o **País ou região** (não pode ser alterado mais tarde) e, em seguida, selecione **Criar** .
 
-1. Na página **Criar um diretório,** insira o seguinte:
+    O nome de domínio é usado como parte do seu nome de domínio completo do seu inquilino. Neste exemplo, o nome do inquilino é *contosob2c.onmicrosoft.com:*
 
-   - **Nome da organização** - Insira um nome para o seu inquilino Azure AD B2C.
-   - **Nome de domínio inicial** - Introduza um nome de domínio para o seu inquilino Azure AD B2C.
-   - **País ou região** - Selecione o seu país ou região da lista. Esta seleção não pode ser mudada mais tarde.
-   - **Subscrição** - Selecione a sua subscrição da lista.
-   - **Grupo de recursos** - Selecione um grupo de recursos que contenha o inquilino. Ou **selecione Criar novo,** insira um **Nome** para o grupo de recursos, selecione a **localização**do grupo de Recursos e, em seguida, selecione **OK**.
+1. Assim que a criação do inquilino estiver concluída, selecione o **novo Inquilino B2C ou Link para** o link existente do Inquilino no topo da página de criação do inquilino.
 
-    ![Crie forma de inquilino com valores de exemplo no portal Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
+    ![Link link de migalhas de pão de inquilino em destaque no portal Azure](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
 
-1. Selecione **Rever + criar**.
-1. Reveja as definições do diretório. Em seguida, selecione **Criar**.
+1. Selecione **Link um inquilino Azure AD B2C existente para a minha assinatura Azure** . Você precisa ser registrado como proprietário papel para executar este passo.
+
+   ![Ligue uma seleção de subscrição existente no portal Azure](media/tutorial-create-tenant/portal-05-link-subscription.png)
+
+1. Selecione o **Azure AD B2C Inquilino** que criou e, em seguida, selecione a sua **Subscrição** .
+
+    Em **Grupo de recursos** , selecione **Criar novo** . Introduza um **Nome** para o grupo de recursos que conterá o inquilino, selecione a **localização** do grupo de Recursos e, em seguida, selecione **Criar** .
+
+    ![Formas de definições de subscrição de ligação no portal Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
 
 Você pode ligar vários inquilinos Azure AD B2C a uma única subscrição Azure para efeitos de faturação. Para ligar um inquilino, você deve ser um administrador no inquilino Azure AD B2C e ser atribuído pelo menos um papel de Contribuinte dentro da subscrição Azure. Consulte [link um inquilino Azure AD B2C para uma subscrição](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
@@ -84,10 +90,10 @@ Em vez de procurar *o Azure AD B2C* em **todos os serviços** sempre que quiser 
 
 Só precisas de fazer esta operação uma vez. Antes de realizar estes passos, certifique-se de que mudou para o diretório contendo o seu inquilino Azure AD B2C, conforme descrito na secção anterior, [Selecione o seu diretório de inquilinos B2C](#select-your-b2c-tenant-directory).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. No menu do portal Azure, selecione **Todos os serviços**.
-1. Na caixa de pesquisa de **todos os serviços,** procure **Azure AD B2C,** sobressaure sobre o resultado da pesquisa e, em seguida, selecione o ícone estrela na ponta da ferramenta. **Azure AD B2C** aparece agora no portal Azure sob **os Favoritos**.
-1. Se quiser alterar a posição do seu novo favorito, vá ao menu do portal Azure, selecione **Azure AD B2C**e, em seguida, arraste-o para cima ou para baixo para a posição desejada.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. No menu do portal Azure, selecione **Todos os serviços** .
+1. Na caixa de pesquisa de **todos os serviços,** procure **Azure AD B2C,** sobressaure sobre o resultado da pesquisa e, em seguida, selecione o ícone estrela na ponta da ferramenta. **Azure AD B2C** aparece agora no portal Azure sob **os Favoritos** .
+1. Se quiser alterar a posição do seu novo favorito, vá ao menu do portal Azure, selecione **Azure AD B2C** e, em seguida, arraste-o para cima ou para baixo para a posição desejada.
 
     ![Azure AD B2C, menu favorito, portal Microsoft Azure](media/tutorial-create-tenant/portal-08-b2c-favorite.png)
 
