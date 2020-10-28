@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 008991a6eda8a2eac9e7a39074c9e0bddb0c51b5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488712"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784103"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar Recursos do Armazenamento do Microsoft Azure em C++
 
@@ -59,8 +59,8 @@ Por conseguinte, é impraticável listar todos os objetos numa única resposta. 
 
 A resposta para uma operação de cotação segmentada inclui:
 
-* *_segment*, que contém o conjunto de resultados devolvidos para uma única chamada para a API de listagem.
-* *continuation_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais resultados para regressar, o sinal de continuação é nulo.
+* *_segment* , que contém o conjunto de resultados devolvidos para uma única chamada para a API de listagem.
+* *continuation_token* , que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais resultados para regressar, o sinal de continuação é nulo.
 
 Por exemplo, uma chamada típica para listar todas as bolhas num recipiente pode parecer o seguinte corte de código. O código está disponível nas [nossas amostras:](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
 
@@ -198,7 +198,7 @@ Para obter mais informações sobre o Azure Storage e a Client Library para C++,
 
 * [Como utilizar o Blob Storage a partir de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Como utilizar o Armazenamento de Mesa a partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Como utilizar o Armazenamento de Filas a partir do C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Como utilizar o Armazenamento de Filas a partir do C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Biblioteca do Cliente de Armazenamento Azure para documentação API C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog da equipa de armazenamento Azure](/archive/blogs/windowsazurestorage/)
 * [Documentação de armazenamento Azure](https://azure.microsoft.com/documentation/services/storage/)

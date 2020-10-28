@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488695"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784053"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolher uma solução do Azure para a transferência de dados
 
@@ -71,14 +71,14 @@ Também pode ir à sua conta de Armazenamento Azure no portal Azure e selecionar
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Obtenha uma introdução ao Azure Storage Explorer.](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)
-- [Leia uma visão geral da AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+- [Leia uma visão geral da AzCopy](./storage-use-azcopy-v10.md).
 - [Quickstart: Upload, download e list blobs com PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Criar, transferir e listar bolhas com Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Saiba mais sobre:
 
-    - [Caixa de dados Azure, Disco de Caixa de Dados Azure e Caixa de Dados Azure Pesado para transferências offline](/azure/databox/).
-    - [Azure Data Box Gateway e Azure Stack Edge para transferências on-line](/azure/databox-online/).
-- [Saiba o que é Azure Data Factory](/azure/data-factory/copy-activity-overview).
+    - [Caixa de dados Azure, Disco de Caixa de Dados Azure e Caixa de Dados Azure Pesado para transferências offline](../../databox/index.yml).
+    - [Azure Data Box Gateway e Azure Stack Edge para transferências on-line](../../databox-online/index.yml).
+- [Saiba o que é Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Utilize as APIs REST para transferir dados
 
     - [Em .NET](/dotnet/api/overview/azure/storage)

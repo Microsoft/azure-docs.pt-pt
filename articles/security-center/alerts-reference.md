@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: 3273324044f5d99a2400eee5325d3adb20f4ac0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631381"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784291"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -25,7 +25,7 @@ Este artigo lista os alertas de segurança que poderá receber do Azure Defender
 
 Para aprender a responder a estes alertas, consulte [Gerir e responder aos alertas de segurança no Centro de Segurança Azure.](security-center-managing-and-responding-alerts.md)
 
-Para saber como exportar alertas (e recomendações) consulte [alertas e recomendações de segurança da exportação (Pré-visualização)](continuous-export.md).
+Para saber como exportar alertas (e recomendações) consulte [os dados do Centro de Segurança de exportação contínua.](continuous-export.md)
 
 Na parte inferior desta página, há uma tabela descrevendo a cadeia de morte do Centro de Segurança Azure que é usada para categorizar as intenções destes alertas. 
 
@@ -462,4 +462,4 @@ Para saber mais sobre os alertas, consulte o seguinte:
 
 - [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
 - [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-- [Alertas e recomendações de segurança das exportações (Pré-visualização)](continuous-export.md)
+- [Exportar continuamente dados do Centro de Segurança](continuous-export.md)

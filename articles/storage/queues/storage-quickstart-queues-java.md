@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90015029"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783441"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Quickstart: Azure Queue storage client library v12 for Java
 
@@ -33,14 +33,14 @@ Recursos adicionais:
 * [Documentação de referência da API](/java/api/overview/azure/storage-queue-readme)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Amostras](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Amostras](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Java Development Kit (JDK)](/java/azure/jdk/) versão 8 ou superior
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>Configuração
 
@@ -48,9 +48,9 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Crie uma aplicação Java chamada *queues-quickstart-v12*.
+Crie uma aplicação Java chamada *queues-quickstart-v12* .
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize a Maven para criar uma nova aplicação de consola com o nome *de filas-quickstart-v12*. Digite o seguinte comando **mvn** para criar um "Olá mundo!" Projeto Java.
+1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize a Maven para criar uma nova aplicação de consola com o nome *de filas-quickstart-v12* . Digite o seguinte comando **mvn** para criar um "Olá mundo!" Projeto Java.
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \

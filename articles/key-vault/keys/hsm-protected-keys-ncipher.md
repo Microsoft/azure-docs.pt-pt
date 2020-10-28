@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: de14cf8cc79b4e1387950a2ae048da41738f5db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784665"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Chaves protegidas pelo HSM para o Cofre-Chave (nCipher)
 
@@ -231,7 +231,7 @@ KeyVault-BYOK-Tools-Switzerland.zip
 ---
 
 
-Para validar a integridade do seu toolset BYOK descarregado, a partir da sua sessão Azure PowerShell, utilize o cmdlet [Get-FileHash.](https://technet.microsoft.com/library/dn520872.aspx)
+Para validar a integridade do seu toolset BYOK descarregado, a partir da sua sessão Azure PowerShell, utilize o cmdlet [Get-FileHash.](/powershell/module/microsoft.powershell.utility/get-filehash)
 
    ```powershell
    Get-FileHash KeyVault-BYOK-Tools-*.zip
@@ -255,7 +255,7 @@ Para este segundo passo, faça os seguintes procedimentos no posto de trabalho q
 
 Instale o software de suporte nCipher num computador Windows e, em seguida, prenda um nCipher nShield HSM a esse computador.
 
-Certifique-se de que as ferramentas nCipher estão no seu caminho **(%nfast_home%\bin**). Por exemplo, escreva o seguinte:
+Certifique-se de que as ferramentas nCipher estão no seu caminho **(%nfast_home%\bin** ). Por exemplo, escreva o seguinte:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Para validar o pacote descarregado:
      >
 2. Confirme que vê o seguinte, o que indica validação bem sucedida: **Resultado: SUCESSO**
 
-Este script valida a corrente do signatário até à tecla raiz nShield. O hash desta chave de raiz é incorporado no script e o respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Também pode confirmar este valor separadamente visitando o [site nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Este script valida a corrente do signatário até à tecla raiz nShield. O hash desta chave de raiz é incorporado no script e o respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Também pode confirmar este valor separadamente visitando o [site nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 Agora estás pronto para criar uma nova chave.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Quando executar este comando, utilize estas instruções:
 
-* O parâmetro *protect* tem de ser definido para o valor **module**, conforme mostrado. Esta ação cria uma chave protegida por um módulo. O conjunto de ferramentas BYOK não suporta chaves protegidas por OCS.
+* O parâmetro *protect* tem de ser definido para o valor **module** , conforme mostrado. Esta ação cria uma chave protegida por um módulo. O conjunto de ferramentas BYOK não suporta chaves protegidas por OCS.
 * Substitua o valor *contosokey* por **ident** e **plainname** por qualquer valor da cadeia. Para minimizar as despesas administrativas e reduzir o risco de erros, recomendamos que utilize o mesmo valor para ambos. O valor **do identificador** deve conter apenas números, traços e letras minúsculas.
 * O pubexp fica em branco (predefinição) neste exemplo, mas pode especificar valores. Para mais informações, consulte a [documentação nCipher.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
-Este comando cria um ficheiro Chave Tokenized na pasta %NFAST_KMDATA%\local com um nome a começar por **key_simple_**, seguido do **identificador** especificado no comando. Por exemplo: **key_simple_contosokey**. Este ficheiro contém uma chave encriptada.
+Este comando cria um ficheiro Chave Tokenized na pasta %NFAST_KMDATA%\local com um nome a começar por **key_simple_** , seguido do **identificador** especificado no comando. Por exemplo: **key_simple_contosokey** . Este ficheiro contém uma chave encriptada.
 
 Crie uma cópia de segurança deste Ficheiro de Chave com Token numa localização segura.
 
@@ -668,7 +668,7 @@ Quando executar este comando, utilize estas instruções:
 * Substitua *a SubscriçãoID* pelo ID da subscrição Azure que contém o seu cofre de chaves. Você recuperou este valor anteriormente, no **Passo 1.2: Obtenha o seu ID de subscrição Azure** a partir do passo de [estação de trabalho ligado à Internet.](#step-1-prepare-your-internet-connected-workstation)
 * Substitua *o ContosoFirstHSMKey* por uma etiqueta que seja utilizada para o nome do ficheiro de saída.
 
-Quando isto termina com sucesso, apresenta **Resultado: SUCESSO** e há um novo ficheiro na pasta atual que tem o seguinte nome: KeyTransferPackage-*ContosoFirstHSMkey*.byok
+Quando isto termina com sucesso, apresenta **Resultado: SUCESSO** e há um novo ficheiro na pasta atual que tem o seguinte nome: KeyTransferPackage- *ContosoFirstHSMkey* .byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passo 4.3: Copie o seu pacote de transferência chave para a estação de trabalho ligada à Internet
 

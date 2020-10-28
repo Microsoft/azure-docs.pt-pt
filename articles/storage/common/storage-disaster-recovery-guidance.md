@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276929"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783985"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento
 
@@ -54,9 +54,9 @@ Para obter mais informações sobre a redundância no Azure Storage, consulte [a
 Além disso, tenha em mente estas boas práticas para manter a alta disponibilidade para os seus dados de Armazenamento Azure:
 
 - **Discos:** Utilize [a Cópia de Segurança Azure](https://azure.microsoft.com/services/backup/) para fazer cópia de segurança dos discos VM utilizados pelas suas máquinas virtuais Azure. Considere também utilizar [a Recuperação do Sítio Azure](https://azure.microsoft.com/services/site-recovery/) para proteger os seus VMs em caso de desastre regional.
-- **Bolhas de bloco:** Ligue [a eliminação suave](../blobs/storage-blob-soft-delete.md) para proteger contra supressões e substituições ao nível de objetos, ou copie bolhas de blocos para outra conta de armazenamento numa região diferente usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell,](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](storage-use-data-movement-library.md).
-- **Ficheiros:** Utilize [a AzCopy](storage-use-azcopy.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
-- **Quadros:** utilize [a AzCopy](storage-use-azcopy.md) para exportar dados de tabelas para outra conta de armazenamento numa região diferente.
+- **Bolhas de bloco:** Ligue [a eliminação suave](../blobs/soft-delete-blob-overview.md) para proteger contra supressões e substituições ao nível de objetos, ou copie bolhas de blocos para outra conta de armazenamento numa região diferente usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell,](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](storage-use-data-movement-library.md).
+- **Ficheiros:** Utilize [a AzCopy](./storage-use-azcopy-v10.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
+- **Quadros:** utilize [a AzCopy](./storage-use-azcopy-v10.md) para exportar dados de tabelas para outra conta de armazenamento numa região diferente.
 
 ## <a name="track-outages"></a>Interrupções nas faixas
 
@@ -132,7 +132,7 @@ Como o fornecedor de recursos de armazenamento Azure não falha, a propriedade [
 
 ### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-As máquinas virtuais Azure (VMs) não falham como parte de uma falha de conta. Se a região primária ficar indisponível, e você falhar na região secundária, então você precisará recriar quaisquer VMs após o failover. Além disso, existe uma potencial perda de dados associada à falha da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/windows/manage-availability.md) e [recuperação de desastres](../../virtual-machines/windows/backup-recovery.md) específica para máquinas virtuais em Azure.
+As máquinas virtuais Azure (VMs) não falham como parte de uma falha de conta. Se a região primária ficar indisponível, e você falhar na região secundária, então você precisará recriar quaisquer VMs após o failover. Além disso, existe uma potencial perda de dados associada à falha da conta. A Microsoft recomenda a seguinte [orientação de alta disponibilidade](../../virtual-machines/manage-availability.md) e [recuperação de desastres](../../virtual-machines/backup-recovery.md) específica para máquinas virtuais em Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos não geridos de Azure
 
@@ -162,7 +162,7 @@ As seguintes funcionalidades e serviços não são suportados para a falta de co
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiar dados como alternativa à ativação pós-falha
 
-Se a sua conta de armazenamento estiver configurada para ler o acesso ao secundário, então pode desenhar a sua aplicação para ler a partir do ponto final secundário. Se preferir não falhar em caso de paragem na região primária, pode utilizar ferramentas como [a AzCopy,](storage-use-azcopy.md) [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](../common/storage-use-data-movement-library.md) para copiar dados da sua conta de armazenamento na região secundária para outra conta de armazenamento numa região não afetada. Em seguida, pode apontar as suas aplicações para essa conta de armazenamento para ler e escrever disponibilidade.
+Se a sua conta de armazenamento estiver configurada para ler o acesso ao secundário, então pode desenhar a sua aplicação para ler a partir do ponto final secundário. Se preferir não falhar em caso de paragem na região primária, pode utilizar ferramentas como [a AzCopy,](./storage-use-azcopy-v10.md) [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](../common/storage-use-data-movement-library.md) para copiar dados da sua conta de armazenamento na região secundária para outra conta de armazenamento numa região não afetada. Em seguida, pode apontar as suas aplicações para essa conta de armazenamento para ler e escrever disponibilidade.
 
 > [!CAUTION]
 > Uma falha na conta não deve ser utilizada como parte da sua estratégia de migração de dados.
@@ -171,7 +171,7 @@ Se a sua conta de armazenamento estiver configurada para ler o acesso ao secund�
 
 Em circunstâncias extremas em que uma região se perde devido a um desastre significativo, a Microsoft pode iniciar um fracasso regional. Neste caso, não é necessária qualquer ação da sua parte. Até que o failover gerido pela Microsoft esteja concluído, não terá acesso à sua conta de armazenamento. As suas aplicações podem ser lidas na região secundária se a sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Use geo-redundância para projetar aplicações altamente disponíveis](geo-redundant-design.md)
 - [Iniciar a ativação pós-falha de uma conta](storage-initiate-account-failover.md)

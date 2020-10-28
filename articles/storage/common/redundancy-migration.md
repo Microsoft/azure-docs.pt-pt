@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487896"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784223"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -123,30 +123,30 @@ Deve efetuar uma migração manual se:
 
 Pode solicitar migração ao vivo através do [portal Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). A partir do portal, selecione a conta de armazenamento que pretende converter para ZRS.
 
-1. Selecione **novo pedido de suporte**.
+1. Selecione **novo pedido de suporte** .
 2. Complete o **Básico** com base nas informações da sua conta: 
-    - **Tipo de emissão**: Selecione **Técnico**.
-    - **Serviço**: Selecione **Os Meus Serviços** e **Gestão de Conta de Armazenamento.**
-    - **Recurso**: Selecione o recurso que pretende converter para ZRS.
-3. Selecione **Seguinte**.
+    - **Tipo de emissão** : Selecione **Técnico** .
+    - **Serviço** : Selecione **Os Meus Serviços** e **Gestão de Conta de Armazenamento.**
+    - **Recurso** : Selecione o recurso que pretende converter para ZRS.
+3. Selecione **Seguinte** .
 4. Especificar os seguintes valores da secção **Problema:**
-    - **Gravidade**: Deixe o valor predefinido como está.
-    - **Tipo de problema**: Selecione **Migração de Dados**.
-    - **Categoria**: **Selecione Migrar para ZRS**.
-    - **Denominação**: Digite um título descritivo, por exemplo, **migração da conta ZRS**.
-    - **Detalhes**: Escreva detalhes adicionais na caixa **Details,** por exemplo, gostaria de migrar para zRS a partir de [LRS, GRS] na \_ \_ região.
-5. Selecione **Seguinte**.
+    - **Gravidade** : Deixe o valor predefinido como está.
+    - **Tipo de problema** : Selecione **Migração de Dados** .
+    - **Categoria** : **Selecione Migrar para ZRS** .
+    - **Denominação** : Digite um título descritivo, por exemplo, **migração da conta ZRS** .
+    - **Detalhes** : Escreva detalhes adicionais na caixa **Details,** por exemplo, gostaria de migrar para zRS a partir de [LRS, GRS] na \_ \_ região.
+5. Selecione **Seguinte** .
 6. Verifique se os dados de contacto estão corretos na lâmina **de informação de contacto.**
-7. Selecione **Criar**.
+7. Selecione **Criar** .
 
 Uma pessoa de apoio entrará em contacto consigo e prestará qualquer assistência que necessite.
 
 > [!NOTE]
 > A migração ao vivo não é atualmente suportada para ações de ficheiros premium. Apenas os dados de cópia ou deslocação manualmente são suportados atualmente.
 >
-> As contas de armazenamento GZRS não suportam atualmente o nível de arquivo. Consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e arquivados](/azure/storage/blobs/storage-blob-storage-tiers) para obter mais detalhes.
+> As contas de armazenamento GZRS não suportam atualmente o nível de arquivo. Consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e arquivados](../blobs/storage-blob-storage-tiers.md) para obter mais detalhes.
 >
-> Os discos geridos só estão disponíveis para ORS e não podem ser migrados para ZRS. Pode armazenar instantâneos e imagens para discos geridos SSD padrão no armazenamento HDD padrão e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para obter informações sobre a integração com conjuntos de disponibilidade, consulte [discos geridos introdução ao Azure](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> Os discos geridos só estão disponíveis para ORS e não podem ser migrados para ZRS. Pode armazenar instantâneos e imagens para discos geridos SSD padrão no armazenamento HDD padrão e [escolher entre as opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Para obter informações sobre a integração com conjuntos de disponibilidade, consulte [discos geridos introdução ao Azure](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 
 ## <a name="switch-from-zrs-classic"></a>Switch do ZRS Classic
 
@@ -165,9 +165,9 @@ Também pode atualizar a sua conta de armazenamento ZRS Classic para zRS utiliza
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
-Para fazer o upgrade para ZRS no portal Azure, navegue para as definições de **Configuração** da conta e escolha **Upgrade**:
+Para fazer o upgrade para ZRS no portal Azure, navegue para as definições de **Configuração** da conta e escolha **Upgrade** :
 
-![Atualizar ZRS Classic para ZRS no Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+![Atualizar do ZRS Clássico para o ZRS no Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

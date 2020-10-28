@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 345fd486788cfbb69454be488d771d9b4ea394ab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488644"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783781"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação
 
@@ -37,9 +37,9 @@ Antes de começar, confirme que:
 
     - **Apagou suavemente** e **não expurgará** o cofre de teclas existente. Estas propriedades não são ativadas por padrão. Para ativar estas propriedades, consulte as secções intituladas **Permitir a eliminação suave** e a **proteção da purga ativada** num dos seguintes artigos:
 
-        - [Como utilizar o soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
-        - [Como utilizar o soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
-    - O cofre-chave existente deve ter uma chave RSA de tamanho igual ou superior a 2048. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados.](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys)
+        - [Como utilizar o soft-delete com PowerShell](../../key-vault/general/key-vault-recovery.md).
+        - [Como utilizar o soft-delete com CLI](../../key-vault/general/key-vault-recovery.md).
+    - O cofre-chave existente deve ter uma chave RSA de tamanho igual ou superior a 2048. Para obter mais informações sobre as teclas, consulte [sobre as teclas.](../../key-vault/keys/about-keys.md)
     - O cofre-chave deve estar na mesma região que a conta de armazenamento dos seus dados.  
     - Se não tiver um Cofre de Chave Azure existente, também pode criá-lo em linha como descrito na secção seguinte.
 
@@ -48,7 +48,7 @@ Antes de começar, confirme que:
 Configurar a chave gerida pelo cliente para o seu serviço de importação/exportação é opcional. Por predefinição, o serviço De importação/Exportação utiliza uma chave gerida pela Microsoft para proteger a sua chave BitLocker. Para ativar as chaves geridas pelo cliente no portal Azure, siga estes passos:
 
 1. Vá à lâmina **de visão geral** para o seu trabalho de Importação.
-2. No painel direito, **selecione Escolha como as suas teclas BitLocker estão encriptadas**.
+2. No painel direito, **selecione Escolha como as suas teclas BitLocker estão encriptadas** .
 
     ![Escolha a opção de encriptação](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
@@ -56,7 +56,7 @@ Configurar a chave gerida pelo cliente para o seu serviço de importação/expor
 
     ![Ver tecla BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. Tem a opção de especificar uma chave gerida pelo cliente. Depois de ter selecionado a chave gerida pelo cliente, **selecione**o cofre de chaves e uma chave .
+4. Tem a opção de especificar uma chave gerida pelo cliente. Depois de ter selecionado a chave gerida pelo cliente, **selecione** o cofre de chaves e uma chave .
 
     ![Selecione chave gerida pelo cliente](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
@@ -64,11 +64,11 @@ Configurar a chave gerida pelo cliente para o seu serviço de importação/expor
 
     ![Selecione ou crie o Cofre da Chave Azure](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Aceite todos os outros incumprimentos. Selecione **Review + Criar**.
+6. Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Aceite todos os outros incumprimentos. Selecione **Review + Criar** .
 
     ![Criar novo Cofre de Chaves Azure](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Reveja as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para a criação do cofre de chaves para completar.
+7. Reveja as informações associadas ao cofre de chaves e selecione **Criar** . Espere alguns minutos para a criação do cofre de chaves para completar.
 
     ![Criar cofre de chaves Azure](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
@@ -80,11 +80,11 @@ Configurar a chave gerida pelo cliente para o seu serviço de importação/expor
 
     Se a proteção para eliminar e purgar suavemente não estiver ativada quando criar o cofre de teclas, o cofre da chave será atualizado para ter uma proteção de eliminação e purga suave ativada.
 
-10. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar**.
+10. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar** .
 
     ![Criar nova chave](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Selecione a **versão** e, em seguida, escolha **Selecione**. Foi-lhe notificada que uma chave foi criada no seu cofre.
+11. Selecione a **versão** e, em seguida, escolha **Selecione** . Foi-lhe notificada que uma chave foi criada no seu cofre.
 
     ![Nova chave criada no cofre chave](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 
@@ -102,8 +102,8 @@ Se receber quaisquer erros relacionados com a tecla gerida pelo seu cliente, uti
 | CmkErrorAccessRevoked | O acesso à chave gerida pelo cliente é revogado.                                                       | Sim, verifique se: <ol><li>O cofre ainda tem o MSI na política de acesso.</li><li>A política de acesso tem permissões get, Wrap e Desembrulhar ativadas.</li><li>Se o cofre de chaves estiver num VNet atrás da firewall, verifique se **o Microsoft Trust Services** está ativado.</li><li>Verifique se o MSI do recurso de trabalho foi reiniciado para `None` a utilização de APIs.<br>Se sim, então volte a definir o valor para `Identity = SystemAssigned` . Isto recria a identidade para o recurso de trabalho.<br>Uma vez criada a nova identidade, permita, `Get` `Wrap` e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | A chave gerida pelo cliente está desativada.                                         | Sim, ao permitir a versão chave     |
 | CmkErrorKeyNotFound      | Não é possível encontrar a chave gerida pelo cliente. | Sim, se a chave tiver sido eliminada, mas ainda estiver dentro da duração da purga, utilizando [a remoção da chave do cofre do Undo Key](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Senão, <ol><li>Sim, se o cliente tiver a chave apoiada e a restaurar.</li><li>Não, caso contrário.</li></ol>
-| CmkErrorVaultNotFound |Não é possível encontrar o cofre chave da chave gerida pelo cliente. |   Se o cofre da chave tiver sido apagado:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Senão, se o cofre chave foi migrado para outro inquilino, sim, pode ser recuperado usando um dos passos abaixo:<ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol>|
+| CmkErrorVaultNotFound |Não é possível encontrar o cofre chave da chave gerida pelo cliente. |   Se o cofre da chave tiver sido apagado:<ol><li>Sim, se estiver na duração da proteção da purga, utilizando os passos da [Recuperar um cofre de chaves.](../../key-vault/general/soft-delete-overview.md#key-vault-recovery)</li><li>Não, se for para além da duração da proteção da purga.</li></ol><br>Senão, se o cofre chave foi migrado para outro inquilino, sim, pode ser recuperado usando um dos passos abaixo:<ol><li>Reverta o cofre de volta para o velho inquilino.</li><li>Desa `Identity = None` parte e, em seguida, reesuse o valor para `Identity = SystemAssigned` . Isto elimina e recria a identidade uma vez criada a nova identidade. Ativar `Get` `Wrap` , e `Unwrap` permissões para a nova identidade na política de acesso do cofre-chave.</li></ol>|
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é Azure Key Vault?](/azure/key-vault/key-vault-overview)
+- [O que é Azure Key Vault?](../../key-vault/general/overview.md)

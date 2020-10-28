@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996531"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783186"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
@@ -39,15 +39,15 @@ No seu [blogue, em outubro de 2018,](https://techcommunity.microsoft.com/t5/Azur
 >
 > No Ignite, no ano passado, falei dos 3 melhores ataques aos nossos sistemas de identidade. Aqui está o recente volume destes ataques
 >   
->   - **Repetição de violação**: ataques de 4.6BN detetados em maio de 2018
->   - **Spray de senha**: 350k em abril de 2018
->   - **Phishing**: Isto é difícil de quantificar exatamente, mas vimos eventos de risco 23M em março de 2018, muitos dos quais estão relacionados com phish
+>   - **Repetição de violação** : ataques de 4.6BN detetados em maio de 2018
+>   - **Spray de senha** : 350k em abril de 2018
+>   - **Phishing** : Isto é difícil de quantificar exatamente, mas vimos eventos de risco 23M em março de 2018, muitos dos quais estão relacionados com phish
 
 ## <a name="risk-detection-and-remediation"></a>Deteção e reparação de riscos
 
 A Proteção de Identidade identifica os riscos nas seguintes classificações:
 
-| Tipo de deteção de risco | Description |
+| Tipo de deteção de risco | Descrição |
 | --- | --- |
 | Viagem atípica | Inscreva-se a partir de uma localização atípica com base nas recentes insusagens do utilizador. |
 | Endereço IP anónimo | Inscreva-se a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores). |
@@ -102,17 +102,17 @@ Os administradores de acesso condicional também podem criar políticas que fato
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Funcionalidade | Detalhes  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
+| Capacidade | Detalhes  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | No |Yes | 
-| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  No |Yes |
-| Relatórios de segurança | Descrição geral |  No | No |Yes |
-| Relatórios de segurança | Utilizadores de risco  | Informação Limitada | Informação Limitada | Acesso completo|
-| Relatórios de segurança | Inícios de sessão de risco  | Informação Limitada | Informação Limitada | Acesso completo|
-| Relatórios de segurança | Deteções de riscos   | No | Informação Limitada| Acesso completo|
-| Notificações | Utilizadores em risco detetados alertas  | No | No |Yes |
-| Notificações | Digestão semanal| No | No | Yes | 
-| | Política de registo na MFA | No | No | Yes |
+| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | Não | Não |Sim | 
+| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | Não |  Não |Sim |
+| Relatórios de segurança | Descrição geral |  Não | Não |Sim |
+| Relatórios de segurança | Utilizadores de risco  | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Informação limitada. Apenas são mostrados utilizadores com risco médio e elevado. Sem detalhes gaveta ou histórico de risco. | Acesso completo|
+| Relatórios de segurança | Inícios de sessão de risco  | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Informação limitada. Não é mostrado nenhum detalhe de risco ou nível de risco. | Acesso completo|
+| Relatórios de segurança | Deteções de riscos   | Não | Informação limitada. Sem detalhes na gaveta.| Acesso completo|
+| Notificações | Utilizadores em risco detetados alertas  | Não | Não |Sim |
+| Notificações | Digestão semanal| Não | Não | Sim | 
+| | Política de registo na MFA | Não | Não | Sim |
 
 Mais informações sobre estes relatórios ricos podem ser encontradas no artigo, [Como: Investigar o risco](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 

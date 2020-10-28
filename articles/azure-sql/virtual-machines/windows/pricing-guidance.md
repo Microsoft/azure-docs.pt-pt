@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d18273d07cda3a6fe3517c47c9be12a2d236438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64ab815572af0f6c76a5076c9d4cf03586f242d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785005"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,9 +36,9 @@ Este artigo fornece orientação de preços para [o SQL Server em Azure Virtual 
 
 ## <a name="free-licensed-sql-server-editions"></a>Edições sql server licenciadas gratuitamente
 
-Se quiser desenvolver, testar ou construir uma prova de conceito, use a edição de desenvolvedores de **servidores SQL**livremente licenciada . Esta edição tem todas as funcionalidades da edição SQL Server Enterprise, permitindo-lhe construir e testar qualquer tipo de aplicação. No entanto, não é possível executar a edição do Developer em produção. Uma edição VM do SqL Server Developer apenas incorre em encargos pelo custo do VM, porque não existem custos de licenciamento associados do SQL Server.
+Se quiser desenvolver, testar ou construir uma prova de conceito, use a edição de desenvolvedores de **servidores SQL** livremente licenciada . Esta edição tem todas as funcionalidades da edição SQL Server Enterprise, permitindo-lhe construir e testar qualquer tipo de aplicação. No entanto, não é possível executar a edição do Developer em produção. Uma edição VM do SqL Server Developer apenas incorre em encargos pelo custo do VM, porque não existem custos de licenciamento associados do SQL Server.
 
-Se pretender executar uma carga de trabalho leve na produção (<4 núcleos, <memória de 1 GB, <10 GB/base de dados), utilize a **edição SQL Server Express**livremente licenciada . Um SQL Server Express edição VM também só incorre em encargos pelo custo do VM.
+Se pretender executar uma carga de trabalho leve na produção (<4 núcleos, <memória de 1 GB, <10 GB/base de dados), utilize a **edição SQL Server Express** livremente licenciada . Um SQL Server Express edição VM também só incorre em encargos pelo custo do VM.
 
 Para estas cargas de trabalho de produção de desenvolvimento/teste e leve, também pode economizar dinheiro escolhendo um tamanho VM menor que corresponda a estas cargas de trabalho. O DS1v2 pode ser uma boa escolha em alguns cenários.
 
@@ -61,7 +61,7 @@ Se tiver uma carga de trabalho de produção não leve, utilize uma das seguinte
 | Standard | Cargas de trabalho pequenas a médias |
 | Grandes Empresas | Cargas de trabalho grandes ou críticas de missão|
 
-Você tem duas opções para pagar o licenciamento SQL Server para estas edições: *pagar por utilização* ou *trazer a sua própria licença (BYOL)*.
+Você tem duas opções para pagar o licenciamento SQL Server para estas edições: *pagar por utilização* ou *trazer a sua própria licença (BYOL)* .
 
 ## <a name="pay-per-usage"></a>Pagamento por utilização
 
@@ -96,7 +96,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 
 ## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Traga a sua própria licença (BYOL)
 
-**Trazer a sua própria licença SQL Server através da Mobility License**, também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de Licenciamento de Volume.
+**Trazer a sua própria licença SQL Server através da Mobility License** , também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de Licenciamento de Volume.
 
 > [!IMPORTANT]
 > As imagens BYOL requerem um Acordo Empresarial com Garantia de Software. Não estão disponíveis como parte do Azure Cloud Solution Partner (CSP) neste momento. Os clientes da CSP podem trazer a sua própria licença através da implementação de uma imagem pay-as-you-go e, em seguida, ativar o [Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md).
@@ -136,7 +136,7 @@ Para evitar custos desnecessários, escolha um tamanho de máquina virtual ideal
 
 ### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Dimensione corretamente o seu VM
 
-O custo de licenciamento do SQL Server está diretamente relacionado com o número de vCPUs. Escolha um tamanho VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de I/O. Para obter uma lista completa das opções de tamanho da máquina, consulte [os tamanhos do Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [os tamanhos Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+O custo de licenciamento do SQL Server está diretamente relacionado com o número de vCPUs. Escolha um tamanho VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de I/O. Para obter uma lista completa das opções de tamanho da máquina, consulte [os tamanhos do Windows VM](../../../virtual-machines/sizes.md) e [os tamanhos Linux VM](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
 
 Existem novos tamanhos de máquina que funcionam bem com certos tipos de cargas de trabalho do SQL Server. Estes tamanhos de máquinas mantêm altos níveis de memória, armazenamento e largura de banda de I/S, mas têm uma contagem de núcleo virtualizada mais baixa. Por exemplo, considere o seguinte exemplo:
 
@@ -167,7 +167,7 @@ Para outros fluxos de trabalho, considere desligar automaticamente e reiniciar o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para orientação geral sobre preços da Azure, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos](../../../cost-management-billing/manage/getting-started.md). Para obter os preços mais recentes das Máquinas Virtuais Azure, incluindo o SQL Server, consulte a página de preços das máquinas virtuais Azure para [VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) do Windows e [VMs Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Para orientação geral sobre preços da Azure, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos](../../../cost-management-billing/cost-management-billing-overview.md). Para obter os preços mais recentes das Máquinas Virtuais Azure, incluindo o SQL Server, consulte a página de preços das máquinas virtuais Azure para [VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) do Windows e [VMs Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Para uma visão geral do SQL Server em Azure Virtual Machines, consulte os seguintes artigos:
 

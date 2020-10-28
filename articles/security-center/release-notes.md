@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 047bfac9179fd10383fc91155c7cb6e737fda516
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 78eb7ae9a73217bfe7b9ef58cb46a70cc312c481
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558708"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784376"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -37,6 +37,7 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 - [Avaliação de vulnerabilidade para máquinas no local e multi-nuvens (pré-visualização)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Recomendação do Azure Firewall adicionada (pré-visualização)](#azure-firewall-recommendation-added-preview)
 - [As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes atualizada com uma correção rápida](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Painel de conformidade regulamentar agora inclui opção para remover padrões](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Avaliação de vulnerabilidade para máquinas no local e multi-nuvens (pré-visualização)
@@ -75,6 +76,15 @@ A recomendação **De que os intervalos de IP autorizados sejam definidos nos Se
 Para mais detalhes sobre esta recomendação e todas as outras recomendações do Centro de Segurança, consulte [recomendações de Segurança - um guia de referência](recommendations-reference.md).
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida":::
+
+
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>Painel de conformidade regulamentar agora inclui opção para remover padrões
+
+O painel de conformidade regulamentar do Security Center fornece informações sobre a sua postura de conformidade com base na forma como está a cumprir controlos e requisitos específicos de conformidade.
+
+O painel inclui um conjunto padrão de normas regulamentares. Se algum dos padrões fornecidos não for relevante para a sua organização, é agora um processo simples para simplesmente removê-los da UI para uma subscrição. As normas só podem ser removidas ao nível da *subscrição;* não o âmbito do grupo de gestão.
+
+Saiba mais [na remoção de um padrão do seu painel de instrumentos.](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard)
 
 
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)
@@ -669,7 +679,7 @@ As políticas podem ser encontradas na política de Azure:
 
 Começa com [modelos de automatização de fluxos de trabalho.](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)
 
-Saiba mais sobre a utilização das duas políticas de exportação em [Alertas e Recomendações do Centro de Segurança Azure de Exportação Contínua através de Política.](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745)
+Saiba mais sobre a utilização das duas políticas de exportação na [automatização do fluxo de trabalho configure em escala utilizando as políticas fornecidas](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) e [Crie uma exportação contínua.](continuous-export.md#set-up-a-continuous-export)
 
 
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nova recomendação para a utilização de NSGs para proteger máquinas virtuais não-orientadas para a Internet

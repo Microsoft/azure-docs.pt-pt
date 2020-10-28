@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091615"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783883"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
 
@@ -35,7 +35,7 @@ A sua aplicação precisa de aceder à cadeia de ligação em tempo de execuçã
 
 * Pode armazenar a sua cadeia de ligação numa variável ambiental.
 * Uma aplicação em execução no ambiente de trabalho ou num dispositivo pode armazenar a cadeia de ligação num **ficheiroapp.config** ou **web.config.** Adicione o fio de ligação à secção **AppSettings nestes** ficheiros.
-* Uma aplicação em execução num serviço de nuvem Azure pode armazenar a cadeia de ligação no esquema de configuração do [serviço Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Adicione o fio de ligação à secção **ConfiguraçõesSettings** do ficheiro de configuração de serviço.
+* Uma aplicação em execução num serviço de nuvem Azure pode armazenar a cadeia de ligação no esquema de configuração do [serviço Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Adicione o fio de ligação à secção **ConfiguraçõesSettings** do ficheiro de configuração de serviço.
 
 Armazenar a sua cadeia de ligação num ficheiro de configuração facilita a atualização da cadeia de ligação para alternar entre o [emulador de armazenamento Azurite](../common/storage-use-azurite.md) e uma conta de armazenamento Azure na nuvem. Basta editar a cadeia de ligação para apontar para o ambiente alvo.
 
@@ -57,7 +57,7 @@ Por exemplo, a sua cadeia de ligação pode parecer semelhante a:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Embora o Azure Storage suporte http e HTTPS numa cadeia de ligação, *HTTPS é altamente recomendado*.
+Embora o Azure Storage suporte http e HTTPS numa cadeia de ligação, *HTTPS é altamente recomendado* .
 
 > [!TIP]
 > Pode encontrar as cordas de ligação da sua conta de armazenamento no [portal Azure](https://portal.azure.com). Navegue para **DEFINIÇÕES**  >  **As teclas** de acesso na lâmina do menu da sua conta de armazenamento para ver as cordas de ligação para as teclas de acesso primária e secundária.

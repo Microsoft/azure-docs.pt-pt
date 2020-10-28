@@ -11,12 +11,12 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac54282135759f14f17ed16b9779013f849bd8d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b83a8bfbc79af344c4d158ee65134034db714e9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488678"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783968"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Managing Concurrency in Microsoft Azure Storage (Gerir a Simultaneidade no Armazenamento do Microsoft Azure)
 
@@ -85,21 +85,21 @@ catch (StorageException ex)
 }
 ```
 
-O Azure Storage também inclui suporte para cabeçalhos condicional, tais como **Se-Modificado-Desde**, **Se-Não Modificado-Since**, **If-None-Match**, e combinações desses cabeçalhos. Para obter mais informações, consulte [especificar cabeçalhos condicional para operações de serviço de bolhas](https://msdn.microsoft.com/library/azure/dd179371.aspx).
+O Azure Storage também inclui suporte para cabeçalhos condicional, tais como **Se-Modificado-Desde** , **Se-Não Modificado-Since** , **If-None-Match** , e combinações desses cabeçalhos. Para obter mais informações, consulte [especificar cabeçalhos condicional para operações de serviço de bolhas](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations).
 
 A tabela seguinte resume as operações do contentor que aceitam cabeçalhos condicional, como **o If-Match** no pedido e que devolvem um valor ETag na resposta.
 
 | Operação | Devolução do valor ETag do contentor | Aceita cabeçalhos condicional |
 |:--- |:--- |:--- |
-| Criar Recipiente |Yes |No |
-| Obter propriedades de contentores |Yes |No |
-| Obtenha metadados de contentores |Yes |No |
-| Conjunto de metadados de contentores |Yes |Yes |
-| Obter contentor ACL |Yes |No |
-| Conjunto de recipiente ACL |Yes |Sim (*) |
-| Eliminar Contentor |No |Yes |
-| Recipiente de Arrendamento |Yes |Yes |
-| Blobs de lista |No |No |
+| Criar Recipiente |Sim |Não |
+| Obter propriedades de contentores |Sim |Não |
+| Obtenha metadados de contentores |Sim |Não |
+| Conjunto de metadados de contentores |Sim |Sim |
+| Obter contentor ACL |Sim |Não |
+| Conjunto de recipiente ACL |Sim |Sim (*) |
+| Eliminar Contentor |Não |Sim |
+| Recipiente de Arrendamento |Sim |Sim |
+| Blobs de lista |Não |Não |
 
 (*) As permissões definidas pelo SetContainerACL estão em cache e as atualizações a estas permissões demoram 30 segundos a propagar-se durante as quais as atualizações do período não são garantidas como consistentes.
 
@@ -107,28 +107,28 @@ A tabela seguinte resume as operações blob que aceitam cabeçalhos condicional
 
 | Operação | Valor ETag de retorna | Aceita cabeçalhos condicional |
 |:--- |:--- |:--- |
-| Coloque Blob |Yes |Yes |
-| Obter Blob |Yes |Yes |
-| Get Blob Properties (Obter Propriedades do Blob) |Yes |Yes |
-| Definir propriedades blob |Yes |Yes |
-| Obtenha metadados blob |Yes |Yes |
-| Definir metadados blob |Yes |Yes |
-| Bolha de arrendamento (*) |Yes |Yes |
-| Blob de Instantâneo |Yes |Yes |
-| Bolha de cópia |Yes |Sim (para a fonte e a bolha de destino) |
-| Abortar Bolha de Cópia |No |No |
-| Eliminar Blob |No |Yes |
-| Colocar Bloco |No |No |
-| Colocar lista de blocos |Yes |Yes |
-| Obter Lista de Blocos |Yes |No |
-| Colocar página |Yes |Yes |
-| Obter Gamas de Páginas |Yes |Yes |
+| Coloque Blob |Sim |Sim |
+| Obter Blob |Sim |Sim |
+| Get Blob Properties (Obter Propriedades do Blob) |Sim |Sim |
+| Definir propriedades blob |Sim |Sim |
+| Obtenha metadados blob |Sim |Sim |
+| Definir metadados blob |Sim |Sim |
+| Bolha de arrendamento (*) |Sim |Sim |
+| Blob de Instantâneo |Sim |Sim |
+| Bolha de cópia |Sim |Sim (para a fonte e a bolha de destino) |
+| Abortar Bolha de Cópia |Não |Não |
+| Eliminar Blob |Não |Sim |
+| Colocar Bloco |Não |Não |
+| Colocar lista de blocos |Sim |Sim |
+| Obter Lista de Blocos |Sim |Não |
+| Colocar página |Sim |Sim |
+| Obter Gamas de Páginas |Sim |Sim |
 
 (*) O Arrendamento Blob não muda o ETag numa bolha.
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Concuência pessimista para bolhas
 
-Para bloquear uma bolha para uso exclusivo, adquira um [arrendamento.](https://msdn.microsoft.com/library/azure/ee691972.aspx) Ao adquirir um contrato de arrendamento, especifique um período de tempo para o arrendamento. O período de tempo varia entre 15 e 60 segundos ou infinito, o que equivale a uma fechadura exclusiva. Renovar um arrendamento finito para estendê-lo. Liberte um contrato de arrendamento quando terminar. Blob Storage liberta automaticamente locações finitas quando expiram.
+Para bloquear uma bolha para uso exclusivo, adquira um [arrendamento.](/rest/api/storageservices/Lease-Blob) Ao adquirir um contrato de arrendamento, especifique um período de tempo para o arrendamento. O período de tempo varia entre 15 e 60 segundos ou infinito, o que equivale a uma fechadura exclusiva. Renovar um arrendamento finito para estendê-lo. Liberte um contrato de arrendamento quando terminar. Blob Storage liberta automaticamente locações finitas quando expiram.
 
 Os contratos de arrendamento permitem apoiar diferentes estratégias de sincronização. As estratégias incluem *a leitura exclusiva escrita/partilha,* *a escrita/leitura exclusiva,* e *a leitura partilhada/exclusiva.* Quando existe um arrendamento, o Azure Storage aplica as gravações exclusivas (colocar, definir e apagar operações) no entanto, garantir a exclusividade das operações de leitura requer que o desenvolvedor garanta que todas as aplicações do cliente utilizem um ID de locação e que apenas um cliente de cada vez tenha uma identificação de locação válida. Leia operações que não incluam um iD de arrendamento resulte em leituras partilhadas.
 
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }
 ```
 
-Se tentar uma operação de escrita numa bolha alugada sem passar a identificação do contrato de arrendamento, o pedido falha com um erro 412. Se o contrato de arrendamento expirar antes de ligar para o método **UploadText** mas ainda passar o ID do contrato de arrendamento, o pedido também falha com um erro **412.** Para obter mais informações sobre a gestão dos prazos de validade do contrato de arrendamento e iDs de locação, consulte a documentação [do Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST.
+Se tentar uma operação de escrita numa bolha alugada sem passar a identificação do contrato de arrendamento, o pedido falha com um erro 412. Se o contrato de arrendamento expirar antes de ligar para o método **UploadText** mas ainda passar o ID do contrato de arrendamento, o pedido também falha com um erro **412.** Para obter mais informações sobre a gestão dos prazos de validade do contrato de arrendamento e iDs de locação, consulte a documentação [do Lease Blob](/rest/api/storageservices/Lease-Blob) REST.
 
 As seguintes operações blob podem utilizar contratos de arrendamento para gerir a concordância pessimista:
 
@@ -184,7 +184,7 @@ As seguintes operações blob podem utilizar contratos de arrendamento para geri
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Concordância pessimista para contentores
 
-As locações em contentores permitem que as mesmas estratégias de sincronização sejam suportadas como nas bolhas *(leitura exclusiva/escrita*partilhada, *leitura exclusiva/escrita/leitura exclusiva*, e *leitura/leitura exclusiva partilhada*), no entanto, ao contrário de blobs, o serviço de armazenamento apenas impõe exclusividade nas operações de eliminação. Para eliminar um recipiente com um arrendamento ativo, um cliente deve incluir o ID de locação ativa com o pedido de eliminação. Todas as outras operações de contentores são bem sucedidas num contentor alugado sem incluir a identificação do arrendamento, caso em que são operações partilhadas. Se for necessária exclusividade de atualização (colocação ou conjunto) ou operações de leitura, os desenvolvedores devem garantir que todos os clientes utilizem um ID de locação e que apenas um cliente de cada vez tenha um ID de locação válido.
+As locações em contentores permitem que as mesmas estratégias de sincronização sejam suportadas como nas bolhas *(leitura exclusiva/escrita* partilhada, *leitura exclusiva/escrita/leitura exclusiva* , e *leitura/leitura exclusiva partilhada* ), no entanto, ao contrário de blobs, o serviço de armazenamento apenas impõe exclusividade nas operações de eliminação. Para eliminar um recipiente com um arrendamento ativo, um cliente deve incluir o ID de locação ativa com o pedido de eliminação. Todas as outras operações de contentores são bem sucedidas num contentor alugado sem incluir a identificação do arrendamento, caso em que são operações partilhadas. Se for necessária exclusividade de atualização (colocação ou conjunto) ou operações de leitura, os desenvolvedores devem garantir que todos os clientes utilizem um ID de locação e que apenas um cliente de cada vez tenha um ID de locação válido.
 
 As seguintes operações de contentores podem utilizar locações para gerir a concordância pessimista:
 
@@ -198,9 +198,9 @@ As seguintes operações de contentores podem utilizar locações para gerir a c
 
 Para obter mais informações, consulte:
 
-* [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx) (Especificar Cabeçalhos Condicionais para Operações do Serviço Blob)
-* [Recipiente de Arrendamento](https://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx) (Blob de Concessão)
+* [Specifying Conditional Headers for Blob Service Operations](/rest/api/storageservices/Specifying-Conditional-Headers-for-Blob-Service-Operations) (Especificar Cabeçalhos Condicionais para Operações do Serviço Blob)
+* [Recipiente de Arrendamento](/rest/api/storageservices/Lease-Container)
+* [Lease Blob](/rest/api/storageservices/Lease-Blob) (Blob de Concessão)
 
 ## <a name="managing-concurrency-in-table-storage"></a>Gestão da concordância no armazenamento de mesa
 
@@ -245,13 +245,13 @@ O quadro que se segue resume a forma como as operações da entidade de tabela u
 
 | Operação | Valor ETag de retorna | Requer If-Match cabeçalho de pedido |
 |:--- |:--- |:--- |
-| Entidades de Consulta |Yes |No |
-| Inserir Entidade |Yes |No |
-| Entidade de Atualização |Yes |Yes |
-| Entidade de Fusão |Yes |Yes |
-| Eliminar Entidade |No |Yes |
-| Inserir ou Substituir Entidade |Yes |No |
-| Inserir ou Fundir Entidade |Yes |No |
+| Entidades de Consulta |Sim |Não |
+| Inserir Entidade |Sim |Não |
+| Entidade de Atualização |Sim |Sim |
+| Entidade de Fusão |Sim |Sim |
+| Eliminar Entidade |Não |Sim |
+| Inserir ou Substituir Entidade |Sim |Não |
+| Inserir ou Fundir Entidade |Sim |Não |
 
 Note que **insira ou substitua** as operações da Entidade **e da Entidade de Inserção ou Fusão** *não* faz quaisquer verificações de concordância porque não enviam um valor ETag para o serviço de tabela.
 
@@ -259,7 +259,7 @@ Em geral, os desenvolvedores que usam tabelas devem confiar na concordância oti
 
 Para obter mais informações, consulte:
 
-* [Operações em Entidades](https://msdn.microsoft.com/library/azure/dd179375.aspx)
+* [Operações em Entidades](/rest/api/storageservices/Operations-on-Entities)
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>Gestão da Concurrency no Serviço de Fila
 
@@ -269,8 +269,8 @@ O serviço de fila não tem suporte para uma concordância otimista ou pessimist
 
 Para obter mais informações, consulte:
 
-* [API REST de Serviço de Filas](https://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [Receber mensagens](https://msdn.microsoft.com/library/azure/dd179474.aspx)
+* [API REST de Serviço de Filas](/rest/api/storageservices/Queue-Service-REST-API)
+* [Receber mensagens](/rest/api/storageservices/Get-Messages)
 
 ## <a name="managing-concurrency-in-azure-files"></a>Gestão da concordância em Ficheiros Azure
 
@@ -280,7 +280,7 @@ Quando um cliente SMB abre um ficheiro para apagar, marca o ficheiro como penden
 
 Para obter mais informações, consulte:
 
-* [Gestão de fechaduras de ficheiros](https://msdn.microsoft.com/library/azure/dn194265.aspx)
+* [Gestão de fechaduras de ficheiros](/rest/api/storageservices/Managing-File-Locks)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -292,5 +292,5 @@ Para obter mais informações sobre o Azure Storage, consulte:
 
 * [Página inicial do armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/)
 * [Introdução ao Armazenamento do Azure](storage-introduction.md)
-* Armazenamento Começando para [Blob,](../blobs/storage-dotnet-how-to-use-blobs.md) [Mesa,](../../cosmos-db/table-storage-how-to-use-dotnet.md)Filas e [Ficheiros](../storage-dotnet-how-to-use-queues.md) [Files](../storage-dotnet-how-to-use-files.md)
+* Armazenamento Começando para [Blob,](../blobs/storage-quickstart-blobs-dotnet.md) [Mesa,](../../cosmos-db/tutorial-develop-table-dotnet.md)Filas e [Ficheiros](../queues/storage-dotnet-how-to-use-queues.md) [Files](../files/storage-dotnet-how-to-use-files.md)
 * Arquitetura de Armazenamento – [Armazenamento Azure: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)

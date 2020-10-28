@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934128"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785345"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Sobre o fluxo de entrada de áudio SDK do Discurso API
 
@@ -26,7 +26,7 @@ São necessários os seguintes passos quando se utilizam fluxos de entrada de á
 
 - Identifique o formato do fluxo de áudio. O formato deve ser suportado pelo Speech SDK e pelo serviço Speech. Atualmente, apenas é suportada a seguinte configuração:
 
-  Amostras de áudio em formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois blocos alinhados (16 bits incluindo estofos para uma amostra).
+  As amostras de áudio estão em formato PCM, um canal, 16 bits por amostra, 8000 ou 16000 amostras por segundo (16000 ou 32000 bytes por segundo), dois blocos alinhados (16 bits incluindo estofos para uma amostra).
 
   O código correspondente no SDK para criar o formato áudio é assim:
 
@@ -37,7 +37,7 @@ São necessários os seguintes passos quando se utilizam fluxos de entrada de á
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Certifique-se de que o seu código pode fornecer os dados áudio RAW de acordo com estas especificações. Se os dados da fonte de áudio não corresponderem aos formatos suportados, o áudio deve ser transcodificado para o formato necessário.
+- Certifique-se de que o seu código fornece os dados áudio RAW de acordo com estas especificações. Também garanta que amostras de 16 bits chegam em formato pouco endiano. As amostras assinadas também são apoiadas. Se os dados da fonte de áudio não corresponderem aos formatos suportados, o áudio deve ser transcodificado para o formato necessário.
 
 - Crie a sua própria classe de fluxo de entrada de áudio derivada de `PullAudioInputStreamCallback` . Implementar os `Read()` e `Close()` membros. A assinatura exata da função é dependente da linguagem, mas o código será semelhante a esta amostra de código:
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425468"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785583"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,14 +22,14 @@ ms.locfileid: "92425468"
 
 ## <a name="overview"></a>Descrição geral
 Este guia mostra-lhe como executar cenários comuns utilizando o serviço de armazenamento de fila microsoft Azure. As amostras são escritas usando a API Ruby Azure.
-Os cenários abordados incluem **inserir,** **espreitar,** **receber**e **apagar** mensagens de fila, bem como **criar e apagar filas.**
+Os cenários abordados incluem **inserir,** **espreitar,** **receber** e **apagar** mensagens de fila, bem como **criar e apagar filas.**
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Criar uma aplicação Ruby
-Crie uma aplicação Ruby. Para obter instruções, consulte [Criar uma Aplicação Ruby no Serviço de Aplicações em Linux](/azure/app-service/quickstart-ruby).
+Crie uma aplicação Ruby. Para obter instruções, consulte [Criar uma Aplicação Ruby no Serviço de Aplicações em Linux](../../app-service/quickstart-ruby.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configure a sua aplicação para aceder ao armazenamento
 Para utilizar o armazenamento Azure, você precisa baixar e usar o pacote Ruby azure, que inclui um conjunto de bibliotecas de conveniência que comunicam com os serviços DE ARMAZENAMENTO REST.
@@ -57,7 +57,7 @@ Para obter estes valores a partir de uma conta de armazenamento do Resource Mana
 
 1. Faça login no [portal Azure](https://portal.azure.com).
 2. Navegue para a conta de armazenamento que pretende utilizar.
-3. No painel Definições à direita, clique em **Chaves de Acesso**.
+3. No painel Definições à direita, clique em **Chaves de Acesso** .
 4. No painel Chaves de acesso que aparece, verá a chave de acesso 1 e a chave de acesso 2. Pode utilizar qualquer uma destas. 
 5. Clique no ícone de cópia para copiar a chave para a área de transferência. 
 
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Como: Espreitar a Próxima Mensagem
-Pode espreitar a mensagem na parte da frente de uma fila sem a retirar da fila, chamando o método de ** \_ espreitar mensagens().** Por predefinição, ** \_ as mensagens espreitam** uma única mensagem. Também pode especificar quantas mensagens pretende espreitar.
+Pode espreitar a mensagem na parte da frente de uma fila sem a retirar da fila, chamando o método de **\_ espreitar mensagens().** Por predefinição, **\_ as mensagens espreitam** uma única mensagem. Também pode especificar quantas mensagens pretende espreitar.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -96,8 +96,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Como: Dequeue a Próxima Mensagem
 Pode remover uma mensagem de uma fila em dois passos.
 
-1. Quando liga ** \_ mensagens de lista()**, obtém a próxima mensagem numa fila por defeito. Também pode especificar quantas mensagens pretende receber. As mensagens devolvidas a partir de mensagens de ** \_ lista()** tornam-se invisíveis para qualquer outra mensagem de leitura de código desta fila. Passa-se o tempo limite de visibilidade em segundos como parâmetro.
-2. Para terminar a remoção da mensagem da fila, também deve chamar **delete_message()**.
+1. Quando liga **\_ mensagens de lista()** , obtém a próxima mensagem numa fila por defeito. Também pode especificar quantas mensagens pretende receber. As mensagens devolvidas a partir de mensagens de **\_ lista()** tornam-se invisíveis para qualquer outra mensagem de leitura de código desta fila. Passa-se o tempo limite de visibilidade em segundos como parâmetro.
+2. Para terminar a remoção da mensagem da fila, também deve chamar **delete_message()** .
 
 Este processo em duas etapas de remoção de uma mensagem assegura que quando o seu código não processa uma mensagem devido a falha de hardware ou software, outra instância do seu código pode obter a mesma mensagem e tentar novamente. As chamadas de código **apagam \_ a mensagem** imediatamente após o processo da mensagem.
 
@@ -123,7 +123,7 @@ Existem duas formas através das quais pode personalizar a obtenção de mensage
 1. Pode receber um lote de mensagem.
 2. Pode definir um tempo de invisibilidade mais longo ou curto, permitindo ao seu código mais ou menos tempo para processar totalmente cada mensagem.
 
-O exemplo de código a seguir utiliza o método ** \_ de mensagens de lista()** para obter 15 mensagens numa chamada. Em seguida, imprime e elimina cada mensagem. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem.
+O exemplo de código a seguir utiliza o método **\_ de mensagens de lista()** para obter 15 mensagens numa chamada. Em seguida, imprime e elimina cada mensagem. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300

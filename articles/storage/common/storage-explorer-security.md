@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488610"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783764"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Azure Storage Explorer
 
@@ -44,13 +44,13 @@ Esta secção descreve as duas tecnologias baseadas em AD Azure que podem ser us
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Controlo de acesso baseado em funções do Azure (RBAC do Azure)
 
-[O controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview) dá-lhe um controlo de acesso fino sobre os seus recursos Azure. As funções e permissões azure podem ser geridas a partir do portal Azure.
+[O controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) dá-lhe um controlo de acesso fino sobre os seus recursos Azure. As funções e permissões azure podem ser geridas a partir do portal Azure.
 
 O Storage Explorer suporta o acesso do Azure RBAC a Contas de Armazenamento, Blobs e Filas. Se precisar de acesso a Ações ou Tabelas de Ficheiros, terá de atribuir funções Azure que concedam permissão para listar chaves de conta de armazenamento.
 
 #### <a name="access-control-lists-acls"></a>Listas de controlo de acesso (ACL)
 
-[As listas de controlo de acesso (ACLs)](/azure/storage/blobs/data-lake-storage-access-control) permitem controlar o acesso ao ficheiro e ao nível das pastas em recipientes blob ADLS Gen2. Pode gerir os seus ACLs utilizando o Storage Explorer.
+[As listas de controlo de acesso (ACLs)](../blobs/data-lake-storage-access-control.md) permitem controlar o acesso ao ficheiro e ao nível das pastas em recipientes blob ADLS Gen2. Pode gerir os seus ACLs utilizando o Storage Explorer.
 
 ### <a name="shared-access-signatures-sas"></a>Assinaturas de acesso partilhado (SAS)
 
@@ -81,7 +81,7 @@ As chaves da conta de armazenamento concedem acesso ilimitado aos serviços e re
 
 Algumas funções da Azure concedem permissão para recuperar chaves de conta de armazenamento. Os indivíduos com estas funções podem efetivamente contornar permissões concedidas ou negadas pela Azure RBAC. Recomendamos não conceder esta permissão a menos que seja necessário.
 
-O Storage Explorer tentará utilizar as chaves da conta de armazenamento, se disponível, para autenticar pedidos. Pode desativar esta função em Definições **(Contas de armazenamento > serviços > Desativar o Uso das Chaves**). Algumas funcionalidades não suportam o Azure RBAC, como trabalhar com contas de armazenamento clássicos. Tais funcionalidades ainda requerem teclas e não são afetadas por esta definição.
+O Storage Explorer tentará utilizar as chaves da conta de armazenamento, se disponível, para autenticar pedidos. Pode desativar esta função em Definições **(Contas de armazenamento > serviços > Desativar o Uso das Chaves** ). Algumas funcionalidades não suportam o Azure RBAC, como trabalhar com contas de armazenamento clássicos. Tais funcionalidades ainda requerem teclas e não são afetadas por esta definição.
 
 Se tiver de utilizar as chaves para aceder aos seus recursos de armazenamento, recomendamos as seguintes orientações:
 
@@ -102,4 +102,4 @@ Ao permitir o acesso público a um recipiente de bolhas, recomendamos as seguint
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Recomendações de segurança](/azure/storage/blobs/security-recommendations)
+- [Recomendações de segurança](../blobs/security-recommendations.md)

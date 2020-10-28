@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 02b589eebb716f5a69b4db9f00faf12401b8de7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fdbf3bf1d9f740654fa694de03315b876116429
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619011"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784886"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolução de diferenças transact-SQL durante a migração para a Base de Dados SQL
 
@@ -28,21 +28,21 @@ A maioria das funcionalidades Transact-SQL que as aplicações utilizam são tot
 
 Além disso, existem algumas funcionalidades e sintaxe que não são suportadas de todo porque a Base de Dados Azure SQL foi projetada para isolar funcionalidades das dependências da base de dados principal e do sistema operativo. Como tal, a maioria das atividades ao nível do servidor são inadequadas para a Base de Dados SQL. As declarações e opções T-SQL não estão disponíveis se configurarem opções de nível do servidor, componentes do sistema operativo ou especificarem a configuração do sistema de ficheiros. Quando tais capacidades são necessárias, uma alternativa apropriada está frequentemente disponível de outra forma a partir da Base de Dados SQL ou de outra funcionalidade ou serviço Azure.
 
-Por exemplo, a alta disponibilidade é incorporada na Base de Dados Azure SQL utilizando tecnologia semelhante a [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). As declarações T-SQL relacionadas com grupos de disponibilidade não são suportadas pela Base de Dados SQL, e as opiniões dinâmicas de gestão relacionadas com os Grupos Always On Availability também não são suportadas.
+Por exemplo, a alta disponibilidade é incorporada na Base de Dados Azure SQL utilizando tecnologia semelhante a [Always On Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). As declarações T-SQL relacionadas com grupos de disponibilidade não são suportadas pela Base de Dados SQL, e as opiniões dinâmicas de gestão relacionadas com os Grupos Always On Availability também não são suportadas.
 
-Para obter uma lista das funcionalidades suportadas e não suportadas pela Base de Dados SQL, consulte [a comparação de funcionalidades da Base de Dados Azure SQL](features-comparison.md). A lista nesta página complementa as diretrizes e apresenta artigos, e foca-se nas declarações da Transact-SQL.
+Para obter uma lista das funcionalidades suportadas e não suportadas pela Base de Dados SQL, consulte [a comparação de funcionalidades da Base de Dados Azure SQL](features-comparison.md). A lista nesta página complementa as diretrizes e apresenta artigos, e foca-se nas declarações da Transact-SQL.
 
 ## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Declarações de sintaxe Transact-SQL com diferenças parciais
 
 As declarações de DDL (linguagem de definição de dados) estão disponíveis, mas algumas declarações de DDL têm extensões relacionadas com a colocação do disco e funcionalidades não apoiadas.
 
-- As declarações CREATE e ALTER DATABASE têm mais de três dezenas de opções. As declarações incluem colocação de ficheiros, FILESTREAM e opções de corretor de serviço que se aplicam apenas ao SQL Server. Isto pode não importar se criar bases de dados antes de migrar, mas se estiver a migrar o código T-SQL que cria bases de dados deve comparar [a BASE DE DADOS CREATE (Base de Dados Azure SQL)](https://msdn.microsoft.com/library/dn268335.aspx) com a sintaxe do SQL Server na [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) para garantir que todas as opções que utiliza são suportadas. CREATE DATABASE for Azure SQL Database também tem opções de escala objetiva e elástica de serviço que se aplicam apenas à Base de Dados SQL.
+- As declarações CREATE e ALTER DATABASE têm mais de três dezenas de opções. As declarações incluem colocação de ficheiros, FILESTREAM e opções de corretor de serviço que se aplicam apenas ao SQL Server. Isto pode não importar se criar bases de dados antes de migrar, mas se estiver a migrar o código T-SQL que cria bases de dados deve comparar [a BASE DE DADOS CREATE (Base de Dados Azure SQL)](/sql/t-sql/statements/create-database-transact-sql) com a sintaxe do SQL Server na [CREATE DATABASE (SQL Server Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql) para garantir que todas as opções que utiliza são suportadas. CREATE DATABASE for Azure SQL Database também tem opções de escala objetiva e elástica de serviço que se aplicam apenas à Base de Dados SQL.
 - As declarações de TABELA CREATE e ALTER têm opções de Tabela de Ficheiros que não podem ser utilizadas na Base de Dados SQL porque o FILESTREAM não é suportado.
-- As declarações de login CREATE e ALTER são suportadas, mas a SQL Database não oferece todas as opções. Para tornar a sua base de dados mais portátil, a SQL Database incentiva a utilização de utilizadores de bases de dados contidos em vez de logins sempre que possível. Para obter mais informações, consulte [CREATE/ALTER LOGIN](https://docs.microsoft.com/sql/t-sql/statements/alter-login-transact-sql) e [Gerir logins e utilizadores.](logins-create-manage.md)
+- As declarações de login CREATE e ALTER são suportadas, mas a SQL Database não oferece todas as opções. Para tornar a sua base de dados mais portátil, a SQL Database incentiva a utilização de utilizadores de bases de dados contidos em vez de logins sempre que possível. Para obter mais informações, consulte [CREATE/ALTER LOGIN](/sql/t-sql/statements/alter-login-transact-sql) e [Gerir logins e utilizadores.](logins-create-manage.md)
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Sintaxe Transact-SQL não suportada na Base de Dados Azure SQL
 
-Para além das declarações transact-SQL relacionadas com as funcionalidades não apoiadas descritas na [comparação de funcionalidades da Base de Dados Azure SQL,](features-comparison.md)as seguintes declarações e grupos de declarações não são suportados. Como tal, se a sua base de dados a ser migrada estiver a utilizar qualquer uma das seguintes funcionalidades, re-engendrar o seu T-SQL para eliminar estas funcionalidades e declarações T-SQL.
+Para além das declarações transact-SQL relacionadas com as funcionalidades não apoiadas descritas na [comparação de funcionalidades da Base de Dados Azure SQL,](features-comparison.md)as seguintes declarações e grupos de declarações não são suportados. Como tal, se a sua base de dados a ser migrada estiver a utilizar qualquer uma das seguintes funcionalidades, re-engendrar o seu T-SQL para eliminar estas funcionalidades e declarações T-SQL.
 
 - Agrupamento de objetos de sistema
 - Ligação: Declarações de ponto final. A BASE de Dados SQL não suporta a autenticação do Windows, mas suporta a autenticação semelhante do Azure Ative Directory. Alguns tipos de autenticação precisam da versão mais recente do SSMS. Para obter mais informações, consulte [Connecting to SQL Database ou Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse) Utilizando a autenticação do Diretório Ativo Azure](authentication-aad-overview.md).
@@ -60,12 +60,12 @@ Para além das declarações transact-SQL relacionadas com as funcionalidades n�
 - `OPENQUERY`, `OPENROWSET` `OPENDATASOURCE` e nomes de quatro partes
 - .Net Framework: Integração CLR com SQL Server
 - Pesquisa semântica
-- Credenciais do servidor: Utilize [credenciais de âmbito de base de dados.](https://msdn.microsoft.com/library/mt270260.aspx)
+- Credenciais do servidor: Utilize [credenciais de âmbito de base de dados.](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
 - Itens ao nível do servidor: funções do servidor, `sys.login_token` . `GRANT`, `REVOKE` e `DENY` as permissões de nível do servidor não estão disponíveis, embora algumas sejam substituídas por permissões de nível de base de dados. Algumas DMVs ao nível do servidor útil têm DMVs equivalentes ao nível da base de dados.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
-- `sp_configure` opções e `RECONFIGURE`. Algumas opções estão disponíveis com [ALTERAR BASE DE DADOS NO ÂMBITO DA CONFIGURAÇÃO](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_configure` opções e `RECONFIGURE`. Algumas opções estão disponíveis com [ALTERAR BASE DE DADOS NO ÂMBITO DA CONFIGURAÇÃO](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
 - Sql Server Agent: Sintaxe que se baseia no Agente do Servidor SQL ou na base de dados MSDB: alertas, operadores, servidores de gestão central. Ao invés, utilize o scripting, como o Azure PowerShell.
@@ -78,14 +78,14 @@ Para além das declarações transact-SQL relacionadas com as funcionalidades n�
 
 ## <a name="full-transact-sql-reference"></a>Referência do Transact-SQL completa
 
-Para obter mais informações sobre gramática, utilização e exemplos transact-SQL, consulte [Referência Transact-SQL (Motor de Base de Dados)](https://msdn.microsoft.com/library/bb510741.aspx)   em SQL Server Books Online.
+Para obter mais informações sobre a gramática, utilização e exemplos do Transact-SQL, consulte [Transact-SQL Reference (Database Engine) (Referência do Transact-SQL (Motor de Base de Dados))](/sql/t-sql/language-reference) na Documentação Online do Microsoft SQL Server.
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as etiquetas "Aplica-se a"
 
-A referência Transact-SQL inclui artigos relacionados com as versões SQL Server 2008 até ao presente. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server, e indicando a aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [do GRUPO CREATE AVAILABILITY](https://msdn.microsoft.com/library/ff878399.aspx)   indica que a declaração se aplica ao **SQL Server (a partir de 2012)**. A declaração não se aplica ao SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou Ao Armazém de Dados Paralelos.
+A referência Transact-SQL inclui artigos relacionados com as versões SQL Server 2008 até ao presente. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server, e indicando a aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [do GRUPO CREATE AVAILABILITY](/sql/t-sql/statements/create-availability-group-transact-sql) indica que a declaração se aplica ao **SQL Server (a partir de 2012)** . A declaração não se aplica ao SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse) ou Ao Armazém de Dados Paralelos.
 
 Em alguns casos, o objeto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios do artigo, conforme adequado. Em alguns casos, o objeto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios do artigo, conforme adequado. Por exemplo, o artigo CREATE TRIGGER está disponível na Base de Dados SQL. Mas a opção **ALL SERVER** para gatilhos de nível de servidor, indica que os gatilhos de nível do servidor não podem ser usados na Base de Dados SQL. Em vez disso, utilize gatilhos de nível de base.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter uma lista das funcionalidades suportadas e não suportadas pela Base de Dados SQL, consulte [a comparação de funcionalidades da Base de Dados Azure SQL](features-comparison.md). A lista nesta página complementa as diretrizes e apresenta artigos, e foca-se nas declarações da Transact-SQL.
+Para obter uma lista das funcionalidades suportadas e não suportadas pela Base de Dados SQL, consulte [a comparação de funcionalidades da Base de Dados Azure SQL](features-comparison.md). A lista nesta página complementa as diretrizes e apresenta artigos, e foca-se nas declarações da Transact-SQL.

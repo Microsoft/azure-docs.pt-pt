@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: f174ba30251757182866f9f446eefb10588618e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428091"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783424"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Quickstart: Azure Queue storage client library v12 for JavaScript
 
@@ -34,12 +34,12 @@ Recursos adicionais:
 * [Documentação de referência da API](/javascript/api/@azure/storage-queue/)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Pacote (Gestor de Pacotes de Nó)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Amostras](/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Amostras](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
 * A [Node.js](https://nodejs.org/en/download/) atual para o seu sistema operativo.
 
 ## <a name="setting-up"></a>Configuração
@@ -48,7 +48,7 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Crie uma aplicação Node.js chamada *queues-quickstart-v12*.
+Crie uma aplicação Node.js chamada *queues-quickstart-v12* .
 
 1. Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para o projeto.
 
@@ -62,7 +62,7 @@ Crie uma aplicação Node.js chamada *queues-quickstart-v12*.
     cd queues-quickstart-v12
     ```
 
-1. Crie um novo ficheiro de texto chamado *package.jsligado*. Este ficheiro define o projeto Node.js. Guarde este ficheiro no diretório *de entradas rápidas-v12.* Aqui está o conteúdo do ficheiro:
+1. Crie um novo ficheiro de texto chamado *package.jsligado* . Este ficheiro define o projeto Node.js. Guarde este ficheiro no diretório *de entradas rápidas-v12.* Aqui está o conteúdo do ficheiro:
 
     ```json
     {

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267028"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785226"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -24,7 +24,7 @@ O WAF on Application Gateway baseia-se no [Conjunto de Regras Fundamentais (CRS)
 Todas as funcionalidades da WAF listadas abaixo existem dentro de uma política da WAF. Pode criar várias políticas, e podem ser associadas a um Gateway de Aplicação, a ouvintes individuais ou a regras de encaminhamento baseadas em caminhos numa Gateway de aplicações. Desta forma, pode ter políticas separadas para cada site por trás do seu Gateway de Aplicação, se necessário. Para obter mais informações sobre as políticas da WAF, consulte [Criar uma Política WAF](create-waf-policy-ag.md).
 
    > [!NOTE]
-   > As políticas per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > As políticas per-URI WAF estão em Visualização Pública. Isto significa que esta funcionalidade está sujeita aos Termos Complementares de Utilização da Microsoft. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Diagrama WAF do Gateway de Aplicação](../media/ag-overview/waf1.png)
 
@@ -74,6 +74,7 @@ Esta secção descreve os principais benefícios que a WAF no Gateway de aplica�
 - Crie regras personalizadas de acordo com as necessidades específicas das suas aplicações.
 - Tráfego de geo-filtro para permitir ou bloquear certos países/regiões de ter acesso às suas aplicações. (pré-visualização)
 - Proteja as suas aplicações de bots com as regras de mitigação do bot. (pré-visualização)
+- Inspecione json e XML no corpo de pedido
 
 ## <a name="waf-policy-and-rules"></a>Política e regras da WAF
 
@@ -121,8 +122,8 @@ Se a Proteção de Bot estiver ativada, os pedidos de entrada que correspondam a
 
 O Gateway DE Aplicação WAF pode ser configurado para ser executado nos dois modos seguintes:
 
-* **Modo de deteção**: Monitores e regista todos os alertas de ameaça. Liga os diagnósticos de registo de registo sonoro para o Gateway de Aplicações na secção **De Diagnóstico.** Também deve certificar-se de que o registo WAF é selecionado e ligado. A firewall da aplicação web não bloqueia os pedidos de entrada quando está a funcionar no modo deteção.
-* **Modo de prevenção**: Bloqueia intrusões e ataques que as regras detetam. O intruso recebe uma exceção de "acesso não autorizado 403" e a ligação está fechada. O modo de prevenção regista tais ataques nos registos da WAF.
+* **Modo de deteção** : Monitores e regista todos os alertas de ameaça. Liga os diagnósticos de registo de registo sonoro para o Gateway de Aplicações na secção **De Diagnóstico.** Também deve certificar-se de que o registo WAF é selecionado e ligado. A firewall da aplicação web não bloqueia os pedidos de entrada quando está a funcionar no modo deteção.
+* **Modo de prevenção** : Bloqueia intrusões e ataques que as regras detetam. O intruso recebe uma exceção de "acesso não autorizado 403" e a ligação está fechada. O modo de prevenção regista tais ataques nos registos da WAF.
 
 > [!NOTE]
 > Recomenda-se que execute um WAF recém-implantado no modo deteção durante um curto período de tempo num ambiente de produção. Isto proporciona a oportunidade de obter [registos de firewall](../../application-gateway/application-gateway-diagnostics.md#firewall-log) e atualizar quaisquer exceções ou [regras personalizadas](./custom-waf-rules-overview.md) antes da transição para o modo de Prevenção. Isto pode ajudar a reduzir a ocorrência de tráfego bloqueado inesperado.
@@ -131,9 +132,9 @@ O Gateway DE Aplicação WAF pode ser configurado para ser executado nos dois mo
 
 O OWASP tem dois modos para decidir se bloqueia o tráfego: modo tradicional e modo de pontuação de anomalias.
 
-No modo tradicional, o tráfego que corresponda a qualquer regra é considerado independentemente de quaisquer outras regras. Este modo é fácil de entender. Mas a falta de informação sobre quantas regras correspondem a um pedido específico é uma limitação. Então, o modo de pontuação de anomalia foi introduzido. É o padrão para OWASP 3. *x*.
+No modo tradicional, o tráfego que corresponda a qualquer regra é considerado independentemente de quaisquer outras regras. Este modo é fácil de entender. Mas a falta de informação sobre quantas regras correspondem a um pedido específico é uma limitação. Então, o modo de pontuação de anomalia foi introduzido. É o padrão para OWASP 3. *x* .
 
-No modo de pontuação de anomalia, o tráfego que corresponde a qualquer regra não é imediatamente bloqueado quando a firewall está no modo prevenção. As regras têm uma certa gravidade: *Crítico,* *Erro,* *Aviso*ou *Aviso*. Essa gravidade afeta um valor numérico para o pedido, que é chamado de Pontuação de Anomalia. Por exemplo, uma partida de regra de *aviso* contribui com 3 para a pontuação. Um *jogo de regras críticas* contribui com 5.
+No modo de pontuação de anomalia, o tráfego que corresponde a qualquer regra não é imediatamente bloqueado quando a firewall está no modo prevenção. As regras têm uma certa gravidade: *Crítico,* *Erro,* *Aviso* ou *Aviso* . Essa gravidade afeta um valor numérico para o pedido, que é chamado de Pontuação de Anomalia. Por exemplo, uma partida de regra de *aviso* contribui com 3 para a pontuação. Um *jogo de regras críticas* contribui com 5.
 
 |Gravidade  |Valor  |
 |---------|---------|

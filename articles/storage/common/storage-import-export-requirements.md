@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276402"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783611"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema do sistema Importar/Exportar do Microsoft Azure
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre contas de armazenamento, consulte [a visão 
 Cada trabalho pode ser utilizado para transferir dados de ou para uma única conta de armazenamento. Por outras palavras, uma única empresa de importação/exportação não pode abranger várias contas de armazenamento. Para obter informações sobre a criação de uma nova conta de armazenamento, consulte [Como Criar uma Conta de Armazenamento.](storage-account-create.md)
 
 > [!IMPORTANT]
-> Para contas de armazenamento onde a funcionalidade [Endpoints do Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)foi   ativada, utilize a definição **de Permitir serviços da Microsoft fidedignos...** para permitir que o serviço [de importação/exportação](/azure/storage/common/storage-network-security) efetue a importação/exportação de dados de/para a Azure.
+> Para contas de armazenamento onde a funcionalidade [Endpoints do Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) foi ativada, utilize a definição de Permitir **serviços da Microsoft fidedignos...** para permitir que o serviço [de importação/exportação](./storage-network-security.md) efetue a importação/exportação de dados de/para a Azure.
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
@@ -94,4 +94,4 @@ Ao preparar discos rígidos e copiar os dados utilizando a ferramenta WAImportEx
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
+* [Transferir dados com o utilitário de linha de comando AzCopy](./storage-use-azcopy-v10.md)

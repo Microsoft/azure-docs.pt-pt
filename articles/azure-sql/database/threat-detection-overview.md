@@ -1,5 +1,5 @@
 ---
-title: Proteção Avançada Contra Ameaças
+title: Advanced Threat Protection
 titleSuffix: Azure SQL Database, SQL Managed Instance, & Azure Synapse Analytics
 description: A Advanced Threat Protection deteta atividades anómalas de bases de dados que indiquem potenciais ameaças à segurança na Base de Dados Azure SQL, na Instância Gerida Azure SQL e na Azure Synapse Analytics.
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: bf228d31180f5c2223fde7433d2d9b335e2b8853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284164"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785124"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção Avançada de Ameaças para Base de Dados Azure SQL, SqL Gerd instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Para uma experiência de investigação completa, recomenda-se permitir a audito
 
 ## <a name="alerts"></a>Alertas
 
-A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados. Para obter uma lista de alertas para a Base de Dados Azure SQL, consulte os [Alertas para a Base de Dados SQL e Azure Synapse Analytics (antigo Armazém de Dados SQL) no Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+A Advanced Threat Protection for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados. Para obter uma lista de alertas para a Base de Dados Azure SQL, consulte os [Alertas para a Base de Dados SQL e Azure Synapse Analytics (antigo Armazém de Dados SQL) no Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Explore a deteção de um evento suspeito
 
@@ -65,5 +65,5 @@ Clique **em alerta avançado de proteção contra ameaças** para lançar a pág
 - Saiba mais sobre [a Proteção Avançada de Ameaças em Azure SQL Gestd site.](../managed-instance/threat-detection-configure.md)
 - Saiba mais sobre [o Azure Defender para a SQL](azure-defender-for-sql.md).
 - Saiba mais sobre [a auditoria da Base de Dados Azure SQL](../../azure-sql/database/auditing-overview.md)
-- Saiba mais sobre [o Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Para obter mais informações sobre preços, consulte a [página de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Saiba mais sobre [o Centro de Segurança Azure](../../security-center/security-center-introduction.md)
+- Para obter mais informações sobre preços, consulte a [página de preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/)

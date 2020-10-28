@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488627"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783798"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
 
@@ -23,7 +23,7 @@ Este guia resume soluções para problemas que são geralmente vistos no Storage
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC permissões questões
 
-O controlo de acesso baseado em funções [Azure RBAC](/azure/role-based-access-control/overview) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para fazer com que o Azure RBAC funcione da melhor forma no Storage Explorer.
+O controlo de acesso baseado em funções [Azure RBAC](../../role-based-access-control/overview.md) permite uma gestão de acesso altamente granular dos recursos Azure, combinando conjuntos de permissões em _funções._ Aqui estão algumas estratégias para fazer com que o Azure RBAC funcione da melhor forma no Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Como acesso os meus recursos no Storage Explorer?
 
@@ -65,18 +65,18 @@ Se quiser aceder a recipientes ou filas de bolhas, pode anexar esses recursos ut
 3. Selecione a conta de utilizador e o inquilino associado ao recurso a que está a anexar. Clique em Seguinte.
 4. Selecione o tipo de recurso, introduza o URL no recurso e introduza um nome de exibição único para a ligação. Clique em Seguinte. Clique em Ligar.
 
-Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)
+Para outros tipos de recursos, não temos atualmente uma solução relacionada com o Azure RBAC. Como solução alternativa, pode solicitar a um SAS URI que [se anexe ao seu recurso.](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri)
 
 ### <a name="recommended-azure-built-in-roles"></a>Funções recomendadas do Azure
 
 Existem vários papéis incorporados Azure que podem fornecer as permissões necessárias para usar o Storage Explorer. Alguns desses papéis são:
-- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): Gerir tudo, incluindo acesso a recursos. **Nota:** esta função lhe dará acesso à chave.
-- [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor): Gerir tudo, excluindo o acesso aos recursos. **Nota:** esta função lhe dará acesso à chave.
-- [Leitor:](/azure/role-based-access-control/built-in-roles#reader)Leia e enuse os recursos.
-- [Contribuidor da Conta de Armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Gestão completa das contas de armazenamento. **Nota:** esta função lhe dará acesso à chave.
-- [Armazenamento Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Acesso total aos recipientes e dados da bolha de armazenamento Azure.
-- [Armazenamento Contribuinte de Dados Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure.
-- [Armazenamento Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e enuncie os recipientes e bolhas de armazenamento Azure.
+- [Proprietário](../../role-based-access-control/built-in-roles.md#owner): Gerir tudo, incluindo acesso a recursos. **Nota:** esta função lhe dará acesso à chave.
+- [Contribuinte](../../role-based-access-control/built-in-roles.md#contributor): Gerir tudo, excluindo o acesso aos recursos. **Nota:** esta função lhe dará acesso à chave.
+- [Leitor:](../../role-based-access-control/built-in-roles.md#reader)Leia e enuse os recursos.
+- [Contribuidor da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): Gestão completa das contas de armazenamento. **Nota:** esta função lhe dará acesso à chave.
+- [Armazenamento Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Acesso total aos recipientes e dados da bolha de armazenamento Azure.
+- [Armazenamento Contribuinte de Dados Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure.
+- [Armazenamento Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Leia e enuncie os recipientes e bolhas de armazenamento Azure.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado auto-assinado na cadeia de certificados (e erros semelhantes)
 
@@ -88,7 +88,7 @@ Erros de certificado ocorrem normalmente numa das seguintes situações:
 Quando o Storage Explorer vê um certificado auto-assinado ou não fidedquirou, já não sabe se a mensagem HTTPS recebida foi alterada. Se tiver uma cópia do certificado auto-assinado, pode instruir o Explorador de Armazenamento a confiar nele seguindo estes passos:
 
 1. Obtenha uma cópia codificada X.509 (.cer) do certificado.
-2. Vá para **editar**  >  **certificados SSL**  >  **Certificados de Importação**, e, em seguida, use o apanhador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
+2. Vá para **editar**  >  **certificados SSL**  >  **Certificados de Importação** , e, em seguida, use o apanhador de ficheiros para encontrar, selecionar e abrir o ficheiro .cer.
 
 Esta questão também pode ocorrer se existirem vários certificados (raiz e intermédio). Para corrigir este erro, ambos os certificados devem ser adicionados.
 
@@ -98,12 +98,12 @@ Se não tem certeza de onde vem o certificado, siga estes passos para encontrá-
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Qualquer uma das versões luminosas deve ser suficiente.
     * Mac e Linux: Deve ser incluído com o seu sistema operativo.
 2. Abrir o sl.
-    * Janelas: Abra o diretório de instalação, selecione **/bin/**, e, em seguida, clique duas vezes **openssl.exe**.
+    * Janelas: Abra o diretório de instalação, selecione **/bin/** , e, em seguida, clique duas vezes **openssl.exe** .
     * Mac e Linux: Fugir `openssl` de um terminal.
 3. Execute o `s_client -showcerts -connect microsoft.com:443`.
 4. Procure certificados autoassinados. Se não tem a certeza de quais certificados são auto-assinados, tome nota de qualquer lugar que o sujeito `("s:")` e `("i:")` emitente sejam os mesmos.
 5. Quando encontrar certificados auto-assinados, para cada um, copie e cole tudo de (e incluindo) `-----BEGIN CERTIFICATE-----` até um novo ficheiro `-----END CERTIFICATE-----` .cer.
-6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados**. Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
+6. Abrir o Explorador de Armazenamento e ir para **editar**  >  **certificados SSL**  >  **Certificados de Importação Certificados** . Em seguida, utilize o apanhador de ficheiros para encontrar, selecionar e abrir os ficheiros .cer que criou.
 
 Se não conseguir encontrar nenhum certificado auto-assinado seguindo estes passos, contacte-nos através da ferramenta de feedback. Também pode abrir o Storage Explorer a partir da linha de comando utilizando a `--ignore-certificate-errors` bandeira. Quando aberto com esta bandeira, o Storage Explorer ignora erros de certificado.
 
@@ -113,10 +113,10 @@ Se não conseguir encontrar nenhum certificado auto-assinado seguindo estes pass
 
 As caixas de diálogo de sinal em branco ocorrem mais frequentemente quando os Serviços da Federação de Diretório Ativo (AD FS) solicitam ao Storage Explorer que execute um redirecionamento, que não é suportado pela Electron. Para contornar este problema, pode tentar utilizar o Fluxo de Código do Dispositivo para iniciar sôm. Para tal, siga estes passos:
 
-1. Na barra de ferramentas verticais esquerda, abra **as definições**. No Painel de Definições, aceda ao S **indicador**para a  >  **aplicação .** Ativar **o sinal de fluxo do código do dispositivo de utilização**.
+1. Na barra de ferramentas verticais esquerda, abra **as definições** . No Painel de Definições, aceda ao S **indicador** para a  >  **aplicação .** Ativar **o sinal de fluxo do código do dispositivo de utilização** .
 2. Abra a caixa de diálogo **Connect** (quer através do ícone de ficha na barra vertical do lado esquerdo, quer selecionando **a Conta Adicionar** no painel de contas).
 3. Escolha o ambiente a que pretende entrar.
-4. **Selecione iniciar sção**.
+4. **Selecione iniciar sção** .
 5. Siga as instruções no painel seguinte.
 
 Se não conseguir iniciar scontabilidade na conta que pretende utilizar porque o seu navegador padrão já está inscrito numa conta diferente, faça uma das seguintes:
@@ -141,7 +141,7 @@ Devido a uma limitação na Biblioteca AD Azure utilizada pelo Storage Explorer,
 O keychain macOS pode por vezes entrar num estado que causa problemas para a biblioteca de autenticação do Explorador de Armazenamento. Para tirar o Keychain deste estado, siga estes passos:
 
 1. Fechar o Explorador de Armazenamento.
-2. Abra o chaveiro (prima Comando+Barra espacial, **tecla de**tipo, e prima Enter).
+2. Abra o chaveiro (prima Comando+Barra espacial, **tecla de** tipo, e prima Enter).
 3. Selecione o keychain "login".
 4. Selecione o ícone do cadeado para bloquear o Chaveiro. (O cadeado aparecerá bloqueado quando o processo estiver concluído. Pode demorar alguns segundos, dependendo das aplicações que tem abertas).
 
@@ -230,7 +230,7 @@ Se estiver ligado ao Azure através de um representante, verifique se as defini�
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>A cadeia de ligação não tem configurações completas
 
-Se receber esta mensagem de erro, é possível que não tenha as permissões necessárias para obter as chaves da sua conta de armazenamento. Para confirmar que este é o caso, vá ao portal e localize a sua conta de armazenamento. Pode fazê-lo clicando no nó para a sua conta de armazenamento e selecionando **Open in Portal**. Depois, vai para a lâmina das **Chaves de Acesso.** Se não tiver permissões para ver as chaves, verá uma mensagem "Não tem acesso". Para contornar este problema, pode obter a chave de conta de outra pessoa e anexar através do nome e da chave, ou pode pedir a alguém um SAS na conta de armazenamento e usá-la para anexar a conta de armazenamento.
+Se receber esta mensagem de erro, é possível que não tenha as permissões necessárias para obter as chaves da sua conta de armazenamento. Para confirmar que este é o caso, vá ao portal e localize a sua conta de armazenamento. Pode fazê-lo clicando no nó para a sua conta de armazenamento e selecionando **Open in Portal** . Depois, vai para a lâmina das **Chaves de Acesso.** Se não tiver permissões para ver as chaves, verá uma mensagem "Não tem acesso". Para contornar este problema, pode obter a chave de conta de outra pessoa e anexar através do nome e da chave, ou pode pedir a alguém um SAS na conta de armazenamento e usá-la para anexar a conta de armazenamento.
 
 Se vir as chaves da conta, preencha um problema no GitHub para que possamos ajudá-lo a resolver o problema.
 
@@ -238,8 +238,8 @@ Se vir as chaves da conta, preencha um problema no GitHub para que possamos ajud
 
 Se receber esta mensagem de erro quando tentar adicionar uma ligação personalizada, os dados de ligação armazenados no gestor de credenciais locais podem ser corrompidos. Para contornar esta questão, tente eliminar as suas ligações locais corrompidas e, em seguida, adicioná-las novamente:
 
-1. Iniciar o Explorador de Armazenamento. A partir do **Help**menu, aceda a  >  **Ferramentas de Desenvolvimento Help Toggle**.
-2. Na janela aberta, no **separador Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://**.
+1. Iniciar o Explorador de Armazenamento. A partir do **Help** menu, aceda a  >  **Ferramentas de Desenvolvimento Help Toggle** .
+2. Na janela aberta, no **separador Aplicação,** vá ao **Armazenamento Local** (lado esquerdo) > **file://** .
 3. Dependendo do tipo de ligação com que está a ter problemas, procure a sua chave e, em seguida, copie o seu valor num editor de texto. O valor é uma variedade de nomes de conexão personalizados, como o seguinte:
     * Contas de armazenamento
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -265,13 +265,13 @@ Depois de analisar todas as suas ligações, para todos os nomes de ligações q
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. No menu **Iniciar,** procure **o Gestor credencial** e abra-o.
-2. Ir para as **credenciais do Windows**.
+2. Ir para as **credenciais do Windows** .
 3. Sob **as Credenciais Genéricas,** procure entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Elimine estas entradas e reensiem as ligações.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Abra o holofote (Barra de espaço Command+Space) e procure **acesso ao Keychain**.
+1. Abra o holofote (Barra de espaço Command+Space) e procure **acesso ao Keychain** .
 2. Procure por entradas que tenham a `<connection_type_key>/<corrupted_connection_name>` chave (por exemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Elimine estas entradas e reensiem as ligações.
 
@@ -297,7 +297,7 @@ Se estiver a ligar-se a um serviço através de um URL SAS e experimentar um err
 Se se ligar acidentalmente utilizando um URL SAS inválido e agora não puder separar-se, siga estes passos:
 
 1. Quando estiver a executar o Storage Explorer, prima F12 para abrir a janela Ferramentas do Desenvolvedor.
-2. No **separador Aplicação,** selecione **File:// de Armazenamento Local**na árvore à  >  **file://** esquerda.
+2. No **separador Aplicação,** selecione **File:// de Armazenamento Local** na árvore à  >  **file://** esquerda.
 3. Encontre a chave associada ao tipo de serviço do problemático SAS URI. Por exemplo, se o MAU SAS URI for para um recipiente de bolhas, procure a chave chamada `StorageExplorer_AddStorageServiceSAS_v1_blob` .
 4. O valor da chave deve ser uma matriz JSON. Encontre o objeto associado ao URI mau e, em seguida, elimine-o.
 5. Prima Ctrl+R para recarregar o Explorador de Armazenamento.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ea413c3879f61f735290717d06a132048169971
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426699"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783475"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Quickstart: Azure Queue storage client library v12 for .NET
 
@@ -34,12 +34,12 @@ Recursos adicionais:
 * [Documentação de referência da API](/dotnet/api/azure.storage.queues)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Amostras](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Amostras](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
 * Corrente [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operativo. Certifique-se de pegar o SDK e não o tempo de execução.
 
 ## <a name="setting-up"></a>Configuração
@@ -48,9 +48,9 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Criar uma aplicação .NET Core chamada *QueuesQuickstartV12*.
+Criar uma aplicação .NET Core chamada *QueuesQuickstartV12* .
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome *QueuesQuickstartV12*. Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs*.
+1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome *QueuesQuickstartV12* . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs* .
 
    ```console
    dotnet new console -n QueuesQuickstartV12

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 057b20d9c14b9a25a1e713d25796e1f0ac93daaa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428036"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783305"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Quickstart: Azure Queue storage client library v12 for Python
 
@@ -34,12 +34,12 @@ Recursos adicionais:
 * [Documentação de referência da API](/python/api/azure-storage-queue/index)
 * [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 * [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-storage-queue/)
-* [Amostras](/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Amostras](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
 * [Python](https://www.python.org/downloads/) para o seu sistema operativo - 2.7, 3.5 ou superior
 
 ## <a name="setting-up"></a>Configuração
@@ -48,7 +48,7 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Crie uma aplicação Python chamada *queues-quickstart-v12*.
+Crie uma aplicação Python chamada *queues-quickstart-v12* .
 
 1. Numa janela de consola (como cmd, PowerShell ou Bash), crie um novo diretório para o projeto.
 

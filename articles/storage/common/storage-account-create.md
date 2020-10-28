@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488899"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784359"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -76,7 +76,7 @@ Nenhum.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sessão no [portal do Azure](https://portal.azure.com).
+Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -199,7 +199,7 @@ Para criar uma conta de armazenamento v2 de uso geral com uma opção de replica
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Pode utilizar o Azure PowerShell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo é de modelos de arranque rápido do [Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente-o** para abrir a Azure Cloud Shell. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta**.
+Pode utilizar o Azure PowerShell ou o Azure CLI para implementar um modelo de Gestor de Recursos para criar uma conta de armazenamento. O modelo utilizado neste artigo é de modelos de arranque rápido do [Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para executar os scripts, selecione **Experimente-o** para abrir a Azure Cloud Shell. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Para aprender a modificar este modelo ou criar novos, consulte:
 
-- [Documentação do Gestor de Recursos Azure](/azure/azure-resource-manager/).
+- [Documentação do Gestor de Recursos Azure](../../azure-resource-manager/index.yml).
 - [Referência do modelo de conta de armazenamento](/azure/templates/microsoft.storage/allversions).
 - [Amostras adicionais do modelo de conta de armazenamento.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
@@ -236,7 +236,7 @@ A eliminação de uma conta de armazenamento elimina toda a conta, incluindo tod
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue para a conta de armazenamento no [portal Azure](https://portal.azure.com).
-1. Clique em **Eliminar**.
+1. Clique em **Eliminar** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ Em alternativa, pode eliminar o grupo de recursos, que elimina a conta de armaze
 > [!WARNING]
 > Não é possível restaurar uma conta do Storage eliminada ou obter os conteúdos que esta continha antes da eliminação. Certifique-se de que faz uma cópia de segurança de tudo o que pretende guardar antes de eliminar a conta. Isto também se aplica a quaisquer recursos na conta – depois de eliminar um blob, tabela, fila ou ficheiro, este é eliminado permanentemente.
 >
-> Se tentar eliminar uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro informando-o de que a conta de armazenamento ainda está em utilização. Para ajudar a resolver este erro, consulte [erros de resolução de problemas quando eliminar as contas de armazenamento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Se tentar eliminar uma conta de armazenamento associada a uma máquina virtual do Azure, poderá receber um erro informando-o de que a conta de armazenamento ainda está em utilização. Para ajudar a resolver este erro, consulte [erros de resolução de problemas quando eliminar as contas de armazenamento](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Passos seguintes
 

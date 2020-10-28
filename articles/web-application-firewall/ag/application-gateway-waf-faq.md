@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 3bc71e10167b21b65616dd20f8edb9a1d902527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fbe930780ff026be748bc42104f821ee9e5c443
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83798356"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785107"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Perguntas frequentes para Azure Web Application Firewall no Gateway de aplicações
 
@@ -34,7 +34,7 @@ Monitorize a WAF através de registo de diagnóstico. Para obter mais informaç�
 
 ## <a name="does-detection-mode-block-traffic"></a>O modo de deteção bloqueia o tráfego?
 
-N.º O modo de deteção apenas regista o tráfego que aciona uma regra WAF.
+Não. O modo de deteção apenas regista o tráfego que aciona uma regra WAF.
 
 ## <a name="can-i-customize-waf-rules"></a>Posso personalizar as regras da WAF?
 
@@ -58,6 +58,9 @@ Para obter mais informações, consulte [as vulnerabilidades do top-10 da OWASP]
 
 Sim. Pode ativar a proteção DDoS na rede virtual onde o gateway de aplicações é implantado. Esta definição garante que o serviço de Proteção Azure DDoS também protege o GATEWAY virtual IP (VIP).
 
+### <a name="does-waf-store-customer-data"></a>A WAF armazena os dados dos clientes?
+
+Não, a WAF não armazena os dados dos clientes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

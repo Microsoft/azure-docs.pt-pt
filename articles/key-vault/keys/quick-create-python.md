@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: 2eeb68ca5b0b6be0970a1adb071a7662399bc879
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042563"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784614"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
@@ -24,14 +24,14 @@ Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os pas
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ ou 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ ou 3.5.3+](/azure/developer/python/configure-local-development-environment)
 - [CLI do Azure](/cli/azure/install-azure-cli)
 
 Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli) numa janela do terminal Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurar o seu ambiente local
 
-Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar o Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para obter mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar o Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para obter mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -134,7 +134,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Executar o código
 
-Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_keys.py*. Em seguida, executar o código com o seguinte comando:
+Certifique-se de que o código na secção anterior está num ficheiro denominado *kv_keys.py* . Em seguida, executar o código com o seguinte comando:
 
 ```terminal
 python kv_keys.py
@@ -196,7 +196,7 @@ Pode verificar se a chave é eliminada com o [programa de teclas](/cli/azure/key
 
 Uma vez eliminada, uma chave permanece em estado apagado, mas recuperável por um tempo. Se voltar a executar o código, utilize um nome chave diferente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se também quiser experimentar certificados e [segredos,](../certificates/quick-create-python.md) pode reutilizar o Key Vault criado neste artigo. [secrets](../secrets/quick-create-python.md)
 

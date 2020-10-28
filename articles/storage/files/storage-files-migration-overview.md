@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654264"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785617"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para partilhas de ficheiros do Azure
 
@@ -34,11 +34,11 @@ A chave em qualquer migração é capturar toda a fidelidade de ficheiro aplicá
 
 Aqui estão os dois componentes básicos de um ficheiro:
 
-- **Fluxo de dados**: O fluxo de dados de um ficheiro armazena o conteúdo do ficheiro.
-- **Metadados de ficheiro**: Os metadados de ficheiro têm estes subcomponentes:
+- **Fluxo de dados** : O fluxo de dados de um ficheiro armazena o conteúdo do ficheiro.
+- **Metadados de ficheiro** : Os metadados de ficheiro têm estes subcomponentes:
    * Atributos de arquivo como apenas leitura
    * Permissões de ficheiros, que podem ser referidas como *permissões NTFS* ou *ACLs de ficheiros e pastas*
-   * Timetamps, mais notavelmente a criação e os últimos picos de tempo modificados
+   * Timetamps, mais notavelmente a criação, e últimos testes de tempo modificados
    * Um fluxo de dados alternativo, que é um espaço para armazenar grandes quantidades de propriedades não padrão
 
 A fidelidade de ficheiros numa migração pode ser definida como a capacidade de:
@@ -78,7 +78,7 @@ Como usar a mesa:
 
 Um cenário sem ligação ainda não tem um guia de migração publicado. Verifique ocasionalmente esta tabela para obter atualizações. Novos guias serão publicados quando estiverem disponíveis.
 
-| Origem | Destino: </br>Implantação híbrida | Destino: </br>Implantação apenas em nuvem |
+| Fonte | Destino: </br>Implantação híbrida | Destino: </br>Implantação apenas em nuvem |
 |:---|:--|:--|
 | | Combinação de ferramentas:| Combinação de ferramentas: |
 | Windows Server 2012 R2 e mais tarde | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync e ficheiros pré-semeados na nuvem](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync e Caixa de Dados</li><li>Serviço de Sincronização e Migração de Arquivos Azure</li><li>RoboCopy</li></ul> |
@@ -121,7 +121,7 @@ A tabela a seguir classifica as ferramentas da Microsoft e a sua adequação atu
 |![Sim, recomendado.](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Integrados de forma nativa em ações de ficheiros Azure. | Fidelidade total.* |
 |![Sim, recomendado.](media/storage-files-migration-overview/circle-green-checkmark.png)| Serviço de Migração de Armazenamento | Apoiado indiretamente. As ações de ficheiros Azure podem ser montadas à medida que a rede conduz nos servidores-alvo de SMS. | Fidelidade total.* |
 |![Sim, recomendado.](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, versão 10.4 ou mais tarde| Suportado. | Fidelidade total.* |
-|![Não totalmente recomendado](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Suportado. | Não copia metadados. [A Caixa de Dados pode ser utilizada com o Azure File Sync](storage-sync-offline-data-transfer.md). |
+|![Sim, recomendado.](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Suportado. | A DataBox suporta agora totalmente os metadados. [A Caixa de Dados também pode ser utilizada em combinação com o Azure File Sync](storage-sync-offline-data-transfer.md). |
 |![Não totalmente recomendado](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, versão 1.14 | Suportado. | Não copia ACLs. Suporta os tempos de semana.  |
 |![Não recomendado](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Suportado. | Não copia metadados. |
 |||||
