@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427035"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788830"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -127,7 +127,7 @@ Pode adicionar eDTUs adicionais a um pool existente sem tempo de inatividade na 
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar o número de DTUs necessário por uma carga de trabalho
 
-Se pretender migrar uma carga de trabalho virtual existente no local ou da máquina virtual SQL Server para a Base de Dados SQL, utilize a [calculadora DTU](https://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessários. Para uma carga de trabalho existente na Base de Dados SQL, utilize [insights de desempenho de consulta](query-performance-insight-use.md) para compreender o seu consumo de recursos de base de dados (DTUs) e obtenha informações mais profundas para otimizar a sua carga de trabalho. A [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) visão dinâmica de gestão (DMV) permite-lhe ver o consumo de recursos durante a última hora. A [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista do catálogo exibe o consumo de recursos nos últimos 14 dias, mas com uma menor fidelidade de médias de cinco minutos.
+Se pretender migrar uma carga de trabalho virtual existente no local ou da máquina virtual SQL Server para a Base de Dados SQL, utilize a [calculadora DTU](https://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessários. Para uma carga de trabalho existente na Base de Dados SQL, utilize [insights de desempenho de consulta](query-performance-insight-use.md) para compreender o seu consumo de recursos de base de dados (DTUs) e obtenha informações mais profundas para otimizar a sua carga de trabalho. A [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) visão dinâmica de gestão (DMV) permite-lhe ver o consumo de recursos durante a última hora. A [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista do catálogo exibe o consumo de recursos nos últimos 14 dias, mas com uma menor fidelidade de médias de cinco minutos.
 
 ### <a name="determine-dtu-utilization"></a>Determinar a utilização do DTU
 
@@ -135,7 +135,7 @@ Para determinar a percentagem média de utilização do DTU/eDTU em relação ao
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Os valores de entrada desta fórmula podem ser obtidos a partir de [sys.dm_db_resource_stats,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. Por outras palavras, para determinar a percentagem de utilização do DTU/eDTU para o limite DTU/eDTU de uma base de dados ou de um pool elástico, escolha o maior valor percentual a partir do seguinte: `avg_cpu_percent` , e num dado `avg_data_io_percent` `avg_log_write_percent` momento.
+Os valores de entrada desta fórmula podem ser obtidos a partir de [sys.dm_db_resource_stats,](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. Por outras palavras, para determinar a percentagem de utilização do DTU/eDTU para o limite DTU/eDTU de uma base de dados ou de um pool elástico, escolha o maior valor percentual a partir do seguinte: `avg_cpu_percent` , e num dado `avg_data_io_percent` `avg_log_write_percent` momento.
 
 > [!NOTE]
 > O limite de DTU de uma base de dados é determinado pela CPU, lê-se, escreve e memória disponível para a base de dados. No entanto, como o motor sql Database normalmente utiliza toda a memória disponível para a sua cache de dados para melhorar o desempenho, o `avg_memory_usage_percent` valor será geralmente próximo de 100 por cento, independentemente da carga atual da base de dados. Portanto, embora a memória influencie indiretamente o limite de DTU, não é utilizada na fórmula de utilização do DTU.
@@ -150,13 +150,13 @@ No modelo de compra baseado na DTU, os clientes não podem escolher a geração 
 
 Por exemplo, uma base de dados pode ser transferida para uma geração de hardware diferente se for dimensionada para um objetivo de serviço diferente, ou se a infraestrutura atual num datacenter estiver a aproximar-se dos seus limites de capacidade, ou se o hardware atualmente utilizado estiver a ser desativado devido ao seu fim de vida.
 
-Se uma base de dados for transferida para um hardware diferente, o desempenho da carga de trabalho pode mudar. O modelo DTU garante que o tempo de produção e resposta da carga de trabalho de referência da [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) permanecerá substancialmente idêntico à medida que a base de dados se move para uma geração diferente de hardware, desde que o seu objetivo de serviço (o número de DTUs) permaneça o mesmo.
+Se uma base de dados for transferida para um hardware diferente, o desempenho da carga de trabalho pode mudar. O modelo DTU garante que o tempo de produção e resposta da carga de trabalho de referência da [DTU](./service-tiers-dtu.md#dtu-benchmark) permanecerá substancialmente idêntico à medida que a base de dados se move para uma geração diferente de hardware, desde que o seu objetivo de serviço (o número de DTUs) permaneça o mesmo.
 
 No entanto, em todo o vasto espectro de cargas de trabalho dos clientes em execução na Base de Dados Azure SQL, o impacto da utilização de diferentes hardware para o mesmo objetivo de serviço pode ser mais pronunciado. Diferentes cargas de trabalho beneficiarão de diferentes configurações e funcionalidades de hardware. Portanto, para cargas de trabalho diferentes do benchmark DTU, é possível ver diferenças de desempenho se a base de dados passar de uma geração de hardware para outra.
 
 Por exemplo, uma aplicação sensível à latência da rede pode ver um melhor desempenho no hardware da Gen5 vs. Gen4 devido ao uso de Rede Acelerada na Gen5, mas uma aplicação usando IO de leitura intensiva pode ver melhor desempenho no hardware da Gen4 contra Gen5 devido a uma maior relação de memória por núcleo na Gen4.
 
-Os clientes com cargas de trabalho sensíveis a alterações de hardware ou clientes que desejem controlar a escolha da geração de hardware para a sua base de dados podem usar o modelo [vCore](service-tiers-vcore.md) para escolher a sua geração de hardware preferida durante a criação e dimensionamento da base de dados. No modelo vCore, são documentados limites de recursos de cada objetivo de serviço em cada geração de hardware, tanto para [bases de dados individuais](resource-limits-vcore-single-databases.md) como [para piscinas elásticas.](resource-limits-vcore-elastic-pools.md) Para obter mais informações sobre as gerações de hardware no modelo vCore, consulte as [gerações de Hardware](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
+Os clientes com cargas de trabalho sensíveis a alterações de hardware ou clientes que desejem controlar a escolha da geração de hardware para a sua base de dados podem usar o modelo [vCore](service-tiers-vcore.md) para escolher a sua geração de hardware preferida durante a criação e dimensionamento da base de dados. No modelo vCore, são documentados limites de recursos de cada objetivo de serviço em cada geração de hardware, tanto para [bases de dados individuais](resource-limits-vcore-single-databases.md) como [para piscinas elásticas.](resource-limits-vcore-elastic-pools.md) Para obter mais informações sobre as gerações de hardware no modelo vCore, consulte as [gerações de Hardware](./service-tiers-vcore.md#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (PERGUNTAS Frequentes)
 

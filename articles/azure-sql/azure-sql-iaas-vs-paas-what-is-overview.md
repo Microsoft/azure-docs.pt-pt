@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99703acc4965a38337a39fe23cc19cafddd1531d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618272"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791125"
 ---
 # <a name="what-is-azure-sql"></a>O que é o Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Azure SQL é uma família de produtos geridos, seguros e inteligentes que utilizam o motor de base de dados SQL Server na nuvem Azure.
 
-- **Base de Dados Azure SQL**: Suporte aplicações de nuvem modernas num serviço de base de dados inteligente e gerido, que inclui computação sem servidor. 
-- **Exemplo gerido Azure SQL**: Modernizar as aplicações existentes do SQL Server em escala com uma instância inteligente totalmente gerida como serviço, com quase 100% de paridade de funcionalidades com o motor de base de dados SQL Server. O melhor para a maioria das migrações para a nuvem.
-- **SQL Server em VMs Azure**: Levantar e deslocar as cargas de trabalho do SQL Server com facilidade e manter 100% de compatibilidade do Servidor SQL e acesso ao nível do sistema operativo. 
+- **Base de Dados Azure SQL** : Suporte aplicações de nuvem modernas num serviço de base de dados inteligente e gerido, que inclui computação sem servidor. 
+- **Exemplo gerido Azure SQL** : Modernizar as aplicações existentes do SQL Server em escala com uma instância inteligente totalmente gerida como serviço, com quase 100% de paridade de funcionalidades com o motor de base de dados SQL Server. O melhor para a maioria das migrações para a nuvem.
+- **SQL Server em VMs Azure** : Levantar e deslocar as cargas de trabalho do SQL Server com facilidade e manter 100% de compatibilidade do Servidor SQL e acesso ao nível do sistema operativo. 
  
 O Azure SQL é construído sobre o familiar motor SQL Server, para que possa migrar aplicações com facilidade e continuar a usar as ferramentas, idiomas e recursos que conhece. As suas habilidades e experiência transferem-se para a nuvem, para que possa fazer ainda mais com o que já tem. 
 
@@ -53,7 +53,7 @@ Passe mais tempo a inovar e menos tempo a remendar, a atualizar e a fazer backup
 
 O Azure monitoriza constantemente os seus dados por ameaças. Com a Azure SQL, pode:
 
-- Remediar potenciais ameaças em tempo real com alertas inteligentes [de deteção de ameaças avançadas](https://docs.microsoft.com/azure/security/fundamentals/threat-detection#advanced-threat-detection-features-other-azure-services) e de avaliação de vulnerabilidades proativas. 
+- Remediar potenciais ameaças em tempo real com alertas inteligentes [de deteção de ameaças avançadas](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) e de avaliação de vulnerabilidades proativas. 
 - Obtenha proteção multicamada líder do setor com [controlos de segurança incorporados,](https://azure.microsoft.com/overview/security/) incluindo T-SQL, autenticação, networking e gestão de chaves. 
 - Aproveite a cobertura de [conformidade](https://azure.microsoft.com/overview/trusted-cloud/compliance/) mais abrangente de qualquer serviço de base de dados em nuvem. 
 
@@ -78,7 +78,7 @@ Em Azure, pode ter as suas cargas de trabalho do SQL Server a funcionar como um 
 
 ### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 
-[A Azure SQL Database](database/sql-database-paas-overview.md) é uma base de dados relacional como um serviço (DBaaS) hospedado em Azure que se enquadra na categoria industrial de *Plataforma-as-a-Service (PaaS)*. 
+[A Azure SQL Database](database/sql-database-paas-overview.md) é uma base de dados relacional como um serviço (DBaaS) hospedado em Azure que se enquadra na categoria industrial de *Plataforma-as-a-Service (PaaS)* . 
 - O melhor para aplicações em nuvem modernas que querem usar as mais recentes funcionalidades estáveis do SQL Server e têm restrições de tempo no desenvolvimento e marketing. 
 - Um motor de base de dados SQL Server totalmente gerido, baseado na mais recente edição estável da Enterprise Edition do SQL Server. A SQL Database tem duas opções de implementação construídas em hardware e software padronizados que são propriedade, hospedada e mantida pela Microsoft. 
 
@@ -86,13 +86,13 @@ Com o SQL Server, pode utilizar funcionalidades e funcionalidades incorporadas q
 
 
 A Azure SQL Database oferece as seguintes opções de implementação:
-  - Como uma única base de [*dados*](database/single-database-overview.md) com o seu próprio conjunto de recursos geridos através de um [servidor lógico SQL](database/logical-servers.md). Uma única base de dados é semelhante a uma [base de dados contida](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) no SQL Server. Esta opção está otimizada para o desenvolvimento moderno de aplicações de novas aplicações nascidas na nuvem. Estão disponíveis opções [de hiperescala](database/service-tier-hyperscale.md) e [sem servidor.](database/serverless-tier-overview.md)
+  - Como uma única base de [*dados*](database/single-database-overview.md) com o seu próprio conjunto de recursos geridos através de um [servidor lógico SQL](database/logical-servers.md). Uma única base de dados é semelhante a uma [base de dados contida](/sql/relational-databases/databases/contained-databases) no SQL Server. Esta opção está otimizada para o desenvolvimento moderno de aplicações de novas aplicações nascidas na nuvem. Estão disponíveis opções [de hiperescala](database/service-tier-hyperscale.md) e [sem servidor.](database/serverless-tier-overview.md)
   - Uma [*piscina elástica,*](database/elastic-pool-overview.md)que é uma coleção de bases de dados com um conjunto partilhado de recursos geridos através de um [servidor lógico SQL](database/logical-servers.md). Bases de dados individuais podem ser transferidas para dentro e para fora de uma piscina elástica. Esta opção é otimizada para o desenvolvimento moderno de aplicações de novas aplicações nascidas na nuvem usando o padrão de aplicação SaaS multi-inquilino. As piscinas elásticas fornecem uma solução rentável para gerir o desempenho de várias bases de dados que têm padrões de utilização variáveis.
 
 ### <a name="azure-sql-managed-instance"></a>Instância Gerida do Azure SQL
 
 [Azure SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) insere-se na categoria industrial de *Platform-as-a-Service (PaaS)* e é o melhor para a maioria das migrações para a nuvem. SQL Managed Instance é uma coleção de bases de dados de sistemas e utilizadores com um conjunto partilhado de recursos que está pronto para levantar e deslocar.  
-- O melhor para novas aplicações ou aplicações existentes no local que queiram utilizar as mais recentes funcionalidades estáveis do SQL Server e que são migradas para a nuvem com alterações mínimas. Um caso de SQL Managed Instance é semelhante a uma instância do motor de base de dados do [Microsoft SQL Server](https://docs.microsoft.com/sql/database-engine/sql-server-database-engine-overview) que oferece recursos partilhados para bases de dados e funcionalidades adicionais de âmbito de instância. 
+- O melhor para novas aplicações ou aplicações existentes no local que queiram utilizar as mais recentes funcionalidades estáveis do SQL Server e que são migradas para a nuvem com alterações mínimas. Um caso de SQL Managed Instance é semelhante a uma instância do motor de base de dados do [Microsoft SQL Server](/sql/database-engine/sql-server-database-engine-overview) que oferece recursos partilhados para bases de dados e funcionalidades adicionais de âmbito de instância. 
 - A SQL Managed Instance suporta a migração de bases de dados a partir de instalações com alterações mínimas a nenhuma base de dados. Esta opção fornece todos os benefícios PaaS da Base de Dados Azure SQL, mas adiciona capacidades que anteriormente só estavam disponíveis em VMs do SQL Server. Isto inclui uma rede virtual nativa e quase 100% de compatibilidade com o SQL Server no local. Exemplos de SQL Managed Instance fornecem acesso completo ao SERVIDOR SQL e compatibilidade de recursos para migrar servidores SQL para Azure.
 
 ### <a name="sql-server-on-azure-vm"></a>SQL Server numa VM do Azure
@@ -116,10 +116,10 @@ Em geral, a BASE de Dados SQL e a SQL Managed Instance podem aumentar drasticame
 |Suporta a maioria das capacidades de nível de base de dados no local. As funcionalidades do SQL Server mais utilizadas estão disponíveis.<br/>99,995% de disponibilidade garantida.<br/>Reforços incorporados, remendos, recuperação.<br/>Versão mais recente do Motor base de dados estável.<br/>Capacidade de atribuir recursos necessários (CPU/armazenamento) a bases de dados individuais.<br/>Inteligência e segurança avançadas.<br/>Mudança online de recursos (CPU/armazenamento).| Suporta quase todas as capacidades de nível de instância e de nível de base de dados no local. Alta compatibilidade com o SQL Server.<br/>99,99% de disponibilidade garantida.<br/>Reforços incorporados, remendos, recuperação.<br/>Versão mais recente do Motor base de dados estável.<br/>Fácil migração do SQL Server.<br/>Endereço IP privado dentro da Rede Virtual Azure.<br/>Inteligência e segurança avançadas.<br/>Mudança online de recursos (CPU/armazenamento).| Tem controlo total sobre o motor SQL Server. Suporta todas as capacidades no local.<br/>Até 99,99% de disponibilidade.<br/>Paridade total com a versão correspondente do SQL Server no local.<br/>Versão fixa e conhecida do Motor de Base de Dados.<br/>Fácil migração do SQL Server.<br/>Endereço IP privado dentro da Rede Virtual Azure.<br/>Tem a capacidade de implementar aplicações ou serviços no anfitrião onde o SQL Server é colocado.|
 |A migração do SQL Server pode ser um desafio.<br/>Algumas funcionalidades do SQL Server não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.<br/>Suporte de endereço IP privado com [Link Privado Azure](database/private-endpoint-overview.md).|Existe ainda um número mínimo de funcionalidades do SQL Server que não estão disponíveis.<br/>Sem tempo de manutenção exato garantido (mas quase transparente).<br/>A compatibilidade com a versão SQL Server só pode ser alcançada utilizando níveis de compatibilidade na base de dados.|Tens de gerir os teus backups e patches.<br>Tens de implementar a tua própria solução de High-Availability.<br/>Há uma inatividade ao alterar os recursos (CPU/armazenamento)|
 | Bases de dados de até 100 TB. | Até 8 TB. | SQL Server com até 256 TB de armazenamento. A instância pode suportar tantas bases de dados quanto necessário. |
-| A aplicação no local pode aceder a dados na Base de Dados Azure SQL. | [Implementação de rede virtual nativa](managed-instance/vnet-existing-add-subnet.md) e conectividade com o seu ambiente no local usando a Rota Expresso Azure ou VPN Gateway. | Com máquinas virtuais SQL, pode ter aplicações que funcionam parcialmente na nuvem e em parte no local. Por exemplo, pode expandir a sua rede no local e o Domínio do Active Directory para a nuvem através da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Para obter mais informações sobre soluções híbridas em nuvem, consulte [a extensão das soluções de dados no local para a nuvem.](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud) |
+| A aplicação no local pode aceder a dados na Base de Dados Azure SQL. | [Implementação de rede virtual nativa](managed-instance/vnet-existing-add-subnet.md) e conectividade com o seu ambiente no local usando a Rota Expresso Azure ou VPN Gateway. | Com máquinas virtuais SQL, pode ter aplicações que funcionam parcialmente na nuvem e em parte no local. Por exemplo, pode expandir a sua rede no local e o Domínio do Active Directory para a nuvem através da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Para obter mais informações sobre soluções híbridas em nuvem, consulte [a extensão das soluções de dados no local para a nuvem.](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud) |
 
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 
 Quer seja uma startup que está presa a dinheiro, ou uma equipa de uma empresa estabelecida que opera sob restrições orçamentais apertadas, o financiamento limitado é muitas vezes o principal impulsionador na hora de decidir como hospedar as suas bases de dados. Nesta secção, você aprende sobre o básico de faturação e licenciamento em Azure associado à família de serviços Azure SQL.  Também podem aprender a calcular o custo total da aplicação.
 
@@ -128,7 +128,7 @@ Quer seja uma startup que está presa a dinheiro, ou uma equipa de uma empresa e
 Atualmente, tanto a **SQL Database** como **a SQL Managed Instance** são vendidas como um serviço e estão disponíveis com várias opções e em vários níveis de serviço com diferentes preços de recursos, todos os quais são cobrados por hora a uma taxa fixa com base no nível de serviço e no tamanho do cálculo que você escolhe. Para obter as informações mais recentes sobre os atuais níveis de serviço suportados, tamanhos de cálculo e valores de armazenamento, consulte [o modelo de compra baseado em DTU para a Base de Dados SQL](database/service-tiers-dtu.md) e o modelo de compra baseado em [vCore tanto para a Base de Dados SQL como para a SQL Managed Instance](database/service-tiers-vcore.md).
 
 - Com a BASE de Dados SQL, pode escolher um nível de serviço que se adapte às suas necessidades a partir de uma vasta gama de preços a partir de 5$/mês para o nível básico e pode criar [piscinas elásticas](database/elastic-pool-overview.md) para partilhar recursos entre bases de dados para reduzir custos e acomodar picos de utilização.
-- Com a SQL Managed Instance, também pode trazer a sua própria licença. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/) or use the [Azure Hybrid Benefit calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) to see how to **save up to 40%**.
+- Com a SQL Managed Instance, também pode trazer a sua própria licença. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/) or use the [Azure Hybrid Benefit calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) to see how to **save up to 40%** .
 
 Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Pode ajustar dinamicamente os níveis de serviço e os tamanhos de cálculo para corresponder às variadas necessidades de produção da sua aplicação.
 
@@ -151,7 +151,7 @@ Para obter mais informações sobre preços, consulte os seguintes recursos:
 Para muitas empresas, a decisão de fazer a transição para um serviço em nuvem passa tanto por descartar a complexidade de administração como pelo custo. Com o IaaS e o PaaS, o Azure administra a infraestrutura subjacente e replica automaticamente todos os dados para fornecer recuperação de desastres, configura e atualiza o software da base de dados, gere o equilíbrio de carga, e faz falha transparente se houver uma falha do servidor dentro de um centro de dados.
 
 - Com **a SQL Database** e a **SQL Managed Instance,** pode continuar a administrar a sua base de dados, mas já não precisa de gerir o motor da base de dados, o sistema operativo ou o hardware. Exemplos de itens que pode continuar a administrar incluem bases de dados e inícios de sessão, otimização de índices e consultas, e auditoria e segurança. Além disso, configurar alta disponibilidade para outro centro de dados requer configuração e administração mínimas.
-- Com **o SQL no Azure VM,** tem controlo total sobre o sistema operativo e a configuração de instância do SQL Server. Com um VM, cabe-lhe decidir quando atualizar/atualizar o sistema operativo e o software de base de dados e quando instalar qualquer software adicional, como antivírus. Algumas funcionalidades automatizadas são fornecidas para simplificar significativamente a aplicação de patches, a cópia de segurança e a elevada disponibilidade. Além disso, pode controlar o tamanho da VM, o número de discos e as respetivas configurações de armazenamento. O Azure permite-lhe alterar o tamanho de uma VM conforme necessário. Para obter informações, consulte o artigo [Máquina Virtual e Tamanhos do Serviço em Nuvem do Azure](../virtual-machines/windows/sizes.md).
+- Com **o SQL no Azure VM,** tem controlo total sobre o sistema operativo e a configuração de instância do SQL Server. Com um VM, cabe-lhe decidir quando atualizar/atualizar o sistema operativo e o software de base de dados e quando instalar qualquer software adicional, como antivírus. Algumas funcionalidades automatizadas são fornecidas para simplificar significativamente a aplicação de patches, a cópia de segurança e a elevada disponibilidade. Além disso, pode controlar o tamanho da VM, o número de discos e as respetivas configurações de armazenamento. O Azure permite-lhe alterar o tamanho de uma VM conforme necessário. Para obter informações, consulte o artigo [Máquina Virtual e Tamanhos do Serviço em Nuvem do Azure](../virtual-machines/sizes.md).
 
 ## <a name="service-level-agreement-sla"></a>Contrato de nível de serviço (SLA)
 
@@ -159,7 +159,7 @@ Para muitos departamentos de TI, o cumprimento de obrigações de um acordo de n
 
 Tanto para **a Azure SQL Database** como **para a Azure SQL Managed Instance,** a Microsoft fornece um SLA de disponibilidade de 99,99%. Para obter as informações mais recentes, consulte o [acordo de nível de serviço.](https://azure.microsoft.com/support/legal/sla/sql-database/)
 
-Para **o SQL em Azure VM,** a Microsoft fornece um SLA de disponibilidade de 99,95% que cobre apenas a máquina virtual. Este SLA não abrange os processos (como o SQL Server) em execução na VM e requer que aloje, pelo menos, duas instâncias de VM num conjunto de disponibilidade. Para obter as informações mais recentes, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para uma base de dados de alta disponibilidade (HA) dentro de VMs, deverá configurar uma das opções de alta disponibilidade suportadas no SQL Server, tais como [grupos de disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Utilizar uma opção de elevada disponibilidade suportadas não fornece um SLA adicional, mas permite-lhe alcançar uma disponibilidade de base de dados > 99,99%.
+Para **o SQL em Azure VM,** a Microsoft fornece um SLA de disponibilidade de 99,95% que cobre apenas a máquina virtual. Este SLA não abrange os processos (como o SQL Server) em execução na VM e requer que aloje, pelo menos, duas instâncias de VM num conjunto de disponibilidade. Para obter as informações mais recentes, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para uma base de dados de alta disponibilidade (HA) dentro de VMs, deverá configurar uma das opções de alta disponibilidade suportadas no SQL Server, tais como [grupos de disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Utilizar uma opção de elevada disponibilidade suportadas não fornece um SLA adicional, mas permite-lhe alcançar uma disponibilidade de base de dados > 99,99%.
 
 ## <a name="time-to-move-to-azure"></a><a name="market"></a>Hora de se mudar para Azure.
 

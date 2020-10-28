@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: c78eae11497702054bb54b5980228fd0a3962577
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 424abeef567d88f7de37f7a7a4ab7a7a8b6ef3bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367776"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791414"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -17,7 +17,7 @@ Neste artigo, percorremos os procedimentos para implementar e configurar o Conec
 O VMware HCX Advanced Connector está pré-implantado na Solução VMware Azure. Suporta até três ligações do local (no local para nuvem, ou nuvem para nuvem). Se precisar de mais de três ligações de site, envie um pedido de [suporte](https://rc.portal.azure.com/#create/Microsoft.Support) para ativar o addon [VMware HCX Enterprise.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) O addon está atualmente em pré-visualização. 
 
 >[!NOTE]
->VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como um serviço de pré-visualização. É gratuito e está sujeito a termos e condições para um serviço de pré-visualização. Depois do serviço VMware HCX EE estar geralmente disponível, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar ou optar por sair do serviço.
+>VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como um serviço de pré-visualização. É gratuito e está sujeito a termos e condições para um serviço de pré-visualização. Depois do serviço VMware HCX EE estar geralmente disponível, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar ou optar por sair do serviço. A Pease nota que não existe atualmente um caminho simples de downgrade da HCX Enterprise para a HCX Advanced e os clientes que optarem por reduzir terão de reafectar o tempo de inatividade.
 
 Em primeiro lugar, reveja minuciosamente as secções [Antes de começar,](#before-you-begin) [os requisitos](#software-version-requirements)da versão do Software e as secções [Pré-requisitos](#prerequisites) deste artigo. 
 
@@ -78,10 +78,10 @@ Para mais informações, consulte a [documentação VMware HCX](https://docs.vmw
 > [!NOTE]
 > Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar o VMware HCX Connector OVA. 
 
-1. Abra uma janela do navegador, inscreva-se no Azure VMware Solution HCX Manager na `https://x.x.x.9` porta 443 com as credenciais de utilizador **cloudadmin** e, em seguida, vá para **suporte**.
+1. Abra uma janela do navegador, inscreva-se no Azure VMware Solution HCX Manager na `https://x.x.x.9` porta 443 com as credenciais de utilizador **cloudadmin** e, em seguida, vá para **suporte** .
 
    > [!TIP]
-   > Note o endereço IP do HCX Cloud Manager na Solução VMware Azure. Para identificar o endereço IP, no painel Azure VMware Solution, vá para **Gerir**conectividade  >  **Connectivity** e, em seguida, selecione o separador **HCX.** 
+   > Note o endereço IP do HCX Cloud Manager na Solução VMware Azure. Para identificar o endereço IP, no painel Azure VMware Solution, vá para **Gerir** conectividade  >  **Connectivity** e, em seguida, selecione o separador **HCX.** 
    >
    >A palavra-passe vCenter foi definida quando configura a nuvem privada.
 
@@ -96,13 +96,13 @@ Para mais informações, consulte a [documentação VMware HCX](https://docs.vmw
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
-1. Rever os termos da licença. Se estiver de acordo, selecione o armazenamento e a rede necessários e, em seguida, selecione **Seguinte**.
+1. Rever os termos da licença. Se estiver de acordo, selecione o armazenamento e a rede necessários e, em seguida, selecione **Seguinte** .
 
 1. No **modelo Personalizar,** insira todas as informações necessárias. 
 
    :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
-1. Selecione **Seguinte**, verifique a configuração e, em seguida, selecione **Finish** para implementar o Conector HCX OVA.
+1. Selecione **Seguinte** , verifique a configuração e, em seguida, selecione **Finish** para implementar o Conector HCX OVA.
      
    > [!NOTE]
    > Geralmente, o Conector VMware HCX que está a implementar agora é implantado na rede de gestão do cluster.  
@@ -117,14 +117,14 @@ Para obter uma visão geral deste procedimento, consulte a [Solução Azure VMwa
 
 Depois de colocar o VMware HCX Connector OVA no local e ligar o aparelho, está pronto a ser ativado. Primeiro, precisa de obter uma chave de licença do portal Azure VMware Solution.
 
-1. No portal Azure VMware Solution, vá para **Gerir**  >  **Connectivity**conectividade, selecione o separador **HCX** e, em seguida, selecione **Adicionar**.
+1. No portal Azure VMware Solution, vá para **Gerir**  >  **Connectivity** conectividade, selecione o separador **HCX** e, em seguida, selecione **Adicionar** .
 
 1. Utilize as credenciais **de administração** para iniciar singing no local VMware HCX Manager em `https://HCXManagerIP:9443` . 
 
    > [!IMPORTANT]
    > Certifique-se de incluir o número de `9443` porta com o endereço IP VMware HCX Manager.
 
-1. Em **Licenciamento,** insira a sua chave para **a Tecla Avançada HCX**.  
+1. Em **Licenciamento,** insira a sua chave para **a Tecla Avançada HCX** .  
    
     > [!NOTE]
     > VMware HCX Manager deve ter acesso à internet aberto ou um proxy configurado.
@@ -133,16 +133,16 @@ Depois de colocar o VMware HCX Connector OVA no local e ligar o aparelho, está 
 
 1. No **Nome do Sistema,** modifique o nome ou aceite o padrão.
    
-1. Selecione **Sim, Continue**.
+1. Selecione **Sim, Continue** .
     
-1. Em **Connect your vCenter**, forneça o endereço FQDN ou IP do seu servidor vCenter e as credenciais apropriadas e, em seguida, selecione **Continue**.
+1. Em **Connect your vCenter** , forneça o endereço FQDN ou IP do seu servidor vCenter e as credenciais apropriadas e, em seguida, selecione **Continue** .
    
-1. Em **Configurar SSO/PSC,** forneça o endereço FQDN ou IP do seu Controlador de Serviços de Plataforma e, em seguida, selecione **Continue**.
+1. Em **Configurar SSO/PSC,** forneça o endereço FQDN ou IP do seu Controlador de Serviços de Plataforma e, em seguida, selecione **Continue** .
    
    >[!NOTE]
    >Normalmente, esta entrada é a mesma que o seu endereço FQDN ou IP do vCenter.
 
-1. Verifique se todas as entradas estão corretas e selecione **Restart**.
+1. Verifique se todas as entradas estão corretas e selecione **Restart** .
     
    > [!NOTE]
    > Vai sentir um atraso depois de reiniciar antes de ser solicitado para o próximo passo.
@@ -162,15 +162,15 @@ Agora está pronto para adicionar um emparelhamento de site, criar uma rede e pe
 
 Pode ligar (emparelhamento) o VMware HCX Cloud Manager na Solução VMware Azure com o Conector VMware HCX no seu datacenter. 
 
-1. Inscreva-se no seu vCenter no local, e em **Casa,** selecione **HCX**.
+1. Inscreva-se no seu vCenter no local, e em **Casa,** selecione **HCX** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
 
-1. Em **Infraestruturas**, selecione **O Emparelhamento do Site**e, em seguida, selecione a opção **'Ligar ao Local Remoto'** (no meio do ecrã). 
+1. Em **Infraestruturas** , selecione **O Emparelhamento do Site** e, em seguida, selecione a opção **'Ligar ao Local Remoto'** (no meio do ecrã). 
 
    :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
-1. Introduza o endereço de URL ou IP remoto hCX que observou anteriormente, o nome de utilizador Azure VMware Solution cloudadmin@vsphere.local e a palavra-passe. Em seguida, selecione **Ligar**.
+1. Introduza o endereço de URL ou IP remoto hCX que observou anteriormente, o nome de utilizador Azure VMware Solution cloudadmin@vsphere.local e a palavra-passe. Em seguida, selecione **Ligar** .
 
    > [!NOTE]
    > Para estabelecer um par de site com sucesso, o seu conector HCX deve ser capaz de encaminhar para o seu HCX Cloud Manager IP sobre a porta 443.
@@ -196,11 +196,11 @@ Criará quatro perfis de rede:
    - Replicação
    - Uplink
 
-1. Em **Infraestruturas**, **selecione Interconnect**  >  **Multi-Site Service Mesh**Network  >  **Profiles**Create Network  >  **Profile**.
+1. Em **Infraestruturas** , **selecione Interconnect**  >  **Multi-Site Service Mesh** Network  >  **Profiles** Create Network  >  **Profile** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
-1. Para cada perfil de rede, selecione a rede e o grupo portuário, forneça um nome e crie o pool IP para esse segmento. Em seguida, selecione **Criar**. 
+1. Para cada perfil de rede, selecione a rede e o grupo portuário, forneça um nome e crie o pool IP para esse segmento. Em seguida, selecione **Criar** . 
 
    :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot de navegação para um modelo OVF.":::
 
@@ -209,57 +209,57 @@ Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: HC
 
 ### <a name="create-a-compute-profile"></a>Criar um perfil computacional
 
-1. Selecione **Perfis compute**  >  **create Compute Profile**.
+1. Selecione **Perfis compute**  >  **create Compute Profile** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
-1. Introduza um nome para o perfil e **selecione Continue**.  
+1. Introduza um nome para o perfil e **selecione Continue** .  
 
    :::image type="content" source="media/tutorial-vmware-hcx/name-compute-profile.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/name-compute-profile.png":::
 
-1. Selecione os serviços para permitir, tais como migração, extensão de rede ou recuperação de desastres, e, em seguida, **selecione Continue**.
+1. Selecione os serviços para permitir, tais como migração, extensão de rede ou recuperação de desastres, e, em seguida, **selecione Continue** .
   
    > [!NOTE]
    > Geralmente, nada muda aqui.
 
-1. Em **Select Service Resources**, selecione um ou mais recursos de serviço (clusters) para ativar os serviços VMware HCX selecionados.  
+1. Em **Select Service Resources** , selecione um ou mais recursos de serviço (clusters) para ativar os serviços VMware HCX selecionados.  
 
-1. Quando vir os clusters no seu datacenter no local, selecione **Continue**.
+1. Quando vir os clusters no seu datacenter no local, selecione **Continue** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-service-resource.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-service-resource.png":::
 
-1. A partir da **Select Datastore**, selecione o recurso de armazenamento de datastore para a implantação dos aparelhos VMware HCX Interconnect. Em seguida, selecione **Continuar**.
+1. A partir da **Select Datastore** , selecione o recurso de armazenamento de datastore para a implantação dos aparelhos VMware HCX Interconnect. Em seguida, selecione **Continuar** .
 
    Quando vários recursos são selecionados, o VMware HCX utiliza o primeiro recurso selecionado até que a sua capacidade esteja esgotada.   
 
    :::image type="content" source="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png":::  
 
-1. A partir do **Perfil de Rede de Gestão Select,** selecione o perfil de rede de gestão que criou em etapas anteriores. Em seguida, selecione **Continuar**.  
+1. A partir do **Perfil de Rede de Gestão Select,** selecione o perfil de rede de gestão que criou em etapas anteriores. Em seguida, selecione **Continuar** .  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
    > [!NOTE]
    > O perfil de rede de gestão permite que os eletrodomésticos VMware HCX se comuniquem com o vCenter. Os anfitriões ESXi podem ser alcançados através deste perfil.
 
-1. A partir do **Perfil de Rede Select Uplink**, selecione o perfil de rede de uplink que criou em etapas anteriores. Em seguida, selecione **Continuar**.
+1. A partir do **Perfil de Rede Select Uplink** , selecione o perfil de rede de uplink que criou em etapas anteriores. Em seguida, selecione **Continuar** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
 
-1. A partir do **Perfil de Rede vMotion,** selecione o perfil de rede vMotion que criou em etapas anteriores. Em seguida, selecione **Continuar**.
+1. A partir do **Perfil de Rede vMotion,** selecione o perfil de rede vMotion que criou em etapas anteriores. Em seguida, selecione **Continuar** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
 
-1. A partir do **perfil de rede de replicação vSphere,** selecione o perfil de rede de replicação que criou em etapas anteriores. Em seguida, selecione **Continuar**.
+1. A partir do **perfil de rede de replicação vSphere,** selecione o perfil de rede de replicação que criou em etapas anteriores. Em seguida, selecione **Continuar** .
 
    Na maioria dos casos, o perfil de rede de replicação é o mesmo que o perfil da rede de gestão.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
-1. A partir de **Switches Distribuídos Selecionados para Extensões de Rede**, selecione os interruptores virtuais distribuídos que contêm as máquinas virtuais a migrar para Azure VMware Solution numa rede estendida camada 2. Em seguida, selecione **Continuar**.
+1. A partir de **Switches Distribuídos Selecionados para Extensões de Rede** , selecione os interruptores virtuais distribuídos que contêm as máquinas virtuais a migrar para Azure VMware Solution numa rede estendida camada 2. Em seguida, selecione **Continuar** .
 
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
-1. Reveja as regras de ligação e **selecione Continuar**.  
+1. Reveja as regras de ligação e **selecione Continuar** .  
 
    :::image type="content" source="media/tutorial-vmware-hcx/review-connection-rules.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/review-connection-rules.png":::
 
@@ -281,16 +281,16 @@ Agora é hora de configurar uma malha de serviço entre as instalações e a Azu
    >
    > Certifique-se de rever as portas necessárias ao [HCX](https://ports.vmware.com/home/VMware-HCX).
 
-1. Em **Infraestruturas**, selecione **Interconnect**  >  **Service Mesh**Create Service  >  **Mesh**.    
+1. Em **Infraestruturas** , selecione **Interconnect**  >  **Service Mesh** Create Service  >  **Mesh** .    
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
 
-1. Reveja os sites pré-povoados e, em seguida, **selecione Continue**. 
+1. Reveja os sites pré-povoados e, em seguida, **selecione Continue** . 
 
    >[!NOTE]
    >Se esta for a sua primeira configuração de malha de serviço, não precisará modificar este ecrã.  
 
-1. Selecione os perfis de cálculo de origem e remotas das listas de drop-down e, em seguida, **selecione Continue**.  
+1. Selecione os perfis de cálculo de origem e remotas das listas de drop-down e, em seguida, **selecione Continue** .  
 
    As seleções definem os recursos onde os VMs podem consumir serviços VMware HCX.  
 
@@ -298,17 +298,17 @@ Agora é hora de configurar uma malha de serviço entre as instalações e a Azu
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
 
-1. Rever os serviços que serão ativados e, em seguida, selecionar **Continue**.  
+1. Rever os serviços que serão ativados e, em seguida, selecionar **Continue** .  
 
-1. Em **Configuração Avançada - Override Uplink Network profiles**, selecione **Continue**.  
+1. Em **Configuração Avançada - Override Uplink Network profiles** , selecione **Continue** .  
 
    Os perfis de rede de ligação ligam-se à rede através da qual os aparelhos de interligação do site remoto podem ser alcançados.  
   
-1. Em **Configuração Avançada - Escala de aparelho de extensão de rede para fora,** reveja e selecione **Continue**. 
+1. Em **Configuração Avançada - Escala de aparelho de extensão de rede para fora,** reveja e selecione **Continue** . 
 
-1. Em **Configuração Avançada - Engenharia de Tráfego,** reveja e faça quaisquer modificações que assentes que assesse ser necessárias e, em seguida, selecione **Continue**.
+1. Em **Configuração Avançada - Engenharia de Tráfego,** reveja e faça quaisquer modificações que assentes que assesse ser necessárias e, em seguida, selecione **Continue** .
 
-1. Reveja a pré-visualização da topologia e **selecione Continue**.
+1. Reveja a pré-visualização da topologia e **selecione Continue** .
 
 1. Introduza um nome fácil de utilizar para esta malha de serviço e **selecione Acabamento** para completar.  
 
@@ -321,7 +321,7 @@ Agora é hora de configurar uma malha de serviço entre as instalações e a Azu
    :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
 1. Verifique a saúde da malha de serviço verificando o estado do aparelho. 
-1. Selecione **Interconnect**  >  **Interligar Aparelhos**.
+1. Selecione **Interconnect**  >  **Interligar Aparelhos** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
@@ -333,19 +333,19 @@ Para uma visão geral deste procedimento, consulte a [Solução Azure VMware: V�
 
 Se pretender estender quaisquer redes do seu ambiente no local até à Azure VMware Solution, siga estes passos:
 
-1. Em **Serviços**, selecione **extensão de rede**e, em seguida, selecione Criar uma **extensão de rede**.
+1. Em **Serviços** , selecione **extensão de rede** e, em seguida, selecione Criar uma **extensão de rede** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 
-1. Selecione cada uma das redes que pretende estender até Azure VMware Solution e, em seguida, selecione **Next**.
+1. Selecione cada uma das redes que pretende estender até Azure VMware Solution e, em seguida, selecione **Next** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="Screenshot de navegação para um modelo OVF.":::
 
-1. Introduza o GATEWAY IP no local para cada uma das redes que está a estender e, em seguida, **selecione Enviar por isso**. 
+1. Introduza o GATEWAY IP no local para cada uma das redes que está a estender e, em seguida, **selecione Enviar por isso** . 
 
    :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-gateway.png" alt-text="Screenshot de navegação para um modelo OVF.":::
 
-   Leva alguns minutos para a extensão da rede terminar. Quando o fizer, vê-se a alteração do estado para **extensão completada**.
+   Leva alguns minutos para a extensão da rede terminar. Quando o fizer, vê-se a alteração do estado para **extensão completada** .
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot de navegação para um modelo OVF." lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
 

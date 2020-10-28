@@ -14,14 +14,14 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ec7ed958ac045c68fd7b616903f401dd07d8166
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789833"
 ---
-# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da Versão do SQL Server na VM do Azure
+# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Mudança no local da versão do servidor SQL em Azure VM
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -32,7 +32,7 @@ Este artigo descreve como alterar a versão do Microsoft SQL Server numa máquin
 Para fazer uma atualização no local do SQL Server, aplicam-se as seguintes condições:
 
 - É necessário o meio de configuração da versão desejada do SQL Server. Os clientes que tiverem o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) poderão obter o suporte de dados de instalação no [Centro de Licenciamento em Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem uma versão posterior do SQL Server (normalmente localizado em C:\SQLServerFull).
-- As atualizações de edição devem seguir os [caminhos de upgrade](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15)de suporte .
+- As atualizações de edição devem seguir os [caminhos de upgrade](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15)de suporte .
 
 ## <a name="planning-for-version-change"></a>Planeamento para mudança de versão
 
@@ -40,34 +40,34 @@ Recomendamos que reveja os seguintes itens antes de alterar a versão:
 
 1. Confira as novidades na versão que está a planear atualizar para:
 
-   - Novidades no [SQL 2019](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15)
-   - Novidades no [SQL 2017](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15)
-   - Novidades no [SQL 2016](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15)
-   - Novidades no [SQL 2014](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014)
+   - Novidades no [SQL 2019](/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15)
+   - Novidades no [SQL 2017](/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15)
+   - Novidades no [SQL 2016](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15)
+   - Novidades no [SQL 2014](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014)
 
-1. Recomendamos que verifique a certificação de [compatibilidade](https://docs.microsoft.com/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) para a versão a que vai alterar para que possa utilizar os modos de compatibilidade da base de dados para minimizar o efeito da atualização.
+1. Recomendamos que verifique a certificação de [compatibilidade](/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) para a versão a que vai alterar para que possa utilizar os modos de compatibilidade da base de dados para minimizar o efeito da atualização.
 1. Pode rever os seguintes artigos para ajudar a garantir um resultado bem sucedido:
 
    - [Vídeo: Modernizar o SQL Server Pam Lahoud & Pedro Lopes 20 Anos de PASS](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
-   - [Assistente de experimentação de base de dados para testes de AB](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
-   - [Atualizar bases de dados utilizando o Assistente de Afinação de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
-   - [Alterar o Nível de Compatibilidade da Base de Dados e utilizar a Loja de Consultas](https://docs.microsoft.com/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
+   - [Assistente de experimentação de base de dados para testes de AB](/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
+   - [Atualizar bases de dados utilizando o Assistente de Afinação de Consultas](/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
+   - [Alterar o Nível de Compatibilidade da Base de Dados e utilizar a Loja de Consultas](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
 
 ## <a name="upgrade-sql-version"></a>Atualizar versão SQL
 
 > [!WARNING]
 > A atualização da versão do SQL Server reiniciará o serviço para o SQL Server, além de quaisquer serviços associados, tais como Serviços de Análise e Serviços R.
 
-Para atualizar a versão do SQL Server, obtenha o suporte de configuração do SQL Server para a versão posterior que [suportasse o caminho](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) de upgrade do SQL Server e faça os seguintes passos:
+Para atualizar a versão do SQL Server, obtenha o suporte de configuração do SQL Server para a versão posterior que [suportasse o caminho](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) de upgrade do SQL Server e faça os seguintes passos:
 
 1. Faça o back up das bases de dados, incluindo o sistema (exceto a tempdb) e as bases de dados dos utilizadores, antes de iniciar o processo. Também pode criar uma cópia de segurança de nível VM consistente com aplicações utilizando os Serviços de Backup Azure.
 1. Comece Setup.exe a partir dos meios de instalação do SQL Server.
-1. O Assistente de Instalação inicia o Centro de Instalação do Servidor SQL. Para atualizar uma instância existente do SQL Server, selecione **Instalação** no painel de navegação e, em seguida, **selecione Upgrade a partir de uma versão anterior do SQL Server**.
+1. O Assistente de Instalação inicia o Centro de Instalação do Servidor SQL. Para atualizar uma instância existente do SQL Server, selecione **Instalação** no painel de navegação e, em seguida, **selecione Upgrade a partir de uma versão anterior do SQL Server** .
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Seleção para atualização da versão do SQL Server":::
 
-1. Na página **'Chave do Produto',** selecione uma opção para indicar se está a atualizar para uma edição gratuita do SQL Server ou se tem uma chave PID para uma versão de produção do produto. Para mais informações, consulte [Edições e funcionalidades suportadas do SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) e [das atualizações de versão e edição suportadas (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
-1. Selecione **Next** até chegar à página **De atualização pronta** e, em seguida, selecione **Upgrade**. A janela de configuração pode parar de responder durante alguns minutos enquanto a mudança está a fazer efeito. Uma página **Completa** confirmará que a sua atualização está concluída. Para um procedimento passo a passo para atualizar, consulte [o procedimento completo](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
+1. Na página **'Chave do Produto',** selecione uma opção para indicar se está a atualizar para uma edição gratuita do SQL Server ou se tem uma chave PID para uma versão de produção do produto. Para mais informações, consulte [Edições e funcionalidades suportadas do SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) e [das atualizações de versão e edição suportadas (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
+1. Selecione **Next** até chegar à página **De atualização pronta** e, em seguida, selecione **Upgrade** . A janela de configuração pode parar de responder durante alguns minutos enquanto a mudança está a fazer efeito. Uma página **Completa** confirmará que a sua atualização está concluída. Para um procedimento passo a passo para atualizar, consulte [o procedimento completo](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Seleção para atualização da versão do SQL Server":::
 

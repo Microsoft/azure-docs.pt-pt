@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058561"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790802"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Azure SQL Managed Instance e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ A replicação transacional permite replicar dados de uma base de dados para out
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Este tutorial destina-se a um público experiente e assume que o utilizador est�
 
 
 > [!NOTE]
-> Este artigo descreve o uso de [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) em Azure SQL Managed Instance. Não está relacionado com [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), uma funcionalidade de Instância Gerida Azure SQL que permite criar réplicas legíveis completas de instâncias individuais. Existem considerações adicionais ao configurar a [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
+> Este artigo descreve o uso de [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) em Azure SQL Managed Instance. Não está relacionado com [grupos de failover](../database/auto-failover-group-overview.md), uma funcionalidade de Instância Gerida Azure SQL que permite criar réplicas legíveis completas de instâncias individuais. Existem considerações adicionais ao configurar a [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Crie duas instâncias geridas dentro deste novo grupo de recursos utilizando o [portal Azure](https://portal.azure.com).
 
 - O nome da editora gerida deve ser `sql-mi-publisher` (juntamente com alguns caracteres para aleatoriedade), e o nome da rede virtual deve ser `vnet-sql-mi-publisher` .
-- O nome da instância gerida pelo distribuidor deve ser `sql-mi-distributor` (juntamente com alguns caracteres para aleatoriedade), e deve estar na mesma rede virtual que _a editora geriu exemplo_.
+- O nome da instância gerida pelo distribuidor deve ser `sql-mi-distributor` (juntamente com alguns caracteres para aleatoriedade), e deve estar na mesma rede virtual que _a editora geriu exemplo_ .
 
    ![Utilize o VNet editor para o distribuidor](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ Uma zona privada de DNS permite o encaminhamento de DNS entre as instâncias ger
 
    ![Criar zona privada de DNS](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Selecione **Rever + criar**. Reveja os parâmetros para a sua zona privada de DNS e, em seguida, **selecione Criar** para criar o seu recurso.
+1. Selecione **Rever + criar** . Reveja os parâmetros para a sua zona privada de DNS e, em seguida, **selecione Criar** para criar o seu recurso.
 
 ### <a name="create-an-a-record"></a>Criar um disco A
 
-1. Vá à sua nova **zona privada de DNS** e selecione **Overview**.
+1. Vá à sua nova **zona privada de DNS** e selecione **Overview** .
 1. Selecione **+ Conjunto de registo** para criar um novo disco A.
 1. Forneça o nome do seu SQL Server VM, bem como o endereço IP interno privado.
 
@@ -170,10 +170,10 @@ Uma zona privada de DNS permite o encaminhamento de DNS entre as instâncias ger
 ### <a name="link-the-virtual-network"></a>Ligue a rede virtual
 
 1. Vá para a sua nova **zona privada de DNS** e selecione **links de rede Virtual.**
-1. Selecione **+ Adicionar**.
+1. Selecione **+ Adicionar** .
 1. Fornecer um nome para o link, como `Pub-link` .
 1. Selecione a sua subscrição a partir do drop-down e, em seguida, selecione a rede virtual para a sua instância gerida pelo seu editor.
-1. Verifique a caixa ao lado **do Ative o registo automático**.
+1. Verifique a caixa ao lado **do Ative o registo automático** .
 
    ![Criar ligação VNet](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -182,7 +182,7 @@ Uma zona privada de DNS permite o encaminhamento de DNS entre as instâncias ger
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-[Crie uma conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie uma [parte de arquivo](../../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento.
+[Crie uma conta de armazenamento Azure](../../storage/common/storage-account-create.md#create-a-storage-account) para o diretório de trabalho e, em seguida, crie uma [parte de arquivo](../../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento.
 
 Copie o caminho da partilha de ficheiros no formato de: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -283,14 +283,14 @@ Uma vez configurada a distribuição, pode agora criar a publicação. Para tal,
 
 1. Lance o SQL Server Management Studio no SQL Server.
 1. Ligue-se ao `sql-mi-publisher` caso gerido.
-1. No **Object Explorer,** expanda o nó **de replicação** e clique à direita na pasta **da Publicação Local.** Selecione **Nova Publicação...**.
+1. No **Object Explorer,** expanda o nó **de replicação** e clique à direita na pasta **da Publicação Local.** Selecione **Nova Publicação...** .
 1. Selecione **Seguinte** para passar pela página de boas-vindas.
-1. Na página **Base de Dados de Publicações,** selecione a `ReplTutorial` base de dados que criou anteriormente. Selecione **Seguinte**.
-1. Na página do **tipo Publicação,** selecione **Publicação Transactional**. Selecione **Seguinte**.
-1. Na página **de Artigos,** verifique a caixa ao lado **das Tabelas.** Selecione **Seguinte**.
+1. Na página **Base de Dados de Publicações,** selecione a `ReplTutorial` base de dados que criou anteriormente. Selecione **Seguinte** .
+1. Na página do **tipo Publicação,** selecione **Publicação Transactional** . Selecione **Seguinte** .
+1. Na página **de Artigos,** verifique a caixa ao lado **das Tabelas.** Selecione **Seguinte** .
 1. Na página **'Linhas de tabela' filtrar,** selecione **Seguinte** sem adicionar filtros.
-1. Na página Snapshot **Agent,** verifique imediatamente a caixa ao lado **do Create snapshot e mantenha o instantâneo disponível para inicializar as subscrições**. Selecione **Seguinte**.
-1. Na página de Segurança do **Agente,** selecione **Definições de Segurança...**. Forneça credenciais de login do SQL Server para utilizar para o Agente Snapshot e para ligar ao editor. Selecione **OK** para fechar a página **de Segurança do Agente Instantâneo.** Selecione **Seguinte**.
+1. Na página Snapshot **Agent,** verifique imediatamente a caixa ao lado **do Create snapshot e mantenha o instantâneo disponível para inicializar as subscrições** . Selecione **Seguinte** .
+1. Na página de Segurança do **Agente,** selecione **Definições de Segurança...** . Forneça credenciais de login do SQL Server para utilizar para o Agente Snapshot e para ligar ao editor. Selecione **OK** para fechar a página **de Segurança do Agente Instantâneo.** Selecione **Seguinte** .
 
    ![Configure a segurança do agente snapshot](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -349,13 +349,13 @@ Use ReplTutorial
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Navegue para o seu grupo de recursos no [portal Azure](https://portal.azure.com).
-1. Selecione as instâncias geridas e, em seguida, **selecione Delete**. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar**. Este processo pode demorar algum tempo a ser concluído em segundo plano, e até que esteja feito, não será capaz de eliminar o *cluster virtual* ou quaisquer outros recursos dependentes. Monitorize a eliminação no separador **'Atividade'** para confirmar que a sua instância gerida foi eliminada.
-1. Uma vez eliminada a instância gerida, elimine o *cluster virtual* selecionando-o no seu grupo de recursos e, em seguida, escolhendo **Delete**. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar**.
-1. Elimine os recursos restantes. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar**.
-1. Eliminar o grupo de recursos selecionando eliminar o **grupo de recursos,** digitando em nome do grupo de `myResourceGroup` recursos, e selecionando **delete**.
+1. Selecione as instâncias geridas e, em seguida, **selecione Delete** . Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar** . Este processo pode demorar algum tempo a ser concluído em segundo plano, e até que esteja feito, não será capaz de eliminar o *cluster virtual* ou quaisquer outros recursos dependentes. Monitorize a eliminação no separador **'Atividade'** para confirmar que a sua instância gerida foi eliminada.
+1. Uma vez eliminada a instância gerida, elimine o *cluster virtual* selecionando-o no seu grupo de recursos e, em seguida, escolhendo **Delete** . Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar** .
+1. Elimine os recursos restantes. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar** .
+1. Eliminar o grupo de recursos selecionando eliminar o **grupo de recursos,** digitando em nome do grupo de `myResourceGroup` recursos, e selecionando **delete** .
 
 ## <a name="known-errors"></a>Erros conhecidos
 
@@ -414,7 +414,7 @@ Consulte o artigo [O que é Azure SQL Managed Instance?](sql-managed-instance-pa
 - [Deteção de ameaças](threat-detection-configure.md)
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
 - [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security)
-- [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Encriptação transparente de dados (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Capacidades de instância gerida sql
 

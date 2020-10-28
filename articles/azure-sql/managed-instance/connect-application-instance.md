@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628371"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791261"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligar a aplicação ao Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Existem duas opções para ligar redes virtuais:
 O peering é preferível porque utiliza a rede de espinha dorsal da Microsoft, por isso, do ponto de vista da conectividade, não há uma diferença notável na latência entre máquinas virtuais numa rede virtual esprevada e na mesma rede virtual. O espreitamento de rede virtual é para suportar entre as redes da mesma região. O espreitamento global da rede virtual também é suportado com a limitação descrita na nota abaixo.  
 
 > [!IMPORTANT]
-> [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
+> [Em 22/9/2020 anunciamos a rede virtual global que procura clusters virtuais recém-criados.](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/) Isto significa que o espreitamento global da rede virtual é suportado para sql Managed Instances criados em sub-redes vazias após a data de anúncio, bem como para todos os casos geridos subsequentes criados nessas sub-redes. Para todos os outros SQL, o suporte de observação está limitado às redes da mesma região devido aos [constrangimentos da rede virtual global de observação.](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) Consulte também a secção relevante das [Redes Virtuais Azure frequentemente fez perguntas](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) a artigo para mais detalhes. 
 
 ## <a name="connect-from-on-premises"></a>Ligar a partir de instalações 
 
@@ -71,10 +71,10 @@ Outro cenário implementado pelos clientes é onde um gateway VPN é instalado n
 
 ![Peering de rede virtual](./media/connect-application-instance/vnet-peering.png)
 
-Uma vez configurada a infraestrutura básica, precisa modificar algumas definições para que o gateway VPN possa ver os endereços IP na rede virtual que acolhe a SQL Managed Instance. Para tal, faça as seguintes alterações muito específicas nas **definições de Peering**.
+Uma vez configurada a infraestrutura básica, precisa modificar algumas definições para que o gateway VPN possa ver os endereços IP na rede virtual que acolhe a SQL Managed Instance. Para tal, faça as seguintes alterações muito específicas nas **definições de Peering** .
 
-1. Na rede virtual que acolhe o gateway VPN, vá a **Peerings,** vá à ligação de rede virtual esprevada para a SQL Managed Instance e, em seguida, clique em **Permitir o Trânsito de Gateway**.
-2. Na rede virtual que acolhe a SQL Managed Instance, vá a **Peerings,** vá à ligação de rede virtual esprevada para o gateway VPN e, em seguida, clique em **Utilizar gateways remotos**.
+1. Na rede virtual que acolhe o gateway VPN, vá a **Peerings,** vá à ligação de rede virtual esprevada para a SQL Managed Instance e, em seguida, clique em **Permitir o Trânsito de Gateway** .
+2. Na rede virtual que acolhe a SQL Managed Instance, vá a **Peerings,** vá à ligação de rede virtual esprevada para o gateway VPN e, em seguida, clique em **Utilizar gateways remotos** .
 
 ## <a name="connect-azure-app-service"></a>Ligue o Serviço de Aplicações Azure 
 
@@ -151,8 +151,8 @@ Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se 
 |Controlador JDBC| 6.4.0 |
 |Controlador Node.js| 2.1.1 |
 |Controlador OLEDB| 18.0.2.0 |
-|SSMS| 18.0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
+|SSMS| 18.0 ou [superior](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
 
 ## <a name="next-steps"></a>Passos seguintes
 

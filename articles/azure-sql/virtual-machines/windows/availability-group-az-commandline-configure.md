@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 78414e26836d1547fe195a0a7844b6a98bb0dfc8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: a85c1326501a362371d3bc961f5c5ae448e8d22e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168261"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790088"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utilize o PowerShell ou o Az CLI para configurar um grupo de disponibilidade para o SQL Server em Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Para configurar um grupo de disponibilidade Always On, tem de ter os seguintes p
 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Uma ou mais VMs de domínio [em Azure executando SQL Server 2016 (ou posteriormente) Edição Empresarial](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) no *mesmo* conjunto de disponibilidade ou *diferentes* zonas de disponibilidade que tenham sido [registadas com o fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md).  
+- Uma ou mais VMs de domínio [em Azure executando SQL Server 2016 (ou posteriormente) Edição Empresarial](./create-sql-vm-portal.md) no *mesmo* conjunto de disponibilidade ou *diferentes* zonas de disponibilidade que tenham sido [registadas com o fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md).  
 - A versão mais recente do [PowerShell](/powershell/scripting/install/installing-powershell) ou do [Azure CLI](/cli/azure/install-azure-cli). 
 - Dois endereços IP disponíveis (não utilizados por nenhuma entidade). Um é para o equilibrador de carga interno. O outro é para o ouvinte do grupo de disponibilidade dentro da mesma sub-rede que o grupo de disponibilidade. Se estiver a utilizar um equilibrador de carga existente, só precisa de um endereço IP disponível para o ouvinte do grupo de disponibilidade. 
 
@@ -64,7 +64,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> Pode ver o erro `az sql: 'vm' is not in the 'az sql' command group` se estiver a usar uma versão desatualizada do Azure CLI. Descarregue a [versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows) para ultrapassar este erro.
+> Pode ver o erro `az sql: 'vm' is not in the 'az sql' command group` se estiver a usar uma versão desatualizada do Azure CLI. Descarregue a [versão mais recente do Azure CLI](/cli/azure/install-azure-cli-windows) para ultrapassar este erro.
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -84,7 +84,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>Definir metadados de cluster
 
-O grupo de comando Azure CLI [az sql vm](https://docs.microsoft.com/cli/azure/sql/vm/group) gere os metadados do serviço Windows Server Failover Cluster (WSFC) que acolhe o grupo de disponibilidade. Os metadados de cluster incluem o domínio do Diretório Ativo, contas de cluster, contas de armazenamento a serem usadas como testemunha em nuvem e a versão SQL Server. Utilize [o grupo az sql vm criar](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create) para definir os metadados para WSFC de modo que quando o primeiro SQL Server VM é adicionado, o cluster é criado como definido. 
+O grupo de comando Azure CLI [az sql vm](/cli/azure/sql/vm/group) gere os metadados do serviço Windows Server Failover Cluster (WSFC) que acolhe o grupo de disponibilidade. Os metadados de cluster incluem o domínio do Diretório Ativo, contas de cluster, contas de armazenamento a serem usadas como testemunha em nuvem e a versão SQL Server. Utilize [o grupo az sql vm criar](/cli/azure/sql/vm/group#az-sql-vm-group-create) para definir os metadados para WSFC de modo que quando o primeiro SQL Server VM é adicionado, o cluster é criado como definido. 
 
 O seguinte código de corte define os metadados para o cluster:
 
@@ -129,7 +129,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>Adicione VMs ao cluster
 
-Adicionar o primeiro SQL Server VM ao cluster cria o cluster. O comando [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) cria o cluster com o nome anteriormente dado, instala a função de cluster nos VMs do SQL Server e adiciona-os ao cluster. As utilizações subsequentes do `az sql vm add-to-group` comando adicionam mais VMs do Servidor SQL ao cluster recém-criado. 
+Adicionar o primeiro SQL Server VM ao cluster cria o cluster. O comando [az sql vm add-to-group](/cli/azure/sql/vm#az-sql-vm-add-to-group) cria o cluster com o nome anteriormente dado, instala a função de cluster nos VMs do SQL Server e adiciona-os ao cluster. As utilizações subsequentes do `az sql vm add-to-group` comando adicionam mais VMs do Servidor SQL ao cluster recém-criado. 
 
 O seguinte corte de código cria o cluster e adiciona-lhe o primeiro SQL Server VM: 
 
@@ -521,4 +521,4 @@ Para obter mais informações, veja os seguintes artigos:
 * [Administração de um grupo de disponibilidade &#40;&#41;de servidor SQL ](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
 * [Monitorização de grupos de disponibilidade &#40;&#41;do servidor SQL ](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Visão geral das declarações do Transact-SQL para grupos de disponibilidade always on &#40;&#41;do servidor SQL ](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Visão geral dos cmdlets PowerShell para sempre em grupos de disponibilidade &#40;&#41;do servidor SQL ](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+* [Visão geral dos cmdlets PowerShell para sempre em grupos de disponibilidade &#40;&#41;do servidor SQL ](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335075"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789629"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementar uma base de dados geo-distribuída (Base de Dados Azure SQL)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para completar o tutorial, certifique-se de que instalou os seguintes itens:
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-As definições de geo-replicação também podem ser alteradas no portal Azure, selecionando a sua base de **dados**e, em seguida,  >  **definições de Geo-Replicação**.
+As definições de geo-replicação também podem ser alteradas no portal Azure, selecionando a sua base de **dados** e, em seguida,  >  **definições de Geo-Replicação** .
 
 ![Definições de geo-replicação](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ As definições de geo-replicação também podem ser alteradas no portal Azure,
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Tipo **Y** e prima **Enter**.
+1. Tipo **Y** e prima **Enter** .
 
 1. Mude os diretórios para o novo projeto.
 
@@ -182,7 +182,7 @@ As definições de geo-replicação também podem ser alteradas no portal Azure,
    </build>
    ```
 
-1. Guarde e feche o ficheiro *pom.xml*.
+1. Guarde e feche o ficheiro *pom.xml* .
 
 1. Abra o ficheiro *App.java* localizado em .. \SqlDbSample\src\main\java\com\sqldbsamples e substituir o conteúdo pelo seguinte código:
 

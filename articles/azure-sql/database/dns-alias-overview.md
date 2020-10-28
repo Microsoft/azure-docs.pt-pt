@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145649"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790496"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Pseudónimo de DNS para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -60,7 +60,7 @@ As seguintes propriedades aplicam-se a cada pseudónimo DNS para o seu servidor:
 - *O servidor é necessário:* Um pseudónimo DNS não pode ser criado a menos que refira exatamente um servidor, e o servidor já deve existir. Um pseudónimo atualizado deve sempre referir exatamente um servidor existente.
   - Quando deixa cair um servidor, o sistema Azure também deixa cair todos os pseudónimos DNS que se referem ao servidor.
 - *Não ligado a nenhuma região:* Os pseudónimos do DNS não estão ligados a uma região. Qualquer pseudónimo dns pode ser atualizado para se referir a um servidor que reside em qualquer região geográfica.
-  - No entanto, ao atualizar um pseudónimo para se referir a outro servidor, ambos os servidores devem existir na mesma *subscrição*do Azure .
+  - No entanto, ao atualizar um pseudónimo para se referir a outro servidor, ambos os servidores devem existir na mesma *subscrição* do Azure .
 - *Permissões:* Para gerir um pseudónimo DNS, o utilizador deve ter permissões *de Colaborador do Servidor,* ou superiores. Para mais informações, consulte [Começar com Role-Based Controlo de Acesso no portal Azure.](../../role-based-access-control/overview.md)
 
 ## <a name="manage-your-dns-aliases"></a>Gerencie os seus pseudónimos DNS
@@ -71,7 +71,7 @@ Tanto as APIs rest como as cmdlets PowerShell estão disponíveis para que possa
 
 A documentação para as APIs REST está disponível perto da seguinte localização web:
 
-- [Azure SQL Base de Dados REST API](https://docs.microsoft.com/rest/api/sql/)
+- [Azure SQL Base de Dados REST API](/rest/api/sql/)
 
 Além disso, as APIs REST podem ser vistas no GitHub em:
 
@@ -83,7 +83,7 @@ Além disso, as APIs REST podem ser vistas no GitHub em:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Estão disponíveis cmdlets PowerShell que ligam para as APIs REST.
 
@@ -93,10 +93,10 @@ Um exemplo de código de cmdlets PowerShell que estão a ser usados para gerir p
 
 Os cmdlets utilizados no exemplo do código são os seguintes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um novo pseudónimo DNS no sistema de serviço de base de dados Azure SQL. O pseudónimo refere-se ao servidor 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtenha e enumere todos os pseudónimos DNS que são atribuídos ao servidor 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor a que o pseudónimo está configurado para se referir, do servidor 1 ao servidor 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o pseudónimo DNS do servidor 2, utilizando o nome do pseudónimo.
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Cria um novo pseudónimo DNS no sistema de serviço de base de dados Azure SQL. O pseudónimo refere-se ao servidor 1.
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Obtenha e enumere todos os pseudónimos DNS que são atribuídos ao servidor 1.
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor a que o pseudónimo está configurado para se referir, do servidor 1 ao servidor 2.
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o pseudónimo DNS do servidor 2, utilizando o nome do pseudónimo.
 
 ## <a name="limitations-during-preview"></a>Limitações durante a pré-visualização
 
@@ -104,7 +104,7 @@ Atualmente, um pseudónimo DNS tem as seguintes limitações:
 
 - *Atraso de até 2 minutos:* Leva até 2 minutos para que um pseudónimo DNS seja atualizado ou removido.
   - Independentemente de qualquer breve atraso, o pseudónimo para imediatamente de remeter as ligações do cliente para o servidor legado.
-- *Procura de DNS:* Por enquanto, a única forma autoritária de verificar a que servidor se refere um dado pseudónimo dns é executando uma [procura de DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *Procura de DNS:* Por enquanto, a única forma autoritária de verificar a que servidor se refere um dado pseudónimo dns é executando uma [procura de DNS](/windows-server/administration/windows-commands/nslookup).
 - _A auditoria de tabela não é suportada:_ Não é possível utilizar um pseudónimo DNS num servidor que tenha *uma auditoria de tabela* ativada numa base de dados.
   - A auditoria de mesa é depreciada.
   - Recomendamos que se mude para a [Blob Auditing.](../../azure-sql/database/auditing-overview.md)
@@ -112,8 +112,8 @@ Atualmente, um pseudónimo DNS tem as seguintes limitações:
 ## <a name="related-resources"></a>Recursos relacionados
 
 - [Visão geral da continuidade do negócio com a Base de Dados Azure SQL,](business-continuity-high-availability-disaster-recover-hadr-overview.md)incluindo recuperação de desastres.
-- [Referência à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)
-- [Servidor Dns Aliases API](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
+- [Referência à API REST do Azure](/rest/api/azure/)
+- [Servidor Dns Aliases API](/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>Passos seguintes
 

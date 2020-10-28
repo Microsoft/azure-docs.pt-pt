@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: jrasnick
 ms.date: 03/10/2020
-ms.openlocfilehash: 54a6293a29a407a7014aafb66587dcb01fc13337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 773f011e0c79dc7b246ddc4a737914c15fe0f2f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89645786"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789544"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonize aplicações e bases de dados para desempenho em Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -122,7 +122,7 @@ Depois de criado, essa mesma declaração SELECT escolhe um plano diferente, que
 
 ![Um plano de consulta com índices corrigidos](./media/performance-guidance/query_plan_corrected_indexes.png)
 
-A principal perceção é que a capacidade de IO de um sistema de mercadorias partilhado é mais limitada do que a de uma máquina de servidor dedicada. Há um prémio em minimizar iO desnecessário para tirar o máximo partido do sistema nos recursos de cada tamanho de cálculo dos níveis de serviço. Escolhas adequadas de conceção de bases de dados físicas podem melhorar significativamente a latência para consultas individuais, melhorar a produção de pedidos simultâneos tratados por unidade de escala e minimizar os custos necessários para satisfazer a consulta. Para obter mais informações sobre os DMVs de índice em falta, consulte [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+A principal perceção é que a capacidade de IO de um sistema de mercadorias partilhado é mais limitada do que a de uma máquina de servidor dedicada. Há um prémio em minimizar iO desnecessário para tirar o máximo partido do sistema nos recursos de cada tamanho de cálculo dos níveis de serviço. Escolhas adequadas de conceção de bases de dados físicas podem melhorar significativamente a latência para consultas individuais, melhorar a produção de pedidos simultâneos tratados por unidade de escala e minimizar os custos necessários para satisfazer a consulta. Para obter mais informações sobre os DMVs de índice em falta, consulte [sys.dm_db_missing_index_details](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-missing-index-details-transact-sql).
 
 ### <a name="query-tuning-and-hinting"></a>Afinação de consultas e insinuações
 
@@ -232,7 +232,7 @@ ORDER BY start_time DESC
 
 Pode examinar **sys.resource_stats** para determinar se o recurso para um teste utiliza mais ou menos recursos do que outro teste. Quando comparar dados, separe o tempo dos testes de modo a que não estejam na mesma janela de 5 minutos na vista **sys.resource_stats.** O objetivo do exercício é minimizar a quantidade total de recursos utilizados, e não minimizar os recursos máximos. Geralmente, a otimização de um código para a latência também reduz o consumo de recursos. Certifique-se de que as alterações que faz a uma aplicação são necessárias e que as alterações não afetam negativamente a experiência do cliente para alguém que possa estar a usar dicas de consulta na aplicação.
 
-Se uma carga de trabalho tiver um conjunto de consultas repetidas, muitas vezes faz sentido capturar e validar a otimização das suas escolhas de plano, uma vez que conduz a unidade mínima de tamanho de recursos necessária para hospedar a base de dados. Depois de validá-lo, ocasionalmente reexamina os planos para ajudá-lo a garantir que eles não se degradaram. Pode saber mais sobre [dicas de consulta (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
+Se uma carga de trabalho tiver um conjunto de consultas repetidas, muitas vezes faz sentido capturar e validar a otimização das suas escolhas de plano, uma vez que conduz a unidade mínima de tamanho de recursos necessária para hospedar a base de dados. Depois de validá-lo, ocasionalmente reexamina os planos para ajudá-lo a garantir que eles não se degradaram. Pode saber mais sobre [dicas de consulta (Transact-SQL)](/sql/t-sql/queries/hints-transact-sql-query).
 
 ### <a name="very-large-database-architectures"></a>Arquiteturas de base de dados muito grandes
 

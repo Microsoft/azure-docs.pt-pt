@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166544"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789918"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ O diagrama a seguir ilustra um grupo de disponibilidade para o SQL Server em VMs
 
 ## <a name="vm-redundancy"></a>Redundância VM 
 
-Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade,](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)ou em [diferentes zonas de disponibilidade.](/azure/availability-zones/az-overview)
+Para aumentar a redundância e a elevada disponibilidade, os VMs do SQL Server devem estar no mesmo [conjunto de disponibilidade,](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)ou em [diferentes zonas de disponibilidade.](../../../availability-zones/az-overview.md)
 
 Um conjunto de disponibilidade é um agrupamento de recursos que são configurados de modo a que não haja dois terrenos na mesma zona de disponibilidade. Isto evita o impacto de múltiplos recursos no grupo durante os lançamentos de implantação. 
 
@@ -49,7 +49,7 @@ Numa implantação tradicional no local, os clientes conectam-se ao ouvinte do g
 Com o SQL Server em VMs Azure, configurar um equilibrador de carga para [encaminhar](availability-group-vnn-azure-load-balancer-configure.md) o tráfego para o seu ouvinte do grupo de disponibilidade, ou, se estiver no SQL Server 2019 CU8 e mais tarde, pode configurar um [ouvinte de rede distribuído (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) para substituir o ouvinte de grupo de disponibilidade tradicional VNN. 
 
 
-### <a name="vnn-listener"></a>Ouvinte da VNN 
+### <a name="vnn-listener"></a>Serviço de escuta VNN 
 
 Utilize um Balançador de [Carga Azure](../../../load-balancer/load-balancer-overview.md) para encaminhar o tráfego do cliente para o tradicional nome de rede virtual de grupo de disponibilidade (VNN) na rede Azure. 
 
@@ -57,7 +57,7 @@ O equilibrador de carga contém os endereços IP para o ouvinte VNN. Se tiver ma
 
 Para começar, consulte [configurar um equilibrador de carga.](availability-group-vnn-azure-load-balancer-configure.md) 
 
-### <a name="dnn-listener"></a>Ouvinte do DNN
+### <a name="dnn-listener"></a>Serviço de escuta DNN
 
 SQL Server 2019 CU8 introduz suporte para o ouvinte de rede distribuído (DNN). O ouvinte do DNN substitui o ouvinte tradicional do grupo de disponibilidade, negando a necessidade de um Azure Loud Balancer para encaminhar o tráfego na rede Azure. 
 
@@ -74,7 +74,7 @@ Existem múltiplas opções para implementar um grupo de disponibilidade para SQ
 
 O quadro a seguir fornece uma comparação das opções disponíveis: 
 
-| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Grandes Empresas |Grandes Empresas |Grandes Empresas |Enterprise, Standard|
@@ -83,7 +83,7 @@ O quadro a seguir fornece uma comparação das opções disponíveis:
 |**Cria o grupo de disponibilidade para si** |Sim |Não|Não|Não|
 |**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Sim|
 |**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Sim|
-|**WSFC quórum configuratio**n|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
+|**WSFC quórum configuratio** n|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
 |**DR com várias regiões** |Não|Não|Não|Sim|
 |**Suporte multi-subscrição** |Sim|Sim|Sim|Sim|
 |**Apoio a um AD existente**|Sim|Sim|Sim|Sim|
@@ -100,6 +100,6 @@ Num cluster de ativação pós-falha convidado da VM IaaS do Azure, recomendamos
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Reveja as [melhores práticas hadr](hadr-cluster-best-practices.md) e, em seguida, inicie a implementação do seu grupo de disponibilidade utilizando o [portal Azure](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell,](availability-group-az-cli-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md) ou [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
+Reveja as [melhores práticas hadr](hadr-cluster-best-practices.md) e, em seguida, inicie a implementação do seu grupo de disponibilidade utilizando o [portal Azure](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md) ou [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Em alternativa, pode implantar um [grupo de disponibilidade sem clusters](availability-group-clusterless-workgroup-configure.md) ou um grupo de disponibilidade em [várias regiões.](availability-group-manually-configure-multiple-regions.md) 
+Em alternativa, pode implantar um [grupo de disponibilidade sem clusters](availability-group-clusterless-workgroup-configure.md) ou um grupo de disponibilidade em [várias regiões.](availability-group-manually-configure-multiple-regions.md)

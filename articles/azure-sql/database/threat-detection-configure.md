@@ -10,17 +10,17 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: 678de4354012dcea5b954980109fd71c1004aca4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68ab5c820f3a67a7fd332557d47918d2a7aa4b62
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619292"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789425"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Configure proteção avançada de ameaças para base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[A Advanced Threat Protection](threat-detection-overview.md) for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados. A Advanced Threat Protection pode identificar **a injeção potencial de SQL**, acesso a partir de **localização incomum ou centro de dados**, **Acesso a aplicações principais ou potencialmente nocivas ,** e **credenciais de SQL da força bruta** - ver mais detalhes em [alertas de Proteção de Ameaças Avançadas](threat-detection-overview.md#alerts).
+[A Advanced Threat Protection](threat-detection-overview.md) for Azure SQL Database deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados. A Advanced Threat Protection pode identificar **a injeção potencial de SQL** , acesso a partir de **localização incomum ou centro de dados** , **Acesso a aplicações principais ou potencialmente nocivas ,** e **credenciais de SQL da força bruta** - ver mais detalhes em [alertas de Proteção de Ameaças Avançadas](threat-detection-overview.md#alerts).
 
 Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](threat-detection-overview.md#explore-detection-of-a-suspicious-event) ou [portal Azure](threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
@@ -29,7 +29,7 @@ Pode receber notificações sobre as ameaças detetadas através de [notificaç�
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Criar proteção avançada de ameaças no portal Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Navegue para a página de configuração do servidor que pretende proteger. Nas definições de segurança, selecione **Centro de Segurança**.
+2. Navegue para a página de configuração do servidor que pretende proteger. Nas definições de segurança, selecione **Centro de Segurança** .
 3. Na página de configuração do **Azure Defender:**
 
    - Ativar o Azure Defender no servidor.
@@ -45,5 +45,5 @@ Para um exemplo de script, consulte [a auditoria de Configuração e a Proteçã
 - Saiba mais sobre [a Proteção avançada de ameaças em SQL Casos Geridos](../managed-instance/threat-detection-configure.md).  
 - Saiba mais sobre [o Azure Defender para a SQL](azure-defender-for-sql.md).
 - Saiba mais sobre [auditoria](../../azure-sql/database/auditing-overview.md)
-- Saiba mais sobre [o Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Para obter mais informações sobre preços, consulte a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Saiba mais sobre [o Centro de Segurança Azure](../../security-center/security-center-introduction.md)
+- Para obter mais informações sobre preços, consulte a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)

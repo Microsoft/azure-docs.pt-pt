@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335076"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789612"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiros para bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 
 A maioria das métricas de espaço de armazenamento apresentadas no portal Azure e as seguintes APIs medem apenas o tamanho das páginas de dados usadas:
 
-- Métricas baseadas em recursos Azure APIs incluindo powerShell [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- Métricas baseadas em recursos Azure APIs incluindo powerShell [get-metrics](/powershell/module/az.monitor/get-azmetric)
+- T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço atribuído para bases de dados e piscinas elásticas:
 
-- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Redução de ficheiros de dados
 
@@ -148,7 +148,7 @@ Os resultados da consulta para determinar o espaço atribuído a cada base de da
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020. Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-O script PowerShell requer módulo POWERShell do servidor SQL – ver [módulo Download PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
+O script PowerShell requer módulo POWERShell do servidor SQL – ver [módulo Download PowerShell](/sql/powershell/download-sql-server-ps-module) para instalar.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -214,7 +214,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 Este comando pode ter impacto no desempenho da base de dados durante o seu funcionamento e, se possível, deve ser executado durante períodos de baixa utilização.  
 
-Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Redução automática
 
@@ -226,11 +226,11 @@ Para ativar a redução automática, modifique o nome da base de dados no seguin
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Para obter mais informações sobre este comando, consulte as opções [BASE DE BASE DE BASE.](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+Para obter mais informações sobre este comando, consulte as opções [BASE DE BASE DE BASE.](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
 
 ### <a name="rebuild-indexes"></a>Reconstruir índices
 
-Após os ficheiros de dados da base de dados serem encolhidos, os índices podem fragmentar-se e perder a sua eficácia de otimização de desempenho. Se ocorrer uma degradação do desempenho, considere a reconstrução dos índices de base de dados. Para obter mais informações sobre índices de fragmentação e reconstrução, consulte [Reorganizar e Reconstruir Índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+Após os ficheiros de dados da base de dados serem encolhidos, os índices podem fragmentar-se e perder a sua eficácia de otimização de desempenho. Se ocorrer uma degradação do desempenho, considere a reconstrução dos índices de base de dados. Para obter mais informações sobre índices de fragmentação e reconstrução, consulte [Reorganizar e Reconstruir Índices](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426843"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790581"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
@@ -32,10 +32,10 @@ Este artigo discute regras que se aplicam a entidades e APIs quando se desenvolv
 
 Para obter autorização para aceder aos recursos dos Serviços de Multimédia e à API dos Serviços de Multimédia, primeiro tem de se autenticar. Os Serviços de Multimédia suportam a autenticação baseada no [Azure Active Directory (AAD)](../../active-directory/fundamentals/active-directory-whatis.md). As duas opções de autenticação comuns são:
  
-* **Autenticação do principal de serviço**: utilizada para autenticar um serviço (por exemplo: aplicações Web, aplicações de funções, aplicações lógicas, API e microsserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
-* **Autenticação do utilizador**: utilizada para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos dos Serviços de Multimédia. A aplicação interativa deve primeiro pedir ao utilizador as suas credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto.
+* **Autenticação do principal de serviço** : utilizada para autenticar um serviço (por exemplo: aplicações Web, aplicações de funções, aplicações lógicas, API e microsserviços). As aplicações que normalmente utilizam este método de autenticação são aplicações que executam serviços daemon, serviços de camada média ou tarefas agendadas. Por exemplo, para aplicações web deve haver sempre um nível médio que se conecta aos Serviços de Mídia com um Principal de Serviço.
+* **Autenticação do utilizador** : utilizada para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos dos Serviços de Multimédia. A aplicação interativa deve primeiro pedir ao utilizador as suas credenciais. Um exemplo é uma aplicação da consola de gestão utilizada pelos utilizadores autorizados para monitorizar as tarefas de codificação ou a transmissão em direto.
 
-A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário**. É possível aceder à API com a função de **Leitor**, mas estarão disponíveis apenas as operações **Obter** ou **Listar**. Para obter mais informações, consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Comunicação Social](rbac-overview.md).
+A API dos Serviços de Multimédia exige que o utilizador ou a aplicação que faz os pedidos da API REST tenha acesso ao recurso da conta dos Serviços de Multimédia e utilize uma função de **Contribuidor** ou **Proprietário** . É possível aceder à API com a função de **Leitor** , mas estarão disponíveis apenas as operações **Obter** ou **Listar** . Para obter mais informações, consulte [o controlo de acesso baseado em funções (Azure RBAC) para contas de Serviços de Comunicação Social](rbac-overview.md).
 
 Em vez de criar um principal de serviço, considere utilizar identidades geridas para os recursos do Azure para aceder à API dos Serviços de Multimédia através do Azure Resource Manager. Para saber mais sobre as identidades geridas dos recursos do Azure, veja [O que são identidades geridas dos recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -109,11 +109,11 @@ Os Serviços de Comunicação Social têm as seguintes operações de longo praz
 * [Parar streamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Escala streamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-Após a submissão bem sucedida de uma longa operação, recebe um '202 Accepted' e deve sondar para conclusão da operação utilizando o ID de operação devolvido.
+Após a submissão bem sucedida de uma longa operação, recebe um '201 Criado' e deve sondar para conclusão da operação utilizando o ID de operação devolvido.
 
 O artigo [de operações assíncronas da Azure](../../azure-resource-manager/management/async-operations.md) explica em profundidade como acompanhar o estado das operações assíncronas do Azure através de valores devolvidos na resposta.
 
-Apenas uma operação de longa duração é suportada para um determinado Evento Ao Vivo ou qualquer uma das suas saídas ao vivo associadas. Uma vez iniciado, uma operação de longa duração deve ser concluída antes de iniciar uma operação de longo prazo subsequente no mesmo LiveEvent ou em quaisquer Saídas Ao Vivo associadas. Para eventos ao vivo com várias Saídas Ao Vivo, deve aguardar a conclusão de uma longa operação em execução numa Saída Ao Vivo antes de desencadear uma longa operação em execução em outra Saída Ao Vivo. 
+Apenas uma operação de longa duração é suportada para um determinado Evento Ao Vivo ou qualquer uma das suas saídas ao vivo associadas. Uma vez iniciado, uma operação de longa duração deve ser concluída antes de iniciar uma operação de longo prazo subsequente no mesmo LiveEvent ou em quaisquer Saídas Ao Vivo associadas. Para eventos ao vivo com várias Saídas Ao Vivo, deve aguardar a conclusão de uma longa operação em execução numa Saída Ao Vivo antes de desencadear uma longa operação em execução em outra Saída Ao Vivo.
 
 ## <a name="sdks"></a>SDKs
 

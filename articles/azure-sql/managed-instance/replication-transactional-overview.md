@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283246"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790819"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,11 +35,11 @@ Pode utilizar a replicação transacional para impulsionar as alterações efetu
 - Uma base de dados de casos em Azure SQL GestdEd Instance
 
   > [!NOTE]
-  > Para utilizar todas as funcionalidades do Azure SQL Managed Instance, deve utilizar as versões mais recentes do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e das Ferramentas de [Dados do Servidor SQL (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > Para utilizar todas as funcionalidades do Azure SQL Managed Instance, deve utilizar as versões mais recentes do [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) e das Ferramentas de [Dados do Servidor SQL (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### <a name="components"></a>Componentes
 
-Os componentes-chave na replicação transacional são o **Editor,** **Distribuidor**e **Assinante,** como mostra a seguinte imagem:  
+Os componentes-chave na replicação transacional são o **Editor,** **Distribuidor** e **Assinante,** como mostra a seguinte imagem:  
 
 ![replicação com Base de Dados SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -65,21 +65,21 @@ Azure SQL Managed Instance pode suportar ser assinante a partir das seguintes ve
 
    > [!NOTE]
    >
-   > - Para outras versões do SQL Server que não suportam a publicação de objetos em Azure, é possível utilizar o método de [dados de republicação](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server.
+   > - Para outras versões do SQL Server que não suportam a publicação de objetos em Azure, é possível utilizar o método de [dados de republicação](/sql/relational-databases/replication/republish-data) para mover dados para versões mais recentes do SQL Server.
    > - Tentar configurar a replicação utilizando uma versão mais antiga pode resultar em número de erro MSSQL_REPL20084 (O processo não conseguiu ligar-se ao Assinante.) e MSSQ_REPL40532 (Não pode abrir o servidor \<name> solicitado pelo login. O login falhou.)
 
 ### <a name="types-of-replication"></a>Tipos de replicação
 
-Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+Existem diferentes [tipos de replicação:](/sql/relational-databases/replication/types-of-replication)
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim |
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
-| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim |
+| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
+| [**Fusão de replicação**](/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
+| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas updatable**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matriz de Apoio
@@ -89,10 +89,10 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
 | **Publisher**   | **Distribuidor** | **Assinante** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
-| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
-| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
 | SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
 | SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -148,7 +148,7 @@ Nesta configuração, uma base de dados na Base de Dados Azure SQL ou Azure SQL 
 - Configure a VPN a espreitar entre as redes virtuais de participantes de replicação se as redes virtuais forem diferentes.
 
 > [!NOTE]
-> Pode encontrar o erro 53 ao ligar-se a um Ficheiro de Armazenamento Azure se a porta 445 do grupo de segurança da rede de saída (NSG) estiver bloqueada quando o distribuidor for uma base de dados de instância gerida Azure SQL e o assinante estiver no local. [Atualize o vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver este problema.
+> Pode encontrar o erro 53 ao ligar-se a um Ficheiro de Armazenamento Azure se a porta 445 do grupo de segurança da rede de saída (NSG) estiver bloqueada quando o distribuidor for uma base de dados de instância gerida Azure SQL e o assinante estiver no local. [Atualize o vNet NSG](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) para resolver este problema.
 
 ## <a name="with-failover-groups"></a>Com grupos de failover
 
@@ -196,16 +196,16 @@ Para obter mais informações sobre a configuração da replicação transaciona
 
 - [Configure a replicação entre um editor de exemplos geridos sql e assinante](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Configure a replicação entre um editor de instância gerida SQL, distribuidor de instância gerida SQL e subscritor do SQL Server](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Criar uma publicação.](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) utilizando o nome do servidor como assinante (por `N'azuresqldbdns.database.windows.net` exemplo, e a base de dados no nome Azure SQL Database como base de dados de destino (por exemplo, **Adventureworks**. )
+- [Criar uma publicação.](/sql/relational-databases/replication/publish/create-a-publication)
+- [Crie uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription) utilizando o nome do servidor como assinante (por `N'azuresqldbdns.database.windows.net` exemplo, e a base de dados no nome Azure SQL Database como base de dados de destino (por exemplo, **Adventureworks** . )
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Ver também  
 
 - [Replicação com uma SQL Managed Instance e um grupo de failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replicação para a Base de Dados SQL](../database/replication-to-sql-database.md)
 - [Replicação para instância gerida](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) (Tipos de Replicação)
-- [Monitorização (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma Subscrição](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Criar uma Publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Criar uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Types of Replication](/sql/relational-databases/replication/types-of-replication) (Tipos de Replicação)
+- [Monitorização (Replicação)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma Subscrição](/sql/relational-databases/replication/initialize-a-subscription)

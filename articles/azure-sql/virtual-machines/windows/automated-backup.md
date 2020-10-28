@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a7d96c13b47bee9c092be926dc54555979e6c6f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565144"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790122"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91565144"
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016 +](automated-backup.md)
 
-Cópia de segurança automatizada v2 configura automaticamente [Cópia de Segurança Gerida para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas as bases de dados existentes e novas num Azure VM que executa edições SQL Server 2016 ou posteriormente Standard, Enterprise ou Developer. Isto permite-lhe configurar cópias de dados regulares que utilizam o armazenamento de bolhas Azure duráveis. O backup automatizado v2 depende da [infraestrutura do SQL Server como extensão do agente de serviço (IaaS).](sql-server-iaas-agent-extension-automate-management.md)
+Cópia de segurança automatizada v2 configura automaticamente [Cópia de Segurança Gerida para o Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) para todas as bases de dados existentes e novas num Azure VM que executa edições SQL Server 2016 ou posteriormente Standard, Enterprise ou Developer. Isto permite-lhe configurar cópias de dados regulares que utilizam o armazenamento de bolhas Azure duráveis. O backup automatizado v2 depende da [infraestrutura do SQL Server como extensão do agente de serviço (IaaS).](sql-server-iaas-agent-extension-automate-management.md)
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -47,7 +47,7 @@ Para utilizar o Backup Automatizado v2, reveja os seguintes pré-requisitos:
 
 **Configuração da base de dados:**
 
-- As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](https://technet.microsoft.com/library/ms190217.aspx). 
+- As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
 - O SQL Server VM foi registado com o fornecedor de recursos SQL VM em [modo de gestão completa.](sql-vm-resource-provider-register.md#upgrade-to-full) 
 -  A cópia de segurança automatizada baseia-se na extensão completa do [agente iaaS do sql Server](sql-server-iaas-agent-extension-automate-management.md). Como tal, a cópia de segurança automatizada é suportada apenas em bases de dados-alvo a partir da instância padrão, ou numa única instância nomeada. Se não houver instância padrão e várias instâncias nomeadas, a extensão SQL IaaS falha e a cópia de segurança automatizada não funcionará. 
 
@@ -117,7 +117,7 @@ Então, na terça-feira, às 10:00, por 6 horas, as cópias de segurança comple
 
 Utilize o portal Azure para configurar o Backup Automatizado v2 quando criar uma nova máquina virtual SQL Server 2016 ou 2017 no modelo de implementação do Gestor de Recursos.
 
-No separador definições do **SQL Server,** selecione **Ative** under **Automated backup**. A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
+No separador definições do **SQL Server,** selecione **Ative** under **Automated backup** . A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
 
 ![Configuração de backup automatizado SQL no portal Azure](./media/automated-backup/automated-backup-blade.png)
 
@@ -158,7 +158,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do Agente IAAS do SQL Server estiver instalada, deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". **O Estado de Provisioning** para a extensão também deve mostrar "Bem sucedido". 
 
-Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região (**$region**) em que o seu VM está localizado.
+Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região ( **$region** ) em que o seu VM está localizado.
 
 ```powershell
 $region = "EASTUS2"
@@ -310,22 +310,21 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 Para monitorizar a Cópia de Segurança Automatizada no SQL Server 2016/2017, tem duas opções principais. Como a Cópia de Segurança Automatizada utiliza a funcionalidade de Backup Gerida pelo Servidor SQL, as mesmas técnicas de monitorização aplicam-se a ambas.
 
-Em primeiro lugar, pode sondar o estado chamando [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.managed_backup.fn_get_health_status-valued.](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql)
+Em primeiro lugar, pode sondar o estado chamando [msdb.managed_backup.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.managed_backup.fn_get_health_status-valued.](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql)
 
 Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorporada para notificações.
 
-1. Ligue para o procedimento armazenado [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de e-mail ao parâmetro **SSMBackup2WANotificationEmailIds.** 
+1. Ligue para o procedimento armazenado [msdb.managed_backup.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de e-mail ao parâmetro **SSMBackup2WANotificationEmailIds.** 
 1. Ativar [a SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar os e-mails do Azure VM.
-1. Utilize o servidor SMTP e o nome de utilizador para configurar o Correio da Base de Dados. Pode configurar o Correio da Base de Dados no SQL Server Management Studio ou com comandos Transact-SQL. Para mais informações, consulte [o Correio da Base de Dados.](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)
-1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Utilize o servidor SMTP e o nome de utilizador para configurar o Correio da Base de Dados. Pode configurar o Correio da Base de Dados no SQL Server Management Studio ou com comandos Transact-SQL. Para mais informações, consulte [o Correio da Base de Dados.](/sql/relational-databases/database-mail/database-mail)
+1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verifique se a porta SMTP é permitida tanto através da firewall VM local como do grupo de segurança da rede para o VM.
 
 ## <a name="next-steps"></a>Passos seguintes
-Cópia de segurança automatizada v2 configuras Cópias de Segurança Geridas em VMs Azure. Por isso, é importante [rever a documentação para o Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e as implicações.
+Cópia de segurança automatizada v2 configuras Cópias de Segurança Geridas em VMs Azure. Por isso, é importante [rever a documentação para o Managed Backup](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) para entender o comportamento e as implicações.
 
 Pode encontrar cópias de segurança adicionais e restaurar a orientação para o SQL Server em VMs Azure no seguinte artigo: [Cópia de segurança e restauro para o SQL Server em máquinas virtuais Azure](backup-restore.md).
 
 Para obter informações sobre outras tarefas de automatização disponíveis, consulte [a extensão do agente iaaS do servidor SQL.](sql-server-iaas-agent-extension-automate-management.md)
 
 Para obter mais informações sobre a execução do SQL Server em VMs Azure, consulte [o SQL Server na visão geral das máquinas virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
-

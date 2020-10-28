@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850970"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789068"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações
 
@@ -50,7 +50,7 @@ Para proteger o seu plano de Serviço de Aplicações Azure com o Azure Defender
 O Security Center está nativamente integrado com o Serviço de Aplicações, eliminando a necessidade de implantação e embarque - a integração é transparente.
 
 >[!NOTE]
-> A página de preços e definições lista uma série de casos para a sua **Quantidade de Recursos**. Isto representa o número total de instâncias computacional, em todos os planos do Serviço de Aplicações nesta subscrição, em execução no momento em que abriu a página do nível de preços.
+> A página de preços e definições lista uma série de casos para a sua **Quantidade de Recursos** . Isto representa o número total de instâncias computacional, em todos os planos do Serviço de Aplicações nesta subscrição, em execução no momento em que abriu a página do nível de preços.
 >
 > O Azure App Service oferece uma variedade de planos. O seu plano de Serviço de Aplicações define o conjunto de recursos computacionares para uma aplicação web a executar. Estes são equivalentes a fazendas de servidores em hospedagem web convencional. Uma ou mais aplicações podem ser configuradas para funcionar nos mesmos recursos informáticos (ou no mesmo plano de Serviço de Aplicações).
 >
@@ -64,7 +64,7 @@ Neste artigo, você aprendeu sobre Azure Defender para o Serviço de Aplicaçõe
 
 Para obter material relacionado, consulte os seguintes artigos: 
 
-- Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center a partir de um produto de segurança diferente, você pode exportá-lo. Para exportar os seus alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md).
+- Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center a partir de um produto de segurança diferente, você pode exportá-lo. Para exportar os seus alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas stream para uma solução siem, soar ou it service Management](export-to-siem.md).
 - Para obter uma lista dos alertas do Serviço de Aplicações Azure, consulte a [tabela de alertas de referência.](alerts-reference.md#alerts-azureappserv)
 - Para obter mais informações sobre os planos do Serviço de Aplicações, consulte [os planos do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/plans/)
 - > [!div class="nextstepaction"]

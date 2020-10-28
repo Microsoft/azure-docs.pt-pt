@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af98811e158b9613e41389e08e19cb36797aa272
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271193"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790598"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Ligue para os pontos finais do REST utilizando apps Azure Logic
 
@@ -27,6 +27,8 @@ Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o conector HTT
   Normalmente, o ponto final REST deve satisfazer estes critérios para que o conector funcione:
 
   * O ficheiro Swagger deve ser hospedado num URL HTTPS acessível ao público.
+  
+  * O ficheiro Swagger deve conter uma `operationID` operação para cada operação na definição. Caso contrário, o conector só mostra a última operação no ficheiro Swagger. 
 
   * O ficheiro Swagger deve ter [a Partilha de Recursos de Origem Cruzada (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) ativada.
 
@@ -42,13 +44,13 @@ Com [as Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o conector HTT
 
 Este gatilho incorporado envia um pedido HTTP a um URL para um ficheiro Swagger que descreve uma API REST e devolve uma resposta que contém o conteúdo desse ficheiro.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica em branco no Logic App Designer.
 
 1. No designer, na caixa de pesquisa, introduza "swagger" como filtro. Na lista **De gatilhos,** selecione o gatilho **HTTP + Swagger.**
 
    ![Selecione HTTP + Gatilho swagger](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-1. Na caixa **URL SWAGGER ENDPOINT,** introduza o URL para o ficheiro Swagger e selecione **Next**.
+1. Na caixa **URL SWAGGER ENDPOINT,** introduza o URL para o ficheiro Swagger e selecione **Next** .
 
    Este exemplo utiliza o URL Swagger que está localizado na região oeste dos EUA para a [API de Serviços Cognitivos:](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
@@ -72,23 +74,23 @@ Este gatilho incorporado envia um pedido HTTP a um URL para um ficheiro Swagger 
 
 1. Continue a construir o fluxo de trabalho da sua aplicação lógica com ações que funcionam quando o gatilho dispara.
 
-1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save** .
 
 ## <a name="add-an-http--swagger-action"></a>Adicione uma ação HTTP + Swagger
 
 Esta ação incorporada faz um pedido HTTP ao URL para o ficheiro Swagger que descreve uma API REST e devolve uma resposta que contém o conteúdo desse ficheiro.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Abra a sua aplicação lógica no Logic App Designer.
 
-1. Sob o passo em que pretende adicionar a ação HTTP + Swagger, selecione **Novo passo**.
+1. Sob o passo em que pretende adicionar a ação HTTP + Swagger, selecione **Novo passo** .
 
-   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação**.
+   Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. Selecione o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação** .
 
 1. No designer, na caixa de pesquisa, introduza "swagger" como filtro. Na lista **de Ações,** selecione a ação **HTTP + Swagger.**
 
     ![Selecione HTTP + Ação swagger](./media/connectors-native-http-swagger/select-http-swagger-action.png)
 
-1. Na caixa **URL SWAGGER ENDPOINT,** introduza o URL para o ficheiro Swagger e selecione **Next**.
+1. Na caixa **URL SWAGGER ENDPOINT,** introduza o URL para o ficheiro Swagger e selecione **Next** .
 
    Este exemplo utiliza o URL Swagger que está localizado na região oeste dos EUA para a [API de Serviços Cognitivos:](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
@@ -110,7 +112,7 @@ Esta ação incorporada faz um pedido HTTP ao URL para o ficheiro Swagger que de
 
    Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP + Swagger, consulte [adicionar autenticação a chamadas de saída.](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 
-1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save**.
+1. Quando terminar, lembre-se de guardar a sua aplicação lógica. Na barra de ferramentas do designer, **selecione Save** .
 
 <a name="host-swagger"></a>
 
@@ -120,7 +122,7 @@ Pode fazer referência a um ficheiro Swagger que não esteja hospedado ou que n�
 
 1. [Criar uma conta de armazenamento Azure](../storage/common/storage-account-create.md).
 
-1. Agora ative o CORS para a bolha. No menu da sua conta de armazenamento, selecione **CORS**. No **separador de serviço Blob,** especifique estes valores e, em seguida, **selecione Guardar**.
+1. Agora ative o CORS para a bolha. No menu da sua conta de armazenamento, selecione **CORS** . No **separador de serviço Blob,** especifique estes valores e, em seguida, **selecione Guardar** .
 
    | Propriedade | Valor |
    |----------|-------|
@@ -133,7 +135,7 @@ Pode fazer referência a um ficheiro Swagger que não esteja hospedado ou que n�
 
    Embora este exemplo utilize o [portal Azure,](https://portal.azure.com)pode utilizar uma ferramenta como [o Azure Storage Explorer,](https://storageexplorer.com/)ou configurar automaticamente esta definição utilizando esta amostra [de script PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
-1. [Criar um recipiente blob](../storage/blobs/storage-quickstart-blobs-portal.md). No painel de **visão geral** do recipiente, selecione Alterar o **nível de acesso**. A partir da lista de **níveis de acesso do Público,** selecione **Blob (acesso anónimo apenas para bolhas)** e selecione **OK**.
+1. [Criar um recipiente blob](../storage/blobs/storage-quickstart-blobs-portal.md). No painel de **visão geral** do recipiente, selecione Alterar o **nível de acesso** . A partir da lista de **níveis de acesso do Público,** selecione **Blob (acesso anónimo apenas para bolhas)** e selecione **OK** .
 
 1. [Faça o upload do ficheiro Swagger para o recipiente blob](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), seja através do [portal Azure](https://portal.azure.com) ou [do Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -166,4 +168,3 @@ Aqui está mais informações sobre as saídas de um disparador http + swagger o
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)
-

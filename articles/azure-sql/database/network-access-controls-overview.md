@@ -12,16 +12,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: be327fabdffc0f98dc0449b51e7e4d73651d80d8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952000"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789493"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede
 
-Quando cria um servidor SQL lógico a partir do [portal Azure](single-database-create-quickstart.md) sql Database e Azure Synapse Analytics, o resultado é um ponto final público no formato, *yourservername.database.windows.net*.
+Quando cria um servidor SQL lógico a partir do [portal Azure](single-database-create-quickstart.md) sql Database e Azure Synapse Analytics, o resultado é um ponto final público no formato, *yourservername.database.windows.net* .
 
 Pode utilizar os seguintes controlos de acesso à rede para permitir o acesso seletivamente a uma base de dados através do ponto final público:
 
@@ -34,7 +34,7 @@ Também pode permitir o acesso privado à base de dados a partir de [redes virtu
 - Link Privado: Utilize esta funcionalidade para criar um ponto final privado para [o servidor SQL lógico](logical-servers.md) dentro de uma rede virtual específica
 
 > [!IMPORTANT]
-> Este artigo *não* se aplica à **SQL Managed Instance**. Para obter mais informações sobre a configuração da rede, consulte [a ligação ao Azure SQL Managed Instance](../managed-instance/connect-application-instance.md) .
+> Este artigo *não* se aplica à **SQL Managed Instance** . Para obter mais informações sobre a configuração da rede, consulte [a ligação ao Azure SQL Managed Instance](../managed-instance/connect-application-instance.md) .
 
 Veja o vídeo abaixo para obter uma explicação de alto nível destes controlos de acesso e o que fazem:
 
@@ -42,7 +42,7 @@ Veja o vídeo abaixo para obter uma explicação de alto nível destes controlos
 
 ## <a name="allow-azure-services"></a>Permitir serviços Azure
 
-Por predefinição durante a criação de um novo servidor lógico SQL [a partir do portal Azure,](single-database-create-quickstart.md)esta definição está definida para **OFF**. Esta definição aparece quando a conectividade é permitida usando o ponto final de serviço público.
+Por predefinição durante a criação de um novo servidor lógico SQL [a partir do portal Azure,](single-database-create-quickstart.md)esta definição está definida para **OFF** . Esta definição aparece quando a conectividade é permitida usando o ponto final de serviço público.
 
 Também pode alterar esta definição através do painel de firewall depois de o servidor lógico SQL ser criado da seguinte forma.
   
@@ -56,7 +56,7 @@ No entanto, ao fazê-lo afeta as seguintes funcionalidades que funcionam em máq
 
 ### <a name="import-export-service"></a>Serviço de Exportação de Importações
 
-O Serviço de Exportação de Importações não funciona quando **o acesso aos serviços Azure** está definido para **OFF**. No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente no seu código utilizando a API DACFx.
+O Serviço de Exportação de Importações não funciona quando **o acesso aos serviços Azure** está definido para **OFF** . No entanto, pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](./database-import-export-azure-services-off.md) diretamente no seu código utilizando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
 
@@ -110,7 +110,7 @@ A firewall baseada em IP é uma característica do servidor lógico SQL em Azure
 
 ## <a name="virtual-network-firewall-rules"></a>Regras de firewall de rede virtual
 
-Além das regras ip, a firewall do servidor permite definir *regras de rede virtuais*.  
+Além das regras ip, a firewall do servidor permite definir *regras de rede virtuais* .  
 Para saber mais, consulte [os pontos finais e regras do serviço de rede virtual para a Base de Dados Azure SQL](vnet-service-endpoint-rule-overview.md) ou veja este vídeo:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
@@ -138,7 +138,7 @@ As regras de rede virtual são mais fáceis de estabelecer e gerir o acesso a pa
 > [!NOTE]
 > Ainda não é possível ter base de dados SQL numa sub-rede. Se o seu servidor fosse um nó numa sub-rede na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados SQL. Neste caso, os seus VMs podem comunicar com a SQL Database sem precisar de quaisquer regras de rede virtuais ou regras de IP.
 
-## <a name="private-link"></a>Ligação Privada
+## <a name="private-link"></a>Private Link
 
 O Private Link permite-lhe ligar-se a um servidor através de um **ponto final privado.** Um ponto final privado é um endereço IP privado dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md) específica e sub-rede.
 
@@ -148,7 +148,7 @@ O Private Link permite-lhe ligar-se a um servidor através de um **ponto final p
 
 - Para iniciar rapidamente a criação de uma regra de firewall de rede virtual ao nível do servidor, consulte [os pontos finais e regras do serviço de rede virtual para a Base de Dados Azure SQL](vnet-service-endpoint-rule-overview.md).
 
-- Para obter ajuda para se ligar a uma base de dados na Base de Dados SQL a partir de aplicações de código aberto ou de terceiros, consulte [as amostras de código quickstart do Cliente para a Base de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Para obter ajuda para se ligar a uma base de dados na Base de Dados SQL a partir de aplicações de código aberto ou de terceiros, consulte [as amostras de código quickstart do Cliente para a Base de Dados SQL](/previous-versions/azure/ee336282(v=azure.100)).
 
 - Para obter informações sobre portas adicionais que possa ter de abrir, consulte a **Base de Dados SQL: Fora vs secção interna** de Portos para além de [1433 para ADO.NET 4.5 e SQL Database](adonet-v12-develop-direct-route-ports.md)
 
@@ -159,4 +159,3 @@ O Private Link permite-lhe ligar-se a um servidor através de um **ponto final p
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
- 

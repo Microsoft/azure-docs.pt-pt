@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 18f717ca05e93c9a8f06ac8868e9a6e5ff80eadb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91355538"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790751"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Quickstart: Restaurar uma base de dados para Azure SQL Caso Gerido com SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,14 +35,14 @@ Neste quickstart, você usará o SQL Server Management Studio (SSMS) para restau
 Este guia de início rápido:
 
 - Utiliza recursos da [Create a managed instance](instance-create-quickstart.md) quickstart.
-- Requer a versão mais recente do [SSMS](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) instalada.
+- Requer a versão mais recente do [SSMS](/sql/ssms/sql-server-management-studio-ssms) instalada.
 - Requer a utilização de SSMS para ligar à SQL Managed Instance. Consulte estes quickstarts sobre como ligar:
   - [Ativar um ponto final público](public-endpoint-configure.md) em SQL Managed Instance - esta é a abordagem recomendada para este tutorial.
   - [Ligue-se à SQL Managed Instance a partir de um Azure VM](connect-vm-instance-configure.md).
   - [Configure uma ligação ponto-a-local com a SQL Managed Instance a partir do local](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> Para obter mais informações sobre o backup e restauro de uma base de dados do SQL Server utilizando o armazenamento Azure Blob e uma [chave assinatura de acesso partilhado (SAS),](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)consulte o [SQL Server Backup para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Para obter mais informações sobre o backup e restauro de uma base de dados do SQL Server utilizando o armazenamento Azure Blob e uma [chave assinatura de acesso partilhado (SAS),](../../storage/common/storage-sas-overview.md)consulte o [SQL Server Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-from-a-backup-file"></a>Restaurar a partir de um ficheiro de reserva
 
@@ -50,7 +50,7 @@ No SQL Server Management Studio, siga estes passos para restaurar a base de dado
 
 1. Abra o SSMS e ligue-se à sua instância gerida.
 2. No **Object Explorer,** clique com o botão direito na sua instância gerida e selecione **New Consulta** para abrir uma nova janela de consulta.
-3. Execute o seguinte script SQL, que utiliza uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) no seu caso gerido.
+3. Execute o seguinte script SQL, que utiliza uma conta de armazenamento pré-configurada e uma chave SAS para [criar uma credencial](/sql/t-sql/statements/create-credential-transact-sql) no seu caso gerido.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
@@ -88,15 +88,15 @@ No SQL Server Management Studio, siga estes passos para restaurar a base de dado
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Quando a restauração estiver concluída, consulte a base de dados no Object Explorer. Pode verificar se a restauração da base de dados está concluída utilizando a [vista sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
+7. Quando a restauração estiver concluída, consulte a base de dados no Object Explorer. Pode verificar se a restauração da base de dados está concluída utilizando a [vista sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
 
 > [!NOTE]
-> Uma operação de restauro de base de dados é assíncrol e recímível. Pode obter um erro no SQL Server Management Studio se a ligação se partir ou se expirar uma pausa. A Azure SQL Database continuará a tentar restaurar a base de dados em segundo plano, e pode acompanhar o progresso da restauração utilizando as [vistas sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
-> Em algumas fases do processo de restauro, você verá um identificador único em vez do nome da base de dados real nas vistas do sistema. Saiba mais sobre `RESTORE` as diferenças de comportamento de afirmação [aqui.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement)
+> Uma operação de restauro de base de dados é assíncrol e recímível. Pode obter um erro no SQL Server Management Studio se a ligação se partir ou se expirar uma pausa. A Azure SQL Database continuará a tentar restaurar a base de dados em segundo plano, e pode acompanhar o progresso da restauração utilizando as [vistas sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_operation_status.](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)
+> Em algumas fases do processo de restauro, você verá um identificador único em vez do nome da base de dados real nas vistas do sistema. Saiba mais sobre `RESTORE` as diferenças de comportamento de afirmação [aqui.](./transact-sql-tsql-differences-sql-server.md#restore-statement)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se, no passo 5, uma restauração da base de dados for terminada com o ID 22003 da mensagem, crie um novo ficheiro de backup contendo as cópias de segurança e efetue novamente a restauração. Consulte [Ativar ou desativar as contas de cópia de segurança durante a cópia de segurança ou restaurar](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
-- Para resolver problemas com uma cópia de segurança de um URL, consulte [o SQL Server Backup para as melhores práticas de URL e resolução de problemas](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Se, no passo 5, uma restauração da base de dados for terminada com o ID 22003 da mensagem, crie um novo ficheiro de backup contendo as cópias de segurança e efetue novamente a restauração. Consulte [Ativar ou desativar as contas de cópia de segurança durante a cópia de segurança ou restaurar](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+- Para resolver problemas com uma cópia de segurança de um URL, consulte [o SQL Server Backup para as melhores práticas de URL e resolução de problemas](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - Para obter uma visão geral das opções de ligação de aplicações, consulte [Connect your applications to SQL Managed Instance](connect-application-instance.md).
 - Para consultar as suas ferramentas ou idiomas favoritos, consulte [Quickstarts: Azure SQL Database connect and questionry](../database/connect-query-content-reference-guide.md).

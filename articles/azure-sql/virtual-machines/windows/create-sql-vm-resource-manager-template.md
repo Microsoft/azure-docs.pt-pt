@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88660212"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789782"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Quickstart: Criar VM do servidor SQL usando um modelo ARM
 
@@ -20,7 +20,7 @@ Utilize este modelo de Gestor de Recursos Azure (modelo ARM) para implantar um s
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -58,26 +58,26 @@ Mais SQL Server em modelos Azure VM pode ser encontrado na galeria de [modelos q
 
 2. Selecione ou introduza os seguintes valores.
 
-    * **Assinatura**: Selecione uma subscrição Azure.
-    * **Grupo de recursos**: O grupo de recursos preparado para o seu SQL Server VM. 
-    * **Região**: Selecione uma região.  Por exemplo, **E.U.A. Central**.
-    * **Nome da máquina virtual**: Introduza um nome para máquina virtual SQL Server. 
-    * **Tamanho da máquina virtual**: Escolha o tamanho adequado para a sua máquina virtual a partir do drop-down.
-    * **Nome de rede virtual existente**: Introduza o nome da rede virtual preparada para o seu SQL Server VM. 
-    * **Grupo de Recursos Vnet existente**: Insira o grupo de recursos onde a sua rede virtual foi preparada. 
-    * Nome da **sub-rede existente**: O nome da sua sub-rede preparada. 
-    * **Oferta de imagem**: Escolha a imagem do SQL Server e do Windows Server que melhor se adapte às necessidades do seu negócio. 
-    * **SQL Sku**: Escolha a edição do SQL Server SKU que melhor se adapte às necessidades do seu negócio. 
-    * **Nome de utilizador Admin**: O nome de utilizador para o administrador da máquina virtual. 
-    * **Admin Password**: A palavra-passe utilizada pela conta de administrador VM. 
-    * **Tipo de carga de trabalho de armazenamento**: O tipo de armazenamento para a carga de trabalho que melhor combina com o seu negócio. 
-    * **Contagem de discos de dados sql**: O número de discos que o SQL Server utiliza para ficheiros de dados.  
-    * **Caminho dos dados**: O caminho para os ficheiros de dados do SQL Server. 
-    * **Contagem de discos de log sql**: O número de discos que o SQL Server utiliza para ficheiros de registo. 
-    * **Log Path**: O caminho para os ficheiros de registo do SQL Server. 
-    * **Localização**: A localização de todos os recursos, este valor deve continuar a ser o padrão de `[resourceGroup().location]` . 
+    * **Assinatura** : Selecione uma subscrição Azure.
+    * **Grupo de recursos** : O grupo de recursos preparado para o seu SQL Server VM. 
+    * **Região** : Selecione uma região.  Por exemplo, **E.U.A. Central** .
+    * **Nome da máquina virtual** : Introduza um nome para máquina virtual SQL Server. 
+    * **Tamanho da máquina virtual** : Escolha o tamanho adequado para a sua máquina virtual a partir do drop-down.
+    * **Nome de rede virtual existente** : Introduza o nome da rede virtual preparada para o seu SQL Server VM. 
+    * **Grupo de Recursos Vnet existente** : Insira o grupo de recursos onde a sua rede virtual foi preparada. 
+    * Nome da **sub-rede existente** : O nome da sua sub-rede preparada. 
+    * **Oferta de imagem** : Escolha a imagem do SQL Server e do Windows Server que melhor se adapte às necessidades do seu negócio. 
+    * **SQL Sku** : Escolha a edição do SQL Server SKU que melhor se adapte às necessidades do seu negócio. 
+    * **Nome de utilizador Admin** : O nome de utilizador para o administrador da máquina virtual. 
+    * **Admin Password** : A palavra-passe utilizada pela conta de administrador VM. 
+    * **Tipo de carga de trabalho de armazenamento** : O tipo de armazenamento para a carga de trabalho que melhor combina com o seu negócio. 
+    * **Contagem de discos de dados sql** : O número de discos que o SQL Server utiliza para ficheiros de dados.  
+    * **Caminho dos dados** : O caminho para os ficheiros de dados do SQL Server. 
+    * **Contagem de discos de log sql** : O número de discos que o SQL Server utiliza para ficheiros de registo. 
+    * **Log Path** : O caminho para os ficheiros de registo do SQL Server. 
+    * **Localização** : A localização de todos os recursos, este valor deve continuar a ser o padrão de `[resourceGroup().location]` . 
 
-3. Selecione **Rever + criar**. Depois de o SQL Server VM ter sido implementado com sucesso, recebe uma notificação.
+3. Selecione **Rever + criar** . Depois de o SQL Server VM ter sido implementado com sucesso, recebe uma notificação.
 
 O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar a Azure PowerShell, o Azure CLI e a REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -92,7 +92,7 @@ read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos utilizando o Azure CLI ou o Azure PowerShell:
 
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Crie e implemente o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Crie e implemente o seu primeiro modelo ARM](../../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Para outras formas de implementar um SQL Server VM, consulte: 
 - [Portal do Azure](create-sql-vm-portal.md)

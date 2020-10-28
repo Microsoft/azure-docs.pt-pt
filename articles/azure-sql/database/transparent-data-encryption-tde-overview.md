@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8fbbd7a2aabc9de417f1eefd2513edba3119bfc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441118"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791397"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [A encriptação de dados transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) ajuda a proteger a Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics contra a ameaça de atividade offline maliciosa, encriptando dados em repouso. Realiza a encriptação e desencriptação em tempo real da base de dados, cópias de segurança associadas e ficheiros de registo de transações inativos e não carece de alterações à aplicação. Por predefinição, o TDE está ativado para todas as bases de dados SQL recentemente implantadas e deve ser ativado manualmente para bases de dados mais antigas da Base de Dados Azure SQL, Azure SQL Managed Instance. O TDE deve ser ativado manualmente para o Azure Synapse Analytics.
 
-O TDE executa a encriptação e desencriptação em tempo real dos dados ao nível da página. Cada página é desencriptada quando é lida na memória e encriptada antes de ser escrita no disco. O TDE encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada Chave de Encriptação da Base de Dados (DEK). No arranque da base de dados, o DEK encriptado é desencriptado e depois utilizado para desencriptação e reencriminação dos ficheiros de base de dados no processo do motor do motor de base de dados sql Server. O DEK está protegido pelo protetor TDE. O protetor TDE é um certificado gerido pelo serviço (encriptação de dados transparente gerido pelo serviço) ou uma chave assimétrica armazenada no [Cofre da Chave Azure](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (encriptação de dados transparente gerida pelo cliente).
+O TDE executa a encriptação e desencriptação em tempo real dos dados ao nível da página. Cada página é desencriptada quando é lida na memória e encriptada antes de ser escrita no disco. O TDE encripta o armazenamento de uma base de dados inteira utilizando uma chave simétrica chamada Chave de Encriptação da Base de Dados (DEK). No arranque da base de dados, o DEK encriptado é desencriptado e depois utilizado para desencriptação e reencriminação dos ficheiros de base de dados no processo do motor do motor de base de dados sql Server. O DEK está protegido pelo protetor TDE. O protetor TDE é um certificado gerido pelo serviço (encriptação de dados transparente gerido pelo serviço) ou uma chave assimétrica armazenada no [Cofre da Chave Azure](../../key-vault/general/secure-your-key-vault.md) (encriptação de dados transparente gerida pelo cliente).
 
 Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao nível do [servidor](logical-servers.md) e é herdado por todas as bases de dados associadas a esse servidor. Para Azure SQL Managed Instance, o protetor TDE é definido ao nível de instância e é herdado por todas as bases de dados encriptadas nesse caso. O *servidor* de termo refere-se tanto ao servidor como à instância em todo este documento, a menos que indicado de forma diferente.
 
@@ -32,7 +32,7 @@ Para a Base de Dados Azure SQL e Azure Synapse, o protetor TDE é definido ao n�
 > Todas as bases de dados recentemente criadas na Base de Dados SQL são encriptadas por padrão utilizando encriptação de dados transparente gerida pelo serviço. As bases de dados SQL existentes criadas antes de maio de 2017 e as bases de dados SQL criadas através da restauração, da geo-replicação e da cópia da base de dados não são encriptadas por padrão. As bases de dados existentes de SqL Managed Instance criadas antes de fevereiro de 2019 não são encriptadas por padrão. Bases de dados SQL Managed Instance criadas através da restauração do estado de encriptação herdada da fonte.
 
 > [!NOTE]
-> O TDE não pode ser usado para encriptar bases de dados de sistemas, como a base de dados **principal,** na Base de Dados Azure SQL e na Azure SQL Managed Instance. A base de dados **principal** contém objetos necessários para realizar as operações do TDE nas bases de dados dos utilizadores.
+> O TDE não pode ser usado para encriptar bases de dados de sistemas, como a base de dados **principal,** na Base de Dados Azure SQL e na Azure SQL Managed Instance. A base de dados **principal** contém objetos necessários para realizar as operações do TDE nas bases de dados dos utilizadores. Recomenda-se não armazenar dados sensíveis nas bases de dados do sistema. [A encriptação da infraestrutura](transparent-data-encryption-byok-overview.md#doubleencryption) está agora a ser lançada, que encripta as bases de dados do sistema, incluindo o mestre. 
 
 ## <a name="service-managed-transparent-data-encryption"></a>Encriptação de dados transparentes gerida pelo serviço
 
@@ -42,7 +42,7 @@ A Microsoft também se move e gere as chaves conforme necessário para a geo-rep
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Encriptação de dados transparente gerida pelo cliente - Traga a sua própria chave
 
-O TDE gerido pelo cliente também é referido como suporte Bring Your Own Key (BYOK) para tDE. Neste cenário, o TDE Protetor que encripta o DEK é uma chave assimétrica gerida pelo cliente, que é armazenada num cofre de chaves Azure (sistema de gestão de chaves externo baseado na nuvem do Azure) e nunca sai do cofre chave. O Protetor TDE pode ser [gerado pelo cofre de chaves ou transferido para o cofre de uma chave a](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) partir de um dispositivo de segurança de hardware no local (HSM). Base de Dados SQL, SQL Managed Instance e Azure Synapse precisam de obter permissões para o cofre de chaves do cliente para desencriptar e encriptar o DEK. Se as permissões do servidor para o cofre de chaves forem revogadas, uma base de dados será inacessível e todos os dados são encriptados
+O TDE gerido pelo cliente também é referido como suporte Bring Your Own Key (BYOK) para tDE. Neste cenário, o TDE Protetor que encripta o DEK é uma chave assimétrica gerida pelo cliente, que é armazenada num cofre de chaves Azure (sistema de gestão de chaves externo baseado na nuvem do Azure) e nunca sai do cofre chave. O Protetor TDE pode ser [gerado pelo cofre de chaves ou transferido para o cofre de uma chave a](../../key-vault/keys/hsm-protected-keys.md) partir de um dispositivo de segurança de hardware no local (HSM). Base de Dados SQL, SQL Managed Instance e Azure Synapse precisam de obter permissões para o cofre de chaves do cliente para desencriptar e encriptar o DEK. Se as permissões do servidor para o cofre de chaves forem revogadas, uma base de dados será inacessível e todos os dados são encriptados
 
 Com a integração do TDE com a Azure Key Vault, os utilizadores podem controlar tarefas de gestão de chaves, incluindo rotações de chaves, permissões de cofre chave, cópias de segurança chave, e permitir a auditoria/reporte em todos os protetores TDE usando a funcionalidade Azure Key Vault. A Key Vault fornece uma gestão central de chaves, alavanca os HSMs rigorosamente monitorizados e permite a separação de deveres entre a gestão de chaves e dados para ajudar a cumprir as políticas de segurança.
 Para saber mais sobre a BYOK para Azure SQL Database e Azure Synapse, consulte [encriptação de dados transparente com a integração do Azure Key Vault](transparent-data-encryption-byok-overview.md).
@@ -91,7 +91,7 @@ Gerir o TDE utilizando o PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para configurar o TDE através do PowerShell, tem de estar ligado como Proprietário, Colaborador ou Gestor de Segurança da SQL.
 
@@ -101,14 +101,14 @@ Utilize os seguintes cmdlets para a Base de Dados Azure SQL e para a Azure Synap
 
 | Cmdlet | Descrição |
 | --- | --- |
-| [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Permite ou desativa encriptação de dados transparente para uma base de dados.|
-| [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Obtém o estado de encriptação de dados transparente para uma base de dados. |
-| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Verifica o progresso da encriptação para uma base de dados. |
-| [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Adiciona uma chave do Cofre chave a um servidor. |
-| [Get-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Recebe as chaves do Cofre chave para um servidor  |
-| [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Define o protetor de encriptação de dados transparente para um servidor. |
-| [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Obtém o protetor de encriptação de dados transparente |
-| [Remove-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Remove uma chave do cofre de uma servidora. |
+| [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Permite ou desativa encriptação de dados transparente para uma base de dados.|
+| [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Obtém o estado de encriptação de dados transparente para uma base de dados. |
+| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Verifica o progresso da encriptação para uma base de dados. |
+| [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Adiciona uma chave do Cofre chave a um servidor. |
+| [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Recebe as chaves do Cofre chave para um servidor  |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Define o protetor de encriptação de dados transparente para um servidor. |
+| [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Obtém o protetor de encriptação de dados transparente |
+| [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Remove uma chave do cofre de uma servidora. |
 |  | |
 
 > [!IMPORTANT]
@@ -138,17 +138,17 @@ Utilize o seguinte conjunto de comandos para Azure SQL Database e Azure Synapse:
 
 | Comando | Descrição |
 | --- | --- |
-|[Criar ou atualizar servidor](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Adiciona uma identidade do Azure Ative Directory a um servidor. (usado para conceder acesso ao Cofre-Chave)|
-|[Criar ou atualizar chave de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Adiciona uma chave do Cofre chave a um servidor.|
-|[Eliminar a tecla do servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Remove uma chave do cofre de uma servidora. |
-|[Obter chaves de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Obtém uma chave de cofre específica de um servidor.|
-|[Listar chaves de servidor por servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Recebe as chaves do Cofre de Chaves para um servidor. |
-|[Criar ou atualizar protetor de encriptação](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Define o protetor TDE para um servidor.|
-|[Obtenha protetor de encriptação](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Obtém o protetor TDE para um servidor.|
-|[Listar protetores de encriptação por servidor](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Obtém os protetores TDE para um servidor. |
-|[Criar ou atualizar configuração de encriptação de dados transparentes](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Ativa ou desativa o TDE para uma base de dados.|
-|[Obtenha configuração de encriptação de dados transparentes](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtém a configuração TDE para uma base de dados.|
-|[Lista resultados de configuração de encriptação de dados transparentes](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtém o resultado da encriptação de uma base de dados.|
+|[Criar ou atualizar servidor](/rest/api/sql/servers/createorupdate)|Adiciona uma identidade do Azure Ative Directory a um servidor. (usado para conceder acesso ao Cofre-Chave)|
+|[Criar ou atualizar chave de servidor](/rest/api/sql/serverkeys/createorupdate)|Adiciona uma chave do Cofre chave a um servidor.|
+|[Eliminar a tecla do servidor](/rest/api/sql/serverkeys/delete)|Remove uma chave do cofre de uma servidora. |
+|[Obter chaves de servidor](/rest/api/sql/serverkeys/get)|Obtém uma chave de cofre específica de um servidor.|
+|[Listar chaves de servidor por servidor](/rest/api/sql/serverkeys/listbyserver)|Recebe as chaves do Cofre de Chaves para um servidor. |
+|[Criar ou atualizar protetor de encriptação](/rest/api/sql/encryptionprotectors/createorupdate)|Define o protetor TDE para um servidor.|
+|[Obtenha protetor de encriptação](/rest/api/sql/encryptionprotectors/get)|Obtém o protetor TDE para um servidor.|
+|[Listar protetores de encriptação por servidor](/rest/api/sql/encryptionprotectors/listbyserver)|Obtém os protetores TDE para um servidor. |
+|[Criar ou atualizar configuração de encriptação de dados transparentes](/rest/api/sql/transparentdataencryptions/createorupdate)|Ativa ou desativa o TDE para uma base de dados.|
+|[Obtenha configuração de encriptação de dados transparentes](/rest/api/sql/transparentdataencryptions/get)|Obtém a configuração TDE para uma base de dados.|
+|[Lista resultados de configuração de encriptação de dados transparentes](/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtém o resultado da encriptação de uma base de dados.|
 
 ## <a name="see-also"></a>Consulte também
 
@@ -156,4 +156,4 @@ Utilize o seguinte conjunto de comandos para Azure SQL Database e Azure Synapse:
 - Para obter uma descrição geral do TDE, consulte [encriptação de dados transparentes](/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Para saber mais sobre o TDE com o suporte BYOK para Azure SQL Database, Azure SQL Managed Instance e Azure Synapse, consulte [encriptação de dados transparente com suporte Bring Your Own Key](transparent-data-encryption-byok-overview.md).
 - Para começar a utilizar o suporte TDE com o suporte bring your own key, consulte o guia de como fazer, Ligue a [encriptação de dados transparente utilizando a sua própria chave a partir do Key Vault](transparent-data-encryption-byok-configure.md).
-- Para obter mais informações sobre o Key Vault, consulte [acesso seguro a um cofre de chaves.](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
+- Para obter mais informações sobre o Key Vault, consulte [acesso seguro a um cofre de chaves.](../../key-vault/general/secure-your-key-vault.md)

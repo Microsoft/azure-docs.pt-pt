@@ -11,23 +11,23 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e5ab1f07473a2572f7fb228139da8670fd6269c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596970"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790360"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimização da monitorização e do desempenho na Base de Dados SQL do Azure e no Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Para monitorizar o desempenho de uma base de dados na Base de Dados Azure SQL e na Azure SQL Managed Instance, comece por monitorizar os recursos de CPU e IO utilizados pela sua carga de trabalho em relação ao nível de desempenho da base de dados que escolheu na seleção de um determinado nível de serviço e nível de desempenho. Para isso, a Azure SQL Database e a Azure SQL Managed Instance emitem métricas de recursos que podem ser vistas no portal Azure ou utilizando uma destas ferramentas de gestão do SQL Server: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) ou [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+Para monitorizar o desempenho de uma base de dados na Base de Dados Azure SQL e na Azure SQL Managed Instance, comece por monitorizar os recursos de CPU e IO utilizados pela sua carga de trabalho em relação ao nível de desempenho da base de dados que escolheu na seleção de um determinado nível de serviço e nível de desempenho. Para isso, a Azure SQL Database e a Azure SQL Managed Instance emitem métricas de recursos que podem ser vistas no portal Azure ou utilizando uma destas ferramentas de gestão do SQL Server: [Azure Data Studio](/sql/azure-data-studio/what-is) ou [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 A Azure SQL Database fornece uma série de Consultores de Bases de Dados para fornecer recomendações inteligentes de afinação de desempenho e opções de afinação automática para melhorar o desempenho. Além disso, o Query Performance Insight mostra-lhe detalhes sobre as consultas responsáveis pela utilização mais CPU e IO para bases de dados individuais e aglineadas.
 
 A Azure SQL Database e Azure SQL Managed Instance fornecem capacidades avançadas de monitorização e afinação apoiadas pela inteligência artificial para o ajudar na resolução de problemas e na maximização do desempenho das suas bases de dados e soluções. Pode optar por configurar a [exportação](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) de streaming destes [Insights Inteligentes](intelligent-insights-overview.md) e outros registos e métricas de recursos de base de dados para um dos vários destinos para consumo e análise, nomeadamente utilizando [a SQL Analytics](../../azure-monitor/insights/azure-sql.md). O Azure SQL Analytics é uma solução avançada de monitorização da nuvem para monitorizar o desempenho de todas as suas bases de dados em escala e em várias subscrições numa única vista. Para obter uma lista dos registos e métricas que pode exportar, consulte [a telemetria de diagnóstico para exportação](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-O SQL Server tem as suas próprias capacidades de monitorização e diagnóstico que a SQL Database e a SQL Managed Instance alavancam, tais como [loja de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) e [vistas dinâmicas de gestão (DMVs)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [a monitorização utilizando DMVs](monitoring-with-dmvs.md) para scripts para monitorizar uma variedade de problemas de desempenho.
+O SQL Server tem as suas próprias capacidades de monitorização e diagnóstico que a SQL Database e a SQL Managed Instance alavancam, tais como [loja de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) e [vistas dinâmicas de gestão (DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Consulte [a monitorização utilizando DMVs](monitoring-with-dmvs.md) para scripts para monitorizar uma variedade de problemas de desempenho.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Capacidades de monitorização e afinação no portal Azure
 
@@ -44,7 +44,7 @@ Pode monitorizar rapidamente uma variedade de métricas de recursos no portal Az
 
 ### <a name="database-advisors-in-azure-sql-database"></a>Assessores de base de dados na Base de Dados Azure SQL
 
-A Azure SQL Database inclui [consultores de base de dados](database-advisor-implement-performance-recommendations.md) que fornecem recomendações de afinação de desempenho para bases de dados individuais e agrâmias. Estas recomendações estão disponíveis no portal Azure, bem como através da utilização [do PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor). Também pode [ativar a sintonização automática para](automatic-tuning-overview.md) que o Azure SQL Database possa implementar automaticamente estas recomendações de afinação.
+A Azure SQL Database inclui [consultores de base de dados](database-advisor-implement-performance-recommendations.md) que fornecem recomendações de afinação de desempenho para bases de dados individuais e agrâmias. Estas recomendações estão disponíveis no portal Azure, bem como através da utilização [do PowerShell](/powershell/module/az.sql/get-azsqldatabaseadvisor). Também pode [ativar a sintonização automática para](automatic-tuning-overview.md) que o Azure SQL Database possa implementar automaticamente estas recomendações de afinação.
 
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Insight de desempenho de consulta na base de dados Azure SQL
 
@@ -99,29 +99,29 @@ Configura definições de diagnóstico para transmitir categorias de métricas e
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics espaço de trabalho no Azure Monitor
 
-Pode transmitir métricas e registos de recursos para um [espaço de trabalho Log Analytics no Azure Monitor](../../azure-monitor/platform/resource-logs-collect-workspace.md). Os dados transmitidos aqui podem ser consumidos pela [SQL Analytics,](../../azure-monitor/insights/azure-sql.md)que é uma solução de monitorização apenas na nuvem que fornece uma monitorização inteligente das suas bases de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitorização recolhidos e também permitem-lhe alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações.
+Pode transmitir métricas e registos de recursos para um [espaço de trabalho Log Analytics no Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Os dados transmitidos aqui podem ser consumidos pela [SQL Analytics,](../../azure-monitor/insights/azure-sql.md)que é uma solução de monitorização apenas na nuvem que fornece uma monitorização inteligente das suas bases de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitorização recolhidos e também permitem-lhe alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-Pode transmitir métricas e registos de recursos para [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md). Streaming de telemetria de diagnóstico para centros de eventos para fornecer a seguinte funcionalidade:
+Pode transmitir métricas e registos de recursos para [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Streaming de telemetria de diagnóstico para centros de eventos para fornecer a seguinte funcionalidade:
 
-- **Registos de fluxo para sistemas de registo e telemetria de terceiros**
+- **Transmita registos em fluxo para sistemas de registo e telemetria de terceiros**
 
   Transmita todas as suas métricas e registos de recursos para um único centro de eventos para registar dados de registo de tubos para uma ferramenta siem de terceiros ou ferramenta de análise de registo.
-- **Construir uma plataforma de telemetria e de registo personalizado**
+- **Crie uma plataforma de registo e telemetria personalizada**
 
   A natureza altamente escalável de publicação-subscrição dos centros de eventos permite-lhe ingerir métricas e registos de recursos de forma flexível numa plataforma de telemetria personalizada. Consulte [Designing e Dimensionamento de uma Plataforma global de Telemetria à Escala Global nos Hubs de Eventos Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para mais detalhes.
-- **Ver saúde do serviço através do streaming de dados para Power BI**
+- **Veja o estado de funcionamento do serviço ao transmitir dados em fluxo para o Power BI**
 
-  Utilize centros de eventos, Stream Analytics e Power BI para transformar os seus dados de diagnóstico em insights quase em tempo real nos seus serviços Azure. Consulte [Stream Analytics e Power BI: Um dashboard de análise em tempo real para transmitir dados](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard) para obter detalhes sobre esta solução.
+  Utilize centros de eventos, Stream Analytics e Power BI para transformar os seus dados de diagnóstico em insights quase em tempo real nos seus serviços Azure. Consulte [Stream Analytics e Power BI: Um dashboard de análise em tempo real para transmitir dados](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre esta solução.
 
 ### <a name="azure-storage"></a>Storage do Azure
 
-Transmita métricas e registos de recursos para [o Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md). Utilize o armazenamento Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
+Transmita métricas e registos de recursos para [o Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Utilize o armazenamento Azure para arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
 
 ## <a name="use-extended-events"></a>Use eventos prolongados 
 
-Além disso, pode utilizar [eventos estendidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) no SQL Server para monitorização e resolução de problemas avançados. A arquitetura de eventos alargados permite que os utilizadores recolham tanto ou tão poucos dados quanto necessários para resolver problemas ou identificar um problema de desempenho. Para obter informações sobre a utilização de eventos alargados na Base de Dados Azure SQL, consulte [eventos estendidos na Base de Dados Azure SQL](xevent-db-diff-from-svr.md).
+Além disso, pode utilizar [eventos estendidos](/sql/relational-databases/extended-events/extended-events) no SQL Server para monitorização e resolução de problemas avançados. A arquitetura de eventos alargados permite que os utilizadores recolham tanto ou tão poucos dados quanto necessários para resolver problemas ou identificar um problema de desempenho. Para obter informações sobre a utilização de eventos alargados na Base de Dados Azure SQL, consulte [eventos estendidos na Base de Dados Azure SQL](xevent-db-diff-from-svr.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

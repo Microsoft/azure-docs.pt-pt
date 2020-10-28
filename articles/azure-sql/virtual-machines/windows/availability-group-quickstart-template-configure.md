@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 204c7d756a13ed0427f06abfb56e3f1256df48bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168001"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789952"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utilize modelos de arranque rápido Azure para configurar um grupo de disponibilidade para O SQL Server em Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Embora este artigo utilize os modelos Azure Quickstart para configurar o ambient
 Para automatizar a configuração de um grupo de disponibilidade Always On utilizando modelos de arranque rápido, tem de ter os seguintes pré-requisitos: 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Uma ou mais VMs de domínio [em Azure executando SQL Server 2016 (ou mais tarde) Edição Empresarial](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) que estão na mesma zona de disponibilidade ou disponibilidade e que foram [registadas com o fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md).  
+- Uma ou mais VMs de domínio [em Azure executando SQL Server 2016 (ou mais tarde) Edição Empresarial](./create-sql-vm-portal.md) que estão na mesma zona de disponibilidade ou disponibilidade e que foram [registadas com o fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md).  
 - Dois endereços IP disponíveis (não utilizados por nenhuma entidade): um para o balançador de carga interno e outro para o ouvinte do grupo de disponibilidade dentro da mesma sub-rede que o grupo de disponibilidade. Se um balanceador de carga existente estiver a ser utilizado, só precisa de um endereço IP disponível.  
 
 ## <a name="permissions"></a>Permissões
@@ -52,7 +52,7 @@ As seguintes permissões são necessárias para configurar o grupo de disponibil
 
 
 ## <a name="create-cluster"></a>Criar cluster
-Depois de os VMs do seu SQL Server terem sido registados com o fornecedor de recursos SQL VM, pode juntar-se aos VMs do seu SQL Server ao *SqlVirtualMachineGroups*. Este recurso define os metadados do cluster de falha do Windows. Os metadados incluem a versão, edição, nome de domínio totalmente qualificado, contas de Ative Directory para gerir tanto o cluster como o SQL Server, e a conta de armazenamento como testemunha de nuvem. 
+Depois de os VMs do seu SQL Server terem sido registados com o fornecedor de recursos SQL VM, pode juntar-se aos VMs do seu SQL Server ao *SqlVirtualMachineGroups* . Este recurso define os metadados do cluster de falha do Windows. Os metadados incluem a versão, edição, nome de domínio totalmente qualificado, contas de Ative Directory para gerir tanto o cluster como o SQL Server, e a conta de armazenamento como testemunha de nuvem. 
 
 A adição de VMs de servidor SQL ao grupo de recursos *SqlVirtualMachineGroups,* o Windows Failover Cluster Service para criar o cluster e, em seguida, junta os VMs do SqL Server a esse cluster. Este passo é automatizado com o modelo de arranque rápido **de 101-vm-ag-ag-setup.** Pode implementá-lo utilizando os seguintes passos:
 
@@ -79,7 +79,7 @@ A adição de VMs de servidor SQL ao grupo de recursos *SqlVirtualMachineGroups,
    | &nbsp; | &nbsp; |
 
 1. Se concordar com os termos e condições, selecione o **I Concorda com os termos e condições indicados acima** da caixa de verificação. Em seguida, **selecione Comprar** para terminar a implementação do modelo de arranque rápido. 
-1. Para monitorizar a sua implementação, selecione a implementação do ícone do sino **de Notificações** no banner de navegação superior ou vá para o **Grupo de Recursos** no portal Azure. Selecione **Implementações** em **Definições**e escolha a implementação do **Modelo Microsoft..** 
+1. Para monitorizar a sua implementação, selecione a implementação do ícone do sino **de Notificações** no banner de navegação superior ou vá para o **Grupo de Recursos** no portal Azure. Selecione **Implementações** em **Definições** e escolha a implementação do **Modelo Microsoft..** 
 
 >[!NOTE]
 > As credenciais fornecidas durante a colocação do modelo são armazenadas apenas para o comprimento da implantação. Após a colocação terminada, estas palavras-passe são removidas. Pedir-lhe-á que os forneça novamente se adicionar mais VMs do SQL Server ao cluster. 
@@ -115,15 +115,15 @@ O ouvinte do grupo Always On está disponível requer uma instância interna do 
 Só precisas de criar o equilibrador interno de carga. No passo 4, o modelo de arranque rápido **de 101 m2-vm-aglistener-configuração** lida com o resto da configuração (como a piscina de backend, a sonda de saúde e as regras de equilíbrio de carga). 
 
 1. No portal Azure, abra o grupo de recursos que contém as máquinas virtuais SQL Server. 
-2. No grupo de recursos, **selecione Adicionar**.
-3. Procure o **equilibrador de carga.** Nos resultados da pesquisa, selecione **Load Balancer**, que é publicado pela **Microsoft**.
-4. Na lâmina do **balançador de carga,** selecione **Criar**.
+2. No grupo de recursos, **selecione Adicionar** .
+3. Procure o **equilibrador de carga.** Nos resultados da pesquisa, selecione **Load Balancer** , que é publicado pela **Microsoft** .
+4. Na lâmina do **balançador de carga,** selecione **Criar** .
 5. Na caixa de diálogo do balançador de **carga Create,** configurar o balançador de carga da seguinte forma:
 
    | Definição | Valor |
    | --- | --- |
-   | **Nome** |Introduza um nome de texto que represente o equilibrador de carga. Por exemplo, **insira sqlLB**. |
-   | **Tipo** |**Interna**: A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo**: Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
+   | **Nome** |Introduza um nome de texto que represente o equilibrador de carga. Por exemplo, **insira sqlLB** . |
+   | **Tipo** |**Interna** : A maioria das implementações utiliza um equilibrador de carga interno, que permite que aplicações dentro da mesma rede virtual se conectem ao grupo de disponibilidade.  </br> **Externo** : Permite que as aplicações se conectem ao grupo de disponibilidade através de uma ligação pública à Internet. |
    | **Rede virtual** | Selecione a rede virtual em que se encontram as instâncias do SQL Server. |
    | **Sub-rede** | Selecione a sub-rede em que se encontram as instâncias do SQL Server. |
    | **Atribuição de endereços IP** |**Estático** |
@@ -133,7 +133,7 @@ Só precisas de criar o equilibrador interno de carga. No passo 4, o modelo de a
    | **Localização** |Selecione a localização Azure em que se encontram as instâncias do SQL Server. |
    | &nbsp; | &nbsp; |
 
-6. Selecione **Criar**. 
+6. Selecione **Criar** . 
 
 
 >[!IMPORTANT]
@@ -163,17 +163,17 @@ Para configurar o balançador de carga interno e criar o ouvinte do grupo de dis
    |**Grupo de recursos** | O grupo de recursos onde existem os VMs do seu SQL Server e o grupo de disponibilidade. | 
    |**Nome do cluster de failover existente** | O nome do cluster a que os seus VMs do sql server estão unidos. |
    | **Grupo de Disponibilidade Sql existente**| O nome do grupo de disponibilidade em que os seus VMs do SqL Server fazem parte. |
-   | **Lista Vm existente** | Os nomes dos VMs do Servidor SQL que fazem parte do grupo de disponibilidade anteriormente mencionado. Separe os nomes com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2*). |
+   | **Lista Vm existente** | Os nomes dos VMs do Servidor SQL que fazem parte do grupo de disponibilidade anteriormente mencionado. Separe os nomes com uma vírgula e um espaço (por exemplo: *SQLVM1, SQLVM2* ). |
    | **Serviço de Escuta** | O nome DNS que pretende atribuir ao ouvinte. Por padrão, este modelo especifica o nome "aglistener", mas pode alterá-lo. O nome não deve exceder 15 caracteres. |
    | **Porto de Ouvintes** | A porta que quer que o ouvinte use. Normalmente, esta porta deve ser o padrão de 1433. Este é o número da porta que o modelo especifica. Mas se a porta predefinida tiver sido alterada, a porta de escuta deve utilizar esse valor. | 
    | **IP ouvinte** | O endereço IP que deseja que o ouvinte utilize. Este endereço será criado durante a implementação do modelo, por isso forneça um que ainda não esteja em uso.  |
-   | **Sub-rede existente** | O nome da sub-rede interna dos VMs do seu servidor SQL (por exemplo: *padrão).* Pode determinar este valor indo para **o Grupo de Recursos,** selecionando a sua rede virtual, selecionando **sub-redes** no painel **de Definições** e copiando o valor em **Nome**. |
+   | **Sub-rede existente** | O nome da sub-rede interna dos VMs do seu servidor SQL (por exemplo: *padrão).* Pode determinar este valor indo para **o Grupo de Recursos,** selecionando a sua rede virtual, selecionando **sub-redes** no painel **de Definições** e copiando o valor em **Nome** . |
    | **Equilibrador de Carga Interna existente** | O nome do equilibrador de carga interno que criou no passo 3. |
    | **Porto de Sonda** | A porta de sonda que pretende que o equilibrador interno utilize. O modelo utiliza 59999 por padrão, mas pode alterar este valor. |
    | &nbsp; | &nbsp; |
 
 1. Se concordar com os termos e condições, selecione o **I Concorda com os termos e condições indicados acima** da caixa de verificação. Selecione **Comprar** para terminar a implementação do modelo de arranque rápido. 
-1. Para monitorizar a sua implementação, selecione a implementação do ícone do sino **de Notificações** no banner de navegação superior ou vá para o **Grupo de Recursos** no portal Azure. Selecione **Implementações** em **Definições**e escolha a implementação do **Modelo Microsoft..** 
+1. Para monitorizar a sua implementação, selecione a implementação do ícone do sino **de Notificações** no banner de navegação superior ou vá para o **Grupo de Recursos** no portal Azure. Selecione **Implementações** em **Definições** e escolha a implementação do **Modelo Microsoft..** 
 
 >[!NOTE]
 >Se a sua implementação falhar a meio, terá de remover manualmente [o ouvinte recém-criado](#remove-listener) utilizando o PowerShell antes de recolocar o modelo de arranque rápido **de 101 m2-vm-aglistener..** 
@@ -204,7 +204,7 @@ Para resolver este comportamento, remova o ouvinte utilizando o [PowerShell,](#r
 
 Verifique se a conta existe. Se acontecer, podes estar a deter-te na segunda situação. Para resolvê-lo, faça o seguinte:
 
-1. No controlador de domínio, abra a janela **Ative Directory Users and Computers** a partir da opção **Ferramentas** no **Gestor do Servidor**. 
+1. No controlador de domínio, abra a janela **Ative Directory Users and Computers** a partir da opção **Ferramentas** no **Gestor do Servidor** . 
 2. Aceda à conta selecionando **Utilizadores** no painel esquerdo.
 3. Clique com o botão direito na conta e selecione **Propriedades.**
 4. Selecione o separador **Conta.** Se a caixa **de nome do utilizador** estiver em branco, esta é a causa do seu erro. 
@@ -212,7 +212,7 @@ Verifique se a conta existe. Se acontecer, podes estar a deter-te na segunda sit
     ![Conta de utilizador em branco indica falta de UPN](./media/availability-group-quickstart-template-configure/account-missing-upn.png)
 
 5. Preencha a caixa de **nome do utilizador** para corresponder ao nome do utilizador e selecione o domínio adequado da lista de drop-down. 
-6. **Selecione Aplicar** para guardar as suas alterações e fechar a caixa de diálogo selecionando **OK**. 
+6. **Selecione Aplicar** para guardar as suas alterações e fechar a caixa de diálogo selecionando **OK** . 
 
 Depois de estoiste estas alterações, tente implementar novamente o modelo de arranque rápido do Azure. 
 
@@ -226,6 +226,3 @@ Para obter mais informações, veja os seguintes artigos:
 * [Orientação de preços para VMs do servidor SQL](pricing-guidance.md)
 * [Notas de lançamento para VMs do servidor SQL](../../database/doc-changes-updates-release-notes.md)
 * [Mudar modelos de licenciamento para um SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

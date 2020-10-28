@@ -11,18 +11,18 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
-ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e01e74f5086f7f1eb7e85661fbd35f452d8dae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319338"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790207"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Acelere a análise de big data em tempo real usando o conector Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
-> A partir de 2020, este conector não é mantido ativamente. No entanto, [o Conector De Faísca Apache para SQL Server e Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) está agora disponível, com suporte para ligações Python e R, uma interface mais fácil de usar para inserir dados em massa, e muitas outras melhorias. Encorajamo-lo a avaliar e usar o novo conector em vez deste. A informação sobre o conector antigo (esta página) só é mantida para fins de arquivo.
+> A partir de 2020, este conector não é mantido ativamente. No entanto, [o Conector De Faísca Apache para SQL Server e Azure SQL](/sql/connect/spark/connector) está agora disponível, com suporte para ligações Python e R, uma interface mais fácil de usar para inserir dados em massa, e muitas outras melhorias. Encorajamo-lo a avaliar e usar o novo conector em vez deste. A informação sobre o conector antigo (esta página) só é mantida para fins de arquivo.
 
 O conector Spark permite que as bases de dados na Base de Dados Azure SQL, Azure SQL Managed Instance e SQL Server ajam como fonte de dados de entrada ou sumidouro de dados de saída para trabalhos de Spark. Permite-lhe utilizar dados transacionais em tempo real em análise de big data e persistir em resultados para consultas ad hoc ou reportagens. Em comparação com o conector JDBC incorporado, este conector fornece a capacidade de inserir em massa dados na sua base de dados. Pode superar a inserção de linha a linha com um desempenho mais rápido de 10x a 20x. O conector Spark suporta a autenticação do Azure Ative Directory (Azure AD) para ligar à Base de Dados Azure SQL e à Azure SQL Managed Instance, permitindo-lhe ligar a sua base de dados a partir de Azure Databricks utilizando a sua conta Azure AD. Fornece interfaces semelhantes com o conector JDBC incorporado. É fácil migrar os seus trabalhos de Faísca existentes para usar este novo conector.
 
@@ -238,4 +238,4 @@ Se ainda não o fez, descarregue o conector Spark do [repositório GitHub de azu
 - [Amostra de cadernos Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Scripts de amostra (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Também pode querer rever o [Apache Spark SQL, DataFrames e Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) e a [documentação Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+Também pode querer rever o [Apache Spark SQL, DataFrames e Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) e a [documentação Azure Databricks](/azure/azure-databricks/).

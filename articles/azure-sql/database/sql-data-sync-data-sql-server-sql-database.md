@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503339"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791431"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -44,7 +44,7 @@ Data Sync usa um hub e falou topologia para sincronizar dados. Define uma das ba
 Um grupo de sincronização tem as seguintes propriedades:
 
 - O **Sync Schema** descreve quais os dados que estão a ser sincronizados.
-- A **Direção de Sincronização** pode ser bidis ou fluir numa só direção. Ou seja, a Direção de Sincronização pode ser *Hub para Membro*, ou Membro do *Hub*, ou ambos.
+- A **Direção de Sincronização** pode ser bidis ou fluir numa só direção. Ou seja, a Direção de Sincronização pode ser *Hub para Membro* , ou Membro do *Hub* , ou ambos.
 - O **Intervalo de Sincronização** descreve a frequência da sincronização.
 - A **Política de Resolução de Conflitos** é uma política de nível de grupo, que pode ser *o Hub ganha* ou o *membro ganha.*
 
@@ -62,7 +62,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 |----------|----------------------------|
 | Recuperação Após Desastre | [Backups geo-redundantes do Azure](automated-backups-overview.md) |
 | Escala de leitura | [Utilize réplicas apenas de leitura para carregar cargas de trabalho de consulta apenas de leitura (pré-visualização)](read-scale-out.md) |
-| ETL (OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [Serviços de Integração de Servidores SQL](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) ou [Serviços de Integração de Servidores SQL](/sql/integration-services/sql-server-integration-services) |
 | Migração do SQL Server para Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -101,7 +101,7 @@ Data Sync não é a solução preferida para os seguintes cenários:
 
 ### <a name="did-something-go-wrong"></a>Fez alguma coisa correr mal
 
-- [Resolver problemas da Sincronização de Dados SQL do Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Resolver problemas da Sincronização de Dados SQL do Azure](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Consistência e desempenho
 
@@ -126,7 +126,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 > - Os dados entre o hub e o membro podem ser perdidos, mesmo que a sincronização não reporte qualquer problema.
 > - O Sync pode falhar porque a tabela de rastreio tem uma linha não existente a partir da fonte devido à mudança de tecla primária.
 
-- O isolamento instantâneo deve ser ativado tanto para os membros do Sync como para o hub. Para obter mais informações, veja [Snapshot Isolation in SQL Server (Isolamento de Instantâneo no SQL Server)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- O isolamento instantâneo deve ser ativado tanto para os membros do Sync como para o hub. Para obter mais informações, veja [Snapshot Isolation in SQL Server (Isolamento de Instantâneo no SQL Server)](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitações gerais
 
@@ -175,7 +175,7 @@ O Data Sync não consegue sincronizar apenas colunas de leitura ou geradas pelo 
 
 Quando o grupo de sincronização é estabelecido, o serviço Data Sync precisa de se ligar à base de dados do hub. No momento em que estabelecer o grupo de sincronização, o servidor Azure SQL deve ter a seguinte configuração nas suas `Firewalls and virtual networks` definições:
 
- * *Negar o acesso* à rede pública deve ser definido para *Off*.
+ * *Negar o acesso* à rede pública deve ser definido para *Off* .
  * *Permitir que os serviços e recursos do Azure acedam a este servidor* tem de ser definidos para *Sim,* ou tem de criar regras IP para os [endereços IP utilizados pelo serviço Data Sync](network-access-controls-overview.md#data-sync).
 
 Uma vez criado e provisionado o grupo de sincronização, pode desativar estas definições. O agente de sincronização ligar-se-á diretamente à base de dados do hub, e pode utilizar [as regras IP](firewall-configure.md) de firewall do servidor ou [pontos finais privados](private-endpoint-overview.md) para permitir que o agente aceda ao servidor do hub.
@@ -240,7 +240,7 @@ A Federation Root Database pode ser utilizada no Serviço de Sincronização de 
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Posso utilizar o Data Sync para sincronizar os dados exportados da Dynamics 365 utilizando a sua própria base de dados (BYOD) ?
 
-O Dynamics 365 traz a sua própria funcionalidade de base de dados permite aos administradores exportar entidades de dados da aplicação para a sua própria base de dados Microsoft Azure SQL. O Data Sync pode ser utilizado para sincronizar estes dados noutras bases de dados se os dados forem exportados através de **um impulso incremental** (o impulso total não é suportado) e permitir que os **gatilhos na base de dados-alvo** sejam definidos como **sim**.
+O Dynamics 365 traz a sua própria funcionalidade de base de dados permite aos administradores exportar entidades de dados da aplicação para a sua própria base de dados Microsoft Azure SQL. O Data Sync pode ser utilizado para sincronizar estes dados noutras bases de dados se os dados forem exportados através de **um impulso incremental** (o impulso total não é suportado) e permitir que os **gatilhos na base de dados-alvo** sejam definidos como **sim** .
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -248,20 +248,19 @@ O Dynamics 365 traz a sua própria funcionalidade de base de dados permite aos a
 
 Tem de atualizar o esquema de uma base de dados num grupo de sincronização? As alterações de esquema não são replicadas automaticamente. Para algumas soluções, consulte os seguintes artigos:
 
-- [Automatizar a replicação de alterações de esquema com SQL Data Sync em Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatizar a replicação de alterações de esquema com SQL Data Sync em Azure](./sql-data-sync-update-sync-schema.md)
 - [Utilizar o PowerShell para atualizar o esquema de sincronização num grupo de sincronização existente](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Monitorizar e resolver problemas
 
 O SQL Data Sync está a fazer o que se esperava? Para monitorizar a atividade e resolver problemas, consulte os seguintes artigos:
 
-- [Monitor SQL Data Sync com registos do Monitor Azure](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Resolver problemas da Sincronização de Dados SQL do Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Monitor SQL Data Sync com registos do Monitor Azure](./monitor-tune-overview.md)
+- [Resolver problemas da Sincronização de Dados SQL do Azure](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Saiba mais sobre a Base de Dados Azure SQL
 
 Para obter mais informações sobre a Base de Dados Azure SQL, consulte os seguintes artigos:
 
 - [Descrição Geral da Base de Dados SQL](sql-database-paas-overview.md)
-- [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Gestão do Ciclo de Vida da Base de Dados](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

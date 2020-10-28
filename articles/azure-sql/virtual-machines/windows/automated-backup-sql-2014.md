@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8119d01ae8e8ed1e809753e433b063a844a2c5c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565127"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790683"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para máquinas virtuais SQL Server 2014 (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91565127"
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016/2017](automated-backup.md)
 
-Cópia de segurança automatizada configura automaticamente [o Backup Gerido para o Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas as bases de dados existentes e novas num VM Azure que executa o SQL Server 2014 Standard ou Enterprise. Isto permite-lhe configurar cópias de dados regulares que utilizam o armazenamento durável de Azure Blob. A Cópia de Segurança Automatizada depende da [infraestrutura do SqL Server como extensão do agente de serviço (IaaS).](sql-server-iaas-agent-extension-automate-management.md)
+Cópia de segurança automatizada configura automaticamente [o Backup Gerido para o Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) para todas as bases de dados existentes e novas num VM Azure que executa o SQL Server 2014 Standard ou Enterprise. Isto permite-lhe configurar cópias de dados regulares que utilizam o armazenamento durável de Azure Blob. A Cópia de Segurança Automatizada depende da [infraestrutura do SqL Server como extensão do agente de serviço (IaaS).](sql-server-iaas-agent-extension-automate-management.md)
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -49,7 +49,7 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 
 **Configuração da base de dados:**
 
-- As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](https://technet.microsoft.com/library/ms190217.aspx). 
+- As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
 - O SQL Server VM foi registado com o fornecedor de recursos SQL VM em [modo de gestão completa.](sql-vm-resource-provider-register.md#upgrade-to-full) 
 -  A cópia de segurança automatizada baseia-se na extensão completa do [agente iaaS do sql Server](sql-server-iaas-agent-extension-automate-management.md). Como tal, a cópia de segurança automatizada é suportada apenas em bases de dados-alvo a partir da instância padrão, ou numa única instância nomeada. Se não houver instância padrão e várias instâncias nomeadas, a extensão SQL IaaS falha e a cópia de segurança automatizada não funcionará. 
 
@@ -70,7 +70,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 Utilize o portal Azure para configurar a Cópia de Segurança Automatizada quando criar uma nova máquina virtual SQL Server 2014 no modelo de implementação do Gestor de Recursos.
 
-No separador de definições do **SQL Server,** desloque-se para **a cópia de segurança automatizada** e selecione **Ative**. A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
+No separador de definições do **SQL Server,** desloque-se para **a cópia de segurança automatizada** e selecione **Ative** . A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
 
 ![Configuração de backup automatizado SQL no portal Azure](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
 
@@ -80,7 +80,7 @@ No separador de definições do **SQL Server,** desloque-se para **a cópia de s
 
 Para os VMs do servidor SQL existentes, pode ativar e desativar cópias de segurança automatizadas, alterar o período de retenção, especificar a conta de armazenamento e ativar a encriptação a partir do portal Azure. 
 
-Navegue para o [recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) para a sua máquina virtual SQL Server 2014 e, em seguida, selecione **Backups**. 
+Navegue para o [recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) para a sua máquina virtual SQL Server 2014 e, em seguida, selecione **Backups** . 
 
 ![Backup automatizado SQL para VMs existentes](./media/automated-backup-sql-2014/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -112,7 +112,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do Agente IAAS do SQL Server estiver instalada, deverá vê-la listada como "SqlIaaSAgent" ou "SQLIaaSExtension". **O Estado de Provisioning** para a extensão também deve mostrar "Bem sucedido".
 
-Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região (**$region**) em que o seu VM está localizado. Especifique o tipo de licença para o seu SQL Server VM, escolhendo entre o pay-as-you-go ou trazer a sua própria licença através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre o licenciamento, consulte [o modelo de licenciamento.](licensing-model-azure-hybrid-benefit-ahb-change.md) 
+Se não estiver instalado ou não tiver sido previsto, pode instalá-lo com o seguinte comando. Além do nome VM e do grupo de recursos, deve também especificar a região ( **$region** ) em que o seu VM está localizado. Especifique o tipo de licença para o seu SQL Server VM, escolhendo entre o pay-as-you-go ou trazer a sua própria licença através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre o licenciamento, consulte [o modelo de licenciamento.](licensing-model-azure-hybrid-benefit-ahb-change.md) 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -186,7 +186,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Pode levar vários minutos para instalar e configurar o Agente IAAS do SQL Server.
 
 > [!NOTE]
-> Existem outras definições para **New-AzVMSqlServerAutoBackupConfig** que se aplicam apenas ao SQL Server 2016 e ao Backup Automático v2. O SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**e **LogBackupFrequencyInMinutes**. Se tentar configurar estas definições numa máquina virtual SQL Server 2014, não há erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual SQL Server 2016, consulte [cópias de segurança automatizada v2 para máquinas virtuais SQL Server 2016 Azure](automated-backup.md).
+> Existem outras definições para **New-AzVMSqlServerAutoBackupConfig** que se aplicam apenas ao SQL Server 2016 e ao Backup Automático v2. O SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes** . Se tentar configurar estas definições numa máquina virtual SQL Server 2014, não há erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual SQL Server 2016, consulte [cópias de segurança automatizada v2 para máquinas virtuais SQL Server 2016 Azure](automated-backup.md).
 
 Para ativar a encriptação, modifique o script anterior para passar o parâmetro **EnableEncrypation** juntamente com uma palavra-passe (cadeia segura) para o parâmetro **CertificatePassword.** O seguinte script permite as definições de Backup Automatizada no exemplo anterior e adiciona encriptação.
 
@@ -258,17 +258,17 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 Para monitorizar a cópia de segurança automatizada no SQL Server 2014, tem duas opções principais. Como a Cópia de Segurança Automatizada utiliza a funcionalidade de Backup Gerida pelo Servidor SQL, as mesmas técnicas de monitorização aplicam-se a ambas.
 
-Em primeiro lugar, pode sondar o estado chamando [msdb.smart_admin.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.smart_admin.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) valued.
+Em primeiro lugar, pode sondar o estado chamando [msdb.smart_admin.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.smart_admin.fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) valued.
 
 > [!NOTE]
-> O esquema de Cópia de Segurança Gerida no SQL Server 2014 é **msdb.smart_admin**. No SQL Server 2016 isto mudou para **msdb.managed_backup**, e os tópicos de referência usam este esquema mais recente. Mas para o SQL Server 2014, deve continuar a utilizar o esquema **smart_admin** para todos os objetos de backup geridos.
+> O esquema de Cópia de Segurança Gerida no SQL Server 2014 é **msdb.smart_admin** . No SQL Server 2016 isto mudou para **msdb.managed_backup** , e os tópicos de referência usam este esquema mais recente. Mas para o SQL Server 2014, deve continuar a utilizar o esquema **smart_admin** para todos os objetos de backup geridos.
 
 Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorporada para notificações.
 
-1. Ligue para o procedimento armazenado [msdb.smart_admin.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de e-mail ao parâmetro **SSMBackup2WANotificationEmailIds.** 
+1. Ligue para o procedimento armazenado [msdb.smart_admin.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de e-mail ao parâmetro **SSMBackup2WANotificationEmailIds.** 
 1. Ativar [a SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar os e-mails do Azure VM.
-1. Utilize o servidor SMTP e o nome de utilizador para configurar o Correio da Base de Dados. Pode configurar o Correio da Base de Dados no SQL Server Management Studio ou com comandos Transact-SQL. Para mais informações, consulte [o Correio da Base de Dados.](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)
-1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Utilize o servidor SMTP e o nome de utilizador para configurar o Correio da Base de Dados. Pode configurar o Correio da Base de Dados no SQL Server Management Studio ou com comandos Transact-SQL. Para mais informações, consulte [o Correio da Base de Dados.](/sql/relational-databases/database-mail/database-mail)
+1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verifique se a porta SMTP é permitida tanto através da firewall VM local como do grupo de segurança da rede para o VM.
 
 ## <a name="next-steps"></a>Passos seguintes

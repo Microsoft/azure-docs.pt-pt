@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298840"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790037"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configure um grupo de trabalho disponibilidade 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Para configurar um grupo de disponibilidade de grupo de trabalho, precisa do seg
 
 Para referência, são utilizados neste artigo os seguintes parâmetros, mas podem ser modificados conforme necessário: 
 
-| **Nome** | **Parâmetro** |
+| **Name** | **Parâmetro** |
 | :------ | :---------------------------------- |
 | **Nó1**   | AGNode1 (10.0.0.4) |
 | **Nó2**   | AGNode2 (10.0.0.5) |
@@ -53,14 +53,14 @@ Neste passo, configurar o sufixo DNS para ambos os servidores. Por exemplo, `ag.
 Para configurar o sufixo DNS, siga estes passos:
 
 1. RDP no seu primeiro nó e gestor de servidor aberto. 
-1. Selecione **O Servidor Local** e, em seguida, selecione o nome da sua máquina virtual sob o nome de **Computador**. 
-1. Selecione **Change...** em **"To rename this computer"**... . 
+1. Selecione **O Servidor Local** e, em seguida, selecione o nome da sua máquina virtual sob o nome de **Computador** . 
+1. Selecione **Change...** em **"To rename this computer"** ... . 
 1. Mude o nome do nome do grupo de trabalho para ser algo significativo, `AGWORKGROUP` como: 
 
    ![Alterar nome do grupo de trabalho](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Selecione **Mais...** para abrir a caixa de diálogo **DNS Sfixix e NetBIOS Computer Name.** 
-1. Digite o nome do seu sufixo DNS sob **o sufixo de DNS primário deste computador,** tal como `ag.wgcluster.example.com` e, em seguida, selecione **OK**: 
+1. Digite o nome do seu sufixo DNS sob **o sufixo de DNS primário deste computador,** tal como `ag.wgcluster.example.com` e, em seguida, selecione **OK** : 
 
    ![Adicione sufixo DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -107,20 +107,20 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 Neste passo, criará o aglomerado de falhanços. Se não estiver familiarizado com estes passos, pode segui-los a partir do tutorial do [cluster de failover.](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
 Diferenças notáveis entre o tutorial e o que deve ser feito para um cluster de grupo de trabalho:
-- Desmarque **o armazenamento**e **os espaços de armazenamento diretos** ao executar a validação do cluster. 
+- Desmarque **o armazenamento** e **os espaços de armazenamento diretos** ao executar a validação do cluster. 
 - Ao adicionar os nóns ao cluster, adicione o nome totalmente qualificado, tais como:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
 - DesmarcaR **Adicione todo o armazenamento elegível ao cluster.** 
 
-Uma vez criado o cluster, atribua um endereço IP de cluster estático. Para o fazer, siga estes passos:
+Uma vez criado o cluster, atribua um endereço IP de cluster estático. Para tal, siga estes passos:
 
-1. Num dos nós, abra o **Failover Cluster Manager,** selecione o cluster, clique com o botão direito no ** \<ClusterNam> Nome:** em **Cluster Core Resources** e, em seguida, selecione **Propriedades**. 
+1. Num dos nós, abra o **Failover Cluster Manager,** selecione o cluster, clique com o botão direito no **\<ClusterNam> Nome:** em **Cluster Core Resources** e, em seguida, selecione **Propriedades** . 
 
    ![Propriedades de lançamento para o nome do cluster](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
 1. Selecione o endereço IP em **endereços IP** e selecione **Editar.** 
-1. Selecione **Use Static**, forneça o endereço IP do cluster e, em seguida, selecione **OK**: 
+1. Selecione **Use Static** , forneça o endereço IP do cluster e, em seguida, selecione **OK** : 
 
    ![Fornecer um endereço IP estático para o cluster](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -277,7 +277,7 @@ GO
 
 Se houver outros nós no cluster, repita estes passos também, alterando o respetivo certificado e os nomes de utilizador. 
 
-## <a name="configure-an-availability-group"></a>Configure um grupo de disponibilidade
+## <a name="configure-an-availability-group"></a>Configurar um grupo de disponibilidade
 
 Neste passo, configuure o seu grupo de disponibilidade e adicione as suas bases de dados. Não crie um ouvinte neste momento. Se não está familiarizado com os passos, consulte o tutorial do [grupo de disponibilidade.](availability-group-manually-configure-tutorial.md#create-the-availability-group) Certifique-se de iniciar uma falha e não conseguir verificar se tudo está funcionando como deveria. 
 
@@ -291,6 +291,4 @@ Neste último passo, configuure o equilibrador de carga utilizando o [portal Azu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Também pode utilizar [o Az SQL VM CLI](availability-group-az-cli-configure.md) para configurar um grupo de disponibilidade. 
-
-
+Também pode utilizar [o Az SQL VM CLI](./availability-group-az-commandline-configure.md) para configurar um grupo de disponibilidade.

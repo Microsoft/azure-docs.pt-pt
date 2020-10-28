@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 09/26/2019
-ms.openlocfilehash: 2f2e8c6be128e5004769dca2f42a6c8013510cde
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf606af0425c04873dadcf47932c806a1099942a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91325237"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788711"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Quickstart: Criar uma instância gerida de SQL Gestão De Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,10 +34,10 @@ Para criar uma instância gerida, siga estes passos:
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Azure SQL** no menu esquerdo do portal Azure. Se **o Azure SQL** não estiver na lista, selecione **Todos os serviços**e introduza o **Azure SQL** na caixa de pesquisa.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Selecione **Azure SQL** no menu esquerdo do portal Azure. Se **o Azure SQL** não estiver na lista, selecione **Todos os serviços** e introduza o **Azure SQL** na caixa de pesquisa.
 1. **Selecione +Adicione** para abrir a página **de opção de implementação Select SQL.** Pode ver informações adicionais sobre a Azure SQL Managed Instance selecionando detalhes do **Show** no azulejo **gerido sql.**
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
    ![Criar uma instância gerida](./media/instance-create-quickstart/create-managed-instance.png)
 
@@ -64,7 +64,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
    ![Formulário de instância gerido](./media/instance-create-quickstart/mi-create-tab-configure-performance.png)
 
-- Para rever as suas escolhas antes de criar uma SqL Managed Instance, pode selecionar **Review + create**. Ou, configurar opções de networking selecionando **Seguinte: Networking**.
+- Para rever as suas escolhas antes de criar uma SqL Managed Instance, pode selecionar **Review + create** . Ou, configurar opções de networking selecionando **Seguinte: Networking** .
 
 ### <a name="networking-tab"></a>Separador de rede
 
@@ -78,10 +78,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
    | ------ | --------------- | ----------- |
    | **Rede virtual** | Selecione criar **uma nova rede virtual** ou uma rede virtual válida e uma sub-rede.| Se uma rede ou sub-rede não estiver disponível, deve ser [modificada para satisfazer os requisitos de rede](vnet-existing-add-subnet.md) antes de a selecionar como alvo para a nova instância gerida. Para obter informações sobre os requisitos para configurar o ambiente de rede para a SQL Managed Instance, consulte [configurar uma rede virtual para sql Managed Instance](connectivity-architecture-overview.md). |
    | **Tipo de ligação** | Escolha entre um proxy e um tipo de ligação de redirecionamento.|Para obter mais informações sobre tipos de ligação, consulte [o tipo de ligação Azure SQL Managed Instance](../database/connectivity-architecture.md#connection-policy).|
-   | **Ponto final público**  | Selecione **Ativar**. | Para que um caso gerido seja acessível através do ponto final de dados públicos, é necessário ativar esta opção. | 
-   | **Permitir o acesso a partir (se** **o ponto final público** estiver ativado) | Selecione uma das opções.   |A experiência do portal permite configurar um grupo de segurança com um ponto final público. </br> </br> Com base no seu cenário, selecione uma das seguintes opções: </br> <ul> <li>**Serviços Azure**: Recomendamos esta opção quando estiver a ligar-se a partir do Power BI ou de outro serviço multitenant. </li> <li> **Internet**: Utilize para fins de teste quando pretender rodar rapidamente uma instância gerida. Não recomendamos para ambientes de produção. </li> <li> **Sem acesso**: Esta opção cria uma regra de segurança **Deny.** Modifique esta regra para tornar uma instância gerida acessível através de um ponto final público. </li> </ul> </br> Para obter mais informações sobre a segurança do ponto final público, consulte [a Utilização de Azure SQL Managed Instance de forma segura com um ponto final público](public-endpoint-overview.md).|
+   | **Ponto final público**  | Selecione **Ativar** . | Para que um caso gerido seja acessível através do ponto final de dados públicos, é necessário ativar esta opção. | 
+   | **Permitir o acesso a partir (se** **o ponto final público** estiver ativado) | Selecione uma das opções.   |A experiência do portal permite configurar um grupo de segurança com um ponto final público. </br> </br> Com base no seu cenário, selecione uma das seguintes opções: </br> <ul> <li>**Serviços Azure** : Recomendamos esta opção quando estiver a ligar-se a partir do Power BI ou de outro serviço multitenant. </li> <li> **Internet** : Utilize para fins de teste quando pretender rodar rapidamente uma instância gerida. Não recomendamos para ambientes de produção. </li> <li> **Sem acesso** : Esta opção cria uma regra de segurança **Deny.** Modifique esta regra para tornar uma instância gerida acessível através de um ponto final público. </li> </ul> </br> Para obter mais informações sobre a segurança do ponto final público, consulte [a Utilização de Azure SQL Managed Instance de forma segura com um ponto final público](public-endpoint-overview.md).|
 
-- Selecione **Review + crie** para rever as suas escolhas antes de criar uma instância gerida. Ou, configurar mais definições personalizadas selecionando **Seguinte: Definições adicionais**.
+- Selecione **Review + crie** para rever as suas escolhas antes de criar uma instância gerida. Ou, configurar mais definições personalizadas selecionando **Seguinte: Definições adicionais** .
 
 ### <a name="additional-settings"></a>Definições adicionais
 
@@ -93,10 +93,10 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
    | Definição| Valor sugerido | Descrição |
    | ------ | --------------- | ----------- |
-   | **Agrupamento** | Escolha a colagem que pretende utilizar para a sua instância gerida. Se migrar bases de dados do SQL Server, verifique a colagem de origem utilizando `SELECT SERVERPROPERTY(N'Collation')` e utilize esse valor.| Para obter informações sobre colagens, consulte [set ou altere a colagem do servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Agrupamento** | Escolha a colagem que pretende utilizar para a sua instância gerida. Se migrar bases de dados do SQL Server, verifique a colagem de origem utilizando `SELECT SERVERPROPERTY(N'Collation')` e utilize esse valor.| Para obter informações sobre colagens, consulte [set ou altere a colagem do servidor](/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Fuso horário** | Selecione o fuso horário que a instância gerida observará.|Para mais informações, consulte [fusos horários.](timezones-overview.md)|
-   | **Uso como failover secundário** | Selecione **Sim**. | Ative esta opção para utilizar a instância gerida como um grupo de failover secundário.|
-   | **Primeira SQL Caso gerido** (se **a utilização como secundário de failover** está definida para **Sim**) | Escolha um caso gerido primário existente que será acompanhado na mesma zona de DNS com a instância gerida que está a criar. | Este passo permitirá a configuração pós-criação do grupo de failover. Para obter mais informações, consulte [Tutorial: Adicione uma instância gerida a um grupo de failover](failover-group-add-instance-tutorial.md).|
+   | **Uso como failover secundário** | Selecione **Sim** . | Ative esta opção para utilizar a instância gerida como um grupo de failover secundário.|
+   | **Primeira SQL Caso gerido** (se **a utilização como secundário de failover** está definida para **Sim** ) | Escolha um caso gerido primário existente que será acompanhado na mesma zona de DNS com a instância gerida que está a criar. | Este passo permitirá a configuração pós-criação do grupo de failover. Para obter mais informações, consulte [Tutorial: Adicione uma instância gerida a um grupo de failover](failover-group-add-instance-tutorial.md).|
 
 ## <a name="review--create"></a>Rever + criar
 
@@ -120,7 +120,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 > [!TIP]
 > Se fechou o seu navegador web ou se afastou do ecrã de progresso da implementação, siga estes passos para localizar o ecrã de progresso da implementação:
 > 1. No portal Azure, abra o grupo de recursos (no **separador Básicos)** ao qual está a implantar a SQL Managed Instance.
-> 2. Selecione **Implementações**.
+> 2. Selecione **Implementações** .
 > 3. Selecione a operação de implantação de instância gerida SQL em curso.
 
 > [!IMPORTANT]
@@ -173,7 +173,7 @@ Para ligar à SQL Managed Instance, siga estes passos para recuperar o nome de a
 
    ![Nome do anfitrião](./media/instance-create-quickstart/host-name.png)
 
-   O valor copiado representa um nome de domínio totalmente qualificado (FQDN) que pode ser usado para ligar a SQL Managed Instance. É semelhante ao seguinte exemplo de endereço: *your_host_name.a1b2c3d4e5f6.database.windows.net*.
+   O valor copiado representa um nome de domínio totalmente qualificado (FQDN) que pode ser usado para ligar a SQL Managed Instance. É semelhante ao seguinte exemplo de endereço: *your_host_name.a1b2c3d4e5f6.database.windows.net* .
 
 ## <a name="next-steps"></a>Passos seguintes
 

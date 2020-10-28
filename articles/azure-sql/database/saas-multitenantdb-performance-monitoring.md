@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3307e31935377f55f792e640934e59017c1980c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37bf2c84b74dba76e5d1921ed67072af7f6c328
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619627"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790904"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorize e gere o desempenho da base de dados Azure SQL de vários inquilinos em uma aplicação SaaS multi-arrendatário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,8 +36,8 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-* A aplicação Wingtip Tickets SaaS Multi-tenant Database está implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Base de Dados De Multi-inquilinos Wingtip SaaS](../../sql-database/saas-multitenantdb-get-started-deploy.md)
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* A aplicação Wingtip Tickets SaaS Multi-tenant Database está implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Base de Dados De Multi-inquilinos Wingtip SaaS](./saas-multitenantdb-get-started-deploy.md)
+* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gestão de desempenho do SaaS
 
@@ -45,8 +45,8 @@ Gerir o desempenho da base de dados consiste em compilar e analisar dados de des
 
 ### <a name="performance-management-strategies"></a>Estratégias da gestão do desempenho
 
-* Para evitar ter de monitorizar manualmente o desempenho, é mais eficaz **definir alertas que desencadeiam quando as bases de dados se desviam dos intervalos normais**.
-* Para responder a flutuações de curto prazo no tamanho do cálculo de uma base de dados, o **nível de DTU pode ser dimensionado para cima ou para baixo**. Se esta flutuação ocorrer numa base regular ou previsível, **a escala da base de dados pode ser programada automaticamente**. Por exemplo, reduza verticalmente quando sabe que a carga de trabalho é leve, talvez durante a noite ou durante os fins de semana.
+* Para evitar ter de monitorizar manualmente o desempenho, é mais eficaz **definir alertas que desencadeiam quando as bases de dados se desviam dos intervalos normais** .
+* Para responder a flutuações de curto prazo no tamanho do cálculo de uma base de dados, o **nível de DTU pode ser dimensionado para cima ou para baixo** . Se esta flutuação ocorrer numa base regular ou previsível, **a escala da base de dados pode ser programada automaticamente** . Por exemplo, reduza verticalmente quando sabe que a carga de trabalho é leve, talvez durante a noite ou durante os fins de semana.
 * Para responder a flutuações a longo prazo, ou alterações nos inquilinos, **os inquilinos individuais podem ser transferidos para outras bases de dados.**
 * Para responder aos aumentos a curto prazo da carga *individual* **de inquilinos, os inquilinos individuais podem ser retirados de uma base de dados e atribuídos um tamanho de computação individual.** Uma vez que a carga é reduzida, o inquilino pode então ser devolvido à base de dados multi-inquilinos. Quando isto é conhecido antecipadamente, os inquilinos podem ser movidos preventivamente para garantir que a base de dados tem sempre os recursos de que necessita, e para evitar impactos em outros inquilinos na base de dados multi-inquilinos. Se este requisito for previsível, por exemplo, quando um local tem uma grande procura de bilhetes para um evento popular, este comportamento de gestão poderá ser integrado na aplicação.
 
@@ -64,8 +64,8 @@ Para uma boa compreensão de como a monitorização e gestão de desempenho func
 
 Se já forte um lote de inquilinos num tutorial anterior, salte para o [uso simulado em todas as bases de dados de inquilinos.](#simulate-usage-on-all-tenant-databases)
 
-1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ * de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
-1. Definir **$DemoScenario**  =  **1**, _Provision um lote de inquilinos_
+1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ *de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1* . Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. Definir **$DemoScenario**  =  **1** , _Provision um lote de inquilinos_
 1. Prima **F5** para executar o script.
 
 O guião coloca 17 inquilinos na base de dados de vários inquilinos em poucos minutos. 
@@ -85,8 +85,8 @@ O *Demo-PerformanceMonitoringAndManagement.ps1* script é fornecido que simula u
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em DTUs), duração e intervalos são variados em todas as bases de dados, simulando atividade de inquilino imprevisível.
 
-1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ * de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
-1. Definir **$DemoScenario**  =  **2**, _Gerar carga de intensidade normal_
+1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ *de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1* . Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. Definir **$DemoScenario**  =  **2** , _Gerar carga de intensidade normal_
 1. Pressione **f5** para aplicar uma carga a todos os seus inquilinos.
 
 Wingtip Tickets SaaS Multi-tenant Database é uma aplicação SaaS, e a carga do mundo real numa aplicação SaaS é tipicamente esporádica e imprevisível. Para simular isto, o gerador de carga produz uma carga aleatória distribuída por todos os inquilinos. São necessários vários minutos para que o padrão de carga emerja, por isso, carregue o gerador de carga durante 3-5 minutos antes de tentar monitorizar a carga nas seguintes secções.
@@ -98,8 +98,8 @@ Wingtip Tickets SaaS Multi-tenant Database é uma aplicação SaaS, e a carga do
 
 Para monitorizar a utilização dos recursos resultante da aplicação da carga, abra o portal para a base de **dados multi-inquilinos, inquilinos1,** contendo os inquilinos:
 
-1. Abra o [portal Azure](https://portal.azure.com) e navegue para os inquilinos do *servidor1-mt-USER &lt; &gt; *.
-1. Percorra as bases de dados e clique nos **inquilinos1**. Esta base de dados de vários inquilinos contém todos os inquilinos criados até agora.
+1. Abra o [portal Azure](https://portal.azure.com) e navegue para os inquilinos do *servidor1-mt-USER &lt; &gt;* .
+1. Percorra as bases de dados e clique nos **inquilinos1** . Esta base de dados de vários inquilinos contém todos os inquilinos criados até agora.
 
 ![gráfico de base de dados](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
 
@@ -109,18 +109,18 @@ Observe a ficha do **DTU.**
 
 Desatenção na base de dados que ativa \> uma utilização de 75% da seguinte forma:
 
-1. Abra a base de dados dos *inquilinos1* (no servidor * &lt; utilizadores &gt; de inquilinos1-mt)* no [portal Azure](https://portal.azure.com).
-1. Clique em **Regras de Alerta**e, em seguida, clique em **+ Adicionar alerta**:
+1. Abra a base de dados dos *inquilinos1* (no servidor *&lt; utilizadores &gt; de inquilinos1-mt)* no [portal Azure](https://portal.azure.com).
+1. Clique em **Regras de Alerta** e, em seguida, clique em **+ Adicionar alerta** :
 
    ![adicionar alerta](./media/saas-multitenantdb-performance-monitoring/add-alert.png)
 
-1. Forneça um nome, tal como **DTU elevada**,
+1. Forneça um nome, tal como **DTU elevada** ,
 1. Defina os seguintes valores:
    * **Métrica = percentagem de DTU**
    * **Condição = maior do que**
-   * **Limiar = 75**.
+   * **Limiar = 75** .
    * **Período = Nos últimos 30 minutos**
-1. Adicione um endereço de e-mail à caixa *de e-mails do administrador adicional* e clique em **OK**.
+1. Adicione um endereço de e-mail à caixa *de e-mails do administrador adicional* e clique em **OK** .
 
    ![alerta de definição](./media/saas-multitenantdb-performance-monitoring/set-alert.png)
 
@@ -134,14 +134,14 @@ Se o nível de carga aumentar numa base de dados ao ponto de atingir a base de d
 
 Pode simular uma base de dados ocupada aumentando a carga produzida pelo gerador. Fazendo com que os inquilinos rebentem com mais frequência, e por mais tempo, aumentando a carga na base de dados de vários inquilinos sem alterar os requisitos dos inquilinos individuais. A escala da base de dados é facilmente feita no portal ou na PowerShell. Este exercício utiliza o portal.
 
-1. Definir *$DemoScenario*  =  **3**, Gere a carga com _rajadas mais longas e mais frequentes por base_ de dados para aumentar a intensidade da carga agregada na base de dados sem alterar a carga máxima exigida por cada inquilino.
+1. Definir *$DemoScenario*  =  **3** , Gere a carga com _rajadas mais longas e mais frequentes por base_ de dados para aumentar a intensidade da carga agregada na base de dados sem alterar a carga máxima exigida por cada inquilino.
 1. Prima **F5** para aplicar uma carga a todas as bases de dados de inquilinos.
 1. Vá à base de dados dos **inquilinos1** no portal Azure.
 
 Monitorize o aumento da utilização do DTU na tabela superior. A carga mais alta leva alguns minutos para que a nova carga superior faça efeito, mas deve rapidamente ver a base de dados começar a atingir a utilização máxima, e à medida que a carga se mantém no novo padrão, sobrecarrega rapidamente a base de dados.
 
 1. Para escalar a base de dados, clique em **Nível de Preços (DTUs** de escala) na lâmina de definição.
-1. Ajuste a regulação **DTU** para **100**. 
+1. Ajuste a regulação **DTU** para **100** . 
 1. Clique **em Aplicar** para submeter o pedido para escalar a base de dados.
 
 Volte para os **inquilinos1**  >  **visão geral** para ver os gráficos de monitorização. Monitorize o efeito de fornecer a base de dados com mais recursos (embora com poucos inquilinos e uma carga aleatória nem sempre seja fácil ver conclusivamente até correr durante algum tempo). Enquanto você está olhando para os gráficos tenha em mente que 100% na tabela superior agora representa 100 DTUs, enquanto no gráfico inferior 100% ainda é 50 DTUs.
@@ -154,9 +154,9 @@ O modelo de multi-inquilinos em pedaços permite-lhe escolher se fornece um novo
 
 Se já adquirou um novo inquilino na sua própria base de dados, ignore os próximos passos.
 
-1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1*. 
+1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1* . 
 1. Modificar **$TenantName = "Salix Salsa"** e **$VenueType = "dance"**
-1. Definir **$Scenario**  =  **2**, _Provision a um inquilino em uma nova base de dados de inquilino único_
+1. Definir **$Scenario**  =  **2** , _Provision a um inquilino em uma nova base de dados de inquilino único_
 1. Prima **F5** para executar o script.
 
 O script irá providenciar este inquilino numa base de dados separada, registar a base de dados e o inquilino com o catálogo e, em seguida, abrir a página eventos do inquilino no navegador. Refresque a página do Centro de Eventos e verá "Salix Salsa" como local.
@@ -168,9 +168,9 @@ Se um único inquilino dentro de uma base de dados multi-inquilino sofre uma car
 Este exercício simula o efeito de Salix Salsa experimentar uma carga elevada quando os bilhetes estão à venda para um evento popular.
 
 1. Abra o ... \\ *Demo-PerformanceMonitoringAndManagement.ps1* guião.
-1. Definir **$DemoScenario = 5**, _Gerar uma carga normal mais uma carga elevada sobre um único inquilino (aproximadamente 90 DTU)._
+1. Definir **$DemoScenario = 5** , _Gerar uma carga normal mais uma carga elevada sobre um único inquilino (aproximadamente 90 DTU)._
 1. Set **$SingleTenantName = Salix Salsa**
-1. Execute o script com **F5**.
+1. Execute o script com **F5** .
 
 Vá ao portal e navegue para **salixsalsa**  >  **Overview** para ver os gráficos de monitorização. 
 

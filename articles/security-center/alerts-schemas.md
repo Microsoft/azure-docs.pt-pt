@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341945"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789221"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
 
@@ -25,7 +25,7 @@ Se a sua subscrição tiver o Azure Defender ativado, receberá alertas de segur
 Pode ver estes alertas de segurança nas páginas de **Proteção** de Ameaças do Centro de Segurança Azure ou através de ferramentas externas como:
 
 - [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft. O Sentinel Connector recebe alertas do Azure Security Center e envia-os para o [espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) para o Azure Sentinel.
-- SIEMs de terceiros - Utilize as ferramentas [de exportação contínuas](continuous-export.md) do Security Center para enviar dados para [os Hubs de Eventos Azure](../event-hubs/index.yml). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros.
+- SIEMs de terceiros - Envie dados para [Azure Event Hubs](../event-hubs/index.yml). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros. Saiba mais em [alertas stream para uma solução SIEM, SOAR ou IT Service Management.](export-to-siem.md)
 - [A API REST](/rest/api/securitycenter/) - Se estiver a utilizar a API REST para aceder a alertas, consulte a [documentação da API alertas online](/rest/api/securitycenter/alerts).
 
 Se estiver a utilizar métodos programáticos para consumir os alertas, precisará do esquema correto para encontrar os campos que são relevantes para si. Além disso, se estiver a exportar para um Centro de Eventos ou a tentar ativar a Automatização do Fluxo de Trabalho com conectores HTTP genéricos, utilize os esquemas para analisar corretamente os objetos JSON.
@@ -46,8 +46,9 @@ Abaixo você encontrará o esquema dos eventos de alerta passados para:
 - Instâncias da Azure Logic App que foram configuradas na automatização do fluxo de trabalho do Security Center
 - Azure Event Hub usando a funcionalidade de exportação contínua do Security Center
 
-Para obter mais informações sobre a função de automatização do fluxo de trabalho, consulte [as respostas da Automatização aos alertas e recomendações.](workflow-automation.md)
-Para obter mais informações sobre a exportação contínua, consulte [alertas e recomendações de exportação.](continuous-export.md)
+Para obter mais informações sobre a função de automatização do fluxo de trabalho, consulte [as respostas do Automatizar para os gatilhos do Centro de Segurança.](workflow-automation.md)
+
+Para obter mais informações sobre a exportação contínua, consulte [os dados do Centro de Segurança de exportação contínua](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
@@ -185,5 +186,5 @@ Para obter mais informações sobre as formas de aceder a alertas de segurança 
 
 - [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml) - Serviço de ingestão de dados totalmente gerido e em tempo real da Microsoft
-- Recurso de [exportação contínua](continuous-export.md) do Centro de Segurança
+- [Exportar continuamente dados do Centro de Segurança](continuous-export.md)
 - [Log Analytics workspaces](../azure-monitor/learn/quick-create-workspace.md) - Azure Monitor armazena dados de registo num espaço de trabalho Log Analytics, um recipiente que inclui informações de dados e configuração

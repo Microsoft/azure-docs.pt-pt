@@ -12,12 +12,12 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.date: 03/10/2020
-  ms.openlocfilehash: 678d7b0094a4734fc76019cc20ed058744bbdc36
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 26a47465085e3cd013cf5b6dc0a937345690cec1
+  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89651471"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92790292"
 landingContent:
 - title: Introdução à otimização da monitorização e do desempenho
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
     - text: Padrões de desempenho detetáveis
       url: intelligent-insights-troubleshoot-performance.md
     - text: Processamento de consultas inteligentes
-      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
+      url: /sql/relational-databases/performance/intelligent-query-processing
   - linkListType: video
     links:
     - text: Informações Inteligentes
@@ -94,7 +94,7 @@ landingContent:
     - text: Otimização de aplicações e bases de dados
       url: performance-guidance.md
     - text: Utilizar o Arquivo de Consultas
-      url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+      url: /sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
     - text: Utilizar eventos expandidos
       url: xevent-db-diff-from-svr.md
     - text: Diagnóstico de desempenho do Hyperscale

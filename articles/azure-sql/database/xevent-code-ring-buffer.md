@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619836"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791295"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código-alvo do tampão de anel para eventos prolongados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Você quer uma amostra de código completa para a maneira mais fácil de capturar e reportar informações para um evento prolongado durante um teste. O alvo mais fácil para dados de eventos alargados é o [alvo do tampão ring](https://msdn.microsoft.com/library/ff878182.aspx).
+Você quer uma amostra de código completa para a maneira mais fácil de capturar e reportar informações para um evento prolongado durante um teste. O alvo mais fácil para dados de eventos alargados é o [alvo do tampão ring](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 Este tópico apresenta uma amostra de código Transact-SQL que:
 
 1. Cria uma tabela com dados para demonstrar.
-2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_starting**.
+2. Cria uma sessão para um evento alargado existente, nomeadamente **sqlserver.sql_statement_starting** .
 
-   * O evento está limitado a declarações SQL que contêm uma determinada cadeia de atualização: **declaração como '%UPDATE tabEmployee%'**.
-   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente  **package0.ring_buffer**.
+   * O evento está limitado a declarações SQL que contêm uma determinada cadeia de atualização: **declaração como '%UPDATE tabEmployee%'** .
+   * Opta por enviar a saída do evento para um alvo do tipo Tampão de Anel, nomeadamente  **package0.ring_buffer** .
 3. Começa a sessão do evento.
 4. Emite um par de declarações simples SQL UPDATE.
 5. Emite uma declaração SQL SELECT para recuperar a saída do evento a partir do tampão de anel.
@@ -46,11 +46,11 @@ Este tópico apresenta uma amostra de código Transact-SQL que:
 * Uma conta e subscrição do Azure. Pode inscrever-se para obter uma [versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer base de dados pode criar uma tabela.
   
-  * Opcionalmente, pode [criar uma base de dados de demonstração **AdventureWorksLT** ](single-database-create-quickstart.md) em minutos.
+  * Opcionalmente, pode [criar uma base de dados de demonstração **AdventureWorksLT**](single-database-create-quickstart.md) em minutos.
 * SQL Server Management Studio (ssms.exe), idealmente a sua mais recente versão mensal de atualização.
   Você pode baixar as últimas ssms.exe a partir de:
   
-  * Tópico intitulado [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Tópico intitulado [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [Um link direto para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Exemplo de código
@@ -218,9 +218,9 @@ GO
 
 Costumávamos `ssms.exe` analisar a amostra de código.
 
-Para ver os resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML**.
+Para ver os resultados, clicamos na célula sob o cabeçalho da coluna **target_data_XML** .
 
-Em seguida, no painel de resultados clicamos na célula sob o cabeçalho da coluna **target_data_XML**. Este clique criou outro separador de ficheiros em ssms.exe em que o conteúdo da célula de resultados foi apresentado, como XML.
+Em seguida, no painel de resultados clicamos na célula sob o cabeçalho da coluna **target_data_XML** . Este clique criou outro separador de ficheiros em ssms.exe em que o conteúdo da célula de resultados foi apresentado, como XML.
 
 A saída é mostrada no bloco seguinte. Parece longo, mas são **\<event>** apenas dois elementos.
 
@@ -349,6 +349,6 @@ Outros tópicos de amostra de código para eventos prolongados estão disponíve
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

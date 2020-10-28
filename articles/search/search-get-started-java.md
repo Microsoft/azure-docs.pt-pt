@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540358"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791227"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
@@ -53,18 +53,18 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
    Crie uma chave de consulta, também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 Cada pedido enviado ao seu serviço requer uma chave API. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-1. Abra a ideia intelliJ e selecione **Create New Project**.
-1. Selecione **Maven**.
+1. Abra a ideia intelliJ e selecione **Create New Project** .
+1. Selecione **Maven** .
 1. Na lista **do Project SDK,** selecione o Java 11 SDK.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
@@ -74,8 +74,8 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="specify-maven-dependencies"></a>Especificar dependências de Maven
 
-1. Selecione **File**  >  **Definições de ficheiros**.
-1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando**.
+1. Selecione **File**  >  **Definições de ficheiros** .
+1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando** .
 1. Selecione os  **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
@@ -133,8 +133,8 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="set-up-the-project-structure"></a>Configurar a estrutura do projeto
 
-1. Selecione **File**  >  **estrutura de projeto de arquivo**.
-1. Selecione **Módulos**e expanda a árvore de origem para aceder ao conteúdo da `src`  >   `main` pasta.
+1. Selecione **File**  >  **estrutura de projeto de arquivo** .
+1. Selecione **Módulos** e expanda a árvore de origem para aceder ao conteúdo da `src`  >   `main` pasta.
 1. Na `src`  >   `main`  >  `java` pasta, adicione `app` e adicione as `service` pastas. Para isso, selecione a `java` pasta, prima Alt + Insira e, em seguida, introduza o nome da pasta.
 1. Na `src`  >   `main`  > `resources` pasta, adicione `app` e adicione as `service` pastas.
 
@@ -160,7 +160,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="add-the-main-method"></a>Adicione o método principal
 
-1. Na `src`  >   `main`  >  `java`  >  `app` pasta, adicione uma `App` classe. Para isso, selecione a `app` pasta, prima Alt + Insert, selecione **Classe Java**e, em seguida, introduza o nome da classe.
+1. Na `src`  >   `main`  >  `java`  >  `app` pasta, adicione uma `App` classe. Para isso, selecione a `app` pasta, prima Alt + Insert, selecione **Classe Java** e, em seguida, introduza o nome da classe.
 1. Abra a `App` aula e substitua o conteúdo pelo seguinte código. Este código contém o `main` método. 
 
     O código não comentado lê os parâmetros do serviço de pesquisa e utiliza-os para criar uma instância do cliente do serviço de pesquisa. O código do cliente do serviço de pesquisa será adicionado na secção seguinte.
@@ -259,7 +259,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 ### <a name="add-the-http-operations"></a>Adicione as operações HTTP
 
-1. Na `src`  >   `main`  >  `java`  >  `service` pasta, adicione uma `SearchServiceClient` classe. Para isso, selecione a `service` pasta, prima Alt + Insert, selecione **Classe Java**e, em seguida, introduza o nome da classe.
+1. Na `src`  >   `main`  >  `java`  >  `service` pasta, adicione uma `SearchServiceClient` classe. Para isso, selecione a `service` pasta, prima Alt + Insert, selecione **Classe Java** e, em seguida, introduza o nome da classe.
 1. Abra a `SearchServiceClient` aula e substitua o conteúdo pelo seguinte código. Este código fornece as operações HTTP necessárias para utilizar a API de Pesquisa Cognitiva Azure. Métodos adicionais para criar um índice, carregar documentos e consultar o índice serão adicionados numa secção posterior.
 
     ```java
@@ -818,7 +818,7 @@ Agora que você carregou os documentos dos hotéis, você pode criar consultas d
 
     Procure um resumo de cada consulta e seus resultados. A execução deve ser completada com a mensagem BUILD SUCCESS e um código de saída zero (0).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

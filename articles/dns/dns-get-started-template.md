@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093825"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791006"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Quickstart: Crie uma zona de DNS Azure e grave usando um modelo ARM
 
-Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (Modelo ARM) para criar uma zona DENS com um registo A.
+Este quickstart descreve como usar um modelo de Gestor de Recursos Azure (Modelo ARM) para criar uma zona DE DNS com um `A` registo.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
@@ -34,20 +34,20 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-Neste arranque rápido, você vai criar uma zona de DNS única com um sufixo de * <span>azurequickstart.</span> org*. Um registo *A* que aponta para dois endereços IP também será colocado na zona.
+Neste arranque rápido, você vai criar uma zona de DNS única com um sufixo de `azurequickstart.org` . Um `A` registo que indique dois endereços IP também será colocado na zona.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
 Dois recursos Azure foram definidos no modelo:
 
-* [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-* [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (Usado para criar um registo A na zona)
+- [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): Usado para criar um `A` registo na zona.
 
 Para encontrar mais modelos relacionados com O Gestor de Tráfego Azure, consulte [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione **Experimentá-lo** a partir do bloco de código que se segue para abrir a Azure Cloud Shell e, em seguida, siga as instruções para iniciar súm no Azure. 
+1. Selecione **Experimentá-lo** a partir do bloco de código que se segue para abrir a Azure Cloud Shell e, em seguida, siga as instruções para iniciar súm no Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -66,11 +66,11 @@ Para encontrar mais modelos relacionados com O Gestor de Tráfego Azure, consult
 
 1. Selecione **Copiar** do bloco de código anterior para copiar o script PowerShell.
 
-1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta**.
+1. Clique com o botão direito da placa de consola da concha e, em seguida, **selecione Pasta** .
 
 1. Insira os valores.
 
-    A implementação do modelo cria uma zona com um registo A apontando para dois endereços IP. O nome do grupo de recursos é o nome do projeto com **rg** anexado.
+    A implementação do modelo cria uma zona com um `A` registo apontando para dois endereços IP. O nome do grupo de recursos é o nome do projeto com **rg** anexado.
 
     Leva alguns segundos para implantar o modelo. Quando concluída, a saída é semelhante a:
 
@@ -80,7 +80,7 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 ## <a name="validate-the-deployment"></a>Validar a implementação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos** de recursos do painel esquerdo.
 
@@ -90,7 +90,7 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
     :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
 
-1. Selecione a zona DNS com o sufixo de ** <span>azurequickstart.</span> org** para verificar se a zona é criada corretamente com um registo **A** referindo o valor de **1.2.2.3.4** e **1.2.3.5**.
+1. Selecione a zona DNS com o sufixo de `azurequickstart.org` verificar se a zona é criada corretamente com um registo que refere o valor de e `A` `1.2.3.4` `1.2.3.5` .
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
 
@@ -98,13 +98,13 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 1. Abra um pedido de comando e executar o seguinte comando:
 
-   ```
+   ```cmd
    nslookup www.<dns zone name> <name server name>
    ```
 
    Por exemplo:
 
-   ```
+   ```cmd
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
@@ -112,9 +112,9 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Modelo de implementação do gestor de recursos da zona de Azure DNS":::
 
-O nome de anfitrião **www<span>.2lwynbseszpam.azurequickstart.</span> org** resolve para **1.2.3.4** e **1.2.3.5**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
+O nome do hospedeiro `www.2lwynbseszpam.azurequickstart.org` resolve `1.2.3.4` `1.2.3.5` e, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com a zona DNS, elimine o grupo de recursos. Isto remove a zona de DNS e todos os recursos conexos.
 
@@ -127,10 +127,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, criou um:
-* Zona DNS
-* Um registo
 
-Agora que criou a sua primeira zona de DNS e gravou usando o modelo Azure Resource Manager, pode criar registos para uma aplicação web num domínio personalizado.
+- Zona DNS
+- `A` recorde
+
+Agora que criou a sua primeira zona de DNS e gravou usando um modelo ARM, pode criar registos para uma aplicação web num domínio personalizado.
 
 > [!div class="nextstepaction"]
 > [Criar registos DNS para uma aplicação Web num domínio personalizado](./dns-web-sites-custom-domain.md)

@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 823013de0462d830f065993b1c7c9dbe4256991d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978042"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788813"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados Azure: Eventos agendados para VMs windows
 
@@ -153,6 +153,10 @@ Cada evento está programado um período mínimo de tempo no futuro com base no 
 
 > [!NOTE] 
 > Em alguns casos, o Azure é capaz de prever a falha do hospedeiro devido a hardware degradado e tentará mitigar a perturbação do seu serviço agendando uma migração. As máquinas virtuais afetadas receberão um evento agendado com um `NotBefore` que normalmente é de alguns dias no futuro. O tempo real varia em função da avaliação prevista do risco de falha. O Azure tenta dar um pré-aviso de 7 dias quando possível, mas o tempo real varia e pode ser menor se a previsão for que há uma alta probabilidade de o hardware falhar iminentemente. Para minimizar o risco para o seu serviço no caso de o hardware falhar antes da migração iniciada pelo sistema, recomendamos que se auto-reimplante a sua máquina virtual o mais rapidamente possível.
+
+### <a name="polling-frequency"></a>Frequência de sondagens
+
+Pode sondar o ponto final para atualizações com a frequência ou com pouca frequência que quiser. No entanto, quanto mais tempo demorar entre pedidos, mais tempo poderá perder para reagir a um evento que se avizinha. A maioria dos eventos tem 5 a 15 minutos de antecedência, embora em alguns casos o aviso prévio possa ser de apenas 30 segundos. Para garantir que tem o máximo de tempo possível para tomar medidas mitigadoras, recomendamos que faça uma sondagem do serviço uma vez por segundo.
 
 ### <a name="start-an-event"></a>Inicie um evento 
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331673"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790938"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app de inquilino único
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,17 +69,17 @@ Compreender como cada inquilino está a usar o serviço é usado para explorar o
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-- A aplicação Wingtip Tickets SaaS Database per Tenant é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a aplicação Wingtip SaaS](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+- A aplicação Wingtip Tickets SaaS Database per Tenant é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a aplicação Wingtip SaaS](./saas-dbpertenant-get-started-deploy.md)
 - Os scripts de base de dados saas de bilhetes de ponta do Wingtip por inquilino e [código fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) de aplicação são descarregados a partir do GitHub. Consulte as instruções de descarregamento. Certifique-se de *desbloquear o ficheiro zip* antes de extrair o seu conteúdo. Confira as [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para as etapas para descarregar e desbloquear os scripts SaaS dos Bilhetes Wingtip.
 - O Power BI Desktop está instalado. [Transferir o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- O lote de inquilinos adicionais foi a provisionado, ver o [**tutorial de inquilinos da Provisão.**](../../sql-database/saas-dbpertenant-provision-and-catalog.md)
-- Foi criada uma conta de trabalho e uma base de dados de contas de trabalho. Consulte os passos adequados no tutorial de [**gestão de Schema.**](../../sql-database/saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)
+- O lote de inquilinos adicionais foi a provisionado, ver o [**tutorial de inquilinos da Provisão.**](./saas-dbpertenant-provision-and-catalog.md)
+- Foi criada uma conta de trabalho e uma base de dados de contas de trabalho. Consulte os passos adequados no tutorial de [**gestão de Schema.**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)
 
 ### <a name="create-data-for-the-demo"></a>Criar dados para a demonstração
 
-Neste tutorial, a análise é feita nos dados de venda de bilhetes. No passo atual, gera dados de bilhetes para todos os inquilinos.  Posteriormente, estes dados são extraídos para análise. *Certifique-se de que fornece o lote de inquilinos como descrito anteriormente, para que tenha uma quantidade significativa de dados*. Uma quantidade suficientemente grande de dados pode expor uma gama de diferentes padrões de compra de bilhetes.
+Neste tutorial, a análise é feita nos dados de venda de bilhetes. No passo atual, gera dados de bilhetes para todos os inquilinos.  Posteriormente, estes dados são extraídos para análise. *Certifique-se de que fornece o lote de inquilinos como descrito anteriormente, para que tenha uma quantidade significativa de dados* . Uma quantidade suficientemente grande de dados pode expor uma gama de diferentes padrões de compra de bilhetes.
 
-1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics Operacional\TenantAnalytics\Demo-TenantAnalytics.ps1*, e definir o seguinte valor:
+1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics Operacional\TenantAnalytics\Demo-TenantAnalytics.ps1* , e definir o seguinte valor:
     - **$DemoScenario**  =  **1** Compre bilhetes para eventos em todos os locais
 2. Prima **F5** para executar o script e criar histórico de compra de bilhetes para cada evento em cada local.  O guião dura vários minutos para gerar dezenas de milhares de bilhetes.
 
@@ -93,7 +93,7 @@ Nos passos seguintes, você implanta a loja de análise, que é chamada **de ten
     - Para utilizar a Base de Dados SQL com a loja de colunas, desempenhe **$DemoScenario**  =  **3**  
 3. Prima **F5** para executar o roteiro de demonstração (que chama o roteiro *Deploy-TenantAnalytics \<XX> .ps1)* que cria a loja de análise do inquilino. 
 
-Agora que implementou a aplicação e a preencheu com dados interessantes do inquilino, utilize [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para ligar **os inquilinos1-dpt- &lt; Utilizador &gt; ** e ** &lt; &gt; servidores de utilizadores de catálogo** usando Login = *developer*, Password = *P \@ ssword1*. Consulte o [tutorial introdutório](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
+Agora que implementou a aplicação e a preencheu com dados interessantes do inquilino, utilize [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar **os inquilinos1-dpt- &lt; Utilizador &gt;** e **&lt; &gt; servidores de utilizadores de catálogo** usando Login = *developer* , Password = *P \@ ssword1* . Consulte o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
 
 ![Screenshot que mostra as informações necessárias para ligar ao SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -101,13 +101,13 @@ No Explorador de Objetos, execute os seguintes passos:
 
 1. Expandir o servidor *de utilizadores de 1-dpt- &lt; &gt; inquilinos.*
 2. Expanda o nó de bases de dados e consulte a lista de bases de dados de inquilinos.
-3. Expandir o *servidor de utilizador do catálogo-dpt. &lt; &gt; *
+3. Expandir o *servidor de utilizador do catálogo-dpt. &lt; &gt;*
 4. Verifique se vê a loja de análise e a base de dados do jobaccount.
 
 Consulte os seguintes itens de base de dados no SSMS Object Explorer expandindo o nó da loja de análise:
 
 - Os **bilhetes de mesaRawData** e **EventsRawData** detêm dados extraídos em bruto das bases de dados dos inquilinos.
-- As mesas de esquema de estrelas são **fact_Tickets,** **dim_Customers,** **dim_Venues,** **dim_Events**e **dim_Dates.**
+- As mesas de esquema de estrelas são **fact_Tickets,** **dim_Customers,** **dim_Venues,** **dim_Events** e **dim_Dates.**
 - O procedimento armazenado é utilizado para povoar as tabelas de esquemas estelares das tabelas de dados brutos.
 
 ![Screenshot dos itens de base de dados mostrados no Explorador de Objetos SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -133,7 +133,7 @@ Podem ocorrer modificações de dados extensivas com mais frequência para os da
 Cada trabalho extrai os seus dados e coloca-os na loja de análise. Há um trabalho separado que destrói os dados extraídos no esquema de estrelas analítica.
 
 1. No SSMS, ligue-se à base **de dados de contas** de trabalho no servidor de utilizador do catálogo-dpt. &lt; &gt;
-2. No SSMS, abra *...\Módulos de aprendizagem\Analytics Operacional\Tenant Analytics\ExtractTickets.sql*.
+2. No SSMS, abra *...\Módulos de aprendizagem\Analytics Operacional\Tenant Analytics\ExtractTickets.sql* .
 3. Modifique @User no topo do script e substitua-o pelo nome de utilizador utilizado quando `<User>` implementou a aplicação Wingtip SaaS 
 4. Prima f5 para executar o script que cria e executa o trabalho que extrai bilhetes e dados de clientes de cada base de dados de inquilinos. O trabalho guarda os dados na loja de análise.
 5. Consultar a tabela TicketsRawData na base de dados de inquilinos, para garantir que a mesa é preenchida com informações de bilhetes de todos os inquilinos.
@@ -153,7 +153,7 @@ O próximo passo é destruir os dados brutos extraídos num conjunto de tabelas 
 Nesta secção do tutorial, você define e executou um trabalho que funde os dados brutos extraídos com os dados nas tabelas de esquemas estelares. Após o fim do trabalho de fusão, os dados brutos são eliminados, deixando as tabelas prontas a serem povoadas pelo próximo trabalho de extrato de dados do inquilino.
 
 1. No SSMS, ligue-se à base **de dados de contas** de trabalho no catálogo-dpt-User &lt; &gt; .
-2. No SSMS, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics\ShredRawExtractedData.sql*.
+2. No SSMS, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics\ShredRawExtractedData.sql* .
 3. Prima **F5** para executar o script para definir um trabalho que ligue para o sp_ShredRawExtractedData procedimento armazenado na loja de análise.
 4. Dê tempo suficiente para que o trabalho corra com sucesso.
     - Verifique a coluna **lifecycle** da tabela jobs.jobs_execution para obter o estado de trabalho. Certifique-se **de** que o trabalho foi bem sucedido antes de prosseguir. Uma execução bem sucedida exibe dados semelhantes ao seguinte gráfico:
@@ -171,15 +171,15 @@ Use os seguintes passos para ligar ao Power BI e importar as vistas que criou an
 1. Lançar power bi desktop.
 2. A partir da fita Home, **selecione Obter Dados,** e selecione **Mais...** do menu.
 3. Na janela **Obter Dados,** selecione Azure SQL Database.
-4. Na janela de início de sessão de dados, insira o nome do servidor (catalog-dpt- &lt; User &gt; .database.windows.net). Selecione **Importar** para **o Modo de Conectividade de Dados**e, em seguida, clique em OK. 
+4. Na janela de início de sessão de dados, insira o nome do servidor (catalog-dpt- &lt; User &gt; .database.windows.net). Selecione **Importar** para **o Modo de Conectividade de Dados** e, em seguida, clique em OK. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor*, e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
+5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor* , e introduza a palavra-passe = *P \@ ssword1* . Clique em **Ligar** .  
 
     ![A screenshot mostra o diálogo de base de dados SQL Server onde pode introduzir um nome de utilizador e palavra-passe.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, **selecione Carregar**. 
+6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, **selecione Carregar** . 
 
 Parabéns! Você carregou os dados com sucesso no Power BI. Agora você pode começar a explorar visualizações interessantes para ajudar a obter insights sobre seus inquilinos. Em seguida, você percorre como a análise pode permitir-lhe fornecer recomendações baseadas em dados para a equipe de negócios Wingtip Tickets. As recomendações podem ajudar a otimizar o modelo de negócio e a experiência do cliente.
 
@@ -240,6 +240,6 @@ Parabéns!
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Trabalhos Elásticos](../../sql-database/elastic-jobs-overview.md).
-- [Análise de inquilinos cruzados usando dados extraídos - app multi-inquilino](../../sql-database/saas-multitenantdb-tenant-analytics.md)
+- [Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Trabalhos Elásticos](./elastic-jobs-overview.md).
+- [Análise de inquilinos cruzados usando dados extraídos - app multi-inquilino](./saas-multitenantdb-tenant-analytics.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533959"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790955"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao Serviço de Aplicações Azure
 
@@ -24,7 +24,11 @@ Quando um pedido é feito para a sua aplicação, o endereço FROM é avaliado c
 
 A capacidade de restrições de acesso é implementada nas funções frontais do Serviço de Aplicações, que estão a montante dos anfitriões dos trabalhadores onde o seu código funciona. Portanto, as restrições de acesso são efetivamente ACLs de rede.
 
-A capacidade de restringir o acesso à sua aplicação web a partir de uma Rede Virtual Azure (VNet) [chama-se pontos finais de serviço][serviceendpoints]. Os pontos finais de serviço permitem-lhe restringir o acesso a um serviço multi-inquilino a partir de sub-redes selecionadas. Deve ser ativado tanto no lado da rede como no serviço que está a ser ativado. Não funciona para restringir o tráfego a aplicações que estão hospedadas num Ambiente de Serviço de Aplicações. Se estiver num Ambiente de Serviço de Aplicações, pode controlar o acesso à sua aplicação com regras de endereço IP.
+A capacidade de restringir o acesso à sua aplicação web a partir de uma Rede Virtual Azure (VNet) [chama-se pontos finais de serviço][serviceendpoints]. Os pontos finais de serviço permitem-lhe restringir o acesso a um serviço multi-inquilino a partir de sub-redes selecionadas. Não funciona para restringir o tráfego a aplicações que estão hospedadas num Ambiente de Serviço de Aplicações. Se estiver num Ambiente de Serviço de Aplicações, pode controlar o acesso à sua aplicação com regras de endereço IP.
+
+> [!NOTE]
+> Os pontos finais de serviço devem ser ativados tanto no lado da rede como no serviço Azure com o qual está a ser ativado. Para obter uma lista de serviços Azure que suportam pontos finais de serviço, consulte [os pontos finais do serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![fluxo de restrições de acesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 

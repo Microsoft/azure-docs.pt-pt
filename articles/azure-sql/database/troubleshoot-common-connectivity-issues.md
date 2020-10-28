@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777076"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791363"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Resolução de erros de conexão transitórios na Base de Dados SQL e na SQL Gestd instance
 
@@ -31,7 +31,7 @@ Este artigo descreve como prevenir, resolver problemas, diagnosticar e mitigar e
 
 Um erro transitório, também conhecido como uma falha transitória, tem uma causa subjacente que logo se resolve. Uma causa ocasional de erros transitórios é quando o sistema Azure rapidamente transfere recursos de hardware para um melhor equilíbrio de carga várias cargas de trabalho. A maioria destes eventos de reconfiguração terminam em menos de 60 segundos. Durante este período de tempo de reconfiguração, poderá ter problemas em ligar-se à sua base de dados na Base de Dados SQL. As aplicações que se ligam à sua base de dados devem ser construídas para esperar estes erros transitórios. Para lidar com os mesmos, implementar a lógica de reação no seu código em vez de os apresentar aos utilizadores como erros de aplicação.
 
-Se o seu programa de clientes utilizar ADO.NET, o seu programa é informado sobre o erro transitório pelo lançamento da **SqlException**.
+Se o seu programa de clientes utilizar ADO.NET, o seu programa é informado sobre o erro transitório pelo lançamento da **SqlException** .
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -70,7 +70,7 @@ Os programas de clientes que ocasionalmente encontram um erro transitório são 
 
 Recomendamos que aguarde 5 segundos antes da primeira repetição. Tentar novamente depois de um atraso inferior a 5 segundos corre o risco de sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deve crescer exponencialmente, até um máximo de 60 segundos.
 
-Para uma discussão sobre o período de bloqueio para clientes que utilizam ADO.NET, consulte [Connection pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+Para uma discussão sobre o período de bloqueio para clientes que utilizam ADO.NET, consulte [Connection pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 Também é melhor definir um número máximo de retrações antes do programa se auto-terminar.
 
@@ -132,11 +132,11 @@ Se o seu programa de clientes ligar à sua base de dados na Base de Dados SQL ut
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Quando construir a [cadeia de ligação](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o seu objeto **SqlConnection,** coordene os valores entre os seguintes parâmetros:
+Quando construir a [cadeia de ligação](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) para o seu objeto **SqlConnection,** coordene os valores entre os seguintes parâmetros:
 
-- **ConnectRetryCount**: &nbsp; &nbsp; O padrão é 1. O intervalo é de 0 a 255.
+- **ConnectRetryCount** : &nbsp; &nbsp; O padrão é 1. O intervalo é de 0 a 255.
 - **ConnectRetryInterval:** &nbsp; &nbsp; O padrão é de 10 segundos. O intervalo é de 1 a 60.
-- **Intervalo de ligação**: &nbsp; &nbsp; O predefinido é de 15 segundos. O intervalo é de 0 a 2147483647.
+- **Intervalo de ligação** : &nbsp; &nbsp; O predefinido é de 15 segundos. O intervalo é de 0 a 2147483647.
 
 Especificamente, os seus valores escolhidos devem tornar a igualdade verdadeira: Intervalo de ligação = ConnectRetryCount * ConnectionRetryInterval
 
@@ -189,7 +189,7 @@ Normalmente, é necessário garantir que apenas a porta 1433 está aberta para c
 Por exemplo, quando o programa do seu cliente está hospedado num computador Windows, pode utilizar o Windows Firewall no anfitrião para abrir a porta 1433.
 
 1. Abra o Painel de Controlo.
-2. Selecione **todos os itens do painel de controlo**Windows  >  **Firewall**  >  **Definições avançadas**  >  **Regras de saída**  >  **Ações**nova regra  >  **.**
+2. Selecione **todos os itens do painel de controlo** Windows  >  **Firewall**  >  **Definições avançadas**  >  **Regras de saída**  >  **Ações** nova regra  >  **.**
 
 Se o seu programa de clientes estiver hospedado numa máquina virtual Azure (VM), leia [portas para além de 1433 para ADO.NET 4.5 e SQL Database](adonet-v12-develop-direct-route-ports.md).
 
@@ -227,7 +227,7 @@ Se o seu programa não conseguir ligar-se à sua base de dados na Base de Dados 
 Em qualquer computador Windows, pode experimentar estes utilitários:
 
 - SQL Server Management Studio (ssms.exe), que se conecta utilizando ADO.NET
-- `sqlcmd.exe`, que se conecta utilizando [o ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
+- `sqlcmd.exe`, que se conecta utilizando [o ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server)
 
 Depois de o seu programa estar ligado, teste se funciona uma consulta CURTA SQL SELECT.
 
@@ -268,7 +268,7 @@ Um problema intermitente é por vezes melhor diagnosticado pela deteção de um 
 
 O seu cliente pode ajudar num diagnóstico registando todos os erros que encontrar. Poderá correlacionar as entradas de registo com dados de erro que a SQL Database regista internamente.
 
-A Enterprise Library 6 (EntLib60) oferece aulas geridas .NET para ajudar na exploração madeireira. Para obter mais informações, consulte [5 - Tão fácil como cair de um tronco: Utilize o Bloco de Aplicação de Registo](https://msdn.microsoft.com/library/dn440731.aspx).
+A Enterprise Library 6 (EntLib60) oferece aulas geridas .NET para ajudar na exploração madeireira. Para obter mais informações, consulte [5 - Tão fácil como cair de um tronco: Utilize o Bloco de Aplicação de Registo](/previous-versions/msp-n-p/dn440731(v=pandp.60)).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -278,8 +278,8 @@ Aqui estão algumas declarações Do Transt-SQL SELECT que consultam registos de
 
 | Consulta de log | Descrição |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) visão oferece informações sobre eventos individuais, que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>Idealmente, pode correlacionar os valores **start_time** ou **end_time** com informações sobre quando o seu programa de cliente sofre problemas.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A [visão sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |A [sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database) visão oferece informações sobre eventos individuais, que inclui alguns que podem causar erros transitórios ou falhas de conectividade.<br/><br/>Idealmente, pode correlacionar os valores **start_time** ou **end_time** com informações sobre quando o seu programa de cliente sofre problemas.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |A [visão sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database) oferece contagens agregadas de tipos de eventos para diagnósticos adicionais.<br/><br/>Tem de se ligar à base de *dados principal* para executar esta consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -326,9 +326,9 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Biblioteca Empresarial 6
 
-A Enterprise Library 6 (EntLib60) é um quadro de classes .NET que o ajuda a implementar clientes robustos de serviços na nuvem, um dos quais é a SQL Database. Para localizar tópicos dedicados a cada área em que o EntLib60 pode ajudar, consulte [a Enterprise Library 6 - abril 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+A Enterprise Library 6 (EntLib60) é um quadro de classes .NET que o ajuda a implementar clientes robustos de serviços na nuvem, um dos quais é a SQL Database. Para localizar tópicos dedicados a cada área em que o EntLib60 pode ajudar, consulte [a Enterprise Library 6 - abril 2013](/previous-versions/msp-n-p/dn169621(v=pandp.10)).
 
-A lógica de recandidúz para lidar com erros transitórios é uma área em que o EntLib60 pode ajudar. Para mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: Utilize o Bloco de Aplicação de Tratamento de Avarias Transitórios](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+A lógica de recandidúz para lidar com erros transitórios é uma área em que o EntLib60 pode ajudar. Para mais informações, consulte [4 - Perseverança, segredo de todos os triunfos: Utilize o Bloco de Aplicação de Tratamento de Avarias Transitórios](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
 > O código fonte do EntLib60 está disponível para download público a partir do [Centro de Descarregamento.](https://go.microsoft.com/fwlink/p/?LinkID=290898) A Microsoft não tem planos para fazer mais atualizações de funcionalidades ou atualizações de manutenção para o EntLib.
@@ -337,7 +337,7 @@ A lógica de recandidúz para lidar com erros transitórios é uma área em que 
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Aulas de EntLib60 para erros transitórios e redandimento
 
-As seguintes aulas de EntLib60 são particularmente úteis para a lógica de relcurá-lo. Todas estas classes encontram-se dentro ou sob o espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
+As seguintes aulas de EntLib60 são particularmente úteis para a lógica de relcurá-lo. Todas estas classes encontram-se dentro ou sob o espaço de nome **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** .
 
 No espaço de **nomes Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling:**
 
@@ -369,7 +369,7 @@ Aqui estão algumas ligações com informações sobre o EntLib60:
   - Recolher informações contextuais que são úteis para depurar e rastrear, bem como para os requisitos de auditoria e registo geral.
 - O bloco de registo abstrata a funcionalidade de registo a partir do destino de registo para que o código de aplicação seja consistente, independentemente da localização e tipo da loja de registo sonoro alvo.
 
-Para obter mais informações, consulte [5 - Tão fácil como cair de um tronco: Utilize o Bloco de Aplicação de Registo](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para obter mais informações, consulte [5 - Tão fácil como cair de um tronco: Utilize o Bloco de Aplicação de Registo](/previous-versions/msp-n-p/dn440731(v=pandp.60)).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -446,11 +446,11 @@ public bool IsTransient(Exception ex)
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Bibliotecas de conexão para Base de Dados SQL e Servidor SQL](connect-query-content-reference-guide.md#libraries)
-- [Agrupamento de conexão (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [Agrupamento de conexão (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [ *Retrying* é uma biblioteca de retíria licenciada apache 2.0, escrita em Python,](https://pypi.python.org/pypi/retrying) para simplificar a tarefa de adicionar o comportamento de retagem a qualquer coisa.
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+[step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php

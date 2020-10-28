@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448881"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790377"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Insight de desempenho de consulta para base de dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-O Insight de Desempenho de Consulta fornece uma análise inteligente de consultas para bases de dados únicas e agitadas. Ajuda a identificar os principais recursos que consomem e consultas de longa duração na sua carga de trabalho. Isto ajuda-o a encontrar as consultas para otimizar para melhorar o desempenho global da carga de trabalho e utilizar eficientemente o recurso que está a pagar. O Insight de Desempenho de Consulta ajuda-o a gastar menos tempo a resolver o desempenho da base de dados, fornecendo:
+O Query Performance Insight disponibiliza análise de consultas inteligente para bases de dados individuais e de conjunto. Ajuda a identificar as principais consultas que consomem recursos e de execução prolongada na sua carga de trabalho. Deste modo, ajuda a localizar as consultas que devem ser otimizadas para melhorar o desempenho geral da carga de trabalho e utilizar eficientemente o recurso que está a pagar. O Insight de Desempenho de Consulta ajuda-o a gastar menos tempo a resolver o desempenho da base de dados, fornecendo:
 
 * Informação mais profunda sobre o consumo de recursos de bases de dados (DTU)
 * Detalhes sobre as principais consultas de base de dados por CPU, contagem de duração e execução (potenciais candidatos à afinação para melhorias de desempenho)
@@ -32,7 +32,7 @@ O Insight de Desempenho de Consulta fornece uma análise inteligente de consulta
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O Insight de Desempenho da Consulta requer que [a Loja de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) esteja ativa na sua base de dados. É automaticamente ativado para todas as bases de dados na Base de Dados Azure SQL por padrão. Se a Loja de Consultas não estiver a funcionar, o portal Azure irá solicitar-lhe que o ative.
+O Insight de Desempenho da Consulta requer que [a Loja de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) esteja ativa na sua base de dados. É automaticamente ativado para todas as bases de dados na Base de Dados Azure SQL por padrão. Se a Loja de Consultas não estiver a funcionar, o portal Azure irá solicitar-lhe que o ative.
 
 > [!NOTE]
 > Se a mensagem "Query Store não estiver devidamente configurada nesta base de dados" aparecer no portal, consulte [a otimização da configuração da Loja de Consultas](#optimize-the-query-store-configuration).
@@ -41,27 +41,27 @@ O Insight de Desempenho da Consulta requer que [a Loja de Consultas](https://msd
 
 Você precisa das seguintes permissões [de controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) para usar o Insight de Desempenho de Consulta:
 
-* **As**permissões de leitor , **Proprietário**, **Contribuinte**, **DB DB**ou **SQL Server Contributor** são necessárias para visualizar as principais consultas e gráficos que consomem recursos.
-* **O Proprietário**, **Contribuinte**, **SqL DB Contributor,** ou **permissões de contribuinte do sql server** são necessárias para visualizar texto de consulta.
+* **As** permissões de leitor , **Proprietário** , **Contribuinte** , **DB DB** ou **SQL Server Contributor** são necessárias para visualizar as principais consultas e gráficos que consomem recursos.
+* **O Proprietário** , **Contribuinte** , **SqL DB Contributor,** ou **permissões de contribuinte do sql server** são necessárias para visualizar texto de consulta.
 
 ## <a name="use-query-performance-insight"></a>Utilizar o Query Performance Insight
 
 Consulta Performance Insight é fácil de usar:
 
 1. Abra o [portal Azure](https://portal.azure.com/) e encontre uma base de dados que pretende examinar.
-2. A partir do menu do lado esquerdo, abra **o Smart Performance**  >  **Query Performance Insight**.
+2. A partir do menu do lado esquerdo, abra **o Smart Performance**  >  **Query Performance Insight** .
   
    ![Consulta Performance Insight no menu](./media/query-performance-insight-use/tile.png)
 
 3. No primeiro separador, reveja a lista das principais consultas que consomem recursos.
 4. Selecione uma consulta individual para ver os seus detalhes.
-5. Abra **Intelligent Performance**as  >  **recomendações de Desempenho** Inteligente e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte [o Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
+5. Abra **Intelligent Performance** as  >  **recomendações de Desempenho** Inteligente e verifique se existem recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho incorporadas, consulte [o Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md).
 6. Utilize sliders ou ícones de zoom para alterar o intervalo observado.
 
    ![Painel de desempenho](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> Para que a Base de Dados Azure SQL forneça a informação no Insight de Desempenho de Consulta, a Loja de Consultas precisa de capturar algumas horas de dados. Se a base de dados não tiver atividade ou se a Loja de Consulta não estiver ativa durante um determinado período, os gráficos ficarão vazios quando a Consulta Performance Insight mostrar esse intervalo de tempo. Pode ativar a Loja de Consultas a qualquer momento se não estiver a funcionar. Para mais informações, consulte [as melhores práticas com a Loja de Consultas.](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store)
+> Para que a Base de Dados Azure SQL forneça a informação no Insight de Desempenho de Consulta, a Loja de Consultas precisa de capturar algumas horas de dados. Se a base de dados não tiver atividade ou se a Loja de Consulta não estiver ativa durante um determinado período, os gráficos ficarão vazios quando a Consulta Performance Insight mostrar esse intervalo de tempo. Pode ativar a Loja de Consultas a qualquer momento se não estiver a funcionar. Para mais informações, consulte [as melhores práticas com a Loja de Consultas.](/sql/relational-databases/performance/best-practice-with-the-query-store)
 >
 
 Para recomendações de desempenho da base de dados, selecione [Recomendações](database-advisor-implement-performance-recommendations.md) sobre a lâmina de navegação 'Insight de Desempenho de Consulta'.
@@ -85,9 +85,9 @@ Por predefinição, o Query Performance Insight mostra as cinco principais consu
    >
    > Para uma comparação mais fina (até um minuto), considere criar um gráfico de utilização DTU personalizado:
    >
-   > 1. No portal Azure, selecione **Azure SQL Database**  >  **Monitoring**.
-   > 2. Selecione **Métricas**.
-   > 3. Selecione **+Adicionar gráfico**.
+   > 1. No portal Azure, selecione **Azure SQL Database**  >  **Monitoring** .
+   > 2. Selecione **Métricas** .
+   > 3. Selecione **+Adicionar gráfico** .
    > 4. Selecione a percentagem de DTU na tabela.
    > 5. Além disso, selecione **Last 24 horas** no menu superior esquerdo e altere-o para um minuto.
    >
@@ -160,7 +160,7 @@ As consultas de longa duração têm o maior potencial para bloquear recursos po
 Para identificar consultas de longa duração:
 
 1. Abra o **separador Personalizado** em Consulta Performance Insight para a base de dados selecionada.
-2. Altere as métricas para **a duração**.
+2. Altere as métricas para **a duração** .
 3. Selecione o número de consultas e o intervalo de observação.
 4. Selecione a função de agregação:
 
@@ -177,9 +177,9 @@ Para identificar consultas de longa duração:
    >
    > Para compreender o consumo de DTU de base de dados com mais detalhes (até um minuto), considere criar um gráfico personalizado no portal Azure:
    >
-   > 1. Selecione **Azure SQL Database**  >  **Monitoring**.
-   > 2. Selecione **Métricas**.
-   > 3. Selecione **+Adicionar gráfico**.
+   > 1. Selecione **Azure SQL Database**  >  **Monitoring** .
+   > 2. Selecione **Métricas** .
+   > 3. Selecione **+Adicionar gráfico** .
    > 4. Selecione a percentagem de DTU na tabela.
    > 5. Além disso, selecione **Last 24 horas** no menu superior esquerdo e altere-o para um minuto.
    >
@@ -232,22 +232,22 @@ O primeiro caso acontece quando a Loja de Consulta está no estado de leitura e 
 
    ![Detalhes da Loja de Consultas](./media/query-performance-insight-use/qds-off.png)
 
-O segundo caso acontece quando a Loja de Consultas não está ativada, ou os parâmetros não são definidos da melhor forma. Pode alterar a política de retenção e captura, e também ativar a Query Store, executando os seguintes comandos fornecidos pelo [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou pelo portal Azure.
+O segundo caso acontece quando a Loja de Consultas não está ativada, ou os parâmetros não são definidos da melhor forma. Pode alterar a política de retenção e captura, e também ativar a Query Store, executando os seguintes comandos fornecidos pelo [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou pelo portal Azure.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Política recomendada de retenção e captura
 
 Existem dois tipos de políticas de retenção:
 
-* **Com base em tamanho**: Se esta política for definida como **AUTO,** limpará os dados automaticamente quando se atingir o tamanho máximo próximo.
-* **Com base no tempo**: Por defeito, esta política está definida para 30 dias. Se a Loja de Consulta ficar sem espaço, eliminará informações de consulta com mais de 30 dias.
+* **Com base em tamanho** : Se esta política for definida como **AUTO,** limpará os dados automaticamente quando se atingir o tamanho máximo próximo.
+* **Com base no tempo** : Por defeito, esta política está definida para 30 dias. Se a Loja de Consulta ficar sem espaço, eliminará informações de consulta com mais de 30 dias.
 
 Pode definir a política de captura para:
 
-* **Todas**: A Loja de Consultas captura todas as consultas.
-* **Auto**: A Loja de Consultas ignora consultas e consultas pouco frequentes com a duração insignificante da compilação e execução. Os limiares para a contagem de execuções, a duração da compilação e a duração do tempo de execução são determinados internamente. Esta é a opção por defeito.
-* **Nenhuma**: A Loja de Consultas deixa de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são recolhidas.
+* **Todas** : A Loja de Consultas captura todas as consultas.
+* **Auto** : A Loja de Consultas ignora consultas e consultas pouco frequentes com a duração insignificante da compilação e execução. Os limiares para a contagem de execuções, a duração da compilação e a duração do tempo de execução são determinados internamente. Esta é a opção por defeito.
+* **Nenhuma** : A Loja de Consultas deixa de capturar novas consultas, mas as estatísticas de tempo de execução para consultas já capturadas ainda são recolhidas.
 
-Recomendamos que se ajustem todas as políticas para **AUTO** e a política de limpeza para 30 dias executando os seguintes comandos da [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure. (Substitua `YourDB` pelo nome da base de dados.)
+Recomendamos que se ajustem todas as políticas para **AUTO** e a política de limpeza para 30 dias executando os seguintes comandos da [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure. (Substitua `YourDB` pelo nome da base de dados.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -260,7 +260,7 @@ Recomendamos que se ajustem todas as políticas para **AUTO** e a política de l
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Aumente o tamanho da Loja de Consultas ligando-se a uma base de dados através [do SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure e executando a seguinte consulta. (Substitua `YourDB` pelo nome da base de dados.)
+Aumente o tamanho da Loja de Consultas ligando-se a uma base de dados através [do SSMS](/sql/ssms/download-sql-server-management-studio-ssms) ou do portal Azure e executando a seguinte consulta. (Substitua `YourDB` pelo nome da base de dados.)
 
 ```SQL
     ALTER DATABASE [YourDB]

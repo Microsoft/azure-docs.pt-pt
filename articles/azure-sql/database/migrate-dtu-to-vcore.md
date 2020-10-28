@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333159"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790394"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar base de dados Azure SQL do modelo baseado em DTU para o modelo baseado em vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -94,9 +94,9 @@ FROM dtu_vcore_map;
 Além do número de vCores (CPUs lógicos) e da geração de hardware, vários outros fatores podem influenciar a escolha do objetivo de serviço vCore:
 
 - A consulta de mapeamento T-SQL corresponde aos objetivos de serviço DTU e vCore em termos da sua capacidade de CPU, pelo que os resultados serão mais precisos para cargas de trabalho ligadas à CPU.
-- Para a mesma geração de hardware e o mesmo número de vCores, IOPS e limites de recursos de produção de registo de transações para bases de dados vCore são muitas vezes mais elevados do que para as bases de dados DTU. No caso de cargas de trabalho ligadas a IO, pode ser possível reduzir o número de vCores no modelo vCore para atingir o mesmo nível de desempenho. Os limites de recursos para as bases de dados DTU e vCore em valores absolutos são expostos na visão [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) Comparar estes valores entre a base de dados DTU a migrar e uma base de dados vCore utilizando um objetivo de serviço aproximadamente correspondente irá ajudá-lo a selecionar o objetivo de serviço vCore com mais precisão.
+- Para a mesma geração de hardware e o mesmo número de vCores, IOPS e limites de recursos de produção de registo de transações para bases de dados vCore são muitas vezes mais elevados do que para as bases de dados DTU. No caso de cargas de trabalho ligadas a IO, pode ser possível reduzir o número de vCores no modelo vCore para atingir o mesmo nível de desempenho. Os limites de recursos para as bases de dados DTU e vCore em valores absolutos são expostos na visão [sys.dm_user_db_resource_governance.](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) Comparar estes valores entre a base de dados DTU a migrar e uma base de dados vCore utilizando um objetivo de serviço aproximadamente correspondente irá ajudá-lo a selecionar o objetivo de serviço vCore com mais precisão.
 - A consulta de mapeamento também devolve a quantidade de memória por núcleo para a base de dados DTU ou piscina elástica a migrar, e para cada geração de hardware no modelo vCore. Garantir memória total semelhante ou superior após a migração para vCore é importante para cargas de trabalho que requerem uma grande cache de dados de memória para obter desempenho suficiente, ou cargas de trabalho que requerem grandes subsídios de memória para o processamento de consultas. Para tais cargas de trabalho, dependendo do desempenho real, pode ser necessário aumentar o número de vCores para obter memória total suficiente.
-- A [utilização histórica](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dos recursos da base de dados DTU deve ser considerada na escolha do objetivo de serviço vCore. As bases de dados DTU com recursos CPU consistentemente subutilados podem necessitar de menos vCores do que o número devolvido pela consulta de mapeamento. Inversamente, as bases de dados do DTU onde uma utilização de CPU consistentemente elevada causa um desempenho inadequado da carga de trabalho pode exigir mais vCores do que devolvidos pela consulta.
+- A [utilização histórica](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dos recursos da base de dados DTU deve ser considerada na escolha do objetivo de serviço vCore. As bases de dados DTU com recursos CPU consistentemente subutilados podem necessitar de menos vCores do que o número devolvido pela consulta de mapeamento. Inversamente, as bases de dados do DTU onde uma utilização de CPU consistentemente elevada causa um desempenho inadequado da carga de trabalho pode exigir mais vCores do que devolvidos pela consulta.
 - Se migrar bases de dados com padrões de utilização intermitentes ou imprevisíveis, considere a utilização do nível de computação [Serverless.](serverless-tier-overview.md)  Note que o número máximo de trabalhadores simultâneos (pedidos) em servidores é de 75% o limite no cálculo provisionado para o mesmo número de vcores máximos configurados.  Além disso, a memória máxima disponível em servidor é de 3 GB vezes o número máximo de vcores configurados; por exemplo, a memória máxima é de 120 GB quando 40 vcores máximos são configurados.   
 - No modelo vCore, o tamanho máximo de base de dados suportado pode diferir dependendo da geração de hardware. Para grandes bases de dados, verifique os tamanhos máximos suportados no modelo vCore para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas](resource-limits-vcore-elastic-pools.md).
 - Para piscinas elásticas, os modelos [DTU](resource-limits-dtu-elastic-pools.md) e [vCore](resource-limits-vcore-elastic-pools.md) têm diferenças no número máximo de bases de dados suportadas por piscina. Isto deve ser considerado quando migram piscinas elásticas com muitas bases de dados.
@@ -105,7 +105,7 @@ Além do número de vCores (CPUs lógicos) e da geração de hardware, vários o
 > [!IMPORTANT]
 > As diretrizes de dimensionamento DTU para vCore acima são fornecidas para ajudar na estimativa inicial do objetivo do serviço de base de dados-alvo.
 >
-> A configuração ideal da base de dados-alvo é dependente da carga de trabalho. Assim, a obtenção da relação preço/desempenho ideal após a migração pode exigir a flexibilidade do modelo vCore para ajustar o número de vCores, a geração de [hardware,](service-tiers-vcore.md#hardware-generations)os níveis de [serviço](service-tiers-vcore.md#service-tiers) e [de computação,](service-tiers-vcore.md#compute-tiers) bem como a afinação de outros parâmetros de configuração da base de dados, como [o grau máximo de paralelismo.](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing)
+> A configuração ideal da base de dados-alvo é dependente da carga de trabalho. Assim, a obtenção da relação preço/desempenho ideal após a migração pode exigir a flexibilidade do modelo vCore para ajustar o número de vCores, a geração de [hardware,](service-tiers-vcore.md#hardware-generations)os níveis de [serviço](service-tiers-vcore.md#service-tiers) e [de computação,](service-tiers-vcore.md#compute-tiers) bem como a afinação de outros parâmetros de configuração da base de dados, como [o grau máximo de paralelismo.](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing)
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>DTU para vCore exemplos de migração
@@ -132,7 +132,7 @@ A consulta de mapeamento devolve o seguinte resultado (algumas colunas não most
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |0,25|Gen4|0.42|0.250|7|0.425|5.05|
 
-Vemos que a base de dados DTU tem o equivalente a 0.25 CPUs lógicos (vCores), com 0,42 GB de memória por vCore, e está a usar hardware Gen4. Os mais pequenos objetivos de serviço vCore nas gerações de hardware da Gen4 e Gen5, **GP_Gen4_1** e **GP_Gen5_2**, fornecem mais recursos computacional do que a base de dados Standard S0, pelo que não é possível uma correspondência direta. Uma vez que o hardware da Gen4 está a ser [desativado,](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)a **opção GP_Gen5_2** é preferível. Além disso, se a carga de trabalho for adequada para o nível de cálculo [serverless,](serverless-tier-overview.md) então **GP_S_Gen5_1** seria uma correspondência mais próxima.
+Vemos que a base de dados DTU tem o equivalente a 0.25 CPUs lógicos (vCores), com 0,42 GB de memória por vCore, e está a usar hardware Gen4. Os mais pequenos objetivos de serviço vCore nas gerações de hardware da Gen4 e Gen5, **GP_Gen4_1** e **GP_Gen5_2** , fornecem mais recursos computacional do que a base de dados Standard S0, pelo que não é possível uma correspondência direta. Uma vez que o hardware da Gen4 está a ser [desativado,](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)a **opção GP_Gen5_2** é preferível. Além disso, se a carga de trabalho for adequada para o nível de cálculo [serverless,](serverless-tier-overview.md) então **GP_S_Gen5_1** seria uma correspondência mais próxima.
 
 **Migração de uma base de dados Premium P15**
 
@@ -152,7 +152,7 @@ A consulta de mapeamento devolve o seguinte resultado (algumas colunas não most
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |4.00|Gen5|5.40|2.800|7|4.000|5.05|
 
-Vemos que a piscina elástica DTU tem 4 CPUs lógicos (vCores), com 5,4 GB de memória por vCore, e está a usar hardware Gen5. A correspondência direta no modelo vCore é uma piscina elástica **GP_Gen5_4.** No entanto, este objetivo de serviço suporta um máximo de 200 bases de dados por pool, enquanto o pool elástico Basic 200 eDTU suporta até 500 bases de dados. Se a piscina elástica a ser migrada tiver mais de 200 bases de dados, o objetivo de serviço vCore correspondente teria de ser **GP_Gen5_6**, que suporta até 500 bases de dados.
+Vemos que a piscina elástica DTU tem 4 CPUs lógicos (vCores), com 5,4 GB de memória por vCore, e está a usar hardware Gen5. A correspondência direta no modelo vCore é uma piscina elástica **GP_Gen5_4.** No entanto, este objetivo de serviço suporta um máximo de 200 bases de dados por pool, enquanto o pool elástico Basic 200 eDTU suporta até 500 bases de dados. Se a piscina elástica a ser migrada tiver mais de 200 bases de dados, o objetivo de serviço vCore correspondente teria de ser **GP_Gen5_6** , que suporta até 500 bases de dados.
 
 ## <a name="migrate-geo-replicated-databases"></a>Migrar bases de dados geo-replicadas
 
@@ -169,12 +169,12 @@ O quadro a seguir fornece orientações para cenários específicos de migraçã
 |---|---|---|---|
 |Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas precisa garantir o tamanho vCore apropriado como descrito acima|
 |Premium|Crítico para a empresa|Lateral|Pode migrar em qualquer ordem, mas precisa garantir o tamanho vCore apropriado como descrito acima|
-|Standard|Crítico para a empresa|Atualizar|Deve migrar secundário primeiro|
+|Standard|Crítico para a empresa|Atualização|Deve migrar secundário primeiro|
 |Crítico para a empresa|Standard|Mudar para uma versão anterior|Deve migrar primária primeiro|
 |Premium|Fins gerais|Mudar para uma versão anterior|Deve migrar primária primeiro|
-|Fins gerais|Premium|Atualizar|Deve migrar secundário primeiro|
+|Fins gerais|Premium|Atualização|Deve migrar secundário primeiro|
 |Crítico para a empresa|Fins gerais|Mudar para uma versão anterior|Deve migrar primária primeiro|
-|Fins gerais|Crítico para a empresa|Atualizar|Deve migrar secundário primeiro|
+|Fins gerais|Crítico para a empresa|Atualização|Deve migrar secundário primeiro|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Migrar grupos de failover

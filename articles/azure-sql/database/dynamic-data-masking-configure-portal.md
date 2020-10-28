@@ -11,17 +11,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 1d4c29cdb9cf24f87df4acc3556b318a1079810a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443624"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791057"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Começar com a sql Database dinâmico mascarando dados com o portal Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Este artigo mostra-lhe como implementar [uma máscara dinâmica de dados](dynamic-data-masking-overview.md) com o portal Azure. Também pode implementar máscaras de dados dinâmicas utilizando [cmdlets Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) ou a [API REST](https://docs.microsoft.com/rest/api/sql/).
+Este artigo mostra-lhe como implementar [uma máscara dinâmica de dados](dynamic-data-masking-overview.md) com o portal Azure. Também pode implementar máscaras de dados dinâmicas utilizando [cmdlets Azure SQL Database](/powershell/module/az.sql/) ou a [API REST](/rest/api/sql/).
 
 > [!NOTE]
 > Esta função não pode ser definida utilizando o portal Azure Synapse (use PowerShell ou REST API) ou SQL Managed Instance. Para obter mais informações, consulte [a Máscara de Dados Dinâmicos.](/sql/relational-databases/security/dynamic-data-masking)
@@ -60,4 +60,4 @@ Este artigo mostra-lhe como implementar [uma máscara dinâmica de dados](dynami
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral da máscara dinâmica de dados, consulte [a máscara de dados dinâmica](dynamic-data-masking-overview.md).
-- Também pode implementar máscaras de dados dinâmicas utilizando [cmdlets Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) ou a [API REST](https://docs.microsoft.com/rest/api/sql/).
+- Também pode implementar máscaras de dados dinâmicas utilizando [cmdlets Azure SQL Database](/powershell/module/az.sql/) ou a [API REST](/rest/api/sql/).

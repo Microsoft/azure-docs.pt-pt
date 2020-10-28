@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358955"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790241"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ Deverá obter os seguintes resultados assim que o comando estiver concluído:
     done
     ```
 
-O comando acima cria os VMs e cria um VNet predefinido para esses VMs. Para obter mais informações sobre as diferentes configurações, consulte o artigo [az vm create.](https://docs.microsoft.com/cli/azure/vm)
+O comando acima cria os VMs e cria um VNet predefinido para esses VMs. Para obter mais informações sobre as diferentes configurações, consulte o artigo [az vm create.](/cli/azure/vm)
 
 Deverá obter resultados semelhantes aos seguintes assim que o comando estiver concluído para cada VM:
 
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Clique nos [ **registos da App**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique **em Novo registo**
  5. Insira um **Nome** como `<resourceGroupName>-app` , **selecione Contas neste diretório de organização apenas**
- 6. Selecione Application Type **Web**, insira um URL de entrada de inscrição (por http://localhost) exemplo, e clique em Adicionar. O URL de inscrição não é utilizado e pode ser qualquer URL válido. Uma vez feito, clique **em Registar**
+ 6. Selecione Application Type **Web** , insira um URL de entrada de inscrição (por http://localhost) exemplo, e clique em Adicionar. O URL de inscrição não é utilizado e pode ser qualquer URL válido. Uma vez feito, clique **em Registar**
  7. Selecione **Certificados e segredos** para o seu novo registo de App e, em seguida, clique em **Novo segredo de cliente**
  8. Introduza uma descrição para uma nova chave (segredo de cliente), **selecione Nunca expire** e clique em **Adicionar**
  9. Anota o valor do segredo. É usado como a palavra-passe para o diretor de serviço
-10. Selecione **Descrição geral**. Escreva o ID da aplicação. É usado como nome de utilizador (ID de login nos passos abaixo) do Diretor de Serviço
+10. Selecione **Descrição geral** . Escreva o ID da aplicação. É usado como nome de utilizador (ID de login nos passos abaixo) do Diretor de Serviço
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Crie um papel personalizado para o agente da cerca
 
@@ -571,7 +571,7 @@ Atribua o papel personalizado `Linux Fence Agent Role-<username>` que foi criado
 5. Clique **Em Adicionar uma atribuição de função**
 6. Selecione o papel `Linux Fence Agent Role-<username>` da lista **role**
 7. Na lista **Select,** insira o nome da aplicação que criou acima, `<resourceGroupName>-app`
-8. Clicar em **Guardar**
+8. Clique em **Guardar**
 9. Repita os passos acima para o nó de aglomerado.
 
 ### <a name="create-the-stonith-devices"></a>Criar os dispositivos STONITH
@@ -682,7 +682,7 @@ Deverá ver o seguinte resultado:
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-an-availability-group"></a>Configure um grupo de disponibilidade
+## <a name="configure-an-availability-group"></a>Configurar um grupo de disponibilidade
 
 Utilize os seguintes passos para configurar um sql servidor sempre no grupo de disponibilidade para os seus VMs. Para obter mais informações, consulte o [Servidor SQL Configurar sempre em grupos de disponibilidade para uma elevada disponibilidade no Linux](/sql/linux/sql-server-linux-availability-group-configure-ha)
 

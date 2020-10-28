@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426274"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791040"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Este artigo lista as funcionalidades Azure SQL Database e Azure SQL Managed Inst
 
 ## <a name="whats-new"></a>Novidades
 
-A documentação da Azure SQL Database e da Azure SQL Managed Instance foi dividida em secções separadas. Também atualizámos a forma como nos referimos a um caso gerido da *Azure SQL Database gerido instância* para *Azure SQL Managed Instance*.
+A documentação da Azure SQL Database e da Azure SQL Managed Instance foi dividida em secções separadas. Também atualizámos a forma como nos referimos a um caso gerido da *Azure SQL Database gerido instância* para *Azure SQL Managed Instance* .
 
 Fizemos isto porque algumas funcionalidades e funcionalidades variam muito entre uma única base de dados e uma instância gerida, e tornou-se cada vez mais desafiante explicar nuances complexas entre a Base de Dados Azure SQL e a Azure SQL Managed Instance em artigos partilhados individuais.
 
@@ -56,7 +56,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 | Consultas elásticas | Para obter informações, consulte [a visão geral da consulta elástica.](elastic-query-overview.md) |
 | Transações elásticas | [Transações distribuídas através de bases de dados em nuvem.](elastic-transactions-overview.md) |
 | Editor de consulta no portal Azure |Para obter informações, consulte [o editor de consulta SQL do portal Azure para ligar e consultar dados](connect-query-portal.md).|
-| R serviços/machine learning com bases de dados individuais e piscinas elásticas |Para obter informações, consulte [os Serviços de Aprendizagem automática na Base de Dados Azure SQL](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| R serviços/machine learning com bases de dados individuais e piscinas elásticas |Para obter informações, consulte [os Serviços de Aprendizagem automática na Base de Dados Azure SQL](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |Análise de SQL|Para obter informações, consulte [a Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
@@ -66,7 +66,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">Transações distribuídas</a> | Transações distribuídas por Instâncias Geridas. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Conjuntos de instâncias</a> | Uma forma conveniente e económica de migrar pequenos exemplos de SQL para a nuvem. |
-| <a href="https://aka.ms/managed-instance-aadlogins">Principais do servidor Azure AD ao nível de instância (logins)</a> | Crie logins de nível de instância utilizando uma declaração <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">DE CRIAÇÃO DE PROVEDOR EXTERNO.</a> |
+| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Principais do servidor Azure AD ao nível de instância (logins)</a> | Crie logins de nível de instância utilizando uma declaração <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">DE CRIAÇÃO DE PROVEDOR EXTERNO.</a> |
 | [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações das suas tabelas para outras bases de dados em SQL Managed Instance, SQL Database ou SQL Server. Ou atualize as suas tabelas quando algumas linhas são alteradas em outros casos de SQL Managed Instance ou SQL Server. Para obter informações, consulte a replicação de [configuração em Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Deteção de ameaças |Para obter informações, consulte [a deteção de ameaças configure em Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Retenção de cópia de segurança de longa duração | Para obter informações, consulte [a Configure back-up retenção em Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em pré-visualização pública limitada. | 
@@ -85,13 +85,13 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 ### <a name="sql-managed-instance-h1-2019-updates"></a>SQL Gestão de Casos H1 2019 atualizações
 
 As seguintes funcionalidades estão ativadas no modelo de implementação sql Managed Instance em H1 2019:
-  - Suporte para subscrições com <a href="https://aka.ms/sql-mi-visual-studio-subscribers">crédito mensal Azure para assinantes do Estúdio Visual</a> e aumento dos [limites regionais.](../managed-instance/resource-limits.md#regional-resource-limitations)
-  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
-  - Crie um caso gerido com <a href="https://aka.ms/managed-instance-collation">colagem ao nível de exemplo</a> e um <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> à sua escolha.
+  - Suporte para subscrições com <a href="/azure/azure-sql/managed-instance/resource-limits">crédito mensal Azure para assinantes do Estúdio Visual</a> e aumento dos [limites regionais.](../managed-instance/resource-limits.md#regional-resource-limitations)
+  - Suporte para <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
+  - Crie um caso gerido com <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">colagem ao nível de exemplo</a> e um <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> à sua escolha.
   - As instâncias geridas estão agora protegidas com [firewall incorporada.](../managed-instance/management-endpoint-verify-built-in-firewall.md)
-  - Configure a SQL Managed Instance para utilizar [pontos finais públicos](../managed-instance/public-endpoint-configure.md), Ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores na geração de hardware da Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">retenção de backup Configure até 35 dias</a> para a restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
+  - Configure a SQL Managed Instance para utilizar [pontos finais públicos](../managed-instance/public-endpoint-configure.md), Ligação [de substituição proxy](connectivity-architecture.md#connection-policy) para obter um melhor desempenho da rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores na geração de hardware da Gen5</a> ou <a href="/azure/azure-sql/database/automated-backups-overview">retenção de backup Configure até 35 dias</a> para a restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) encontra-se atualmente em pré-visualização pública limitada.  
   - As novas funcionalidades <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">permitem-lhe restaurar a sua base de dados para outro centro de dados utilizando o PowerShell,</a>a base de [dados do nome,](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) [eliminar o cluster virtual.](../managed-instance/virtual-cluster-delete.md)
-  - O novo [papel de contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporado permite a separação do dever (SoD) o cumprimento dos princípios de segurança e o cumprimento das normas empresariais.
+  - O novo [papel de contribuinte](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) incorporado permite a separação do dever (SoD) o cumprimento dos princípios de segurança e o cumprimento das normas empresariais.
   - SQL Managed Instance está disponível nas seguintes regiões do Governo Azure para GA (EUA Gov Texas, EUA Gov Arizona) bem como na China Norte 2 e China East 2. Também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, Brasil Sul, França Sul, UAE Central, UAE North, África do Sul Norte, África do Sul Oeste.
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -100,7 +100,7 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 |---------|---------|---------|---------|
 |[As transações distribuídas podem ser executadas após a remoção da Instância Gerida do Grupo De Confiança do Servidor](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Out 2020|Tem Solução||
 |[As transações distribuídas não podem ser executadas após a operação de dimensionamento de instâncias geridas](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Out 2020|Tem Solução||
-|[INSERÇÃO](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) / A GRANEL [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) em Azure SQL e `BACKUP` / `RESTORE` declaração em Instância Gerida não pode usar Azure AD Manage Identity para autenticar para armazenamento Azure|Sep 2020|Tem Solução||
+|[INSERÇÃO](/sql/t-sql/statements/bulk-insert-transact-sql) / A GRANEL [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) em Azure SQL e `BACKUP` / `RESTORE` declaração em Instância Gerida não pode usar Azure AD Manage Identity para autenticar para armazenamento Azure|Sep 2020|Tem Solução||
 |[Diretor de serviço não pode aceder a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto 2020|Tem Solução||
 |[Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
@@ -131,11 +131,11 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>As transações distribuídas podem ser executadas após a remoção da Instância Gerida do Grupo De Confiança do Servidor
 
-[Os Grupos de Confiança do Servidor](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) são utilizados para estabelecer confiança entre Instâncias Geridas que é pré-requisito para a execução de [transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Depois de remover a Instância Gerida do Server Trust Group ou de eliminar o grupo, poderá ainda ser capaz de executar transações distribuídas. Existe uma solução alternativa que pode aplicar para ter certeza de que as transações distribuídas são desativadas e que é [falha manual iniciada pelo utilizador](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) em Casos Geridos.
+[Os Grupos de Confiança do Servidor](../managed-instance/server-trust-group-overview.md) são utilizados para estabelecer confiança entre Instâncias Geridas que é pré-requisito para a execução de [transações distribuídas](./elastic-transactions-overview.md). Depois de remover a Instância Gerida do Server Trust Group ou de eliminar o grupo, poderá ainda ser capaz de executar transações distribuídas. Existe uma solução alternativa que pode aplicar para ter certeza de que as transações distribuídas são desativadas e que é [falha manual iniciada pelo utilizador](../managed-instance/user-initiated-failover.md) em Casos Geridos.
 
 ### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>As transações distribuídas não podem ser executadas após a operação de dimensionamento de instâncias geridas
 
-As operações de dimensionamento de instâncias geridas que incluem a alteração do nível de serviço ou o número de vCores irão redefinir as definições do Grupo Server Trust no backend e [desativar as transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview)em execução . Como uma solução alternativa, elimine e crie o novo [Server Trust Group](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) no portal Azure.
+As operações de dimensionamento de instâncias geridas que incluem a alteração do nível de serviço ou o número de vCores irão redefinir as definições do Grupo Server Trust no backend e [desativar as transações distribuídas](./elastic-transactions-overview.md)em execução . Como uma solução alternativa, elimine e crie o novo [Server Trust Group](../managed-instance/server-trust-group-overview.md) no portal Azure.
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Inserção a granel e backup/restauro não podem utilizar identidade gerida para aceder ao armazenamento do Azure
 
@@ -150,19 +150,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Solução alternativa**: Utilize [a Assinatura de Acesso Partilhado para autenticar para armazenamento](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Solução alternativa** : Utilize [a Assinatura de Acesso Partilhado para autenticar para armazenamento](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Diretor de serviço não pode aceder a Azure AD e AKV
 
 Em algumas circunstâncias, pode existir um problema com o Diretor de Serviços usado para aceder aos serviços Azure AD e Azure Key Vault (AKV). Como resultado, este problema tem impacto na utilização da autenticação AZure AD e da Encriptação transparente da Base de Dados (TDE) com SQL Managed Instance. Isto pode ser experimentado como um problema de conectividade intermitente, ou não ser capaz de executar declarações tais são CREATE LOGIN/USER FROM EXTERNAL PROVIDER ou EXECUTE AS LOGIN/USER. A configuração do TDE com a chave gerida pelo cliente numa nova Azure SQL Managed Instance também pode não funcionar em algumas circunstâncias.
 
-**Solução alternativa**: Para evitar que este problema ocorra na sua SQL Managed Instance antes de executar quaisquer comandos de atualização, ou caso já tenha experimentado este problema após os comandos de atualização, aceda ao portal Azure, aceda ao sql Managed Instance [Ative Directory admin.](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal) Verifique se consegue ver a mensagem de erro "A Instância Gerida precisa de um Diretor de Serviço para aceder ao Diretório Ativo do Azure. Clique aqui para criar um Diretor de Serviço". Caso tenha encontrado esta mensagem de erro, clique nela e siga as instruções passo a passo fornecidas até que este erro tenha sido resolvido.
+**Solução alternativa** : Para evitar que este problema ocorra na sua SQL Managed Instance antes de executar quaisquer comandos de atualização, ou caso já tenha experimentado este problema após os comandos de atualização, aceda ao portal Azure, aceda ao sql Managed Instance [Ative Directory admin.](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) Verifique se consegue ver a mensagem de erro "A Instância Gerida precisa de um Diretor de Serviço para aceder ao Diretório Ativo do Azure. Clique aqui para criar um Diretor de Serviço". Caso tenha encontrado esta mensagem de erro, clique nela e siga as instruções passo a passo fornecidas até que este erro tenha sido resolvido.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar
 
 Em certas circunstâncias, a cópia de segurança manual das bases de dados que foi feita numa instância gerida sem o CHECKSUM pode não ser restaurada. Nesses casos, recava novamente a reserva até teres sucesso.
 
-**Solução alternativa**: Faça cópias de segurança manuais de bases de dados em casos geridos com checksum ativados.
+**Solução alternativa** : Faça cópias de segurança manuais de bases de dados em casos geridos com checksum ativados.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes
 
@@ -172,19 +172,19 @@ Em certas circunstâncias, modificar, desativar ou permitir um trabalho existent
 
 Quando o papel de Azure do Contribuinte de Instância Gerida SQL é aplicado a um grupo de recursos (RG), não é aplicado à SQL Managed Instance e não tem efeito.
 
-**Solução alternativa**: Crie um papel de contribuinte de instância gerida SQL para os utilizadores ao nível da subscrição.
+**Solução alternativa** : Crie um papel de contribuinte de instância gerida SQL para os utilizadores ao nível da subscrição.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitação do failover manual através do portal para grupos de failover
 
 Se um grupo de failover se estende por instâncias em diferentes subscrições ou grupos de recursos do Azure, a falha manual não pode ser iniciada a partir da instância primária do grupo de failover.
 
-**Solução alternativa**: Iniciar a falha através do portal a partir da instância geoconsusídua.
+**Solução alternativa** : Iniciar a falha através do portal a partir da instância geoconsusídua.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>As funções do SQL Agent precisam de permissões EXECUTE explícitas para inícios de sessão não sysadmin
 
-Se os logins não-sysadmin forem adicionados a quaisquer [funções de base de dados fixas do SqL Agent,](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles)existe um problema em que as permissões explícitas do EXECUTE devem ser concedidas aos procedimentos armazenados para que estes logins funcionem. Se este problema for encontrado, será mostrada a mensagem de erro "A permissão EXECUTE foi negada no <object_name> do objeto (Microsoft SQL Server, Error: 229)" será mostrada.
+Se os logins não-sysadmin forem adicionados a quaisquer [funções de base de dados fixas do SqL Agent,](/sql/ssms/agent/sql-server-agent-fixed-database-roles)existe um problema em que as permissões explícitas do EXECUTE devem ser concedidas aos procedimentos armazenados para que estes logins funcionem. Se este problema for encontrado, será mostrada a mensagem de erro "A permissão EXECUTE foi negada no <object_name> do objeto (Microsoft SQL Server, Error: 229)" será mostrada.
 
-**Solução alternativa**: Uma vez adicionados logins a uma função de base de dados fixa SQL Agent (SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole), para cada um dos logins adicionados a estas funções, execute o script abaixo do T-SQL para conceder explicitamente permissões EXECUTE aos procedimentos armazenados listados.
+**Solução alternativa** : Uma vez adicionados logins a uma função de base de dados fixa SQL Agent (SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole), para cada um dos logins adicionados a estas funções, execute o script abaixo do T-SQL para conceder explicitamente permissões EXECUTE aos procedimentos armazenados listados.
 
 ```tsql
 USE [master]
@@ -204,7 +204,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 O nível de serviço Business Critical não aplicará corretamente [os limites máximos de memória para objetos otimizados](../managed-instance/resource-limits.md#in-memory-oltp-available-space) pela memória em alguns casos. A SQL Managed Instance pode permitir que a carga de trabalho utilize mais memória para operações OLTP na memória, o que pode afetar a disponibilidade e a estabilidade do caso. As consultas em memória do OLTP que estão a atingir os limites podem não falhar imediatamente. Esta questão será resolvida em breve. As consultas que usam mais memória da memória ALTP falharão mais cedo se atingirem os [limites](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Solução alternativa**: [Monitorize a utilização do armazenamento OLTP na memória](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-monitor-space) utilizando o [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não está a utilizar mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores, ou otimize a sua carga de trabalho para utilizar menos memória.
+**Solução alternativa** : [Monitorize a utilização do armazenamento OLTP na memória](../in-memory-oltp-monitor-space.md) utilizando o [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) para garantir que a carga de trabalho não está a utilizar mais do que a memória disponível. Aumente os limites de memória que dependem do número de vCores, ou otimize a sua carga de trabalho para utilizar menos memória.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erro errado devolvido ao tentar remover um ficheiro que não está vazio
 
@@ -218,7 +218,7 @@ A declaração em `RESTORE` curso, o processo de migração do Serviço de Migra
 
 O processo de restauro bloqueará estas operações nas instâncias geridas e nas piscinas de instâncias na mesma sub-rede onde o processo de restauro está em curso. Os casos, por exemplo, as piscinas não são afetadas. Criar ou alterar operações de nível de serviço não falhará ou irá esgotar o tempo. Prosseguirão assim que o processo de restauro estiver concluído ou cancelado.
 
-**Solução alternativa**: Aguarde até que o processo de restauro termine, ou cancele o processo de restauro se a operação de criação ou de nível de serviço de atualização tiver maior prioridade.
+**Solução alternativa** : Aguarde até que o processo de restauro termine, ou cancele o processo de restauro se a operação de criação ou de nível de serviço de atualização tiver maior prioridade.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>O governador de recursos no nível de serviço critical empresarial pode ter de ser reconfigurado após o failover
 
@@ -228,9 +228,9 @@ A funcionalidade [DeTerador](/sql/relational-databases/resource-governor/resourc
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Os diálogos de corretor de serviço de base cruzada devem ser reinicializados após a atualização do nível de serviço
 
-Os diálogos de corretor de serviços de base cruzada deixarão de entregar as mensagens aos serviços noutras bases de dados após a alteração da operação do nível de serviço. As mensagens não se *perdem*e podem ser encontradas na fila do remetente. Qualquer alteração do tamanho de armazenamento de vCores ou instância em SQL Managed Instance fará com que um `service_broke_guid` valor na [visualização de sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) seja alterado para todas as bases de dados. Qualquer `DIALOG` criação utilizando uma declaração [DE DIÁLOGO BEGIN](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que faz referência a Corretores de Serviço noutra base de dados deixará de entregar mensagens ao serviço-alvo.
+Os diálogos de corretor de serviços de base cruzada deixarão de entregar as mensagens aos serviços noutras bases de dados após a alteração da operação do nível de serviço. As mensagens não se *perdem* e podem ser encontradas na fila do remetente. Qualquer alteração do tamanho de armazenamento de vCores ou instância em SQL Managed Instance fará com que um `service_broke_guid` valor na [visualização de sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) seja alterado para todas as bases de dados. Qualquer `DIALOG` criação utilizando uma declaração [DE DIÁLOGO BEGIN](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) que faz referência a Corretores de Serviço noutra base de dados deixará de entregar mensagens ao serviço-alvo.
 
-**Solução alternativa**: Pare qualquer atividade que utilize conversas de diálogo de corretor de serviços de base cruzada antes de atualizar um nível de serviço e reiniciá-las depois. Se houver mensagens restantes que não são entregues após uma alteração do nível de serviço, leia as mensagens da fila de origem e reencade-as para a fila do alvo.
+**Solução alternativa** : Pare qualquer atividade que utilize conversas de diálogo de corretor de serviços de base cruzada antes de atualizar um nível de serviço e reiniciá-las depois. Se houver mensagens restantes que não são entregues após uma alteração do nível de serviço, leia as mensagens da fila de origem e reencade-as para a fila do alvo.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>A personificação dos tipos de login AZure AD não é suportada
 
@@ -279,7 +279,7 @@ Este exemplo ilustra que, em determinadas circunstâncias, devido a uma distribu
 
 Neste exemplo, as bases de dados existentes continuam a funcionar e podem crescer sem qualquer problema, desde que não sejam adicionados novos ficheiros. As novas bases de dados não podem ser criadas ou restauradas porque não há espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todas as bases de dados não atinja o limite de tamanho de instância. O erro que foi devolvido neste caso não é claro.
 
-Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) utilizando as vistas do sistema. Se atingir este limite, tente [esvaziar e apagar alguns dos ficheiros mais pequenos utilizando a declaração DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para o [nível Business Critical, que não tem este limite](/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) utilizando as vistas do sistema. Se atingir este limite, tente [esvaziar e apagar alguns dos ficheiros mais pequenos utilizando a declaração DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para o [nível Business Critical, que não tem este limite](../managed-instance/resource-limits.md#service-tier-characteristics).
 
 ### <a name="guid-values-shown-instead-of-database-names"></a>Valores GUID apresentados em vez de nomes de bases de dados
 
@@ -324,13 +324,13 @@ using (var scope = new TransactionScope())
 
 ```
 
-**Solução alternativa (não necessária desde março de 2020)**: Utilize [sqlConnection.ChangeDatabase (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outra base de dados num contexto de ligação em vez de utilizar duas ligações.
+**Solução alternativa (não necessária desde março de 2020)** : Utilize [sqlConnection.ChangeDatabase (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar outra base de dados num contexto de ligação em vez de utilizar duas ligações.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Módulos CLR e servidores ligados às vezes não podem referenciar um endereço IP local
 
 Os módulos CLR em SQL Managed Instance e servidores ligados ou consultas distribuídas que referem um caso atual às vezes não conseguem resolver o IP de um caso local. Este erro é um problema transitório.
 
-**Solução alternativa**: Utilize ligações de contexto num módulo CLR, se possível.
+**Solução alternativa** : Utilize ligações de contexto num módulo CLR, se possível.
 
 ## <a name="updates"></a>Atualizações
 
@@ -340,4 +340,4 @@ Para atualizações e melhorias em todos os serviços Azure, consulte [as atuali
 
 ## <a name="contribute-to-content"></a>Contribuir para o conteúdo
 
-Para contribuir para a documentação do Azure SQL, consulte o [guia de contribuintes docs](https://docs.microsoft.com/contribute/).
+Para contribuir para a documentação do Azure SQL, consulte o [guia de contribuintes docs](/contribute/).

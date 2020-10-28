@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973314"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790615"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -153,7 +153,7 @@ A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedore
 - Configurar um login AD Azure mapeado para um grupo AZure AD, uma vez que o proprietário da base de dados não é suportado.
 - A personificação dos principais de nível de AD do Azure utilizando outros princípios AD Azure é suportada, como a cláusula [EXECUTE AS.](/sql/t-sql/statements/execute-as-transact-sql) EXECUTE AS limitações são:
 
-  - EXECUTE COMO UTILIZADOR não é suportado para utilizadores Azure AD quando o nome difere do nome de login. Um exemplo é quando o utilizador é criado através da sintaxe CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e a personificação é tentada através do EXEC AS USER = _myAadUser_. Quando criar um **UTILIZADOR** a partir de um servidor AD AD principal (login), especifique a user_name como a mesma login_name do **LOGIN**.
+  - EXECUTE COMO UTILIZADOR não é suportado para utilizadores Azure AD quando o nome difere do nome de login. Um exemplo é quando o utilizador é criado através da sintaxe CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e a personificação é tentada através do EXEC AS USER = _myAadUser_ . Quando criar um **UTILIZADOR** a partir de um servidor AD AD principal (login), especifique a user_name como a mesma login_name do **LOGIN** .
   - Apenas os principais do nível sql server (logins) que fazem parte do `sysadmin` papel podem executar as seguintes operações que visam os principais AD do Azure:
 
     - EXECUTAR COMO UTILIZADOR
@@ -220,7 +220,7 @@ Para obter mais informações, consulte [alter database set partner e SET WITNES
 
 - Vários ficheiros de registo não são suportados.
 - Os objetos na memória não são suportados no nível de serviço De fim geral. 
-- Há um limite de 280 ficheiros por instância de Finalidade Geral, o que implica um máximo de 280 ficheiros por base de dados. Tanto os ficheiros de dados como os ficheiros de registo no nível de Finalidade Geral são contados para este limite. [O nível Business Critical suporta 32.767 ficheiros por base de dados.](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)
+- Há um limite de 280 ficheiros por instância de Finalidade Geral, o que implica um máximo de 280 ficheiros por base de dados. Tanto os ficheiros de dados como os ficheiros de registo no nível de Finalidade Geral são contados para este limite. [O nível Business Critical suporta 32.767 ficheiros por base de dados.](./resource-limits.md#service-tier-characteristics)
 - A base de dados não pode conter grupos de ficheiros que contenham dados de fluxo de ficheiros. A restauração falha se .bak contiver `FILESTREAM` dados. 
 - Todos os ficheiros são colocados no armazém da Azure Blob. IO e produção por ficheiro dependem do tamanho de cada ficheiro individual.
 
@@ -354,17 +354,17 @@ As declarações não documentadas do DBCC que estão ativadas no SQL Server nã
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
 O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) encontra-se atualmente em pré-visualização pública. Os cenários apoiados são:
-* Transações em que os participantes são apenas Azure SQL Managed Instances que fazem parte do [grupo de confiança Do Servidor.](https://aka.ms/mitrusted-groups)
+* Transações em que os participantes são apenas Azure SQL Managed Instances que fazem parte do [grupo de confiança Do Servidor.](./server-trust-group-overview.md)
 * Transações iniciadas a partir de .NET (classe TransactionScope) e Transact-SQL.
 
 A Azure SQL Managed Instance atualmente não suporta outros cenários que são regularmente suportados pela MSDTC no local ou em Máquinas Virtuais Azure.
 
 ### <a name="extended-events"></a>Eventos Alargados
 
-Alguns alvos específicos do Windows para Eventos Prolongados (XEvents) não são suportados:
+Alguns destinos específicos do Windows para Eventos Expandidos (XEvents) não são suportados:
 
-- O `etw_classic_sync` alvo não é apoiado. Guarde `.xel` ficheiros no armazenamento Azure Blob. Consulte [etw_classic_sync alvo.](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target)
-- O `event_file` alvo não é apoiado. Guarde `.xel` ficheiros no armazenamento Azure Blob. Consulte [event_file alvo.](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target)
+- O `etw_classic_sync` alvo não é apoiado. Guarde `.xel` ficheiros no armazenamento Azure Blob. Veja o [destino de etw_classic_sync](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
+- O `event_file` alvo não é apoiado. Guarde `.xel` ficheiros no armazenamento Azure Blob. Veja o [destino de event_file](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
@@ -482,7 +482,7 @@ O corretor de serviços de cross-instance não é suportado:
   - `remote proc trans`
 - `sp_execute_external_scripts` não é apoiado. Ver [sp_execute_external_scripts.](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)
 - `xp_cmdshell` não é apoiado. Ver [xp_cmdshell.](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)
-- `Extended stored procedures`não são apoiados, o que inclui `sp_addextendedproc`   `sp_dropextendedproc` e. Consulte [os procedimentos de armazenação alargados](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` não são apoiados, o que inclui `sp_addextendedproc` `sp_dropextendedproc` e. Consulte [os procedimentos de armazenação alargados](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`E `sp_attach_single_file_db` `sp_detach_db` não são apoiados. Ver [sp_attach_db,](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql) [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)e [sp_detach_db.](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)
 
 ### <a name="system-functions-and-variables"></a>Funções e variáveis do sistema
@@ -527,13 +527,13 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 - Funções gerais
   - TargetServersRole
-- [Funções de base de dados fixas](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Funções de base de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Funções databaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Funções databaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Funções de serviços de integração:](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15)
+- [Funções de serviços de integração:](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15)
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Os seguintes esquemas MSDB em SQL Managed Instance devem ser propriedade das res
 
 ### <a name="error-logs"></a>Registos de erros
 
-SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
+SQL Gestd Instance coloca informações verbosas em registos de erro. Existem muitos eventos internos do sistema que são registados no registo de erros. Utilize um procedimento personalizado para ler registos de erros que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [a extensão de exemplo gerida do SQL – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) ou [SQL Para](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) o Azure Data Studio.
 
 ## <a name="next-steps"></a>Passos seguintes
 

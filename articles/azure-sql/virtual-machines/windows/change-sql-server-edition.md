@@ -13,14 +13,14 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293361"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789850"
 ---
-# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no lugar da edição do SQL Server no Azure VM
+# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Mudança no local da edição do SQL Server na VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo descreve como alterar a edição do SQL Server numa máquina virtual Windows em Azure. 
@@ -34,7 +34,7 @@ Uma vez que a edição do SQL Server tenha sido alterada internamente para o SQL
 Para fazer uma alteração no local da edição do SQL Server, precisa do seguinte: 
 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
-- Um [SQL Server VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registado no fornecedor de recursos [SQL VM](sql-vm-resource-provider-register.md).
+- Um [SQL Server VM no Windows](./create-sql-vm-portal.md) registado no fornecedor de recursos [SQL VM](sql-vm-resource-provider-register.md).
 - Configurar os meios de comunicação com a **edição desejada** do SQL Server. Os clientes que tiverem o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) poderão obter o suporte de dados de instalação no [Centro de Licenciamento em Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm Software Assurance podem utilizar os meios de configuração a partir de uma imagem VM do Azure Marketplace SQL Server que tem a sua edição desejada (normalmente localizada em `C:\SQLServerFull` ). 
 
 
@@ -50,7 +50,7 @@ Para atualizar a edição do SQL Server, obtenha o meio de configuração do SQL
 
    ![Seleção para atualização da edição do SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Selecione **Next** até chegar à página **de edição de upgrade pronto** e, em seguida, selecione **Upgrade**. A janela de configuração pode parar de responder durante alguns minutos enquanto a mudança está a fazer efeito. Uma página **Completa** confirmará que a sua atualização de edição está terminada. 
+1. Selecione **Next** até chegar à página **de edição de upgrade pronto** e, em seguida, selecione **Upgrade** . A janela de configuração pode parar de responder durante alguns minutos enquanto a mudança está a fazer efeito. Uma página **Completa** confirmará que a sua atualização de edição está terminada. 
 
 Depois de atualizada a edição do SQL Server, modifique a propriedade de edição da máquina virtual SQL Server no portal Azure. Isto irá atualizar os metadados e a faturação associados a este VM.
 
@@ -75,11 +75,11 @@ Depois de desclassificada a edição do SQL Server, modifique a propriedade de e
 
 ## <a name="change-edition-in-portal"></a>Alterar edição no portal 
 
-Depois de ter alterado a edição do SQL Server utilizando os meios de instalação, e tiver registado o seu SQL Server VM com o [fornecedor de recursos SQL VM,](sql-vm-resource-provider-register.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para o fazer, siga estes passos: 
+Depois de ter alterado a edição do SQL Server utilizando os meios de instalação, e tiver registado o seu SQL Server VM com o [fornecedor de recursos SQL VM,](sql-vm-resource-provider-register.md)pode então utilizar o portal Azure para modificar a propriedade Edition do SQL Server VM para efeitos de faturação. Para tal, siga estes passos: 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 1. Aceda ao recurso de máquina virtual SQL Server. 
-1. Em **Definições**, selecione **Configurar**. Em seguida, selecione a edição desejada do SQL Server a partir da lista de drop-down no âmbito **da Edição**. 
+1. Em **Definições** , selecione **Configurar** . Em seguida, selecione a edição desejada do SQL Server a partir da lista de drop-down no âmbito **da Edição** . 
 
    ![Alterar metadados de edição](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -102,5 +102,3 @@ Para obter mais informações, veja os seguintes artigos:
 * [FAQ para SQL Server em um VM Windows](frequently-asked-questions-faq.md)
 * [Orientação de preços para o SQL Server num VM do Windows](pricing-guidance.md)
 * [Notas de lançamento para SQL Server num VM do Windows](doc-changes-updates-release-notes.md)
-
-

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b1d25ae127d9a732225859a09622bb057c348e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ce6398f63149a7f5dd3102d75c8db324f526c419
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488491"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791159"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -37,7 +37,7 @@ Em primeiro lugar, descarregue o ficheiro executável AzCopy V10 para qualquer d
 Estes ficheiros são comprimidos como um ficheiro zip (Windows e Mac) ou um ficheiro de alcatrão (Linux). Para descarregar e descomprimir o ficheiro de alcatrão no Linux, consulte a documentação para a sua distribuição Linux.
 
 > [!NOTE]
-> Se pretender copiar dados de e para o seu serviço de [armazenamento Azure Table,](/azure/storage/tables/table-storage-overview) instale a [versão AzCopy 7.3](https://aka.ms/downloadazcopynet).
+> Se pretender copiar dados de e para o seu serviço de [armazenamento Azure Table,](../tables/table-storage-overview.md) instale a [versão AzCopy 7.3](https://aka.ms/downloadazcopynet).
 
 
 ## <a name="run-azcopy"></a>Executar o AzCopy
@@ -80,14 +80,14 @@ Ao utilizar o Azure Ative Directory, pode fornecer credenciais uma vez em vez de
 
 O nível de autorização de que precisa baseia-se na possibilidade de fazer o upload de ficheiros ou simplesmente descarregá-los.
 
-Se apenas pretender descarregar ficheiros, verifique se o [Leitor de Dados de Armazenamento blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) foi atribuído à identidade do utilizador, identidade gerida ou principal de serviço.
+Se apenas pretender descarregar ficheiros, verifique se o [Leitor de Dados de Armazenamento blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) foi atribuído à identidade do utilizador, identidade gerida ou principal de serviço.
 
-> Identidades dos utilizadores, identidades geridas e princípios de serviço são cada um um dos *principais*de segurança , por isso vamos usar o termo principal de *segurança* para o resto deste artigo.
+> Identidades dos utilizadores, identidades geridas e princípios de serviço são cada um um dos *principais* de segurança , por isso vamos usar o termo principal de *segurança* para o resto deste artigo.
 
 Se pretender fazer o upload de ficheiros, verifique se uma destas funções foi atribuída ao seu principal de segurança:
 
-- [Contribuinte de Dados do Armazenamento de Blobs](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Proprietário dos Dados do Armazenamento de Blobs](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Contribuinte de Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Proprietário dos Dados do Armazenamento de Blobs](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 Estas funções podem ser atribuídas ao seu principal de segurança em qualquer um destes âmbitos:
 
@@ -96,14 +96,14 @@ Estas funções podem ser atribuídas ao seu principal de segurança em qualquer
 - Grupo de recursos
 - Subscrição
 
-Para saber como verificar e atribuir funções, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para saber como verificar e atribuir funções, consulte [utilizar o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](./storage-auth-aad-rbac-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 > [!NOTE]
 > Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se.
 
 Não precisa de ter uma destas funções atribuídas ao seu diretor de segurança se o seu diretor de segurança for adicionado à lista de controlo de acesso (ACL) do contentor-alvo ou diretório. Na ACL, o seu diretor de segurança precisa de escrever permissão no directório-alvo, e executar permissão em contentores e cada diretório dos pais.
 
-Para saber mais, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-access-control).
+Para saber mais, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
 
 #### <a name="authenticate-a-user-identity"></a>Autenticar uma identidade de utilizador
 
@@ -137,9 +137,9 @@ Antes de executar um script, tem de iniciar súpite interativamente pelo menos u
 
 Pode inscrever-se na sua conta utilizando um segredo de cliente ou utilizando a palavra-passe de um certificado associado ao registo de aplicações do seu titular de serviço.
 
-Para saber mais sobre a criação de um responsável de [serviços, consulte Como: Use o portal para criar uma aplicação AD AD Azure que possa aceder aos recursos.](/azure/active-directory/develop/howto-create-service-principal-portal)
+Para saber mais sobre a criação de um responsável de [serviços, consulte Como: Use o portal para criar uma aplicação AD AD Azure que possa aceder aos recursos.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
-Para saber mais sobre os principais serviços em geral, consulte [os objetos principais de aplicação e serviço no Azure Ative Directory](/azure/active-directory/develop/app-objects-and-service-principals)
+Para saber mais sobre os principais serviços em geral, consulte [os objetos principais de aplicação e serviço no Azure Ative Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 
 ##### <a name="using-a-client-secret"></a>Usando um segredo de cliente
 
@@ -205,7 +205,7 @@ Para saber mais sobre como ativar uma identidade gerida em todo o sistema ou cri
 
 ##### <a name="using-a-system-wide-managed-identity"></a>Usando uma identidade gerida em todo o sistema
 
-Primeiro, certifique-se de que ativou uma identidade gerida em todo o sistema no seu VM. Ver [identidade gerida atribuída pelo Sistema.](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)
+Primeiro, certifique-se de que ativou uma identidade gerida em todo o sistema no seu VM. Ver [identidade gerida atribuída pelo Sistema.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
 Em seguida, na sua consola de comando, digite o seguinte comando e, em seguida, prima a tecla ENTER.
 
@@ -215,7 +215,7 @@ azcopy login --identity
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>Usando uma identidade gerida atribuída pelo utilizador
 
-Primeiro, certifique-se de que ativou uma identidade gerida atribuída pelo utilizador no seu VM. Consulte [a identidade gerida atribuída pelo utilizador](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+Primeiro, certifique-se de que ativou uma identidade gerida atribuída pelo utilizador no seu VM. Consulte [a identidade gerida atribuída pelo utilizador](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
 
 Em seguida, na sua consola de comando, digite qualquer um dos seguintes comandos e, em seguida, prima a tecla ENTER.
 
@@ -247,7 +247,7 @@ Este exemplo de comando copia novamente dados de um diretório local para um rec
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Para saber mais sobre fichas SAS e como obter um, consulte [Usando assinaturas de acesso partilhado (SAS)](/azure/storage/common/storage-sas-overview).
+Para saber mais sobre fichas SAS e como obter um, consulte [Usando assinaturas de acesso partilhado (SAS)](./storage-sas-overview.md).
 
 ## <a name="transfer-files"></a>Transferir ficheiros
 

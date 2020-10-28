@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790632"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários em Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Quando introduzir parâmetros para uma nova instância, selecione um fuso horár
 
 ### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-Especifique a propriedade timezoneId no seu [modelo de Gestor de Recursos](https://aka.ms/sql-mi-create-arm-posh) para definir o fuso horário durante a criação do exemplo.
+Especifique a propriedade timezoneId no seu [modelo de Gestor de Recursos](./scripts/create-powershell-azure-resource-manager-template.md) para definir o fuso horário durante a criação do exemplo.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 
 ## <a name="limitations"></a>Limitações
 
-- O fuso horário do caso gerido existente não pode ser alterado. Como uma solução alternativa, crie uma nova instância gerida com o fuso horário adequado e, em seguida, execute uma cópia de segurança manual e restaure, ou o que recomendamos, realizar uma [restauração pontual transversal](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
+- O fuso horário do caso gerido existente não pode ser alterado. Como uma solução alternativa, crie uma nova instância gerida com o fuso horário adequado e, em seguida, execute uma cópia de segurança manual e restaure, ou o que recomendamos, realizar uma [restauração pontual transversal](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - Os processos externos lançados a partir dos trabalhos do SqL Server Agent não observam o fuso horário do caso.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários suportados
@@ -241,9 +241,9 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Tempo Padrão de Samoa | (UTC+13:00) Samoa |
 | Tempo padrão das ilhas da linha | (UTC+14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [NO FUSO HORÁRIO (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [NO FUSO HORÁRIO (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

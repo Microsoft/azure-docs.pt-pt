@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031097"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791091"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicações no portal My Apps
 
@@ -30,13 +30,13 @@ Quando utiliza aplicações organizacionais no portal **My Apps,** muitas vezes 
 
 ## <a name="manage-app-accounts"></a>Gerir contas de aplicativos
 
-Para ver as aplicações consentidas por **...** si ou pelo seu administrador, selecione... quando pairar sobre uma aplicação no portal **My Apps,** em seguida, selecione **Gerir a sua aplicação**:
+Para ver as aplicações consentidas por **...** si ou pelo seu administrador, selecione... quando pairar sobre uma aplicação no portal **My Apps,** em seguida, selecione **Gerir a sua aplicação** :
 
-![Gerir uma aplicação no portal My Apps](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Gerir uma aplicação no portal My Apps](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 A parte superior da janela de permissões mostra aquilo a que consentiu pessoalmente. Exemplos de permissões de apps incluem a capacidade de aceder ao seu calendário, contactos ou câmara.
 
-Pode revogar qualquer uma das permissões a que consentiu ao selecionar **Permissões de Revogação**, no entanto, remover uma permissão pode quebrar algumas das funcionalidades das aplicações. Se tiver problemas depois de remover permissões ou contas, contacte o Helpdesk da sua organização para obter assistência adicional.
+Pode revogar qualquer uma das permissões a que consentiu ao selecionar **Permissões de Revogação** , no entanto, remover uma permissão pode quebrar algumas das funcionalidades das aplicações. Se tiver problemas depois de remover permissões ou contas, contacte o Helpdesk da sua organização para obter assistência adicional.
 
 ![Revogar permissões para uma aplicação no portal My Apps](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 

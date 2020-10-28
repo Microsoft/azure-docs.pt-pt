@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518029"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789374"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -184,8 +184,19 @@ Se o rendimento total da **saída** ou a taxa total de saída de eventos em todo
 
 As quotas de entrada e saída são aplicadas separadamente, de modo que nenhum remetente pode fazer com que o consumo de eventos abrande, nem um recetor pode impedir que os eventos sejam enviados para um centro de eventos.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Existe um limite para o número de unidades de produção (TUs) que podem ser reservadas/selecionadas?
-Numa oferta multi-arrendatário, as unidades de produção podem crescer até 40 TUs (você pode selecionar até 20 TUs no portal, e levantar um bilhete de apoio para elevá-lo a 40 TUs no mesmo espaço de nome). Além de 40 TUs, o Event Hubs oferece o modelo baseado em recursos/capacidade chamado **clusters dedicados ao Event Hubs.** Os clusters dedicados são vendidos em Unidades de Capacidade (CUs).
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>Existe um limite para o número de unidades de produção que podem ser reservadas/selecionadas?
+
+Ao criar um espaço de nome básico ou de nível padrão no portal Azure, pode selecionar até 20 TUs para o espaço de nomes. Para elevar **a** 40 TUs, apresente um pedido de [apoio.](../azure-portal/supportability/how-to-create-azure-support-request.md)  
+
+1. Na página **Event Bus Namespace,** selecione **Novo pedido de suporte** no menu esquerdo. 
+1. Na página de **novo pedido de apoio,** siga estes passos:
+    1. Para **Resumo,** descreva a questão em poucas palavras. 
+    1. Para **o tipo de problema** , selecione **Quota** . 
+    1. Para **o subtipo de problemas,** selecione **Pedido de aumento ou diminuição da unidade de produção** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Página de pedido de apoio":::
+
+Além de 40 TUs, o Event Hubs oferece o modelo baseado em recursos/capacidade chamado clusters dedicados ao Event Hubs. Os clusters dedicados são vendidos em Unidades de Capacidade (CUs). Para mais informações, consulte [Os Centros de Eventos Dedicados - visão geral.](event-hubs-dedicated-overview.md)
 
 ## <a name="dedicated-clusters"></a>Clusters dedicados
 
@@ -199,7 +210,7 @@ Para obter instruções passo a passo e mais informações sobre a criação de 
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>Melhores práticas
+## <a name="partitions"></a>Partições
 
 ### <a name="how-many-partitions-do-i-need"></a>Quantas partições são necessárias?
 O número de divisórias é especificado na criação e deve estar entre 1 e 32. A contagem de divisórias não é mutável, por isso deve considerar a escala a longo prazo ao definir a contagem de divisórias. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Para obter mais informações sobre divisórias, consulte [As Partições.](event-hubs-features.md#partitions)
@@ -209,6 +220,21 @@ Talvez queira defini-lo como o valor mais alto possível, que é 32, no momento 
 O Event Hubs foi concebido para permitir um único leitor de partição por grupo de consumidores. Na maioria dos casos de utilização, a definição padrão de quatro divisórias é suficiente. Se procura escalar o processamento do seu evento, talvez deva considerar adicionar divisórias adicionais. Não há um limite específico de produção numa partição, no entanto, a produção agregada no seu espaço de nome é limitada pelo número de unidades de produção. À medida que aumenta o número de unidades de produção no seu espaço de nome, pode querer divisórias adicionais para permitir que os leitores simultâneos atinjam o seu próprio rendimento máximo.
 
 No entanto, se tiver um modelo em que a sua aplicação tenha uma afinidade com uma determinada partição, aumentar o número de divisórias pode não ser benéfico para si. Para mais informações, consulte [disponibilidade e consistência.](event-hubs-availability-and-consistency.md)
+
+### <a name="increase-partitions"></a>Aumentar as divisórias
+Pode solicitar que a contagem de divisórias seja aumentada para 40 (exato) através da apresentação de um pedido de apoio. 
+
+1. Na página **Event Bus Namespace,** selecione **Novo pedido de suporte** no menu esquerdo. 
+1. Na página de **novo pedido de apoio,** siga estes passos:
+    1. Para **Resumo,** descreva a questão em poucas palavras. 
+    1. Para **o tipo de problema** , selecione **Quota** . 
+    1. Para **o subtipo de problemas,** selecione **Pedido de alteração de partição** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Página de pedido de apoio":::
+
+A contagem de divisórias pode ser aumentada para exatamente 40. Neste caso, o número de TUs também tem de ser aumentado para 40. Se decidir mais tarde baixar o limite de TU para <= 20, o limite máximo de partição também é reduzido para 32. 
+
+A diminuição das divisórias não afeta os centros de eventos existentes porque as divisórias são aplicadas ao nível do centro do evento e são imutáveis após a criação do hub. 
 
 ## <a name="pricing"></a>Preços
 

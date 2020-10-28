@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425535"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791142"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
 
@@ -86,7 +86,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-Para obter informações sobre as convenções de nomeação do Serviço de Fila Azure, consulte [Filas de Nomeação e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+Para obter informações sobre as convenções de nomeação do Serviço de Fila Azure, consulte [Filas de Nomeação e Metadados](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 ## <a name="retrieve-a-queue"></a>Recupere uma fila
 
@@ -133,7 +133,7 @@ Este **tempo limite de invisibilidade** define quanto tempo a mensagem permanece
 
 O seu código lê uma mensagem da fila em dois passos. Quando ligar para o método [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage,](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) obtém a próxima mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para terminar a remoção da mensagem da fila, ligue para o método [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage)
 
-No exemplo seguinte, lê-se as três mensagens de fila e, em seguida, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia novamente as três mensagens, apagando as mensagens depois de as ler, chamando **DeleteMessage**. Se tentar ler a fila após a apagar as mensagens, $queueMessage será devolvida como NU.
+No exemplo seguinte, lê-se as três mensagens de fila e, em seguida, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia novamente as três mensagens, apagando as mensagens depois de as ler, chamando **DeleteMessage** . Se tentar ler a fila após a apagar as mensagens, $queueMessage será devolvida como NU.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue

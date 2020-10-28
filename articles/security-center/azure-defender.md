@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331690"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789119"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
 
@@ -65,7 +65,7 @@ Para alargar a proteção a máquinas virtuais e bases de dados SQL que se encon
 
 Quando o Azure Defender deteta uma ameaça em qualquer área do seu ambiente, gera um alerta. Estes alertas descrevem detalhes dos recursos afetados, sugeriram medidas de reparação e, em alguns casos, uma opção para desencadear uma aplicação lógica em resposta.
 
-Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center a partir de um produto de segurança integrado, pode exportá-lo. Para exportar os seus alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas de exportação para um SIEM](continuous-export.md).
+Se um alerta é gerado pelo Security Center, ou recebido pelo Security Center a partir de um produto de segurança integrado, pode exportá-lo. Para exportar os seus alertas para a Azure Sentinel, qualquer SIEM de terceiros, ou qualquer outra ferramenta externa, siga as instruções em [alertas stream para uma solução siem, soar ou it service Management](export-to-siem.md).
 
 > [!NOTE]
 > Alertas de diferentes fontes podem levar diferentes quantidades de tempo a aparecer. Por exemplo, alertas que requerem a análise do tráfego da rede podem demorar mais tempo a aparecer do que alertas relacionados com processos suspeitos em funcionamento em máquinas virtuais.

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: fe1b685a0209643332d798b875b9e62b02aa02da
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488780"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790530"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -37,7 +37,7 @@ As seguintes ações realizadas pela Storage Analytics são faturadas:
 * Pedidos para criar bolhas para registo.
 * Pedidos de criação de entidades de tabela para métricas.
 
-Se tiver configurado uma política de retenção de dados, não é cobrado para apagar transações quando o Storage Analytics elimina dados antigos de registo e métricas. No entanto, eliminar as transações de um cliente são facturantes. Para obter mais informações sobre as políticas de retenção, consulte [configurar uma política de retenção de dados de análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343263.aspx).
+Se tiver configurado uma política de retenção de dados, não é cobrado para apagar transações quando o Storage Analytics elimina dados antigos de registo e métricas. No entanto, eliminar as transações de um cliente são facturantes. Para obter mais informações sobre as políticas de retenção, consulte [configurar uma política de retenção de dados de análise de armazenamento](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
 
 ### <a name="understanding-billable-requests"></a>Compreender pedidos de faturação
 

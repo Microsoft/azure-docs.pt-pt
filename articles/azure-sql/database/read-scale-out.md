@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426987"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790275"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Use réplicas apenas de leitura para descarregar cargas de trabalho de consulta apenas de leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ A funcionalidade *de escala de leitura* é ativada por padrão nas novas bases d
 > [!NOTE]
 > A escala de leitura está sempre ativada no nível de serviço Business Critical de Caso Gerido.
 
-Se a sua cadeia de ligação SQL estiver configurada, `ApplicationIntent=ReadOnly` a aplicação será redirecionada para uma réplica apenas de leitura dessa base de dados ou instância gerida. Para obter informações sobre como utilizar a `ApplicationIntent` propriedade, consulte [Especificar a Intenção de Aplicação](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Se a sua cadeia de ligação SQL estiver configurada, `ApplicationIntent=ReadOnly` a aplicação será redirecionada para uma réplica apenas de leitura dessa base de dados ou instância gerida. Para obter informações sobre como utilizar a `ApplicationIntent` propriedade, consulte [Especificar a Intenção de Aplicação](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Se desejar garantir que a aplicação se liga à réplica primária, independentemente da `ApplicationIntent` definição da cadeia de ligação SQL, deve desativar explicitamente a escala de leitura ao criar a base de dados ou ao alterar a sua configuração. Por exemplo, se atualizar a sua base de dados do nível Standard ou General Purpose para nível Premium, Business Critical ou Hyperscale e quiser certificar-se de que todas as suas ligações continuam a ir para a réplica primária, desative a escala de leitura. Para obter mais informações sobre como desativá-lo, consulte [Ativar e desativar a escala de leitura](#enable-and-disable-read-scale-out).
 
@@ -85,18 +85,18 @@ Quando ligados a uma réplica apenas de leitura, as Vistas de Gestão Dinâmica 
 
 As vistas comumente utilizadas são:
 
-| Name | Objetivo |
+| Nome | Objetivo |
 |:---|:---|
-|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos durante a última hora, incluindo CPU, IO de dados e utilização de gravação de registos em relação aos limites objetivos do serviço.|
-|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregadas para a instância do motor da base de dados. |
-|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornece réplicas de estado de saúde e estatísticas de sincronização. Redo o tamanho da fila e a taxa de redo servem como indicadores de latência de dados na réplica apenas de leitura. |
-|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fornece contadores de desempenho do motor de base de dados.|
-|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fornece estatísticas de execução por consulta, tais como número de execuções, tempo de CPU utilizado, etc.|
-|[sys.dm_exec_query_plan()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornece planos de consulta em cache. |
-|[sys.dm_exec_sql_text()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornece texto de consulta para um plano de consulta em cache.|
-|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Proporciona progressos de consulta em tempo real enquanto as consultas estão em execução.|
-|[sys.dm_exec_query_plan_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o último plano de execução real conhecido, incluindo estatísticas de tempo de execução para uma consulta.|
-|[sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornece estatísticas de IOPS de armazenamento, produção e latência para todos os ficheiros de base de dados. |
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornece métricas de utilização de recursos durante a última hora, incluindo CPU, IO de dados e utilização de gravação de registos em relação aos limites objetivos do serviço.|
+|[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornece estatísticas de espera agregadas para a instância do motor da base de dados. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornece réplicas de estado de saúde e estatísticas de sincronização. Redo o tamanho da fila e a taxa de redo servem como indicadores de latência de dados na réplica apenas de leitura. |
+|[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fornece contadores de desempenho do motor de base de dados.|
+|[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fornece estatísticas de execução por consulta, tais como número de execuções, tempo de CPU utilizado, etc.|
+|[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornece planos de consulta em cache. |
+|[sys.dm_exec_sql_text()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornece texto de consulta para um plano de consulta em cache.|
+|[sys.dm_exec_query_profiles](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Proporciona progressos de consulta em tempo real enquanto as consultas estão em execução.|
+|[sys.dm_exec_query_plan_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornece o último plano de execução real conhecido, incluindo estatísticas de tempo de execução para uma consulta.|
+|[sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornece estatísticas de IOPS de armazenamento, produção e latência para todos os ficheiros de base de dados. |
 
 > [!NOTE]
 > Os `sys.resource_stats` `sys.elastic_pool_resource_stats` DMVs e DMVs na base de dados lógica devolvem dados de utilização de recursos da réplica primária.
@@ -109,13 +109,13 @@ Uma sessão de evento prolongada sobre uma réplica apenas de leitura que é bas
 
 ### <a name="transaction-isolation-level-on-read-only-replicas"></a>Nível de isolamento de transações em réplicas apenas de leitura
 
-As consultas que funcionam em réplicas apenas de leitura são sempre mapeadas para o nível de isolamento de transações [instantâneas.](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) O isolamento instantâneo usa a versão de linha para evitar cenários de bloqueio onde os leitores bloqueiam escritores.
+As consultas que funcionam em réplicas apenas de leitura são sempre mapeadas para o nível de isolamento de transações [instantâneas.](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) O isolamento instantâneo usa a versão de linha para evitar cenários de bloqueio onde os leitores bloqueiam escritores.
 
-Em casos raros, se uma transação de isolamento instantâneo aceder a metadados de objetos modificados noutra transação simultânea, poderá receber o erro [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "A transação de isolamento instantâneo falhou na base de dados '%.*ls' porque o objeto acedido pela declaração foi modificado por uma declaração DDL noutra transação simultânea desde o início desta transação. Tal não é permitido porque os metadados não têm a mesma versão. Uma atualização simultânea aos metadados pode levar a inconsistência se misturada com isolamento instantâneo."
+Em casos raros, se uma transação de isolamento instantâneo aceder a metadados de objetos modificados noutra transação simultânea, poderá receber o erro [3961](/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "A transação de isolamento instantâneo falhou na base de dados '%.*ls' porque o objeto acedido pela declaração foi modificado por uma declaração DDL noutra transação simultânea desde o início desta transação. Tal não é permitido porque os metadados não têm a mesma versão. Uma atualização simultânea aos metadados pode levar a inconsistência se misturada com isolamento instantâneo."
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Consultas de longa duração sobre réplicas só de leitura
 
-As consultas em execução em réplicas apenas de leitura precisam de aceder aos metadados para os objetos referenciados na consulta (tabelas, índices, estatísticas, etc.) Em casos raros, se um objeto de metadados for modificado na réplica primária enquanto uma consulta mantém um bloqueio no mesmo objeto na réplica apenas de leitura, a consulta pode [bloquear](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) o processo que aplica alterações da réplica primária para a réplica apenas de leitura. Se tal consulta fosse executada por muito tempo, faria com que a réplica apenas de leitura estivesse significativamente dessincronizada com a réplica primária. 
+As consultas em execução em réplicas apenas de leitura precisam de aceder aos metadados para os objetos referenciados na consulta (tabelas, índices, estatísticas, etc.) Em casos raros, se um objeto de metadados for modificado na réplica primária enquanto uma consulta mantém um bloqueio no mesmo objeto na réplica apenas de leitura, a consulta pode [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) o processo que aplica alterações da réplica primária para a réplica apenas de leitura. Se tal consulta fosse executada por muito tempo, faria com que a réplica apenas de leitura estivesse significativamente dessincronizada com a réplica primária. 
 
 Se uma consulta de longa duração sobre uma réplica só de leitura causar este tipo de bloqueio, será automaticamente encerrada e a sessão receberá o erro 1219, "A sua sessão foi desligada devido a uma operação DDL de alta prioridade".
 
@@ -123,7 +123,7 @@ Se uma consulta de longa duração sobre uma réplica só de leitura causar este
 > Se receber o erro 3961 ou o erro 1219 ao executar consultas contra uma réplica apenas de leitura, recandidutar a consulta.
 
 > [!TIP]
-> Nos níveis de serviço Premium e Business Critical, quando ligados a uma réplica apenas de leitura, o `redo_queue_size` `redo_rate` DMV [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) pode ser utilizado para monitorizar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica apenas de leitura.
+> Nos níveis de serviço Premium e Business Critical, quando ligados a uma réplica apenas de leitura, o `redo_queue_size` `redo_rate` DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) pode ser utilizado para monitorizar o processo de sincronização de dados, servindo como indicadores de latência de dados na réplica apenas de leitura.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Ativar e desativar a escala de leitura
@@ -144,7 +144,7 @@ Pode gerir a definição de escala de leitura na lâmina da base de **dados Conf
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo Azure Resource Manager continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos Azure Resource Manager são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-Gerir a escala de leitura em Azure PowerShell requer o lançamento do Azure PowerShell de dezembro de 2016 ou mais recente. Para o mais recente lançamento powerShell, consulte [a Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Gerir a escala de leitura em Azure PowerShell requer o lançamento do Azure PowerShell de dezembro de 2016 ou mais recente. Para o mais recente lançamento powerShell, consulte [a Azure PowerShell](/powershell/azure/install-az-ps).
 
 Pode desativar ou reativar a escala de leitura em Azure PowerShell invocando o cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) e passando no valor pretendido `Enabled` (ou `Disabled` ) para o `-ReadScale` parâmetro.
 
@@ -180,7 +180,7 @@ Body: {
 }
 ```
 
-Para obter mais informações, consulte [bases de dados - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Para obter mais informações, consulte [bases de dados - Criar ou atualizar](/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Usando a `tempdb` base de dados numa réplica apenas de leitura
 

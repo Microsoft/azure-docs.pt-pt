@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619819"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791278"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos alargados na Base de Dados Azure SQL 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ O conjunto de eventos alargados na Base de Dados Azure SQL é um subconjunto rob
 Informações adicionais sobre eventos alargados estão disponíveis em:
 
 - [Início Rápido: Eventos alargados no SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
-- [Eventos Alargados](/sql/relational-databases/extended-events/extended-events)
+- [Extended Events (Eventos Expandidos)](/sql/relational-databases/extended-events/extended-events)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ Os tópicos relacionados fornecem duas amostras de código:
 
 ## <a name="new-catalog-views"></a>Novas vistas do catálogo
 
-A funcionalidade de eventos alargados é suportada por várias [vistas de catálogo.](https://msdn.microsoft.com/library/ms174365.aspx) As vistas do catálogo dizem-lhe sobre *metadados ou definições* de sessões de eventos criadas pelo utilizador na base de dados atual. As opiniões não devolvem informações sobre casos de sessões de eventos ativos.
+A funcionalidade de eventos alargados é suportada por várias [vistas de catálogo.](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) As vistas do catálogo dizem-lhe sobre *metadados ou definições* de sessões de eventos criadas pelo utilizador na base de dados atual. As opiniões não devolvem informações sobre casos de sessões de eventos ativos.
 
 | Nome de<br/>vista de catálogo | Descrição |
 |:--- |:--- |
@@ -81,11 +81,11 @@ A funcionalidade de eventos alargados é suportada por várias [vistas de catál
 | **sys.database_event_session_targets** |Retorna uma linha para cada alvo de evento para uma sessão de evento. |
 | **sys.database_event_sessions** |Retorna uma linha para cada sessão de eventos na base de dados. |
 
-No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server \_ * em vez de *.database \_ *. O padrão do nome é como **sys.server_event_%.**
+No Microsoft SQL Server, as vistas de catálogo semelhantes têm nomes que incluem *.server \_* em vez de *.database \_* . O padrão do nome é como **sys.server_event_%.**
 
-## <a name="new-dynamic-management-views-dmvs"></a>Novas visões dinâmicas de gestão [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Novas visões dinâmicas de gestão [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-A Azure SQL Database tem [pontos de vista dinâmicos de gestão (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) que suportam eventos alargados. Os DMVs falam-lhe sobre sessões *de eventos ativos.*
+A Azure SQL Database tem [pontos de vista dinâmicos de gestão (DMVs)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) que suportam eventos alargados. Os DMVs falam-lhe sobre sessões *de eventos ativos.*
 
 | Nome do DMV | Descrição |
 |:--- |:--- |
@@ -95,9 +95,9 @@ A Azure SQL Database tem [pontos de vista dinâmicos de gestão (DMVs)](https://
 | **sys.dm_xe_database_session_targets** |Devolve informações sobre alvos de sessão. |
 | **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento que seja procurada na base de dados atual. |
 
-No Microsoft SQL Server, as vistas de catálogo semelhantes são nomeadas sem a parte da base de * \_ dados* do nome, tais como:
+No Microsoft SQL Server, as vistas de catálogo semelhantes são nomeadas sem a parte da base de *\_ dados* do nome, tais como:
 
-- **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions.**
+- **sys.dm_xe_sessions** , em vez de nome<br/>**sys.dm_xe_database_sessions.**
 
 ### <a name="dmvs-common-to-both"></a>DMVs comuns a ambos
 
@@ -140,11 +140,11 @@ SELECT
 
 Aqui estão os alvos que podem capturar resultados das suas sessões de eventos na Base de Dados Azure SQL:
 
-- [Alvo do tampão de](https://msdn.microsoft.com/library/ff878182.aspx) anel - Contém brevemente dados de eventos na memória.
-- [Alvo de Contador de Eventos](https://msdn.microsoft.com/library/ff878025.aspx) - Conta todos os eventos que ocorrem durante uma sessão de eventos prolongados.
-- [Alvo de ficheiro de evento](https://msdn.microsoft.com/library/ff878115.aspx) - Escreve tampão completo para um recipiente de armazenamento Azure.
+- [Alvo do tampão de](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) anel - Contém brevemente dados de eventos na memória.
+- [Alvo de Contador de Eventos](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - Conta todos os eventos que ocorrem durante uma sessão de eventos prolongados.
+- [Alvo de ficheiro de evento](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - Escreve tampão completo para um recipiente de armazenamento Azure.
 
-A API de [Rastreio de Eventos para Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) não está disponível para eventos alargados na Base de Dados Azure SQL.
+A API de [Rastreio de Eventos para Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) não está disponível para eventos alargados na Base de Dados Azure SQL.
 
 ## <a name="restrictions"></a>Restrições
 
@@ -183,11 +183,11 @@ O alvo **do Ficheiro de Eventos** pode experimentar latência ou falhas na rede 
 ## <a name="related-links"></a>Ligações relacionadas
 
 - [Utilizando a Azure PowerShell com armazenamento Azure](/powershell/module/az.storage/).
-- [Cmdlets de armazenamento Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Cmdlets de armazenamento Azure](/powershell/module/Azure.Storage)
 - [Using Azure PowerShell with Azure Storage (Utilizar o Azure PowerShell com o Armazenamento do Azure)](/powershell/module/az.storage/)
 - [Como utilizar o armazenamento blob a partir de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Posts de blogue de Jonathan Kehayias sobre eventos alargados no Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - A página web Azure *Service Updates,* reduzida por parâmetro à Base de Dados Azure SQL:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -195,6 +195,6 @@ O alvo **do Ficheiro de Eventos** pode experimentar latência ou falhas na rede 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->
