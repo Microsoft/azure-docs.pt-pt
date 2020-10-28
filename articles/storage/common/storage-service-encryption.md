@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488576"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785787"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -38,7 +38,7 @@ Para obter informações sobre encriptação e gestão de chaves para discos ger
 
 Os dados de uma nova conta de armazenamento são encriptados com as chaves geridas pela Microsoft por padrão. Pode continuar a confiar nas chaves geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, tem duas opções. Pode utilizar qualquer tipo de gestão de chaves, ou ambos:
 
-- Pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar dados no armazenamento blob e nos Ficheiros Azure. <sup>1,2</sup> As chaves geridas pelo cliente devem ser armazenadas no Cofre da Chave Azure ou no Modelo de Segurança Gerido do Cofre do Cofre de Azure Key (HSM) (pré-visualização). Para obter mais informações sobre as teclas geridas pelo cliente, consulte [as chaves geridas pelo cliente para encriptação de armazenamento Azure](encryption-customer-managed-keys.md).
+- Pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar dados no armazenamento blob e nos Ficheiros Azure. <sup>1,2</sup> As chaves geridas pelo cliente devem ser armazenadas no Cofre da Chave Azure ou no Modelo de Segurança Gerido do Cofre do Cofre de Azure Key (HSM) (pré-visualização). Para obter mais informações sobre as teclas geridas pelo cliente, consulte [as chaves geridas pelo cliente para encriptação de armazenamento Azure](./customer-managed-keys-overview.md).
 - Pode especificar uma *chave fornecida pelo cliente* nas operações de armazenamento Blob. Um cliente que faça um pedido de leitura ou escrita contra o armazenamento blob pode incluir uma chave de encriptação no pedido de controlo granular sobre como os dados blob são encriptados e desencriptados. Para obter mais informações sobre as chaves fornecidas pelo cliente, consulte fornecer uma chave de [encriptação sobre um pedido de armazenamento Blob](../blobs/encryption-customer-provided-keys.md).
 
 A tabela seguinte compara as opções de gestão chave para a encriptação do Azure Storage.
@@ -101,8 +101,8 @@ Quando um âmbito de encriptação é desativado, já não é cobrado por isso. 
 
 Se o seu âmbito de encriptação estiver protegido com chaves geridas pelo cliente para o Cofre da Chave Azure, também pode eliminar a chave associada no cofre de chaves para desativar o âmbito de encriptação. Tenha em mente que as teclas geridas pelo cliente no Cofre da Chave Azure estão protegidas por proteção de eliminação e purga suave, e uma chave eliminada está sujeita ao comportamento definido por essas propriedades. Para mais informações, consulte um dos seguintes tópicos na documentação do Cofre chave Azure:
 
-- [Como utilizar soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Como usar soft-delete com CLI](../../key-vault/general/soft-delete-cli.md)
+- [Como utilizar soft-delete com PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Como usar soft-delete com CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Não é possível eliminar um âmbito de encriptação.

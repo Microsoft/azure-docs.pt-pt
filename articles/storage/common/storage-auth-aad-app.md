@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20ebfc571d72b79b61a61fb633feb63c4cc58fdd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488814"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787691"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token da Azure AD para autorizar pedidos de um pedido de cliente
 
@@ -31,7 +31,7 @@ A aplicação da amostra proporciona uma experiência de ponta a ponta que mostr
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Atribuir um papel a um diretor de segurança da AD Azure
 
-Para autenticar um princípio de segurança a partir da sua aplicação Azure Storage, configurar primeiro as definições de controlo de acesso baseado em funções (Azure RBAC) para esse principal de segurança. O Azure Storage define funções incorporadas que englobam permissões para contentores e filas. Quando o papel de Azure é atribuído a um diretor de segurança, esse diretor de segurança tem acesso a esse recurso. Para obter mais informações, consulte [Gerir os direitos de acesso aos dados de Azure Blob e Queue com a Azure RBAC](storage-auth-aad-rbac.md).
+Para autenticar um princípio de segurança a partir da sua aplicação Azure Storage, configurar primeiro as definições de controlo de acesso baseado em funções (Azure RBAC) para esse principal de segurança. O Azure Storage define funções incorporadas que englobam permissões para contentores e filas. Quando o papel de Azure é atribuído a um diretor de segurança, esse diretor de segurança tem acesso a esse recurso. Para obter mais informações, consulte [Gerir os direitos de acesso aos dados de Azure Blob e Queue com a Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registe o seu pedido junto de um inquilino da AD Azure
 
@@ -48,20 +48,20 @@ Depois de ter registado a sua candidatura, verá o ID da aplicação (ou ID do c
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
 
-Para obter mais informações sobre o registo de uma candidatura com a Azure AD, consulte [integrar aplicações com o Azure Ative Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
+Para obter mais informações sobre o registo de uma candidatura com a Azure AD, consulte [integrar aplicações com o Azure Ative Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ### <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Conceda as permissões da sua aplicação registada ao Azure Storage
 
 Em seguida, conceda permissões à sua candidatura para ligar para as APIs de Armazenamento Azure. Este passo permite que o seu pedido autorize pedidos para a Azure Storage com Azure AD.
 
-1. Na página de **permissões** da API para a sua aplicação registada, selecione **Adicionar uma permissão**.
-1. No separador **APIs** da Microsoft, selecione **Azure Storage**.
+1. Na página de **permissões** da API para a sua aplicação registada, selecione **Adicionar uma permissão** .
+1. No separador **APIs** da Microsoft, selecione **Azure Storage** .
 1. A **pedido a API permissões** de painéis, em **que tipo de permissões a sua aplicação requer?** **Delegated permissions** Esta opção é selecionada por padrão.
-1. Em **Permissões**, selecione a caixa de verificação ao lado **user_impersonation**, em seguida, selecione o botão **'Adicionar permissões'.**
+1. Em **Permissões** , selecione a caixa de verificação ao lado **user_impersonation** , em seguida, selecione o botão **'Adicionar permissões'.**
 
     :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Screenshot mostrando como registar a sua aplicação de armazenamento com Azure AD":::
 
-1. Em seguida, conceda o consentimento administrativo para estas permissões clicando **no consentimento de administração grant para o Diretório Predefinido**.
+1. Em seguida, conceda o consentimento administrativo para estas permissões clicando **no consentimento de administração grant para o Diretório Predefinido** .
 
 O painel **de permissões da API** mostra agora que a sua aplicação AD AZure registada tem acesso tanto às APIs de Armazenamento microsoft como a Azure Storage, e esse consentimento é concedido para o diretório predefinido. As permissões são concedidas automaticamente ao Microsoft Graph quando regista a sua aplicação pela primeira vez com a Azure AD.
 
@@ -93,7 +93,7 @@ Em seguida, configurar o fluxo de subvenção implícita para a sua aplicação.
 
 Uma vez registado o seu pedido e concedido permissões de acesso a dados no armazenamento de Azure Blob ou no armazenamento da fila, pode adicionar código à sua aplicação para autenticar um principal de segurança e adquirir um token OAuth 2.0. Para autenticar e adquirir o token, pode utilizar uma das bibliotecas de [autenticação](../../active-directory/develop/reference-v2-libraries.md) da plataforma de identidade da Microsoft ou outra biblioteca de código aberto que suporte o OpenID Connect 1.0. A sua aplicação pode então utilizar o token de acesso para autorizar um pedido contra o armazenamento da Azure Blob ou o armazenamento da fila.
 
-Para obter uma lista de cenários para os quais a aquisição de fichas é suportada, consulte a secção de fluxos de [autenticação](/en-us/azure/active-directory/develop/msal-authentication-flows) da documentação da Biblioteca de Autenticação da [Microsoft (MSAL).](/azure/active-directory/develop/msal-overview)
+Para obter uma lista de cenários para os quais a aquisição de fichas é suportada, consulte a secção de fluxos de [autenticação](../../active-directory/develop/msal-authentication-flows.md) da documentação da Biblioteca de Autenticação da [Microsoft (MSAL).](../../active-directory/develop/msal-overview.md)
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valores bem conhecidos para autenticação com Azure AD
 
@@ -140,7 +140,7 @@ Uma aplicação web de amostra concluída que adquire um token e a usa para cria
 
 #### <a name="add-references-and-using-statements"></a>Adicionar referências e usar declarações  
 
-A partir do Visual Studio, instale a biblioteca de clientes Azure Storage. No menu **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Consola do Gestor de Pacotes**. Digite os seguintes comandos na janela da consola para instalar os pacotes necessários na biblioteca do cliente do Azure Storage para .NET:
+A partir do Visual Studio, instale a biblioteca de clientes Azure Storage. No menu **Ferramentas** , selecione **Gestor de Pacotes NuGet** e, em seguida, **Consola do Gestor de Pacotes** . Digite os seguintes comandos na janela da consola para instalar os pacotes necessários na biblioteca do cliente do Azure Storage para .NET:
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
@@ -290,6 +290,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Plataforma de identidades da Microsoft](/azure/active-directory/develop/)
-- [Gerir direitos de acesso aos dados de armazenamento com o Azure RBAC](storage-auth-aad-rbac.md)
+- [Plataforma de identidades da Microsoft](../../active-directory/develop/index.yml)
+- [Gerir direitos de acesso aos dados de armazenamento com o Azure RBAC](./storage-auth-aad-rbac-portal.md)
 - [Autenticar acesso a bolhas e filas com diretório ativo Azure e identidades geridas para recursos Azure](storage-auth-aad-msi.md)

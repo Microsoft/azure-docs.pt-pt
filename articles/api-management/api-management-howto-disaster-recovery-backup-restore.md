@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075336"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787232"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre através do serviço de cópia de segurança e restauro na Gestão de API do Azure
 
@@ -55,34 +55,34 @@ Todas as tarefas que faz sobre recursos utilizando o Gestor de Recursos Azure de
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação de Diretório Ativo Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Utilizando a subscrição que contém a sua instância de serviço de Gestão API, navegue para o separador **de registos da App** em **Azure Ative Directy** (Azure Ative Directory > Registos De Gestão/Aplicação).
 
     > [!NOTE]
     > Se o diretório de incumprimento do Azure Ative Não estiver visível na sua conta, contacte o administrador da subscrição Azure para conceder as permissões necessárias à sua conta.
 
-3. Clique em **Novo registo de aplicação**.
+3. Clique em **Novo registo de aplicação** .
 
     A janela **Create** aparece à direita. É aí que insira a aplicação AAD relevante.
 
 4. Introduza um nome para a aplicação.
-5. Para o tipo de aplicação, selecione **Native**.
+5. Para o tipo de aplicação, selecione **Native** .
 6. Introduza um URL de espaço reservado, como `http://resources` para o **Redirect URI,** uma vez que é um campo obrigatório, mas o valor não é usado mais tarde. Clique na caixa de verificação para guardar a aplicação.
-7. Clique em **Criar**.
+7. Clique em **Criar** .
 
 ### <a name="add-an-application"></a>Adicionar uma aplicação
 
-1. Assim que a aplicação for criada, clique nas **permissões de API**.
+1. Assim que a aplicação for criada, clique nas **permissões de API** .
 2. Clique **+ Adicione uma permissão.**
-4. Prima **Select Microsoft APIs**.
+4. Prima **Select Microsoft APIs** .
 5. Escolha **a gestão de serviços Azure.**
-6. **Seleção de imprensa**.
+6. **Seleção de imprensa** .
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Clique em **Permissões Delegadas** ao lado da aplicação recém-adicionada, consulte a caixa para **Access Azure Service Management (pré-visualização)**.
-8. **Seleção de imprensa**.
-9. Clique **em Permissões de Concessão**.
+7. Clique em **Permissões Delegadas** ao lado da aplicação recém-adicionada, consulte a caixa para **Access Azure Service Management (pré-visualização)** .
+8. **Seleção de imprensa** .
+9. Clique **em Permissões de Concessão** .
 
 ### <a name="configuring-your-app"></a>Configurar a aplicação
 
@@ -152,7 +152,7 @@ em que:
 -   `subscriptionId` - ID da subscrição que detém o serviço de Gestão API que está a tentar apoiar
 -   `resourceGroupName` - nome do grupo de recursos do seu serviço de Gestão API da Azure
 -   `serviceName` - o nome do serviço de Gestão da API que está a fazer uma cópia de segurança especificada no momento da sua criação
--   `api-version` - substituir por `2018-06-01-preview`
+-   `api-version` - substituir por `2019-12-01`
 
 No corpo do pedido, especifique o nome da conta de armazenamento target Azure, a chave de acesso, o nome do recipiente blob e o nome de reserva:
 
@@ -171,10 +171,10 @@ A cópia de segurança é uma operação de longa duração que pode demorar mai
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>Constrangimentos ao fazer backup ou restaurar o pedido
 
--   **Deve** **existir**o recipiente especificado no organismo de pedido .
+-   **Deve** **existir** o recipiente especificado no organismo de pedido .
 -   Enquanto a cópia de segurança está em andamento, **evite alterações de gestão no serviço,** tais como upgrade ou downgrade SKU, mudança no nome de domínio, e muito mais.
 -   A recuperação de um **backup só é garantida por 30 dias** desde o momento da sua criação.
--   **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas e aparência do portal do desenvolvedor) enquanto a operação de backup está em processo **pode ser excluída da cópia de segurança e será perdida**.
+-   **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas e aparência do portal do desenvolvedor) enquanto a operação de backup está em processo **pode ser excluída da cópia de segurança e será perdida** .
 -   **Permitir** o acesso do avião de controlo à Conta de Armazenamento Azure, se tiver [firewall][azure-storage-ip-firewall] ativada. O cliente deve abrir o conjunto de endereços IP do Avião de Controlo de [Gestão da API da Azure][control-plane-ip-address] na sua Conta de Armazenamento para Cópia de Segurança ou Restauro a partir de. Isto porque os pedidos para o Azure Storage não são SNATed para um IP público da Compute > (Azure Api Management control Plane). O pedido de armazenamento da Região Cruzada será SNATED.
 
 #### <a name="what-is-not-backed-up"></a>O que não é apoiado
@@ -202,7 +202,7 @@ em que:
 -   `subscriptionId` - ID da subscrição que detém o serviço de Gestão API em que está a restaurar uma cópia de segurança
 -   `resourceGroupName` - nome do grupo de recursos que detém o serviço de Gestão API da Azure em que está a restaurar uma cópia de segurança
 -   `serviceName` - o nome do serviço de Gestão da API que está a ser restaurado no momento da sua criação
--   `api-version` - substituir por `2018-06-01-preview`
+-   `api-version` - substituir por `api-version=2019-12-01`
 
 No corpo do pedido, especifique a localização do ficheiro de reserva. Ou seja, adicione o nome da conta de armazenamento Azure, a chave de acesso, o nome do recipiente blob e o nome de reserva:
 
@@ -222,7 +222,7 @@ Restaurar é uma operação de longa duração que pode demorar até 30 minutos 
 > [!IMPORTANT]
 > **O SKU** do serviço que está a ser restaurado **deve coincidir com** o SKU do serviço de apoio que está a ser restaurado.
 >
-> **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do programador) enquanto a operação de restauro está em curso **podem ser substituídas**.
+> **As alterações efetuadas** na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do programador) enquanto a operação de restauro está em curso **podem ser substituídas** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

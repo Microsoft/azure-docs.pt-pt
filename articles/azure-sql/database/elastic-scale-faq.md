@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8998f03fa44529a5f006936a01f711a279178245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e15a8dc5e9f918c630397d6d6593f5bf561755
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84045684"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786909"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Ferramentas de base de dados elásticas frequentemente feitas perguntas (FAQ)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ Não utilize credenciais sob a forma de "User ID=", username@servername em vez d
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Preciso de criar um Shard Map Manager e povoar fragmentos sempre que começo as minhas aplicações
 
-Não — a criação do Shard Map Manager (por exemplo, [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) é uma operação única.  A sua aplicação deve utilizar a chamada [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) na hora de arranque da aplicação.  Deve haver apenas uma chamada por domínio de aplicação.
+Não — a criação do Shard Map Manager (por exemplo, [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) é uma operação única.  A sua aplicação deve utilizar a chamada [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) na hora de arranque da aplicação.  Deve haver apenas uma chamada por domínio de aplicação.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho perguntas sobre usar ferramentas elásticas de base de dados, como é que as respondo
 
-Contacte-nos na [página de perguntas do Microsoft Q&Uma página de perguntas para a Base de Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+Contacte-nos na [página de perguntas do Microsoft Q&Uma página de perguntas para a Base de Dados SQL](/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando tenho uma ligação de base de dados usando uma chave de caco, ainda posso consultar dados para outras chaves de caco no mesmo fragmento.  Isto é por design
 
@@ -55,6 +55,6 @@ Sim, um fragmento é uma base de dados individual, e assim um fragmento pode ser
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>A ferramenta Split Merge (ou apagar) uma base de dados durante uma operação de divisão ou fusão
 
-N.º Para operações **divididas,** a base de dados-alvo deve existir com o esquema apropriado e ser registada no Shard Map Manager.  Para operações **de fusão,** deve eliminar o fragmento do gestor do mapa de fragmentos e, em seguida, eliminar a base de dados.
+Não. Para operações **divididas,** a base de dados-alvo deve existir com o esquema apropriado e ser registada no Shard Map Manager.  Para operações **de fusão,** deve eliminar o fragmento do gestor do mapa de fragmentos e, em seguida, eliminar a base de dados.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

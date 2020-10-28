@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 7c7268aa361c77f1d466ab7a58b74aa91090dc4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84708574"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788167"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Começando com Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,16 +44,16 @@ Como primeiro passo, você precisaria criar a sua primeira SQL Managed Instance 
   > - Também pode utilizar a rota expressa ou a ligação site-to-site a partir da sua rede local, mas estas abordagens estão fora do âmbito destes arranques rápidos.
   > - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, note que a retenção só se aplicará aos registos escritos após a alteração do valor da retenção (os registos escritos durante o período em que a retenção foi definida para ilimitada são preservados, mesmo após a retenção ser ativada).
 
-Como alternativa à criação manual de SQL Managed Instance, pode utilizar [o PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell com o modelo de Gestor de Recursos,](scripts/create-powershell-azure-resource-manager-template.md)ou [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) para scriptar e automatizar este processo.
+Como alternativa à criação manual de SQL Managed Instance, pode utilizar [o PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell com o modelo de Gestor de Recursos,](scripts/create-powershell-azure-resource-manager-template.md)ou [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create) para scriptar e automatizar este processo.
 
 ### <a name="migrate-your-databases"></a>Migrar as suas bases de dados
 
-Depois de criar um SQL Managed Instance e configurar o acesso, pode começar a migrar as bases de dados do SQL Server. A migração pode falhar se tiver algumas funcionalidades não apoiadas na base de dados de origem que pretende migrar. Para evitar falhas e verificar a compatibilidade, pode utilizar [o Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) para analisar as suas bases de dados no SQL Server e encontrar qualquer problema que possa bloquear a migração para uma SqL Managed Instance, como a existência de [FicheiroStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou vários ficheiros de registo. Se resolver estes problemas, as suas bases de dados estão prontas para migrar para a SQL Managed Instance. [O Assistant de Experimentação de Base de Dados](/sql/dea/database-experimentation-assistant-overview) é outra ferramenta útil que pode gravar a sua carga de trabalho no SQL Server e reproduzi-la numa SQL Managed Instance para que possa determinar se haverá problemas de desempenho se migrar para uma SqL Managed Instance.
+Depois de criar um SQL Managed Instance e configurar o acesso, pode começar a migrar as bases de dados do SQL Server. A migração pode falhar se tiver algumas funcionalidades não apoiadas na base de dados de origem que pretende migrar. Para evitar falhas e verificar a compatibilidade, pode utilizar [o Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) para analisar as suas bases de dados no SQL Server e encontrar qualquer problema que possa bloquear a migração para uma SqL Managed Instance, como a existência de [FicheiroStream](/sql/relational-databases/blob/filestream-sql-server) ou vários ficheiros de registo. Se resolver estes problemas, as suas bases de dados estão prontas para migrar para a SQL Managed Instance. [O Assistant de Experimentação de Base de Dados](/sql/dea/database-experimentation-assistant-overview) é outra ferramenta útil que pode gravar a sua carga de trabalho no SQL Server e reproduzi-la numa SQL Managed Instance para que possa determinar se haverá problemas de desempenho se migrar para uma SqL Managed Instance.
 
 Uma vez que tenha a certeza de que pode migrar a sua base de dados para uma SqL Managed Instance, pode utilizar as capacidades de restauro do SQL Server nativo para restaurar uma base de dados numa SqL Managed Instance a partir de um `.bak` ficheiro. Pode utilizar este método para migrar bases de dados a partir do motor de base de dados SQL Server instalado no local ou máquinas virtuais Azure. Para um arranque rápido, consulte [Restaurar de backup para uma SQL Managed Instance](restore-sample-database-quickstart.md). Neste arranque rápido, restaura-se a partir de um `.bak` ficheiro armazenado no armazenamento Azure Blob utilizando o comando `RESTORE` Transact-SQL.
 
 > [!TIP]
-> Para utilizar o `BACKUP` comando Transact-SQL para criar uma cópia de segurança da sua base de dados no armazenamento Azure Blob, consulte [a cópia de segurança do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> Para utilizar o `BACKUP` comando Transact-SQL para criar uma cópia de segurança da sua base de dados no armazenamento Azure Blob, consulte [a cópia de segurança do SQL Server para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Estes quickstarts permitem-lhe criar, configurar e restaurar a cópia de segurança da base de dados para uma SqL Managed Instance. Em alguns cenários, você precisaria personalizar ou automatizar a implementação de SQL Managed Instance e o ambiente de networking necessário. Estes cenários serão descritos abaixo.
 
@@ -72,7 +72,7 @@ Os quickstarts anteriormente mencionados permitem-lhe configurar rapidamente uma
 No entanto, para migrar a sua base de dados de produção ou mesmo dev/base de dados de teste que pretende utilizar para algum teste de desempenho, você precisa considerar a utilização de algumas técnicas adicionais, tais como:
 
 - Testes de desempenho - Deve medir as métricas de desempenho de base na sua origem SQL Server e compará-las com as métricas de desempenho no destino SQL Managed Instance onde emigrou a base de dados. Saiba mais sobre as [melhores práticas para a comparação de desempenho.](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)
-- Migração on-line - Com o nativo `RESTORE` descrito neste artigo, você tem que esperar que as bases de dados sejam restauradas (e copiadas para armazenamento Azure Blob se ainda não estiver lá armazenado). Isto causa algum tempo de inatividade da sua aplicação, especialmente para bases de dados maiores. Para mover a sua base de dados de produção, utilize o [serviço de migração de dados (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) para migrar a sua base de dados com o tempo de inatividade mínimo. A DMS consegue-o empurrando gradualmente as alterações efetuadas na sua base de dados de origem para a base de dados SQL Managed Instance que está a ser restaurada. Desta forma, pode mudar rapidamente a sua aplicação de fonte para base de dados alvo com o mínimo de tempo de inatividade.
+- Migração on-line - Com o nativo `RESTORE` descrito neste artigo, você tem que esperar que as bases de dados sejam restauradas (e copiadas para armazenamento Azure Blob se ainda não estiver lá armazenado). Isto causa algum tempo de inatividade da sua aplicação, especialmente para bases de dados maiores. Para mover a sua base de dados de produção, utilize o [serviço de migração de dados (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) para migrar a sua base de dados com o tempo de inatividade mínimo. A DMS consegue-o empurrando gradualmente as alterações efetuadas na sua base de dados de origem para a base de dados SQL Managed Instance que está a ser restaurada. Desta forma, pode mudar rapidamente a sua aplicação de fonte para base de dados alvo com o mínimo de tempo de inatividade.
 
 Saiba mais sobre o [processo de migração recomendado.](migrate-to-instance-from-sql-server.md)
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443480"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787147"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar as bases de dados existentes para escalar
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ Para obter informações sobre os padrões da arquitetura de dados comuns de apl
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e pedidos de recursos
 
-Para obter dúvidas, utilize a [página de perguntas do Microsoft Q&A para a Base de Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html) e para pedidos de funcionalidades, adicione-as ao [fórum de feedback da Base de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para obter dúvidas, utilize a [página de perguntas do Microsoft Q&A para a Base de Dados SQL](/answers/topics/azure-sql-database.html) e para pedidos de funcionalidades, adicione-as ao [fórum de feedback da Base de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

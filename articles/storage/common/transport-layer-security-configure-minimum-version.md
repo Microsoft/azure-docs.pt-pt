@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018582"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785804"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
 
@@ -33,7 +33,7 @@ Para obter informações sobre como especificar uma determinada versão do TLS a
 
 Quando executa uma versão TLS mínima para a sua conta de armazenamento, arrisca-se a rejeitar pedidos de clientes que estão a enviar dados com uma versão mais antiga do TLS. Para entender como configurar a versão mínima TLS pode afetar as aplicações do cliente, a Microsoft recomenda que permita iniciar sessão na sua conta de Armazenamento Azure e analisar os registos após um intervalo de tempo para detetar que versões de aplicações de clientes TLS estão a usar.
 
-Para registar pedidos na sua conta de Armazenamento Azure e determinar a versão TLS utilizada pelo cliente, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](monitor-storage.md).
+Para registar pedidos na sua conta de Armazenamento Azure e determinar a versão TLS utilizada pelo cliente, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
 O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -42,18 +42,18 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 1. Inscreva-se no registo de [armazenamento Azure na pré-visualização do Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
-1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
+1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)** .
 1. Selecione o serviço de Armazenamento Azure para o qual pretende registar pedidos. Por exemplo, escolha **Blob** para registar pedidos para armazenamento Blob.
-1. **Selecione Adicionar a definição de diagnóstico**.
+1. **Selecione Adicionar a definição de diagnóstico** .
 1. Forneça um nome para a definição de diagnóstico.
-1. Em **detalhes de categoria**, na secção de **registo,** escolha quais os tipos de pedidos para registar. Pode iniciar sessão de leitura, escrever e apagar pedidos. Por exemplo, escolher **StorageRead** e **StorageWrite** registará a leitura e escreverá pedidos para o serviço selecionado.
-1. Nos **detalhes do Destino**, selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
+1. Em **detalhes de categoria** , na secção de **registo,** escolha quais os tipos de pedidos para registar. Pode iniciar sessão de leitura, escrever e apagar pedidos. Por exemplo, escolher **StorageRead** e **StorageWrite** registará a leitura e escreverá pedidos para o serviço selecionado.
+1. Nos **detalhes do Destino** , selecione Enviar para Registar **Analítico** . Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
 Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](monitor-storage-reference.md#resource-logs-preview).
+Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 ### <a name="query-logged-requests-by-tls-version"></a>Pedidos de consulta registados pela versão TLS
 
@@ -90,9 +90,6 @@ Quando estiver confiante de que o tráfego de clientes que usam versões mais an
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configure a versão TLS mínima para uma conta de armazenamento
 
 Para configurar a versão TLS mínima para uma conta de armazenamento, desafie a versão **Mínima de Versão** para a conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para obter mais informações sobre o modelo de implementação do Gestor de Recursos Azure, consulte [a visão geral da conta de Armazenamento](storage-account-overview.md).
-
-> [!NOTE]
-> A propriedade **MinimumTlsVersion** está atualmente disponível apenas para contas de armazenamento na nuvem pública Azure.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -177,8 +174,8 @@ az storage account show \
 Para configurar a versão TLS mínima para uma conta de armazenamento com um modelo, crie um modelo com a propriedade **mínima TTLSVersion** definida para `TLS1_0` , ou `TLS1_1` `TLS1_2` . Os passos seguintes descrevem como criar um modelo no portal Azure.
 
 1. No portal Azure, escolha **Criar um recurso.**
-1. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
-1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)**, escolha **Criar**e, em seguida, escolha **Construir o seu próprio modelo no editor**.
+1. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER** .
+1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)** , escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor** .
 1. No editor de modelo, cole no JSON seguinte para criar uma nova conta e definir a versão TLS mínima para TLS 1.2. Lembre-se de substituir os espaços reservados em suportes angulares pelos seus próprios valores.
 
     ```json
@@ -221,7 +218,7 @@ Configurar a versão mínima TLS requer a versão 2019-04-01 ou mais tarde do fo
 
 ### <a name="check-the-minimum-required-tls-version-for-multiple-accounts"></a>Verifique a versão TLS mínima exigida para várias contas
 
-Para verificar a versão TLS mínima exigida através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+Para verificar a versão TLS mínima exigida através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
 
 Executando a seguinte consulta no Resource Graph Explorer devolve uma lista de contas de armazenamento e apresenta a versão TLS mínima para cada conta:
 
@@ -249,11 +246,11 @@ A Azure Policy suporta efeitos que determinam o que acontece quando uma regra de
 Para criar uma política com efeito de Auditoria para a versão mínima TLS com o portal Azure, siga estes passos:
 
 1. No portal Azure, navegue para o serviço Azure Policy.
-1. Na secção **de Autoria,** selecione **Definições**.
+1. Na secção **de Autoria,** selecione **Definições** .
 1. **Selecione Adicionar definição de política** para criar uma nova definição de política.
 1. Para o campo **de localização Definição,** selecione o botão **Mais** para especificar onde está localizado o recurso de política de auditoria.
 1. Especifique um nome para a apólice. Pode especificar opcionalmente uma descrição e categoria.
-1. De acordo com **a regra política**, adicione a seguinte definição de política à secção **policyRule.**
+1. De acordo com **a regra política** , adicione a seguinte definição de política à secção **policyRule.**
 
     ```json
     {
@@ -291,7 +288,7 @@ Para atribuir a política ao portal Azure, siga estes passos:
 1. Para o campo **Scope,** selecione o âmbito da atribuição de políticas.
 1. Para o campo **de definição de Política,** selecione o botão **Mais** e, em seguida, selecione a política definida na secção anterior da lista.
 1. Forneça um nome para a atribuição de apólices. A descrição é opcional.
-1. Deixe **a aplicação da política** definida para *Ativação*. Esta definição não tem qualquer efeito sobre a política de auditoria.
+1. Deixe **a aplicação da política** definida para *Ativação* . Esta definição não tem qualquer efeito sobre a política de auditoria.
 1. Selecione **Review + criar** para criar a atribuição.
 
 ### <a name="view-compliance-report"></a>Ver relatório de conformidade
@@ -303,7 +300,7 @@ Pode levar vários minutos para que o relatório de conformidade fique disponív
 Para ver o relatório de conformidade no portal Azure, siga estes passos:
 
 1. No portal Azure, navegue para o serviço Azure Policy.
-1. Selecione **Compliance**.
+1. Selecione **Compliance** .
 1. Filtrar os resultados para o nome da atribuição de política que criou no passo anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Pode aprofundar o relatório para obter mais detalhes, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 

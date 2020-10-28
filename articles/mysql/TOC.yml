@@ -474,6 +474,10 @@
               href: flexible-server/concepts-audit-logs.md
             - name: Métricas
               href: flexible-server/concepts-monitoring.md
+        - name: Replicação
+          items:
+            - name: Réplicas de leitura
+              href: flexible-server/concepts-read-replicas.md
     - name: Guias de procedimentos
       items:
         - name: Gerir um servidor
@@ -536,6 +540,16 @@
               items:
                 - name: Portal do Azure
                   href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: Reiniciar servidor
+          items:
+            - name: Portal do Azure
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: Replicação
+          items:
+            - name: Criar réplicas de leitura do portal do Azure
+              href: flexible-server/how-to-read-replicas-portal.md
+            - name: Criar réplicas de leitura da CLI do Azure
+              href: flexible-server/how-to-read-replicas-cli.md
         - name: Resolução de problemas
           items:
             - name: Erros de ligação

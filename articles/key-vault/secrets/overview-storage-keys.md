@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612188"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786280"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 
@@ -32,13 +32,13 @@ Quando utilizar a função chave da conta de armazenamento gerida, considere os 
 
 Recomendamos a utilização da integração do Azure Storage com o Azure Ative Directory (Azure AD), o serviço de gestão de identidade e acesso baseado na nuvem da Microsoft. A integração AD AD está disponível para [bolhas e filas Azure,](../../storage/common/storage-auth-aad.md)e fornece acesso baseado em símbolos OAuth2 ao Azure Storage (tal como o Azure Key Vault).
 
-O Azure AD permite-lhe autenticar a sua aplicação de cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerida Azure AD](/azure/active-directory/managed-identities-azure-resources/) quando você correr em Azure. Identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação.
+O Azure AD permite-lhe autenticar a sua aplicação de cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerida Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) quando você correr em Azure. Identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação.
 
 A Azure AD usa o controlo de acesso baseado em funções (RBAC) para gerir a autorização, que também é suportada pelo Key Vault.
 
 ## <a name="service-principal-application-id"></a>ID de aplicação principal de serviço
 
-Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](/azure/active-directory/develop/developer-glossary#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via RBAC.
+Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via RBAC.
 
 Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos da AD Azure. O Key Vault está registado sob o mesmo ID de aplicação em cada nuvem Azure.
 
@@ -46,14 +46,14 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o Azure CLI](/cli/azure/install-azure-cli).
-- [Criar um cofre chave](quick-create-cli.md)
+- [Criar um cofre de chaves](quick-create-cli.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerir chaves de conta de armazenamento
@@ -163,6 +163,6 @@ A saída deste comando mostrará a sua cadeia de definição SAS como `value` .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [chaves, segredos e certificados.](https://docs.microsoft.com/rest/api/keyvault/)
-- Reveja artigos no blog da [equipa do Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
-- Consulte a documentação de referência de [armazenamento de teclado az.](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+- Saiba mais sobre [chaves, segredos e certificados.](/rest/api/keyvault/)
+- Reveja artigos no blog da [equipa do Azure Key Vault](/archive/blogs/kv/).
+- Consulte a documentação de referência de [armazenamento de teclado az.](/cli/azure/keyvault/storage?view=azure-cli-latest)

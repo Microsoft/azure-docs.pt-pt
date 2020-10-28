@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 039fabbbb04f352042973f559e34a3c3a77e7500
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340432"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785889"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
@@ -26,9 +26,9 @@ Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de
 ## <a name="integrated-azure-security-solutions"></a>Soluções de segurança do Azure integradas
 O Centro de Segurança facilita a ativação de soluções de segurança integradas no Azure. As vantagens incluem:
 
-- **Implementação simplificada**: o Centro de Segurança oferece aprovisionamento integrado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidade, o Security Center pode providenciar o agente nas suas máquinas virtuais. Para aparelhos de firewall, o Security Center pode cuidar de grande parte da configuração de rede necessária.
-- **Deteções integradas**: Os eventos de segurança de soluções parceiras são automaticamente recolhidos, agregados e exibidos como parte de alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
-- **Gestão e monitorização do estado de funcionamento unificadas**: os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções de parceiros rapidamente. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
+- **Implementação simplificada** : o Centro de Segurança oferece aprovisionamento integrado de soluções de parceiros integradas. Para soluções como antimalware e avaliação de vulnerabilidade, o Security Center pode providenciar o agente nas suas máquinas virtuais. Para aparelhos de firewall, o Security Center pode cuidar de grande parte da configuração de rede necessária.
+- **Deteções integradas** : Os eventos de segurança de soluções parceiras são automaticamente recolhidos, agregados e exibidos como parte de alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
+- **Gestão e monitorização do estado de funcionamento unificadas** : os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções de parceiros rapidamente. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
 
 Atualmente, as soluções de segurança integradas incluem a avaliação de vulnerabilidade por [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e Microsoft Application Gateway Web.
 
@@ -95,7 +95,7 @@ Selecione **CONNECT** sob uma solução para integrar com o Centro de Segurança
 
 ### <a name="add-data-sources"></a>Adicionar origens de dados
 
-A secção **Adicionar origens de dados** inclui outras origens de dados disponíveis que podem ser ligadas. Para obter instruções sobre como adicionar dados a partir de qualquer uma destas origens, clique em **ADICIONAR**.
+A secção **Adicionar origens de dados** inclui outras origens de dados disponíveis que podem ser ligadas. Para obter instruções sobre como adicionar dados a partir de qualquer uma destas origens, clique em **ADICIONAR** .
 
 ![Origens de dados](./media/security-center-partner-integration/add-data-sources.png)
 
@@ -105,5 +105,5 @@ A secção **Adicionar origens de dados** inclui outras origens de dados dispon�
 
 Neste artigo, aprendeu a integrar soluções de parceiros no Centro de Segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
-* [Alertas e recomendações de segurança de exportação.](continuous-export.md) Saiba como configurar uma integração com o Azure Sentinel, ou qualquer outro SIEM.
+* [Exportar continuamente dados do Centro de Segurança.](continuous-export.md) Saiba como configurar uma integração com o Azure Sentinel, ou qualquer outro SIEM.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855927"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787470"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 
@@ -47,7 +47,7 @@ Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar
 
 No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seguintes mostram-lhe como criar uma aplicação de consola no Visual Studio 2019. Os passos são semelhantes aos de outras versões do Visual Studio.
 
-1. Selecione **o**novo projeto de  >  **New**  >  **arquivo**
+1. Selecione **o** novo projeto de  >  **New**  >  **arquivo**
 2. Selecione **Janelas de Plataforma**  >  **Windows**
 3. Selecione **app de consola (.NET Framework)**
 4. Selecione **Seguinte**
@@ -71,7 +71,7 @@ Você precisa fazer referência aos seguintes quatro pacotes no seu projeto para
 
 Pode utilizar o NuGet para obter estes pacotes. Siga estes passos:
 
-1. Clique com o botão direito no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
+1. Clique com o botão direito no seu projeto no **Solution Explorer** e escolha **Gerir pacotes NuGet** .
 1. **Selecione Procurar**
 1. Pes faça pesquisa online por "Azure.Storage.Queues", e selecione **Instalar** para instalar a biblioteca do cliente de Armazenamento e as suas dependências. Isto também instalará as bibliotecas Azure.Storage.Common e Azure.Core, que são dependências da biblioteca de fila.
 1. Procure online por "System.Configuration.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações.
@@ -86,7 +86,7 @@ Tem de fazer referência aos seguintes três pacotes do seu projeto para complet
 
 Pode utilizar o NuGet para obter estes pacotes. Siga estes passos:
 
-1. Clique com o botão direito no seu projeto no **Solution Explorer**e escolha **Gerir pacotes NuGet**.
+1. Clique com o botão direito no seu projeto no **Solution Explorer** e escolha **Gerir pacotes NuGet** .
 1. **Selecione Procurar**
 1. Procure online por "Microsoft.Azure.Storage.Queue", e selecione **Instalar** para instalar a biblioteca do cliente de Armazenamento e as suas dependências. Isto também instalará a biblioteca Microsoft.Azure.Storage.Common, que é uma dependência da biblioteca de filas.
 1. Pesse online por "Microsoft.Azure.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações Azure.
@@ -113,8 +113,8 @@ O código de exemplo tem de autorizar o acesso à sua conta de armazenamento. Pa
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
 2. Localize a sua conta de armazenamento.
-3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso**. As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
-4. Encontre o valor da **Cadeia de ligação** em **key1**e clique no botão **Copiar** para copiar a cadeia de ligação. Irá adicionar o valor da cadeia de ligação para uma variável de ambiente no próximo passo.
+3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso** . As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
+4. Encontre o valor da **Cadeia de ligação** em **key1** e clique no botão **Copiar** para copiar a cadeia de ligação. Irá adicionar o valor da cadeia de ligação para uma variável de ambiente no próximo passo.
 
     ![Captura de ecrã que mostra como copiar uma cadeia de ligação do portal do Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Utilizar o padrão Async-Await com APIs de Armazenamento de filas comuns
 
-Este exemplo mostra como utilizar o padrão Async-Await com APIs de Armazenamento de filas comuns. O exemplo chama a versão assíncrona de cada um dos métodos em questão, conforme indicado pelo sufixo *Async* de cada método. Quando é utilizado um método assíncrono, o padrão async-await suspende a execução local, até que a chamada seja concluída. Este comportamento permite que o thread atual efetue outro trabalho, o que ajuda a evitar congestionamentos de desempenho e melhora a capacidade de resposta global da sua aplicação. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Este exemplo mostra como utilizar o padrão Async-Await com APIs de Armazenamento de filas comuns. O exemplo chama a versão assíncrona de cada um dos métodos em questão, conforme indicado pelo sufixo *Async* de cada método. Quando é utilizado um método assíncrono, o padrão async-await suspende a execução local, até que a chamada seja concluída. Este comportamento permite que o thread atual efetue outro trabalho, o que ajuda a evitar congestionamentos de desempenho e melhora a capacidade de resposta global da sua aplicação. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas.
 
 - Ver a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
-  - [Referência da Biblioteca de Clientes do Storage para o .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Referência da API REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Referência da Biblioteca de Clientes do Storage para o .NET](/dotnet/api/overview/azure/storage)
+  - [Referência da API REST](/rest/api/storageservices/)
 - Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
-  - [Introdução ao Table Storage do Azure utilizando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para armazenar dados estruturados.
-  - [Introdução ao Blob Storage do Azure utilizando o .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
+  - [Introdução ao Table Storage do Azure utilizando o .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) para armazenar dados estruturados.
+  - [Introdução ao Blob Storage do Azure utilizando o .NET](../blobs/storage-quickstart-blobs-dotnet.md) para armazenar dados não estruturados.
   - [Ligar à Base de Dados SQL com o .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) para armazenar dados relacionais.
 - Aprenda a simplificar o código que escreve para trabalhar com o Azure Storage utilizando o [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

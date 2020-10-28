@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008408"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787385"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de fila
 
@@ -52,7 +52,7 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 
 Se a sua aplicação se aproximar ou exceder qualquer um dos alvos de escalabilidade, poderá encontrar atrasos de transação aumentadas ou estrangulamentos. Quando o Azure Storage acelera a sua aplicação, o serviço começa a devolver códigos de erro 503 (Server busy) ou 500 (Tempo limite de funcionamento). Evitar estes erros mantendo-se dentro dos limites dos objetivos de escalabilidade é uma parte importante para melhorar o desempenho da sua aplicação.
 
-Para obter mais informações sobre os alvos de escalabilidade para o serviço de fila, consulte a [escalabilidade do armazenamento Azure e os objetivos de desempenho](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Para obter mais informações sobre os alvos de escalabilidade para o serviço de fila, consulte a [escalabilidade do armazenamento Azure e os objetivos de desempenho](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -128,7 +128,7 @@ Desa estada o limite de ligação antes de abrir quaisquer ligações.
 
 Para outras linguagens de programação, consulte a documentação dessa língua para determinar como definir o limite de ligação.  
 
-Para mais informações, consulte o blog post [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para mais informações, consulte o blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de fios
 
@@ -146,7 +146,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado com a uti
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas e ferramentas do cliente
 
-Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta o PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com o desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que eles lidam com muitas das práticas de desempenho comprovadas internamente. Para mais informações, consulte a [documentação de referência do Azure Storage](/azure/storage/#reference).
+Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta o PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com o desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que eles lidam com muitas das práticas de desempenho comprovadas internamente. Para mais informações, consulte a [documentação de referência do Azure Storage](./reference.md).
 
 ## <a name="handle-service-errors"></a>Lidar com erros de serviço
 

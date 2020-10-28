@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7679c613c4804f7df315918ee5d6946c07eb8b4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715118"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787742"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -47,12 +47,12 @@ Para acompanhar como estão a ser autorizados os pedidos a uma conta de armazena
 
 Siga estes passos para criar uma métrica que rastreie os pedidos feitos com Chave Partilhada ou SAS:
 
-1. Navegue para a sua conta de armazenamento no portal do Azure. Na secção **de Monitorização,** selecione **Métricas**.
-1. Selecione **Adicionar métrica**. No diálogo **métrico,** especifique os seguintes valores:
+1. Navegue para a sua conta de armazenamento no portal do Azure. Na secção **de Monitorização,** selecione **Métricas** .
+1. Selecione **Adicionar métrica** . No diálogo **métrico,** especifique os seguintes valores:
     1. Deixe o campo **Scope** definido para o nome da conta de armazenamento.
-    1. Desa esta *Account*medida o **espaço de nomes.** Esta métrica reportará todos os pedidos contra a conta de armazenamento.
+    1. Desa esta *Account* medida o **espaço de nomes.** Esta métrica reportará todos os pedidos contra a conta de armazenamento.
     1. Desa estação **métrica** para *transações.*
-    1. Desagregar o campo **de agregação** para *Sum*.
+    1. Desagregar o campo **de agregação** para *Sum* .
 
     A nova métrica apresentará a soma do número de transações contra a conta de armazenamento durante um determinado intervalo de tempo. A métrica resultante aparece como mostra a seguinte imagem:
 
@@ -62,7 +62,7 @@ Siga estes passos para criar uma métrica que rastreie os pedidos feitos com Cha
 1. No diálogo **do filtro,** especifique os seguintes valores:
     1. Desa estava o valor **da Propriedade** à *Autenticação.*
     1. Coloque o campo **do operador** no sinal de igual igual (=).
-    1. No campo **Valores,** selecione *'Chave de Conta'* e *SAS*.
+    1. No campo **Valores,** selecione *'Chave de Conta'* e *SAS* .
 1. No canto superior direito, selecione o intervalo de tempo para o qual deseja ver a métrica. Também pode indicar como deve ser granular a agregação de pedidos, especificando intervalos entre 1 minuto e 1 mês. Por exemplo, defina o intervalo de **tempo** para 30 dias e a **granularidade** do Tempo para 1 dia para ver os pedidos agregados por dia ao longo dos últimos 30 dias.
 
 Depois de configurar a métrica, os pedidos para a sua conta de armazenamento começarão a aparecer no gráfico. A imagem que se segue mostra pedidos que foram autorizados com Chave Partilhada ou feitos com um token SAS. Os pedidos são agregados por dia nos últimos 30 dias.
@@ -75,7 +75,7 @@ Também pode configurar uma regra de alerta para notificá-lo quando um certo n�
 
 Os registos de armazenamento Azure captam detalhes sobre pedidos feitos contra a conta de armazenamento, incluindo como um pedido foi autorizado. Pode analisar os registos para determinar quais os clientes que estão a autorizar pedidos com Chave Partilhada ou um token SAS.
 
-Para registar pedidos na sua conta de Armazenamento Azure para avaliar como são autorizados, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../common/monitor-storage.md).
+Para registar pedidos na sua conta de Armazenamento Azure para avaliar como são autorizados, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
 O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -86,12 +86,12 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 1. Inscreva-se no registo de [armazenamento Azure na pré-visualização do Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure ou utilize um espaço de trabalho log analytics existente. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
-1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
+1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)** .
 1. Selecione o serviço de Armazenamento Azure para o qual pretende registar pedidos. Por exemplo, escolha **Blob** para registar pedidos para armazenamento Blob.
-1. **Selecione Adicionar a definição de diagnóstico**.
+1. **Selecione Adicionar a definição de diagnóstico** .
 1. Forneça um nome para a definição de diagnóstico.
-1. Em **detalhes de categoria**, na secção de **registo,** escolha **StorageRead,** **StorageWrite**e **StorageDelete** para registar todos os pedidos de dados para o serviço selecionado.
-1. Nos **detalhes do Destino**, selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
+1. Em **detalhes de categoria** , na secção de **registo,** escolha **StorageRead,** **StorageWrite** e **StorageDelete** para registar todos os pedidos de dados para o serviço selecionado.
+1. Nos **detalhes do Destino** , selecione Enviar para Registar **Analítico** . Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
 
     :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como configurar a métrica para sum transações feitas com Chave Partilhada ou SAS":::
 
@@ -99,7 +99,7 @@ Pode criar uma definição de diagnóstico para cada tipo de recurso de Armazena
 
 Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](../common/monitor-storage-reference.md#resource-logs-preview).
+Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
 #### <a name="query-logs-for-requests-made-with-shared-key-or-sas"></a>Registos de consulta para pedidos feitos com Chave Partilhada ou SAS
 
@@ -130,8 +130,8 @@ A propriedade **AllowSharedKeyAccess** não é definida por padrão e não devol
 Para não permitir a autorização da Chave Partilhada para uma conta de armazenamento no portal Azure, siga estes passos:
 
 1. Navegue para a sua conta de armazenamento no portal do Azure.
-1. Localizar a **definição de configuração** em **Definições**.
-1. Definir **Permitir o acesso partilhado da chave** a **Desativados**.
+1. Localizar a **definição de configuração** em **Definições** .
+1. Definir **Permitir o acesso partilhado da chave** a **Desativados** .
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot mostrando como configurar a métrica para sum transações feitas com Chave Partilhada ou SAS":::
 
@@ -182,7 +182,7 @@ az storage container create \
 
 ### <a name="check-the-shared-key-access-setting-for-multiple-accounts"></a>Consulte a definição de acesso à Chave Partilhada para várias contas
 
-Para verificar a definição de acesso da Chave Partilhada através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+Para verificar a definição de acesso da Chave Partilhada através de um conjunto de contas de armazenamento com o melhor desempenho, pode utilizar o Azure Resource Graph Explorer no portal Azure. Para saber mais sobre a utilização do Explorador de Gráficos de Recurso, consulte [Quickstart: Execute a sua primeira consulta de Gráfico de Recursos utilizando o Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
 
 Executando a seguinte consulta no Explorador de Gráficos de Recurso devolve uma lista de contas de armazenamento e exibe a definição de acesso de Chave Partilhada para cada conta:
 
@@ -215,11 +215,11 @@ Algumas ferramentas Azure oferecem a opção de usar a autorização Azure AD pa
 |-|-|
 | Portal do Azure | Suportado. Para obter informações sobre a autorização da sua conta Azure AD a partir do portal Azure, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-blob-access-portal.md) |
 | AzCopy | Suportado para armazenamento Blob. Para obter informações sobre a autorização de operações da AzCopy, consulte [Escolha como irá fornecer credenciais](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) de autorização na documentação da AzCopy. |
-| Explorador do Storage do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
+| Explorador de Armazenamento do Azure | Suportado apenas para armazenamento blob e Azure Data Lake Storage Gen2. O acesso a AD AD ao armazenamento da fila não é suportado. Certifique-se de selecionar o inquilino AD Azure correto. Para mais informações, consulte [Começar com o Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Suportado. Para obter informações sobre como autorizar comandos PowerShell para operações de blob ou fila com Azure AD, consulte [comandos Run PowerShell com credenciais AD AD para aceder a dados blob](../blobs/authorize-active-directory-powershell.md) ou [executar comandos PowerShell com credenciais AD AD Aure para aceder a dados de fila](../queues/authorize-active-directory-powershell.md). |
 | CLI do Azure | Suportado. Para obter informações sobre como autorizar comandos Azure CLI com Azure AD para acesso a dados de blob e fila, consulte [comandos Run Azure CLI com credenciais AD AD para aceder a dados de blob ou fila](authorize-data-operations-cli.md). |
-| Hub IoT do Azure | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
-| Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a estas contas através do controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
+| Azure IoT Hub | Suportado. Para obter mais informações, consulte [o suporte do IoT Hub para redes virtuais.](../../iot-hub/virtual-network-support.md) |
+| Azure Cloud Shell | Azure Cloud Shell é uma concha integrada no portal Azure. A Azure Cloud Shell acolhe ficheiros para persistência numa partilha de ficheiros Azure numa conta de armazenamento. Estes ficheiros tornar-se-ão inacessíveis se a autorização da Chave Partilhada for proibida para essa conta de armazenamento. Para obter mais informações, consulte [o armazenamento do Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos em Azure Cloud Shell para gerir contas de armazenamento para as quais o acesso de Chave Partilhada é proibido, certifique-se primeiro de que lhe foram concedidas as permissões necessárias a estas contas através do controlo de acesso baseado em funções Azure (Azure RBAC). Para obter mais informações, veja [o que é o controlo de acesso baseado em funções Azure (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
@@ -237,7 +237,7 @@ A pré-visualização inclui as limitações descritas nas seguintes secções.
 As métricas azure e o registo no Azure Monitor não distinguem entre diferentes tipos de assinaturas de acesso partilhado na pré-visualização. O filtro **SAS** no Azure Metrics Explorer e o campo **SAS** no Azure Storage logging no Azure Monitor ambos reportam pedidos que são autorizados com qualquer tipo de SAS. No entanto, diferentes tipos de assinaturas de acesso partilhado são autorizadas de forma diferente, e comportam-se de forma diferente quando o acesso à Chave Partilhada é proibido:
 
 - Um token SAS de serviço ou um token SAS de conta é autorizado com a Chave Partilhada e não será permitido num pedido de armazenamento Blob quando a propriedade **AllowSharedKeyAccess** estiver definida como **falsa.**
-- Uma delegação de utilizador SAS é autorizada com Azure AD e será permitida a pedido de armazenamento Blob quando a propriedade **AllowSharedKeyAccess** estiver definida como **falsa**.
+- Uma delegação de utilizador SAS é autorizada com Azure AD e será permitida a pedido de armazenamento Blob quando a propriedade **AllowSharedKeyAccess** estiver definida como **falsa** .
 
 Quando estiver a avaliar o tráfego na sua conta de armazenamento, tenha em mente que as métricas e registos descritos no [Deteto o tipo de autorização utilizada pelas aplicações do cliente](#detect-the-type-of-authorization-used-by-client-applications) podem incluir pedidos feitos com uma delegação de utilizador SAS. Para obter mais informações sobre como o Azure Storage responde a um SAS quando a propriedade **AllowSharedKeyAccess** está definida como **falsa,** consulte [como a chave partilhada desafeta afeta os tokens SAS.](#understand-how-disallowing-shared-key-affects-sas-tokens)
 

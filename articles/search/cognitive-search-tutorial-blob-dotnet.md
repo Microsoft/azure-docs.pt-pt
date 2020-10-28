@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 340cdd97e7097a9fe6f0653d9f50f5a5cc41f890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740940"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787963"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesmável gerado pela IA a partir de bolhas Azure usando o .NET SDK
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial usa C# e aAzure.Search.Docbiblioteca ** de clientes uments** para criar uma fonte de dados, índice, indexante e skillset.
+Este tutorial usa C# e aAzure.Search.Docbiblioteca **de clientes uments** para criar uma fonte de dados, índice, indexante e skillset.
 
 O skillset usa habilidades incorporadas baseadas em APIs de Serviços Cognitivos. Os passos no oleoduto incluem reconhecimento de caracteres óticos (OCR) em imagens, deteção de linguagem em texto, extração de frases-chave e reconhecimento de entidades (organizações). Novas informações são armazenadas em novos campos que pode alavancar em consultas, facetas e filtros.
 
@@ -46,13 +46,13 @@ O skillset usa habilidades incorporadas baseadas em APIs de Serviços Cognitivos
 > [!Note]
 > Pode utilizar o serviço de pesquisa gratuita para este tutorial. Um serviço de pesquisa gratuito limita-o a três índices, três indexantes e três fontes de dados. Este tutorial cria um de cada. Antes de começar, certifique-se de ter espaço no seu serviço para aceitar os novos recursos.
 
-## <a name="download-sample-data"></a>Transferir dados de exemplo
+## <a name="download-sample-data"></a>Transferir os dados de exemplo
 
 Os dados da amostra consistem em 14 ficheiros do tipo de conteúdo misto que irá enviar para o armazenamento da Azure Blob num passo posterior.
 
 1. Abra esta [pasta OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e no canto superior esquerdo, clique em **Baixar** para copiar os ficheiros para o seu computador. 
 
-1. Clique com o botão direito no ficheiro zip e selecione **Extract All**. Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
+1. Clique com o botão direito no ficheiro zip e selecione **Extract All** . Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
 
 Também pode baixar o código fonte para este tutorial. O código fonte está na pasta **tutorial-ai-enriquecimento/v11** no repositório [de amostras de pesquisa de azul-dotnet.](https://github.com/Azure-Samples/azure-search-dotnet-samples)
 
@@ -72,13 +72,13 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
-   * **Grupo de recursos**. Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
+   * **Grupo de recursos** . Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
 
-   * **Nome da conta de armazenamento**. Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus*. 
+   * **Nome da conta de armazenamento** . Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus* . 
 
-   * **Localização**. Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
+   * **Localização** . Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
 
-   * **Tipo de Conta**. Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
+   * **Tipo de Conta** . Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
 
 1. Clique **em 'Rever + Criar'** para criar o serviço.
 
@@ -86,7 +86,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. Clique no serviço **Blobs.**
 
-1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo*.
+1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo* .
 
 1. Selecione *a demonstração de pesquisa de cog e,* em seguida, clique em **Upload** para abrir a pasta onde guardou os ficheiros de descarregamento. Selecione todos os catorze ficheiros e clique **em OK** para carregar.
 
@@ -124,11 +124,11 @@ Para interagir com o seu serviço de Pesquisa Cognitiva Azure, necessitará do U
 
 1. [Inscreva-se no portal Azure,](https://portal.azure.com/)e na página **geral do** seu serviço de pesquisa, obtenha o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Nas **Settings**  >  **Teclas de**Definições, copie uma chave de administração para obter plenos direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
+1. Nas **Settings**  >  **Teclas de** Definições, copie uma chave de administração para obter plenos direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-   ![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-javascript/service-name-and-keys.png)
 
 Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -146,7 +146,7 @@ Para este projeto, instale a versão 11 ou mais tarde da `Azure.Search.Documents
 
 1. Procure [ porAzure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Selecione a versão mais recente e, em seguida, clique **em Instalar**.
+1. Selecione a versão mais recente e, em seguida, clique **em Instalar** .
 
 1. Repita os passos anteriores para instalar [Microsoft.Extensions.Configa uação](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) e [Microsoft.Extensions.Configuration.Js.](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json)
 
@@ -154,11 +154,11 @@ Para este projeto, instale a versão 11 ou mais tarde da `Azure.Search.Documents
 
 1. Clique com o botão direito no seu projeto no Solution Explorer e **selecione Add**  >  **New Item...** . 
 
-1. Nomeie o ficheiro `appsettings.json` e **selecione Adicionar**. 
+1. Nomeie o ficheiro `appsettings.json` e **selecione Adicionar** . 
 
 1. Inclua este ficheiro no seu diretório de saída.
     1. Clique com o direito `appsettings.json` e selecione **Propriedades.** 
-    1. Altere o valor da **Cópia para o Diretório de Saída** para Copiar se for mais **recente**.
+    1. Altere o valor da **Cópia para o Diretório de Saída** para Copiar se for mais **recente** .
 
 1. Copie o JSON abaixo no seu novo ficheiro JSON.
 
@@ -285,7 +285,7 @@ Crie e execute a solução. Uma vez que este é o seu primeiro pedido, consulte 
 
 ### <a name="step-2-create-a-skillset"></a>Passo 2: Criar um skillset
 
-Nesta secção, define um conjunto de passos de enriquecimento que pretende aplicar aos seus dados. Cada passo de enriquecimento é chamado de *habilidade* e o conjunto de passos de enriquecimento, um *skillset*. Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
+Nesta secção, define um conjunto de passos de enriquecimento que pretende aplicar aos seus dados. Cada passo de enriquecimento é chamado de *habilidade* e o conjunto de passos de enriquecimento, um *skillset* . Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
 
 * [Reconhecimento de Caracteres Óticos](cognitive-search-skill-ocr.md) para reconhecer texto impresso e manuscrito em ficheiros de imagem.
 
@@ -580,7 +580,7 @@ Neste exercício, utiliza os seguintes campos e tipos de campo:
 
 Os campos para este índice são definidos usando uma classe modelo. Cada propriedade da classe do modelo tem atributos que determinam os comportamentos relacionados com a pesquisa do campo de índice correspondente. 
 
-Vamos adicionar a classe modelo a um novo ficheiro C#. Clique no seu projeto e **selecione Adicionar**  >  **Novo Item...** selecione "Class" e nomeie o `DemoIndex.cs` ficheiro, em seguida, selecione **Add**.
+Vamos adicionar a classe modelo a um novo ficheiro C#. Clique no seu projeto e **selecione Adicionar**  >  **Novo Item...** selecione "Class" e nomeie o `DemoIndex.cs` ficheiro, em seguida, selecione **Add** .
 
 Certifique-se de que pretende utilizar tipos dos `Azure.Search.Documents.Indexes` espaços e `System.Text.Json.Serialization` nomes.
 
@@ -826,13 +826,13 @@ Nas aplicações de consolas tutoriais Azure Cognitive Search, normalmente adici
 
 A opção mais fácil é [pesquisar o explorador](search-explorer.md) no portal. Primeiro pode executar uma consulta vazia que devolve todos os documentos, ou uma pesquisa mais direcionada que devolve novos conteúdos de campo criados pelo pipeline. 
 
-1. No portal Azure, na página 'Visão Geral' de pesquisa, selecione **Índices**.
+1. No portal Azure, na página 'Visão Geral' de pesquisa, selecione **Índices** .
 
 1. Encontre **`demoindex`** na lista. Deve ter 14 documentos. Se a contagem de documentos for zero, o indexante ainda está em execução ou a página ainda não foi atualizada. 
 
-1. Selecione **`demoindex`**. O explorador de pesquisa é o primeiro separador.
+1. Selecione **`demoindex`** . O explorador de pesquisa é o primeiro separador.
 
-1. O conteúdo é pesmável assim que o primeiro documento é carregado. Para verificar se o conteúdo existe, execute uma consulta não especificada clicando **em Procurar**. Esta consulta devolve todos os documentos atualmente indexados, dando-lhe uma ideia do que o índice contém.
+1. O conteúdo é pesmável assim que o primeiro documento é carregado. Para verificar se o conteúdo existe, execute uma consulta não especificada clicando **em Procurar** . Esta consulta devolve todos os documentos atualmente indexados, dando-lhe uma ideia do que o índice contém.
 
 1. Em seguida, cole na seguinte cadeia para obter resultados mais manejáveis: `search=*&$select=id, languageCode, organizations`
 

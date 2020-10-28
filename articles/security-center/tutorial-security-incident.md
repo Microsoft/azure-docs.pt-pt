@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359004"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787164"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Triagem, investigar e responder a alertas de segurança
 O Security Center analisa continuamente as suas cargas de trabalho em nuvem híbrida usando análises avançadas e inteligência de ameaça para alertá-lo sobre atividades potencialmente maliciosas nos seus recursos na nuvem. Também pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança. Uma vez levantado um alerta, são necessárias medidas rápidas para investigar e remediar a questão potencial de segurança. 
@@ -49,7 +49,7 @@ Use esta página para rever os alertas de segurança ativos no seu ambiente para
 Ao triagem de alertas de segurança, priorize alertas baseados na gravidade do alerta, abordando primeiro alertas com maior gravidade. Saiba mais sobre a gravidade dos alertas em [Como são classificados os alertas?](security-center-alerts-overview.md#how-are-alerts-classified)
 
 > [!TIP]
-> Pode ligar o Azure Security Center às soluções SIEM mais populares, incluindo o Azure Sentinel e consumir os alertas da sua ferramenta de eleição. Saiba mais em [Alertas de Exportação para um SIEM.](continuous-export.md)
+> Pode ligar o Azure Security Center às soluções SIEM mais populares, incluindo o Azure Sentinel e consumir os alertas da sua ferramenta de eleição. Saiba mais em [alertas stream para uma solução SIEM, SOAR ou IT Service Management.](export-to-siem.md)
 
 
 ## <a name="investigate-a-security-alert"></a>Investigue um alerta de segurança
@@ -108,11 +108,11 @@ Outros inícios rápidos e tutoriais desta coleção têm por base este início 
 
 Se não pretende continuar, ou se pretende desativar qualquer uma destas funcionalidades:
 
-1. Volte ao menu principal do Centro de Segurança e **selecione preços e configurações**.
+1. Volte ao menu principal do Centro de Segurança e **selecione preços e configurações** .
 1. Selecione a subscrição relevante.
-1. Para reduzir, selecione **Azure Defender off**.
-1. Para desativar o fornecimento automático, abra a página **de Recolha de Dados** e desemalte **o provisionamento automático** para **desligar**.
-4. Selecione **Guardar**.
+1. Para reduzir, selecione **Azure Defender off** .
+1. Para desativar o fornecimento automático, abra a página **de Recolha de Dados** e desemalte **o provisionamento automático** para **desligar** .
+4. Selecione **Guardar** .
 
 >[!NOTE]
 > A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure que já têm o agente. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.

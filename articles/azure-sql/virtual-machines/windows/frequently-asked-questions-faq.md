@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566997"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786501"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > O SQL Server em VMs Azure, incluindo os implantados a partir de imagens generalizadas personalizadas, deve ser [registado com o fornecedor de recursos SQL VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para satisfazer os requisitos de conformidade e utilizar funcionalidades opcionais, tais como patching automatizado e cópias de segurança automáticas. O fornecedor de recursos também permite [especificar o tipo de licença](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) para cada SQL Server VM.
+   > O SQL Server em VMs Azure, incluindo os implantados a partir de imagens generalizadas personalizadas, deve ser [registado com o fornecedor de recursos SQL VM](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) para satisfazer os requisitos de conformidade e utilizar funcionalidades opcionais, tais como patching automatizado e cópias de segurança automáticas. O fornecedor de recursos também permite [especificar o tipo de licença](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) para cada SQL Server VM.
 
 1. **Posso usar o meu próprio VHD para implantar um SQL Server VM?**
 
@@ -72,7 +72,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **É possível configurar configurações não mostradas na galeria de máquinas virtuais (por exemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   N.º Para imagens de galeria de máquinas virtuais que incluam SQL Server, deve selecionar uma das imagens fornecidas através do portal Azure ou via [PowerShell](create-sql-vm-powershell.md). No entanto, tem a capacidade de implantar um VM do Windows e autoinstalar o SQL Server no mesmo. Em seguida, deve [registar o seu SQL Server VM com o fornecedor de recursos SQL Server VM](sql-vm-resource-provider-register.md) para gerir o seu SQL Server VM no portal Azure, bem como utilizar funcionalidades como patching automatizado e cópias de segurança automáticas. 
+   Não. Para imagens de galeria de máquinas virtuais que incluam SQL Server, deve selecionar uma das imagens fornecidas através do portal Azure ou via [PowerShell](create-sql-vm-powershell.md). No entanto, tem a capacidade de implantar um VM do Windows e autoinstalar o SQL Server no mesmo. Em seguida, deve [registar o seu SQL Server VM com o fornecedor de recursos SQL Server VM](sql-vm-resource-provider-register.md) para gerir o seu SQL Server VM no portal Azure, bem como utilizar funcionalidades como patching automatizado e cópias de segurança automáticas. 
 
 
 ## <a name="creation"></a>Criação
@@ -101,7 +101,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
    
 1. **É possível trocar os modelos de licenciamento num SQL Server VM implantado com um modelo clássico?**
 
-   N.º Mudar modelos de licenciamento não é suportado num VM clássico. Pode migrar a VM para o modelo do Azure Resource Manager e registá-la no fornecedor de recursos da VM do SQL Server. Quando a VM é registada no fornecedor de recursos da VM do SQL Server, as alterações ao modelo de licenciamento estarão disponíveis na VM.
+   Não. Mudar modelos de licenciamento não é suportado num VM clássico. Pode migrar a VM para o modelo do Azure Resource Manager e registá-la no fornecedor de recursos da VM do SQL Server. Quando a VM é registada no fornecedor de recursos da VM do SQL Server, as alterações ao modelo de licenciamento estarão disponíveis na VM.
 
 1. **Posso utilizar o portal do Azure para gerir várias instâncias na mesma VM?**
 
@@ -139,7 +139,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Registar o meu VM com o novo fornecedor de recursos SQL Server VM trará custos adicionais?**
 
-   N.º O fornecedor de recursos SQL Server VM apenas permite uma gestão adicional para o SQL Server em Azure VM sem custos adicionais. 
+   Não. O fornecedor de recursos SQL Server VM apenas permite uma gestão adicional para o SQL Server em Azure VM sem custos adicionais. 
 
 1. **O fornecedor de recursos VM do SQL Server está disponível para todos os clientes?**
  
@@ -169,7 +169,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso desinstalar a instância predefinida do SQL Server?**
 
-   Sim, mas há considerações a ter em conta. Em primeiro lugar, a faturação associada ao SQL Server pode continuar a ocorrer dependendo do modelo de licença para o VM. Em segundo lugar, tal como indicado na resposta anterior, existem funcionalidades que dependem da extensão do [agente iaaS do servidor SQL](sql-server-iaas-agent-extension-automate-management.md). Se desinstalar a instância padrão sem remover também a extensão IaaS, a extensão continua a procurar a instância padrão e pode gerar erros de registo de eventos. Estes erros são das duas fontes seguintes: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Um dos erros poderá ser semelhante ao seguinte:
+   Sim, mas há considerações a ter em conta. Em primeiro lugar, a faturação associada ao SQL Server pode continuar a ocorrer dependendo do modelo de licença para o VM. Em segundo lugar, tal como indicado na resposta anterior, existem funcionalidades que dependem da extensão do [agente iaaS do servidor SQL](sql-server-iaas-agent-extension-automate-management.md). Se desinstalar a instância padrão sem remover também a extensão IaaS, a extensão continua a procurar a instância padrão e pode gerar erros de registo de eventos. Estes erros são das duas fontes seguintes: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent** . Um dos erros poderá ser semelhante ao seguinte:
 
       Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível.
 
@@ -210,7 +210,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso atualizar a minha instância SQL Server 2008 / 2008 R2 depois de o registar com o fornecedor de recursos SQL Server VM?**
 
-   Sim. Pode utilizar qualquer suporte de configuração para atualizar a versão e edição do SQL Server e, em seguida, pode atualizar o seu modo de [extensão SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) de _nenhum agente_ para _o máximo_. Ao fazê-lo, você terá acesso a todos os benefícios da extensão SQL IaaS, como a gestão do portal, backups automatizados e patching automatizado. 
+   Sim. Pode utilizar qualquer suporte de configuração para atualizar a versão e edição do SQL Server e, em seguida, pode atualizar o seu modo de [extensão SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) de _nenhum agente_ para _o máximo_ . Ao fazê-lo, você terá acesso a todos os benefícios da extensão SQL IaaS, como a gestão do portal, backups automatizados e patching automatizado. 
 
 1. **Como posso obter atualizações de segurança alargada gratuitas para o fim de suporte das instâncias do SQL Server 2008 e do SQL Server 2008 R2?**
 
@@ -255,4 +255,4 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 * [Visão geral do SQL Server num Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provisão SQL Server em um Linux VM](../linux/sql-vm-create-portal-quickstart.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SqL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SqL Server na documentação do Linux](/sql/linux/sql-server-linux-overview)

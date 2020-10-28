@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531008"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788088"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use Python e IA para gerar conteúdo pesmável a partir de bolhas Azure
 
@@ -45,7 +45,7 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 
 1. Abra esta [pasta OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e no canto superior esquerdo, clique em **Baixar** para copiar os ficheiros para o seu computador. 
 
-1. Clique com o botão direito no ficheiro zip e selecione **Extract All**. Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
+1. Clique com o botão direito no ficheiro zip e selecione **Extract All** . Existem 14 ficheiros de vários tipos. Vais usar 7 para este exercício.
 
 ## <a name="1---create-services"></a>1 - Criar serviços
 
@@ -63,13 +63,13 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
-   + **Grupo de recursos**. Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
+   + **Grupo de recursos** . Selecione um existente ou crie um novo, mas use o mesmo grupo para todos os serviços para que possa geri-los coletivamente.
 
-   + **Nome da conta de armazenamento**. Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus*. 
+   + **Nome da conta de armazenamento** . Se acha que pode ter múltiplos recursos do mesmo tipo, use o nome para desambiguar por tipo e região, por *exemplo, blobstoragewestus* . 
 
-   + **Localização**. Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
+   + **Localização** . Se possível, escolha o mesmo local utilizado para a Azure Cognitive Search and Cognitive Services. Um único local anula as cargas de largura de banda.
 
-   + **Tipo de Conta**. Escolha o predefinido, *StorageV2 (finalidade geral v2)*.
+   + **Tipo de Conta** . Escolha o predefinido, *StorageV2 (finalidade geral v2)* .
 
 1. Clique **em 'Rever + Criar'** para criar o serviço.
 
@@ -77,7 +77,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. Clique no serviço **Blobs.**
 
-1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo*.
+1. Clique **em + Recipiente** para criar um recipiente e nomeie-o *cog-search-demo* .
 
 1. Selecione *a demonstração de pesquisa de cog e,* em seguida, clique em **Upload** para abrir a pasta onde guardou os ficheiros de descarregamento. Selecione todos os ficheiros de não imagem. Devia ter 7 ficheiros. Clique **em OK** para carregar.
 
@@ -117,7 +117,7 @@ Tal como acontece com o armazenamento da Azure Blob, aproveite um momento para r
 
    Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Criar conta de Armazenamento" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Criar conta de Armazenamento" border="false":::
 
 Todos os pedidos requerem uma chave API no cabeçalho de cada pedido enviado ao seu serviço. Uma chave válida estabelece confiança, por pedido, entre o pedido de envio do pedido e o serviço que o trata.
 
@@ -194,7 +194,7 @@ No portal Azure, na página do dashboard do serviço de pesquisa, verifique se a
 
 ### <a name="step-2-create-a-skillset"></a>Passo 2: Criar um skillset
 
-Neste passo, definirá um conjunto de passos de enriquecimento para aplicar aos seus dados. Um passo de melhoramento é denominado *competência* e o conjunto de passos de melhoramento é denominado *conjunto de competências*. Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
+Neste passo, definirá um conjunto de passos de enriquecimento para aplicar aos seus dados. Um passo de melhoramento é denominado *competência* e o conjunto de passos de melhoramento é denominado *conjunto de competências* . Este tutorial usa [habilidades cognitivas incorporadas](cognitive-search-predefined-skills.md) para o skillset:
 
 + [Reconhecimento de Entidades](cognitive-search-skill-entity-recognition.md) para extrair os nomes das organizações do conteúdo do recipiente blob.
 

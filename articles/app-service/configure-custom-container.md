@@ -4,14 +4,14 @@ description: Saiba como configurar um recipiente personalizado no Azure App Serv
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264580"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787062"
 ---
-# <a name="configure-a-custom-container-for-azure-app-service"></a>Configure um recipiente personalizado para o Azure App Service
+# <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contentor personalizado para o Serviço de Aplicações do Azure
 
 Este artigo mostra-lhe como configurar um recipiente personalizado para funcionar no Azure App Service.
 
@@ -212,7 +212,7 @@ Existem várias formas de aceder aos registos do Docker:
 
 ### <a name="in-azure-portal"></a>No portal Azure
 
-Os registos do Docker são apresentados no portal, na página **de Definições** de Contentores da sua aplicação. Os registos são truncados, mas pode descarregar todos os registos clicando **em Download**. 
+Os registos do Docker são apresentados no portal, na página **de Definições** de Contentores da sua aplicação. Os registos são truncados, mas pode descarregar todos os registos clicando **em Download** . 
 
 ### <a name="from-the-kudu-console"></a>Da consola Kudu
 
@@ -272,7 +272,7 @@ Os processadores podem ser processadores multicore ou hiper-televisão. Informa�
 
 ## <a name="customize-health-ping-behavior"></a>Personalizar o comportamento do ping de saúde
 
-O Serviço de Aplicações considera que um recipiente deve ser iniciado com sucesso quando o recipiente começa e responde a um ping HTTP. O ping de saúde solicita o cabeçalho `User-Agent= "App Service Hyper-V Container Availability Check"` . Se o contentor começar mas não responder a um ping após um certo período de tempo, o Serviço de Aplicações regista um evento no diário Docker, dizendo que o recipiente não foi iniciado. 
+O Serviço de Aplicações considera que um recipiente deve ser iniciado com sucesso quando o recipiente começa e responde a um ping HTTP. O pedido de ping de saúde contém o cabeçalho `User-Agent= "App Service Hyper-V Container Availability Check"` . Se o contentor começar mas não responder a um ping após um certo período de tempo, o Serviço de Aplicações regista um evento no diário Docker, dizendo que o recipiente não foi iniciado. 
 
 Se a sua aplicação for intensiva em recursos, o recipiente pode não responder a tempo ao ping HTTP. Para controlar as ações quando os pings HTTP falharem, defina a definição da `CONTAINER_AVAILABILITY_CHECK_MODE` aplicação. Pode defini-lo através da [Cloud Shell.](https://shell.azure.com) Em Bash:
 

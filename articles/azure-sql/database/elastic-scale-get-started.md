@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442934"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786722"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar com Ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -98,25 +98,25 @@ Para descarregar e executar a amostra, siga estes passos:
 Parabéns! Construiu e executou com sucesso a sua primeira aplicação de sharded utilizando Ferramentas elásticas de base de dados na Base de Dados SQL. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à sua base de dados e dar uma olhada rápida nos fragmentos que a amostra criou. Irá notar novas bases de dados de fragmentos de amostra e uma base de dados de gestor de mapas de fragmentos que a amostra criou.
 
 > [!IMPORTANT]
-> Recomendamos que utilize sempre a versão mais recente do Management Studio para que se mantenha sincronizado com atualizações para a Azure e a SQL Database. [Atualize o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Recomendamos que utilize sempre a versão mais recente do Management Studio para que se mantenha sincronizado com atualizações para a Azure e a SQL Database. [Atualize o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Peças-chave da amostra de código
 
-* **Gestão de fragmentos e mapas de fragmentos**: O código ilustra como trabalhar com fragmentos, gamas e mapeamentos no ficheiro *ShardManagementUtils.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)  
+* **Gestão de fragmentos e mapas de fragmentos** : O código ilustra como trabalhar com fragmentos, gamas e mapeamentos no ficheiro *ShardManagementUtils.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)  
 
-* **Encaminhamento dependente de dados**: O encaminhamento de transações para o fragmento certo é indicado no ficheiro *DataDependentRoutingSample.cs.* Para obter mais informações, consulte [o encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596).
+* **Encaminhamento dependente de dados** : O encaminhamento de transações para o fragmento certo é indicado no ficheiro *DataDependentRoutingSample.cs.* Para obter mais informações, consulte [o encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596).
 
-* **Consulta sobre vários fragmentos**: A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para obter mais informações, consulte [a consulta multi-fragmentos.](https://go.microsoft.com/?linkid=9862597)
+* **Consulta sobre vários fragmentos** : A consulta através de fragmentos é ilustrada no ficheiro *MultiShardQuerySample.cs.* Para obter mais informações, consulte [a consulta multi-fragmentos.](https://go.microsoft.com/?linkid=9862597)
 
-* **Adicionar fragmentos vazios**: A adição iterativa de novos fragmentos vazios é efetuada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
+* **Adicionar fragmentos vazios** : A adição iterativa de novos fragmentos vazios é efetuada pelo código no ficheiro *CreateShardSample.cs.* Para obter mais informações, consulte [bases de dados de escala com o gestor de mapas de fragmentos.](https://go.microsoft.com/?linkid=9862595)
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações à escala elástica
 
-* **Divisão de um fragmento existente**: A capacidade de dividir fragmentos é fornecida pela ferramenta de fusão dividida. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
+* **Divisão de um fragmento existente** : A capacidade de dividir fragmentos é fornecida pela ferramenta de fusão dividida. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
 
-* **Os fragmentos existentes**também são efetuados através da ferramenta de fusão de divisões. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
+* **Os fragmentos existentes** também são efetuados através da ferramenta de fusão de divisões. Para obter mais informações, consulte [dados de deslocação entre bases de dados de nuvem escalonadas](elastic-scale-overview-split-and-merge.md).
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 
 A biblioteca Elástico Database Tools é gratuita. Quando utiliza Ferramentas elásticas de base de dados, não incorre em custos adicionais para além do custo da sua utilização do Azure.
 
@@ -134,7 +134,7 @@ Para obter mais informações sobre as Ferramentas de Base de Dados Elásticas, 
   * [Elasticidade do fragmento no Centro de Script](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Anúncio de Escala Elástica](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Canal 9: Vídeo [de visão geral da escala elástica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: [Microsoft Q&Uma página de perguntas para Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Fórum de discussão: [Microsoft Q&Uma página de perguntas para Azure SQL Database](/answers/topics/azure-sql-database.html)
 * Para medir o desempenho: [Contadores de desempenho para o gestor de mapas de fragmentos](elastic-database-client-library.md)
 
 <!--Anchors-->

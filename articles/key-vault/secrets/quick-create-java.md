@@ -2,18 +2,18 @@
 title: Quickstart - Biblioteca de clientes Azure Key Vault para Java
 description: Fornece critérios de formato e conteúdo para a escrita de Quickstarts para bibliotecas de clientes Azure SDK.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4008b43c487f9dd1c8cfe5e5b67a250ff849daf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019635"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786212"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para Java
 
@@ -21,7 +21,7 @@ Começa com a biblioteca secreta do Azure Key Vault para a Java. Siga os passos 
 
 Recursos adicionais:
 
-* [Código de origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
+* [Código fonte](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault)
 * [Documentação de referência da API](https://azure.github.io/azure-sdk-for-java)
 * [Documentação do produto](index.yml)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
@@ -37,7 +37,7 @@ Este quickstart assume que você está correndo [Azure CLI](/cli/azure/install-a
 
 ## <a name="setting-up"></a>Configuração
 
-Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -217,7 +217,7 @@ Pode verificar se o segredo se foi com o comando secreto do [programa az keyvaul
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover o cofre da chave e o grupo de recursos correspondente.
 
