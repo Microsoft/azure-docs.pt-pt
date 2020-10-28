@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372311"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369663"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrições do Azure
 
@@ -39,8 +39,8 @@ Para que um utilizador seja administrador de uma subscrição do Azure, um admin
 Se não tiver a certeza de quem é o administrador de conta de uma subscrição, utilize os seguintes passos para descobrir.
 
 1. Abra a [página Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione a subscrição que pretende verificar e, em seguida, procure em **Definições**.
-1. Selecione **Propriedades**. O administrador de conta da subscrição é apresentado na caixa **Administrador de Conta**.
+1. Selecione a subscrição que pretende verificar e, em seguida, procure em **Definições** .
+1. Selecione **Propriedades** . O administrador de conta da subscrição é apresentado na caixa **Administrador de Conta** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Atribuir a um utilizador a função de administrador
 
@@ -54,13 +54,13 @@ Se não tiver a certeza de quem é o administrador de conta de uma subscrição,
 
     ![Captura de ecrã a mostrar as atribuições de funções](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. Clique em **Adicionar** > **Adicionar atribuição de funções** para abrir o painel **Adicionar atribuição de funções**.
+1. Clique em **Adicionar** > **Adicionar atribuição de funções** para abrir o painel **Adicionar atribuição de funções** .
 
     Se não tiver permissões para atribuir funções, a opção será desativada.
 
-1. Na lista pendente **Função**, selecione a função **Proprietário**.
+1. Na lista pendente **Função** , selecione a função **Proprietário** .
 
-1. Na lista **Selecionar**, selecione um utilizador. Se não vir o utilizador na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar e endereços de e-mail.
+1. Na lista **Selecionar** , selecione um utilizador. Se não vir o utilizador na lista, pode escrever na caixa **Selecionar** para procurar no diretório os nomes a apresentar e endereços de e-mail.
 
     ![Captura de ecrã a mostrar a função de Proprietário selecionada](./media/add-change-subscription-administrator/add-role.png)
 
@@ -73,7 +73,7 @@ Se não tiver a certeza de quem é o administrador de conta de uma subscrição,
 * [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Compreender as diferentes funções no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Administrator role permissions in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
+* [Administrator role permissions in Azure Active Directory](../../active-directory/roles/permissions-reference.md) (Permissões de cargos de administrador no Azure Active Directory)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

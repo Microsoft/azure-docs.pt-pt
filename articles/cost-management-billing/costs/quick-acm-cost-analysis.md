@@ -3,18 +3,18 @@ title: Início Rápido – Explorar os custos do Azure com a análise de custos
 description: Este guia de início rápido ajuda-o a utilizar a análise de custos para explorar e analisar os custos da sua organização associados ao Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: seodec18
-ms.openlocfilehash: 62651f611654fa601752308ac2fa7f4c388297d6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 31a95d8c02ee540fe6b52088159f04535c39ea93
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676839"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custos
 
@@ -42,7 +42,7 @@ Se tiver uma subscrição nova, não pode utilizar as funcionalidades do Cost Ma
 
 ## <a name="review-costs-in-cost-analysis"></a>Rever os custos na análise de custos
 
-Para rever os custos na análise de custos, abra o âmbito no portal do Azure e selecione **Análise de custos** no menu. Por exemplo, aceda a **Subscrições**, selecione uma subscrição na lista e, em seguida, selecione **Análise de custos** no menu. Utilize o atalho **Âmbito** para alternar para um âmbito diferente na análise de custos. Para obter mais informações sobre os âmbitos, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
+Para rever os custos na análise de custos, abra o âmbito no portal do Azure e selecione **Análise de custos** no menu. Por exemplo, aceda a **Subscrições** , selecione uma subscrição na lista e, em seguida, selecione **Análise de custos** no menu. Utilize o atalho **Âmbito** para alternar para um âmbito diferente na análise de custos.
 
 O âmbito que selecionar será utilizado em todo o Cost Management para permitir obter a consolidação dos dados e o controlo de acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, seleciona um âmbito maior, no qual os outros âmbitos são incluídos e, em seguida, filtra até obter os âmbitos aninhados de que necessita. É importante compreender esta abordagem, pois algumas pessoas poderão não ter acesso a um âmbito principal único, que abrange vários âmbitos aninhados.
 
@@ -52,15 +52,15 @@ Veja o vídeo [How to use Cost Management in the Azure portal](https://www.youtu
 
 A vista da análise de custos inicial inclui as seguintes áreas.
 
-**Vista de custos acumulados**: representa a configuração da vista de análise de custos predefinida. Cada vista inclui o intervalo de datas, a granularidade, agrupar por e as definições de filtragem. A vista predefinida mostra os custos acumulados do atual período de faturação, mas poderá alterar para outras vistas incorporadas. Para obter mais informações, veja [Personalizar as vistas de custos](#customize-cost-views).
+**Vista de custos acumulados** : representa a configuração da vista de análise de custos predefinida. Cada vista inclui o intervalo de datas, a granularidade, agrupar por e as definições de filtragem. A vista predefinida mostra os custos acumulados para o período de faturação atual, mas pode mudá-la para outras vistas incorporadas.
 
-**Custo real**: mostra o total de custos de utilização e de compra do mês atual, à medida que são acumulados e conforme são apresentados na fatura.
+**Custo real** : mostra o total de custos de utilização e de compra do mês atual, à medida que são acumulados e conforme são apresentados na fatura.
 
-**Previsão**: mostra o total de custos previstos de um período de tempo à sua escolha
+**Previsão** : mostra o total de custos previstos de um período de tempo à sua escolha
 
-**Orçamento**: mostra o limite de gastos planeado do âmbito selecionado, se disponível.
+**Orçamento** : mostra o limite de gastos planeado do âmbito selecionado, se disponível.
 
-**Granularidade acumulada**: mostra o total de custos diários agregados, desde o início do período de faturação. Depois de [criar um orçamento](tutorial-acm-create-budgets.md) para a sua conta de faturação ou subscrição, pode ver rapidamente a tendência das despesas em relação ao orçamento. Paire o rato sobre uma data para ver os custos acumulados desse dia.
+**Granularidade acumulada** : mostra o total de custos diários agregados, desde o início do período de faturação. Depois de criar um orçamento para a sua conta de faturação ou subscrição, pode ver rapidamente a tendência das despesas em relação ao orçamento. Paire o rato sobre uma data para ver os custos acumulados desse dia.
 
 **Gráficos dinâmicos (em anel)** : apresentam gráficos dinâmicos, ao dividir o total de custos por um conjunto comum de propriedades padrão. Mostram desde os custos mais elevados até aos mais baixos do mês atual. Pode alterar os gráficos dinâmicos a qualquer momento ao selecionar um gráfico diferente. Os custos são categorizados por serviço (categoria do medidor), localização (região) e âmbito subordinado por predefinição. Por exemplo, as contas de inscrição são incluídas nas contas de faturação, os grupos de recursos são incluídos nas subscrições e os recursos são incluídos nos grupos de recursos.
 
@@ -70,7 +70,7 @@ A vista da análise de custos inicial inclui as seguintes áreas.
 
 A previsão de custos mostra uma projeção dos seus custos estimados para o período de tempo selecionado. O modelo baseia-se num modelo de regressão de série temporal. Requer pelo menos 10 dias de dados de utilização e custos recentes para prever os custos de forma precisa. Durante um determinado período de tempo, o modelo de previsão requer partes iguais dos dados de preparação para o período previsto. Por exemplo, uma projeção de três meses requer, pelo menos, três meses de dados de utilização e custos recentes.
 
-O modelo utiliza um máximo de seis meses de dados de preparação para projetar custos para um ano. No mínimo, precisa de sete dias de dados de preparação para alterar a sua previsão. A previsão baseia-se em alterações drásticas, como picos e quedas, nos padrões de custo e utilização. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por**. Apenas prevê um total dos custos acumulados. Se utilizar várias moedas, o modelo prevê apenas os custos em USD.
+O modelo utiliza um máximo de seis meses de dados de preparação para projetar custos para um ano. No mínimo, precisa de sete dias de dados de preparação para alterar a sua previsão. A previsão baseia-se em alterações drásticas, como picos e quedas, nos padrões de custo e utilização. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por** . Apenas prevê um total dos custos acumulados. Se utilizar várias moedas, o modelo prevê apenas os custos em USD.
 
 ## <a name="customize-cost-views"></a>Personalizar as vistas de custos
 
@@ -87,7 +87,7 @@ Custo por recurso | Que recursos tiveram o custo mais elevado até agora no atua
 
 No entanto, há muitos casos em que precisa de uma análise mais aprofundada. A personalização começa na parte superior da página, com a seleção da data.
 
-A análise de custos mostra os dados do mês atual por predefinição. Utilize o seletor de datas para mudar para intervalos de datas comuns rapidamente. Os exemplos incluem os últimos sete dias, o último mês, o ano atual ou um intervalo de datas personalizado. As subscrições pay as you go também incluem intervalos de datas com base no seu período de faturação, o que não está ligado ao mês do calendário, como o período de faturação atual ou a última fatura. Utilize as ligações **<ANTERIOR** e **SEGUINTE>** no topo do menu para aceder ao período anterior ou seguinte, respetivamente. Por exemplo, **<ANTERIOR** mudará de **Últimos 7 dias** para **Há 8-14 dias** ou **Há 15-21**.
+A análise de custos mostra os dados do mês atual por predefinição. Utilize o seletor de datas para mudar para intervalos de datas comuns rapidamente. Os exemplos incluem os últimos sete dias, o último mês, o ano atual ou um intervalo de datas personalizado. As subscrições pay as you go também incluem intervalos de datas com base no seu período de faturação, o que não está ligado ao mês do calendário, como o período de faturação atual ou a última fatura. Utilize as ligações **<ANTERIOR** e **SEGUINTE>** no topo do menu para aceder ao período anterior ou seguinte, respetivamente. Por exemplo, **<ANTERIOR** mudará de **Últimos 7 dias** para **Há 8-14 dias** ou **Há 15-21** .
 
 ![Seletor de datas a mostrar uma seleção de exemplo para este mês](./media/quick-acm-cost-analysis/date-selector.png)
 
@@ -97,7 +97,7 @@ Utilize a vista de gráfico de previsão para identificar potenciais falhas no o
 
 ![Exemplo que mostra a potencial falha no orçamento](./media/quick-acm-cost-analysis/budget-breach.png)
 
-Também tem a vista **diária**, que mostra os custos de cada dia. A vista diária não mostra uma tendência de crescimento. A vista foi concebida para mostrar irregularidades na forma de picos ou quebras de custos de cada dia individual. Se tiver selecionado um orçamento, a vista diária também mostrará uma estimativa do seu orçamento diário.
+Também tem a vista **diária** , que mostra os custos de cada dia. A vista diária não mostra uma tendência de crescimento. A vista foi concebida para mostrar irregularidades na forma de picos ou quebras de custos de cada dia individual. Se tiver selecionado um orçamento, a vista diária também mostrará uma estimativa do seu orçamento diário.
 
 Se os custos diários estiverem consistentemente acima do orçamento diário estimado, o orçamento mensal será certamente ultrapassado. O orçamento diário estimado é um meio de o ajudar a visualizar o seu orçamento a um nível mais detalhado. Quando existem flutuações nos custos diários, a comparação do orçamento diário estimado com o orçamento mensal é menos precisa.
 
@@ -108,9 +108,9 @@ Quando desativa a previsão de gastos, deixará de ver os gastos previstos de da
 
 De forma geral, pode contar ver dados ou notificações de recursos consumidos dentro de 8 a 12 horas.
 
-**Agrupar por** propriedades comuns para dividir os custos e identificar os principais contribuidores. Para agrupar por etiquetas de recursos, por exemplo, selecione a chave da etiqueta pela qual quer agrupar. Os custos são divididos por cada valor de etiqueta, com um segmento extra para os recursos que não têm aplicada essa etiqueta.  Para obter mais informações sobre as opções de agrupamento e filtragem, veja [Opções de agrupamento e filtragem](./group-filter.md).
+**Agrupar por** propriedades comuns para dividir os custos e identificar os principais contribuidores. Para agrupar por etiquetas de recursos, por exemplo, selecione a chave da etiqueta pela qual quer agrupar. Os custos são divididos por cada valor de etiqueta, com um segmento extra para os recursos que não têm aplicada essa etiqueta.
 
-A maioria dos [recursos do Azure suportam etiquetas](../../azure-resource-manager/management/tag-support.md). Contudo, algumas etiquetas não estão disponíveis no Cost Management e na faturação. Além disso, as etiquetas de grupos de recursos não são suportadas. O suporte de etiquetas aplica-se à utilização registada *depois* de a etiqueta ter sido aplicada ao recurso. As etiquetas não são aplicadas retroativamente para rollups de custos.
+A maioria dos recursos do Azure suportam etiquetas. Contudo, algumas etiquetas não estão disponíveis no Cost Management e na faturação. Além disso, as etiquetas de grupos de recursos não são suportadas. O suporte de etiquetas aplica-se à utilização registada *depois* de a etiqueta ter sido aplicada ao recurso. As etiquetas não são aplicadas retroativamente para rollups de custos.
 
 Veja o vídeo [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Como rever as políticas de etiquetas no Azure Cost Management) para saber mais sobre a utilização da política de etiquetas do Azure para melhorar a visibilidade dos dados de custos.
 
@@ -118,7 +118,7 @@ Veja a seguir uma vista dos custos de serviço do Azure do mês atual.
 
 ![Vista acumulada agrupada diária a mostrar exemplos dos custos de serviço do Azure do último mês](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Por predefinição, a análise de custos mostra todos os custos de utilização e de compras à medida que são acumulados e também serão apresentados na sua fatura, também conhecidos como **Custo real**. A visualização do custo real é ideal para reconciliar a sua fatura. Contudo, os picos de compras nos custos poderão ser alarmantes quando estiver atento a anomalias nas despesas e outras alterações nos custos. Para aplanar os picos causados por custos de compras de reservas, mude para **Custo amortizado**.
+Por predefinição, a análise de custos mostra todos os custos de utilização e de compras à medida que são acumulados e também serão apresentados na sua fatura, também conhecidos como **Custo real** . A visualização do custo real é ideal para reconciliar a sua fatura. Contudo, os picos de compras nos custos poderão ser alarmantes quando estiver atento a anomalias nas despesas e outras alterações nos custos. Para aplanar os picos causados por custos de compras de reservas, mude para **Custo amortizado** .
 
 ![Alterne entre custo real e custo amortizado para ver as compras de reservas distribuídas durante o período e alocadas aos recursos que utilizaram a reserva](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -138,7 +138,7 @@ Os gráficos dinâmicos, no gráfico principal, mostram os diferentes agrupament
 
 ![Exemplo a mostrar os gráficos dinâmicos](./media/quick-acm-cost-analysis/pivot-charts.png)
 
-Pode ver o conjunto de dados completo relativo a qualquer vista. As seleções ou os filtros que aplicar afetam os dados apresentados. Para ver o conjunto de dados completo, selecione a lista **tipo de gráfico** e, em seguida, selecione a vista de **Tabela**.
+Pode ver o conjunto de dados completo relativo a qualquer vista. As seleções ou os filtros que aplicar afetam os dados apresentados. Para ver o conjunto de dados completo, selecione a lista **tipo de gráfico** e, em seguida, selecione a vista de **Tabela** .
 
 ![Dados da vista atual numa vista de tabela](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
@@ -154,13 +154,11 @@ Para afixar a análise de custos, selecione o ícone de afixar no canto superior
 
 Para partilhar uma ligação para a análise de custos, selecione **Partilhar** no topo do painel. Será mostrado um URL, que abre esta vista específica para o âmbito específico. Se não tiver acesso aos custos e obtiver este URL, verá uma mensagem de “acesso negado”.
 
-Para saber mais sobre a concessão de acesso aos custos para cada âmbito suportado, veja [Compreender e trabalhar com âmbitos](understand-work-scopes.md).
-
 ## <a name="download-usage-data"></a>Transferir os dados de utilização
 
-Há alturas em que precisa de transferir os dados para uma análise mais avançada, juntá-los aos seus próprios dados ou integrá-los nos seus próprios sistemas. O Cost Management oferece algumas opções diferentes. Como ponto de partida, se necessitar de um resumo de alto nível ad hoc, como o que obtém dentro da análise de custos, crie a vista necessária. Em seguida, transfira-a ao selecionar **Exportar** e ao selecionar **Transferir dados para CSV** ou **Transferir dados para Excel**. O download para Excel permite obter contexto adicional para a vista que utilizou para gerar o download, como o âmbito, a configuração de consultas, o total e a data em que foi gerada.
+Há alturas em que precisa de transferir os dados para uma análise mais avançada, juntá-los aos seus próprios dados ou integrá-los nos seus próprios sistemas. O Cost Management oferece algumas opções diferentes. Como ponto de partida, se necessitar de um resumo de alto nível ad hoc, como o que obtém dentro da análise de custos, crie a vista necessária. Em seguida, transfira-a ao selecionar **Exportar** e ao selecionar **Transferir dados para CSV** ou **Transferir dados para Excel** . O download para Excel permite obter contexto adicional para a vista que utilizou para gerar o download, como o âmbito, a configuração de consultas, o total e a data em que foi gerada.
 
-Se precisar do conjunto de dados não agregado completo, transfira-o da conta de faturação. Em seguida, na lista de serviços no painel de navegação esquerdo do portal, aceda a **Cost Management + Faturação**. Selecione a sua conta de faturação, se aplicável. Aceda a **Utilização + custos** e, em seguida, selecione o ícone de **Download** para o período de faturação desejado.
+Se precisar do conjunto de dados não agregado completo, transfira-o da conta de faturação. Em seguida, na lista de serviços no painel de navegação esquerdo do portal, aceda a **Cost Management + Faturação** . Selecione a sua conta de faturação, se aplicável. Aceda a **Utilização + custos** e, em seguida, selecione o ícone de **Download** para o período de faturação desejado.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
