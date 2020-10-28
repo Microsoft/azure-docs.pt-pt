@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: f5eb5f5ce6c6ded3fffc95b73d3ac86ae9e94ba2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88055467"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890280"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Crie a sua primeira função durável em C\#
 
@@ -21,7 +21,7 @@ ms.locfileid: "88055467"
 
 Neste artigo, você aprende a usar o Código do Estúdio Visual para criar e testar uma função durável "hello world".  Esta função orquestra e acorrenta chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da extensão vs Code [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-![Funcionamento durável em Azure](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
+![A screenshot mostra uma janela visual Studio Code com uma função durável.](./media/durable-functions-create-first-csharp/functions-vscode-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Nesta secção, você usa Código de Estúdio Visual para criar um projeto local
 
     ![Criar um projeto de função](media/durable-functions-create-first-csharp/functions-vscode-create-project.png)
 
-1. Escolha uma localização de pasta vazia para o seu projeto e escolha **Select**.
+1. Escolha uma localização de pasta vazia para o seu projeto e escolha **Select** .
 
 1. Seguindo as indicações, forneça as seguintes informações:
 
@@ -76,7 +76,7 @@ Os passos seguintes utilizam um modelo para criar o código de função durável
     | Fornecer um nome de função | OláOrchestração | Nome da classe em que as funções são criadas |
     | Fornecer um espaço de nome | Empresa.Função | Espaço de nome para a classe gerada |
 
-1. Quando o Código VS lhe pedir para selecionar uma conta de armazenamento, escolha **selecione a conta de armazenamento**. Seguindo as indicações, forneça as seguintes informações para criar uma nova conta de armazenamento em Azure.
+1. Quando o Código VS lhe pedir para selecionar uma conta de armazenamento, escolha **selecione a conta de armazenamento** . Seguindo as indicações, forneça as seguintes informações para criar uma nova conta de armazenamento em Azure.
 
     | Prompt | Valor | Descrição |
     | ------ | ----- | ----------- |
@@ -84,7 +84,7 @@ Os passos seguintes utilizam um modelo para criar o código de função durável
     | Selecione uma conta de armazenamento | Criar uma nova conta de armazenamento |  |
     | Insira o nome da nova conta de armazenamento | *nome único* | Nome da conta de armazenamento para criar |
     | Selecionar um grupo de recursos | *nome único* | Nome do grupo de recursos para criar |
-    | Selecionar uma localização | *região* | Selecione uma região próxima |
+    | Selecionar uma localização | *region* | Selecione uma região próxima |
 
 Uma classe que contenha as novas funções é adicionada ao projeto. O Código VS também adiciona o fio de ligação da conta de armazenamento a *local.settings.js* e uma referência ao [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) pacote NuGet ao ficheiro do projeto *.csproj.*
 
@@ -102,12 +102,12 @@ Agora que criou o seu projeto de função e uma função durável, pode testá-l
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Deve instalar estas ferramentas ao iniciar uma função do Visual Studio Code pela primeira vez.
 
-1. Para testar a sua função, desaponte um ponto de rutura no código de função de `SayHello` atividade e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**.
+1. Para testar a sua função, desaponte um ponto de rutura no código de função de `SayHello` atividade e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal** .
 
     > [!NOTE]
     > Consulte os [Diagnósticos de Funções Duradouras](durable-functions-diagnostics.md#debugging) para obter mais informações sobre a depuração.
 
-1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
+1. No painel **Terminal** , copie o ponto final do URL da sua função acionada por HTTP.
 
     ![Resultado local do Azure](media/durable-functions-create-first-csharp/functions-vscode-f5.png)
 
@@ -146,7 +146,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
 ## <a name="test-your-function-in-azure"></a>Testar a sua função no Azure
 
-1. Copie o URL do acionador de HTTP no painel **Resultados**. O URL que chama a função acionada por HTTP deve estar no seguinte formato:
+1. Copie o URL do acionador de HTTP no painel **Resultados** . O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 
     `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
@@ -165,7 +165,7 @@ Utilizou o Código do Estúdio Visual para criar e publicar uma aplicação de f
 
 Neste artigo, aprende-se a criar e testar localmente uma função durável "Hello world".  Esta função orquestra e acorrenta chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
-![Funcionamento durável em Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![A screenshot mostra uma janela visual Studio 2019 com uma função durável.](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -183,11 +183,11 @@ O modelo Azure Functions cria um projeto que pode ser publicado numa aplicação
 
 1. No Visual Studio, selecione **New**  >  **Project** a partir do menu **Ficheiro.**
 
-1. No **Criar um novo** diálogo de projeto, `functions` procure, escolha o modelo **Azure Functions** e selecione **Seguinte**. 
+1. No **Criar um novo** diálogo de projeto, `functions` procure, escolha o modelo **Azure Functions** e selecione **Seguinte** . 
 
     ![Caixa de diálogo Novo projeto para criar uma função no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-1. Digite um **nome de projeto** para o seu projeto e selecione **OK**. O nome do projeto deve ser válido como um espaço de nome C#, por isso não use sublinhados, hífens ou quaisquer outros caracteres não antanhanuméricos.
+1. Digite um **nome de projeto** para o seu projeto e selecione **OK** . O nome do projeto deve ser válido como um espaço de nome C#, por isso não use sublinhados, hífens ou quaisquer outros caracteres não antanhanuméricos.
 
 1. Na **Criação de uma nova Aplicação de Funções Azure,** utilize as definições especificadas na tabela que segue a imagem.
 
@@ -205,11 +205,11 @@ O modelo Azure Functions cria um projeto que pode ser publicado numa aplicação
 
 Os passos seguintes utilizam um modelo para criar o código de função durável no seu projeto.
 
-1. Clique com o botão direito no projeto no Estúdio Visual e **selecione Add**  >  **New Azure Function**.
+1. Clique com o botão direito no projeto no Estúdio Visual e **selecione Add**  >  **New Azure Function** .
 
     ![Adicionar nova função](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
-1. Verifique se **a Função Azure** está selecionada a partir do menu de adicionar, digite um nome para o seu ficheiro C# e, em seguida, selecione **Adicionar**.
+1. Verifique se **a Função Azure** está selecionada a partir do menu de adicionar, digite um nome para o seu ficheiro C# e, em seguida, selecione **Adicionar** .
 
 1. Selecione o modelo **de orquestração funções duradouras** e, em seguida, selecione **Ok**
 
@@ -237,7 +237,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 3. Cole o URL para o pedido HTTP na barra de endereços do seu navegador e execute o pedido. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função:
 
-    ![Resposta da função localhost no browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
+    ![A screenshot mostra uma janela do navegador com o statusQueryGetUri chamado.](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
     A resposta é o resultado inicial da função HTTP, informando-nos que a orquestração durável começou com sucesso.  Ainda não é o resultado final da orquestração.  A resposta inclui alguns URLs úteis.  Por enquanto, vamos consultar o estado da orquestração.
 
@@ -261,7 +261,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
     }
     ```
 
-5. Para parar de depurar, prima **Shift + F5**.
+5. Para parar de depurar, prima **Shift + F5** .
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 

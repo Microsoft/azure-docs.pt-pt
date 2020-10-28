@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 1b947ad28283912e0ba75debd8f4471d693be888
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675530"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Jira por resolução GmbH
 
@@ -99,7 +99,7 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
 4. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** efetue os seguintes passos:
 
-    ![SAML SSO para Jira por resolução GmbH Domain e URLs informações únicas de súmito](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas e o botão "Save" selecionado.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -124,37 +124,37 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
 2. Passe por cima da engrenagem no lado direito e clique em **Gerir aplicações** .
     
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon1.png)
+    ![Screenshot que mostra uma seta apontando para o ícone "Cog" e "Gerir aplicações" selecionadas a partir do drop-down.](./media/samlssojira-tutorial/addon1.png)
 
 3. Se for redirecionado para a página De Acesso ao Administrador, insira a **Palavra-passe** e clique no botão **Confirmar.**
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon2.png)
+    ![Screenshot que mostra a página "Acesso ao Administrador".](./media/samlssojira-tutorial/addon2.png)
 
 4. Jira normalmente redireciona-o para o mercado atlassiano. Caso contrário, clique em **Localizar novas aplicações** no painel esquerdo. Procure por **SAML Single Sign On (SSO) para JIRA** e clique no botão **Instalar** para instalar o plugin SAML.
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store.png)
+    ![Screenshot que mostra a página "Atlassian Marketplace for JIRA" com uma seta apontando para o botão "Instalar" para a aplicação "S A M L Single Sign On (S O) Jira, S A M L/S O".](./media/samlssojira-tutorial/store.png)
 
 5. A instalação plugin irá arrancar. Quando estiver pronto, clique no botão **Fechar.**
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-2.png)
+    ![Screenshot que mostra o diálogo "Instalar".](./media/samlssojira-tutorial/store-2.png)
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-3.png)
+    ![Screenshot que mostra o "Instalado e pronto para ir!" diálogo com o botão "Fechar" selecionado.](./media/samlssojira-tutorial/store-3.png)
 
 6. Em seguida, clique em **Gerir** .
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-4.png)
+    ![Screenshot que mostra a aplicação "S A M L Single Sign On (S O) Jira, S A M L/S S O" com o botão "Gerir" selecionado.](./media/samlssojira-tutorial/store-4.png)
     
 8. Em seguida, clique em **Configurar** para configurar o plugin acabado de instalar.
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/store-5.png)
+    ![Screenshot que mostra a página "Gerir apps", com o botão "Configurar" selecionado para a aplicação "S A M L SingleSignOn for Jira".](./media/samlssojira-tutorial/store-5.png)
 
 9. No assistente **de configuração do plugin singleSignOn SAML,** clique em **Adicionar novo IdP** para configurar a Azure AD como um novo Fornecedor de Identidade.
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon4.png) 
+    ![A screenshot mostra a página "Welcome", com o botão "Adicionar novo I d P" selecionado.](./media/samlssojira-tutorial/addon4.png) 
 
 10. Na página Escolha a sua página **de Fornecedor de Identidade SAML,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5a.png)
+    ![Screenshot que mostra a página "Escolha o seu Fornecedor de Identidade S A M L" com as caixas de texto "I d P Type" e "Name" destacadas, e o botão "Seguinte" selecionado.](./media/samlssojira-tutorial/addon5a.png)
  
     a. Desagrafe **o AD AD** como o tipo IdP.
     
@@ -166,11 +166,11 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
     
 11. Na página **de configuração do fornecedor de identidade,** clique em **Seguinte** .
  
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5b.png)
+    ![Screenshot que mostra a página "Configuração do fornecedor de identidade".](./media/samlssojira-tutorial/addon5b.png)
 
 12. Na página **de Metadados IdP de Importação SAML,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5c.png)
+    ![Screenshot que mostra a página "Import S A M L I d P Metadados" com a ação "Select Metadata X M L File" selecionada.](./media/samlssojira-tutorial/addon5c.png)
 
     a. Clique no botão **De ficheiro Select Metadas XML** e escolha o ficheiro **Federação de Metadados XML** que descarregou anteriormente.
 
@@ -182,19 +182,19 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
     
 13. Na página de id do utilizador e na página **de transformação,** clique no botão **Seguinte.**
 
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon5d.png)
+    ![Screenshot que mostra a página "Atributo e transformação do utilizador I D" com o botão "Seguinte" selecionado.](./media/samlssojira-tutorial/addon5d.png)
     
 14. Na página de **criação e atualização** do Utilizador, clique em **Guardar & Seguinte** para guardar as definições.
     
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon6a.png)
+    ![Screenshot que mostra a página "Criação e atualização do utilizador" com o botão "Save & Next" selecionado.](./media/samlssojira-tutorial/addon6a.png)
     
 15. Na página **Test your settings,** clique em **"Saltar & configurar manualmente** para saltar o teste do utilizador por enquanto. Isto será realizado na secção seguinte e requer algumas configurações no portal Azure.
     
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon6b.png)
+    ![Screenshot que mostra a página "Testar as suas definições" com o botão "Saltar teste & configurar manualmente" selecionado.](./media/samlssojira-tutorial/addon6b.png)
     
 16. Clique **em OK** para saltar o aviso.
     
-    ![Configurar Sign-On Individuais](./media/samlssojira-tutorial/addon6c.png)
+    ![Screenshot que mostra o diálogo de aviso com o botão "O K" selecionado.](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -256,15 +256,15 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na SAML SSO para a Ji
 
 2. Passe por cima da engrenagem e selecione **a gestão do utilizador.**
 
-   ![Adicionar Empregado](./media/samlssojira-tutorial/user1.png)
+   ![Screenshot que mostra uma seta apontando para o ícone "Cog" com "Gestão do utilizador" selecionada a partir do drop-down.](./media/samlssojira-tutorial/user1.png)
 
 3. Se for redirecionado para a página 'Acesso ao Administrador', insira a **Palavra-passe** e clique no botão **Confirmar.**
 
-    ![Adicionar Empregado](./media/samlssojira-tutorial/user2.png) 
+    ![Screenshot que mostra a página "Acesso ao Administrador" com a caixa de texto "Password" realçada.](./media/samlssojira-tutorial/user2.png) 
 
 4. Na secção de **separador de gestão do Utilizador,** clique em **criar utilizador.**
 
-    ![Adicionar Empregado](./media/samlssojira-tutorial/user3-new.png) 
+    ![Screenshot que mostra o separador "Gestão do Utilizador" com o botão "Criar utilizador" selecionado.](./media/samlssojira-tutorial/user3-new.png) 
 
 5. Na página de diálogo **"Criar novo utilizador",** execute os seguintes passos. Tem de criar o utilizador exatamente como no Azure AD:
 

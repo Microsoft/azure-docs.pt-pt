@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2020
-ms.openlocfilehash: 5845ab6419d6914b9221df1ae1280d31aba0ae7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/27/2020
+ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737523"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891401"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -68,6 +68,10 @@ O vídeo seguinte explica uma série de diferentes opções de pia para tipos de
 **Deriva de Schema** : A deriva de [Schema](concepts-data-flow-schema-drift.md) é a capacidade da Data Factory de lidar de forma nativa com esquemas flexíveis nos fluxos de dados sem precisar de definir explicitamente as alterações de colunas. Ativar **Permitir que o schema drift** escreva colunas adicionais em cima do que está definido no esquema de dados do lavatório.
 
 **Validar esquema** : Se for selecionado um esquema validado, o fluxo de dados falhará se alguma coluna do esquema de origem de entrada não for encontrada na projeção da fonte ou se os tipos de dados não coincidirem. Utilize esta definição para impor que os dados de origem satisfaçam o contrato da sua projeção definida. É útil em cenários de origem de base de dados sinalizar que nomes ou tipos de colunas mudaram.
+
+**Utilizar o TempDB:** Por padrão, a Data Factory utilizará uma tabela temporária global para armazenar dados como parte do processo de carregamento. Em alternativa, pode desmarcar a opção "Use TempDB" e, em vez disso, peça à Data Factory para armazenar a tabela de detenção temporária numa base de dados do utilizador que está localizada na base de dados que está a ser utilizada para esta Pia.
+
+![TempDB](media/data-flow/tempdb.png "TempDB")
 
 ## <a name="field-mapping"></a>Mapeamento de campos
 

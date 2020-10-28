@@ -3,12 +3,12 @@ title: Configure Monitor Azure para recolha de dados de agente de contentores Mi
 description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores controlar a recolha de registos de variáveis stdout/stderr e ambiente.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320399"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890501"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a recolha de dados do agente para o Azure Monitor para contentores
 
@@ -57,7 +57,7 @@ ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agen
 
 Execute os seguintes passos para configurar e implementar o seu ficheiro de configuração ConfigMap no seu cluster.
 
-1. Descarregue o [ficheiro ConfigMap YAML](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) do modelo e guarde-o como contentor-azm-ms-agentconfig.yaml. 
+1. Descarregue o [ficheiro ConfigMap YAML](https://aka.ms/container-azm-ms-agentconfig) do modelo e guarde-o como contentor-azm-ms-agentconfig.yaml. 
 
    > [!NOTE]
    > Este passo não é necessário quando se trabalha com o Azure Red Hat OpenShift porque o modelo ConfigMap já existe no cluster.
@@ -101,7 +101,7 @@ Estão também disponíveis erros relacionados com a aplicação de alterações
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- A partir da tabela **KubeMonAgentEvents** no seu espaço de trabalho Log Analytics. Os dados são enviados a cada hora com gravidade *de Erro* para erros de configuração. Se não houver erros, a entrada na tabela terá dados com *informação*de gravidade , que não reporta erros. A propriedade **Tags** contém mais informações sobre o ID do casulo e do contentor no qual ocorreu o erro e também a primeira ocorrência, última ocorrência e contagem na última hora.
+- A partir da tabela **KubeMonAgentEvents** no seu espaço de trabalho Log Analytics. Os dados são enviados a cada hora com gravidade *de Erro* para erros de configuração. Se não houver erros, a entrada na tabela terá dados com *informação* de gravidade , que não reporta erros. A propriedade **Tags** contém mais informações sobre o ID do casulo e do contentor no qual ocorreu o erro e também a primeira ocorrência, última ocorrência e contagem na última hora.
 
 - Com o Azure Red Hat OpenShift, verifique os registos omsagent, procurando na tabela **ContainerLog** para verificar se está ativada a recolha de registos de registos de registos de registos de registos de azure-azure-azure..
 

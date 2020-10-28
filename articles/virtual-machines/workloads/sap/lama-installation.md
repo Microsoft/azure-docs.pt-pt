@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361369"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890484"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -181,7 +181,7 @@ Criar uma nova máquina virtual com um dos sistemas de funcionamento suportados 
 
 A base de dados Oráculo precisa de discos para /oráculo, /home/oraod1, e /home/oráculo
 
-![Base de dados Oráculo em Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagrama que mostra uma base de dados do Oráculo no Linux e os discos de que precisa.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Implementação manual para o Microsoft SQL Server
 
@@ -274,7 +274,7 @@ Antes de iniciar o GESTOR DE Provisionamento de Software SAP (SWPM), tem de mont
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Executar SWPM e usar *ah1-ascs* para o *nome de anfitrião ascs instance*.
+Executar SWPM e usar *ah1-ascs* para o *nome de anfitrião ascs instance* .
 
 ![Logotipo linux.][Logo_Linux] Linux  
 Adicione o seguinte parâmetro de perfil ao perfil do Agente anfitrião SAP, que está localizado em /usr/seiva/hostctrl/exe/host_profile. Para mais informações, consulte a Nota [SAP 2628497].
@@ -319,7 +319,7 @@ Dentro da conta NetApp, o pool de capacidade especifica o tamanho e o tipo de di
 
 ![SAP LaMa NetApp capacity pool criado ](media/lama/sap-lama-capacitypool-list.png)
 
-Os volumes NFS podem agora ser definidos. Uma vez que haverá volumes para vários sistemas numa só piscina, deve ser escolhido um esquema de nomeação autoexplicada. A adição do SID ajuda a agrupar volumes relacionados. Para o ASCS e para a instância AS são necessários os seguintes suportes: * \<SID\> /sapmnt/*, */usr/seiva/ \<SID\> *e */home/ \<sid\> adm*. Opcionalmente, */usr/seiva/trans* é necessário para o diretório de transporte central, que é pelo menos utilizado por todos os sistemas de uma paisagem.
+Os volumes NFS podem agora ser definidos. Uma vez que haverá volumes para vários sistemas numa só piscina, deve ser escolhido um esquema de nomeação autoexplicada. A adição do SID ajuda a agrupar volumes relacionados. Para o ASCS e para a instância AS são necessários os seguintes suportes: *\<SID\> /sapmnt/* , */usr/seiva/ \<SID\>* e */home/ \<sid\> adm* . Opcionalmente, */usr/seiva/trans* é necessário para o diretório de transporte central, que é pelo menos utilizado por todos os sistemas de uma paisagem.
 
 > [!NOTE]
 > Durante a fase BETA, o nome dos volumes deve ser único dentro da subscrição.
@@ -381,7 +381,7 @@ Adicione outro nome de anfitrião virtual e endereço IP para o nome que é usad
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Executar a instalação de instância de dados de SWPM na máquina virtual do servidor de aplicações, não na máquina virtual HANA. Utilize *ah1-db* para o anfitrião da *base de dados* na base de *dados de*diálogo para o sistema SAP .
+Executar a instalação de instância de dados de SWPM na máquina virtual do servidor de aplicações, não na máquina virtual HANA. Utilize *ah1-db* para o anfitrião da *base de dados* na base de *dados de* diálogo para o sistema SAP .
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Instalar o Servidor de Aplicações SAP NetWeaver para SAP HANA
 
@@ -417,7 +417,7 @@ Se o configurar manualmente, também precisa de criar novas entradas na loja de 
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-Utilize *ah1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária*.
+Utilize *ah1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária* .
 
 #### <a name="post-installation-steps-for-sap-hana"></a>Passos de pós-instalação para SAP HANA
 
@@ -436,7 +436,7 @@ Antes de iniciar o GESTOR DE Provisionamento de Software SAP (SWPM), tem de mont
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Executar SWPM e usar *as1-ascs* para o *nome de anfitrião ascs instance*.
+Executar SWPM e usar *as1-ascs* para o *nome de anfitrião ascs instance* .
 
 #### <a name="install-sql-server"></a>Instalar o SQL Server
 
@@ -447,9 +447,9 @@ Executar SWPM e usar *as1-ascs* para o *nome de anfitrião ascs instance*.
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Executar a instalação de instância de dados de SWPM na máquina virtual do servidor SQL. Utilize SAPINST_USE_HOSTNAME=*as1-db* para substituir o nome de anfitrião utilizado para ligar ao SQL Server. Se implementou a máquina virtual utilizando o modelo Azure Resource Manager, certifique-se de definir o diretório utilizado para os ficheiros de dados da base de dados para *C:\sql\data* e ficheiro de registo de base de dados para *C:\sql\log*.
+Executar a instalação de instância de dados de SWPM na máquina virtual do servidor SQL. Utilize SAPINST_USE_HOSTNAME= *as1-db* para substituir o nome de anfitrião utilizado para ligar ao SQL Server. Se implementou a máquina virtual utilizando o modelo Azure Resource Manager, certifique-se de definir o diretório utilizado para os ficheiros de dados da base de dados para *C:\sql\data* e ficheiro de registo de base de dados para *C:\sql\log* .
 
-Certifique-se de que o *utilizador NT AUTHORITY\SYSTEM* tem acesso ao SQL Server e tem a função de servidor *sysadmin*. Para mais informações, consulte a Nota SAP [1877727] e [2562184].
+Certifique-se de que o *utilizador NT AUTHORITY\SYSTEM* tem acesso ao SQL Server e tem a função de servidor *sysadmin* . Para mais informações, consulte a Nota SAP [1877727] e [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Instalar o servidor de aplicações SAP NetWeaver
 
@@ -460,7 +460,7 @@ Antes de iniciar o GESTOR DE Provisionamento de Software SAP (SWPM), tem de mont
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária*.
+Utilize *o as1-di-0* para o *nome do anfitrião* da instância PAS em *identificação do servidor de aplicação primária* .
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

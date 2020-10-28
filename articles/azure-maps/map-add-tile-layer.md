@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8450fbd5287c88431f21753a9c88e8603455f844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3619995739c51d68b00f37ebea3a38680a6b6e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310429"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890982"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de mosaico a um mapa
 
 Este artigo mostra como sobrepor uma camada de azulejos no mapa. As camadas de azulejos permitem-lhe sobrepor imagens em cima dos azulejos do mapa base do Azure Maps. Para obter mais informações sobre o sistema de inclinação Azure Maps, consulte [os níveis de Zoom e a grelha de azulejos.](zoom-levels-and-tile-grid.md)
 
-Uma camada de azulejos carrega em azulejos de um servidor. Estas imagens podem ser pré-renderizadas ou dinamicamente renderizadas. As imagens pré-renderizadas são armazenadas como qualquer outra imagem num servidor usando uma convenção de nomeação que a camada de azulejos compreende. Imagens dinamicamente renderizadas usam um serviço para carregar as imagens perto de tempo real. Existem três diferentes convenções de nomeação de azulejos apoiadas pela classe Azure Maps [TileLayer:](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) 
+Uma camada de azulejos carrega em azulejos de um servidor. Estas imagens podem ser pré-renderizadas ou dinamicamente renderizadas. As imagens pré-renderizadas são armazenadas como qualquer outra imagem num servidor usando uma convenção de nomeação que a camada de azulejos compreende. Imagens dinamicamente renderizadas usam um serviço para carregar as imagens perto de tempo real. Existem três diferentes convenções de nomeação de azulejos apoiadas pela classe Azure Maps [TileLayer:](/javascript/api/azure-maps-control/atlas.layer.tilelayer) 
 
 * X, Y, Notação zoom - X é a coluna, Y é a posição de linha do azulejo na grelha de azulejos, e a notação zoom um valor baseado no nível de zoom.
 * Notação quadkey - Combina informação x, y e zoom em um único valor de corda. Este valor de corda torna-se um identificador único para um único azulejo.
 * Caixa limite - Especifique uma imagem no formato de coordenadas da caixa bounding: `{west},{south},{east},{north}` . Este formato é comumente utilizado pelos [Serviços de Mapeamento Web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Um [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) é uma ótima maneira de visualizar grandes conjuntos de dados no mapa. Não só uma camada de azulejo pode ser gerada a partir de uma imagem, os dados vetoriais também podem ser renderizados como uma camada de azulejos também. Ao renderizar dados vetoriais como uma camada de azulejos, o controlo do mapa só precisa de carregar os azulejos que são menores no tamanho do ficheiro do que os dados vetoriais que representam. Esta técnica é comumente usada para render milhões de linhas de dados no mapa.
+> Um [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) é uma ótima maneira de visualizar grandes conjuntos de dados no mapa. Não só uma camada de azulejo pode ser gerada a partir de uma imagem, os dados vetoriais também podem ser renderizados como uma camada de azulejos também. Ao renderizar dados vetoriais como uma camada de azulejos, o controlo do mapa só precisa de carregar os azulejos que são menores no tamanho do ficheiro do que os dados vetoriais que representam. Esta técnica é comumente usada para render milhões de linhas de dados no mapa.
 
 O URL de azulejos passados para uma camada de azulejos deve ser um URL http ou https para um recurso TileJSON ou um modelo de URL de azulejos que utiliza os seguintes parâmetros: 
 
@@ -74,10 +74,10 @@ A classe de camada de azulejos tem muitas opções de estilo. Aqui está uma fer
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+> [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 > [!div class="nextstepaction"]
-> [Opções TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+> [Opções TileLayer](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 

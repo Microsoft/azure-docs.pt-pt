@@ -10,28 +10,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dc3792b5eff1b0ba51f5d7938e52e6914660109a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678187"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889889"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
-O Azure Maps suporta duas formas de autenticar pedidos: autenticação de chave partilhada e autenticação [do Azure Ative Directory (Azure AD).](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) Este artigo explica ambos os métodos de autenticação para ajudar a orientar a sua implementação dos serviços Azure Maps.
+O Azure Maps suporta duas formas de autenticar pedidos: autenticação de chave partilhada e autenticação [do Azure Ative Directory (Azure AD).](../active-directory/fundamentals/active-directory-whatis.md) Este artigo explica ambos os métodos de autenticação para ajudar a orientar a sua implementação dos serviços Azure Maps.
 
 > [!NOTE]
-> Para melhorar a comunicação segura com o Azure Maps, apoiamos agora a Segurança da Camada de Transporte (TLS) 1.2, e estamos a retirar o suporte para TLS 1.0 e 1.1. Se utilizar atualmente o TLS 1.x, avalie a sua prontidão TLS 1.2 e desenvolva um plano de migração com os testes descritos na [resolução do problema TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Para melhorar a comunicação segura com o Azure Maps, apoiamos agora a Segurança da Camada de Transporte (TLS) 1.2, e estamos a retirar o suporte para TLS 1.0 e 1.1. Se utilizar atualmente o TLS 1.x, avalie a sua prontidão TLS 1.2 e desenvolva um plano de migração com os testes descritos na [resolução do problema TLS 1.0](/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autenticação de chave partilhada
 
  As chaves primárias e secundárias são geradas após a criação da conta Azure Maps. Você é encorajado a usar a chave primária como chave de subscrição ao ligar para Azure Maps com autenticação de chave partilhada. A autenticação da Chave Partilhada passa uma chave gerada por uma conta Azure Maps para um serviço Azure Maps. Para cada pedido aos serviços do Azure Maps, adicione a *chave de subscrição* como parâmetro ao URL. A chave secundária pode ser usada em cenários como alterações de chaves rolantes.  
 
-Para obter informações sobre a visualização das suas chaves no portal Azure, consulte [a autenticação Manage](https://aka.ms/amauthdetails).
+Para obter informações sobre a visualização das suas chaves no portal Azure, consulte [a autenticação Manage](./how-to-manage-authentication.md#view-authentication-details).
 
 > [!TIP]
-> Por razões de segurança, recomenda-se que rode entre as suas teclas primárias e secundárias. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, desloque-a e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova tecla primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte [Configurar o Cofre da Chave Azure com rotação e auditoria de chaves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Por razões de segurança, recomenda-se que rode entre as suas teclas primárias e secundárias. Para rodar as teclas, atualize a sua aplicação para utilizar a tecla secundária, desloque-a e, em seguida, pressione o botão ciclo/atualização ao lado da tecla primária para gerar uma nova tecla primária. A velha chave primária será desativada. Para obter mais informações sobre a rotação da chave, consulte [Configurar o Cofre da Chave Azure com rotação e auditoria de chaves](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ## <a name="azure-ad-authentication"></a>Autenticação do Azure AD
 
@@ -45,17 +45,17 @@ O Azure Maps aceita fichas de acesso **OAuth 2.0** para inquilinos AD Azure asso
 
 O Azure Maps gera um *identificador único (ID do cliente)* para cada conta Azure Maps. Pode solicitar fichas da Azure AD quando combinar este ID do cliente com parâmetros adicionais.
 
-Para obter mais informações sobre como configurar a Azure AD e solicitar fichas para Azure Maps, consulte [a autenticação Manage no Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Para obter mais informações sobre como configurar a Azure AD e solicitar fichas para Azure Maps, consulte [a autenticação Manage no Azure Maps](./how-to-manage-authentication.md).
 
-Para obter informações gerais sobre a autenticação com Azure AD, veja [o que é a autenticação?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+Para obter informações gerais sobre a autenticação com Azure AD, veja [o que é a autenticação?](../active-directory/develop/authentication-vs-authorization.md)
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades geridas para recursos Azure e Azure Maps
 
-[Identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem aos serviços Azure um principal de segurança baseado em aplicações gerida automaticamente que pode autenticar com Azure AD. Com o controlo de acesso baseado em funções Azure (Azure RBAC), o diretor de segurança de identidade gerido pode ser autorizado a aceder aos serviços do Azure Maps. Alguns exemplos de identidades geridas incluem: Azure App Service, Azure Functions e Azure Virtual Machines. Para obter uma lista de identidades geridas, consulte [identidades geridas para os recursos da Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[Identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) fornecem aos serviços Azure um principal de segurança baseado em aplicações gerida automaticamente que pode autenticar com Azure AD. Com o controlo de acesso baseado em funções Azure (Azure RBAC), o diretor de segurança de identidade gerido pode ser autorizado a aceder aos serviços do Azure Maps. Alguns exemplos de identidades geridas incluem: Azure App Service, Azure Functions e Azure Virtual Machines. Para obter uma lista de identidades geridas, consulte [identidades geridas para os recursos da Azure.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Configuração da aplicação Azure AD autenticação
 
-As candidaturas autenticar-se-ão junto do inquilino Azure AD utilizando um ou mais cenários apoiados fornecidos pela Azure AD. Cada cenário de aplicação AD Azure representa diferentes requisitos baseados nas necessidades do negócio. Algumas aplicações podem requerer experiências de inscrição do utilizador e outras aplicações podem exigir uma experiência de inscrição na aplicação. Para mais informações, consulte [fluxos de autenticação e cenários de aplicação](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
+As candidaturas autenticar-se-ão junto do inquilino Azure AD utilizando um ou mais cenários apoiados fornecidos pela Azure AD. Cada cenário de aplicação AD Azure representa diferentes requisitos baseados nas necessidades do negócio. Algumas aplicações podem requerer experiências de inscrição do utilizador e outras aplicações podem exigir uma experiência de inscrição na aplicação. Para mais informações, consulte [fluxos de autenticação e cenários de aplicação](../active-directory/develop/authentication-flows-app-scenarios.md).
 
 Após a aplicação receber um token de acesso, o SDK e/ou o pedido envia um pedido HTTPS com o seguinte conjunto de cabeçalhos HTTP necessários, além de outros cabeçalhos REST API HTTP:
 
@@ -76,15 +76,15 @@ x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN
 ```
 
-Para obter informações sobre a visualização do ID do seu cliente, consulte [os detalhes da autenticação](https://aka.ms/amauthdetails).
+Para obter informações sobre a visualização do ID do seu cliente, consulte [os detalhes da autenticação](./how-to-manage-authentication.md#view-authentication-details).
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorização com controlo de acesso baseado em funções
 
-O Azure Maps suporta o acesso a todos os tipos principais de [controlo de acesso baseado em funções Azure (Azure RBAC),](https://docs.microsoft.com/azure/role-based-access-control/overview) incluindo: utilizadores individuais de AD Azure, grupos, aplicações, recursos Azure e identidades geridas Azure. Os principais tipos recebem um conjunto de permissões, também conhecidas como definição de função. Uma definição de papel fornece permissões para as ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um âmbito. Ao aplicar um principal, definição de função e âmbito, então uma atribuição de papel é criada. 
+O Azure Maps suporta o acesso a todos os tipos principais de [controlo de acesso baseado em funções Azure (Azure RBAC),](../role-based-access-control/overview.md) incluindo: utilizadores individuais de AD Azure, grupos, aplicações, recursos Azure e identidades geridas Azure. Os principais tipos recebem um conjunto de permissões, também conhecidas como definição de função. Uma definição de papel fornece permissões para as ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um âmbito. Ao aplicar um principal, definição de função e âmbito, então uma atribuição de papel é criada. 
 
 As próximas secções discutem conceitos e componentes da integração do Azure Maps com o Azure RBAC. Como parte do processo de criação da sua conta Azure Maps, um diretório AD Azure está associado à subscrição Azure que a conta Azure Maps reside. 
 
-Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma tarefa de função. Para aprender a adicionar atribuições de funções no portal Azure, consulte [adicionar ou remover atribuições de funções Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma tarefa de função. Para aprender a adicionar atribuições de funções no portal Azure, consulte [adicionar ou remover atribuições de funções Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Escolher uma definição de papel
 
@@ -110,7 +110,7 @@ Para obter informações sobre a visualização das suas definições de RBAC Az
 
 Um aspeto da segurança das aplicações é aplicar o princípio do menor privilégio. Este princípio implica que o diretor de segurança só deve ter acesso necessário e não ter acesso adicional. A criação de definições de funções personalizadas pode suportar casos de uso que requerem maior granularidade para aceder ao controlo. Para criar uma definição de função personalizada, pode selecionar ações de dados específicas para incluir ou excluir para a definição.
 
-A definição de função personalizada pode então ser usada numa atribuição de funções para qualquer diretor de segurança. Para saber mais sobre as definições de funções personalizadas da Azure, consulte [os papéis personalizados da Azure.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+A definição de função personalizada pode então ser usada numa atribuição de funções para qualquer diretor de segurança. Para saber mais sobre as definições de funções personalizadas da Azure, consulte [os papéis personalizados da Azure.](../role-based-access-control/custom-roles.md)
 
 Aqui estão alguns cenários de exemplo onde as funções personalizadas podem melhorar a segurança da aplicação.
 
@@ -123,7 +123,7 @@ Aqui estão alguns cenários de exemplo onde as funções personalizadas podem m
 
 ### <a name="understanding-scope"></a>Compreender o âmbito
 
-Ao criar uma atribuição de papel, é definido dentro da hierarquia de recursos Azure. No topo da hierarquia está um grupo de [gestão](https://docs.microsoft.com/azure/governance/management-groups/overview) e o mais baixo é um recurso Azure, como uma conta Azure Maps.
+Ao criar uma atribuição de papel, é definido dentro da hierarquia de recursos Azure. No topo da hierarquia está um grupo de [gestão](../governance/management-groups/overview.md) e o mais baixo é um recurso Azure, como uma conta Azure Maps.
 Atribuir uma atribuição de funções a um grupo de recursos pode permitir o acesso a várias contas ou recursos do Azure Maps no grupo.
 
 > [!TIP]
@@ -133,12 +133,12 @@ Atribuir uma atribuição de funções a um grupo de recursos pode permitir o ac
 
 Para saber mais sobre o Azure RBAC, veja
 > [!div class="nextstepaction"]
-> [Controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Controlo de acesso baseado em funções do Azure](../role-based-access-control/overview.md)
 
 Para saber mais sobre a autenticação de uma aplicação com Azure AD e Azure Maps, consulte
 > [!div class="nextstepaction"]
-> [Gerir a autenticação em Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
+> [Gerir a autenticação em Azure Maps](./how-to-manage-authentication.md)
 
 Para saber mais sobre a autenticação do Azure Maps Map Control com AZure AD, consulte
 > [!div class="nextstepaction"]
-> [Use o controlo do mapa dos mapas Azure Maps](https://aka.ms/amaadmc)
+> [Use o controlo do mapa dos mapas Azure Maps](./how-to-use-map-control.md)

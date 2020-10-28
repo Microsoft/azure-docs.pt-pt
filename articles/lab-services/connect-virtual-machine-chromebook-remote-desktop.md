@@ -6,18 +6,18 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445666"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892235"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Conecte-se a um VM utilizando o Protocolo de Ambiente de Trabalho Remoto num Chromebook
 Esta secção mostra como um aluno pode ligar-se a um laboratório de sala de aula VM de um Chromebook usando RDP.
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Instale o Microsoft Remote Desktop num Chromebook
-1. Abra a App Store no seu Chromebook e procure o **Microsoft Remote Desktop**.
+1. Abra a App Store no seu Chromebook e procure o **Microsoft Remote Desktop** .
 
     ![Microsoft Remote Desktop](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
 1. Instale a versão mais recente do Microsoft Remote Desktop. 
@@ -28,7 +28,7 @@ Esta secção mostra como um aluno pode ligar-se a um laboratório de sala de au
     ![Ligar à VM](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Quando solicitado, insira a sua senha.
-    ![Ligar à VM](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![Screenshot que mostra o ecrã de Logon onde introduz o seu nome de utilizador e senha.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
 1. **Selecione Continue** se receber o seguinte aviso. 

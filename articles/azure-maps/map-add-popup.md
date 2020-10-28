@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: a67fad5d0980730eb73f4219f12eaf3a7b9ec7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310480"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891041"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adicione um pop-up ao mapa
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como adicionar um pop-up a um ponto num mapa.
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-O código a seguir adiciona uma característica de ponto, que tem `name` e `description` propriedades, ao mapa usando uma camada de símbolo. Um exemplo da [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) é criado, mas não exibido. Os eventos do rato são adicionados à camada do símbolo para acionar a abertura e o fecho do pop-up. Quando o símbolo do marcador está sobressaía, a propriedade do popup `position` é atualizada com a posição do marcador, e a `content` opção é atualizada com alguns HTML que envolvem as  `name` propriedades e propriedades da `description` função ponto a ser pairada. O popup é então exibido no mapa utilizando a sua `open` função.
+O código a seguir adiciona uma característica de ponto, que tem `name` e `description` propriedades, ao mapa usando uma camada de símbolo. Um exemplo da [classe Popup](/javascript/api/azure-maps-control/atlas.popup) é criado, mas não exibido. Os eventos do rato são adicionados à camada do símbolo para acionar a abertura e o fecho do pop-up. Quando o símbolo do marcador está sobressaía, a propriedade do popup `position` é atualizada com a posição do marcador, e a `content` opção é atualizada com alguns HTML que envolvem as  `name` propriedades e propriedades da `description` função ponto a ser pairada. O popup é então exibido no mapa utilizando a sua `open` função.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -279,13 +279,13 @@ Veja os <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventos</a> Pen Popup
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Popup](/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+> [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Consulte os seguintes artigos para amostras de código completo:
 

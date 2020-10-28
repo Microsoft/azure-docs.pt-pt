@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905957"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892490"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Use PowerShell para convidar utilizadores de colaboração Azure AD B2B
 
@@ -71,13 +71,13 @@ Precisa de duas ou mais contas de e-mail de teste para as quais possa enviar os 
 
 ## <a name="prepare-the-csv-file"></a>Preparar o ficheiro CSV
 
-No Microsoft Excel, crie um ficheiro CSV com a lista dos nomes e endereços de e-mail dos utilizadores convidados. Certifique-se de que inclui os cabeçalhos de coluna **Name** (Nome) e **InvitedUserEmailAddress**.
+No Microsoft Excel, crie um ficheiro CSV com a lista dos nomes e endereços de e-mail dos utilizadores convidados. Certifique-se de que inclui os cabeçalhos de coluna **Name** (Nome) e **InvitedUserEmailAddress** .
 
 Por exemplo, crie uma folha de cálculo no seguinte formato:
 
 ![Resultado do PowerShell a mostrar a aceitação do utilizador pendente](media/tutorial-bulk-invite/AddUsersExcel.png)
 
-Guarde o ficheiro como **C:\BulkInvite\Invitations.csv**. 
+Guarde o ficheiro como **C:\BulkInvite\Invitations.csv** . 
 
 Se não tiver o Excel, pode criar um ficheiro CSV em qualquer editor de texto, como o Bloco de Notas. Separe cada valor por uma vírgula e cada linha por uma nova linha. 
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 O script envia um convite para os endereços de e-mail no ficheiro Invitations.csv. Deverá ver um resultado semelhante ao seguinte para cada utilizador:
 
-![Resultado do PowerShell a mostrar a aceitação do utilizador pendente](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Screenshot que mostra a saída PowerShell que inclui a aceitação pendente do utilizador.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Verificar se existem utilizadores no diretório
 
@@ -126,7 +126,7 @@ Para verificar se os utilizadores convidados foram adicionados ao Azure AD, exec
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Deverá ver os utilizadores que convidou listados, com um nome principal do utilizador (UPN) no formato *emailaddress*#EXT# \@ *domínio*. Por exemplo, *lstokes_fabrikam.com#EXT# \@ contoso.onmicrosoft.com*, onde contoso.onmicrosoft.com é a organização a partir da qual enviou os convites.
+Deverá ver os utilizadores que convidou listados, com um nome principal do utilizador (UPN) no formato *emailaddress* #EXT# \@ *domínio* . Por exemplo, *lstokes_fabrikam.com#EXT# \@ contoso.onmicrosoft.com* , onde contoso.onmicrosoft.com é a organização a partir da qual enviou os convites.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

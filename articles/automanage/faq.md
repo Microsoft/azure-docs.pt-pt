@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714969"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891466"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
 Este artigo fornece respostas a algumas das perguntas mais comuns sobre [a Azure Automanage para máquinas virtuais.](automanage-virtual-machines.md)
 
-Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure sobre [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes fóruns ou publicar [ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Também pode submeter um pedido de apoio ao Azure. Para submeter um pedido de apoio, na página de suporte do [Azure,](https://azure.microsoft.com/support/options/)selecione **Obter suporte**.
+Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure sobre [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes fóruns ou publicar [ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Também pode submeter um pedido de apoio ao Azure. Para submeter um pedido de apoio, na página de suporte do [Azure,](https://azure.microsoft.com/support/options/)selecione **Obter suporte** .
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
@@ -32,7 +32,6 @@ São os seguintes pré-requisitos para permitir a auto-produção da Azure:
 - Os VMs devem estar numa região apoiada
 - O utilizador deve ter permissões corretas
 - VMs definidos não escala apenas
-- Os VMs não devem ligar-se a um espaço de trabalho de análise de registo numa subscrição diferente
 - Automanage não suporta subscrições sandbox neste momento
 
 **Qual é a permissão do Azure RBAC para permitir a auto-produção?**
@@ -106,7 +105,7 @@ Não, a auto-produção não vai reconfigurá-lo. Começaremos a monitorizar os 
 
 **Porque é que o meu VM tem um estatuto falhado no portal auto-piloto?**
 
-Se vir o estado como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+Se vir o estado como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos** , selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
 
 **Como posso conseguir apoio para a auto-produção?**
 

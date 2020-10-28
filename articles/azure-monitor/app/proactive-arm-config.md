@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87309346"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890518"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure
 
@@ -21,12 +21,12 @@ Este método pode ser utilizado ao implementar novos recursos de Insights de Apl
 ## <a name="smart-detection-rule-configuration"></a>Configuração de regra de deteção inteligente
 
 Pode configurar as seguintes definições para uma regra de deteção inteligente:
-- Se a regra estiver ativada (o padrão é **verdadeiro**.)
-- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Monitoring Da](../../role-based-access-control/built-in-roles.md#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro**.)
+- Se a regra estiver ativada (o padrão é **verdadeiro** .)
+- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Monitoring Da](../../role-based-access-control/built-in-roles.md#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro** .)
 - Quaisquer destinatários de e-mail adicionais que devam receber uma notificação quando uma deteção é encontrada.
-    -  A configuração de e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_.
+    -  A configuração de e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_ .
 
-Para permitir configurar as definições de regras através do Azure Resource Manager, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs**.
+Para permitir configurar as definições de regras através do Azure Resource Manager, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs** .
 Para uma flexibilidade máxima, cada regra de deteção inteligente pode ser configurada com configurações de notificação únicas.
 
 ## <a name="examples"></a>Exemplos
@@ -44,7 +44,7 @@ Certifique-se de substituir o nome do recurso Application Insights e de especifi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -75,7 +75,7 @@ Certifique-se de substituir o nome do recurso Application Insights e de especifi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -106,7 +106,7 @@ Certifique-se de substituir o nome do recurso Application Insights e de especifi
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -120,7 +120,7 @@ Certifique-se de substituir o nome do recurso Application Insights e de especifi
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310259"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890773"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adicione uma camada de extrusão de polígono ao mapa
 
-Este artigo mostra-lhe como usar a camada de extrusão do polígono para tornar áreas `Polygon` e `MultiPolygon` características geometrias como formas extrudidas. O Azure Maps Web SDK suporta a renderização de geometrias circle, tal como definido no [esquema alargado de GeoJSON.](extend-geojson.md#circle) Estes círculos podem ser transformados em polígonos quando renderizados no mapa. Todas as geometrias de características podem ser facilmente atualizadas quando embrulhadas com o [atlas. Classe de](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) forma.
+Este artigo mostra-lhe como usar a camada de extrusão do polígono para tornar áreas `Polygon` e `MultiPolygon` características geometrias como formas extrudidas. O Azure Maps Web SDK suporta a renderização de geometrias circle, tal como definido no [esquema alargado de GeoJSON.](extend-geojson.md#circle) Estes círculos podem ser transformados em polígonos quando renderizados no mapa. Todas as geometrias de características podem ser facilmente atualizadas quando embrulhadas com o [atlas. Classe de](/javascript/api/azure-maps-control/atlas.shape) forma.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Use uma camada de extrusão de polígono
 
-Ligue a [camada de extrusão do polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a uma fonte de dados. Depois, carreguei-o no mapa. A camada de extrusão do polígono torna as áreas de um `Polygon` e `MultiPolygon` apresenta-se como formas extrudidas. As  `height` propriedades e propriedades da camada de `base` extrusão do polígono definem a distância de base do solo e da altura da forma extrudida em **metros**. O código que se segue mostra como criar um polígono, adicioná-lo a uma fonte de dados, e torná-lo usando a classe de camada de extrusão do Polygon.
+Ligue a [camada de extrusão do polígono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a uma fonte de dados. Depois, carreguei-o no mapa. A camada de extrusão do polígono torna as áreas de um `Polygon` e `MultiPolygon` apresenta-se como formas extrudidas. As  `height` propriedades e propriedades da camada de `base` extrusão do polígono definem a distância de base do solo e da altura da forma extrudida em **metros** . O código que se segue mostra como criar um polígono, adicioná-lo a uma fonte de dados, e torná-lo usando a classe de camada de extrusão do Polygon.
 
 > [!Note]
 > O `base` valor definido na camada de extrusão do polígono deve ser inferior ou igual ao da `height` .
@@ -45,7 +45,7 @@ Veja o mapa do choropleth da Pen <a href='https://codepen.io/azuremaps/pen/eYYYN
 
 ## <a name="add-a-circle-to-the-map"></a>Adicione um círculo ao mapa
 
-O Azure Maps utiliza uma versão estendida do esquema GeoJSON que fornece uma definição para círculos como aqui [se](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)nota. Um círculo extrudido pode ser renderizado no mapa criando uma `point` característica com uma propriedade e uma propriedade `subType` `Circle` numerada `Radius` representando o raio em **metros**. Por exemplo:
+O Azure Maps utiliza uma versão estendida do esquema GeoJSON que fornece uma definição para círculos como aqui [se](./extend-geojson.md#circle)nota. Um círculo extrudido pode ser renderizado no mapa criando uma `point` característica com uma propriedade e uma propriedade `subType` `Circle` numerada `Radius` representando o raio em **metros** . Por exemplo:
 
 ```javascript
 {
@@ -83,10 +83,10 @@ A camada de extrusão polygon tem várias opções de estilo. Aqui está uma fer
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polígono](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [camada de extrusão de polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [camada de extrusão de polígono](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 Recursos adicionais:
 

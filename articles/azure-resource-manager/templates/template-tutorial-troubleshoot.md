@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119349"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891810"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Implementações de modelos de braço de resolução de problemas
 
@@ -43,8 +43,8 @@ Para concluir este artigo, precisa de:
 
 Abra um modelo chamado Criar uma conta de [armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/) a partir de [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/), e configurar dois problemas de modelo.
 
-1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros**.
-2. em **Nome de ficheiro**, cole o seguinte URL:
+1. A partir do Código do Estúdio Visual, selecione Ficheiro Aberto **de** > **Ficheiros** .
+2. em **Nome de ficheiro** , cole o seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
@@ -72,7 +72,7 @@ Você receberá um erro da concha semelhante a:
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-A mensagem de erro indica que o problema é com **apiVersion1**.
+A mensagem de erro indica que o problema é com **apiVersion1** .
 
 Utilize o Código do Estúdio Visual para corrigir o problema alterando **a apiVersion1** para **apiVersion ,** e, em seguida, guarde o modelo.
 
@@ -96,19 +96,19 @@ O erro de implantação pode ser encontrado a partir do portal Azure utilizando 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o grupo de recursos selecionando **grupos de recursos** e, em seguida, o nome do grupo de recursos. Verá **1 Falhado** no âmbito **da implantação.**
 
-    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
-3. Selecione **detalhes de erro**.
+    ![Screenshot que realça a implementação falhada.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+3. Selecione **detalhes de erro** .
 
-    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Screenshot que realça a ligação de detalhes de Erro.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     A mensagem de erro é a mesma que foi mostrada anteriormente:
 
-    ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Screenshot que mostra os detalhes do erro.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 Também pode encontrar o erro a partir dos registos de atividade:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **log**  >  **de atividade do**monitor .
+2. Selecione **log**  >  **de atividade do** monitor .
 3. Utilize os filtros para encontrar o registo.
 
     ![Resolução de problemas tutoriais do Gestor de Recursos](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -122,7 +122,7 @@ Para obter uma lista de erros comuns, consulte [os erros comuns de implementaç�
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
 1. A partir do portal Azure, selecione Grupo de **Recursos** do menu esquerdo.
-2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
+2. Introduza o nome do grupo de recursos no campo **Filtrar por nome** .
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
 4. **Selecione Eliminar o grupo** de recursos do menu superior.
 

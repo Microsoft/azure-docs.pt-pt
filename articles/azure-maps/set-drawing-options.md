@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b40dbd91357038d1e98b04628bd866ebb336381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95a04d763fa5982181cc1c797bce969d9857ae4b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890637"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utilizar o módulo de ferramentas de desenho
 
-O Azure Maps Web SDK fornece um módulo de *ferramentas de desenho.* Este módulo facilita a desenhei e edita formas no mapa utilizando um dispositivo de entrada, como um rato ou um ecrã tátil. A classe central deste módulo é o [gestor de desenho.](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-) O gestor de desenho fornece todas as capacidades necessárias para desenhar e editar formas no mapa. Pode ser usado diretamente, e é integrado com uma barra de ferramentas personalizada UI. Também pode utilizar a aula de barra de [ferramentas](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) incorporada. 
+O Azure Maps Web SDK fornece um módulo de *ferramentas de desenho.* Este módulo facilita a desenhei e edita formas no mapa utilizando um dispositivo de entrada, como um rato ou um ecrã tátil. A classe central deste módulo é o [gestor de desenho.](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-) O gestor de desenho fornece todas as capacidades necessárias para desenhar e editar formas no mapa. Pode ser usado diretamente, e é integrado com uma barra de ferramentas personalizada UI. Também pode utilizar a aula de barra de [ferramentas](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) incorporada. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carregar o módulo de ferramentas de desenho numa página web
 
-1. Crie um novo ficheiro HTML e [implemente o mapa como de costume.](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)
+1. Crie um novo ficheiro HTML e [implemente o mapa como de costume.](./how-to-use-map-control.md)
 2. Carregue o módulo de ferramentas de desenho Azure Maps. Pode carregá-lo de duas maneiras:
     - Utilize a versão globalmente hospedada da Rede de Entrega de Conteúdos Azure do módulo de serviços Azure Maps. Adicione referência à folha de estilo JavaScript e CSS no `<head>` elemento do ficheiro:
 
@@ -44,7 +44,7 @@ O Azure Maps Web SDK fornece um módulo de *ferramentas de desenho.* Este módul
 
 ## <a name="use-the-drawing-manager-directly"></a>Use o gestor de desenho diretamente
 
-Uma vez que o módulo de ferramentas de desenho é carregado na sua aplicação, pode ativar as capacidades de desenho e edição utilizando o [gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Pode especificar opções para o gestor de desenho durante a instantânea ou utilizar a `drawingManager.setOptions()` função em alternativa.
+Uma vez que o módulo de ferramentas de desenho é carregado na sua aplicação, pode ativar as capacidades de desenho e edição utilizando o [gestor de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Pode especificar opções para o gestor de desenho durante a instantânea ou utilizar a `drawingManager.setOptions()` função em alternativa.
 
 ### <a name="set-the-drawing-mode"></a>Definir o modo de desenho
 
@@ -122,10 +122,10 @@ Saiba como utilizar características adicionais do módulo de ferramentas de des
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Gestor de desenho](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Barra de ferramentas de desenho](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

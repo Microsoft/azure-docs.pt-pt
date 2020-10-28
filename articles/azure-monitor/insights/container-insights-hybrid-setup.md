@@ -3,12 +3,12 @@ title: Configure Híbrido Kubernetes clusters com Monitor Azure para contentores
 description: Este artigo descreve como pode configurar o Azure Monitor para contentores para monitorizar os aglomerados de Kubernetes alojados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994447"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890467"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure híbrido Kubernetes clusters com Monitor Azure para contentores
 
@@ -16,14 +16,12 @@ O Azure Monitor para contentores proporciona uma rica experiência de monitoriza
 
 ## <a name="supported-configurations"></a>Configurações suportadas
 
-As seguintes configurações são oficialmente suportadas com o Azure Monitor para contentores.
+As seguintes configurações são oficialmente suportadas com o Azure Monitor para contentores. Se tiver uma versão diferente de Kubernetes e versões do sistema operativo, por favor envie um e-mail para askcoin@microsoft.com .
 
 - Ambientes:
 
     - Kubernetes no local
-    
-    - Motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
-    
+    - Motor AKS em Azure e Azure Stack. Para mais informações, consulte [o motor AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
     - [Versão OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 4 e superior, no local ou outros ambientes em nuvem.
 
 - As versões de Kubernetes e a política de suporte são as mesmas que as versões [suportadas pela AKS.](../../aks/supported-kubernetes-versions.md)
@@ -94,7 +92,7 @@ Este método inclui dois modelos JSON. Um modelo especifica a configuração par
 - **workspaceResourceId** - o ID completo do seu espaço de trabalho Log Analytics.
 - **workspaceRegion** - a região em que o espaço de trabalho é criado, que também é referido como **Localização** nas propriedades do espaço de trabalho ao visualizar a partir do portal Azure.
 
-Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics necessário para o valor do `workspaceResourceId` parâmetro nocontainerSolutionParams.js** no** ficheiro, execute os seguintes passos e, em seguida, execute o comando PowerShell cmdlet ou Azure CLI para adicionar a solução.
+Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics necessário para o valor do `workspaceResourceId` parâmetro nocontainerSolutionParams.js **no** ficheiro, execute os seguintes passos e, em seguida, execute o comando PowerShell cmdlet ou Azure CLI para adicionar a solução.
 
 1. Listar todas as subscrições a que tem acesso utilizando o seguinte comando:
 
@@ -110,7 +108,7 @@ Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    Copie o valor para **SubscriçãoId**.
+    Copie o valor para **SubscriçãoId** .
 
 2. Mude para a subscrição que hospeda o espaço de trabalho Log Analytics utilizando o seguinte comando:
 
@@ -124,7 +122,7 @@ Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, encontre o nome do espaço de trabalho e, em seguida, copie o ID completo do recurso daquele espaço de trabalho Log Analytics sob o **ID**de campo .
+    Na saída, encontre o nome do espaço de trabalho e, em seguida, copie o ID completo do recurso daquele espaço de trabalho Log Analytics sob o **ID** de campo .
 
 4. Copie e cole a seguinte sintaxe JSON no seu ficheiro:
 
@@ -204,7 +202,7 @@ Para primeiro identificar o ID completo do seu espaço de trabalho Log Analytics
     }
     ```
 
-7. Editar os valores para **workspaceResourceId** utilizando o valor copiado no passo 3, e para o **espaço de trabalho Aregiona** o valor da **Região** depois de executar o show de espaço de trabalho de [log-analytics do](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list)comando Azure CLI monitor.
+7. Editar os valores para **workspaceResourceId** utilizando o valor copiado no passo 3, e para o **espaço de trabalho Aregiona** o valor da **Região** depois de executar o show de espaço de trabalho de [log-analytics do](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true)comando Azure CLI monitor.
 
 8. Guarde este ficheiro à medida que containerSolutionParams.jsnuma pasta local.
 
@@ -260,13 +258,13 @@ Nesta secção instale o agente contentorizado para o Azure Monitor para recipie
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    Na saída, encontre o nome do espaço de trabalho sob o **nome**de campo e, em seguida, copie o ID do espaço de trabalho desse log analytics sob o **cliente de campoID**.
+    Na saída, encontre o nome do espaço de trabalho sob o **nome** de campo e, em seguida, copie o ID do espaço de trabalho desse log analytics sob o **cliente de campoID** .
 
 2. Executar o seguinte comando para identificar a chave primária para o espaço de trabalho:
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    Na saída, encontre a chave primária sob o campo **primarySharedKey**e, em seguida, copie o valor.
+    Na saída, encontre a chave primária sob o campo **primarySharedKey** e, em seguida, copie o valor.
 
 >[!NOTE]
 >Os seguintes comandos são aplicáveis apenas para a versão Helm 2. A utilização do `--name` parâmetro não é aplicável com a versão Helm 3. 
@@ -277,14 +275,14 @@ Nesta secção instale o agente contentorizado para o Azure Monitor para recipie
 3. Adicione o repositório de gráficos Azure à sua lista local executando o seguinte comando:
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. Instale o gráfico executando o seguinte comando:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     Se o espaço de trabalho Log Analytics estiver no Azure China 21Vianet, executar o seguinte comando:
@@ -355,7 +353,7 @@ Se especificar o protocolo como **http,** os pedidos HTTP são criados utilizand
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se encontrar um erro ao tentar ativar a monitorização do seu cluster híbrido Kubernetes, copie o script PowerShell [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) e guarde-o numa pasta no seu computador. Este script é fornecido para ajudar a detetar e corrigir os problemas encontrados. As questões que se destinam a detetar e tentar corrigir são as seguintes:
+Se encontrar um erro ao tentar ativar a monitorização do seu cluster híbrido Kubernetes, copie o script PowerShell [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) e guarde-o numa pasta no seu computador. Este script é fornecido para ajudar a detetar e corrigir os problemas encontrados. As questões que se destinam a detetar e tentar corrigir são as seguintes:
 
 - O espaço de trabalho especificado log analytics é válido
 - O espaço de trabalho Log Analytics está configurado com a solução Azure Monitor for Containers. Caso contrário, configuure o espaço de trabalho.

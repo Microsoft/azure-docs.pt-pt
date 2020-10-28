@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b2cab814d4e51c4eb0c3ce3322b898f5b26414
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036815"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889771"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir aos eventos do Azure Maps utilizando a Grade de Eventos
 
 O Azure Maps integra-se com a Azure Event Grid, para que os utilizadores possam enviar notificações de eventos para outros serviços e desencadear processos a jusante. O objetivo deste artigo é ajudá-lo a configurar as suas aplicações de negócio para ouvir os eventos do Azure Maps. Isto permite que os utilizadores reajam a eventos críticos de forma fiável, escalável e segura. Por exemplo, os utilizadores podem construir uma aplicação para atualizar uma base de dados, criar um bilhete e entregar uma notificação por e-mail, sempre que um dispositivo introduz uma geofence.
 
-A azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido, que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [Azure Logic Apps.](https://docs.microsoft.com/azure/azure-functions/functions-overview) Pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](https://docs.microsoft.com/azure/event-grid/overview).
+A azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido, que utiliza um modelo de subscrição de publicação. A Event Grid tem suporte integrado para serviços Azure, como [Azure Functions](../azure-functions/functions-overview.md) e [Azure Logic Apps.](../azure-functions/functions-overview.md) Pode fornecer alertas de eventos para serviços não-Azure usando webhooks. Para obter uma lista completa dos manipuladores de eventos que a Grade de Eventos suporta, consulte [uma introdução à Grelha de Eventos Azure](../event-grid/overview.md).
 
 
 ![Modelo funcional da Grelha de Eventos Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -28,7 +28,7 @@ A azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido
 
 ## <a name="azure-maps-events-types"></a>Tipos de eventos Azure Maps
 
-A grelha de eventos utiliza [subscrições de eventos](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para encaminhar mensagens de evento para assinantes. Uma conta Azure Maps emite os seguintes tipos de eventos: 
+A grelha de eventos utiliza [subscrições de eventos](../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. Uma conta Azure Maps emite os seguintes tipos de eventos: 
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |

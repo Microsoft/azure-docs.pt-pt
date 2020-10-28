@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519661"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891507"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -44,11 +44,13 @@ Existem vários pré-requisitos a considerar antes de tentar ativar a auto-produ
 - Apenas VMs do Servidor windows
 - Os VMs devem estar a funcionar
 - Os VMs devem estar numa região apoiada
-- O utilizador deve ter permissões corretas
-- Os VMs não devem ligar-se a um espaço de trabalho de análise de registo numa subscrição diferente
+- O utilizador deve ter permissões corretas (ver parágrafo abaixo)
 - Automanage não suporta subscrições sandbox neste momento
 
-É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+Tem de ter a função **de Contribuinte** no grupo de recursos que contém os seus VMs para ativar a auto-gestão em VMs utilizando uma Conta de Automanagem existente. Se estiver a habilitar a autoadministração com uma nova Conta de Autoadministração, necessita das seguintes permissões na sua subscrição: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.** 
+
+> [!NOTE]
+> Se pretender utilizar a Automanage num VM que esteja ligado a um espaço de trabalho numa subscrição diferente, deve ter as permissões acima descritas em cada subscrição.
 
 É igualmente importante notar que a Automanage apenas suporta vMs Windows localizados nas seguintes regiões: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental DOS EUA.
 
@@ -67,7 +69,7 @@ Para todos estes serviços, iremos automaticamente embarcar, configurar automati
 
 No portal Azure, pode ativar a Automanagem numa máquina virtual existente ou quando estiver a criar uma nova máquina virtual. Para obter passos concisos para este processo, consulte a [Automanage para máquinas virtuais de arranque rápido](quick-create-virtual-machines-portal.md).
 
-Se é a primeira vez que permite a auto-produção para o seu VM, pode pesquisar no portal Azure para **automanage – Azure virtual machine as melhores práticas**. Clique **em Ativar em VM existente,** selecione os VMs que gostaria de embarcar, clique em **Select**, click **Enable**, e está feito.
+Se é a primeira vez que permite a auto-produção para o seu VM, pode pesquisar no portal Azure para **automanage – Azure virtual machine as melhores práticas** . Clique **em Ativar em VM existente,** selecione os VMs que gostaria de embarcar, clique em **Select** , click **Enable** , e está feito.
 
 A única altura em que poderá ter de interagir com este VM para gerir estes serviços é no caso de tentarmos remediar o seu VM, mas não o fizemos. Se remediarmos com sucesso o seu VM, vamos trazê-lo de volta ao cumprimento sem sequer alertá-lo.
 
@@ -105,7 +107,7 @@ A Conta De Auto-Produção é o contexto de segurança ou a identidade em que oc
 Na experiência do portal Azure, quando está a permitir a auto-managem nos seus VMs, existe uma queda avançada na lâmina **de boas práticas enable Azure VM** que lhe permite atribuir ou criar manualmente a Conta de Auto-managem.
 
 > [!NOTE]
-> É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessário ter a função **de Contribuinte** no grupo de recursos que contém os seus VMs para ativar a auto-gestão em VMs utilizando uma Conta de Automanagem existente. Se estiver a habilitar a autoadministração com uma nova Conta de Autoadministração, necessita das seguintes permissões na sua subscrição: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 
 ## <a name="status-of-vms"></a>Estatuto dos VM
@@ -121,7 +123,7 @@ A coluna **Status** pode apresentar os seguintes estados:
 - *Configurado* - o VM está configurado e não é detetada nenhuma deriva
 - *Falhado* - o VM tem derivado e nós não fomos capazes de remediar
 
-Se vir o **Estado** como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos**, selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
+Se vir o **Estado** como *Falhado,* pode resolver problemas de resolução através do Grupo de Recursos onde se encontra o seu VM. Vá aos **grupos de Recursos** , selecione o seu grupo de recursos, clique em **Implementações** e veja o estado *de Falha* lá juntamente com detalhes de erro.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Automanagem incapacitante para VMs
@@ -132,7 +134,7 @@ Para isso no portal Azure, vá à página **de boas práticas da máquina virtua
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Inteligentemente a bordo de serviços.":::
 
-Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
+Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento** .
 
 > [!NOTE]
 > A desativação da auto-gestão num VM resulta no seguinte comportamento:

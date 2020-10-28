@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: fc9c5e1f5922543ea14b13e3e5b424190dbbfb7a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329649"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892202"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
@@ -110,12 +110,15 @@ O JSON seguinte mostra o esquema para a extensão do Agente Desanal. A extensão
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
+| typeHandlerVersion | 1.13 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRsGo9TXffbrTahyrwv35W0pOqQAUUQ== |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
+
+>[!NOTE]
+>Certos componentes da extensão VM log analytics também são enviados na [extensão VM de Diagnóstico](./diagnostics-linux.md). Devido a esta arquitetura, podem surgir conflitos se ambas as extensões forem instantâneas no mesmo modelo ARM. Para evitar estes conflitos de tempo de instalação, utilize a [ `dependsOn` diretiva](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) para garantir que as extensões são instaladas sequencialmente. As extensões podem ser instaladas em qualquer ordem.
 
 As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando se implanta uma ou mais máquinas virtuais que requerem configuração de implementação de posts, como a bordo de Registos monitores Azure. Um modelo de gestor de recursos de amostra que inclui a extensão VM do Agente de Analítica de Log pode ser encontrado na [Galeria Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
@@ -135,7 +138,7 @@ O exemplo a seguir pressupõe que a extensão VM está aninhada dentro do recurs
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -160,7 +163,7 @@ Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma refe
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +176,7 @@ Ao colocar a extensão JSON na raiz do modelo, o nome do recurso inclui uma refe
 
 ## <a name="azure-cli-deployment"></a>Implantação do Azure CLI
 
-O CLI Azure pode ser usado para implantar a extensão VM do Agente De Analítica de Log para uma máquina virtual existente. Substitua o valor *myWorkspaceKey* abaixo pela tecla do espaço de trabalho e pelo valor *myWorkspaceId* pelo seu ID do espaço de trabalho. Estes valores podem ser encontrados no seu espaço de trabalho Log Analytics no portal Azure em *Definições Avançadas*. 
+O CLI Azure pode ser usado para implantar a extensão VM do Agente De Analítica de Log para uma máquina virtual existente. Substitua o valor *myWorkspaceKey* abaixo pela tecla do espaço de trabalho e pelo valor *myWorkspaceId* pelo seu ID do espaço de trabalho. Estes valores podem ser encontrados no seu espaço de trabalho Log Analytics no portal Azure em *Definições Avançadas* . 
 
 ```azurecli
 az vm extension set \
@@ -181,7 +184,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
