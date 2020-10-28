@@ -59,13 +59,13 @@
         - name: Controlo de acesso baseado em funções
           displayName: rbac
           href: role-based-access-control.md
+        - name: Suporte do Azure Policy
+          href: policy.md
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
-        - name: Suporte do Azure Policy
-          href: policy.md
     - name: Analytics com Azure Synapse Link
       items:
         - name: Azure Synapse Link para Cosmos DB
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: Conceitos
       items:
-        - name: Dados de documento do modelo
-          displayName: document
-          href: modeling-data.md
-        - name: Criação de partições
+        - name: Modelação e criação de partições
           items:
+            - name: Dados de documento do modelo
+              displayName: document
+              href: modeling-data.md
+            - name: 'Modelação e criação de partições: um exemplo real'
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: Chave de partição sintética
               href: synthetic-partition-keys.md
         - name: Consulta SQL
@@ -631,13 +634,13 @@
           items:
             - name: Débito aprovisionado
               items:
-                - name: Aprovisionar débito (manual) padrão num contentor
+                - name: Aprovisionar débito padrão (manual) - contentor
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: Aprovisionar débito (manual) padrão numa base de dados
+                - name: Aprovisionar débito padrão (manual) - base de dados
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: Aprovisionar débito de dimensionamento automático numa base de dados ou num contentor
+                - name: Aprovisionar débito de dimensionamento automático - base de dados ou contentor
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: Estimar RU/s com o planeador de capacidade Cosmos
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: Consultar um contentor
               href: how-to-query-container.md
-            - name: 'Modelação e partição de dados: um exemplo real'
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: Migrar para os contentores particionados
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: Configurar TTL
@@ -1179,8 +1179,6 @@
       items:
         - name: Cabeçalhos de Resposta
           href: gremlin-headers.md
-        - name: Limites
-          href: gremlin-limits.md
         - name: Fornecedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modelo do Resource Manager

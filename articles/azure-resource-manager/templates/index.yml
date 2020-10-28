@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 07/30/2020
-  ms.openlocfilehash: eda40d7dafa2c9946798067622e2732cf9de738d
-  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+  ms.date: 10/26/2020
+  ms.openlocfilehash: e69daf8f2756a165b000df271bffa73f8b14a979
+  ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/20/2020
-  ms.locfileid: "92282486"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92747258"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -107,20 +107,26 @@ landingContent:
       url: deploy-rest.md
     - text: Botão Implementar no Azure
       url: deploy-to-azure-button.md
+    - text: Cloud Shell
+      url: deploy-cloud-shell.md
     - text: Implementação de Hipóteses
       url: template-deploy-what-if.md
 - title: Implementações no âmbito
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Grupo de recursos
+      url: deploy-to-resource-group.md
     - text: Subscrição
       url: deploy-to-subscription.md
     - text: Grupo de gestão
       url: deploy-to-management-group.md
     - text: Inquilino
       url: deploy-to-tenant.md
-    - text: Implementações entre âmbitos
-      url: cross-scope-deployment.md
+    - text: Controlo do âmbito dos recursos de extensão
+      url: scope-extension-resources.md
+    - text: Funções de modelo entre âmbitos
+      url: scope-functions.md
 - title: Explorar conteúdo de referência
   linkLists:
   - linkListType: reference

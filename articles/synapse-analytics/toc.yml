@@ -20,7 +20,7 @@
           href: get-started-analyze-sql-on-demand.md
         - name: 5 Analisar dados numa conta de armazenamento
           href: get-started-analyze-storage.md
-        - name: 6 Orquestrar com pipelines
+        - name: 6 Integrar nos pipelines
           href: get-started-pipelines.md
         - name: 7 Visualizar com o Power BI
           href: get-started-visualize-power-bi.md
@@ -42,7 +42,8 @@
       href: quickstart-create-workspace-cli.md
     - name: Criar uma área de trabalho do Azure Synapse Analytics com o Azure PowerShell
       href: quickstart-create-workspace-powershell.md
-    - name: Implementar com um modelo
+    - name: Implementar com um modelo do ARM
+      displayName: Resource Manager
       href: quickstart-deployment-template-workspaces.md
     - name: Associar uma Área de trabalho do Power BI
       href: quickstart-power-bi.md
@@ -168,7 +169,7 @@
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Encriptação de Dados Transparente com Bring Your Own Key
               href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Integração e orquestração
+    - name: Integração
       items:
         - name: Pipeline e atividade
           href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -558,7 +559,7 @@
               href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Janela
               href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Integrar e Orquestrar
+    - name: Integrar
       items:
         - name: Autor
           items:
@@ -893,8 +894,6 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Resolução de problemas do conector
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Resolução de problemas da ferramenta Copiar Dados
-              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Resolução de problemas dos Runtimes de Integração Autoalojados
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Ligar ferramentas às áreas de trabalho do Azure Synapse

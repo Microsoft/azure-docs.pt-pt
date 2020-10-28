@@ -134,6 +134,10 @@
               href: microsoft-compute-sizeselector.md
             - name: UserNameTextBox
               href: microsoft-compute-usernametextbox.md
+        - name: Cofre de Chaves
+          items:
+            - name: KeyVaultCertificateSelector
+              href: microsoft-keyvault-keyvaultcertificateselector.md
         - name: Identidade Gerida
           items:
             - name: IdentitySelector
@@ -156,6 +160,8 @@
               href: microsoft-storage-multistorageaccountcombo.md
             - name: StorageAccountSelector
               href: microsoft-storage-storageaccountselector.md
+            - name: StorageBlobSelector
+              href: microsoft-storage-storageblobselector.md
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: 882b492f3041d225b3861ddcfb36934649b3e987
-  ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+  ms.openlocfilehash: ca210f144d56aa56ddbcb959e0240bd4816dc3af
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92200938"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92547117"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -26,6 +26,9 @@ highlightedContent:
   - title: Novidades no Docs?
     itemType: whats-new
     url: whats-new-docs.md
+  - title: Opções de desenvolvimento
+    itemType: concept
+    url: ./cognitive-services-development-options.md
   - title: Serviços Cognitivos e aprendizagem automática
     itemType: concept
     url: ./cognitive-services-and-machine-learning.md
@@ -38,9 +41,6 @@ highlightedContent:
   - title: Suporte de idiomas
     itemType: reference
     url: ./language-support.md
-  - title: Segurança
-    itemType: concept
-    url: cognitive-services-security.md
   - title: Opções de suporte e ajuda
     itemType: reference
     url: ./cognitive-services-support-options.md

@@ -161,6 +161,8 @@
       href: ../../service-bus-messaging/security-baseline.md
     - name: Linha de base do Service Fabric
       href: ../../service-fabric/security-baseline.md
+    - name: Linha de base do Site Recovery
+      href: ../../site-recovery/security-baseline.md
     - name: Linha de base de segurança do Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Linha de base de segurança do Synapse Analytics

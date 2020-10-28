@@ -139,14 +139,16 @@
                   href: azure-vm-create-certification-faq.md
     - name: Serviços de consultadoria
       items:
-        - name: Planear uma oferta de serviços de consultoria
-          href: consulting-services.md
-        - name: Criar e publicar uma oferta de serviços de consultoria
-          items:
-            - name: Pré-requisitos
-              href: partner-center-portal/consulting-service-prerequisites.md
-            - name: Criar uma oferta de serviço de consultoria
-              href: partner-center-portal/create-consulting-service-offer.md
+        - name: Planear uma oferta de serviço de consultoria
+          href: plan-consulting-service-offer.md
+        - name: Criar uma oferta de serviço de consultoria
+          href: create-consulting-service-offer.md
+        - name: Configurar as propriedades do serviço de consultoria
+          href: create-consulting-service-offer-properties.md
+        - name: Configurar a listagem do serviço de consultoria
+          href: create-consulting-service-offer-listing.md
+        - name: Configurar preços e disponibilidade
+          href: create-consulting-service-pricing-availability.md
     - name: Ofertas do Dynamics 365
       items:
         - name: Planear uma oferta do Dynamics 365

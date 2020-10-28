@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Cobertura de funcionalidades para recursos do Azure PaaS
           href: features-paas.md
-    - name: Novidades do Centro de Segurança
-      displayName: release notes
-      href: release-notes.md
+    - name: Novidades
+      items:
+        - name: Notas de versão
+          displayName: changelog
+          href: release-notes.md
+        - name: Alterações futuras importantes
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Notas de versão arquivadas (com mais de seis meses)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Princípios básicos do Centro de Segurança
       items:
         - name: Página de descrição geral do Centro de Segurança
@@ -217,8 +225,13 @@
         - name: Personalizar a política de proteção predefinida
           href: security-center-info-protection-policy.md
     - name: Utilizar o Azure Defender para registos de contentores
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Arquivar as imagens de registo para encontrar vulnerabilidades
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Desativar descobertas específicas de vulnerabilidades de imagens
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Exportar alertas e recomendações
       items:
         - name: 'Exportar para SIEM, SOAR ou ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Utilizadores existentes do Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Arquivo de novidades do Centro de Segurança
-      href: release-notes-archive.md
     - name: Blogue do mapa do Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Avaliação e recomendações da proteção de ponto final
