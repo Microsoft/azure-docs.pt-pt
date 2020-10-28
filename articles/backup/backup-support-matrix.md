@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332717"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743132"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -151,7 +151,7 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas azure e nuvens soberanas.  |
-| SQL /SAP HANA | Sim                                                          | West US 2 (WUS2), West Central US (WCUS), Canadá Central (CNC), Canadá Leste (CNE), Leste dos EUA (EUS), EUA Ocidentais (WUS), Japão Leste (JPE), Japão Leste (JPE) |
+| SQL /SAP HANA | Sim                                                          | Todas as regiões públicas, com exceção da França |
 | Agente MARS/Nas instalações  | Não                                                           | N/D               |
 | AFS (ações de ficheiros Azure)                 | Não                                                           | N/D               |
 

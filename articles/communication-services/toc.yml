@@ -84,6 +84,8 @@
       href: concepts/logging-and-diagnostics.md
     - name: Métricas
       href: concepts/metrics.md
+    - name: Resolução de problemas
+      href: concepts/troubleshooting-info.md
 - name: Amostras
   items:
     - name: Exemplo de destaque das chamadas em grupo
@@ -105,4 +107,4 @@
 - name: Recursos
   items:
     - name: Notas de versão
-      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'

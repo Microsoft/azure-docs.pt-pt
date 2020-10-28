@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742523"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/).
+Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -41,15 +41,16 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Um caderno é um ambiente interativo que suporta várias linguagens de programação. O caderno permite interagir com os seus dados, combinar código com marcação, texto e realizar visualizações simples.
 
-1. A partir da vista do portal Azure para o espaço de trabalho Azure Synapse que pretende utilizar, selecione **Launch Synapse Studio**.
-2. Assim que o Synapse Studio tiver sido lançado, **selecione Develop**. Então, paire sobre a entrada dos **Cadernos.** Selecione a elipse **(...**).
-3. A partir daí, selecione **Novo caderno.** Um novo caderno é criado e aberto com um nome gerado automaticamente.
-  ![Novo caderno](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Novo caderno")
+1. A partir da vista do portal Azure para o espaço de trabalho Azure Synapse que pretende utilizar, selecione **Launch Synapse Studio** .
+2. Assim que o Synapse Studio tiver sido lançado, **selecione Develop** . Em seguida, selecione o **+** ícone " " para adicionar um novo recurso.
+3. A partir daí, selecione **Caderno.** Um novo caderno é criado e aberto com um nome gerado automaticamente.
+ 
+     ![Novo caderno](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Novo caderno")
 
 4. Na janela **Propriedades,** forneça um nome para o caderno.
 5. Na barra de ferramentas, clique em **Publicar.**
 6. Se existe apenas uma piscina Apache Spark no seu espaço de trabalho, então é selecionada por padrão. Utilize o drop-down para selecionar a piscina Apache Spark correta se nenhuma for selecionada.
-7. Clique **em Adicionar código**. A língua padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é bom. Outras línguas suportadas são Scala e .NET para Spark.
+7. Clique **em Adicionar código** . A língua padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é bom. Outras línguas suportadas são Scala e .NET para Spark.
 8. Em seguida, cria-se um simples objeto Spark DataFrame para manipular. Neste caso, cria-se a partir do código. Há três linhas e três colunas:
 
    ```python
@@ -60,15 +61,15 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 
 9. Agora, executar a célula usando um dos seguintes métodos:
 
-   - MUDANÇA DE IMPRENSA **+ ENTER**.
+   - MUDANÇA DE IMPRENSA **+ ENTER** .
    - Selecione o ícone de reprodução azul para a esquerda da célula.
    - Selecione o botão **Executar todos os** botões na barra de ferramentas.
 
-   ![Criar objeto de quadro de dados](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Saída do trabalho de Faísca")
+       ![Criar objeto de quadro de dados](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Se a instância da piscina Apache Spark ainda não está em funcionamento, é automaticamente iniciada. Pode ver o estado da divisão Apache Spark abaixo da célula que está a executar e também no painel de estado na parte inferior do caderno. Dependendo do tamanho da piscina, o arranque deve demorar 2-5 minutos. Uma vez terminado o código, as informações abaixo dos ecrãs da célula mostram quanto tempo demorou a ser executado e a sua execução. Na célula de saída, vê-se a saída.
 
-    ![Saída da execução de uma célula](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Saída do trabalho de Faísca")
+    ![Saída da execução de uma célula](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. Os dados existem agora num DataFrame a partir daí, pode utilizar os dados de muitas maneiras diferentes. Vais precisar dele em formatos diferentes para o resto deste arranque rápido.
 12. Introduza o código abaixo em outra célula e execute-o, isto cria uma tabela Spark, um CSV, e um arquivo Parquet todos com cópias dos dados:
@@ -113,13 +114,13 @@ A Linguagem De Consulta Estruturada (SQL) é a língua mais comum e amplamente u
 
     ![Saída de consulta em Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Saída de consulta em Azure Synapse Spark")
 
-3. No comutador **'Ver',** selecione **Chart**.
+3. No comutador **'Ver',** selecione **Chart** .
 4. Selecione o ícone **de opções Ver** do lado direito.
 5. No campo **do tipo Gráfico,** selecione "gráfico de barras".
 6. No campo da coluna do eixo X, selecione "estado".
 7. No campo da coluna Y-axis, selecione "salário".
 8. No campo **agregação,** selecione para "AVG".
-9. Selecione **Aplicar**.
+9. Selecione **Aplicar** .
 
    ![Saída do gráfico em Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Saída do gráfico em Azure Synapse Spark")
 
@@ -131,7 +132,7 @@ A Linguagem De Consulta Estruturada (SQL) é a língua mais comum e amplamente u
 
 11. Cada uma das células que anteriormente executavam tinha a opção de ir ao **History Server** and **Monitor .** Clicar nos links leva-o a diferentes partes da Experiência do Utilizador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 A Azure Synapse guarda os seus dados no Azure Data Lake Storage. Pode deixar desligar uma instância Spark com segurança quando não estiver a ser utilizada. Você é cobrado para uma piscina Apache Spark Azure Synapse desde que esteja em funcionamento, mesmo quando não está a ser utilizado. 
 

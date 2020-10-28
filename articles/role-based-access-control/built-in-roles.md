@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 28de993f51b13e973edb0e42f138217cd35ab8dd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636702"
+ms.locfileid: "92742956"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -207,6 +207,8 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Colaborador de Pedido de Apoio](#support-request-contributor) | Permite criar e gerir pedidos de Suporte | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Colaborador da Tag](#tag-contributor) | Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias entidades. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **Outro** |  |  |
+> | [Proprietário de dados Azure Digital Twins](#azure-digital-twins-data-owner) | Papel de acesso completo para digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+> | [Leitor de dados de gémeos digitais Azure](#azure-digital-twins-data-reader) | Papel apenas para propriedades de data-plane de Gémeos Digitais | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [Colaborador bizTalk](#biztalk-contributor) | Permite-lhe gerir os serviços BizTalk, mas não ter acesso aos mesmos. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [Utilizador de Virtualização de Desktop](#desktop-virtualization-user) | Permite ao utilizador utilizar as aplicações num grupo de aplicações. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [Colaborador de Coleções de Trabalho do Programador](#scheduler-job-collections-contributor) | Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a elas. | 188a0f2f-5c9e-469b-ae67-2aaa5ce574b94 |
@@ -9211,6 +9213,102 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 
 ## <a name="other"></a>Outros
 
+
+### <a name="azure-digital-twins-data-owner"></a>Proprietário de dados Azure Digital Twins
+
+Papel de acesso completo para digital Twins data-plane [Saiba mais](../digital-twins/concepts-security.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/comandos/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/modelos/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/consulta/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access role for Digital Twins data-plane",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "name": "bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/eventroutes/*",
+        "Microsoft.DigitalTwins/digitaltwins/*",
+        "Microsoft.DigitalTwins/digitaltwins/commands/*",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/*",
+        "Microsoft.DigitalTwins/models/*",
+        "Microsoft.DigitalTwins/query/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-digital-twins-data-reader"></a>Leitor de dados de gémeos digitais Azure
+
+Papel apenas para as propriedades de data-plane das Gémeas Digitais [Saiba mais](../digital-twins/concepts-security.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Leia qualquer Twin Digital |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Leia qualquer relação digital twin |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Ler qualquer Rota do Evento |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/modelos/ler | Leia qualquer modelo |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/consulta/ação | Consulta qualquer gráfico de gémeos digitais |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only role for Digital Twins data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "name": "d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/digitaltwins/read",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/read",
+        "Microsoft.DigitalTwins/eventroutes/read",
+        "Microsoft.DigitalTwins/models/read",
+        "Microsoft.DigitalTwins/query/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### <a name="biztalk-contributor"></a>Colaborador bizTalk
 

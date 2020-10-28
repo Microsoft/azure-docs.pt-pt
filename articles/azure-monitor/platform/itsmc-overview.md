@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676974"
+ms.locfileid: "92745701"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
 
@@ -125,7 +125,7 @@ Utilize o seguinte procedimento:
 1. No portal Azure, clique em **Alertas.**
 2. No painel superior, clique em **Gerir Ações.** Aparece a janela **do grupo de ação Add.**
 
-    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
+    [![Grupos de ação](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. Selecione o Grupo **de Subscrição** e **Recursos** onde pretende criar o seu grupo de ação. Forneça o nome e o nome **do grupo** de **ação** para o seu grupo de ação. Clique em **Seguinte: Notificações** .
 
@@ -135,7 +135,7 @@ Utilize o seguinte procedimento:
 5. Na lista de Ações, selecione **ITSM** do menu suspenso para **o Tipo** de Ação . Forneça um **Nome** para a ação e clique na caneta que representa **detalhes de Edição.**
 6. Selecione a **Subscrição** onde está localizado o seu espaço de trabalho Log Analytics. Selecione o nome **De Ligação** (o nome ITSM Connector) seguido do nome do espaço de trabalho. Por exemplo, "MyITSMMConnector (MyWorkspace)."
 
-    ![Detalhes da ação itsm](media/itsmc-overview/itsm-action-details.png)
+    ![Detalhes da ação itsm](media/itsmc-overview/itsm-action-configuration.png)
 
 7. Selecione o item de **trabalho** do menu suspenso.
 

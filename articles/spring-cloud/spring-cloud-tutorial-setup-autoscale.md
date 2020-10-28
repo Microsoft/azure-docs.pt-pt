@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091071"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742674"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar autoescala para aplicações de microserviços
 
@@ -30,7 +30,7 @@ Para seguir estes procedimentos, é necessário:
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Navegue para a página autoescala no portal Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Vá à página geral da nuvem **de** primavera do Azure.
 3. Selecione o grupo de recursos que contém o seu serviço.
 4. Selecione o separador **Apps** em **Definições** no menu no painel de navegação esquerdo.

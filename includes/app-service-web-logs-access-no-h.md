@@ -7,13 +7,13 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 7803ac9009af1657e7f162d656898492a694e28f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84905872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743530"
 ---
 Para aceder aos registos da consola gerados a partir do código da sua aplicação no Serviço de Aplicações, ative o registo de diagnósticos ao executar o seguinte comando no [Cloud Shell](https://shell.azure.com):
 

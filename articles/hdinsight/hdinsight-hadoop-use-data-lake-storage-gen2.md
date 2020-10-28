@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332030"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744586"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -34,7 +34,7 @@ Data Lake Storage Gen2 está disponível como uma opção de armazenamento para 
 
 Utilize os seguintes links para instruções detalhadas sobre como criar clusters HDInsight com acesso à Data Lake Storage Gen2.
 
-* [Usando o Portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md)
+* [Utilizar o portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md)
 * [Utilizar a CLI do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md)
 * O PowerShell não é atualmente suportado para criar um cluster HDInsight com a Azure Data Lake Storage Gen2.
 
@@ -66,19 +66,19 @@ Para definir permissões para os utilizadores consultarem os dados, utilize os g
 
 Existem várias formas de aceder aos ficheiros em Data Lake Storage Gen2 a partir de um cluster HDInsight.
 
-* **Utilizar o nome completamente qualificado**. Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
+* **Utilizar o nome completamente qualificado** . Com esta abordagem, fornece o caminho completo para o ficheiro ao qual pretende aceder.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Utilizando o formato de caminho abreviado**. Com esta abordagem, você substitui o caminho até a raiz do cluster com:
+* **Utilizando o formato de caminho abreviado** . Com esta abordagem, você substitui o caminho até a raiz do cluster com:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Utilizar o caminho relativo**. Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
+* **Utilizar o caminho relativo** . Com esta abordagem, fornece apenas o caminho relativo para o ficheiro ao qual pretende aceder.
 
     ```
     /<file.path>/

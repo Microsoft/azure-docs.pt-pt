@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842534"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745984"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize o comando seguinte para criar um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize o comando seguinte para criar um grupo de recursos com o nome *myResourceGroup* na localização *eastus* .
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Criar o registo de contentor
 
-Crie uma instância do ACR com o comando `az acr create`. O nome do registo tem de ser exclusivo no Azure e conter de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado o nome *myContainerRegistry*. Se obtiver um erro a indicar que o nome do registo já está em utilização, escolha um nome diferente.
+Crie uma instância do ACR com o comando `az acr create`. O nome do registo tem de ser exclusivo no Azure e conter de 5 a 50 carateres alfanuméricos. No exemplo seguinte, é utilizado o nome *myContainerRegistry* . Se obtiver um erro a indicar que o nome do registo já está em utilização, escolha um nome diferente.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -156,7 +156,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-O exemplo seguinte lista as etiquetas no repositório **azure-mesh-todo-service**.
+O exemplo seguinte lista as etiquetas no repositório **azure-mesh-todo-service** .
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +196,9 @@ Uma aplicação do Service Fabric Mesh é um recurso do Azure que pode implement
 Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  Em vez de criar novos ficheiros de parâmetros e de modelo, transfira os ficheiros [de modelo de implementação de mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [de parâmetros de mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parâmetros
-Quando tiver valores no seu modelo que prevê alterar assim que a aplicação for implementada ou se gostaria de ter a opção para alterar numa base por implementação (se planear reutilizar este modelo para outras implementações), a prática recomendada é parametrizar os valores. A maneira certa de o fazer é criar uma secção "parâmetros" na parte superior do seu modelo de implementação, onde especifica os nomes e propriedades de parâmetros, que são referenciados mais tarde no modelo de implementação. Cada definição de parâmetro inclui *tipo*, *defaultValue* e uma secção opcional *metadados* com uma *descrição*.
+Quando tiver valores no seu modelo que prevê alterar assim que a aplicação for implementada ou se gostaria de ter a opção para alterar numa base por implementação (se planear reutilizar este modelo para outras implementações), a prática recomendada é parametrizar os valores. A maneira certa de o fazer é criar uma secção "parâmetros" na parte superior do seu modelo de implementação, onde especifica os nomes e propriedades de parâmetros, que são referenciados mais tarde no modelo de implementação. Cada definição de parâmetro inclui *tipo* , *defaultValue* e uma secção opcional *metadados* com uma *descrição* .
 
-A secção de parâmetros é definida na parte superior do seu modelo de implementação, mesmo antes da secção *recursos*:
+A secção de parâmetros é definida na parte superior do seu modelo de implementação, mesmo antes da secção *recursos* :
 
 ```json
 {

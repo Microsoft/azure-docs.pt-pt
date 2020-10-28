@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842874"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744717"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Pré-visualização: Aplicação de patches automática de convidado da VM para VMs do Windows no Azure
 
@@ -28,7 +28,7 @@ O patching automático de hóspedes VM tem as seguintes características:
 > [!IMPORTANT]
 > O patching automático de hóspedes VM está atualmente em Visualização Pública. É necessário um procedimento de opt-in para utilizar a funcionalidade de pré-visualização pública descrita abaixo.
 > Esta versão de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-does-automatic-vm-guest-patching-work"></a>Como funciona o patching automático de hóspedes VM?
 
@@ -80,17 +80,20 @@ Os VMs do Windows em Azure suportam agora os seguintes modos de orquestração d
 
 **AutomáticoByPlatform:**
 - Este modo permite o remendamento automático de hóspedes VM para a máquina virtual Windows e a subsequente instalação de patch é orquestrada pelo Azure.
+- Este modo é necessário para a primeira correção de disponibilidade.
 - A definição deste modo também desativa as atualizações automáticas nativas na máquina virtual do Windows para evitar duplicações.
 - Este modo é suportado apenas para VMs que são criados usando as imagens da plataforma oss suportadas acima.
 - Para utilizar este modo, desajuste a `osProfile.windowsConfiguration.enableAutomaticUpdates=true` propriedade, e de ajuste a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` no modelo VM.
 
 **AutomaticamenteByOS:**
 - Este modo permite atualizações automáticas na máquina virtual do Windows e os patches são instalados no VM através de Atualizações Automáticas.
+- Este modo não suporta a primeira correção de disponibilidade.
 - Este modo é definido por predefinição se não for especificado outro modo de correção.
 - Para utilizar este modo, definir a `osProfile.windowsConfiguration.enableAutomaticUpdates=true` propriedade, e definir a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` no modelo VM.
 
 **Manual:**
 - Este modo desativa atualizações automáticas na máquina virtual do Windows.
+- Este modo não suporta a primeira correção de disponibilidade.
 - Este modo deve ser definido quando se utilizam soluções de remendos personalizadas.
 - Para utilizar este modo, definir a `osProfile.windowsConfiguration.enableAutomaticUpdates=false` propriedade, e definir a propriedade  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` no modelo VM.
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [a az vm criar](/cli/azure/vm#az-vm-create) para permitir remendos automáticos de hóspedes VM ao criar um novo VM. O exemplo a seguir configura o patching automático de hóspedes VM para um VM nomeado *myVM* no grupo de recursos chamado *myResourceGroup*:
+Utilize [a az vm criar](/cli/azure/vm#az-vm-create) para permitir remendos automáticos de hóspedes VM ao criar um novo VM. O exemplo a seguir configura o patching automático de hóspedes VM para um VM nomeado *myVM* no grupo de recursos chamado *myResourceGroup* :
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

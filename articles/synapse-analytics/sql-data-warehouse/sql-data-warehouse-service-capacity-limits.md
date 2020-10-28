@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204987"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742462"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -61,8 +61,8 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Cargas de Polibase |MB por linha |1<br/><br/>As cargas de polibase são inferiores a 1 MB. O carregamento de tipos de dados LOB em tabelas com um Índice de Loja de Colunas Agrupados (CCI) não é suportado.<br/><br/> |
-||||
+| Cargas de Polibase |MB por linha |1<br/><br/>As cargas de polibase são inferiores a 1 MB. O carregamento de tipos de dados LOB em tabelas com um Índice de Loja de Colunas Agrupados (CCI) não é suportado.<br/> |
+|Cargas de Polibase|Número total de ficheiros|1 000 000<br/><br/>As cargas de base poli-base não podem exceder mais de 1M ficheiros. Pode experimentar o seguinte erro: **A operação falhou como contagem de divisão superior ao limite superior de 10000000** .|
 
 ## <a name="queries"></a>Consultas
 

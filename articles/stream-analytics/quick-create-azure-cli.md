@@ -8,20 +8,20 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 1613486880885a3b7838b1bf806c17f88e3be06d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ef4d63e30aeceec9cba3ae97f69afa1c299ec65
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86231272"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742738"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
 
 Neste arranque rápido, utiliza-se o CLI Azure para definir um trabalho stream Analytics que filtra mensagens de sensor em tempo real com uma leitura de temperatura superior a 27. O seu trabalho stream Analytics irá ler dados do IoT Hub, transformar os dados e escrever os dados de volta para um recipiente no armazenamento de bolhas. Os dados de entrada utilizados neste quickstart são gerados por um simulador online Raspberry Pi.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
@@ -71,7 +71,7 @@ Antes de definir o trabalho stream Analytics, prepare os dados utilizados para a
 
 Os seguintes blocos de código Azure CLI são comandos que preparam os dados de entrada exigidos pelo trabalho. Reveja as secções para compreender o código.
 
-1. Crie um Hub IoT utilizando o [hub az iot criar](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) comando. Este exemplo cria um hub IoT chamado **MyASAIoTHub**. Como os nomes do IoT Hub são únicos, tens de inventar o teu próprio nome IoT Hub. Desa estama o SKU para F1 para utilizar o nível livre se estiver disponível com a sua subscrição. Caso contrário, escolha o próximo nível mais baixo.
+1. Crie um Hub IoT utilizando o [hub az iot criar](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) comando. Este exemplo cria um hub IoT chamado **MyASAIoTHub** . Como os nomes do IoT Hub são únicos, tens de inventar o teu próprio nome IoT Hub. Desa estama o SKU para F1 para utilizar o nível livre se estiver disponível com a sua subscrição. Caso contrário, escolha o próximo nível mais baixo.
 
     ```azurecli
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
@@ -83,7 +83,7 @@ Os seguintes blocos de código Azure CLI são comandos que preparam os dados de 
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. Adicione um dispositivo ao IoT Hub utilizando o comando [de criação de identidade de dispositivo az iothub.](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) Este exemplo cria um dispositivo chamado **MyASAIoTDevice**.
+2. Adicione um dispositivo ao IoT Hub utilizando o comando [de criação de identidade de dispositivo az iothub.](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) Este exemplo cria um dispositivo chamado **MyASAIoTDevice** .
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -266,7 +266,7 @@ az stream-analytics job start
     --output-start-mode JobStartTime
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 

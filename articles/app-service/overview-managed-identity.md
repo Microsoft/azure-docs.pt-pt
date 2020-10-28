@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152086"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742500"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -35,9 +35,9 @@ Para configurar uma identidade gerida no portal, irá primeiro criar uma aplica�
 
 2. Se utilizar uma aplicação de função, navegue para **as funcionalidades da Plataforma.** Para outros tipos de **aplicativos,** desloque-se até ao grupo Definições na navegação à esquerda.
 
-3. Selecione **identidade**.
+3. Selecione **identidade** .
 
-4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar**. Clique em **Guardar**.
+4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar** . Clique em **Guardar** .
 
     ![Identidade gerida no Serviço de Aplicações](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -200,11 +200,11 @@ Primeiro, terá de criar um recurso de identidade atribuído ao utilizador.
 
 3. Se utilizar uma aplicação de função, navegue para **as funcionalidades da Plataforma.** Para outros tipos de **aplicativos,** desloque-se até ao grupo Definições na navegação à esquerda.
 
-4. Selecione **identidade**.
+4. Selecione **identidade** .
 
-5. Dentro do **separador Utilizador atribuído,** clique em **Adicionar**.
+5. Dentro do **separador Utilizador atribuído,** clique em **Adicionar** .
 
-6. Procure a identidade que criou anteriormente e selecione-a. Clique em **Adicionar**.
+6. Procure a identidade que criou anteriormente e selecione-a. Clique em **Adicionar** .
 
     ![Identidade gerida no Serviço de Aplicações](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -395,7 +395,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
         uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,

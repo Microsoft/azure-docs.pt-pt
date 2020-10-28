@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229842"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744742"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem do SO do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -68,7 +68,7 @@ As seguintes plataformas SKUs são atualmente suportadas (e mais são adicionada
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática de imagem de SO
 
-- A propriedade da *versão* da imagem deve ser definida para o *mais tardar*.
+- A propriedade da *versão* da imagem deve ser definida para o *mais tardar* .
 - Utilize sondas de saúde de aplicação ou [extensão de saúde de aplicação](virtual-machine-scale-sets-health-extension.md) para conjuntos de escala de tecido não servido.
 - Use a versão API compute 2018-10-01 ou superior.
 - Certifique-se de que os recursos externos especificados no modelo de conjunto de escala estão disponíveis e atualizados. Exemplos incluem SAS URI para a carga útil de botas em propriedades de extensão VM, carga útil na conta de armazenamento, referência a segredos no modelo, e muito mais.
@@ -121,14 +121,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilize o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar atualizações automáticas de imagem DE SO para o seu conjunto de escala. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para configurar atualizações automáticas de imagem DE SO para o seu conjunto de escala. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup* :
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [a atualização az vmss](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem de SO para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize [a atualização az vmss](/cli/azure/vmss#az-vmss-update) para configurar atualizações automáticas de imagem de SO para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir configura atualizações automáticas para o conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -184,7 +184,7 @@ Existem várias formas de implementar a extensão de Saúde de Aplicação à su
 Pode verificar o histórico da mais recente atualização de SO realizada na sua escala definida com Azure PowerShell, Azure CLI 2.0 ou as APIs REST REST. Pode obter história nas últimas cinco tentativas de atualização do SISTEMA nos últimos dois meses.
 
 ### <a name="rest-api"></a>API REST
-O exemplo a seguir utiliza [a API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o estado do conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+O exemplo a seguir utiliza [a API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o estado do conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup* :
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -228,14 +228,14 @@ A chamada GET devolve propriedades semelhantes à saída de exemplo a seguir:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilize o [cmdlet Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. O exemplo a seguir detalha como revê o estado de atualização do SISTEMA para um conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize o [cmdlet Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. O exemplo a seguir detalha como revê o estado de atualização do SISTEMA para um conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup* :
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [o histórico de upgrade do az vmss](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como revê o estado de atualização do SISTEMA para um conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup*:
+Utilize [o histórico de upgrade do az vmss](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como revê o estado de atualização do SISTEMA para um conjunto de escala denominado *myScaleSet* no grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -269,21 +269,21 @@ Para casos específicos em que não queira esperar que o orquestrador aplique a 
 > O gatilho manual das atualizações de imagem do SO não fornece capacidades automáticas de reversão. Se um caso não recuperar a sua saúde após uma operação de atualização, o disco de so anterior não pode ser restaurado.
 
 ### <a name="rest-api"></a>API REST
-Utilize a chamada API de [Atualização do Sistema operativo Start PARA](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) iniciar uma atualização rolante para mover todas as instâncias de escala de máquina virtual para a versão oss de imagem mais recente disponível. Os casos que já estão a executar a mais recente versão de SO disponível não são afetados. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
+Utilize a chamada API de [Atualização do Sistema operativo Start PARA](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) iniciar uma atualização rolante para mover todas as instâncias de escala de máquina virtual para a versão oss de imagem mais recente disponível. Os casos que já estão a executar a mais recente versão de SO disponível não são afetados. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup* :
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Utilize o [cmdlet Start-AzVmsSRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
+Utilize o [cmdlet Start-AzVmsSRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup* :
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
-Utilize [o início de atualização de az vmss](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup*:
+Utilize [o início de atualização de az vmss](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do SISTEMA para o seu conjunto de escala. Utilize O Azure CLI 2.0.47 ou superior. O exemplo a seguir detalha como pode iniciar uma atualização de SISTEMA rolante num conjunto de escala denominado *myScaleSet* no grupo de recursos chamado *myResourceGroup* :
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

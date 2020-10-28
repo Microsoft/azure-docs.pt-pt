@@ -2,15 +2,15 @@
 title: Configurar aplicativos de ASP.NET
 description: Saiba como configurar uma aplicação ASP.NET no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961708"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744165"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configure uma aplicação ASP.NET para o Azure App Service
 
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-Se configurar uma configuração de uma aplicação com o mesmo nome no Serviço de Aplicações e em *web.config, *o valor do Serviço de Aplicações tem precedência sobre o valor *web.config.* O valor *web.config* local permite depurar a app localmente, mas o valor do Serviço de Aplicações permite que você execute a aplicação em produto com configurações de produção. As cordas de ligação funcionam da mesma forma. Desta forma, pode manter os segredos da sua aplicação fora do seu repositório de código e aceder aos valores apropriados sem alterar o seu código.
+Se configurar uma configuração de uma aplicação com o mesmo nome no Serviço de Aplicações e em *web.config,* o valor do Serviço de Aplicações tem precedência sobre o valor *web.config.* O valor *web.config* local permite depurar a app localmente, mas o valor do Serviço de Aplicações permite que você execute a aplicação em produto com configurações de produção. As cordas de ligação funcionam da mesma forma. Desta forma, pode manter os segredos da sua aplicação fora do seu repositório de código e aceder aos valores apropriados sem alterar o seu código.
 
 ## <a name="deploy-multi-project-solutions"></a>Implementar soluções multi-projecto
 
@@ -91,7 +91,7 @@ Quando a sua aplicação ASP.NET gera uma exceção no depurar do Visual Studio,
 </system.web>
 ```
 
-Reimplantar a sua aplicação com o *Web.config*atualizado. Deve agora ver a mesma página de exceção detalhada.
+Reimplantar a sua aplicação com o *Web.config* atualizado. Deve agora ver a mesma página de exceção detalhada.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 

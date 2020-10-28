@@ -5,13 +5,13 @@ description: Aprenda a usar o CLI Azure para criar um cluster Azure Kubernetes S
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 96c47ed59fd904f1523347d9f0ef7bc00edb866f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543083"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745664"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
@@ -81,7 +81,7 @@ Se preferir instalar e utilizar o CLI localmente, este artigo requer a versão 2
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com o comando [az group create][az-group-create]. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westus*.
+Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com o comando [az group create][az-group-create]. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Criar uma rede virtual utilizando o [vnet de rede az criar][az-network-vnet-create] comando. O exemplo a seguir cria um *myVnet* de nome de rede virtual com um prefixo de endereço de *10.0.0.0/8*, e uma sub-rede chamada *myAKSSubnet*. O prefixo de endereço desta sub-rede é de *10.240.0.0/16*:
+Criar uma rede virtual utilizando o [vnet de rede az criar][az-network-vnet-create] comando. O exemplo a seguir cria um *myVnet* de nome de rede virtual com um prefixo de endereço de *10.0.0.0/8* , e uma sub-rede chamada *myAKSSubnet* . O prefixo de endereço desta sub-rede é de *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Agora crie uma sub-rede adicional para nós virtuais utilizando o comando de criação de rede vnet de [rede az.][az-network-vnet-subnet-create] O exemplo a seguir cria uma sub-rede chamada *myVirtualNodeSubnet* com o prefixo de endereço de *10.241.0.0/16*.
+Agora crie uma sub-rede adicional para nós virtuais utilizando o comando de criação de rede vnet de [rede az.][az-network-vnet-subnet-create] O exemplo a seguir cria uma sub-rede chamada *myVirtualNodeSubnet* com o prefixo de endereço de *10.241.0.0/16* .
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +132,7 @@ O resultado é semelhante ao seguinte exemplo:
 }
 ```
 
-Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos passos seguintes.
+Anote o *appId* e a *palavra-passe* . São utilizados os seguintes valores nos passos seguintes.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Atribuir permissões à rede virtual
 
@@ -202,7 +202,7 @@ Para verificar a ligação ao cluster, utilize o comando [kubectl get][kubectl-g
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux*:
+A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux* :
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION

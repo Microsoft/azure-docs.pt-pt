@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4db53b806adc2e29ae9c9a950faf8fc822c9d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 5a7d33e163c10a6d56416ea474d7e3a9e8624219
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744422"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 
@@ -110,7 +110,7 @@ A [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.c
 myenv.docker.enabled = True
 ```
 
-Por predefinição, a imagem do Docker recém-construída aparece no registo do contentor que está associado ao espaço de trabalho.  O nome do repositório tem a forma *azureml/azureml_ \<uuid\> *. A parte do identificador único *(uuid)* do nome corresponde a um haxixe que é calculado a partir da configuração do ambiente. Esta correspondência permite que o serviço determine se já existe uma imagem para o ambiente dado para reutilização.
+Por predefinição, a imagem do Docker recém-construída aparece no registo do contentor que está associado ao espaço de trabalho.  O nome do repositório tem a forma *azureml/azureml_ \<uuid\>* . A parte do identificador único *(uuid)* do nome corresponde a um haxixe que é calculado a partir da configuração do ambiente. Esta correspondência permite que o serviço determine se já existe uma imagem para o ambiente dado para reutilização.
 
 #### <a name="use-a-prebuilt-docker-image"></a>Use uma imagem pré-construída do Docker
 
@@ -259,7 +259,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]
-> Se utilizar a mesma definição de ambiente para outra execução, o serviço Azure Machine Learning reutiliza a imagem em cache do seu ambiente. Se criar um ambiente com uma dependência de pacotes não pinados, por ```numpy``` exemplo, esse ambiente continuará a utilizar a versão pacote instalada _no momento da criação do ambiente_. Além disso, qualquer ambiente futuro com definição correspondente continuará a usar a versão antiga. Para mais informações, consulte [a construção do Ambiente, caching e reutilização.](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)
+> Se utilizar a mesma definição de ambiente para outra execução, o serviço Azure Machine Learning reutiliza a imagem em cache do seu ambiente. Se criar um ambiente com uma dependência de pacotes não pinados, por ```numpy``` exemplo, esse ambiente continuará a utilizar a versão pacote instalada _no momento da criação do ambiente_ . Além disso, qualquer ambiente futuro com definição correspondente continuará a usar a versão antiga. Para mais informações, consulte [a construção do Ambiente, caching e reutilização.](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)
 
 ### <a name="private-python-packages"></a>Pacotes privados python
 

@@ -4,13 +4,13 @@ description: Saiba como usar o portal Azure para criar um cluster Azure Kubernet
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: aaada79855b07e390ce3d30a20cd08dc484481c9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297574"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745471"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -76,18 +76,18 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviço kubernetes de**recurso .
+No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviço kubernetes de** recurso .
 
-Na página **Informações Básicas**, configure as opções seguintes:
+Na página **Informações Básicas** , configure as opções seguintes:
 
-- *DETALHES DO PROJETO*: selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
-- *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
-- *PISCINA DE NODE PRIMÁRIO*: Selecione um tamanho VM para os nós AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
-     - Selecione o número de nós a implementar no cluster. Para este artigo, decrete a **contagem de nó para** *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
+- *DETALHES DO PROJETO* : selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup* . Introduza um **nome para o cluster do Kubernetes** , como *myAKSCluster* .
+- *DETALHES DO CLUSTER* : selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
+- *PISCINA DE NODE PRIMÁRIO* : Selecione um tamanho VM para os nós AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
+     - Selecione o número de nós a implementar no cluster. Para este artigo, decrete a **contagem de nó para** *1* . O número de nós **pode** ser ajustado após a implementação do cluster.
 
-Clique **em seguida: Escala**.
+Clique **em seguida: Escala** .
 
-Na página **Escala,** selecione *Ativado* sob **nós virtuais**.
+Na página **Escala,** selecione *Ativado* sob **nós virtuais** .
 
 ![Crie o cluster AKS e ative os nóns virtuais](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +95,7 @@ Por padrão, é criado um diretor de serviço Azure Ative Directory. Este direto
 
 O cluster também está configurado para networking avançado. Os nós virtuais são configurados para usar a sua própria sub-rede de rede virtual Azure. Esta sub-rede delegou permissões para ligar os recursos Azure entre o cluster AKS. Se ainda não tiver uma sub-rede delegada, o portal Azure cria e configura a rede virtual Azure e a sub-rede para utilização com os nós virtuais.
 
-Selecione **Rever + criar**. Depois de concluída a validação, selecione **Criar**.
+Selecione **Rever + criar** . Depois de concluída a validação, selecione **Criar** .
 
 O cluster do AKS demora alguns minutos a ser criado e a estar pronto para utilização.
 
@@ -105,7 +105,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir a Cloud Shell, selecione **Experimente-a** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-Utilize o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para se ligar ao seu cluster do Kubernetes. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
+Utilize o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para se ligar ao seu cluster do Kubernetes. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -117,7 +117,7 @@ Para verificar a ligação ao cluster, utilize o comando [kubectl get][kubectl-g
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux*:
+A saída de exemplo a seguir mostra o único nó VM criado e, em seguida, o nó virtual para Linux, *virtual-nó-aci-linux* :
 
 ```output
 NAME                           STATUS    ROLES     AGE       VERSION

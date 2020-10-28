@@ -5,13 +5,13 @@ author: lenadroid
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
-ms.custom: mvc
-ms.openlocfilehash: ff392b974c5faed99f57e5901fced51ba22ac857
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e94d9d586f15c228436a8a9d48fb12c26369c449
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078141"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742351"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executando apache spark empregos em AKS
 

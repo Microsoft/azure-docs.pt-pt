@@ -3,13 +3,13 @@ title: Implementar modelos de gestor de recursos utilizando ações do GitHub
 description: Descreve como implementar modelos de Gestor de Recursos Azure utilizando ações do GitHub.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282855"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746099"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implemente modelos de gestor de recursos Azure usando ações do GitHub
 
@@ -75,7 +75,7 @@ Você precisa criar segredos para as suas credenciais Azure, grupo de recursos e
 
 1. No [GitHub,](https://github.com/)navegue no seu repositório.
 
-1. Selecione **Definições > Segredos > Novo segredo**.
+1. Selecione **Definições > Segredos > Novo segredo** .
 
 1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 
@@ -93,15 +93,15 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 
 Pode colocar o ficheiro em qualquer lugar do repositório. A amostra de fluxo de trabalho na secção seguinte pressupõe que o ficheiro do modelo é nomeado **azuredeploy.js,** e é armazenado na raiz do seu repositório.
 
-## <a name="create-workflow"></a>Criar fluxo de trabalho
+## <a name="create-workflow"></a>Criar um fluxo de trabalho
 
-O ficheiro de fluxo de trabalho deve ser armazenado na pasta **.github/workflows** na raiz do seu repositório. A extensão do ficheiro workflow pode ser **.yml** ou **.yaml**.
+O ficheiro de fluxo de trabalho deve ser armazenado na pasta **.github/workflows** na raiz do seu repositório. A extensão do ficheiro workflow pode ser **.yml** ou **.yaml** .
 
 1. A partir do seu repositório GitHub, selecione **Actions** from the top menu.
-1. Selecione **Novo fluxo de trabalho**.
-1. Selecione **configurar um fluxo de trabalho por si mesmo**.
-1. Mude o nome do ficheiro workflow se preferir um nome diferente do **main.yml**. Por exemplo: **implementarStorageAccount.yml**.
-1. Substitua o conteúdo do ficheiro yml pelo seguinte:
+1. Selecione **Novo fluxo de trabalho** .
+1. Selecione **configurar um fluxo de trabalho por si mesmo** .
+1. Mude o nome do ficheiro workflow se preferir um nome diferente do **main.yml** . Por exemplo: **implementarStorageAccount.yml** .
+1. Substitua os conteúdos do ficheiro yml pelo seguinte:
 
     ```yml
     on: [push]
@@ -136,11 +136,11 @@ O ficheiro de fluxo de trabalho deve ser armazenado na pasta **.github/workflows
 
     A primeira secção do ficheiro de fluxo de trabalho inclui:
 
-    - **nome**: O nome do fluxo de trabalho.
-    - **em**: O nome dos eventos do GitHub que desencadeia o fluxo de trabalho. O fluxo de trabalho é desencadeado quando há um evento de impulso no ramo principal, que modifica pelo menos um dos dois ficheiros especificados. Os dois ficheiros são o ficheiro de fluxo de trabalho e o ficheiro de modelo.
+    - **nome** : O nome do fluxo de trabalho.
+    - **em** : O nome dos eventos do GitHub que desencadeia o fluxo de trabalho. O fluxo de trabalho é desencadeado quando há um evento de impulso no ramo principal, que modifica pelo menos um dos dois ficheiros especificados. Os dois ficheiros são o ficheiro de fluxo de trabalho e o ficheiro de modelo.
 
-1. Selecione **Iniciar o compromisso**.
-1. **Selecione Comprometa-se diretamente com o ramo principal**.
+1. Selecione **Iniciar o compromisso** .
+1. **Selecione Comprometa-se diretamente com o ramo principal** .
 1. **Selecione Cometer novo ficheiro** (ou cometer **alterações).**
 
 Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheiro de fluxo de trabalho ou pelo ficheiro do modelo a ser atualizado, o fluxo de trabalho começa logo após cometer as alterações.

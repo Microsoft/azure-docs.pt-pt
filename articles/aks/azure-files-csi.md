@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078362"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745789"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize controladores da Interface de Armazenamento de Contentores de Ficheiros Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -35,11 +35,11 @@ Para obter mais informações sobre volumes kubernetes, consulte [as opções de
 
 Uma classe de armazenamento é usada para definir como uma partilha de Ficheiros Azure é criada. Uma conta de armazenamento é criada automaticamente no [grupo de recursos de nó][node-resource-group] para utilização com a classe de armazenamento para deter as ações do Azure Files. Escolha um dos [seguintes SKUs de redundância de armazenamento Azure][storage-skus] para *o skuName:*
 
-* **Standard_LRS**: Armazenamento localmente redundante padrão
-* **Standard_GRS**: Armazenamento geo-redundante padrão
-* **Standard_ZRS**: Armazenamento normal de zona redundante
-* **Standard_RAGRS**: Armazenamento geo-redundante de acesso de leitura padrão
-* **Premium_LRS**: Armazenamento premium localmente redundante
+* **Standard_LRS** : Armazenamento localmente redundante padrão
+* **Standard_GRS** : Armazenamento geo-redundante padrão
+* **Standard_ZRS** : Armazenamento normal de zona redundante
+* **Standard_RAGRS** : Armazenamento geo-redundante de acesso de leitura padrão
+* **Premium_LRS** : Armazenamento premium localmente redundante
 
 > [!NOTE]
 > A Azure Files suporta o Azure Premium Storage. A quota mínima de ficheiros premium é de 100 GB.
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Pode implementar um [conjunto de exemplos](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) que economize os tempos num `data.txt` ficheiro, implantando o seguinte comando com o comando [de aplicação de kubectl:][kubectl-apply]
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

@@ -3,13 +3,13 @@ title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagen
 description: As piscinas de imagem personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Lote.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605197"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745515"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
@@ -210,7 +210,7 @@ Use os seguintes passos para criar uma piscina a partir de uma imagem partilhada
 1. Selecione **Pools** e, em seguida, **Adicione** para criar uma nova piscina.
 1. Na secção **Tipo de Imagem,** selecione **Galeria de Imagens Partilhadas.**
 1. Complete as restantes secções com informações sobre a sua imagem gerida.
-1. Selecione **OK**.
+1. Selecione **OK** .
 
 ![Crie uma piscina com uma imagem partilhada com o portal.](media/batch-sig-images/create-custom-pool.png)
 

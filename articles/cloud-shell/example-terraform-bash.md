@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.custom: devx-track-terraform
-ms.openlocfilehash: e13e6d9ac2f4600e41f221efd23997f712dffc54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: dbbd1511a6063223a2b76786b3c7c4394e2fa407
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87032090"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745435"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementar com Terraform de Bash em Azure Cloud Shell
 Este artigo acompanha-o através da criação de um grupo de recursos com o [provedor Terraform AzureRM.](https://www.terraform.io/docs/providers/azurerm/index.html)

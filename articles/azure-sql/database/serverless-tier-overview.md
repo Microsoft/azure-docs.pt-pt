@@ -4,19 +4,19 @@ description: Este artigo descreve o novo nível de computação sem servidor e c
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321412"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743160"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ O nível de computação sem servidor para bases de dados individuais na Base de
 - Os **vCores mínimos** e **os vCores máximos** são parâmetros configuráveis que definem a gama de capacidade de computação disponível para a base de dados. Os limites de memória e IO são proporcionais à gama vCore especificada.  
 - O **atraso da automatização** é um parâmetro configurável que define o período de tempo em que a base de dados deve estar inativa antes de ser automaticamente interrompida. A base de dados é retomada automaticamente quando ocorre o próximo login ou outra atividade.  Em alternativa, a autopausing pode ser desativada.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Custo
 
 - O custo de uma base de dados sem servidor é a soma do custo de cálculo e do custo de armazenamento.
 - Quando a utilização do cálculo está entre os limites min e máximo configurados, o custo do cálculo baseia-se no vCore e na memória utilizada.
@@ -314,17 +314,17 @@ Para obter limites de recursos, consulte [o nível de cálculo sem servidor](res
 
 A quantidade de cálculo faturada é o máximo de CPU utilizado e a memória utilizada a cada segundo. Se a quantidade de CPU utilizada e a memória utilizada for inferior ao montante mínimo previsto para cada um, então o montante previsto é faturado. Para comparar o CPU com a memória para efeitos de faturação, a memória é normalizada em unidades de vCores redimensionando a quantidade de memória em GB por 3 GB por vCore.
 
-- **Recurso faturado**: CPU e memória
-- **Valor faturado**: vCore preço unitário * max (min vCores, vCores usados, min memory GB * 1/3, memória GB usada * 1/3) 
-- **Frequência de faturação**: Por segundo
+- **Recurso faturado** : CPU e memória
+- **Valor faturado** : vCore preço unitário * max (min vCores, vCores usados, min memory GB * 1/3, memória GB usada * 1/3) 
+- **Frequência de faturação** : Por segundo
 
 O preço unitário vCore é o custo por vCore por segundo. Consulte a página de preços da [Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter preços unitários específicos numa determinada região.
 
 A quantidade de cálculo faturada é exposta pela seguinte métrica:
 
-- **Métrica**: app_cpu_billed (vCore segundos)
+- **Métrica** : app_cpu_billed (vCore segundos)
 - **Definição:** máx (min vCores, vCores usados, memória min GB * 1/3, memória GB usada * 1/3)
-- **Frequência de reporte**: Por minuto
+- **Frequência de reporte** : Por minuto
 
 Esta quantidade é calculada a cada segundo e agregada ao longo de 1 minuto.
 

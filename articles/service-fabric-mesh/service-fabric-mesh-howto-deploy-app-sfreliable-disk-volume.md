@@ -5,13 +5,13 @@ author: ashishnegi
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 1db412a3b83da905475749deea0432fbeae06e8f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75497963"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742762"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte volume de disco fiável de tecido de serviço altamente disponível numa aplicação de malha de tecido de serviço 
 O método comum de persistência do estado com aplicações de contentores é usar armazenamento remoto como O Azure File Storage ou base de dados como Azure Cosmos DB. Isto incorre em leitura significativa e escrever latência de rede para a loja remota.

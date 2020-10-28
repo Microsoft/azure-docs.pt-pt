@@ -9,13 +9,13 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
-ms.custom: seodec18
-ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8ce32ab1e7dac6fd1a154fc6e730113428a8291b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708276"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744490"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
 
@@ -411,7 +411,7 @@ A tabela seguinte detalha cada campo de alto nível no ficheiro JSON, é tipo, e
 
 | Campo JSON | Tipo | Descrição |
 |---|---|---|
-| `name` | `string` | O nome do ambiente. Não comece o nome com **Microsoft** ou **AzureML**. |
+| `name` | `string` | O nome do ambiente. Não comece o nome com **Microsoft** ou **AzureML** . |
 | `version` | `string` | Versão do ambiente. |
 | `environmentVariables` | `{string: string}` | Um mapa de haxixe de nomes e valores variáveis ambientais. |
 | `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)chapéu define o ambiente python e intérprete para usar no recurso de cálculo alvo. |

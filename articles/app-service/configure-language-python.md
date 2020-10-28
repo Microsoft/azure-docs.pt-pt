@@ -4,13 +4,13 @@ description: Saiba como configurar o recipiente Python no qual são executadas a
 ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018751"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743797"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -22,7 +22,7 @@ Este guia fornece conceitos e instruções fundamentais para os desenvolvedores 
 
 Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para configuração:
 
-- **Portal Azure**, use a página de Configuração de **Configurações**da aplicação  >  **Configuration** como descrito no [Configure uma aplicação de Serviço de Aplicações no portal Azure](configure-common.md).
+- **Portal Azure** , use a página de Configuração de **Configurações** da aplicação  >  **Configuration** como descrito no [Configure uma aplicação de Serviço de Aplicações no portal Azure](configure-common.md).
 
 - **Azure CLI:** tem duas opções.
 
@@ -34,7 +34,7 @@ Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para con
 
 ## <a name="configure-python-version"></a>Versão Configure Python
 
-- **Portal Azure**: utilize o separador **definições gerais** na página **de Configuração,** conforme descrito nas [definições gerais de Configuração](configure-common.md#configure-general-settings) para recipientes Linux.
+- **Portal Azure** : utilize o separador **definições gerais** na página **de Configuração,** conforme descrito nas [definições gerais de Configuração](configure-common.md#configure-general-settings) para recipientes Linux.
 
 - **Azure CLI:**
 
@@ -68,7 +68,7 @@ Em vez disso, pode executar uma versão não suportada do Python construindo a s
 O sistema de construção do App Service, chamado Oryx, executa os seguintes passos quando implementa a sua aplicação utilizando pacotes Git ou zip:
 
 1. Executar um script pré-construção personalizado se especificado pela `PRE_BUILD_COMMAND` definição.
-1. Execute `pip install -r requirements.txt`. O * ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
+1. Execute o `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
 1. Se *manage.py* for encontrado na raiz do repositório (indicando uma aplicação Django), executar *manage.py a collectásta .* No entanto, se a `DISABLE_COLLECTSTATIC` regulação `true` for, este passo é ignorado.
 1. Executar script pós-construção personalizado se especificado pela `POST_BUILD_COMMAND` definição.
 
@@ -120,7 +120,7 @@ Este contentor tem as seguintes características:
 
 - Para instalar pacotes adicionais, como o Django, crie um ficheiro [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) na raiz do seu projeto que especifique as suas dependências diretas. O Serviço de Aplicações instala essas dependências automaticamente quando implementa o seu projeto.
 
-    O * ficheirorequirements.txt* *deve* estar na raiz do projeto para a instalação de dependências. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar." Se encontrar este erro, verifique a localização do seu ficheiro de requisitos.
+    O *ficheirorequirements.txt* *deve* estar na raiz do projeto para a instalação de dependências. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar." Se encontrar este erro, verifique a localização do seu ficheiro de requisitos.
 
 - O Serviço de Aplicações define automaticamente uma variável ambiental nomeada `WEBSITE_HOSTNAME` com o URL da aplicação web, tal como `msdocs-hello-world.azurewebsites.net` . Também define `WEBSITE_SITE_NAME` com o nome da sua app, como `msdocs-hello-world` . 
    
@@ -144,7 +144,7 @@ Para aplicações Django, o Serviço de Aplicações procura um ficheiro chamado
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Se pretender um controlo mais específico sobre o comando de arranque, utilize um [comando de arranque personalizado](#customize-startup-command), substitua-o pelo nome da pasta que contém `<module>` *wsgi.py*– e adicione um argumento se esse módulo não estiver na raiz `--chdir` do projeto. Por exemplo, se o seu *wsgi.py* estiver localizado sob *a malha/backend/config* da raiz do seu projeto, utilize os argumentos `--chdir knboard/backend config.wsgi` .
+Se pretender um controlo mais específico sobre o comando de arranque, utilize um [comando de arranque personalizado](#customize-startup-command), substitua-o pelo nome da pasta que contém `<module>` *wsgi.py* – e adicione um argumento se esse módulo não estiver na raiz `--chdir` do projeto. Por exemplo, se o seu *wsgi.py* estiver localizado sob *a malha/backend/config* da raiz do seu projeto, utilize os argumentos `--chdir knboard/backend config.wsgi` .
 
 Para ativar o registo de produção, adicione os `--access-logfile` parâmetros e `--error-logfile` os parâmetros como mostrado nos exemplos para [comandos de arranque personalizados](#customize-startup-command).
 
@@ -164,7 +164,7 @@ Se o módulo da aplicação principal estiver num ficheiro diferente, utilize ou
 
 ### <a name="default-behavior"></a>Comportamento predefinido
 
-Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplicação Django ou uma aplicação Flask, executa uma aplicação só de leitura predefinida, localizada na pasta _opt/defaultsite_. A aplicação predefinida é apresentada da seguinte forma:
+Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplicação Django ou uma aplicação Flask, executa uma aplicação só de leitura predefinida, localizada na pasta _opt/defaultsite_ . A aplicação predefinida é apresentada da seguinte forma:
 
 ![Serviço de Aplicações predefinido na página Web do Linux](media/configure-language-python/default-python-app.png)
 
@@ -172,15 +172,15 @@ Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplic
 
 Como indicado anteriormente neste artigo, pode fornecer configurações de configuração para Gunicorn através de um ficheiro *gunicorn.conf.py* na raiz do projeto, conforme descrito na [visão geral da configuração de Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Se tal configuração não for suficiente, pode controlar o comportamento de arranque do recipiente fornecendo um comando de arranque personalizado ou vários comandos num ficheiro de comando de arranque. Um ficheiro de comando de arranque pode usar qualquer nome que escolha, como *startup.sh*, *startup.cmd,* *startup.txt*, e assim por diante.
+Se tal configuração não for suficiente, pode controlar o comportamento de arranque do recipiente fornecendo um comando de arranque personalizado ou vários comandos num ficheiro de comando de arranque. Um ficheiro de comando de arranque pode usar qualquer nome que escolha, como *startup.sh* , *startup.cmd,* *startup.txt* , e assim por diante.
 
 Todos os comandos devem utilizar caminhos relativos para a pasta raiz do projeto.
 
 Para especificar um ficheiro de comando ou comando de arranque:
 
-- **Portal Azure**: selecione a página de Configuração da **aplicação** e, em seguida, selecione **definições gerais**. No campo **Comando de Arranque,** coloque o texto completo do seu comando de arranque ou o nome do seu ficheiro de comando de arranque. Em seguida, **selecione Guardar** para aplicar as alterações. Consulte [configurar as definições gerais](configure-common.md#configure-general-settings) para recipientes Linux.
+- **Portal Azure** : selecione a página de Configuração da **aplicação** e, em seguida, selecione **definições gerais** . No campo **Comando de Arranque,** coloque o texto completo do seu comando de arranque ou o nome do seu ficheiro de comando de arranque. Em seguida, **selecione Guardar** para aplicar as alterações. Consulte [configurar as definições gerais](configure-common.md#configure-general-settings) para recipientes Linux.
 
-- **Azure CLI**: use o comando [configurar az webapp com](/cli/azure/webapp/config#az_webapp_config_set) o `--startup-file` parâmetro para definir o comando ou ficheiro de arranque:
+- **Azure CLI** : use o comando [configurar az webapp com](/cli/azure/webapp/config#az_webapp_config_set) o `--startup-file` parâmetro para definir o comando ou ficheiro de arranque:
 
     ```azurecli-interactive
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -192,7 +192,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
 ### <a name="example-startup-commands"></a>Exemplo de comandos de arranque
 
-- **Adicionados argumentos de Gunicorn**: O exemplo a seguir adiciona `--workers=4` a uma linha de comando gunicorn para iniciar uma aplicação Django: 
+- **Adicionados argumentos de Gunicorn** : O exemplo a seguir adiciona `--workers=4` a uma linha de comando gunicorn para iniciar uma aplicação Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -202,7 +202,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
     Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-- **Ativar a exploração madeireira para Django**: Adicione os `--access-logfile '-'` argumentos e os argumentos à linha de `--error-logfile '-'` comando:
+- **Ativar a exploração madeireira para Django** : Adicione os `--access-logfile '-'` argumentos e os argumentos à linha de `--error-logfile '-'` comando:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -213,7 +213,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
     Para obter mais informações, consulte [a exploração madeireira de Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Módulo principal frasco personalizado**: por padrão, o Serviço de Aplicações assume que o módulo principal de uma aplicação Flask é *application.py* ou *app.py*. Se o seu módulo principal utilizar um nome diferente, então deve personalizar o comando de arranque. Por exemplo, tem uma aplicação Flask cujo módulo principal é *hello.py* e o objeto da aplicação Flask nesse ficheiro é `myapp` nomeado, então o comando é o seguinte:
+- **Módulo principal frasco personalizado** : por padrão, o Serviço de Aplicações assume que o módulo principal de uma aplicação Flask é *application.py* ou *app.py* . Se o seu módulo principal utilizar um nome diferente, então deve personalizar o comando de arranque. Por exemplo, tem uma aplicação Flask cujo módulo principal é *hello.py* e o objeto da aplicação Flask nesse ficheiro é `myapp` nomeado, então o comando é o seguinte:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +225,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Utilize um servidor não-Gunicorn**: Para utilizar um servidor web diferente, como [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)utilize o comando apropriado como comando de arranque ou no ficheiro de comando de arranque:
+- **Utilize um servidor não-Gunicorn** : Para utilizar um servidor web diferente, como [aiohttp,](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html)utilize o comando apropriado como comando de arranque ou no ficheiro de comando de arranque:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -270,7 +270,7 @@ Para aceder aos registos através do portal Azure, selecione **Monitoring**  >  
     
     - Certifique-se de que está a utilizar o Serviço de Aplicações para Linux, em vez de uma instância baseada no Windows. A partir da CLI do Azure, execute o comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, ao substituir `<resource-group-name>` e `<app-service-name>`, respetivamente. Deverá ver `app,linux` como resultado; caso contrário, recrie o Serviço de Aplicações e escolha o Linux.
     
-    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verifique se os ficheiros existem em *site/wwwroot*. Se os ficheiros não existirem, reveja o processo de implementação e volte a implementar a aplicação.
+    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verifique se os ficheiros existem em *site/wwwroot* . Se os ficheiros não existirem, reveja o processo de implementação e volte a implementar a aplicação.
     
     - Se os ficheiros existirem, o Serviço de Aplicações não conseguiu identificar o ficheiro de arranque específico. Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#customize-startup-command).
 
@@ -282,9 +282,9 @@ Para aceder aos registos através do portal Azure, selecione **Monitoring**  >  
 
     - Examine o [fluxo de registo](#access-diagnostic-logs) para obter quaisquer mensagens de erro.
 
-- **O fluxo de registo mostra "Não foi possível encontrar setup.py ou requirements.txt; Não funcionando a instalação do pip."**: O processo de construção oryx não conseguiu encontrar o seu ficheiro *requirements.txt.*
+- **O fluxo de registo mostra "Não foi possível encontrar setup.py ou requirements.txt; Não funcionando a instalação do pip."** : O processo de construção oryx não conseguiu encontrar o seu ficheiro *requirements.txt.*
 
-    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verificar se *requirements.txt* existe diretamente no *site/wwwroot*. Se não existir, faça do site que o ficheiro existe no seu repositório e está incluído na sua implantação. Se existir numa pasta separada, mova-a para a raiz.
+    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verificar se *requirements.txt* existe diretamente no *site/wwwroot* . Se não existir, faça do site que o ficheiro existe no seu repositório e está incluído na sua implantação. Se existir numa pasta separada, mova-a para a raiz.
 
 ## <a name="next-steps"></a>Passos seguintes
 

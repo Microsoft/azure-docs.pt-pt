@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 60292cb1d0dc3d9ac887e3638b99f0fad08a647b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 30a43bdaf9e0c6c56e4d75597ff3d80b77314677
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840099"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744330"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>Tutorial: Remover uma aplicação e os recursos
 

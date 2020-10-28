@@ -2,14 +2,14 @@
 title: Quickstart para criar um cofre Azure Recovery Services usando um modelo de Gestor de Recursos Azure.
 description: Neste arranque rápido, você aprende a criar um cofre Azure Recovery Services usando um modelo Azure Resource Manager (modelo ARM).
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c1c6d625c67130a4e3608cee6134b8c81404c01b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684121"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745878"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Quickstart: Criar um cofre de serviços de recuperação usando um modelo ARM
 
@@ -17,7 +17,7 @@ Este quickstart descreve como configurar um cofre de Serviços de Recuperação 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -42,7 +42,7 @@ Para obter mais modelos de Serviços de Recuperação Azure, consulte [os modelo
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Para implementar o modelo, é necessário o nome **De assinatura,** **grupo de recursos**e **Cofre.**
+Para implementar o modelo, é necessário o nome **De assinatura,** **grupo de recursos** e **Cofre.**
 
 1. Para iniciar súm na Azure e abrir o modelo, selecione a imagem **'Implementar para Azul'.**
 
@@ -52,14 +52,14 @@ Para implementar o modelo, é necessário o nome **De assinatura,** **grupo de r
 
    :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Modelo para criar um cofre de Serviços de Recuperação.":::
 
-   - **Subscrição**: selecione a sua subscrição Azure.
-   - **Grupo de recursos**: selecione um grupo existente ou selecione **Criar novo** para adicionar um grupo.
-   - **Localização**: predefinição da localização do grupo de recursos e fica indisponível após a seleção de um grupo de recursos.
+   - **Subscrição** : selecione a sua subscrição Azure.
+   - **Grupo de recursos** : selecione um grupo existente ou selecione **Criar novo** para adicionar um grupo.
+   - **Localização** : predefinição da localização do grupo de recursos e fica indisponível após a seleção de um grupo de recursos.
    - **Nome do cofre:** Forneça um nome para o cofre.
-   - **Tipo de armazenamento de**alteração: O predefinição é **falso**. Selecione **true** only if you need to change the vault's storage type.
-   - **Tipo de armazenamento de**cofre : O padrão é **globalmenteredundant**. Se o tipo de armazenamento foi definido como **verdadeiro,** selecione **LocallyRedundant**.
+   - **Tipo de armazenamento de** alteração: O predefinição é **falso** . Selecione **true** only if you need to change the vault's storage type.
+   - **Tipo de armazenamento de** cofre : O padrão é **globalmenteredundant** . Se o tipo de armazenamento foi definido como **verdadeiro,** selecione **LocallyRedundant** .
    - **Localização:** a função `[resourceGroup().location]` é padrão para a localização do grupo de recursos. Para alterar a localização, insira um valor como **o westus.**
-   - Selecione a caixa de verificação **Concordo com os termos e condições acima indicados**.
+   - Selecione a caixa de verificação **Concordo com os termos e condições acima indicados** .
 
 1. Para iniciar a implantação do cofre, selecione o botão **'Comprar'.** Após uma implementação bem sucedida, é apresentada uma notificação.
 

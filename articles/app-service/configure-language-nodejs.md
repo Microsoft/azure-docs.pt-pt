@@ -1,17 +1,17 @@
 ---
 title: Configurar aplicativos de Node.js
 description: Saiba como configurar uma aplicação Node.js nas instâncias nativas do Windows, ou num recipiente Linux pré-construído, no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744063"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo de Node.js para o Azure App Service
 
@@ -94,7 +94,7 @@ Se implementar a sua aplicação utilizando pacotes Git ou zip com automatizaç�
 1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH` .
 1. Corra `npm install` sem bandeiras, que inclua npm `preinstall` e `postinstall` scripts e também `devDependencies` instala.
 1. Executar `npm run build` se um script de construção for especificado no seupackage.jsligado *.*
-1. Corra `npm run build:azure` se uma escritura de construção:azure for especificada no seupackage.js* em*.
+1. Corra `npm run build:azure` se uma escritura de construção:azure for especificada no seupackage.js *em* .
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Os contentores Node.js vêm com [PM2,](https://pm2.keymetrics.io/)um gestor de p
 
 ### <a name="run-custom-command"></a>Executar comando personalizado
 
-O Serviço de Aplicações pode iniciar a sua aplicação utilizando um comando personalizado, como um executável como *run.sh*. Por exemplo, para executar `npm run start:prod` , executar o seguinte comando na Cloud [Shell](https://shell.azure.com):
+O Serviço de Aplicações pode iniciar a sua aplicação utilizando um comando personalizado, como um executável como *run.sh* . Por exemplo, para executar `npm run start:prod` , executar o seguinte comando na Cloud [Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -131,7 +131,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Executar npm start
 
-Para iniciar a utilização da sua `npm start` aplicação, certifique-se apenas de que `start` um script está napackage.js* no* ficheiro. Por exemplo:
+Para iniciar a utilização da sua `npm start` aplicação, certifique-se apenas de que `start` um script está napackage.js *no* ficheiro. Por exemplo:
 
 ```json
 {
@@ -144,7 +144,7 @@ Para iniciar a utilização da sua `npm start` aplicação, certifique-se apenas
 }
 ```
 
-Para utilizar umpackage.jspersonalizado * no* seu projeto, execute o seguinte comando na [Cloud Shell](https://shell.azure.com):
+Para utilizar umpackage.jspersonalizado *no* seu projeto, execute o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
@@ -164,7 +164,7 @@ O recipiente inicia automaticamente a sua aplicação com PM2 quando um dos fich
 Também pode configurar um ficheiro de início personalizado com as seguintes extensões:
 
 - Um ficheiro *.js*
-- Um [ficheiro PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *.json*, *.config.js*, *.yaml,* ou *.yml*
+- Um [ficheiro PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *.json* , *.config.js* , *.yaml,* ou *.yml*
 
 Para adicionar um ficheiro de arranque personalizado, execute o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
@@ -177,7 +177,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > A depuragem remota está atualmente em Pré-Visualização.
 
-Pode desordificado a sua aplicação de Node.js remotamente no [Código do Estúdio Visual](https://code.visualstudio.com/) se a configurar para funcionar com [PM2,](#run-with-pm2)exceto quando a executar utilizando um *.config.js, *.yml, ou *.yaml*.
+Pode desordificado a sua aplicação de Node.js remotamente no [Código do Estúdio Visual](https://code.visualstudio.com/) se a configurar para funcionar com [PM2,](#run-with-pm2)exceto quando a executar utilizando um *.config.js, *.yml, ou *.yaml* .
 
 Na maioria dos casos, não é necessária nenhuma configuração extra para a sua aplicação. Se a sua aplicação for executada com um *process.jsno* ficheiro (padrão ou personalizado), deve ter uma `script` propriedade na raiz JSON. Por exemplo:
 
@@ -191,9 +191,9 @@ Na maioria dos casos, não é necessária nenhuma configuração extra para a su
 
 Para configurar o Código do Estúdio Visual para depurar remotamente, instale a [extensão do Serviço de Aplicações](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Siga as instruções na página de extensão e inscreva-se no Azure no Código do Estúdio Visual.
 
-No explorador Azure, encontre a aplicação que pretende depurar, clique com o botão direito e selecione **Iniciar Depuração Remota**. Clique **em Sim** para ativar a sua aplicação. O Serviço de Aplicações inicia um proxy de túnel para si e anexa o depurar. Em seguida, pode fazer pedidos à app e ver o depurante a fazer uma pausa nos pontos de rutura.
+No explorador Azure, encontre a aplicação que pretende depurar, clique com o botão direito e selecione **Iniciar Depuração Remota** . Clique **em Sim** para ativar a sua aplicação. O Serviço de Aplicações inicia um proxy de túnel para si e anexa o depurar. Em seguida, pode fazer pedidos à app e ver o depurante a fazer uma pausa nos pontos de rutura.
 
-Uma vez terminado com a depuragem, pare o depurante selecionando **Disconnect**. Quando solicitado, deve clicar em **Sim** para desativar a depuração remota. Para desativá-la mais tarde, clique com o botão direito na sua aplicação novamente no explorador Azure e selecione **Depuração Remota desativada**.
+Uma vez terminado com a depuragem, pare o depurante selecionando **Disconnect** . Quando solicitado, deve clicar em **Sim** para desativar a depuração remota. Para desativá-la mais tarde, clique com o botão direito na sua aplicação novamente no explorador Azure e selecione **Depuração Remota desativada** .
 
 ::: zone-end
 
@@ -209,7 +209,7 @@ process.env.NODE_ENV
 
 Por predefinição, o Serviço de Aplicações constrói automatização `npm install --production` quando reconhece que uma aplicação Node.js é implementada através da implementação de Git ou Zip com automatização de construção ativada. Se a sua aplicação necessitar de alguma das ferramentas populares de automação, como Grunt, Bower ou Gulp, precisa de fornecer um [script de implementação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para executá-lo.
 
-Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências * empackage.js.* Por exemplo:
+Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências *empackage.js.* Por exemplo:
 
 ```json
 "dependencies": {
@@ -227,7 +227,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-A sua raiz de repositório tem agora dois ficheiros adicionais: *.deployment* and *deploy.sh*.
+A sua raiz de repositório tem agora dois ficheiros adicionais: *.deployment* and *deploy.sh* .
 
 Abra *deploy.sh* e encontre a `Deployment` secção, que se parece com esta:
 

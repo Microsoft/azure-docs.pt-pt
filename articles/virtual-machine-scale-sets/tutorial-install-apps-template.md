@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059262"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746013"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com um modelo do Azure
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -40,9 +40,9 @@ Para ver a Extensão de Script Personalizado em ação, crie um conjunto de dime
 
 
 ## <a name="create-custom-script-extension-definition"></a>Criar a definição da Extensão de Script Personalizado
-Ao definir um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure, o fornecedor de recursos *Microsoft.Compute/virtualMachineScaleSets* pode incluir uma secção sobre extensões. O *extensionsProfile* fornece detalhes sobre o que é aplicado às instâncias de VM num conjunto de dimensionamento. Para utilizar a Extensão de Script Personalizado, tem de especificar um publicador de *Microsoft.Azure.Extensions* e um tipo de *CustomScript*.
+Ao definir um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure, o fornecedor de recursos *Microsoft.Compute/virtualMachineScaleSets* pode incluir uma secção sobre extensões. O *extensionsProfile* fornece detalhes sobre o que é aplicado às instâncias de VM num conjunto de dimensionamento. Para utilizar a Extensão de Script Personalizado, tem de especificar um publicador de *Microsoft.Azure.Extensions* e um tipo de *CustomScript* .
 
-A propriedade *fileUris* é utilizada para definir os scripts ou pacotes de instalação de origem. Para iniciar o processo de instalação, os scripts necessários estão definidos em *commandToExecute*. O exemplo seguinte define um script de exemplo do GitHub que instala e configura o servidor Web NGINX:
+A propriedade *fileUris* é utilizada para definir os scripts ou pacotes de instalação de origem. Para iniciar o processo de instalação, os scripts necessários estão definidos em *commandToExecute* . O exemplo seguinte define um script de exemplo do GitHub que instala e configura o servidor Web NGINX:
 
 ```json
 "extensionProfile": {
@@ -90,7 +90,7 @@ Cada instância de VM no conjunto de dimensionamento transfere e executa o scrip
 
 
 ## <a name="test-your-scale-set"></a>Testar o seu conjunto de dimensionamento
-Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetPublicIP*, criado como parte do conjunto de dimensionamento:
+Para ver o seu servidor Web em ação, obtenha o endereço IP público do seu balanceador de carga com [az network public-ip show](/cli/azure/network/public-ip). O exemplo seguinte obtém o endereço IP para *myScaleSetPublicIP* , criado como parte do conjunto de dimensionamento:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -108,7 +108,7 @@ Deixe o seu browser aberto para que possa ver uma versão atualizada no próximo
 
 
 ## <a name="update-app-deployment"></a>Atualizar a implementação da aplicação
-Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi criado num passo anterior, a *actualizaçãoPolicy* foi definida como *Automática*. Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
+Ao longo do ciclo de vida de um conjunto de dimensionamento, poderá precisar de implementar uma versão atualizada da sua aplicação. Com a Extensão de Script Personalizado, pode referenciar um script de implementação atualizado e, em seguida, voltar a aplicar a extensão ao seu conjunto de dimensionamento. Quando o conjunto de escala foi criado num passo anterior, a *actualizaçãoPolicy* foi definida como *Automática* . Esta definição permite que as instâncias de VM no conjunto de dimensionamento atualizem e apliquem automaticamente a versão mais recente da sua aplicação.
 
 Para atualizar a definição da Extensão de Script Personalizado, edite o modelo para fazer referência a um novo script de instalação. Deve ser utilizado um novo nome de ficheiro para que a Extensão de Script Personalizado reconheça a alteração. A Extensão de Script Personalizado não examina o conteúdo do script para determinar as alterações. A definição seguinte utiliza um script de instalação atualizado com *_v2* anexado ao respetivo nome:
 

@@ -4,16 +4,16 @@ description: Saiba como utilizar Java e JDBC com uma base de dados Azure para ba
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 793cab8b37872788da259e45148e314faa00ea15
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7db124f8f5ba56f760dc054491990889e4e738f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545145"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745263"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Use Java e JDBC com Base de Dados Azure para MySQL
 

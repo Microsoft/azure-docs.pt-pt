@@ -10,13 +10,13 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 40d8d4596e7d93b589e44f2dde2d1cb453566d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 2642af3490cd69a3e793f020c193d83d2966e1ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999239"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744622"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementar modelos com o Azure Machine Learning
 
@@ -311,7 +311,7 @@ Durante a implementação do modelo, poderá ver a alteração do estado de serv
 
 A tabela a seguir descreve os diferentes estados de serviço:
 
-| Estado do serviço web | Description | Estado final?
+| Estado do serviço web | Descrição | Estado final?
 | ----- | ----- | ----- |
 | Transição | O serviço está em processo de implantação. | Não |
 | Mau estado de funcionamento | O serviço foi implantado, mas está atualmente inacessível.  | Não |
