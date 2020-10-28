@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd04f404330a6c86e2df09da610e16ba9b721f3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355861"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895652"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
 
@@ -27,11 +27,11 @@ O seguinte guia é para processos de fundo, temporizadores e empregos que são h
 
 ## <a name="scenario-shared-key-authentication"></a>Cenário: Autenticação de chave partilhada
 
-Depois de criar uma conta Azure Maps, as teclas primárias e secundárias são geradas. Recomendamos que utilize a chave primária como chave de subscrição quando [utilizar a autenticação de chave partilhada para ligar para Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Pode utilizar uma chave secundária em cenários como alterações de teclas rolantes. Para mais informações, consulte [autenticação no Azure Maps.](https://aka.ms/amauth)
+Depois de criar uma conta Azure Maps, as teclas primárias e secundárias são geradas. Recomendamos que utilize a chave primária como chave de subscrição quando [utilizar a autenticação de chave partilhada para ligar para Azure Maps](./azure-maps-authentication.md#shared-key-authentication). Pode utilizar uma chave secundária em cenários como alterações de teclas rolantes. Para mais informações, consulte [autenticação no Azure Maps.](./azure-maps-authentication.md)
 
 ### <a name="securely-store-shared-key"></a>Armazenar de forma segura a chave partilhada
 
-A chave primária e secundária permite a autorização a todas as APIs para a conta Maps. As aplicações devem armazenar as chaves numa loja segura, como o Azure Key Vault. A aplicação deve recuperar a chave partilhada como um segredo do Azure Key Vault para evitar armazenar a chave partilhada em texto simples na configuração da aplicação. Para entender como configurar um Cofre de Chaves Azure, consulte o [guia de desenvolvimento do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/developers-guide).
+A chave primária e secundária permite a autorização a todas as APIs para a conta Maps. As aplicações devem armazenar as chaves numa loja segura, como o Azure Key Vault. A aplicação deve recuperar a chave partilhada como um segredo do Azure Key Vault para evitar armazenar a chave partilhada em texto simples na configuração da aplicação. Para entender como configurar um Cofre de Chaves Azure, consulte o [guia de desenvolvimento do Azure Key Vault](../key-vault/general/developers-guide.md).
 
 Os seguintes passos descrevem este processo:
 
@@ -44,7 +44,7 @@ Os seguintes passos descrevem este processo:
 7. Crie pedido de API AZure Maps REST com chave partilhada.
 
 > [!Tip]
-> Se a aplicação estiver hospedada em ambiente Azure, deverá implementar uma Identidade Gerida para reduzir o custo e a complexidade de gerir um segredo para autenticar para a Azure Key Vault. Consulte o seguinte tutorial do Azure Key Vault [para ligar através de identidade gerida](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> Se a aplicação estiver hospedada em ambiente Azure, deverá implementar uma Identidade Gerida para reduzir o custo e a complexidade de gerir um segredo para autenticar para a Azure Key Vault. Consulte o seguinte tutorial do Azure Key Vault [para ligar através de identidade gerida](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
 A aplicação Daemon é responsável por recuperar a chave partilhada de um armazenamento seguro. A implementação com o Azure Key Vault requer autenticação através da Azure AD para aceder ao segredo. Em vez disso, encorajamos a autenticação direta do AZure AD ao Azure Maps como resultado da complexidade adicional e requisitos operacionais da utilização da autenticação de chaves partilhadas.
 
@@ -62,7 +62,7 @@ Uma vez criada uma conta Azure Maps, o valor Azure Maps `x-ms-client-id` está p
 
 Ao executar os recursos Azure, configurar identidades geridas pela Azure para permitir um esforço de gestão de credencial de baixo custo e mínimo. 
 
-Consulte [a visão geral das identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para permitir o acesso da aplicação a uma Identidade Gerida.
+Consulte [a visão geral das identidades geridas](../active-directory/managed-identities-azure-resources/overview.md) para permitir o acesso da aplicação a uma Identidade Gerida.
 
 Benefícios de identidade gerida:
 
@@ -75,46 +75,46 @@ Benefícios de identidade gerida:
 
 Quando funciona num ambiente não-Azure As identidades geridas não estão disponíveis. Por isso, deve configurar um comitado através de um registo de pedido azure AD para o pedido da Daemon.
 
-1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições**.  
+1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições** .  
 
     > [!div class="mx-imgBorder"]
     > ![Registo da aplicação](./media/how-to-manage-authentication/app-registration.png)
 
-2. Se já registou a sua aplicação, então continue para o próximo passo. Se ainda não registou a sua aplicação, insira um **Nome,** escolha um **tipo de conta de Suporte**e, em seguida, selecione **Registar.»**  
+2. Se já registou a sua aplicação, então continue para o próximo passo. Se ainda não registou a sua aplicação, insira um **Nome,** escolha um **tipo de conta de Suporte** e, em seguida, selecione **Registar.»**  
 
     > [!div class="mx-imgBorder"]
     > ![Detalhes do registo da aplicação](./media/how-to-manage-authentication/app-create.png)
 
-3. Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, nos **registos da App,** selecione **permissões API**  >  **Adicione uma permissão**. Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
+3. Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, nos **registos da App,** selecione **permissões API**  >  **Adicione uma permissão** . Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar permissões de API de aplicativo](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Selecione a caixa de verificação ao lado **do Access Azure Maps**e, em seguida, selecione **Permissões de adicionar**.
+4. Selecione a caixa de verificação ao lado **do Access Azure Maps** e, em seguida, selecione **Permissões de adicionar** .
 
     > [!div class="mx-imgBorder"]
     > ![Selecione permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)
 
 5. Complete os seguintes passos para criar um certificado secreto ou de configuração do cliente.
 
-    * Se a sua aplicação utilizar a autenticação do servidor ou da aplicação, então na página de registo da sua aplicação, aceda aos **segredos & certificados.** Em seguida, faça o upload de um certificado de chave pública ou crie uma palavra-passe selecionando **o novo segredo do cliente**.
+    * Se a sua aplicação utilizar a autenticação do servidor ou da aplicação, então na página de registo da sua aplicação, aceda aos **segredos & certificados.** Em seguida, faça o upload de um certificado de chave pública ou crie uma palavra-passe selecionando **o novo segredo do cliente** .
 
         > [!div class="mx-imgBorder"]
         > ![Criar um segredo de cliente](./media/how-to-manage-authentication/app-keys.png)
 
-    * Depois de selecionar **Adicionar,** copie o segredo e guarde-o de forma segura num serviço como o Azure Key Vault. Reveja [o Guia de Desenvolvimento do Cofre de Chaves Azure](https://docs.microsoft.com/azure/key-vault/general/developers-guide) para armazenar o certificado ou segredo de forma segura. Vais usar este segredo para obter fichas do Azure AD.
+    * Depois de selecionar **Adicionar,** copie o segredo e guarde-o de forma segura num serviço como o Azure Key Vault. Reveja [o Guia de Desenvolvimento do Cofre de Chaves Azure](../key-vault/general/developers-guide.md) para armazenar o certificado ou segredo de forma segura. Vais usar este segredo para obter fichas do Azure AD.
 
         > [!div class="mx-imgBorder"]
         > ![Adicione um segredo de cliente](./media/how-to-manage-authentication/add-key.png)
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Conceder acesso baseado em funções para a aplicação da Daemon ao Azure Maps
 
-Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)* atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)* atribuindo a identidade gerida criada ou o principal de serviço a uma ou mais definições de funções Azure Maps. Para ver as definições de função Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)** . Selecione **Roles** , e, em seguida, procure por papéis que comecem com *Azure Maps* . Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Aceda à sua **Conta Azure Maps.** Selecione **Controlo de acesso (IAM)** > **Atribuições de funções**.
+1. Aceda à sua **Conta Azure Maps.** Selecione **Controlo de acesso (IAM)** > **Atribuições de funções** .
 
     > [!div class="mx-imgBorder"]
     > ![Conceder acesso usando Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
@@ -124,7 +124,7 @@ Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)*
     > [!div class="mx-imgBorder"]
     > ![A screenshot mostra as atribuições de rolo com Add selecionado.](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Selecione uma definição de função Azure Maps incorporada, como O Leitor de **Dados do Azure Maps** ou **Colaborador de Dados do Azure Maps.** No **acesso de Atribuição a**, selecione **Azure AD utilizador, grupo ou principal de serviço** ou identidade gerida com o Sistema de identidade gerido atribuído pelo **Utilizador.**  /  **System assigned Managed identity** Selecione o principal. Em seguida, selecione **Guardar**.
+3. Selecione uma definição de função Azure Maps incorporada, como O Leitor de **Dados do Azure Maps** ou **Colaborador de Dados do Azure Maps.** No **acesso de Atribuição a** , selecione **Azure AD utilizador, grupo ou principal de serviço** ou identidade gerida com o Sistema de identidade gerido atribuído pelo **Utilizador.**  /  **System assigned Managed identity** Selecione o principal. Em seguida, selecione **Guardar** .
 
     > [!div class="mx-imgBorder"]
     > ![Como adicionar atribuição de funções](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
@@ -133,7 +133,7 @@ Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)*
 
 ## <a name="request-token-with-managed-identity"></a>Pedido de token com identidade gerida
 
-Uma vez configurada uma identidade gerida para o recurso de hospedagem, utilize a Azure SDK ou a REST API para adquirir um símbolo para o Azure Maps, consulte detalhes sobre [adquirir um token de acesso](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token). Seguindo o guia, a expectativa é que seja devolvido um token de acesso que pode ser usado em pedidos de API REST.
+Uma vez configurada uma identidade gerida para o recurso de hospedagem, utilize a Azure SDK ou a REST API para adquirir um símbolo para o Azure Maps, consulte detalhes sobre [adquirir um token de acesso](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md). Seguindo o guia, a expectativa é que seja devolvido um token de acesso que pode ser usado em pedidos de API REST.
 
 ## <a name="request-token-with-application-registration"></a>Pedido de token com registo de pedido
 
@@ -168,7 +168,7 @@ Resposta:
 }
 ```
 
-Consulte [os cenários de autenticação para Azure AD,](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)para obter exemplos mais detalhados.
+Consulte [os cenários de autenticação para Azure AD,](../active-directory/develop/authentication-vs-authorization.md)para obter exemplos mais detalhados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

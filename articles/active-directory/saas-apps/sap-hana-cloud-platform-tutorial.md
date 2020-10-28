@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: be3634ea051c99acf7b706da266179c93a1be861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2d87be085331c174b58e2a475e18efa54a78cfea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676669"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Ative Directory com a Plataforma NUVEM SAP
 
@@ -150,7 +150,7 @@ Para configurar o Azure AD com a Plataforma nuvem SAP, execute os seguintes pass
 
 3. Na secção De Gestão Fiduciu de Confiança, no **Âmbito do Prestador de Serviços Local,** execute os seguintes passos:
 
-    ![Gestão de Confiança](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Gestão de Confiança")
+    ![Screenshot que mostra a secção "Trust Management" com o separador "Fornecedor de Serviços Locais" selecionado e todas as caixas de texto destacadas.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Gestão de Confiança")
    
     a. Clique em **Editar** .
 
@@ -178,7 +178,7 @@ Para configurar o Azure AD com a Plataforma nuvem SAP, execute os seguintes pass
 
 5. Clique no **separador Fornecedor de Identidade Fidedigna** e, em seguida, clique em **Adicionar Fornecedor de Identidade Fidedigna.**
    
-    ![Gestão de Confiança](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Gestão de Confiança")
+    ![Screenshot que mostra a página "Trust Management" com o separador "Fornecedor de Identidade Fidedigna" selecionado.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Gestão de Confiança")
    
     >[!NOTE]
     >Para gerir a lista de fornecedores de identidade fidedignos, precisa de ter escolhido o tipo de configuração personalizada na secção Fornecedor de Serviços Locais. Para o tipo de configuração predefinido, tem uma confiança não editável e implícita no Serviço DE ID SAP. Para Ninguém, não tens nenhuma definição de confiança.

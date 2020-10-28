@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9540922619864b0c239a22422bab5f6bf178e5fe
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a87bf24c3555f2e6a259064b56b1b630f4abfe27
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678397"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895002"
 ---
 # <a name="tutorial-integrate-secret-server-on-premises-with-azure-active-directory"></a>Tutorial: Integrar servidor secreto (on-premis) com diretório ativo Azure
 
@@ -98,7 +98,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No conjunto single Sign-On com página **SAML,** clique no ícone **Editar** para abrir o diálogo do Certificado de **Assinatura SAML.**
 
-    ![Opções de assinatura](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
+    ![Screenshot que mostra a secção "S A M L Signing Certificate" com a ação "Certificate (Base64" "Download" selecionada.)](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
 
 1. Selecione **a Opção de Assinatura** como resposta e **afirmação de Sign SAML** .
 

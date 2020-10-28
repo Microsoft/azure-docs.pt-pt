@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: cf43875be0088f9f9c8c8f209f97c8443bd305bb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676609"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895189"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integração do Diretório Ativo Azure com ScreenSteps
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD com o ScreenSteps, execute os seguintes passos:
 
 1. Clique **em 'S sign-on' único** .
 
-    ![Autenticação remota](./media/screensteps-tutorial/ic778524.png "Autenticação remota")
+    ![Screenshot que mostra "Single Sign-on" selecionado.](./media/screensteps-tutorial/ic778524.png "Autenticação remota")
 
 1. Clique **em Criar um ponto final único de sinal de assinatura.**
 

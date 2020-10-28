@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d8bf94bf0048efee05864b951429239de2def87a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669401"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895064"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutorial: Azure Ative Directory integração única (SSO) com a ScaleX Enterprise
 
@@ -148,11 +148,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     > [!NOTE]
     > Contoso é apenas um exemplo. Este deve ser o seu nome de empresa.
 
-    ![Configurar o início de sessão único](./media/scalex-enterprise-tutorial/Test_Admin.png)
+    ![Screenshot que mostra um nome de empresa de exemplo selecionado a partir do menu no canto superior direito.](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
 1. Selecione **Integrações** a partir do menu superior e selecione **um único sinal de sôsmes** .
 
-    ![Configurar o início de sessão único](./media/scalex-enterprise-tutorial/admin_sso.png) 
+    ![Screenshot que mostra "Integrações" selecionadas e "Sign-On único" selecionados a partir do menu suspenso.](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Preencha o formulário da seguinte forma:
 

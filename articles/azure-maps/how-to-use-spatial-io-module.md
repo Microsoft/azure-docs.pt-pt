@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335301"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895397"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como utilizar o módulo Azure Maps Spatial IO
 
@@ -40,7 +40,7 @@ Este vídeo fornece uma visão geral do módulo IO espacial no Azure Maps Web SD
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder utilizar o módulo IO Espacial, terá de [fazer uma conta Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) e obter a chave de [subscrição primária para a sua conta.](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)
+Antes de poder utilizar o módulo IO Espacial, terá de [fazer uma conta Azure Maps](./quick-demo-map-app.md#create-an-azure-maps-account) e obter a chave de [subscrição primária para a sua conta.](./quick-demo-map-app.md#get-the-primary-key-for-your-account)
 
 ## <a name="installing-the-spatial-io-module"></a>Instalação do módulo IO espacial
 
@@ -68,7 +68,7 @@ Pode carregar o módulo IO espacial Azure Maps utilizando uma das duas opções:
 
 1. Crie um novo ficheiro HTML.
 
-2. Carregue o Azure Maps Web SDK e inicialize o controlo do mapa. Consulte o guia de controlo do [mapa Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para obter os detalhes. Uma vez terminado este passo, o seu ficheiro HTML deve ficar assim:
+2. Carregue o Azure Maps Web SDK e inicialize o controlo do mapa. Consulte o guia de controlo do [mapa Azure Maps](./how-to-use-map-control.md) para obter os detalhes. Uma vez terminado este passo, o seu ficheiro HTML deve ficar assim:
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +256,4 @@ A funcionalidade que aqui demonstramos é apenas uma das muitas funcionalidades 
 Consulte a documentação do Azure Maps Spatial IO:
 
 > [!div class="nextstepaction"]
-> [Pacote Azure Maps Spatial IO](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Pacote Azure Maps Spatial IO](/javascript/api/azure-maps-spatial-io/)

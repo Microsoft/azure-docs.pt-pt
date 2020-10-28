@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089456"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895771"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
 
@@ -22,16 +22,16 @@ Depois de criar uma conta Azure Maps, é criada uma identificação de cliente e
 
 ## <a name="view-authentication-details"></a>Ver detalhes da autenticação
 
-Depois de criar uma conta Azure Maps, as teclas primárias e secundárias são geradas. Recomendamos que utilize uma chave primária como chave de subscrição quando [utilizar a autenticação da Chave Partilhada para ligar para OZure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Pode utilizar uma chave secundária em cenários como alterações de teclas rolantes. Para mais informações, consulte [autenticação no Azure Maps.](https://aka.ms/amauth)
+Depois de criar uma conta Azure Maps, as teclas primárias e secundárias são geradas. Recomendamos que utilize uma chave primária como chave de subscrição quando [utilizar a autenticação da Chave Partilhada para ligar para OZure Maps](./azure-maps-authentication.md#shared-key-authentication). Pode utilizar uma chave secundária em cenários como alterações de teclas rolantes. Para mais informações, consulte [autenticação no Azure Maps.](./azure-maps-authentication.md)
 
-Pode ver os seus dados de autenticação no portal Azure. Ali, na sua conta, no menu **Definições,** selecione **Autenticação**.
+Pode ver os seus dados de autenticação no portal Azure. Ali, na sua conta, no menu **Definições,** selecione **Autenticação** .
 
 > [!div class="mx-imgBorder"]
 > ![Detalhes da autenticação](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 ## <a name="discover-category-and-scenario"></a>Descubra a categoria e o cenário
 
-Dependendo das necessidades de aplicação, existem caminhos específicos para assegurar a aplicação. A Azure AD define categorias para suportar uma vasta gama de fluxos de autenticação. Consulte [as categorias de candidaturas](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) para perceber qual a categoria que a aplicação se enquadra.
+Dependendo das necessidades de aplicação, existem caminhos específicos para assegurar a aplicação. A Azure AD define categorias para suportar uma vasta gama de fluxos de autenticação. Consulte [as categorias de candidaturas](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories) para perceber qual a categoria que a aplicação se enquadra.
 
 > [!NOTE]
 > Mesmo que utilize a autenticação de chaves partilhadas, a compreensão de categorias e cenários ajuda-o a garantir a aplicação.
@@ -56,14 +56,14 @@ Os links na tabela levam-no a informações detalhadas de configuração para ca
 
 ## <a name="view-role-definitions"></a>Ver definições de funções
 
-Para ver as funções Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)**. Selecione **Roles**, e, em seguida, procure por papéis que comecem com *Azure Maps*. Estas funções do Azure Maps são as funções a que podes conceder acesso.
+Para ver as funções Azure que estão disponíveis para O Azure Maps, vá ao **Controlo de Acesso (IAM)** . Selecione **Roles** , e, em seguida, procure por papéis que comecem com *Azure Maps* . Estas funções do Azure Maps são as funções a que podes conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Ver funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Ver atribuições de funções
 
-Para ver utilizadores e apps a quem foi concedido acesso ao Azure Maps, aceda ao **Access Control (IAM)**. Lá, selecione **atribuições de funções**e, em seguida, filtrar por **Azure Maps**.
+Para ver utilizadores e apps a quem foi concedido acesso ao Azure Maps, aceda ao **Access Control (IAM)** . Lá, selecione **atribuições de funções** e, em seguida, filtrar por **Azure Maps** .
 
 > [!div class="mx-imgBorder"]
 > ![Ver utilizadores e apps a quem foi concedido acesso](./media/how-to-manage-authentication/how-to-view-amrbac.png)
@@ -77,11 +77,11 @@ Solicite um sinal do ponto final da Azure AD. No seu pedido AZure AD, utilize os
 | Nuvem pública azul     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Nuvem do governo de Azure | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-Para obter mais informações sobre a solicitação de tokens de acesso da Azure AD para utilizadores e diretores de serviço, consulte [cenários de autenticação para Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) e veja cenários específicos na tabela de [Cenários.](./how-to-manage-authentication.md#determine-authentication-and-authorization)
+Para obter mais informações sobre a solicitação de tokens de acesso da Azure AD para utilizadores e diretores de serviço, consulte [cenários de autenticação para Azure AD](../active-directory/develop/authentication-vs-authorization.md) e veja cenários específicos na tabela de [Cenários.](./how-to-manage-authentication.md#determine-authentication-and-authorization)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para mais informações, consulte [Azure AD e Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Para mais informações, consulte [Azure AD e Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Encontre as métricas de utilização da API para a sua conta Azure Maps:
 > [!div class="nextstepaction"]

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335335"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895448"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapa do Azure Maps
 
@@ -26,7 +26,7 @@ Para utilizar o Controlo do Mapa numa página web, deve ter um dos seguintes pr�
 
 * [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account) e [obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 
-* Obtenha as suas credenciais Azure Ative (AAD) com [opções de autenticação.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)
+* Obtenha as suas credenciais Azure Ative (AAD) com [opções de autenticação.](/javascript/api/azure-maps-control/atlas.authenticationoptions)
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Criar um novo mapa numa página web
 
@@ -83,7 +83,7 @@ Pode incorporar um mapa numa página web utilizando a biblioteca JavaScript do l
     </body>
    ```
 
-5. Agora, vamos inicializar o controlo do mapa. Para autenticar o controlo, você terá de possuir uma chave de subscrição Azure Maps ou usar credenciais Azure Ative Directory (AAD) com [opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. Agora, vamos inicializar o controlo do mapa. Para autenticar o controlo, você terá de possuir uma chave de subscrição Azure Maps ou usar credenciais Azure Ative Directory (AAD) com [opções de autenticação](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     Se estiver a utilizar uma chave de subscrição para autenticação, copie e cole o seguinte elemento de script dentro do `<head>` elemento e abaixo do primeiro `<script>` elemento. Substitua `<Your Azure Maps Key>` a sua chave de subscrição primária do Azure Maps.
 
@@ -279,7 +279,7 @@ Para adicionar mais dados ao seu mapa:
 > [Criar um mapa](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Amostras de código](/samples/browse/?products=azure-maps)
 
 Para obter uma lista de amostras que mostram como integrar o Azure Ative Directory (AAD) com o Azure Maps, consulte:
 

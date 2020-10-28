@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 46f93dffe0a998f29ff7157a2866b52d13482834
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fc5e0270c4533eaae1310dc84b616d675a79c8ea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676523"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Azure Ative Directy integração única (SSO) com autenticação de identidade da plataforma de nuvem SAP
 
@@ -98,7 +98,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Domínio de autenticação de identidade da plataforma de nuvem SAP e informações únicas de acesso](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas e o botão "Save" selecionado.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `<IAS-tenant-id>.accounts.ondemand.com`
 

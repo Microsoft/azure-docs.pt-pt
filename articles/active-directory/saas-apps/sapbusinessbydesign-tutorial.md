@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 91c0eaf5b1e614e185747cd9ae2c32e7f4f7a707
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6d04601cb11e57f50c82680077793aef1b816bfa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: Integração do Azure Active Directory com SAP Business ByDesign
 
@@ -110,11 +110,11 @@ Para configurar o Azure AD um único sinal de inscrição com o SAP Business ByD
 
 5. A aplicação SAP Business ByDesign espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
 6. Clique no ícone **Editar** para editar o valor do **identificador nome** .
 
-    ![image](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
+    ![Screenshot que mostra a página "User Atributos & Claims" com o ícone "Editar" selecionado.](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
 
 7. Na secção **Gerir reclamações do utilizador,** execute os seguintes passos:  ![ imagem](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
 
@@ -148,7 +148,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SAP Business ByD
 
 3. Clique em **Novo Fornecedor de Identidade** e selecione o ficheiro XML de metadados que descarregou a partir do portal Azure. Ao importar os metadados, o sistema envia automaticamente o certificado de assinatura e certificado de encriptação necessários.
 
-    ![Configurar Sign-On Individuais](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+    ![Screenshot que mostra a página "Configurar o Sign-On Único" com o separador "Fornecedor de Identidade" selecionado e a ação "Novo Fornecedor de Identidade" selecionada.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
 4. Para incluir o **URL do Serviço ao Consumidor de Afirmação** no pedido SAML, selecione Incluir URL de Serviço ao Consumidor de **Afirmação** .
 
@@ -158,7 +158,7 @@ Para configurar o Azure AD um único sinal de inscrição com o SAP Business ByD
 
 7. Clique no **separador 'O Meu Sistema'.**
 
-    ![Configurar Sign-On Individuais](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Screenshot que mostra a página "Configurar o Sign-On Único" com o separador "O Meu Sistema" selecionado.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
 8. No **sinal AD Azure Na** caixa de texto URL, cole o valor URL do **Login,** que copiou a partir do portal Azure.
 

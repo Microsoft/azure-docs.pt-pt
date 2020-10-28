@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335352"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895465"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 
@@ -77,7 +77,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Instantaneamente o Gerente Interior
 
-Para carregar os azulejos interiores e o estilo de mapa dos azulejos, deve instantaneamente o *Gerente Interior*. Instantânear o *Gestor Interior* fornecendo o objeto *mapa* e o correspondente `tilesetId` . Se deseja apoiar o [estilo dinâmico do mapa,](indoor-map-dynamic-styling.md)tem de passar o `statesetId` . O `statesetId` nome variável é sensível a casos. O seu código deve gostar do JavaScript abaixo.
+Para carregar os azulejos interiores e o estilo de mapa dos azulejos, deve instantaneamente o *Gerente Interior* . Instantânear o *Gestor Interior* fornecendo o objeto *mapa* e o correspondente `tilesetId` . Se deseja apoiar o [estilo dinâmico do mapa,](indoor-map-dynamic-styling.md)tem de passar o `statesetId` . O `statesetId` nome variável é sensível a casos. O seu código deve gostar do JavaScript abaixo.
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +107,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Controlo de picker de nível interno
 
- O controlo *indoor Level Picker* permite-lhe alterar o nível do mapa renderizado. Pode inicializar opcionalmente o controlo *do selecionador de nível interior* através do Gestor *Interior*. Aqui está o código para inicializar o selecionador de controlo de nível:
+ O controlo *indoor Level Picker* permite-lhe alterar o nível do mapa renderizado. Pode inicializar opcionalmente o controlo *do selecionador de nível interior* através do Gestor *Interior* . Aqui está o código para inicializar o selecionador de controlo de nível:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +116,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Eventos Indoor
 
- O módulo *Azure Maps Indoor* suporta eventos *de objetos de mapa.* Os ouvintes do evento *do objeto mapa* são invocados quando um nível ou instalação mudou. Se pretender executar o código quando um nível ou instalação tiver mudado, coloque o seu código dentro do ouvinte do evento. O código abaixo mostra como os ouvintes do evento podem ser adicionados ao *objeto Mapa*.
+ O módulo *Azure Maps Indoor* suporta eventos *de objetos de mapa.* Os ouvintes do evento *do objeto mapa* são invocados quando um nível ou instalação mudou. Se pretender executar o código quando um nível ou instalação tiver mudado, coloque o seu código dentro do ouvinte do evento. O código abaixo mostra como os ouvintes do evento podem ser adicionados ao *objeto Mapa* .
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -147,7 +147,7 @@ Este exemplo mostra-lhe como utilizar o módulo *Azure Maps Indoor* na sua aplic
 4. Inicialize um *objeto de mapa.* O *objeto Mapa* suporta as seguintes opções:
     - `Subscription key` é a sua chave de subscrição primária do Azure Maps.
     - `center` define uma latitude e longitude para a sua localização do centro do mapa interior. Forneça um valor para `center` se não quiser fornecer um valor para `bounds` . O formato deve aparecer como `center` : [-122.13315, 47.63637].
-    - `bounds` é a menor forma retangular que encerra os dados do mapa de azulejos. Desa estada um valor para `bounds` se não quiser definir um valor para `center` . Pode encontrar os limites do seu mapa ligando para a [API da Lista tileset.](https://docs.microsoft.com/rest/api/maps/tileset/listpreview) A Lista de Tileset API devolve o `bbox` , que você pode analisar e atribuir a `bounds` . O formato deve aparecer como `bounds` : [# oeste, # sul, # leste, # norte].
+    - `bounds` é a menor forma retangular que encerra os dados do mapa de azulejos. Desa estada um valor para `bounds` se não quiser definir um valor para `center` . Pode encontrar os limites do seu mapa ligando para a [API da Lista tileset.](/rest/api/maps/tileset/listpreview) A Lista de Tileset API devolve o `bbox` , que você pode analisar e atribuir a `bounds` . O formato deve aparecer como `bounds` : [# oeste, # sul, # leste, # norte].
     - `style` permite definir a cor do fundo. Para exibir um fundo branco, defina `style` como "em branco".
     - `zoom` permite especificar os níveis de zoom min e max para o seu mapa.
 
@@ -257,4 +257,4 @@ Saiba mais sobre como adicionar mais dados ao seu mapa:
 > [Estilo dinâmico de Mapas Interiores](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Amostras de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Amostras de código](/samples/browse/?products=azure-maps)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d3a3a068a4efb2dea7d7df4bc2b88e2c33dc18b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748566cf5b25157fcb8a2938a3f4bd307c930874
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672128"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integração do Diretório Ativo Azure com SAP HANA
 
@@ -121,13 +121,13 @@ Para configurar o Azure AD com o SAP HANA, execute os seguintes passos:
 
 5. A aplicação SAP HANA espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra a secção "Atributos do utilizador" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
 6. Na secção **de atributos** do Utilizador no diálogo **"Atributos & Reclamações** do Utilizador", execute os seguintes passos:
  
     a. Clique **em Editar o ícone** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](./media/saphana-tutorial/tutorial_usermail.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador & Reclamações" com o ícone "Editar" selecionado.](./media/saphana-tutorial/tutorial_usermail.png)
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD com o SAP HANA, execute os seguintes passos:
 
     a. No painel **De Informação do Fornecedor de Identidade Adicionar,** cole o conteúdo do Metadadata XML (que descarregou a partir do portal Azure) na caixa **de metadados.**
 
-    ![Adicionar definições de Fornecedor de Identidade](./media/saphana-tutorial/sap2.png)
+    ![Screenshot que mostra o painel "Adicionar Informação do Fornecedor de Identidade" com as caixas "Metadados" e "Nome" em destaque.](./media/saphana-tutorial/sap2.png)
 
     b. Se o conteúdo do documento XML for válido, o processo de análise extrai as informações necessárias para os campos **Assunto, ID da Entidade e Emitente** na área geral do ecrã de **dados.** Também extrai a informação necessária para os campos de URL na área do ecrã **destino,** por exemplo, os campos **DE URL base e URL singleSignOn (*).**
 

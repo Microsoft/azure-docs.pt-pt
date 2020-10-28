@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606271"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892932"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Visão geral da transformação do fluxo de dados de mapeamento
 
@@ -33,10 +33,11 @@ Abaixo está uma lista das transformações atualmente suportadas no fluxo de da
 | [Pesquisa](data-flow-lookup.md) | Múltiplas entradas/saídas | Dados de referência de outra fonte. |
 | [Novo ramo](data-flow-new-branch.md) | Múltiplas entradas/saídas | Aplicar vários conjuntos de operações e transformações contra o mesmo fluxo de dados. |
 | [Dinamizar](data-flow-pivot.md) | Modificador de esquemas | Uma agregação onde uma ou mais colunas de agrupamento têm os seus valores de linha distintos transformados em colunas individuais. |
+| [Posição](data-flow-rank.md) | Modificador de esquemas | Gerar um ranking ordenado com base em condições de classificação |
 | [Selecionar](data-flow-select.md) | Modificador de esquemas | Colunas de pseudónimos e nomes de fluxo, e colunas de queda ou reencomenda |
 | [Sink](data-flow-sink.md) | - | Um destino final para os seus dados |
 | [Ordenar](data-flow-sort.md) | Modificador de linha | Ordenar linhas de entrada no fluxo de dados atual |
-| [Origem](data-flow-source.md) | - | Uma fonte de dados para o fluxo de dados |
+| [Fonte](data-flow-source.md) | - | Uma fonte de dados para o fluxo de dados |
 | [Chave de substituição](data-flow-surrogate-key.md) | Modificador de esquemas | Adicione um valor-chave arbitrário não-negócio incrementante |
 | [União](data-flow-union.md) | Múltiplas entradas/saídas | Combine vários fluxos de dados verticalmente |
 | [Anular dinamização](data-flow-unpivot.md) | Modificador de esquemas | Colunas de pivô em valores de linha |

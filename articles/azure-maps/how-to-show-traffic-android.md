@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272961"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895533"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando Azure Maps Android SDK
 
@@ -21,7 +21,7 @@ Dados de fluxo e dados de incidentes são os dois tipos de dados de tráfego que
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder mostrar tráfego no mapa, tem de [fazer uma Conta Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [obter uma chave de subscrição.](quick-demo-map-app.md#get-the-primary-key-for-your-account) Em seguida, você precisa instalar o [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e carregar um mapa.
+Antes de poder mostrar tráfego no mapa, tem de [fazer uma Conta Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [obter uma chave de subscrição.](quick-demo-map-app.md#get-the-primary-key-for-your-account) Em seguida, você precisa instalar o [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) e carregar um mapa.
 
 ## <a name="incidents-traffic-data"></a>Incidentes dados de tráfego
 
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Para obter os incidentes para uma funcionalidade específica, pode utilizar o código abaixo. Quando uma funcionalidade é clicada, a lógica de código verifica os incidentes e constrói uma mensagem sobre o incidente. Uma mensagem aparece na parte inferior do ecrã com os detalhes.
 
-1. Primeiro, você precisa editar **res > layout > activity_main.xml**, para que se pareça com o de baixo. Pode substituir o `mapcontrol_centerLat` `mapcontrol_centerLng` , e pelos `mapcontrol_zoom` valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro cabe num único azulejo.
+1. Primeiro, você precisa editar **res > layout > activity_main.xml** , para que se pareça com o de baixo. Pode substituir o `mapcontrol_centerLat` `mapcontrol_centerLng` , e pelos `mapcontrol_zoom` valores desejados. Lembre-se, o nível de zoom é um valor entre 0 e 22. No nível de zoom 0, o mundo inteiro cabe num único azulejo.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +221,7 @@ Para obter os incidentes para uma funcionalidade específica, pode utilizar o c�
    }
    ```
 
-3. Assim que incorporar o código acima na sua aplicação, poderá clicar numa funcionalidade e ver os detalhes dos incidentes de trânsito. Dependendo da latitude, longitude e dos valores de nível de zoom que usou no seu ficheiro **activity_main.xml, ** verá resultados semelhantes à seguinte imagem:
+3. Assim que incorporar o código acima na sua aplicação, poderá clicar numa funcionalidade e ver os detalhes dos incidentes de trânsito. Dependendo da latitude, longitude e dos valores de nível de zoom que usou no seu ficheiro **activity_main.xml,** verá resultados semelhantes à seguinte imagem:
 
    <center>
 

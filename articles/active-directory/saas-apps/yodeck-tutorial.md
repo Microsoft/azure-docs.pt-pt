@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: e9be10a121b223c7eeb3957c34cf42c1abe7646e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68e961336d7e86f9983fea49044137894ab0f985
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519975"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Diretório Ativo Azure com a Yodeck
 
@@ -49,7 +49,7 @@ Para configurar a integração do Yodeck no Azure AD, precisa adicionar Yodeck d
 
 **Para adicionar Yodeck da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Yodeck no Azure AD, precisa adicionar Yodeck d
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Yodeck**, selecione **Yodeck** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, **digite Yodeck** , selecione **Yodeck** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
      ![Yodeck na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Yodeck com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, você configura e testa Azure AD single sign-on com Yodeck com base em um utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Yodeck.
 
 Para configurar e testar o Azure AD com yodeck, você precisa completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com Yodeck, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **yodeck,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **yodeck,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Para configurar o Azure AD com Yodeck, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![image](common/both-preintegrated-signon.png)
+    ![A screenshot mostra a configuração básica do SAML com o link de ficheiro de metadados upload.](common/both-preintegrated-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.yodeck.com/login`
 
@@ -115,9 +115,9 @@ Para configurar o Azure AD com Yodeck, execute os seguintes passos:
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configurar yodeck single Sign-On
 
-1. Para automatizar a configuração dentro do **Yodeck,** é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+1. Para automatizar a configuração dentro do **Yodeck,** é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
 
-    ![image](./media/target-process-tutorial/install_extension.png)
+    ![A screenshot mostra o botão de extensão instalar.](./media/target-process-tutorial/install_extension.png)
 
 1. Depois de adicionar extensão ao navegador, clique na **configuração Yodeck** irá direcioná-lo para a aplicação Yodeck. A partir daí, forneça as credenciais de administração para assinar em Yodeck. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-5.
 
@@ -127,27 +127,27 @@ Para configurar o Azure AD com Yodeck, execute os seguintes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Yodeck como administrador.
 
-1. Clique na opção **Definições do Utilizador,** forme o canto superior direito da página e selecione **Definições**de Conta .
+1. Clique na opção **Definições do Utilizador,** forme o canto superior direito da página e selecione **Definições** de Conta .
 
-    ![Configuração yodeck](./media/yodeck-tutorial/configure1.png)
+    ![A screenshot mostra com as Definições de Conta selecionadas para o utilizador.](./media/yodeck-tutorial/configure1.png)
 
 1. Selecione **SAML** e execute os seguintes passos:
 
-    ![Configuração yodeck](./media/yodeck-tutorial/configure2.png)
+    ![A screenshot mostra o separador SAML onde pode executar estes passos.](./media/yodeck-tutorial/configure2.png)
 
-    a. Selecione **Import from URL**.
+    a. Selecione **Import from URL** .
 
-    b. Na caixa de texto **URL,** cole o valor do **url de metadados da Federação de Aplicações,** que copiou a partir do portal Azure e clique em **Import**.
+    b. Na caixa de texto **URL,** cole o valor do **url de metadados da Federação de Aplicações,** que copiou a partir do portal Azure e clique em **Import** .
     
     c. Após importar o **Url de Metadados da Federação de Aplicações,** os restantes campos povoam-se automaticamente.
 
-    d. Clique em **Guardar**.
+    d. Clique em **Guardar** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -159,27 +159,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Yodeck.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Yodeck**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Yodeck** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Yodeck**.
+2. Na lista de candidaturas, selecione **Yodeck** .
 
     ![O link Yodeck na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -201,27 +201,27 @@ Para permitir que os utilizadores da Azure AD inscrevam-se no Yodeck, devem ser 
 
 1. Inscreva-se no site da sua empresa Yodeck como administrador.
 
-2. Clique na opção **Definições do Utilizador,** forme o canto superior direito da página e selecione **Utilizadores**.
+2. Clique na opção **Definições do Utilizador,** forme o canto superior direito da página e selecione **Utilizadores** .
 
-    ![Adicionar Empregado](./media/yodeck-tutorial/user1.png)
+    ![A screenshot mostra com os Utilizadores selecionados para o utilizador.](./media/yodeck-tutorial/user1.png)
 
 3. Clique em **+Utilizador** para abrir o separador **Dados do Utilizador.**
 
-    ![Adicionar Empregado](./media/yodeck-tutorial/user2.png)
+    ![A imagem mostra o botão Utilizadores.](./media/yodeck-tutorial/user2.png)
 
 4. Na página de diálogo **'Detalhes do utilizador',** execute os seguintes passos:
 
-    ![Adicionar Empregado](./media/yodeck-tutorial/user3.png)
+    ![A screenshot mostra o separador Detalhes do Utilizador onde pode executar estes passos.](./media/yodeck-tutorial/user3.png)
 
-    a. Na caixa de texto **Name Name,** digite o primeiro nome do utilizador como **Britta**.
+    a. Na caixa de texto **Name Name,** digite o primeiro nome do utilizador como **Britta** .
 
-    b. Na caixa de texto **Do Último Nome,** digite o último nome de utilizador como **Simon**.
+    b. Na caixa de texto **Do Último Nome,** digite o último nome de utilizador como **Simon** .
 
     c. Na caixa de texto **por e-mail,** digite o endereço de e-mail do utilizador como brittasimon@contoso.com .
 
     d. Selecione a opção de **Permissões de Conta apropriadas** de acordo com o seu requisito organizacional.
     
-    e. Clique em **Guardar**.
+    e. Clique em **Guardar** .
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

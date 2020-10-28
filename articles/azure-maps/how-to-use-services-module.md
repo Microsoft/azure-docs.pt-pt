@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 4368e71e0ae6185214a0e3e15773fbe1aef375de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e07b614e87ed5dad94cf9bc5994e78071187839
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895431"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utilize o módulo de serviços Azure Maps
 
@@ -191,19 +191,19 @@ Se aceder diretamente aos serviços Azure Maps REST, altere o domínio URL para 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl)
+> [MapsURL](/javascript/api/azure-maps-rest/atlas.service.mapsurl)
 
 > [!div class="nextstepaction"]
-> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl)
+> [SearchURL](/javascript/api/azure-maps-rest/atlas.service.searchurl)
 
 > [!div class="nextstepaction"]
-> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl)
+> [RouteURL](/javascript/api/azure-maps-rest/atlas.service.routeurl)
 
 > [!div class="nextstepaction"]
-> [SubscriçãoKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
+> [SubscriçãoKeyCredential](/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
 
 > [!div class="nextstepaction"]
-> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential)
+> [TokenCredential](/javascript/api/azure-maps-rest/atlas.service.tokencredential)
 
 Para obter mais amostras de código que utilizem o módulo de serviços, consulte estes artigos:
 

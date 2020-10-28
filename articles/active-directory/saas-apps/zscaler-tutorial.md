@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 41867e0c085d96c8eb00042e84dd3f030317a217
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a9d16f8cbb3da98a96f97a85d65672cc7ef70f65
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517536"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893697"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Tutorial: Azure Ative Directory integração única (SSO) com Zscaler
 
@@ -48,14 +48,14 @@ Para configurar a integração do Zscaler no Azure AD, é necessário adicionar 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Adicionar da secção **da galeria,** **digite Zscaler** na caixa de pesquisa.
 1. Selecione **Zscaler** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler"></a>Configurar e testar Azure AD único sinal para Zscaler
 
-Configure e teste Azure AD SSO com Zscaler usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Zscaler.
+Configure e teste Azure AD SSO com Zscaler usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Zscaler.
 
 Para configurar e testar o Azure AD SSO com a Zscaler, complete os seguintes blocos de construção:
 
@@ -70,8 +70,8 @@ Para configurar e testar o Azure AD SSO com a Zscaler, complete os seguintes blo
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler,** encontre a secção **Gerir** e selecione **Single sign-on**.
-1. Na página **de método de inscrição única,** selecione **SAML**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zscaler,** encontre a secção **Gerir** e selecione **Single sign-on** .
+1. Na página **de método de inscrição única,** selecione **SAML** .
 1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -85,7 +85,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A sua aplicação Zscaler espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 1. Além de acima, a aplicação Zscaler espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
@@ -99,11 +99,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Deixe o **Espaço Namespace** em branco.
 
-    d. Selecione Fonte como **Atributo**.
+    d. Selecione Fonte como **Atributo** .
 
     e. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
 
-    f. Clique em **Guardar**.
+    f. Clique em **Guardar** .
 
     > [!NOTE]
     > Clique [aqui](../develop/active-directory-enterprise-app-role-management.md) para saber como configurar o papel em Azure AD
@@ -120,27 +120,27 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Zscaler.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Zscaler**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **Zscaler** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Zscaler**.
+2. Na lista de candidaturas, selecione **Zscaler** .
 
     ![O link Zscaler na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -150,19 +150,19 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 5. No diálogo **de Utilizadores e grupos,** selecione o utilizador como **Britta Simon** da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
+    ![A screenshot mostra a caixa de diálogo dos Utilizadores e grupos onde pode selecionar um utilizador.](./media/zscaler-tutorial/tutorial_zscaler_users.png)
 
 6. A partir do diálogo **'Escolha',** escolha a função de utilizador apropriada na lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
+    ![A screenshot mostra a caixa de diálogo Select Role onde pode escolher uma função de utilizador.](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
 
 7. No diálogo **'Adicionar Atribuição'** selecione o botão **'Atribuir'.**
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
+    ![A screenshot mostra a caixa de diálogo de atribuição de adicionar onde pode selecionar Atribua.](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
 
 ## <a name="configure-zscaler-sso"></a>Configurar Zscaler SSO
 
-1. Para automatizar a configuração dentro do Zscaler, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+1. Para automatizar a configuração dentro do Zscaler, é necessário instalar a extensão do **navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
@@ -174,11 +174,11 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. Vá à **Administração > Autenticação > Definições de Autenticação** e execute os seguintes passos:
 
-    ![Administration](./media/zscaler-tutorial/ic800206.png "Administração")
+    ![A screenshot mostra o site Zscaler One com passos como descrito.](./media/zscaler-tutorial/ic800206.png "Administração")
 
-    a. No Tipo de Autenticação, escolha **SAML**.
+    a. No Tipo de Autenticação, escolha **SAML** .
 
-    b. Clique **em Configurar SAML**.
+    b. Clique **em Configurar SAML** .
 
 1. Na janela **Editar SAML,** execute os seguintes passos: e clique em Guardar.  
 
@@ -186,11 +186,11 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
     
     a. Na caixa de texto **URL do PORTAL SAML,** cole o **URL de login** que copiou do portal Azure.
 
-    b. Na caixa de texto **atributo de nome de login,** insira o **NameID**.
+    b. Na caixa de texto **atributo de nome de login,** insira o **NameID** .
 
-    c. Clique em **Upload**, para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público**.
+    c. Clique em **Upload** , para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público** .
 
-    d. Alternar o **Enable SAML Auto-Provisioning**.
+    d. Alternar o **Enable SAML Auto-Provisioning** .
 
     e. Na caixa de texto **do nome de visualização** do utilizador, **introduza o nome do ecrã** Se pretender ativar o fornecimento automático de SAML para os atributos do nome de visualização.
 
@@ -198,21 +198,21 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     exemplo, No **departamento** **de Atributos de Nome do Departamento,** se pretender ativar o fornecimento automático da SAML para atributos do departamento.
 
-    h. Clique em **Guardar**.
+    h. Clique em **Guardar** .
 
 1. Na página de diálogo de autenticação do **utilizador configurar,** execute os seguintes passos:
 
-    ![Administração](./media/zscaler-tutorial/ic800207.png)
+    ![A screenshot mostra a caixa de diálogo de autenticação do utilizador configurar com ativação selecionada.](./media/zscaler-tutorial/ic800207.png)
 
     a. Passe por cima do menu **de ativação** perto do canto inferior esquerdo.
 
-    b. Clique **em Ativar**.
+    b. Clique **em Ativar** .
 
 ## <a name="configuring-proxy-settings"></a>Definir configurações de proxy
 
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para configurar as definições de procuração no Internet Explorer
 
-1. Iniciar **o Internet Explorer**.
+1. Iniciar **o Internet Explorer** .
 
 1. Selecione **as opções** de Internet do menu **Ferramentas** para abrir o diálogo Opções de **Internet.**
 
@@ -228,13 +228,13 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     ![Servidor proxy](./media/zscaler-tutorial/ic769494.png "Servidor proxy")
 
-    a. Selecione **Utilize um servidor proxy para o seu LAN**.
+    a. Selecione **Utilize um servidor proxy para o seu LAN** .
 
-    b. Na caixa de texto do Endereço, escreva **gateway.zscaler.net**.
+    b. Na caixa de texto do Endereço, escreva **gateway.zscaler.net** .
 
-    c. Na caixa de texto do Porto, tipo **80**.
+    c. Na caixa de texto do Porto, tipo **80** .
 
-    d. Selecione **o servidor de procuração de bypass para endereços locais**.
+    d. Selecione **o servidor de procuração de bypass para endereços locais** .
 
     e. Clique **em OK** para fechar o diálogo de **definições da Rede local (LAN).**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 3128bc587a555b3766e1fad289edc8c11c195001
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 087e2d7f2db8f27378b54675095e97256d6aae9b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672039"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Azure Ative Directory com Laboratórios de Molho - Mobile e Web Testing
 
@@ -122,15 +122,15 @@ Para configurar o Azure AD single sign-on com Sauce Labs - Mobile and Web Testin
 
 2. Clique no **ícone do Utilizador** e selecione o **separador Gestão de Equipas.**
 
-    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
+    ![Screenshot que mostra o ícone "Utilizador" e "Team Management" selecionados.](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
 
 3. Insira o **nome de Domínio** na caixa de texto.
 
-    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
+    ![Screenshot que mostra um nome de domínio exemplo na caixa de texto.](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
 
 4. Clique **no separador Configurar.**
 
-    ![Configurar Sign-On Individuais](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
+    ![Screenshot que mostra o separador "Configurar" selecionado em "Single Sign On is Enabled".](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
 
 5. Na secção **Configurar o sinal único na** secção, execute os seguintes passos.
 

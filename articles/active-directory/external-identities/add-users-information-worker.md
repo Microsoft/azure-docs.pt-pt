@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9a227956e7879a7c0f49e0534146fa01a49759
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd8f6bb8ce93d1d423019f792624d8bdac56ecf8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442223"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892644"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores da sua organização podem convidar utilizadores convidados para uma aplicação
 
@@ -35,7 +35,7 @@ Depois de um utilizador convidado ter sido adicionado ao diretório em Azure AD,
 Depois de uma aplicação ser configurada para self-service, os proprietários de aplicações podem usar o seu próprio Painel de Acesso para convidar um utilizador convidado para a app que querem partilhar. O utilizador convidado não precisa necessariamente de ser adicionado ao Azure AD com antecedência. 
 
 1. Abra o painel de acesso indo para `https://myapps.microsoft.com` .
-2. Aponte para a aplicação, selecione as elipses **(... )** e, em seguida, selecione **Gerir a aplicação**.
+2. Aponte para a aplicação, selecione as elipses **(... )** e, em seguida, selecione **Gerir a aplicação** .
  
    ![Screenshot mostrando o sub-menu da aplicação Manage para a aplicação Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
@@ -82,36 +82,36 @@ A gestão de aplicativos self-service requer alguma configuração inicial por u
 
 ### <a name="enable-self-service-group-management-for-your-tenant"></a>Ativar a gestão do grupo self-service para o seu inquilino
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como Administrador Global.
-2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Selecione **Grupos**.
-4. Em **Definições**, selecione **General**.
-5. No **âmbito da Gestão do Grupo self service,** ao lado **dos Proprietários pode gerir os pedidos de membros do grupo no Painel de Acesso,** selecione **Sim**.
-6. Selecione **Guardar**.
+2. No painel de navegação, selecione **Azure Ative Directory** .
+3. Selecione **Grupos** .
+4. Em **Definições** , selecione **General** .
+5. No **âmbito da Gestão do Grupo self service,** ao lado **dos Proprietários pode gerir os pedidos de membros do grupo no Painel de Acesso,** selecione **Sim** .
+6. Selecione **Guardar** .
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Criar um grupo para atribuir à app e fazer do utilizador um proprietário
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador AD da Azure ou Administrador Global.
-2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Selecione **Grupos**.
-4. Selecione **Novo grupo**.
-5. Sob **o tipo de grupo**, selecione **Security**.
-6. Introduza um **Nome do grupo** e uma **Descrição do grupo**.
-7. Sob **o tipo de membro**, selecione **Atribuído**.
-8. Selecione **Criar**e feche a página **do Grupo.**
+2. No painel de navegação, selecione **Azure Ative Directory** .
+3. Selecione **Grupos** .
+4. Selecione **Novo grupo** .
+5. Sob **o tipo de grupo** , selecione **Security** .
+6. Introduza um **Nome do grupo** e uma **Descrição do grupo** .
+7. Sob **o tipo de membro** , selecione **Atribuído** .
+8. Selecione **Criar** e feche a página **do Grupo.**
 9. Na página **Grupos - Todos os grupos,** abra o grupo. 
-10. Em **Manage**, selecione **Proprietários**  >  **Adicionar proprietários**. Procure o utilizador que deve gerir o acesso à aplicação. Selecione o utilizador e, em seguida, clique em **Selecionar**.
+10. Em **Manage** , selecione **Proprietários**  >  **Adicionar proprietários** . Procure o utilizador que deve gerir o acesso à aplicação. Selecione o utilizador e, em seguida, clique em **Selecionar** .
 
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>Configure a app para self-service e atribua o grupo à app
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador AD da Azure ou Administrador Global.
-2. No painel de navegação, selecione **Azure Ative Directory**.
-3. Em **Gestão**, selecione **Aplicações da Empresa**Todas as  >  **aplicações**.
+2. No painel de navegação, selecione **Azure Ative Directory** .
+3. Em **Gestão** , selecione **Aplicações da Empresa** Todas as  >  **aplicações** .
 4. Na lista de candidaturas, encontre e abra a aplicação.
-5. Em **Manage**, selecione **Single sign-on**e configurar o pedido de inscrição única. (Para mais detalhes, consulte [como gerir um único s-on para aplicações empresariais](../manage-apps/view-applications-portal.md).)
-6. Em **Manage**, selecione **Self-service**e crie acesso a aplicativos de self-service. (Para mais detalhes, consulte [como utilizar o acesso a aplicativos self-service](../manage-apps/access-panel-manage-self-service-access.md).) 
+5. Em **Manage** , selecione **Single sign-on** e configurar o pedido de inscrição única. (Para mais detalhes, consulte [como gerir um único s-on para aplicações empresariais](../manage-apps/add-application-portal-setup-sso.md).)
+6. Em **Manage** , selecione **Self-service** e crie acesso a aplicativos de self-service. (Para mais detalhes, consulte [como utilizar o acesso a aplicativos self-service](../manage-apps/access-panel-manage-self-service-access.md).) 
 
     > [!NOTE]
     > Para a definição **Para que grupo deve ser adicionado os utilizadores atribuídos?** Selecione o grupo que criou na secção anterior.
-7. Em **Manage**, selecione **Utilizadores e grupos**, e verifique se o grupo de self-service que criou aparece na lista.
-8. Para adicionar a aplicação ao Painel de Acesso do proprietário do grupo, **selecione Adicionar**  >  **utilizadores e grupos**. Procure o proprietário do grupo e selecione o utilizador, clique em **Selecionar**e, em seguida, clique em **Atribuir** para adicionar o utilizador à aplicação.
+7. Em **Manage** , selecione **Utilizadores e grupos** , e verifique se o grupo de self-service que criou aparece na lista.
+8. Para adicionar a aplicação ao Painel de Acesso do proprietário do grupo, **selecione Adicionar**  >  **utilizadores e grupos** . Procure o proprietário do grupo e selecione o utilizador, clique em **Selecionar** e, em seguida, clique em **Atribuir** para adicionar o utilizador à aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -120,4 +120,4 @@ Consulte os seguintes artigos sobre a colaboração Azure AD B2B:
 - [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 - [Como é que os administradores do Azure Ative Directory adicionam utilizadores de colaboração B2B?](add-users-administrator.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)
-- [Licenciamento de colaboração B2B do Azure AD](licensing-guidance.md)
+- [Preços das Identidades Externas](external-identities-pricing.md)

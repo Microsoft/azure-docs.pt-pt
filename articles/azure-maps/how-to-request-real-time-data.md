@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895720"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicite dados de trânsito público em tempo real utilizando o Serviço de Mobilidade Azure Maps
 
-Este artigo mostra-lhe como usar o Serviço de [Mobilidade](https://aka.ms/AzureMapsMobilityService) Azure Maps para solicitar dados de trânsito público em tempo real.
+Este artigo mostra-lhe como usar o Serviço de [Mobilidade](/rest/api/maps/mobility) Azure Maps para solicitar dados de trânsito público em tempo real.
 
 Neste artigo, você vai aprender a solicitar as próximas chegadas em tempo real para todas as linhas que chegam a uma determinada paragem
 
@@ -30,13 +30,13 @@ Este artigo utiliza a [aplicação Do Carteiro](https://www.getpostman.com/apps)
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Solicite chegadas em tempo real para uma paragem
 
-Para solicitar dados de chegadas em tempo real de uma determinada paragem de trânsito público, terá de fazer um pedido à API de [Chegadas em Tempo Real](https://aka.ms/AzureMapsMobilityRealTimeArrivals) do Serviço de [Mobilidade](https://aka.ms/AzureMapsMobilityService)Azure Maps. Você precisará do **metroID** e **stopID** para completar o pedido. Para saber mais sobre como solicitar estes parâmetros, consulte o nosso guia sobre como solicitar rotas de [trânsito público.](https://aka.ms/AMapsHowToGuidePublicTransitRouting)
+Para solicitar dados de chegadas em tempo real de uma determinada paragem de trânsito público, terá de fazer um pedido à API de [Chegadas em Tempo Real](/rest/api/maps/mobility/getrealtimearrivalspreview) do Serviço de [Mobilidade](/rest/api/maps/mobility)Azure Maps. Você precisará do **metroID** e **stopID** para completar o pedido. Para saber mais sobre como solicitar estes parâmetros, consulte o nosso guia sobre como solicitar rotas de [trânsito público.](./how-to-request-transit-data.md)
 
 Vamos usar o "522" como o nosso ID do metro, que é a identificação do metrô para a área "Seattle-Tacoma-Bellevue, WA". Use "522---2060603" como o ID de paragem, esta paragem de autocarro fica na "Ne 24th St & 162nd Ave Ne, Bellevue WA". Para solicitar os próximos cinco dados de chegadas em tempo real, para todas as próximas chegadas ao vivo nesta paragem, complete os seguintes passos:
 
-1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**.  Nomeie a coleção e selecione o botão **Criar.**
+1. Abra a aplicação Do Carteiro e vamos criar uma coleção para armazenar os pedidos. Perto do topo da aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** .  Nomeie a coleção e selecione o botão **Criar.**
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior, como o local para guardar o pedido. Em seguida, **selecione Save**.
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Insira um **nome de Pedido** para o pedido. Selecione a coleção que criou no passo anterior, como o local para guardar o pedido. Em seguida, **selecione Save** .
 
     ![Criar um pedido no Carteiro](./media/how-to-request-transit-data/postman-new.png)
 
@@ -121,4 +121,4 @@ Saiba como solicitar dados de trânsito utilizando o Serviço de Mobilidade:
 Explore a documentação da AZure Maps Mobility Service API:
 
 > [!div class="nextstepaction"]
-> [Documentação da API do Serviço de Mobilidade](https://aka.ms/AzureMapsMobilityService)
+> [Documentação da API do Serviço de Mobilidade](/rest/api/maps/mobility)

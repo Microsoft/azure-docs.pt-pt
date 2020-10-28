@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 011b4bddb6a9d83b96f01764288005f6210ae824
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515466"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Diretório Ativo Azure com PolicyStat
 
@@ -54,7 +54,7 @@ Para configurar a integração do PolicyStat no AD Azure, é necessário adicion
 
 **Para adicionar PolicyStat da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -66,13 +66,13 @@ Para configurar a integração do PolicyStat no AD Azure, é necessário adicion
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite PolicyStat**, selecione **PolicyStat** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, **digite PolicyStat** , selecione **PolicyStat** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
      ![PolicyStat na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com PolicyStat baseado num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com um único sign-on com PolicyStat baseado num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no PolicyStat.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com o PolicyStat, é necessário completar os seguintes blocos de construção:
@@ -89,7 +89,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **PolicyStat,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **PolicyStat,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
 5. A sua aplicação PolicyStat espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
 6. Além de acima, a aplicação PolicyStat espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
@@ -128,21 +128,21 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
     
-    ![image](common/new-save-attribute.png)
+    ![Screenshot que mostra a secção "Reclamações do Utilizador" com as ações "Adicionar nova reivindicação" e "Salvar" realçadas.](common/new-save-attribute.png)
 
-    ![image](./media/policystat-tutorial/attribute01.png)
+    ![Screenshot que mostra o diálogo "Gerir as alegações do utilizador" com as caixas de texto "Nome", "Transformação" e "Parâmetro" realçadas, e o botão "Guardar" selecionado.](./media/policystat-tutorial/attribute01.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
     c. Deixe o **Espaço Namespace** em branco.
 
-    d. Selecione Fonte como **Transformação**.
+    d. Selecione Fonte como **Transformação** .
 
     e. Da lista **De Transformação,** digite o valor de atributo mostrado para esta linha.
     
     f. Da lista **do Parâmetro 1,** digite o valor do atributo indicado para esta linha.
 
-    exemplo, Clique em **Guardar**.
+    exemplo, Clique em **Guardar** .
 
 7. Na secção **Configurar PolicyStat,** copie os URL(s) apropriados de acordo com o seu requisito.
 
@@ -162,17 +162,17 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
    
     ![Menu de Administrador](./media/policystat-tutorial/ic808633.png "Menu de Administrador")
 
-3. Clique nos **metadados IDP**e, em seguida, na secção **de metadados IDP,** execute os seguintes passos:
+3. Clique nos **metadados IDP** e, em seguida, na secção **de metadados IDP,** execute os seguintes passos:
    
-    ![Configuração de Sign-On única](./media/policystat-tutorial/ic808636.png "Configuração de Sign-On única")
+    ![Screenshot que mostra a ação "Os seus Metadados I D P" selecionados.](./media/policystat-tutorial/ic808636.png "Configuração de Sign-On única")
    
     a. Abra o seu ficheiro de metadados descarregado, copie o conteúdo e, em seguida, cole-o na caixa de texto do **Seu Fornecedor de Identidade Metadados.**
 
-    b. Clique em **Guardar Alterações**.
+    b. Clique em **Guardar Alterações** .
 
-4. Clique em **Configure Atributos**e, em seguida, na secção **Atributos de Configuração,** execute os seguintes passos:
+4. Clique em **Configure Atributos** e, em seguida, na secção **Atributos de Configuração,** execute os seguintes passos:
    
-    a. Na caixa de texto **Do nome de utilizador Attribute,** escreva **uid**.
+    a. Na caixa de texto **Do nome de utilizador Attribute,** escreva **uid** .
 
     b. Na caixa de texto **namee Attribute,** digite o nome de reclamação do primeiro nome do Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
@@ -180,9 +180,9 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
     d. Na caixa de texto **do Email Attribute,** digite o nome de reclamação do Seu Atributo de E-mail a partir do Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
-    e. Clique em **Guardar Alterações**.
+    e. Clique em **Guardar Alterações** .
 
-5. Na secção **Configuração,** selecione **Ativar a Integração de Sinais únicos**.
+5. Na secção **Configuração,** selecione **Ativar a Integração de Sinais únicos** .
    
     ![Configuração de Sign-On única](./media/policystat-tutorial/ic808634.png "Configuração de Sign-On única")
 
@@ -191,15 +191,15 @@ Para configurar o Azure AD com o PolicyStat, execute os seguintes passos:
 
 Nesta secção, você permite que a sua própria conta utilize o Azure um único sinal de acesso, permitindo o acesso ao PolicyStat.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **PolicyStat**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **PolicyStat** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **PolicyStat**.
+2. Na lista de candidaturas, selecione **PolicyStat** .
 
     ![O link PolicyStat na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

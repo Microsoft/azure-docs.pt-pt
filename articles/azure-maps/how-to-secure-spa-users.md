@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: bfd38f03601f7c4ebfbb5dde4fd7587e78df9efc
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 60d8dc45fb26ea210b1827a6938716474faa0304
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090289"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895618"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>Proteja uma aplicação de uma única página com o pedido de s indicador
 
@@ -27,19 +27,19 @@ O seguinte guia diz respeito a uma aplicação que está hospedada num servidor 
 
 Crie a aplicação web em Azure AD para os utilizadores iniciarem sessão. A aplicação web delega o acesso do utilizador às APIs do Azure Maps REST.
 
-1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições**.  
+1. No portal Azure, na lista de serviços da Azure, selecione **Azure Ative Directory**  >  **App registra**  >  **Novas inscrições** .  
 
     > [!div class="mx-imgBorder"]
     > ![Registo da aplicação](./media/how-to-manage-authentication/app-registration.png)
 
-2. Introduza um **Nome**, escolha um **tipo de conta de suporte,** forneça um URI de redirecionamento que representará o url que a Azure AD emitirá o token e é o url onde o controlo do mapa está hospedado. Para obter uma amostra detalhada, consulte [as amostras Azure Maps Azure AD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Em seguida, selecione **Registar**.  
+2. Introduza um **Nome** , escolha um **tipo de conta de suporte,** forneça um URI de redirecionamento que representará o url que a Azure AD emitirá o token e é o url onde o controlo do mapa está hospedado. Para obter uma amostra detalhada, consulte [as amostras Azure Maps Azure AD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Em seguida, selecione **Registar** .  
 
-3. Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, nos **registos da App,** selecione **permissões API**  >  **Adicione uma permissão**. Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
+3. Para atribuir permissões delegadas da API ao Azure Maps, aceda à aplicação. Em seguida, nos **registos da App,** selecione **permissões API**  >  **Adicione uma permissão** . Nos **APIs a minha organização utiliza,** procure e selecione **Azure Maps.**
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar permissões de API de aplicativo](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Selecione a caixa de verificação ao lado **do Access Azure Maps**e, em seguida, selecione **Permissões de adicionar**.
+4. Selecione a caixa de verificação ao lado **do Access Azure Maps** e, em seguida, selecione **Permissões de adicionar** .
 
     > [!div class="mx-imgBorder"]
     > ![Selecione permissões de API de aplicativo](./media/how-to-manage-authentication/select-app-permissions.png)
@@ -75,7 +75,7 @@ Crie a aplicação web em Azure AD para os utilizadores iniciarem sessão. A apl
 
 Maior compreensão do cenário de aplicação de uma página única:
 > [!div class="nextstepaction"]
-> [Aplicação de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Aplicação de página única](../active-directory/develop/scenario-spa-overview.md)
 
 Encontre as métricas de utilização da API para a sua conta Azure Maps:
 > [!div class="nextstepaction"]

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311024"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895754"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Renderizar dados personalizados em um mapa raster
 
-Este artigo explica como usar o serviço de [imagem estática,](https://docs.microsoft.com/rest/api/maps/render/getmapimage)com funcionalidade de composição de imagem, para permitir sobreposições em cima de um mapa raster. A composição da imagem inclui a capacidade de obter um azulejo raster, com dados adicionais como pinos personalizados, etiquetas e sobreposições de geometria.
+Este artigo explica como usar o serviço de [imagem estática,](/rest/api/maps/render/getmapimage)com funcionalidade de composição de imagem, para permitir sobreposições em cima de um mapa raster. A composição da imagem inclui a capacidade de obter um azulejo raster, com dados adicionais como pinos personalizados, etiquetas e sobreposições de geometria.
 
-Para fazer pinos personalizados, etiquetas e sobreposições de geometria, pode utilizar a aplicação Do Carteiro. Pode utilizar [APIs do Serviço de Dados](https://docs.microsoft.com/rest/api/maps/data) Azure Maps para armazenar e render sobreposições.
+Para fazer pinos personalizados, etiquetas e sobreposições de geometria, pode utilizar a aplicação Do Carteiro. Pode utilizar [APIs do Serviço de Dados](/rest/api/maps/data) Azure Maps para armazenar e render sobreposições.
 
 > [!Tip]
 > É muitas vezes muito mais rentável usar o Azure Maps Web SDK para mostrar um mapa simples numa página web do que usar o serviço de imagem estática. A web SDK usa azulejos de mapa e, a menos que o utilizador faça o painel e faça zooms no mapa, muitas vezes geram apenas uma fração de uma transação por carga de mapa. Note que a Web SDK Azure Maps tem opções para desativar panorâmicas e zooming. Além disso, a web SDK Azure Maps fornece um conjunto mais rico de opções de visualização de dados do que um serviço web de mapa estático.  
@@ -41,9 +41,9 @@ A conta Azure Maps S0 suporta apenas uma única instância do `pins` parâmetro.
 
 Para fazer pinos com etiquetas e uma imagem personalizada, complete estes passos:
 
-1. Crie uma coleção na qual guarde os pedidos. Na aplicação Postman, selecione **New**. Na janela **Criar Nova,** selecione **Coleção**. Nomeie a coleção e selecione o botão **Criar.** 
+1. Crie uma coleção na qual guarde os pedidos. Na aplicação Postman, selecione **New** . Na janela **Criar Nova,** selecione **Coleção** . Nomeie a coleção e selecione o botão **Criar.** 
 
-2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request**. Introduza um **nome de pedido** para os pinos de pressão. Selecione a coleção que criou no passo anterior, como o local para guardar o pedido. Em seguida, **selecione Save**.
+2. Para criar o pedido, selecione **New** novamente. Na janela **Criar Novo,** selecione **Request** . Introduza um **nome de pedido** para os pinos de pressão. Selecione a coleção que criou no passo anterior, como o local para guardar o pedido. Em seguida, **selecione Save** .
     
     ![Criar um pedido no Carteiro](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Para fazer pinos com etiquetas e uma imagem personalizada, complete estes passos
 > [!Note]
 > O procedimento nesta secção requer uma conta Azure Maps no nível de preços S1.
 
-Também pode obter as informações de localização do caminho e pin, utilizando a [API de upload de dados.](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) Siga os passos abaixo para fazer o upload dos dados do caminho e dos pinos.
+Também pode obter as informações de localização do caminho e pin, utilizando a [API de upload de dados.](/rest/api/maps/data/uploadpreview) Siga os passos abaixo para fazer o upload dos dados do caminho e dos pinos.
 
 1. Na aplicação Postman, abra um novo separador na coleção que criou na secção anterior. Selecione o método POST HTTP no separador construtor e introduza o seguinte URL para fazer um pedido de CORREIO:
 
@@ -172,7 +172,7 @@ Também pode obter as informações de localização do caminho e pin, utilizand
 > O procedimento nesta secção requer uma conta Azure Maps no nível de preços S1.
 
 
-Pode modificar a aparência de um polígono utilizando modificadores de estilo com o [parâmetro do caminho](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Pode modificar a aparência de um polígono utilizando modificadores de estilo com o [parâmetro do caminho](/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. Na aplicação Postman, abra um novo separador na coleção que criou anteriormente. Selecione o método GET HTTP no separador construtor e introduza o seguinte URL para configurar um pedido GET para fazer um polígono com cor e opacidade:
     
@@ -192,7 +192,7 @@ Pode modificar a aparência de um polígono utilizando modificadores de estilo c
 > O procedimento nesta secção requer uma conta Azure Maps no nível de preços S1.
 
 
-Pode modificar a aparência dos pinos adicionando modificadores de estilo. Por exemplo, para fazer pinos e suas etiquetas maiores ou menores, utilize o `sc` modificador de "estilo de escala". Este modificador tem um valor superior a zero. Um valor de 1 é a escala padrão. Valores maiores do que 1 tornarão os pinos maiores, e valores menores que 1 os tornarão menores. Para obter mais informações sobre modificadores de estilo, consulte [os parâmetros do percurso do serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Pode modificar a aparência dos pinos adicionando modificadores de estilo. Por exemplo, para fazer pinos e suas etiquetas maiores ou menores, utilize o `sc` modificador de "estilo de escala". Este modificador tem um valor superior a zero. Um valor de 1 é a escala padrão. Valores maiores do que 1 tornarão os pinos maiores, e valores menores que 1 os tornarão menores. Para obter mais informações sobre modificadores de estilo, consulte [os parâmetros do percurso do serviço de imagem estática](/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Siga estes passos para fazer um círculo e pinos com etiquetas personalizadas:
@@ -222,6 +222,5 @@ Da mesma forma, pode alterar, adicionar e remover outros modificadores de estilo
 ## <a name="next-steps"></a>Passos seguintes
 
 
-* Explore a documentação [AZure Maps Obter API de imagem de mapa.](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* Para saber mais sobre o Azure Maps Data Service, consulte a documentação do [serviço.](https://docs.microsoft.com/rest/api/maps/data)
-
+* Explore a documentação [AZure Maps Obter API de imagem de mapa.](/rest/api/maps/render/getmapimage)
+* Para saber mais sobre o Azure Maps Data Service, consulte a documentação do [serviço.](/rest/api/maps/data)

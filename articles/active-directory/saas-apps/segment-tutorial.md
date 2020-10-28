@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 85428f682b5a5e179b5c501982749611131c6aed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fe8acfd1bfd14f339a0109cab215b8a9ab65256f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674428"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893901"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Tutorial: Azure Ative Directy integração única (SSO) com Segmento
 
@@ -136,19 +136,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **Ícone de Definições** e desloque-se para baixo para **AUTENTICAÇÃO** e clique em **Conexões** .
 
-    ![Configuração do segmento](./media/segment-tutorial/segment1.PNG)
+    ![Screenshot que mostra o ícone "Definições" selecionado e "Conexões" selecionados no menu "Autenticação".](./media/segment-tutorial/segment1.PNG)
 
 1. Clique em **Adicionar nova ligação.**
 
-    ![Configuração do segmento](./media/segment-tutorial/segment2.PNG)
+    ![Screenshot que mostra a secção "Ligações" com o botão "Adicionar nova ligação" selecionado.](./media/segment-tutorial/segment2.PNG)
 
 1. Selecione **SAML 2.0** como uma ligação à configuração e clique no botão **Select Connection.**
 
-    ![Configuração do segmento](./media/segment-tutorial/segment3.PNG)
+    ![Screenshot que mostra a secção "Escolha uma Ligação" com "S A M L 2.0" e o botão "Selecione Connection" selecionado.](./media/segment-tutorial/segment3.PNG)
 
 1. Na página seguinte, execute os seguintes passos:
 
-    ![Configuração do segmento](./media/segment-tutorial/segment4.PNG)
+    ![Screenshot que mostra a página "Configure Identity Provider" com as caixas de texto "Single Sign-On U R L" e "Audience U R L" e o botão "Seguinte" selecionado.](./media/segment-tutorial/segment4.PNG)
 
     a. Copie o valor **DE URL de Sign-On único** e cole-o na caixa URL de **resposta** na caixa de diálogo **de configuração SAML básica** no portal Azure.
 

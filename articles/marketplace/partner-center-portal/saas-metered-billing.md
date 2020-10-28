@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279178"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892758"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Faturação medido para SaaS utilizando o serviço de medição de mercado comercial
 
@@ -73,9 +73,9 @@ Com base no plano selecionado, uma subscrição de compra de clientes Azure à o
 
 Cada dimensão de faturação define uma unidade personalizada através da qual o ISV pode emitir eventos de utilização.  As dimensões de faturação também são usadas para comunicar ao cliente sobre como serão faturadas para usar o software.  São definidos da seguinte forma:
 
-- **ID**: o identificador de dimensão imutável referenciado ao emitir eventos de utilização.
-- **Nome do visor**: o nome de visualização associado à dimensão, por exemplo , "mensagens de texto enviadas".
-- **Unidade de Medida**: descrição da unidade de faturação, por exemplo "por mensagem de texto" ou "por 100 e-mails".
+- **ID** : o identificador de dimensão imutável referenciado ao emitir eventos de utilização.
+- **Nome do visor** : o nome de visualização associado à dimensão, por exemplo , "mensagens de texto enviadas".
+- **Unidade de Medida** : descrição da unidade de faturação, por exemplo "por mensagem de texto" ou "por 100 e-mails".
 - **Preço por unidade em USD:** o preço de uma unidade da dimensão.  Pode ser 0. 
 - **Quantidade mensal incluída na base:** quantidade de dimensão incluída por mês para os clientes que pagam a mensalidade recorrente, deve ser um número inteiro. Pode ser 0 ou ilimitado.
 - **Quantidade anual incluída na base:** quantidade de dimensão incluída por ano para os clientes que pagam a taxa anual recorrente, deve ser um número inteiro. Pode ser 0 ou ilimitado.
@@ -143,7 +143,7 @@ Uma vez publicado um plano, os detalhes do plano já não podem ser alterados:
 
 ### <a name="upper-limits"></a>Limites superiores
 
-O número máximo de dimensões que podem ser configuradas para uma única oferta é de 18 dimensões únicas.
+O número máximo de dimensões que podem ser configuradas para uma única oferta é de 30 dimensões únicas.
 
 ## <a name="get-support"></a>Obter suporte
 

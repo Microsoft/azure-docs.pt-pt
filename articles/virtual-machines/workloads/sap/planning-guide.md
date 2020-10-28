@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738132"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894105"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -1832,7 +1832,7 @@ Os discos geridos Azure são automaticamente colocados no domínio de falha da m
 
 Uma arquitetura de amostra de um sistema SAP NetWeaver que usa a infraestrutura Azure HA e contas de armazenamento poderia ser assim:
 
-![Utilizando a infraestrutura Azure HA para alcançar a aplicação SAP de maior disponibilidade][planning-guide-figure-2900]
+![Diagrama que mostra um sistema SAP NetWeaver que utiliza a infraestrutura Azure HA e contas de armazenamento.][planning-guide-figure-2900]
 
 Uma arquitetura de amostra de um sistema SAP NetWeaver que usa a infraestrutura Azure HA e Discos Geridos poderia ser assim:
 
@@ -1892,7 +1892,7 @@ Apenas discos não geridos: Os conceitos explicados abaixo podem ter de ser comp
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logotipo do Windows.][Logo_Windows] HA no Windows
 
-![Aplicação SAP NetWeaver HA Arquitetura com Servidor SQL em Azure IaaS][planning-guide-figure-3200]
+![Diagrama que mostra a aplicação DE NETWeaver HA Architecture com SQL Server em Azure IaaS.][planning-guide-figure-3200]
 
 As seguintes construções Azure são utilizadas para o sistema SAP NetWeaver, para minimizar o impacto por problemas de infraestrutura e remendos de hospedeiros:
 

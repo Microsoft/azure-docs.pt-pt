@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046779"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893425"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Métricas Advisor glossário de vocabulário e conceitos comuns
 
@@ -33,7 +33,7 @@ Um feed de dados é o que o Metrics Advisor ingere a partir da sua fonte de dado
 
 ## <a name="metric"></a>Métrica
 
-Uma métrica é uma medida quantificável que é usada para monitorizar e avaliar o estado de um processo de negócio específico. Pode ser uma combinação de múltiplos valores de séries de tempo divididos em dimensões. Por exemplo, uma métrica *de saúde web* pode conter dimensões para a contagem de *utilizadores* e para o *mercado en-us*.
+Uma métrica é uma medida quantificável que é usada para monitorizar e avaliar o estado de um processo de negócio específico. Pode ser uma combinação de múltiplos valores de séries de tempo divididos em dimensões. Por exemplo, uma métrica *de saúde web* pode conter dimensões para a contagem de *utilizadores* e para o *mercado en-us* .
 
 ## <a name="dimension"></a>Dimensão
 
@@ -69,7 +69,7 @@ Suponha que tem dados para o número de erros registados numa aplicação. Os da
 
 Neste exemplo, *a componente de aplicação* e a *Região* são dimensões. *A contagem de erros* é o KPI que pode ser cortado em diferentes categorias e/ou mercados, e também pode ser agregado. Por exemplo, a contagem de erros da *fila de mensagens* em todas as regiões.
 
-## <a name="measure"></a>Medir
+## <a name="measure"></a>Medida
 
 Uma medida é um termo fundamental ou específico por unidade e um valor quantificável da métrica.
 
@@ -139,27 +139,27 @@ O Metrics Advisor fornece vários [métodos de deteção,](how-tos/configure-met
 
 Deteção de anomalias usando vários algoritmos de aprendizagem automática.
 
-**Sensibilidade**: Um valor numérico para ajustar a tolerância da deteção de anomalias. Visualmente, quanto maior o valor, mais estreitas são os limites superiores e inferiores em torno da série de tempo.
+**Sensibilidade** : Um valor numérico para ajustar a tolerância da deteção de anomalias. Visualmente, quanto maior o valor, mais estreitas são os limites superiores e inferiores em torno da série de tempo.
 
 ### <a name="hard-threshold"></a>Limiar rígido
 
 Valores fora dos limites superiores ou inferiores são anomalias.
 
-**Min**: O limite inferior
+**Min** : O limite inferior
 
-**Max**: O limite superior
+**Max** : O limite superior
 
 ### <a name="change-threshold"></a>Limite de alteração
 
 Utilize o valor de ponto anterior para determinar se este ponto é uma anomalia.
 
-**Percentagem de variação**: Em comparação com o ponto anterior, o ponto atual é uma anomalia se a percentagem de variação for superior a este parâmetro.
+**Percentagem de variação** : Em comparação com o ponto anterior, o ponto atual é uma anomalia se a percentagem de variação for superior a este parâmetro.
 
-**Alterar pontos**: Quantos pontos olhar para trás.
+**Alterar pontos** : Quantos pontos olhar para trás.
 
 ### <a name="common-parameters"></a>Parâmetros comuns
 
-**Direção**: Um ponto só é uma anomalia quando o desvio ocorre na direção *para cima,* *para baixo*, ou *ambos*.
+**Direção** : Um ponto só é uma anomalia quando o desvio ocorre na direção *para cima,* *para baixo* , ou *ambos* .
 
 **Anomalia não válida até:** Um ponto de dados é apenas uma anomalia se uma percentagem especificada de pontos anteriores também forem anomalias.
 
@@ -173,17 +173,17 @@ Também pode criar um alerta através das métricas. Por exemplo, um alerta que 
 
 O âmbito de alerta refere-se ao âmbito a que o alerta se aplica. Tem quatro opções à escolha:
 
-**Anomalias de todas as séries**: Os alertas serão desencadeados para anomalias em todas as séries dentro da métrica.
+**Anomalias de todas as séries** : Os alertas serão desencadeados para anomalias em todas as séries dentro da métrica.
 
-**Anomalias no grupo da série**: Os alertas só serão desencadeados por anomalias em dimensões específicas do grupo da série. O número de dimensões especificadas deve ser menor do que as dimensões totais do número.
+**Anomalias no grupo da série** : Os alertas só serão desencadeados por anomalias em dimensões específicas do grupo da série. O número de dimensões especificadas deve ser menor do que as dimensões totais do número.
 
-**Anomalias nas séries favoritas**: Os alertas só serão desencadeados para anomalias que são adicionadas como favoritas. Pode escolher um grupo de séries como favorito para cada config de deteção.
+**Anomalias nas séries favoritas** : Os alertas só serão desencadeados para anomalias que são adicionadas como favoritas. Pode escolher um grupo de séries como favorito para cada config de deteção.
 
-**Anomalias no top N de todas as séries**: Os alertas só serão desencadeados para anomalias na série N de topo. Pode definir parâmetros para especificar o número de timetamps a ter em conta, e quantas anomalias devem estar neles para enviar o alerta.
+**Anomalias no top N de todas as séries** : Os alertas só serão desencadeados para anomalias na série N de topo. Pode definir parâmetros para especificar o número de timetamps a ter em conta, e quantas anomalias devem estar neles para enviar o alerta.
 
 ### <a name="severity"></a>Gravidade
 
-Severidade é uma nota que o Metrics Advisor usa para descrever a gravidade do incidente, incluindo *High,* *Medium*e *Low*.
+Severidade é uma nota que o Metrics Advisor usa para descrever a gravidade do incidente, incluindo *High,* *Medium* e *Low* .
 
 Atualmente, o Metrics Advisor utiliza os seguintes fatores para medir a gravidade do alerta:
 1. A proporção de valor e a proporção de anomalias na métrica.
@@ -246,5 +246,4 @@ Existem duas funções para gerir permissões de feed de dados: *Administrador,*
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Métricas Conselheiro Visão Geral](overview.md)
-- [Experimente o site de demonstração](quickstarts/explore-demo.md)
 - [Utilizar o portal Web](quickstarts/web-portal.md)

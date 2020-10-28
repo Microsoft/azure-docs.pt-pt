@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c701371a3f2f1430cf68a9164ba4ce4e6441c5c6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 89c703f6bb956409c97c36c6507519f4e884fcf2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519117"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Integração do Diretório Ativo Azure com o Zoho
 
@@ -49,7 +49,7 @@ Para configurar a integração do Zoho no AD Azure, precisa adicionar zoho da ga
 
 **Para adicionar Zoho da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -67,7 +67,7 @@ Para configurar a integração do Zoho no AD Azure, precisa adicionar zoho da ga
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com Zoho com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, você configura e testa Azure AD single sign-on com Zoho com base em um utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Zoho.
 
 Para configurar e testar o Azure AD com o Zoho, você precisa completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com zoho, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zoho,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Zoho,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -144,15 +144,15 @@ Para configurar o Azure AD com zoho, execute os seguintes passos:
        
     d. Abra o certificado codificado base-64 descarregado do portal Azure no bloco de notas, copie o conteúdo do mesmo na sua área de transferência e, em seguida, cole-o para a caixa de texto **PublicKey.**
    
-    e. Como **algoritmo,** selecione **RSA**.
+    e. Como **algoritmo,** selecione **RSA** .
    
-    f. Clique em **OK**.
+    f. Clique em **OK** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -164,20 +164,20 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador** **brittasimon \@ yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Zoho.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Zoho**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Zoho** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -185,7 +185,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
     ![O link Zoho na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -210,25 +210,25 @@ Para permitir que os utilizadores da Azure AD acedam ao Zoho Mail, devem ser ate
 
 1. Faça login no seu site da empresa **Zoho Mail** como administrador.
 
-1. Vá ao **Control Panel Mail & \> Docs**.
+1. Vá ao **Control Panel Mail & \> Docs** .
 
-1. Vá aos **detalhes do utilizador Adicionar \> Utilizador**.
+1. Vá aos **detalhes do utilizador Adicionar \> Utilizador** .
    
-    ![Adicionar utilizador](./media/zoho-mail-tutorial/ic789611.png "Adicionar Utilizador")
+    ![A screenshot mostra o site Zoho Mail com detalhes do utilizador e adicionar o utilizador selecionado.](./media/zoho-mail-tutorial/ic789611.png "Adicionar Utilizador")
 
 1. No diálogo **de utilizadores Adicionar,** execute os seguintes passos:
    
-    ![Adicionar utilizador](./media/zoho-mail-tutorial/ic789612.png "Adicionar Utilizador")
+    ![A screenshot mostra a caixa de diálogo dos utilizadores Add onde pode introduzir os valores descritos.](./media/zoho-mail-tutorial/ic789612.png "Adicionar Utilizador")
    
-    a. Na caixa de texto **Name Name,** digite o primeiro nome de utilizador como **Britta**.
+    a. Na caixa de texto **Name Name,** digite o primeiro nome de utilizador como **Britta** .
 
-    b. Na caixa de texto **Do Último Nome,** digite o último nome de utilizador como **Simon**.
+    b. Na caixa de texto **Do Último Nome,** digite o último nome de utilizador como **Simon** .
 
-    c. Na caixa de texto **do Email ID,** digite o id de e-mail do utilizador como ** \@ brittasimon contoso.com**.
+    c. Na caixa de texto **do Email ID,** digite o id de e-mail do utilizador como **\@ brittasimon contoso.com** .
 
     d. Na caixa de texto **da palavra-passe,** introduza a palavra-passe do utilizador.
    
-    e. Clique em **OK**.  
+    e. Clique em **OK** .  
       
     > [!NOTE]
     > O titular da conta Azure Ative Directory receberá um e-mail com um link para confirmar a conta antes de ficar ativa.

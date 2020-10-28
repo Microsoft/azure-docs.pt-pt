@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895380"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador
 
-O [serviço Azure](https://docs.microsoft.com/rest/api/maps/featurestate) Maps Creator Feature State permite aplicar estilos baseados nas propriedades dinâmicas das funcionalidades de dados do mapa interno.  Por exemplo, você pode renderizar salas de reuniões de instalações com uma cor específica para refletir o estado de ocupação. Neste artigo, vamos mostrar-lhe como tornar dinamicamente as funcionalidades do mapa interior com o [serviço Feature State](https://docs.microsoft.com/rest/api/maps/featurestate) e o Módulo Web [Interior.](how-to-use-indoor-module.md)
+O [serviço Azure](/rest/api/maps/featurestate) Maps Creator Feature State permite aplicar estilos baseados nas propriedades dinâmicas das funcionalidades de dados do mapa interno.  Por exemplo, você pode renderizar salas de reuniões de instalações com uma cor específica para refletir o estado de ocupação. Neste artigo, vamos mostrar-lhe como tornar dinamicamente as funcionalidades do mapa interior com o [serviço Feature State](/rest/api/maps/featurestate) e o Módulo Web [Interior.](how-to-use-indoor-module.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,9 +66,9 @@ Na próxima secção, vamos definir o *estado* de ocupação para `UNIT26` `true
 
  Vamos agora atualizar o estado dos dois escritórios, `UNIT26` `UNIT27` e:
 
-1. Na aplicação Do Carteiro, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clicar em **Guardar**
+1. Na aplicação Do Carteiro, selecione **New** . Na janela **Criar Novo,** selecione **Request** . Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**
 
-2. Utilize a [API dos Estados de Atualização de Funcionalidades](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a identificação do estado, e `UNIT26` para uma das duas unidades. Apecir a sua chave de subscrição Azure Maps. Aqui está a URL de um pedido **de POST** para atualizar o estado:
+2. Utilize a [API dos Estados de Atualização de Funcionalidades](/rest/api/maps/featurestate/updatestatespreview) para atualizar o estado. Passe a identificação do estado, e `UNIT26` para uma das duas unidades. Apecir a sua chave de subscrição Azure Maps. Aqui está a URL de um pedido **de POST** para atualizar o estado:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -134,4 +134,3 @@ Consulte as referências para as APIs mencionadas neste artigo:
 
 > [!div class="nextstepaction"]
 > [Serviço WFS](creator-indoor-maps.md#web-feature-service-api)
-

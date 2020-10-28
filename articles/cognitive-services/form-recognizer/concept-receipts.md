@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761452"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893691"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recibo
 
@@ -90,7 +90,7 @@ O segundo passo é ligar para a operação [Obter Resultados de Receção.](http
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | string | notStarted: A operação de análise ainda não começou. |
+|status | cadeia | notStarted: A operação de análise ainda não começou. |
 | |  | funcionamento: A operação de análise está em curso. |
 | |  | falhou: A operação de análise falhou. |
 | |  | conseguiu: A operação de análise foi bem sucedida. |
@@ -437,7 +437,7 @@ Os dados extraídos com a API de Receção podem ser utilizados para executar um
 
 Muitas vezes, arquivar despesas de negócio envolve passar o tempo a introduzir manualmente dados a partir de imagens de recibos. Com a API recibo, pode utilizar os campos extraídos para automatizar parcialmente este processo e analisar rapidamente os seus recibos.  
 
-Como a API recibo tem uma saída JSON simples, pode utilizar os valores de campo extraídos de várias maneiras. Integre com pedidos de despesas internas para pré-povoar relatórios de despesas. Para mais informações sobre este cenário, leia sobre como a Acumatica está a utilizar a API de receção para tornar a [despesa reportando um processo menos doloroso.](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure)  
+Como a API recibo tem uma saída JSON simples, pode utilizar os valores de campo extraídos de várias maneiras. Integre com pedidos de despesas internas para pré-povoar relatórios de despesas. Para mais informações sobre este cenário, leia sobre como a Acumatica está a utilizar a API de receção para tornar a [despesa reportando um processo menos doloroso.](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)  
 
 ### <a name="auditing-and-accounting"></a>Auditoria e contabilidade 
 
@@ -456,7 +456,7 @@ A API de Receção também alimenta a [funcionalidade de Processamento de Recibo
 - Preencha um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma à sua escolha.
 - Ou, siga o [quickstart da API Python de receção](./quickstarts/python-receipts.md) para reconhecer os recibos usando a API REST.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895805"
 ---
 # <a name="manage-azure-maps-creator"></a>Gerir O Criador de Mapas Azure
 
@@ -25,19 +25,19 @@ Este artigo leva-o através dos passos para criar e eliminar um recurso Criador 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 
-2. Selecione a sua conta Azure Maps. Se não consegue ver a sua conta Azure Maps sob os **recursos recentes,** então navegue para o menu do portal Azure. Selecione **Todos os recursos**. Encontre e selecione a sua conta Azure Maps.
+2. Selecione a sua conta Azure Maps. Se não consegue ver a sua conta Azure Maps sob os **recursos recentes,** então navegue para o menu do portal Azure. Selecione **Todos os recursos** . Encontre e selecione a sua conta Azure Maps.
 
     ![Página inicial do Portal Azure Maps](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Assim que estiver na página da conta Azure Maps, navegue para a opção **Visão Geral** sob **o Criador**. Clique em  **Criar**  para criar um recurso Azure Maps Creator.
+3. Assim que estiver na página da conta Azure Maps, navegue para a opção **Visão Geral** sob **o Criador** . Clique em  **Criar**  para criar um recurso Azure Maps Creator.
 
     ![Criar página de Criador de Mapas Azure](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Insira o nome e a localização do seu recurso Criador. Atualmente, o Criador só é apoiado nos Estados Unidos. Clique em **Rever + criar**.
+4. Insira o nome e a localização do seu recurso Criador. Atualmente, o Criador só é apoiado nos Estados Unidos. Clique em **Rever + criar** .
 
    ![Insira a página de informação da conta do Criador](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Reveja as suas definições e clique em **Criar**.
+5. Reveja as suas definições e clique em **Criar** .
 
     ![Confirmar página de definições de conta do Criador](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ Este artigo leva-o através dos passos para criar e eliminar um recurso Criador 
 
    ![Página de estado de implementação de recursos](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Clique em **Ir para recurso**. A página de visualização do seu recurso Criador mostra o estado do seu recurso Criador e a região demográfica escolhida.
+7. Clique em **Ir para recurso** . A página de visualização do seu recurso Criador mostra o estado do seu recurso Criador e a região demográfica escolhida.
 
     ![Página de estado do criador](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,7 +54,7 @@ Este artigo leva-o através dos passos para criar e eliminar um recurso Criador 
 
 ## <a name="delete-creator-resource"></a>Eliminar o Recurso Criador
 
-Para eliminar o recurso Criador, navegue na sua conta Azure Maps. Selecione **visão geral** sob **o Criador**. Clique no botão **Eliminar**.
+Para eliminar o recurso Criador, navegue na sua conta Azure Maps. Selecione **visão geral** sob **o Criador** . Clique no botão **Eliminar** .
 
 >[!WARNING]
 >Quando eliminar o recurso Criador da sua conta Azure Maps, também eliminará os conjuntos de dados, os azulejos e os estados de funcionalidades criados através dos serviços do Criador.
@@ -69,7 +69,7 @@ Clique no botão **Eliminar** e digite o nome Do Criador para confirmar a elimin
 
 O Criador herda as definições do Azure Maps Access Control (IAM). Todas as chamadas da API para acesso aos dados devem ser enviadas com regras de autenticação e autorização.
 
-Os dados de utilização do criador estão incorporados nos seus gráficos de utilização do Azure Maps e no registo de atividades.  Para mais informações, consulte [Gerir a autenticação no Azure Maps.](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
+Os dados de utilização do criador estão incorporados nos seus gráficos de utilização do Azure Maps e no registo de atividades.  Para mais informações, consulte [Gerir a autenticação no Azure Maps.](./how-to-manage-authentication.md)
 
 ## <a name="access-to-creator-services"></a>Acesso aos serviços do Criador
 

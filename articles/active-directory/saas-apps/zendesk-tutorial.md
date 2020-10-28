@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 6059f0b3c102fed04c52b87a2c7c226d508184c1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4973a5f1311de23cf54e401a52fb083f497687a3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519061"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894496"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Tutorial: Azure Ative Directory integração única (SSO) com Zendesk
 
@@ -49,14 +49,14 @@ Para configurar a integração do Zendesk no AD Azure, precisa adicionar Zendesk
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Add da secção **da galeria,** digite **Zendesk** na caixa de pesquisa.
 1. Selecione **Zendesk** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-zendesk"></a>Configurar e testar Azure AD SSO para Zendesk
 
-Configure e teste Azure AD SSO com Zendesk usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Zendesk.
+Configure e teste Azure AD SSO com Zendesk usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Zendesk.
 
 Para configurar e testar o Azure AD SSO com Zendesk, complete os seguintes blocos de construção:
 
@@ -71,8 +71,8 @@ Para configurar e testar o Azure AD SSO com Zendesk, complete os seguintes bloco
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Zendesk,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
-1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Zendesk,** encontre a secção **Gerir** e selecione um único sinal de **sação** .
+1. Na página de método **de inscrição** única, selecione **SAML** .
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -90,7 +90,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. A aplicação Zendesk espera as afirmações DOL num formato específico. Não existem atributos SAML obrigatórios, mas opcionalmente pode gerir a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
     > [!NOTE]
     > Utiliza atributos de extensão para adicionar atributos que não estão em Azure AD por padrão. Clique [nos atributos do Utilizador que podem ser definidos em SAML](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) para obter a lista completa de atributos SAML que **o Zendesk** aceita.
@@ -111,21 +111,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Zendesk.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Zendesk**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Zendesk** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -139,9 +139,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-zendesk-sso"></a>Configurar Zendesk SSO
 
-1. Para automatizar a configuração dentro do **Zendesk,** é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+1. Para automatizar a configuração dentro do **Zendesk,** é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
 
-    ![image](./media/target-process-tutorial/install_extension.png)
+    ![A screenshot mostra o botão de extensão instalar.](./media/target-process-tutorial/install_extension.png)
 
 1. Depois de adicionar extensão ao navegador, clique na **configuração Zendesk** irá direcioná-lo para a aplicação Zendesk. A partir daí, forneça as credenciais de administração para assinar em Zendesk. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-6.
 
@@ -151,11 +151,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No **Centro de Administração Zendesk,** clique nas **definições de Segurança** no separador **Segurança.**
 
-    ![Segurança](./media/zendesk-tutorial/settings.png "Segurança")
+    ![A screenshot mostra o Centro de Administração Zendesk com definições de segurança selecionadas.](./media/zendesk-tutorial/settings.png "Segurança")
 
-1. Aceda à página **de assinatura única** e clique em **Editar** no **SAML**.
+1. Aceda à página **de assinatura única** e clique em **Editar** no **SAML** .
 
-    ![Segurança](./media/zendesk-tutorial/saml-sso.png "Segurança")
+    ![A screenshot mostra a página de assinatura única com o Edit selecionado.](./media/zendesk-tutorial/saml-sso.png "Segurança")
 
 1. Execute os seguintes passos na página **SSO.**
 
@@ -167,7 +167,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     c. Na caixa de texto **url de logout remoto,** cole o valor do **URL logout** que copiou do portal Azure.
 
-    d. Clique em **Guardar**.
+    d. Clique em **Guardar** .
 
 ### <a name="create-zendesk-test-user"></a>Criar utilizador de teste Zendesk
 

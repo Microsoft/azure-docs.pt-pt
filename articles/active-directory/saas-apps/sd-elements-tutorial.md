@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4442d7cb83ef28b1483c5156e2655deb793b3b16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9bcda4affa19cf8793cd078fdc5b96d842eb42b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678414"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893620"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Tutorial: Azure Ative Directy integração única (SSO) com Elementos SD
 
@@ -143,7 +143,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. No menu em cima, clique em **Sistema** e, em seguida, **Sign-on único** .
 
-    ![Configurar Sign-On Individuais](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Screenshot que mostra "System" selecionado e "Single Sign-on" selecionado a partir do drop-down.](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. No **diálogo de definições de Sign-On único,** execute os seguintes passos:
 
@@ -167,11 +167,11 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em Elementos SD
 
 1. No menu em cima, clique em **Gestão do Utilizador,** e depois **utilizadores** .
 
-    ![Criar um utilizador de teste de elementos SD](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Screenshot que mostra "Utilizadores" selecionados a partir do drop-down "User Management".](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Clique **em Adicionar Novo Utilizador** .
 
-    ![Criar um utilizador de teste de elementos SD](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Screenshot que mostra o botão "Adicionar Novo Utilizador" selecionado.](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
 1. No diálogo **Adicionar Novo Utilizador,** execute os seguintes passos:
 

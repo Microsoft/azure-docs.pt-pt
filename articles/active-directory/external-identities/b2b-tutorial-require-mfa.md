@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f5f7f823d6c5f5860c2e78fe8cacdd1d788c581
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905965"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892700"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor a autenticação multifator aos utilizadores convidados B2B
 
@@ -32,7 +32,7 @@ Exemplo:
 3.  É pedido ao utilizador que conclua o pedido da MFA. 
 4.  O utilizador configura a MFA com a Empresa A e escolhe a respetiva opção de MFA. Será concedido ao utilizador acesso à aplicação.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Testar a experiência de início de sessão antes de configurar a MFA.
@@ -53,17 +53,17 @@ Para concluir o cenário deste tutorial, precisa de:
 ## <a name="create-a-test-guest-user-in-azure-ad"></a>Criar um utilizador convidado de teste no Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure Active Directory.
-2. No painel esquerdo, selecione **Azure Active Directory**.
-3.  Em **Gerir**, selecione **Utilizadores**.
-4.  Selecione **Novo utilizador convidado**.
+2. No painel esquerdo, selecione **Azure Active Directory** .
+3.  Em **Gerir** , selecione **Utilizadores** .
+4.  Selecione **Novo utilizador convidado** .
 
     ![Screenshot mostrando onde selecionar a nova opção de utilizador do hóspede](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
-5.  Em **Nome de utilizador**, introduza o endereço de e-mail do utilizador externo. Também tem a opção de incluir uma mensagem de boas-vindas. 
+5.  Em **Nome de utilizador** , introduza o endereço de e-mail do utilizador externo. Também tem a opção de incluir uma mensagem de boas-vindas. 
 
     ![Screenshot mostrando onde inserir a mensagem de convite do convidado](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
-6.  Selecione **Convidar** para enviar automaticamente o convite ao utilizador convidado. Será apresentada a mensagem **Utilizador convidado com sucesso**. 
+6.  Selecione **Convidar** para enviar automaticamente o convite ao utilizador convidado. Será apresentada a mensagem **Utilizador convidado com sucesso** . 
 7.  Após enviar o convite, a conta do utilizador será automaticamente adicionada ao diretório como convidada.
 
 ## <a name="test-the-sign-in-experience-before-mfa-setup"></a>Testar a experiência de início de sessão antes de configurar a MFA
@@ -73,53 +73,53 @@ Para concluir o cenário deste tutorial, precisa de:
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Criar uma política de acesso condicional que requer MFA
 1.  Inscreva-se no seu [portal Azure](https://portal.azure.com/) como administrador de segurança ou administrador de acesso condicional.
-2.  No portal Azure, selecione **Azure Ative Directory**. 
-3.  Na página **Azure Ative Directory,** na secção **Segurança,** selecione **Acesso Condicional**.
-4.  Na página **Acesso Condicional**, na barra de ferramentas na parte superior, selecione **Nova política**.
-5.  Na página **Novo**, na caixa de texto **Nome**, escreva **Exigir a MFA para aceder ao portal do B2B**.
-6.  Na secção **Atribuições**, selecione **Utilizadores e grupos**.
-7.  Na página **Utilizadores e grupos**, selecione **Selecione utilizadores e grupos** e, em seguida, selecione **Todos os utilizadores convidados (pré-visualização)**.
+2.  No portal Azure, selecione **Azure Ative Directory** . 
+3.  Na página **Azure Ative Directory,** na secção **Segurança,** selecione **Acesso Condicional** .
+4.  Na página **Acesso Condicional** , na barra de ferramentas na parte superior, selecione **Nova política** .
+5.  Na página **Novo** , na caixa de texto **Nome** , escreva **Exigir a MFA para aceder ao portal do B2B** .
+6.  Na secção **Atribuições** , selecione **Utilizadores e grupos** .
+7.  Na página **Utilizadores e grupos** , selecione **Selecione utilizadores e grupos** e, em seguida, selecione **Todos os utilizadores convidados (pré-visualização)** .
 
     ![Screenshot mostrando selecionando todos os utilizadores convidados](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  Selecione **Concluído**.
-10. Na página **Novo**, na secção **Atribuições**, selecione **Aplicações na cloud**.
-11. Na página **Aplicações na cloud**, selecione **Selecionar aplicações** e, em seguida, selecione **Selecionar**.
+9.  Selecione **Concluído** .
+10. Na página **Novo** , na secção **Atribuições** , selecione **Aplicações na cloud** .
+11. Na página **Aplicações na cloud** , selecione **Selecionar aplicações** e, em seguida, selecione **Selecionar** .
 
     ![Screenshot mostrando a página de aplicativos Cloud e a opção Select](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
-12. Na página **Selecionar**, selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar**.
+12. Na página **Selecionar** , selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar** .
 
-    ![Screenshot mostrando a app Microsoft Azure Management selecionada](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Screenshot que destaca a opção Microsoft Azure Management.](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
-13. Na página **Aplicações na cloud**, selecione **Concluído**.
-14. Na página **Novo**, na secção **Controlos de acesso**, selecione **Conceder**.
-15. Na página **Conceder**, selecione **Conceder acesso**, selecione a caixa de verificação **Exigir autenticação multifator** e, em seguida, selecione **Selecionar**.
+13. Na página **Aplicações na cloud** , selecione **Concluído** .
+14. Na página **Novo** , na secção **Controlos de acesso** , selecione **Conceder** .
+15. Na página **Conceder** , selecione **Conceder acesso** , selecione a caixa de verificação **Exigir autenticação multifator** e, em seguida, selecione **Selecionar** .
 
     ![Screenshot mostrando a opção de autenticação de vários fatores](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
-16. Em **Ativar política**, selecione **Ativado**.
+16. Em **Ativar política** , selecione **Ativado** .
 
     ![Screenshot mostrando a opção de política de Ativa definida para On](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
-17. Selecione **Criar**.
+17. Selecione **Criar** .
 
 ## <a name="use-the-what-if-option-to-simulate-sign-in"></a>Utilizar a opção What If para simular o início de sessão
 
-1.  Na página **Acesso Condicional - Políticas,** selecione **E Se**. 
+1.  Na página **Acesso Condicional - Políticas,** selecione **E Se** . 
 
-    ![Screenshot mostrando onde selecionar a opção E se](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Screenshot que realça onde selecionar a opção E se a opção na página Acesso Condicional - Políticas.](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
-2.  Selecione **Utilizador**, selecione o seu utilizador convidado de teste e, em seguida, selecione **Selecionar**.
+2.  Selecione **Utilizador** , selecione o seu utilizador convidado de teste e, em seguida, selecione **Selecionar** .
 
     ![Screenshot mostrando um utilizador convidado selecionado](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
-3.  Selecione **Aplicações na cloud**.
-4.  Na página **Aplicações na cloud**, selecione **Selecionar aplicações** e, em seguida, selecione **Selecionar**. Na lista de aplicações, selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar**. 
+3.  Selecione **Aplicações na cloud** .
+4.  Na página **Aplicações na cloud** , selecione **Selecionar aplicações** e, em seguida, selecione **Selecionar** . Na lista de aplicações, selecione **Microsoft Azure Management** e, em seguida, selecione **Selecionar** . 
 
     ![Screenshot mostrando a app Microsoft Azure Management selecionada](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
-5.  Na página **Aplicações na cloud**, selecione **Concluído**.
-6.  Selecione **What If** e verifique se a sua nova política é apresentada em **Resultados da avaliação** no separador **Políticas que serão aplicadas**.
+5.  Na página **Aplicações na cloud** , selecione **Concluído** .
+6.  Selecione **What If** e verifique se a sua nova política é apresentada em **Resultados da avaliação** no separador **Políticas que serão aplicadas** .
 
     ![Screenshot mostrando onde selecionar a opção E se](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
@@ -134,12 +134,12 @@ Para concluir o cenário deste tutorial, precisa de:
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não for necessário, remova o utilizador de teste e a política de acesso condicional de teste.
 1.  Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador do Azure Active Directory.
-2.  No painel esquerdo, selecione **Azure Active Directory**.
-3.  Em **Gerir**, selecione **Utilizadores**.
-4.  Selecione o utilizador de teste e, em seguida, selecione **Eliminar utilizador**.
-5.  No painel esquerdo, selecione **Azure Active Directory**.
-6.  Em **Segurança**, selecione **Acesso Condicional**.
-7.  Na lista **Nome da política**, selecione o menu de contexto (…) da sua política de teste e selecione **Eliminar**. Selecione **Sim** para confirmar.
+2.  No painel esquerdo, selecione **Azure Active Directory** .
+3.  Em **Gerir** , selecione **Utilizadores** .
+4.  Selecione o utilizador de teste e, em seguida, selecione **Eliminar utilizador** .
+5.  No painel esquerdo, selecione **Azure Active Directory** .
+6.  Em **Segurança** , selecione **Acesso Condicional** .
+7.  Na lista **Nome da política** , selecione o menu de contexto (…) da sua política de teste e selecione **Eliminar** . Selecione **Sim** para confirmar.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou uma política de Acesso Condicional que exige que os utilizadores convidados utilizem MFA ao iniciar sessão numa das suas aplicações na nuvem. Para saber mais sobre como adicionar utilizadores para colaboração, veja [Adicionar utilizadores de colaboração B2B do Azure Active Directory no portal do Azure](add-users-administrator.md).

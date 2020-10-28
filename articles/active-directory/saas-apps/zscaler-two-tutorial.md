@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: aca92ce5e1a202e09c2c5cc661dcbc4013bb0f13
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a6bf6c659ff589cf693f56c6c37e7f28daa376f8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517519"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Integração do Azure Ative Directory com zscaler Dois
 
@@ -51,7 +51,7 @@ Para configurar a integração do Zscaler Two em AD Azure, precisa adicionar zsc
 
 **Para adicionar Zscaler Dois da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -63,13 +63,13 @@ Para configurar a integração do Zscaler Two em AD Azure, precisa adicionar zsc
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **Zscaler Dois**, selecione **Zscaler Dois** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **Zscaler Dois** , selecione **Zscaler Dois** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
      ![Zscaler Dois na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com Zscaler Two com base num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com Zscaler Two com base num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Zscaler Two.
 
 Para configurar e testar o Azure AD com zscaler Dois, você precisa completar os seguintes blocos de construção:
@@ -87,7 +87,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Zscaler Two,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Zscaler Two,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
 5. A sua aplicação Zscaler Two espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 6. Além de acima, a aplicação Zscaler Two espera que alguns mais atributos sejam repercutidos na resposta DAL. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
     
@@ -120,19 +120,19 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com a opção de adicionar uma nova reclamação.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 
     c. Deixe o **Espaço Namespace** em branco.
 
-    d. Selecione Fonte como **Atributo**.
+    d. Selecione Fonte como **Atributo** .
 
     e. A partir da lista **de atributos Source,** digite o valor de atributo mostrado para esta linha.
     
-    f. Clique em **Guardar**.
+    f. Clique em **Guardar** .
 
     > [!NOTE]
     > Clique [aqui](../develop/active-directory-enterprise-app-role-management.md) para saber como configurar o papel em Azure AD
@@ -153,7 +153,7 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
 ### <a name="configure-zscaler-two-single-sign-on"></a>Configure Zscaler Dois Sign-On Únicos
 
-1. Para automatizar a configuração dentro do Zscaler 2, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão**.
+1. Para automatizar a configuração dentro do Zscaler 2, é necessário instalar a **extensão do navegador 'As aplicações' Secure Sign-in** clicando **em instalar a extensão** .
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
@@ -165,11 +165,11 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
 4. Vá à **Administração > Autenticação > Definições de Autenticação** e execute os seguintes passos:
    
-    ![Administration](./media/zscaler-two-tutorial/ic800206.png "Administração")
+    ![A screenshot mostra o site Zscaler One com passos como descrito.](./media/zscaler-two-tutorial/ic800206.png "Administração")
 
-    a. No Tipo de Autenticação, escolha **SAML**.
+    a. No Tipo de Autenticação, escolha **SAML** .
 
-    b. Clique **em Configurar SAML**.
+    b. Clique **em Configurar SAML** .
 
 5. Na janela **Editar SAML,** execute os seguintes passos: e clique em Guardar.  
             
@@ -177,11 +177,11 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
     
     a. Na caixa de texto **URL do PORTAL SAML,** cole o **URL de login** que copiou do portal Azure.
 
-    b. Na caixa de texto **atributo de nome de login,** insira o **NameID**.
+    b. Na caixa de texto **atributo de nome de login,** insira o **NameID** .
 
-    c. Clique em **Upload**, para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público**.
+    c. Clique em **Upload** , para carregar o certificado de assinatura Azure SAML que descarregou a partir do portal Azure no **Certificado SSL Público** .
 
-    d. Alternar o **Enable SAML Auto-Provisioning**.
+    d. Alternar o **Enable SAML Auto-Provisioning** .
 
     e. Na caixa de texto **do nome de visualização** do utilizador, **introduza o nome do ecrã** Se pretender ativar o fornecimento automático de SAML para os atributos do nome de visualização.
 
@@ -189,20 +189,20 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
     exemplo, No **departamento** **de Atributos de Nome do Departamento,** se pretender ativar o fornecimento automático da SAML para atributos do departamento.
 
-    h. Clique em **Guardar**.
+    h. Clique em **Guardar** .
 
 6. Na página de diálogo de autenticação do **utilizador configurar,** execute os seguintes passos:
 
-    ![Administração](./media/zscaler-two-tutorial/ic800207.png)
+    ![A screenshot mostra a caixa de diálogo de autenticação do utilizador configurar com ativação selecionada.](./media/zscaler-two-tutorial/ic800207.png)
 
     a. Passe por cima do menu **de ativação** perto do canto inferior esquerdo.
 
-    b. Clique **em Ativar**.
+    b. Clique **em Ativar** .
 
 ## <a name="configuring-proxy-settings"></a>Definir configurações de proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para configurar as definições de procuração no Internet Explorer
 
-1. Iniciar **o Internet Explorer**.
+1. Iniciar **o Internet Explorer** .
 
 2. Selecione **as opções** de Internet do menu **Ferramentas** para abrir o diálogo Opções de **Internet.**   
     
@@ -218,13 +218,13 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
    
     ![Servidor proxy](./media/zscaler-two-tutorial/ic769494.png "Servidor proxy")
 
-    a. Selecione **Utilize um servidor proxy para o seu LAN**.
+    a. Selecione **Utilize um servidor proxy para o seu LAN** .
 
     b. Na caixa de texto do Endereço, escreva **gateway. Zscaler Two.net.**
 
-    c. Na caixa de texto do Porto, tipo **80**.
+    c. Na caixa de texto do Porto, tipo **80** .
 
-    d. Selecione **o servidor de procuração de bypass para endereços locais**.
+    d. Selecione **o servidor de procuração de bypass para endereços locais** .
 
     e. Clique **em OK** para fechar o diálogo de **definições da Rede local (LAN).**
 
@@ -234,7 +234,7 @@ Para configurar o Azure AD com Zscaler Two, execute os seguintes passos:
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -246,27 +246,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Zscaler Two.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Zscaler 2**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **Zscaler 2** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **Zscaler 2**.
+2. Na lista de candidaturas, selecione **Zscaler 2** .
 
     ![O link Zscaler Dois na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -276,15 +276,15 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 5. No diálogo **de Utilizadores e grupos,** selecione o utilizador como **Britta Simon** da lista e, em seguida, clique no botão **Select** na parte inferior do ecrã.
 
-    ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
+    ![A screenshot mostra a caixa de diálogo dos Utilizadores e grupos onde pode selecionar um utilizador.](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
 
 6. A partir do diálogo **'Escolha',** escolha a função de utilizador apropriada na lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 
-    ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
+    ![A screenshot mostra a caixa de diálogo Select Role onde pode escolher uma função de utilizador.](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
 
 7. No diálogo **'Adicionar Atribuição'** selecione o botão **'Atribuir'.**
 
-    ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
+    ![A screenshot mostra a caixa de diálogo de atribuição de adicionar onde pode selecionar Atribua.](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
 
 ### <a name="create-zscaler-two-test-user"></a>Criar Zscaler Dois utilizador de teste
 

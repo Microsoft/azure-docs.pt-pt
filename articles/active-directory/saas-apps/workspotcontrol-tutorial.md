@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 59101e05345e9284b71b44d24732a45f3c53e629
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65e424c6275f9990a5d5a42a54bc4131300a45bf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520086"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Diretório Ativo Azure com o Workspot Control
 
@@ -50,7 +50,7 @@ Para configurar a integração do Workspot Control em Azure AD, tem de adicionar
 
 **Para adicionar o Control do Workspot da galeria, siga estes passos:**
 
-1. No painel esquerdo do [portal Azure,](https://portal.azure.com)selecione **Azure Ative Directory**.
+1. No painel esquerdo do [portal Azure,](https://portal.azure.com)selecione **Azure Ative Directory** .
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -62,7 +62,7 @@ Para configurar a integração do Workspot Control em Azure AD, tem de adicionar
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **o Controlo do Ponto de Trabalho,** selecione Controle de **Workspot** no painel de resultados e, em seguida, selecione **Adicionar**.
+4. Na caixa de pesquisa, insira **o Controlo do Ponto de Trabalho,** selecione Controle de **Workspot** no painel de resultados e, em seguida, selecione **Adicionar** .
 
      ![Janela "Adicionar da galeria"](common/search-new-app.png)
 
@@ -86,7 +86,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o Workspot Control, siga estes passos:
 
-1. Na página de integração da aplicação **Workspot Control** no [portal Azure,](https://portal.azure.com/)selecione **Single sign-on**.
+1. Na página de integração da aplicação **Workspot Control** no [portal Azure,](https://portal.azure.com/)selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -94,29 +94,29 @@ Para configurar o Azure AD com o Workspot Control, siga estes passos:
 
     ![Selecione uma única janela de método de s seletor de inscrição](common/select-saml-option.png)
 
-3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Edit** (lápis) para aceder à **Configuração Básica SAML**.
+3. Na **configuração single Sign-On com página SAML,** selecione o ícone **Edit** (lápis) para aceder à **Configuração Básica SAML** .
 
     ![Ícone de edição destacado em "Configuração Básica SAML"](common/edit-urls.png)
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo IDP, siga estes passos:
 
-    ![Domínio de controlo de depósitos de trabalho e informações únicas de assinatura](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     1. Na caixa de texto do **identificador,** introduza um URL no seguinte padrão:<br/>
-    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/metadados_*_
+    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/metadados_* _
 
-    1. Na caixa de texto URL * de _ *resposta,* introduza um URL no seguinte padrão: <br/> 
-    * *_https://<<i></i> INSTANCENAME>-saml.workspot.com/saml/assertion_*_
+    1. Na caixa de texto URL * de _*resposta,* introduza um URL no seguinte padrão: <br/> 
+    * *_https://< <i></i> INSTANCENAME>-saml.workspot.com/saml/assertion_*_
 
 5. Se pretender configurar a aplicação no modo iniciado pelo SP, selecione _*Seturls adicionais**.
 
-    ![Domínio de controlo de depósitos de trabalho e informações únicas de assinatura](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto URL de entrada de **url,** introduza um URL no seguinte padrão:<br/>
-    **_https://<<i></i> INSTANCENAME>-saml.workspot.com/_*_
+    **_https://< <i></i> INSTANCENAME>-saml.workspot.com/_* _
 
     > [!NOTE]
-    > Estes valores não são reais. Substitua estes valores pelo identificador real, URL de resposta e URL de inscrição. Contacte a equipa de suporte do [Cliente do Controle de Workspot](mailto:support@workspot.com) para obter estes valores. Ou também pode consultar os padrões na secção _*Configuração BÁSICA SAML** do portal Azure.
+    > Estes valores não são reais. Substitua estes valores pelo identificador real, URL de resposta e URL de inscrição. Contacte a equipa de suporte do [Cliente do Controle de Workspot](mailto:support@workspot.com) para obter estes valores. Ou também pode consultar os padrões na secção _ *Configuração BÁSICA SAML* * do portal Azure.
 
 6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** selecione **Descarregamento** para descarregar **Certificado (Base64)** das opções disponíveis de acordo com os seus requisitos. Guarde para o seu computador.
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD com o Workspot Control, siga estes passos:
 
 1. Numa janela diferente do navegador web, inscreva-se no Workspot Control como administrador de segurança.
 
-2. Na barra de ferramentas no topo da página, selecione **Configurar** e, em seguida, **SAML**.
+2. Na barra de ferramentas no topo da página, selecione **Configurar** e, em seguida, **SAML** .
 
     ![Opções de configuração](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -152,13 +152,13 @@ Para configurar o Azure AD com o Workspot Control, siga estes passos:
 
     1. Selecione **Update File** para carregar no certificado X.509 o certificado codificado base-64 que descarregou a partir do portal Azure.
 
-    1. Selecione **Guardar**.
+    1. Selecione **Guardar** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 Nesta secção, cria-se um utilizador de teste no portal Azure.
 
-1. No painel esquerdo do portal Azure, selecione **Azure Ative Directory**, **Utilizadores,** e depois **Todos os utilizadores**.
+1. No painel esquerdo do portal Azure, selecione **Azure Ative Directory** , **Utilizadores,** e depois **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -170,27 +170,27 @@ Nesta secção, cria-se um utilizador de teste no portal Azure.
 
     ![A janela de propriedades do utilizador](common/user-properties.png)
 
-    1. No campo **Nome,** **insira BrittaSimon**.
+    1. No campo **Nome,** **insira BrittaSimon** .
   
-    1. No campo nome do **utilizador,** introduza **brittasimon@* sua empresa.extension***. Por exemplo, insira ** BrittaSimon@contoso . <i></i> com**.
+    1. No campo nome do **utilizador,** introduza * *brittasimon@* sua empresa.extension***. Por exemplo, insira **BrittaSimon@contoso . <i></i> com** .
 
     1. Selecione a caixa **de verificação de senha show.** Em seguida, anote o valor que é mostrado na caixa **de senha.**
 
-    1. Selecione **Criar**.
+    1. Selecione **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você concede a Britta Simon acesso ao Workspot Control para permitir-lhe usar a Azure um único sinal.
 
-1. No portal Azure, selecione **Aplicações empresariais**, **todas as aplicações,** e depois **o Controle do Pote de Trabalho**.
+1. No portal Azure, selecione **Aplicações empresariais** , **todas as aplicações,** e depois **o Controle do Pote de Trabalho** .
 
     ![O painel de aplicações da Enterprise](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Workspot Control**.
+2. Na lista de aplicações, selecione **Workspot Control** .
 
     ![A ligação de Controlo do Workspot na lista de Aplicações](common/all-applications.png)
 
-3. A partir do menu do lado esquerdo, selecione **Utilizadores e grupos**.
+3. A partir do menu do lado esquerdo, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -198,11 +198,11 @@ Nesta secção, você concede a Britta Simon acesso ao Workspot Control para per
 
     ![A janela "Adicionar Atribuição"](common/add-assign-user.png)
 
-5. Na janela **de Utilizadores e grupos,** selecione **Britta Simon** da lista **de Utilizadores.** Em seguida, clique em **Selecionar**.
+5. Na janela **de Utilizadores e grupos,** selecione **Britta Simon** da lista **de Utilizadores.** Em seguida, clique em **Selecionar** .
 
 6. Se espera algum valor de função na afirmação SAML, selecione a função adequada para o utilizador a partir da lista na janela **'Função' Select.** Em seguida, clique em **Selecionar** na parte inferior.
 
-7. Na janela **'Adicionar Atribuição',** selecione **Atribuir**.
+7. Na janela **'Adicionar Atribuição',** selecione **Atribuir** .
 
 ### <a name="create-a-workspot-control-test-user"></a>Criar um utilizador de teste de controlo de workspot
 
@@ -212,7 +212,7 @@ Para permitir que os utilizadores da Azure AD entrem no Workspot Control, devem 
 
 1. Inscreva-se no Workspot Control como Administrador de Segurança.
 
-2. Na barra de ferramentas no topo da página, selecione **Utilizadores** e, em seguida, **Adicione Utilizador**.
+2. Na barra de ferramentas no topo da página, selecione **Utilizadores** e, em seguida, **Adicione Utilizador** .
 
     ![Opções de "Utilizadores"](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -220,17 +220,17 @@ Para permitir que os utilizadores da Azure AD entrem no Workspot Control, devem 
 
     ![Janela "Adicionar um novo utilizador"](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-    1. Na caixa **First Name,** insira o primeiro nome de um utilizador, como **Britta**.
+    1. Na caixa **First Name,** insira o primeiro nome de um utilizador, como **Britta** .
 
-    1. Na caixa de texto **do último nome,** insira o último nome do utilizador, tal como **Simon**.
+    1. Na caixa de texto **do último nome,** insira o último nome do utilizador, tal como **Simon** .
 
-    1. Na caixa **de e-mail,** insira o endereço de e-mail do utilizador, tal como ** Brittasimon@contoso . <i></i> com**.
+    1. Na caixa **de e-mail,** insira o endereço de e-mail do utilizador, tal como **Brittasimon@contoso . <i></i> com** .
 
     1. Selecione a função de utilizador apropriada **da** lista de drop-down Role.
 
     1. Selecione o grupo de utilizadores apropriado da lista de abandono do **Grupo.**
 
-    1. Selecione **Adicionar Utilizador**.
+    1. Selecione **Adicionar Utilizador** .
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

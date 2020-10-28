@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330932"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895499"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com Azure Maps Android SDK
 
@@ -36,10 +36,10 @@ Baixe o Android Studio e crie um projeto com uma atividade vazia antes de instal
 
 Primeiro, criar um novo projeto com uma atividade vazia. Complete estes passos para criar um projeto Android Studio:
 
-1. No âmbito **do escolha do seu projeto**, selecione Telefone e **Tablet.** A sua aplicação será executada neste fator de formulário.
-2. No **separador Telefone e Tablet,** selecione **Empty Activity**e, em seguida, selecione **Seguinte**.
+1. No âmbito **do escolha do seu projeto** , selecione Telefone e **Tablet.** A sua aplicação será executada neste fator de formulário.
+2. No **separador Telefone e Tablet,** selecione **Empty Activity** e, em seguida, selecione **Seguinte** .
 3. No **âmbito do Configure o seu projeto,** selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais antiga suportada pelo Azure Maps Android SDK.
-4. Aceite o predefinido `Activity Name` `Layout Name` e **selecione Acabamento**.
+4. Aceite o predefinido `Activity Name` `Layout Name` e **selecione Acabamento** .
 
 Consulte a [documentação](https://developer.android.com/studio/intro/) do Android Studio para obter mais ajuda na instalação do Android Studio e na criação de um novo projeto.
 
@@ -47,7 +47,7 @@ Consulte a [documentação](https://developer.android.com/studio/intro/) do Andr
 
 ## <a name="set-up-a-virtual-device"></a>Configurar um dispositivo virtual
 
-O Android Studio permite-lhe configurar um dispositivo Android virtual no seu computador. Ao fazê-lo, pode ajudá-lo a testar a sua aplicação durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone do Gestor do Dispositivo Virtual Android (AVD) no canto superior direito do ecrã do projeto e, em seguida, selecione **Create Virtual Device**. Também pode chegar ao Gestor AVD selecionando **Ferramentas**  >  **Android**  >  **AVD Manager** a partir da barra de ferramentas. Na categoria **Telefones,** selecione **Nexus 5X**e, em seguida, selecione **Next**.
+O Android Studio permite-lhe configurar um dispositivo Android virtual no seu computador. Ao fazê-lo, pode ajudá-lo a testar a sua aplicação durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone do Gestor do Dispositivo Virtual Android (AVD) no canto superior direito do ecrã do projeto e, em seguida, selecione **Create Virtual Device** . Também pode chegar ao Gestor AVD selecionando **Ferramentas**  >  **Android**  >  **AVD Manager** a partir da barra de ferramentas. Na categoria **Telefones,** selecione **Nexus 5X** e, em seguida, selecione **Next** .
 
 Você pode saber mais sobre a configuração de um AVD na [documentação](https://developer.android.com/studio/run/managing-avds)do Android Studio .
 
@@ -83,7 +83,7 @@ O próximo passo na construção da sua aplicação é instalar o Azure Maps And
         implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
-    4. Vá para **arquivar** na barra de ferramentas e, em seguida, clique no **Sync Project com Ficheiros Gradle**.
+    4. Vá para **arquivar** na barra de ferramentas e, em seguida, clique no **Sync Project com Ficheiros Gradle** .
 3. Adicione um fragmento de mapa à atividade principal (atividade de layout res \> \> \_main.xml):
     
     ```XML
@@ -299,7 +299,7 @@ Saiba como adicionar dados sobrepostos no mapa:
 > [Adicione uma camada de símbolo a um mapa Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicione formas a um mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adicione formas a um mapa Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Alterar estilos de mapa em mapas Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa em mapas Android](./set-android-map-styles.md)
