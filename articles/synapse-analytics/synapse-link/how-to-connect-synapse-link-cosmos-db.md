@@ -1,6 +1,6 @@
 ---
 title: Ligue-se ao Azure Synapse Link (pré-visualização) para Azure Cosmos DB
-description: Como ligar um Azure Cosmos DB a um espaço de trabalho da Sinapse com a Azure Synapse Link
+description: Saiba como ligar uma base de dados DB do Azure Cosmos a um espaço de trabalho Azure Synapse com a Azure Synapse Link.
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 50717c7e8a7b0f748df98c1896e1b7eb64cd7be3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819353"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668594"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Ligue-se ao Azure Synapse Link (pré-visualização) para Azure Cosmos DB
 
@@ -24,50 +24,50 @@ Este artigo descreve como aceder a uma base de dados DB Azure Cosmos do Azure Sy
 
 Antes de ligar uma base de dados DB do Azure Cosmos ao seu espaço de trabalho, vai precisar de um:
 
+* Base de dados DB Azure Cosmos existente, ou criar uma nova conta seguindo os passos em [Quickstart: Gerir uma conta DB Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
+* Espaço de trabalho existente em Azure Synapse, ou criar um novo espaço de trabalho seguindo os passos em [Quickstart: Criar um espaço de trabalho synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
+
 > [!IMPORTANT]
-> A Azure Synapse Link for Azure Cosmos DB é atualmente suportado para espaços de trabalho que não têm gerido rede virtual ativada. 
+> A azure Synapse Link for Azure Cosmos DB é atualmente suportado para espaços de trabalho que não têm uma rede virtual gerida ativada.
 
-* Base de dados DB Azure Cosmos existente ou criar uma nova conta após este [arranque rápido](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
-* Espaço de trabalho synapse existente ou criar um novo espaço de trabalho após este [arranque rápido](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 
-
-## <a name="enable-azure-cosmos-db-analytical-store"></a>Ativar a loja analítica Azure Cosmos DB
+## <a name="enable-synapse-link-on-an-azure-cosmos-db-database-account"></a>Ativar o Link Synapse numa conta de base de dados DB do Azure Cosmos
 
 Para executar análises em larga escala em Azure Cosmos DB sem afetar o seu desempenho operacional, recomendamos permitir a Ligação Synapse para Azure Cosmos DB. A Synapse Link traz a capacidade HTAP a um contentor e suporte incorporado em Azure Synapse.
 
-## <a name="navigate-to-synapse-studio"></a>Navegue para o Estúdio Synapse
+## <a name="go-to-synapse-studio"></a>Ir para o Estúdio Synapse
 
-A partir do seu espaço de trabalho Synapse, selecione **Launch Synapse Studio**. Na página inicial do Estúdio Synapse, selecione **Data**, que o levará ao **Explorador de Objetos de Dados.**
+A partir do seu espaço de trabalho Azure Synapse, selecione **Launch Synapse Studio** . Na página inicial do Synapse Studio, selecione **Data** , que o leva ao Explorador de Objetos de Dados.
 
-## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>Ligue uma base de dados DB do Azure Cosmos a um espaço de trabalho da Synapse
+## <a name="connect-an-azure-cosmos-db-database-to-an-azure-synapse-workspace"></a>Ligue uma base de dados DB do Azure Cosmos a um espaço de trabalho da Azure Synapse
 
-A ligação de uma base de dados DB Azure Cosmos é feita como um serviço ligado. Um serviço ligado a Azure Cosmos DB permite aos utilizadores navegar e explorar dados, ler e escrever a partir de Apache Spark para Azure Synapse Analytics ou SQL em Azure Cosmos DB.
+A ligação de uma base de dados DB Azure Cosmos é feita como um serviço ligado. Com um serviço DB DB Azure Cosmos, você pode navegar e explorar dados, ler e escrever a partir de Apache Spark para Azure Synapse Analytics ou SQL em Azure Cosmos DB.
 
-A partir do Data Object Explorer, pode ligar-se diretamente a uma base de dados DB do Azure Cosmos, fazendo os seguintes passos:
+A partir do Data Object Explorer, pode ligar-se diretamente a uma base de dados DB Azure Cosmos seguindo estes passos:
 
-1. Selecione ***+*** ícone perto de Dados
-2. Selecione **Ligar aos dados externos**
-3. Selecione a API a que pretende ligar: SQL API ou API para MongoDB
-4. Selecione ***Continuar***
-5. Diga o nome do serviço ligado. O nome será apresentado no Object Explorer e utilizado pela Synapse para ligar à base de dados e aos contentores. Recomendamos a utilização de um nome amigável.
-6. Selecione o nome da **conta DB Azure Cosmos** e **o nome da base de dados**
-7. (Opcional) Se nenhuma região for especificada, as operações de tempo de execução da Synapse serão encaminhadas para a região mais próxima, onde a loja analítica está ativada. No entanto, pode definir manualmente qual a região a que os seus utilizadores pretendem aceder à Loja Azure Cosmos DB Analytical. Selecione **propriedades de ligação adicionais** e, em seguida, **Nova**. Em **Nome da Propriedade,** escreva ***As Regiões Preferenciais*** e descreva o **Valor** para a região que deseja (exemplo: WestUS2, não há espaço entre palavras e número)
-8. Selecione ***Criar***
+1. Selecione o **+** ícone perto de **Data** .
+1. Selecione **Ligar para dados externos.**
+1. Selecione a API a que pretende ligar, por exemplo, **API SQL** ou **API para MongoDB** .
+1. Selecione **Continuar** .
+1. Use um nome amigável para nomear o serviço ligado. O nome aparecerá no Data Object Explorer e é utilizado pela Azure Synapse para ligar à base de dados e aos contentores.
+1. Selecione o nome da **conta DB Azure Cosmos** e o nome da **base de dados** .
+1. (Opcional) Se nenhuma região for especificada, as operações de execução do Azure Synapse serão encaminhadas para a região mais próxima, onde a loja analítica está ativada. Também pode definir manualmente a região que pretende que os seus utilizadores utilizem para aceder à loja analítica Azure Cosmos DB. Selecione **propriedades de ligação adicionais** e, em seguida, selecione **New** . Em **Nome da Propriedade,** insira **As Regiões Preferenciais.** Desacorda o **valor** da região que pretende, por exemplo, **WestUS2** . (Não há espaços entre as palavras e o número.)
+1. Selecione **Criar** .
 
-As bases de dados DB do Azure Cosmos são visíveis no separador **Ligado** na secção DB do Azure Cosmos. Com o Azure Cosmos DB, pode diferenciar um recipiente habilitado para HTAP a partir de um recipiente OLTP apenas através dos seguintes ícones:
+As bases de dados DB do Azure Cosmos aparecem no separador **Linked** na secção DB do **Azure Cosmos.** Com o Azure Cosmos DB, pode diferenciar um recipiente habilitado para HTAP a partir de um recipiente apenas OLTP através dos seguintes ícones:
 
-**Recipiente único OLTP:**
+**Recipiente apenas para OLTP:**
 
-![Recipiente OLTP](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
+![Visualização que mostra o ícone do recipiente OLTP.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
 **Recipiente habilitado para HTAP:**
 
-![Recipiente HTAP](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
+![Visualização que mostra o ícone do recipiente HTAP.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 
 ## <a name="quickly-interact-with-code-generated-actions"></a>Interaja rapidamente com ações geradas por código
 
-Ao clicar à direita num recipiente, tem uma lista de gestos que irão desencadear um tempo de execução spark ou SQL. A escrita num contentor acontecerá através da Loja Transacional da Azure Cosmos DB e consumirá Unidades de Pedido.  
+Ao clicar à direita num recipiente, tem uma lista de gestos que desencadearão um tempo de execução spark ou SQL. A escrita num contentor acontecerá através da Loja Transacional da Azure Cosmos DB e consumirá Unidades de Pedido.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba o que é suportado entre a Synapse e a Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Saiba o que é suportado entre Azure Synapse e Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Saiba como consultar a loja de analítica com a Spark](./how-to-query-analytical-store-spark.md)

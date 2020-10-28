@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83873643"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638198"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados da DB2 utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -49,7 +49,7 @@ Especificamente, este conector DB2 suporta as seguintes plataformas e versões I
 * IBM DB2 para LUW 10.1
 
 >[!TIP]
->O conector DB2 é construído em cima do Microsoft OLE DB Provider para DB2. Para resolver os erros do conector DB2, consulte os [Códigos de Erro do Fornecedor de Dados](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>O conector DB2 é construído em cima do Microsoft OLE DB Provider para DB2. Para resolver os erros do conector DB2, consulte os [Códigos de Erro do Fornecedor de Dados](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -114,13 +114,13 @@ Propriedades típicas dentro da cadeia de ligação:
         "type": "Db2",
         "typeProperties": {
             "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -168,7 +168,7 @@ Para copiar dados da DB2, as seguintes propriedades são suportadas:
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Db2Table** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| mesa | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -247,28 +247,28 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados D
 | BigInt |Int64 |
 | Binário |Byte[] |
 | Blob |Byte[] |
-| Char |Cadeia |
-| Clob |Cadeia |
+| Char |String |
+| Clob |String |
 | Date |Datetime |
-| DB2DynArray |Cadeia |
-| DbClob |Cadeia |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double (Duplo) |Double (Duplo) |
 | Float |Double (Duplo) |
-| Gráfico |Cadeia |
+| Gráfico |String |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Cadeia |
-| LongVarGraphic |Cadeia |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numérico |Decimal |
 | Real |Único |
 | PequenoInt |Int16 |
 | Hora |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| Rio VarChar |Cadeia |
-| VarGraphic |Cadeia |
+| Rio VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

@@ -4,12 +4,12 @@ description: Aprenda a ligar-se em privado a uma conta Azure Batch utilizando po
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7dba3dd1d34421666821c6bc7320ef76ab77bb7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542143"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669018"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Utilizar pontos finais privados com contas do Azure Batch
 
@@ -28,25 +28,25 @@ Este artigo descreve os passos para criar uma conta privada do Batch e acedê-la
 
 Utilize os seguintes passos para criar uma conta privada do Lote utilizando o portal Azure:
 
-1. A partir do painel de recursos Criar um painel de **recursos,** escolha **o Serviço de Lote** e, em seguida, selecione **Criar**.
-2. Introduza o nome da conta de subscrição, grupo de recursos, região e lote no **separador Básicos** e, em seguida, selecione **Seguinte: Avançado**.
-3. No separador **Avançado,** desative o **acesso da rede pública** a **Deficientes**.
-4. Em **Definições**, selecione **ligações de ponto final privado e,** em seguida, selecione **+ ponto final privado**.
+1. A partir do painel de recursos Criar um painel de **recursos,** escolha **o Serviço de Lote** e, em seguida, selecione **Criar** .
+2. Introduza o nome da conta de subscrição, grupo de recursos, região e lote no **separador Básicos** e, em seguida, selecione **Seguinte: Avançado** .
+3. No separador **Avançado,** desative o **acesso da rede pública** a **Deficientes** .
+4. Em **Definições** , selecione **ligações de ponto final privado e,** em seguida, selecione **+ ponto final privado** .
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Conexões de ponto final privado":::
-5. No painel **Basics,** introduza ou selecione a subscrição, grupo de recursos, nome de recurso de ponto final privado e detalhes da região, selecione **Next: Resource**.
-6. No painel **de recursos,** desaprote o **tipo de recurso** paraMicrosoft.Batcontas ** ch/batchAccounts**. Selecione a conta batch privada a que pretende aceder e, em seguida, selecione **Seguinte: Configuração**.
+5. No painel **Basics,** introduza ou selecione a subscrição, grupo de recursos, nome de recurso de ponto final privado e detalhes da região, selecione **Next: Resource** .
+6. No painel **de recursos,** desaprote o **tipo de recurso** paraMicrosoft.Batcontas **ch/batchAccounts** . Selecione a conta batch privada a que pretende aceder e, em seguida, selecione **Seguinte: Configuração** .
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Conexões de ponto final privado":::
 7. No painel **de configuração,** introduza ou selecione esta informação:
-   - **Rede virtual**: Selecione a sua rede virtual.
-   - **Sub-rede**: Selecione a sua sub-rede.
-   - **Integre-se com a zona privada do DNS**: Selecione **Sim**. Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais.
-   - **Zona privada do DNS**: Selecione privatelink. <region> . batch.azure.com. A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.
+   - **Rede virtual** : Selecione a sua rede virtual.
+   - **Sub-rede** : Selecione a sua sub-rede.
+   - **Integre-se com a zona privada do DNS** : Selecione **Sim** . Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais.
+   - **Zona privada do DNS** : Selecione privatelink. \<region\> . batch.azure.com. A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.
 8. Selecione **Rever + criar,** em seguida, esperar pelo Azure para validar a sua configuração.
-9. Quando vir a mensagem **A validação passou**, selecione **Criar**.
+9. Quando vir a mensagem **A validação passou** , selecione **Criar** .
 
 Depois de o ponto final privado ser a provisionado, pode aceder à conta Batch a partir de VMs na mesma rede virtual utilizando o ponto final privado. Para ver o endereço IP a partir do portal Azure:
 
-1. Selecione **Todos os recursos**.
+1. Selecione **Todos os recursos** .
 2. Procure o ponto final privado que criou anteriormente.
 3. Selecione o **separador 'Vista Geral'** para ver as definições de DNS e endereços IP.
 

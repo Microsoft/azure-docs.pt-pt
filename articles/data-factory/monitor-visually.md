@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570131"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638113"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
@@ -93,8 +93,8 @@ Alternar se o gasoduto funciona em descida ou subida de acordo com a hora de in�
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome do pipeline | Filtrar pelo nome do oleoduto. |
-| Início de execução |  Determine o intervalo de tempo dos cursos de conduta visualizados. As opções incluem filtros rápidos para **as últimas 24 horas**, **última semana,** e **últimos 30 dias** ou para selecionar uma data e hora personalizadas. |
-| Estado de execução | Filtro funciona por estado: **Bem sucedido,** **Falhado,** **Em Fila,** **Cancelado**ou **Em Curso**. |
+| Início de execução |  Determine o intervalo de tempo dos cursos de conduta visualizados. As opções incluem filtros rápidos para **as últimas 24 horas** , **última semana,** e **últimos 30 dias** ou para selecionar uma data e hora personalizadas. |
+| Estado de execução | Filtro funciona por estado: **Bem sucedido,** **Falhado,** **Em Fila,** **Cancelado** ou **Em Curso** . |
 | Anotações | Filtro por etiquetas aplicadas a cada oleoduto |
 | Execuções | Filtre se deseja ver os oleodutos reran |
 
@@ -110,7 +110,7 @@ Aumente e diminua as larguras da coluna na vista da lista, pairando sobre o cabe
 
 ## <a name="rerun-activities-inside-a-pipeline"></a>Repercutam atividades dentro de um oleoduto
 
-Pode refazer atividades dentro de um oleoduto. Selecione **A atividade de 'Ver' é executado**e, em seguida, selecione a atividade no seu pipeline a partir do qual pretende voltar a fazer a sua tubagem.
+Pode refazer atividades dentro de um oleoduto. Selecione **A atividade de 'Ver' é executado** e, em seguida, selecione a atividade no seu pipeline a partir do qual pretende voltar a fazer a sua tubagem.
 
 ![Ver execuções de atividades](media/monitor-visually/rerun-activities-image1.png)
 
@@ -118,7 +118,7 @@ Pode refazer atividades dentro de um oleoduto. Selecione **A atividade de 'Ver' 
 
 ### <a name="rerun-from-failed-activity"></a>Repetição da atividade falhada
 
-Se uma atividade falhar, o tempo fora ou for cancelada, pode voltar a fazer o pipeline a partir dessa atividade falhada selecionando **a Repetição da atividade falhada**.
+Se uma atividade falhar, o tempo fora ou for cancelada, pode voltar a fazer o pipeline a partir dessa atividade falhada selecionando **a Repetição da atividade falhada** .
 
 ![Rerun atividade falhada](media/monitor-visually/rerun-failed-activity.png)
 
@@ -212,4 +212,4 @@ Para uma introdução e demonstração de sete minutos desta funcionalidade, vej
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender sobre a monitorização e gestão de gasodutos, consulte o [Monitor e gere os oleodutos programáticamente.](https://docs.microsoft.com/azure/data-factory/monitor-programmatically)
+Para aprender sobre a monitorização e gestão de gasodutos, consulte o [Monitor e gere os oleodutos programáticamente.](./monitor-programmatically.md)

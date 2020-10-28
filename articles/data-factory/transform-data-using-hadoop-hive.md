@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
-ms.openlocfilehash: 5381fea4c492c6bcf61c392ea8a8f9bee8860644
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20deb1a235843bf5fe5c42c513e1d8d2117c65c5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368932"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637909"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Colmeia Hadoop na Azure Data Factory
 
@@ -60,15 +60,15 @@ Se é novo na Azure Data Factory, leia através [da Introdução à Fábrica de 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade            | Descrição                                                  | Obrigatório |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| name                | Nome da atividade                                         | Yes      |
-| descrição         | Texto que descreve para que a atividade é usada                | No       |
-| tipo                | Para a atividade da Colmeia, o tipo de atividade é HDinsightHive        | Yes      |
-| linkedServiceName   | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
-| scriptLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar o script da Colmeia para ser executado. Apenas os serviços ligados a **[Azure Blob](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** e **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** são suportados aqui. Se não especificar este Serviço Linked, é utilizado o Serviço Ligado ao Armazenamento Azure definido no Serviço Linked HDInsight.  | No       |
-| scriptPath          | Forneça o caminho para o ficheiro de script armazenado no Azure Storage referido pelo scriptLinkedService. O nome do ficheiro é sensível a casos. | Yes      |
-| obterDebugInfo        | Especifica quando os ficheiros de registo são copiados para o Azure Storage utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Fracasso. Valor predefinido: Nenhum. | No       |
-| argumentos           | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | No       |
-| define             | Especifique os parâmetros como pares chave/valor para referências dentro do script da Colmeia. | No       |
+| name                | Nome da atividade                                         | Sim      |
+| descrição         | Texto que descreve para que a atividade é usada                | Não       |
+| tipo                | Para a atividade da Colmeia, o tipo de atividade é HDinsightHive        | Sim      |
+| linkedServiceName   | Referência ao cluster HDInsight registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
+| scriptLinkedService | Referência a um Serviço Ligado ao Armazenamento Azure usado para armazenar o script da Colmeia para ser executado. Apenas os serviços ligados a **[Azure Blob](./connector-azure-blob-storage.md)** e **[ADLS Gen2](./connector-azure-data-lake-storage.md)** são suportados aqui. Se não especificar este Serviço Linked, é utilizado o Serviço Ligado ao Armazenamento Azure definido no Serviço Linked HDInsight.  | Não       |
+| scriptPath          | Forneça o caminho para o ficheiro de script armazenado no Azure Storage referido pelo scriptLinkedService. O nome do ficheiro é sensível a casos. | Sim      |
+| obterDebugInfo        | Especifica quando os ficheiros de registo são copiados para o Azure Storage utilizado pelo cluster HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, Sempre ou Fracasso. Valor predefinido: Nenhum. | Não       |
+| argumentos           | Especifica uma série de argumentos para um trabalho de Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
+| define             | Especifique os parâmetros como pares chave/valor para referências dentro do script da Colmeia. | Não       |
 | consultaTimeout        | Valor de tempo limite de consulta (em minutos). Aplicável quando o cluster HDInsight estiver com o Pacote de Segurança Empresarial ativado. | Não       |
 
 ## <a name="next-steps"></a>Próximos passos

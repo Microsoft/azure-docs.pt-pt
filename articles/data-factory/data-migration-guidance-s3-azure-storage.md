@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be1cb7abbc243e3f79e183223fbbb32380f5d02d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616929"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638045"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utilize a Azure Data Factory para migrar dados do Amazon S3 para o Azure Storage 
 
@@ -41,9 +41,9 @@ Os clientes migraram com sucesso petabytes de dados que consistem em centenas de
 
 A imagem acima ilustra como você pode alcançar grandes velocidades de movimento de dados através de diferentes níveis de paralelismo:
  
-- Uma única atividade de cópia pode tirar partido dos recursos de cálculo escaláveis: ao utilizar o Tempo de Execução da Integração Azure, pode especificar [até 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) para cada atividade de cópia de forma sem servidor; ao utilizar o tempo de funcionamento de integração auto-hospedado, pode escalar manualmente a máquina ou escalar para várias máquinas[(até 4 nós](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), e uma única atividade de cópia dividirá o seu ficheiro definido em todos os nós. 
+- Uma única atividade de cópia pode tirar partido dos recursos de cálculo escaláveis: ao utilizar o Tempo de Execução da Integração Azure, pode especificar [até 256 DIUs](./copy-activity-performance.md#data-integration-units) para cada atividade de cópia de forma sem servidor; ao utilizar o tempo de funcionamento de integração auto-hospedado, pode escalar manualmente a máquina ou escalar para várias máquinas[(até 4 nós](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)), e uma única atividade de cópia dividirá o seu ficheiro definido em todos os nós. 
 - Uma única atividade de cópia lê e escreve para a loja de dados utilizando vários fios. 
-- O fluxo de controlo ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, utilizando [para cada laço](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- O fluxo de controlo ADF pode iniciar várias atividades de cópia em paralelo, por exemplo, utilizando [para cada laço](./control-flow-for-each-activity.md). 
 
 ## <a name="resilience"></a>Resiliência
 
@@ -81,10 +81,10 @@ Migrar dados sobre ligação privada:
 
 ### <a name="authentication-and-credential-management"></a>Autenticação e gestão de credenciais 
 
-- Para autenticar na conta Amazon S3, tem de usar a [chave de acesso para a conta IAM.](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties) 
-- Vários tipos de autenticação são suportados para se ligarem ao Armazenamento Azure Blob.  A utilização de [identidades geridas para recursos Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) é altamente recomendada: construída em cima de uma identificação ADF gerida automaticamente em Azure AD, permite-lhe configurar gasodutos sem fornecer credenciais na definição de Serviço Linked.  Em alternativa, pode autenticar o Azure Blob Storage utilizando [o Service Principal,](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication) [a assinatura de acesso partilhado](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)ou a chave da conta de [armazenamento.](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication) 
-- Vários tipos de autenticação também são suportados para ligar ao Azure Data Lake Storage Gen2.  A utilização de [identidades geridas para recursos Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) é altamente recomendada, embora a chave principal de [serviço](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) ou [conta de armazenamento](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) também possa ser usada. 
-- Quando não está a utilizar identidades geridas para recursos Azure, [armazenar as credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) é altamente recomendado para facilitar a gestão central e rotação das chaves sem modificar os serviços ligados à ADF.  Esta é também uma das [melhores práticas para o CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Para autenticar na conta Amazon S3, tem de usar a [chave de acesso para a conta IAM.](./connector-amazon-simple-storage-service.md#linked-service-properties) 
+- Vários tipos de autenticação são suportados para se ligarem ao Armazenamento Azure Blob.  A utilização de [identidades geridas para recursos Azure](./connector-azure-blob-storage.md#managed-identity) é altamente recomendada: construída em cima de uma identificação ADF gerida automaticamente em Azure AD, permite-lhe configurar gasodutos sem fornecer credenciais na definição de Serviço Linked.  Em alternativa, pode autenticar o Azure Blob Storage utilizando [o Service Principal,](./connector-azure-blob-storage.md#service-principal-authentication) [a assinatura de acesso partilhado](./connector-azure-blob-storage.md#shared-access-signature-authentication)ou a chave da conta de [armazenamento.](./connector-azure-blob-storage.md#account-key-authentication) 
+- Vários tipos de autenticação também são suportados para ligar ao Azure Data Lake Storage Gen2.  A utilização de [identidades geridas para recursos Azure](./connector-azure-data-lake-storage.md#managed-identity) é altamente recomendada, embora a chave principal de [serviço](./connector-azure-data-lake-storage.md#service-principal-authentication) ou [conta de armazenamento](./connector-azure-data-lake-storage.md#account-key-authentication) também possa ser usada. 
+- Quando não está a utilizar identidades geridas para recursos Azure, [armazenar as credenciais no Azure Key Vault](./store-credentials-in-key-vault.md) é altamente recomendado para facilitar a gestão central e rotação das chaves sem modificar os serviços ligados à ADF.  Esta é também uma das [melhores práticas para o CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Migração inicial de dados instantâneos 
 
@@ -138,16 +138,16 @@ Aqui está o preço estimado com base nos pressupostos acima:
 ![A imagem de uma tabela mostra um preço estimado.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Referências adicionais 
-- [Conector de serviço de armazenamento simples Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Conector de armazenamento Azure Blob](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Conector do Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guia de afinação de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Criação e configuração do tempo de execução da integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Integração auto-hospedada runtime HA e escalabilidade](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações de segurança sobre movimento de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiar ficheiro incrementalmente baseado no nome do ficheiro dividido em tempo](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copie ficheiros novos e alterados com base no LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Conector de serviço de armazenamento simples Amazon](./connector-amazon-simple-storage-service.md)
+- [Conector de armazenamento Azure Blob](./connector-azure-blob-storage.md)
+- [Conector do Azure Data Lake Storage Gen2](./connector-azure-data-lake-storage.md)
+- [Guia de afinação de desempenho da atividade de cópia](./copy-activity-performance.md)
+- [Criação e configuração do tempo de execução da integração auto-hospedada](./create-self-hosted-integration-runtime.md)
+- [Integração auto-hospedada runtime HA e escalabilidade](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Considerações de segurança sobre movimento de dados](./data-movement-security-considerations.md)
+- [Armazenar credenciais no Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Copiar ficheiro incrementalmente baseado no nome do ficheiro dividido em tempo](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Copie ficheiros novos e alterados com base no LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Página de preços da ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Modelo

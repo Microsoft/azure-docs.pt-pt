@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0484d846501ef20e5d474668c45324452d0c8fc8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418240"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638232"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiar dados para um índice de pesquisa cognitiva Azure usando Azure Data Factory
 
@@ -110,12 +110,12 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="azure-cognitive-search-as-sink"></a>Pesquisa Cognitiva Azure como pia
 
-Para copiar dados para a Azure Cognitive Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink**. As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
+Para copiar dados para a Azure Cognitive Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink** . As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureSearchIndexSink** | Sim |
-| escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload**. | Não |
+| escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload** . | Não |
 | escreverBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes.<br/><br/>Os valores permitidos são: inteiro 1 a 1.000; padrão é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
@@ -125,7 +125,7 @@ AzureSearchSinksersers ao escrever dados. Por outras palavras, ao escrever um do
 O AzureSearchSink fornece os seguintes dois comportamentos mais abrangentes (utilizando a AzureSearch SDK):
 
 - **Fusão:** combine todas as colunas do novo documento com a existente. Para colunas com valor nulo no novo documento, o valor do existente é preservado.
-- **Upload**: O novo documento substitui o existente. Para as colunas não especificadas no novo documento, o valor é definido para nula se existe ou não um valor não nulo no documento existente.
+- **Upload** : O novo documento substitui o existente. Para as colunas não especificadas no novo documento, o valor é definido para nula se existe ou não um valor não nulo no documento existente.
 
 O comportamento padrão é **a Fusão.**
 
@@ -171,16 +171,16 @@ A tabela seguinte especifica se um tipo de dados de pesquisa cognitiva Azure é 
 
 | Tipo de dados de pesquisa cognitiva Azure | Suportado em Azure Cognitive Search Sink |
 | ---------------------- | ------------------------------ |
-| String | S |
-| Int32 | S |
-| Int64 | S |
-| Double (Duplo) | S |
-| Booleano | S |
-| DataTimeOffset | S |
+| String | Y |
+| Int32 | Y |
+| Int64 | Y |
+| Double (Duplo) | Y |
+| Booleano | Y |
+| DataTimeOffset | Y |
 | Matriz de Cordas | N |
 | GeografiaPoint | N |
 
-Atualmente outros tipos de dados, por exemplo, ComplexType não são suportados. Para obter uma lista completa dos tipos de dados suportados pela Azure Cognitive Search, consulte [tipos de dados suportados (Pesquisa Cognitiva Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+Atualmente outros tipos de dados, por exemplo, ComplexType não são suportados. Para obter uma lista completa dos tipos de dados suportados pela Azure Cognitive Search, consulte [tipos de dados suportados (Pesquisa Cognitiva Azure)](/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

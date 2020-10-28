@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63c31312070fbac99959d833344ccf04760bb8e4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637892"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de utilização - Perfis de Clientes
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Conjunto de Inteligência Cortana de aceleradores de soluções.  Para mais informações sobre a Cortana Intelligence, visite [a Cortana Intelligence Suite.](https://www.microsoft.com/cortanaanalytics) Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como a Azure Data Factory pode resolver problemas de análise comuns.
@@ -29,7 +29,7 @@ O objetivo da Contoso é identificar oportunidades de venda/venda cruzada basead
 Nesta solução, a Contoso quer avaliar a eficácia de uma campanha de marketing que lançou recentemente. Começamos com os registos de jogos brutos, processamos e enriquecemos com dados de geolocalização, juntamo-nos a ele com dados de referência publicitários e, por último, copiamos-os numa Base de Dados Azure SQL para analisar o impacto da campanha.
 
 ## <a name="deploy-solution"></a>Implementar solução
-Tudo o que precisa de aceder e experimentar este caso de utilização simples é uma [subscrição Azure,](https://azure.microsoft.com/pricing/free-trial/)uma [conta de armazenamento Azure Blob](../../storage/common/storage-account-create.md)e uma [Base de Dados Azure SQL](../../sql-database/sql-database-get-started.md). Você implanta o pipeline de perfis do cliente a partir do azulejo **sample pipelines** na página inicial da sua fábrica de dados.
+Tudo o que precisa de aceder e experimentar este caso de utilização simples é uma [subscrição Azure,](https://azure.microsoft.com/pricing/free-trial/)uma [conta de armazenamento Azure Blob](../../storage/common/storage-account-create.md)e uma [Base de Dados Azure SQL](../../azure-sql/database/single-database-create-quickstart.md). Você implanta o pipeline de perfis do cliente a partir do azulejo **sample pipelines** na página inicial da sua fábrica de dados.
 
 1. Criar uma fábrica de dados ou abrir uma fábrica de dados existente. Consulte [os dados de cópia do Blob Storage para a BASE de Dados SQL utilizando](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) a Data Factory para obter medidas para criar uma fábrica de dados.
 2. Na lâmina **data factory** para a fábrica de dados, clique no azulejo da **amostra.**
@@ -65,4 +65,3 @@ Neste exemplo, a Data Factory é usada para orquestrar atividades que copiam dad
 
 ## <a name="benefits"></a>Benefícios
 Ao otimizar a análise do seu perfil de utilizador e alinhá-lo com objetivos de negócio, a empresa de jogos é capaz de recolher rapidamente padrões de utilização e analisar a eficácia das suas campanhas de marketing.
-

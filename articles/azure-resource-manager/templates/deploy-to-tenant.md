@@ -2,15 +2,15 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372396"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668697"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
+# <a name="tenant-deployments-with-arm-templates"></a>Implantações de inquilinos com modelos ARM
 
 À medida que a sua organização amadurece, poderá ter de definir e atribuir [políticas](../../governance/policy/overview.md) ou [controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) através do seu inquilino Azure AD. Com modelos de nível de inquilino, você pode declarativamente aplicar políticas e atribuir papéis a nível global.
 
@@ -49,13 +49,19 @@ O esquema que você usa para implantações de inquilinos é diferente do esquem
 Para modelos, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 O esquema para um ficheiro de parâmetro é o mesmo para todos os âmbitos de implantação. Para ficheiros de parâmetros, utilize:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Acesso obrigatório
@@ -78,21 +84,11 @@ O Administrador Global do Diretório Ativo Azure não tem automaticamente permis
 
 O principal tem agora as permissões necessárias para implementar o modelo.
 
-## <a name="deployment-scopes"></a>Âmbitos de implantação
-
-Ao ser destacado para um inquilino, pode direcionar o inquilino ou grupos de gestão, subscrições e grupos de recursos no arrendatário. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
-
-Os recursos definidos na secção de recursos do modelo são aplicados ao arrendatário.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Para direcionar um grupo de gestão dentro do inquilino, adicione uma implantação aninhada e especifique o `scope` imóvel.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Comandos de implantação
 
 Os comandos para implantações de inquilinos são diferentes dos comandos para implantações de grupos de recursos.
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para o Azure CLI, utilize [o inquilino de implantação az criar:](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Para a Azure PowerShell, utilize [o Novo AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-Para REST API, utilize [implementações - Crie ou atualize no âmbito do inquilino.](/rest/api/resources/deployments/createorupdateattenantscope)
+---
+
+Para obter informações mais detalhadas sobre comandos de implantação e opções para a implementação de modelos ARM, consulte:
+
+* [Implementar recursos com modelos ARM e portal Azure](deploy-portal.md)
+* [Implementar recursos com modelos ARM e Azure CLI](deploy-cli.md)
+* [Implementar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md)
+* [Implementar recursos com modelos ARM e AZure Resource Manager REST API](deploy-rest.md)
+* [Use um botão de implementação para implementar modelos do repositório GitHub](deploy-to-azure-button.md)
+* [Implementar modelos ARM da Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Âmbitos de implantação
+
+Ao ser implantado num grupo de gestão, pode mobilizar recursos para:
+
+* o inquilino
+* grupos de gestão dentro do inquilino
+* assinaturas
+* grupos de recursos (através de duas implantações aninhadas)
+* [recursos de extensão](scope-extension-resources.md) podem ser aplicados a recursos
+
+O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Esta secção mostra como especificar diferentes âmbitos. Você pode combinar estes diferentes âmbitos em um único modelo.
+
+### <a name="scope-to-tenant"></a>Âmbito para inquilino
+
+Os recursos definidos na secção de recursos do modelo são aplicados ao arrendatário.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Âmbito para grupo de gestão
+
+Para direcionar um grupo de gestão dentro do inquilino, adicione uma implantação aninhada e especifique o `scope` imóvel.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Âmbito de subscrição
+
+Também pode direcionar as subscrições dentro do inquilino. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Para direcionar uma subscrição dentro do inquilino, use uma implantação aninhada e a `subscriptionId` propriedade.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Localização e nome de implantação
 
 Para implantações de nível de inquilino, você deve fornecer uma localização para a implantação. A localização da implantação é separada da localização dos recursos que implementa. A localização da implantação especifica onde armazenar dados de implantação.
 
-Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
+Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy** .
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
-
-## <a name="use-template-functions"></a>Use funções de modelo
-
-Para as implementações de inquilinos, existem algumas considerações importantes ao utilizar funções de modelo:
-
-* A função [grupo de recursos()](template-functions-resource.md#resourcegroup) **não** é suportada.
-* A função [de subscrição()](template-functions-resource.md#subscription) **não** é suportada.
-* As funções [de referência](template-functions-resource.md#reference) e [lista são](template-functions-resource.md#list) suportadas.
-* Não utilize [recursosId()](template-functions-resource.md#resourceid) para obter o ID de recursos para recursos que são implantados ao nível do inquilino.
-
-  Em vez disso, utilize a função [TenantResourceId().](template-functions-resource.md#tenantresourceid)
-
-  Por exemplo, para obter o ID de recurso para uma definição de política incorporada, use:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  O ID de recurso devolvido tem o seguinte formato:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Criar grupo de gestão
 

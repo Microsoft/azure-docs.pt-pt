@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637875"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -155,7 +155,7 @@ A Azure SQL Database tem uma opção de partição única chamada partição 'So
 
 #### <a name="isolation-level"></a>Nível de isolamento
 
-O nível de isolamento da leitura num sistema de origem Azure SQL tem um impacto no desempenho. A escolha de 'Ler não comprometido' proporcionará o desempenho mais rápido e evitará quaisquer bloqueios de bases de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [os níveis de isolamento da Compreensão.](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)
+O nível de isolamento da leitura num sistema de origem Azure SQL tem um impacto no desempenho. A escolha de 'Ler não comprometido' proporcionará o desempenho mais rápido e evitará quaisquer bloqueios de bases de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [os níveis de isolamento da Compreensão.](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)
 
 #### <a name="read-using-query"></a>Ler usando consulta
 
@@ -163,7 +163,7 @@ Pode ler na Base de Dados Azure SQL utilizando uma tabela ou uma consulta SQL. S
 
 ### <a name="azure-synapse-analytics-sources"></a>Fontes azure Synapse Analytics
 
-Ao utilizar o Azure Synapse Analytics, existe uma definição chamada **Enable staging** nas opções de origem. Isto permite que a ADF leia a partir de Synapse usando [polyBase,](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)o que melhora consideravelmente o desempenho da leitura. Ativar a PolyBase requer que especifique um Azure Blob Storage ou Azure Data Lake Storage gen2 localização de localização nas definições de atividade de fluxo de dados.
+Ao utilizar o Azure Synapse Analytics, existe uma definição chamada **Enable staging** nas opções de origem. Isto permite que a ADF leia a partir de Synapse usando [polyBase,](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)o que melhora consideravelmente o desempenho da leitura. Ativar a PolyBase requer que especifique um Azure Blob Storage ou Azure Data Lake Storage gen2 localização de localização nas definições de atividade de fluxo de dados.
 
 ![Ativar o teste](media/data-flow/enable-staging.png "Ativar o teste")
 
@@ -198,7 +198,7 @@ Ambos podem ser feitos de forma nativa utilizando scripts Pré e Post-SQL dentro
 ![Índices de desativação](media/data-flow/disable-indexes-sql.png "Índices de desativação")
 
 > [!WARNING]
-> Ao desativar os índices, o fluxo de dados está efetivamente a assumir o controlo de uma base de dados e é pouco provável que as consultas sejam bem sucedidas neste momento. Como resultado, muitos postos de trabalho da ETL são desencadeados a meio da noite para evitar este conflito. Para mais informações, saiba sobre os [constrangimentos dos índices incapacitantes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+> Ao desativar os índices, o fluxo de dados está efetivamente a assumir o controlo de uma base de dados e é pouco provável que as consultas sejam bem sucedidas neste momento. Como resultado, muitos postos de trabalho da ETL são desencadeados a meio da noite para evitar este conflito. Para mais informações, saiba sobre os [constrangimentos dos índices incapacitantes](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
 
 #### <a name="scaling-up-your-database"></a>Escalonar a sua base de dados
 
@@ -206,7 +206,7 @@ Agende um redimensionamento da sua fonte e afunde o Azure SQL DB e o DW antes do
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics afunda
 
-Ao escrever para a Azure Synapse Analytics, certifique-se de que **a encenação enable** está definida como verdadeira. Isto permite que a ADF escreva utilizando [o PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) que efetivamente carrega os dados a granel. Você precisará de fazer referência a uma conta de armazenamento do Lago de Dados Azure gen2 ou Azure Blob Para a realização dos dados quando utilizar o PolyBase.
+Ao escrever para a Azure Synapse Analytics, certifique-se de que **a encenação enable** está definida como verdadeira. Isto permite que a ADF escreva utilizando [o PolyBase](/sql/relational-databases/polybase/polybase-guide) que efetivamente carrega os dados a granel. Você precisará de fazer referência a uma conta de armazenamento do Lago de Dados Azure gen2 ou Azure Blob Para a realização dos dados quando utilizar o PolyBase.
 
 Além da PolyBase, as mesmas boas práticas aplicam-se ao Azure Synapse Analytics como Base de Dados Azure SQL.
 
@@ -226,7 +226,7 @@ Selecionar a opção **Predefinição** escreverá o mais rápido. Cada divisór
 
 A definição de um **Padrão** de nomeação mudará o nome de cada ficheiro de partição para um nome mais fácil de utilizar. Esta operação acontece após a escrita e é ligeiramente mais lenta do que escolher o padrão. Por partição permite nomear cada partição manualmente.
 
-Se uma coluna corresponder à forma como deseja descodionar os dados, pode selecionar **como dados na coluna**. Isto remodela os dados e pode impactar o desempenho se as colunas não forem distribuídas uniformemente.
+Se uma coluna corresponder à forma como deseja descodionar os dados, pode selecionar **como dados na coluna** . Isto remodela os dados e pode impactar o desempenho se as colunas não forem distribuídas uniformemente.
 
 **A saída para um único ficheiro** combina todos os dados numa única partição. Isto leva a longos tempos de escrita, especialmente para grandes conjuntos de dados. A equipa da Azure Data Factory recomenda vivamente **não** escolher esta opção a menos que exista uma razão explícita para o fazer.
 

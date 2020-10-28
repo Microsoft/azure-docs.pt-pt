@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 00d82554c2a4c46cd523c291549413aa7526f0a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a828f945c459142febbc2cee7a14d40a3d534435
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669220"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: Integração do Azure Ative Directory com o SciQuest Spend Diretor
 
@@ -27,7 +27,7 @@ Integrar o SciQuest Spend Diretor com a Azure AD proporciona-lhe os seguintes be
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no SciQuest Spend Diretor (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
 
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -50,7 +50,7 @@ Para configurar a integração do SciQuest Spend Diretor em AD Azure, precisa ad
 
 **Para adicionar SciQuest Spend Diretor da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -62,13 +62,13 @@ Para configurar a integração do SciQuest Spend Diretor em AD Azure, precisa ad
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **SciQuest Spend Diretor**, selecione **SciQuest Spend Diretor** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **SciQuest Spend Diretor** , selecione **SciQuest Spend Diretor** do painel de resultados e, em seguida, clique em **Adicionar** botão para adicionar a aplicação.
 
      ![SciQuest Spend Diretor na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, você configura e testa Azure AD single sign-on com SciQuest Spend Diretor com base em um utilizador de teste chamado **Britta Simon**.
+Nesta secção, você configura e testa Azure AD single sign-on com SciQuest Spend Diretor com base em um utilizador de teste chamado **Britta Simon** .
 Para um único início de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no SciQuest Spend Diretor.
 
 Para configurar e testar o Azure AD com o SciQuest Spend Diretor, é necessário completar os seguintes blocos de construção:
@@ -86,7 +86,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o SciQuest Spend Diretor, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do SciQuest Spend Diretor,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **do SciQuest Spend Diretor,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -133,7 +133,7 @@ Para configurar um único sign-on no lado **do SciQuest Spend Diretor,** você p
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -145,28 +145,28 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao SciQuest Spend Diretor.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **SciQuest Spend Diretor**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **SciQuest Spend Diretor** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **SciQuest Spend Diretor**.
+2. Na lista de candidaturas, selecione **SciQuest Spend Diretor** .
 
     ![O link do Diretor de Gastos SciQuest na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -195,12 +195,12 @@ Para obter o provisionamento just-in-time, você precisa entrar em contato com a
 
 Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
 
-Quando clicar no azulejo do SciQuest Spend Diretor no Painel de Acesso, deverá ser automaticamente inscrito no SciQuest Spend Diretor para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Quando clicar no azulejo do SciQuest Spend Diretor no Painel de Acesso, deverá ser automaticamente inscrito no SciQuest Spend Diretor para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)

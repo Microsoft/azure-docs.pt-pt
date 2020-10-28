@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: db52f7f4853789b6d7f4290d39f8adc882432945
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b4cddae25bbf7ff113d2ea67700e28eb81c0e7c4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517576"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Tutorial: Integração do Azure Ative Directory com o Wizergos Productivity Software
 
@@ -49,7 +49,7 @@ Para configurar a integração do Software de Produtividade Wizergos em AD Azure
 
 **Para adicionar o Software de Produtividade Wizergos da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -61,13 +61,13 @@ Para configurar a integração do Software de Produtividade Wizergos em AD Azure
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Wizergos Productivity Software**, selecione **Wizergos Productivity Software** a partir do painel de resultados e clique em **Adicionar** botão adicionar a aplicação.
+4. Na caixa de pesquisa, **digite Wizergos Productivity Software** , selecione **Wizergos Productivity Software** a partir do painel de resultados e clique em **Adicionar** botão adicionar a aplicação.
 
      ![Wizergos Productivity Software na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com o Wizergos Productivity Software baseado num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com um único sign-on com o Wizergos Productivity Software baseado num utilizador de teste chamado **Britta Simon** .
 Para um único sinal de acesso ao trabalho, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado no Wizergos Productivity Software.
 
 Para configurar e testar o Azure AD com o Wizergos Productivity Software, é necessário completar os seguintes blocos de construção:
@@ -85,7 +85,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com o Wizergos Productivity Software, execute os seguintes passos:
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações de **Software de Produtividade wizergos,** selecione **Single sign-on**.
+1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações de **Software de Produtividade wizergos,** selecione **Single sign-on** .
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -123,15 +123,15 @@ Para configurar o Azure AD com o Wizergos Productivity Software, execute os segu
 
 2. No menu de hambúrgueres, selecione **Administrador.**
 
-    ![Configurar Sign-On única no lado da app](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
+    ![A screenshot mostra o ícone de Administrador selecionado no menu.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
 
-3. Na página de Administração no menu do lado esquerdo selecione **AUTENTICAção** e clique em **Azure AD**.
+3. Na página de Administração no menu do lado esquerdo selecione **AUTENTICAção** e clique em **Azure AD** .
 
-    ![Configurar Sign-On única no lado da app](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
+    ![A screenshot mostra Azure A D selecionado a partir da AUTENTICAção.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
 
 4. Execute os seguintes passos na secção **AUTENTICAÇÃO.**
 
-    ![Configurar Sign-On única no lado da app](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
+    ![A screenshot mostra a página AUTENTICAÇÃO onde pode introduzir os valores descritos.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
     
     a. Clique no botão **UPLOAD** para carregar o certificado descarregado a partir de Azure AD.
     
@@ -147,7 +147,7 @@ Para configurar o Azure AD com o Wizergos Productivity Software, execute os segu
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -159,27 +159,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon**.
+    a. No campo **Nome** entra **BrittaSimon** .
   
     b. No tipo de campo **do nome do utilizador** brittasimon@yourcompanydomain.extension . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use a Azure single sign-on, concedendo acesso ao Wizergos Productivity Software.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Wizergos Productivity Software**.
+1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações,** em seguida, selecione **Wizergos Productivity Software** .
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Wizergos Productivity Software**.
+2. Na lista de aplicações, selecione **Wizergos Productivity Software** .
 
     ![O link wizergos productivity software na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
+3. No menu à esquerda, selecione **Utilizadores e grupos** .
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

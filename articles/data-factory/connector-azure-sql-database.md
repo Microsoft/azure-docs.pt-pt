@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: fa994525285ffe363f734e9b706252105b05ff26
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ae2340493c3c903622a1a179cd62a8c07f4cc594
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428444"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637824"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -47,10 +47,10 @@ Para a atividade copy, este conector Azure SQL Database suporta estas funções:
 Se utilizar o [nível sem servidor](../azure-sql/database/serverless-tier-overview.md)Azure SQL Database , note que quando o servidor está parado, a atividade falha em vez de esperar que o currículo automático esteja pronto. Pode adicionar atividades de redação ou cadeia de atividades adicionais para se certificar de que o servidor está ao vivo após a execução real.
 
 >[!NOTE]
-> A base de dados Azure SQL [Sempre encriptada](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) não é suportada por este conector agora. Para trabalhar, pode utilizar um [conector ODBC genérico](connector-odbc.md) e um controlador ODBC do SQL Server através de um tempo de integração auto-hospedado. Saiba mais [na secção "Sempre Encriptado".](#using-always-encrypted) 
+> A base de dados Azure SQL [Sempre encriptada](/sql/relational-databases/security/encryption/always-encrypted-database-engine) não é suportada por este conector agora. Para trabalhar, pode utilizar um [conector ODBC genérico](connector-odbc.md) e um controlador ODBC do SQL Server através de um tempo de integração auto-hospedado. Saiba mais [na secção "Sempre Encriptado".](#using-always-encrypted) 
 
 > [!IMPORTANT]
-> Se copiar dados utilizando o tempo de execução da integração do Azure, configure uma [regra de firewall ao nível do servidor](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para que os serviços Azure possam aceder ao servidor.
+> Se copiar dados utilizando o tempo de execução da integração do Azure, configure uma [regra de firewall ao nível do servidor](../azure-sql/database/firewall-configure.md) para que os serviços Azure possam aceder ao servidor.
 > Se copiar dados utilizando um tempo de integração auto-hospedado, configufique a firewall para permitir o intervalo ip apropriado. Esta gama inclui o IP da máquina que é usado para ligar à Base de Dados Azure SQL.
 
 ## <a name="get-started"></a>Introdução
@@ -65,12 +65,12 @@ Estas propriedades são suportadas para um serviço de base de dados Azure SQL l
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **AzureSqlDatabase**. | Sim |
+| tipo | A propriedade **tipo** deve ser definida para **AzureSqlDatabase** . | Sim |
 | conexãoStragem | Especifique as informações necessárias para ligar à instância de Base de Dados Azure SQL para a **propriedade connectionString.** <br/>Também pode colocar uma senha ou chave principal de serviço no Cofre da Chave Azure. Se for a autenticação SQL, retire a `password` configuração da cadeia de ligação. Para obter mais informações, consulte o exemplo JSON seguindo as credenciais da tabela e [da loja no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
 | servicePrincipalId | Especifique a identificação do cliente da aplicação. | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo de forma segura na Azure Data Factory ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
 | inquilino | Especifique as informações do inquilino, como o nome de domínio ou iD do inquilino, sob o qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
-| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AD AZure está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany**. Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | Não |
+| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AD AZure está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany** . Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | Não |
 | connectVia | Este [tempo de integração](concepts-integration-runtime.md) é utilizado para se ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado se a sua loja de dados estiver localizada numa rede privada. Se não for especificado, utiliza-se o tempo de execução da integração Azure predefinido. | Não |
 
 Para diferentes tipos de autenticação, consulte as seguintes secções sobre pré-requisitos e amostras JSON, respectivamente:
@@ -146,7 +146,7 @@ Para utilizar uma autenticação simbólica de aplicação Azure AD baseada em s
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. Conceda ao chefe de serviço permissões necessárias, como normalmente faz para utilizadores sql ou outros. Executar o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+4. Conceda ao chefe de serviço permissões necessárias, como normalmente faz para utilizadores sql ou outros. Executar o seguinte código. Para mais opções, consulte [este documento.](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     ```sql
     ALTER ROLE [role name] ADD MEMBER [your application name];
@@ -192,7 +192,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. Conceder à Data Factory permissões necessárias como normalmente faz para utilizadores de SQL e outros. Executar o seguinte código. Para mais opções, consulte [este documento.](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+3. Conceder à Data Factory permissões necessárias como normalmente faz para utilizadores de SQL e outros. Executar o seguinte código. Para mais opções, consulte [este documento.](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     ```sql
     ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
@@ -220,13 +220,13 @@ Para utilizar a autenticação de identidade gerida, siga estes passos.
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
-Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services).
+Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets](./concepts-datasets-linked-services.md).
 
 As seguintes propriedades são suportadas para o conjunto de dados da Base de Dados Azure SQL:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlTable**. | Sim |
+| tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AzureSqlTable** . | Sim |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
 | mesa | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
@@ -265,15 +265,15 @@ Para copiar dados da Base de Dados Azure SQL, as seguintes propriedades são sup
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **AzureSqlSource**. O tipo "SqlSource" ainda é suportado para retrocompatibilidade. | Sim |
+| tipo | A propriedade **tipo** da fonte de atividade de cópia deve ser definida para **AzureSqlSource** . O tipo "SqlSource" ainda é suportado para retrocompatibilidade. | Sim |
 | sqlReaderQuery | Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. | Não |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê os dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. | Não |
 | parametrómetros de reserva armazenados | Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | Não |
-| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable**, **Snapshot**. Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
-| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados a partir da Base de Dados Azure SQL. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de uma Base de Dados Azure SQL é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Não |
+| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable** , **Snapshot** . Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
+| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados a partir da Base de Dados Azure SQL. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange** .<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de uma Base de Dados Azure SQL é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Não |
 | divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | Não |
 | **_Em: `partitionSettings` __* | | |
-| partitionColumnName | Especificar o nome da coluna de origem _*no tipo inteiro ou data/data** que será utilizado por divisórias de alcance para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
+| partitionColumnName | Especificar o nome da coluna de origem _ *no tipo inteiro ou data/data* * que será utilizado por divisórias de alcance para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
 | partitionUpperBound | O valor máximo da coluna de partição para a divisão do intervalo de partição. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.  <br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
 | partitionLowerBound | O valor mínimo da coluna de partição para a divisão do intervalo de divisão. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-database) | Não |
 
@@ -378,14 +378,14 @@ Para copiar dados para a Base de Dados Azure SQL, as seguintes propriedades são
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **AzureSqlSink**. O tipo "SqlSink" ainda é suportado para retrocompatibilidade. | Sim |
+| tipo | A propriedade do **tipo** do lavatório de atividade de cópia deve ser definida para **AzureSqlSink** . O tipo "SqlSink" ainda é suportado para retrocompatibilidade. | Sim |
 | preCopyScript | Especifique uma consulta SQL para a atividade da cópia a executar antes de escrever dados na Base de Dados Azure SQL. É invocado apenas uma vez por cópia. Utilize esta propriedade para limpar os dados pré-carregados. | Não |
 | mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. <br>A criação de tabela automática não é suportada quando a pia especifica o procedimento armazenado. <br>Os valores permitidos são: `none` (padrão), `autoCreate` . | Não |
-| sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote*. Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade.<br>Veja o exemplo de [Invocar um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Não |
+| sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote* . Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade.<br>Veja o exemplo de [Invocar um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Não |
 | nome de parametrómetro de computador |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
 | SqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Não |
 | parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes e valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | Não |
-| escreverBatchSize | Número de linhas para inserir na tabela SQL *por lote*.<br/> O valor permitido é **inteiro (número** de linhas). Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | Não |
+| escreverBatchSize | Número de linhas para inserir na tabela SQL *por lote* .<br/> O valor permitido é **inteiro (número** de linhas). Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha. | Não |
 | escreverBatchTimeout | O tempo de espera para o funcionamento do encaixe do lote terminar antes de se esgotar.<br/> O valor permitido é **o tempo.** Um exemplo é "00:30:00" (30 minutos). | Não |
 | desativaçãoMetricosCollecto | A Data Factory recolhe métricas como DTUs de base de dados Azure SQL para otimização de desempenho de cópia e recomendações. Se estiver preocupado com este comportamento, especifique `true` para desligá-lo. | Não (o padrão `false` é) |
 
@@ -474,9 +474,9 @@ Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente q
 
 | Cenário                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa da mesa grande, com divisórias físicas.        | **Opção de partição**: Divisórias físicas da tabela. <br><br/>Durante a execução, a Data Factory deteta automaticamente as divisórias físicas e copia dados por partições. <br><br/>Para verificar se a sua mesa tem ou não partição física, pode consultar [esta consulta](#sample-query-to-check-physical-partition). |
-| Carga completa da mesa grande, sem divisórias físicas, enquanto com uma coluna de inteiro ou data para partição de dados. | **Opções de partição**: Partição dinâmica do alcance.<br>**Coluna de partição** (opcional): Especificar a coluna utilizada para os dados de partição. Se não for especificado, utiliza-se o índice ou a coluna-chave primária.<br/>**Limite superior da partição** e **divisória inferior** (opcional): Especifique se pretende determinar o passo de partição. Isto não é para filtrar as linhas na mesa, todas as linhas na mesa serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta automaticamente os valores.<br><br>Por exemplo, se a sua coluna de partição "ID" tiver valores que variam entre 1 e 100, e definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recupera dados por 4 partições - IDs na gama <=20, [21, 50], [51, 80], e >=81, respectivamente. |
-| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, sem divisórias físicas, enquanto com uma coluna inteiro ou data/data para a partilha de dados. | **Opções de partição**: Partição dinâmica do alcance.<br>**Consulta:** `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>` .<br>**Coluna de partição**: Especificar a coluna utilizada para os dados de partição.<br>**Limite superior da partição** e **divisória inferior** (opcional): Especifique se pretende determinar o passo de partição. Isto não é para filtrar as linhas na mesa, todas as linhas no resultado da consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br><br>Durante a execução, a Data Factory `?AdfRangePartitionColumnName` substitui-se pelo nome real da coluna e gamas de valor para cada partição, e envia para a Base de Dados Azure SQL. <br>Por exemplo, se a sua coluna de partição "ID" tiver valores que variam entre 1 e 100, e definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recupera dados por 4 partições- IDs na gama <=20, [21, 50], [51, 80], e >=81, respectivamente. <br><br>Aqui estão mais consultas de amostra para diferentes cenários:<br> 1. Consulta de toda a tabela: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta a partir de uma tabela com seleção de colunas e filtros adicionais de cláusulas: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta com subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta com partição em subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| Carga completa da mesa grande, com divisórias físicas.        | **Opção de partição** : Divisórias físicas da tabela. <br><br/>Durante a execução, a Data Factory deteta automaticamente as divisórias físicas e copia dados por partições. <br><br/>Para verificar se a sua mesa tem ou não partição física, pode consultar [esta consulta](#sample-query-to-check-physical-partition). |
+| Carga completa da mesa grande, sem divisórias físicas, enquanto com uma coluna de inteiro ou data para partição de dados. | **Opções de partição** : Partição dinâmica do alcance.<br>**Coluna de partição** (opcional): Especificar a coluna utilizada para os dados de partição. Se não for especificado, utiliza-se o índice ou a coluna-chave primária.<br/>**Limite superior da partição** e **divisória inferior** (opcional): Especifique se pretende determinar o passo de partição. Isto não é para filtrar as linhas na mesa, todas as linhas na mesa serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta automaticamente os valores.<br><br>Por exemplo, se a sua coluna de partição "ID" tiver valores que variam entre 1 e 100, e definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recupera dados por 4 partições - IDs na gama <=20, [21, 50], [51, 80], e >=81, respectivamente. |
+| Carregue uma grande quantidade de dados utilizando uma consulta personalizada, sem divisórias físicas, enquanto com uma coluna inteiro ou data/data para a partilha de dados. | **Opções de partição** : Partição dinâmica do alcance.<br>**Consulta:** `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>` .<br>**Coluna de partição** : Especificar a coluna utilizada para os dados de partição.<br>**Limite superior da partição** e **divisória inferior** (opcional): Especifique se pretende determinar o passo de partição. Isto não é para filtrar as linhas na mesa, todas as linhas no resultado da consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br><br>Durante a execução, a Data Factory `?AdfRangePartitionColumnName` substitui-se pelo nome real da coluna e gamas de valor para cada partição, e envia para a Base de Dados Azure SQL. <br>Por exemplo, se a sua coluna de partição "ID" tiver valores que variam entre 1 e 100, e definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recupera dados por 4 partições- IDs na gama <=20, [21, 50], [51, 80], e >=81, respectivamente. <br><br>Aqui estão mais consultas de amostra para diferentes cenários:<br> 1. Consulta de toda a tabela: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Consulta a partir de uma tabela com seleção de colunas e filtros adicionais de cláusulas: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Consulta com subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Consulta com partição em subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 Melhores práticas para carregar dados com opção de partição:
@@ -546,7 +546,7 @@ Os dados appending são o comportamento padrão deste conector de pia Azure SQL 
 
 ### <a name="upsert-data"></a>Fazer upsert de dados
 
-**Opção 1:** Quando tiver uma grande quantidade de dados para copiar, pode carregar todos os registos em massa numa tabela de encenação utilizando a atividade da cópia e, em seguida, executar uma atividade de procedimento armazenada para aplicar uma declaração [DE FUSÃO](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql) ou INSERT/UPDATE numa única tomada. 
+**Opção 1:** Quando tiver uma grande quantidade de dados para copiar, pode carregar todos os registos em massa numa tabela de encenação utilizando a atividade da cópia e, em seguida, executar uma atividade de procedimento armazenada para aplicar uma declaração [DE FUSÃO](/sql/t-sql/statements/merge-transact-sql) ou INSERT/UPDATE numa única tomada. 
 
 Atualmente, a atividade de cópia não suporta o carregamento de dados numa tabela temporária de base de dados. Existe uma forma avançada de o configurar com uma combinação de múltiplas atividades, consulte os [cenários de Upsert de Base de Dados Azure SQL](https://github.com/scoriani/azuresqlbulkupsert). Abaixo mostra uma amostra de usar uma tabela permanente como encenação.
 
@@ -554,7 +554,7 @@ Como exemplo, na Azure Data Factory, pode criar um oleoduto com uma **atividade 
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-Na sua base de dados, defina um procedimento armazenado com lógica MERGE, como o exemplo a seguir, que é apontado a partir da atividade de procedimento armazenado anterior. Assuma que o alvo é a tabela **de Marketing** com três colunas: **ProfileID,** **Estado**e **Categoria**. Faça o upsert com base na coluna **ProfileID.**
+Na sua base de dados, defina um procedimento armazenado com lógica MERGE, como o exemplo a seguir, que é apontado a partir da atividade de procedimento armazenado anterior. Assuma que o alvo é a tabela **de Marketing** com três colunas: **ProfileID,** **Estado** e **Categoria** . Faça o upsert com base na coluna **ProfileID.**
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -586,13 +586,13 @@ Os passos para escrever dados com lógica personalizada são semelhantes aos des
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocar um procedimento armazenado a partir de um lavatório SQL
 
-Ao copiar dados para a Base de Dados Azure SQL, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais em cada lote da tabela de origem. A função de procedimento armazenado tira partido dos [parâmetros valorizados da tabela](https://msdn.microsoft.com/library/bb675163.aspx).
+Ao copiar dados para a Base de Dados Azure SQL, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais em cada lote da tabela de origem. A função de procedimento armazenado tira partido dos [parâmetros valorizados da tabela](/dotnet/framework/data/adonet/sql/table-valued-parameters).
 
 Pode utilizar um procedimento armazenado quando os mecanismos de cópia incorporados não servem o propósito. Um exemplo é quando pretende aplicar um processamento extra antes da inserção final dos dados de origem na tabela de destino. Alguns exemplos de processamento extra são quando se pretende fundir colunas, procurar valores adicionais e inserir em mais de uma tabela.
 
-A amostra que se segue mostra como utilizar um procedimento armazenado para fazer um upsert numa tabela na Base de Dados Azure SQL. Assuma que os dados de entrada e a tabela **de marketing** do lavatório têm três colunas: **ProfileID,** **Estado**e **Categoria**. Faça o upsert com base na coluna **ProfileID,** e aplique-o apenas para uma categoria específica chamada "ProductA".
+A amostra que se segue mostra como utilizar um procedimento armazenado para fazer um upsert numa tabela na Base de Dados Azure SQL. Assuma que os dados de entrada e a tabela **de marketing** do lavatório têm três colunas: **ProfileID,** **Estado** e **Categoria** . Faça o upsert com base na coluna **ProfileID,** e aplique-o apenas para uma categoria específica chamada "ProductA".
 
-1. Na sua base de dados, defina o tipo de tabela com o mesmo nome que **sqlWriterTableType**. O esquema do tipo de tabela é o mesmo que o esquema devolvido pelos seus dados de entrada.
+1. Na sua base de dados, defina o tipo de tabela com o mesmo nome que **sqlWriterTableType** . O esquema do tipo de tabela é o mesmo que o esquema devolvido pelos seus dados de entrada.
 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -602,7 +602,7 @@ A amostra que se segue mostra como utilizar um procedimento armazenado para faze
     )
     ```
 
-2. Na sua base de dados, defina o procedimento armazenado com o mesmo nome que **o sqlWriterStorEdProcedureName**. Trata os dados de entrada da sua fonte especificada e funde-se na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que o **nome de tabela** definido no conjunto de dados.
+2. Na sua base de dados, defina o procedimento armazenado com o mesmo nome que **o sqlWriterStorEdProcedureName** . Trata os dados de entrada da sua fonte especificada e funde-se na tabela de saída. O nome do parâmetro do tipo de tabela no procedimento armazenado é o mesmo que o **nome de tabela** definido no conjunto de dados.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -645,13 +645,13 @@ As definições específicas da Base de Dados Azure SQL estão disponíveis no s
 
 **Entrada:** Selecione se aponta a sua fonte para uma mesa (equivalente ```Select * from <table-name>``` a) ou introduza uma consulta SQL personalizada.
 
-**Consulta**: Se selecionar Consulta no campo de entrada, introduza uma consulta SQL para a sua fonte. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados. **As** cláusulas de encomenda por não são suportadas aqui, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela. Esta consulta produzirá uma tabela de origem que pode utilizar no fluxo de dados. Usar consultas também é uma ótima maneira de reduzir linhas para testes ou para procuras.
+**Consulta** : Se selecionar Consulta no campo de entrada, introduza uma consulta SQL para a sua fonte. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados. **As** cláusulas de encomenda por não são suportadas aqui, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela. Esta consulta produzirá uma tabela de origem que pode utilizar no fluxo de dados. Usar consultas também é uma ótima maneira de reduzir linhas para testes ou para procuras.
 
 - Exemplo SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Tamanho do lote**: Introduza o tamanho do lote para colar dados grandes em leituras.
+**Tamanho do lote** : Introduza o tamanho do lote para colar dados grandes em leituras.
 
-**Nível de isolamento**: O padrão para as fontes SQL no fluxo de dados de mapeamento é lido sem compromisso. Pode alterar o nível de isolamento aqui para um destes valores:
+**Nível de isolamento** : O padrão para as fontes SQL no fluxo de dados de mapeamento é lido sem compromisso. Pode alterar o nível de isolamento aqui para um destes valores:
 
 - Ler Comprometido
 - Ler Não Comprometido
@@ -679,9 +679,9 @@ Pode parametrizar a coluna-chave utilizada aqui para atualizar a tabela de base 
 - Recriar: A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.
 - Truncato: Todas as linhas da mesa-alvo serão removidas.
 
-**Tamanho do lote**: Controla quantas linhas estão a ser escritas em cada balde. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados.
+**Tamanho do lote** : Controla quantas linhas estão a ser escritas em cada balde. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados.
 
-**Scripts pré e post SQL**: Introduza scripts SQL de várias linhas que serão executados antes (pré-processamento) e depois (pós-processamento) dados são escritos na sua base de dados de Sink
+**Scripts pré e post SQL** : Introduza scripts SQL de várias linhas que serão executados antes (pré-processamento) e depois (pós-processamento) dados são escritos na sua base de dados de Sink
 
 ![scripts de processamento pré e pós SQL](media/data-flow/prepost1.png "Scripts de processamento SQL")
 
@@ -737,17 +737,17 @@ Para saber mais detalhes sobre as propriedades, consulte a [atividade da GetMeta
 
 ## <a name="using-always-encrypted"></a>Usando sempre encriptado
 
-Quando copiar dados de/para Azure SQL Database com [Always Encrypted,](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)utilize [o conector ODBC genérico](connector-odbc.md) e o controlador ODBC do Servidor SQL através do tempo de execução de integração auto-hospedado. Este conector Azure SQL Database não suporta sempre encriptado. 
+Quando copiar dados de/para Azure SQL Database com [Always Encrypted,](/sql/relational-databases/security/encryption/always-encrypted-database-engine)utilize [o conector ODBC genérico](connector-odbc.md) e o controlador ODBC do Servidor SQL através do tempo de execução de integração auto-hospedado. Este conector Azure SQL Database não suporta sempre encriptado. 
 
 Mais especificamente:
 
 1. Crie um tempo de integração auto-hospedado se não tiver um. Consulte o artigo [de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
-2. Descarregue o controlador ODBC de 64 bits para o SQL Server a partir [daqui](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)e instale na máquina de tempo de execução de integração. Saiba mais sobre como este condutor funciona a partir da [utilização sempre encriptada com o controlador ODBC para o SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
+2. Descarregue o controlador ODBC de 64 bits para o SQL Server a partir [daqui](/sql/connect/odbc/download-odbc-driver-for-sql-server)e instale na máquina de tempo de execução de integração. Saiba mais sobre como este condutor funciona a partir da [utilização sempre encriptada com o controlador ODBC para o SQL Server](/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver#using-the-azure-key-vault-provider).
 
 3. Crie um serviço ligado com o tipo ODBC para ligar à sua base de dados SQL, consulte as seguintes amostras:
 
-    - Para utilizar **a autenticação SQL**: Especifique a cadeia de ligação ODBC como abaixo e selecione a autenticação **básica** para definir o nome de utilizador e a palavra-passe.
+    - Para utilizar **a autenticação SQL** : Especifique a cadeia de ligação ODBC como abaixo e selecione a autenticação **básica** para definir o nome de utilizador e a palavra-passe.
 
         ```
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>

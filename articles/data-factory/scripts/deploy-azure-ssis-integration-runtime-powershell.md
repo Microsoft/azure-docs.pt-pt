@@ -10,12 +10,12 @@ author: swinarko
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: c6d9a9299fa25013a440ee6ac45f5eae407225b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f753de618751300cd8d10ae009a354d9892729c1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74929810"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637977"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - implementar o tempo de execução da integração Azure-SSIS
 
@@ -48,16 +48,16 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Criar uma fábrica de dados. |
 | [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Cria um tempo de integração Azure-SSIS que pode executar pacotes SSIS na nuvem |
 | [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Inicia o tempo de integração Azure-SSIS. |
 | [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Obtém informações sobre o tempo de integração do Azure-SSIS. |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 
 Amostras adicionais de scripts powerShell da Fábrica de Dados Azure podem ser encontradas nas [amostras powerShell da Azure Data Factory](../samples-powershell.md).

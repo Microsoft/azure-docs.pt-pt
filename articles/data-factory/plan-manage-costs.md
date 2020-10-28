@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83691265"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638011"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planear e gerir os custos da Azure Data Factory
 
@@ -56,15 +56,15 @@ Agora pode ligar 30 corridas de atividade e 380 DIU-horas na calculadora de pre�
 
 ## <a name="use-budgets-and-cost-alerts"></a>Utilizar orçamentos e alertas de custo
 
-Pode criar [orçamentos](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) para gerir custos e criar alertas que notifiquem automaticamente as partes interessadas das anomalias nos gastos e do risco em fazer gastos excessivos.  Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos.  Quando cria um orçamento, pode fazê-lo ao nível da subscrição ou a uma granularidade mais baixa, adicionando filtros adicionais, como iD de recursos e nome do medidor.  Mas não se pode criar orçamentos para oleodutos individuais dentro de uma fábrica.
+Pode criar [orçamentos](../cost-management-billing/costs/tutorial-acm-create-budgets.md) para gerir custos e criar alertas que notifiquem automaticamente as partes interessadas das anomalias nos gastos e do risco em fazer gastos excessivos.  Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos.  Quando cria um orçamento, pode fazê-lo ao nível da subscrição ou a uma granularidade mais baixa, adicionando filtros adicionais, como iD de recursos e nome do medidor.  Mas não se pode criar orçamentos para oleodutos individuais dentro de uma fábrica.
 
 ## <a name="monitor-costs-at-factory-level"></a>Monitorizar os custos a nível de fábrica
 
-Ao começar a utilizar a Azure Data Factory, pode ver os custos incorridos no painel de análise de [custos](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) no portal Azure.
+Ao começar a utilizar a Azure Data Factory, pode ver os custos incorridos no painel de análise de [custos](../cost-management-billing/costs/quick-acm-cost-analysis.md) no portal Azure.
 
-1. Para [visualizar](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis)a análise de custos, abra a janela **Cost Management + Billing,** selecione **a gestão** de custos do menu e, em seguida, selecione **Open cost analysis**.
+1. Para [visualizar](../cost-management-billing/costs/quick-acm-cost-analysis.md)a análise de custos, abra a janela **Cost Management + Billing,** selecione **a gestão** de custos do menu e, em seguida, selecione **Open cost analysis** .
 2. A visão padrão mostra os custos acumulados para o mês em curso.  Pode mudar para um intervalo de tempo diferente e uma granularidade diferente, como diariamente ou mensalmente.
-3. Para reduzir os custos para um único serviço, como a Azure Data Factory, selecione **adicionar filtro** e, em seguida, selecione **o nome de Serviço**.  Em seguida, escolha **Azure data factory v2** da lista.
+3. Para reduzir os custos para um único serviço, como a Azure Data Factory, selecione **adicionar filtro** e, em seguida, selecione **o nome de Serviço** .  Em seguida, escolha **Azure data factory v2** da lista.
 4. Pode adicionar filtros adicionais para analisar o custo para uma instância de fábrica específica e granularidade específica do medidor ADF.
 
    ![Análise de custos](media/plan-manage-costs/cost-analysis.png)
@@ -81,7 +81,7 @@ Ao clicar no botão **De consumo** ao lado do nome do gasoduto, apresentará uma
 
 ![Detalhes do consumo de gasodutos](media/plan-manage-costs/pipeline-consumption-details.png)
 
-A vista de consumo de gasoduto mostra-lhe a quantidade consumida por cada medidor ADF para a corrida específica do gasoduto, mas não mostra o preço real cobrado, porque o valor cobrado a si depende do tipo de conta Azure que tem e do tipo de moeda utilizada.  Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+A vista de consumo de gasoduto mostra-lhe a quantidade consumida por cada medidor ADF para a corrida específica do gasoduto, mas não mostra o preço real cobrado, porque o valor cobrado a si depende do tipo de conta Azure que tem e do tipo de moeda utilizada.  Para ver a lista completa dos tipos de contas suportados, veja [Compreender os dados do Cost Management](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Monitorizar o consumo a nível de atividade
 Uma vez que você entenda o consumo agregado ao nível do gasoduto, há cenários em que você precisa aprofundar e identificar qual é a atividade mais dispendiosa dentro do oleoduto.
@@ -101,5 +101,5 @@ E aqui está uma amostra de uma atividade de mapeamento do fluxo de dados:
 Veja os seguintes artigos para saber mais sobre como os preços funcionam na Azure Data Factory:
 
 - [Página de preços da Fábrica de Dados Azure](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Compreender a Azure Data Factory através de exemplos](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Compreender a Azure Data Factory através de exemplos](./pricing-concepts.md)
 - [Calculadora de preços da Azure Data Factory](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

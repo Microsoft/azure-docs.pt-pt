@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86231238"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638249"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory ao Data Factory versão 1
 
@@ -87,7 +87,7 @@ Vai utilizar o Azure-SSIS se quiser mover as cargas de trabalho SSIS para a clou
 
 O Integration Runtime do Azure-SSIS é um cluster totalmente gerido de VMs do Azure (nós) dedicadas à execução dos pacotes do SSIS na cloud. Depois de aprovisionar o Integration Runtime do Azure-SSIS, tem as mesmas ferramentas que tem estado a utilizar para implementar pacotes do SSIS num ambiente SSIS local. 
 
-Por exemplo, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SSIS neste runtime no Azure. Para obter instruções passo a passo, consulte os pacotes de serviços de [integração do Servidor SQL para o Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+Por exemplo, pode utilizar o SQL Server Data Tools ou o SQL Server Management Studio para implementar pacotes do SSIS neste runtime no Azure. Para obter instruções passo a passo, consulte os pacotes de serviços de [integração do Servidor SQL para o Azure](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## <a name="flexible-scheduling"></a>Agendamento flexível
 Na versão atual do Data Factory, não terá de definir agendas de disponibilidade para conjuntos de dados. Pode definir um recurso de acionador que agende os pipelines a partir de um paradigma de programador de relógio. Pode também passar parâmetros para os pipelines a partir de um acionador para um modelo de agendamento e execução flexível. 
@@ -118,13 +118,13 @@ Para mais informações, veja [Diferença entre a atividade personalizada no Dat
 ## <a name="sdks"></a>SDKs
  A versão atual do Data Factory fornece um melhor conjunto de SDKs que podem ser utilizados para criar, gerir e monitorizar pipelines.
 
-- **SDK .NET**: o SDK .NET é atualizado na versão atual.
+- **SDK .NET** : o SDK .NET é atualizado na versão atual.
 
-- **PowerShell**: os cmdlets do PowerShell são atualizados na versão atual. Os cmdlets para a versão atual têm **DataFactoryV2** no nome, por exemplo: Get-AzDataFactoryV2. 
+- **PowerShell** : os cmdlets do PowerShell são atualizados na versão atual. Os cmdlets para a versão atual têm **DataFactoryV2** no nome, por exemplo: Get-AzDataFactoryV2. 
 
-- **SDK Python**: este SDK é novo na versão atual.
+- **SDK Python** : este SDK é novo na versão atual.
 
-- **API REST**: a API REST é atualizada na versão atual. 
+- **API REST** : a API REST é atualizada na versão atual. 
 
 Os SDKs que são atualizados na versão atual não são compatíveis com versões anteriores com clientes V1. 
 
@@ -133,11 +133,11 @@ Os SDKs que são atualizados na versão atual não são compatíveis com versõe
 | | Versão 2 | Versão 1 |
 | ------ | -- | -- | 
 | **Portal do Azure** | [Sim](quickstart-create-data-factory-portal.md) | Não |
-| **Azure PowerShell** | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
-| **SDK do .NET** | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
-| **API REST** | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Azure PowerShell** | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](./v1/data-factory-build-your-first-pipeline-using-powershell.md) |
+| **SDK do .NET** | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](./v1/data-factory-build-your-first-pipeline-using-vs.md) |
+| **API REST** | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](./v1/data-factory-build-your-first-pipeline-using-rest-api.md) |
 | **Python SDK** | [Sim](quickstart-create-data-factory-python.md) | Não |
-| **Modelo do Resource Manager** | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Modelo do Resource Manager** | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](./v1/data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
@@ -148,4 +148,4 @@ Na versão atual, também pode monitorizar fábricas de dados ao utilizar o [Azu
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba como criar uma fábrica de dados seguindo instruções passo a passo nos seguintes quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET,](quickstart-create-data-factory-dot-net.md) [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 
+Saiba como criar uma fábrica de dados seguindo instruções passo a passo nos seguintes quickstarts: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET,](quickstart-create-data-factory-dot-net.md) [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md).
