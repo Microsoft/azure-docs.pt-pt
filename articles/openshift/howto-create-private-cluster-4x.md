@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, chapéu vermelho, cli
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078532"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737202"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Crie um aglomerado privado Azure Red Hat OpenShift 4
 
@@ -233,7 +233,7 @@ Lance o URL da consola num browser e faça login usando as `kubeadmin` credencia
 
 ## <a name="install-the-openshift-cli"></a>Instale o CLI OpenShift
 
-Uma vez iniciado sessão na Consola Web OpenShift, clique no **?** no topo direito e, em seguida, em **Ferramentas de Linha de Comando**. Descarregue o desbloqueio apropriado para a sua máquina.
+Uma vez iniciado sessão na Consola Web OpenShift, clique no **?** no topo direito e, em seguida, em **Ferramentas de Linha de Comando** . Descarregue o desbloqueio apropriado para a sua máquina.
 
 ![Ecrã de login Azure Red Hat OpenShift](media/aro4-download-cli.png)
 

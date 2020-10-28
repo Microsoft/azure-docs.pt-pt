@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570371"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735569"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -29,13 +29,13 @@ As dependências de saída da AKS são quase totalmente definidas com FQDNs, que
 Por padrão, os clusters AKS têm acesso ilimitado à internet de saída (saída). Este nível de acesso à rede permite que nós e serviços que você execute para aceder a recursos externos conforme necessário. Se desejar restringir o tráfego de saídas, um número limitado de portos e endereços devem estar acessíveis para manter tarefas saudáveis de manutenção do cluster. A solução mais simples para garantir endereços de saída reside na utilização de um dispositivo de firewall que pode controlar o tráfego de saída com base em nomes de domínio. O Azure Firewall, por exemplo, pode restringir o tráfego http e HTTPS de saída com base na FQDN do destino. Também pode configurar as suas regras de firewall e segurança preferidas para permitir as portas e endereços necessários.
 
 > [!IMPORTANT]
-> Este documento cobre apenas como bloquear o tráfego que sai da sub-rede AKS. AKS não tem requisitos de entrada por defeito.  O bloqueio **do tráfego interno da sub-rede** utilizando grupos de segurança de rede (NSGs) e firewalls não é suportado. Para controlar e bloquear o tráfego dentro do cluster, utilize [***políticas de rede***][network-policy].
+> Este documento cobre apenas como bloquear o tráfego que sai da sub-rede AKS. AKS não tem requisitos de entrada por defeito.  O bloqueio **do tráfego interno da sub-rede** utilizando grupos de segurança de rede (NSGs) e firewalls não é suportado. Para controlar e bloquear o tráfego dentro do cluster, utilize [ * *_políticas de rede_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Regras de rede de saída exigidas e FQDNs para clusters AKS
 
 As seguintes regras de rede e FQDN/aplicação são necessárias para um cluster AKS, pode usá-las se desejar configurar uma solução diferente da Azure Firewall.
 
-* As dependências do endereço IP destinam-se ao tráfego não-HTTP/S (tráfego TCP e UDP)
+_ As dependências de endereços IP destinam-se ao tráfego não-HTTP/S (tráfego TCP e UDP)
 * Os pontos finais FQDN HTTP/HTTPS podem ser colocados no seu dispositivo de firewall.
 * Os pontos finais wildcard HTTP/HTTPS são dependências que podem variar com o seu cluster AKS com base em uma série de qualificações.
 * A AKS usa um controlador de admissão para injetar o FQDN como uma variável ambiental para todas as implementações no sistema kube e sistema de gatekeeper, que garante que toda a comunicação do sistema entre nós e servidor API utiliza o servidor API FQDN e não o IP do servidor API. 

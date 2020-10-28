@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425642"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736620"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -45,7 +45,7 @@ Se você é proprietário de um espaço de trabalho, você pode adicionar e remo
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Modelos do Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Modelos de gestor de recursos Azure](/azure/role-based-access-control/role-assignments-template)
 
 Se tiver instalado o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)pode utilizar comandos CLI para atribuir funções aos utilizadores:
 
@@ -173,7 +173,7 @@ Não estamos atualmente a publicar [papéis integrados do Azure](/azure/role-bas
 
 Sim, aqui estão alguns cenários comuns com definições de papéis propostas personalizadas que pode usar como base para definir os seus próprios papéis personalizados:
 
-* __Data Scientist Custom__: Permite que um cientista de dados execute todas as operações dentro de um espaço de **trabalho, exceto:**
+* __Data Scientist Custom__ : Permite que um cientista de dados execute todas as operações dentro de um espaço de **trabalho, exceto:**
 
     * Criação de computação
     * Implantação de modelos para um cluster AKS de produção
@@ -209,7 +209,7 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
     }
     ```
 
-* __Data Scientist Restricted Custom__: Uma definição de função mais restrita sem wildcards nas ações permitidas. Pode realizar todas as operações dentro de um espaço de **trabalho, exceto:**
+* __Data Scientist Restricted Custom__ : Uma definição de função mais restrita sem wildcards nas ações permitidas. Pode realizar todas as operações dentro de um espaço de **trabalho, exceto:**
 
     * Criação de computação
     * Implantação de modelos para um cluster AKS de produção
@@ -270,7 +270,7 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
     }
     ```
      
-* __MLflow Data Scientist Custom__: Permite que um cientista de dados execute todas as operações apoiadas pela MLflow AzureML, **exceto:**
+* __MLflow Data Scientist Custom__ : Permite que um cientista de dados execute todas as operações apoiadas pela MLflow AzureML, **exceto:**
 
    * Criação de computação
    * Implantação de modelos para um cluster AKS de produção
@@ -310,7 +310,7 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
     }
     ```   
 
-* __MLOps Custom__: Permite-lhe atribuir uma função a um diretor de serviço e usá-lo para automatizar os seus oleodutos MLOps. Por exemplo, submeter corridas contra um oleoduto já publicado:
+* __MLOps Custom__ : Permite-lhe atribuir uma função a um diretor de serviço e usá-lo para automatizar os seus oleodutos MLOps. Por exemplo, submeter corridas contra um oleoduto já publicado:
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
     }
     ```
 
-* __Workspace Admin__: Permite-lhe realizar todas as operações no âmbito de um espaço de trabalho, **exceto:**
+* __Workspace Admin__ : Permite-lhe realizar todas as operações no âmbito de um espaço de trabalho, **exceto:**
 
     * Criação de um novo espaço de trabalho
     * Atribuição de quotas de subscrição ou de nível de trabalho
@@ -381,7 +381,7 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
     ```
 
 <a name="labeler"></a>
-* __Labeler Custom__: Permite-lhe definir uma função apenas para rotular dados:
+* __Labeler Custom__ : Permite-lhe definir uma função apenas para rotular dados:
 
     `labeler_custom_role.json` :
     ```json

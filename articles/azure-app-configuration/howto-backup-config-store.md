@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074860"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737094"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Criar lojas de configuração de aplicativos
 
 Crie as suas lojas primárias e secundárias de Configuração de Aplicações em diferentes regiões.
-Substitua  `<primary_appconfig_name>` e `<secondary_appconfig_name>` por nomes únicos para as suas lojas de configuração. Cada nome de loja deve ser único porque é usado como um nome DNS.
+Substitua `<primary_appconfig_name>` e `<secondary_appconfig_name>` por nomes únicos para as suas lojas de configuração. Cada nome de loja deve ser único porque é usado como um nome DNS.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -248,7 +248,7 @@ Se não vir o novo cenário na sua loja secundária:
 - Também pode configurar a monitorização e alerta para funções Azure utilizando [insights de aplicação Azure](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se pretender continuar a trabalhar com esta Configuração de Aplicações e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretender continuar, utilize o seguinte comando para eliminar os recursos criados neste artigo.
 
 ```azurecli-interactive

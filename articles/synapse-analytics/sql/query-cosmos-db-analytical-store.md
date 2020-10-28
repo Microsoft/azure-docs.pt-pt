@@ -9,23 +9,23 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670702"
+ms.locfileid: "92737832"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos com piscina SQL sem servidor em Azure Synapse Link (pré-visualização)
 
-O pool SQL sem servidor sinapse (anteriormente SQL on demand) permite-lhe analisar dados nos seus contentores DB Azure Cosmos que estão ativados com [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da [loja analítica](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL.
+O pool SQL sem servidor sinapse permite-lhe analisar dados nos seus contentores DB Azure Cosmos que estão ativados com [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da [loja analítica](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL.
 
 Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) superfície SELECT é suportada através da função [OPENROWSET,](develop-openrowset.md) incluindo a maioria das [funções e operadores SQL](overview-features.md). Também pode armazenar os resultados da consulta que lê os dados da Azure Cosmos DB juntamente com os dados em Azure Blob Storage ou Azure Data Lake Storage utilizando [criar uma tabela externa como selecionado.](develop-tables-cetas.md#cetas-in-sql-on-demand) Não é possível armazenar atualmente resultados de consulta de piscina SQL sem servidor para Azure Cosmos DB utilizando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 Neste artigo, você aprenderá a escrever uma consulta com a piscina SQL sem servidor que irá consultar dados de recipientes DB Azure Cosmos que estão ativados no Synapse Link. Você pode então aprender mais sobre construir vistas de piscina SQL sem servidor sobre os recipientes DB Azure Cosmos e ligá-los aos modelos Power BI [neste](./tutorial-data-analyst.md) tutorial. 
 
 > [!IMPORTANT]
-> Este tutorial usa um recipiente com [esquema bem definido da Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation) que proporciona experiência de consulta que será suportada no futuro. A experiência de consulta que o pool SQL sem servidor proporciona para [o esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que será alterado com base no feedback de pré-visualização. Não confie no esquema que a `OPENROWSET` função prevê para recipientes de fidelidade total durante a pré-visualização pública, porque a experinece de consulta pode ser alterada e alinhada com esquema bem definido. Contacte [a equipa de produtos da Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
+> Este tutorial usa um recipiente com [esquema bem definido da Azure Cosmos DB.](../../cosmos-db/analytical-store-introduction.md#schema-representation) A experiência de consulta que o pool SQL sem servidor proporciona para [o esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que será alterado com base no feedback de pré-visualização. Não confie no esquema de definição de resultados de `OPENROWSET` função sem `WITH` cláusula que leia dados de um recipiente com esquema de fidelidade completo porque a experiência de consulta pode ser alterada e alinhada com esquema bem definido. Publique o seu feedback no [fórum de feedback da Azure synapse Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) ou contacte a equipa de produtos da [Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -76,7 +76,15 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-No exemplo acima, estamos a instruir a piscina SQL sem servidor para ligar à `covid` base de dados na conta DB Azure Cosmos `MyCosmosDbAccount` autenticada utilizando a tecla DB Azure Cosmos (manequim no exemplo acima). Então estamos a aceder à `EcdcCases` loja analítica do contentor na `West US 2` região. Uma vez que não há projeção de propriedades específicas, `OPENROWSET` a função devolverá todas as propriedades dos itens DB do Azure Cosmos.
+No exemplo acima, estamos a instruir a piscina SQL sem servidor para ligar à `covid` base de dados na conta DB Azure Cosmos `MyCosmosDbAccount` autenticada utilizando a tecla DB Azure Cosmos (manequim no exemplo acima). Então estamos a aceder à `EcdcCases` loja analítica do contentor na `West US 2` região. Uma vez que não há projeção de propriedades específicas, `OPENROWSET` a função devolverá todas as propriedades dos itens DB do Azure Cosmos. 
+
+Assumindo que os itens no contentor Cosmos DB `date_rep` `cases` têm, e `geo_id` propriedades, os resultados desta consulta são apresentados no quadro seguinte:
+
+| date_rep | casos | geo_id |
+| --- | --- | --- |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 Se precisar de explorar dados do outro recipiente na mesma base de dados Azure Cosmos DB, pode utilizar o mesmo recipiente de ligação e referência exigido como terceiro parâmetro:
 
@@ -180,7 +188,6 @@ Saiba mais sobre a análise de [tipos de dados complexos no Synapse Link](../how
 > [!IMPORTANT]
 > Se vir caracteres inesperados no seu texto como `MÃƒÂ©lade` em vez `Mélade` de, então a sua colagem de base de dados não está definida para a colagem [UTF8.](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) 
 > [Altere a colagem da base de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para alguma colagem UTF8 utilizando alguma declaração SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
-
 
 ## <a name="flattening-nested-arrays"></a>Achatamento de matrizes aninhadas
 
@@ -286,12 +293,16 @@ Por cada valor, pode ver o tipo identificado no item do recipiente Cosmos DB. A 
 O número de casos é uma informação armazenada como `int32` valor, mas há um valor que é introduzido como número decimal. Este valor tem `float64` o tipo. Se houver alguns valores que excedam o maior `int32` número, serão armazenados como `int64` tipo. Todos os `geo_id` valores neste exemplo são armazenados como `string` tipos.
 
 > [!IMPORTANT]
-> O esquema de fidelidade total expõe ambos os valores com os tipos esperados e os valores com tipos introduzidos incorretamente.
+> `OPENROWSET` função sem `WITH` cláusula expõe ambos os valores com os tipos esperados e os valores com tipos introduzidos incorretamente. Este trabalho foi concebido para a exploração de dados e não para reporte. Não analise os valores JSON devolvidos desta função para construir relatórios e usar [cláusula COM](#querying-items-with-full-fidelity-schema) explícita para criar os seus relatórios.
 > Deve limpar os valores que têm tipos incorretos no recipiente DB Azure Cosmos para aplicar corecção em loja analítica de fidelidade completa. 
 
 Para consultar as contas DB da Azure Cosmos do tipo Mongo DB API, você pode saber mais sobre a representação total do esquema de fidelidade na loja analítica e os nomes de propriedade estendidas a serem usados [aqui.](../../cosmos-db/analytical-store-introduction.md#analytical-schema)
 
-Ao consultar o esquema de fidelidade completo, precisa especificar explicitamente o tipo SQL e o tipo de propriedade do Cosmos DB esperado na `WITH` cláusula. No exemplo seguinte, assumimos que `string` é o tipo correto para a propriedade e o tipo correto para a `geo_id` `int32` `cases` propriedade:
+### <a name="querying-items-with-full-fidelity-schema"></a>Consulta de itens com esquema de fidelidade total
+
+Ao consultar o esquema de fidelidade completo, precisa especificar explicitamente o tipo SQL e o tipo de propriedade do Cosmos DB esperado na `WITH` cláusula. Não utilize `OPENROWSET` sem cláusula nos `WITH` relatórios porque o formato do conjunto de resultados pode ser alterado na pré-visualização com base no feedback.
+
+No exemplo seguinte, assumimos que `string` é o tipo correto para a propriedade e o tipo correto para a `geo_id` `int32` `cases` propriedade:
 
 ```sql
 SELECT geo_id, cases = SUM(cases)
@@ -305,7 +316,9 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-Os valores com outros tipos não serão `geo_id` devolvidos e `cases` as colunas e a consulta devolverá `NULL` valor nestas células. Esta consulta referenciará apenas o `cases` tipo especificado na expressão `cases.int32` (). Se tiver valores com outros tipos `cases.int64` `cases.float64` (,) que representam não pode ser limpo no recipiente DB cosmos, você precisará explicitamente referenciar-los em `WITH` cláusula e combinar os resultados. A seguinte consulta agrega ambos `int32` , e armazenado na `int64` `float64` `cases` coluna:
+Valores para `geo_id` e `cases` que têm outros tipos serão devolvidos como `NULL` valores. Esta consulta referenciará apenas o `cases` tipo especificado na expressão `cases.int32` ().
+
+Se tiver valores com outros tipos `cases.int64` `cases.float64` (,) que não possam ser limpos no recipiente Cosmos DB, terá de os referenciar explicitamente em `WITH` cláusula e combinar os resultados. A seguinte consulta agrega ambos `int32` , e armazenado na `int64` `float64` `cases` coluna:
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -326,7 +339,7 @@ Neste exemplo, o número de casos é armazenado quer como `int32` `int64` , ou `
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - O pseudónimo **DEVE** ser especificado após `OPENROWSET` a função (por exemplo, `OPENROWSET (...) AS function_alias` ). Omitir um pseudónimo pode causar problemas de ligação e o ponto final SQL sem servidor Synapse pode estar temporariamente indisponível. Esta questão será resolvida em novembro de 2020.
-- A experiência de consulta que a piscina SQL sem servidor proporciona para [o esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que será alterado com base no feedback de pré-visualização. Não confie no esquema que a `OPENROWSET` função proporciona durante a pré-visualização pública porque a experiência de consulta pode estar alinhada com esquema bem definido. Contacte [a equipa de produtos da Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
+- A experiência de consulta que a piscina SQL sem servidor proporciona para [o esquema de fidelidade completa Azure Cosmos DB](#full-fidelity-schema) é um comportamento temporário que será alterado com base no feedback de pré-visualização. Não confie no esquema que `OPENROWSET` funciona sem cláusula durante a `WITH` pré-visualização pública porque a experiência de consulta pode estar alinhada com esquema bem definido com base no feedback do cliente. Contacte [a equipa de produtos da Synapse link](mailto:cosmosdbsynapselink@microsoft.com) para fornecer feedback.
 
 Os eventuais erros e ações de resolução de problemas estão listados no quadro seguinte:
 

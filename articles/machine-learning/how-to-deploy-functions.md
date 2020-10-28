@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567456"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736563"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 
@@ -58,7 +58,7 @@ Antes de implementar, deve definir o que é necessário para executar o modelo c
 
 Para obter mais informações sobre o script de entrada, consulte [o código de pontuação De definir](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
-* **Dependências**, tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
+* **Dependências** , tais como scripts de ajuda ou pacotes Python/Conda necessários para executar o script de entrada ou modelo
 
 Estas entidades são encapsuladas numa __configuração de inferência.__ A configuração de inferência referencia o script de entrada e outras dependências.
 
@@ -84,7 +84,7 @@ Para obter mais informações sobre ambientes, consulte [Criar e gerir ambientes
 Para obter mais informações sobre a configuração de inferência, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Ao implementar para funções, não necessita de criar uma __configuração de implementação__.
+> Ao implementar para funções, não necessita de criar uma __configuração de implementação__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Instale o pacote de pré-visualização SDK para suporte a funções
 

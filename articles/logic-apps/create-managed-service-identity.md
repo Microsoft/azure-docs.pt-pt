@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/27/2020
+ms.openlocfilehash: bb146f03000f17d94d3d2ffc93b55c42eea20dac
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371482"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736405"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso aos recursos do Azure utilizando identidades geridas em Azure Logic Apps
 
@@ -55,7 +55,7 @@ Para configurar a identidade gerida que pretende utilizar, siga o link para essa
 Ao contrário das identidades atribuídas pelo utilizador, não é preciso criar manualmente a identidade atribuída ao sistema. Para configurar a identidade atribuída ao sistema para a sua aplicação lógica, aqui estão as opções que pode utilizar:
 
 * [Portal do Azure](#azure-portal-system-logic-app)
-* [Modelos do Azure Resource Manager](#template-system-logic-app)
+* [Modelos de gestor de recursos Azure](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -63,7 +63,7 @@ Ao contrário das identidades atribuídas pelo utilizador, não é preciso criar
 
 1. No [portal Azure,](https://portal.azure.com)abra a sua aplicação lógica no Logic App Designer.
 
-1. No menu de aplicativos lógico, em **Definições,** selecione **Identidade**. Selecione **sistema atribuído**  >  **On**  >  **no Save**. Quando O Azure lhe pedir para confirmar, selecione **Sim**.
+1. No menu de aplicativos lógico, em **Definições,** selecione **Identidade** . Selecione **sistema atribuído**  >  **On**  >  **no Save** . Quando O Azure lhe pedir para confirmar, selecione **Sim** .
 
    ![Ativar a identidade atribuída ao sistema](./media/create-managed-service-identity/enable-system-assigned-identity.png)
 
@@ -133,7 +133,7 @@ Quando o Azure cria a definição de recursos de aplicação lógica, o `identit
 Para configurar uma identidade gerida atribuída pelo utilizador para a sua aplicação lógica, tem primeiro de criar essa identidade como um recurso autónomo separado da Azure. Aqui estão as opções que pode utilizar:
 
 * [Portal do Azure](#azure-portal-user-identity)
-* [Modelos do Azure Resource Manager](#template-user-identity)
+* [Modelos de gestor de recursos Azure](#template-user-identity)
 * Azure PowerShell
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
   * [Adicionar atribuição de função](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
@@ -148,35 +148,35 @@ Para configurar uma identidade gerida atribuída pelo utilizador para a sua apli
 
 #### <a name="create-user-assigned-identity-in-the-azure-portal"></a>Criar identidade atribuída ao utilizador no portal Azure
 
-1. No [portal Azure,](https://portal.azure.com)na caixa de pesquisa em qualquer página, insira `managed identities` e selecione **Identidades Geridas**.
+1. No [portal Azure,](https://portal.azure.com)na caixa de pesquisa em qualquer página, insira `managed identities` e selecione **Identidades Geridas** .
 
    ![Localizar e selecionar "Identidades Geridas"](./media/create-managed-service-identity/find-select-managed-identities.png)
 
-1. Em **Identidades Geridas**, selecione **Add**.
+1. Em **Identidades Geridas** , selecione **Add** .
 
    ![Adicionar nova identidade gerida](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. Forneça informações sobre a sua identidade gerida e, em seguida, **selecione Criar,** por exemplo:
+1. Forneça informações sobre a sua identidade gerida e, em seguida, selecione **Review + Create** , por exemplo:
 
    ![Criar identidade gerida atribuída ao utilizador](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome do Recurso** | Yes | <*nome de identidade atribuído pelo utilizador*> | O nome para dar a sua identidade atribuída ao utilizador. Este exemplo utiliza "Identidade atribuída ao utilizador Fabrikam". |
-   | **Subscrição** | Yes | <*Nome de subscrição Azure*> | O nome para a subscrição Azure para usar |
-   | **Grupo de recursos** | Yes | <*Nome de grupo Azure-recursos*> | O nome para o grupo de recursos a utilizar. Criar um novo grupo ou selecionar um grupo existente. Este exemplo cria um novo grupo chamado "fabrikam-managed-identities-RG". |
-   | **Localização** | Yes | <*Região de Azure*> | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
+   | **Subscrição** | Sim | <*Nome de subscrição Azure*> | O nome para a subscrição Azure para usar |
+   | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | O nome para o grupo de recursos a utilizar. Criar um novo grupo ou selecionar um grupo existente. Este exemplo cria um novo grupo chamado `fabrikam-managed-identities-RG` . |
+   | **Região** | Sim | <*Região de Azure*> | A região de Azure onde armazenar informações sobre o seu recurso. Este exemplo usa "West US". |
+   | **Name** | Sim | <*nome de identidade atribuído pelo utilizador*> | O nome para dar a sua identidade atribuída ao utilizador. Este exemplo `Fabrikam-user-assigned-identity` utiliza. |
    |||||
 
-   Agora pode adicionar a identidade atribuída ao utilizador à sua aplicação lógica. Não é possível adicionar mais do que uma identidade atribuída ao utilizador à sua aplicação lógica.
+   Depois de validar estes detalhes, o Azure cria a sua identidade gerida. Agora pode adicionar a identidade atribuída ao utilizador à sua aplicação lógica. Não é possível adicionar mais do que uma identidade atribuída ao utilizador à sua aplicação lógica.
 
 1. No portal Azure, encontre e abra a sua aplicação lógica no Logic App Designer.
 
-1. No menu de aplicações lógicas, em **Definições**, selecione **Identidade**e, em seguida, selecione **Utilizador designado**  >  **Adicionar**.
+1. No menu de aplicações lógicas, em **Definições** , selecione **Identidade** e, em seguida, selecione **Utilizador designado**  >  **Adicionar** .
 
    ![Adicionar identidade gerida atribuída ao utilizador](./media/create-managed-service-identity/add-user-assigned-identity-logic-app.png)
 
-1. No painel de **identidade gerido do utilizador Add,** a partir da lista de **subscrição,** selecione a sua subscrição Azure se ainda não tiver sido selecionada. A partir da lista que mostra *todas as* identidades geridas nessa subscrição, encontre e selecione a identidade atribuída ao utilizador que pretende. Para filtrar a lista, na caixa de pesquisa de **identidades geridas atribuídas ao Utilizador, insira** o nome para o grupo de identidade ou recursos. Quando terminar, **selecione Add**.
+1. No painel de **identidade gerido do utilizador Add,** a partir da lista de **subscrição,** selecione a sua subscrição Azure se ainda não tiver sido selecionada. A partir da lista que mostra *todas as* identidades geridas nessa subscrição, encontre e selecione a identidade atribuída ao utilizador que pretende. Para filtrar a lista, na caixa de pesquisa de **identidades geridas atribuídas ao Utilizador, insira** o nome para o grupo de identidade ou recursos. Quando terminar, **selecione Add** .
 
    ![Selecione a identidade atribuída ao utilizador para usar](./media/create-managed-service-identity/select-user-assigned-identity.png)
 
@@ -287,7 +287,7 @@ Antes de poder utilizar a identidade gerida da sua aplicação lógica para a au
 * [Portal do Azure](#azure-portal-assign-access)
 * [Modelo Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment)](/powershell/module/az.resources/new-azroleassignment)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando a Azure RBAC e a Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI[(az role assignment create)](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando Azure RBAC e Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* Azure CLI[(az role assignment create)](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)- Para obter mais informações, consulte [adicionar a atribuição de funções utilizando Azure RBAC e Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -296,16 +296,16 @@ Antes de poder utilizar a identidade gerida da sua aplicação lógica para a au
 
 1. No [portal Azure,](https://portal.azure.com)aceda ao recurso Azure onde pretende que a sua identidade gerida tenha acesso.
 
-1. A partir do menu do recurso, selecione atribuições de funções de controlo de **acesso (IAM)**  >  **Role assignments** onde pode rever as atribuições de funções atuais para esse recurso. Na barra de **Add**ferramentas, selecione  >  **Adicionar a função**de função .
+1. A partir do menu do recurso, selecione atribuições de funções de controlo de **acesso (IAM)**  >  **Role assignments** onde pode rever as atribuições de funções atuais para esse recurso. Na barra de **Add** ferramentas, selecione  >  **Adicionar a função** de função .
 
    ![Selecione "Adicionar" > "Adicionar atribuição de funções"](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
    > Se a opção **de atribuição de funções Add** estiver desativada, é provável que não tenha permissões. Para obter mais informações sobre as permissões que lhe permitem gerir funções de recursos, consulte [permissões de função de Administrador no Diretório Ativo Azure](../active-directory/roles/permissions-reference.md).
 
-1. No **âmbito da atribuição de funções Add**, selecione uma **Função** que dá à sua identidade o acesso necessário ao recurso-alvo.
+1. No **âmbito da atribuição de funções Add** , selecione uma **Função** que dá à sua identidade o acesso necessário ao recurso-alvo.
 
-   Para o exemplo deste tópico, a sua identidade precisa de um [papel que possa aceder à bolha num recipiente de armazenamento Azure](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+   Para o exemplo deste tópico, a sua identidade necessita de uma [função que possa aceder à bolha num recipiente de Armazenamento Azure,](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)por isso selecione o papel **de Colaborador de Dados do Blob de Armazenamento** para a identidade gerida.
 
    ![Selecione a função "Storage Blob Data Contributor"](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -313,7 +313,7 @@ Antes de poder utilizar a identidade gerida da sua aplicação lógica para a au
 
    * **Identidade atribuída ao sistema**
 
-     1. No acesso à caixa **de atribuição,** selecione **Logic App**. Quando a propriedade **de Subscrição** aparecer, selecione a subscrição Azure que está associada à sua identidade.
+     1. No acesso à caixa **de atribuição,** selecione **Logic App** . Quando a propriedade **de Subscrição** aparecer, selecione a subscrição Azure que está associada à sua identidade.
 
         ![Selecione acesso para identidade atribuída ao sistema](./media/create-managed-service-identity/assign-access-system.png)
 
@@ -331,7 +331,7 @@ Antes de poder utilizar a identidade gerida da sua aplicação lógica para a au
 
         ![Selecione a sua identidade atribuída ao utilizador](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
 
-1. Quando tiver terminado, selecione **Guardar**.
+1. Quando tiver terminado, selecione **Guardar** .
 
    A lista de atribuições de funções do recurso-alvo mostra agora a identidade e o papel geridos selecionados. Este exemplo mostra como pode usar a identidade atribuída ao sistema para uma aplicação lógica e uma identidade atribuída ao utilizador para um grupo de outras aplicações lógicas.
 
@@ -358,13 +358,13 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 
    Por exemplo, o gatilho ou ação HTTP pode utilizar a identidade atribuída ao sistema que ativou para a sua aplicação lógica. Em geral, o gatilho ou ação HTTP utiliza estas propriedades para especificar o recurso ou entidade a que pretende aceder:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Método** | Yes | O método HTTP que é usado pela operação que pretende executar |
-   | **URI** | Yes | O URL de ponto final para aceder ao recurso ou entidade target Azure. A sintaxe URI geralmente inclui o [ID de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço Azure. |
-   | **Cabeçalhos** | No | Quaisquer valores de cabeçalho que necessite ou queira incluir no pedido de saída, como o tipo de conteúdo |
-   | **Consultas** | No | Quaisquer parâmetros de consulta que necessite ou pretenda incluir no pedido, como o parâmetro para uma operação específica ou a versão API para a operação que pretende executar |
-   | **Autenticação** | Yes | O tipo de autenticação a utilizar para autenticar o acesso ao recurso ou entidade-alvo |
+   | **Método** | Sim | O método HTTP que é usado pela operação que pretende executar |
+   | **URI** | Sim | O URL de ponto final para aceder ao recurso ou entidade target Azure. A sintaxe URI geralmente inclui o [ID de recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço Azure. |
+   | **Cabeçalhos** | Não | Quaisquer valores de cabeçalho que necessite ou queira incluir no pedido de saída, como o tipo de conteúdo |
+   | **Consultas** | Não | Quaisquer parâmetros de consulta que necessite ou pretenda incluir no pedido, como o parâmetro para uma operação específica ou a versão API para a operação que pretende executar |
+   | **Autenticação** | Sim | O tipo de autenticação a utilizar para autenticar o acesso ao recurso ou entidade-alvo |
    ||||
 
    Como exemplo específico, suponha que pretende executar a [operação Snapshot Blob](/rest/api/storageservices/snapshot-blob) numa bolha na conta de Armazenamento Azure onde previamente estabeleceu acesso para a sua identidade. No entanto, o [conector de armazenamento Azure Blob](/connectors/azureblob/) não oferece atualmente esta operação. Em vez disso, pode executar esta operação utilizando a ação [HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou outra [operação API do Blob Service REST](/rest/api/storageservices/operations-on-blobs).
@@ -376,10 +376,10 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 
    | Propriedade | Necessário | Valor de exemplo | Descrição |
    |----------|----------|---------------|-------------|
-   | **Método** | Yes | `PUT`| O método HTTP que a operação Snapshot Blob utiliza |
-   | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | O ID de recurso para um ficheiro de armazenamento Azure Blob no ambiente Azure Global (público), que usa esta sintaxe |
-   | **Cabeçalhos** | Sim, para o armazenamento Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Os `x-ms-blob-type` `x-ms-version` valores e cabeçalhos necessários para as operações de Armazenamento Azure. <p><p>**Importante**: Nos pedidos de acionamento HTTP de saída e pedidos de ação para o Azure Storage, o cabeçalho requer a `x-ms-version` propriedade e a versão API para a operação que pretende executar. <p>Para obter mais informações, veja estes tópicos: <p><p>- [Cabeçalhos de pedido - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versão para serviços de armazenamento Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **Consultas** | Sim, para esta operação | `comp` = `snapshot` | O nome do parâmetro de consulta e o valor para a operação Snapshot Blob. |
+   | **Método** | Sim | `PUT`| O método HTTP que a operação Snapshot Blob utiliza |
+   | **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | O ID de recurso para um ficheiro de armazenamento Azure Blob no ambiente Azure Global (público), que usa esta sintaxe |
+   | **Cabeçalhos** | Para armazenamento Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Os `x-ms-blob-type` `x-ms-version` valores , e `x-ms-date` cabeçalho são necessários para as operações de Armazenamento Azure. <p><p>**Importante** : Nos pedidos de acionamento HTTP de saída e pedidos de ação para o Azure Storage, o cabeçalho requer a `x-ms-version` propriedade e a versão API para a operação que pretende executar. Deve `x-ms-date` ser a data atual. Caso contrário, a sua aplicação lógica falha com um `403 FORBIDDEN` erro. Para obter a data atual no formato requerido, pode utilizar a expressão no valor do exemplo. <p>Para obter mais informações, veja estes tópicos: <p><p>- [Cabeçalhos de pedido - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versão para serviços de armazenamento Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Consultas** | Apenas para a operação Snapshot Blob | `comp` = `snapshot` | O nome do parâmetro de consulta e o valor para a operação. |
    |||||
 
    Aqui está o exemplo http ação que mostra todos estes valores de propriedade:
@@ -393,7 +393,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
    > [!NOTE]
    > Nem todos os gatilhos e ações suportam permitir adicionar um tipo de autenticação. Para obter mais informações, consulte [Adicionar autenticação às chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Na lista de **tipos de autenticação,** selecione **Identidade Gerida**.
+1. Na lista de **tipos de autenticação,** selecione **Identidade Gerida** .
 
    ![Para "Autenticação", selecione "Identidade Gerida"](./media/create-managed-service-identity/select-managed-identity.png)
 
@@ -432,7 +432,7 @@ Estes passos mostram como usar a identidade gerida com um gatilho ou ação atra
 Para parar de usar uma identidade gerida para a sua aplicação lógica, tem estas opções:
 
 * [Portal do Azure](#azure-portal-disable)
-* [Modelos do Azure Resource Manager](#template-disable)
+* [Modelos de gestor de recursos Azure](#template-disable)
 * Azure PowerShell
   * [Remover atribuição de funções](../role-based-access-control/role-assignments-powershell.md)
   * [Eliminar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -457,9 +457,9 @@ No portal Azure, primeiro remova o acesso da identidade ao [seu recurso alvo](#d
 
 1. No [portal Azure,](https://portal.azure.com)aceda ao recurso Azure alvo onde pretende remover o acesso à identidade gerida.
 
-1. A partir do menu do recurso-alvo, selecione **Access control (IAM)**. Sob a barra de ferramentas, selecione **atribuições de funções**.
+1. A partir do menu do recurso-alvo, selecione **Access control (IAM)** . Sob a barra de ferramentas, selecione **atribuições de funções** .
 
-1. Na lista de funções, selecione as identidades geridas que pretende remover. Na barra de ferramentas, selecione **Remover**.
+1. Na lista de funções, selecione as identidades geridas que pretende remover. Na barra de ferramentas, selecione **Remover** .
 
    > [!TIP]
    > Se a opção **Remover** estiver desativada, é provável que não tenha permissões. Para obter mais informações sobre as permissões que lhe permitem gerir funções de recursos, consulte [permissões de função de Administrador no Diretório Ativo Azure](../active-directory/roles/permissions-reference.md).
@@ -474,11 +474,11 @@ A identidade gerida é agora removida e já não tem acesso ao recurso-alvo.
 
 1. No menu de aplicativos lógicos, em **Definições,** selecione **Identidade,** e, em seguida, siga os passos para a sua identidade:
 
-   * Selecione **sistema atribuído**  >  **On**  >  **no Save**. Quando O Azure lhe pedir para confirmar, selecione **Sim**.
+   * Selecione **sistema atribuído**  >  **On**  >  **no Save** . Quando O Azure lhe pedir para confirmar, selecione **Sim** .
 
      ![Desativar a identidade atribuída ao sistema](./media/create-managed-service-identity/disable-system-assigned-identity.png)
 
-   * Selecione **o Utilizador atribuído** e a identidade gerida e, em seguida, selecione **Remover**. Quando O Azure lhe pedir para confirmar, selecione **Sim**.
+   * Selecione **o Utilizador atribuído** e a identidade gerida e, em seguida, selecione **Remover** . Quando O Azure lhe pedir para confirmar, selecione **Sim** .
 
      ![Remover a identidade atribuída ao utilizador](./media/create-managed-service-identity/remove-user-assigned-identity.png)
 

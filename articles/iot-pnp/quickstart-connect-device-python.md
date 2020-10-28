@@ -7,13 +7,13 @@ ms.date: 7/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 187a0598dfc26394d1fd48e67d83ef7e98ef6226
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574038"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737315"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play à IoT Hub (Python)
 
@@ -69,7 +69,7 @@ Abra o ficheiro **simple_thermostat.py** num editor de texto. Reparem como:
 
     1. Começa a enviar telemetria. O **pnp_send_telemetry** é definido no ficheiro pnp_methods.py. O código de amostra utiliza um laço para chamar esta função a cada oito segundos.
 
-    1. Desativa todos os ouvintes e tarefas, existindo o loop quando pressiona **Q** ou **q**.
+    1. Desativa todos os ouvintes e tarefas, existindo o loop quando pressiona **Q** ou **q** .
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

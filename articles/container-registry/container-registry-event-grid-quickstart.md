@@ -3,13 +3,13 @@ title: Quickstart - Enviar eventos para a Grade de Eventos
 description: Neste arranque rápido, você ativa eventos de Grade de Evento para o seu registo de contentores, em seguida, envie o push de imagem do recipiente e elimine eventos para uma aplicação de amostragem.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736850"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
 

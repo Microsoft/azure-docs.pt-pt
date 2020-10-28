@@ -10,13 +10,13 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 64180320ab57996984f5e886639dfd4977ae5e7c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: e8f789819c762702061465e01cf1e64b349c3344
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999059"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735548"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implemente o seu modelo existente com Azure Machine Learning
 

@@ -9,17 +9,17 @@ keywords: ipv6, balançador de carga azul, pilha dupla, ip público, ipv6 nativo
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001578"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735917"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um equilibrista de carga pública com IPv6 usando Azure CLI
 
@@ -48,11 +48,11 @@ Os passos a seguir mostram como criar um equilibrador de carga pública utilizan
 
 Para implantar um equilibrador de carga, crie e configuure os seguintes objetos:
 
-* **Configuração IP frontal**: Contém endereços IP públicos para o tráfego de rede de entrada.
-* **Conjunto de endereços back-end**: Contém interfaces de rede (NICs) para que as máquinas virtuais recebam tráfego de rede do equilibrador de carga.
-* **Regras de equilíbrio de carga**: Contém regras que mapeiam uma porta pública no equilibrador de carga para uma porta na piscina de endereços de fundo.
-* **Regras NAT de entrada**: Contém regras de tradução de endereços de rede (NAT) que mapeiam uma porta no equilibrador de carga para uma porta para uma máquina virtual específica no pool de endereços back-end.
-* **Sondas**: Contém sondas de saúde que são usadas para verificar a disponibilidade de casos de máquinas virtuais na piscina de endereços back-end.
+* **Configuração IP frontal** : Contém endereços IP públicos para o tráfego de rede de entrada.
+* **Conjunto de endereços back-end** : Contém interfaces de rede (NICs) para que as máquinas virtuais recebam tráfego de rede do equilibrador de carga.
+* **Regras de equilíbrio de carga** : Contém regras que mapeiam uma porta pública no equilibrador de carga para uma porta na piscina de endereços de fundo.
+* **Regras NAT de entrada** : Contém regras de tradução de endereços de rede (NAT) que mapeiam uma porta no equilibrador de carga para uma porta para uma máquina virtual específica no pool de endereços back-end.
+* **Sondas** : Contém sondas de saúde que são usadas para verificar a disponibilidade de casos de máquinas virtuais na piscina de endereços back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 
@@ -122,7 +122,7 @@ Neste exemplo, execute as ferramentas Azure CLI numa janela de comando PowerShel
     > [!IMPORTANT]
     > O equilibrador de carga utiliza o rótulo de domínio do IP público como o seu nome de domínio totalmente qualificado (FQDN). Esta é uma mudança da implementação clássica, que usa o nome de serviço de nuvem como o equilibrador de carga FQDN.
     >
-    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Criar piscinas frontais e traseiras
 

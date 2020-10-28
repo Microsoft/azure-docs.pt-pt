@@ -10,13 +10,13 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150931"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737541"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
@@ -154,7 +154,7 @@ Siga estes passos para executar a aplicação:
 1. No primeiro ecrã, insira o seu iD principal cliente de serviço, iD do inquilino e senha. Selecione o botão **Iniciar sessão.**
 
     > [!NOTE]
-    > Em alguns emuladores, o botão **de Login** pode não ser ativado neste passo. Se isso acontecer, parar a aplicação, abrir o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontrar o `Button` elemento marcado como **BOTÃO DE LOGIN**, remover a seguinte linha e, em seguida, executar novamente a aplicação.
+    > Em alguns emuladores, o botão **de Login** pode não ser ativado neste passo. Se isso acontecer, parar a aplicação, abrir o ficheiro *Source/VisualProvision/Pages/LoginPage.xaml,* encontrar o `Button` elemento marcado como **BOTÃO DE LOGIN** , remover a seguinte linha e, em seguida, executar novamente a aplicação.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
@@ -172,11 +172,11 @@ Siga estes passos para executar a aplicação:
 
     ![Um ecrã de aplicativo mostrando campos para a região de implementação e grupo de recursos](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se seguiu todos os passos deste cenário e utilizou a app para implantar os serviços Azure na sua conta, vá ao [portal Azure.](https://ms.portal.azure.com/) Aí, cancele os serviços que não quer usar.
 
-Se planeia criar o seu próprio projeto de deteção de objetos com a Visão Personalizada, é melhor eliminar o projeto de deteção de logotipo que criou neste tutorial. Uma subscrição gratuita para a Custom Vision permite apenas dois projetos. Para eliminar o projeto de deteção de logotipo, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no **âmbito do My New Project**.
+Se planeia criar o seu próprio projeto de deteção de objetos com a Visão Personalizada, é melhor eliminar o projeto de deteção de logotipo que criou neste tutorial. Uma subscrição gratuita para a Custom Vision permite apenas dois projetos. Para eliminar o projeto de deteção de logotipo, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no **âmbito do My New Project** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

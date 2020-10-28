@@ -1,23 +1,23 @@
 ---
 title: Monitorar recursos delegados à escala
 description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos do cliente que está a gerir.
-ms.date: 08/12/2020
+ms.date: 10/26/2020
 ms.topic: how-to
-ms.openlocfilehash: fdd0147737da47613d6b7ef1bf6005e4c03de0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e5c98b3b62a8fbc953a29cf51ac527e5de21110
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163293"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735849"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados à escala
 
 Como prestador de serviços, pode ter a bordo vários inquilinos de clientes para o [Farol de Azure.](../overview.md) O Azure Lighthouse permite que os prestadores de serviços realizem operações em escala em vários inquilinos ao mesmo tempo, tornando as tarefas de gestão mais eficientes.
 
-Este tópico mostra-lhe como usar [os Registos do Monitor Azure](../../azure-monitor/platform/data-platform-logs.md) de uma forma escalável através dos inquilinos do cliente que você está gerindo.
+Este tópico mostra-lhe como usar [os Registos do Monitor Azure](../../azure-monitor/platform/data-platform-logs.md) de uma forma escalável através dos inquilinos do cliente que você está gerindo. Embora nos refiramos a prestadores de serviços e clientes neste tópico, esta orientação também se aplica às [empresas que utilizam o Farol Azure para gerir vários inquilinos.](../concepts/enterprise.md)
 
-> [!TIP]
-> Embora nos refiramos a prestadores de serviços e clientes neste tópico, esta orientação também se aplica às [empresas que utilizam o Farol Azure para gerir vários inquilinos.](../concepts/enterprise.md)
+> [!NOTE]
+> Certifique-se de que os utilizadores dos seus inquilinos de gestão receberam as [funções necessárias para gerir espaços de trabalho do Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) nas subscrições de clientes delegados.
 
 ## <a name="create-log-analytics-workspaces"></a>Criar espaços de trabalho log analytics
 
@@ -26,6 +26,9 @@ Para recolher dados, terá de criar espaços de trabalho do Log Analytics. Estes
 Recomendamos a criação destes espaços de trabalho diretamente nos inquilinos do cliente. Desta forma, os seus dados permanecem nos seus inquilinos em vez de serem exportados para os seus. Isto também permite uma monitorização centralizada de quaisquer recursos ou serviços suportados pelo Log Analytics, proporcionando-lhe mais flexibilidade sobre os tipos de dados que monitoriza.
 
 Pode criar um espaço de trabalho Log Analytics utilizando o [portal Azure,](../../azure-monitor/learn/quick-create-workspace.md)utilizando [o Azure CLI,](../../azure-monitor/learn/quick-create-workspace-cli.md)ou utilizando [o Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+
+> [!IMPORTANT]
+> Mesmo que todos os espaços de trabalho sejam criados no inquilino do cliente, o fornecedor de recursos Microsoft.Insights também deve ser registado numa subscrição no inquilino gerente.
 
 ## <a name="deploy-policies-that-log-data"></a>Implementar políticas que registam dados
 

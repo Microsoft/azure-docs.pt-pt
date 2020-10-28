@@ -3,13 +3,13 @@ title: Referência do desenvolvedor java para funções Azure
 description: Entenda como desenvolver funções com Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.custom: devx-track-java
-ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519627"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736703"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de desenvolvedores de Java funções Azure Functions
 
@@ -45,7 +45,7 @@ Os links de artigo acima mostram-lhe como criar as suas primeiras funções util
 
 ### <a name="project-scaffolding"></a>Andaimes do projeto
 
-Se preferir o desenvolvimento da linha de comando a partir do Terminal, a forma mais simples de andaimes projetos de função baseados em Java é usar `Apache Maven` arquétipos. O arquétipo Java Maven para Funções Azure é publicado sob o seguinte _grupoId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Se preferir o desenvolvimento da linha de comando a partir do Terminal, a forma mais simples de andaimes projetos de função baseados em Java é usar `Apache Maven` arquétipos. O arquétipo Java Maven para Funções Azure é publicado sob o seguinte _grupoId_ : _artifactId_ : [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 O seguinte comando gera um novo projeto de função Java utilizando este arquétipo:
 

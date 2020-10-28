@@ -6,21 +6,21 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 04/15/2020
+ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260415"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738543"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
 
 Este artigo fornece orientações sobre como usar o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Spark concluídas e executando.
 
-A extensão inclui um separador de dados, separador gráfico e separador de diagnóstico. Utilize o separador **Dados** para verificar os dados de entrada e saída da função Spark. O **separador Gráfico** mostra-lhe o fluxo de dados e a repetição do gráfico de trabalho. O separador **de Diagnóstico** mostra-lhe  **distorcer dados,** **distorcer o tempo**e a análise de **utilização do executor**.
+A extensão inclui um separador de dados, separador gráfico e separador de diagnóstico. Utilize o separador **Dados** para verificar os dados de entrada e saída da função Spark. O **separador Gráfico** mostra-lhe o fluxo de dados e a repetição do gráfico de trabalho. O separador **de Diagnóstico** mostra-lhe  **distorcer dados,** **distorcer o tempo** e a análise de **utilização do executor** .
 
 ## <a name="access-the-apache-spark-history-server"></a>Aceda ao servidor histórico Apache Spark
 
@@ -30,7 +30,7 @@ O servidor de histórico Apache Spark é a interface do utilizador web para apli
 
 1. Abra [a Azure Synapse Analytics](https://web.azuresynapse.net/).
 
-2. Selecione **Monitor**e, em seguida, selecione **Aplicações de faíscas Apache**.
+2. Selecione **Monitor** e, em seguida, selecione **Aplicações de faíscas Apache** .
 
     ![Selecione o monitor e, em seguida, selecione a aplicação de faísca.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
@@ -44,7 +44,7 @@ O servidor de histórico Apache Spark é a interface do utilizador web para apli
 
 ### <a name="open-the-spark-history-server-web-ui-from-data-node"></a>Abra o UI web do Spark History Server a partir do nó de dados
 
-1. A partir do seu caderno Azure Synapse Studio, selecione o **servidor de histórico Spark** a partir da célula de saída de execução de trabalho ou do painel de estado na parte inferior do documento do caderno. Selecione **Detalhes da sessão**.
+1. A partir do seu caderno Azure Synapse Studio, selecione o **servidor de histórico Spark** a partir da célula de saída de execução de trabalho ou do painel de estado na parte inferior do documento do caderno. Selecione **Detalhes da sessão** .
 
    ![Lançar servidor histórico spark 1](./media/apache-spark-history-server/launch-history-server2.png "Lançar servidor histórico de spark")
 
@@ -56,19 +56,19 @@ O servidor de histórico Apache Spark é a interface do utilizador web para apli
 
 Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Dados** no menu da ferramenta para obter a visualização de dados. Esta secção mostra-lhe como fazer várias tarefas no separador Dados.
 
-* Verifique as **Entradas,** **Saídas**e **Operações de Tabela** selecionando os separados.
+* Verifique as **Entradas,** **Saídas** e **Operações de Tabela** selecionando os separados.
 
     ![Dados para separadores de aplicações Spark](./media/apache-spark-history-server/apache-spark-data-tabs.png)
 
-* Copie todas as linhas selecionando **Copy**.
+* Copie todas as linhas selecionando **Copy** .
 
     ![Dados para cópia de aplicação Spark](./media/apache-spark-history-server/apache-spark-data-copy.png)
 
-* Guarde todos os dados como ficheiro CSV selecionando **csv**.
+* Guarde todos os dados como ficheiro CSV selecionando **csv** .
 
     ![Dados para salvar aplicações spark](./media/apache-spark-history-server/apache-spark-data-save.png)
 
-* Pesse inserindo palavras-chave no campo **Pesquisar**. Os resultados da pesquisa são apresentados imediatamente.
+* Pesse inserindo palavras-chave no campo **Pesquisar** . Os resultados da pesquisa são apresentados imediatamente.
 
     ![Dados para pesquisa de aplicações Spark](./media/apache-spark-history-server/apache-spark-data-search.png)
 
@@ -76,7 +76,7 @@ Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Dados
 
     ![Dados para tabela de aplicações Spark](./media/apache-spark-history-server/apache-spark-data-table.png)
 
-* Descarregue um único ficheiro selecionando **Download Parcial**. O ficheiro selecionado é descarregado para local. Se o ficheiro já não existir, aparece um novo separador com uma mensagem de erro.
+* Descarregue um único ficheiro selecionando **Download Parcial** . O ficheiro selecionado é descarregado para local. Se o ficheiro já não existir, aparece um novo separador com uma mensagem de erro.
 
     ![Datas para linha de descarregamento de aplicações Spark](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
@@ -92,7 +92,7 @@ Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Dados
 
     ![Dados para a aplicação Spark mais informações](./media/apache-spark-history-server/sparkui-data-more-info.png)
 
-* Envie feedback com problemas selecionando **Fornecer-nos feedback**.
+* Envie feedback com problemas selecionando **Fornecer-nos feedback** .
 
     ![O gráfico de faíscas fornece-nos feedback novamente](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
@@ -102,7 +102,7 @@ Selecione o Job ID para o trabalho que deseja ver. Em seguida, selecione **Gráf
 
 ### <a name="overview"></a>Descrição geral
 
-Pode ver uma visão geral do seu trabalho no gráfico de trabalho gerado. Por defeito, o gráfico mostra todos os trabalhos. Pode filtrar esta vista por **Job ID**.
+Pode ver uma visão geral do seu trabalho no gráfico de trabalho gerado. Por defeito, o gráfico mostra todos os trabalhos. Pode filtrar esta vista por **Job ID** .
 
 ![ID de trabalho de aplicação de faísca e gráfico de trabalho](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
@@ -118,7 +118,7 @@ O nó gráfico exibe as cores mostradas na lenda do mapa de calor.
 
 ### <a name="playback"></a>Reproduzir
 
-Para reproduzir o trabalho, selecione **Reprodução**. Pode selecionar **Parar** a qualquer momento para parar. As cores da tarefa mostram diferentes status ao reproduzir:
+Para reproduzir o trabalho, selecione **Reprodução** . Pode selecionar **Parar** a qualquer momento para parar. As cores da tarefa mostram diferentes status ao reproduzir:
 
 |Color|Significado|
 |-|-|
@@ -184,15 +184,15 @@ O nó gráfico de trabalho apresenta as seguintes informações de cada fase:
 
 ### <a name="provide-feedback"></a>Enviar comentários
 
-Envie feedback com problemas selecionando **Fornecer-nos feedback**.
+Envie feedback com problemas selecionando **Fornecer-nos feedback** .
 
 ![Aplicação de faísca e feedback de gráfico de trabalho](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 ## <a name="explore-the-diagnosis-tab-in-apache-spark-history-server"></a>Explore o separador Diagnóstico no servidor histórico Apache Spark
 
-Para aceder ao separador Diagnóstico, selecione uma identificação de trabalho. Em seguida, selecione **Diagnóstico** no menu da ferramenta para obter a visão de Diagnóstico de Trabalho. O separador de diagnóstico inclui **Data Skew,** **Time Skew**e **Análise de Utilização do Executor**.
+Para aceder ao separador Diagnóstico, selecione uma identificação de trabalho. Em seguida, selecione **Diagnóstico** no menu da ferramenta para obter a visão de Diagnóstico de Trabalho. O separador de diagnóstico inclui **Data Skew,** **Time Skew** e **Análise de Utilização do Executor** .
 
-Verifique o distorcer de **dados,** **o distorcer do tempo**e a análise de **utilização do executor** selecionando os separadores respectivamente.
+Verifique o distorcer de **dados,** **o distorcer do tempo** e a análise de **utilização do executor** selecionando os separadores respectivamente.
 
 ![Guia de dados de diagnóstico SparkUI novamente](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -216,7 +216,7 @@ O **separador Time Skew** apresenta tarefas distorcidas com base no tempo de exe
 
 * **Especificar Parâmetros** - A primeira secção apresenta os parâmetros, que são utilizados para detetar o distorcer do tempo. Os critérios padrão para detetar o distorção do tempo são: o tempo de execução da tarefa é superior a três vezes o tempo médio de execução e o tempo médio de execução da tarefa é superior a 30 segundos. Pode alterar os parâmetros com base nas suas necessidades. O **Skewed Stage** and **Skew Chart** exibe as fases e tarefas correspondentes, tal como o **separador Data Skew** acima.
 
-* Selecione **O distorce de tempo**, em seguida, o resultado filtrado é apresentado na secção fase de **skewed** de acordo com os parâmetros definidos na secção **Especificar Parâmetros**. Selecione um item na secção **Skewed Stage,** em seguida, o gráfico correspondente é redigido na secção3, e os detalhes da tarefa são apresentados no painel inferior direito.
+* Selecione **O distorce de tempo** , em seguida, o resultado filtrado é apresentado na secção fase de **skewed** de acordo com os parâmetros definidos na secção **Especificar Parâmetros** . Selecione um item na secção **Skewed Stage,** em seguida, o gráfico correspondente é redigido na secção3, e os detalhes da tarefa são apresentados no painel inferior direito.
 
     ![sparkui tempo distorcer](./media/apache-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -224,7 +224,7 @@ O **separador Time Skew** apresenta tarefas distorcidas com base no tempo de exe
 
 O Gráfico de Utilização do Executor visualiza a atribuição e o estado de funcionamento do executor de trabalho spark.  
 
-1. Selecione **a Análise de Utilização do Executor**, em seguida, são redigidas quatro curvas sobre a utilização do executor, incluindo **executores atribuídos,** **executores executantes,** **executores inativos**e **instâncias de executor max**. Para os executores atribuídos, cada evento "Executor adicionado" ou "Executor removido" aumenta ou diminui os executores atribuídos. Pode consultar "Event Timeline" no separador "Jobs" para obter mais comparação.
+1. Selecione **a Análise de Utilização do Executor** , em seguida, são redigidas quatro curvas sobre a utilização do executor, incluindo **executores atribuídos,** **executores executantes,** **executores inativos** e **instâncias de executor max** . Para os executores atribuídos, cada evento "Executor adicionado" ou "Executor removido" aumenta ou diminui os executores atribuídos. Pode consultar "Event Timeline" no separador "Jobs" para obter mais comparação.
 
    ![guia de executores de diagnóstico sparkui](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

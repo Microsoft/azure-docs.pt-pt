@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
-ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633506"
+ms.locfileid: "92738844"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar uma quota NFS
 

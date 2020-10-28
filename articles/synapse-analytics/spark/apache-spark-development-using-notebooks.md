@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893089"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738740"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
@@ -44,11 +44,11 @@ Os cadernos são de células, que são blocos individuais de código ou texto qu
 
 Há várias formas de adicionar uma nova célula ao seu caderno.
 
-1. Expanda o botão superior esquerdo **+ célula** e selecione Adicionar célula **de código** ou adicionar célula **de texto**.
+1. Expanda o botão superior esquerdo **+ célula** e selecione Adicionar célula **de código** ou adicionar célula **de texto** .
 
     ![botão adicionar célula com célula](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Pairar sobre o espaço entre duas células e selecionar **Adicionar código** ou **adicionar texto**.
+2. Pairar sobre o espaço entre duas células e selecionar **Adicionar código** ou **adicionar texto** .
 
     ![adicionar células entre o espaço](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -71,7 +71,7 @@ Pode definir a linguagem primária para novas células adicionadas da lista de d
 
 Pode utilizar várias línguas num só caderno especificando o comando mágico da linguagem correto no início de uma célula. A tabela que se segue lista os comandos mágicos para mudar as línguas celulares.
 
-|Comando mágico |Idioma | Descrição |  
+|Comando mágico |Linguagem | Descrição |  
 |---|------|-----|
 |%%pyspark| Python | Execute uma consulta **python** contra o contexto de faísca.  |
 |%%faísca| Scala | Execute uma consulta **scala** contra o Contexto de Faíscas.  |  
@@ -114,7 +114,7 @@ Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco pa
 
 As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a tabela abaixo para ver o que é suportado.
 
-|Linguagens| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
+|Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
@@ -142,7 +142,7 @@ Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under
 
 ### <a name="delete-a-cell"></a>Apagar uma célula
 
-Para eliminar uma célula, selecione as elipses (...) para aceder ao menu de ações celulares adicionais na extrema direita e, em seguida, **selecione Delete cell**. 
+Para eliminar uma célula, selecione as elipses (...) para aceder ao menu de ações celulares adicionais na extrema direita e, em seguida, **selecione Delete cell** . 
 
 Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **D,D** para apagar a célula atual.
   
@@ -167,12 +167,12 @@ Pode executar as células de código no seu caderno individualmente ou todas de 
 
 Há várias maneiras de executar o código numa cela.
 
-1. Passe pela célula que pretende executar e selecione o botão **'Célula de Execução'** ou prima **Ctrl+Enter**.
+1. Passe pela célula que pretende executar e selecione o botão **'Célula de Execução'** ou prima **Ctrl+Enter** .
 
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...**). Em seguida, selecione **Executar a célula**.
+2. Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...** ). Em seguida, selecione **Executar a célula** .
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -186,7 +186,7 @@ Selecione o botão **Executar Todas para** executar todas as células no caderno
 
 ### <a name="run-all-cells-above-or-below"></a>Executar todas as células acima ou abaixo
 
-Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...**). Em seguida, selecione **Executar as células acima** para executar todas as células acima da corrente em sequência. Selecione **Executar as células abaixo** para executar todas as células abaixo da corrente em sequência.
+Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...** ). Em seguida, selecione **Executar as células acima** para executar todas as células acima da corrente em sequência. Selecione **Executar as células abaixo** para executar todas as células abaixo da corrente em sequência.
 
    ![células de execução acima ou abaixo](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -211,7 +211,7 @@ O número de tarefas por cada trabalho ou etapa ajuda-o a identificar o nível p
 
 ### <a name="spark-session-config"></a>Config da sessão de faísca
 
-Pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à atual sessão de Faísca na **sessão de Configuração**. Reiniciar a sessão Spark destina-se a alterações de configuração a produzir efeito. Todas as variáveis de cadernos em cache estão limpas.
+Pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à atual sessão de Faísca na **sessão de Configuração** . Reiniciar a sessão Spark destina-se a alterações de configuração a produzir efeito. Todas as variáveis de cadernos em cache estão limpas.
 
 [![gestão de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -294,9 +294,9 @@ Pode utilizar <code>display(df, summary = True)</code> para verificar o resumo e
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderização DE HTML ou bibliotecas interativas
 
-Pode renderizar o código HTML , incluindo Javascript, CSS, D3 ou bibliotecas interativas, como **bokeh,** utilizando o **displayHTML()**.
+Pode renderizar o código HTML , incluindo Javascript, CSS, D3 ou bibliotecas interativas, como **bokeh,** utilizando o **displayHTML()** .
 
-A imagem a seguir é um exemplo de conspiração de glifos sobre um mapa usando **bokeh**.
+A imagem a seguir é um exemplo de conspiração de glifos sobre um mapa usando **bokeh** .
 
    ![bokeh-exemplo](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
@@ -357,7 +357,7 @@ Magias de linha disponíveis: [%lsmagic,](https://ipython.readthedocs.io/en/stab
 Magias celulares disponíveis: [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture,](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture) [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark,](#use-multiple-languages) [%%spark,](#use-multiple-languages) [%%csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>Caderno orquestrado
+## <a name="integrate-a-notebook"></a>Integrar um caderno
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Adicione um caderno a um oleoduto
 

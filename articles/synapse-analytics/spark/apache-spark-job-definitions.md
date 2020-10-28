@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260279"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738183"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
@@ -43,11 +43,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para PySpark
 
 1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) para descarregar **ficheiros de amostras para python.zip**, em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.py** e **shakespeare.txt.** 
+2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) para descarregar **ficheiros de amostras para python.zip** , em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.py** e **shakespeare.txt.** 
 
      ![ficheiros de amostra](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Selecione **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e faça o upload **wordcount.py**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2. 
+3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** , e faça o upload **wordcount.py** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2. 
 
      ![carregar arquivo python](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -85,15 +85,15 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
 
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Pode ir aos [ficheiros Sample para criar definições de emprego apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) para descarregar **ficheiros de amostras para scala.zip**, em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.jar** e **shakespeare.txt.** 
+ 2. Pode ir aos [ficheiros Sample para criar definições de emprego apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) para descarregar **ficheiros de amostras para scala.zip** , em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.jar** e **shakespeare.txt.** 
  
      ![amostra ficheiros scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Selecione **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e carreque **wordcount.jar**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
+ 3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** , e carreque **wordcount.jar** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
  
      ![preparar estrutura scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
+ 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark** .)
 
  5. Selecione **Spark (Scala)** da lista de drop down da linguagem na janela principal de definição de emprego Apache Spark.
 
@@ -125,15 +125,15 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
 Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Spark (C#/F#).
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) para descarregar **ficheiros de amostras para dotnet.zip**, em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.zip** e **shakespeare.txt.** 
+ 2. Pode ir aos [ficheiros Sample para criar definições de emprego do Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) para descarregar **ficheiros de amostras para dotnet.zip** , em seguida, desapertar o pacote comprimido e extrair os ficheiros **wordcount.zip** e **shakespeare.txt.** 
 
      ![amostra dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Selecione **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e faça o upload **wordcount.zip**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
+ 3. Selecione **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** , e faça o upload **wordcount.zip** e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
  
      ![preparar estrutura de dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
+ 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark** .)
 
  5. Selecione **.NET Spark(C#/F#)** da lista de drop down da linguagem na janela principal da Definição de Emprego de Faísca Apache.
 
@@ -177,7 +177,7 @@ Depois de criar uma definição de emprego Apache Spark, você pode submetê-lo 
 
 ### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Cenário 2: Veja o trabalho de Apache Spark a correr o progresso
 
- 1. Selecione **Monitor**e, em seguida, selecione a opção **de aplicações Apache Spark.** Pode encontrar o pedido de Apache Spark submetido.
+ 1. Selecione **Monitor** e, em seguida, selecione a opção **de aplicações Apache Spark.** Pode encontrar o pedido de Apache Spark submetido.
 
      ![Ver aplicação Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
@@ -197,7 +197,7 @@ Nesta secção, adicione uma definição de trabalho apache spark em pipeline.
 
  1. Abra uma definição de emprego apache spark existente.
 
- 2. Selecione o ícone no canto superior direito da definição de trabalho Apache Spark, escolha **O Pipeline Existente**ou Novo **pipeline**. Pode consultar a página pipeline para mais informações.
+ 2. Selecione o ícone no canto superior direito da definição de trabalho Apache Spark, escolha **O Pipeline Existente** ou Novo **pipeline** . Pode consultar a página pipeline para mais informações.
 
      ![adicionar ao pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 

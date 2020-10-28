@@ -3,13 +3,13 @@ title: Construa imagem com Buildpack Nativo nuvem
 description: Utilize o comando de construção de az acr para construir uma imagem de contentor a partir de uma aplicação e empurre para o Registo do Contentor de Azure, sem usar um Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js
-ms.openlocfilehash: cad7d5c066dd8c8a7468833cb67e6085f067417a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262115"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736637"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Construa e empurre uma imagem a partir de uma aplicação usando um Cloud Native Buildpack
 
@@ -85,7 +85,7 @@ Depois de a imagem ser construída com sucesso, pode executá-la com o Docker, s
 az acr login --name myregistry
 ```
 
-Executar a imagem, substituindo a sua etiqueta de imagem por *runid*:
+Executar a imagem, substituindo a sua etiqueta de imagem por *runid* :
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

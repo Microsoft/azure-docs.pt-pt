@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81728821"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735937"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia de desenvolvimento do Azure IoT Hub
 
@@ -52,7 +52,7 @@ Este guia de desenvolvimento do IoT Hub inclui os seguintes artigos:
 
 * [O upload de ficheiros de um dispositivo](iot-hub-devguide-file-upload.md) descreve como pode fazer upload de ficheiros a partir de um dispositivo. O artigo também inclui informações sobre tópicos como as notificações que o processo de upload pode enviar.
 
-* [Gerir identidades de dispositivos no IoT Hub](iot-hub-devguide-identity-registry.md)descreve que informação cada centro de registo de identidade de IoT armazena. O artigo também descreve como pode aceder e modificá-lo.
+* [Gerir identidades de dispositivos no IoT Hub](iot-hub-devguide-identity-registry.md) descreve que informação cada centro de registo de identidade de IoT armazena. O artigo também descreve como pode aceder e modificá-lo.
 
 * [O acesso ao IoT Hub](iot-hub-devguide-security.md) descreve o modelo de segurança utilizado para garantir o acesso à funcionalidade IoT Hub tanto para dispositivos como para componentes em nuvem. O artigo inclui informações sobre a utilização de fichas e certificados X.509, bem como detalhes das permissões que pode conceder.
 

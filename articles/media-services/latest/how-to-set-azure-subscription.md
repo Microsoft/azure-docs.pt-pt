@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: cli,portal
-ms.openlocfilehash: 8924b77cddc9efc4d2b1b8451df38de77b37c09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli,portal, devx-track-azurecli
+ms.openlocfilehash: 07088ebfa5fde4c3c790bd554c1eba8d6844b7d1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267365"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736062"
 ---
 # <a name="find-your-azure-subscription"></a>Encontrar a sua subscrição do Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "89267365"
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Sob a rubrica serviços Azure, selecione Subscrições. (Se não houver subscrições listadas, poderá ter de trocar os inquilinos da AD Azure.) Os seus IDs de subscrição estão listados na segunda coluna.
 1. Copie o ID de assinatura e cole-o num documento de texto à sua escolha para utilização posterior.
 
@@ -45,7 +45,7 @@ ms.locfileid: "89267365"
 
 [!INCLUDE [List your Azure subscriptions with CLI](./includes/task-list-set-subscription-cli.md)]
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Ver também
 
 * [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)
 

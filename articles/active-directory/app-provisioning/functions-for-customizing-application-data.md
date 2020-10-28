@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperfq2
-ms.openlocfilehash: fc480ab025a0e0de7cccde8818ddbd85ce6c8529
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4c37923b0955652a0627808b19762095c18bdedc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424611"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737669"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para expressões de escrita para mapeamentos de atributos em Azure AD
 
@@ -26,8 +26,8 @@ Ao configurar o fornecimento de uma aplicação SaaS, um dos tipos de mapeamento
 
 A sintaxe para expressões para mapeamentos de atributos faz lembrar as funções De Bases Visuais para Aplicações (VBA).
 
-* Toda a expressão deve ser definida em termos de funções, que consistem num nome seguido de argumentos em parênteses: * `<<argument 1>>` FunName, `<<argument N>>` *
-* Podem nidificar funções dentro umas das outras. Por exemplo:  *FunctionOne (FunctionTwo) `<<argument1>>` *
+* Toda a expressão deve ser definida em termos de funções, que consistem num nome seguido de argumentos em parênteses: *`<<argument 1>>` FunName, `<<argument N>>`*
+* Podem nidificar funções dentro umas das outras. Por exemplo:  *FunctionOne (FunctionTwo) `<<argument1>>`*
 * Pode passar três tipos diferentes de argumentos em funções:
   
   1. Atributos, que devem ser fechados em suportes quadrados. Por exemplo: [atributoName]
@@ -49,7 +49,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 
 **Parâmetros:**
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Normalmente o nome do atributo do objeto de origem. |
 | **sufixo** |Obrigatório |String |A corda que quer anexar ao fim do valor de origem. |
@@ -67,7 +67,7 @@ Por outras palavras, devolve 0 em todos os casos, exceto quando os pedaços corr
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor1** |Obrigatório |num |Valor numérico que deve ser e'ed com valor2|
 | **valor2** |Obrigatório |num |Valor numérico que deve ser e'ed com valor1|
@@ -83,11 +83,11 @@ Por outras palavras, devolve 0 em todos os casos, exceto quando os pedaços corr
 `CBool(Expression)`
 
 **Descrição:**  
- `CBool` retorna um boolean com base na expressão avaliada. Se a expressão avaliar a um valor não-zero, então `CBool` retorna *True*, caso retorne *Falso*.
+ `CBool` retorna um boolean com base na expressão avaliada. Se a expressão avaliar a um valor não-zero, então `CBool` retorna *True* , caso retorne *Falso* .
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obrigatório | expression | Qualquer expressão válida |
 
@@ -103,7 +103,7 @@ Devoluções Verdadeiras se ambos os atributos tiverem o mesmo valor.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte1 ... fonteN** | Obrigatório | String |Obrigatório, número variável de vezes. Normalmente o nome do atributo do objeto de origem. |
 | **padrãoValue** | Opcional | String | Valor predefinido a ser utilizado quando todos os valores de origem são NULOS. Pode ser corda vazia ("").
@@ -116,7 +116,7 @@ Devoluções Verdadeiras se ambos os atributos tiverem o mesmo valor.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Corda a converter para base 64|
 
@@ -133,7 +133,7 @@ Devoluções "SABlAGwAbABvACAAdwBvAHIAbABKACEA"
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Corda a converter para UTF8 Hex|
 
@@ -150,7 +150,7 @@ Devoluções 48656C6C6F20776F726C6421
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **atributo** |Obrigatório |atributo |Atributo multi-valor que terá elementos contados|
 
@@ -162,7 +162,7 @@ Devoluções 48656C6C6F20776F726C6421
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | numérico, referência ou booleano | Pode ser um valor numérico, atributo de referência, ou Boolean. |
 
@@ -179,7 +179,7 @@ Devoluções "cn=Joe,dc=contoso,dc=com"
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | Date | Data AD a converter para o tipo DateTime |
 
@@ -198,7 +198,7 @@ Retorna uma DataTime representando 1 de janeiro de 2012 às 23:00.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Normalmente o nome do atributo do objeto de origem. |
 | **inputFormat** |Obrigatório |String |Formato esperado do valor da origem. Para formatos suportados, consulte [/dotnet/standard/base-tipos/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
@@ -218,7 +218,7 @@ Retorna uma DataTime representando 1 de janeiro de 2012 às 23:00.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **condição** |Obrigatório |Variável ou Expressão |Qualquer valor ou expressão que possa ser avaliado para verdadeiro ou falso. |
 | **valorIfTrue** |Obrigatório |Variável ou Corda | Se a condição avaliar a verdade, o valor devolvido. |
@@ -235,7 +235,7 @@ Retorna uma DataTime representando 1 de janeiro de 2012 às 23:00.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **valor1** |Obrigatório |String |Corda a ser revistada |
 | **valor2** |Obrigatório |String |Corda a ser encontrada |
@@ -259,7 +259,7 @@ Avalia a 7
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obrigatório |expression |Expressão a avaliar |
 
@@ -277,7 +277,7 @@ O inverso desta função chama-se IsPresent.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obrigatório |expression |Expressão a avaliar |
 
@@ -294,7 +294,7 @@ Devoluções Verdadeiras se o atributo não estiver presente ou se for uma corda
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obrigatório |expression |Expressão a avaliar |
 
@@ -309,7 +309,7 @@ Devoluções Verdadeiras se o atributo não estiver presente ou se for uma corda
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **expression** |Obrigatório |expression |Expressão a avaliar |
 
@@ -321,7 +321,7 @@ Devoluções Verdadeiras se o atributo não estiver presente ou se for uma corda
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **atributo** |Obrigatório |Atributo |Atributo multi-valor a ser pesquisado |
 | **índice** |Obrigatório |Número inteiro | Índice para um item na cadeia multi-valorizada|
@@ -339,7 +339,7 @@ Se um dos valores de origem for um atributo de vários valores, então todos os 
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **separador** |Obrigatório |String |A corda usada para separar os valores de origem quando são concatenadas numa única corda. Pode ser "" se não for necessário um separador. |
 | **fonte1 ... fonteN** |Obrigatório, número variável de vezes |String |Valores de cordas a serem unidos. |
@@ -355,7 +355,7 @@ Se a cadeia contiver menos caracteres do que o número especificado em numChars,
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **String** |Obrigatório |Atributo | A corda para devolver os personagens de |
 | **NumChars** |Obrigatório |Número inteiro | Um número que identifica o número de caracteres para voltar desde o início (à esquerda) da corda|
@@ -373,7 +373,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Normalmente o nome do atributo. |
 | **começar** |Obrigatório |número inteiro |Índice na cadeia **de origem** onde o sublpeso deve começar. O primeiro personagem da cadeia terá índice de 1, o segundo personagem terá índice 2, e assim por diante. |
@@ -387,7 +387,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String | Normalmente um primeiro nome ou atributo de apelido. |
 
@@ -395,11 +395,11 @@ Devolve "Joh".
 ### <a name="not"></a>Não
 **Função:** Não(fonte)
 
-**Descrição:** Inverte o valor booleano da **fonte**. Se o valor **da fonte** for verdadeiro, devolva Falso. Caso contrário, devolve True.
+**Descrição:** Inverte o valor booleano da **fonte** . Se o valor **da fonte** for verdadeiro, devolva Falso. Caso contrário, devolve True.
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |Corda Booleana |Os valores de **origem** esperados são "Verdadeiro" ou "Falso". |
 
@@ -411,7 +411,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **value** |Obrigatório | String | Cadeia de tempo de data no formato suportado. Para formatos suportados, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx . |
 
@@ -431,7 +431,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **atributo** |Obrigatório |Atributo multi-valor |Atributo multi-valor que terá duplicados removidos|
 
@@ -442,7 +442,7 @@ Devolve "Joh".
 ### <a name="replace"></a>Substituir
 **Função:** Substituir (fonte, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, modelo)
 
-**Descrição:** Substitui valores dentro de uma corda. Funciona de forma diferente dependendo dos parâmetros fornecidos:
+**Descrição:** Substitui valores dentro de uma cadeia de uma forma sensível ao caso. A função comporta-se de forma diferente consoante os parâmetros fornecidos:
 
 * Quando **o antigoValue** e **a substituiçãoValue** forem fornecidos:
   
@@ -463,12 +463,12 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Normalmente o nome do atributo do objeto **de origem.** |
 | **oldValue** |Opcional |String |Valor a ser substituído na **fonte** ou **no modelo.** |
-| **regexPattern** |Opcional |String |Padrão Regex para que o valor seja substituído na **fonte**. Ou, quando é utilizado **o Nome Deproperty substituto,** padrão para extrair valor do **substitutoPropertyName**. |
-| **regexGroupName** |Opcional |String |Nome do grupo dentro **da regexPattern**. Só quando for utilizado  **o Nome Deperperty** Substituto, extrairemos valor deste grupo como **substitutoValue** da **substituiçãoPropertyName**. |
+| **regexPattern** |Opcional |String |Padrão Regex para que o valor seja substituído na **fonte** . Ou, quando é utilizado **o Nome Deproperty substituto,** padrão para extrair valor do **substitutoPropertyName** . |
+| **regexGroupName** |Opcional |String |Nome do grupo dentro **da regexPattern** . Só quando for utilizado  **o Nome Deperperty** Substituto, extrairemos valor deste grupo como **substitutoValue** da **substituiçãoPropertyName** . |
 | **substituiçãoValue** |Opcional |String |Novo valor para substituir o antigo por. |
 | **substituiçãoAttributeName** |Opcional |String |Nome do atributo a utilizar para valor de substituição |
 | **modelo** |Opcional |String |Quando o valor **do modelo** for fornecido, procuraremos o **velhoValue** dentro do modelo e substituí-lo-emos pelo valor **de origem.** |
@@ -482,13 +482,13 @@ Devolve "Joh".
 
  - Esta é uma função de alto nível, não pode ser aninhada.
  - Esta função não pode ser aplicada a atributos que tenham precedência correspondente.   
- - Esta função destina-se apenas a ser utilizada para criações de entrada. Ao usá-lo com um atributo, desaje a propriedade **Apply Mapping** para Apenas durante a **criação de objetos**.
+ - Esta função destina-se apenas a ser utilizada para criações de entrada. Ao usá-lo com um atributo, desaje a propriedade **Apply Mapping** para Apenas durante a **criação de objetos** .
  - Atualmente, esta função é suportada apenas para "Workday to Ative Directory User Provisioning". Não pode ser utilizado com outros pedidos de provisionamento. 
 
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras únicas de geração de valor para avaliar. |
 
@@ -501,7 +501,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obrigatório |String |**[appRoleAssignments]** objeto. |
 
@@ -513,7 +513,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |valor **de origem** para atualizar. |
 | **delimitador** |Obrigatório |String |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
@@ -526,7 +526,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |valor **de origem** para atualizar. |
 
@@ -534,11 +534,11 @@ Devolve "Joh".
 ### <a name="switch"></a>Comutador
 **Função:** Switch (fonte, defaultValue, key1, valor1, key2, valor2, ...)
 
-**Descrição:** Quando o valor **de origem** corresponde a uma **chave,** devolve **valor** a essa **chave**. Se o valor **da fonte** não corresponder a nenhuma tecla, retorna o **padrãoValue**.  **Os** parâmetros de chave e **valor** devem sempre vir em pares. A função espera sempre um número par de parâmetros. A função não deve ser utilizada para atributos referenciais, como o gestor. 
+**Descrição:** Quando o valor **de origem** corresponde a uma **chave,** devolve **valor** a essa **chave** . Se o valor **da fonte** não corresponder a nenhuma tecla, retorna o **padrãoValue** .  **Os** parâmetros de chave e **valor** devem sempre vir em pares. A função espera sempre um número par de parâmetros. A função não deve ser utilizada para atributos referenciais, como o gestor. 
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |**Valor de origem** para atualizar. |
 | **padrãoValue** |Opcional |String |Valor predefinido a ser utilizado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
@@ -553,7 +553,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Normalmente o nome do atributo a partir do objeto de origem |
 | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -566,7 +566,7 @@ Devolve "Joh".
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **fonte** |Obrigatório |String |Normalmente o nome do atributo do objeto de origem. |
 | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
@@ -583,7 +583,7 @@ Se a corda contiver menos de palavras numeradas, ou a corda não conter quaisque
 
 **Parâmetros:** 
 
-| Name | Obrigatório/ Repetição | Tipo | Notas |
+| Nome | Obrigatório/ Repetição | Tipo | Notas |
 | --- | --- | --- | --- |
 | **String** |Obrigatório |Atributo multi-valor |String para devolver uma palavra de.|
 | **WordNumber** |Obrigatório | Número inteiro | Número que identifica qual número de palavra deve devolver|
@@ -610,7 +610,7 @@ Devoluções "tem".
 **Entrada/saída da amostra:** 
 
 * **ENTRADA** (correio): john.doe@contoso.com "
-* **OUTPUT**: "john.doe"
+* **OUTPUT** : "john.doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Sufixo constante do apêndice ao nome de utilizador
 Se estiver a utilizar uma Caixa de Areia Salesforce, poderá ter de anexar um sufixo adicional a todos os seus nomes de utilizador antes de os sincronizar.
@@ -620,8 +620,8 @@ Se estiver a utilizar uma Caixa de Areia Salesforce, poderá ter de anexar um su
 
 **Entrada/saída da amostra:** 
 
-* **ENTRADA**: (userPrincipalName): John.Doe@contoso.com " "
-* **OUTPUT**: " John.Doe@contoso.com.test "
+* **ENTRADA** : (userPrincipalName): John.Doe@contoso.com " "
+* **OUTPUT** : " John.Doe@contoso.com.test "
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Gerar pseudónimos de utilizador ao concatenar partes do primeiro e último nome
 É necessário gerar um pseudónimo de utilizador tomando as primeiras 3 letras do primeiro nome do utilizador e as primeiras 5 letras do apelido do utilizador.
@@ -633,7 +633,7 @@ Se estiver a utilizar uma Caixa de Areia Salesforce, poderá ter de anexar um su
 
 * **INPUT** (dado Nome): "João"
 * **ENTRADA** (sobrenome): "Doe"
-* **OUTPUT**: "JohDoe"
+* **OUTPUT** : "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Remova diacríticos de uma corda
 É necessário substituir caracteres que contenham marcas de sotaque por caracteres equivalentes que não contenham marcas de sotaque.
@@ -643,7 +643,7 @@ Se estiver a utilizar uma Caixa de Areia Salesforce, poderá ter de anexar um su
 **Entrada/saída da amostra:** 
 
 * **INPUT** (dado Natal): "Zoë"
-* **OUTPUT**: "Zoe"
+* **OUTPUT** : "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>Divida uma corda numa matriz multi-valorizada
 É necessário pegar numa lista de cordas delimitada por vírgulas e dividi-las numa matriz que pode ser ligada a um atributo de vários valores como o atributo Permissões de Permissões da Salesforce. Neste exemplo, uma lista de conjuntos de permissões foi povoada em extensãoAtribute5 em Azure AD.
@@ -653,7 +653,7 @@ Se estiver a utilizar uma Caixa de Areia Salesforce, poderá ter de anexar um su
 **Entrada/saída da amostra:** 
 
 * **ENTRADA** (extensãoAttribute5): "PermissionSetOne, PermisionSetTwo"
-* **OUTPUT**: ["PermissionSetOne", "PermissionSetTwo"]
+* **OUTPUT** : ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma corda em um determinado formato
 Pretende enviar datas para uma aplicação SaaS num determinado formato. Por exemplo, pretende-se que as datas de formato para o ServiceNow.
@@ -665,7 +665,7 @@ Pretende enviar datas para uma aplicação SaaS num determinado formato. Por exe
 **Entrada/saída da amostra:**
 
 * **ENTRADA** (extensãoAttribute1): "20150123105347.1Z"
-* **SAÍDA**: "2015-01-23"
+* **SAÍDA** : "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substitua um valor baseado no conjunto de opções predefinido
 
@@ -677,7 +677,7 @@ Pretende enviar datas para uma aplicação SaaS num determinado formato. Por exe
 **Entrada/saída da amostra:**
 
 * **ENTRADA** (estado): "QLD"
-* **OUTPUT**: "Australia/Brisbane"
+* **OUTPUT** : "Australia/Brisbane"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>Substitua os caracteres usando uma expressão regular
 É necessário encontrar caracteres que correspondam a um valor de expressão regular e removam-nos.
@@ -689,7 +689,7 @@ Substituir([mailNickname], "[a-zA-Z_]*", ","
 **Entrada/saída da amostra:**
 
 * **ENTRADA** (mailDámeo: "john_doe72"
-* **SAÍDA**: "72"
+* **SAÍDA** : "72"
 
 ### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor do utilizador geradoPrincipalName (UPN) para minúsculas
 No exemplo abaixo, o valor UPN é gerado através da concatenação dos campos de origem PreferredFirstName e PreferredLastName e a função ToLower opera na cadeia gerada para converter todos os caracteres em minúsculas. 
@@ -700,7 +700,7 @@ No exemplo abaixo, o valor UPN é gerado através da concatenação dos campos d
 
 * **INPUT** (Nome Preferencial De Primeira): "John"
 * **INPUT** (Nome Preferido do Natal): "Smith"
-* **OUTPUT**: " john.smith@contoso.com "
+* **OUTPUT** : " john.smith@contoso.com "
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar valor único para o atributo UserPrincipalName (UPN)
 Com base no nome do utilizador, nome do meio e apelido, é necessário gerar um valor para o atributo UPN e verificar a sua singularidade no diretório de AD alvo antes de atribuir o valor ao atributo UPN.
@@ -719,9 +719,9 @@ Com base no nome do utilizador, nome do meio e apelido, é necessário gerar um 
 
 * **INPUT** (Nome Preferencial De Primeira): "John"
 * **INPUT** (Nome Preferido do Natal): "Smith"
-* **OUTPUT**: " John.Smith@contoso.com " se o valor upn de já não existe no John.Smith@contoso.com diretório
-* **OUTPUT**: " J.Smith@contoso.com " se o valor UPN já existe no John.Smith@contoso.com diretório
-* **OUTPUT**: " Jo.Smith@contoso.com " se os dois valores acima da UPN já existem no diretório
+* **OUTPUT** : " John.Smith@contoso.com " se o valor upn de já não existe no John.Smith@contoso.com diretório
+* **OUTPUT** : " J.Smith@contoso.com " se o valor UPN já existe no John.Smith@contoso.com diretório
+* **OUTPUT** : " Jo.Smith@contoso.com " se os dois valores acima da UPN já existem no diretório
 
 ### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valor do correio de fluxo se não NULL, de outra forma fluxo utilizadorName
 Deseja fluir o atributo de correio se estiver presente. Caso contrário, deseja fluir o valor do nome do utilizadorPrincipal.
@@ -733,7 +733,7 @@ Deseja fluir o atributo de correio se estiver presente. Caso contrário, deseja 
 
 * **ENTRADA** (correio): NULO
 * **ENTRADA** (userPrincipalName): John.Doe@contoso.com " "
-* **OUTPUT**: " John.Doe@contoso.com "
+* **OUTPUT** : " John.Doe@contoso.com "
 
 ## <a name="related-articles"></a>Artigos Relacionados
 * [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](../app-provisioning/user-provisioning.md)

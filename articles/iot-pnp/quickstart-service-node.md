@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: b144d49daf9ab89a4553b93e3b36c9c2c8bef9ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521329"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735996"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Node.js)
 
@@ -69,7 +69,7 @@ Neste arranque rápido, utilize um dispositivo termóstato de amostra que está 
 
 Em [Configurar o seu ambiente para os quickstarts e tutoriais IoT Plug and Play](set-up-environment.md) criou duas variáveis ambientais para configurar a amostra para ligar ao seu hub e dispositivo IoT:
 
-* **IOTHUB_CONNECTION_STRING**: a cadeia de ligação do hub IoT que fez uma nota anterior.
+* **IOTHUB_CONNECTION_STRING** : a cadeia de ligação do hub IoT que fez uma nota anterior.
 * **IOTHUB_DEVICE_ID:** `"my-pnp-device"` .
 
 Neste arranque rápido, utilize uma solução IoT de amostra em Node.js para interagir com o dispositivo de amostra que acabou de configurar.

@@ -7,14 +7,14 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545332"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735977"
 ---
-# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Crie uma cache Azure para redis usando um modelo ARM
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Quickstart: Criar uma cache Azure para redis usando um modelo ARM
 
 Saiba como criar um modelo de Gestor de Recursos Azure (modelo ARM) que implementa uma Cache Azure para Redis. A cache pode ser usada com uma conta de armazenamento existente para manter os dados de diagnóstico. Também aprende a definir quais os recursos que são implantados e como definir parâmetros especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Atualmente, as definições de diagnóstico são partilhadas para todos os caches da mesma região para uma subscrição. A atualização de uma cache na região afeta todos os outros caches da região.
 
@@ -66,7 +66,7 @@ Para verificar os modelos mais recentes, consulte [os modelos Azure Quickstart](
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Abra a cache Redis que criou.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

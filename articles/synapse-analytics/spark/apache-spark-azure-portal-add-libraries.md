@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826725"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737973"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ Para instalar bibliotecas numa piscina spark (pré-visualização) durante a cri
    
 3. Faça o upload do ficheiro de configuração do ambiente utilizando o seletor de ficheiros na secção **Pacotes** da página. 
    
-![Adicione bibliotecas Python durante a criação de piscinas](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Adicionar bibliotecas Python")
+    ![Adicione bibliotecas Python durante a criação de piscinas](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Adicionar bibliotecas Python")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalar pacotes a partir do Espaço de Trabalho Synapse
@@ -68,11 +68,11 @@ Para atualizar ou adicionar bibliotecas adicionais a uma piscina Spark (pré-vis
    
 2.  Lance o seu espaço de trabalho Azure Synapse Analytics a partir do portal Azure.
 
-3.  **Selecione Gerir** a partir do painel de navegação principal e, em seguida, selecione **as piscinas Apache Spark**.
+3.  **Selecione Gerir** a partir do painel de navegação principal e, em seguida, selecione **as piscinas Apache Spark** .
    
 4. Selecione uma única piscina Spark e carreque o ficheiro de configuração do ambiente utilizando o seletor de ficheiros na secção  **Pacotes** da página.
 
-![Adicione bibliotecas Python em sinapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Adicionar bibliotecas Python")
+    ![Adicione bibliotecas Python em sinapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Instalar pacotes a partir do portal Azure
 Para instalar uma biblioteca numa piscina spark (pré-visualização) diretamente do portal Azure:
@@ -85,7 +85,7 @@ Para instalar uma biblioteca numa piscina spark (pré-visualização) diretament
 
  4. Faça o upload do ficheiro de configuração do ambiente utilizando o seletor de ficheiros.
 
-![Screenshot que realça o botão de ficheiro configurar ambiente upload.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adicionar bibliotecas Python")
+    ![Screenshot que realça o botão de ficheiro configurar ambiente upload.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adicionar bibliotecas Python")
 
 ### <a name="verify-installed-libraries"></a>Verificar bibliotecas instaladas
 
@@ -106,9 +106,9 @@ Para atualizar ou desinstalar uma biblioteca:
 
 3. Navegue na secção **Pacotes** e carregue um novo ficheiro de configuração ambiental
    
-4. Assim que guardar as alterações, terá de terminar as sessões ativas e deixar a piscina reiniciar. Opcionalmente, pode forçar as sessões ativas a terminar selecionando a caixa de verificação para **forçar novas definições**.
+4. Assim que guardar as alterações, terá de terminar as sessões ativas e deixar a piscina reiniciar. Opcionalmente, pode forçar as sessões ativas a terminar selecionando a caixa de verificação para **forçar novas definições** .
 
-![Adicionar bibliotecas Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adicionar bibliotecas Python")
+    ![Adicionar bibliotecas Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adicionar bibliotecas Python")
    
 
 > [!IMPORTANT]

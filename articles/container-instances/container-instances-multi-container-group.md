@@ -3,13 +3,13 @@ title: Tutorial - Implementar grupo multi-contentores - modelo
 description: Neste tutorial, você aprende a implantar um grupo de contentores com vários recipientes em Instâncias de Contentores Azure usando um modelo de Gestor de Recursos Azure com o CLI Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: cb085112c6e6458d897f52f19988e6301d4ae6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5238d16af31e30a4ae3a7d4cc01fbbd93373cfeb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259568"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737577"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementar um grupo multi-contentores usando um modelo de Gestor de Recursos
 

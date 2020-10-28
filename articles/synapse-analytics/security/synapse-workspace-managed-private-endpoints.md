@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e592159777f3b533bc447bb109e9b1308af7ecff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 091f73aa2383094973db35efb05c5f93034efa39
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249507"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738114"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Sinapse Gerido pontos finais privados (pré-visualização)
 
@@ -51,7 +51,8 @@ Quando um espaço de trabalho é criado, a Azure Synapse cria dois pontos finais
 
 Estes dois pontos finais privados geridos estão listados no Azure Synapse Studio. **Selecione Gerir** na navegação esquerda e, em seguida, selecione **Redes Virtuais Geridas** para ver então no Estúdio.
 
-O ponto final privado gerido que visa a piscina SQL *chama-se sinapse-ws-sql-- \<workspacename\> * e aquele que visa o SQL a pedido chama-se *sinapse-ws-sqlOnDemand-- \<workspacename\> *.
+O ponto final privado gerido que visa a piscina SQL *chama-se sinapse-ws-sql-- \<workspacename\>* e aquele que visa o SQL a pedido chama-se *sinapse-ws-sqlOnDemand-- \<workspacename\>* .
+
 ![Pontos finais privados geridos para piscina SQL e SQL a pedido](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Estes dois pontos finais privados geridos são automaticamente criados para si quando cria o seu espaço de trabalho Azure Synapse. Não és cobrado por estes dois pontos finais privados geridos.

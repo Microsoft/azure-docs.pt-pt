@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: bce02917acb05c06b8f506871c1f3b8500622d61
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596441"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735528"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
 

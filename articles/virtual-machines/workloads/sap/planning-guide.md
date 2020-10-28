@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63378369b9924f01c5d0217746a8a2c330c88631
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970627"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738132"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -339,7 +339,7 @@ Ao longo do documento, utilizamos os seguintes termos:
 * SAP Landscape: Este termo refere-se a todos os ativos SAP na paisagem de TI de um cliente. A paisagem SAP inclui todos os ambientes de produção e não produção.
 * Sistema SAP: A combinação de camada de DBMS e camada de aplicação de, por exemplo, um sistema de desenvolvimento ERP SAP, sistema de teste SAP BW, sistema de produção DE CRM SAP, etc. Nas implementações de Azure, não é suportado para dividir estas duas camadas entre as instalações e Azure. Significa que um sistema SAP é implantado no local ou é implantado em Azure. No entanto, pode implantar os diferentes sistemas de uma paisagem SAP em Azure ou no local. Por exemplo, pode implantar os sistemas de desenvolvimento e teste de CRM SAP em Azure, mas o sistema de produção de CRM SAP no local.
 * Premissas cruzadas ou híbridas: Descreve um cenário em que os VMs são implantados numa subscrição do Azure que tem conectividade site-to-site, multi-site ou ExpressRoute entre o(s) datacenter(s) no local e a Azure. Em documentação comum do Azure, este tipo de implantações também são descritos como premissas cruzadas ou cenários híbridos. A razão para a ligação é alargar os domínios no local, o Ative Directory/OpenLDAP e o DNS no local para a Azure. A paisagem no local é estendida aos ativos da Azure da subscrição. Com esta extensão, os VMs podem fazer parte do domínio no local. Os utilizadores de domínio do domínio no local podem aceder aos servidores e podem executar serviços nesses VMs (como os serviços DBMS). É possível a resolução de comunicação e nome entre os VM implantados no local e os VM implantados da Azure. Este é o caso mais comum e quase exclusivo que coloca os ativos da SAP no Azure. Para mais informações, consulte [este][vpn-gateway-cross-premises-options] artigo e [este.][vpn-gateway-site-to-site-create]
-* Extensão de monitorização azul, monitorização melhorada e extensão de Azure para SAP: Descreva um e o mesmo item. Descreve uma extensão VM que precisa de ser implementada por si para fornecer alguns dados básicos sobre a infraestrutura Azure ao Agente Anfitrião SAP. O SAP nas notas SAP pode referir-se a ela como extensão de monitorização ou monitorização melhorada. Em Azure, estamos a referir-nos a ele como **Extensão Azure para SAP**.
+* Extensão de monitorização azul, monitorização melhorada e extensão de Azure para SAP: Descreva um e o mesmo item. Descreve uma extensão VM que precisa de ser implementada por si para fornecer alguns dados básicos sobre a infraestrutura Azure ao Agente Anfitrião SAP. O SAP nas notas SAP pode referir-se a ela como extensão de monitorização ou monitorização melhorada. Em Azure, estamos a referir-nos a ele como **Extensão Azure para SAP** .
 
 > [!NOTE]
 > As instalações cruzadas ou as implantações híbridas de sistemas SAP onde as máquinas virtuais Azure que executam sistemas SAP são membros de um domínio no local são suportados para sistemas SAP de produção. As instalações cruzadas ou híbridas são suportadas para a implantação de peças ou para completar paisagens SAP em Azure. Mesmo executando a paisagem COMPLETA SAP em Azure requer que esses VMs sejam parte do domínio no local e ADS/OpenLDAP.
@@ -856,7 +856,7 @@ Se o VM estiver preparado o suficiente para ser genérico e eventualmente indepe
 ---
 > ![Logotipo do Windows.][Logo_Windows] Windows
 >
-> O último passo é inscrever-se num VM com uma conta de Administrador. Abra uma janela de comando do Windows como *administrador*. Vá a %windir%\windows\system32\sysprep e execute sysprep.exe.
+> O último passo é inscrever-se num VM com uma conta de Administrador. Abra uma janela de comando do Windows como *administrador* . Vá a %windir%\windows\system32\sysprep e execute sysprep.exe.
 > Aparecerá uma pequena janela. É importante verificar a opção **Generalização** (o padrão não é verificado) e alterar a Opção de Encerramento do seu padrão de 'Reboot' para 'shutdown'. Este procedimento pressupõe que o processo sysprep é executado no local no So convidado de um VM.
 > Se pretender realizar o procedimento com um VM já em execução em Azure, siga os passos descritos [neste artigo](../../windows/capture-image-resource.md).
 >
@@ -1186,7 +1186,7 @@ Durante a implementação de uma nova máquina virtual, pode decidir se pretende
 
 Em seguida, tem de decidir se pretende criar um disco novo e vazio ou se pretende selecionar um disco existente que foi carregado mais cedo e deve ser anexado ao VM agora.
 
-**IMPORTANTE**: **NÃO** pretende utilizar o Caching hospedeiro com armazenamento padrão Azure. Deve deixar a preferência de Cache anfitrião por defeito de NENHUM. Com o Azure Premium Storage, deverá ativar o Read Caching se a característica de E/S for lida maioritariamente como tráfego de E/S típico contra ficheiros de dados de base de dados. No caso de registo de transações de base de dados, não é recomendado qualquer caching.
+**IMPORTANTE** : **NÃO** pretende utilizar o Caching hospedeiro com armazenamento padrão Azure. Deve deixar a preferência de Cache anfitrião por defeito de NENHUM. Com o Azure Premium Storage, deverá ativar o Read Caching se a característica de E/S for lida maioritariamente como tráfego de E/S típico contra ficheiros de dados de base de dados. No caso de registo de transações de base de dados, não é recomendado qualquer caching.
 
 ---
 > ![Logotipo do Windows.][Logo_Windows] Windows
@@ -1269,13 +1269,13 @@ Pode ser necessário configurar a firewall das suas máquinas virtuais para perm
 > Por predefinição, o Windows Firewall dentro de um VM implantado Azure é ligado. Agora é necessário permitir a abertura da Porta SAP, caso contrário o SAP GUI não poderá ligar-se.
 > Para efetuar este procedimento:
 >
-> * Painel de controlo aberto\Sistema e Segurança\Firewall do Windows para **Definições Avançadas**.
-> * Agora clique à direita nas Regras de Entrada e escolha **Nova Regra**.
+> * Painel de controlo aberto\Sistema e Segurança\Firewall do Windows para **Definições Avançadas** .
+> * Agora clique à direita nas Regras de Entrada e escolha **Nova Regra** .
 > * No seguinte Feiticeiro optou por criar uma nova regra **do Porto.**
 > * No próximo passo do assistente, deixe a definição em TCP e escreva o número de porta que pretende abrir. Como a nossa identificação de caso SAP é 00, tomámos 3200. Se o seu caso tiver um número de instância diferente, a porta que definiu anteriormente com base no número de instância deve ser aberta.
 > * Na parte seguinte do assistente, tem de deixar o item Permitir a **ligação** verificada.
 > * No próximo passo do assistente é necessário definir se a regra se aplica à rede Domain, Private and Public. Ajuste-o, se necessário, às suas necessidades. No entanto, ligando-se ao SAP GUI de fora através da rede pública, é necessário que a regra seja aplicada à rede pública.
-> * No último passo do assistente, nomeie a regra e guarde premindo **Finish**.
+> * No último passo do assistente, nomeie a regra e guarde premindo **Finish** .
 >
 > A regra torna-se eficaz imediatamente.
 >
@@ -1427,7 +1427,7 @@ Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -
 
 ##### <a name="cli"></a>CLI
 
-O seguinte código de exemplo pode ser utilizado no Linux. Para o Windows, utilize o PowerShell como descrito acima ou adapte o exemplo para utilizar %rgName% em vez de $rgName e definir a variável ambiental utilizando o *conjunto*de comandos Windows .
+O seguinte código de exemplo pode ser utilizado no Linux. Para o Windows, utilize o PowerShell como descrito acima ou adapte o exemplo para utilizar %rgName% em vez de $rgName e definir a variável ambiental utilizando o *conjunto* de comandos Windows .
 
 * Criar um novo grupo de recursos para cada formação/demo paisagista
 
@@ -1776,8 +1776,8 @@ O termo **alta disponibilidade (HA)** está geralmente relacionado com um conjun
 
 Podemos separar a discussão sobre a alta disponibilidade do SAP em Azure em duas partes:
 
-* **Azure infraestrutura alta disponibilidade**, por exemplo HA de computação (VMs), rede, armazenamento etc. e seus benefícios para aumentar a disponibilidade de aplicações SAP.
-* **Aplicação SAP alta disponibilidade**, por exemplo HA de componentes de software SAP:
+* **Azure infraestrutura alta disponibilidade** , por exemplo HA de computação (VMs), rede, armazenamento etc. e seus benefícios para aumentar a disponibilidade de aplicações SAP.
+* **Aplicação SAP alta disponibilidade** , por exemplo HA de componentes de software SAP:
   * Servidores de aplicações SAP
   * Caso SAP ASCS/SCS
   * Servidor DB

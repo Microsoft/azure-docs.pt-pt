@@ -4,13 +4,13 @@ description: Saiba como tornar a conectividade da base de dados mais segura util
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: 19e1d71cd766a99a32e90e2f83dc717ba56b795f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
+ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984042"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737886"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -75,9 +75,9 @@ Para obter mais informações sobre a adição de um administrador ative directo
 ## <a name="set-up-visual-studio"></a>Configurar o Visual Studio
 
 ### <a name="windows-client"></a>Cliente Windows
-O Visual Studio for Windows está integrado com a autenticação Azure AD. Para permitir o desenvolvimento e depuração no Estúdio Visual, adicione o seu **File**utilizador AD AZure no Estúdio Visual selecionando  >  **Definições** de Conta de Ficheiros a partir do menu e clique em **Adicionar uma conta**.
+O Visual Studio for Windows está integrado com a autenticação Azure AD. Para permitir o desenvolvimento e depuração no Estúdio Visual, adicione o seu **File** utilizador AD AZure no Estúdio Visual selecionando  >  **Definições** de Conta de Ficheiros a partir do menu e clique em **Adicionar uma conta** .
 
-Para definir o utilizador Azure AD para a autenticação do serviço Azure, selecione **Opções**de Ferramentas  >  **Options** no menu e, em seguida, selecione **Azure Service Authentication**Account  >  **Selection**. Selecione o utilizador AD Azure que adicionou e clique em **OK**.
+Para definir o utilizador Azure AD para a autenticação do serviço Azure, selecione **Opções** de Ferramentas  >  **Options** no menu e, em seguida, selecione **Azure Service Authentication** Account  >  **Selection** . Selecione o utilizador AD Azure que adicionou e clique em **OK** .
 
 Está agora pronto para desenvolver e depurar a sua aplicação com a Base de Dados SQL como a parte de trás, utilizando a autenticação AD AZure.
 
@@ -107,7 +107,7 @@ No Visual Studio, abra a consola de gestor de pacotes e adicione o pacote NuGet 
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-Em *Web.config, *trabalhar a partir do topo do ficheiro e fazer as seguintes alterações:
+Em *Web.config,* trabalhar a partir do topo do ficheiro e fazer as seguintes alterações:
 
 - Em `<configSections>` , adicione a seguinte declaração da secção:
 
@@ -239,11 +239,11 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Agora, só falta publicar as alterações no Azure.
 
-**Se veio do [Tutorial: Construa uma aplicação ASP.NET em Azure com base de dados SQL,](app-service-web-tutorial-dotnet-sqldatabase.md)** publique as suas alterações no Visual Studio. No **Explorador de Soluções**, clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar**.
+**Se veio do [Tutorial: Construa uma aplicação ASP.NET em Azure com base de dados SQL,](app-service-web-tutorial-dotnet-sqldatabase.md)** publique as suas alterações no Visual Studio. No **Explorador de Soluções** , clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar** .
 
 ![Publicar a partir do Explorador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Na página de publicação, clique em **Publicar**. 
+Na página de publicação, clique em **Publicar** . 
 
 **Se veio do [Tutorial: Construa uma aplicação core e SQL Database ASP.NET no Azure App Service,](tutorial-dotnetcore-sqldb-app.md)** publique as suas alterações utilizando o Git, com os seguintes comandos:
 

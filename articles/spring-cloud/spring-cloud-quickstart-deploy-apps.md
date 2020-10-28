@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092958"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735589"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Quickstart: Construa e implemente aplicativos para Azure Spring Cloud
 
@@ -59,7 +59,7 @@ Se tiver usado a Azure Cloud Shell até este ponto, mude para um pedido de coman
    az spring-cloud app create --name planet-weather-provider --runtime-version NetCore_31
    ```
 
-   Para ativar o registo automático do serviço, deu à app o mesmo nome que o valor da `spring.application.name`appsettings.jsdo projeto * em* arquivo:
+   Para ativar o registo automático do serviço, deu à app o mesmo nome que o valor da `spring.application.name`appsettings.jsdo projeto *em* arquivo:
 
    ```json
    "spring": {
@@ -112,7 +112,7 @@ Se tiver usado a Azure Cloud Shell até este ponto, mude para um pedido de coman
    az spring-cloud app create --name solar-system-weather --runtime-version NetCore_31
    ```
 
-   `solar-system-weather` é o nome especificado no `SolarSystemWeather`appsettings.jsdo projeto * em* arquivo.
+   `solar-system-weather` é o nome especificado no `SolarSystemWeather`appsettings.jsdo projeto *em* arquivo.
 
    Este comando pode demorar vários minutos a ser executado.
 
@@ -222,7 +222,7 @@ Compilar o projeto leva cerca de 5 minutos. Uma vez concluído, deverá ter fich
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Crie microserviços Azure Spring Cloud utilizando os ficheiros JAR construídos no passo anterior. Irá criar três aplicações: **gateway,** **auth-service**e **serviço de conta.**
+1. Crie microserviços Azure Spring Cloud utilizando os ficheiros JAR construídos no passo anterior. Irá criar três aplicações: **gateway,** **auth-service** e **serviço de conta.**
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -306,23 +306,23 @@ Precisamos de uma forma de aceder à aplicação através de um navegador web. A
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Implementar aplicativo gateway para Azure Spring Cloud
 Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure com o Azure Toolkit para o IntelliJ e escolher a sua subscrição. Para obter informações de insusição, consulte [a Instalação e a inscrição.](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
-1. Clique com o botão direito no seu projeto no explorador de projetos IntelliJ e selecione **Azure**  ->  **Deploy to Azure Spring Cloud**.
+1. Clique com o botão direito no seu projeto no explorador de projetos IntelliJ e selecione **Azure**  ->  **Deploy to Azure Spring Cloud** .
 
     ![Desdobre-se para Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. No campo **Nome,** *apêndice :porta de entrada* para o **nome**existente .
-1. Na caixa de texto **do Artefacto,** selecione *com.piggymetrics:gateway:1.0-SNAPSHOT*.
+1. No campo **Nome,** *apêndice :porta de entrada* para o **nome** existente .
+1. Na caixa de texto **do Artefacto,** selecione *com.piggymetrics:gateway:1.0-SNAPSHOT* .
 1. Na caixa de texto **de assinatura,** verifique a sua subscrição.
 1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
-1. Definir **ponto de final público** para *ativar*.
-1. Na **App:** caixa de texto, selecione **Criar app...**.
-1. Insira *o gateway,* em seguida, clique **EM OK**.
+1. Definir **ponto de final público** para *ativar* .
+1. Na **App:** caixa de texto, selecione **Criar app...** .
+1. Insira *o gateway,* em seguida, clique **EM OK** .
 
     ![Implementar para Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. Na secção **de lançamento antes** do diálogo, clique duas vezes em Run *Maven Goal*.
+1. Na secção **de lançamento antes** do diálogo, clique duas vezes em Run *Maven Goal* .
 1. Na caixa de texto do **diretório de trabalho,** navegue para a pasta *piggymetrics/gateway.*
-1. Na caixa de texto da **linha de comando,** *introduza o pacote -DskipTests*. Clique em **OK**.
+1. Na caixa de texto da **linha de comando,** *introduza o pacote -DskipTests* . Clique em **OK** .
 1. Inicie a implementação clicando no botão **Executar** na parte inferior do diálogo da **aplicação Implementar Azure Spring Cloud.** O plug-in executará o comando `mvn package` na `gateway` aplicação e implantará o frasco gerado pelo `package` comando.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Implementar aplicações de serviço de auth e serviço de conta para Azure Spring Cloud
@@ -330,7 +330,7 @@ Pode repetir os passos acima para implementar `auth-service` e as `account-servi
 
 1. Modifique o **Nome** e **o Artefacto** para identificar a `auth-service` aplicação.
 1. Na **App:** caixa de texto, selecione **Criar app...** para criar `auth-service` aplicações.
-1. Verifique se a opção **Ponto Final Público** está definida para *Desativado*.
+1. Verifique se a opção **Ponto Final Público** está definida para *Desativado* .
 1. Na secção **de lançamento antes** do diálogo, mude o **diretório de trabalho** para a pasta *piggymetrics/serviço de auth.*
 1. Inicie a implementação clicando no botão **Executar** na parte inferior do diálogo da **aplicação Implementar Azure Spring Cloud.** 
 1. Repita estes procedimentos para configurar e implementar o `account-service` .

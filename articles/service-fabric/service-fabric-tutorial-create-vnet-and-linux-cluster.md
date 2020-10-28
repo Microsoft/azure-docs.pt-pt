@@ -3,13 +3,13 @@ title: Criar um cluster de tecido de serviço Linux em Azure
 description: Saiba como implementar um cluster do Service Fabric do Linux numa rede virtual do Azure existente, com a CLI do Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
-ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586925"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738961"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementar um cluster de tecido de serviço Linux numa rede virtual Azure
 
@@ -52,7 +52,7 @@ Este modelo implementa um cluster seguro de sete máquinas virtuais e três tipo
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
-No recurso **Microsoft.ServiceFabric/clusters**, é implementado um cluster Linux com as seguintes características:
+No recurso **Microsoft.ServiceFabric/clusters** , é implementado um cluster Linux com as seguintes características:
 
 * três tipos de nó
 * cinco nós no tipo de nó primário (configurável nos parâmetros do modelo), um nó em cada um dos outros tipos de nós
@@ -66,7 +66,7 @@ No recurso **Microsoft.ServiceFabric/clusters**, é implementado um cluster Linu
 
 ### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
-No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
+No recurso **Microsoft.Network/loadBalancers** , é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
 
 * ponto final de ligação de cliente: 19000
 * ponto final de gateway HTTP: 19080
@@ -75,7 +75,7 @@ No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de
 
 ### <a name="virtual-network-and-subnet"></a>Rede virtual e sub-rede
 
-Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
+Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks** :
 
 * espaço de endereços de rede virtual: 10.0.0.0/16
 * espaço de endereços de sub-rede do Service Fabric: 10.0.2.0/24

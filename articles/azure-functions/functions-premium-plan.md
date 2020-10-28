@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490752"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736797"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -47,14 +48,14 @@ No plano Premium, pode ter a sua aplicação sempre pronta num determinado núme
 > [!NOTE]
 > Todos os planos premium terão pelo menos uma instância ativa (faturada) em todos os momentos.
 
-Pode configurar o número de instâncias sempre prontas no portal Azure selecionando a sua **App de Função**, indo ao separador **Funcionalidades** da Plataforma e selecionando as opções **De Escala.** Na janela de edição de aplicações de função, as instâncias sempre prontas são específicas dessa aplicação.
+Pode configurar o número de instâncias sempre prontas no portal Azure selecionando a sua **App de Função** , indo ao separador **Funcionalidades** da Plataforma e selecionando as opções **De Escala.** Na janela de edição de aplicações de função, as instâncias sempre prontas são específicas dessa aplicação.
 
 ![Regulações de escala elástica](./media/functions-premium-plan/scale-out.png)
 
 Também pode configurar sempre instâncias prontas para uma aplicação com o Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Casos pré-aquecidos
@@ -68,7 +69,7 @@ Assim que o primeiro gatilho chega, as cinco instâncias sempre prontas tornam-s
 Pode modificar o número de casos pré-aquecidos para uma aplicação utilizando o Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Ocorrências máximas para uma aplicação
@@ -122,7 +123,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### <a name="available-instance-skus"></a>SKUs de instância disponível
 
-Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instância.  Será cobrado o número total de núcleos e memória a provisionados, por segundo que cada instância lhe é atribuída.  A sua aplicação pode escalar automaticamente para várias instâncias, se necessário.  
+Ao criar ou escalar o seu plano, pode escolher entre três tamanhos de instância.  Será cobrado o número total de núcleos e memória a provisionados, por segundo que cada instância lhe é atribuída.  A sua aplicação pode escalar automaticamente para várias instâncias, se necessário.
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
@@ -141,19 +142,19 @@ Abaixo estão os valores máximos de escala suportados atualmente para um único
 
 Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region| Windows | Linux |
+|Região| Windows | Linux |
 |--| -- | -- |
 |Austrália Central| 100 | Não Disponível |
 |Austrália Central 2| 100 | Não Disponível |
 |Leste da Austrália| 100 | 20 |
-|Austrália Sudeste | 100 | 20 |
+|Sudeste da Austrália | 100 | 20 |
 |Sul do Brasil| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |E.U.A. Central| 100 | 20 |
 |China Leste 2| 100 | 20 |
 |China Norte 2| 100 | 20 |
 |Ásia Leste| 100 | 20 |
-|E.U.A Leste | 100 | 20 |
+|E.U.A. Leste | 100 | 20 |
 |E.U.A. Leste 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Alemanha Centro-Oeste| 100 | Não Disponível |

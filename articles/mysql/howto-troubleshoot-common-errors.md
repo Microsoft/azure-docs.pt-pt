@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ac42407945196bd60c5ef466497ea6a86b5816c4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f64d4d2b9acbe0e6585ca546c915b82d2d1dbbc4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547304"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737194"
 ---
 # <a name="common-errors"></a>Erros comuns
 
