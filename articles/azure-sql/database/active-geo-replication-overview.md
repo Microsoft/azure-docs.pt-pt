@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426322"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672977"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ A geo-replicação ativa é uma funcionalidade de Base de Dados Azure SQL que pe
 A geo-replicação ativa é projetada como uma solução de continuidade de negócio que permite que a aplicação realize uma rápida recuperação de desastres de bases de dados individuais em caso de desastre regional ou de uma paragem em larga escala. Se a geo-replicação estiver ativada, a aplicação pode iniciar falhas numa base de dados secundária numa região de Azure diferente. Até quatro secundários são apoiados nas mesmas ou diferentes regiões, e os secundários também podem ser usados para consultas de acesso apenas de leitura. A falha deve ser iniciada manualmente pela aplicação ou pelo utilizador. Depois do failover, o novo primário tem um ponto final de ligação diferente.
 
 > [!NOTE]
-> A geo-replicação ativa replica alterações através do registo de transações de bases de dados de streaming. Não está relacionado com a [replicação transacional,](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication)que replica alterações executando comandos DML (INSERT, UPDATE, DELETE).
+> A geo-replicação ativa replica alterações através do registo de transações de bases de dados de streaming. Não está relacionado com a [replicação transacional,](/sql/relational-databases/replication/transactional/transactional-replication)que replica alterações executando comandos DML (INSERT, UPDATE, DELETE).
 
 O diagrama seguinte ilustra uma configuração típica de uma aplicação de nuvem geo-redundante utilizando a geo-replicação ativa.
 
@@ -46,15 +46,15 @@ Pode gerir a replicação e falha de uma base de dados individual ou um conjunto
 - [PowerShell: Base de dados única](scripts/setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Piscina elástica](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - [Transact-SQL: Base de dados única ou piscina elástica](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [REST API: Base de dados única](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [REST API: Base de dados única](/rest/api/sql/replicationlinks)
 
-A geo-replicação ativa aproveita a tecnologia de [grupo de disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do motor de base de dados para replicar assíncroneamente transações comprometidas na base de dados primária para uma base de dados secundária utilizando o isolamento instantâneo. Os grupos de falha automática fornecem a semântica do grupo em cima da geo-replicação ativa, mas é utilizado o mesmo mecanismo de replicação assíncrona. Embora, em qualquer momento, a base de dados secundária possa estar ligeiramente atrás da base de dados primária, os dados secundários são garantidos para nunca terem transações parciais. A redundância inter-região permite que as aplicações recuperem rapidamente de uma perda permanente de um centro de dados inteiro ou partes de um datacenter causado por desastres naturais, erros humanos catastróficos ou atos maliciosos. Os dados específicos da RPO podem ser encontrados na [Visão Geral da Continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+A geo-replicação ativa aproveita a tecnologia de [grupo de disponibilidade Always On](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do motor de base de dados para replicar assíncroneamente transações comprometidas na base de dados primária para uma base de dados secundária utilizando o isolamento instantâneo. Os grupos de falha automática fornecem a semântica do grupo em cima da geo-replicação ativa, mas é utilizado o mesmo mecanismo de replicação assíncrona. Embora, em qualquer momento, a base de dados secundária possa estar ligeiramente atrás da base de dados primária, os dados secundários são garantidos para nunca terem transações parciais. A redundância inter-região permite que as aplicações recuperem rapidamente de uma perda permanente de um centro de dados inteiro ou partes de um datacenter causado por desastres naturais, erros humanos catastróficos ou atos maliciosos. Os dados específicos da RPO podem ser encontrados na [Visão Geral da Continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 > [!NOTE]
 > Se houver uma falha de rede entre duas regiões, recaímos a cada 10 segundos para restabelecer as ligações.
 
 > [!IMPORTANT]
-> Para garantir que uma alteração crítica na base de dados primária é replicada para um secundário antes de falhar, pode forçar a sincronização para garantir a replicação de alterações críticas (por exemplo, atualizações de palavras-passe). A sincronização forçada tem impacto no desempenho porque bloqueia o fio de chamada até que todas as transações comprometidas sejam replicadas. Para mais detalhes, consulte [sp_wait_for_database_copy_sync.](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) Para monitorizar o desfasamento da replicação entre a base de dados primária e o geo-secundário, consulte [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+> Para garantir que uma alteração crítica na base de dados primária é replicada para um secundário antes de falhar, pode forçar a sincronização para garantir a replicação de alterações críticas (por exemplo, atualizações de palavras-passe). A sincronização forçada tem impacto no desempenho porque bloqueia o fio de chamada até que todas as transações comprometidas sejam replicadas. Para mais detalhes, consulte [sp_wait_for_database_copy_sync.](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) Para monitorizar o desfasamento da replicação entre a base de dados primária e o geo-secundário, consulte [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
 
 A seguinte figura mostra um exemplo de geo-replicação ativa configurada com uma primária na região norte-americana central e secundária na região centro-sul dos EUA.
 
@@ -64,8 +64,8 @@ Como as bases de dados secundárias são legíveis, podem ser usadas para descar
 
 Para além da recuperação de desastres, a geo-replicação ativa pode ser utilizada nos seguintes cenários:
 
-- **Migração da base de dados**: Pode utilizar a geo-replicação ativa para migrar uma base de dados de um servidor para outro online com tempo mínimo de inatividade.
-- **Atualizações da aplicação**: Pode criar uma cópia extra secundária como cópia traseira durante as atualizações da aplicação.
+- **Migração da base de dados** : Pode utilizar a geo-replicação ativa para migrar uma base de dados de um servidor para outro online com tempo mínimo de inatividade.
+- **Atualizações da aplicação** : Pode criar uma cópia extra secundária como cópia traseira durante as atualizações da aplicação.
 
 Para alcançar a continuidade real do negócio, adicionar redundância de base de dados entre datacenters é apenas uma parte da solução. A recuperação de uma aplicação (serviço) de ponta a ponta após uma falha catastrófica requer a recuperação de todos os componentes que constituem o serviço e quaisquer serviços dependentes. Exemplos destes componentes incluem o software do cliente (por exemplo, um navegador com um JavaScript personalizado), extremidades frontais web, armazenamento e DNS. É fundamental que todos os componentes sejam resistentes às mesmas falhas e estejam disponíveis dentro do objetivo de tempo de recuperação (RTO) da sua aplicação. Por isso, é necessário identificar todos os serviços dependentes e compreender as garantias e capacidades que proporcionam. Em seguida, deve tomar as medidas adequadas para garantir que o seu serviço funciona durante a falha dos serviços de que depende. Para obter mais informações sobre a conceção de soluções para a recuperação de [desastres, consulte a conceção de soluções cloud para recuperação de desastres utilizando a geo-replicação ativa.](designing-cloud-solutions-for-disaster-recovery.md)
 
@@ -244,7 +244,7 @@ Para medir o atraso no que diz respeito às alterações na base de dados primá
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestão programática de geo-replicação ativa
 
-Como discutido anteriormente, a geo-replicação ativa também pode ser gerida programáticamente usando a Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo os cmdlets [AZURE SQL Database REST](https://docs.microsoft.com/rest/api/sql/) E [Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Estas APIs requerem a utilização de grupos de recursos e apoiam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Como discutido anteriormente, a geo-replicação ativa também pode ser gerida programáticamente usando a Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. A geo-replicação ativa inclui um conjunto de APIs do Gestor de Recursos Azure para gestão, incluindo os cmdlets [AZURE SQL Database REST](/rest/api/sql/) E [Azure PowerShell](/powershell/azure/). Estas APIs requerem a utilização de grupos de recursos e apoiam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Gerir o failover de bases de dados individuais e agmbadas
 
@@ -253,9 +253,9 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 
 | Comando | Descrição |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Use o argumento ADD SECONDARY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilize FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar a falha |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilize remover SECUNDÁRIO NO SERVIDOR para terminar uma replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Utilize FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar a falha |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |Utilize remover SECUNDÁRIO NO SERVIDOR para terminar uma replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Retorna informações sobre todos os links de replicação existentes para cada base de dados num servidor. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém o último tempo de replicação, o último atraso de replicação, e outras informações sobre a ligação de replicação para uma determinada base de dados. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado de todas as operações de base de dados, incluindo o estado das ligações de replicação. |
@@ -266,15 +266,15 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 | Cmdlet | Descrição |
 | --- | --- |
-| [Base de Dados Get-AzSql](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Obtém uma ou mais bases de dados. |
-| [Novo AzSqlDatabaseSesecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
-| [Set-AzSqlDatabaseSesecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Muda uma base de dados secundária para primária, para iniciar a ativação pós-falha. |
-| [Remover-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Termina a replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
-| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtém as ligações de geo-replicação entre uma Base de Dados Azure SQL e um grupo de recursos ou servidor lógico SQL. |
+| [Base de Dados Get-AzSql](/powershell/module/az.sql/get-azsqldatabase) |Obtém uma ou mais bases de dados. |
+| [Novo AzSqlDatabaseSesecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |Cria uma base de dados secundária para uma base de dados existente e começa a replicação de dados. |
+| [Set-AzSqlDatabaseSesecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |Muda uma base de dados secundária para primária, para iniciar a ativação pós-falha. |
+| [Remover-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |Termina a replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Obtém as ligações de geo-replicação entre uma Base de Dados Azure SQL e um grupo de recursos ou servidor lógico SQL. |
 |  | |
 
 > [!IMPORTANT]
@@ -284,13 +284,13 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar base de dados (createMode=Restaurar)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura uma base de dados primária ou secundária. |
-| [Obtenha criar ou atualizar o estado da base de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Devolve o estado durante uma operação de criação. |
-| [Definir base de dados secundária como principal (Failover planeado)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Define qual base de dados secundária é primária falhando na base de dados primária atual. **Esta opção não é suportada para a SQL Managed Instance.**|
-| [Definir base de dados secundária como principal (Falha não planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qual base de dados secundária é primária falhando na base de dados primária atual. Esta operação pode resultar em perda de dados. **Esta opção não é suportada para a SQL Managed Instance.**|
-| [Obtenha ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Obtém uma ligação de replicação específica para uma determinada base de dados numa parceria de geo-replicação. Recupera a informação visível na vista do catálogo sys.geo_replication_links. **Esta opção não é suportada para a SQL Managed Instance.**|
-| [Links de replicação - Lista por base de dados](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para uma dada base de dados numa parceria de geo-replicação. Recupera a informação visível na vista do catálogo sys.geo_replication_links. |
-| [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
+| [Criar ou atualizar base de dados (createMode=Restaurar)](/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura uma base de dados primária ou secundária. |
+| [Obtenha criar ou atualizar o estado da base de dados](/rest/api/sql/databases/createorupdate) |Devolve o estado durante uma operação de criação. |
+| [Definir base de dados secundária como principal (Failover planeado)](/rest/api/sql/replicationlinks/failover) |Define qual base de dados secundária é primária falhando na base de dados primária atual. **Esta opção não é suportada para a SQL Managed Instance.**|
+| [Definir base de dados secundária como principal (Falha não planeada)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qual base de dados secundária é primária falhando na base de dados primária atual. Esta operação pode resultar em perda de dados. **Esta opção não é suportada para a SQL Managed Instance.**|
+| [Obtenha ligação de replicação](/rest/api/sql/replicationlinks/get) |Obtém uma ligação de replicação específica para uma determinada base de dados numa parceria de geo-replicação. Recupera a informação visível na vista do catálogo sys.geo_replication_links. **Esta opção não é suportada para a SQL Managed Instance.**|
+| [Links de replicação - Lista por base de dados](/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para uma dada base de dados numa parceria de geo-replicação. Recupera a informação visível na vista do catálogo sys.geo_replication_links. |
+| [Eliminar ligação de replicação](/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577514"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675100"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,9 +50,9 @@ Crie o seu grupo de failover e adicione-lhe a sua única base de dados utilizand
 
    ![Adicione novo grupo de failover](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. Na página **do Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar**.
+1. Na página **do Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar** .
 
-   - **Bases de dados dentro do grupo**: Escolha a base de dados que pretende adicionar ao seu grupo de failover. A adição da base de dados ao grupo de failover iniciará automaticamente o processo de geo-replicação.
+   - **Bases de dados dentro do grupo** : Escolha a base de dados que pretende adicionar ao seu grupo de failover. A adição da base de dados ao grupo de failover iniciará automaticamente o processo de geo-replicação.
 
    ![Adicione a Base de Dados SQL ao grupo de failover](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 
@@ -220,7 +220,7 @@ Crie o seu grupo de failover e adicione-lhe a sua piscina elástica utilizando o
 
    ![Adicione novo grupo de failover](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. Na página **do Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar**. Ou cria um novo servidor secundário ou seleciona um servidor secundário existente.
+1. Na página **do Grupo Failover,** introduza ou selecione os valores necessários e, em seguida, selecione **Criar** . Ou cria um novo servidor secundário ou seleciona um servidor secundário existente.
 
 1. Selecione **bases de dados dentro do grupo** e, em seguida, escolha o pool elástico que pretende adicionar ao grupo de failover. Se uma piscina elástica já não existir no servidor secundário, aparece um aviso que o leva a criar uma piscina elástica no servidor secundário. Selecione o aviso e, em seguida, selecione **OK** para criar a piscina elástica no servidor secundário.
 
@@ -371,11 +371,11 @@ Se não tiver configurado [o ExpressRoute,](../../expressroute/expressroute-howt
 Crie o portal de rede virtual primário utilizando o portal Azure.
 
 1. No [portal Azure,](https://portal.azure.com)vá ao seu grupo de recursos e selecione o recurso **de rede Virtual** para a sua primeira instância gerida.
-1. Selecione **sub-redes** em **Definições** e, em seguida, selecione para adicionar uma nova **sub-rede Gateway**. Deixe os valores predefinidos.
+1. Selecione **sub-redes** em **Definições** e, em seguida, selecione para adicionar uma nova **sub-rede Gateway** . Deixe os valores predefinidos.
 
    ![Adicionar porta de entrada para a primeira instância gerida](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
 
-1. Assim que o gateway da sub-rede for criado, **selecione Criar um recurso** a partir do painel de navegação esquerdo e, em seguida, digitar na caixa de `Virtual network gateway` pesquisa. Selecione o recurso **gateway de rede Virtual** publicado pela **Microsoft**.
+1. Assim que o gateway da sub-rede for criado, **selecione Criar um recurso** a partir do painel de navegação esquerdo e, em seguida, digitar na caixa de `Virtual network gateway` pesquisa. Selecione o recurso **gateway de rede Virtual** publicado pela **Microsoft** .
 
    ![Criar um novo portal de rede virtual](./media/auto-failover-group-configure/create-virtual-network-gateway.png)
 
@@ -386,14 +386,14 @@ Crie o portal de rede virtual primário utilizando o portal Azure.
     | **Campo** | Valor |
     | --- | --- |
     | **Subscrição** |  A subscrição onde está a sua primeira instância gerida. |
-    | **Nome** | O nome para o seu portal de rede virtual. |
+    | **Name** | O nome para o seu portal de rede virtual. |
     | **Região** | A região onde está o seu principal caso gerido. |
-    | **Tipo de gateway** | Selecione **VPN**. |
+    | **Tipo de gateway** | Selecione **VPN** . |
     | **Tipo VPN** | Selecione **route-based** |
     | **SKU**| Deixar o padrão de `VpnGw1` . |
     | **Localização**| O local onde está o seu caso secundário gerido e a rede virtual secundária.   |
     | **Rede virtual**| Selecione a rede virtual para o seu caso secundário gerido. |
-    | **Endereço IP público**| Selecione **Criar novo**. |
+    | **Endereço IP público**| Selecione **Criar novo** . |
     | **Nome do endereço IP público**| Insira um nome para o seu endereço IP. |
     | &nbsp; | &nbsp; |
 
@@ -448,14 +448,14 @@ O quadro a seguir mostra os valores necessários para a porta de entrada para a 
    | **Campo** | Valor |
    | --- | --- |
    | **Subscrição** |  A subscrição onde está a sua instância de gestão secundária. |
-   | **Nome** | O nome para o seu gateway de rede virtual, como `secondary-mi-gateway` . |
+   | **Name** | O nome para o seu gateway de rede virtual, como `secondary-mi-gateway` . |
    | **Região** | A região onde o seu caso secundário gerido é. |
-   | **Tipo de gateway** | Selecione **VPN**. |
+   | **Tipo de gateway** | Selecione **VPN** . |
    | **Tipo VPN** | Selecione **route-based** |
    | **SKU**| Deixar o padrão de `VpnGw1` . |
    | **Localização**| O local onde está o seu caso secundário gerido e a rede virtual secundária.   |
    | **Rede virtual**| Selecione a rede virtual que foi criada na secção 2, tal como `vnet-sql-mi-secondary` . |
-   | **Endereço IP público**| Selecione **Criar novo**. |
+   | **Endereço IP público**| Selecione **Criar novo** . |
    | **Nome do endereço IP público**| Insira um nome para o seu endereço IP, como `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
@@ -509,15 +509,15 @@ Criar ligações entre os dois gateways utilizando o portal Azure.
 1. **Selecione Criar um recurso** a partir do portal [Azure.](https://portal.azure.com)
 1. Digite `connection` a caixa de pesquisa e, em seguida, prima para introduzir para pesquisar, o que o leva ao recurso **Connection,** publicado pela Microsoft.
 1. Selecione **Criar** para criar a sua ligação.
-1. No **separador Básicos,** selecione os seguintes valores e, em seguida, selecione **OK**.
-    1. Selecione `VNet-to-VNet` para o tipo de **Ligação**.
+1. No **separador Básicos,** selecione os seguintes valores e, em seguida, selecione **OK** .
+    1. Selecione `VNet-to-VNet` para o tipo de **Ligação** .
     1. Selecione a subscrição na lista pendente.
     1. Selecione o grupo de recursos para a sua instância gerida no drop-down.
     1. Selecione a localização da sua primeira instância gerida a partir do drop-down.
-1. No separador **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK**:
+1. No separador **Definições,** selecione ou introduza os seguintes valores e, em seguida, selecione **OK** :
     1. Escolha o portal de rede primário para o **primeiro gateway de rede virtual,** como `Primary-Gateway` .  
     1. Escolha o portal de rede secundária para o **segundo gateway de rede virtual,** como `Secondary-Gateway` .
-    1. Selecione a caixa de verificação ao lado **de Estabelecer conectividade bidirecional**.
+    1. Selecione a caixa de verificação ao lado **de Estabelecer conectividade bidirecional** .
     1. Ou deixe o nome de ligação primária predefinido ou mude-o para um valor à sua escolha.
     1. Forneça uma **chave partilhada (PSK)** para a ligação, tais como `mi1m2psk` .
 
@@ -566,7 +566,7 @@ Crie o grupo de failover para as suas Ocorrências Geridas SQL utilizando o port
 
 1. Selecione **Azure SQL** no menu esquerdo do [portal Azure](https://portal.azure.com). Se **o Azure SQL** não estiver na lista, selecione **Todos os serviços,** escreva Azure SQL na caixa de pesquisa. (Opcional) Selecione a estrela ao lado do **Azure SQL** para o favorito e adicione-a como um item na navegação à esquerda.
 1. Selecione a instância gerida primária que pretende adicionar ao grupo de failover.  
-1. Em **Definições**, navegue para **grupos de failover de exemplo** e, em seguida, escolha adicionar **grupo** para abrir a página do **Grupo Desabrosado de Exemplo.**
+1. Em **Definições** , navegue para **grupos de failover de exemplo** e, em seguida, escolha adicionar **grupo** para abrir a página do **Grupo Desabrosado de Exemplo.**
 
    ![Adicione um grupo de failover](./media/auto-failover-group-configure/add-failover-group.png)
 
@@ -665,7 +665,7 @@ A utilização de um link privado permite-lhe associar um servidor lógico a um 
 
 Para utilizar uma ligação privada com o seu grupo de failover, faça o seguinte:
 
-1. Certifique-se de que os seus servidores primários e secundários estão numa [região emparelhada.](/azure/best-practices-availability-paired-regions) 
+1. Certifique-se de que os seus servidores primários e secundários estão numa [região emparelhada.](../../best-practices-availability-paired-regions.md) 
 1. Crie a rede virtual e a sub-rede em cada região para hospedar pontos finais privados para servidores primários e secundários de modo a que tenham espaços de endereço IP não sobrepostos. Por exemplo, o intervalo de endereços de rede virtual primária de 10.0.0.0/16 e o intervalo de endereços de rede virtual secundária de 10.0.0.1/16 sobrepõem-se. Para obter mais informações sobre as gamas de endereços de rede virtual, consulte o blog [que projeta redes virtuais Azure.](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/)
 1. Crie um [ponto final privado e uma zona de DNS privada Azure para o servidor primário](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
 1. Crie também um ponto final privado para o servidor secundário, mas desta vez opte por reutilizar a mesma zona privada de DNS que foi criada para o servidor primário. 

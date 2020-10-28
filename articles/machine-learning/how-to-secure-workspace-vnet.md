@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461005"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672862"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
 
@@ -74,23 +74,28 @@ Para utilizar uma conta de armazenamento Azure para o espaço de trabalho numa r
 
    [![O armazenamento que está ligado ao espaço de trabalho Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Na página da conta de serviço de armazenamento, selecione __Firewalls e redes virtuais__.
+1. Na página da conta de serviço de armazenamento, selecione __Firewalls e redes virtuais__ .
 
    ![A área "Firewalls e redes virtuais" na página de Armazenamento Azure no portal Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. Na página __firewalls e redes virtuais,__ faça as seguintes ações:
-    1. Selecione __Redes selecionadas__.
+    1. Selecione __Redes selecionadas__ .
     1. Nas __redes Virtuais,__ selecione a ligação __de rede virtual Add existente.__ Esta ação adiciona a rede virtual onde reside o seu cálculo (ver passo 1).
 
         > [!IMPORTANT]
         > A conta de armazenamento deve estar na mesma rede virtual e sub-rede que as instâncias de computação ou clusters utilizados para treino ou inferência.
 
-    1. Selecione os __serviços da Microsoft fidedignos para aceder a esta__ caixa de verificação de conta de armazenamento.
+    1. Selecione os __serviços da Microsoft fidedignos para aceder a esta__ caixa de verificação de conta de armazenamento. Isto não dá a todos os serviços Azure acesso à sua conta de armazenamento.
+    
+        * Os recursos de alguns serviços, **registados na sua subscrição,** podem aceder à conta de armazenamento **na mesma subscrição** para operações selecionadas. Por exemplo, escrever registos ou criar cópias de segurança.
+        * Os recursos de alguns serviços podem ser concedidos acesso explícito à sua conta de __armazenamento, atribuindo uma função Azure__ à sua identidade gerida atribuída pelo sistema.
+
+        Para obter mais informações, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > Ao trabalhar com o Azure Machine Learning SDK, o seu ambiente de desenvolvimento deve ser capaz de se conectar à Conta de Armazenamento Azure. Quando a conta de armazenamento está dentro de uma rede virtual, a firewall deve permitir o acesso a partir do endereço IP do ambiente de desenvolvimento.
     >
-    > Para permitir o acesso à conta de armazenamento, visite as __Firewalls e redes virtuais__ para a conta de armazenamento *a partir de um navegador web no cliente de desenvolvimento.* Em seguida, utilize a caixa de verificação __ip do seu cliente__ para adicionar o endereço IP do cliente à GAMA DE __ENDEREÇOS__. Também pode utilizar o campo __ADDRESS RANGE__ para introduzir manualmente o endereço IP do ambiente de desenvolvimento. Uma vez adicionado o endereço IP do cliente, pode aceder à conta de armazenamento utilizando o SDK.
+    > Para permitir o acesso à conta de armazenamento, visite as __Firewalls e redes virtuais__ para a conta de armazenamento *a partir de um navegador web no cliente de desenvolvimento.* Em seguida, utilize a caixa de verificação __ip do seu cliente__ para adicionar o endereço IP do cliente à GAMA DE __ENDEREÇOS__ . Também pode utilizar o campo __ADDRESS RANGE__ para introduzir manualmente o endereço IP do ambiente de desenvolvimento. Uma vez adicionado o endereço IP do cliente, pode aceder à conta de armazenamento utilizando o SDK.
 
    [![O painel "Firewalls e redes virtuais" no portal Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -170,10 +175,10 @@ Para utilizar as capacidades de experimentação de aprendizagem automática Azu
 
 1. Vá ao Cofre de Chaves que está associado ao espaço de trabalho.
 
-1. Na página __Key Vault,__ no painel esquerdo, selecione __Networking__.
+1. Na página __Key Vault,__ no painel esquerdo, selecione __Networking__ .
 
 1. No separador __Firewalls e redes virtuais,__ faça as seguintes ações:
-    1. Em __Permitir o acesso a partir de,__ selecione Private __endpoint e redes selecionadas__.
+    1. Em __Permitir o acesso a partir de,__ selecione Private __endpoint e redes selecionadas__ .
     1. Nas __redes Virtuais,__ selecione __Adicionar as redes virtuais existentes__ para adicionar a rede virtual onde reside o seu compute de experimentação.
     1. Em __Permitir que os serviços fidedignos da Microsoft contornem esta firewall?__ __Yes__
 

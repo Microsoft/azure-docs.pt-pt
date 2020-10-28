@@ -13,19 +13,19 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596119"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674999"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suportam ligações do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) utilizando *o Azure Ative Directory - Universal com* autenticação MFA. Este artigo discute as diferenças entre as várias opções de autenticação, bem como as limitações associadas à utilização da Autenticação Universal no Diretório Ativo Azure (Azure AD) para o Azure SQL.
+Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suportam ligações do [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando *o Azure Ative Directory - Universal com* autenticação MFA. Este artigo discute as diferenças entre as várias opções de autenticação, bem como as limitações associadas à utilização da Autenticação Universal no Diretório Ativo Azure (Azure AD) para o Azure SQL.
 
-**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 
 [!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
@@ -47,12 +47,12 @@ O método interativo que também suporta a autenticação multi-factor Azure (MF
 
 A MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Oferece uma autenticação forte com um leque de opções de verificação fáceis (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis), permitindo que os utilizadores escolham o método que preferem. O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
-Para obter uma descrição da autenticação multi-factor Azure, consulte [a autenticação multi-factor](../../active-directory/authentication/multi-factor-authentication.md).
+Para obter uma descrição da autenticação multi-factor Azure, consulte [a autenticação multi-factor](../../active-directory/authentication/concept-mfa-howitworks.md).
 Para etapas de configuração, consulte a [autenticação multi-factor Configure Azure SQL Database para o SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nome de domínio AD azul ou parâmetro de identificação do inquilino
 
-Começando pela [versão SSMS 17,](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)os utilizadores que são importados para o atual AD Azure de outros Azure Ative Directies como utilizadores convidados, podem fornecer o nome de domínio AD Azure ou ID do inquilino quando se conectam. Os utilizadores convidados incluem utilizadores convidados de outros ADs Azure, contas da Microsoft como outlook.com, hotmail.com, live.com ou outras contas como gmail.com. Esta informação permite que `Azure Active Directory - Universal with MFA` a autenticação identifique a autoridade de autenticação correta. Esta opção também é necessária para suportar contas microsoft (MSA), tais como contas outlook.com, hotmail.com, live.com ou não MSA. 
+Começando pela [versão SSMS 17,](/sql/ssms/download-sql-server-management-studio-ssms)os utilizadores que são importados para o atual AD Azure de outros Azure Ative Directies como utilizadores convidados, podem fornecer o nome de domínio AD Azure ou ID do inquilino quando se conectam. Os utilizadores convidados incluem utilizadores convidados de outros ADs Azure, contas da Microsoft como outlook.com, hotmail.com, live.com ou outras contas como gmail.com. Esta informação permite que `Azure Active Directory - Universal with MFA` a autenticação identifique a autoridade de autenticação correta. Esta opção também é necessária para suportar contas microsoft (MSA), tais como contas outlook.com, hotmail.com, live.com ou não MSA. 
 
 Todos os utilizadores convidados que pretendam ser autenticados através da Autenticação Universal devem introduzir o seu nome de domínio AZure AD ou ID do inquilino. Este parâmetro representa o nome de domínio AD azure atual ou iD do inquilino que o servidor lógico Azure SQL está associado. Por exemplo, se o servidor lógico SQL estiver associado ao domínio Azure AD, onde o `contosotest.onmicrosoft.com` utilizador é hospedado como utilizador importado do domínio `joe@contosodev.onmicrosoft.com` AD Azure, `contosodev.onmicrosoft.com` o nome de domínio necessário para autenticar este utilizador é `contosotest.onmicrosoft.com` . Quando o utilizador é um utilizador nativo do AD Azure associado ao servidor lógico SQL, e não é uma conta MSA, não é necessário nenhum nome de domínio ou ID do inquilino. Para introduzir o parâmetro (começando com a versão SSMS 17.2):
 
@@ -71,9 +71,9 @@ Se estiver a executar SSMS 18.x ou mais tarde, o nome de domínio AD ou iD do in
 > [!IMPORTANT]
 > O suporte para os utilizadores convidados ligarem-se à Base de Dados Azure SQL, à SqL Managed Instance e ao Azure Synapse sem a necessidade de fazerem parte de um grupo está atualmente em **pré-visualização pública.** Para obter mais informações, consulte [os utilizadores convidados create AD da Create Ezure e definido como um administrador AD Azure](authentication-aad-guest-users.md).
 
-Os utilizadores AZure AD que são suportados para cenários Azure AD B2B como utilizadores convidados (ver [What is Azure B2B collaboration)](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)podem ligar-se à SQL Database e a Azure Synapse apenas como parte de membros de um grupo criado no Azure AD associado, e mapeado manualmente usando a declaração [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) numa determinada base de dados. Por exemplo, se `steve@gmail.com` for convidado para a Azure AD `contosotest` (com o domínio Azure `contosotest.onmicrosoft.com` AD), um grupo AD Azure, tal como `usergroup` deve ser criado no AD Azure que contém o `steve@gmail.com` membro. Em seguida, este grupo deve ser criado para uma base de dados específica (por exemplo, `MyDatabase` ) por um administrador AD SQL Azure ou Azure AD DBO, executando a declaração Transact-SQL. `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 
+Os utilizadores AZure AD que são suportados para cenários Azure AD B2B como utilizadores convidados (ver [What is Azure B2B collaboration)](../../active-directory/external-identities/what-is-b2b.md)podem ligar-se à SQL Database e a Azure Synapse apenas como parte de membros de um grupo criado no Azure AD associado, e mapeado manualmente usando a declaração [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) numa determinada base de dados. Por exemplo, se `steve@gmail.com` for convidado para a Azure AD `contosotest` (com o domínio Azure `contosotest.onmicrosoft.com` AD), um grupo AD Azure, tal como `usergroup` deve ser criado no AD Azure que contém o `steve@gmail.com` membro. Em seguida, este grupo deve ser criado para uma base de dados específica (por exemplo, `MyDatabase` ) por um administrador AD SQL Azure ou Azure AD DBO, executando a declaração Transact-SQL. `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 
 
-Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com` pode iniciar sômus na `MyDatabase` utilização da opção de autenticação SSMS `Azure Active Directory – Universal with MFA` . Por predefinição, a `usergroup` permissão de ligação tem apenas. Qualquer acesso adicional a dados terá de ser [concedido](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) na base de dados por um utilizador com privilégio suficiente. 
+Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com` pode iniciar sômus na `MyDatabase` utilização da opção de autenticação SSMS `Azure Active Directory – Universal with MFA` . Por predefinição, a `usergroup` permissão de ligação tem apenas. Qualquer acesso adicional a dados terá de ser [concedido](/sql/t-sql/statements/grant-transact-sql) na base de dados por um utilizador com privilégio suficiente. 
 
 > [!NOTE]
 > Para SSMS 17.x, utilizando `steve@gmail.com` como utilizador convidado, deve verificar o nome de **domínio AD ou** a caixa de identificação do inquilino e adicionar o nome de domínio AD `contosotest.onmicrosoft.com` na caixa de diálogo Connection **Property.** O **nome de domínio AD ou** a opção de ID do inquilino só são suportados para o **Diretório Ativo Azure - Universal com** autenticação MFA. Caso contrário, a caixa de verificação está acinzentado.
@@ -96,8 +96,8 @@ Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com`
 - [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL ou Azure Synapse](authentication-aad-configure.md)
 - [Criar utilizadores convidados do Azure AD e definir como administrador do Azure AD](authentication-aad-guest-users.md) 
 - [Quadro de Data-Tier de aplicação do Microsoft SQL Server (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
-- [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
+- [SQLPackage.exe](/sql/tools/sqlpackage)  
 - [Importar um ficheiro BACPAC para uma nova base de dados](database-import.md)  
 - [Exportar uma base de dados para um ficheiro BACPAC](database-export.md)  
-- Interface C# [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- Ao utilizar **o Azure Ative Directory- Universal com** autenticação MFA, o rastreio ADAL está disponível a partir de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desligado por predefinição, pode ligar o rastreio ADAL utilizando o menu **Ferramentas**, **Opções,** em **Serviços Azure**, **Azure Cloud,** **Nível de Rastreio da Janela de Saída ADAL,** seguido de ativar a **saída** no menu **Ver.** Os vestígios estão disponíveis na janela de saída ao selecionar a **opção Azure Ative Directory**.  
+- Interface C# [IUniversalAuthProvider Interface](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
+- Ao utilizar **o Azure Ative Directory- Universal com** autenticação MFA, o rastreio ADAL está disponível a partir de [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms). Desligado por predefinição, pode ligar o rastreio ADAL utilizando o menu **Ferramentas** , **Opções,** em **Serviços Azure** , **Azure Cloud,** **Nível de Rastreio da Janela de Saída ADAL,** seguido de ativar a **saída** no menu **Ver.** Os vestígios estão disponíveis na janela de saída ao selecionar a **opção Azure Ative Directory** .

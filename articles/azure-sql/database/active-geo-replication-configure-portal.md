@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ddc79721355924f125acedd7420cab5f487c065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71c73fec4f559b34b097556243617636acd77480
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445037"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673274"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutorial: Configurar a geo-replicação ativa e o failover no portal Azure (Base de Dados Azure SQL)
 
@@ -35,7 +35,7 @@ Para configurar a geo-replicação ativa utilizando o portal Azure, precisa do s
 * Uma base de dados na Base de Dados Azure SQL: A base de dados primária que pretende replicar para uma região geográfica diferente.
 
 > [!Note]
-> Ao utilizar o portal Azure, só é possível criar uma base de dados secundária dentro da mesma subscrição que a principal. Se for necessária uma base de dados secundária para uma subscrição diferente, utilize [a API do Rest da Base de Dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou [a ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Ao utilizar o portal Azure, só é possível criar uma base de dados secundária dentro da mesma subscrição que a principal. Se for necessária uma base de dados secundária para uma subscrição diferente, utilize [a API do Rest da Base de Dados](/rest/api/sql/databases/createorupdate) ou [a ALTER DATABASE Transact-SQL API](/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Adicione uma base de dados secundária
 
@@ -50,7 +50,7 @@ Após a criação e semeada do secundário, os dados começam a replicar-se da b
 > Se a base de dados do parceiro já existir (por exemplo, como resultado do fim de uma relação de geo-replicação anterior) o comando falha.
 
 1. No [portal Azure,](https://portal.azure.com)navegue na base de dados que pretende configurar para a geo-replicação.
-2. Na página SQL Database, selecione **a geo-replicação**e, em seguida, selecione a região para criar a base de dados secundária. Pode selecionar qualquer região que não seja a região que acolhe a base de dados primária, mas recomendamos a [região emparelhada.](../../best-practices-availability-paired-regions.md)
+2. Na página SQL Database, selecione **a geo-replicação** e, em seguida, selecione a região para criar a base de dados secundária. Pode selecionar qualquer região que não seja a região que acolhe a base de dados primária, mas recomendamos a [região emparelhada.](../../best-practices-availability-paired-regions.md)
 
     ![Configurar georreplicação](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Selecione ou configuure o servidor e o nível de preços para a base de dados secundária.
@@ -70,7 +70,7 @@ Após a criação e semeada do secundário, os dados começam a replicar-se da b
 A base de dados secundária pode ser mudada para se tornar a principal.  
 
 1. No [portal Azure,](https://portal.azure.com)navegue pela base de dados primária na parceria de geo-replicação.
-2. Na lâmina SQL Database, selecione **Todas as definições**  >  **de geo-replicação**.
+2. Na lâmina SQL Database, selecione **Todas as definições**  >  **de geo-replicação** .
 3. Na lista **DE SECUNDÁRIOS,** selecione a base de dados que pretende tornar-se a nova primária e clique em **"Falha Forçada".**
 
     ![ativação pós-falha](./media/active-geo-replication-configure-portal/secondaries.png)
@@ -90,7 +90,7 @@ Esta operação termina permanentemente a replicação para a base de dados secu
 1. No [portal Azure,](https://portal.azure.com)navegue pela base de dados primária na parceria de geo-replicação.
 2. Na página de base de dados SQL, selecione **a geo-replicação.**
 3. Na lista **DE SECUNDÁRIOS,** selecione a base de dados que pretende remover da parceria de geo-replicação.
-4. Clique **em Stop Replication**.
+4. Clique **em Stop Replication** .
 
     ![Remover secundário](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Abre-se uma janela de confirmação. Clique **em Sim** para remover a base de dados da parceria de geo-replicação. (Coloque-o numa base de dados de leitura-escrita que não faça parte de qualquer replicação.)

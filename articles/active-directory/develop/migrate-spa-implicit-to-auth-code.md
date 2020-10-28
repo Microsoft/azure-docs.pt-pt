@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
-ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027092"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673592"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar uma aplicação de página única JavaScript de subvenção implícita para fluxo de código de auth
 
@@ -30,7 +30,7 @@ MSAL.js 2.x melhora em MSAL.js 1.x, suportando o fluxo de código de autorizaç�
 Para atualizar a sua aplicação para MSAL.js 2.x e o fluxo de código de auth, existem três passos primários:
 
 1. Mude o seu registo de [aplicações](#switch-redirect-uris-to-spa-platform) redirecionando URI(s) da plataforma **Web** para a plataforma **de aplicações de página única.**
-1. Atualize o seu [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x**.
+1. Atualize o seu [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x** .
 1. Desativar a [subvenção implícita](#disable-implicit-grant-settings) no registo da sua aplicação quando todas as aplicações que partilham o registo tiverem sido atualizadas para MSAL.js 2.x e o fluxo de código auth.
 
 As seguintes secções descrevem cada passo em detalhes adicionais.
@@ -46,7 +46,7 @@ Siga estes passos para registos de aplicações que estão atualmente configurad
 1. No azulejo da plataforma **Web** em **Redirecionar URIs,** selecione o banner de aviso indicando que deve migrar os uris.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
-1. Selecione *apenas* os URIs de redirecionamento cujas aplicações utilizarão MSAL.js 2.x e, em seguida, selecione **Configure**.
+1. Selecione *apenas* os URIs de redirecionamento cujas aplicações utilizarão MSAL.js 2.x e, em seguida, selecione **Configure** .
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Banner de aviso de fluxo implícito no azulejo da aplicação web no portal Azure":::
 

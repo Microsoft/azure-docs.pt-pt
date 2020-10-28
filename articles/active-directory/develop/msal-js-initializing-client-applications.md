@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027041"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674079"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialize as aplicações do cliente utilizando MSAL.js
 
@@ -36,8 +36,8 @@ Depois de registar a sua aplicação, vai precisar de alguns ou todos os seguint
 
 | Valor | Obrigatório | Descrição |
 |:----- | :------: | :---------- |
-| ID da Aplicação (cliente) | Necessário | Um GUID que identifica exclusivamente a sua aplicação dentro da plataforma de identidade da Microsoft. |
-| Autoridade | Opcional | O URL do fornecedor de identidade (o *caso)* e o *público de inscrição* para a sua aplicação. O caso e o público de inscrição, quando concatenated, compõem a *autoridade*. |
+| ID da Aplicação (cliente) | Obrigatório | Um GUID que identifica exclusivamente a sua aplicação dentro da plataforma de identidade da Microsoft. |
+| Autoridade | Opcional | O URL do fornecedor de identidade (o *caso)* e o *público de inscrição* para a sua aplicação. O caso e o público de inscrição, quando concatenated, compõem a *autoridade* . |
 | ID do Diretório (inquilino) | Opcional | Especifique isto se estiver a construir uma aplicação de linha de negócio exclusivamente para a sua organização, muitas vezes referida como uma *aplicação de um único inquilino.* |
 | URI de Redirecionamento | Opcional | Se estiver a construir uma aplicação web, `redirectUri` especifica onde o fornecedor de identidade (a plataforma de identidade da Microsoft) deve devolver os fichas de segurança que emitiu. |
 

@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: ruby
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 57e364d8cbd3cb9e1e2996786ee6414b7d7e04a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0434a99d28b4f71594e0ca9ce312087dee5b0ee2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86504960"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672534"
 ---
 # <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Use o Ruby para consultar uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,17 +46,17 @@ Para completar este arranque rápido, precisa dos seguintes pré-requisitos:
   
 - Ruby e software relacionado para o seu sistema operativo:
   
-  - **macOS**: Instale homebrew, rbenv e ruby-build, Ruby, FreeTDS e TinyTDS. Consulte os passos 1.2, 1.3, 1.4, 1.5 e 2.1 em [apps Create Ruby utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+  - **macOS** : Instale homebrew, rbenv e ruby-build, Ruby, FreeTDS e TinyTDS. Consulte os passos 1.2, 1.3, 1.4, 1.5 e 2.1 em [apps Create Ruby utilizando o SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
   
-  - **Ubuntu**: Instale pré-requisitos para Ruby, rbenv e ruby-build, Ruby, FreeTDS e TinyTDS. Consulte os passos 1.2, 1.3, 1.4, 1.5 e 2.1 em [aplicações Create Ruby utilizando o SQL Server em Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
+  - **Ubuntu** : Instale pré-requisitos para Ruby, rbenv e ruby-build, Ruby, FreeTDS e TinyTDS. Consulte os passos 1.2, 1.3, 1.4, 1.5 e 2.1 em [aplicações Create Ruby utilizando o SQL Server em Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
   
-  - **Janelas**: Instalar Ruby, Ruby Devkit e TinyTDS. Consulte [o ambiente de desenvolvimento configurar para o desenvolvimento da Ruby.](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development)
+  - **Janelas** : Instalar Ruby, Ruby Devkit e TinyTDS. Consulte [o ambiente de desenvolvimento configurar para o desenvolvimento da Ruby.](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development)
 
 ## <a name="get-server-connection-information"></a>Obtenha informações de ligação do servidor
 
 Obtenha a informação de ligação necessária para ligar a uma base de dados na Base de Dados Azure SQL. Você precisará do nome do servidor totalmente qualificado ou nome de anfitrião, nome da base de dados e informações de login para os próximos procedimentos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Navegue para as **bases de dados SQL** ou página **sql Managed Instances.**
 
@@ -67,7 +67,7 @@ Obtenha a informação de ligação necessária para ligar a uma base de dados n
 
 ## <a name="create-code-to-query-your-database-in-azure-sql-database"></a>Crie código para consultar a sua base de dados na Base de Dados Azure SQL
 
-1. Num editor de texto ou código, crie um novo ficheiro chamado *sqltest.rb*.
+1. Num editor de texto ou código, crie um novo ficheiro chamado *sqltest.rb* .
 
 1. Adicione o seguinte código. Substitua os valores da sua base de dados na Base de Dados Azure SQL `<server>` `<database>` por, `<username>` e `<password>` .
 
@@ -108,4 +108,4 @@ Obtenha a informação de ligação necessária para ligar a uma base de dados n
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
 - [Repositório do GitHub para TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues) (Comunicar problemas ou fazer perguntas sobre o TinyTDS)
-- [Controlador de rubi para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
+- [Controlador de rubi para SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/)

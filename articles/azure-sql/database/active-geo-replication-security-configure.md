@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 92a0c7fd3733b5e27c34c6fd0fe157bfb466a0fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444886"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674806"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configure e gere a segurança da Base de Dados Azure SQL para a geo-restauração ou falha
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Este artigo descreve os requisitos de autenticação para configurar e controlar
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperação de desastres com utilizadores contidos
 
-Ao contrário dos utilizadores tradicionais, que devem ser mapeados para logins na base de dados principal, um utilizador contido é gerido completamente pela própria base de dados. Isto tem dois benefícios. No cenário de recuperação de desastres, os utilizadores podem continuar a ligar-se à nova base de dados primária ou à base de dados recuperada utilizando o geo-restauro sem qualquer configuração adicional, porque a base de dados gere os utilizadores. Existem também potenciais benefícios de escalabilidade e desempenho a partir desta configuração a partir de uma perspetiva de login. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
+Ao contrário dos utilizadores tradicionais, que devem ser mapeados para logins na base de dados principal, um utilizador contido é gerido completamente pela própria base de dados. Isto tem dois benefícios. No cenário de recuperação de desastres, os utilizadores podem continuar a ligar-se à nova base de dados primária ou à base de dados recuperada utilizando o geo-restauro sem qualquer configuração adicional, porque a base de dados gere os utilizadores. Existem também potenciais benefícios de escalabilidade e desempenho a partir desta configuração a partir de uma perspetiva de login. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
 A principal compensação é que gerir o processo de recuperação de desastres em escala é mais desafiante. Quando tiver várias bases de dados que utilizam o mesmo login, manter as credenciais que utilizam utilizadores contidos em várias bases de dados pode anular os benefícios dos utilizadores contidos. Por exemplo, a política de rotação de palavras-passe requer que as alterações sejam feitas de forma consistente em várias bases de dados em vez de alterar a palavra-passe para o login uma vez na base de dados principal. Por esta razão, se tiver várias bases de dados que utilizem o mesmo nome de utilizador e palavra-passe, não é recomendável utilizar utilizadores contidos.
 
@@ -34,7 +34,7 @@ A principal compensação é que gerir o processo de recuperação de desastres 
 Se estiver a utilizar logins e utilizadores (em vez de utilizadores contidos), tem de tomar medidas adicionais para garantir que os mesmos logins existem na base de dados principal. As secções seguintes descrevem as etapas envolvidas e considerações adicionais.
 
   >[!NOTE]
-  > Também é possível utilizar logins do Azure Ative Directory (AAD) para gerir as suas bases de dados. Para mais informações, consulte [os logins e utilizadores do Azure SQL.](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)
+  > Também é possível utilizar logins do Azure Ative Directory (AAD) para gerir as suas bases de dados. Para mais informações, consulte [os logins e utilizadores do Azure SQL.](./logins-create-manage.md)
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configurar o acesso do utilizador a uma base de dados secundária ou recuperada
 
@@ -82,7 +82,7 @@ WHERE [type_desc] = 'SQL_USER'
 ```
 
 > [!NOTE]
-> Os **utilizadores de INFORMATION_SCHEMA** e **sys** têm *SIDs NULOS,* e o SID **convidado** é **0x00**. O **dbo** SID pode começar com *0x0106000000016480000000000048454*, se o criador da base de dados for o administrador do servidor em vez de um membro da **DbManager**.
+> Os **utilizadores de INFORMATION_SCHEMA** e **sys** têm *SIDs NULOS,* e o SID **convidado** é **0x00** . O **dbo** SID pode começar com *0x0106000000016480000000000048454* , se o criador da base de dados for o administrador do servidor em vez de um membro da **DbManager** .
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. Criar os logins no servidor alvo
 
@@ -106,7 +106,7 @@ SID = <desired login SID>
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a gestão do acesso à base de dados e dos logins, consulte [a segurança da Base de Dados SQL: Gerir o acesso à base de dados e a segurança de login.](logins-create-manage.md)
-* Para obter mais informações sobre utilizadores de bases de dados contidos, consulte [Utilizadores de bases de dados contidos - Tornando a sua base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+* Para obter mais informações sobre utilizadores de bases de dados contidos, consulte [Utilizadores de bases de dados contidos - Tornando a sua base de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 * Para saber sobre a geo-replicação ativa, consulte [a geo-replicação ativa.](active-geo-replication-overview.md)
 * Para conhecer os grupos de falhas automáticas, consulte [os grupos auto-failover](auto-failover-group-overview.md).
 * Para obter informações sobre a utilização de geo-restauro, consulte [geo-restauro](recovery-using-backups.md#geo-restore)

@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be5cb1c1e6ff428b3c4d4305c915e07d3880839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c29e1e3fd42702e0eb02531f995c550738839a9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258392"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673718"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no token
 
@@ -34,12 +34,12 @@ Estas funções de candidatura são definidas no [portal Azure](https://portal.a
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declare funções de aplicativo usando o portal Azure
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **de inscrição + Diretório** na barra de ferramentas do portal.
 1. Na lista **de Favoritos** ou **Todos os Diretórios,** escolha o inquilino ative directory onde deseja registar a sua candidatura.
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure** .
 1. No painel  **Azure Ative Directory,** selecione **registos de Aplicações** para ver uma lista de todas as suas aplicações.
-1. Selecione a aplicação em que pretende definir funções de aplicação. Em seguida, selecione **Manifesto**.
+1. Selecione a aplicação em que pretende definir funções de aplicação. Em seguida, selecione **Manifesto** .
 1. Edite o manifesto da aplicação localizando a `appRoles` definição e adicionando todas as suas Funções de Aplicação.
 
      > [!NOTE]
@@ -76,7 +76,7 @@ O exemplo a seguir mostra o `appRoles` que pode atribuir `users` .
 > [!NOTE]
 >O `displayName` pode conter espaços.
 
-Pode definir funções de aplicativo para alvo `users` , `applications` ou ambos. Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **Gerir** > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação**. O exemplo a seguir mostra uma função de aplicação direcionada para um `Application` .
+Pode definir funções de aplicativo para alvo `users` , `applications` ou ambos. Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **Gerir** > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação** . O exemplo a seguir mostra uma função de aplicação direcionada para um `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -126,7 +126,7 @@ Quando os utilizadores atribuídos às várias funções da aplicação iniciare
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Adicione autorização usando funções de aplicações & as funções reivindicam uma aplicação web core ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implementar autorização nas suas aplicações com a plataforma de identidade microsoft (Vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implementar autorização nas suas aplicações com a plataforma de identidade microsoft (Vídeo)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Diretório Ativo Azure, agora com Reivindicações de Grupo e Funções de Aplicação](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto da aplicação do Azure Active Directory](./reference-app-manifest.md)
 - [Fichas de acesso Azure AD](access-tokens.md)

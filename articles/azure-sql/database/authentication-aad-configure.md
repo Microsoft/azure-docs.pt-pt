@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: d7b0f2bb479154fa10a18cd07a65b9f7287fc97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99af4d5711c70523053b37e19b08173f32bd117b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444482"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675122"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -57,7 +57,7 @@ Para obter mais informações, veja [Integrating your on-premises identities wit
 2. Utilize o comutador de diretório no portal Azure para mudar para a subscrição associada ao domínio.
 
    > [!IMPORTANT]
-   > Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Esta relação de confiança entre uma subscrição e um diretório é diferente da relação de uma subscrição com todos os outros recursos no Azure (sites, bases de dados, e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Em caso de expiração de uma subscrição, será interrompido o acesso a esses outros recursos associados à subscrição também. No entanto, o diretório permanece no Azure e pode associar outra subscrição a esse diretório e continuar a gerir os utilizadores do diretório. Para obter mais informações sobre recursos, consulte [o Compreensão do acesso aos recursos em Azure.](../../active-directory/b2b/add-users-administrator.md) Para saber mais sobre esta relação de confiança veja [como associar ou adicionar uma subscrição Azure ao Azure Ative Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   > Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Esta relação de confiança entre uma subscrição e um diretório é diferente da relação de uma subscrição com todos os outros recursos no Azure (sites, bases de dados, e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Em caso de expiração de uma subscrição, será interrompido o acesso a esses outros recursos associados à subscrição também. No entanto, o diretório permanece no Azure e pode associar outra subscrição a esse diretório e continuar a gerir os utilizadores do diretório. Para obter mais informações sobre recursos, consulte [o Compreensão do acesso aos recursos em Azure.](../../active-directory/external-identities/add-users-administrator.md) Para saber mais sobre esta relação de confiança veja [como associar ou adicionar uma subscrição Azure ao Azure Ative Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="azure-ad-admin-with-a-server-in-sql-database"></a>Administrador AD AD Azure com um servidor na Base de Dados SQL
 
@@ -103,13 +103,13 @@ Para conceder a sua SQL Managed Instance AD ler permissão de leitura usando o p
 
     ![Screenshot mostrando o comando de administração set realçado na página de administração do Ative Directory para a instância gerida pelo SQL selecionado.](./media/authentication-aad-configure/set-admin.png)
 
-7. Na página de administração AD AZure, procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, **selecione Select**.
+7. Na página de administração AD AZure, procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, **selecione Select** .
 
    A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. Consulte a lista de administradores suportados em [Funcionalidades e Limitações AD Azure](authentication-aad-overview.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal Azure e não é propagado à Base de Dados SQL, SQL Managed Instance ou Azure Synapse.
 
     ![Adicionar administrador do Diretório Ativo Azure](./media/authentication-aad-configure/add-azure-active-directory-admin.png)
 
-8. No topo da página de administração do Ative Directory, **selecione Save**.
+8. No topo da página de administração do Ative Directory, **selecione Save** .
 
     ![Screenshot da página de administração do Ative Directory com o botão Guardar na primeira linha ao lado dos botões de administração set e Remover.](./media/authentication-aad-configure/save.png)
 
@@ -118,7 +118,7 @@ Para conceder a sua SQL Managed Instance AD ler permissão de leitura usando o p
 Depois de providenciar um administrador AD Azure para a sua SQL Managed Instance, pode começar a criar os principais servidores AD do Azure (logins) com a sintaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">DE LOGIN CREATE.</a> Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
-> Para posteriormente remover um Administrador, no topo da página de administração do Ative Directory, selecione **Remover a administração**e, em seguida, selecione **Save**.
+> Para posteriormente remover um Administrador, no topo da página de administração do Ative Directory, selecione **Remover a administração** e, em seguida, selecione **Save** .
 
 ### <a name="powershell"></a>PowerShell
 
@@ -240,24 +240,24 @@ Os dois procedimentos seguintes mostram-lhe como providenciar um administrador d
 
 1. No [portal Azure,](https://portal.azure.com/)no canto superior direito, selecione a sua ligação para deixar cair uma lista de possíveis Diretórios Ativos. Escolha o Diretório Ativo correto como O AD AZure predefinido. Este passo liga o Ative Directory associado a subscrição com o servidor certificando-se de que a mesma subscrição é usada tanto para o AD AZure como para o servidor.
 
-2. Procure e selecione **o servidor SQL**.
+2. Procure e selecione **o servidor SQL** .
 
     ![Procure e selecione servidores SQL](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
     > Nesta página, antes de selecionar **servidores SQL,** pode selecionar a **estrela** ao lado do nome para *favorito* da categoria e adicionar **servidores SQL** à barra de navegação esquerda.
 
-3. Na página **do Servidor SQL,** selecione **Ative Directory admin**.
+3. Na página **do Servidor SQL,** selecione **Ative Directory admin** .
 
-4. Na página de administração do **Diretório Ativo,** selecione **Definir administração**.
+4. Na página de administração do **Diretório Ativo,** selecione **Definir administração** .
 
     ![Servidores SQL definem administrador de Diretório Ativo](./media/authentication-aad-configure/sql-servers-set-active-directory-admin.png)  
 
-5. Na página **de administração Adicionar,** procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select**. (A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. (Consulte a lista de administradores suportados na secção **Azure AD Features and Limitations** of [Use Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](authentication-aad-overview.md).) O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server.
+5. Na página **de administração Adicionar,** procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, selecione **Select** . (A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. (Consulte a lista de administradores suportados na secção **Azure AD Features and Limitations** of [Use Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](authentication-aad-overview.md).) O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server.
 
     ![Selecione administrador do Diretório Ativo Azure](./media/authentication-aad-configure/select-azure-active-directory-admin.png)  
 
-6. No topo da página de administração do **Ative Directory,** selecione **SAVE**.
+6. No topo da página de administração do **Ative Directory,** selecione **SAVE** .
 
     ![salvar administrador](./media/authentication-aad-configure/save-admin.png)
 
@@ -266,7 +266,7 @@ O processo de alteração do administrador pode demorar vários minutos. Em segu
    > [!NOTE]
    > Ao configurar o administrador Azure AD, o novo nome de administração (utilizador ou grupo) já não pode estar presente na base de dados principal virtual como utilizador de autenticação do servidor. Se estiver presente, a configuração do administrador AD Azure falhará; reverter a sua criação e indicando que tal administrador (nome) já existe. Uma vez que um utilizador de autenticação de servidor não faz parte do AD Azure, qualquer esforço para ligar ao servidor utilizando a autenticação AD Azure falha.
 
-Para posteriormente remover um Administrador, no topo da página de administração do **Ative Directory,** selecione **Remover a administração**e, em seguida, selecione **Save**.
+Para posteriormente remover um Administrador, no topo da página de administração do **Ative Directory,** selecione **Remover a administração** e, em seguida, selecione **Save** .
 
 ### <a name="powershell-for-sql-database-and-azure-synapse"></a>PowerShell para base de dados SQL e Sinapse Azure
 
@@ -287,7 +287,7 @@ Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a
 
 Utilize o comando PowerShell obter ajuda para ver mais informações para cada um destes comandos. Por exemplo, `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
-As seguintes disposições de script um grupo de administrador AD Azure nomeado **DBA_Group** (ID do `40b79501-b343-44ed-9ce7-da4c8cc7353f` objeto) para o servidor **demo_server** num grupo de recursos chamado **Grupo-23**:
+As seguintes disposições de script um grupo de administrador AD Azure nomeado **DBA_Group** (ID do `40b79501-b343-44ed-9ce7-da4c8cc7353f` objeto) para o servidor **demo_server** num grupo de recursos chamado **Grupo-23** :
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
@@ -298,7 +298,7 @@ O parâmetro de entrada **DisplayName** aceita o nome de exibição Azure AD ou 
 > [!NOTE]
 > O comando Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` não o impede de aducionar administradores AZure AD para utilizadores não apoiados. Um utilizador não suportado pode ser a provisionado, mas não pode ligar-se a uma base de dados.
 
-O exemplo a seguir utiliza o **ObjectID**opcional:
+O exemplo a seguir utiliza o **ObjectID** opcional:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" `
@@ -342,24 +342,24 @@ Para obter mais informações sobre os comandos CLI, consulte [o servidor Az Sql
 
 Em todas as máquinas clientes, a partir das quais as suas aplicações ou utilizadores se ligam à Base de Dados SQL ou à Azure Synapse utilizando identidades AD Azure, deve instalar o seguinte software:
 
-- .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
-- Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL* (ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
-  - [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+- .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) .
+- Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL *(ADAL.DLL* ). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
+  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Controlador ODBC 17 para sql server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
 Pode cumprir estes requisitos através de:
 
 - A instalação da versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ou das Ferramentas de [Dados do Servidor SQL](/sql/ssdt/download-sql-server-data-tools-ssdt) satisfaz o requisito .NET Framework 4.6.
-  - O SSMS instala a versão x86 do *ADAL.DLL*.
-  - A SSDT instala a versão amd64 do *ADAL.DLL*.
-  - O mais recente Visual Studio de [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumpre o requisito .NET Framework 4.6, mas não instala a versão amd64 necessária de *ADAL.DLL*.
+  - O SSMS instala a versão x86 do *ADAL.DLL* .
+  - A SSDT instala a versão amd64 do *ADAL.DLL* .
+  - O mais recente Visual Studio de [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) cumpre o requisito .NET Framework 4.6, mas não instala a versão amd64 necessária de *ADAL.DLL* .
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Criar utilizadores contidos mapeados para identidades AD Azure
 
 Como a SQL Managed Instance suporta os principais dos servidores Azure AD (logins), não é necessário utilizar utilizadores de bases de dados contidos. Os principais servidores AD do Azure (logins) permitem-lhe criar logins a partir de utilizadores, grupos ou aplicações Azure AD. Isto significa que pode autenticar com o seu SQL Managed Instance utilizando o login do servidor Azure AD em vez de um utilizador de base de dados contido. Para obter mais informações, consulte [a visão geral do SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Para sintaxe sobre a criação de principais servidores AD do Azure (logins), consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
-No entanto, a utilização da autenticação do Azure Ative Directory com base de dados SQL e Azure Synapse requer a utilização de utilizadores de bases de dados contidos com base numa identidade AD Azure. Um utilizador de base de dados contido não tem um login na base de dados principal, e mapeia para uma identidade em Azure AD que está associada à base de dados. A identidade AZure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de bases de dados contidos, consulte [os Utilizadores da Base de Dados Contidos, tornando a sua base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+No entanto, a utilização da autenticação do Azure Ative Directory com base de dados SQL e Azure Synapse requer a utilização de utilizadores de bases de dados contidos com base numa identidade AD Azure. Um utilizador de base de dados contido não tem um login na base de dados principal, e mapeia para uma identidade em Azure AD que está associada à base de dados. A identidade AZure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de bases de dados contidos, consulte [os Utilizadores da Base de Dados Contidos, tornando a sua base de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
 > [!NOTE]
 > Os utilizadores de bases de dados (com exceção dos administradores) não podem ser criados através do portal Azure. As funções Azure não são propagadas à base de dados na Base de Dados SQL, na SQL Managed Instance ou na Azure Synapse. As funções Azure são usadas para gerir recursos Azure, e não se aplicam a permissões de base de dados. Por exemplo, a função **de Contribuinte do Servidor SQL** não permite o acesso à ligação à base de dados na Base de Dados SQL, na SQL Managed Instance ou na Azure Synapse. A permissão de acesso deve ser concedida diretamente na base de dados utilizando declarações Transact-SQL.
@@ -400,19 +400,19 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 > [!TIP]
 > Não é possível criar diretamente um utilizador a partir de um Diretório Ativo Azure que não seja o Diretório Ativo Azure que esteja associado à sua subscrição Azure. No entanto, os membros de outros Diretórios Ativos que são utilizadores importados no Diretório Ativo associado (conhecido como utilizadores externos) podem ser adicionados a um grupo de Diretório Ativo no diretório ativo do inquilino. Ao criar um utilizador de base de dados contido para esse grupo de AD, os utilizadores do Diretório Ativo externo podem ter acesso à Base de Dados SQL.
 
-Para obter mais informações sobre a criação de utilizadores de bases de dados contidos com base nas identidades do Azure Ative Directory, consulte [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
+Para obter mais informações sobre a criação de utilizadores de bases de dados contidos com base nas identidades do Azure Ative Directory, consulte [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql).
 
 > [!NOTE]
 > A remoção do administrador do Azure Ative Directory para o servidor impede que qualquer utilizador de autenticação AD Azure se conecte ao servidor. Se necessário, os utilizadores Azure AD inutilizáveis podem ser largados manualmente por um administrador da Base de Dados SQL.
 
 > [!NOTE]
-> Se receber um **tempo limite de ligação expirado,** poderá ter de definir `TransparentNetworkIPResolution` o parâmetro do fio de ligação em falso. Para obter mais informações, consulte [a emissão de tempo limite de ligação com .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
+> Se receber um **tempo limite de ligação expirado,** poderá ter de definir `TransparentNetworkIPResolution` o parâmetro do fio de ligação em falso. Para obter mais informações, consulte [a emissão de tempo limite de ligação com .NET Framework 4.6.1 - TransparentNetworkIPResolution](/archive/blogs/dataaccesstechnologies/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution).
 
 Quando cria uma base de dados, esse utilizador recebe a permissão **CONNECT** e pode ligar-se a essa base de dados como membro do **PÚBLICO.** Inicialmente, as únicas permissões disponíveis para o utilizador são quaisquer permissões concedidas ao **PÚBLICO,** ou quaisquer permissões concedidas a quaisquer grupos AD do Azure de que sejam membros. Uma vez que fornece um utilizador de base de dados com base de dados Azure AD, pode conceder ao utilizador permissões adicionais, da mesma forma que concede permissão a qualquer outro tipo de utilizador. Normalmente, concede permissões a funções de base de dados e adiciona os utilizadores a funções. Para obter mais informações, consulte [bases de dados de permissão do motor.](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx) Para obter mais informações sobre funções especiais de base de dados SQL, consulte [Bases de Dados de Gestão e Logins na Base de Dados Azure SQL](logins-create-manage.md).
 Uma conta de utilizador de domínio federada que seja importada para um domínio gerido como utilizador externo, deve utilizar a identidade de domínio gerido.
 
 > [!NOTE]
-> Os utilizadores de AD Azure estão marcados nos metadados da base de dados com o tipo E (EXTERNAL_USER) e para grupos com tipo X (EXTERNAL_GROUPS). Para mais informações, consulte [sys.database_principals.](https://msdn.microsoft.com/library/ms187328.aspx)
+> Os utilizadores de AD Azure estão marcados nos metadados da base de dados com o tipo E (EXTERNAL_USER) e para grupos com tipo X (EXTERNAL_GROUPS). Para mais informações, consulte [sys.database_principals.](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql)
 
 ## <a name="connect-to-the-database-using-ssms-or-ssdt"></a>Ligue à base de dados utilizando SSMS ou SSDT  
 
@@ -420,7 +420,7 @@ Para confirmar que o administrador AD da Azure está devidamente configurado, li
 Para obter um utilizador de base de dados com base de dados com base de dados Azure AD (com base de dados que não seja o administrador do servidor que detém a base de dados), conecte-se à base de dados com uma identidade AD AZure que tenha acesso à base de dados.
 
 > [!IMPORTANT]
-> O suporte para a autenticação do Azure Ative Directory está disponível com [o SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e as [Ferramentas de Dados do SQL Server](https://msdn.microsoft.com/library/mt204009.aspx) no Visual Studio 2015. O lançamento de agosto de 2016 do SSMS inclui também suporte para autenticação universal do Diretório Ativo, que permite aos administradores exigir a Autenticação Multi-Factor usando uma chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis.
+> O suporte para a autenticação do Azure Ative Directory está disponível com [o SQL Server 2016 Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e as [Ferramentas de Dados do SQL Server](/sql/ssdt/download-sql-server-data-tools-ssdt) no Visual Studio 2015. O lançamento de agosto de 2016 do SSMS inclui também suporte para autenticação universal do Diretório Ativo, que permite aos administradores exigir a Autenticação Multi-Factor usando uma chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Usando uma identidade AD Azure para ligar usando SSMS ou SSDT
 
@@ -430,7 +430,7 @@ Os seguintes procedimentos mostram-lhe como ligar à Base de Dados SQL com uma i
 
 Utilize este método se estiver registado no Windows utilizando as credenciais do Azure Ative Directory a partir de um domínio federado ou de um domínio gerido que esteja configurado para um único registo sem costura para a autenticação de hash de passagem e de palavra-passe. Para obter mais informações, consulte [o Azure Ative Directory Seamless Single Sign-On](../../active-directory/hybrid/how-to-connect-sso.md).
 
-1. Iniciar a caixa de diálogo 'Iniciar gestão' ou ferramentas de dados e na caixa de diálogo **Connect to Server** (ou Connect to Database **Engine),** na caixa **de autenticação,** selecione **Azure Ative Directory - Integrado**. Não é necessária nenhuma palavra-passe ou pode ser inserida porque as suas credenciais existentes serão apresentadas para a ligação.
+1. Iniciar a caixa de diálogo 'Iniciar gestão' ou ferramentas de dados e na caixa de diálogo **Connect to Server** (ou Connect to Database **Engine),** na caixa **de autenticação,** selecione **Azure Ative Directory - Integrado** . Não é necessária nenhuma palavra-passe ou pode ser inserida porque as suas credenciais existentes serão apresentadas para a ligação.
 
    ![Selecione autenticação integrada de anúncios][11]
 
@@ -444,9 +444,9 @@ Utilize este método ao ligar-se a um nome principal Azure AD utilizando o domí
 
 Utilize este método para autenticar na base de dados na Base de Dados SQL ou na SQL Managed Instance com utilizadores de identidade azure AD apenas na nuvem, ou aqueles que utilizam identidades híbridas AD AZure. Este método suporta utilizadores que pretendam utilizar a sua credencial Windows, mas a sua máquina local não está associada ao domínio (por exemplo, utilizando acesso remoto). Neste caso, um utilizador do Windows pode indicar a sua conta de domínio e palavra-passe, e pode autenticar na base de dados na Base de Dados SQL, na SqL Managed Instance ou no Azure Synapse.
 
-1. Iniciar a caixa de diálogo 'Iniciar gestão' ou ferramentas de dados e na caixa de diálogo **Connect to Server** (ou Connect to Database **Engine),** na caixa **de autenticação,** selecione **Azure Ative Directory - Password**.
+1. Iniciar a caixa de diálogo 'Iniciar gestão' ou ferramentas de dados e na caixa de diálogo **Connect to Server** (ou Connect to Database **Engine),** na caixa **de autenticação,** selecione **Azure Ative Directory - Password** .
 
-2. Na caixa de **nome do utilizador,** digite o nome de utilizador do Azure Ative Directory no nome de utilizador do formato ** \@ domain.com**. Os nomes de utilizador devem ser uma conta do Azure Ative Directory ou uma conta de um domínio gerido ou federado com o Azure Ative Directory.
+2. Na caixa de **nome do utilizador,** digite o nome de utilizador do Azure Ative Directory no nome de utilizador do formato **\@ domain.com** . Os nomes de utilizador devem ser uma conta do Azure Ative Directory ou uma conta de um domínio gerido ou federado com o Azure Ative Directory.
 
 3. Na caixa **password,** digite a sua palavra-passe de utilizador para a conta Azure Ative Directory ou conta de domínio gerida/federada.
 
@@ -514,7 +514,7 @@ conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-Para mais informações, consulte [o SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Para obter informações sobre a adição de um certificado, consulte [Começar com autenticação baseada em certificados no Diretório Ativo Azure](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+Para mais informações, consulte [o SQL Server Security Blog](/archive/blogs/sqlsecurity/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth). Para obter informações sobre a adição de um certificado, consulte [Começar com autenticação baseada em certificados no Diretório Ativo Azure](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 ### <a name="sqlcmd"></a>sqlcmd
 
@@ -535,8 +535,8 @@ As orientações sobre problemas de resolução de problemas com a autenticaçã
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
-- Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
-- Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
+- Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](/sql/relational-databases/security/authentication-access/principals-database-engine).
+- Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](/sql/relational-databases/security/authentication-access/database-level-roles).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](firewall-configure.md).
 - Para obter informações sobre como definir um utilizador convidado AZure AD como administrador AD Azure, consulte [os utilizadores convidados create AD da Azure e definido como um administrador AD Azure](authentication-aad-guest-users.md).
 - Para obter informações sobre como servir os principais com o Azure SQL, consulte [utilizadores da Create AZure AD utilizando aplicações AD Azure](authentication-aad-service-principal-tutorial.md)

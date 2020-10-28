@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674924"
 ---
 # <a name="weather-partner-integration"></a>Integração de parceiros de meteorologia
 
@@ -28,7 +28,7 @@ Um parceiro meteorológico terá de fornecer uma imagem/programa de estivador (c
 - Chaves/Credenciais API específicas do cliente para aceder aos dados do sistema do parceiro meteorológico
 - Detalhes da VM SKU (Os parceiros podem fornecer isto caso o seu estivador tenha requisitos VM específicos, caso contrário os clientes podem escolher entre SKUs VM suportados em Azure)
 
-Utilizando as informações acima do estivador, o cliente registará um parceiro meteorológico na sua instância FarmBeats. Para saber mais sobre como os clientes podem usar o estivador para ingerir dados meteorológicos em FarmBeats, consulte o guia para [obter dados meteorológicos](https://docs.microsoft.com/azure/industry/agriculture/get-weather-data-from-weather-partner)
+Utilizando as informações acima do estivador, o cliente registará um parceiro meteorológico na sua instância FarmBeats. Para saber mais sobre como os clientes podem usar o estivador para ingerir dados meteorológicos em FarmBeats, consulte o guia para [obter dados meteorológicos](./get-weather-data-from-weather-partner.md)
 
 ## <a name="connector-docker-development"></a>Desenvolvimento do estivador de conector
 
@@ -71,9 +71,9 @@ Para permitir que os clientes autentem com as APIs do lado do parceiro durante a
    }
 }
 ```
-O serviço API serializa este dict e armazena-o num [KeyVault.](https://docs.microsoft.com/azure/key-vault/basic-concepts)
+O serviço API serializa este dict e armazena-o num [KeyVault.](../../key-vault/general/basic-concepts.md)
 
-[A Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) é usada para orquestrar trabalhos meteorológicos e gira recursos para executar o código do estivador. Também fornece um mecanismo para empurrar os dados de forma segura para o VM onde o trabalho de estivador executa. As credenciais API, que estão agora armazenadas de forma segura no KeyVault são lidas como cordas seguras do KeyVault e disponibilizadas como propriedades estendidas no diretório de trabalho do contentor de estivadores como activity.js(caminho para o ficheiro é "/mnt/working_dir/activity.json") O código do estivador pode ler as credenciais deste ficheiro durante o período de tempo de funcionamento para aceder às APIs do lado do parceiro em nome do cliente. As credenciais estarão disponíveis no ficheiro da seguinte forma:
+[A Azure Data Factory](../../data-factory/introduction.md) é usada para orquestrar trabalhos meteorológicos e gira recursos para executar o código do estivador. Também fornece um mecanismo para empurrar os dados de forma segura para o VM onde o trabalho de estivador executa. As credenciais API, que estão agora armazenadas de forma segura no KeyVault são lidas como cordas seguras do KeyVault e disponibilizadas como propriedades estendidas no diretório de trabalho do contentor de estivadores como activity.js(caminho para o ficheiro é "/mnt/working_dir/activity.json") O código do estivador pode ler as credenciais deste ficheiro durante o período de tempo de funcionamento para aceder às APIs do lado do parceiro em nome do cliente. As credenciais estarão disponíveis no ficheiro da seguinte forma:
 
 ```json
 { 
@@ -89,7 +89,7 @@ O FarmBeats lib fornece funções de ajudante para permitir aos parceiros ler as
 
 A duração do ficheiro é apenas durante a execução do código do estivador e será apagada após o fim do estivador.
 
-Para mais detalhes sobre como funcionam os oleodutos e atividades da ADF, [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping) consulte.
+Para mais detalhes sobre como funcionam os oleodutos e atividades da ADF, [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](../../data-factory/copy-activity-schema-and-type-mapping.md) consulte.
 
 **HTTP solicitam cabeçalhos**
 
@@ -107,7 +107,7 @@ JSON é um formato comum de dados independente da linguagem que fornece uma simp
 
 ## <a name="docker-specifications"></a>Especificações do estivador
 
-O programa estivador precisa de ter dois componentes: **Bootstrap** e **Jobs**. Pode haver mais do que um Trabalho.
+O programa estivador precisa de ter dois componentes: **Bootstrap** e **Jobs** . Pode haver mais do que um Trabalho.
 
 ### <a name="bootstrap"></a>Método bootstrap
 
@@ -123,8 +123,8 @@ Os metadados seguintes são criados como parte deste processo.
  > [!NOTE]
  > **Por favor, note** que se atualizar o bootstrap_manifest.jsno ficheiro como mencionado na implementação de [referência,](https://github.com/azurefarmbeats/noaa_docker)não precisa de criar os metadados abaixo, uma vez que a bootstrap criará o mesmo com base no seu ficheiro manifesto.
 
-- /**WeatherDataModel**: A WeatherDataModel é um modelo de representação de dados meteorológicos e corresponde a diferentes conjuntos de dados fornecidos pela fonte. Por exemplo, um DailyForecastSimpleModel pode fornecer informações de temperatura média, humidade e precipitação uma vez por dia, enquanto um DailyForecastAdvancedModel pode fornecer muito mais informações a granularidade horária. Pode criar qualquer número de WeatherDataModels.
-- /**JobType**: A FarmBeats tem um sistema extensível de gestão de emprego. Como fornecedor de dados meteorológicos, terá diferentes conjuntos de dados/APIs (por exemplo, GetDailyForecasts) - pode capacitá-los em FarmBeats como JobType. Uma vez criado um JobType, um cliente pode desencadear Empregos desse tipo para obter dados meteorológicos para a sua localização/fazenda de interesse (ver JobType e Job APIs em [FarmBeats Swagger).](https://aka.ms/farmbeatsswagger)
+- /**WeatherDataModel** : A WeatherDataModel é um modelo de representação de dados meteorológicos e corresponde a diferentes conjuntos de dados fornecidos pela fonte. Por exemplo, um DailyForecastSimpleModel pode fornecer informações de temperatura média, humidade e precipitação uma vez por dia, enquanto um DailyForecastAdvancedModel pode fornecer muito mais informações a granularidade horária. Pode criar qualquer número de WeatherDataModels.
+- /**JobType** : A FarmBeats tem um sistema extensível de gestão de emprego. Como fornecedor de dados meteorológicos, terá diferentes conjuntos de dados/APIs (por exemplo, GetDailyForecasts) - pode capacitá-los em FarmBeats como JobType. Uma vez criado um JobType, um cliente pode desencadear Empregos desse tipo para obter dados meteorológicos para a sua localização/fazenda de interesse (ver JobType e Job APIs em [FarmBeats Swagger).](https://aka.ms/farmbeatsswagger)
 
 ### <a name="jobs"></a>Tarefas
 
@@ -180,7 +180,7 @@ O estivador do Conector deve ter a capacidade de enviar atualizações sobre os 
 
 ## <a name="weather-data-telemetry-specifications"></a>Especificações de Dados Meteorológicos (Telemetria)
 
-Os dados meteorológicos são mapeados para uma mensagem canónica que é empurrada para um Hub de Eventos Azure para processamento. O Azure EventHub é um serviço que permite a ingestão de dados em tempo real (telemetria) a partir de dispositivos e aplicações conectados. Para enviar dados meteorológicos para FarmBeats, terá de criar um cliente que envie mensagens para um Centro de Eventos em FarmBeats. Para saber mais sobre o envio de telemetria, consulte [o Envio de telemetria para um centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+Os dados meteorológicos são mapeados para uma mensagem canónica que é empurrada para um Hub de Eventos Azure para processamento. O Azure EventHub é um serviço que permite a ingestão de dados em tempo real (telemetria) a partir de dispositivos e aplicações conectados. Para enviar dados meteorológicos para FarmBeats, terá de criar um cliente que envie mensagens para um Centro de Eventos em FarmBeats. Para saber mais sobre o envio de telemetria, consulte [o Envio de telemetria para um centro de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Aqui está uma amostra do código Python que envia telemetria como cliente para um centro de eventos especificado.
 

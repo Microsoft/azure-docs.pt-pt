@@ -9,12 +9,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: aa74489a962708a1d3d5e6835f684e5cb8fc548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444342"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675054"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Criar utilizadores convidados do Azure AD e definir como administrador do Azure AD
 
@@ -23,11 +23,11 @@ ms.locfileid: "91444342"
 > [!NOTE]
 > Este artigo está em **pré-visualização pública.**
 
-Os utilizadores convidados em Azure Ative Directory (Azure AD) são utilizadores que foram importados para o atual AD Azure de outros Diretórios Azure Ative, ou fora dele. Por exemplo, os utilizadores convidados podem incluir utilizadores de outros Diretórios Azure Ative, ou de contas como * \@ outlook.com*, * \@ hotmail.com*, * \@ live.com*, ou * \@ gmail.com*. Este artigo irá demonstrar como criar um utilizador convidado AZure AD, e definir esse utilizador como um administrador AD Azure para o servidor lógico Azure SQL, sem precisar de ter esse utilizador convidado a fazer parte de um grupo dentro do Azure AD.
+Os utilizadores convidados em Azure Ative Directory (Azure AD) são utilizadores que foram importados para o atual AD Azure de outros Diretórios Azure Ative, ou fora dele. Por exemplo, os utilizadores convidados podem incluir utilizadores de outros Diretórios Azure Ative, ou de contas como *\@ outlook.com* , *\@ hotmail.com* , *\@ live.com* , ou *\@ gmail.com* . Este artigo irá demonstrar como criar um utilizador convidado AZure AD, e definir esse utilizador como um administrador AD Azure para o servidor lógico Azure SQL, sem precisar de ter esse utilizador convidado a fazer parte de um grupo dentro do Azure AD.
 
 ## <a name="feature-description"></a>Descrição da funcionalidade
 
-Esta funcionalidade levanta a limitação atual que apenas permite aos utilizadores convidados ligarem-se à Base de Dados Azure SQL, SQL Managed Instance ou Azure Synapse Analytics quando são membros de um grupo criado em Azure AD. O grupo precisava de ser mapeado manualmente para um utilizador utilizando a declaração [DO UTILIZADOR CREATE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) numa determinada base de dados. Uma vez criado um utilizador de base de dados para o grupo Azure AD que contém o utilizador convidado, o utilizador convidado pode entrar na base de dados utilizando o Azure Ative Directy com autenticação MFA. Como parte desta **pré-visualização pública,** os utilizadores convidados podem ser criados e conectar-se diretamente à Base de Dados SQL, SQL Managed Instance ou Azure Synapse sem a exigência de adicioná-los a um grupo AD Azure primeiro, e depois criar um utilizador de base de dados para esse grupo AZure AD.
+Esta funcionalidade levanta a limitação atual que apenas permite aos utilizadores convidados ligarem-se à Base de Dados Azure SQL, SQL Managed Instance ou Azure Synapse Analytics quando são membros de um grupo criado em Azure AD. O grupo precisava de ser mapeado manualmente para um utilizador utilizando a declaração [DO UTILIZADOR CREATE (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) numa determinada base de dados. Uma vez criado um utilizador de base de dados para o grupo Azure AD que contém o utilizador convidado, o utilizador convidado pode entrar na base de dados utilizando o Azure Ative Directy com autenticação MFA. Como parte desta **pré-visualização pública,** os utilizadores convidados podem ser criados e conectar-se diretamente à Base de Dados SQL, SQL Managed Instance ou Azure Synapse sem a exigência de adicioná-los a um grupo AD Azure primeiro, e depois criar um utilizador de base de dados para esse grupo AZure AD.
 
 Como parte desta funcionalidade, você também tem a capacidade de definir o utilizador azure AD convidado diretamente como um administrador AD para o servidor lógico Azure SQL. A funcionalidade existente onde o utilizador convidado pode fazer parte de um grupo AZure AD, e esse grupo pode então ser definido como o administrador AD AD Azure para o servidor lógico Azure SQL não é impactado. Os utilizadores convidados na base de dados que fazem parte de um grupo AZure AD também não são afetados por esta mudança.
 
@@ -59,12 +59,12 @@ Siga estes passos para criar um utilizador de base de dados utilizando um utiliz
     SELECT * FROM sys.database_principals
     ```
 
-1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA**. Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
+1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA** . Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
 
 ### <a name="create-guest-user-in-sql-managed-instance"></a>Criar o utilizador convidado em SQL Managed Instance
 
 > [!NOTE]
-> SQL Managed Instance suporta logins para utilizadores de Azure AD, bem como utilizadores de bases de dados Azure AD contidos. Os passos abaixo mostram como criar um login e um utilizador para um utilizador convidado AZure AD em SQL Managed Instance. Também pode optar por criar um [utilizador de base de dados contido](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) em SQL Managed Instance utilizando o método no utilizador de [configuração do utilizador convidado na secção SQL Database e Azure Synapse.](#create-guest-user-in-sql-database-and-azure-synapse)
+> SQL Managed Instance suporta logins para utilizadores de Azure AD, bem como utilizadores de bases de dados Azure AD contidos. Os passos abaixo mostram como criar um login e um utilizador para um utilizador convidado AZure AD em SQL Managed Instance. Também pode optar por criar um [utilizador de base de dados contido](/sql/relational-databases/security/contained-database-users-making-your-database-portable) em SQL Managed Instance utilizando o método no utilizador de [configuração do utilizador convidado na secção SQL Database e Azure Synapse.](#create-guest-user-in-sql-database-and-azure-synapse)
 
 1. Certifique-se de que o utilizador convidado (por exemplo, `user1@gmail.com` ) já está adicionado ao seu AD Azure e foi definido um administrador AD AD Azure para o servidor SQL Managed Instance. É necessário ter um administrador AdD Azure para a autenticação do Azure Ative Directory.
 
@@ -90,7 +90,7 @@ Siga estes passos para criar um utilizador de base de dados utilizando um utiliz
 
 1. Deve agora existir um utilizador de base de dados criado para o utilizador convidado `user1@gmail.com` .
 
-1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA**. Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
+1. Desconecte e assine na base de dados como utilizador convidado `user1@gmail.com` utilizando o [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) utilizando o método de autenticação **Azure Ative Directory - Universal com MFA** . Para obter mais informações, consulte [a autenticação do Diretório Ativo Azure multi-factor](authentication-mfa-ssms-overview.md).
 
 ## <a name="setting-a-guest-user-as-an-azure-ad-admin"></a>Definição de um utilizador convidado como administrador AD Azure
 
@@ -110,13 +110,13 @@ Siga estes passos para definir um utilizador convidado Azure AD como administrad
     Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -DisplayName <DisplayNameOfGuestUser>
     ```
 
-    Também pode utilizar o [ad-administrador do servidor Azure CLI](https://docs.microsoft.com/cli/azure/sql/server/ad-admin) para definir o utilizador convidado como um administrador AD AD Azure para o seu servidor lógico Azure SQL.
+    Também pode utilizar o [ad-administrador do servidor Azure CLI](/cli/azure/sql/server/ad-admin) para definir o utilizador convidado como um administrador AD AD Azure para o seu servidor lógico Azure SQL.
 
 ### <a name="set-azure-ad-admin-for-sql-managed-instance"></a>Definir administrador AD Ad para SQL Caso Gerido
 
 1. Certifique-se de que o utilizador convidado (por exemplo, `user1@gmail.com` ) já está adicionado ao seu AD Azure.
 
-1. Vá ao [portal Azure](https://portal.azure.com)e vá ao seu recurso **Azure Ative Directory.** Under **Manage**, vá ao painel **de Utilizadores.** Selecione o seu utilizador convidado e grave o `Object ID` . 
+1. Vá ao [portal Azure](https://portal.azure.com)e vá ao seu recurso **Azure Ative Directory.** Under **Manage** , vá ao painel **de Utilizadores.** Selecione o seu utilizador convidado e grave o `Object ID` . 
 
 1. Executar o seguinte comando PowerShell para adicionar o utilizador convidado como administrador AD Azure para a sua SQL Managed Instance:
 
@@ -129,11 +129,11 @@ Siga estes passos para definir um utilizador convidado Azure AD como administrad
     Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -InstanceName "<ManagedInstanceName>" -DisplayName <DisplayNameOfGuestUser> -ObjectId <AADObjectIDOfGuestUser>
     ```
 
-    Também pode utilizar o comando Azure CLI [az sql mi ad-admin](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin) para definir o utilizador convidado como um administrador AD AD Azure para a sua SQL Managed Instance.
+    Também pode utilizar o comando Azure CLI [az sql mi ad-admin](/cli/azure/sql/mi/ad-admin) para definir o utilizador convidado como um administrador AD AD Azure para a sua SQL Managed Instance.
 
 ## <a name="limitations"></a>Limitações
 
-Existe uma limitação no portal Azure que impede a seleção de um utilizador convidado Azure AD como administrador AD Azure para Azure Managed Instance. Para contas de hóspedes fora do seu AD Azure como * \@ outlook.com*, * \@ hotmail.com*, * \@ live.com*, ou * \@ gmail.com*, o seletor de administração AD mostra estas contas, mas estão acinzentadas e não podem ser selecionadas. Utilize os [comandos PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) acima listados para definir a administração AD Azure. Em alternativa, um grupo AD Azure contendo o utilizador convidado pode ser definido como o administrador AD AZure para a Sql Managed Instance.
+Existe uma limitação no portal Azure que impede a seleção de um utilizador convidado Azure AD como administrador AD Azure para Azure Managed Instance. Para contas de hóspedes fora do seu AD Azure como *\@ outlook.com* , *\@ hotmail.com* , *\@ live.com* , ou *\@ gmail.com* , o seletor de administração AD mostra estas contas, mas estão acinzentadas e não podem ser selecionadas. Utilize os [comandos PowerShell ou CLI](#setting-a-guest-user-as-an-azure-ad-admin) acima listados para definir a administração AD Azure. Em alternativa, um grupo AD Azure contendo o utilizador convidado pode ser definido como o administrador AD AZure para a Sql Managed Instance.
 
 Esta funcionalidade será ativada para SQL Managed Instance antes da Disponibilidade Geral desta funcionalidade.
 
@@ -141,4 +141,4 @@ Esta funcionalidade será ativada para SQL Managed Instance antes da Disponibili
 
 - [Configure e gere a autenticação AD AD com Azure SQL](authentication-aad-configure.md)
 - [Utilização de autenticação de diretório ativo Azure multi-factor](authentication-mfa-ssms-overview.md)
-- [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+- [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql)

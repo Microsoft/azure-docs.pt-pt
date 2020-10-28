@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536577"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674509"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats APIs
 
@@ -143,19 +143,19 @@ Neste exemplo, quando uma quinta foi criada, o campo obrigatório "Nome" não fo
 
 As APIs Azure FarmBeats podem ser acedidas por um utilizador ou por um registo de aplicações no Azure Ative Directory. Para criar um registo de aplicações no Azure Ative Directory, siga estes passos:
 
-1. Aceda ao [portal Azure,](https://portal.azure.com)e selecione **Azure Ative Directory**  >  **App registro**  >  **Novas inscrições**. Em alternativa, pode utilizar uma conta existente.
+1. Aceda ao [portal Azure,](https://portal.azure.com)e selecione **Azure Ative Directory**  >  **App registro**  >  **Novas inscrições** . Em alternativa, pode utilizar uma conta existente.
 2. Para uma nova conta, faça o seguinte:
 
     - Insira um nome.
-    - Selecione **Contas neste diretório organizacional apenas (inquilino único)**.
+    - Selecione **Contas neste diretório organizacional apenas (inquilino único)** .
     - Utilize os valores predefinidos no resto dos campos.
-    - Selecione **Registar**.
+    - Selecione **Registar** .
 
 3. No novo painel de **visão geral** do registo de aplicações, faça o seguinte:
 
     - Capture a **identificação do cliente** e **o ID do inquilino.**
     - Vá a **Certificados e Segredos** para gerar um novo segredo de cliente e capturar o **Segredo de Clientes.**
-    - Volte ao **Overview**, e selecione o link ao lado **da Aplicação Manage no diretório local.**
+    - Volte ao **Overview** , e selecione o link ao lado **da Aplicação Manage no diretório local.**
     - Vá a **Propriedades** para capturar o **ID do objeto.**
 
 4. Vá ao seu Datahub Swagger (https:// <yourdatahub> .azurewebsites.net/swagger/index.html) e faça o seguinte:
@@ -172,7 +172,7 @@ As APIs Azure FarmBeats podem ser acedidas por um utilizador ou por um registo d
 ```
 
   > [!NOTE]
-  > Para obter mais informações sobre como adicionar utilizadores e registo de Diretório Ativo, consulte [o Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Para obter mais informações sobre como adicionar utilizadores e registo de Diretório Ativo, consulte [o Diretório Ativo Azure](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 Depois de terminar os passos anteriores, o registo da sua aplicação (cliente) pode ligar para as APIs Azure FarmBeats utilizando um token de acesso através da autenticação do portador.
 

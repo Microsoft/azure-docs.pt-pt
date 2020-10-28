@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005484"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674934"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura do lago de dados para atualizar uma tabela Delta databricks
 
@@ -22,7 +22,7 @@ Este tutorial mostra-lhe como lidar com eventos numa conta de armazenamento que 
 
 Você vai construir uma pequena solução que permite a um utilizador povoar uma tabela Databricks Delta carregando um ficheiro de valores separados por vírgula (csv) que descreve uma ordem de venda. Você vai construir esta solução conectando uma subscrição de Grade de Eventos, uma Função Azure e um [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Crie uma subscrição de Grade de Eventos que chame uma Função Azure.
@@ -54,13 +54,13 @@ Vamos construir esta solução em ordem inversa, a começar pelo espaço de trab
 
 Primeiro, crie um ficheiro CSV que descreva uma ordem de venda e, em seguida, carrequiva esse ficheiro para a conta de armazenamento. Mais tarde, usará os dados deste ficheiro para preencher a primeira linha da nossa tabela Databricks Delta.
 
-1. Abra o Explorador de Armazenamento Azure. Em seguida, navegue para a sua conta de armazenamento, e na secção **Blob Containers,** crie um novo recipiente chamado **dados**.
+1. Abra o Explorador de Armazenamento Azure. Em seguida, navegue para a sua conta de armazenamento, e na secção **Blob Containers,** crie um novo recipiente chamado **dados** .
 
    ![pasta de dados](./media/data-lake-storage-events/data-container.png "pasta de dados")
 
    Para obter mais informações sobre como utilizar o Storage Explorer, consulte [o Use Azure Storage Explorer para gerir dados numa conta Azure Data Lake Storage Gen2](data-lake-storage-explorer.md).
 
-2. No recipiente de **dados,** crie uma pasta chamada **entrada**.
+2. No recipiente de **dados,** crie uma pasta chamada **entrada** .
 
 3. Cole o texto seguinte num editor de texto.
 
@@ -69,7 +69,7 @@ Primeiro, crie um ficheiro CSV que descreva uma ordem de venda e, em seguida, ca
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. Guarde este ficheiro para o seu computador local e dê-lhe o nome **data.csv**.
+4. Guarde este ficheiro para o seu computador local e dê-lhe o nome **data.csv** .
 
 5. No Storage Explorer, faça o upload deste ficheiro para a pasta **de entrada.**  
 
@@ -87,11 +87,11 @@ Nesta secção, executará estas tarefas:
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks**.
+1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks** .
 
     ![Databricks no portal Azure](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks no portal Azure")
 
-2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
+2. Em **Serviço Azure Databricks** , forneça os valores para criar uma área de trabalho do Databricks.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar uma área de trabalho do Azure Databricks")
 
@@ -99,36 +99,36 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 ### <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster do Spark no Databricks
 
-1. No [portal Azure,](https://portal.azure.com)vá ao espaço de trabalho Azure Databricks que criou e, em seguida, selecione **Launch Workspace**.
+1. No [portal Azure,](https://portal.azure.com)vá ao espaço de trabalho Azure Databricks que criou e, em seguida, selecione **Launch Workspace** .
 
-2. Será redirecionado para o portal do Azure Databricks. A partir do portal, selecione **Novo**  >  **Cluster**.
+2. Será redirecionado para o portal do Azure Databricks. A partir do portal, selecione **Novo**  >  **Cluster** .
 
     ![Databricks em Azure](./media/data-lake-storage-events/databricks-on-azure.png "Databricks em Azure")
 
-3. Na página **Novo cluster**, indique os valores para criar um cluster.
+3. Na página **Novo cluster** , indique os valores para criar um cluster.
 
     ![Criar conjunto de faíscas de dados no Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Criar conjunto de faíscas de dados no Azure")
 
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
     * Introduza um nome para o cluster.
-    * Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+    * Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade** . Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
-4. Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
+4. Selecione **Criar cluster** . Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
 Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
 ### <a name="create-a-notebook"></a>Criar um bloco de notas
 
-1. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
+1. No painel esquerdo, selecione **Área de Trabalho** . No menu pendente **Área de Trabalho** , selecione **Criar** > **Bloco de Notas** .
 
     ![Criar caderno em Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar caderno em Databricks")
 
-2. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
+2. Na caixa de diálogo **Criar Bloco de Notas** , introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
 
-    ![Criar caderno em Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Criar caderno em Databricks")
+    ![Screenshot que mostra a caixa de diálogo Create Notebook e onde selecionar Python como o idioma.](./media/data-lake-storage-events/new-databricks-notebook.png "Criar caderno em Databricks")
 
-    Selecione **Criar**.
+    Selecione **Criar** .
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Criar e povoar uma tabela Delta Databricks
 
@@ -150,7 +150,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-    Este código cria um widget chamado **source_file**. Mais tarde, criará uma Função Azure que chama este código e passa um caminho de ficheiro para esse widget.  Este código também autentica o seu principal de serviço com a conta de armazenamento, e cria algumas variáveis que irá utilizar noutras células.
+    Este código cria um widget chamado **source_file** . Mais tarde, criará uma Função Azure que chama este código e passa um caminho de ficheiro para esse widget.  Este código também autentica o seu principal de serviço com a conta de armazenamento, e cria algumas variáveis que irá utilizar noutras células.
 
     > [!NOTE]
     > Numa definição de produção, considere guardar a sua chave de autenticação em Azure Databricks. Em seguida, adicione uma chave de procura ao seu bloco de código em vez da chave de autenticação. <br><br>Por exemplo, em vez de utilizar esta linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` , utilizaria a seguinte linha de código: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` . <br><br>Depois de ter concluído este tutorial, consulte o artigo da [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no Site Azure Databricks para ver exemplos desta abordagem.
@@ -238,19 +238,19 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 Crie um Jó que executa o caderno que criou anteriormente. Mais tarde, criará uma Função Azure que gere este trabalho quando um evento é levantado.
 
-1. Clique **em Jobs**.
+1. Clique **em Jobs** .
 
 2. Na página **Jobs,** clique em **Criar Trabalho.**
 
 3. Dê um nome ao trabalho e depois escolha o `upsert-order-data` livro.
 
-   ![Criar uma tarefa](./media/data-lake-storage-events/create-spark-job.png "Criar uma tarefa")
+   ![Criar um trabalho](./media/data-lake-storage-events/create-spark-job.png "Criar um trabalho")
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
 Criar uma Função Azure que gere o Trabalho.
 
-1. No canto superior do espaço de trabalho Databricks, escolha o ícone das pessoas e, em seguida, escolha **as definições do Utilizador**.
+1. No canto superior do espaço de trabalho Databricks, escolha o ícone das pessoas e, em seguida, escolha **as definições do Utilizador** .
 
    ![Gerir conta](./media/data-lake-storage-events/generate-token.png "Definições do utilizador")
 
@@ -258,7 +258,7 @@ Criar uma Função Azure que gere o Trabalho.
 
    Certifique-se de copiar o símbolo para um lugar seguro. A sua Função Azure necessita deste token para autenticar com databricks para que possa executar o Trabalho.
   
-3. Selecione o botão **de recurso** encontrado no canto superior esquerdo do portal Azure e, em seguida, selecione **Computação > App de função**.
+3. Selecione o botão **de recurso** encontrado no canto superior esquerdo do portal Azure e, em seguida, selecione **Computação > App de função** .
 
    ![Criar uma função Azure](./media/data-lake-storage-events/function-app-create-flow.png "Criar função Azure")
 
@@ -266,9 +266,9 @@ Criar uma Função Azure que gere o Trabalho.
 
    ![Configurar a aplicação de funções](./media/data-lake-storage-events/new-function-app.png "Configurar a aplicação de funções")
 
-5. Na página **geral** da App de Função, clique em **Configuração**.
+5. Na página **geral** da App de Função, clique em **Configuração** .
 
-   ![Configurar a aplicação de funções](./media/data-lake-storage-events/configure-function-app.png "Configurar a aplicação de funções")
+   ![Screenshot que realça a opção Configuração em funcionalidades configuradas.](./media/data-lake-storage-events/configure-function-app.png "Configurar a aplicação de funções")
 
 6. Na página Definições de **Aplicação,** escolha o novo botão **de definição de aplicação** para adicionar cada definição.
 
@@ -285,13 +285,13 @@ Criar uma Função Azure que gere o Trabalho.
 
    ![Nova função](./media/data-lake-storage-events/new-function.png "Nova função")
 
-8. Escolha **o gatilho da grelha de eventos Azure**.
+8. Escolha **o gatilho da grelha de eventos Azure** .
 
    Instale a extensão **Microsoft.Azure.WebJobs.Extensions.EventGrid** se for solicitado para o fazer. Se tiver de o instalar, terá de escolher **novamente o Azure Event Grid Trigger** para criar a função.
 
    Aparece o painel new **function.**
 
-9. No painel **'Nova Função',** nomeie a função **UpsertOrder**e, em seguida, clique no botão **Criar.**
+9. No painel **'Nova Função',** nomeie a função **UpsertOrder** e, em seguida, clique no botão **Criar.**
 
 10. Substitua o conteúdo do ficheiro de código por este código e, em seguida, clique no botão **Guardar:**
 
@@ -345,13 +345,13 @@ Nesta secção, irá criar uma subscrição de Grade de Eventos que ligue para a
 
 1. Na página de código de função, clique no botão **de subscrição 'Adicionar Grelha de** Eventos'.
 
-   ![Nova subscrição de eventos](./media/data-lake-storage-events/new-event-subscription.png "Nova subscrição de eventos")
+   ![Screenshot que realça o botão de subscrição Add Event Grid.](./media/data-lake-storage-events/new-event-subscription.png "Nova subscrição de eventos")
 
 2. Na página **'Criar Subscrição de** Eventos', nomeie a subscrição e, em seguida, utilize os campos na página para selecionar a sua conta de armazenamento.
 
    ![Nova subscrição de eventos](./media/data-lake-storage-events/new-event-subscription-2.png "Nova subscrição de eventos")
 
-3. Na lista de casos de "Filtro para Tipos de **Eventos",** selecione os eventos **Blob Created**e **Blob Deleted** e, em seguida, clique no botão **Criar.**
+3. Na lista de casos de "Filtro para Tipos de **Eventos",** selecione os eventos **Blob Created** e **Blob Deleted** e, em seguida, clique no botão **Criar.**
 
 ## <a name="test-the-event-grid-subscription"></a>Teste a subscrição da Grade de Eventos
 
@@ -409,7 +409,7 @@ Nesta secção, irá criar uma subscrição de Grade de Eventos que ligue para a
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não forem necessários, apague o grupo de recursos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a conta de armazenamento e selecione **Delete**.
+Quando já não forem necessários, apague o grupo de recursos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a conta de armazenamento e selecione **Delete** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

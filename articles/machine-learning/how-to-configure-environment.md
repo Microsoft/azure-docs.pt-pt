@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: ee1753932018d0ea3a627ff2a6c7b85dc0a65de1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495233"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674851"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Criar um ambiente de desenvolvimento para a Azure Machine Learning
 
@@ -43,7 +43,7 @@ Este artigo também fornece dicas de utilização adicionais para as seguintes f
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (Apenas local e DSVM) Criar um ficheiro de configuração do espaço de trabalho
 
-O ficheiro de configuração do espaço de trabalho é um ficheiro JSON que diz ao SDK como comunicar com o seu espaço de trabalho Azure Machine Learning. O ficheiro é nomeado *config.jsem*, e tem o seguinte formato:
+O ficheiro de configuração do espaço de trabalho é um ficheiro JSON que diz ao SDK como comunicar com o seu espaço de trabalho Azure Machine Learning. O ficheiro é nomeado *config.jsem* , e tem o seguinte formato:
 
 ```json
 {
@@ -61,7 +61,7 @@ Criar um ficheiro de configuração do espaço de trabalho num dos seguintes mé
 
 * Portal do Azure
 
-    **Descarregue o ficheiro**: No [portal Azure,](https://ms.portal.azure.com)selecione  **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
+    **Descarregue o ficheiro** : No [portal Azure,](https://ms.portal.azure.com)selecione  **Descarregue config.jsna** secção **'Visão Geral'** do seu espaço de trabalho.
 
     ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 
@@ -121,6 +121,9 @@ Ao executar um servidor local do Jupyter Notebook, recomenda-se que crie um núc
 1. Lançar o servidor Jupyter Notebook
 
 Consulte o [repositório de cadernos Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks) para começar com Azure Machine Learning e Jupyter Notebooks.
+
+> [!NOTE]
+> Um repositório de exemplos orientado pela comunidade pode ser encontrado em https://github.com/Azure/azureml-examples .
 
 ### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
@@ -240,26 +243,26 @@ Aguarde até que o aglomerado esteja a funcionar antes de prosseguir.
 
 Uma vez que o cluster esteja em funcionamento, [crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para anexar o pacote Azure Machine Learning SDK ao seu cluster. Para um salto automático de ML para o [SDK para databricks com secção automatizada de aprendizagem automática de máquinas.](#sdk-for-databricks-with-automated-machine-learning)
 
-1. Clique com o botão direito na pasta workspace atual onde pretende armazenar a biblioteca. Selecione **Criar**  >  **Biblioteca**.
+1. Clique com o botão direito na pasta workspace atual onde pretende armazenar a biblioteca. Selecione **Criar**  >  **Biblioteca** .
 
 1. Escolha a seguinte opção (nenhuma outra instalação SDK está suportada)
 
-   |&nbsp;Extras de pacote &nbsp; SDK|Origem|&nbsp;Nome PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Extras de pacote &nbsp; SDK|Fonte|&nbsp;Nome PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para databricks| Upload Python Egg ou PyPI | azureml-sdk[databricks]|
 
    > [!Warning]
    > Não podem ser instalados outros extras SDK. Escolha apenas a `databricks` opção .
 
-   * Não selecione **Fixe automaticamente a todos os clusters**.
+   * Não selecione **Fixe automaticamente a todos os clusters** .
    * **Selecione Fixe** ao lado do nome do seu cluster.
 
-1. Monitorize os erros até alterações de estado para **anexação**, o que pode demorar vários minutos.  Se este passo falhar:
+1. Monitorize os erros até alterações de estado para **anexação** , o que pode demorar vários minutos.  Se este passo falhar:
 
    Tente reiniciar o seu cluster:
-   1. No painel esquerdo, selecione **Clusters**.
+   1. No painel esquerdo, selecione **Clusters** .
    1. Na tabela, selecione o nome do seu cluster.
-   1. No separador **Bibliotecas,** **selecione Restart**.
+   1. No separador **Bibliotecas,** **selecione Restart** .
 
    Considere também:
    + Em configurar AutoML, ao utilizar a Azure Databricks adicione os seguintes parâmetros:
@@ -284,7 +287,7 @@ Para databricks non ML runtime 7.0 e inferior, instale o AML SDK utilizando o [s
 ### <a name="start-exploring"></a>Começar a explorar
 
 Experimente:
-+ Embora muitos cadernos de amostras estejam disponíveis, ** [apenas estes cadernos de amostra funcionam](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) com Azure Databricks.**
++ Embora muitos cadernos de amostras estejam disponíveis, **[apenas estes cadernos de amostra funcionam](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) com Azure Databricks.**
 
 + Importe estas amostras diretamente do seu espaço de trabalho. Ver abaixo: ![ Selecione Painel ](./media/how-to-configure-environment/azure-db-screenshot.png)
  ![ de Importação](./media/how-to-configure-environment/azure-db-import.png)

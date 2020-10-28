@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443669"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674773"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ligue à Base de Dados SQL utilizando C e C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Certifique-se de que tem os itens seguintes:
 
 * Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Estúdio Visual](https://www.visualstudio.com/downloads/). Tem de instalar os componentes linguísticos C++ para construir e executar esta amostra.
-* [Desenvolvimento visual do Estúdio Linux.](https://docs.microsoft.com/cpp/linux/?view=vs-2019) Se estiver a desenvolver no Linux, também tem de instalar a extensão Visual Studio Linux.
+* [Desenvolvimento visual do Estúdio Linux.](/cpp/linux/?view=vs-2019) Se estiver a desenvolver no Linux, também tem de instalar a extensão Visual Studio Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Base de Dados Azure SQL e Servidor SQL em máquinas virtuais
 
@@ -39,7 +39,7 @@ A Azure tem atualmente duas opções para hospedar cargas de trabalho de servido
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Tecnologias de acesso a dados: ODBC e OLE DB
 
-A ligação à Base de Dados Azure SQL não é diferente e existem atualmente duas formas de se ligar às bases de dados: ODBC (conectividade Open Database) e OLE DB (base de dados de ligação de objetos e incorporação). Nos últimos anos, a Microsoft tem alinhado com [o ODBC para o acesso a dados relacionais nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC é relativamente simples, e também muito mais rápido que o OLE DB. A única ressalva aqui é que o ODBC usa uma API estilo C antiga.
+A ligação à Base de Dados Azure SQL não é diferente e existem atualmente duas formas de se ligar às bases de dados: ODBC (conectividade Open Database) e OLE DB (base de dados de ligação de objetos e incorporação). Nos últimos anos, a Microsoft tem alinhado com [o ODBC para o acesso a dados relacionais nativos](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). ODBC é relativamente simples, e também muito mais rápido que o OLE DB. A única ressalva aqui é que o ODBC usa uma API estilo C antiga.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Passo 1: Criar a sua Base de Dados Azure SQL
 
@@ -143,7 +143,7 @@ Pode encontrar a solução GetStarted que contém todas as amostras deste artigo
 ## <a name="next-steps"></a>Passos seguintes
 
 * Rever a [Visão Geral de Desenvolvimento da Base de Dados SQL](develop-overview.md)
-* Mais informações sobre a Referência da API da [ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* Mais informações sobre a Referência da API da [ODBC](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

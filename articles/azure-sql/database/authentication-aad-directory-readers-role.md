@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 0f9b6e0250acb53899ab0443a62db7c9cc51f992
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370105"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675071"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Papel de Leitores de Diretório no Azure Ative Directory para Azure SQL
 
@@ -31,7 +31,7 @@ O papel **de Leitores de Diretório** é necessário para:
 
 - Criar logins AD Azure para sql gestão de instâncias
 - Personificar utilizadores da AZure AD no Azure SQL
-- Migrar os utilizadores do SQL Server que utilizam a autenticação do Windows para a SQL Managed Instance com autenticação AD Azure (utilizando o comando [ALTER USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration)
+- Migrar os utilizadores do SQL Server que utilizam a autenticação do Windows para a SQL Managed Instance com autenticação AD Azure (utilizando o comando [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration)
 - Alterar o administrador AD Ad Azure para a SQL Managing Instance
 - Permitir que [os principais de serviço (Aplicações)](authentication-aad-service-principal.md) criem utilizadores AD Azure em Azure SQL
 

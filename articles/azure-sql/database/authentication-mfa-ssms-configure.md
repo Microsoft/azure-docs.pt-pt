@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 1fb90c106c334073cea18cf014edce491029edec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2de48946088316e9070e13396f124148a4ff6099
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596177"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675013"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação multi-factor para SQL Server Management Studio e AZure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,10 +29,10 @@ Este artigo mostra-lhe como utilizar a autenticação multi-factor Azure Ative (
 
 ## <a name="configuration-steps"></a>Passos de configuração
 
-1. **Configure um Diretório Ativo Azure** - Para mais informações, consulte [administrar o seu diretório AD Azure,](https://msdn.microsoft.com/library/azure/hh967611.aspx) [integrando as suas identidades no local com o Azure Ative Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Adicione o seu próprio nome de domínio ao Azure AD,](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)o Microsoft [Azure agora suporta a federação com o Windows Server Ative Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), e [Gere a Azure AD utilizando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Configure MFA** - Para instruções passo a passo, consulte o que é [Conditional Access (MFA) with Azure SQL Database and Data Warehouse](conditional-access-configure.md) [a autenticação multi-factor Azure?](../../active-directory/authentication/multi-factor-authentication.md) (O acesso condicional completo requer um Diretório Ativo Premium Azure. O MFA limitado está disponível com um Azure AD padrão.)
+1. **Configure um Diretório Ativo Azure** - Para mais informações, consulte [administrar o seu diretório AD Azure,](/previous-versions/azure/azure-services/hh967611(v=azure.100)) [integrando as suas identidades no local com o Azure Ative Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Adicione o seu próprio nome de domínio ao Azure AD,](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)o Microsoft [Azure agora suporta a federação com o Windows Server Ative Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), e [Gere a Azure AD utilizando o Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)).
+2. **Configure MFA** - Para instruções passo a passo, consulte o que é [Conditional Access (MFA) with Azure SQL Database and Data Warehouse](conditional-access-configure.md) [a autenticação multi-factor Azure?](../../active-directory/authentication/concept-mfa-howitworks.md) (O acesso condicional completo requer um Diretório Ativo Premium Azure. O MFA limitado está disponível com um Azure AD padrão.)
 3. **Configure Autenticação Ad Ad** - Para instruções passo a passo, consulte [Ligação à Base de Dados SQL, SQL Managed Instance ou Azure Synapse utilizando autenticação do Diretório Ativo Azure](authentication-aad-overview.md).
-4. **Baixar SSMS** - No computador cliente, descarregue os mais recentes SSMS, do [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+4. **Baixar SSMS** - No computador cliente, descarregue os mais recentes SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>Conectar utilizando a autenticação universal com SSMS
 
@@ -40,7 +40,7 @@ Os passos a seguir mostram como ligar utilizando o SSMS mais recente.
 
 [!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
-1. Para ligar utilizando a Autenticação Universal, na caixa de diálogo **Connect to Server** no SQL Server Management Studio (SSMS), selecione Ative **Directory - Universal com suporte MFA**. (Se vir **Autenticação Universal do Diretório Ativo** não está na versão mais recente do SSMS.)
+1. Para ligar utilizando a Autenticação Universal, na caixa de diálogo **Connect to Server** no SQL Server Management Studio (SSMS), selecione Ative **Directory - Universal com suporte MFA** . (Se vir **Autenticação Universal do Diretório Ativo** não está na versão mais recente do SSMS.)
 
    ![A screenshot do separador Connection Properties no diálogo 'Ligar ao Servidor' em S S M. S. "MyDatabase" é selecionada no "Connect to database dropdown".](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Preencha a caixa **de nome do Utilizador** com as credenciais do Azure Ative Directory, no formato `user_name@domain.com` .
@@ -50,7 +50,7 @@ Os passos a seguir mostram como ligar utilizando o SSMS mais recente.
 
    ![A screenshot do separador Connection Properties no diálogo 'Ligar ao Servidor' em S S M. S. "MyDatabase" é selecionada no "Connect to database dropdown".](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
 
-   No entanto, se estiver a ligar-se como utilizador convidado utilizando sSMS 17.x ou mais velho, tem de clicar em **Opções**, e na caixa de diálogo **De Propriedade de Ligação,** e completar o nome de domínio AD ou caixa **de identificação do inquilino.**
+   No entanto, se estiver a ligar-se como utilizador convidado utilizando sSMS 17.x ou mais velho, tem de clicar em **Opções** , e na caixa de diálogo **De Propriedade de Ligação,** e completar o nome de domínio AD ou caixa **de identificação do inquilino.**
 
    ![Screenshot do separador Connection Properties no diálogo 'Ligar ao Servidor' em S S M.S.O nome de domínio AD ou propriedade de ID do inquilino é preenchido.](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
@@ -80,5 +80,5 @@ Quando a verificação está concluída, o SSMS liga-se normalmente presumindo c
 
 - Para uma visão geral da autenticação multi-factor, consulte [a Autenticação Universal com Base de Dados SQL, SQL Managed Instance e Azure Synapse (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Concede acesso à sua base de dados: [Autenticação e Autorização de Dados sql: Concessão de Acesso](logins-create-manage.md)  
-- Certifique-se de que outros podem ligar através da firewall: [Configurar uma regra de firewall ao nível do servidor utilizando o portal Azure](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
-- Ao utilizar **o Ative Directory- Universal com** autenticação MFA, o rastreio ADAL está disponível a partir de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desligado por predefinição, pode ligar o rastreio ADAL utilizando o menu **Ferramentas**, **Opções,** em **Serviços Azure**, **Azure Cloud,** **Nível de Rastreio da Janela de Saída ADAL,** seguido de ativar a **saída** no menu **Ver.** Os vestígios estão disponíveis na janela de saída ao selecionar a **opção Azure Ative Directory**.
+- Certifique-se de que outros podem ligar através da firewall: [Configurar uma regra de firewall ao nível do servidor utilizando o portal Azure](./firewall-configure.md)  
+- Ao utilizar **o Ative Directory- Universal com** autenticação MFA, o rastreio ADAL está disponível a partir de [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms). Desligado por predefinição, pode ligar o rastreio ADAL utilizando o menu **Ferramentas** , **Opções,** em **Serviços Azure** , **Azure Cloud,** **Nível de Rastreio da Janela de Saída ADAL,** seguido de ativar a **saída** no menu **Ver.** Os vestígios estão disponíveis na janela de saída ao selecionar a **opção Azure Ative Directory** .

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2b7a72b76c3ea028580a642a6a9f634c162edb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369731"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673880"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada
 
@@ -39,13 +39,13 @@ O Azure Ative Directory (Azure AD) Privileged Identity Management (PIM) pode ger
 
 Siga estes passos para tornar um utilizador elegível para um papel de recurso Azure.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que é membro da função de administrador de [função Privileged.](../roles/permissions-reference.md#privileged-role-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com/) com permissões de função do Proprietário ou do Administrador de Acesso ao Utilizador.
 
     Para obter informações sobre como conceder a outro administrador acesso à gestão da Gestão de Identidade Privilegiada, consulte [o Acesso de Concessão a outros administradores para gerir a Gestão de Identidade Privilegiada.](pim-how-to-give-access-to-pim.md)
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.**
 
-1. Selecione **recursos Azure**.
+1. Selecione **recursos Azure** .
 
 1. Use o filtro de recursos para encontrar os recursos geridos que procura.
 
@@ -53,7 +53,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de recurso A
 
 1. Selecione o recurso que pretende conseguir abrir a página de visão geral do recurso.
 
-1. Em **Gestão**, **selecione Roles** para ver a lista de funções para recursos Azure.
+1. Em **Gestão** , **selecione Roles** para ver a lista de funções para recursos Azure.
 
     ![Funções de recursos Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -63,15 +63,15 @@ Siga estes passos para tornar um utilizador elegível para um papel de recurso A
 
     ![Novo painel de atribuição](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Selecione uma função que pretende atribuir e, em seguida, clique em **Selecionar**.
+1. Selecione uma função que pretende atribuir e, em seguida, clique em **Selecionar** .
 
     **O painel Select um membro ou painel** de grupo abre.
 
-1. Selecione um membro ou grupo que pretende atribuir à função e, em seguida, clique em **Select**.
+1. Selecione um membro ou grupo que pretende atribuir à função e, em seguida, clique em **Select** .
 
     ![Selecione um membro ou painel de grupo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. No **separador Definições,** na lista de **tipos de atribuição,** selecione **Elegível** ou **Ativo**.
+1. No **separador Definições,** na lista de **tipos de atribuição,** selecione **Elegível** ou **Ativo** .
 
     ![Painel de configurações de membros](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,7 +83,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de recurso A
 
 1. Para especificar uma duração específica da atribuição, altere as datas e horários de início e fim.
 
-1. Quando terminar, **selecione Atribuir**.
+1. Quando terminar, **selecione Atribuir** .
 
 1. Após a criação da nova atribuição de funções, é apresentada uma notificação de estado.
 
@@ -95,11 +95,11 @@ Siga estes passos para atualizar ou remover uma atribuição de função existen
 
 1. Open **Azure AD Gestão de Identidade Privilegiada.**
 
-1. Selecione **recursos Azure**.
+1. Selecione **recursos Azure** .
 
 1. Selecione o recurso que pretende conseguir abrir a sua página geral.
 
-1. Em **Gestão**, **selecione Roles** para ver a lista de funções para recursos Azure.
+1. Em **Gestão** , **selecione Roles** para ver a lista de funções para recursos Azure.
 
     ![Funções de recursos Azure - Selecione função](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

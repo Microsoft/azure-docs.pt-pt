@@ -3,18 +3,18 @@ title: Conceitos - Identidade e acesso
 description: Conheça os conceitos de identidade e acesso da Azure VMware Solution
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750581"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674647"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade de solução Azure VMware
 
-Um servidor vCenter e um gestor NSX-T são a provisionados quando uma nuvem privada é implantada. Utiliza o vCenter para gerir as cargas de trabalho da máquina virtual e o gestor NSX-T para alargar a rede definida por software em nuvem privada.
+Ao implementar uma nuvem privada, um servidor vCenter e um gestor NSX-T são a provisionados. Utiliza o vCenter para gerir cargas de trabalho de máquinas virtuais (VM). Utiliza o gestor NSX-T para alargar a rede definida por software em nuvem privada.
 
-O acesso e a gestão de identidade utilizam os privilégios do grupo CloudAdmin para o vCenter e direitos de administrador restritos para o gestor NSX-T. Esta política garante que a sua plataforma de nuvem privada pode ser atualizada automaticamente. Isto fornece as funcionalidades e patches mais recentes regularmente. Veja o [artigo de atualizações de nuvem privada][concepts-upgrades] para obter mais detalhes sobre atualizações de nuvem privada.
+O acesso e a gestão de identidade utilizam os privilégios do grupo CloudAdmin para o vCenter e direitos de administrador restritos para o gestor NSX-T. Garante que a sua plataforma de nuvem privada atualiza automaticamente com as funcionalidades e patches mais recentes.  Para mais informações, consulte [o artigo conceitos de atualizações de nuvem privada.][concepts-upgrades]
 
 ## <a name="vcenter-access-and-identity"></a>vCenter acesso e identidade
 
@@ -49,7 +49,7 @@ Os privilégios CloudAdmin e CloudGlobalAdmin são mostrados na tabela abaixo.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acesso e identidade do Gerente NSX-T
 
-Aceda ao NSX-T Manager utilizando a conta "administrador". Essa conta tem plenos privilégios e permite-lhe criar e gerir routers T1, comutadores lógicos e todos os serviços. Os privilégios completos em NSX-T também lhe proporcionam acesso ao router NSX-T T0. Uma alteração no router T0 pode resultar num desempenho de rede degradado ou na perda de acesso a uma nuvem privada. Para satisfazer os requisitos de suporte, é necessário que abra um pedido de suporte no portal Azure para solicitar quaisquer alterações ao seu router NSX-T T.
+Utilize a conta "administrador" para aceder ao NSX-T Manager. Tem plenos privilégios e permite criar e gerir routers T1, comutadores lógicos e todos os serviços. Os privilégios dão-lhe acesso ao router NSX-T T0. Uma alteração no router T0 pode resultar num desempenho de rede degradado ou sem acesso privado à nuvem. Abra um pedido de suporte no portal Azure para solicitar quaisquer alterações ao seu router NSX-T T0.
   
 ## <a name="next-steps"></a>Passos seguintes
 

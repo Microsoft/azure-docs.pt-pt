@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: a666acbcd2aed168bd1d871c0ef0fb8c3205fd05
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479153"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675042"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure
 
@@ -62,12 +62,12 @@ Neste tutorial, ficará a saber como:
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    Para mais informações, consulte o comando [Set-AzSqlServer.](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)
+    Para mais informações, consulte o comando [Set-AzSqlServer.](/powershell/module/az.sql/set-azsqlserver)
 
     > [!IMPORTANT]
     > Se for criada uma Identidade AD Azure para o servidor lógico Azure SQL, a permissão [**dos Leitores**](../../active-directory/roles/permissions-reference.md#directory-readers) de Diretório deve ser concedida à identidade. Vamos passar por este passo na secção seguinte. **Não** salte este passo pois a autenticação AZure AD deixará de funcionar.
 
-    - Se usou o comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) com o parâmetro `AssignIdentity` para uma nova criação de servidor SQL no passado, terá de executar o comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) posteriormente como um comando separado para ativar esta propriedade no tecido Azure.
+    - Se usou o comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) com o parâmetro `AssignIdentity` para uma nova criação de servidor SQL no passado, terá de executar o comando [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) posteriormente como um comando separado para ativar esta propriedade no tecido Azure.
 
 1. Verifique se a identidade do servidor foi atribuída com sucesso. Execute o seguinte comando PowerShell:
 
@@ -82,7 +82,7 @@ Neste tutorial, ficará a saber como:
 
 1. Também pode verificar a identidade indo ao [portal Azure](https://portal.azure.com).
 
-    - Sob o recurso **Azure Ative Directory,** aceda às **aplicações da Enterprise**. Digite o nome do seu servidor lógico SQL. Verá que tem um **ID de objeto** ligado ao recurso.
+    - Sob o recurso **Azure Ative Directory,** aceda às **aplicações da Enterprise** . Digite o nome do seu servidor lógico SQL. Verá que tem um **ID de objeto** ligado ao recurso.
     
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/enterprise-applications-object-id.png" alt-text="objeto-id":::
 
@@ -206,7 +206,7 @@ Uma vez criado um principal de serviço em Azure AD, crie o utilizador na Base d
     GO
     ```
 
-    Para mais informações, consulte [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+    Para mais informações, consulte [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     Em alternativa, `ALTER ANY USER` a permissão pode ser concedida em vez de dar o `db_owner` papel. Isto permitirá ao diretor de serviço adicionar outros utilizadores AZure AD.
 
@@ -223,7 +223,7 @@ Uma vez criado um principal de serviço em Azure AD, crie o utilizador na Base d
 > [!IMPORTANT]
 > O diretor de serviço utilizado para iniciar sessão na SQL Database deve ter um segredo de cliente. Se não tiver um, siga o passo 2 da [Create a principal de serviço (uma aplicação AD Azure) em Azure AD](#create-a-service-principal-an-azure-ad-application-in-azure-ad). Este segredo do cliente precisa de ser adicionado como um parâmetro de entrada no script abaixo.
 
-1. Utilize o seguinte script para criar um *myapp* principal de serviço AZure AD utilizando o serviço principal *AppSP*.
+1. Utilize o seguinte script para criar um *myapp* principal de serviço AZure AD utilizando o serviço principal *AppSP* .
 
     - `<TenantId>`Substitua-a `TenantId` mais cedo.
     - `<ClientId>`Substitua-a `ClientId` mais cedo.
@@ -311,5 +311,5 @@ Uma vez criado um principal de serviço em Azure AD, crie o utilizador na Base d
 - [Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure](../../app-service/overview-managed-identity.md)
 - [Autenticação principal do Serviço AZure para a SQL DB - Amostra de Código](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Objetos do principal de serviço e aplicação no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
-- [Criar um principal de serviço do Azure com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Criar um principal de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 - [Papel de Leitores de Diretório no Azure Ative Directory para Azure SQL](authentication-aad-directory-readers-role.md)

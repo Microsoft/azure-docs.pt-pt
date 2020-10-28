@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9444291c40ef504a674ee18351ba581695d1dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394522"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673855"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado utilizando o modelo de implementação Azure Resource Manager
 
@@ -53,6 +53,7 @@ O túnel forçado em Azure é configurado através de rotas definidas pelo utili
 * Este procedimento utiliza rotas definidas pelo utilizador (UDR) para criar uma tabela de encaminhamento para adicionar uma rota predefinido e, em seguida, associar a tabela de encaminhamento ao(s) de sub-redes VNet para permitir a escavação forçada nessas sub-redes.
 * Os túneis forçados devem ser associados a um VNet que tenha uma porta VPN baseada em rotas. É necessário definir um "site predefinido" entre as instalações locais ligadas à rede virtual. Além disso, o dispositivo VPN no local deve ser configurado utilizando 0.0.0.0/0 como selecionadores de trânsito. 
 * O túnel forçado ExpressRoute não é configurado através deste mecanismo, mas é ativado através da publicidade de uma rota padrão através das sessões de observação do ExpressRoute BGP. Para mais informações, consulte a [Documentação ExpressRoute.](https://azure.microsoft.com/documentation/services/expressroute/)
+* Quando se tem tanto o Gateway VPN como o ExpressRoute Gateway implantados no mesmo VNet, as rotas definidas pelo utilizador (UDR) deixarão de ser necessárias, uma vez que o ExpressRoute Gateway anunciará o "site predefinido" configurado em VNet.
 
 ## <a name="configuration-overview"></a>Descrição geral da configuração
 

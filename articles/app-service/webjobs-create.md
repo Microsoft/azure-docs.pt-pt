@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652011"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674038"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas de fundo com WebJobs no Azure App Service
 
@@ -61,13 +61,16 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> Se tiver o controlo de origem configurado com a sua aplicação, os Trabalhos Web devem ser implantados como parte da integração do controlo de origem. Uma vez configurado o controlo de origem com a sua aplicação, um WebJob não pode ser adicionado a partir do Portal Azure.
+
 1. No [portal Azure,](https://portal.azure.com)aceda à página de Serviço de **Aplicações** da sua aplicação web Do Serviço de Aplicações, app API ou aplicação móvel.
 
-2. Selecione **WebJobs**.
+2. Selecione **WebJobs** .
 
    ![Selecione WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs,** selecione **Adicionar**.
+2. Na página **WebJobs,** selecione **Adicionar** .
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -75,20 +78,20 @@ when making changes in one don't forget the other two.
 
    ![Screenshot que mostra as definições do Add WebJob que precisa de configurar.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Definição      | Valor da amostra   | Descrição  |
+   | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_". |
    | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Contínuo | Os [tipos webJob](#webjob-types) são descritos anteriormente neste artigo. |
    | **Dimensionamento** | Várias instâncias | Disponível apenas para WebJobs contínuos. Determina se o programa ou o script são executados em todas as instâncias ou apenas num caso. A opção de correr em várias instâncias não se aplica aos [níveis de preços gratuitos](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)ou partilhados . | 
 
-4. Clique em **OK**.
+4. Clique em **OK** .
 
    O novo WebJob aparece na página **WebJobs.**
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. Para parar ou reiniciar um WebJob contínuo, clique com o direito no WebJob na lista e clique em **Stop** ou **Start**.
+2. Para parar ou reiniciar um WebJob contínuo, clique com o direito no WebJob na lista e clique em **Stop** ou **Start** .
 
     ![Pare um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -101,11 +104,11 @@ when making changes in one don't forget the other two.
 
 1. No [portal Azure,](https://portal.azure.com)aceda à página de Serviço de **Aplicações** da sua aplicação web Do Serviço de Aplicações, app API ou aplicação móvel.
 
-2. Selecione **WebJobs**.
+2. Selecione **WebJobs** .
 
    ![Selecione WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs,** selecione **Adicionar**.
+2. Na página **WebJobs,** selecione **Adicionar** .
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -113,20 +116,20 @@ when making changes in one don't forget the other two.
 
    ![Screenshot que mostra as definições que precisam de ser definidas para criar um WebJob ativado manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Definição      | Valor da amostra   | Descrição  |
+   | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_".|
    | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Desencadeado | Os [tipos webJob](#webjob-types) são descritos anteriormente neste artigo. |
    | **Acionadores** | Manual | |
 
-4. Clique em **OK**.
+4. Clique em **OK** .
 
    O novo WebJob aparece na página **WebJobs.**
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Para executar o WebJob, clique com o botão direito no seu nome na lista e clique em **Executar**.
+7. Para executar o WebJob, clique com o botão direito no seu nome na lista e clique em **Executar** .
    
     ![Executar WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
@@ -139,11 +142,11 @@ when making changes in one don't forget the other two.
 
 1. No [portal Azure,](https://portal.azure.com)aceda à página de Serviço de **Aplicações** da sua aplicação web Do Serviço de Aplicações, app API ou aplicação móvel.
 
-2. Selecione **WebJobs**.
+2. Selecione **WebJobs** .
 
    ![Selecione WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs,** selecione **Adicionar**.
+2. Na página **WebJobs,** selecione **Adicionar** .
 
    ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -151,7 +154,7 @@ when making changes in one don't forget the other two.
 
    ![Adicionar página WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Definição      | Valor da amostra   | Descrição  |
+   | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | mySchededWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_". |
    | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
@@ -159,7 +162,7 @@ when making changes in one don't forget the other two.
    | **Acionadores** | Agendado | Para que o agendamento funcione de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas nos níveis de preços Básico, Standard e Premium.|
    | **Expressão CRON** | 0 0/20 * * * * | [As expressões cron](#ncrontab-expressions) são descritas na secção seguinte. |
 
-4. Clique em **OK**.
+4. Clique em **OK** .
 
    O novo WebJob aparece na página **WebJobs.**
 
@@ -193,7 +196,7 @@ Para saber mais, consulte [Agendar um WebJob desencadeado.](webjobs-dotnet-deplo
    
     ![Detalhes de execução de trabalho na Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Para ver o texto de saída numa janela separada do navegador, selecione **download**. Para descarregar o texto em si, clique no **download** e use as opções do seu navegador para guardar o conteúdo do ficheiro.
+   Para ver o texto de saída numa janela separada do navegador, selecione **download** . Para descarregar o texto em si, clique no **download** e use as opções do seu navegador para guardar o conteúdo do ficheiro.
    
 5. Selecione o link de migalhas de pão **WebJobs** no topo da página para ir a uma lista de WebJobs.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 088618c0f23f5cfd1b14c3c946ef735fadb893d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 214cdbd5ad30ad096cb6c9d1442936eefb2b2054
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086103"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674864"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (Utilizar o Explorador de Armazenamento do Azure para gerir diretórios, ficheiros e ACLs no Azure Data Lake Storage Gen2)
 
@@ -28,7 +28,7 @@ Este artigo mostra-lhe como usar [o Azure Storage Explorer](https://azure.micros
 
 ## <a name="sign-in-to-storage-explorer"></a>Inscreva-se no Storage Explorer
 
-Ao iniciar o Explorador de Armazenamento, surge a janela **Explorador de Armazenamento do Microsoft Azure - Ligar**. Embora o Storage Explorer forneça várias formas de se conectar às contas de armazenamento, apenas uma forma é suportada para gerir acLs.
+Ao iniciar o Explorador de Armazenamento, surge a janela **Explorador de Armazenamento do Microsoft Azure - Ligar** . Embora o Storage Explorer forneça várias formas de se conectar às contas de armazenamento, apenas uma forma é suportada para gerir acLs.
 
 |Tarefa|Objetivo|
 |---|---|
@@ -38,7 +38,7 @@ Ao iniciar o Explorador de Armazenamento, surge a janela **Explorador de Armazen
 
 **Selecione Adicionar uma Conta Azure** e clique em Iniciar **sôm.** Siga as instruções no ecrã para iniciar súm na sua conta Azure.
 
-![Explorador de Armazenamento do Microsoft Azure – Janela Ligar](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Screenshot que mostra o Microsoft Azure Storage Explorer e destaca a opção Adicionar uma Conta Azure e o botão Sinal no botão.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 Quando a ligação for concluída, o Explorador de Armazenamento do Azure é carregado com o separador **Explorador** mostrado. Esta vista dá-lhe uma visão de todas as suas contas de armazenamento Azure, bem como armazenamento local configurado através do [emulador de armazenamento Azurite,](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) [contas cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou ambientes [Azure Stack.](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
@@ -46,7 +46,7 @@ Quando a ligação for concluída, o Explorador de Armazenamento do Azure é car
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Um contentor contém diretórios e ficheiros. Para criar uma, expanda a conta de armazenamento que criou no passo em curso. Selecione **Contentores de Blobs**, clique com o botão direito do rato e selecione **Criar Contentor de Blobs**. Insira o nome do seu recipiente. Consulte a secção [De Conjunto de Contentores](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições sobre os recipientes de nomeação. Quando estiver concluído, prima **Enter** para criar o recipiente. Uma vez criado o recipiente com sucesso, é apresentado sob a pasta **Blob Containers** para a conta de armazenamento selecionada.
+Um contentor contém diretórios e ficheiros. Para criar uma, expanda a conta de armazenamento que criou no passo em curso. Selecione **Contentores de Blobs** , clique com o botão direito do rato e selecione **Criar Contentor de Blobs** . Insira o nome do seu recipiente. Consulte a secção [De Conjunto de Contentores](storage-quickstart-blobs-dotnet.md#create-a-container) para obter uma lista de regras e restrições sobre os recipientes de nomeação. Quando estiver concluído, prima **Enter** para criar o recipiente. Uma vez criado o recipiente com sucesso, é apresentado sob a pasta **Blob Containers** para a conta de armazenamento selecionada.
 
 ![Microsoft Azure Storage Explorer - Criação de um recipiente](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -64,7 +64,7 @@ Escolha os ficheiros ou pasta a carregar.
 
 ![Explorador de Armazenamento do Microsoft Azure – Carregar um blob](media/data-lake-storage-explorer/upload-file.png)
 
-Quando seleciona **OK**, os ficheiros selecionados são colocados em fila para carregamento. Quando o carregamento estiver concluído, os resultados são apresentados na janela **Atividades**.
+Quando seleciona **OK** , os ficheiros selecionados são colocados em fila para carregamento. Quando o carregamento estiver concluído, os resultados são apresentados na janela **Atividades** .
 
 ## <a name="view-blobs-in-a-directory"></a>Ver bolhas num diretório
 
@@ -86,7 +86,7 @@ A caixa de diálogo **'Obter Permissão'** permite-lhe gerir permissões para o 
 
 Para adicionar um novo utilizador ou grupo à lista de controlo de acesso, selecione o utilizador Adicionar ou o campo **de grupo.**
 
-Introduza a entrada correspondente do Azure Ative Directory (AAD) que pretende adicionar à lista e, em seguida, selecione **Adicionar**.
+Introduza a entrada correspondente do Azure Ative Directory (AAD) que pretende adicionar à lista e, em seguida, selecione **Adicionar** .
 
 O utilizador ou grupo irá agora aparecer nos **Utilizadores e grupos:** campo, permitindo-lhe começar a gerir as suas permissões.
 
@@ -95,11 +95,11 @@ O utilizador ou grupo irá agora aparecer nos **Utilizadores e grupos:** campo, 
 
 Existem duas categorias de permissões que pode atribuir: aceder a ACLs e ACLs predefinidos.
 
-* **Acesso**: Acesso ACLs controlam o acesso a um objeto. Os ficheiros e diretórios têm acesso a ACLs.
+* **Acesso** : Acesso ACLs controlam o acesso a um objeto. Os ficheiros e diretórios têm acesso a ACLs.
 
-* **Padrão**: Um modelo de ACLs associado a um diretório que determina o acesso ACLs para quaisquer itens infantis que são criados sob esse diretório. Os ficheiros não têm ACLs predefinidos.
+* **Padrão** : Um modelo de ACLs associado a um diretório que determina o acesso ACLs para quaisquer itens infantis que são criados sob esse diretório. Os ficheiros não têm ACLs predefinidos.
 
-Em ambas as categorias, existem três permissões que pode atribuir em ficheiros ou diretórios: **Ler,** **Escrever**e **Executar**.
+Em ambas as categorias, existem três permissões que pode atribuir em ficheiros ou diretórios: **Ler,** **Escrever** e **Executar** .
 
 >[!NOTE]
 > Fazer seleções aqui não definirá permissões em qualquer item atualmente existente dentro do diretório. Deve ir a cada item individual e definir as permissões manualmente, se o ficheiro já existir.

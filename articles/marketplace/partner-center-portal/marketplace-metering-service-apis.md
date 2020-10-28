@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278026"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674623"
 ---
 # <a name="marketplace-metered-billing-apis"></a>APIs de faturação medido no mercado
 
@@ -67,7 +67,7 @@ Apenas um evento de utilização pode ser emitido por cada hora de um dia de cal
 >[!NOTE]
 >`resourceId` tem um significado diferente para a app SaaS e para app Managed emitindo medidor personalizado. 
 
-Para os planos de aplicações geridas por aplicações Azure, `resourceId` o encontra-se `resourceUsageId` sob o objeto de `billingDetails` metadados da Aplicação Gerida. Um roteiro de exemplo para buscá-lo pode ser encontrado [na utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Para planos de aplicações geridas por aplicações Azure, `resourceId` a aplicação `resource group Id` gerida. Um roteiro de exemplo para buscá-lo pode ser encontrado [na utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Para ofertas saaS, `resourceId` o é o ID de assinatura SaaS. Para obter mais detalhes sobre as subscrições do SaaS, consulte [as subscrições da lista.](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)
 
@@ -191,7 +191,7 @@ O evento de utilização do lote API permite-lhe emitir eventos de utilização 
 >[!NOTE]
 >`resourceId` tem um significado diferente para a app SaaS e para app Managed emitindo medidor personalizado. 
 
-Para os planos de aplicações geridas por aplicações Azure, `resourceId` o encontra-se `resourceUsageId` sob o objeto de `billingDetails` metadados da Aplicação Gerida. Um roteiro de exemplo para buscá-lo pode ser encontrado [na utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+Para planos de aplicações geridas por aplicações Azure, `resourceId` a aplicação `resource group Id` gerida. Um roteiro de exemplo para buscá-lo pode ser encontrado [na utilização do símbolo de identidades geridas pelo Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 Para ofertas saaS, `resourceId` o é o ID de assinatura SaaS. Para obter mais detalhes sobre as subscrições do SaaS, consulte [as subscrições da lista.](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)
 
