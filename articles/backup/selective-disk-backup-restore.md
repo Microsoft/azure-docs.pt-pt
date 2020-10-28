@@ -3,13 +3,13 @@ title: Backup seletivo de disco e restauro para máquinas virtuais Azure
 description: Neste artigo, aprenda sobre a cópia de segurança seletiva do disco e restaure utilizando a solução de backup da máquina virtual Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: 1052e7e531f6762de660ba89e22c7fbb0d01f808
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628767"
+ms.locfileid: "92746985"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup seletivo de disco e restauro para máquinas virtuais Azure
 

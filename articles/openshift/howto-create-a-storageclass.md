@@ -1,5 +1,5 @@
 ---
-title: Criar uma classe de armazenamento de ficheiros Azure no Azure Red Hat OpenShift 4
+title: Criar um StorageClass dos Ficheiros do Azure no Azure Red Hat OpenShift 4
 description: Saiba como criar uma Azure Files StorageClass no Azure Red Hat OpenShift
 ms.service: container-service
 ms.topic: article
@@ -8,14 +8,14 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, chapéu vermelho, cli, arquivo azul
 ms.custom: mvc
-ms.openlocfilehash: c0d809324baa095b2ce8262170289e0dfec8bfd1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428953"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747880"
 ---
-# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Criar uma classe de armazenamento de ficheiros Azure no Azure Red Hat OpenShift 4
+# <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Criar um StorageClass dos Ficheiros do Azure no Azure Red Hat OpenShift 4
 
 Neste artigo, você vai criar uma StorageClass para Azure Red Hat OpenShift 4 que provisões dinamicamente ReadWriteMany (RWX) usando Ficheiros Azure. Irá aprender a:
 
@@ -32,7 +32,7 @@ Implemente um cluster Azure Red Hat OpenShift 4 na sua subscrição, consulte [C
 
 ### <a name="set-up-azure-storage-account"></a>Configurar a conta de armazenamento Azure
 
-Este passo criará um grupo de recursos fora do grupo de recursos do cluster Azure Red Hat OpenShift. Este grupo de recursos conterá as ações Azure Files criadas pelo provisionador dinâmico da Azure Red Hat OpenShift.
+Este passo criará um grupo de recursos fora do grupo de recursos do cluster Azure Red Hat OpenShift (ARO). Este grupo de recursos conterá as ações Azure Files criadas pelo provisionador dinâmico da Azure Red Hat OpenShift.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

@@ -11,12 +11,13 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+- devx-track-azurecli
+ms.openlocfilehash: 3a75b3622ebc2085dac898e2a06e09f16466cbf5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547797"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746617"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário dos termos do IoT Hub
 
@@ -74,7 +75,7 @@ O [portal Microsoft Azure](https://portal.azure.com) é um local central onde po
 
 [O Service Bus](../service-bus-messaging/index.yml) fornece comunicação ativada em nuvem com mensagens empresariais e comunicação transmitida que o ajuda a conectar soluções no local com a nuvem. Alguns tutoriais do IoT Hub usam [as filas](../service-bus-messaging/service-bus-messaging-overview.md)de Service Bus.
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 [O Azure Storage](../storage/common/storage-introduction.md) é uma solução de armazenamento em nuvem. Inclui o serviço blob storage que pode utilizar para armazenar dados de objetos não estruturados. Alguns tutoriais do IoT Hub usam armazenamento de bolhas.
 

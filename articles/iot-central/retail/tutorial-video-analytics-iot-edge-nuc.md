@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127050"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748657"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Intel NUC)
 
@@ -27,7 +27,7 @@ No IoT Edge, estes serviços funcionam diretamente em dispositivos IoT de plataf
 
 Este tutorial mostra-lhe como instalar e configurar o tempo de execução do IoT Edge num dispositivo Intel NUC.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Atualizar e configurar IoT Edge
 > * Configurar o gateway IoT Edge
@@ -73,7 +73,7 @@ Para adicionar o *state.jsno* ficheiro de configuração à pasta */dados/armaze
 
 1. Atualize os `iotCentral > appKeys` espaços reservados com os valores que fez no ficheiro *scratchpad.txt* no tutorial anterior. Guarde as alterações.
 
-1. Utilize o utilitário PuTTY `scp` num pedido de comando para copiar ostate.js* no* ficheiro que acaba de editar para */pasta de armazenamento /dados/armazenamento* no seu dispositivo IoT Edge. Este exemplo utiliza `192.168.0.144` como exemplo endereço IP, substitua-o pelo endereço IP do seu dispositivo IoT Edge:
+1. Utilize o utilitário PuTTY `scp` num pedido de comando para copiar ostate.js *no* ficheiro que acaba de editar para */pasta de armazenamento /dados/armazenamento* no seu dispositivo IoT Edge. Este exemplo utiliza `192.168.0.144` como exemplo endereço IP, substitua-o pelo endereço IP do seu dispositivo IoT Edge:
 
     ```cmd
     scp state.json YourUserName@192.168.0.144:/data/storage/state.json`
@@ -140,7 +140,7 @@ Configure a IoT Edge para registar e ligar à sua aplicação IoT Central:
 
 Se os módulos IoT Edge não começarem corretamente, consulte [Troubleshoot o seu dispositivo IoT Edge](../../iot-edge/troubleshoot.md).
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>Recolha o fluxo RSTP da sua câmara
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>Recolha o fluxo RTSP da sua câmara
 
 Identifique os URLs de fluxo RTSP para as câmaras ligadas ao seu dispositivo IoT Edge, por exemplo:
 

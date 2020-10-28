@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9337349914748a38152b97cab50e15afbab3040e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 45cad20a2e32640cabf4c57ce6411fcd5ab67da3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495877"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748226"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado Azure TLS  
 
@@ -27,7 +27,7 @@ A Microsoft está a atualizar os serviços da Azure para utilizar certificados T
 - Os pontos finais do Azure existentes vão transitar de forma faseada a partir de 13 de agosto de 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) e [DPS](/azure/iot-dps/) permanecerão na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)
 - [O Azure Storage](/azure/storage) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios vão mudar. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)
-
+- [Azure Cache para Redis](/azure/azure-cache-for-redis) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](../../azure-cache-for-redis/cache-whats-new.md)
 > [!IMPORTANT]
 > Os clientes poderão ter de atualizar as suas aplicações após esta alteração para evitar falhas de conectividade ao tentarem ligar-se aos serviços Azure.
 
@@ -67,11 +67,11 @@ Aqui estão algumas formas de detetar se a sua aplicação é impactada:
 - Se tiver uma aplicação que se integre com APIs Azure ou outros serviços Azure e não tem a certeza se utiliza a fixação de certificados, consulte o fornecedor de aplicações.
 
 - Diferentes sistemas operativos e tempos de execução linguísticos que comunicam com os serviços da Azure podem exigir medidas adicionais para construir corretamente a cadeia de certificados com estas novas raízes:
-    - **Linux**: Muitas distribuições requerem que adicione CAs a /etc/ssl/certs. Para instruções específicas, consulte a documentação da distribuição.
-    - **Java**: Certifique-se de que a loja de chaves Java contém os CAs listados acima.
-    - **Windows running in disconnected environments**: Os sistemas que estão a funcionar em ambientes desligados terão de ter as novas raízes adicionadas à loja Trusted Root Certification Authorities e os intermediários adicionados à loja Das Autoridades de Certificação Intermédia.
-    - **Android**: Verifique a documentação do seu dispositivo e versão do Android.
-    - **Outros dispositivos de hardware, especialmente ioT**: Contacte o fabricante do dispositivo.
+    - **Linux** : Muitas distribuições requerem que adicione CAs a /etc/ssl/certs. Para instruções específicas, consulte a documentação da distribuição.
+    - **Java** : Certifique-se de que a loja de chaves Java contém os CAs listados acima.
+    - **Windows running in disconnected environments** : Os sistemas que estão a funcionar em ambientes desligados terão de ter as novas raízes adicionadas à loja Trusted Root Certification Authorities e os intermediários adicionados à loja Das Autoridades de Certificação Intermédia.
+    - **Android** : Verifique a documentação do seu dispositivo e versão do Android.
+    - **Outros dispositivos de hardware, especialmente ioT** : Contacte o fabricante do dispositivo.
 
 - Se tiver um ambiente onde as regras de firewall são definidas para permitir chamadas de saída apenas para locais específicos de verificação da Lista de Revogação de Certificados (CRL) e/ou protocolo de verificação do certificado online (OCSP). Você precisará permitir os seguintes URLs CRL e OCSP:
 

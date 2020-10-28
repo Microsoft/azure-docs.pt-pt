@@ -6,15 +6,15 @@ author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: business-intelligence
-ms.date: 04/29/2020
+ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52b6524bf9f21b7d61ac3907030ff08c7ac15256
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171829"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746363"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Quickstart: Ligando um espaço de trabalho power BI a um espaço de trabalho synapse
 
@@ -29,15 +29,15 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Ligue o espaço de trabalho power BI ao seu espaço de trabalho synapse
 
-1. A partir do Synapse Studio, clique em **Manage**.
+1. A partir do Synapse Studio, clique em **Manage** .
 
     ![Synapse Studio clique para gerir.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. Em **Ligações Externas,** clique **nos serviços Linked**.
+2. Em **Ligações Externas,** clique **nos serviços Linked** .
 
     ![Serviços ligados em destaque.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Clique em **+ Novo**.
+3. Clique em **+ Novo** .
 
     ![+ Destaque-se nos novos serviços ligados.](media/quickstart-link-powerbi/new-highlighted.png)
 
@@ -49,7 +49,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita antes de come�
 
     ![Apresentando a configuração do serviço ligado ao Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Clique em **Criar**.
+6. Clique em **Criar** .
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Ver espaço de trabalho power bi no Estúdio Synapse
 

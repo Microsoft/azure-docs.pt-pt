@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747755"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Terminar a notificação das instâncias dos conjuntos de dimensionamento de máquinas virtuais do Azure
 As instâncias definidas em escala podem optar por receber notificações de rescisão de casos e definir um prazo de atraso pré-definido para a operação de encerramento. A notificação de rescisão é enviada através do Azure Metadata Service – [Eventos Agendados,](../virtual-machines/windows/scheduled-events.md)que fornece notificações para e atrasar operações impactantes como reboots e redistribuição. A solução adiciona mais um evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento de terminação dependerá do limite de atraso especificado pelos utilizadores nas configurações do modelo de escala.
@@ -28,12 +28,12 @@ Existem várias formas de permitir notificações de rescisão na sua escala, co
 
 Os seguintes passos permitem a notificação de terminação ao criar um conjunto de escala nova. 
 
-1. Aceda aos **conjuntos de escala de máquina virtual**.
+1. Aceda aos **conjuntos de escala de máquina virtual** .
 1. **Selecione + Adicione** para criar um conjunto de escala nova.
 1. Vá ao **separador Gestão.** 
 1. Localize a secção **de terminação de instância.**
-1. Por **exemplo, notificação de rescisão**, selecione **On**.
-1. Para **o atraso de rescisão (minutos)**, desate o tempo limite de tempo pretendido.
+1. Por **exemplo, notificação de rescisão** , selecione **On** .
+1. Para **o atraso de rescisão (minutos)** , desate o tempo limite de tempo pretendido.
 1. Quando terminar de criar o novo conjunto de escala, selecione **Rever + criar** o botão. 
 
 > [!NOTE]
@@ -63,7 +63,7 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-O bloco acima especifica um atraso de tempo de 5 minutos (como indicado pelo *PT5M*) para qualquer operação de terminação em todas as instâncias do seu conjunto de escala. O campo *nãoBeforeTimeout* pode ter qualquer valor entre 5 e 15 minutos no formato ISO 8601. Pode alterar o tempo limite padrão para a operação de terminação modificando a propriedade *nãoBeforeTimeout* sob *terminaçãoNotificationProfile* descrito acima.
+O bloco acima especifica um atraso de tempo de 5 minutos (como indicado pelo *PT5M* ) para qualquer operação de terminação em todas as instâncias do seu conjunto de escala. O campo *nãoBeforeTimeout* pode ter qualquer valor entre 5 e 15 minutos no formato ISO 8601. Pode alterar o tempo limite padrão para a operação de terminação modificando a propriedade *nãoBeforeTimeout* sob *terminaçãoNotificationProfile* descrito acima.
 
 Depois de ativar *o programadoEventsProfile* no modelo de conjunto de escala e definir o *nãoBeforeTimeout,* atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 

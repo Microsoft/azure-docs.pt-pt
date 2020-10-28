@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, chapéu vermelho, cli
-ms.custom: mvc
-ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490242"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748065"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurar a autenticação do Diretório Ativo Azure para um cluster Azure Red Hat OpenShift 4 (Portal)
 
@@ -36,7 +36,7 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 
 Faça login no portal Azure e navegue para a [lâmina de registos da App,](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)clique em **Novo Registo** para criar uma nova aplicação.
 
-Forneça um nome para a aplicação, por exemplo **aro-azuread-auth**, e preencha o **Redirect URI** usando o valor do URL de retorno de OAuth que recuperou anteriormente.
+Forneça um nome para a aplicação, por exemplo **aro-azuread-auth** , e preencha o **Redirect URI** usando o valor do URL de retorno de OAuth que recuperou anteriormente.
 
 ![Novo registo de aplicação](media/aro4-ad-registerapp.png)
 
@@ -60,7 +60,7 @@ Pode utilizar reclamações opcionais para:
 
 Configuraremos o OpenShift para usar a `email` reclamação e recuar `upn` para definir o nome de utilizador preferido adicionando o como parte do `upn` token de ID devolvido pelo Azure Ative Directory.
 
-Navegue para **a configuração token (pré-visualização)** e clique em **Adicionar reivindicação opcional**. Selecione **ID** em seguida, verifique o **e-mail** e **upn** reclamações.
+Navegue para **a configuração token (pré-visualização)** e clique em **Adicionar reivindicação opcional** . Selecione **ID** em seguida, verifique o **e-mail** e **upn** reclamações.
 
 ![Screenshot que mostra o e-mail e upn alegações que foram adicionadas.](media/aro4-ad-tokens.png)
 
@@ -100,9 +100,9 @@ Você pode encontrar o URL da consola de cluster executando o seguinte comando, 
 
 Lance o URL da consola num browser e faça login usando as `kubeadmin` credenciais.
 
-Navegue para **administração**, clique em **Definições de Cluster**e, em seguida, selecione o **separador Configuração Global.** Percorra para selecionar **OAuth**.
+Navegue para **administração** , clique em **Definições de Cluster** e, em seguida, selecione o **separador Configuração Global.** Percorra para selecionar **OAuth** .
 
-Desloque-se para baixo para selecionar **Adicionar** aos **Fornecedores de Identidade** e selecione **OpenID Connect**.
+Desloque-se para baixo para selecionar **Adicionar** aos **Fornecedores de Identidade** e selecione **OpenID Connect** .
 ![Selecione OpenID Connect a partir do dropdown dos Fornecedores de Identidade](media/aro4-oauth-idpdrop.png)
 
 Preencha o nome como **AAD,** o **ID** do Cliente como ID de **aplicação** e o Segredo do **Cliente.** O **URL do Emitente** é formatado como tal: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` . Substitua o espaço reservado pelo ID do inquilino que recuperou anteriormente.
@@ -115,6 +115,6 @@ Percorra a secção **'Reclamações'** e atualize o **nome de utilizador prefer
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verifique o login através do Azure Ative Directory
 
-Se agora tiver o início da consola Web OpenShift e tentar iniciar sessão novamente, será apresentada uma nova opção para iniciar sessão com **a AAD**. Talvez precise esperar por alguns minutos.
+Se agora tiver o início da consola Web OpenShift e tentar iniciar sessão novamente, será apresentada uma nova opção para iniciar sessão com **a AAD** . Talvez precise esperar por alguns minutos.
 
 ![Ecrã de login com opção Azure Ative Directory](media/aro4-login-2.png)

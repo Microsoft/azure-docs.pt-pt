@@ -7,13 +7,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 5c9d7faebe7fefdddbf194e3a9ad36b4644115e0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671103"
+ms.locfileid: "92746457"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
 

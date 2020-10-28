@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 44796fd3330d1f5670eb47589a34158464f0202d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5b39e1988a798adde8a07a39d7724f50d7a4f851
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678305"
+ms.locfileid: "92755576"
 ---
 Começa com a biblioteca de clientes Da Visão Personalizada para Python. Siga estes passos para instalar o pacote e experimente o código de exemplo para a construção de um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
 
@@ -114,7 +114,7 @@ Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_tags)]
 
 > [!NOTE]
-> Você precisará mudar o caminho para as imagens com base no local onde você descarregou os Serviços Cognitivos Python SDK Samples repo mais cedo.
+> Você precisará mudar o caminho para as imagens com base no local onde você descarregou o repo de Amostras python dos serviços cognitivos Python.
 
 ## <a name="train-the-project"></a>Treine o projeto
 

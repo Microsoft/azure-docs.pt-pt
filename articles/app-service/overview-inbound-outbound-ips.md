@@ -3,13 +3,13 @@ title: Endereços IP de entrada/saída
 description: Saiba como os endereços IP de entrada e saída são usados no Azure App Service, quando eles mudam, e como encontrar os endereços para a sua aplicação.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050697"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746155"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no Serviço de Aplicações Azure
 
@@ -51,7 +51,7 @@ O conjunto de endereços IP de saída para a sua aplicação muda quando executa
 
 - Elimine uma aplicação e recrie-a num grupo de recursos diferente (a unidade de implantação pode mudar).
 - Elimine a última aplicação numa combinação de grupo de recursos _e_ região e recrie-a (a unidade de implantação pode mudar).
-- Dimensione a sua aplicação entre os níveis inferiores **(Básico,** **Standard**e **Premium)** e o nível **Premium V2** (os endereços IP podem ser adicionados ou subtraídos do conjunto).
+- Dimensione a sua aplicação entre os níveis inferiores **(Básico,** **Standard** e **Premium)** e o nível **Premium V2** (os endereços IP podem ser adicionados ou subtraídos do conjunto).
 
 Pode encontrar o conjunto de todos os possíveis endereços IP de saída que a sua aplicação pode utilizar, independentemente dos níveis de preços, procurando a `possibleOutboundIpAddresses` propriedade ou no campo de **endereços IP de saída adicional** na lâmina **Propriedades** no portal Azure. Ver [Encontrar IPs de saída](#find-outbound-ips).
 

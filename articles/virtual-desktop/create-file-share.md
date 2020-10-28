@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519444"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746813"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -33,18 +33,18 @@ Para criar uma conta de armazenamento:
 
 2. Procure uma **conta de armazenamento** na barra de pesquisa.
 
-3. Selecione **+Adicionar**.
+3. Selecione **+Adicionar** .
 
 4. Introduza as seguintes informações na página **de conta de armazenamento Criar:**
 
     - Criar um novo grupo de recursos.
     - Introduza um nome único para a conta de armazenamento.
-    - Para **localização**, recomendamos que escolha o mesmo local que a piscina de anfitriões virtual do Windows Desktop.
-    - Em **Desempenho**, selecione **Standard**. (Dependendo dos seus requisitos de IOPS. Para obter mais informações, consulte [as opções de Armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).)
-    - Para **o tipo de conta**, selecione **StorageV2** ou **FileStorage** (só disponível se o nível de desempenho for Premium).
-    - Para **replicação,** selecione **armazenamento localmente redundante (LRS)**.
+    - Para **localização** , recomendamos que escolha o mesmo local que a piscina de anfitriões virtual do Windows Desktop.
+    - Em **Desempenho** , selecione **Standard** . (Dependendo dos seus requisitos de IOPS. Para obter mais informações, consulte [as opções de Armazenamento para recipientes de perfil FSLogix no Windows Virtual Desktop](store-fslogix-profile.md).)
+    - Para **o tipo de conta** , selecione **StorageV2** ou **FileStorage** (só disponível se o nível de desempenho for Premium).
+    - Para **replicação,** selecione **armazenamento localmente redundante (LRS)** .
 
-5. Quando terminar, selecione **'Rever + criar'** e, em seguida, selecione **Criar**.
+5. Quando terminar, selecione **'Rever + criar'** e, em seguida, selecione **Criar** .
 
 Se necessitar de instruções de configuração mais detalhadas, consulte [a disponibilidade regional](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
@@ -54,13 +54,13 @@ Em seguida, terá de criar uma partilha de ficheiros Azure.
 
 Para criar uma partilha de ficheiros:
 
-1. Selecione **Ir para recurso**.
+1. Selecione **Ir para recurso** .
 
-2. Na página Descrição geral, selecione **Partilhas de ficheiros**.
+2. Na página Descrição geral, selecione **Partilhas de ficheiros** .
 
-3. Selecione **+Ações de arquivo,** crie uma nova partilha de **ficheiros**com perfil nomeado , em seguida, introduza uma quota apropriada ou deixe o campo em branco sem quota.
+3. Selecione **+Ações de arquivo,** crie uma nova partilha de **ficheiros** com perfil nomeado , em seguida, introduza uma quota apropriada ou deixe o campo em branco sem quota.
 
-4. Selecione **Criar**.
+4. Selecione **Criar** .
 
 ## <a name="enable-active-directory-authentication"></a>Ativar a autenticação do Diretório Ativo
 
@@ -68,9 +68,9 @@ Em seguida, você precisará ativar a autenticação do Ative Directory (AD). Pa
 
 1. Protocolo remoto de ambiente de trabalho no VM de domínio.
 
-2. Siga as instruções na [autenticação Enable Azure AD DS para as suas ações de ficheiroS Azure](../storage/files/storage-files-identity-ad-ds-enable.md) para instalar o módulo AzFilesHybrid e ativar a autenticação.
+2. Siga as instruções em [Ativar a autenticação AD DS para as suas ações de ficheiroS Azure](../storage/files/storage-files-identity-ad-ds-enable.md) para instalar o módulo AzFilesHybrid e ativar a autenticação.
 
-3.  Abra o portal Azure, abra a sua conta de armazenamento, **selecione Configuração**e confirme que **o Ative Directory (AD)** está definido como **Ativado**.
+3.  Abra o portal Azure, abra a sua conta de armazenamento, **selecione Configuração** e confirme que **o Ative Directory (AD)** está definido como **Ativado** .
 
      > [!div class="mx-imgBorder"]
      > ![Uma imagem da página de Configuração com diretório ativo Azure (AD) ativada.](media/active-directory-enabled.png)
@@ -92,17 +92,17 @@ Para atribuir permissões de controlo de acesso baseado em funções Azure (Azur
 
 2. Abra a conta de armazenamento que criou na [Configuração de uma conta de armazenamento.](#set-up-a-storage-account)
 
-3. Selecione **as ações do Ficheiro**e, em seguida, selecione o nome da partilha de ficheiros que pretende utilizar.
+3. Selecione **as ações do Ficheiro** e, em seguida, selecione o nome da partilha de ficheiros que pretende utilizar.
 
-4. Selecione **Controlo de Acesso (IAM)**.
+4. Selecione **Controlo de Acesso (IAM)** .
 
-5. **Selecione Adicionar uma atribuição de função**.
+5. **Selecione Adicionar uma atribuição de função** .
 
 6. No separador **de atribuição de funções Adicionar,** selecione **Storage File Data SMB Share Elevated Contributor** para a conta de administrador.
 
      Para atribuir permissões aos utilizadores para os perfis FSLogix, siga estas mesmas instruções. No entanto, quando chegar ao passo 5, selecione **Storage File Data SMB Share Contributor.**
 
-7. Selecione **Guardar**.
+7. Selecione **Guardar** .
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Atribuir permissões aos utilizadores na partilha de ficheiros Azure
 
@@ -121,7 +121,7 @@ Eis como obter o caminho da UNC:
 
 2. Abra a conta de armazenamento que criou na [Configuração de uma conta de armazenamento.](#set-up-a-storage-account)
 
-3. Selecione **Definições**e, em seguida, **selecione Propriedades**.
+3. Selecione **Definições** e, em seguida, **selecione Propriedades** .
 
 4. Copie o Endpoint URI **do Serviço de Ficheiros Primários** para o editor de texto à sua escolha.
 
@@ -141,7 +141,7 @@ Para obter a chave da conta de armazenamento:
 
 2. Abra a conta de armazenamento que criou na [Configuração de uma conta de armazenamento.](#set-up-a-storage-account)
 
-3. No **separador conta 'Armazenamento',** selecione **as teclas de acesso**.
+3. No **separador conta 'Armazenamento',** selecione **as teclas de acesso** .
 
 4. Copie **a chave1** ou **a chave2** para um ficheiro na sua máquina local.
 
@@ -200,13 +200,13 @@ Para configurar o FSLogix na VM do anfitrião da sessão:
 
 5. Siga as instruções em [Configurar as definições do registo do contentor de perfil](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings):
 
-    - Navegue para **o Software**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **FSLogix de**HKEY_LOCAL_MACHINE de Computador .
+    - Navegue para **o Software**  >  **HKEY_LOCAL_MACHINE**  >  **SOFTWARE**  >  **FSLogix de** HKEY_LOCAL_MACHINE de Computador .
 
     - Crie uma chave **de perfis.**
 
     - Criar **Ativado, DWORD** com um valor de 1.
 
-    - Criar **VHDLocations, MULTI_SZ**.
+    - Criar **VHDLocations, MULTI_SZ** .
 
     - Desloque o valor das **VHDLocations** para o caminho unc gerado no [caminho do UNC](#get-the-unc-path).
 

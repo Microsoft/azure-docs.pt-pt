@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83124062"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746792"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Exemplo Proteção para séries de máquinas virtuais Azure conjunto instâncias
 
@@ -50,11 +50,11 @@ Existem várias formas de aplicar proteção de escala na sua escala, conforme d
 Pode aplicar proteção de escala através do portal Azure a uma instância no conjunto de escalas. Não se pode ajustar mais do que um caso de cada vez. Repita os passos para cada instância que pretende proteger.
  
 1. Aceda a um conjunto de escala de máquina virtual existente.
-1. Selecione **Instâncias** do menu à esquerda, em **Definições**.
+1. Selecione **Instâncias** do menu à esquerda, em **Definições** .
 1. Selecione o nome do caso que pretende proteger.
 1. Selecione o separador **Política de Proteção.**
 1. Na lâmina **'Política de Protecção',** selecione a opção **Protect from scale-in.**
-1. Selecione **Guardar**. 
+1. Selecione **Guardar** . 
 
 ### <a name="rest-api"></a>API REST
 
@@ -118,11 +118,11 @@ Existem várias formas de aplicar a proteção de ações definidas em escala na
 Pode aplicar proteção contra ações definidas em escala através do portal Azure a uma instância no conjunto de escalas. Não se pode ajustar mais do que um caso de cada vez. Repita os passos para cada instância que pretende proteger.
  
 1. Aceda a um conjunto de escala de máquina virtual existente.
-1. Selecione **Instâncias** do menu à esquerda, em **Definições**.
+1. Selecione **Instâncias** do menu à esquerda, em **Definições** .
 1. Selecione o nome do caso que pretende proteger.
 1. Selecione o separador **Política de Proteção.**
 1. Na lâmina **'Política de Protecção',** selecione a opção **Protect from scale set actions.**
-1. Selecione **Guardar**. 
+1. Selecione **Guardar** . 
 
 ### <a name="rest-api"></a>API REST
 

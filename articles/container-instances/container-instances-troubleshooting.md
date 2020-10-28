@@ -3,13 +3,13 @@ title: Resolver problemas comuns
 description: Saiba como resolver problemas comuns quando implementar, executar ou gerir instâncias de contentores do Azure
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148612"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746913"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -99,7 +99,7 @@ Este erro indica que devido à carga pesada na região em que está a tentar imp
 ## <a name="issues-during-container-group-runtime"></a>Problemas durante o tempo de funcionação do grupo de contentores
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>O contentor é desligado e reiniciado continuamente (sem processo de longa duração)
 
-Os grupos de contentores não têm uma política de [reinício](container-instances-restart-policy.md) da **Always**, pelo que os contentores do grupo de contentores reiniciam sempre após a sua conclusão. Pode ter de alterar isto para **OnFailure** ou **nunca** se pretender executar recipientes baseados em tarefas. Se especificar **o OnFailure** e continuar a ver o recomeço contínuo, pode haver um problema com a aplicação ou script executado no seu contentor.
+Os grupos de contentores não têm uma política de [reinício](container-instances-restart-policy.md) da **Always** , pelo que os contentores do grupo de contentores reiniciam sempre após a sua conclusão. Pode ter de alterar isto para **OnFailure** ou **nunca** se pretender executar recipientes baseados em tarefas. Se especificar **o OnFailure** e continuar a ver o recomeço contínuo, pode haver um problema com a aplicação ou script executado no seu contentor.
 
 Ao executar grupos de contentores sem processos de longa duração, poderá ver saídas repetidas e reiniciar com imagens como Ubuntu ou Alpine. A ligação via [EXEC](container-instances-exec.md) não funcionará, uma vez que o contentor não tem qualquer processo para mantê-lo vivo. Para resolver este problema, inclua um comando inicial como o seguinte com a colocação do seu grupo de contentores para manter o recipiente em funcionamento.
 

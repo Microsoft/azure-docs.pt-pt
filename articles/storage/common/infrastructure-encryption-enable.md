@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984137"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746584"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Criar uma conta de armazenamento com encriptação de infraestrutura habilitada para dupla encriptação de dados
 
@@ -95,7 +96,7 @@ Para utilizar o PowerShell para criar uma conta de armazenamento com encriptaç�
 
 1. No portal Azure, navegue para a página **de contas de Armazenamento.**
 1. Escolha o botão **Adicionar** para adicionar uma nova conta de armazenamento v2 para fins gerais.
-1. No separador **Advanced,** localize **a encriptação da Infraestrutura** e selecione **Ativado**.
+1. No separador **Advanced,** localize **a encriptação da Infraestrutura** e selecione **Ativado** .
 1. Selecione **Review + criar** para terminar a criação da conta de armazenamento.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Screenshot mostrando como ativar encriptação de infraestrutura ao criar conta":::
@@ -178,7 +179,7 @@ O exemplo JSON a seguir cria uma conta de armazenamento v2 para fins gerais que 
 Para verificar se a encriptação da infraestrutura está ativada para uma conta de armazenamento com o portal Azure, siga estes passos:
 
 1. Navegue para a sua conta de armazenamento no portal do Azure.
-1. Em **Definições,** escolha **encriptação**.
+1. Em **Definições,** escolha **encriptação** .
 
     :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot mostrando como ativar encriptação de infraestrutura ao criar conta":::
 

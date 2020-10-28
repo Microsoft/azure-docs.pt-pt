@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a1bb3346d50825dcab799477794cb138ac2de91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72120f6937c65ca6f7a94d34122e41ae3b4a4ef5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326291"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746436"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Quickstart: Como usar tópicos e subscrições do Service Bus com Node.js e o pacote azure/service-bus
 Neste tutorial, aprende-se a escrever um programa Node.js para enviar mensagens para um tópico de Service Bus e receber mensagens de uma assinatura de Service Bus utilizando o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote. Este pacote utiliza o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo utilizou [APIs de tempo de funcionamento do Service Bus REST](/rest/api/servicebus/service-bus-runtime-rest). As amostras estão escritas em JavaScript.
@@ -23,7 +23,7 @@ Neste tutorial, aprende-se a escrever um programa Node.js para enviar mensagens 
 
 > [!NOTE]
 > - Este tutorial funciona com amostras que pode copiar e executar usando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure](../app-service/quickstart-nodejs.md), ouNode.js Cloud Service utilizando o Windows [ PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - O novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote ainda não suporta a criação de topcis e subscrições. Por favor, use o [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) pacote se quiser criá-los programáticamente.
+> - O novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) pacote ainda não suporta a criação de tópicos e subscrições. Por favor, use o [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) pacote se quiser criá-los programáticamente.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o NPM (Node Package Manager, Gestor de Pacotes do Nó) para instalar o pacote
 Para instalar o pacote npm para Service Bus, abra um pedido de comando que tenha `npm` no seu caminho, altere o diretório para a pasta onde pretende ter as suas amostras e, em seguida, execute este comando.

@@ -8,13 +8,13 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107798"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747723"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Virtual Windows
 
@@ -68,8 +68,8 @@ Dispositivo IoT Edge
   Assim que a sua máquina virtual começar, pode descarregar um ficheiro RDP para utilização ao ligar-se à sua máquina virtual:
 
   1. Navegue para a sua nova máquina virtual Windows no portal Azure.
-  1. Selecione **Ligar**.
-  1. No separador **RDP,** selecione **Download RDP File**.
+  1. Selecione **Ligar** .
+  1. No separador **RDP,** selecione **Download RDP File** .
 
   Abra este ficheiro com Ligação de Ambiente de Trabalho Remoto para ligar à sua máquina virtual Do Windows utilizando o nome de administrador e a palavra-passe especificada com o `az vm create` comando.
 
@@ -94,7 +94,7 @@ O código a seguir cria um hub **de F1** gratuito no grupo de recursos `IoTEdgeR
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Se obtiver um erro porque já existe um hub gratuito na sua subscrição, altere o SKU para **S1**. Se tiver um erro que o nome IoT Hub não está disponível, significa que outra pessoa já tem um hub com esse nome. Tente um novo nome.
+   Se obtiver um erro porque já existe um hub gratuito na sua subscrição, altere o SKU para **S1** . Se tiver um erro que o nome IoT Hub não está disponível, significa que outra pessoa já tem um hub com esse nome. Tente um novo nome.
 
 ## <a name="register-an-iot-edge-device"></a>Registar um dispositivo do IoT Edge
 
@@ -169,7 +169,7 @@ Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a ca
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-6. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
+6. Quando lhe for pedido **DeviceConnectionString** , indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
 
@@ -232,7 +232,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
 Também pode ver as mensagens chegarem ao seu hub IoT utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos Azure que criou para evitar encargos.
 
@@ -241,7 +241,7 @@ Se tiver criado a sua máquina virtual e o hub IoT num novo grupo de recursos, p
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível.
 
-Remova o grupo de **IoTEdgeResources**. Pode levar alguns minutos para apagar um grupo de recursos.
+Remova o grupo de **IoTEdgeResources** . Pode levar alguns minutos para apagar um grupo de recursos.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

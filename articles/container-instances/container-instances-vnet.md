@@ -3,13 +3,13 @@ title: Implementar grupo de contentores para a rede virtual Azure
 description: Aprenda a implantar um grupo de contentores para uma rede virtual Azure nova ou existente utilizando a interface de linha de comando Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518131"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746901"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentores numa rede virtual do Azure
 
@@ -69,7 +69,7 @@ Para implantar um grupo de contentores numa rede virtual existente:
 
 O exemplo seguinte coloca um segundo grupo de contentores na mesma sub-rede criada anteriormente e verifica a comunicação entre as duas instâncias de contentores.
 
-Em primeiro lugar, obtenha o endereço IP do primeiro grupo de contentores que implementou, o *appcontainer*:
+Em primeiro lugar, obtenha o endereço IP do primeiro grupo de contentores que implementou, o *appcontainer* :
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -139,7 +139,7 @@ Resultado do exemplo:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Assim que tiver o ID do perfil de rede, copie o YAML seguinte para um novo ficheiro chamado *vnet-deploy-aci.yaml*. Em `networkProfile` baixo, substitua o `id` valor por ID que acabou de recuperar e guarde o ficheiro. Este YAML cria um grupo de contentores chamado *appcontaineryaml* na sua rede virtual.
+Assim que tiver o ID do perfil de rede, copie o YAML seguinte para um novo ficheiro chamado *vnet-deploy-aci.yaml* . Em `networkProfile` baixo, substitua o `id` valor por ID que acabou de recuperar e guarde o ficheiro. Este YAML cria um grupo de contentores chamado *appcontaineryaml* na sua rede virtual.
 
 ```YAML
 apiVersion: '2019-12-01'

@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file
-ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989618"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755749"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 Também pode criar um cofre de chaves utilizando o [modelo de Gestor de Recursos.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
-1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
-2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, nome do Cofre chave, ID do objeto, termos legais e acordo, e, em seguida, clique em **Comprar**. 
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure** .
+2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, nome do Cofre chave, ID do objeto, termos legais e acordo, e, em seguida, clique em **Comprar** . 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Definir as políticas avançadas de acesso do cofre de chaves
@@ -117,10 +117,10 @@ Utilize [a atualização do keyvault az](/cli/azure/keyvault#az-keyvault-update)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Selecione o cofre de chaves, vá às **Políticas de Acesso**e clique para mostrar políticas de acesso **avançadas**.
-2. Selecione a caixa com a etiqueta **Ativar o acesso à Encriptação do Disco Azure para encriptação de volume**.
+1. Selecione o cofre de chaves, vá às **Políticas de Acesso** e clique para mostrar políticas de acesso **avançadas** .
+2. Selecione a caixa com a etiqueta **Ativar o acesso à Encriptação do Disco Azure para encriptação de volume** .
 3. **Selecione Permitir o acesso a Máquinas Virtuais Azure para implantação** e/ou Permitir o Acesso ao Gestor de Recursos **Azure para a implementação do modelo,** se necessário. 
-4. Clique em **Guardar**.
+4. Clique em **Guardar** .
 
     ![Azure key vault políticas avançadas de acesso](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 

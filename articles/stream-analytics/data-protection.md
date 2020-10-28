@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812867"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746400"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados em Azure Stream Analytics 
 
@@ -59,7 +59,7 @@ Para ajudá-lo a cumprir as suas obrigações de conformidade em qualquer indús
 
 Utilize os seguintes passos para configurar a sua conta de armazenamento para ativos de dados privados. Esta configuração é feita a partir do seu trabalho stream Analytics, não da sua conta de armazenamento.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure. 
 
@@ -73,10 +73,6 @@ Utilize os seguintes passos para configurar a sua conta de armazenamento para at
 
    ![Definições privadas de conta de armazenamento de dados](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Problemas conhecidos
-Atualmente, existe uma limitação conhecida em que um trabalho que utiliza a chave gerida pelo cliente encontra falhas ao usar a identidade gerida para autenticar quaisquer entradas ou saídas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

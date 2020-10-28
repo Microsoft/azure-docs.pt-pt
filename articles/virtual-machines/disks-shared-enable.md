@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 82d482cd0a1b3a5b6028b9249030b7b1a093d22d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570543"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747780"
 ---
 # <a name="enable-shared-disk"></a>Ativar disco partilhado
 

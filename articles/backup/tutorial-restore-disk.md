@@ -3,13 +3,13 @@ title: Tutorial - Restaurar um VM com Azure CLI
 description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure com Serviços de Cópia de Segurança e de Recuperação.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324995"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746750"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurar uma VM com a CLI do Azure
 
@@ -74,7 +74,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
         --sku Standard_LRS
     ```
 
-2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *o meu NomeRecoveryPoint por* o nome do ponto de recuperação obtido na saída do comando anterior da lista de pontos de recuperação de backup [az.](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) ***Forneça também o grupo de recursos-alvo ao qual os discos geridos são restaurados em***.
+2. Restaure o disco do ponto de recuperação com [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Substitua *mystorageaccount* pelo nome da conta de armazenamento que criou no comando anterior. Substitua *o meu NomeRecoveryPoint por* o nome do ponto de recuperação obtido na saída do comando anterior da lista de pontos de recuperação de backup [az.](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) ***Forneça também o grupo de recursos-alvo ao qual os discos geridos são restaurados em** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ Se o VM de back-up tiver gerido discos e se a intenção é restaurar os discos 
     ```
 
     > [!WARNING]
-    > Se o **grupo de recursos-alvo** não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Só terá o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
+    > Se _ *grupo de recursos-alvo* * não for fornecido, então os discos geridos serão restaurados como discos não geridos para a conta de armazenamento dada. Isto terá consequências significativas para o tempo de restauro, uma vez que o tempo necessário para restaurar os discos depende inteiramente da conta de armazenamento dada. Só terá o benefício da restauração instantânea quando o parâmetro do grupo de recursos-alvo for dado. Se a intenção é restaurar os discos geridos como não geridos, então não forneça o parâmetro **do grupo de recursos-alvo** e, em vez disso, forneça o parâmetro de restaurar o parâmetro como não **gerido-disco,** como mostrado abaixo. Este parâmetro está disponível a partir de az 3.4.0 em diante.
 
     ```azurecli-interactive
     az backup restore restore-disks \

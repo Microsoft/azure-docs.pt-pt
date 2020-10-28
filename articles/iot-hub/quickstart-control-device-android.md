@@ -11,14 +11,15 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: bd23483997b94f16e926c2849e0879b41316fba3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a1166874ed743efa599743fa6db8341e94c0fe1f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148895"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747671"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Quickstart: Controle um dispositivo ligado a um hub IoT (Android)
 
@@ -66,7 +67,7 @@ Se tiver completado o [Quickstart anterior: Enviar telemetria de um dispositivo 
 
 1. Executar o seguinte comando em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
+   **Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
    **MyAndroidDevice:** Este é o nome do dispositivo que está a registar. Recomenda-se usar **MyAndroidDevice** como mostrado. Se escolher um nome diferente para o seu dispositivo, também precisa de usar esse nome ao longo deste artigo e atualizar o nome do dispositivo nas aplicações da amostra antes de executá-los.
 
@@ -77,7 +78,7 @@ Se tiver completado o [Quickstart anterior: Enviar telemetria de um dispositivo 
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-   **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
+   **Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -96,7 +97,7 @@ Se tiver completado o [Quickstart anterior: Enviar telemetria de um dispositivo 
 
 Também precisa de um fio de _ligação_ de serviço para permitir que as aplicações de serviço back-end se conectem ao seu hub IoT de modo a executar métodos e recuperar mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
-**Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
+**Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolheu para o seu hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -114,7 +115,7 @@ Ambas as amostras para este arranque rápido fazem parte do repositório azure-i
 
 A aplicação de amostra SDK do dispositivo pode ser executada num dispositivo Android físico ou num emulador Android. A amostra liga-se a um ponto final específico do dispositivo no seu hub IoT, envia telemetria simulada e ouve chamadas de métodos diretos do seu hub. Neste guia de início rápido, a chamada de método direto do hub indica ao dispositivo para alterar o intervalo em que envia telemetria. O dispositivo simulado envia um reconhecimento de volta ao seu centro depois de executar o método direto.
 
-1. Abra o projeto Android de amostra do GitHub no Android Studio. O projeto está localizado no seguinte diretório do seu repositório clonado ou descarregado da [amostra-iot-java:](https://github.com/Azure-Samples/azure-iot-samples-java) *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
+1. Abra o projeto Android de amostra do GitHub no Android Studio. O projeto está localizado no seguinte diretório do seu repositório clonado ou descarregado da [amostra-iot-java:](https://github.com/Azure-Samples/azure-iot-samples-java) *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* .
 
 2. No Android Studio, abra *as propriedades gradle.properties* para o projeto de amostra e substitua o espaço reservado **Device_Connection_String** pela cadeia de ligação do dispositivo que fez uma nota de anterior.
 
@@ -122,7 +123,7 @@ A aplicação de amostra SDK do dispositivo pode ser executada num dispositivo A
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. No Estúdio Android, clique em **File**  >  **Sync Project com Gradle Files**. Verifique se a construção está concluída.
+3. No Estúdio Android, clique em **File**  >  **Sync Project com Gradle Files** . Verifique se a construção está concluída.
 
    > [!NOTE]
    > Se a sincronização do projeto falhar, pode ser por uma das seguintes razões:
@@ -130,7 +131,7 @@ A aplicação de amostra SDK do dispositivo pode ser executada num dispositivo A
    > * As versões do plugin Android Gradle e Gradle referenciadas no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para fazer referência e instalar as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e descarregar o SDK.
 
-4. Uma vez concluída a **Run**construção, clique em  >  **'app'** Run Run . Configurar a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
+4. Uma vez concluída a **Run** construção, clique em  >  **'app'** Run Run . Configurar a aplicação para executar num dispositivo Android físico ou num emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
 
 5. Uma vez que a aplicação carrega, clique no botão **Iniciar** para começar a enviar telemetria para o seu IoT Hub:
 
@@ -144,7 +145,7 @@ Nesta secção, utilizará o Azure Cloud Shell com a [extensão IoT](/cli/azure/
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 
-   **Seu NomeIoTHubName**: Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
+   **Seu NomeIoTHubName** : Substitua este espaço reservado abaixo pelo nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table
@@ -164,7 +165,7 @@ Execute esta aplicação num dispositivo Android físico separado ou emulador An
 
 Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde é mais fácil atenuar os riscos associados à cadeia de ligação sensível que controla todos os dispositivos num Hub IoT. Neste exemplo, estamos a executá-lo como uma aplicação Android apenas para fins de demonstração. As versões de outra linguagem deste quickstart fornecem exemplos que se alinham mais de perto com uma aplicação típica de serviço back-end.
 
-1. Abra o projeto Android de amostra de serviço GitHub no Android Studio. O projeto está localizado no seguinte diretório do seu repositório clonado ou descarregado da [amostra-iot-java:](https://github.com/Azure-Samples/azure-iot-samples-java) *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample*.
+1. Abra o projeto Android de amostra de serviço GitHub no Android Studio. O projeto está localizado no seguinte diretório do seu repositório clonado ou descarregado da [amostra-iot-java:](https://github.com/Azure-Samples/azure-iot-samples-java) *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample* .
 
 2. No Android Studio, open *gradle.properties* para o projeto de amostragem. Atualize os valores das propriedades **ConnectionString** e **DeviceId** com a cadeia de ligação de serviço que observou anteriormente e o ID do dispositivo Android que registou.
 
@@ -173,7 +174,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
     DeviceId=MyAndroidDevice
     ```
 
-3. No Estúdio Android, clique em **File**  >  **Sync Project com Gradle Files**. Verifique se a construção está concluída.
+3. No Estúdio Android, clique em **File**  >  **Sync Project com Gradle Files** . Verifique se a construção está concluída.
 
    > [!NOTE]
    > Se a sincronização do projeto falhar, pode ser por uma das seguintes razões:
@@ -181,9 +182,9 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
    > * As versões do plugin Android Gradle e Gradle referenciadas no projeto estão desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para fazer referência e instalar as versões corretas do plugin e gradle para a sua instalação.
    > * O contrato de licença para o Android SDK não foi assinado. Siga as instruções na saída Build para assinar o contrato de licença e descarregar o SDK.
 
-4. Uma vez concluída a **Run**construção, clique em  >  **'app'** Run Run . Configure a aplicação para executar em um dispositivo Físico Android separado ou um emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
+4. Uma vez concluída a **Run** construção, clique em  >  **'app'** Run Run . Configure a aplicação para executar em um dispositivo Físico Android separado ou um emulador Android. Para obter mais informações sobre a execução de uma aplicação Android num dispositivo físico ou emulador, consulte [Executar a sua aplicação.](https://developer.android.com/training/basics/firstapp/running-app)
 
-5. Uma vez carregada a aplicação, atualize o valor **de intervalo de mensagens definida** para **1000** e clique em **Invocar**.
+5. Uma vez carregada a aplicação, atualize o valor **de intervalo de mensagens definida** para **1000** e clique em **Invocar** .
 
     O intervalo de mensagens de telemetria está em milissegundos. O intervalo de telemetria predefinido da amostra do dispositivo é definido durante 5 segundos. Esta alteração irá atualizar o dispositivo IoT Android para que a telemetria seja enviada a cada segundo.
 
@@ -193,7 +194,7 @@ Uma aplicação de serviço back-end IoT Hub normalmente funciona na nuvem, onde
 
     ![Reconhecimento do método direto](media/quickstart-control-device-android/direct-method-ack.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

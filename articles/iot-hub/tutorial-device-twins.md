@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842772"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748547"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -27,7 +28,7 @@ ms.locfileid: "91842772"
 
 Para além de receber dados telemétricos dos seus dispositivos, poderá ter de os configurar a partir do seu serviço de back-end. Quando enviar uma configuração pretendida para os seus dispositivos, também poderá querer receber atualizações de conformidade e de estado desses dispositivos. Por exemplo, poderá definir um intervalo pretendido para a temperatura de um dispositivo ou recolher informações sobre a versão do firmware dos seus dispositivos.
 
-Para sincronizar as informações de estado entre um dispositivo e um hub do IoT, deve utilizar _dispositivos duplos_. Um [dispositivo duplo](iot-hub-devguide-device-twins.md) é um documento JSON que é associado a um dispositivo específico e é armazenado pelo Hub IoT na nuvem, onde pode efetuar [consultas](iot-hub-devguide-query-language.md) sobre o mesmo. Um dispositivo duplo contém _propriedades pretendidas_, _propriedades reportadas_ e _etiquetas_. Uma propriedade pretendida é definida por uma aplicação de back-end e é lida por um dispositivo. Uma propriedade reportada é definida por um dispositivo e é lida por uma aplicação de back-end. Uma etiqueta é definida por uma aplicação de back-end e nunca é enviada para um dispositivo. As etiquetas são utilizadas para organizar os seus dispositivos. Este tutorial mostra-lhe como utilizar as propriedades pretendidas e reportadas para sincronizar as informações de estado:
+Para sincronizar as informações de estado entre um dispositivo e um hub do IoT, deve utilizar _dispositivos duplos_ . Um [dispositivo duplo](iot-hub-devguide-device-twins.md) é um documento JSON que é associado a um dispositivo específico e é armazenado pelo Hub IoT na nuvem, onde pode efetuar [consultas](iot-hub-devguide-query-language.md) sobre o mesmo. Um dispositivo duplo contém _propriedades pretendidas_ , _propriedades reportadas_ e _etiquetas_ . Uma propriedade pretendida é definida por uma aplicação de back-end e é lida por um dispositivo. Uma propriedade reportada é definida por um dispositivo e é lida por uma aplicação de back-end. Uma etiqueta é definida por uma aplicação de back-end e nunca é enviada para um dispositivo. As etiquetas são utilizadas para organizar os seus dispositivos. Este tutorial mostra-lhe como utilizar as propriedades pretendidas e reportadas para sincronizar as informações de estado:
 
 ![Resumo dos dispositivos duplos](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -62,7 +63,7 @@ Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dis
 
 Para concluir este tutorial, a sua subscrição do Azure tem de conter um hub do IoT com um dispositivo adicionado ao registo de identidades de dispositivos. A entrada no registo de identidades de dispositivos permite que o dispositivo simulado que executará neste tutorial se ligue ao seu hub.
 
-Se ainda não tiver um hub IoT configurado na sua subscrição, pode configurar um com o seguinte script CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
+Se ainda não tiver um hub IoT configurado na sua subscrição, pode configurar um com o seguinte script CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central** , que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +83,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Este tutorial utiliza um dispositivo simulado chamado **MyTwinDevice**. O seguinte script adiciona este dispositivo ao seu registo de identidades e obtém a respetiva cadeia de ligação:
+Este tutorial utiliza um dispositivo simulado chamado **MyTwinDevice** . O seguinte script adiciona este dispositivo ao seu registo de identidades e obtém a respetiva cadeia de ligação:
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -129,15 +130,15 @@ Pode criar processadores para atualizações de propriedades pretendidas que cor
 
 [!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
 
-O seguinte processador só reage a alterações feitas à propriedade pretendida **fanOn**:
+O seguinte processador só reage a alterações feitas à propriedade pretendida **fanOn** :
 
 [!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
 
 ### <a name="handlers-for-multiple-properties"></a>Processadores para múltiplas propriedades
 
-No JSON de propriedades pretendidas de exemplo apresentado anteriormente, o nó **climate** em **componentes** contém duas propriedades, **minTemperature** e **maxTemperature**.
+No JSON de propriedades pretendidas de exemplo apresentado anteriormente, o nó **climate** em **componentes** contém duas propriedades, **minTemperature** e **maxTemperature** .
 
-O objeto **duplo** local de um dispositivo armazena um conjunto completo de propriedades pretendidas e reportadas. A variável **delta** enviada do back-end pode atualizar apenas um subconjunto de propriedades pretendidas. No seguinte fragmento de código, se o dispositivo simulado receber uma atualização a uma das propriedades, **minTemperature** ou **maxTemperature**, utilizará o valor no objeto duplo local do outro valor para configurar o dispositivo:
+O objeto **duplo** local de um dispositivo armazena um conjunto completo de propriedades pretendidas e reportadas. A variável **delta** enviada do back-end pode atualizar apenas um subconjunto de propriedades pretendidas. No seguinte fragmento de código, se o dispositivo simulado receber uma atualização a uma das propriedades, **minTemperature** ou **maxTemperature** , utilizará o valor no objeto duplo local do outro valor para configurar o dispositivo:
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -189,11 +190,11 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-A seguinte captura de ecrã mostra os dados de saída da aplicação de dispositivo simulado e realça como esta processa uma atualização feita à propriedade pretendida **maxTemperature**. Pode ver como o processador de nível superior e os processadores de componentes de clima são executados:
+A seguinte captura de ecrã mostra os dados de saída da aplicação de dispositivo simulado e realça como esta processa uma atualização feita à propriedade pretendida **maxTemperature** . Pode ver como o processador de nível superior e os processadores de componentes de clima são executados:
 
 ![Screenshot que mostra como tanto o manipulador de nível superior como os manipuladores de componentes climáticos funcionam.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
-A seguinte captura de ecrã mostra os dados de saída da aplicação de back-end e realça como esta envia uma atualização feita à propriedade pretendida **maxTemperature**:
+A seguinte captura de ecrã mostra os dados de saída da aplicação de back-end e realça como esta envia uma atualização feita à propriedade pretendida **maxTemperature** :
 
 ![Screenshot que mostra a saída da aplicação back-end e realça como envia uma atualização.](./media/tutorial-device-twins/BackEnd1.png)
 
@@ -251,7 +252,7 @@ A imagem que se segue mostra a saída da aplicação back-end e realça como rec
 
 Se tenciona concluir o próximo tutorial, saia do grupo de recursos e do hub do IoT e reutilize-os mais tarde.
 
-Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar**.
+Se já não precisar do Hub IoT, elimine-o, bem como ao grupo de recursos, no portal. Para tal, selecione o grupo de recursos **tutorial-iot-hub-rg** que contém o seu hub do IoT e clique em **Eliminar** .
 
 Em alternativa, utilize a CLI:
 

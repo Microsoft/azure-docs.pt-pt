@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093061"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746648"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio
 
@@ -83,7 +83,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [![Use filtro em métricas - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
-1. Desprezem o filtro criado no passo anterior, selecione **Apply Splitting**e selecione `App` para **Valores** para ver a utilização do CPU por diferentes aplicações.
+1. Desprezem o filtro criado no passo anterior, selecione **Apply Splitting** e selecione `App` para **Valores** para ver a utilização do CPU por diferentes aplicações.
 
    [![Aplicar divisão em métricas - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
@@ -142,7 +142,7 @@ Verá troncos como este:
 
 Para obter os registos usando O Kit de Ferramentas Azure para IntelliJ:
 
-1. Selecione **Azure Explorer,** em **seguida, Cloud primavera**.
+1. Selecione **Azure Explorer,** em **seguida, Cloud primavera** .
 
 1. Clique com o botão direito na aplicação de execução.
 
@@ -150,7 +150,7 @@ Para obter os registos usando O Kit de Ferramentas Azure para IntelliJ:
 
    ![Selecione registos de streaming](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. Selecione **Exemplo**.
+1. Selecione **Exemplo** .
 
    ![Selecione a instância](media/spring-cloud-intellij-howto/select-instance.png)
     
@@ -203,7 +203,7 @@ Para obter os registos usando O Kit de Ferramentas Azure para IntelliJ:
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nestes quickstarts, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não espera precisar destes recursos no futuro, elimine o grupo de recursos utilizando o portal ou executando o seguinte comando na Cloud Shell:
 

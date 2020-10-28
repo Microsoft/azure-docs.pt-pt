@@ -4,13 +4,13 @@ description: Neste tutorial do Azure Kubernetes Service (AKS), irá criar um clu
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: e78dcb3b7ba503011ec83058d9ad765815ef66a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 55af44f498492136b2ae03c7e23fce3676aa8e22
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576358"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747094"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -33,7 +33,7 @@ Este tutorial requer que esteja a executar a versão 2.0.53 ou mais tarde do Azu
 
 Os clusters AKS podem usar o controlo de acesso baseado em funções de Kubernetes (RBAC). Estes controlos permitem-lhe definir o acesso a recursos com base nas funções atribuídas a utilizadores. As permissões são combinadas se um utilizador tiver várias funções, e as permissões podem ser miradas para um único espaço de nome ou em todo o cluster. Por predefinição, a CLI do Azure ativa automaticamente o RBAC quando cria um cluster do AKS.
 
-Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*. Este grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *leste.* O exemplo a seguir não especifica uma região, pelo que o cluster AKS também é criado na região *leste.* Consulte [quotas, restrições de tamanho de máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions] para obter mais informações sobre os limites de recursos e disponibilidade da região para a AKS.
+Crie um cluster do AKS com [az aks create][]. O exemplo seguinte cria um cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup* . Este grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr] na região *leste.* O exemplo a seguir não especifica uma região, pelo que o cluster AKS também é criado na região *leste.* Consulte [quotas, restrições de tamanho de máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)][quotas-skus-regions] para obter mais informações sobre os limites de recursos e disponibilidade da região para a AKS.
 
 Para permitir que um cluster AKS interaja com outros recursos Azure, é criado automaticamente um diretor de serviço azure Ative, uma vez que não especificou um. Aqui, este diretor de serviço tem o direito de [extrair imagens][container-registry-integration] do caso Azure Container Registry (ACR) que criou no tutorial anterior. Note que pode usar uma [identidade gerida](use-managed-identity.md) em vez de um diretor de serviço para uma gestão mais fácil.
 

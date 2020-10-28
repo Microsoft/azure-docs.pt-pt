@@ -3,13 +3,13 @@ title: Render uma cena na nuvem
 description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.custom: mvc
-ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117136"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747057"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
@@ -38,7 +38,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Se ainda não o tiver feito, crie um grupo de recursos, uma conta do Batch e uma conta de armazenamento ligada na sua subscrição. 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus2*.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus2* .
 
 ```azurecli-interactive 
 az group create \
@@ -155,7 +155,7 @@ Continue para os passos seguintes para criar tarefas enquanto o estado do conjun
 
 ## <a name="create-a-blob-container-for-output"></a>Criar um contentor de blobs para a saída
 
-Nos exemplos neste tutorial, todas as tarefas no trabalho de composição criam um ficheiro de saída. Antes de agendar a tarefa, crie um contentor de blobs na sua conta de armazenamento como o destino para os ficheiros de saída. O exemplo seguinte utiliza o comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para criar o contentor*job-myrenderjob* com acesso de leitura público. 
+Nos exemplos neste tutorial, todas as tarefas no trabalho de composição criam um ficheiro de saída. Antes de agendar a tarefa, crie um contentor de blobs na sua conta de armazenamento como o destino para os ficheiros de saída. O exemplo seguinte utiliza o comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para criar o contentor *job-myrenderjob* com acesso de leitura público. 
 
 ```azurecli-interactive
 az storage container create \
@@ -181,7 +181,7 @@ se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## <a name="render-a-single-frame-scene"></a>Compor uma cena com um único fotograma
 
-### <a name="create-a-job"></a>Criar uma tarefa
+### <a name="create-a-job"></a>Criar um trabalho
 
 Crie uma tarefa de composição para executar no conjunto, com o comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Inicialmente, o trabalho não tem tarefas.
 
@@ -195,7 +195,7 @@ az batch job create \
 
 Utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar uma tarefa de composição no trabalho. Neste exemplo, especifique as definições da tarefa num ficheiro JSON. Na sua shell atual, crie um ficheiro com o nome *myrendertask.json* e, em seguida, copie e cole o seguinte conteúdo. Certifique-se de que copia todo o texto corretamente. (Pode transferir o ficheiro do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
-A tarefa especifica um comando 3ds Max para compor um único fotograma da cena *MotionBlur-DragonFlying.max*.
+A tarefa especifica um comando 3ds Max para compor um único fotograma da cena *MotionBlur-DragonFlying.max* .
 
 Modifique os elementos `blobSource` e `containerURL` no ficheiro JSON, para que incluam o nome da sua conta de armazenamento e o token SAS. 
 
@@ -276,7 +276,7 @@ Abra *dragon.jpg* no seu computador. A imagem composta é semelhante à seguinte
 
 ## <a name="scale-the-pool"></a>Dimensionar o conjunto
 
-Agora, modifique o conjunto para preparar um trabalho de composição maior, com vários fotogramas. O Batch fornece várias formas de dimensionar os recursos de computação, incluindo o [dimensionamento automático](batch-automatic-scaling.md) que adiciona ou remove nós à medida que a tarefa requer alterações. Para este exemplo básico, utilize o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no conjunto para *6*:
+Agora, modifique o conjunto para preparar um trabalho de composição maior, com vários fotogramas. O Batch fornece várias formas de dimensionar os recursos de computação, incluindo o [dimensionamento automático](batch-automatic-scaling.md) que adiciona ou remove nós à medida que a tarefa requer alterações. Para este exemplo básico, utilize o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no conjunto para *6* :
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -286,7 +286,7 @@ O conjunto demora alguns minutos a redimensionar. Durante o processo, configure 
 
 ## <a name="render-a-multiframe-scene"></a>Compor uma cena com vários fotogramas
 
-Tal como no exemplo de fotograma único, utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de composição no trabalho com o nome *myrenderjob*. Aqui, especifique as definições de tarefas num ficheiro JSON denominado *myrendertask_multi.json*. (Pode descarregar o ficheiro a partir do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar uma moldura da cena 3ds Max *MotionBlur-DragonFlying.max*.
+Tal como no exemplo de fotograma único, utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de composição no trabalho com o nome *myrenderjob* . Aqui, especifique as definições de tarefas num ficheiro JSON denominado *myrendertask_multi.json* . (Pode descarregar o ficheiro a partir do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar uma moldura da cena 3ds Max *MotionBlur-DragonFlying.max* .
 
 Crie um ficheiro na sua shell atual com o nome *myrendertask_multi.json* e copie e cole o conteúdo do ficheiro transferido. Modifique os elementos `blobSource` e `containerURL` no ficheiro JSON, para incluir o nome da sua conta de armazenamento e o token SAS. Não se esqueça de alterar as definições para cada uma das seis tarefas. Guarde o ficheiro e execute o seguinte comando para colocar as tarefas em fila:
 

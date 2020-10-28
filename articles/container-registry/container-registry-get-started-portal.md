@@ -3,13 +3,13 @@ title: Quickstart - Criar registo no portal
 description: Aprenda rapidamente a criar um registo privado de contentores Azure utilizando o portal Azure.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031829"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746686"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Quickstart: Criar um registo de contentores Azure utilizando o portal Azure
 
@@ -25,15 +25,15 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
-**Selecione Criar um**registo  >  **de contentores de**  >  **Container Registry**recursos.
+**Selecione Criar um** registo  >  **de contentores de**  >  **Container Registry** recursos.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navegue para o registo de contentores no portal":::
 
-No **separador Básicos,** introduza valores para **o grupo de Recursos** e nome do **registo.** O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Para este início rápido, crie um novo grupo de recursos na localização `West US` com o nome `myResourceGroup`, e para o **SKU**, selecione "Básico".
+No **separador Básicos,** introduza valores para **o grupo de Recursos** e nome do **registo.** O nome do registo tem de ser exclusivo no Azure e pode incluir de 5 a 50 carateres alfanuméricos. Para este início rápido, crie um novo grupo de recursos na localização `West US` com o nome `myResourceGroup`, e para o **SKU** , selecione "Básico".
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navegue para o registo de contentores no portal":::
 
-Aceite valores predefinidos para as definições restantes. Em seguida, **selecione Rever + criar**. Depois de rever as definições, selecione **Criar**.
+Aceite valores predefinidos para as definições restantes. Em seguida, **selecione Rever + criar** . Depois de rever as definições, selecione **Criar** .
 
 Neste quickstart você cria um registo *Básico,* que é uma opção otimizada para custos para desenvolvedores aprendendo sobre o Registo de Contentores Azure. Para obter mais informações sobre os níveis de serviço disponíveis (SKUs), consulte [os níveis de serviço de registo de contentores][container-registry-skus].
 
@@ -41,7 +41,7 @@ Quando a mensagem **de implementação tiver sido bem sucedida,** selecione o re
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navegue para o registo de contentores no portal":::
 
-Tome nota do nome do registo e do valor do **servidor Login**. Usa estes valores nos seguintes passos quando empurra e puxa imagens com o Docker.
+Tome nota do nome do registo e do valor do **servidor Login** . Usa estes valores nos seguintes passos quando empurra e puxa imagens com o Docker.
 
 ## <a name="log-in-to-registry"></a>Iniciar sessão no registo
 
@@ -67,11 +67,11 @@ Para listar as imagens no seu registo, navegue para o seu registo no portal e se
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navegue para o registo de contentores no portal":::
 
-Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em **Tags**.
+Ao selecionar o repositório **hello-world,** você vê a `v1` imagem marcada em **Tags** .
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar os seus recursos, navegue para o grupo de recursos **myResourceGroup** no portal. Assim que o grupo de recursos estiver carregado, clique no **grupo de recursos Delete** para remover o grupo de recursos, o registo do contentor e as imagens do contentor aí armazenadas.
 

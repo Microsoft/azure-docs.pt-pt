@@ -4,13 +4,13 @@ description: Aprenda a utilizar insights de aplicação Azure com funções Azur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js
-ms.openlocfilehash: 87c31df6ecb92acd5bedaee274f9886383e5c617
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: b27fb14341e07683d66418485158a94c18e7a997
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668734"
+ms.locfileid: "92748165"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 

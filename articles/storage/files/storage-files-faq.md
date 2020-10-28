@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563697"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746825"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -22,7 +22,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 1. A secção de comentários deste artigo.
 2. [Microsoft Q&Uma página de perguntas para o Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Suporte microsoft. Para criar um novo pedido de suporte, no portal Azure, no separador **Ajuda,** selecione o botão **de suporte Ajuda +** e, em seguida, selecione Novo pedido de **suporte**.
+4. Suporte microsoft. Para criar um novo pedido de suporte, no portal Azure, no separador **Ajuda,** selecione o botão **de suporte Ajuda +** e, em seguida, selecione Novo pedido de **suporte** .
 
 ## <a name="general"></a>Geral
 * <a id="why-files-useful"></a>
@@ -107,7 +107,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
     O desempenho variará em função das suas configurações ambientais, configuração e se se trata de uma sincronização inicial ou de uma sincronização em curso. Para obter mais informações, consulte [as métricas de desempenho do Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Se o mesmo ficheiro for alterado em dois servidores aproximadamente ao mesmo tempo, o que acontece?**  
-    O Azure File Sync utiliza uma simples estratégia de resolução de conflitos: mantemos ambas as alterações nos ficheiros que são alterados em dois pontos finais ao mesmo tempo. A alteração escrita mais recentemente mantém o nome original do ficheiro. O ficheiro mais antigo (determinado pela LastWriteTime) tem o nome de ponto final e o número de conflito anexado ao nome de ficheiro. Para os pontos finais do servidor, o nome do ponto final é o nome do servidor. Para pontos finais de nuvem, o nome do ponto final é **Cloud**. O nome segue esta taxonomia: 
+    O Azure File Sync utiliza uma simples estratégia de resolução de conflitos: mantemos ambas as alterações nos ficheiros que são alterados em dois pontos finais ao mesmo tempo. A alteração escrita mais recentemente mantém o nome original do ficheiro. O ficheiro mais antigo (determinado pela LastWriteTime) tem o nome de ponto final e o número de conflito anexado ao nome de ficheiro. Para os pontos finais do servidor, o nome do ponto final é o nome do servidor. Para pontos finais de nuvem, o nome do ponto final é **Cloud** . O nome segue esta taxonomia: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -257,7 +257,25 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="ad-multiple-forest"></a>
 **A autenticação AD DS no local para a ações de ficheiros Azure suporta a integração com um ambiente AD DS utilizando múltiplas florestas?**    
 
-    A autenticação Azure Files no local AD DS apenas se integra com a floresta do serviço de domínio a que a conta de armazenamento está registada. Para apoiar a autenticação de outra floresta, o seu ambiente deve ter uma confiança florestal configurada corretamente. A forma como os Ficheiros Azure registam em DS AD quase o mesmo que um servidor de ficheiros regular, onde cria uma identidade (conta de início de serviço ou de computador) em DS AD para autenticação. A única diferença é que a SPN registada da conta de armazenamento termina com "file.core.windows.net" que não corresponde ao sufixo de domínio. Consulte o seu administrador de domínio para ver se é necessária alguma atualização da sua política de encaminhamento DNS para ativar a autenticação múltipla da floresta devido ao sufixo de domínio diferente.
+    A autenticação Azure Files no local AD DS apenas se integra com a floresta do serviço de domínio a que a conta de armazenamento está registada. Para apoiar a autenticação de outra floresta, o seu ambiente deve ter uma confiança florestal configurada corretamente. A forma como os Ficheiros Azure registam em DS AD quase o mesmo que um servidor de ficheiros regular, onde cria uma identidade (conta de início de serviço ou de computador) em DS AD para autenticação. A única diferença é que a SPN registada da conta de armazenamento termina com "file.core.windows.net" que não corresponde ao sufixo de domínio. Consulte o seu administrador de domínio para ver se é necessária alguma atualização da sua política de encaminhamento de sufixos para ativar a autenticação múltipla da floresta devido ao sufixo de domínio diferente. Damos um exemplo abaixo para configurar a política de encaminhamento de sufixos.
+    
+    Exemplo: Quando os utilizadores na floresta Um domínio pretende chegar a uma partilha de ficheiros com a conta de armazenamento registada contra um domínio na floresta B, isso não funcionará automaticamente porque o principal de serviço da conta de armazenamento não tem um sufixo correspondente ao sufixo de qualquer domínio na floresta A. Podemos resolver esta questão configurando manualmente uma regra de encaminhamento de sufixo da floresta A para a floresta B para um sufixo personalizado de "file.core.windows.net".
+    Primeiro, deve adicionar um novo sufixo personalizado na floresta B. Certifique-se de que tem as permissões administrativas adequadas para alterar a configuração e, em seguida, siga estes passos:   
+    1. Logon a um domínio de máquina junto à floresta B
+    2.  Abra a consola "Domínios e Fidedignos ativos"
+    3.  Clique à direita em "Domínios e Fidedignos ativos"
+    4.  Clique em "Propriedades"
+    5.  Clique em "Adicionar"
+    6.  Adicione "file.core.windows.net" como os Sufixos da UPN
+    7.  Clique em "Apply", em seguida, "OK" para fechar o assistente
+    
+    Em seguida, adicione a regra de encaminhamento de sufixo na floresta A, de modo que redirecione para a floresta B.
+    1.  Logon a um domínio de máquina junto à floresta A
+    2.  Abra a consola "Domínios e Fidedignos ativos"
+    3.  Clique com o botão direito no domínio que pretende aceder à partilha de ficheiros, em seguida, clique no separador "Trusts" e selecione o domínio da floresta B a partir de fundos de saída. Se não tem confiança entre as duas florestas, precisa de criar a confiança primeiro.
+    4.  Clique em "Propriedades..." em seguida, "Nome Sfixix Encaminhamento"
+    5.  Verifique se o "*.file.core.windows.net" aparece. Caso contrário, clique em 'Refresh'
+    6.  Selecione "*.file.core.windows.net", em seguida, clique em "Ative" e "Apply"
 
 * <a id=""></a>
 **Quais as regiões disponíveis para a autenticação Azure Files AD DS?**
@@ -311,14 +329,14 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="expressroute-not-required"></a>
 **Tenho de usar o Azure ExpressRoute para ligar aos Ficheiros Azure ou para utilizar o Azure File Sync no local?**  
 
-    N.º O ExpressRoute não é obrigado a aceder a uma partilha de ficheiros Azure. Se estiver a montar uma partilha de ficheiros Azure diretamente no local, tudo o que é necessário é ter a porta 445 (saída TCP) aberta para acesso à Internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída TCP) para acesso HTTPS (sem necessidade de SMB). No entanto, *pode* utilizar o ExpressRoute com qualquer uma destas opções de acesso.
+    Não. O ExpressRoute não é obrigado a aceder a uma partilha de ficheiros Azure. Se estiver a montar uma partilha de ficheiros Azure diretamente no local, tudo o que é necessário é ter a porta 445 (saída TCP) aberta para acesso à Internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída TCP) para acesso HTTPS (sem necessidade de SMB). No entanto, *pode* utilizar o ExpressRoute com qualquer uma destas opções de acesso.
 
 * <a id="mount-locally"></a>
 **Como posso montar uma parte do ficheiro Azure na minha máquina local?**  
 
     Pode montar a partilha de ficheiros utilizando o protocolo SMB se a porta 445 (saída TCP) estiver aberta e o seu cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou o Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar o Azure File Sync para aceder à sua partilha de ficheiros Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>
 **Como posso apoiar a minha parte do ficheiro Azure?**  
     Pode utilizar [instantâneos periódicos](storage-snapshots-files.md) para proteção contra supressões acidentais. Também pode utilizar a AzCopy, Robocopy ou uma ferramenta de backup de terceiros que pode fazer backup de uma partilha de ficheiros montada. O Azure Backup oferece cópia de segurança dos Ficheiros Azure. Saiba mais sobre [backup ações de ficheiros Azure by Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
@@ -415,7 +433,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="lfs-performance-impact"></a>
 **A expansão da minha quota de ações de ficheiros afeta as minhas cargas de trabalho ou o Azure File Sync?**
     
-    N.º A expansão da quota não afetará as suas cargas de trabalho ou o Azure File Sync.
+    Não. A expansão da quota não afetará as suas cargas de trabalho ou o Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **Quantos clientes podem aceder ao mesmo ficheiro simultaneamente?**   
@@ -444,13 +462,13 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="nested-shares"></a>
 **Posso criar ações aninhadas? Por outras palavras, uma parte sob uma ação?**  
-    N.º A partilha de ficheiros *é* o controlador virtual que pode montar, por isso as ações aninhadas não são suportadas.
+    Não. A partilha de ficheiros *é* o controlador virtual que pode montar, por isso as ações aninhadas não são suportadas.
 
 * <a id="ibm-mq"></a>
 **Como uso ficheiros Azure com MQ IBM?**  
     A IBM divulgou um documento que ajuda os clientes da IBM MQ a configurar ficheiros Azure com o serviço IBM. Para obter mais informações, consulte [Como configurar um gestor de fila de vários instâncias IBM MQ com o serviço Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/04/2020
+ms.date: 10/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276124"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92756048"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Que regiões estão disponíveis?
 
@@ -45,6 +45,10 @@ Tanto o RDP como o SSH são um protocolo baseado no uso. O elevado uso das sess�
 
 Neste momento, apenas está disponível a operação de copiar/colar texto. As funcionalidades como a cópia de ficheiros não são suportadas. Pode partilhar os seus comentários sobre as novas funcionalidades na [página Comentários sobre o Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
+### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>O endurecimento do Bastion funciona com VMs de extensão AADJ?
+
+Esta funcionalidade não funciona com máquinas de extensão AADJ VM que utilizem utilizadores Azure AD. Para mais informações, consulte [o Windows Azure VMs e a AD AZure.](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements)
+
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Quais os navegadores suportados?
 
 Utilize o navegador Microsoft Edge ou o Google Chrome no Windows. Para o Apple Mac, utilize o navegador Google Chrome. O Microsoft Edge Chromium também é suportado tanto no Windows como no Mac, respectivamente.
@@ -66,7 +70,7 @@ Para estabelecer uma ligação, são necessárias as seguintes funções:
 Para obter mais informações, veja a [página de preços](https://aka.ms/BastionHostPricing).
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>O Azure Bastion requer um RDS CAL para fins administrativos em VMs hospedados em Azure?
-Não, o acesso aos VMs do Windows Server por Azure Bastion não requer um [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) quando utilizado exclusivamente para fins administrativos.
+Não, o acesso aos VMs do Windows Server por Azure Bastion não requer um [RDS CAL](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) quando utilizado exclusivamente para fins administrativos.
 
 ### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Quais os layouts de teclado suportados durante a sessão remota de Bastion?
 
@@ -74,7 +78,7 @@ AZure Bastion suporta atualmente o layout do teclado en-us-qwerty dentro do VM. 
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>O encaminhamento definido pelo utilizador (UDR) é suportado numa sub-rede Azure Bastion?
 
-N.º A UDR não é suportada numa sub-rede Azure Bastion.
+Não. A UDR não é suportada numa sub-rede Azure Bastion.
 Para cenários que incluam tanto o Azure Bastion como o Azure Firewall/Network Virtual Appliance (NVA) na mesma rede virtual, não é necessário forçar o tráfego de uma sub-rede de Bastião Azure para Azure Firewall porque a comunicação entre o Azure Bastion e os seus VMs é privada. Para obter mais informações, consulte [Accessing VMs por trás da Azure Firewall com Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Porque é que recebo uma mensagem de erro "A tua sessão expirou" antes da sessão de Bastião começar?

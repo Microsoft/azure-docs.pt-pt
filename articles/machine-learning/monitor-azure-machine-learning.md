@@ -8,80 +8,61 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
-ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/01/2020
+ms.openlocfilehash: 3470f969034a051b17e762b685a89c0f910e0cbb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78399101"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747116"
 ---
-# <a name="monitoring-azure-machine-learning"></a>Monitorização da aprendizagem da máquina de Azure
+# <a name="monitor-azure-machine-learning"></a>Monitorizar o Azure Machine Learning
 
-Este artigo descreve os dados de monitorização gerados pela Azure Machine Learning. Também descreve como pode utilizar o Monitor Azure para analisar os seus dados e definir alertas.
+Quando você tem aplicações críticas e processos de negócio contando com recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pela Azure Machine Learning e como analisar e alertar sobre estes dados com o Azure Monitor.
 
 > [!TIP]
-> A informação neste documento é principalmente para administradores, uma vez que descreve a monitorização para o Azure Machine Learning. Se é cientista ou desenvolvedor de dados e pretende monitorizar informações específicas das suas séries de formação de modelos, consulte os seguintes documentos:
+> A informação neste documento é principalmente para administradores, uma vez que descreve a monitorização para o Azure Machine Learning ao nível do *espaço de trabalho.* Se for cientista ou desenvolvedor de dados e quiser monitorizar informações específicas das *suas séries de formação de modelos,* consulte os seguintes documentos:
 >
 > * [Iniciar, monitorizar e cancelar treinos](how-to-manage-runs.md)
 > * [Métricas de registo para execuções de preparações](how-to-track-experiments.md)
 > * [Controlar experiências com o MLflow](how-to-use-mlflow.md)
 > * [Visualizar execuções com TensorBoard](how-to-monitor-tensorboard.md)
 
-## <a name="azure-monitor"></a>Azure Monitor
+## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 
-Azure Machine Learning regista dados de monitorização usando o Azure Monitor, que é um serviço completo de monitorização de pilhas em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure. Também pode monitorizar recursos em outras nuvens e no local.
+O Azure Machine Learning cria dados de monitorização utilizando [o Azure Monitor,](/azure/azure-monitor/overview)que é um serviço completo de monitorização de pilhas em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure. Também pode monitorizar recursos em outras nuvens e no local.
 
-Comece com o artigo [Azure Monitor visão geral](/azure/azure-monitor/overview), que fornece uma visão geral das capacidades de monitorização. As seguintes secções baseiam-se nesta informação, fornecendo especificidades da utilização do Azure Monitor com Azure Machine Learning.
+Comece com o artigo [Monitorar recursos Azure com Azure Monitor,](/azure/azure-monitor/insights/monitor-azure-resource)que descreve os seguintes conceitos:
 
-Para compreender os custos associados ao Azure Monitor, consulte [a Utilização e os custos estimados.](/azure/azure-monitor/platform/usage-estimated-costs) Para compreender o tempo que os seus dados demoram a aparecer no Azure Monitor, consulte [o tempo de ingestão de dados do Registo](/azure/azure-monitor/platform/data-ingestion-time).
+- O que é o Azure Monitor?
+- Custos associados à monitorização
+- Dados de monitorização recolhidos em Azure
+- Recolha de dados configurado
+- Ferramentas padrão em Azure para analisar e alertar sobre os dados de monitorização
+
+As secções seguintes baseiam-se neste artigo descrevendo os dados específicos recolhidos para a Azure Machine Learning. Estas secções também fornecem exemplos para configurar a recolha de dados e analisar estes dados com ferramentas Azure.
+
+> [!TIP]
+> Para compreender os custos associados ao Azure Monitor, consulte [a Utilização e os custos estimados.](/azure/azure-monitor/platform/usage-estimated-costs) Para compreender o tempo que os seus dados demoram a aparecer no Azure Monitor, consulte [o tempo de ingestão de dados do Registo](/azure/azure-monitor/platform/data-ingestion-time).
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Dados de monitorização da Azure Machine Learning
 
-A Azure Machine Learning recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos na [monitorização de dados a partir de recursos Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Consulte [a referência de dados de monitorização da Azure Machine Learning](monitor-resource-reference.md) para uma referência detalhada dos registos e métricas criados pela Azure Machine Learning.
+A Azure Machine Learning recolhe os mesmos tipos de dados de monitorização que outros recursos Azure que são descritos na [monitorização de dados a partir de recursos Azure](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
-## <a name="analyzing-metric-data"></a>Análise de dados métricos
+Consulte [a referência de dados de monitorização da Azure Machine Learning](monitor-resource-reference.md) para uma referência detalhada dos registos e métricas criados pela Azure Machine Learning.
 
-Pode analisar métricas para Azure Machine Learning abrindo **métricas** a partir do menu **Azure Monitor.** Consulte [o Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre a utilização desta ferramenta.
+<a id="configuration"></a>
 
-Todas as métricas para Azure Machine Learning estão no espaço de trabalho do **serviço de aprendizagem automática**namespace.
+## <a name="collection-and-routing"></a>Recolha e encaminhamento
 
-![Métricas Explorer com espaço de trabalho de serviço de aprendizagem automática selecionado](./media/monitor-azure-machine-learning/metrics.png)
+As métricas da plataforma e o registo de Atividade são recolhidos e armazenados automaticamente, mas podem ser encaminhados para outros locais utilizando uma definição de diagnóstico.  
 
-### <a name="filtering-and-splitting"></a>Filtragem e divisão
+Os Registos de Recursos não são recolhidos e armazenados até criar uma definição de diagnóstico e encaminhá-los para um ou mais locais.
 
-Para métricas que suportam dimensões, pode aplicar filtros usando um valor de dimensão. Por exemplo, filtrar **núcleos ativos** para um nome de **cluster** de `cpu-cluster` . 
-
-Também pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da métrica se comparam entre si. Por exemplo, dividir o **Pipeline Step Type** para ver uma contagem dos tipos de passos utilizados no gasoduto.
-
-Para obter mais informações sobre filtragem e divisão, consulte [as funcionalidades avançadas do Azure Monitor](/azure/azure-monitor/platform/metrics-charts).
-
-## <a name="alerts"></a>Alertas
-
-Pode aceder a alertas para a aprendizagem automática Azure, abrindo **alertas** a partir do menu **Azure Monitor.** Consulte [Criar, visualizar e gerir alertas métricos utilizando o Azure Monitor](/azure/azure-monitor/platform/alerts-metric) para obter detalhes sobre a criação de alertas.
-
-As seguintes listas de tabelas são comuns e recomendadas regras de alerta métrico para a aprendizagem automática Azure:
-
-| Tipo de alerta | Condição | Descrição |
-|:---|:---|:---|
-| Implementação de modelo falhou | Tipo de agregação: Total, Operador: Maior do que, Valor limiar: 0 | Quando uma ou mais implementações de modelos falharam |
-| Percentagem de Utilização de Cots | Tipo de agregação: Média, Operador: Maior do que, Valor limiar: 90| Quando a percentagem de utilização de quota é superior a 90% |
-| Nódes Inutilizáveis | Tipo de agregação: Total, Operador: Maior do que, Valor limiar: 0 | Quando há um ou mais nódoas inutilizáveis |
-
-## <a name="configuration"></a>Configuração
+Consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](/azure/azure-monitor/platform/diagnostic-settings) para o processo detalhado para criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell. Quando cria uma definição de diagnóstico, especifica quais as categorias de registos a recolher. As categorias de Azure Machine Learning estão listadas na [referência de dados de monitorização de machine learning do Azure.](monitor-resource-reference.md#resource-logs)
 
 > [!IMPORTANT]
-> __As métricas para a Aprendizagem automática Azure não precisam de ser configuradas,__ são recolhidas automaticamente e estão disponíveis no Metrics Explorer para monitorização e alerta.
-
-Pode adicionar uma definição de diagnóstico para configurar a seguinte funcionalidade:
-
-* Arquivar informações de registo e métricas para uma conta de armazenamento Azure.
-* Transmita informações de registo e métricas para um Hub de Eventos Azure.
-* Envie informações de registo e métricas para Azure Monitor Log Analytics.
-
-Ativar estas definições requer serviços Azure adicionais (conta de armazenamento, centro de eventos ou Log Analytics), que podem aumentar o seu custo. Para calcular um custo estimado, visite a [calculadora de preços da Azure.](https://azure.microsoft.com/pricing/calculator)
-
-Para obter mais informações sobre a criação de uma definição de diagnóstico, consulte [criar a definição de diagnóstico para recolher registos e métricas da plataforma em Azure](/azure/azure-monitor/platform/diagnostic-settings).
+> Ativar estas definições requer serviços Azure adicionais (conta de armazenamento, centro de eventos ou Log Analytics), que podem aumentar o seu custo. Para calcular um custo estimado, visite a [calculadora de preços da Azure.](https://azure.microsoft.com/pricing/calculator)
 
 Pode configurar os seguintes registos para Azure Machine Learning:
 
@@ -94,9 +75,32 @@ Pode configurar os seguintes registos para Azure Machine Learning:
 > [!NOTE]
 > Quando ativa métricas numa definição de diagnóstico, a informação de dimensão não está atualmente incluída como parte da informação enviada para uma conta de armazenamento, centro de eventos ou análise de registo.
 
-## <a name="analyzing-log-data"></a>Análise de dados de registo
+As métricas e registos que pode recolher são discutidos nas seguintes secções.
 
-A utilização do Azure Monitor Log Analytics requer que crie uma configuração de diagnóstico e __adisse Enviar informações para registar análises.__ Para mais informações, consulte a secção [Configuração.](#configuration)
+## <a name="analyzing-metrics"></a>Análise de métricas
+
+Pode analisar métricas para Azure Machine Learning, juntamente com métricas de outros serviços Azure, abrindo **métricas** a partir do menu **Azure Monitor.** Consulte [o Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) para obter detalhes sobre a utilização desta ferramenta.
+
+Para obter uma lista das métricas da plataforma recolhidas, consulte [as métricas de referência de dados de aprendizagem automática do Azure](monitor-resource-reference.md#metrics)Machine Learning .
+
+Todas as métricas para Azure Machine Learning estão no espaço de trabalho do **serviço de aprendizagem automática** namespace.
+
+![Métricas Explorer com espaço de trabalho de serviço de aprendizagem automática selecionado](./media/monitor-azure-machine-learning/metrics.png)
+
+Para referência, pode ver uma lista de [todas as métricas de recursos suportadas no Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+
+### <a name="filtering-and-splitting"></a>Filtragem e divisão
+
+Para métricas que suportam dimensões, pode aplicar filtros usando um valor de dimensão. Por exemplo, filtrar **núcleos ativos** para um nome de **cluster** de `cpu-cluster` . 
+
+Também pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da métrica se comparam entre si. Por exemplo, dividir o **Pipeline Step Type** para ver uma contagem dos tipos de passos utilizados no gasoduto.
+
+Para obter mais informações sobre filtragem e divisão, consulte [as funcionalidades avançadas do Azure Monitor](/azure/azure-monitor/platform/metrics-charts).
+
+<a id="analyzing-log-data"></a>
+## <a name="analyzing-logs"></a>Análise de registos
+
+A utilização do Azure Monitor Log Analytics requer que crie uma configuração de diagnóstico e __adisse Enviar informações para registar análises.__ Para mais informações, consulte a [secção Recolha e encaminhamento.](#collection-and-routing)
 
 Os dados em Registos monitores Azure são armazenados em tabelas, com cada mesa a ter o seu próprio conjunto de propriedades únicas. A Azure Machine Learning armazena dados nas seguintes tabelas:
 
@@ -111,7 +115,10 @@ Os dados em Registos monitores Azure são armazenados em tabelas, com cada mesa 
 
 Para obter uma referência detalhada dos registos e métricas, consulte [a referência de dados de monitorização da Azure Machine Learning](monitor-resource-reference.md).
 
-### <a name="sample-queries"></a>Consultas de exemplo
+### <a name="sample-kusto-queries"></a>Experimente consultas kusto
+
+> [!IMPORTANT]
+> Quando seleciona **Logs** do menu [nome de serviço], o Log Analytics é aberto com o âmbito de consulta definido para o atual espaço de trabalho de Aprendizagem automática Azure. Isto significa que as consultas de registo só incluirão dados desse recurso. Se pretender executar uma consulta que inclua dados de outros espaços de trabalho ou dados de outros serviços Azure, selecione **Logs** do menu **Azure Monitor.** Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) para obter mais detalhes.
 
 Seguem-se as consultas que pode utilizar para o ajudar a monitorizar os seus recursos de Aprendizagem automática Azure: 
 
@@ -147,8 +154,20 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar os seus rec
     | distinct NodeId
     ```
 
+## <a name="alerts"></a>Alertas
+
+Pode aceder a alertas para a aprendizagem automática Azure, abrindo **alertas** a partir do menu **Azure Monitor.** Consulte [Criar, visualizar e gerir alertas métricos utilizando o Azure Monitor](/azure/azure-monitor/platform/alerts-metric) para obter detalhes sobre a criação de alertas.
+
+As seguintes listas de tabelas são comuns e recomendadas regras de alerta métrico para a aprendizagem automática Azure:
+
+| Tipo de alerta | Condição | Descrição |
+|:---|:---|:---|
+| Implementação de modelo falhou | Tipo de agregação: Total, Operador: Maior do que, Valor limiar: 0 | Quando uma ou mais implementações de modelos falharam |
+| Percentagem de Utilização de Cots | Tipo de agregação: Média, Operador: Maior do que, Valor limiar: 90| Quando a percentagem de utilização de quota é superior a 90% |
+| Nódes Inutilizáveis | Tipo de agregação: Total, Operador: Maior do que, Valor limiar: 0 | Quando há um ou mais nódoas inutilizáveis |
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter uma referência dos registos e métricas, consulte [a referência de dados de monitorização da Azure Machine Learning](monitor-resource-reference.md).
+- Para obter uma referência dos registos e métricas, consulte [a referência de dados de Aprendizagem automática Azure.](monitor-resource-reference.md)
 - Para obter informações sobre o trabalho com quotas relacionadas com a Azure Machine Learning, consulte [Gerir e solicitar quotas para recursos Azure.](how-to-manage-quotas.md)
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Azure monitorando com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).

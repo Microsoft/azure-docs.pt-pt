@@ -3,20 +3,20 @@ title: Envie o registo de atividade do Azure para log analytics espaço de traba
 description: Utilize modelos ARM para criar um espaço de trabalho log analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631856"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747031"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM
 
-O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar os modelos do Gestor de Recursos Azure (modelos ARM) para criar um espaço de trabalho do Log Analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md)
+O Registo de atividades é um registo de plataformas no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar os modelos do Gestor de Recursos Azure (modelos ARM) para criar um espaço de trabalho do Log Analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md)
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -134,7 +134,7 @@ Este modelo define um recurso:
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
-Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do** espaço de **trabalhoName** e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -248,7 +248,7 @@ Este modelo define um recurso:
 
 ### <a name="deploy-the-template"></a>Implementar o modelo
 
-Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do**espaço de **trabalhoName**e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos, do** espaço de **trabalhoName** e **da localização** por valores adequados para o seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -281,7 +281,7 @@ Apenas novas entradas de registo de atividade serão enviadas para o espaço de 
 
 ## <a name="retrieve-data-with-a-log-query"></a>Recuperar dados com uma consulta de registo
 
-Utilize o portal Azure para utilizar o Log Analytics para obter dados do espaço de trabalho. No portal Azure, procure e, em seguida, selecione **Monitor**.
+Utilize o portal Azure para utilizar o Log Analytics para obter dados do espaço de trabalho. No portal Azure, procure e, em seguida, selecione **Monitor** .
 
 ![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
@@ -289,7 +289,7 @@ Selecione **Registos** no menu **Azure Monitor.** Feche a página **de consultas
 
 ![Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-Na janela de consulta, `AzureActivity` escreva e clique em **Executar**. Esta é uma consulta simples que devolve todos os registos na tabela *AzureActivity,* que contém todos os registos enviados a partir do registo de Atividade.
+Na janela de consulta, `AzureActivity` escreva e clique em **Executar** . Esta é uma consulta simples que devolve todos os registos na tabela *AzureActivity,* que contém todos os registos enviados a partir do registo de Atividade.
 
 ![Consulta simples](media/quick-collect-activity-log/query-01.png)
 
@@ -301,7 +301,7 @@ Experimente uma consulta mais complexa, como `AzureActivity | summarize count() 
 
 ![Consulta complexa](media/quick-collect-activity-log/query-02.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia continuar a trabalhar com os rápidos e tutoriais subsequentes, talvez queira deixar estes recursos no lugar. Quando já não for necessário, elimine o grupo de recursos, que elimina a regra de alerta e os recursos conexos. Para eliminar o grupo de recursos utilizando a Azure CLI ou a Azure PowerShell
 

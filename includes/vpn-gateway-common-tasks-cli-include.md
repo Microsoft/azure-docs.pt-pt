@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 61082333afc88abef0a8d8a57d1f1b1d893b6148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 354015930170ca6466b3555c78d211c080232c82
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184117"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755752"
 ---
 ### <a name="to-view-local-network-gateways"></a>Para ver os gateways de rede local
 

@@ -9,13 +9,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 9ca6310705d54d563aae746ab2dbfe6cb412e6a9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83125167"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747808"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Use políticas de escala personalizadas com conjuntos de escala de máquina virtual Azure
 
@@ -57,7 +57,7 @@ Uma política de escala pode ser definida no modelo de conjunto de escala de má
  
 Os passos a seguir definem a política de dimension de escala ao criar um conjunto de escala nova. 
  
-1. Aceda aos **conjuntos de escala de máquina virtual**.
+1. Aceda aos **conjuntos de escala de máquina virtual** .
 1. **Selecione + Adicione** para criar um conjunto de escala nova.
 1. Vá ao **separador Escalar.** 
 1. Localize a secção **de política de scale-in.**
@@ -83,7 +83,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Crie um grupo de recursos e, em seguida, crie um conjunto de nova escala com uma definição de política de escala como *OVM Mais Antigo*.
+Crie um grupo de recursos e, em seguida, crie um conjunto de nova escala com uma definição de política de escala como *OVM Mais Antigo* .
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
@@ -96,7 +96,7 @@ New-AzVmss `
 
 ### <a name="azure-cli-20"></a>CLI 2.0 do Azure
 
-O exemplo a seguir adiciona uma política de escala ao mesmo tempo que cria um novo conjunto de escala. Primeiro criar um grupo de recursos, em seguida, criar uma nova escala definida com a política de escala como *OVM Mais Antigo*. 
+O exemplo a seguir adiciona uma política de escala ao mesmo tempo que cria um novo conjunto de escala. Primeiro criar um grupo de recursos, em seguida, criar uma nova escala definida com a política de escala como *OVM Mais Antigo* . 
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -138,7 +138,7 @@ Pode modificar a política de escala de uma escala existente definida através d
 1. Num conjunto de balança de máquina virtual existente, selecione **Escalar** a partir do menu à esquerda.
 1. Selecione o separador **'Política de Escala-In'.**
 1. Selecione uma política de escala a partir da queda.
-1. Quando tiver terminado, selecione **Guardar**. 
+1. Quando tiver terminado, selecione **Guardar** . 
 
 ### <a name="using-api"></a>Utilizar a API
 
@@ -211,12 +211,12 @@ Os exemplos abaixo demonstram como um conjunto de escala de máquina virtual sel
 | Evento                 | IDs de instância na Zona1  | IDs de instância na Zona2  | IDs de instância na Zona3  | Seleção Scale-in                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial (Inicial)               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Escala-in              | 3, 4, 5, 10            | ***2,*** 6, 9, 11      | 1, 7, 8                | Escolha entre a Zona 1 e 2, mesmo que a Zona 3 tenha o VM mais antigo. Elimine o VM2 da Zona 2, uma vez que é o VM mais antigo daquela zona.   |
-| Escala-in              | ***3,*** 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Escolha a Zona 1, mesmo que a Zona 3 tenha o VM mais antigo. Elimine o VM3 da Zona 1, uma vez que é o VM mais antigo daquela zona.                  |
-| Escala-in              | 4, 5, 10               | 6, 9, 11               | ***1,*** 7, 8          | As zonas estão equilibradas. Elimine o VM1 na Zona 3, uma vez que é o VM mais antigo do conjunto de escala.                                               |
-| Escala-in              | ***4,*** 5, 10         | 6, 9, 11               | 7, 8                   | Escolha entre a Zona 1 e a Zona 2. Apague o VM4 na Zona 1, uma vez que é o VM mais antigo através das duas Zonas.                              |
-| Escala-in              | 5, 10                  | ***6,*** 9, 11         | 7, 8                   | Escolha a Zona 2 mesmo que a Zona 1 tenha o VM mais antigo. Apague o VM6 na Zona 1, uma vez que é o VM mais antigo daquela zona.                    |
-| Escala-in              | ***5***, 10            | 9, 11                  | 7, 8                   | As zonas estão equilibradas. Elimine o VM5 na Zona 1, uma vez que é o VM mais antigo do conjunto de escala.                                                |
+| Escala-in              | 3, 4, 5, 10            | **_2_* _, 6, 9, 11      | 1, 7, 8                | Escolha entre a Zona 1 e 2, mesmo que a Zona 3 tenha o VM mais antigo. Elimine o VM2 da Zona 2, uma vez que é o VM mais antigo daquela zona.   |
+| Escala-in              | _*_3,_*_ 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Escolha a Zona 1, mesmo que a Zona 3 tenha o VM mais antigo. Elimine o VM3 da Zona 1, uma vez que é o VM mais antigo daquela zona.                  |
+| Escala-in              | 4, 5, 10               | 6, 9, 11               | _*_1,_*_ 7, 8          | As zonas estão equilibradas. Elimine o VM1 na Zona 3, uma vez que é o VM mais antigo do conjunto de escala.                                               |
+| Escala-in              | _*_4,_*_ 5, 10         | 6, 9, 11               | 7, 8                   | Escolha entre a Zona 1 e a Zona 2. Apague o VM4 na Zona 1, uma vez que é o VM mais antigo através das duas Zonas.                              |
+| Escala-in              | 5, 10                  | _*_6,_*_ 9, 11         | 7, 8                   | Escolha a Zona 2 mesmo que a Zona 1 tenha o VM mais antigo. Apague o VM6 na Zona 1, uma vez que é o VM mais antigo daquela zona.                    |
+| Escala-in              | _*_5_*_ , 10            | 9, 11                  | 7, 8                   | As zonas estão equilibradas. Elimine o VM5 na Zona 1, uma vez que é o VM mais antigo do conjunto de escala.                                                |
 
 Para conjuntos de escala de máquina virtual não zonais, a política seleciona o VM mais antigo em toda a escala definida para eliminação. Qualquer VM "protegido" será ignorado para eliminação.
 
@@ -225,12 +225,12 @@ Para conjuntos de escala de máquina virtual não zonais, a política seleciona 
 | Evento                 | IDs de instância na Zona1  | IDs de instância na Zona2  | IDs de instância na Zona3  | Seleção Scale-in                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial (Inicial)               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Escala-in              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Escolha entre a Zona 1 e 2. Elimine o VM11 da Zona 2, uma vez que é o mais recente VM nas duas zonas.                                |
-| Escala-in              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Escolha a Zona 1 pois tem mais VMs do que as outras duas zonas. Elimine o VM10 da Zona 1, uma vez que é o mais recente VM naquela Zona.          |
-| Escala-in              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | As zonas estão equilibradas. Elimine o VM9 na Zona 2, uma vez que é o mais recente VM no conjunto de escala.                                                |
-| Escala-in              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Escolha entre a Zona 1 e a Zona 3. Apague o VM8 na Zona 3, uma vez que é o mais recente VM naquela Zona.                                      |
-| Escala-in              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Escolha a Zona 1 mesmo que a Zona 3 tenha o VM mais recente. Apague o VM5 na Zona 1, uma vez que é o mais recente VM naquela Zona.                    |
-| Escala-in              | 3, 4                   | 2, 6                   | 1, ***7***             | As zonas estão equilibradas. Elimine o VM7 na Zona 3, uma vez que é o mais recente VM no conjunto de escala.                                                |
+| Escala-in              | 3, 4, 5, 10            | 2, 6, 9, _*_11_*_      | 1, 7, 8                | Escolha entre a Zona 1 e 2. Elimine o VM11 da Zona 2, uma vez que é o mais recente VM nas duas zonas.                                |
+| Escala-in              | 3, 4, 5, _*_10_*_      | 2, 6, 9                | 1, 7, 8                | Escolha a Zona 1 pois tem mais VMs do que as outras duas zonas. Elimine o VM10 da Zona 1, uma vez que é o mais recente VM naquela Zona.          |
+| Escala-in              | 3, 4, 5                | 2, 6, _*_9_*_          | 1, 7, 8                | As zonas estão equilibradas. Elimine o VM9 na Zona 2, uma vez que é o mais recente VM no conjunto de escala.                                                |
+| Escala-in              | 3, 4, 5                | 2, 6                   | 1, 7, _*_8_*_          | Escolha entre a Zona 1 e a Zona 3. Apague o VM8 na Zona 3, uma vez que é o mais recente VM naquela Zona.                                      |
+| Escala-in              | 3, 4, _*_5_*_          | 2, 6                   | 1, 7                   | Escolha a Zona 1 mesmo que a Zona 3 tenha o VM mais recente. Apague o VM5 na Zona 1, uma vez que é o mais recente VM naquela Zona.                    |
+| Escala-in              | 3, 4                   | 2, 6                   | 1, _ *_7_**             | As zonas estão equilibradas. Elimine o VM7 na Zona 3, uma vez que é o mais recente VM no conjunto de escala.                                                |
 
 Para conjuntos de escala de máquina virtual não zonais, a política seleciona o mais recente VM em toda a escala definida para eliminação. Qualquer VM "protegido" será ignorado para eliminação. 
 

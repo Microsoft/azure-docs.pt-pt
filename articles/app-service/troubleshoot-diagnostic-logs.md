@@ -4,13 +4,13 @@ description: Saiba como ativar a registo de diagnóstico e adicionar instrumenta
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 7b27aae712843ece27fd61927c4bfecff00399fa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264376"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747021"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição geral
@@ -25,7 +25,7 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 
 |Tipo|Plataforma|Localização|Descrição|
 |-|-|-|-|
-| Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou bolhas de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pela estrutura web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão de registo padrão do seu idioma. A cada mensagem é atribuída uma das seguintes categorias: **Critical,** **Error**, **Warning**, **Info**, **Debug**e **Trace**. Pode selecionar o quão verbose pretende que a sessão seja, definindo o nível de gravidade quando ativa a sessão de registo de aplicações.|
+| Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou bolhas de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pela estrutura web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão de registo padrão do seu idioma. A cada mensagem é atribuída uma das seguintes categorias: **Critical,** **Error** , **Warning** , **Info** , **Debug** e **Trace** . Pode selecionar o quão verbose pretende que a sessão seja, definindo o nível de gravidade quando ativa a sessão de registo de aplicações.|
 | Início de sessão do servidor web| Windows | Sistema de ficheiros do Serviço de Aplicações ou bolhas de armazenamento Azure| Dados de pedidos de HTTP brutos no [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, recurso URI, COMPUTADOR DO Cliente, porta do cliente, agente do utilizador, código de resposta, e assim por diante. |
 | Mensagens de erro detalhadas| Windows | Sistema de ficheiros do Serviço de Aplicações | Cópias das páginas de erro *.htm* que teriam sido enviadas para o navegador cliente. Por razões de segurança, as páginas de erro detalhadas não devem ser enviadas para os clientes em produção, mas o Serviço de Aplicações pode guardar a página de erro sempre que ocorrer um erro de aplicação que tenha o código HTTP 400 ou superior. A página pode conter informações que podem ajudar a determinar por que o servidor devolve o código de erro. |
 | Rastreio de pedido falhado | Windows | Sistema de ficheiros do Serviço de Aplicações | Informações detalhadas sobre os pedidos falhados, incluindo um traço dos componentes IIS utilizados para processar o pedido e o tempo de cada componente. É útil se pretender melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada pedido falhado, que contém o ficheiro de registo XML, e a folha de estilo XSL para visualizar o ficheiro de registo com. |
@@ -53,56 +53,56 @@ A opção **Filesystem** destina-se a depurações temporárias e desliga-se em 
 >
 > Além disso, se [regenerar as teclas de acesso da sua conta de armazenamento,](../storage/common/storage-account-create.md)tem de redefinir a respetiva configuração de registo para utilizar as teclas de acesso atualizadas. Para efetuar este procedimento:
 >
-> 1. No **separador Configurar,** desafie a respetiva função de registo para **Desligar**. Guarde a sua configuração.
+> 1. No **separador Configurar,** desafie a respetiva função de registo para **Desligar** . Guarde a sua configuração.
 > 2. Volte a ativar o registo na bolha da conta de armazenamento. Guarde a sua configuração.
 >
 >
 
-Selecione o **Nível**, ou o nível de detalhes para registar. A tabela a seguir mostra as categorias de registo incluídas em cada nível:
+Selecione o **Nível** , ou o nível de detalhes para registar. A tabela a seguir mostra as categorias de registo incluídas em cada nível:
 
 | Nível | Categorias incluídas |
 |-|-|
 |**Desativado** | Nenhum |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
-|**Informação** | Informação, Aviso, Erro, Crítico|
+|**Informações** | Informação, Aviso, Erro, Crítico|
 |**Verboso** | Trace, Debug, Info, Warning, Error, Critical (todas as categorias) |
 
-Quando terminar, **selecione Save**.
+Quando terminar, **selecione Save** .
 
 ## <a name="enable-application-logging-linuxcontainer"></a>Ativar o registo de aplicações (Linux/Contentor)
 
 Para ativar o registo de aplicações para apps Linux ou aplicações personalizadas de contentores no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **registos do Serviço de Aplicações.**
 
-Na **sessão de registo de aplicações**, selecione **o Sistema de Ficheiros**.
+Na **sessão de registo de aplicações** , selecione **o Sistema de Ficheiros** .
 
-Na **Quota (MB),** especifique a quota de disco para os registos de aplicação. No **Período de Retenção (Dias)**, desa um número de dias os registos devem ser mantidos.
+Na **Quota (MB),** especifique a quota de disco para os registos de aplicação. No **Período de Retenção (Dias)** , desa um número de dias os registos devem ser mantidos.
 
-Quando terminar, **selecione Save**.
+Quando terminar, **selecione Save** .
 
 ## <a name="enable-web-server-logging"></a>Ativar a sessão de registo do servidor web
 
-Para ativar o registo de servidores web para aplicações do Windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **registos do Serviço de Aplicações**.
+Para ativar o registo de servidores web para aplicações do Windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **registos do Serviço de Aplicações** .
 
-Para **fazer login no servidor Web**, selecione **Armazenamento** para armazenar registos no armazenamento de bolhas ou sistema **de ficheiros** para armazenar registos no sistema de ficheiros do Serviço de Aplicações. 
+Para **fazer login no servidor Web** , selecione **Armazenamento** para armazenar registos no armazenamento de bolhas ou sistema **de ficheiros** para armazenar registos no sistema de ficheiros do Serviço de Aplicações. 
 
-No **Período de Retenção (Dias)**, desa um número de dias os registos devem ser mantidos.
+No **Período de Retenção (Dias)** , desa um número de dias os registos devem ser mantidos.
 
 > [!NOTE]
 > Se [regenerar as teclas de acesso da sua conta de armazenamento,](../storage/common/storage-account-create.md)tem de redefinir a respetiva configuração de registo para utilizar as teclas atualizadas. Para efetuar este procedimento:
 >
-> 1. No **separador Configurar,** desafie a respetiva função de registo para **Desligar**. Guarde a sua configuração.
+> 1. No **separador Configurar,** desafie a respetiva função de registo para **Desligar** . Guarde a sua configuração.
 > 2. Volte a ativar o registo na bolha da conta de armazenamento. Guarde a sua configuração.
 >
 >
 
-Quando terminar, **selecione Save**.
+Quando terminar, **selecione Save** .
 
 ## <a name="log-detailed-errors"></a>Registar erros detalhados
 
-Para guardar a página de erro ou rastrear o rastreio de pedidos falhados para aplicações do Windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **registos do Serviço de Aplicações**.
+Para guardar a página de erro ou rastrear o rastreio de pedidos falhados para aplicações do Windows no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **registos do Serviço de Aplicações** .
 
-Em **Registo de Erros Detalhado** ou Rastreio de Pedido **Falhado**, selecione **On**e, em seguida, selecione **Guardar**.
+Em **Registo de Erros Detalhado** ou Rastreio de Pedido **Falhado** , selecione **On** e, em seguida, selecione **Guardar** .
 
 Ambos os tipos de registos são armazenados no sistema de ficheiros Do Serviço de Aplicações. São retidos até 50 erros (ficheiros/pastas). Quando o número de ficheiros HTML exceder 50, os 26 erros mais antigos são automaticamente eliminados.
 
@@ -128,7 +128,7 @@ Antes de transmitir os registos em tempo real, ative o tipo de registo que desej
 
 ### <a name="in-azure-portal"></a>No portal Azure
 
-Para transmitir registos no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **Log stream**. 
+Para transmitir registos no [portal Azure,](https://portal.azure.com)navegue para a sua aplicação e selecione **Log stream** . 
 
 ### <a name="in-cloud-shell"></a>Em Cloud Shell
 
@@ -170,7 +170,7 @@ Para aplicações windows, o ficheiro ZIP contém o conteúdo do diretório *D:\
 |-|-|-|
 | **Registos de aplicações** |*/Registos/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
 | **Rastreios de pedidos falhados** | */LogFiles/W3SVC########## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
-| **Registos de erros detalhados** | */LogFiles/DetalhadosErrors/* | Contém ficheiros de erro HTM. Pode ver os ficheiros HTM no navegador.<br/>Outra forma de ver os vestígios de pedidos falhados é navegar para a sua página de aplicações no portal. A partir do menu esquerdo, selecione **Diagnosticar e resolver problemas,** em seguida, procure por **Registos de Rastreio de Pedidos Falhados**, em seguida, clique no ícone para navegar e ver o traço que deseja. |
+| **Registos de erros detalhados** | */LogFiles/DetalhadosErrors/* | Contém ficheiros de erro HTM. Pode ver os ficheiros HTM no navegador.<br/>Outra forma de ver os vestígios de pedidos falhados é navegar para a sua página de aplicações no portal. A partir do menu esquerdo, selecione **Diagnosticar e resolver problemas,** em seguida, procure por **Registos de Rastreio de Pedidos Falhados** , em seguida, clique no ícone para navegar e ver o traço que deseja. |
 | **Registos de servidor web** | */LogFiles/http/RawLogs/* | Contém ficheiros de texto formatados utilizando o [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidas usando um editor de texto ou um utilitário como [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O Serviço de Aplicações não suporta, `s-computername` `s-ip` ou `cs-version` campos. |
 | **Registos de implantação** | */LogFiles/Git/* e */deployments/* | Conter registos gerados pelos processos de implementação internos, bem como registos para implementações de Git. |
 

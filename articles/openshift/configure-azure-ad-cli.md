@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, chapéu vermelho, cli
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469427"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748041"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurar a autenticação do Diretório Ativo Azure para um cluster Azure Red Hat OpenShift 4 (CLI)
 
@@ -21,7 +21,7 @@ Se optar por instalar e utilizar o CLI localmente, este artigo requer que esteja
 
 Recupere os seus URLs específicos do cluster que serão utilizados para configurar a aplicação do Diretório Ativo Azure.
 
-Construa o URL de retorno de OAuth do cluster e guarde-o numa **variável oauthCallbackURL**. Certifique-se de que substitui **o aro-rg** pelo nome do seu grupo de recursos e **pelo aro-cluster** pelo nome do seu cluster.
+Construa o URL de retorno de OAuth do cluster e guarde-o numa **variável oauthCallbackURL** . Certifique-se de que substitui **o aro-rg** pelo nome do seu grupo de recursos e **pelo aro-cluster** pelo nome do seu cluster.
 
 > [!NOTE]
 > A `AAD` secção no URL de retorno de chamadas OAuth deve corresponder ao nome do fornecedor de identidade OAuth que irá configurar mais tarde.
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verifique o login através do Azure Ative Directory
 
-Se agora tiver o início da consola Web OpenShift e tentar fazer login novamente, será-lhe apresentada uma nova opção para iniciar sessão com **a AAD**. Talvez precise esperar por alguns minutos.
+Se agora tiver o início da consola Web OpenShift e tentar fazer login novamente, será-lhe apresentada uma nova opção para iniciar sessão com **a AAD** . Talvez precise esperar por alguns minutos.
 
 ![Faça login no ecrã com opção Azure Ative Directory](media/aro4-login-2.png)

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 57e336093ece0906033b86cefe72ed9f2b940573
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 456c42dc0b25e168744ce283cddbd63b877813ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279353"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747158"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -43,12 +43,12 @@ Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído
 
 | Publisher | Oferta | SKU | Versão | nuvem-init pronto |
 |:--- |:--- |:--- |:--- |:--- |
-|Canónico |UbuntuServer |18.04-LTS |mais recente |sim | 
-|Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
-|Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
-|CoreOS |CoreOS |Estável |mais recente |sim |
+|Canónico |UbuntuServer |18.04-LTS |mais recente |yes | 
+|Canónico |UbuntuServer |16.04-LTS |mais recente |yes | 
+|Canónico |UbuntuServer |14.04.5-LTS |mais recente |yes |
+|CoreOS |CoreOS |Estável |mais recente |yes |
 |OpenLogic 7.6 |CentOS |7-CI |mais recente |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sim |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 
 
@@ -102,13 +102,13 @@ runcmd:
 Para obter mais informações sobre as opções de configuração do cloud-init, veja [exemplos de configuração do cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAutomate* na localização *eualeste*:
+Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAutomate* na localização *eualeste* :
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo a seguir cria um VM chamado *myVM:*
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt* , se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo a seguir cria um VM chamado *myVM:*
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Testar a aplicação Web
-Agora pode abrir um navegador web e inserir *http: \/ \/ \<publicIpAddress> * na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
+Agora pode abrir um navegador web e inserir *http: \/ \/ \<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. A aplicação Node.js é apresentada conforme mostrada no exemplo seguinte:
 
 ![Ver site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testar uma aplicação Web segura
-Agora pode abrir um navegador web e inserir *https: \/ \/ \<publicIpAddress> * na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora pode abrir um navegador web e inserir *https: \/ \/ \<publicIpAddress>* na barra de endereços. Forneça o seu próprio endereço IP público conforme apresentado na saída do processo de criação da VM anterior. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

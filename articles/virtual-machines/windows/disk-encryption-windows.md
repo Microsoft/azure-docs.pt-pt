@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977940"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746236"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -123,7 +123,7 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption
 Pode ativar a encriptação do disco em VMs do IaaS Windows existente ou em execução, utilizando o [modelo de Gestor de Recursos para encriptar um VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure** .
 
 2. Selecione a subscrição, grupo de recursos, localização, configurações, termos legais e acordo. Clique em **Comprar** para ativar a encriptação no IaaS VM existente ou em execução.
 
@@ -135,7 +135,7 @@ A tabela que se segue lista os parâmetros do modelo do Gestor de Recursos para 
 | keyVaultName | Nome do cofre chave para o que a chave BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` ou o comando Azure CLI `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre chave|
 |  keyEncryptionKeyURL | O URL da chave de encriptação, no formato https:// &lt; nome de &gt; chavevault .vault.azure.net/key/ &lt; nome-chave &gt; . Se não desejar utilizar um KEK, deixe este campo em branco. |
-| volumeType | Tipo de volume em que a operação de encriptação é executada. Valores válidos são _OS,_ _Dados_e _Todos._ 
+| volumeType | Tipo de volume em que a operação de encriptação é executada. Valores válidos são _OS,_ _Dados_ e _Todos._ 
 | forceUpdateTag | Passe um valor único como um GUID sempre que a operação precisa de ser executada à força. |
 | redimensionarOSDisco | Se a partição de SO for redimensionada para ocupar o VHD completo do SO antes de dividir o volume do sistema. |
 | localização | Localização de todos os recursos. |

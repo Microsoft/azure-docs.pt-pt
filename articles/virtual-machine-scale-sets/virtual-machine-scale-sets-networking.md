@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363968"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747827"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -69,7 +69,7 @@ Para criar um conjunto de dimensionamento que utiliza um gateway de aplicação,
 Por predefinição, os conjuntos de dimensionamento assumem as definições de DNS específicas da VNet e da sub-rede em que foram criados. Contudo, pode configurar as definições de DNS de um conjunto de dimensionamento diretamente.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Criar um conjunto de dimensionamento com servidores DNS configuráveis
-Para criar um conjunto de dimensionamento com uma configuração DNS personalizada através da CLI do Azure, adicione o argumento **--dns-servers** ao comando **vmss create**, seguido pelos endereços IP dos servidores separados por espaços. Por exemplo:
+Para criar um conjunto de dimensionamento com uma configuração DNS personalizada através da CLI do Azure, adicione o argumento **--dns-servers** ao comando **vmss create** , seguido pelos endereços IP dos servidores separados por espaços. Por exemplo:
 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
@@ -84,7 +84,7 @@ Para configurar servidores DNS personalizados num modelo do Azure, adicione uma 
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Criar um conjunto de dimensionamento com nomes de domínio de máquinas virtuais configuráveis
-Para criar um conjunto de dimensionamento com um nome DNS personalizado para as máquinas virtuais através da CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create**, seguido por uma cadeia de carateres que representa o nome de domínio.
+Para criar um conjunto de dimensionamento com um nome DNS personalizado para as máquinas virtuais através da CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create** , seguido por uma cadeia de carateres que representa o nome de domínio.
 
 Para definir o nome de domínio num modelo Azure, adicione uma propriedade **dnsSettings** à secção de rede de conjunto de **escalaInterfaceConfigurations.** Por exemplo:
 
@@ -130,9 +130,9 @@ Em geral, as máquinas virtuais de conjuntos de dimensionamento do Azure não pr
 No entanto, alguns cenários requerem que as máquinas virtuais do conjunto de dimensionamento tenham os seus próprios endereços IP públicos. Um exemplo de um cenário destes são os jogos, em que uma consola tem de fazer uma ligação direta a uma máquina virtual na cloud, que está a fazer o processamento físico do jogo. Outro exemplo é quando as máquinas virtuais têm de fazer ligações externas a outras em várias regiões numa base de dados distribuída.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Criar um conjunto de dimensionamento com IP público por máquina virtual
-Para criar um conjunto de dimensionamento que atribui um endereço IP público a cada máquina virtual através da CLI, adicione o parâmetro **--public-ip-per-vm** ao comando **vmss create**. 
+Para criar um conjunto de dimensionamento que atribui um endereço IP público a cada máquina virtual através da CLI, adicione o parâmetro **--public-ip-per-vm** ao comando **vmss create** . 
 
-Para criar um conjunto de escala usando um modelo Azure, certifique-se de que a versão API do recurso Microsoft.Compute/virtualMachineScaleSets é pelo menos **2017-03-30**, e adicione uma propriedade **públicaIpAddressConfiguration** JSON à secção ipConfigurations definida. Por exemplo:
+Para criar um conjunto de escala usando um modelo Azure, certifique-se de que a versão API do recurso Microsoft.Compute/virtualMachineScaleSets é pelo menos **2017-03-30** , e adicione uma propriedade **públicaIpAddressConfiguration** JSON à secção ipConfigurations definida. Por exemplo:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -146,7 +146,7 @@ Para criar um conjunto de escala usando um modelo Azure, certifique-se de que a 
 Modelo do exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consultar os endereços IP públicos das máquinas virtuais num conjunto de dimensionamento
-Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento através da CLI, utilize o comando **az vmss list-instance-public-ips**.
+Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento através da CLI, utilize o comando **az vmss list-instance-public-ips** .
 
 Para listar os endereços IP públicos definidos na escala utilizando o PowerShell, utilize o comando _Get-AzPublicIpAddress._ Por exemplo:
 
@@ -165,14 +165,14 @@ Também pode apresentar os endereços IP públicos atribuídos às máquinas vir
 Para consultar o [Azure Resource Explorer](https://resources.azure.com):
 
 1. Abra o [Azure Resource Explorer](https://resources.azure.com) num browser da Web.
-1. Expanda *subscrições* no lado esquerdo ao clicar em *+* junto ao mesmo. Se tiver apenas um item sob *subscrições*, pode já estar expandido.
+1. Expanda *subscrições* no lado esquerdo ao clicar em *+* junto ao mesmo. Se tiver apenas um item sob *subscrições* , pode já estar expandido.
 1. Expanda a sua subscrição.
 1. Expanda o seu grupo de recursos.
-1. Expanda *fornecedores*.
-1. Expanda *Microsoft.Compute*.
-1. Expanda *virtualMachineScaleSets*.
+1. Expanda *fornecedores* .
+1. Expandir *microsoft.compute* .
+1. Expanda *virtualMachineScaleSets* .
 1. Expanda o seu conjunto de dimensionamento.
-1. Clique em *publicipaddresses*.
+1. Clique em *publicipaddresses* .
 
 Para consultar a API REST do Azure:
 

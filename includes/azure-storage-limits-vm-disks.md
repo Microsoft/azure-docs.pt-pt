@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91829263"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755867"
 ---
 Pode anexar uma série de discos de dados a uma máquina virtual Azure. Com base nos objetivos de escalabilidade e desempenho dos discos de dados de um VM, pode determinar o número e o tipo de disco de que necessita para satisfazer os seus requisitos de desempenho e capacidade.
 
@@ -18,7 +18,7 @@ Pode anexar uma série de discos de dados a uma máquina virtual Azure. Com base
 
 **Para discos geridos pela Azure:**
 
-O quadro a seguir ilustra o incumprimento e os limites máximos do número de recursos por região por subscrição. Não há limite para o número de Discos Geridos, instantâneos e imagens por grupo de recursos.  
+O quadro a seguir ilustra o incumprimento e os limites máximos do número de recursos por região por subscrição. Os limites permanecem os mesmos independentemente dos discos encriptados com chaves geridas pela plataforma ou chaves geridas pelo cliente. Não há limite para o número de Discos Geridos, instantâneos e imagens por grupo de recursos.  
 
 > | Recurso | Limite |
 > | --- | --- |

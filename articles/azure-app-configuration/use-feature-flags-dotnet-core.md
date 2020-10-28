@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078906"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746139"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
@@ -39,7 +39,7 @@ Neste tutorial, vai aprender a:
 
 Adicione uma referência aos `Microsoft.FeatureManagement.AspNetCore` pacotes e `Microsoft.FeatureManagement` NuGet para utilizar o gestor de funcionalidades .NET Core.
     
-O gestor de funcionalidades .NET Core `IFeatureManager` obtém bandeiras de funcionalidades do sistema de configuração nativa da estrutura. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que .NET Core suporte, incluindo aappsettings.jslocal * em* variáveis de ficheiros ou ambiente. `IFeatureManager` baseia-se na injeção de dependência do núcleo .NET. Pode registar os serviços de gestão de recursos utilizando convenções padrão:
+O gestor de funcionalidades .NET Core `IFeatureManager` obtém bandeiras de funcionalidades do sistema de configuração nativa da estrutura. Como resultado, pode definir as bandeiras de funcionalidade da sua aplicação utilizando qualquer fonte de configuração que .NET Core suporte, incluindo aappsettings.jslocal *em* variáveis de ficheiros ou ambiente. `IFeatureManager` baseia-se na injeção de dependência do núcleo .NET. Pode registar os serviços de gestão de recursos utilizando convenções padrão:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -107,7 +107,7 @@ A forma mais fácil de ligar a aplicação Core ASP.NET à Configuração de Apl
               .UseStartup<Startup>();
    ```
 
-2. Abra *Startup.cs* e atualize o `Configure` método para adicionar um middleware para permitir que os valores da bandeira de funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web Core ASP.NET continua a receber pedidos.
+2. Abra *Startup.cs* e atualize o `Configure` método para adicionar o middleware incorporado chamado `UseAzureAppConfiguration` . Este middleware permite que os valores da bandeira de funcionalidade sejam atualizados num intervalo recorrente enquanto a aplicação web core ASP.NET continua a receber pedidos.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -132,7 +132,7 @@ config.AddAzureAppConfiguration(options => {
 
 Cada bandeira de características tem duas partes: um nome e uma lista de um ou mais filtros que são usados para avaliar se o estado de uma característica está *ligado* (isto é, quando o seu valor `True` é). Um filtro define uma caixa de utilização para quando uma função deve ser ligada.
 
-Quando uma bandeira de recurso tem vários filtros, a lista de filtros é percorrida até que um dos filtros determine que a função deve ser ativada. Nessa altura, a bandeira da funcionalidade está *acesa*, e os restantes resultados do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada*.
+Quando uma bandeira de recurso tem vários filtros, a lista de filtros é percorrida até que um dos filtros determine que a função deve ser ativada. Nessa altura, a bandeira da funcionalidade está *acesa* , e os restantes resultados do filtro são ignorados. Se nenhum filtro indicar que a função deve ser ativada, a bandeira de características está *desligada* .
 
 O gestor de funcionalidades suporta *appsettings.js* como fonte de configuração para bandeiras de funcionalidades. O exemplo a seguir mostra como configurar bandeiras de recurso num ficheiro JSON:
 
@@ -157,7 +157,7 @@ Por convenção, a `FeatureManagement` secção deste documento JSON é utilizad
 
 * `FeatureA`está *ligado.*
 * `FeatureB`está *desligado.*
-* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em*.
+* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em* .
 
 ## <a name="feature-flag-references"></a>Referências de bandeira de característica
 

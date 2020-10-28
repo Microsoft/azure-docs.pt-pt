@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91297152"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748081"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Quickstart: Configurar o serviço de fornecimento de dispositivos IoT Hub com um modelo de Gestor de Recursos Azure
 
@@ -113,7 +113,7 @@ Utilize um modelo JSON para criar um serviço de aprovisionamento e um hub IoT a
 
    ```
 
-4. Para criar um hub IoT, adicione as seguintes linhas à coleção **resources**. O JSON especifica as propriedades mínimas necessárias para criar um hub IoT. Os **valores de nome** e **localização** serão passados como parâmetros de outro ficheiro. Para saber mais sobre as propriedades que pode especificar para um hub IoT num modelo, consulte [a referência do modelo Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Para criar um hub IoT, adicione as seguintes linhas à coleção **resources** . O JSON especifica as propriedades mínimas necessárias para criar um hub IoT. Os **valores de nome** e **localização** serão passados como parâmetros de outro ficheiro. Para saber mais sobre as propriedades que pode especificar para um hub IoT num modelo, consulte [a referência do modelo Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,7 +133,7 @@ Utilize um modelo JSON para criar um serviço de aprovisionamento e um hub IoT a
 
    ``` 
 
-5. Para criar o serviço de aprovisionamento, adicione as seguintes linhas a seguir à especificação do hub IoT na coleção **resources**. O **nome** e **a localização** do serviço de prestação serão passados como parâmetros. A coleção **iotHubs** especifica os hubs IoT para ligar ao serviço de fornecimento. No mínimo, tem de especificar as propriedades **connectionString** e **location** de cada hub IoT associado. Também pode definir outras propriedades, como **allocationWeight** e **applyAllocationPolicy** em cada hub IoT ou **allocationPolicy** e ** authorizationPolicies** no serviço de aprovisionamento. Para saber mais, veja [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Referência ao modelo Microsoft.Devices/provisioningServices).
+5. Para criar o serviço de aprovisionamento, adicione as seguintes linhas a seguir à especificação do hub IoT na coleção **resources** . O **nome** e **a localização** do serviço de prestação serão passados como parâmetros. A coleção **iotHubs** especifica os hubs IoT para ligar ao serviço de fornecimento. No mínimo, tem de especificar as propriedades **connectionString** e **location** de cada hub IoT associado. Também pode definir outras propriedades, como **allocationWeight** e **applyAllocationPolicy** em cada hub IoT ou **allocationPolicy** e **authorizationPolicies** no serviço de aprovisionamento. Para saber mais, veja [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Referência ao modelo Microsoft.Devices/provisioningServices).
 
    A propriedade **dependsOn** é utilizada para garantir que o Resource Manager cria o hub IoT antes de criar o serviço de aprovisionamento. O modelo requer que a cadeia de ligação do hub IoT especifique a associação ao serviço de aprovisionamento, pelo que o hub e as chaves do mesmo têm de ser criados antes. O modelo utiliza funções como **concat** e **listKeys** para criar a cadeia de ligação a partir de variáveis parametrizadas. Para saber mais, veja [Azure Resource Manager template functions](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) (Funções de modelos do Azure Resource Manager).
 
@@ -318,7 +318,7 @@ Utilize os seguintes comandos da CLI do Azure para implementar os modelos e veri
     ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se não pretender continuar, pode utilizar o CLI do Azure para [eliminar um recurso individual][lnk-az-resource-command], como um hub IoT ou um serviço de fornecimento, ou para eliminar um grupo de recursos e todos os seus recursos.
 

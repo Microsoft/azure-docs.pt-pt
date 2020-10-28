@@ -8,13 +8,13 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3328fa7d71138ba75fac0c2aed11d7a85081d03a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748721"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Linux virtual
 
@@ -55,7 +55,7 @@ Recursos da cloud:
    az group create --name IoTEdgeResources --location westus2
    ```
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Inicie o quickstart criando um hub IoT com Azure CLI.
 
@@ -63,13 +63,13 @@ Inicie o quickstart criando um hub IoT com Azure CLI.
 
 O nível gratuito do Hub IoT funciona para este início rápido. Se já usou o IoT Hub no passado e já criou um hub, pode usar esse hub IoT.
 
-O código a seguir cria um hub **de F1** gratuito no grupo de recursos **IoTEdgeResources**. `{hub_name}`Substitua-o por um nome único para o seu hub IoT. Pode levar alguns minutos para criar um hub IoT.
+O código a seguir cria um hub **de F1** gratuito no grupo de recursos **IoTEdgeResources** . `{hub_name}`Substitua-o por um nome único para o seu hub IoT. Pode levar alguns minutos para criar um hub IoT.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Se obtiver um erro porque já existe um hub gratuito na sua subscrição, altere o SKU para **S1**. Cada subscrição só pode ter um Hub IoT gratuito. Se tiver um erro que o nome IoT Hub não está disponível, significa que outra pessoa já tem um hub com esse nome. Tente um novo nome.
+   Se obtiver um erro porque já existe um hub gratuito na sua subscrição, altere o SKU para **S1** . Cada subscrição só pode ter um Hub IoT gratuito. Se tiver um erro que o nome IoT Hub não está disponível, significa que outra pessoa já tem um hub com esse nome. Tente um novo nome.
 
 ## <a name="register-an-iot-edge-device"></a>Registar um dispositivo do IoT Edge
 
@@ -141,7 +141,7 @@ Este modelo tem os seguintes parâmetros:
 | **dnsLabelPrefix** | Uma corda que será usada para criar o nome de hospedeiro da máquina virtual. Use o exemplo **my-edge-vm** ou forneça uma nova corda. |
 | **adminUsername** | Um nome de utilizador para a conta de administração da máquina virtual. Utilize o exemplo **azureUser** ou forneça um novo nome de utilizador. |
 | **dispositivoConnectionString** | A cadeia de ligação da identidade do dispositivo no IoT Hub, que é usada para configurar o tempo de funcionamento do IoT Edge na máquina virtual. O comando CLI dentro deste parâmetro agarra a cadeia de ligação para si. Substitua o texto do espaço reservado pelo nome do seu hub IoT. |
-| **authenticationType** | O método de autenticação para a conta de administração. Este quickstart utiliza a autenticação **de palavra-passe,** mas também pode definir este parâmetro para **sshPublicKey**. |
+| **authenticationType** | O método de autenticação para a conta de administração. Este quickstart utiliza a autenticação **de palavra-passe,** mas também pode definir este parâmetro para **sshPublicKey** . |
 | **adminPasswordOrKey** | A palavra-passe ou valor da chave SSH para a conta de administração. Substitua o texto do espaço reservado por uma palavra-passe segura. A sua palavra-passe deve ter pelo menos 12 caracteres e ter três de quatro dos seguintes: caracteres minúsculos, caracteres maiúsculas, dígitos e caracteres especiais. |
 
 Uma vez concluída a implementação, deverá receber uma saída formatada por JSON no CLI que contenha as informações SSH para ligar à máquina virtual. Copiar o valor da entrada **pública de SSH** da secção **de saídas:**
@@ -220,7 +220,7 @@ Veja as mensagens enviadas a partir do módulo sensor de temperatura:
 
 Também pode ver as mensagens chegarem ao seu hub IoT utilizando a [extensão Azure IoT Hub para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos Azure que criou para evitar encargos.
 
@@ -229,7 +229,7 @@ Se tiver criado a sua máquina virtual e o hub IoT num novo grupo de recursos, p
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível.
 
-Remova o grupo de **IoTEdgeResources**. Pode levar alguns minutos para apagar um grupo de recursos.
+Remova o grupo de **IoTEdgeResources** . Pode levar alguns minutos para apagar um grupo de recursos.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

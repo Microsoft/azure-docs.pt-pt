@@ -6,14 +6,14 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152354"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746193"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Quickstart: Criar app de Serviço de Aplicações usando um modelo ARM
 
@@ -21,13 +21,13 @@ Inicie-se com o [Azure App Service](overview.md) implementando uma aplicação n
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 Utilize o seguinte botão para implantar no **Linux:**
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 
-Utilize o seguinte botão para implantar no **Windows**:
+Utilize o seguinte botão para implantar no **Windows** :
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
@@ -51,12 +51,12 @@ Este modelo contém vários parâmetros que são predefinidos para a sua conveni
 
 | Parâmetros | Tipo    | Valor predefinido                | Descrição |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
-| localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
-| sku        | string  | "F1"                         | Tamanho da instância (F1 = Nível Livre) |
-| language   | string  | ".net"                       | Pilha de linguagem de programação (.net, php, nó, html) |
+| webAppName | cadeia  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** "webApp-" | Nome da aplicação |
+| localização   | cadeia  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
+| sku        | cadeia  | "F1"                         | Tamanho da instância (F1 = Nível Livre) |
+| language   | cadeia  | ".net"                       | Pilha de linguagem de programação (.net, php, nó, html) |
 | OláWorld | boolean | Falso                        | True = Implementar a aplicação "Hello World" |
-| repoUrl    | string  | " "                          | Repo Git externo (opcional) |
+| repoUrl    | cadeia  | " "                          | Repo Git externo (opcional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Implementa um plano de Serviço de Aplicações e uma aplicação de Serviço de Aplicações no Linux. É compatível com todas as linguagens de programação suportadas no Serviço de Aplicações.
@@ -72,11 +72,11 @@ Este modelo contém vários parâmetros que são predefinidos para a sua conveni
 
 | Parâmetros | Tipo    | Valor predefinido                | Descrição |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**"webApp-" | Nome da aplicação |
-| localização   | string  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
-| sku        | string  | "F1"                         | Tamanho da instância (F1 = Nível Livre) |
-| linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Pilha de linguagem de programação &#124; versão" |
-| repoUrl    | string  | " "                          | Repo Git externo (opcional) |
+| webAppName | cadeia  | **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** "webApp-" | Nome da aplicação |
+| localização   | cadeia  | ["[grupo de recursos().localização]"](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) | Região de aplicações |
+| sku        | cadeia  | "F1"                         | Tamanho da instância (F1 = Nível Livre) |
+| linuxFxVersion   | cadeia  | "DOTNETCORE&#124;3.0        | "Pilha de linguagem de programação &#124; versão" |
+| repoUrl    | cadeia  | " "                          | Repo Git externo (opcional) |
 
 ---
 ::: zone-end
@@ -126,26 +126,26 @@ Para implementar uma pilha de idiomas diferente, atualize `linuxFxVersion` com v
 
 Procure `http://<app_name>.azurewebsites.net/` e verifique se foi criado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, [elimine o grupo de recursos](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Implementar a partir do Git local](deploy-local-git.md)
+> [Implementar a partir do Git local](deploy-local-git.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core com a Base de Dados SQL](tutorial-dotnetcore-sqldb-app.md)
+> [ASP.NET Core com a Base de Dados SQL](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Python com Postgres](tutorial-python-postgresql-app.md)
+> [Python com Postgres](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [PHP com MySQL](tutorial-php-mysql-app.md)
+> [PHP com MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Ligue à base de dados Azure SQL com a Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Ligue à base de dados Azure SQL com a Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)
+> [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)

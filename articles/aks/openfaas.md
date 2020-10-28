@@ -5,13 +5,13 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc
-ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 319107127b79383fc3b49f0eeb856a0e6c5b09f8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368894"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747770"
 ---
 # <a name="using-openfaas-on-aks"></a>Utilização do OpenFaaS em AKS
 
@@ -132,7 +132,7 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 Agora que o OpenFaaS está operacional, crie uma função utilizando o portal OpenFaas.
 
-Clique em **Implementar Nova Função** e procure **por Figlet**. Selecione a função Figlet e clique em **Implementar**.
+Clique em **Implementar Nova Função** e procure **por Figlet** . Selecione a função Figlet e clique em **Implementar** .
 
 ![A screenshot mostra a caixa de diálogo de nova função com a figleta de texto na linha de pesquisa.](media/container-service-serverless/figlet.png)
 

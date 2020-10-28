@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630513"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747900"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -44,7 +44,7 @@ Alternativamente, esta configuração existirá se utilizar um VM noutra nuvem o
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
-Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança da rede corporativa e alterar as portas e protocolos no daemon para se alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure,](../virtual-machines/security-policy.md) [Best Practices for Network security](../security/fundamentals/network-best-practices.md).
+Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança da rede corporativa e alterar as portas e protocolos no daemon para se alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure,](../virtual-machines/security-policy.md) [Best Practices for Network security](../security/fundamentals/network-best-practices.md).
 
 Para utilizar a comunicação TLS entre a fonte Syslog e o Syslog Forwarder, terá de configurar o daemon Syslog (rsyslog ou syslog-ng) para comunicar em TLS: [Encriptar o tráfego de syslog com TLS -rsyslog,](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html) [encriptar as mensagens de registo com TLS -syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
@@ -55,14 +55,14 @@ Certifique-se de que a máquina Linux que utiliza como representante está a exe
 - 64 bits
   - CentOS 7 e sub-versões, e mais altos (não 6)
   - Amazon Linux 2017.09
-  - Oracle Linux 6 e 7
+  - Oráculo Linux 7
   - Red Hat Enterprise Linux (RHEL) Servidor 7 e sub-versões, e mais alto (não 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12
 - 32 bits
    - CentOS 7
-   - Oracle Linux 6
+   - Oráculo Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 e 9
    - Ubuntu Linux 14.04 LTS e 16.04 LTS
@@ -79,7 +79,7 @@ Certifique-se de que a sua máquina também cumpre os seguintes requisitos:
 - Permissões
     - Deve ter permissões elevadas (sudo) na sua máquina. 
 - Requisitos de software
-    - Certifique-se de que tem Python (2.7 ou superior) a funcionar na sua máquina
+    - Certifique-se de que tem a pitão 2.7 a funcionar na sua máquina.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -4,13 +4,13 @@ description: Saiba como obter uma aplicação Linux Ruby a funcionar no Azure Ap
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
-ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c2baccec75c7b525c0837cebd9d828dff3a79543
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
+ms.openlocfilehash: 7d6c0d13e440beb9a934adba3908cc9a08f396f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150169"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747140"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Construa uma app Ruby e Postgres no Azure App Service em Linux
 
@@ -18,7 +18,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 :::image type="content" source="./media/tutorial-ruby-postgres-app/complete-checkbox-published.png" alt-text="Screenshot de um exemplo de aplicação Ruby on Rails intitulado Tasks.":::
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma base de dados PostgreSQL no Azure
@@ -125,7 +125,7 @@ Nesta secção, cria-se uma Base de Dados Azure para servidor e base de dados Po
 az extension add --name db-up
 ```
 
-Crie a base de dados Postgres em Azure com o [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando, como mostra o exemplo seguinte. *\<postgresql-name>* Substitua-o por um nome *único* (o ponto final do servidor é *https:// \<postgresql-name> .postgres.database.azure.com*). Para *\<admin-username>* e *\<admin-password>* , especificar credenciais para criar um utilizador de administrador para este servidor Postgres.
+Crie a base de dados Postgres em Azure com o [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando, como mostra o exemplo seguinte. *\<postgresql-name>* Substitua-o por um nome *único* (o ponto final do servidor é *https:// \<postgresql-name> .postgres.database.azure.com* ). Para *\<admin-username>* e *\<admin-password>* , especificar credenciais para criar um utilizador de administrador para este servidor Postgres.
 
 <!-- Issue: without --location -->
 ```azurecli
@@ -157,7 +157,7 @@ Neste passo, vai ligar a aplicação Ruby on Rails à base de dados Postgres que
 
 ### <a name="configure-the-database-connection"></a>Configurar a ligação à base de dados
 
-No repositório, abra _config/database.yml_. Na parte inferior do ficheiro, substitua as variáveis de produção pelo código seguinte. 
+No repositório, abra _config/database.yml_ . Na parte inferior do ficheiro, substitua as variáveis de produção pelo código seguinte. 
 
 ```txt
 production:
@@ -257,7 +257,7 @@ Neste passo, vai implementar a aplicação Rails ligada ao Postgres no Serviço 
 
 No Serviço de Aplicações, as variáveis de ambiente são definidas como _definições da aplicação_ com o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) no Cloud Shell.
 
-O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _ &lt; nome_ de>e _ &lt; o nome do servidor pós-venda>_.
+O comando do Cloud Shell seguinte configura as definições da aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Substitua o _&lt; nome_ de>e _&lt; o nome do servidor pós-venda>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="root@<postgres-server-name>" DB_PASSWORD="Sampledb1"
@@ -273,7 +273,7 @@ rails secret
 
 Configure as variáveis necessárias para o ambiente de produção do Rails.
 
-No seguinte comando Cloud Shell, substitua os dois espaços _ &lt; de>secretos de saída dos trilhos_ com a nova chave secreta que gerou no terminal local.
+No seguinte comando Cloud Shell, substitua os dois espaços _&lt; de>secretos de saída dos trilhos_ com a nova chave secreta que gerou no terminal local.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
@@ -336,7 +336,7 @@ Gere uma nova migração que adicione uma coluna booleana denominada `Done` à t
 rails generate migration AddDoneToTasks Done:boolean
 ```
 
-Este comando gera um novo ficheiro de migração no diretório _db/migrate_.
+Este comando gera um novo ficheiro de migração no diretório _db/migrate_ .
 
 
 No terminal, execute migrações de bases de dados do Rails para fazer a alteração na base de dados local.
@@ -347,7 +347,7 @@ rake db:migrate
 
 ### <a name="update-application-logic"></a>Atualizar a lógica da aplicação
 
-Abra o ficheiro *app/controllers/tasks_controller.rb*. No final do ficheiro, localize a seguinte linha:
+Abra o ficheiro *app/controllers/tasks_controller.rb* . No final do ficheiro, localize a seguinte linha:
 
 ```rb
 params.require(:task).permit(:Description)
@@ -361,7 +361,7 @@ params.require(:task).permit(:Description, :Done)
 
 ### <a name="update-the-views"></a>Atualizar as vistas
 
-Abra o ficheiro *app/views/tasks/_form.html.erb*, que é o Formulário de edição.
+Abra o ficheiro *app/views/tasks/_form.html.erb* , que é o Formulário de edição.
 
 Localize a linha `<%=f.error_span(:Description) %>` e insira o seguinte código diretamente abaixo da mesma:
 
@@ -372,7 +372,7 @@ Localize a linha `<%=f.error_span(:Description) %>` e insira o seguinte código 
 </div>
 ```
 
-Abra o ficheiro *app/views/tasks/show.html.erb*, que é a Página de visualização de registo único. 
+Abra o ficheiro *app/views/tasks/show.html.erb* , que é a Página de visualização de registo único. 
 
 Localize a linha `<dd><%= @task.Description %></dd>` e insira o seguinte código diretamente abaixo da mesma:
 
@@ -381,7 +381,7 @@ Localize a linha `<dd><%= @task.Description %></dd>` e insira o seguinte código
   <dd><%= check_box "task", "Done", {:checked => @task.Done, :disabled => true}%></dd>
 ```
 
-Abra o ficheiro *app/views/tasks/index.html.erb*, que é a Página de índice de todos os registos.
+Abra o ficheiro *app/views/tasks/index.html.erb* , que é a Página de índice de todos os registos.
 
 Localize a linha `<th><%= model_class.human_attribute_name(:Description) %></th>` e insira o seguinte código diretamente abaixo da mesma:
 
@@ -439,7 +439,7 @@ Se tiver adicionado tarefas, estas são mantidas na base de dados. As atualizaç
 
 Vá ao [portal Azure](https://portal.azure.com) para gerir a app que criou.
 
-A partir do menu esquerdo, clique em **Serviços de Aplicação**e, em seguida, clique no nome da sua aplicação Azure.
+A partir do menu esquerdo, clique em **Serviços de Aplicação** e, em seguida, clique no nome da sua aplicação Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/tutorial-php-mysql-app/access-portal.png)
 

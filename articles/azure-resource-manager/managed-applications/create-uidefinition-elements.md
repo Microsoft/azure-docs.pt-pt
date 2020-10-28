@@ -3,14 +3,14 @@ title: Criar elementos de definição de UI
 description: Descreve os elementos a utilizar ao construir definições de UI para o portal Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
-ms.openlocfilehash: 8b6c6e78c64f83ca39a29f319a103e893d8d8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3ba36fc3aaa98aec54b6c70cd416c589be27cfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923726"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747352"
 ---
 # <a name="createuidefinition-elements"></a>Criar elementos dedefinição CreateUi
 
@@ -33,7 +33,7 @@ O esquema para a maioria dos elementos é o seguinte:
 }
 ```
 
-| Propriedade | Necessário | Descrição |
+| Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
 | name | Sim | Um identificador interno para referir uma instância específica de um elemento. A utilização mais comum do nome do elemento está em `outputs` , onde os valores de saída dos elementos especificados são mapeados para os parâmetros do modelo. Também pode usá-lo para ligar o valor de saída de um elemento ao `defaultValue` de outro elemento. |
 | tipo | Sim | O controlo da UI para renderizar o elemento. Para obter uma lista de tipos [suportados,](#elements)consulte Elementos . |
@@ -63,6 +63,7 @@ A documentação de cada elemento contém uma amostra de UI, esquema, observaç�
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.keyVault.KeyVaultCertificateselector](microsoft-keyvault-keyvaultcertificateselector.md)
 - [Microsoft.ManagedIdentity.IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
@@ -70,6 +71,7 @@ A documentação de cada elemento contém uma amostra de UI, esquema, observaç�
 - [Microsoft.Solutions.ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
+- [Microsoft.StorageBlobSelector](microsoft-storage-storageblobselector.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
