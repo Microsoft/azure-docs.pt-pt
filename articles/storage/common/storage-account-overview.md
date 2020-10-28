@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488865"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793012"
 ---
 # <a name="storage-account-overview"></a>Descrição geral da conta de armazenamento
 
@@ -60,7 +60,7 @@ Na maioria dos casos, deve utilizar contas v2 para fins gerais. Pode utilizar co
 
 - As suas aplicações são intensivas em transações ou utilizam largura de banda de geo-replicação significativa, mas não requerem grande capacidade. Neste caso, o v1 de uso geral pode ser a escolha mais económica.
 
-- Utiliza uma versão do Serviço de [Armazenamento REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) que é anterior a 2014-02-14 ou uma biblioteca de clientes com uma versão inferior a 4.x. Não pode atualizar a sua candidatura.
+- Utiliza uma versão do Serviço de [Armazenamento REST API](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) que é anterior a 2014-02-14 ou uma biblioteca de clientes com uma versão inferior a 4.x. Não pode atualizar a sua candidatura.
 
 ### <a name="blockblobstorage-accounts"></a>Contas blockBlobStorage
 
@@ -108,7 +108,7 @@ Os níveis de acesso disponíveis são:
 
 - O nível de acesso **quente.** Este nível é otimizado para o acesso frequente de objetos na conta de armazenamento. O acesso aos dados no nível quente é mais rentável, enquanto os custos de armazenamento são mais elevados. Novas contas de armazenamento são criadas no nível quente por defeito.
 - O nível de acesso **cool.** Este nível é otimizado para armazenar grandes quantidades de dados que são pouco acessados e armazenados durante pelo menos 30 dias. Armazenar dados no nível cool é mais rentável, mas aceder a esses dados pode ser mais caro do que aceder a dados no nível quente.
-- A camada **Arquivo**. Este nível está disponível apenas para bolhas de bloco individuais. O nível de arquivo está otimizado para dados que podem tolerar várias horas de latência de recuperação e que permanecerão no nível de arquivo por pelo menos 180 dias. O nível de arquivo é a opção mais rentável para armazenar dados. No entanto, aceder a esses dados é mais caro do que aceder a dados nos níveis quentes ou frescos.
+- A camada **Arquivo** . Este nível está disponível apenas para bolhas de bloco individuais. O nível de arquivo está otimizado para dados que podem tolerar várias horas de latência de recuperação e que permanecerão no nível de arquivo por pelo menos 180 dias. O nível de arquivo é a opção mais rentável para armazenar dados. No entanto, aceder a esses dados é mais caro do que aceder a dados nos níveis quentes ou frescos.
 
 Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estes níveis de acesso a qualquer momento. Para obter mais informações sobre os níveis de acesso, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](../blobs/storage-blob-storage-tiers.md)
 
@@ -133,12 +133,12 @@ Por exemplo, se a sua conta de armazenamento para fins gerais for nomeada *conta
 - Armazenamento de mesa: `https://*mystorageaccount*.table.core.windows.net`
 - Armazenamento de fila: `https://*mystorageaccount*.queue.core.windows.net`
 - Ficheiros Azure: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Utiliza o [condutor ABFS otimizado especificamente para big data](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2).)
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Utiliza o [condutor ABFS otimizado especificamente para big data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > As contas de armazenamento de blocos e blob expõem apenas o ponto final do serviço Blob.
 
-Construa o URL para aceder a um objeto numa conta de armazenamento, anexando a localização do objeto na conta de armazenamento para o ponto final. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+Construa o URL para aceder a um objeto numa conta de armazenamento, anexando a localização do objeto na conta de armazenamento para o ponto final. Por exemplo, um endereço de blob pode ter este formato: http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob* .
 
 Também pode configurar a sua conta de armazenamento para usar um domínio personalizado para bolhas. Para mais informações, consulte [configurar um nome de domínio personalizado para a sua conta de Armazenamento Azure.](../blobs/storage-custom-domain-name.md)  
 
@@ -167,7 +167,7 @@ Quando faz o upgrade para uma conta V2 de uso geral a partir de uma conta de arm
 
 ### <a name="azcopy"></a>AzCopy
 
-O AzCopy é um utilitário de linha de comandos do Windows concebido para copiar dados de e para o Storage do Azure com um elevado desempenho. Pode utilizar o AzCopy para copiar dados numa conta de armazenamento Blob a partir de uma conta de armazenamento de fim geral existente, ou para enviar dados de dispositivos de armazenamento no local. Para obter mais informações, veja [Transferir dados com o Utilitário de Linha de Comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+O AzCopy é um utilitário de linha de comandos do Windows concebido para copiar dados de e para o Storage do Azure com um elevado desempenho. Pode utilizar o AzCopy para copiar dados numa conta de armazenamento Blob a partir de uma conta de armazenamento de fim geral existente, ou para enviar dados de dispositivos de armazenamento no local. Para obter mais informações, veja [Transferir dados com o Utilitário de Linha de Comandos AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ### <a name="data-movement-library"></a>Biblioteca de Movimento de Dados
 

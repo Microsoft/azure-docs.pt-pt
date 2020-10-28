@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945622"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791873"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configure notificações de email para alertas de segurança 
 
@@ -26,8 +26,8 @@ Os alertas de segurança precisam de chegar às pessoas certas na sua organizaç
 
 Para definir as suas preferências por e-mails de notificação, a página de **notificações** de email do Azure Security Center permite-lhe escolher:
 
-- ** *que* deve ser notificado** - Os e-mails podem ser enviados para selecionar indivíduos ou para qualquer pessoa com uma função Azure especificada para uma subscrição. 
-- ** *sobre o que* devem ser notificados** - Modifique os níveis de gravidade para os quais o Centro de Segurança deve enviar notificações.
+- **_que_ deve ser notificado** - Os e-mails podem ser enviados para selecionar indivíduos ou para qualquer pessoa com uma função Azure especificada para uma subscrição. 
+- **_sobre o que_ devem ser notificados** - Modifique os níveis de gravidade para os quais o Centro de Segurança deve enviar notificações.
 
 Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensagens de saída. Para cada subscrição, o Centro de Segurança envia:
 
@@ -52,19 +52,20 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 
 Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores com funções específicas do Azure.
 
-1. A partir da área de **definições** de preços & do Centro de Segurança, selecione a subscrição relevante e selecione **notificações de e-mail**.
+1. A partir da área de **definições** de preços & do Centro de Segurança, selecione a subscrição relevante e selecione **notificações de e-mail** .
 
 1. Defina os destinatários das suas notificações com uma ou ambas as opções:
 
     - Na lista de abandono, selecione entre as funções disponíveis.
     - Introduza endereços de e-mail específicos separados por vírgulas. Não há limite para o número de endereços de e-mail que pode introduzir.
 
-1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
+1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar** .
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos seguintes
+
 Para saber mais sobre alertas de segurança, consulte as seguintes páginas:
 
 - [Alertas de segurança - um guia](alerts-reference.md)de referência --Saiba mais sobre os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure
 - [Gerir e responder a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md)--Saiba como gerir e responder a alertas de segurança
-- [Automatização do fluxo de trabalho](workflow-automation.md)--Automatizar respostas a alertas com lógica de notificação personalizada
+- [Automatizar respostas aos gatilhos do Centro de Segurança](workflow-automation.md)--Use a automatização para responder aos gatilhos do Centro de Segurança com lógica de notificação personalizada

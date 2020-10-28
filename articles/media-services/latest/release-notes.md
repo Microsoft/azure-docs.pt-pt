@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514491"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791601"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -46,6 +46,16 @@ A predefinição de Análise áudio inclui agora um nível de preços de modo b�
 Os clientes que usam Indexer v1 e Indexer v2 devem migrar para a predefinição de Análise Áudio Básica.
 
 Para obter mais informações sobre o modo Analisador de Áudio Básico, consulte [os ficheiros De Vídeo e Áudio](analyzing-video-audio-files-concept.md)de Análise .  Para aprender a utilizar o modo Analisador de Áudio Básico com a API REST, consulte [Como Criar uma Transformação Áudio Básica](how-to-create-basic-audio-transform.md).
+
+## <a name="live-events"></a>Eventos em Direto
+
+As atualizações para a maioria das propriedades são agora permitidas quando os eventos ao vivo são interrompidos. Além disso, os utilizadores estão autorizados a especificar um prefixo para o nome de anfitrião estático para os URLs de entrada e pré-visualização do evento ao vivo. A VanityUrl é agora chamada `useStaticHostName` para melhor refletir a intenção da propriedade.
+
+Os eventos ao vivo têm agora um estado de espera.  Ver [Eventos Ao Vivo e Saídas Ao Vivo nos Serviços de Media.](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept)
+
+Um evento ao vivo suporta receber vários rácios de aspeto de entrada. O modo alongamento permite que os clientes especifiquem o comportamento de alongamento para a saída.
+
+A codificação ao vivo adiciona agora a capacidade de saída de fragmentos de intervalo de chave fixa entre 0,5 e 20 segundos.
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -99,7 +109,7 @@ Os docs do Azure Media Player foram migrados para a documentação do [Azure](..
 
 ### <a name="azure-government-cloud-updates"></a>Atualizações em nuvem do Governo de Azure
 
-Media Services GA'ed nas seguintes regiões do Governo Azure: *USGov Arizona* e *USGov Texas*.
+Media Services GA'ed nas seguintes regiões do Governo Azure: *USGov Arizona* e *USGov Texas* .
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
@@ -163,7 +173,7 @@ A Media Services v3 está anunciando a pré-estreia de 24 hrs x 365 dias de codi
 
 #### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o artigo [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
+Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview* . Para as datas de aposentadoria, consulte o artigo [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
 
 Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -268,7 +278,7 @@ As atualizações da versão GA da API V3 incluem:
 * As propriedades **PresentationTimeRange** já não são 'necessárias' para **filtros de ativos** e **filtros de conta.** 
 * As opções de consulta $top e $skip para **Jobs** and Transforms foram **removidas** e $orderby foi adicionada. Como parte da adição da nova funcionalidade de encomendas, descobriu-se que as opções $top e $skip tinham sido acidentalmente expostas anteriormente, mesmo que não fossem implementadas.
 * A extensibilidade da enumeração foi re-activada. Esta funcionalidade foi ativada nas versões de pré-visualização do SDK e foi acidentalmente desativada na versão GA.
-* Duas políticas de streaming predefinidas foram renomeadas. **O SecureStreaming** é agora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** está agora **Predefined_MultiDrmStreaming**.
+* Duas políticas de streaming predefinidas foram renomeadas. **O SecureStreaming** é agora **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** está agora **Predefined_MultiDrmStreaming** .
 
 ## <a name="november-2018"></a>Novembro de 2018
 

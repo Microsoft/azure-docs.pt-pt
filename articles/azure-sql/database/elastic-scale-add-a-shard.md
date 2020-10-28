@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 50e7e597a4fb02919739633529abdbf772bcecea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443053"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792060"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionar um fragmento usando ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Se a nova gama de valores-chave já não faz parte de um mapeamento existente, �
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exemplo: adicionar um fragmento e sua gama a um mapa de fragmentos existente
 
-Esta amostra utiliza o TryGetShard[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))), o CreateShard[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) methods, e cria uma instância da classe ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET).](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation) Na amostra abaixo, foi criada uma base de dados denominada **sample_shard_2** e todos os objetos de esquema necessários no seu interior para manter a faixa [300.400).  
+Esta amostra utiliza o TryGetShard[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](/previous-versions/azure/dn823929(v=azure.100))), o CreateShard[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping[(Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) methods, e cria uma instância da classe ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET).](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation) Na amostra abaixo, foi criada uma base de dados denominada **sample_shard_2** e todos os objetos de esquema necessários no seu interior para manter a faixa [300.400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante**: Utilize esta técnica apenas se tiver a certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados da gama que está a ser movida, pelo que o melhor é incluir verificações no seu código.  Se existirem linhas na gama que está a ser movida, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Utilize a [ferramenta de fusão dividida](elastic-scale-overview-split-and-merge.md) para efetuar a operação nestes casos.  
+**Importante** : Utilize esta técnica apenas se tiver a certeza de que o intervalo para o mapeamento atualizado está vazio.  Os métodos anteriores não verificam os dados da gama que está a ser movida, pelo que o melhor é incluir verificações no seu código.  Se existirem linhas na gama que está a ser movida, a distribuição de dados real não corresponderá ao mapa de fragmentos atualizado. Utilize a [ferramenta de fusão dividida](elastic-scale-overview-split-and-merge.md) para efetuar a operação nestes casos.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

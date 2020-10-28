@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126807"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886712"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -114,11 +114,21 @@ Call groupCall = callAgent.call(participants, startCallOptions);
 > Atualmente apenas um stream de vídeo local de saída é suportado Para fazer uma chamada com vídeo você tem que enumerar câmaras locais usando a `deviceManager` `getCameraList` API.
 Uma vez selecionada uma câmara desejada, use-a para construir um `LocalVideoStream` caso e passá-la `videoOptions` como um item na matriz para um `localVideoStream` `call` método.
 Assim que a chamada ligar, começará automaticamente a enviar um fluxo de vídeo da câmara selecionada para outros participantes.
+
+> [!NOTE]
+> Devido a questões de privacidade, o vídeo não será partilhado na chamada se não estiver a ser pré-visualizado localmente.
+Consulte [a pré-visualização da câmara local](#local-camera-preview) para mais detalhes.
 ```java
 Context appContext = this.getApplicationContext();
 VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
 VideoOptions videoOptions = new VideoOptions(currentVideoStream);
+
+// Render a local preview of video so the user knows that their video is being shared
+Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+// Attach the uiView to a viewable location on the app at this point
+layout.addView(uiView);
 
 CommunicationUser[] participants = new CommunicationUser[]{ new CommunicationUser("<acs user id>") };
 StartCallOptions startCallOptions = new StartCallOptions();
@@ -146,7 +156,7 @@ As notificações de push mobile são as notificações pop-up que vê nos dispo
 Uma conta Firebase criada com mensagens cloud (FCM) ativada e com o seu serviço de mensagens cloud firebase ligado a uma instância do Azure Notification Hub. Consulte [as notificações dos Serviços de Comunicação](https://docs.microsoft.com/azure/communication-services/concepts/notifications) para obter mais informações.
 Além disso, o tutorial assume que está a usar a versão 3.6 ou superior do Android Studio para construir a sua aplicação.
 
-É necessário um conjunto de permissões para a aplicação Android para poder receber mensagens de notificações de Mensagens Cloud Firebase. No seu `AndroidManifest.xml` ficheiro, adicione o seguinte conjunto de permissões logo após o * manifesto<...>* ou abaixo da *</application>* etiqueta
+É necessário um conjunto de permissões para a aplicação Android para poder receber mensagens de notificações de Mensagens Cloud Firebase. No seu `AndroidManifest.xml` ficheiro, adicione o seguinte conjunto de permissões logo após o *manifesto<...>* ou abaixo da *</application>* etiqueta
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -607,9 +617,9 @@ currentVideoStream = new LocalVideoStream(videoDevice, appContext);
 videoOptions = new VideoOptions(currentVideoStream);
 
 Renderer previewRenderer = new Renderer(currentVideoStream, appContext);
-View uiView previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+View uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
 
-// Attach the renderingSurface to a viewable location on the app at this point
+// Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
 

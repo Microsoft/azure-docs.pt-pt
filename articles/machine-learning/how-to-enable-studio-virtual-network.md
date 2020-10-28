@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503220"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792026"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -36,7 +36,7 @@ Veja os outros artigos desta série:
 
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho estiver numa __nuvem soberana__, como o Governo Azure ou o Azure China 21Vianet, os cadernos integrados _não suportam_ o armazenamento que se encontra numa rede virtual. Em vez disso, pode usar os Cadernos Jupyter de uma instância computacional. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)
+> Se o seu espaço de trabalho estiver numa __nuvem soberana__ , como o Governo Azure ou o Azure China 21Vianet, os cadernos integrados _não suportam_ o armazenamento que se encontra numa rede virtual. Em vez disso, pode usar os Cadernos Jupyter de uma instância computacional. Para mais informações, consulte os dados do Access numa secção [de cadernos De cálculo.](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -53,7 +53,7 @@ Veja os outros artigos desta série:
 
 Se estiver a aceder ao estúdio a partir de um recurso dentro de uma rede virtual (por exemplo, uma instância de computação ou uma máquina virtual), deve permitir o tráfego de saída da rede virtual para o estúdio. 
 
-Por exemplo, se estiver a utilizar grupos de segurança de rede (NSG) para restringir o tráfego de saída, adicione uma regra a um destino de __marcação__ de serviço de __AzureFrontDoor.Frontend__.
+Por exemplo, se estiver a utilizar grupos de segurança de rede (NSG) para restringir o tráfego de saída, adicione uma regra a um destino de __marcação__ de serviço de __AzureFrontDoor.Frontend__ .
 
 ## <a name="access-data-using-the-studio"></a>Aceder a dados usando o estúdio
 
@@ -66,9 +66,6 @@ Se não ativar a identidade gerida, receberá este erro, `Error: Unable to profi
 * Submeta uma experiência AutoML.
 * Inicie um projeto de rotulagem.
 
-> [!NOTE]
-> [A rotulagem de dados assistidos ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não suporta contas de armazenamento padrão protegidas por trás de uma rede virtual. Deve utilizar uma conta de armazenamento não padrão para a rotulagem de dados assistidos ML. A conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
-
 O estúdio suporta dados de leitura dos seguintes tipos de datastore numa rede virtual:
 
 * Blob do Azure
@@ -76,17 +73,21 @@ O estúdio suporta dados de leitura dos seguintes tipos de datastore numa rede v
 * Armazenamento do Azure Data Lake Ger2
 * Base de Dados SQL do Azure
 
-### <a name="configure-datastores-to-use-managed-identity"></a>Configure as lojas de dados para utilizar a identidade gerida
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Grant workspace gerido identidade O acesso __do leitor__ ao link privado de armazenamento
+
+Este passo só é necessário se adicionar a conta de armazenamento Azure à sua rede virtual com um [ponto final privado.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) Para mais informações, consulte o papel incorporado do [Leitor.](../role-based-access-control/built-in-roles.md#reader)
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configure as lojas de dados para utilizar a identidade gerida pelo espaço de trabalho
 
 A Azure Machine Learning utiliza [datastores](concept-data.md#datastores) para se conectar às contas de armazenamento. Utilize os seguintes passos para configurar as suas datastores para utilizar a identidade gerida. 
 
 1. No estúdio, selecione __Datastores.__
 
-1. Para criar uma nova loja de dados, selecione __+ Nova datastore__.
+1. Para criar uma nova loja de dados, selecione __+ Nova datastore__ .
 
-    Para atualizar uma loja de dados existente, selecione a datastore e selecione __credenciais de Atualização__.
+    Para atualizar uma loja de dados existente, selecione a datastore e selecione __credenciais de Atualização__ .
 
-1. Nas definições da datastore, selecione __Sim__ para  __permitir o serviço de aprendizagem automática Azure para aceder ao armazenamento utilizando identidade gerida pelo espaço de trabalho__.
+1. Nas definições da datastore, selecione __Sim__ para  __permitir o serviço de aprendizagem automática Azure para aceder ao armazenamento utilizando identidade gerida pelo espaço de trabalho__ .
 
 
 Estes passos adicionam a identidade gerida pelo espaço de trabalho como __leitor__ ao serviço de armazenamento utilizando o controlo de acesso baseado em recursos Azure (Azure RBAC). __O__ acesso ao leitor permite que o espaço de trabalho recupere as definições de firewall e certifique-se de que os dados não saem da rede virtual.
@@ -127,15 +128,15 @@ O designer utiliza a conta de armazenamento anexada ao seu espaço de trabalho p
 Para definir um novo armazenamento predefinido para um oleoduto:
 
 1. Num rascunho de pipeline, selecione o **ícone de engrenagem Definições** perto do título do seu oleoduto.
-1. Selecione a **loja de dados predefinitiva Select**.
+1. Selecione a **loja de dados predefinitiva Select** .
 1. Especifique uma nova loja de dados.
 
 Também pode sobrepor a datastore predefinido numa base por módulo. Isto dá-lhe controlo sobre o local de armazenamento de cada módulo individual.
 
 1. Selecione o módulo cuja saída pretende especificar.
 1. Expandir a secção **de definições de saída.**
-1. Selecione **as definições de saída predefinido do Override**.
-1. Selecione **definições de saída de conjunto**.
+1. Selecione **as definições de saída predefinido do Override** .
+1. Selecione **definições de saída de conjunto** .
 1. Especifique uma nova loja de dados.
 
 ## <a name="next-steps"></a>Passos seguintes

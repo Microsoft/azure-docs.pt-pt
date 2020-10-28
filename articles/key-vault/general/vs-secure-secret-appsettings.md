@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57cda5104551f8b62d157e443a42c5e3c75e4ddf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372060"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792417"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura as definições de aplicações secretas para uma aplicação web
 
@@ -30,7 +30,7 @@ Para garantir que o processo de desenvolvimento é seguro, as bibliotecas de fer
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET e .NET Aplicações core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Guarde as definições secretas na loja User Secret que está fora da pasta de controlo de fontes
-Se estiver a fazer um protótipo rápido ou não tiver acesso à Internet, comece por mover as definições secretas para fora da pasta de controlo de fontes para a loja User Secret. A loja User Secret é um ficheiro guardado na pasta do perfil do utilizador, pelo que os segredos não são verificados no controlo de origem. O diagrama seguinte demonstra como funciona [o User Secret.](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio)
+Se estiver a fazer um protótipo rápido ou não tiver acesso à Internet, comece por mover as definições secretas para fora da pasta de controlo de fontes para a loja User Secret. A loja User Secret é um ficheiro guardado na pasta do perfil do utilizador, pelo que os segredos não são verificados no controlo de origem. O diagrama seguinte demonstra como funciona [o User Secret.](/aspnet/core/security/app-secrets?tabs=visual-studio)
 
 ![User Secret mantém configurações secretas fora do controlo de origem](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -43,7 +43,7 @@ Se estiver a desenvolver um projeto e precisar de partilhar o código fonte de f
 
     ![Criar cofre de chaves Azure](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Conceda a si e aos seus membros da equipa acesso ao Cofre de Chaves. Se tiver uma grande equipa, pode criar um [grupo de Diretório Ativo Azure](../../active-directory/active-directory-groups-create-azure-portal.md) e adicionar o acesso do grupo de segurança ao Cofre-Chave. No *dropdown de Permissões Secretas,* consulte *Get* and *List* em *Operações de Gestão Secreta*.
+2. Conceda a si e aos seus membros da equipa acesso ao Cofre de Chaves. Se tiver uma grande equipa, pode criar um [grupo de Diretório Ativo Azure](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) e adicionar o acesso do grupo de segurança ao Cofre-Chave. No *dropdown de Permissões Secretas,* consulte *Get* and *List* em *Operações de Gestão Secreta* .
 Se já tiver a sua aplicação web criada, conceda à aplicação web acesso ao Cofre-Chave para que possa aceder ao cofre de chaves sem armazenar configuração secreta em Configurações de Aplicações ou ficheiros. Procure a sua aplicação web pelo seu nome e adicione-a da mesma forma que concede aos utilizadores acesso.
 
     ![Adicionar a política de acesso ao Cofre de Chaves](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)

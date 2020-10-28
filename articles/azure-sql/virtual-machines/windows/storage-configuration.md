@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272026"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793080"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,15 +46,15 @@ Ao forer um VM Azure utilizando uma imagem de galeria SQL Server, selecione alte
 
 ![Configuração de armazenamento VM do servidor SQL durante o provisionamento](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento**. Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
+Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento** . Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
 
 ![Configuração de armazenamento VM do servidor SQL durante o provisionamento](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-A configuração do disco é completamente personalizável para que possa configurar a topologia de armazenamento, o tipo de disco e os IOPs de que necessita para a carga de trabalho VM do seu SQL Server VM. Você também tem a capacidade de usar o UltraSSD (pré-visualização) como uma opção para o **tipo de disco** se o seu SQL Server VM estiver numa das regiões suportadas (Leste DOS EUA 2, Ásia do Sul e Norte da Europa) e tiver ativado discos ultra para a sua [subscrição.](/azure/virtual-machines/windows/disks-enable-ultra-ssd)  
+A configuração do disco é completamente personalizável para que possa configurar a topologia de armazenamento, o tipo de disco e os IOPs de que necessita para a carga de trabalho VM do seu SQL Server VM. Você também tem a capacidade de usar o UltraSSD (pré-visualização) como uma opção para o **tipo de disco** se o seu SQL Server VM estiver numa das regiões suportadas (Leste DOS EUA 2, Ásia do Sul e Norte da Europa) e tiver ativado discos ultra para a sua [subscrição.](../../../virtual-machines/disks-enable-ultra-ssd.md)  
 
-Além disso, tem a capacidade de definir o cache para os discos. Os VMs Azure têm uma tecnologia de cache multi-nível chamada [Blob Cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) quando usado com [Discos Premium](/azure/virtual-machines/windows/disks-types#premium-ssd). Blob Cache usa uma combinação da RAM máquina virtual e SSD local para cache. 
+Além disso, tem a capacidade de definir o cache para os discos. Os VMs Azure têm uma tecnologia de cache multi-nível chamada [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) quando usado com [Discos Premium](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache usa uma combinação da RAM máquina virtual e SSD local para cache. 
 
-O cache do disco para SSD Premium pode ser *LidoOnly*, *ReadWrite* ou *Nenhum*. 
+O cache do disco para SSD Premium pode ser *LidoOnly* , *ReadWrite* ou *Nenhum* . 
 
 - *O caching ReadOnly* é altamente benéfico para os ficheiros de dados do SQL Server que são armazenados no Armazenamento Premium. *ReadOnly* caching traz baixa latência de leitura, IOPS de alta leitura, e produção como, leituras são realizadas a partir de cache, que está dentro da memória VM e SSD local. Estas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento de Azure Blob. O armazenamento premium não conta as leituras servidas de cache para o disco IOPS e produção. Portanto, o seu aplicável é capaz de alcançar um total mais elevado de IOPS e produção. 
 - *Nenhuma* configuração de cache deve ser utilizada para os discos que hospedam o ficheiro SQL Server Log, uma vez que o ficheiro de registo é escrito sequencialmente e não beneficia do cache *ReadOnly.* 
@@ -94,14 +94,14 @@ Pode utilizar o seguinte modelo de arranque rápido para implementar um SQL Serv
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para os VMs do servidor SQL existentes, pode modificar algumas definições de armazenamento no portal Azure. Abra o [seu recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)e selecione **visão geral**. A página sql Server Overview mostra o uso atual do armazenamento do seu VM. Todas as unidades existentes no seu VM são apresentadas neste gráfico. Para cada unidade, o espaço de armazenamento apresenta quatro secções:
+Para os VMs do servidor SQL existentes, pode modificar algumas definições de armazenamento no portal Azure. Abra o [seu recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)e selecione **visão geral** . A página sql Server Overview mostra o uso atual do armazenamento do seu VM. Todas as unidades existentes no seu VM são apresentadas neste gráfico. Para cada unidade, o espaço de armazenamento apresenta quatro secções:
 
 * Dados SQL
 * Log SQL
 * Outros (armazenamento não-SQL)
 * Disponível
 
-Para modificar as definições de armazenamento, **selecione Configurações de** **Configurações**. 
+Para modificar as definições de armazenamento, **selecione Configurações de** **Configurações** . 
 
 ![Configure armazenamento para o VM do servidor SQL existente](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 

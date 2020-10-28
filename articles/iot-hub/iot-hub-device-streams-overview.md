@@ -11,12 +11,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152164"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792468"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Streams de dispositivos do hub IoT (pré-visualização)
 
@@ -103,7 +104,7 @@ A saída é um objeto JSON de todos os pontos finais a que o dispositivo e o ser
 ```
 
 > [!NOTE]
-> Certifique-se de que instalou a versão 2.0.57 do Azure CLI ou mais recente. Pode descarregar a versão mais recente da página [Install Azure CLI.](/cli/azure/install-azure-cli?view=azure-cli-latest)
+> Certifique-se de que instalou a versão 2.0.57 do Azure CLI ou mais recente. Pode descarregar a versão mais recente da página [Install Azure CLI.](/cli/azure/install-azure-cli)
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Permitir a conectividade de saída para os pontos finais de streaming do dispositivo
@@ -119,30 +120,30 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Certifique-se de que instalou a versão 2.0.57 do Azure CLI ou mais recente. Pode descarregar a versão mais recente da página [Install Azure CLI.](/cli/azure/install-azure-cli?view=azure-cli-latest)
+> Certifique-se de que instalou a versão 2.0.57 do Azure CLI ou mais recente. Pode descarregar a versão mais recente da página [Install Azure CLI.](/cli/azure/install-azure-cli)
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Resolução de problemas através de registos de atividade de streams de dispositivos
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Resolução de problemas através de registos de recursos de streams de dispositivos
 
-Pode configurar registos do Azure Monitor para recolher o registo de atividade dos fluxos de dispositivos no seu Hub IoT. Isto pode ser muito útil em cenários de resolução de problemas.
+Pode configurar o Azure Monitor para recolher os [registos de recursos para os fluxos de dispositivos emitidos](monitor-iot-hub-reference.md#device-streams-preview) pelo seu Hub IoT. Isto pode ser muito útil em cenários de resolução de problemas.
 
-Siga os passos abaixo para configurar os registos do Azure Monitor para as atividades de streaming de dispositivos do seu IoT Hub:
+Siga os passos abaixo para criar uma definição de diagnóstico para enviar registos de streams de dispositivos para o seu Hub IoT para Registos monitores Azure:
 
-1. Navegue no separador *definições de Diagnóstico* no seu Hub IoT e clique em Ligar o link *de diagnóstico.*
+1. No portal Azure, navegue para o seu hub IoT. No painel esquerdo, em **Monitorização,** selecione **Definições de Diagnóstico** . Em seguida, **selecione Adicionar a definição de diagnóstico** .
 
-   !["Habilitar registos de diagnósticos"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Forneça um nome para a definição de diagnóstico e selecione **DeviceStreams** da lista de registos. Em seguida, selecione **Enviar para registar analíticos** . Você será guiado para escolher um espaço de trabalho log analytics existente ou criar um novo.
 
-2. Forneça um nome para as definições de diagnóstico e escolha *Enviar para Registar Adoção.* Você será guiado para escolher um recurso de espaço de trabalho log analytics existente ou criar um novo. Além disso, verifique os *DeviceStreams* da lista.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Ativar os registos de fluxos de dispositivos":::
 
-    !["Ativar os registos de fluxos de dispositivos"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. Pode agora aceder aos registos de streams do seu dispositivo no *separador Registos* no portal do seu Hub IoT. Os registos de atividade de fluxo do dispositivo aparecerão na `AzureDiagnostics` tabela e terão `Category=DeviceStreams` .
+3. Depois de criar uma definição de diagnóstico para enviar os registos de streams do seu dispositivo para um espaço de trabalho do Log Analytics, pode aceder aos registos selecionando **Registos** sob **monitorização** no painel esquerdo do seu hub IoT no portal Azure. Os registos de fluxos de dispositivos aparecerão na `AzureDiagnostics` tabela e terão `Category=DeviceStreams` . Tenha em atenção que pode demorar alguns minutos após uma operação para que os registos apareçam na tabela.
 
    Como mostrado abaixo, a identidade do dispositivo alvo e o resultado da operação também estão disponíveis nos registos.
 
    !["Aceder a registos de fluxo de dispositivos"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
 
-## <a name="regional-availability"></a>Disponibilidade Regional
+Para saber mais sobre a utilização do Azure Monitor com o IoT Hub, consulte [o Monitor IoT Hub](monitor-iot-hub.md). Para obter informações sobre todos os registos de recursos, métricas e tabelas disponíveis para o IoT Hub, consulte [a referência de dados do Monitor Azure IoT Hub](monitor-iot-hub-reference.md).
+
+## <a name="regional-availability"></a>Disponibilidade regional
 
 Durante a pré-visualização pública, os fluxos de dispositivos IoT Hub estão disponíveis nas regiões central dos EUA, EUA EUA, Norte da Europa e Sudeste Asiático. Por favor, certifique-se de criar o seu centro numa destas regiões.
 
@@ -182,7 +183,7 @@ A amostra de procuração local demonstra uma forma de permitir a escavação do
 
 Esta secção descreve a utilização de fluxos de dispositivos para permitir ao utilizador sSH a um dispositivo sobre fluxos de dispositivos (a caixa para RDP ou outra aplicação cliente/servidor são semelhantes utilizando a porta correspondente do protocolo).
 
-A configuração aproveita dois programas *de procuração locais* mostrados na figura abaixo, nomeadamente *procuração local de dispositivo* e *procuração local*de serviço . Os programas de procuração locais são responsáveis pela realização do aperto de mão de [iniciação](#device-stream-creation-flow) do stream do dispositivo com o IoT Hub, e interagir com o cliente SSH e o daemon SSH usando tomadas regulares de cliente/servidor.
+A configuração aproveita dois programas *de procuração locais* mostrados na figura abaixo, nomeadamente *procuração local de dispositivo* e *procuração local* de serviço . Os programas de procuração locais são responsáveis pela realização do aperto de mão de [iniciação](#device-stream-creation-flow) do stream do dispositivo com o IoT Hub, e interagir com o cliente SSH e o daemon SSH usando tomadas regulares de cliente/servidor.
 
 !["Configuração de procuração de fluxo de dispositivo para SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

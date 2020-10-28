@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073321"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791652"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Capacidades multi-modelo da Base de Dados Azure SQL & SQL Gestd Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ A família de produtos Azure SQL fornece as seguintes características multi-mod
 - [Os pares de valor-chave](#key-value-pairs) não são explicitamente suportados como características especiais, uma vez que os pares de valor-chave podem ser modelados de forma nativa como tabelas de duas colunas.
 
   > [!Note]
-  > Pode utilizar a expressão JSON Path, expressões XQuery/XPath, funções espaciais e expressões de consulta de gráficos na mesma consulta Transact-SQL para aceder a quaisquer dados que tenha armazenado na base de dados. Além disso, qualquer ferramenta ou linguagem de programação que possa executar consultas Transact-SQL, também pode usar essa interface de consulta para aceder a dados multi-modelo. Esta é a diferença chave em comparação com as bases de dados multi-modelos, como [a Azure Cosmos DB,](/azure/cosmos-db/) que fornece API especializada para diferentes modelos de dados.
+  > Pode utilizar a expressão JSON Path, expressões XQuery/XPath, funções espaciais e expressões de consulta de gráficos na mesma consulta Transact-SQL para aceder a quaisquer dados que tenha armazenado na base de dados. Além disso, qualquer ferramenta ou linguagem de programação que possa executar consultas Transact-SQL, também pode usar essa interface de consulta para aceder a dados multi-modelo. Esta é a diferença chave em comparação com as bases de dados multi-modelos, como [a Azure Cosmos DB,](../cosmos-db/index.yml) que fornece API especializada para diferentes modelos de dados.
 
 Nas secções seguintes, pode aprender sobre as mais importantes capacidades multi-modelo da família de produtos Azure SQL.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Pode personalizar esta estrutura de valor-chave para se adaptar às suas necessidades sem quaisquer constrangimentos. Como exemplo, o valor pode ser documento XML em vez de `nvarchar(max)` tipo, se o valor for documento JSON, pode colocar `CHECK` restrições que verifiquem a validade do conteúdo JSON. Pode colocar qualquer número de valores relacionados com uma chave nas colunas adicionais, adicionar colunas e índices computados para simplificar e otimizar o acesso aos dados, definir a tabela como tabela apenas de memória/otimizada para obter um melhor desempenho, etc.
 
-Veja [como a BWin está a usar In-Memory OLTP para alcançar um desempenho e escala sem precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para a sua solução de caching ASP.NET que alcançou 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par de valor-chave na prática.
+Veja [como a BWin está a usar In-Memory OLTP para alcançar um desempenho e escala sem precedentes](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) para a sua solução de caching ASP.NET que alcançou 1.200.000 lotes por segundo, como um exemplo de como o modelo relacional pode ser efetivamente usado como solução de par de valor-chave na prática.
 
 ## <a name="next-steps"></a>Passos seguintes
 

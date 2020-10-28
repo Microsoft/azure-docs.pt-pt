@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042801"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793063"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Como ligar uma amostra de ponte IoT Plug e Play que funciona no Linux ou windows ao IoT Hub
 
@@ -37,7 +37,7 @@ sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verifique se a versão é `cmake` superior a **2.8.12** e a versão do **GCC** é superior a **4.4.7**.
+Verifique se a versão é `cmake` superior a **2.8.12** e a versão do **GCC** é superior a **4.4.7** .
 
 ```sh
 cmake --version
@@ -107,9 +107,13 @@ Espere que esta operação leve vários minutos para ser concluída.
 
 Depois de clonar o repo de ponte IoT Plug e Play para a sua máquina, navegue até ao `pnpbridge/docs/schema` diretório do repositório clonado onde pode encontrar a [configuração JSON](https://aka.ms/iot-pnp-bridge-env-config) ou `config.json` para a amostra de sensores ambientais da ponte. Pode saber mais sobre ficheiros config no [documento de conceitos IoT Plug e Play bridge.](concepts-iot-pnp-bridge.md)
 
-Para o `root-_interface_model_id` campo terá de copiar o IoT Plug e o ID do modelo de reprodução que identifica o modelo do seu dispositivo. Neste exemplo, é `dtmi:com:example:SampleDevice;1`. Modificar os seguintes parâmetros sob **pnp_bridge_parameters** nó no `config.json` ficheiro no ':
+Para o `root-_interface_model_id` campo terá de copiar o IoT Plug e o ID do modelo de reprodução que identifica o modelo do seu dispositivo. Neste exemplo, é `dtmi:com:example:SampleDevice;1`. Modificar os seguintes parâmetros **sob pnp_bridge_parameters** nó no `config.json` ficheiro:
 
-  Utilização da cadeia de ligação (Nota: a symmetric_key deve corresponder à tecla SAS na cadeia de ligação):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> O symmetric_key deve coincidir com a chave SAS na cadeia de ligação.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ Para o `root-_interface_model_id` campo terá de copiar o IoT Plug e o ID do mod
   }
   ```
 
- Uma vez preenchido em si, o `config.json` ficheiro deve assemelhar-se:
+ Uma vez preenchido, o `config.json` ficheiro deve assemelhar-se:
 
    ```JSON
     {

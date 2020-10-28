@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488831"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792995"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mover uma conta de Armazenamento Azure para outra região
 
@@ -51,11 +51,11 @@ Este modelo contém definições que descrevem a conta de armazenamento.
 
 Para exportar um modelo com o portal do Azure:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 2. Selecione **todos os recursos** e, em seguida, selecione a sua conta de armazenamento.
 
-3. Selecione > **Definições**  >  **Modelo de exportação**.
+3. Selecione > **Definições**  >  **Modelo de exportação** .
 
 4. Escolha **Baixar** na lâmina do **modelo de exportação.**
 
@@ -101,19 +101,19 @@ Modifique o modelo ao alterar o nome e a região da conta de armazenamento.
 
 Para implementar o modelo utilizando o portal Azure:
 
-1. No portal Azure, selecione **Criar um recurso**.
+1. No portal Azure, selecione **Criar um recurso** .
 
-2. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
+2. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER** .
 
-3. Selecione **a implementação do modelo**.
+3. Selecione **a implementação do modelo** .
 
     ![Biblioteca de modelos do Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selecione **Criar**.
+4. Selecione **Criar** .
 
 5. Selecione **Construa o seu próprio modelo no editor.**
 
-6. Selecione **carregar o ficheiro**e, em seguida, siga as instruções para carregar otemplate.js** no** ficheiro que descarregou na última secção.
+6. Selecione **carregar o ficheiro** e, em seguida, siga as instruções para carregar otemplate.js **no** ficheiro que descarregou na última secção.
 
 7. No **template.jsno** ficheiro, nomeie a conta de armazenamento alvo, definindo o valor padrão do nome da conta de armazenamento. Este exemplo define o valor predefinido do nome da conta de armazenamento para `mytargetaccount` .
     
@@ -186,11 +186,11 @@ Implemente o modelo para criar uma nova conta de armazenamento na região de des
 
 2. Insira ou selecione os valores da propriedade:
 
-- **Assinatura**: Selecione uma subscrição Azure.
+- **Assinatura** : Selecione uma subscrição Azure.
 
-- **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
+- **Grupo de recursos** : selecione **Criar novo** e dê um nome ao grupo de recursos.
 
-- **Localização**: Selecione uma localização Azure.
+- **Localização** : Selecione uma localização Azure.
 
 3. Clique no **I concorda com os termos e condições indicados acima** da caixa de verificação e, em seguida, clique no botão **'Escolha'.**
 
@@ -255,9 +255,9 @@ Para remover uma conta de armazenamento com o portal do Azure:
 
 1. No portal Azure, expanda o menu do lado esquerdo para abrir o menu de **serviços** e escolha as contas de Armazenamento para exibir a lista das suas contas de armazenamento.
 
-2. Localize a conta de armazenamento do alvo para apagar e clique com o botão **Mais** **(...**) no lado direito da listagem.
+2. Localize a conta de armazenamento do alvo para apagar e clique com o botão **Mais** **(...** ) no lado direito da listagem.
 
-3. **Selecione Eliminar**e confirmar.
+3. **Selecione Eliminar** e confirmar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 Neste tutorial, você mudou uma conta de armazenamento Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Mover recursos para um novo grupo de recursos ou subscrição](/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover VMs do Azure para outra região](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover recursos para um novo grupo de recursos ou subscrição](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Mover VMs do Azure para outra região](../../site-recovery/azure-to-azure-tutorial-migrate.md)

@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829440"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793437"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de fusão dividida
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ Os certificados são configurados de duas maneiras.
 
 ## <a name="to-obtain-certificates"></a>Para obter certificados
 
-Os certificados podem ser obtidos a partir de Autoridades públicas de Certificados (AC) ou do Serviço de [Certificados](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)do Windows . Estes são os métodos preferidos para obter certificados.
+Os certificados podem ser obtidos a partir de Autoridades públicas de Certificados (AC) ou do Serviço de [Certificados](/windows/win32/seccrypto/certificate-services)do Windows . Estes são os métodos preferidos para obter certificados.
 
 Se essas opções não estiverem disponíveis, pode gerar **certificados auto-assinados.**
 
 ## <a name="tools-to-generate-certificates"></a>Ferramentas para gerar certificados
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>Para executar as ferramentas
 
-* A partir de um pedido de comando de desenvolvedor para estúdios visuais, consulte [o pedido de comando do estúdio visual](https://msdn.microsoft.com/library/ms229859.aspx) 
+* A partir de um pedido de comando de desenvolvedor para estúdios visuais, consulte [o pedido de comando do estúdio visual](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     Se instalado, vá a:
   
@@ -124,7 +124,7 @@ A configuração predefinida nega todo o acesso ao ponto final HTTP. Esta é a d
 A configuração predefinida permite todo o acesso ao ponto final HTTPS. Esta definição pode ser restringida ainda mais.
 
 ### <a name="changing-the-configuration"></a>Alterar a Configuração
-O grupo de regras de controlo de acesso que se aplicam e ponto final estão configurados na **\<EndpointAcls>** secção do ficheiro de **configuração**de serviço .
+O grupo de regras de controlo de acesso que se aplicam e ponto final estão configurados na **\<EndpointAcls>** secção do ficheiro de **configuração** de serviço .
 
 ```xml
 <EndpointAcls>
@@ -441,12 +441,12 @@ Siga estes passos:
 
 1. Corre mmc.exe.
 2. Arquivo -> Adicionar/Remover Snap-in...
-3. Selecione **Certificados**.
-4. Clique em **Adicionar**.
+3. Selecione **Certificados** .
+4. Clique em **Adicionar** .
 5. Escolha o local da loja de certificados.
-6. Clique em **Concluir**.
-7. Clique em **OK**.
-8. **Certificados de**Expansão .
+6. Clique em **Concluir** .
+7. Clique em **OK** .
+8. **Certificados de** Expansão .
 9. Expandir o nó da loja de certificados.
 10. Expandir o nó de criança Certificado.
 11. Selecione um certificado na lista.
@@ -454,18 +454,18 @@ Siga estes passos:
 ## <a name="export-certificate"></a>Exportar o certificado
 No **certificado assistente de exportação:**
 
-1. Clique em **Seguinte**.
-2. Selecione **Sim,** em **seguida, Exporte a chave privada**.
-3. Clique em **Seguinte**.
+1. Clique em **Seguinte** .
+2. Selecione **Sim,** em **seguida, Exporte a chave privada** .
+3. Clique em **Seguinte** .
 4. Selecione o formato de ficheiro de saída pretendido.
 5. Verifique as opções desejadas.
 6. Verifique **a palavra-passe.**
 7. Introduza uma senha forte e confirme- a.
-8. Clique em **Seguinte**.
+8. Clique em **Seguinte** .
 9. Digite ou navegue num nome de arquivo onde armazenar o certificado (utilize um . Extensão PFX).
-10. Clique em **Seguinte**.
-11. Clique em **Concluir**.
-12. Clique em **OK**.
+10. Clique em **Seguinte** .
+11. Clique em **Concluir** .
+12. Clique em **OK** .
 
 ## <a name="import-certificate"></a>Importar o certificado
 No Certificado De Importação Assistente:
@@ -474,7 +474,7 @@ No Certificado De Importação Assistente:
    
    * Selecione **o Utilizador Atual** se apenas os processos em execução sob o utilizador atual acederem ao serviço
    * Selecione **Máquina Local** se outros processos neste computador acederem ao serviço
-2. Clique em **Seguinte**.
+2. Clique em **Seguinte** .
 3. Se importar de um ficheiro, confirme o caminho do ficheiro.
 4. Se importar um . Ficheiro PFX:
    1. Introduza a palavra-passe protegendo a chave privada
@@ -482,18 +482,18 @@ No Certificado De Importação Assistente:
 5. Selecione certificados "Place" na seguinte loja
 6. Clique em **Browse** (Procurar).
 7. Selecione a loja desejada.
-8. Clique em **Concluir**.
+8. Clique em **Concluir** .
    
-   * Se a loja Da Autoridade de Certificação de Raiz Fidedigna foi escolhida, clique em **Sim**.
+   * Se a loja Da Autoridade de Certificação de Raiz Fidedigna foi escolhida, clique em **Sim** .
 9. Clique **em OK** em todas as janelas de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar certificado
 No [portal Azure](https://portal.azure.com/)
 
-1. Selecione **Serviços cloud**.
+1. Selecione **Serviços cloud** .
 2. Selecione o serviço de nuvem.
 3. No menu superior, clique em **Certificados.**
-4. Na barra inferior, clique em **Upload**.
+4. Na barra inferior, clique em **Upload** .
 5. Selecione o ficheiro de certificado.
 6. Se for um. Ficheiro PFX, introduza a palavra-passe para a chave privada.
 7. Uma vez concluído, copie a impressão digital do certificado da nova entrada na lista.
@@ -508,4 +508,3 @@ As definições TLS descritas neste documento encriptam a comunicação entre o 
 As credenciais armazenadas nesta base de dados estão encriptadas. No entanto, como uma boa prática, certifique-se de que tanto as funções web como os dos trabalhadores das suas implementações de serviço são mantidas atualizadas e seguras, uma vez que ambas têm acesso à base de dados de metadados e ao certificado utilizado para encriptação e desencriptação de credenciais armazenadas. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

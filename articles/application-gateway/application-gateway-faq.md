@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278639"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791550"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre Gateway de Aplicação
 
@@ -69,7 +69,7 @@ Consulte a [ordem de processamento do ouvinte](https://docs.microsoft.com/azure/
 
 Se estiver a utilizar um endereço IP público como ponto final, encontrará as informações ip e DNS no recurso de endereço IP público. Ou encontre-o no portal, na página geral para o gateway de aplicações. Se estiver a utilizar endereços IP internos, encontre as informações na página geral.
 
-Para o v2 SKU, abra o recurso IP público e selecione **Configuração**. O campo **de marca DNS (opcional)** está disponível para configurar o nome DNS.
+Para o v2 SKU, abra o recurso IP público e selecione **Configuração** . O campo **de marca DNS (opcional)** está disponível para configurar o nome DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quais são as definições para Keep-Alive tempo limite e tempo de inatividade da TCP?
 
@@ -121,7 +121,7 @@ A maioria das implementações que utilizam o V2 SKU demoram cerca de 6 minutos 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Posso usar o Exchange Server como backend com o Gateway de Aplicações?
 
-N.º Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
+Não. Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe orientação disponível para migrar do V1 SKU para o V2 SKU?
 
@@ -133,12 +133,12 @@ Sim. O Gateway de Aplicação v1 SKU continuará a ser suportado. No entanto, é
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>O Application Gateway V2 suporta pedidos de procuração com autenticação NTLM?
 
-N.º O Gateway V2 de aplicação ainda não suporta pedidos de procuração com autenticação NTLM.
+Não. O Gateway V2 de aplicação ainda não suporta pedidos de procuração com autenticação NTLM.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>O cookie de afinidade do Portal de Aplicação suporta o atributo SameSite?
 Sim, a [atualização v80](https://chromiumdash.appspot.com/schedule) do [navegador de Crómio](https://www.chromium.org/Home) introduziu um mandato em cookies HTTP sem atributo SameSite para ser tratado como SameSite=Lax. Isto significa que o cookie de afinidade Do Gateway de Aplicação não será enviado pelo navegador num contexto de terceiros. 
 
-Para suportar este cenário, o Application Gateway injeta outro cookie chamado *ApplicationGatewayAffinityCORS,* além do cookie *applicationGatewayAffinity* existente.  Estes cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados: *SameSite=Nenhum; Seguro*. Estes atributos mantêm sessões pegajosas mesmo para pedidos de origem cruzada. Consulte a [secção de afinidade baseada em cookies](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
+Para suportar este cenário, o Application Gateway injeta outro cookie chamado *ApplicationGatewayAffinityCORS,* além do cookie *applicationGatewayAffinity* existente.  Estes cookies são semelhantes, mas o cookie *ApplicationGatewayAffinityCORS* tem mais dois atributos adicionados: *SameSite=Nenhum; Seguro* . Estes atributos mantêm sessões pegajosas mesmo para pedidos de origem cruzada. Consulte a [secção de afinidade baseada em cookies](configuration-http-settings.md#cookie-based-affinity) para obter mais informações.
 
 ## <a name="performance"></a>Desempenho
 
@@ -158,7 +158,7 @@ Sim, o Gateway de Aplicação v2 SKU suporta autoscaling. Para obter mais inform
 
 ### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>A escala manual ou automática para cima ou para baixo causa tempo de inatividade?
 
-N.º As instâncias são distribuídas por domínios de atualização e domínios de falhas.
+Não. As instâncias são distribuídas por domínios de atualização e domínios de falhas.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Application Gateway suporta a drenagem da ligação?
 
@@ -180,7 +180,7 @@ Enquanto tiver conectividade IP, o Application Gateway pode comunicar com casos 
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso colocar mais alguma coisa na sub-rede de gateway de aplicação?
 
-N.º Mas pode implementar outros gateways de aplicações na sub-rede.
+Não. Mas pode implementar outros gateways de aplicações na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Os grupos de segurança da rede são suportados na sub-rede de gateway de aplicação?
 
@@ -192,7 +192,7 @@ Consulte [as rotas definidas pelo utilizador suportadas na sub-rede Do Gateway d
 
 ### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>As políticas de ponto final de serviço são suportadas na sub-rede Application Gateway?
 
-N.º [As políticas de ponto final de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) para contas de armazenamento não são suportadas na sub-rede Do Gateway de Aplicação e a configuração irá bloquear o tráfego de infraestruturas Azure.
+Não. [As políticas de ponto final de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) para contas de armazenamento não são suportadas na sub-rede Do Gateway de Aplicação e a configuração irá bloquear o tráfego de infraestruturas Azure.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quais são os limites do Gateway de Aplicação? Posso aumentar estes limites?
 
@@ -216,7 +216,7 @@ A arquitetura de microserviços é suportada. Para sondar diferentes portas, é 
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>As sondas personalizadas suportam wildcards ou regex em dados de resposta?
 
-N.º 
+Não. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como são processadas as regras de encaminhamento no Application Gateway?
 
@@ -232,7 +232,7 @@ Sim. Consulte [o acesso restrito a IPs de origem específica](https://docs.micro
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Posso usar o mesmo porto para ouvintes virados para o público e para os privados?
 
-N.º
+Não.
 
 ### <a name="does-application-gateway-support-ipv6"></a>O Application Gateway suporta o IPv6?
 
@@ -249,11 +249,11 @@ Mas se quiser utilizar o Gateway V2 de aplicação apenas com IP privado, pode s
 2. Não crie nenhum ouvinte para o endereço IP do frontend público. O Application Gateway não ouvirá qualquer tráfego no endereço IP público se não forem criados ouvintes para o mesmo.
 3. Criar e anexar um [Grupo de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede Gateway de Aplicação com a seguinte configuração na ordem de prioridade:
     
-    a. Permitir o tráfego a partir da Fonte como etiqueta de serviço **GatewayManager** e Porto destino como **porta 65200-65535**. **Any** Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) por autenticação de certificados. Entidades externas, incluindo os administradores de utilizadores gateway, não podem iniciar alterações nesses pontos finais sem certificados adequados em vigor
+    a. Permitir o tráfego a partir da Fonte como etiqueta de serviço **GatewayManager** e Porto destino como **porta 65200-65535** . **Any** Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) por autenticação de certificados. Entidades externas, incluindo os administradores de utilizadores gateway, não podem iniciar alterações nesses pontos finais sem certificados adequados em vigor
     
     b. Permitir tráfego a partir de Source como **AzureLoadBalancer** tag de serviço e destino e porto de destino como **Qualquer**
     
-    c. Negue todo o tráfego de entrada da Fonte como etiqueta de serviço de **Internet** e destino e porto de destino como **Qualquer**. Dê a esta regra a *menor prioridade* nas regras de entrada
+    c. Negue todo o tráfego de entrada da Fonte como etiqueta de serviço de **Internet** e destino e porto de destino como **Qualquer** . Dê a esta regra a *menor prioridade* nas regras de entrada
     
     d. Mantenha as regras padrão como permitir a entrada da VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
     
@@ -434,9 +434,9 @@ Não, o add-on AGIC é um serviço gerido, o que significa que a Microsoft irá 
 
 O Application Gateway fornece três registos: 
 
-* **ApplicationGatewayAccessLog**: O registo de acesso contém cada pedido submetido ao frontend do gateway de aplicação. Os dados incluem o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Contém um registo por porta de aplicação.
-* **ApplicationGatewayPerformanceLog**: O registo de desempenho capta informações de desempenho para cada porta de aplicação. A informação inclui o produção em bytes, o total de pedidos servidos, a contagem de pedidos falhadas e a contagem de casos de backend saudável e pouco saudável.
-* **ApplicationGatewayFirewallLog**: Para os gateways de aplicações que configura com WAF, o registo de firewall contém pedidos que são registados através do modo de deteção ou do modo de prevenção.
+* **ApplicationGatewayAccessLog** : O registo de acesso contém cada pedido submetido ao frontend do gateway de aplicação. Os dados incluem o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Contém um registo por porta de aplicação.
+* **ApplicationGatewayPerformanceLog** : O registo de desempenho capta informações de desempenho para cada porta de aplicação. A informação inclui o produção em bytes, o total de pedidos servidos, a contagem de pedidos falhadas e a contagem de casos de backend saudável e pouco saudável.
+* **ApplicationGatewayFirewallLog** : Para os gateways de aplicações que configura com WAF, o registo de firewall contém pedidos que são registados através do modo de deteção ou do modo de prevenção.
 
 Todos os registos são recolhidos a cada 60 segundos. Para obter mais informações, consulte [a saúde backend, registos de diagnóstico e métricas para o Gateway de Aplicações.](application-gateway-diagnostics.md)
 
@@ -472,6 +472,10 @@ Sim. Se a sua configuração corresponder ao seguinte cenário, não verá tráf
 - Você implantou o Application Gateway v2
 - Você tem um NSG na sub-rede de gateway de aplicação
 - Você ativou registos de fluxo NSG em que NSG
+
+### <a name="does-application-gateway-store-customer-data"></a>A Application Gateway armazena os dados do cliente?
+
+Não, o Application Gateway não armazena os dados dos clientes.
 
 ## <a name="next-steps"></a>Passos seguintes
 

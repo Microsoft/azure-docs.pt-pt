@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321344"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793165"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -84,7 +84,7 @@ Os seguintes fatores afetam a quantidade de armazenamento utilizado para dados e
 > [!IMPORTANT]
 > É cobrado o armazenamento total atribuído aos ficheiros MDF e LDF.
 
-Para monitorizar o tamanho total atual dos seus ficheiros MDF e LDF, utilize [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para monitorizar o tamanho atual dos ficheiros MDF e LDF individuais, utilize [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+Para monitorizar o tamanho total atual dos seus ficheiros MDF e LDF, utilize [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para monitorizar o tamanho atual dos ficheiros MDF e LDF individuais, utilize [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, pode precisar de encolher uma base de dados para recuperar o espaço não usused. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
@@ -93,8 +93,8 @@ Para monitorizar o tamanho total atual dos seus ficheiros MDF e LDF, utilize [sp
 
 O armazenamento para cópias de segurança de bases de dados é atribuído para suportar as capacidades de restauro pontual (PITR) e [de retenção a longo prazo (LTR)](long-term-retention-overview.md) da Base de Dados SQL e da SQL Managed Instance. Este armazenamento é atribuído separadamente para cada base de dados e faturado como dois encargos por base de dados separados.
 
-- **PITR**: As cópias de segurança individuais da base de dados são copiadas para [o armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novas cópias de segurança são criadas. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações, que são copiadas a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração da base de dados e do período de retenção para cópias de segurança. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho da base de dados é fornecido sem custos adicionais. Para a maioria das bases de dados, este valor é suficiente para armazenar 7 dias de backups.
-- **LTR**: Você também tem a opção de configurar a retenção a longo prazo de backups completos por até 10 anos (esta funcionalidade está em [pré-visualização pública limitada para SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support). Se configurar uma política LTR, estas cópias de segurança são armazenadas automaticamente no armazenamento RA-GRS, mas pode controlar a frequência com que as cópias de segurança são copiadas. Para satisfazer diferentes requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anualmente. A configuração que escolher determina a quantidade de armazenamento que será utilizado para cópias de segurança LTR. Para estimar o custo do armazenamento LTR, pode utilizar a calculadora de preços LTR. Para obter mais informações, consulte [a base de dados SQL a longo prazo.](long-term-retention-overview.md)
+- **PITR** : As cópias de segurança individuais da base de dados são copiadas para [o armazenamento geo-redundante de acesso à leitura (RA-GRS)](../../storage/common/geo-redundant-design.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novas cópias de segurança são criadas. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações, que são copiadas a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração da base de dados e do período de retenção para cópias de segurança. Pode configurar um período de retenção separado para cada base de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho da base de dados é fornecido sem custos adicionais. Para a maioria das bases de dados, este valor é suficiente para armazenar 7 dias de backups.
+- **LTR** : Você também tem a opção de configurar a retenção a longo prazo de backups completos por até 10 anos (esta funcionalidade está em [pré-visualização pública limitada para SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support). Se configurar uma política LTR, estas cópias de segurança são armazenadas automaticamente no armazenamento RA-GRS, mas pode controlar a frequência com que as cópias de segurança são copiadas. Para satisfazer diferentes requisitos de conformidade, pode selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anualmente. A configuração que escolher determina a quantidade de armazenamento que será utilizado para cópias de segurança LTR. Para estimar o custo do armazenamento LTR, pode utilizar a calculadora de preços LTR. Para obter mais informações, consulte [a base de dados SQL a longo prazo.](long-term-retention-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -102,5 +102,4 @@ Para obter mais informações sobre os tamanhos específicos de computação e a
 
 - [vCore limites de recursos para Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore limites de recursos para bases de dados agrizadas na Base de Dados Azure SQL](resource-limits-vcore-elastic-pools.md).
-- [vCore-based limites de recursos para Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
-
+- [vCore-based limites de recursos para Azure SQL Managed Instance](../managed-instance/resource-limits.md).

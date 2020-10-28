@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840494"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792604"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como utilizar o lote para melhorar o desempenho da aplicação Azure SQL Estrudindo
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-As transações estão, na verdade, a ser utilizadas em ambos os exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encerra todas as chamadas. De acordo com a documentação para o [registo de transações por escrito,](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)os registos de registo são descarregados para o disco quando a transação se compromete. Assim, ao incluir mais chamadas numa transação, a escrita para o registo de transações pode atrasar até que a transação seja comprometida. Com efeito, está a permitir o loteamento para as gravações no registo de transações do servidor.
+As transações estão, na verdade, a ser utilizadas em ambos os exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encerra todas as chamadas. De acordo com a documentação para o [registo de transações por escrito,](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)os registos de registo são descarregados para o disco quando a transação se compromete. Assim, ao incluir mais chamadas numa transação, a escrita para o registo de transações pode atrasar até que a transação seja comprometida. Com efeito, está a permitir o loteamento para as gravações no registo de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes realizaram as mesmas inserções sequenciais com e sem transações. Para uma perspetiva mais alargada, o primeiro conjunto de testes foi realizado remotamente de um portátil para a base de dados no Microsoft Azure. O segundo conjunto de testes foi a partir de um serviço de nuvem e base de dados que ambos residiam dentro do mesmo centro de dados da Microsoft Azure (West US). O quadro seguinte mostra a duração em milissegundos de inserções sequenciais com e sem transações.
 
@@ -106,7 +106,7 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes realizara
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure to Azure (mesmo datacenter)**:
+**Azure to Azure (mesmo datacenter)** :
 
 | Operações | Nenhuma transação (ms) | Transação (ms) |
 | --- | --- | --- |
@@ -120,15 +120,15 @@ A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes realizara
 
 Com base nos resultados dos testes anteriores, embrulhar uma única operação numa transação diminui o desempenho. Mas à medida que aumenta o número de operações numa única transação, a melhoria do desempenho torna-se mais acentuada. A diferença de desempenho também é mais percetível quando todas as operações ocorrem dentro do datacenter microsoft Azure. O aumento da latência da utilização da Base de Dados Azure SQL ou do Azure SQL Managed Instance de fora do Centro de Dados microsoft Azure ofusca o ganho de desempenho da utilização de transações.
 
-Embora a utilização de transações possa aumentar o desempenho, continue a [observar as melhores práticas para transações e ligações.](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)) Mantenha a transação o mais curta possível e feche a ligação da base de dados após o trabalho concluído. A declaração de utilização no exemplo anterior assegura que a ligação está fechada quando o bloco de código subsequente estiver concluído.
+Embora a utilização de transações possa aumentar o desempenho, continue a [observar as melhores práticas para transações e ligações.](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)) Mantenha a transação o mais curta possível e feche a ligação da base de dados após o trabalho concluído. A declaração de utilização no exemplo anterior assegura que a ligação está fechada quando o bloco de código subsequente estiver concluído.
 
 O exemplo anterior demonstra que pode adicionar uma transação local a qualquer código ADO.NET com duas linhas. As transações oferecem uma forma rápida de melhorar o desempenho do código que torna as operações de inserção sequencial, atualização e eliminação. No entanto, para o desempenho mais rápido, considere alterar ainda mais o código para tirar partido do loteamento do lado do cliente, como parâmetros valorizados pela tabela.
 
 Para obter mais informações sobre transações em ADO.NET, consulte [As Transações Locais em ADO.NET.](/dotnet/framework/data/adonet/local-transactions)
 
-### <a name="table-valued-parameters"></a>Parâmetros valorizados por tabela
+### <a name="table-valued-parameters"></a>Parâmetros de valor de tabela
 
-Os parâmetros valorizados pela tabela suportam os tipos de tabela definidos pelo utilizador como parâmetros em declarações Transact-SQL, procedimentos armazenados e funções. Esta técnica de loteamento do lado do cliente permite-lhe enviar várias linhas de dados dentro do parâmetro valorado da tabela. Para utilizar parâmetros valorizados por tabela, primeiro defina um tipo de tabela. A seguinte declaração Transact-SQL cria um tipo de tabela chamado **MyTableType**.
+Os parâmetros valorizados pela tabela suportam os tipos de tabela definidos pelo utilizador como parâmetros em declarações Transact-SQL, procedimentos armazenados e funções. Esta técnica de loteamento do lado do cliente permite-lhe enviar várias linhas de dados dentro do parâmetro valorado da tabela. Para utilizar parâmetros valorizados por tabela, primeiro defina um tipo de tabela. A seguinte declaração Transact-SQL cria um tipo de tabela chamado **MyTableType** .
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas a partir de um parâmetro de valor de mesa, ** \@ TestTvp**. O objeto **DataTable** anteriormente criado é atribuído a este parâmetro com o método **SqlCommand.Parâmetros.Add.** O loteamento dos encaixes numa chamada aumenta significativamente o desempenho sobre as inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas a partir de um parâmetro de valor de mesa, **\@ TestTvp** . O objeto **DataTable** anteriormente criado é atribuído a este parâmetro com o método **SqlCommand.Parâmetros.Add.** O loteamento dos encaixes numa chamada aumenta significativamente o desempenho sobre as inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, utilize um procedimento armazenado em vez de um comando baseado em texto. O seguinte comando Transact-SQL cria um procedimento armazenado que requer o parâmetro de tabela **SimpleTestTableType.**
 
@@ -212,7 +212,7 @@ Para obter mais informações sobre parâmetros valorizados por tabela, consulte
 
 ### <a name="sql-bulk-copy"></a>Cópia a granel SQL
 
-A cópia a granel SQL é outra forma de inserir grandes quantidades de dados numa base de dados-alvo. .Net aplicações podem usar a classe **SqlBulkCopy** para realizar operações de inserção a granel. **SqlBulkCopy** é semelhante em função à ferramenta de linha de comando, **Bcp.exe, **ou à declaração Transact-SQL, **BULK INSERT**. O exemplo de código que se segue mostra como copiar em massa as linhas na **datatable**de origem, tabela, para a tabela de destino, MyTable.
+A cópia a granel SQL é outra forma de inserir grandes quantidades de dados numa base de dados-alvo. .Net aplicações podem usar a classe **SqlBulkCopy** para realizar operações de inserção a granel. **SqlBulkCopy** é semelhante em função à ferramenta de linha de comando, **Bcp.exe,** ou à declaração Transact-SQL, **BULK INSERT** . O exemplo de código que se segue mostra como copiar em massa as linhas na **datatable** de origem, tabela, para a tabela de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,7 +293,7 @@ A classe **DataAdapter** permite modificar um objeto **DataSet** e, em seguida, 
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[O Núcleo-Quadro da Entidade](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) suporta o loteamento.
+[O Núcleo-Quadro da Entidade](/ef/efcore-and-ef6/#saving-data) suporta o loteamento.
 
 ### <a name="xml"></a>XML
 
@@ -380,7 +380,7 @@ Embora existam alguns cenários que são óbvios candidatos ao lote, existem mui
 
 Por exemplo, considere uma aplicação web que rastreie o histórico de navegação de cada utilizador. Em cada pedido de página, a aplicação poderia fazer uma chamada de base de dados para registar a visualização da página do utilizador. Mas um maior desempenho e escalabilidade podem ser alcançados através do tamponamento das atividades de navegação dos utilizadores e, em seguida, enviando estes dados para a base de dados em lotes. Pode ativar a atualização da base de dados pelo tempo e/ou tamanho do tampão decorridos. Por exemplo, uma regra pode especificar que o lote deve ser processado após 20 segundos ou quando o tampão atinge 1000 itens.
 
-O exemplo de código a seguir utiliza [extensões reativas - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) para processar eventos tamponados levantados por uma classe de monitorização. Quando o tampão preenche ou é atingido um tempo limite, o lote de dados do utilizador é enviado para a base de dados com um parâmetro de valor de tabela.
+O exemplo de código a seguir utiliza [extensões reativas - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) para processar eventos tamponados levantados por uma classe de monitorização. Quando o tampão preenche ou é atingido um tempo limite, o lote de dados do utilizador é enviado para a base de dados com um parâmetro de valor de tabela.
 
 A classe NavHistoryData modela os detalhes de navegação do utilizador. Contém informações básicas como o identificador do utilizador, o URL acedido e o tempo de acesso.
 

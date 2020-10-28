@@ -9,13 +9,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: bd3917c42859d4240fbb3a75f951ff38a548e204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
+ms.openlocfilehash: 5916a687c4eff4c6c8890b14a8c204cbabc145ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330813"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792196"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir piscinas elásticas em Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ A partir daqui pode fazer qualquer combinação das seguintes alterações e gua
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado pela Base de Dados Azure SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para criar e gerir piscinas elásticas SQL Database e bases de dados em conjunto com a Azure PowerShell, utilize os seguintes cmdlets PowerShell. Se precisar de instalar ou atualizar o PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir os servidores para uma piscina elástica, consulte [Criar e gerir servidores](logical-servers.md). Para criar e gerir as regras de firewall, consulte [criar e gerir as regras de firewall utilizando o PowerShell](firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
@@ -65,7 +65,7 @@ Para criar e gerir piscinas elásticas SQL Database e bases de dados em conjunto
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para criar e gerir piscinas elásticas SQL Database com o [Azure CLI,](/cli/azure)utilize os seguintes comandos [Azure CLI SQL Database.](/cli/azure/sql/db) Utilize o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
+Para criar e gerir piscinas elásticas SQL Database com o [Azure CLI,](/cli/azure)utilize os seguintes comandos [Azure CLI SQL Database.](/cli/azure/sql/db) Utilize o [Cloud Shell](../../cloud-shell/overview.md) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
 
 > [!TIP]
 > Para scripts de exemplo Azure CLI, consulte [use CLI para mover uma base de dados na Base de Dados SQL numa piscina elástica SQL](scripts/move-database-between-elastic-pools-cli.md) e [use Azure CLI para escalar uma piscina elástica SQL na Base de Dados Azure SQL](scripts/scale-pool-cli.md).
@@ -102,18 +102,18 @@ Para criar e gerir piscinas elásticas SQL Database e bases de dados em conjunto
 
 | Comando | Descrição |
 | --- | --- |
-|[Piscinas elásticas - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Cria uma nova piscina elástica ou atualiza uma piscina elástica existente.|
-|[Piscinas elásticas - Eliminar](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina a piscina elástica.|
-|[Piscinas elásticas - Obter](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Tem uma piscina elástica.|
-|[Piscinas elásticas - Lista por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de piscinas elásticas num servidor.|
-|[Piscinas elásticas - Atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Atualiza uma piscina elástica existente.|
-|[Atividades de piscina elástica](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devolve atividades elásticas de piscina.|
-|[Atividades de base de dados de piscina elástica](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade em bases de dados dentro de uma piscina elástica.|
-|[Bases de dados - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|
-|[Bases de dados - Obter](https://docs.microsoft.com/rest/api/sql/databases/get)|Tem uma base de dados.|
-|[Bases de dados - Lista por piscina elástica](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados numa piscina elástica.|
-|[Bases de dados - Lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bases de dados num servidor.|
-|[Bases de dados - Atualização](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza uma base de dados existente.|
+|[Piscinas elásticas - Criar ou atualizar](/rest/api/sql/elasticpools/createorupdate)|Cria uma nova piscina elástica ou atualiza uma piscina elástica existente.|
+|[Piscinas elásticas - Eliminar](/rest/api/sql/elasticpools/delete)|Elimina a piscina elástica.|
+|[Piscinas elásticas - Obter](/rest/api/sql/elasticpools/get)|Tem uma piscina elástica.|
+|[Piscinas elásticas - Lista por servidor](/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de piscinas elásticas num servidor.|
+|[Piscinas elásticas - Atualização](/rest/api/sql/elasticpools/listbyserver)|Atualiza uma piscina elástica existente.|
+|[Atividades de piscina elástica](/rest/api/sql/elasticpoolactivities)|Devolve atividades elásticas de piscina.|
+|[Atividades de base de dados de piscina elástica](/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade em bases de dados dentro de uma piscina elástica.|
+|[Bases de dados - Criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|
+|[Bases de dados - Obter](/rest/api/sql/databases/get)|Tem uma base de dados.|
+|[Bases de dados - Lista por piscina elástica](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados numa piscina elástica.|
+|[Bases de dados - Lista por servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bases de dados num servidor.|
+|[Bases de dados - Atualização](/rest/api/sql/databases/update)|Atualiza uma base de dados existente.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

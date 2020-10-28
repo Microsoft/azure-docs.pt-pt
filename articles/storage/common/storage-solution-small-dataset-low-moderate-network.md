@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491228"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792910"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Data transfer for small datasets with low to moderate network bandwidth (Transferência de dados para conjuntos de dados pequenos com pouca largura de banda de rede ou com largura de banda moderada)
  
@@ -52,17 +52,16 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 | Funcionalidade | Explorador de Armazenamento do Azure | Portal do Azure | AzCopy<br>Azure PowerShell<br>CLI do Azure | Azure Storage REST APIs ou SDKs |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidade | Transferir e instalar <br>Ferramenta autónoma | Ferramentas de exploração baseadas na Web no portal Azure | Ferramenta de linha de comando |Interfaces programáveis em .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
-| Interface gráfica | Yes | Yes | No | No |
+| Interface gráfica | Sim | Sim | Não | Não |
 | Plataformas apoiadas | Windows, Mac, Linux | Baseado na Web |Windows, Mac, Linux |Todas as plataformas |
 | Operações de armazenamento permitidas blob<br>para bolhas e pastas | Carregar<br>Download<br>Gerir | Carregar<br>Download<br>Gerir |Carregar<br>Download<br>Gerir | Sim, personalizável |
-| Armazenamento permitido do Data Lake Gen1<br>operações para ficheiros e pastas | Carregar<br>Download<br>Gerir | No |Carregar<br>Download<br>Gerir                   | No |
+| Armazenamento permitido do Data Lake Gen1<br>operações para ficheiros e pastas | Carregar<br>Download<br>Gerir | Não |Carregar<br>Download<br>Gerir                   | Não |
 | Operações permitidas de armazenamento de ficheiros<br>para ficheiros e diretórios | Carregar<br>Download<br>Gerir | Carregar<br>Download<br>Gerir   |Carregar<br>Download<br>Gerir | Sim, personalizável |
-| Operações permitidas de armazenamento de mesa<br>para tabelas |Gerir | No |Suporte de mesa em AzCopy v7 |Sim, personalizável|
-| Armazenamento permitido da fila | Gerir | No  |No | Sim, é personalizável|
+| Operações permitidas de armazenamento de mesa<br>para tabelas |Gerir | Não |Suporte de mesa em AzCopy v7 |Sim, personalizável|
+| Armazenamento permitido da fila | Gerir | Não  |Não | Sim, é personalizável|
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [transferir dados com o Azure Storage Explorer.](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)
-- [Transferir dados com o AzCopy](/azure/storage/common/storage-use-azcopy-v10)
-
+- Saiba como [transferir dados com o Azure Storage Explorer.](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md)
+- [Transferir dados com o AzCopy](./storage-use-azcopy-v10.md)

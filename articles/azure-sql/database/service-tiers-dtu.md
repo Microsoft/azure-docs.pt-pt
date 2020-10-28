@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103004"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793182"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 >
 
 > [!TIP]
-> Para ver os limites reais [de governação dos recursos](resource-limits-logical-server.md#resource-governance) para uma base de dados ou piscina elástica, consulte a vista [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)
+> Para ver os limites reais [de governação dos recursos](resource-limits-logical-server.md#resource-governance) para uma base de dados ou piscina elástica, consulte a vista [sys.dm_user_db_resource_governance.](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)
 
 > [!NOTE]
 > Você pode obter uma base de dados gratuita na Base de Dados Azure SQL no nível de serviço Básico em conjunto com uma conta gratuita Azure para explorar Azure. Para obter informações, consulte [criar uma base de dados de nuvem gerida com a sua conta gratuita Azure.](https://azure.microsoft.com/free/services/sql-database/)
@@ -73,7 +73,7 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU elástico de piscina, armazenamento e limites de base de dados em conjunto
 
-|| **Básica** | **Padrão** | **Premium** |
+|| **Básica** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | **Tamanho máximo de armazenamento por base de dados**  | 2 GB | 1 TB | 1 TB |
 | **Tamanho máximo de armazenamento por piscina** | 156 GB | 4 TB | 4 TB |
@@ -114,7 +114,7 @@ A base de dados é dimensionada com base num "fator de escala". O fator de escal
 
 A carga de trabalho consiste em nove tipos de transações, conforme indicado no quadro abaixo. Cada transação foi concebida para destacar um conjunto específico de características do sistema no motor de base de dados e hardware do sistema, com elevado contraste das outras transações. Esta abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho global. Por exemplo, a transação "Read Heavy" produz um número significativo de operações de leitura a partir do disco.
 
-| Tipo de Transação | Description |
+| Tipo de Transação | Descrição |
 | --- | --- |
 | Ler Lite |SELECIONE; na memória; read-only |
 | Ler Médio |SELECIONE; principalmente na memória; read-only |

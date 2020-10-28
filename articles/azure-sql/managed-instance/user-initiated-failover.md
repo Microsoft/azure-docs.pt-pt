@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617762"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791635"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Use o comando PowerShell [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) com o seguinte exemplo para iniciar a falha do nó primário, aplicável ao nível de serviço BC e GP.
+Use o comando PowerShell [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) com o seguinte exemplo para iniciar a falha do nó primário, aplicável ao nível de serviço BC e GP.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Com a API Rest
 
-Para utilizadores avançados que talvez precisem de automatizar as falhas das suas Instâncias Geridas SQL para efeitos de implementação de gasodutos de teste contínuos ou mitigadores de desempenho automatizados, esta função pode ser realizada através do início do failover através de uma chamada API. ver [Casos Geridos - Failover REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) para mais detalhes.
+Para utilizadores avançados que talvez precisem de automatizar as falhas das suas Instâncias Geridas SQL para efeitos de implementação de gasodutos de teste contínuos ou mitigadores de desempenho automatizados, esta função pode ser realizada através do início do failover através de uma chamada API. ver [Casos Geridos - Failover REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) para mais detalhes.
 
 Para iniciar o failover utilizando a chamada REST API, gere primeiro o Auth Token utilizando o cliente API à sua escolha. O token de autenticação gerada é usado como propriedade de Autorização no cabeçalho do pedido de API e é obrigatório.
 
@@ -140,7 +140,7 @@ Não poderá ver a mesma saída com o nível de serviço GP acima mostrado para 
 
 > [!IMPORTANT]
 > As limitações funcionais da falha manual iniciada pelo utilizador são:
-> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **30 minutos**.
+> - Pode haver um (1) failover iniciado na mesma Instância Gerida a cada **30 minutos** .
 > - Para os casos a.C. deve existir quórum de réplicas para que o pedido de caduco seja aceite.
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 

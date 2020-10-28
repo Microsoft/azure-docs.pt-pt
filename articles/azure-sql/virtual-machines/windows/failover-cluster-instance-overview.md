@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165246"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792485"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,8 @@ O SQL Server em VMs Azure utiliza a funcionalidade de Clustering failover do Ser
 
 O resto do artigo centra-se nas diferenças para casos de cluster de failover quando são usados com SQL Server em VMs Azure. Para saber mais sobre a tecnologia de clustering failover, consulte: 
 
-- [Tecnologias de cluster windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server falha casos de cluster](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 ## <a name="quorum"></a>Quórum
 
@@ -60,8 +60,8 @@ O resto desta secção lista os benefícios e limitações de cada opção de ar
 
 [Os discos partilhados Azure](../../../virtual-machines/windows/disks-shared.md) são uma característica dos [discos geridos pela Azure.](../../../virtual-machines/managed-disks-overview.md) O Windows Server Failover Clustering suporta a utilização de discos partilhados do Azure com uma instância de cluster de falha. 
 
-**Os suportados**: Todos   
-**Versão SQL suportada**: Todos     
+**Os suportados** : Todos   
+**Versão SQL suportada** : Todos     
 
 **Benefícios:** 
 - Útil para aplicações que procuram migrar para Azure, mantendo a sua arquitetura de alta disponibilidade e recuperação de desastres (HADR) como está. 
@@ -82,8 +82,8 @@ Para começar, consulte o [exemplo de cluster failover do SQL Server com discos 
 
 [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) é uma funcionalidade do Windows Server que é suportada com agrupamento de falhas em Máquinas Virtuais Azure. Fornece uma SAN virtual baseada em software.
 
-**SISTEMA Suportado**: Windows Server 2016 e posteriormente   
-**Versão SQL suportada**: SQL Server 2016 e posterior   
+**SISTEMA Suportado** : Windows Server 2016 e posteriormente   
+**Versão SQL suportada** : SQL Server 2016 e posterior   
 
 
 **Benefícios:** 
@@ -104,8 +104,8 @@ Para começar, consulte a [instância de cluster failover do SQL Server com espa
 
 [As ações de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) são uma característica dos [Ficheiros Azure.](../../../storage/files/index.yml) As ações de ficheiros premium são apoiadas por SSD e têm uma latência consistentemente baixa. São totalmente suportados para utilização com casos de cluster failover para SQL Server 2012 ou mais tarde no Windows Server 2012 ou mais tarde. As ações de ficheiros premium dão-lhe maior flexibilidade, pois pode redimensionar e escalar uma partilha de ficheiros sem qualquer tempo de inatividade.
 
-**SISTEMA Suportado**: Windows Server 2012 e posteriormente   
-**Versão SQL suportada**: SQL Server 2012 e mais tarde   
+**SISTEMA Suportado** : Windows Server 2012 e posteriormente   
+**Versão SQL suportada** : SQL Server 2012 e mais tarde   
 
 **Benefícios:** 
 - Apenas solução de armazenamento partilhada para máquinas virtuais espalhadas por várias zonas de disponibilidade. 
@@ -122,8 +122,8 @@ Para começar, consulte a [instância de cluster failover do SQL Server com a pa
 
 Existem soluções de agrupamento de parceiros com armazenamento suportado. 
 
-**Os suportados**: Todos   
-**Versão SQL suportada**: Todos   
+**Os suportados** : Todos   
+**Versão SQL suportada** : Todos   
 
 Um exemplo utiliza o SIOS DataKeeper como o armazenamento. Para obter mais informações, consulte o clustering failover de entrada no blog [e sios DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ Um exemplo utiliza o SIOS DataKeeper como o armazenamento. Para obter mais infor
 
 Também pode expor um armazenamento de bloco compartilhado iSCSI através do Azure ExpressRoute. 
 
-**Os suportados**: Todos   
-**Versão SQL suportada**: Todos   
+**Os suportados** : Todos   
+**Versão SQL suportada** : Todos   
 
 Por exemplo, o NetApp Private Storage (NPS) expõe um alvo iSCSI via ExpressRoute com Equinix a Azure VMs.
 
@@ -155,7 +155,7 @@ A extensão completa suporta funcionalidades como backup automatizado, patching 
 
 ### <a name="msdtc"></a>MSDTC 
 
-As Máquinas Virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) ou em VMs do SERVIDOR SQL que estão a usar discos partilhados Azure. 
+As Máquinas Virtuais Azure suportam o Coordenador de Transações Distribuídas da Microsoft (MSDTC) no Windows Server 2019 com armazenamento em Volumes Compartilhados Agrupados (CSV) e [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md) ou em VMs do SERVIDOR SQL que estão a usar discos partilhados Azure. 
 
 Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016 ou anteriormente com volumes compartilhados agrupados porque:
 
@@ -171,4 +171,3 @@ Para obter mais informações, consulte:
 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-

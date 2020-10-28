@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443131"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792111"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem em bases de dados de nuvem escalonadas (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Para bases de dados não cobertas, consulte consulta através de [bases de dados
 
 Estas declarações criam a representação de metadados do seu nível de dados fragmentos na base de dados de consulta elástica.
 
-1. [CRIAR CHAVE-MESTRE](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CRIAR CREDENCIAL DE ÂMBITO DE BASE DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CRIAR FONTE DE DADOS EXTERNA](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CRIAR CHAVE-MESTRE](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CRIAR CREDENCIAL DE ÂMBITO DE BASE DE DADOS](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CRIAR FONTE DE DADOS EXTERNA](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Criar chave e credenciais principais de âmbito de base de dados
 
@@ -57,7 +57,7 @@ SECRET = '<password>'
 ```
 
 > [!NOTE]
-> Certifique-se de que o *" \<username\> " não* inclui qualquer sufixo de "nome de * \@ servidor".*
+> Certifique-se de que o *" \<username\> " não* inclui qualquer sufixo de "nome de *\@ servidor".*
 
 ## <a name="12-create-external-data-sources"></a>1.2 Criar fontes de dados externas
 
@@ -163,7 +163,7 @@ A cláusula DISTRIBUIÇÃO especifica a distribuição de dados utilizada para e
 2. **Replicado** significa que cópias idênticas da tabela estão presentes em cada base de dados. É da sua responsabilidade garantir que as réplicas são idênticas em todas as bases de dados.
 3. **RODADA \_ ROBIN** significa que a tabela é horizontalmente dividida utilizando um método de distribuição dependente da aplicação.
 
-**Referência do nível de dados**: A tabela externa DDL refere-se a uma fonte de dados externa. A fonte de dados externos especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todas as bases de dados no seu nível de dados.
+**Referência do nível de dados** : A tabela externa DDL refere-se a uma fonte de dados externa. A fonte de dados externos especifica um mapa de fragmentos que fornece à tabela externa as informações necessárias para localizar todas as bases de dados no seu nível de dados.
 
 ### <a name="security-considerations"></a>Considerações de segurança
 
@@ -194,7 +194,7 @@ A seguinte consulta realiza uma junção a três entre armazéns, encomendas e l
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimento armazenado para execução remota de T-SQL: \_ execute_remote
 
-A consulta elástica também introduz um procedimento armazenado que proporciona acesso direto aos fragmentos. O procedimento armazenado chama-se [sp \_ executar \_ remoto](https://msdn.microsoft.com/library/mt703714) e pode ser usado para executar procedimentos de armazenação remota ou código T-SQL nas bases de dados remotas. São necessários os seguintes parâmetros:
+A consulta elástica também introduz um procedimento armazenado que proporciona acesso direto aos fragmentos. O procedimento armazenado chama-se [sp \_ executar \_ remoto](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) e pode ser usado para executar procedimentos de armazenação remota ou código T-SQL nas bases de dados remotas. São necessários os seguintes parâmetros:
 
 * Nome de origem de dados (nvarchar): O nome da fonte de dados externa do tipo RDBMS.
 * Consulta (nvarchar): A consulta T-SQL a executar em cada fragmento.
@@ -228,7 +228,7 @@ Utilize as cadeias regulares de ligação do SQL Server para ligar a sua aplica�
 * Para obter um tutorial de partição vertical, consulte [Começar com consulta de base de dados cruzada (partição vertical)](elastic-query-getting-started-vertical.md).
 * Para consultas de sintaxe e amostra para dados verticalmente divididos, consulte [consulta de dados partidos verticalmente)](elastic-query-vertical-partitioning.md)
 * Para obter um tutorial de partição horizontal (fragmento), consulte [Começar com consulta elástica para partição horizontal (fragmento)](elastic-query-getting-started.md).
-* Consulte [o sp executar o controlo \_ \_ remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma declaração Transact-SQL numa única base de dados remota do Azure SQL ou num conjunto de bases de dados que servem de fragmentos num esquema de partição horizontal.
+* Consulte [o sp executar o controlo \_ \_ remoto](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para um procedimento armazenado que execute uma declaração Transact-SQL numa única base de dados remota do Azure SQL ou num conjunto de bases de dados que servem de fragmentos num esquema de partição horizontal.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

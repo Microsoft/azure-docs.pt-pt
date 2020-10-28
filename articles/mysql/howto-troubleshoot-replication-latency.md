@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096101"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791584"
 ---
-# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Latência de replicação de resolução de problemas na Base de Dados Azure para o MySQL
+# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Resolver problemas de latência da replicação na Base de Dados do Azure para MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 A funcionalidade [de réplica de leitura](concepts-read-replicas.md) permite-lhe replicar dados de uma Base de Dados Azure para o servidor MySQL para um servidor de réplica apenas de leitura. Pode reduzir as cargas de trabalho, encaminhando as consultas de leitura e relatório da aplicação para os servidores de réplicas. Esta configuração reduz a pressão no servidor de origem. Também melhora o desempenho geral e a latência da aplicação à medida que escala. 
 
@@ -33,7 +35,7 @@ Neste artigo, você vai aprender a resolver problemas de latência de replicaç�
 
 Quando um registo binário é ativado, o servidor de origem escreve transações comprometidas no registo binário. O tronco binário é utilizado para a replicação. É ligado por padrão para todos os servidores recém-abastados que suportam até 16 TB de armazenamento. Nos servidores de réplicas, dois fios são executados em cada servidor de réplica. Um fio é o *fio IO,* e o outro é o *fio SQL:*
 
-- A linha IO liga-se ao servidor de origem e solicita registos binários atualizados. Este fio recebe as atualizações de registo binário. Essas atualizações são guardadas num servidor de réplica, num registo local chamado *registo de retransmissão*.
+- A linha IO liga-se ao servidor de origem e solicita registos binários atualizados. Este fio recebe as atualizações de registo binário. Essas atualizações são guardadas num servidor de réplica, num registo local chamado *registo de retransmissão* .
 - O fio SQL lê o registo do retransmissor e aplica as alterações de dados nos servidores de réplicas.
 
 ## <a name="monitoring-replication-latency"></a>Monitorização da latência da replicação

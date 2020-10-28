@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d537ba74dad55ea1cb980ea04d20fd0c8494ed0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: de587483f5dc15b17fa32e044b569ef9d7f007f7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479447"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792961"
 ---
 # <a name="azure-storage-samples"></a>Amostras de armazenamento Azure
 
@@ -60,7 +60,7 @@ Para explorar as amostras C++, obtenha a [Biblioteca do Cliente de Armazenamento
 Para explorar as amostras do Azure CLI, instale primeiro [o Azure CLI](/cli/azure/install-azure-cli).
 
 * [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli)
-* [Amostras de armazenamento Azure usando o Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Amostras de armazenamento Azure usando o Azure CLI](../blobs/storage-samples-blobs-cli.md)
 * [Artigos populares sobre a utilização do CLI Azure com Armazenamento Azure](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## <a name="api-reference-and-source-code"></a>Referência API e código fonte
@@ -83,4 +83,4 @@ Os seguintes artigos indexam cada uma das amostras por serviço (bolha, ficheiro
 * [Amostras de armazenamento Azure usando JavaScript](storage-samples-javascript.md)
 * [Amostras de armazenamento Azure usando Python](storage-samples-python.md)
 * [Amostras de armazenamento Azure usando C++](storage-samples-c-plus-plus.md)
-* [Amostras de armazenamento Azure usando o Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Amostras de armazenamento Azure usando o Azure CLI](../blobs/storage-samples-blobs-cli.md)

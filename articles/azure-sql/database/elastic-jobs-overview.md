@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409595"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792179"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerir trabalhos elásticos (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,11 +50,11 @@ As tarefas utilizam [credenciais com âmbito de base de dados](/sql/t-sql/statem
 
 A configuração das credenciais corretas para executar uma tarefa pode ser um pouco confusa, por isso, tenha em consideração os seguintes pontos:
 
-- As credenciais com âmbito de base de dados têm de ser criadas na *Base de dados da tarefa*.
-- **Todas as bases de dados-alvo devem ter um login com [permissões suficientes](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com sucesso** `jobuser` (no diagrama abaixo).
+- As credenciais com âmbito de base de dados têm de ser criadas na *Base de dados da tarefa* .
+- **Todas as bases de dados-alvo devem ter um login com [permissões suficientes](/sql/relational-databases/security/permissions-database-engine) para que o trabalho seja concluído com sucesso** `jobuser` (no diagrama abaixo).
 - As credenciais podem ser reutilizadas através de trabalhos, e as palavras-passe credenciais são encriptadas e protegidas de utilizadores que tenham acesso apenas a objetos de trabalho.
 
-A imagem seguinte tem como objetivo ajudar a compreender e a configurar as credenciais de tarefa corretas. **Lembre-se de criar o utilizador em todas as bases de dados (todas as *dbs de utilizador de destino*) onde a tarefa tenha de ser executada**.
+A imagem seguinte tem como objetivo ajudar a compreender e a configurar as credenciais de tarefa corretas. **Lembre-se de criar o utilizador em todas as bases de dados (todas as *dbs de utilizador de destino* ) onde a tarefa tenha de ser executada** .
 
 ![Credenciais de Tarefas Elásticas](./media/elastic-jobs-overview/job-credentials.png)
 
@@ -63,7 +63,7 @@ A imagem seguinte tem como objetivo ajudar a compreender e a configurar as crede
 Algumas considerações sobre melhores práticas para trabalhar com Tarefas Elásticas:
 
 - Limite a utilização das APIs a pessoas de confiança.
-- As credenciais devem ter o mínimo de privilégios necessários para executar o passo de tarefa. Para mais informações, consulte [Autorização e Permissões.](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- As credenciais devem ter o mínimo de privilégios necessários para executar o passo de tarefa. Para mais informações, consulte [Autorização e Permissões.](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
 - Ao utilizar um membro do grupo alvo de servidor e/ou piscina, é altamente sugerido criar uma credencial separada com direitos na base de dados principal para visualizar/listar bases de dados que são usadas para expandir as listas de dados do(s) servidor(s) e/ou piscina(s) antes da execução do trabalho.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Desempenho, capacidade e limitações do agente

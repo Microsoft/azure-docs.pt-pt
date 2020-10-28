@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: 9b151e566f0cc3e086277c101a796e7dde059ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442571"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791771"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configurar e gerir referência de conteúdo - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 
 - [Ajuste manual](performance-guidance.md)
 - [Utilizar DMVs para monitorizar o desempenho](monitoring-with-dmvs.md)
-- [Utilizar o Arquivo de consultas para monitorizar o desempenho](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Utilizar o Arquivo de consultas para monitorizar o desempenho](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Ative a sintonização automática](automatic-tuning-enable.md) para permitir que a Base de Dados Azure SQL otimize o desempenho da sua carga de trabalho.
 - [Habilita notificações por e-mail para sintonização automática](automatic-tuning-email-notifications-configure.md) para obter informações sobre recomendações de sintonização.
 - [Aplique recomendações de desempenho](database-advisor-find-recommendations-portal.md) e otimize a sua base de dados.
@@ -84,7 +84,7 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 - [Sincronização de Dados SQL](sql-data-sync-data-sql-server-sql-database.md)
 - [Agente de Sincronização de Dados](sql-data-sync-agent-overview.md)
 - [Replicar as alterações do esquema](sql-data-sync-update-sync-schema.md)
-- [Monitorizar com o OMS](sql-data-sync-monitor-sync.md)
+- [Monitorizar com o OMS](./monitor-tune-overview.md)
 - [Melhores práticas para a Sincronização de Dados](sql-data-sync-best-practices.md)
 - [Resolver problemas de Sincronização de Dados](sql-data-sync-troubleshoot.md)
 

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: c88da1c7fba5d7cb51863a580ae420eb6b3298a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491279"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792927"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Data transfer for large datasets with moderate to high network bandwidth (Transferência de dados para conjuntos de dados grandes com largura de banda de rede moderada ou alta)
  
@@ -68,8 +68,8 @@ Se utilizar a transferência de dados offline, utilize a tabela seguinte para co
 |    **Tipo de dados**                    |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
 |    **Fator de forma**                  |    5 SSDs por encomenda             |    1 X 50-lbs. dispositivo do tamanho de desktop por ordem    |    1 X ~500-lbs. grande dispositivo por ordem    |    Até 10 HDDs/SSDs por encomenda        |
 |    **Tempo inicial de configuração**               |    Baixo <br>(15 minutos)            |    Baixo a moderado <br> (<30 minutos)               |    Moderado<br>(1-2 horas)               |    Moderado a difícil<br>(variável) |
-|    **Enviar dados para a Azure**           |    Yes                          |    Yes                                           |    Yes                                   |    Yes                                 |
-|    **Exportar dados do Azure**           |    No                           |    No                                            |    No                                    |    Yes                                 |
+|    **Enviar dados para a Azure**           |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
+|    **Exportar dados do Azure**           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
 |    **Encriptação**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    **Hardware**                     |     Microsoft fornecida          |    Microsoft fornecida                            |    Microsoft fornecida                    |    Cliente fornecido                   |
 |    **Interface de rede**            |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -88,23 +88,23 @@ Se utilizar a transferência de dados on-line, utilize a tabela na secção segu
 |    **Tipo de dados**              |    Azure Blobs, Ficheiros Azure, Tabelas Azure    |    Azure Blobs, Ficheiros Azure, Tabelas Azure    |    Azure Blobs, Ficheiros Azure                           |   Suporta mais de 70 conectores de dados para lojas de dados e formatos    |
 |    **Fator de forma**            |    Ferramentas de linha de comandos                        |    Interface programática                    |    Microsoft fornece um virtual <br>ou dispositivo físico     |    Serviço no portal Azure                                            |
 |    **Configuração inicial de uma vez** |    Fácil               |    Moderado                       |    Fácil (<30 minutos) a moderado (1-2 horas)            |    Extensa                                                          |
-|    **Pré-processamento de dados**          |    No                                        |    No                                        |    Sim (Com o cálculo Edge)                               |    Yes                                                                |
-|    **Transferência de outras nuvens**   |    No                                        |    No                                        |    No                                                    |    Yes                                                                |
+|    **Pré-processamento de dados**          |    Não                                        |    Não                                        |    Sim (Com o cálculo Edge)                               |    Sim                                                                |
+|    **Transferência de outras nuvens**   |    Não                                        |    Não                                        |    Não                                                    |    Sim                                                                |
 |    **Tipo de utilizador**                    |    IT Pro ou dev                                       |    Dev                                       |    Profissional de TI                                                |    Profissional de TI                                                             |
 |    **Preços**                      |    Taxas gratuitas e de saída de dados aplicam-se         |    Taxas gratuitas e de saída de dados aplicam-se         |    [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba como transferir dados com Importação/Exportação.](/azure/storage/common/storage-import-export-data-to-blobs)
+- [Saiba como transferir dados com Importação/Exportação.](./storage-import-export-data-to-blobs.md)
 - Compreender como
 
-    - [Transferir dados com o disco da caixa de dados.](/azure/databox/data-box-disk-quickstart-portal)
-    - [Transferir dados com a Caixa de Dados.](/azure/databox/data-box-quickstart-portal)
-- [Transferir dados com a AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Transferir dados com o disco da caixa de dados.](../../databox/data-box-disk-quickstart-portal.md)
+    - [Transferir dados com a Caixa de Dados.](../../databox/data-box-quickstart-portal.md)
+- [Transferir dados com a AzCopy](./storage-use-azcopy-v10.md).
 - Compreender como:
-    - [Transferir dados com data box gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transforme os dados com data box edge antes de enviar para o Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Saiba como transferir dados com a Azure Data Factory.](/azure/data-factory/quickstart-create-data-factory-portal)
+    - [Transferir dados com data box gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transforme os dados com data box edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Saiba como transferir dados com a Azure Data Factory.](../../data-factory/quickstart-create-data-factory-portal.md)
 - Utilize as APIs REST para transferir dados
 
     - [Em .NET](/dotnet/api/overview/azure/storage)

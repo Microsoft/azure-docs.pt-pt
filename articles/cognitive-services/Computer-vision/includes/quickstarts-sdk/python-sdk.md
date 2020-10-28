@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ab7a82a8c4a1d30e80a0ecef007335ffaf9e39fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: da9ff2ab1ce90b7b27d52c68dc27eb646fe62513
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755357"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886697"
 ---
 <a name="HOLTop"></a>
 
@@ -88,6 +88,9 @@ Use o seu objeto cliente para analisar as características visuais de uma imagem
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
 
+> [!TIP]
+> Também pode analisar uma imagem local. Consulte os [métodos ComputerVisionClientOperationsMixin,](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) tais como **analyze_image_in_stream** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para cenários que envolvam imagens locais.
+
 ### <a name="get-image-description"></a>Obtenha a descrição da imagem
 
 O seguinte código obtém a lista de legendas geradas para a imagem. Consulte [as imagens](../../concept-describing-images.md) para mais detalhes.
@@ -110,7 +113,7 @@ O seguinte código obtém o conjunto de tags detetadas na imagem. Consulte [as e
 
 O código a seguir deteta objetos comuns na imagem e imprime-os na consola. Consulte [a deteção de objetos](../../concept-object-detection.md) para obter mais detalhes.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]        
 
 ### <a name="detect-brands"></a>Detetar marcas
 
@@ -164,6 +167,9 @@ Em primeiro lugar, utilize o seguinte código para ligar para o método **de lei
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
 
+> [!TIP]
+> Também pode ler texto a partir de uma imagem local. Consulte os [métodos ComputerVisionClientOperationsMixin,](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python) tais como **read_in_stream** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py) para cenários que envolvam imagens locais.
+
 ### <a name="get-read-results"></a>Obter resultados de Leitura
 
 Em seguida, obtenha o ID de operação devolvido da chamada **de leitura,** e use-o para consultar o serviço para obter resultados de operação. O código seguinte verifica a operação em intervalos de um segundo até que os resultados sejam devolvidos. Em seguida, imprime os dados de texto extraídos para a consola.
@@ -196,3 +202,4 @@ Neste arranque rápido, aprendeu a usar a biblioteca de Visão de Computador par
 
 * [O que é a Imagem Digitalizada?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
+           

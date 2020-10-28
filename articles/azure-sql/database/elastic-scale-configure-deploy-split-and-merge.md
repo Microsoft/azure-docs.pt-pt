@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443037"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792077"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de fusão dividida para mover dados entre bases de dados de fragmentos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Os ficheiros são colocados num diretório chamado **Microsoft.Azure.SqlDatabase
 
 1. Crie uma base de dados de base de dados Azure SQL que será usada como base de dados de estado de fusão dividida. Aceda ao [portal do Azure](https://portal.azure.com). Criar uma nova **Base de Dados SQL.** Dê à base de dados um nome e crie um novo administrador e senha. Certifique-se de que grava o nome e a palavra-passe para posterior utilização.
 
-1. Certifique-se de que o seu servidor permite que os Serviços Azure se conectem ao mesmo. No portal, nas **Definições**de Firewall , certifique-se de que o acesso à definição **de Serviços Azure** está definido para **On**. Clique no ícone "salvar".
+1. Certifique-se de que o seu servidor permite que os Serviços Azure se conectem ao mesmo. No portal, nas **Definições** de Firewall , certifique-se de que o acesso à definição **de Serviços Azure** está definido para **On** . Clique no ícone "salvar".
 
 1. Crie uma conta de Armazenamento Azure para a saída de diagnósticos.
 
@@ -51,14 +51,14 @@ Os ficheiros são colocados num diretório chamado **Microsoft.Azure.SqlDatabase
 
 ### <a name="split-merge-service-configuration"></a>Split-Merge configuração de serviço
 
-1. Na pasta em que descarregou os conjuntos de Split-Merge, crie uma cópia do ficheiro *ServiceConfiguration.Template.cscfg* que enviou ao lado do *SplitMergeService.cspkg* e rebatizá-lo *ServiceConfiguration.cscfg*.
+1. Na pasta em que descarregou os conjuntos de Split-Merge, crie uma cópia do ficheiro *ServiceConfiguration.Template.cscfg* que enviou ao lado do *SplitMergeService.cspkg* e rebatizá-lo *ServiceConfiguration.cscfg* .
 
 1. Open *ServiceConfiguration.cscfg* em um editor de texto como Visual Studio que valida entradas como o formato de impressões digitais de certificado.
 
 1. Crie uma nova base de dados ou escolha uma base de dados existente para servir como base de dados de estado para operações de Split-Merge e recuperar a cadeia de ligação dessa base de dados.
 
    > [!IMPORTANT]
-   > Neste momento, a base de dados de estado deve utilizar a colagem latina (SQL \_ Latin1 \_ General \_ CP1 \_ CI \_ AS). Para obter mais informações, consulte [o Nome de Colagem do Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > Neste momento, a base de dados de estado deve utilizar a colagem latina (SQL \_ Latin1 \_ General \_ CP1 \_ CI \_ AS). Para obter mais informações, consulte [o Nome de Colagem do Windows (Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql).
 
    Com a Base de Dados Azure SQL, a cadeia de ligação normalmente é do formulário:
 
@@ -76,7 +76,7 @@ Para efeitos de uma simples implantação de teste para este tutorial, será rea
 
 ### <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Crie um novo diretório e a partir deste diretório execute o seguinte comando utilizando uma [visão de comando do desenvolvedor para](https://msdn.microsoft.com/library/ms229859.aspx) a janela do Estúdio Visual:
+Crie um novo diretório e a partir deste diretório execute o seguinte comando utilizando uma [visão de comando do desenvolvedor para](/dotnet/framework/tools/developer-command-prompt-for-vs) a janela do Estúdio Visual:
 
    ```cmd
    makecert ^
@@ -99,17 +99,17 @@ Executar o seguinte comando a partir da mesma janela onde o certificado foi exec
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>Importe o certificado de cliente na loja pessoal
 
-1. No Windows Explorer, clique duas vezes *em MyCert.pfx*.
-2. No **Certificado De Import Wizard** selecione **O Utilizador Atual** e clique em **Seguinte**.
-3. Confirme o caminho do ficheiro e clique em **Seguinte**.
-4. Digite a palavra-passe, **deixe Incluir todas as propriedades estendidas** verificadas e clique em **Seguinte**.
-5. Deixe **selecionar automaticamente a loja de certificados[...]** verificada e clique em **Seguinte**.
-6. Clique **em Terminar** e **OK**.
+1. No Windows Explorer, clique duas vezes *em MyCert.pfx* .
+2. No **Certificado De Import Wizard** selecione **O Utilizador Atual** e clique em **Seguinte** .
+3. Confirme o caminho do ficheiro e clique em **Seguinte** .
+4. Digite a palavra-passe, **deixe Incluir todas as propriedades estendidas** verificadas e clique em **Seguinte** .
+5. Deixe **selecionar automaticamente a loja de certificados[...]** verificada e clique em **Seguinte** .
+6. Clique **em Terminar** e **OK** .
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Faça o upload do ficheiro PFX para o serviço de nuvem
 
 1. Aceda ao [portal do Azure](https://portal.azure.com).
-2. Selecione **Serviços cloud**.
+2. Selecione **Serviços cloud** .
 3. Selecione o serviço de nuvem que criou acima para o serviço Split/Merge.
 4. Clique em **Certificados** no menu superior.
 5. Clique em **Upload** na barra inferior.
@@ -143,8 +143,8 @@ Por favor, note que para implementações de produção devem ser utilizados cer
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com)
 2. Selecione o serviço de nuvem que criou anteriormente.
-3. Clique em **Descrição geral**.
-4. Escolha o ambiente de encenação e, em seguida, clique em **Upload**.
+3. Clique em **Descrição geral** .
+4. Escolha o ambiente de encenação e, em seguida, clique em **Upload** .
 5. Na caixa de diálogo, introduza uma etiqueta de implantação. Para 'Pacote' e 'Configuração', clique em 'From Local' e escolha o ficheiro *SplitMergeService.cspkg* e o seu ficheiro cscfg que configuraste anteriormente.
 6. Certifique-se de que a caixa de verificação rotulada **Implementar mesmo que uma ou mais funções contenham uma única instância** seja verificada.
 7. Acerte o botão de tique no canto inferior direito para iniciar a implantação. Espere que leve alguns minutos para completar.
@@ -161,7 +161,7 @@ Se o seu papel de trabalhador não estiver online, mas o seu papel na web for be
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-- Certifique-se de que o nome do servidor não começa com **https://**.
+- Certifique-se de que o nome do servidor não começa com **https://** .
 - Certifique-se de que o seu servidor permite que os Serviços Azure se conectem ao mesmo. Para isso, abra a sua base de dados no portal e certifique-se de que a definição de Permitir o **acesso aos Serviços Azure** está definida para **On*****
 
 ## <a name="test-the-service-deployment"></a>Testar a implementação do serviço
@@ -240,7 +240,7 @@ Os ficheiros de script incluídos são:
 
    Certifique-se de que o servidor está configurado para permitir o acesso a partir do endereço IP da máquina que executa estes scripts. Pode encontrar esta definição no servidor SQL / Firewalls e redes virtuais / endereços IP do Cliente.
 
-3. Execute * o *SetupSampleSplitMergeEnvironment.ps1script para criar o ambiente de amostragem.
+3. Execute *o* SetupSampleSplitMergeEnvironment.ps1script para criar o ambiente de amostragem.
 
    A execução deste script eliminará quaisquer estruturas de dados de gestão de mapas de fragmentos existentes na base de dados do gestor de mapas de fragmentos e nos fragmentos. Pode ser útil refazer o script se desejar re-inicializar o mapa de fragmentos ou fragmentos.
 
@@ -324,7 +324,7 @@ Para realizar uma operação de fusão dividida, deve declarar as tabelas e tabe
 1. Para cada mesa em pedaços, crie um objeto **ShardedTableInfo** descrevendo o nome do esquema parental da tabela (opcional, predefinido a "dbo"), o nome da tabela e o nome da coluna nessa tabela que contém a chave de fragmentos.
 2. Para cada tabela de referência, crie um objeto **ReferenceTableInfo** que descreva o nome do esquema principal da tabela (opcional, predefinição para "dbo") e o nome da tabela.
 3. Adicione os objetos TableInfo acima a um novo objeto **SchemaInfo.**
-4. Obtenha uma referência a um objeto **ShardMapManager** e ligue para **GetSchemaInfoCollection**.
+4. Obtenha uma referência a um objeto **ShardMapManager** e ligue para **GetSchemaInfoCollection** .
 5. Adicione o **SchemaInfo** à **SchemaInfoCollection,** fornecendo o nome do mapa de fragmentos.
 
 Um exemplo disso pode ser visto no SetupSampleSplitMergeEnvironment.ps1 script.
@@ -343,7 +343,7 @@ Se não conseguir submeter pedidos, poderá ver isto:
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-Neste caso, verifique o seu ficheiro de configuração, em particular a definição para **WorkerRoleSynchronizationStorageAccountConnectionString**. Este erro normalmente indica que a função do trabalhador não conseguiu inicializar com sucesso a base de dados de metadados na primeira utilização.
+Neste caso, verifique o seu ficheiro de configuração, em particular a definição para **WorkerRoleSynchronizationStorageAccountConnectionString** . Este erro normalmente indica que a função do trabalhador não conseguiu inicializar com sucesso a base de dados de metadados na primeira utilização.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

@@ -11,17 +11,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619938"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793216"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-arrendatários com ferramentas de base de dados elásticas e segurança ao nível da linha
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Ferramentas de base de dados elásticas](elastic-scale-get-started.md) e [segurança ao nível da linha (RLS)][rls] cooperam para permitir a escala do nível de dados de uma aplicação multi-inquilino com Azure SQL Database. Juntas estas tecnologias ajudam-no a construir uma aplicação que tem um nível de dados altamente escalável. O nível de dados suporta fragmentos de vários inquilinos, e utiliza **ADO.NET SqlClient** ou **Entity Framework**. Para obter mais informações, consulte [Padrões de Design para Aplicações SaaS multi-arrendantes com Base de Dados Azure SQL](../../sql-database/saas-tenancy-app-design-patterns.md).
+[Ferramentas de base de dados elásticas](elastic-scale-get-started.md) e [segurança ao nível da linha (RLS)][rls] cooperam para permitir a escala do nível de dados de uma aplicação multi-inquilino com Azure SQL Database. Juntas estas tecnologias ajudam-no a construir uma aplicação que tem um nível de dados altamente escalável. O nível de dados suporta fragmentos de vários inquilinos, e utiliza **ADO.NET SqlClient** ou **Entity Framework** . Para obter mais informações, consulte [Padrões de Design para Aplicações SaaS multi-arrendantes com Base de Dados Azure SQL](./saas-tenancy-app-design-patterns.md).
 
 - **As ferramentas de base de dados elásticas** permitem aos desenvolvedores escalar o nível de dados com práticas padrão de fragmentos, utilizando bibliotecas .NET e modelos de serviço Azure. Gerir fragmentos utilizando a Biblioteca de [Clientes de Base de Dados Elástica][s-d-elastic-database-client-library] ajuda a automatizar e agilizar muitas das tarefas infraestruturais tipicamente associadas ao fragmento.
 - **A segurança ao nível da linha** permite que os desenvolvedores armazenem com segurança dados para vários inquilinos na mesma base de dados. As políticas de segurança RLS filtram linhas que não pertencem ao inquilino que executa uma consulta. Centralizar a lógica do filtro dentro da base de dados simplifica a manutenção e reduz o risco de um erro de segurança. A alternativa de confiar em todo o código do cliente para impor a segurança é arriscada.
@@ -54,14 +54,14 @@ Compile e execute a aplicação. Esta corrida de botas testa o gestor de mapas d
 
 Note-se que, como o RLS ainda não foi ativado nas bases de dados de fragmentos, cada um destes testes revela um problema: os inquilinos são capazes de ver blogs que não lhes pertencem, e a aplicação não está impedida de inserir um blog para o inquilino errado. O restante deste artigo descreve como resolver estes problemas, impondo o isolamento dos inquilinos com RLS. Há dois passos:
 
-1. **Nível de aplicação**: Modifique o código de aplicação para definir sempre o atual TenantId no CONTEXTO DE SESSÃO após a \_ abertura de uma ligação. O projeto de amostra já define o TenantId desta forma.
-2. **Nível de dados**: Criar uma política de segurança RLS em cada base de dados de fragmentos para filtrar linhas com base no TenantId armazenado em CONTEXTO DE \_ SESSÃO. Crie uma política para cada uma das suas bases de dados de fragmentos, caso contrário as linhas em fragmentos de vários inquilinos não são filtradas.
+1. **Nível de aplicação** : Modifique o código de aplicação para definir sempre o atual TenantId no CONTEXTO DE SESSÃO após a \_ abertura de uma ligação. O projeto de amostra já define o TenantId desta forma.
+2. **Nível de dados** : Criar uma política de segurança RLS em cada base de dados de fragmentos para filtrar linhas com base no TenantId armazenado em CONTEXTO DE \_ SESSÃO. Crie uma política para cada uma das suas bases de dados de fragmentos, caso contrário as linhas em fragmentos de vários inquilinos não são filtradas.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Nível de aplicação: Definir TenantId no contexto de sessão \_
 
-Primeiro, liga-se a uma base de dados de fragmentos utilizando as APIs de encaminhamento dependentes de dados da biblioteca de clientes de base de dados elástica. A aplicação ainda deve dizer à base de dados que o TenantId está a utilizar a ligação. O TenantId diz à política de segurança RLS quais as filas devem ser filtradas como pertencentes a outros inquilinos. Armazenar o atual TenantId no [ \_ contexto de sessão](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) da ligação.
+Primeiro, liga-se a uma base de dados de fragmentos utilizando as APIs de encaminhamento dependentes de dados da biblioteca de clientes de base de dados elástica. A aplicação ainda deve dizer à base de dados que o TenantId está a utilizar a ligação. O TenantId diz à política de segurança RLS quais as filas devem ser filtradas como pertencentes a outros inquilinos. Armazenar o atual TenantId no [ \_ contexto de sessão](/sql/t-sql/functions/session-context-transact-sql) da ligação.
 
-Uma alternativa ao \_ contexto de sessão é utilizar info [de contexto. \_ ](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql) Mas o CONTEXTO DE SESSÃO \_ é uma opção melhor. O CONTEXTO DE SESSÃO \_ é mais fácil de usar, devolve NU POR padrão e suporta pares de valor-chave.
+Uma alternativa ao \_ contexto de sessão é utilizar info [de contexto. \_ ](/sql/t-sql/functions/context-info-transact-sql) Mas o CONTEXTO DE SESSÃO \_ é uma opção melhor. O CONTEXTO DE SESSÃO \_ é mais fácil de usar, devolve NU POR padrão e suporta pares de valor-chave.
 
 ### <a name="entity-framework"></a>Entity Framework
 
@@ -228,7 +228,7 @@ O RLS é implementado na Transact-SQL. Uma função definida pelo utilizador def
     - Um predicado BLOCK impede que as filas que não falham no filtro sejam INSERTed ou UPDATEd.
     - Se o CONTEXTO DE SESSÃO \_ não tiver sido definido, a função volta a ser NU, e não há filas visíveis ou capazes de ser inseridas.
 
-Para ativar o RLS em todos os fragmentos, execute o seguinte T-SQL utilizando o Visual Studio (SSDT), SSMS ou o script PowerShell incluído no projeto. Ou se estiver a utilizar [o Elastic Database Jobs,](../../sql-database/elastic-jobs-overview.md)pode automatizar a execução deste T-SQL em todos os fragmentos.
+Para ativar o RLS em todos os fragmentos, execute o seguinte T-SQL utilizando o Visual Studio (SSDT), SSMS ou o script PowerShell incluído no projeto. Ou se estiver a utilizar [o Elastic Database Jobs,](./elastic-jobs-overview.md)pode automatizar a execução deste T-SQL em todos os fragmentos.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Manutenção
 
-- **Adicionar novos fragmentos**: Execute o script T-SQL para permitir o RLS em quaisquer novos fragmentos, caso contrário as consultas sobre estes fragmentos não são filtradas.
-- **Adicionar novas tabelas**: Adicione um filtro e um pré-diabetes à política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito no [Apply Row-Level Security automaticamente para as tabelas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Adicionar novos fragmentos** : Execute o script T-SQL para permitir o RLS em quaisquer novos fragmentos, caso contrário as consultas sobre estes fragmentos não são filtradas.
+- **Adicionar novas tabelas** : Adicione um filtro e um pré-diabetes à política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito no [Apply Row-Level Security automaticamente para as tabelas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Resumo
 
@@ -352,16 +352,16 @@ Ferramentas elásticas de base de dados e segurança ao nível da linha podem se
 
 - [O que é um conjunto elástico do Azure?](elastic-pool-overview.md)
 - [Aumentar horizontalmente com a Base de Dados SQL do Azure](elastic-scale-introduction.md)
-- [Padrões de Estrutura para Aplicações de SaaS Multi-inquilinos com a Base de Dados SQL do Azure](../../sql-database/saas-tenancy-app-design-patterns.md)
+- [Padrões de Estrutura para Aplicações de SaaS Multi-inquilinos com a Base de Dados SQL do Azure](./saas-tenancy-app-design-patterns.md)
 - [Autenticação em aplicações multi-inquilino, com o Azure AD e o OpenID Connect](/azure/architecture/multitenant-identity/authenticate)
 - [Aplicação Tailspin Surveys](/azure/architecture/multitenant-identity/tailspin)
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e Pedidos de Recursos
 
-Para obter dúvidas, contacte-nos na [página de perguntas do Microsoft Q&A página de perguntas para a Base de Dados SQL](https://docs.microsoft.com/answers/topics/azure-sql-database.html). E adicione quaisquer pedidos de funcionalidade ao fórum de feedback da [Base de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para obter dúvidas, contacte-nos na [página de perguntas do Microsoft Q&A página de perguntas para a Base de Dados SQL](/answers/topics/azure-sql-database.html). E adicione quaisquer pedidos de funcionalidade ao fórum de feedback da [Base de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-[rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[rls]: /sql/relational-databases/security/row-level-security
 [s-d-elastic-database-client-library]:elastic-database-client-library.md

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 60b322cc0c1a50df7f8946fa1047bdc58ea92d77
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8afedec224fed55f617340af512485726ff44326
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488542"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792944"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Data transfer for large datasets with low or no network bandwidth (Transferência de dados para conjuntos de dados grandes com pouca ou nenhuma largura de banda de rede)
  
@@ -51,8 +51,8 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 |    **Tipo de dados**                    |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
 |    **Fator de forma**                  |    5 SSDs por encomenda             |    1 X 50-lbs. dispositivo do tamanho de desktop por ordem    |    1 X ~500-lbs. grande dispositivo por ordem    |    Até 10 HDDs/SSDs por encomenda        |
 |    **Tempo inicial de configuração**           |    Baixo <br>(15 minutos)            |    Baixo a moderado <br> (<30 minutos)               |    Moderado<br>(1-2 horas)               |    Moderado a difícil<br>(variável) |
-|    **Enviar dados para a Azure**           |    Yes                          |    Yes                                           |    Yes                                   |    Yes                                 |
-|    **Exportar dados do Azure**       |    No                           |    No                                            |    No                                    |    Yes                                 |
+|    **Enviar dados para a Azure**           |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
+|    **Exportar dados do Azure**       |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
 |    **Encriptação**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    **Hardware**                     |     Microsoft fornecida          |    Microsoft fornecida                            |    Microsoft fornecida                    |    Cliente fornecido                   |
 |    **Interface de rede**            |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -66,6 +66,6 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 
 - Compreender como
 
-    - [Transferir dados com o disco da caixa de dados.](/azure/databox/data-box-disk-quickstart-portal)
-    - [Transferir dados com a Caixa de Dados.](/azure/databox/data-box-quickstart-portal)
-    - [Dados de transferência com Importação/Exportação.](/azure/storage/common/storage-import-export-data-to-blobs)
+    - [Transferir dados com o disco da caixa de dados.](../../databox/data-box-disk-quickstart-portal.md)
+    - [Transferir dados com a Caixa de Dados.](../../databox/data-box-quickstart-portal.md)
+    - [Dados de transferência com Importação/Exportação.](./storage-import-export-data-to-blobs.md)

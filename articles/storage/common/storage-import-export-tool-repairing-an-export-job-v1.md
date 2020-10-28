@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056344"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791839"
 ---
 # <a name="repairing-an-export-job"></a>Reparação de uma tarefa de exportação
 Após a conclusão de uma missão de exportação, pode executar a Ferramenta de Importação/Exportação do Microsoft Azure no local para:  
@@ -81,7 +81,7 @@ O ficheiro de registo de cópia indica que ocorreu uma falha enquanto o serviço
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Utilização de RepairExport para validar conteúdos de unidade  
 Também pode utilizar a Azure Import/Export com a opção **RepairExport** para validar o conteúdo da unidade. O ficheiro manifesto em cada unidade de exportação contém MD5s para o conteúdo da unidade.  
   
-O serviço Azure Import/Export também pode guardar os ficheiros manifestos para uma conta de armazenamento durante o processo de exportação. A localização dos ficheiros manifestos está disponível através da operação [Get Job](/rest/api/storageimportexport/jobs) quando o trabalho estiver concluído. Para obter mais informações sobre o formato de um ficheiro manifesto de unidade, consulte [o formato manifesto do serviço de importação/exportação.](storage-import-export-file-format-metadata-and-properties.md)  
+O serviço Azure Import/Export também pode guardar os ficheiros manifestos para uma conta de armazenamento durante o processo de exportação. A localização dos ficheiros manifestos está disponível através da operação [Get Job](/rest/api/storageimportexport/jobs) quando o trabalho estiver concluído. Para obter mais informações sobre o formato de um ficheiro manifesto de unidade, consulte [o formato manifesto do serviço de importação/exportação.](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties)  
   
 O exemplo a seguir mostra como executar a Ferramenta de Importação/Exportação Azure com os parâmetros **/ManifestFile** e **/CopyLogFile:**  
   
@@ -153,6 +153,6 @@ Qualquer componente que falhe a verificação será descarregado pela ferramenta
 ## <a name="next-steps"></a>Passos seguintes
  
 * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
-* [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparar as unidades de disco rígido para uma tarefa de importação](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Revisão do estado da tarefa com ficheiros de registo de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de uma tarefa de importação](storage-import-export-tool-repairing-an-import-job-v1.md)

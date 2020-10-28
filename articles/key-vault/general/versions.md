@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230830"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792383"
 ---
 # <a name="key-vault-versions"></a>Versões do Key Vault
 
@@ -33,7 +33,7 @@ Pontos finais privados agora disponíveis na pré-visualização. O Azure Privat
 ## <a name="2019"></a>2019
 
 - Lançamento da próxima geração Azure Key Vault SDKs. Por exemplo, veja os quickstarts secretos do Azure Key Vault para [Python](../secrets/quick-create-python.md), [.NET,](../secrets/quick-create-net.md) [Java](../secrets/quick-create-java.md)e [Node.js](../secrets/quick-create-node.md)
-- Novas políticas da Azure para gerir certificados de cofre chave. Consulte as [definições de Azure Policy incorporadas para o Cofre de Chaves](../policy-samples.md).
+- Novas políticas da Azure para gerir certificados de cofre chave. Consulte as [definições de Azure Policy incorporadas para o Cofre de Chaves](../policy-reference.md).
 - Extensão da máquina virtual Azure Key Vault agora geralmente disponível.  Consulte [a extensão da máquina virtual Key Vault para](../../virtual-machines/extensions/key-vault-linux.md) a [extensão da máquina virtual](../../virtual-machines/extensions/key-vault-windows.md)Linux e Key Vault para windows .
 - Gestão de segredos orientados para eventos para Azure Key Vault agora disponível em Azure Event Grid. Para obter mais informações, consulte [o esquema da Grelha de Eventos para eventos no Cofre da Chave Azure](.. /.. /event-grid/event-schema-key-vault.md], e aprender a [receber e responder às notificações-chave do cofre com a Azure Event Grid](event-grid-tutorial.md).
 
@@ -49,8 +49,8 @@ Novas funcionalidades e integrações lançadas este ano:
 
 Novas funcionalidades lançadas este ano:
 
-- Chaves de conta de armazenamento geridas. Recurso De Chaves de Conta de Armazenamento acrescentou uma integração mais fácil com o Azure Storage. Consulte o tópico geral para obter mais informações, [visão geral das chaves de conta de armazenamento geridos](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Apagar suavemente. A função de eliminação suave melhora a proteção de dados dos cofres e dos objetos chave do cofre. Consulte o tópico geral para obter mais informações, eliminar a visão geral do [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Chaves de conta de armazenamento geridas. Recurso De Chaves de Conta de Armazenamento acrescentou uma integração mais fácil com o Azure Storage. Consulte o tópico geral para obter mais informações, [visão geral das chaves de conta de armazenamento geridos](../secrets/overview-storage-keys.md).
+- Eliminação recuperável. A função de eliminação suave melhora a proteção de dados dos cofres e dos objetos chave do cofre. Consulte o tópico geral para obter mais informações, eliminar a visão geral do [soft-delete](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ A Disponibilidade Geral (versão 2015-06-01) foi anunciada em 24 de junho de 201
 - Restaurar uma chave - campo de "utilização" removido.     
 - Alterou "RSA_OAEP" para "RSA-OAEP" para algoritmos RSA. Veja [mais sobre chaves, segredos e certificados.](about-keys-secrets-certificates.md)    
  
-A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 de abril de 2015. Para obter mais informações, consulte o post de blog [REST API Update.](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) Foram atualizadas as seguintes tarefas:
+A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 de abril de 2015. Para obter mais informações, consulte o post de blog [REST API Update.](/archive/blogs/kv/rest-api-update) Foram atualizadas as seguintes tarefas:
  
 - Lista as chaves num cofre- apoio de paginação adicionado à operação.
 - Liste as versões de uma chave - operação adicionada para listar as versões de uma chave.  

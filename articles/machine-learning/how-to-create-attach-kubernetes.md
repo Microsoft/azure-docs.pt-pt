@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667865"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792009"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -34,7 +34,7 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
 
 - Se precisar de um **Balancer de Carga Padrão (SLB)** implantado no seu cluster em vez de um Balanceador de Carga Básica (BLB), crie um cluster no portal AKS/CLI/SDK e, em seguida, **prenda-o** ao espaço de trabalho AML.
 
-- Se tiver uma Política Azure que restringe a criação de endereços IP públicos, então a criação de clusters AKS falhará. A AKS requer um IP público para [tráfego de saídas](/azure/aks/limit-egress-traffic). O artigo de tráfego de saídas também fornece orientações para bloquear o tráfego de saídas do cluster através do IP público, exceto para alguns nomes de domínio totalmente qualificados. Existem 2 formas de permitir um IP público:
+- Se tiver uma Política Azure que restringe a criação de endereços IP públicos, então a criação de clusters AKS falhará. A AKS requer um IP público para [tráfego de saídas](/azure/aks/limit-egress-traffic). O artigo de tráfego de saídas também fornece orientações para bloquear o tráfego de saída do cluster através do IP público, exceto para alguns nomes de domínio totalmente qualificados. Existem 2 formas de permitir um IP público:
     - O cluster pode usar o IP público criado por padrão com o BLB ou SLB, ou
     - O cluster pode ser criado sem um IP público e, em seguida, um IP público é configurado com uma firewall com uma rota definida pelo utilizador. Para obter mais informações, consulte [Personalizar a saída do cluster com uma rota definida pelo utilizador.](/azure/aks/egress-outboundtype)
     
@@ -54,12 +54,12 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
    
  - Se pretender implantar modelos para nós **GPU** ou nóns **FPGA** (ou qualquer SKU específico), então deve criar um cluster com o SKU específico. Não existe suporte para a criação de um conjunto de nó secundário num cluster existente e modelos de implantação na piscina de nó secundário.
  
-- Ao criar ou anexar um cluster, pode selecionar se deve criar o cluster para __teste dev__ ou __produção__. Se pretender criar um cluster AKS para __desenvolvimento,__ __validação__e __teste__ em vez de produção, desabrava o objetivo do __cluster__ __para dev-teste__. Se não especificar o objetivo do cluster, é criado um cluster de __produção.__ 
+- Ao criar ou anexar um cluster, pode selecionar se deve criar o cluster para __teste dev__ ou __produção__ . Se pretender criar um cluster AKS para __desenvolvimento,__ __validação__ e __teste__ em vez de produção, desabrava o objetivo do __cluster__ __para dev-teste__ . Se não especificar o objetivo do cluster, é criado um cluster de __produção.__ 
 
     > [!IMPORTANT]
     > Um aglomerado __de teste dev__ não é adequado para o tráfego de nível de produção e pode aumentar os tempos de inferência. Os agrupamentos de dev/teste também não garantem a tolerância à falha.
 
-- Ao criar ou anexar um cluster, se o cluster for utilizado para __a produção,__ deve conter pelo menos 12 __CPUs virtuais__. O número de CPUs virtuais pode ser calculado multiplicando o número de nós no cluster pelo __número de núcleos__ fornecidos pelo tamanho VM selecionado. __number of nodes__ Por exemplo, se utilizar um tamanho VM de "Standard_D3_v2", que tem 4 núcleos virtuais, então deve selecionar 3 ou mais como o número de nós.
+- Ao criar ou anexar um cluster, se o cluster for utilizado para __a produção,__ deve conter pelo menos 12 __CPUs virtuais__ . O número de CPUs virtuais pode ser calculado multiplicando o número de nós no cluster pelo __número de núcleos__ fornecidos pelo tamanho VM selecionado. __number of nodes__ Por exemplo, se utilizar um tamanho VM de "Standard_D3_v2", que tem 4 núcleos virtuais, então deve selecionar 3 ou mais como o número de nós.
 
     Para um cluster __de teste dev,__ recomodámos pelo menos 2 CPUs virtuais.
 
@@ -85,7 +85,7 @@ Ao **anexar** um cluster AKS existente, apoiamos todas as versões AKS suportada
 > [!NOTE]
 > Pode haver casos de borda em que você tem um cluster mais antigo que já não é suportado. Neste caso, a operação de anexação devolverá um erro e listará as versões atualmente suportadas.
 >
-> Pode anexar versões de **pré-visualização.** A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. O suporte para a utilização de versões de pré-visualização pode ser limitado. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Pode anexar versões de **pré-visualização.** A funcionalidade de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. O suporte para a utilização de versões de pré-visualização pode ser limitado. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="available-and-default-versions"></a>Versões disponíveis e padrão
 
@@ -284,7 +284,7 @@ Para obter informações sobre a anexação de um cluster AKS no portal, consult
 Para separar um cluster do seu espaço de trabalho, utilize um dos seguintes métodos:
 
 > [!WARNING]
-> A utilização do estúdio Azure Machine Learning, SDK ou a extensão Azure CLI para aprendizagem automática para separar um cluster AKS **não elimina o cluster AKS**. Para eliminar o cluster, consulte [utilizar o CLI Azure com AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+> A utilização do estúdio Azure Machine Learning, SDK ou a extensão Azure CLI para aprendizagem automática para separar um cluster AKS **não elimina o cluster AKS** . Para eliminar o cluster, consulte [utilizar o CLI Azure com AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -302,7 +302,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-No estúdio Azure Machine Learning, __selecione Compute,__ __Inference clusters__e o cluster que deseja remover. Utilize a __ligação Detach__ para separar o cluster.
+No estúdio Azure Machine Learning, __selecione Compute,__ __Inference clusters__ e o cluster que deseja remover. Utilize a __ligação Detach__ para separar o cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 

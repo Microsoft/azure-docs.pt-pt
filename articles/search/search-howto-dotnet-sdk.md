@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c54da3621df1e5d49e7269781e6ae33fc9c0923
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675664"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791958"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Como utilizar Azure.Search.Documents numa aplicação C# .NET
 
@@ -23,7 +23,7 @@ Este artigo explica como criar e gerir objetos de pesquisa usando C# e aAzure.Se
 
 ## <a name="about-version-11"></a>Sobre a versão 11
 
-A Azure SDK para .NET adiciona uma nova biblioteca de clientes da equipa Azure SDK que é funcionalmente equivalente às bibliotecas de clientes [Microsoft.Azure.Search,](/dotnet/api/overview/azure/search/client10) mas utiliza abordagens e convenções comuns quando aplicável. Alguns exemplos incluem [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) a autenticação chave, e [System.Text.Js. Serialização](/dotnet/api/system.text.json.serialization) para a serialização do JSON.
+A Azure SDK para .NET adiciona uma nova biblioteca [**de clientesAzure.Search.Docda**](/dotnet/api/overview/azure/search) equipa Azure SDK que é funcionalmente equivalente às bibliotecas de clientes [microsoft.Azure.Search,](/dotnet/api/overview/azure/search/client10) mas utiliza abordagens e convenções comuns quando aplicável. Alguns exemplos incluem [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) a autenticação chave, e [System.Text.Js. Serialização](/dotnet/api/system.text.json.serialization) para a serialização do JSON.
 
 Tal como nas versões anteriores, pode utilizar esta biblioteca para:
 

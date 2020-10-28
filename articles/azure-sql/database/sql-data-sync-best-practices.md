@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332989"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791448"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Melhores práticas da Sincronização de Dados SQL do Azure 
 
@@ -41,11 +41,11 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Contas de base de dados com privilégios menos necessários
 
--   **Para a configuração da sincronização**. Criar/Alterar Tabela; Alterar Base de Dados; Criar Procedimento; Selecione/ Alter Schema; Criar User-Defined Tipo.
+-   **Para a configuração da sincronização** . Criar/Alterar Tabela; Alterar Base de Dados; Criar Procedimento; Selecione/ Alter Schema; Criar User-Defined Tipo.
 
--   **Para sincronização em curso**. Selecione/ Insira/Atualização/ Elimine as tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de rastreio; Executar permissão sobre procedimentos armazenados criados pelo serviço; Execute a permissão nos tipos de tabela definidos pelo utilizador.
+-   **Para sincronização em curso** . Selecione/ Insira/Atualização/ Elimine as tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de rastreio; Executar permissão sobre procedimentos armazenados criados pelo serviço; Execute a permissão nos tipos de tabela definidos pelo utilizador.
 
--   **Para desprovisionamento**. Alterar nas tabelas parte da sincronização; Selecione/ Elimine em tabelas de metadados sincronizados; Controlo de tabelas de rastreio de sincronização, procedimentos armazenados e tipos definidos pelo utilizador.
+-   **Para desprovisionamento** . Alterar nas tabelas parte da sincronização; Selecione/ Elimine em tabelas de metadados sincronizados; Controlo de tabelas de rastreio de sincronização, procedimentos armazenados e tipos definidos pelo utilizador.
 
 A Azure SQL Database suporta apenas um único conjunto de credenciais. Para realizar estas tarefas dentro deste constrangimento, considere as seguintes opções:
 
@@ -238,7 +238,7 @@ Para obter mais informações sobre o SQL Data Sync, consulte:
         -  [Utilize o PowerShell para sincronizar entre várias bases de dados na Base de Dados Azure SQL](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Utilize o PowerShell para sincronizar entre uma base de dados na Base de Dados SQL e uma base de dados numa instância do SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
--   Monitor - [Monitor SQL Data Sync com registos do Monitor Azure](sql-data-sync-monitor-sync.md)
+-   Monitor - [Monitor SQL Data Sync com registos do Monitor Azure](./monitor-tune-overview.md)
 -   Resolução de problemas - [Problemas de resolução de problemas com Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
 -   Atualizar o esquema de sincronização
     -   Com a Transact-SQL - [Automatizar a replicação de alterações de esquema no Azure SQL Data Sync](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Para obter mais informações sobre o SQL Data Sync, consulte:
 Para obter mais informações sobre a Base de Dados SQL, consulte:
 
 -   [Visão geral da base de dados sql](sql-database-paas-overview.md)
--   [Gestão do ciclo de vida da base de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Gestão do ciclo de vida da base de dados](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

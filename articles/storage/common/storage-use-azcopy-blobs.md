@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488525"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792859"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Dados de transferência com armazenamento AzCopy e Blob
 
@@ -363,7 +363,7 @@ O comando [de sincronização](storage-ref-azcopy-sync.md) compara nomes de fich
 Se colocar a `--delete-destination` bandeira no `true` AzCopy elimina ficheiros sem fornecer uma solicitação. Se desejar que apareça uma solicitação antes de o AzCopy apagar um ficheiro, coloque a `--delete-destination` bandeira em `prompt` .
 
 > [!NOTE]
-> Para evitar supressões acidentais, certifique-se de que ativa a função [de eliminação suave](/azure/storage/blobs/storage-blob-soft-delete) antes de utilizar a `--delete-destination=prompt|true` bandeira.
+> Para evitar supressões acidentais, certifique-se de que ativa a função [de eliminação suave](../blobs/soft-delete-blob-overview.md) antes de utilizar a `--delete-destination=prompt|true` bandeira.
 
 > [!TIP]
 > Pode ajustar a sua operação de sincronização utilizando bandeiras opcionais. Aqui estão alguns exemplos.

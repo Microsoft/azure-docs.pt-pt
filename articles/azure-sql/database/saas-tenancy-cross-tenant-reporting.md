@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 03e8719b256fc758874bd7375deed0637da9447e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18a02b81e459217ccca53d48a08e35a706b071b0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620312"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793267"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Inter-inquilino reportando usando consultas distribuídas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,9 +36,9 @@ Neste tutorial, ficará a saber:
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 
-* A aplicação Wingtip Tickets SaaS Database Per Tenant é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a aplicação Wingtip Tickets SaaS Database per Tenant](../../sql-database/saas-dbpertenant-get-started-deploy.md)
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* O SQL Server Management Studio (SSMS) está instalado. Para descarregar e instalar sSMS, consulte [o Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+* A aplicação Wingtip Tickets SaaS Database Per Tenant é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a aplicação Wingtip Tickets SaaS Database per Tenant](./saas-dbpertenant-get-started-deploy.md)
+* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
+* O SQL Server Management Studio (SSMS) está instalado. Para descarregar e instalar sSMS, consulte [o Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ## <a name="cross-tenant-reporting-pattern"></a>Padrão de reporte de inquilinos cruzados
@@ -47,9 +47,9 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 Uma oportunidade com aplicações SaaS é usar a grande quantidade de dados de inquilinos armazenados na nuvem para obter informações sobre a operação e uso da sua aplicação. Estes insights podem orientar o desenvolvimento de funcionalidades, melhorias de usabilidade e outros investimentos nas suas apps e serviços.
 
-Aceder a estes dados numa única base de dados multi-inquilinos é fácil, mas não será tão fácil se houver uma distribuição à escala através de potencialmente milhares de bases de dados. Uma abordagem é usar [a Consulta Elástica,](elastic-query-overview.md)que permite consultar um conjunto distribuído de bases de dados com esquema comum. Estas bases de dados podem ser distribuídas por diferentes grupos de recursos e subscrições, mas precisam de partilhar um login comum. A Consulta Elástica utiliza uma única base de dados de *cabeça* em que são definidas tabelas externas que espelham tabelas ou vistas nas bases de dados distribuídas (inquilinos). As consultas submetidas para esta base de dados “head” são compiladas para produzir um plano de consultas distribuídas, com partes das consultas enviadas para as bases de dados inquilinas, conforme necessário. A Consulta Elástica utiliza o mapa de fragmentos na base de dados do catálogo para determinar a localização de todas as bases de dados dos inquilinos. A configuração e consulta da base de dados da cabeça são simples usando a padrão [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/language-reference)e suportam consultas a partir de ferramentas como Power BI e Excel.
+Aceder a estes dados numa única base de dados multi-inquilinos é fácil, mas não será tão fácil se houver uma distribuição à escala através de potencialmente milhares de bases de dados. Uma abordagem é usar [a Consulta Elástica,](elastic-query-overview.md)que permite consultar um conjunto distribuído de bases de dados com esquema comum. Estas bases de dados podem ser distribuídas por diferentes grupos de recursos e subscrições, mas precisam de partilhar um login comum. A Consulta Elástica utiliza uma única base de dados de *cabeça* em que são definidas tabelas externas que espelham tabelas ou vistas nas bases de dados distribuídas (inquilinos). As consultas submetidas para esta base de dados “head” são compiladas para produzir um plano de consultas distribuídas, com partes das consultas enviadas para as bases de dados inquilinas, conforme necessário. A Consulta Elástica utiliza o mapa de fragmentos na base de dados do catálogo para determinar a localização de todas as bases de dados dos inquilinos. A configuração e consulta da base de dados da cabeça são simples usando a padrão [Transact-SQL,](/sql/t-sql/language-reference)e suportam consultas a partir de ferramentas como Power BI e Excel.
 
-Ao distribuir consultas através das bases de dados dos inquilinos, a Elastic Query fornece informações imediatas sobre os dados de produção ao vivo. À medida que a Consulta Elástica retira dados de potencialmente muitas bases de dados, a latência de consulta pode ser superior às consultas equivalentes submetidas a uma única base de dados multi-inquilino. Consultas de design para minimizar os dados que são devolvidos à base de dados principal. A consulta elástica é frequentemente mais adequada para consultar pequenas quantidades de dados em tempo real, em oposição à construção de consultas ou relatórios de análise frequentemente utilizados ou complexos. Se as consultas não funcionarem bem, olhe para o plano de [execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver que parte da consulta é empurrada para a base de dados remota e quantos dados estão sendo devolvidos. As consultas que requerem agregação complexa ou processamento analítico podem ser melhores manuseadas através da extração de dados dos inquilinos numa base de dados ou armazém de dados otimizado para consultas analíticas. Este padrão é explicado no tutorial de análise do [inquilino.](saas-tenancy-tenant-analytics.md) 
+Ao distribuir consultas através das bases de dados dos inquilinos, a Elastic Query fornece informações imediatas sobre os dados de produção ao vivo. À medida que a Consulta Elástica retira dados de potencialmente muitas bases de dados, a latência de consulta pode ser superior às consultas equivalentes submetidas a uma única base de dados multi-inquilino. Consultas de design para minimizar os dados que são devolvidos à base de dados principal. A consulta elástica é frequentemente mais adequada para consultar pequenas quantidades de dados em tempo real, em oposição à construção de consultas ou relatórios de análise frequentemente utilizados ou complexos. Se as consultas não funcionarem bem, olhe para o plano de [execução](/sql/relational-databases/performance/display-an-actual-execution-plan) para ver que parte da consulta é empurrada para a base de dados remota e quantos dados estão sendo devolvidos. As consultas que requerem agregação complexa ou processamento analítico podem ser melhores manuseadas através da extração de dados dos inquilinos numa base de dados ou armazém de dados otimizado para consultas analíticas. Este padrão é explicado no tutorial de análise do [inquilino.](saas-tenancy-tenant-analytics.md) 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenha os scripts de aplicação de ingressos saas de ponta de asa por inquilino
 
@@ -70,7 +70,7 @@ Na aplicação Wingtip Tickets SaaS Database Per Tenant, cada inquilino recebe u
 Para simular este padrão, um conjunto de pontos de vista 'globais' são adicionados à base de dados dos inquilinos que projetam uma identificação de inquilino em cada uma das tabelas que são consultadas globalmente. Por exemplo, a vista *VenueEvents* adiciona um *VenueId* computorizado às colunas projetadas a partir da tabela *Eventos.* Da mesma forma, as *vistas VenueTicketPurchases* e *VenueTickets* adicionam uma coluna *VenueId* computorizada projetada a partir das respetivas tabelas. Estas vistas são usadas pela Consulta Elástica para paralelizar consultas e empurrá-las para a base de dados de inquilinos remotos apropriado quando uma coluna *VenueId* está presente. Isto reduz drasticamente a quantidade de dados que são devolvidos e resulta num aumento substancial do desempenho para muitas consultas. Estas opiniões globais foram pré-criadas em todas as bases de dados de inquilinos.
 
 1. Abra o SSMS e [ligue-se ao servidor user1- USER dos &lt; &gt; inquilinos.](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms)
-1. Expandir **bases de dados,** clique à direita _contosoconcerthall,_ e selecione **Nova Consulta**.
+1. Expandir **bases de dados,** clique à direita _contosoconcerthall,_ e selecione **Nova Consulta** .
 1. Executar as seguintes consultas para explorar a diferença entre as mesas de inquilino único e as vistas globais:
 
    ```T-SQL
@@ -96,17 +96,17 @@ Para examinar a definição da vista *local:*
    ![A screenshot mostra o conteúdo do nó Views, incluindo quatro tipos de Venue d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Dbo de clique à **direita. Locais.**
-3. Selecione **a visualização do script como**CREATE para  >  **a**nova janela do editor de  >  **consultas**
+3. Selecione **a visualização do script como** CREATE para  >  **a** nova janela do editor de  >  **consultas**
 
-Script qualquer uma das outras vistas *do Local* para ver como eles adicionam o *VenueId*.
+Script qualquer uma das outras vistas *do Local* para ver como eles adicionam o *VenueId* .
 
 ## <a name="deploy-the-database-used-for-distributed-queries"></a>Implementar a base de dados utilizada para consultas distribuídas
 
 Este exercício implementa a base de dados _de adhocreporting._ Esta é a base de dados da cabeça que contém o esquema usado para consulta em todas as bases de dados de inquilinos. A base de dados é implantada no servidor de catálogo existente, que é o servidor utilizado para todas as bases de dados relacionadas com a gestão na aplicação da amostra.
 
-1. em *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ Analíticos Operacionais \\ Adhoc Reportando \\ *Demo-AdhocReporting.ps1*. 
+1. em *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ Analíticos Operacionais \\ Adhoc Reportando \\ *Demo-AdhocReporting.ps1* . 
 
-1. Definir **$DemoScenario = 2**, _Implementar base de dados de relatórios ad hoc_.
+1. Definir **$DemoScenario = 2** , _Implementar base de dados de relatórios ad hoc_ .
 
 1. Prima **F5** para executar o script e criar a base *de dados de adhocreporting.*
 
@@ -116,7 +116,7 @@ Na secção seguinte, adicione esquema à base de dados para que possa ser usado
 
 Este exercício adiciona esquema (fonte de dados externos e definições de tabela externa) à base de dados _de adhocreporting_ para permitir a consulta em todas as bases de dados dos inquilinos.
 
-1. Abra o SQL Server Management Studio e ligue-se à base de dados Adhoc Reporting que criou no passo anterior. O nome da base de dados é *adhocreporting*.
+1. Abra o SQL Server Management Studio e ligue-se à base de dados Adhoc Reporting que criou no passo anterior. O nome da base de dados é *adhocreporting* .
 2. Abra ...\Módulos de aprendizagem\Análise Operacional\Adhoc Reporting\ _Initialize-AdhocReportingDB.sql_ in SSMS.
 3. Reveja o script SQL e note:
 
@@ -128,7 +128,7 @@ Este exercício adiciona esquema (fonte de dados externos e definições de tabe
 
     ![criar fonte de dados externos](./media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   As tabelas externas que referenciam as vistas globais descritas na secção anterior, e definidas com **DISTRIBUIÇÃO = SHARDED(VenueId)**. Como cada *VenueId mapeia* para uma base de dados individual, isto melhora o desempenho para muitos cenários, como mostrado na secção seguinte.
+   As tabelas externas que referenciam as vistas globais descritas na secção anterior, e definidas com **DISTRIBUIÇÃO = SHARDED(VenueId)** . Como cada *VenueId mapeia* para uma base de dados individual, isto melhora o desempenho para muitos cenários, como mostrado na secção seguinte.
 
     ![criar tabelas externas](./media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -161,7 +161,7 @@ Importante notar, é que a definição **DE DISTRIBUIÇÃO = SHARDED (VenueId)**
 
    ![SELECIONE * DO DBO. Locais](./media/saas-tenancy-cross-tenant-reporting/query1-plan.png)
 
-5. Selecione a próxima consulta e prima **F5**.
+5. Selecione a próxima consulta e prima **F5** .
 
    Esta consulta junta dados das bases de dados dos inquilinos e da tabela *Local VenueTypes* (local, uma vez que é uma tabela na base de dados *de adhocreporting).*
 
@@ -169,7 +169,7 @@ Importante notar, é que a definição **DE DISTRIBUIÇÃO = SHARDED (VenueId)**
 
    ![Junte-se a dados remotos e locais](./media/saas-tenancy-cross-tenant-reporting/query2-plan.png)
 
-6. Agora selecione o *Em que dia foram mais vendidos?* Consulta, e pressione **F5**.
+6. Agora selecione o *Em que dia foram mais vendidos?* Consulta, e pressione **F5** .
 
    Esta consulta faz uma união e agregação um pouco mais complexas. A maior parte do processamento ocorre remotamente.  Apenas linhas individuais, contendo a contagem diária de bilhetes de cada local por dia, são devolvidas à base de dados principal.
 
@@ -190,5 +190,5 @@ Agora experimente o [tutorial do Tenant Analytics](saas-tenancy-tenant-analytics
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que se baseiam na base de dados saass database por inquilino](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que se baseiam na base de dados saass database por inquilino](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Consulta elástica](elastic-query-overview.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: be421cc0bb00018b32ee63f2b486c11300627a01
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ef06bb9c5b5010f3fbbe413f98d77cc8519de00
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488559"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791805"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Rever o estado do trabalho de importação/exportação do Azure com ficheiros de registo de cópias
 Quando o serviço Microsoft Azure Import/Export processa as unidades associadas a uma tarefa de importação ou exportação, escreve ficheiros de registo de cópia na conta de armazenamento que usou para importar ou exportar bolhas. O ficheiro de registo contém um estado detalhado sobre cada ficheiro que foi importado ou exportado. O serviço devolve o URL de cada ficheiro de registo de cópia quando consulta o estado de um trabalho concluído. Para mais informações, consulte [Get Job](/rest/api/storageimportexport/Jobs/Get).  
@@ -26,11 +26,11 @@ Seguem-se urls exemplo para ficheiros de registo de cópias para uma tarefa de i
 
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
 
- Consulte o formato de ficheiro de registo de [serviço de importação/exportação](../storage-import-export-file-format-log.md) para o formato de registos de cópias e a lista completa de códigos de estado.  
+ Consulte o formato de ficheiro de registo de [serviço de importação/exportação](/previous-versions/azure/storage/common/storage-import-export-file-format-log) para o formato de registos de cópias e a lista completa de códigos de estado.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
  * [Criação da ferramenta de importação/exportação Azure](storage-import-export-tool-setup-v1.md)   
- * [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- * [Reparação de uma tarefa de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
- * [Reparação de uma tarefa de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)
+ * [Preparar as unidades de disco rígido para uma tarefa de importação](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+ * [Reparação de uma tarefa de importação](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [Reparação de uma tarefa de exportação](./storage-import-export-tool-repairing-an-export-job-v1.md)

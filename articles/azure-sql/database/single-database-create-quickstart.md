@@ -4,19 +4,19 @@ description: Crie uma única base de dados na Base de Dados Azure SQL utilizando
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1
+ms.custom: contperfq1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 6a0d81cc9954f934395bc275785bda34c55c35bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91263407"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791516"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Quickstart: Criar uma base de dados única Azure SQL Database
 
@@ -37,24 +37,24 @@ Este quickstart cria uma única base de dados no [nível de computação sem ser
 Para criar uma única base de dados no portal Azure este quickstart começa na página Azure SQL.
 
 1. Navegue na página [de opção De implementação Select SQL.](https://portal.azure.com/#create/Microsoft.AzureSQL)
-1. Nas **bases de dados SQL,** deixe o **tipo de recurso** definido para base de **dados única,** e selecione **Criar**.
+1. Nas **bases de dados SQL,** deixe o **tipo de recurso** definido para base de **dados única,** e selecione **Criar** .
 
    ![Adicionar ao Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
 
-1. No **separador Basics** do formulário Criar base de **dados SQL,** nos **detalhes do Projeto,** selecione a **subscrição**Azure desejada.
-1. Para **o grupo de recursos**, selecione Criar **novo,** insira *no myResourceGroup*e selecione **OK**.
-1. Para **o nome da base de dados** insira *mySampleDatabase*.
-1. Para **o Servidor**, selecione Criar **novo**e preencha o novo formulário **do servidor** com os seguintes valores:
-   - **Nome do servidor**: *Insira o mysqlserver*e adicione alguns caracteres para singularidade. Não podemos fornecer um nome de servidor exato para usar porque os nomes do servidor devem ser globalmente únicos para todos os servidores em Azure, e não apenas únicos dentro de uma subscrição. Então insira algo como mysqlserver12345, e o portal permite-lhe saber se está disponível ou não.
-   - **Início de administração do servidor**: Insira *o azureuser*.
-   - **Senha**: Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
-   - **Localização**: Selecione uma localização da lista de dropdown.
+1. No **separador Basics** do formulário Criar base de **dados SQL,** nos **detalhes do Projeto,** selecione a **subscrição** Azure desejada.
+1. Para **o grupo de recursos** , selecione Criar **novo,** insira *no myResourceGroup* e selecione **OK** .
+1. Para **o nome da base de dados** insira *mySampleDatabase* .
+1. Para **o Servidor** , selecione Criar **novo** e preencha o novo formulário **do servidor** com os seguintes valores:
+   - **Nome do servidor** : *Insira o mysqlserver* e adicione alguns caracteres para singularidade. Não podemos fornecer um nome de servidor exato para usar porque os nomes do servidor devem ser globalmente únicos para todos os servidores em Azure, e não apenas únicos dentro de uma subscrição. Então insira algo como mysqlserver12345, e o portal permite-lhe saber se está disponível ou não.
+   - **Início de administração do servidor** : Insira *o azureuser* .
+   - **Senha** : Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
+   - **Localização** : Selecione uma localização da lista de dropdown.
 
-   Selecione **OK**.
+   Selecione **OK** .
 
-1. Sair **Quero utilizar a piscina elástica SQL** definida para o **nº**.
-1. Em **Computação + armazenamento**, selecione a opção para **configurar o servidor**.
-1. Este arranque rápido utiliza uma base de dados sem servidor, por isso selecione **Serverless**e, em seguida, **selecione Apply**. 
+1. Sair **Quero utilizar a piscina elástica SQL** definida para o **nº** .
+1. Em **Computação + armazenamento** , selecione a opção para **configurar o servidor** .
+1. Este arranque rápido utiliza uma base de dados sem servidor, por isso selecione **Serverless** e, em seguida, **selecione Apply** . 
 
       ![configure base de dados sem servidor](./media/single-database-create-quickstart/configure-database.png)
 
@@ -62,19 +62,19 @@ Para criar uma única base de dados no portal Azure este quickstart começa na p
 
    ![Nova base de dados SQL - Separador básico](./media/single-database-create-quickstart/new-sql-database-basics.png)
 
-1. No **separador Rede,** para **o método conectividade,** selecione **Public endpoint**.
-1. Para **as regras de Firewall**, desa um endereço IP do cliente **atual** para **Sim**. Deixar **permitir que os serviços e recursos da Azure acedam a este conjunto de servidores** para o **Nº**.
+1. No **separador Rede,** para **o método conectividade,** selecione **Public endpoint** .
+1. Para **as regras de Firewall** , desa um endereço IP do cliente **atual** para **Sim** . Deixar **permitir que os serviços e recursos da Azure acedam a este conjunto de servidores** para o **Nº** .
 1. Selecione **Seguinte: Definições adicionais** na parte inferior da página.
 
    ![Separador de rede](./media/single-database-create-quickstart/networking.png)
   
 
-1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes**, selecione **Sample**. Isto cria uma base de dados de amostras AdventureWorksLT para que haja algumas tabelas e dados para consultar e experimentar, em oposição a uma base de dados vazia em branco.
+1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes** , selecione **Sample** . Isto cria uma base de dados de amostras AdventureWorksLT para que haja algumas tabelas e dados para consultar e experimentar, em oposição a uma base de dados vazia em branco.
 1. Selecione **Review + criar** na parte inferior da página:
 
    ![Separador de configurações adicionais](./media/single-database-create-quickstart/additional-settings.png)
 
-1. Na página **'Rever + criar',** depois de rever, selecione **Criar**.
+1. Na página **'Rever + criar',** depois de rever, selecione **Criar** .
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -171,7 +171,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior dir
 
 ## <a name="set-parameter-values"></a>Definir valores de parâmetros
 
-Os seguintes valores são utilizados em comandos subsequentes para criar a base de dados e os recursos necessários. Os nomes dos servidores precisam de ser globalmente únicos em todo o Azure, pelo que o cmdlet Get-Random é usado para criar o nome do servidor. Substitua os valores 0.0.0.0 no intervalo de endereços IP para corresponder ao ambiente específico.
+Os seguintes valores são utilizados em comandos subsequentes para criar a base de dados e os recursos necessários. Os nomes dos servidores precisam de ser globalmente únicos em todo o Azure, pelo que o Get-Random cmdlet é usado para criar o nome do servidor. Substitua os valores 0.0.0.0 no intervalo de endereços IP para corresponder ao ambiente específico.
 
 ```azurepowershell-interactive
    # Set variables for your server and database
@@ -256,9 +256,9 @@ Crie uma única base de dados com o cmdlet [New-AzSqlDatabase.](/powershell/modu
 
 Uma vez criada a base de dados, pode utilizar o **editor de consulta (pré-visualização)** no portal Azure para ligar à base de dados e consultar dados.
 
-1. No portal, procure e selecione **bases de dados SQL**e, em seguida, selecione a sua base de dados na lista.
+1. No portal, procure e selecione **bases de dados SQL** e, em seguida, selecione a sua base de dados na lista.
 1. Na página da sua base de dados, selecione **O editor de consulta (pré-visualização)** no menu esquerdo.
-1. Introduza as informações de login do seu servidor e selecione **OK**.
+1. Introduza as informações de login do seu servidor e selecione **OK** .
 
    ![Inscreva-se no editor de consulta](./media/single-database-create-quickstart/query-editor-login.png)
 
@@ -271,13 +271,13 @@ Uma vez criada a base de dados, pode utilizar o **editor de consulta (pré-visua
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Selecione **Executar**e, em seguida, reveja os resultados da consulta no painel **de resultados.**
+1. Selecione **Executar** e analise os resultados da consulta no painel **Resultados** .
 
    ![Resultados do editor de consulta](./media/single-database-create-quickstart/query-editor-results.png)
 
 1. Feche a página do **editor de consulta** e selecione **OK** quando solicitado para descartar as suas edições não salvas.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Mantenha o grupo de recursos, servidor e base de dados única para passar aos próximos passos e aprenda a ligar e consultar a sua base de dados com diferentes métodos.
 
@@ -287,9 +287,9 @@ Quando terminar de utilizar estes recursos, pode eliminar o grupo de recursos qu
 
 Para eliminar **o myResourceGroup** e todos os seus recursos utilizando o portal Azure:
 
-1. No portal, procure e selecione **grupos de Recursos**e, em seguida, selecione **myResourceGroup** da lista.
-1. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos**.
-1. Em **'Digite' o nome do grupo de recursos**, insira o *myResourceGroup*e, em seguida, selecione **Delete**.
+1. No portal, procure e selecione **grupos de Recursos** e, em seguida, selecione **myResourceGroup** da lista.
+1. Na página do grupo de recursos, selecione **Eliminar o grupo de recursos** .
+1. Em **'Digite' o nome do grupo de recursos** , insira o *myResourceGroup* e, em seguida, selecione **Delete** .
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -320,4 +320,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Quer otimizar e economizar nos gastos na nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar custos com a Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar custos com a Gestão de Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

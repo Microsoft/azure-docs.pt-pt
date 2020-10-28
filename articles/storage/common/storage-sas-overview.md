@@ -10,12 +10,12 @@ ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 218946fcfbf2268ff3b06eab839d69e6b370e891
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c6ac3e6ab6a27e0aca1aa2bebecb86cc1eb3f87
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367912"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792978"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento Azure utilizando assinaturas de acesso partilhado (SAS)
 
@@ -127,7 +127,7 @@ As seguintes recomendações para a utilização de assinaturas de acesso partil
 - **Compreenda que a sua conta será cobrada para qualquer utilização, incluindo através de um SAS.** Se fornecer acesso de escrita a uma bolha, um utilizador pode optar por carregar uma bolha de 200 GB. Se também lhes deu acesso de leitura, podem optar por descarregá-lo 10 vezes, incorrendo 2 TB em custos de saída para si. Mais uma vez, forneça permissões limitadas para ajudar a mitigar as potenciais ações de utilizadores maliciosos. Utilize SAS de curta duração para reduzir esta ameaça (mas esteja atento ao desvio do relógio no tempo de fim).
 - **Validar dados escritos através de um SAS.** Quando uma aplicação de cliente escreve dados na sua conta de armazenamento, tenha em mente que pode haver problemas com esses dados. Se a sua aplicação exigir que os dados sejam validados ou autorizados antes de estar pronto a ser utilizado, deverá efetuar esta validação após a escrita dos dados e antes de ser utilizada pela sua aplicação. Esta prática também protege contra dados corruptos ou maliciosos que sejam escritos na sua conta, seja por um utilizador que tenha adquirido corretamente o SAS, quer por um utilizador que explora um SAS vazado.
 - **Saiba quando não deve usar um SAS.** Por vezes, os riscos associados a uma determinada operação contra a sua conta de armazenamento superam os benefícios da utilização de um SAS. Para tais operações, crie um serviço de nível médio que escreva para a sua conta de armazenamento após a validação, autenticação e auditoria das regras de negócio. Além disso, às vezes é mais simples gerir o acesso de outras formas. Por exemplo, se quiser tornar publicamente legível todas as bolhas num recipiente, pode tornar o recipiente público, em vez de fornecer um SAS a cada cliente para acesso.
-- **Utilize registos de armazenamento Azure Monitor e Azure para monitorizar a sua aplicação.** Pode utilizar o Azure Monitor e o armazenamento de analítica para observar qualquer pico de falhas de autorização devido a uma falha no seu serviço de prestadores SAS ou à remoção inadvertida de uma política de acesso armazenada. Para obter mais informações, consulte as [métricas de Armazenamento Azure em Azure Monitor](monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e [Azure Storage Analytics .](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- **Utilize registos de armazenamento Azure Monitor e Azure para monitorizar a sua aplicação.** Pode utilizar o Azure Monitor e o armazenamento de analítica para observar qualquer pico de falhas de autorização devido a uma falha no seu serviço de prestadores SAS ou à remoção inadvertida de uma política de acesso armazenada. Para obter mais informações, consulte as [métricas de Armazenamento Azure em Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) e [Azure Storage Analytics .](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ## <a name="get-started-with-sas"></a>Começar com SAS
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: beb683eef2691aad46c84da1010184182d452257
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262c54c3eb47c8539dce89c01f32c7feb1884b7c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619683"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792740"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Executar consultas ad hoc analíticas em várias bases de dados (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,8 +35,8 @@ Neste tutorial, ficará a saber:
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 * A aplicação Wingtip Tickets SaaS Multi-tenant Database está implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Base de Dados De Multi-inquilinos Wingtip SaaS](saas-multitenantdb-get-started-deploy.md)
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* O SQL Server Management Studio (SSMS) está instalado. Para descarregar e instalar sSMS, consulte [o Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
+* O SQL Server Management Studio (SSMS) está instalado. Para descarregar e instalar sSMS, consulte [o Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ## <a name="ad-hoc-reporting-pattern"></a>Padrão de reporte ad hoc
@@ -45,9 +45,9 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 As aplicações saaS podem analisar a vasta quantidade de dados do inquilino que são armazenados centralmente na nuvem. As análises revelam insights sobre o funcionamento e utilização da sua aplicação. Estes insights podem orientar o desenvolvimento de funcionalidades, melhorias de usabilidade e outros investimentos nas suas apps e serviços.
 
-Aceder a estes dados numa única base de dados multi-inquilinos é fácil, mas não será tão fácil se houver uma distribuição à escala através de potencialmente milhares de bases de dados. Uma abordagem é usar [a Consulta Elástica,](elastic-query-overview.md)que permite consultar um conjunto distribuído de bases de dados com esquema comum. Estas bases de dados podem ser distribuídas por diferentes grupos de recursos e subscrições. No entanto, um login comum deve ter acesso a extrair dados de todas as bases de dados. A Consulta Elástica utiliza uma única base de dados de *cabeça* em que são definidas tabelas externas que espelham tabelas ou vistas nas bases de dados distribuídas (inquilinos). As consultas submetidas para esta base de dados “head” são compiladas para produzir um plano de consultas distribuídas, com partes das consultas enviadas para as bases de dados inquilinas, conforme necessário. A Consulta Elástica utiliza o mapa de fragmentos na base de dados do catálogo para determinar a localização de todas as bases de dados dos inquilinos. A configuração e consulta são simples usando [transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)padrão, e suportam consulta ad hoc de ferramentas como Power BI e Excel.
+Aceder a estes dados numa única base de dados multi-inquilinos é fácil, mas não será tão fácil se houver uma distribuição à escala através de potencialmente milhares de bases de dados. Uma abordagem é usar [a Consulta Elástica,](elastic-query-overview.md)que permite consultar um conjunto distribuído de bases de dados com esquema comum. Estas bases de dados podem ser distribuídas por diferentes grupos de recursos e subscrições. No entanto, um login comum deve ter acesso a extrair dados de todas as bases de dados. A Consulta Elástica utiliza uma única base de dados de *cabeça* em que são definidas tabelas externas que espelham tabelas ou vistas nas bases de dados distribuídas (inquilinos). As consultas submetidas para esta base de dados “head” são compiladas para produzir um plano de consultas distribuídas, com partes das consultas enviadas para as bases de dados inquilinas, conforme necessário. A Consulta Elástica utiliza o mapa de fragmentos na base de dados do catálogo para determinar a localização de todas as bases de dados dos inquilinos. A configuração e consulta são simples usando [transact-SQL](/sql/t-sql/language-reference)padrão, e suportam consulta ad hoc de ferramentas como Power BI e Excel.
 
-Ao distribuir consultas através das bases de dados dos inquilinos, a Elastic Query fornece informações imediatas sobre os dados de produção ao vivo. No entanto, à medida que a Consulta Elástica retira dados de potencialmente muitas bases de dados, a latência da consulta pode por vezes ser maior do que para consultas equivalentes submetidas a uma única base de dados multi-inquilino. Certifique-se de desenhar consultas para minimizar os dados que são devolvidos. A consulta elástica é frequentemente mais adequada para consultar pequenas quantidades de dados em tempo real, em oposição à construção de consultas ou relatórios de análise frequentemente utilizados ou complexos. Se as consultas não funcionarem bem, consulte o plano de [execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver que parte da consulta foi empurrada para a base de dados remota. E avaliar a quantidade de dados que estão a ser devolvidos. Consultas que requerem processamento analítico complexo podem ser melhor servidas guardando os dados do inquilino extraído em uma base de dados que é otimizada para consultas de análise. A SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) poderiam acolher essa base de dados de análise.
+Ao distribuir consultas através das bases de dados dos inquilinos, a Elastic Query fornece informações imediatas sobre os dados de produção ao vivo. No entanto, à medida que a Consulta Elástica retira dados de potencialmente muitas bases de dados, a latência da consulta pode por vezes ser maior do que para consultas equivalentes submetidas a uma única base de dados multi-inquilino. Certifique-se de desenhar consultas para minimizar os dados que são devolvidos. A consulta elástica é frequentemente mais adequada para consultar pequenas quantidades de dados em tempo real, em oposição à construção de consultas ou relatórios de análise frequentemente utilizados ou complexos. Se as consultas não funcionarem bem, consulte o plano de [execução](/sql/relational-databases/performance/display-an-actual-execution-plan) para ver que parte da consulta foi empurrada para a base de dados remota. E avaliar a quantidade de dados que estão a ser devolvidos. Consultas que requerem processamento analítico complexo podem ser melhor servidas guardando os dados do inquilino extraído em uma base de dados que é otimizada para consultas de análise. A SQL Database e a Azure Synapse Analytics (anteriormente SQL Data Warehouse) poderiam acolher essa base de dados de análise.
 
 Este padrão de análise é explicado no tutorial de análise do [inquilino.](saas-multitenantdb-tenant-analytics.md)
 
@@ -74,7 +74,7 @@ Para atingir este padrão, todas as tabelas de inquilinos incluem uma coluna *Ve
 Este exercício implementa a base de dados *de adhocreporting.* Esta é a base de dados da cabeça que contém o esquema usado para consulta em todas as bases de dados de inquilinos. A base de dados é implantada no servidor de catálogo existente, que é o servidor utilizado para todas as bases de dados relacionadas com a gestão na aplicação da amostra.
 
 1. Abrir... \\ Módulos \\ de Aprendizagem Analytics \\ Adhoc Reportando \\ *Demo-AdhocReporting.ps1* no *PowerShell ISE* e definir os seguintes valores:
-   * **$DemoScenario** = 2, **implementar base de dados de análise ad hoc**.
+   * **$DemoScenario** = 2, **implementar base de dados de análise ad hoc** .
 
 2. Prima **F5** para executar o script e criar a base *de dados de adhocreporting.*
 
@@ -84,7 +84,7 @@ Na secção seguinte, adicione esquema à base de dados para que possa ser usado
 
 Este exercício adiciona esquema (a fonte de dados externo e definições de tabela externa) à base de dados de relatórios ad hoc que permite consulta em todas as bases de dados dos inquilinos.
 
-1. Abra o SQL Server Management Studio e ligue-se à base de dados de relatórios Adhoc que criou no passo anterior. O nome da base de dados é *adhocreporting*.
+1. Abra o SQL Server Management Studio e ligue-se à base de dados de relatórios Adhoc que criou no passo anterior. O nome da base de dados é *adhocreporting* .
 2. Abra ...\Módulos de aprendizagem\Análise Operacional\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* in SSMS.
 3. Reveja o script SQL e note o seguinte:
 
@@ -96,7 +96,7 @@ Este exercício adiciona esquema (a fonte de dados externo e definições de tab
 
     ![criar fonte de dados externos](./media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   As tabelas externas que referenciam as tabelas dos inquilinos são definidas com **DISTRIBUIÇÃO = SHARDED(VenueId)**. Isto encaminha uma consulta para um *determinado VenueId* para a base de dados apropriada e melhora o desempenho para muitos cenários, como mostrado na secção seguinte.
+   As tabelas externas que referenciam as tabelas dos inquilinos são definidas com **DISTRIBUIÇÃO = SHARDED(VenueId)** . Isto encaminha uma consulta para um *determinado VenueId* para a base de dados apropriada e melhora o desempenho para muitos cenários, como mostrado na secção seguinte.
 
     ![criar tabelas externas](./media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
@@ -116,7 +116,7 @@ Agora que a base de dados *de adhocreporting* está configurada, vá em frente e
 
 Ao inspecionar o plano de execução, paire sobre os ícones do plano para obter detalhes. 
 
-1. Em *SSMS,* aberto... \\ Módulos de Aprendizagem \\ Analíticos Operacionais \\ Adhoc \\ *Reportando Demo-AdhocReportingQueries.sql*.
+1. Em *SSMS,* aberto... \\ Módulos de Aprendizagem \\ Analíticos Operacionais \\ Adhoc \\ *Reportando Demo-AdhocReportingQueries.sql* .
 2. Certifique-se de que está ligado à base de dados **de denúncias.**
 3. Selecione o menu **de consulta** e clique **em Incluir Plano de Execução Real**
 4. Destaque para quais os **F5** *locais que estão registados atualmente?*
@@ -127,7 +127,7 @@ Ao inspecionar o plano de execução, paire sobre os ícones do plano para obter
 
    ![SELECIONE * DO DBO. Locais](./media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
-5. Selecione a próxima consulta e prima **F5**.
+5. Selecione a próxima consulta e prima **F5** .
 
    Esta consulta junta dados das bases de dados dos inquilinos e da tabela *Local VenueTypes* (local, uma vez que é uma tabela na base de dados *de adhocreporting).*
 
@@ -135,7 +135,7 @@ Ao inspecionar o plano de execução, paire sobre os ícones do plano para obter
 
    ![Junte-se a dados remotos e locais](./media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Agora selecione o *Em que dia foram mais vendidos?* Consulta, e pressione **F5**.
+6. Agora selecione o *Em que dia foram mais vendidos?* Consulta, e pressione **F5** .
 
    Esta consulta faz uma união e agregação um pouco mais complexas. O que é importante notar é que a maior parte do processamento é feito remotamente, e mais uma vez, trazemos apenas as linhas que precisamos, devolvendo apenas uma linha para a contagem agregada de bilhetes de cada local por dia.
 

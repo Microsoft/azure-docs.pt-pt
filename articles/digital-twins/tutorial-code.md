@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e44fe44285a6693583c1b16645ad0d023428c72b
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494675"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792434"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -45,7 +45,7 @@ Abra uma solicitação de comando ou outra janela de consola na sua máquina e c
 
 Navegue para o novo diretório.
 
-Uma vez no diretório do projeto, crie um projeto de aplicação de consola .NET vazio. Na janela de comando, executar o seguinte comando para criar um projeto C# mínimo para a consola:
+Uma vez no diretório do projeto, **crie um projeto de aplicação de consola .NET vazio.** Na janela de comando, pode executar o seguinte comando para criar um projeto C# mínimo para a consola:
 
 ```cmd/sh
 dotnet new console
@@ -53,16 +53,11 @@ dotnet new console
 
 Isto irá criar vários ficheiros dentro do seu diretório, incluindo um chamado *Program.cs* onde irá escrever a maior parte do seu código.
 
-Em seguida, adicione duas dependências necessárias para trabalhar com a Azure Digital Twins:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-A primeira dependência é a [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). A segunda dependência fornece ferramentas para ajudar na autenticação contra o Azure.
-
 Mantenha a janela de comando aberta, pois continuará a usá-la durante todo o tutorial.
+
+Em seguida, **adicione duas dependências ao seu projeto** que serão necessárias para trabalhar com a Azure Digital Twins. Pode utilizar os links abaixo para navegar para os pacotes no NuGet, onde pode encontrar os comandos da consola (incluindo para .NET CLI) para adicionar a versão mais recente de cada um ao seu projeto.
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [Azure Digital Twins SDK para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure.Identidade.**](https://www.nuget.org/packages/Azure.Identity) Esta biblioteca fornece ferramentas para ajudar na autenticação contra o Azure.
 
 ## <a name="get-started-with-project-code"></a>Começar com o código do projeto
 
@@ -108,7 +103,7 @@ A primeira coisa que a sua aplicação terá de fazer é autenticar contra o ser
 
 Para autenticar, precisa do *nome de anfitrião* da sua instância Azure Digital Twins.
 
-Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desabine o valor do `adtInstanceUrl` seu exemplo Azure Digital Twins *anfitriãoName*.
+Em *Program.cs,* cole o seguinte código abaixo do "Olá, Mundo!" linha de impressão no `Main` método. Desabine o valor do `adtInstanceUrl` seu exemplo Azure Digital Twins *anfitriãoName* .
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -126,12 +121,12 @@ dotnet run
 ```
 
 Isto irá restaurar as dependências na primeira execução, e depois executar o programa. 
-* Se não ocorrer qualquer erro, o programa imprimirá *o cliente de Serviço criado - pronto para ir*.
+* Se não ocorrer qualquer erro, o programa imprimirá *o cliente de Serviço criado - pronto para ir* .
 * Uma vez que ainda não existe qualquer erro de manipulação neste projeto, se alguma coisa correr mal, verás uma exceção lançada pelo código.
 
 ### <a name="upload-a-model"></a>Faça upload de um modelo
 
-A Azure Digital Twins não tem vocabulário de domínio intrínseco. Os tipos de elementos no seu ambiente que pode representar em Azure Digital Twins são definidos por si, utilizando **modelos**. [Os modelos](concepts-models.md) são semelhantes às aulas em linguagens de programação orientadas a objetos; fornecem modelos definidos pelo utilizador para [que gémeos digitais](concepts-twins-graph.md) sigam e instantaneamente mais tarde. Estão escritas numa linguagem semelhante a JSON chamada Linguagem de Definição de **Gémeos Digitais (DTDL).**
+A Azure Digital Twins não tem vocabulário de domínio intrínseco. Os tipos de elementos no seu ambiente que pode representar em Azure Digital Twins são definidos por si, utilizando **modelos** . [Os modelos](concepts-models.md) são semelhantes às aulas em linguagens de programação orientadas a objetos; fornecem modelos definidos pelo utilizador para [que gémeos digitais](concepts-twins-graph.md) sigam e instantaneamente mais tarde. Estão escritas numa linguagem semelhante a JSON chamada Linguagem de Definição de **Gémeos Digitais (DTDL).**
 
 O primeiro passo para criar uma solução Azure Digital Twins é definir pelo menos um modelo num ficheiro DTDL.
 
@@ -158,7 +153,7 @@ No diretório onde criou o seu projeto, crie um novo ficheiro *.json* chamado *S
 ```
 
 > [!TIP]
-> Se estiver a utilizar o Visual Studio para este tutorial, poderá querer selecionar o ficheiro JSON recém-criado e definir a propriedade *Copy to Output Directory* no inspetor de propriedade para *copiar se Newer* ou *Copy Always*. Isto permitirá ao Visual Studio encontrar o ficheiro JSON com o caminho predefinido quando executar o programa com **F5** durante o resto do tutorial.
+> Se estiver a utilizar o Visual Studio para este tutorial, poderá querer selecionar o ficheiro JSON recém-criado e definir a propriedade *Copy to Output Directory* no inspetor de propriedade para *copiar se Newer* ou *Copy Always* . Isto permitirá ao Visual Studio encontrar o ficheiro JSON com o caminho predefinido quando executar o programa com **F5** durante o resto do tutorial.
 
 > [!TIP] 
 > Existe uma [amostra de DTDL Validador](/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)

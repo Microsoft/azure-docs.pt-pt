@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448140"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792400"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Cofre chave à sua aplicação web utilizando serviços conectados ao estúdio visual
 
@@ -24,7 +24,7 @@ Para mais detalhes sobre as alterações que os Serviços Conectados fazem no se
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Uma assinatura Azure**. Se não tiver uma subscrição, inscreva-se para uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- **Uma assinatura Azure** . Se não tiver uma subscrição, inscreva-se para uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 versão 16.3** ou mais tarde [Descarregá-lo agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 
@@ -32,13 +32,13 @@ Para mais detalhes sobre as alterações que os Serviços Conectados fazem no se
 
 Antes de começar, certifique-se de que está inscrito no Estúdio Visual. Faça sedundo com a mesma conta que utiliza para a sua subscrição Azure. Em seguida, abra um projeto web 4.7.1 ou ASP.NET ASP.NET 4.7.1 ou posterior, ou ASP.NET Core 2.0, e faça os seguintes passos:
 
-1. No **Solution Explorer,** clique com o botão direito no projeto a que pretende adicionar o suporte do Cofre de Chaves e escolha **Add**  >  **Connected Service**  >  **Add**.
+1. No **Solution Explorer,** clique com o botão direito no projeto a que pretende adicionar o suporte do Cofre de Chaves e escolha **Add**  >  **Connected Service**  >  **Add** .
    É apresentada a página de Connected Service (Serviço Ligado) com os serviços que pode adicionar ao seu projeto.
-1. No menu dos serviços disponíveis, escolha **Azure Key Vault** e clique em **Next**.
+1. No menu dos serviços disponíveis, escolha **Azure Key Vault** e clique em **Next** .
 
    ![Escolha "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Selecione a subscrição que pretende utilizar e, em seguida, escolha um Cofre de Chaves existente e clique em **Terminar**. 
+1. Selecione a subscrição que pretende utilizar e, em seguida, escolha um Cofre de Chaves existente e clique em **Terminar** . 
 
    ![Selecione a sua subscrição](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
@@ -115,7 +115,7 @@ Pode configurar a configuração de modo a que o ficheiro web.config tenha um va
          <add key="<secretNameInYourKeyVault>" value="dummy"/>
         ```
 
-1. Editar o `About` método em *HomeController.cs*, para mostrar o valor para confirmação.
+1. Editar o `About` método em *HomeController.cs* , para mostrar o valor para confirmação.
 
    ```csharp
    public ActionResult About()
@@ -131,12 +131,12 @@ Se o seu Key Vault estiver a funcionar numa conta Microsoft diferente da que est
 
 1. Vá ao [portal Azure](https://portal.azure.com) e abra o cofre da chave.
 
-1. Escolha **as políticas de Acesso**, em **seguida, Adicione a Política de Acesso**e escolha a conta com a qual está iniciado como Principal.
+1. Escolha **as políticas de Acesso** , em **seguida, Adicione a Política de Acesso** e escolha a conta com a qual está iniciado como Principal.
 
-1. No Estúdio Visual, escolha **File**  >  **Definições de Conta de Ficheiros**.
+1. No Estúdio Visual, escolha **File**  >  **Definições de Conta de Ficheiros** .
 **Selecione Adicionar uma conta** na secção Todas as **contas.** Inscreva-se na conta que escolheu como Principal da sua política de acesso.
 
-1. Escolha **Tools**  >  **opções de ferramentas**e procure **a autenticação do serviço Azure.** Em seguida, selecione a conta que acabou de adicionar ao Visual Studio.
+1. Escolha **Tools**  >  **opções de ferramentas** e procure **a autenticação do serviço Azure.** Em seguida, selecione a conta que acabou de adicionar ao Visual Studio.
 
 Agora, quando desativa a sua aplicação, o Visual Studio conecta-se à conta onde o cofre da chave está localizado.
 
@@ -204,6 +204,6 @@ Afeta o ficheiro do projeto .NET referências e `packages.config` (referências 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se seguiu este tutorial, as suas permissões key Vault estão configuras para funcionar com a sua própria assinatura Azure, mas isso pode não ser desejável para um cenário de produção. Pode criar uma identidade gerida para gerir o acesso do Key Vault à sua aplicação. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-portal).
+Se seguiu este tutorial, as suas permissões key Vault estão configuras para funcionar com a sua própria assinatura Azure, mas isso pode não ser desejável para um cenário de produção. Pode criar uma identidade gerida para gerir o acesso do Key Vault à sua aplicação. Ver [como autenticar para o cofre](./authentication.md) de chaves e atribuir uma política de acesso ao cofre de [chaves](./assign-access-policy-portal.md).
 
 Saiba mais sobre o desenvolvimento do Key Vault lendo o [Guia do Desenvolvedor de Cofres de Chaves.](developers-guide.md)

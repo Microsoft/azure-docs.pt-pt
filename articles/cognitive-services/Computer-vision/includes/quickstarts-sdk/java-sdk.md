@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/13/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: d93356265b930b2943d74a58379c7eb74a96b366
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ac0d09ea1641688dc59df1bbdbe19712d0cebe4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548245"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886696"
 ---
 <a name="HOLTop"></a>
 
@@ -130,8 +130,8 @@ Num novo método, instantânea um objeto [ComputerVisionClient](https://docs.mic
 
 O seguinte código define um método, `AnalyzeLocalImage` que usa o objeto do cliente para analisar uma imagem local e imprimir os resultados. O método devolve uma descrição de texto, categorização, lista de tags, rostos detetados, bandeiras de conteúdo adulto, cores principais e tipo de imagem.
 
-> [!NOTE]
-> Também pode analisar uma imagem remota utilizando o seu URL. Consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver cenários que envolvam imagens remotas.
+> [!TIP]
+> Também pode analisar uma imagem remota utilizando o seu URL. Consulte os métodos [ComputerVision,](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable) tais como **AnalyzeImage** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para cenários que envolvam imagens remotas.
 
 ### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
@@ -210,8 +210,8 @@ O código que se segue imprime informações sobre o tipo de &mdash; imagem, que
 
 A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Esta secção define um método, `ReadFromFile` que toma um caminho de arquivo local e imprime o texto da imagem para a consola.
 
-> [!NOTE]
-> Também pode ler texto numa imagem remota utilizando o seu URL. Consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver cenários que envolvam imagens remotas.
+> [!TIP]
+> Também pode ler texto numa imagem remota referenciada por URL. Consulte os métodos [ComputerVision,](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable) tais como **ler** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para cenários que envolvam imagens remotas.
 
 ### <a name="set-up-test-image"></a>Configurar a imagem de teste
 

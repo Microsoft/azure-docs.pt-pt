@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427126"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791788"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ A versão redundante da zona da arquitetura de alta disponibilidade para o níve
 > Para obter informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o apoio dos Serviços por região.](../../availability-zones/az-region.md) A configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Esta funcionalidade não está disponível em SQL Managed Instance.
 
 > [!NOTE]
-> Bases de dados de Finalidade Geral com um tamanho de 80 vcore podem experimentar degradação de desempenho com configuração redundante de zona. Operações como cópias de backup, restauro, cópia de base de dados e criação de relações Geo-DR podem experimentar um desempenho mais lento para bases de dados individuais maiores do que 1 TB. 
+> Bases de dados de Finalidade Geral com um tamanho de 80 vcore podem experimentar degradação de desempenho com configuração redundante de zona. Além disso, operações como cópia de backup, restauro, cópia de base de dados e configuração de relações Geo-DR podem experimentar um desempenho mais lento para qualquer base de dados maior do que 1 TB. 
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Nível de serviço Premium e Business Critical disponível localmente
 
@@ -71,7 +71,7 @@ Os níveis de serviço Premium e Business Critical alavancam o modelo de disponi
 
 ![Aglomerado de nosdes de motor de base de dados](./media/high-availability-sla/business-critical-service-tier.png)
 
-Os ficheiros de base de dados subjacentes (.mdf/.ldf) são colocados no armazenamento SSD anexado para fornecer IO de latência muito baixa à sua carga de trabalho. A alta disponibilidade é implementada utilizando uma tecnologia semelhante ao SQL Server [Always On availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária que é acessível para a leitura-escrita do cliente, e até três réplicas secundárias (computação e armazenamento) contendo cópias de dados. O nó primário empurra constantemente as alterações nos nós secundários em ordem e assegura que os dados são sincronizados a pelo menos uma réplica secundária antes de efetizar cada transação. Este processo garante que se o nó primário se despenhar por qualquer motivo, há sempre um nó sincronizado totalmente sincronizado para falhar. A falha é iniciada pelo Azure Service Fabric. Uma vez que a réplica secundária se torne o novo nó primário, outra réplica secundária é criada para garantir que o cluster tem nóns suficientes (conjunto quórum). Uma vez concluída a falha, as ligações Azure SQL são automaticamente redirecionadas para o novo nó primário.
+Os ficheiros de base de dados subjacentes (.mdf/.ldf) são colocados no armazenamento SSD anexado para fornecer IO de latência muito baixa à sua carga de trabalho. A alta disponibilidade é implementada utilizando uma tecnologia semelhante ao SQL Server [Always On availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). O cluster inclui uma única réplica primária que é acessível para a leitura-escrita do cliente, e até três réplicas secundárias (computação e armazenamento) contendo cópias de dados. O nó primário empurra constantemente as alterações nos nós secundários em ordem e assegura que os dados são sincronizados a pelo menos uma réplica secundária antes de efetizar cada transação. Este processo garante que se o nó primário se despenhar por qualquer motivo, há sempre um nó sincronizado totalmente sincronizado para falhar. A falha é iniciada pelo Azure Service Fabric. Uma vez que a réplica secundária se torne o novo nó primário, outra réplica secundária é criada para garantir que o cluster tem nóns suficientes (conjunto quórum). Uma vez concluída a falha, as ligações Azure SQL são automaticamente redirecionadas para o novo nó primário.
 
 Como benefício extra, o modelo de disponibilidade premium inclui a capacidade de redirecionar as ligações Azure SQL apenas de leitura para uma das réplicas secundárias. Esta funcionalidade [chama-se "Escala de Leitura".](read-scale-out.md) Fornece uma capacidade de computação adicional 100% adicional, sem custos adicionais, para operações de leitura descarregadas, como cargas de trabalho analíticas, a partir da réplica primária.
 
@@ -82,7 +82,7 @@ Por padrão, o cluster de nós para o modelo de disponibilidade premium é criad
 Como as bases de dados redundantes da zona têm réplicas em diferentes datacenters com alguma distância entre eles, o aumento da latência da rede pode aumentar o tempo de compromisso e, assim, impactar o desempenho de algumas cargas de trabalho OLTP. Pode sempre voltar à configuração de uma única zona desativando a definição de redundância de zona. Este processo é uma operação online semelhante à atualização regular do nível de serviço. No final do processo, a base de dados ou piscina é migrada de um anel redundante de uma zona para um anel de uma única zona ou vice-versa.
 
 > [!IMPORTANT]
-> As bases de dados redundantes da zona e as piscinas elásticas são atualmente suportadas apenas nos níveis de serviço Premium e Business Critical em regiões selecionadas. Ao utilizar o nível Business Critical, a configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Para obter informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o apoio dos Serviços por região.](../../availability-zones/az-region.md)
+> Ao utilizar o nível Business Critical, a configuração redundante da zona só está disponível quando o hardware de computação Gen5 é selecionado. Para obter informações atualizadas sobre as regiões que suportam bases de dados redundantes da zona, consulte [o apoio dos Serviços por região.](../../availability-zones/az-region.md)
 
 > [!NOTE]
 > Esta funcionalidade não está disponível em SQL Managed Instance.
@@ -122,9 +122,9 @@ Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
 |Tipo de implantação|PowerShell|API REST| CLI do Azure|
 |:---|:---|:---|:---|
-|Base de Dados|[Invocar-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Falha na base de dados](/rest/api/sql/databases(failover)/failover/)|[az descanso](https://docs.microsoft.com/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
-|Conjunto elástico|[Invocar-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Falha na piscina elástica](/rest/api/sql/elasticpools(failover)/failover/)|[az descanso](https://docs.microsoft.com/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
-|Instância Gerida|[Invocar-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Casos Geridos - Failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Base de Dados|[Invocar-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Falha na base de dados](/rest/api/sql/databases(failover)/failover/)|[az descanso](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
+|Conjunto elástico|[Invocar-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Falha na piscina elástica](/rest/api/sql/elasticpools(failover)/failover/)|[az descanso](/cli/azure/reference-index#az-rest) pode ser usado para invocar uma chamada de API REST de Azure CLI|
+|Instância Gerida|[Invocar-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Casos Geridos - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > O comando Failover não está disponível para réplicas secundárias legíveis de bases de dados de Hiperescala.

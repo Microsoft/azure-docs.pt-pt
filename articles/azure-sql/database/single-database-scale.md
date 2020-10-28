@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/16/2020
-ms.openlocfilehash: 41760eb91d2a8406d4deb52cd8e247731239e2b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d24143a440c0d30c3abcd6eb5efd454033b8f71c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791482"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados individual na Base de Dados SQL do Azure
 
 Este artigo descreve como escalar os recursos de computação e armazenamento disponíveis para uma Base de Dados Azure SQL no nível de computação provisionado. Alternativamente, o [nível de computação sem servidor](serverless-tier-overview.md) fornece cálculo de autoscalagem e contas por segundo para o cálculo utilizado.
 
-Depois de escolher inicialmente o número de vCores ou DTUs, pode escalar uma única base de dados para cima ou para baixo dinamicamente com base na experiência real utilizando o [portal Azure](single-database-manage.md#the-azure-portal), [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [O CLI Azure,](/cli/azure/sql/db#az-sql-db-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
+Depois de escolher inicialmente o número de vCores ou DTUs, pode escalar uma única base de dados para cima ou para baixo dinamicamente com base na experiência real utilizando o [portal Azure](single-database-manage.md#the-azure-portal), [Transact-SQL,](/sql/t-sql/statements/alter-database-transact-sql#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [O CLI Azure,](/cli/azure/sql/db#az-sql-db-update)ou a [API REST](/rest/api/sql/databases/update).
 
 O vídeo que se segue mostra uma alteração dinâmica do nível de serviço e do tamanho do cálculo para aumentar os DTUs disponíveis para uma única base de dados.
 
@@ -58,7 +58,7 @@ A latência estimada para alterar o nível de serviço, escalar o tamanho do cá
 |**Hyperscale**|N/D|N/D|N/D|&bull;&nbsp;Latência do tempo constante independente do espaço utilizado</br>&bull;&nbsp;Tipicamente, menos de 2 minutos|
 
 > [!NOTE]
-> Além disso, para as bases de dados Standard (S2-S12) e General Purpose, a latência para mover uma base de dados dentro/para fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a base de dados estiver a utilizar o armazenamento de Premium File Share[(PFS).](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+> Além disso, para as bases de dados Standard (S2-S12) e General Purpose, a latência para mover uma base de dados dentro/para fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a base de dados estiver a utilizar o armazenamento de Premium File Share[(PFS).](../../storage/files/storage-files-introduction.md)
 >
 > Para determinar se uma base de dados está a utilizar o armazenamento de PFS, execute a seguinte consulta no contexto da base de dados. Se o valor na coluna AccountType for `PremiumFileStorage` `PremiumFileStorage-ZRS` ou, a base de dados está a utilizar o armazenamento de PFS.
  
@@ -72,7 +72,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Para monitorizar as operações em curso, consulte: [Gerir operações utilizando a API DE REST SQL,](https://docs.microsoft.com/rest/api/sql/operations/list) [Gerir operações utilizando operações CLI,](/cli/azure/sql/db/op) [Monitor utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Para monitorizar as operações em curso, consulte: [Gerir operações utilizando a API DE REST SQL,](/rest/api/sql/operations/list) [Gerir operações utilizando operações CLI,](/cli/azure/sql/db/op) [Monitor utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ## <a name="cancelling-changes"></a>Cancelamento de alterações
 
@@ -84,7 +84,7 @@ Na lâmina de visão geral da base de **dados,** navegue para notificações e c
 
 ![Operação em curso](./media/single-database-scale/ongoing-operations.png)
 
-Em seguida, clique no botão marcado **Cancelar esta operação**.
+Em seguida, clique no botão marcado **Cancelar esta operação** .
 
 ![Cancelar operação em curso](./media/single-database-scale/cancel-ongoing-operation.png)
 
@@ -122,7 +122,7 @@ Você é cobrado por cada hora que uma base de dados existe usando o nível de s
 ### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 - O armazenamento pode ser a provisionado até ao limite máximo de armazenamento de dados, utilizando incrementos de 1-GB. O armazenamento mínimo de dados configurável é de 1 GB. Consulte as páginas de documentação limite de recursos para [bases de dados individuais](resource-limits-vcore-single-databases.md) e [piscinas elásticas](resource-limits-vcore-elastic-pools.md) para os limites máximos de armazenamento de dados em cada objetivo de serviço.
-- O armazenamento de dados para uma única base de dados pode ser a provisionado aumentando ou diminuindo o seu tamanho máximo utilizando o [portal Azure](https://portal.azure.com), [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [Azure CLI,](/cli/azure/sql/db#az-sql-db-update)ou [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). Se o valor do tamanho máximo for especificado em bytes, deve ser um múltiplo de 1 GB (bytes 1073741824).
+- O armazenamento de dados para uma única base de dados pode ser a provisionado aumentando ou diminuindo o seu tamanho máximo utilizando o [portal Azure](https://portal.azure.com), [Transact-SQL,](/sql/t-sql/statements/alter-database-transact-sql#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [Azure CLI,](/cli/azure/sql/db#az-sql-db-update)ou [REST API](/rest/api/sql/databases/update). Se o valor do tamanho máximo for especificado em bytes, deve ser um múltiplo de 1 GB (bytes 1073741824).
 - A quantidade de dados que podem ser armazenados nos ficheiros de dados de uma base de dados é limitada pelo tamanho máximo de armazenamento de dados configurado. Além desse armazenamento, a Azure SQL Database atribui automaticamente mais 30% de armazenamento para ser usado para o registo de transações.
 - A Base de Dados Azure SQL atribui automaticamente 32 GB por vCore para a `tempdb` base de dados. `tempdb` está localizado no armazenamento SSD local em todos os níveis de serviço.
 - O preço de armazenamento de uma única base de dados ou de um conjunto elástico é a soma dos valores de armazenamento de dados e de armazenamento de registos de transações multiplicados pelo preço unitário de armazenamento do nível de serviço. O custo `tempdb` está incluído no preço. Para mais informações sobre o preço de armazenamento, consulte [os preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/).
@@ -133,7 +133,7 @@ Você é cobrado por cada hora que uma base de dados existe usando o nível de s
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
 - O preço do DTU para uma única base de dados inclui uma certa quantidade de armazenamento sem custos adicionais. O armazenamento extra para além do montante incluído pode ser previsto para um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB até 1 TB, e depois em incrementos de 256 GB para além de 1 TB. Para as quantidades de armazenamento incluídas e limites de tamanho máximo, consulte [base de dados única: tamanhos de armazenamento e tamanhos de cálculo](resource-limits-dtu-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- O armazenamento extra para uma única base de dados pode ser a provisionado aumentando o seu tamanho máximo utilizando o portal Azure, [Transact-SQL,](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [o Azure CLI,](/cli/azure/sql/db#az-sql-db-update)ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- O armazenamento extra para uma única base de dados pode ser a provisionado aumentando o seu tamanho máximo utilizando o portal Azure, [Transact-SQL,](/sql/t-sql/statements/alter-database-transact-sql#examples-1) [PowerShell,](/powershell/module/az.sql/set-azsqldatabase) [o Azure CLI,](/cli/azure/sql/db#az-sql-db-update)ou o [REST API](/rest/api/sql/databases/update).
 - O preço do armazenamento extra para uma única base de dados é a quantia extra de armazenamento multiplicada pelo preço extra da unidade de armazenamento do nível de serviço. Para mais informações sobre o preço do armazenamento extra, consulte [os preços da Base de Dados Azure SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -156,4 +156,3 @@ Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para limites globais de recursos, consulte [Azure SQL Database vCore-based resource limits - bases de dados únicas](resource-limits-vcore-single-databases.md) e [limites de recursos baseados em DTU baseados em dados de dados DTU - bases de dados únicas](resource-limits-dtu-single-databases.md).
- 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332200"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793250"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Provisão e catálogo de novos inquilinos usando a aplicação por padrão SaaS inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Este artigo tem duas partes principais:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Aplicação autónoma por padrão de inquilino
 
-A app autónoma por padrão de inquilino é um dos vários padrões para aplicações SaaS multi-inquilinos.  Neste padrão, é disponibilizada uma app autónoma para cada inquilino. A aplicação compreende componentes de nível de aplicação e uma Base de Dados Azure SQL.  Cada aplicação de inquilino pode ser implantada na subscrição do fornecedor.  Em alternativa, o Azure oferece um [programa de aplicações gerido](https://docs.microsoft.com/azure/managed-applications/overview) no qual uma aplicação pode ser implantada na subscrição de um inquilino e gerida pelo vendedor em nome do inquilino.
+A app autónoma por padrão de inquilino é um dos vários padrões para aplicações SaaS multi-inquilinos.  Neste padrão, é disponibilizada uma app autónoma para cada inquilino. A aplicação compreende componentes de nível de aplicação e uma Base de Dados Azure SQL.  Cada aplicação de inquilino pode ser implantada na subscrição do fornecedor.  Em alternativa, o Azure oferece um [programa de aplicações gerido](../../azure-resource-manager/managed-applications/overview.md) no qual uma aplicação pode ser implantada na subscrição de um inquilino e gerida pelo vendedor em nome do inquilino.
 
    ![padrão app-por-inquilino](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ No final deste tutorial, tem um conjunto de pedidos de inquilino autónomo, com 
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* As três aplicações de inquilinos estão implantadas. Para implementar estas aplicações em menos de cinco minutos, consulte [implementar e explorar o padrão de Aplicação Autónoma de Bilhetes SaaS Da Ponta da Asa.](../../sql-database/saas-standaloneapp-get-started-deploy.md)
+* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
+* As três aplicações de inquilinos estão implantadas. Para implementar estas aplicações em menos de cinco minutos, consulte [implementar e explorar o padrão de Aplicação Autónoma de Bilhetes SaaS Da Ponta da Asa.](./saas-standaloneapp-get-started-deploy.md)
 
 ## <a name="provision-the-catalog"></a>Provisionar o catálogo
 
@@ -83,23 +83,23 @@ Nesta tarefa, você aprende a providenciar o catálogo usado para registar todas
 * **Registe as aplicações de inquilinos** que implementou anteriormente.  Cada inquilino é registado usando uma chave construída a partir de um haxixe do nome do inquilino.  O nome do inquilino também está guardado numa mesa de extensão do catálogo.
 
 1. No PowerShell ISE, abra *...\Módulos de aprendizagem\UserConfig.psm* e atualize o **\<user\>** valor utilizado ao implementar as três aplicações de amostra.  **Guarde o ficheiro.**
-1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 1**. Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos.
+1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 1** . Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos.
 
-1. Adicione um breakpoint colocando o cursor em qualquer lugar da linha que `& $PSScriptRoot\New-Catalog.ps1` diga, e, em seguida, pressione **F9**.
+1. Adicione um breakpoint colocando o cursor em qualquer lugar da linha que `& $PSScriptRoot\New-Catalog.ps1` diga, e, em seguida, pressione **F9** .
 
     ![definindo um ponto de rutura para o rastreio](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Executar o script pressionando **F5**.
+1. Executar o script pressionando **F5** .
 1.  Após a execução do guião parar no ponto de rutura, prima **F11** para entrar no New-Catalog.ps1 script.
 1.  Trace a execução do script usando as opções de menu Debug, F10 e F11, para passar por cima ou para funções chamadas.
-    *   Para obter mais informações sobre a depuragem dos scripts PowerShell, consulte [dicas sobre trabalhar e depurar scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Para obter mais informações sobre a depuragem dos scripts PowerShell, consulte [dicas sobre trabalhar e depurar scripts PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Uma vez que o roteiro esteja concluído, o catálogo existirá e todos os inquilinos da amostra serão registados.
 
 Agora olhe para os recursos que criou.
 
-1. Abra o [portal Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog \<user\> ** e note o servidor e base de dados do catálogo.
-1. Abra a base de *dados* no portal e selecione Data Explorer a partir do menu da esquerda.  Clique no comando Iniciar sessão e, em seguida, introduza a Palavra-passe = ** \@ Ssword1**.
+1. Abra o [portal Azure](https://portal.azure.com/) e navegue pelos grupos de recursos.  Abra o grupo de recursos **wingtip-sa-catalog \<user\>** e note o servidor e base de dados do catálogo.
+1. Abra a base de *dados* no portal e selecione Data Explorer a partir do menu da esquerda.  Clique no comando Iniciar sessão e, em seguida, introduza a Palavra-passe = **\@ Ssword1** .
 
 
 1. Explore o esquema da base de dados de *inquilinos.*
@@ -123,10 +123,10 @@ Nesta tarefa, aprende-se a providenciar um único pedido de inquilino. Irá:
 * **Inicialize a base de dados com informações básicas do inquilino.** Esta ação inclui especificar o tipo de local, que determina a fotografia usada como pano de fundo no seu site de eventos.
 * **Registe a base de dados na base de dados do catálogo.**
 
-1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 2**. Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos
+1. No PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e definir **$Scenario = 2** . Desdobre o catálogo de inquilinos e registe os inquilinos pré-definidos
 
-1. Adicione um ponto de rutura no script colocando o seu cursor em qualquer lugar da linha 49 que diz, e, em `& $PSScriptRoot\New-TenantApp.ps1` seguida, pressione **F9**.
-1. Executar o script pressionando **F5**.
+1. Adicione um ponto de rutura no script colocando o seu cursor em qualquer lugar da linha 49 que diz, e, em `& $PSScriptRoot\New-TenantApp.ps1` seguida, pressione **F9** .
+1. Executar o script pressionando **F5** .
 1.  Após a execução do guião parar no ponto de rutura, prima **F11** para entrar no New-Catalog.ps1 script.
 1.  Trace a execução do script usando as opções de menu Debug, F10 e F11, para passar por cima ou para funções chamadas.
 
@@ -156,4 +156,4 @@ Neste tutorial, ficou a saber:
 > * Sobre os servidores e bases de dados que compõem a aplicação.
 > * Como eliminar recursos de amostra para parar a faturação relacionada.
 
-Você pode explorar como o catálogo é usado para apoiar vários cenários de inquilinos cruzados usando a versão base de dados por inquilino da [aplicação Wingtip Tickets SaaS](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Você pode explorar como o catálogo é usado para apoiar vários cenários de inquilinos cruzados usando a versão base de dados por inquilino da [aplicação Wingtip Tickets SaaS](./saas-dbpertenant-wingtip-app-overview.md).

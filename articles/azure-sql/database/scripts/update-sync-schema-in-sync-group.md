@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: c60bff122b6ad9bef4e9e4558d9858e1243ebd1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d346d1ff30c138667749822b258bab4c6a621f4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321477"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792723"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Utilizar o PowerShell para atualizar o esquema de sincronização num grupo de sincronização existente
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Este exemplo Azure PowerShell atualiza o esquema de sincronização num grupo de sincronização de sincronização de dados SQL existente. Este script ajuda-o a atualizar de forma eficiente o esquema de sincronização se estiver a sincronizar vários tablets. Este exemplo demonstra a utilização do script **UpdateSyncSchema**, que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
+Este exemplo Azure PowerShell atualiza o esquema de sincronização num grupo de sincronização de sincronização de dados SQL existente. Este script ajuda-o a atualizar de forma eficiente o esquema de sincronização se estiver a sincronizar vários tablets. Este exemplo demonstra a utilização do script **UpdateSyncSchema** , que está disponível no GitHub como [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -78,11 +78,11 @@ O script **UpdateSyncSchema** utiliza os seguintes comandos. Cada comando na tab
 
 | Comando | Notas |
 |---|---|
-| [Grupo Get-AzSqlSync](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Devolve informações sobre um grupo de sincronização. |
-| [Atualização-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Atualiza um grupo de sincronização. |
-| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Devolve informações sobre um membro sincronizado. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Devolve informações sobre um esquema de sincronização. |
-| [Atualização-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Atualiza um esquema de sincronização. |
+| [Grupo Get-AzSqlSync](/powershell/module/az.sql/get-azsqlsyncgroup) | Devolve informações sobre um grupo de sincronização. |
+| [Atualização-AzSqlSyncGroup](/powershell/module/az.sql/update-azsqlsyncgroup) | Atualiza um grupo de sincronização. |
+| [Get-AzSqlSyncMember](/powershell/module/az.sql/get-azsqlsyncmember) | Devolve informações sobre um membro sincronizado. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/get-azsqlsyncschema) | Devolve informações sobre um esquema de sincronização. |
+| [Atualização-AzSqlSyncSchema](/powershell/module/az.sql/update-azsqlsyncschema) | Atualiza um esquema de sincronização. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -100,7 +100,7 @@ Para obter mais informações sobre o SQL Data Sync, consulte:
         -  [Utilize o PowerShell para sincronizar dados entre a Base de Dados Azure SQL e o SqL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../sql-data-sync-agent-overview.md)
 - Melhores práticas - [Melhores práticas para SQL Data Sync em Azure](../sql-data-sync-best-practices.md)
-- Monitor - [Monitor SQL Data Sync com registos do Monitor Azure](../sql-data-sync-monitor-sync.md)
+- Monitor - [Monitor SQL Data Sync com registos do Monitor Azure](../monitor-tune-overview.md)
 - Resolução de problemas - [Problemas de resolução de problemas com SQL Data Sync em Azure](../sql-data-sync-troubleshoot.md)
 - Atualizar o esquema de sincronização
     - Utilizar Transact-SQL - [Automatizar a replicação de alterações de esquema no SQL Data Sync em Azure](../sql-data-sync-update-sync-schema.md)
@@ -108,4 +108,4 @@ Para obter mais informações sobre o SQL Data Sync, consulte:
 Para obter mais informações sobre a Base de Dados SQL, consulte:
 
 - [Visão geral da base de dados sql](../sql-database-paas-overview.md)
-- [Gestão do Ciclo de Vida da Base de Dados](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Gestão do Ciclo de Vida da Base de Dados](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

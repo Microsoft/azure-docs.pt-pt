@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491262"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792893"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions for periodic data transfer (Soluções para a transferência de dados periódica)
  
@@ -42,7 +42,7 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede scripted/programática
 
-| Funcionalidade                  | AzCopy                                 | Azure Storage REST APIs       |
+| Capacidade                  | AzCopy                                 | Azure Storage REST APIs       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fator de forma                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem-se contra o Armazenamento <br> REST APIs usando bibliotecas de clientes Azure |
 | Configuração inicial de uma vez     | Mínimo                                | Esforço de desenvolvimento moderado e variável    |
@@ -57,17 +57,17 @@ A tabela seguinte resume as diferenças nas capacidades-chave.
 | Fator de forma                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal Azure, agente no local                                                            |
 | Hardware                                      | O seu hipervisor            | Fornecido pela Microsoft    | ND                                                            |
 | Esforço inicial de configuração                          | Baixo (<30 minutos.)            | Moderado (~duas horas) | Grande (~dias)                                                 |
-| Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas de dados e formatos](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pré-processamento de dados                           | No                         | Sim, via edge compute    | Yes                                                           |
-| Cache local<br>(para armazenar dados no local)    | Yes                        | Yes                      | No                                                            |
-| Transferência de outras nuvens                    | No                         | No                       | Yes                                                           |
+| Formato de Dados                                   | Azure Blobs, Ficheiros Azure   | Azure Blobs, Ficheiros Azure | [Suporta mais de 70 conectores de dados para lojas de dados e formatos](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
+| Pré-processamento de dados                           | Não                         | Sim, via edge compute    | Sim                                                           |
+| Cache local<br>(para armazenar dados no local)    | Sim                        | Sim                      | Não                                                            |
+| Transferência de outras nuvens                    | Não                         | Não                       | Sim                                                           |
 | Preços                                       | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Preços](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Preços](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Transferir dados com a AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Transferir dados com a AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
 - [Mais informações sobre transferência de dados com APIs de repouso de armazenamento](/dotnet/api/overview/azure/storage).
 - Compreender como:
-    - [Transferir dados com data box gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transforme os dados com data box edge antes de enviar para o Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Saiba como transferir dados com a Azure Data Factory.](/azure/data-factory/tutorial-bulk-copy-portal)
+    - [Transferir dados com data box gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transforme os dados com data box edge antes de enviar para o Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Saiba como transferir dados com a Azure Data Factory.](../../data-factory/tutorial-bulk-copy-portal.md)

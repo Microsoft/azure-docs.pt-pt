@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: af6db76a5d752396ca965c5ed98682ebcab7da6a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755653"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886698"
 ---
 <a name="HOLTop"></a>
 
@@ -107,7 +107,7 @@ Em seguida, defina uma `computerVision` função e declare uma série de async c
 O código nesta secção analisa imagens remotas para extrair várias funcionalidades visuais. Pode fazer estas operações como parte do método **de análiseImage** do objeto do cliente, ou pode chamá-las usando métodos individuais. Consulte a [documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) para mais detalhes.
 
 > [!NOTE]
-> Também pode analisar uma imagem local. Consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para ver cenários que envolvam imagens locais.
+> Também pode analisar uma imagem local. Consulte os métodos [ComputerVisionClient,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) tais como **analisarImageInStream** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para cenários que envolvam imagens locais.
 
 ### <a name="get-image-description"></a>Obtenha a descrição da imagem
 
@@ -219,14 +219,14 @@ Defina a função de `describeType` ajudante:
 
 A Visão Computacional pode extrair o texto visível numa imagem e convertê-lo num fluxo de caracteres. Esta amostra utiliza as operações de Leitura.
 
-> [!NOTE]
-> Também pode ler texto a partir de uma imagem local. Consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para ver cenários que envolvam imagens locais.
-
 ### <a name="set-up-test-images"></a>Configurar imagens de teste
 
 Guarde uma referência do URL das imagens de onde pretende extrair texto.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
+
+> [!NOTE]
+> Também pode ler texto a partir de uma imagem local. Consulte os métodos [ComputerVisionClient,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) tais como **readInStream** . Ou, consulte o código de amostra no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) para cenários que envolvam imagens locais.
 
 ### <a name="call-the-read-api"></a>Ligue para a API de leitura
 
@@ -235,11 +235,11 @@ Defina os seguintes campos na sua função para denotar os valores do estado da 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
 
 
-Adicione o código abaixo, que chama as `readTextFromURL` e `readTextFromFile` funções para as imagens dadas.
+Adicione o código abaixo, que chama a `readTextFromURL` função para as imagens dadas.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Defina as `readTextFromURL` `readTextFromFile` funções e as funções. Estes chamam os métodos **de leitura** e **leituraInStream** no objeto do cliente, que devolvem um ID de operação e iniciam um processo assíncrono para ler o conteúdo da imagem. Em seguida, utilizam o ID de funcionamento para verificar o estado da operação até que os resultados sejam devolvidos. Em seguida, devolvem os resultados extraídos.
+Defina a `readTextFromURL` função. Este método de **leitura** de chamada no objeto do cliente, que devolve um ID de operação e inicia um processo assíncrona para ler o conteúdo da imagem. Em seguida, utiliza o ID de funcionamento para verificar o estado da operação até que os resultados sejam devolvidos. Devolve os resultados extraídos.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

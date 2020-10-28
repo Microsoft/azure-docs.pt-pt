@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426454"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792757"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy existentes no local
 
@@ -111,11 +111,12 @@ Há quatro aspetos a considerar no representante de saída:
 
 Permitir o acesso aos seguintes URLs:
 
-| URL | Como é usado |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicação entre o conector e o serviço de nuvem Proxy de aplicação |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | O conector utiliza estes URLs para verificar os certificados. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com. <br> * microsoftonline-p.com<br>*.msauth.net. <br> * msauthimages.net<br>*.msecnd.net. <br> * msftauth.net<br>*.msftauthimages.net. <br> * phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | O conector utiliza estes URLs durante o processo de registo. |
+| URL | Porta |  Como é usado |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicação entre o conector e o serviço de nuvem Proxy de aplicação |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | O conector utiliza estes URLs para verificar os certificados. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | O conector utiliza estes URLs durante o processo de registo. |
+| ctldl.windowsupdate.com | 80/HTTP | O conector utiliza este URL durante o processo de registo. |
 
 Se a sua firewall ou proxy permitir configurar listas de autorizações DNS, pode permitir ligações a \* .msappproxy.net e \* .servicebus.windows.net.
 
@@ -178,7 +179,7 @@ Para a resolução inicial de problemas, execute os seguintes passos:
    ![Serviço de Conector Proxy de aplicação Azure AD em serviços.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Executar o Analisador de Mensagens como administrador.
-1. Selecione **Iniciar o rastreio local**.
+1. Selecione **Iniciar o rastreio local** .
 1. Inicie o serviço de conector de aplicação AD Azure.
 1. Parem a captura da rede.
 
@@ -188,7 +189,7 @@ Para a resolução inicial de problemas, execute os seguintes passos:
 
 Se configurar o conector Proxy da aplicação para contornar os servidores proxy e ligar-se diretamente ao serviço Application Proxy, pretende procurar na captura de rede tentativas de ligação TCP falhadas.
 
-Utilize o filtro de analisador de mensagens para identificar estas tentativas. Introduza `property.TCPSynRetransmit` na caixa do filtro e selecione **Aplicar**.
+Utilize o filtro de analisador de mensagens para identificar estas tentativas. Introduza `property.TCPSynRetransmit` na caixa do filtro e selecione **Aplicar** .
 
 Um pacote SYN é o primeiro pacote enviado para estabelecer uma ligação TCP. Se este pacote não devolver uma resposta, o SYN é re-retribuído. Pode utilizar o filtro anterior para ver quaisquer SYNs retransmitidos. Em seguida, pode verificar se estes SYNs correspondem a qualquer tráfego relacionado com o conector.
 

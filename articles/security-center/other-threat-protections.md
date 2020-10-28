@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: dd4a7537e01c9e97997be64bb478e86a64f4325b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340891"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792264"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções adicionais de ameaças no Centro de Segurança Azure
 Além das [proteções incorporadas do Azure Defender,](azure-defender.md)o Azure Security Center também oferece as seguintes capacidades de proteção contra ameaças.
@@ -48,10 +48,10 @@ Para obter uma lista dos alertas do Gestor de Recursos Azure (Pré-visualizaçã
 >[!NOTE]
 > Várias das análises anteriores são alimentadas pela Microsoft Cloud App Security. Para beneficiar destas análises, tem de ativar uma licença de Segurança cloud App. Se tiver uma licença de Segurança cloud App, então estes alertas são ativados por padrão. Para desativar os alertas:
 >
-> 1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
+> 1. A partir do menu do Centro de Segurança, **selecione definições de preços &** .
 > 1. Selecione a subscrição que pretende alterar.
-> 1. Selecione **deteção de ameaças**.
-> 1. **Limpar Permitir que a Microsoft Cloud App Security aceda aos meus dados**e selecione **Save**.
+> 1. Selecione **deteção de ameaças** .
+> 1. **Limpar Permitir que a Microsoft Cloud App Security aceda aos meus dados** e selecione **Save** .
 
 
 >[!NOTE]
@@ -59,7 +59,7 @@ Para obter uma lista dos alertas do Gestor de Recursos Azure (Pré-visualizaçã
 
 1. Ajuste o espaço de trabalho no qual está a instalar o agente. Certifique-se de que o espaço de trabalho está na mesma subscrição que utiliza no Centro de Segurança e que tem permissões de leitura/escrita no espaço de trabalho.
 
-1. Ativar **o Azure Defender**e selecione **Save**.
+1. Ativar **o Azure Defender** e selecione **Save** .
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Proteção contra ameaças para Azure Cosmos DB (Pré-visualização)<a name="cosmos-db"></a>
@@ -101,4 +101,4 @@ Para saber mais sobre os alertas de segurança destes recursos de proteção con
 * [Tabela de referência para todos os alertas do Centro de Segurança Azure](alerts-reference.md)
 * [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-* [Alertas e recomendações de segurança das exportações (Pré-visualização)](continuous-export.md)
+* [Exportar continuamente dados do Centro de Segurança](continuous-export.md)

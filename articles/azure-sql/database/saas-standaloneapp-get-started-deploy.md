@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: 1545f9cde15f010ba3d7d52c6fea1ef233d2fac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619479"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793284"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação autónoma de inquilino único que utiliza a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,16 +60,16 @@ Implementar a aplicação para os três inquilinos fornecidos:
     > Algumas firewalls de autenticação e servidores estão intencionalmente despromocuradas para fins de demonstração. **Criar um novo grupo de recursos** para cada implementação de aplicação.  Não utilize um grupo de recursos existente. Não utilize esta aplicação, nem quaisquer recursos que crie, para produção. Elimine todos os grupos de recursos quando terminar com as aplicações para parar a faturação relacionada.
 
     É melhor usar apenas letras minúsculas, números e hífens nos nomes dos seus recursos.
-    * Para **o grupo de recursos,** selecione Criar novo e, em seguida, fornecer um nome minúsculo para o grupo de recursos. **wingtip-sa- \<venueName\> - \<user\> ** é o padrão recomendado.  Para \<venueName\> , substituir o nome do local sem espaços. Para \<user\> , substituir o valor do utilizador a partir de baixo.  Com este padrão, os nomes de grupos de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1,* *wingtip-sa-fabrikamjazzclub-af1*.
+    * Para **o grupo de recursos,** selecione Criar novo e, em seguida, fornecer um nome minúsculo para o grupo de recursos. **wingtip-sa- \<venueName\> - \<user\>** é o padrão recomendado.  Para \<venueName\> , substituir o nome do local sem espaços. Para \<user\> , substituir o valor do utilizador a partir de baixo.  Com este padrão, os nomes de grupos de recursos podem ser *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1,* *wingtip-sa-fabrikamjazzclub-af1* .
     * Selecione uma **localização** da lista de drop-down.
 
-    * Para **o Utilizador** - Recomendamos um curto valor de utilizador, como as suas iniciais mais um dígito: por exemplo, *af1*.
+    * Para **o Utilizador** - Recomendamos um curto valor de utilizador, como as suas iniciais mais um dígito: por exemplo, *af1* .
 
 
-3. **Implementar a aplicação**.
+3. **Implementar a aplicação** .
 
     * Clique para concordar com os termos e condições.
-    * Clique em **Comprar**.
+    * Clique em **Comprar** .
 
 4. Monitorize o estado das três implementações clicando em **Notificações** (o ícone da campainha à direita da caixa de pesquisa). A implementação das aplicações demora cerca de cinco minutos.
 
@@ -102,16 +102,16 @@ Vejamos alguns dos recursos que foram mobilizados:
 
 1. No [portal Azure,](https://portal.azure.com)consulte a lista de grupos de recursos.
 2. Devia ver os três grupos de inquilinos.
-3. Abra o grupo de recursos de ** &lt; &gt; utilizador wingtip-sa-fabrikam,** que contém os recursos para a implantação do Fabrikam Jazz Club.  O **servidor de &lt; &gt; utilizador fabrikamjazzclub** contém a base de **dados fabrikamjazzclub.**
+3. Abra o grupo de recursos de **&lt; &gt; utilizador wingtip-sa-fabrikam,** que contém os recursos para a implantação do Fabrikam Jazz Club.  O **servidor de &lt; &gt; utilizador fabrikamjazzclub** contém a base de **dados fabrikamjazzclub.**
 
 Cada base de dados de inquilinos é uma base de dados *autónoma* de 50 DTU.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build on the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](elastic-pool-overview.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](../../sql-database/elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](./elastic-jobs-overview.md)
 -->
 
 - Para saber mais sobre aplicações SaaS multi-arrendatários, consulte [padrões de design para aplicações SaaS multi-arrendatários.](saas-tenancy-app-design-patterns.md)
@@ -131,5 +131,3 @@ Neste tutorial, ficou a saber:
 > * Como eliminar recursos de amostra para parar a faturação relacionada.
 
 Em seguida, experimente o tutorial [de Provisão e Catálogo](saas-standaloneapp-provision-and-catalog.md) no qual irá explorar o uso de um catálogo de inquilinos que permite uma série de cenários de inquilinos transversais, como gestão de esquemas e análise de inquilinos.
- 
-

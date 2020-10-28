@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: e5792f63025c0be4d9f67a6971707618f12cc8ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f16b0fb5cf241604c627925a7cd905c1683399fd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755990"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886693"
 ---
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -147,7 +147,8 @@ function fromFile() {
 fromFile();
 ```
 
-A utilização de um fluxo de pressão como entrada pressupõe que a posição do fluxo de ficheiros está definida para o *início dos dados,* saltando os cabeçalhos. A API continuará a funcionar em certos casos se o cabeçalho não tiver sido ignorado, mas para que os melhores resultados considerem implementar lógica para ler os cabeçalhos e definir a posição para o início dos dados áudio.
+A utilização de um fluxo de pressão como entrada pressupõe que os dados de áudio são um PCM cru, por exemplo, saltar quaisquer cabeçalhos.
+A API continuará a funcionar em certos casos se o cabeçalho não tiver sido ignorado, mas para que os melhores resultados considerem implementar lógica para ler os cabeçalhos para que o `fs` início *dos dados áudio* comece.
 
 ---
 

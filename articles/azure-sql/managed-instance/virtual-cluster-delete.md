@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 0b8ceee1260e4209420778d7f327d771b858a899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed8f6dc90debddd17282f8f96962ffd78055030
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617728"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791669"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>Eliminar uma sub-rede depois de eliminar uma instância gerida de SQL Gestd Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,7 +29,7 @@ Se não quiser esperar 12 horas e preferir apagar o cluster virtual e a sua sub-
 
 > [!IMPORTANT]
 > - O cluster virtual não deve conter casos geridos para que a supressão seja bem sucedida. 
-> - A eliminação de um cluster virtual é uma operação de longa duração com duração de cerca de 1,5 horas (ver operações de gestão de [instâncias geridas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) para o tempo de eliminação de clusters virtuais atualizado). O cluster virtual ainda estará visível no portal até que este processo esteja concluído.
+> - A eliminação de um cluster virtual é uma operação de longa duração com duração de cerca de 1,5 horas (ver operações de gestão de [instâncias geridas](./sql-managed-instance-paas-overview.md#management-operations) para o tempo de eliminação de clusters virtuais atualizado). O cluster virtual ainda estará visível no portal até que este processo esteja concluído.
 
 ## <a name="delete-a-virtual-cluster-from-the-azure-portal"></a>Eliminar um cluster virtual do portal Azure
 
@@ -37,7 +37,7 @@ Para eliminar um cluster virtual utilizando o portal Azure, procure os recursos 
 
 ![Screenshot do portal Azure, com caixa de pesquisa em destaque](./media/virtual-cluster-delete/virtual-clusters-search.png)
 
-Depois de localizar o cluster virtual que pretende eliminar, selecione este recurso e selecione **Delete**. Foi-lhe pedido que confirmasse a eliminação virtual do aglomerado.
+Depois de localizar o cluster virtual que pretende eliminar, selecione este recurso e selecione **Delete** . Foi-lhe pedido que confirmasse a eliminação virtual do aglomerado.
 
 ![Screenshot do portal Azure Painel de agrupamentos virtuais, com a opção Eliminar em destaque](./media/virtual-cluster-delete/virtual-clusters-delete.png)
 
@@ -48,7 +48,7 @@ As notificações do portal Azure mostrar-lhe-ão a confirmação de que o pedid
 
 ## <a name="delete-a-virtual-cluster-by-using-the-api"></a>Eliminar um cluster virtual utilizando a API
 
-Para eliminar um cluster virtual através da API, utilize os parâmetros URI especificados no [método de eliminação](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)de clusters virtuais .
+Para eliminar um cluster virtual através da API, utilize os parâmetros URI especificados no [método de eliminação](/rest/api/sql/virtualclusters/delete)de clusters virtuais .
 
 ## <a name="next-steps"></a>Passos seguintes
 
