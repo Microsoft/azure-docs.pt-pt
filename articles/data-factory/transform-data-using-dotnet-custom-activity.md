@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632112"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -36,7 +36,7 @@ Para mover dados de/para uma loja de dados que a Data Factory não suporta, ou p
 Consulte os seguintes artigos se é novo no serviço Azure Batch:
 
 * [Básicos do Azure Batch](../batch/batch-technical-overview.md) para uma visão geral do serviço Azure Batch.
-* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet para criar uma conta Azure Batch (ou) [portal Azure](../batch/batch-account-create-portal.md) para criar a conta Azure Batch utilizando o portal Azure. Consulte [a Utilização do PowerShell para gerir o artigo da Conta de Lote Azure](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obter instruções detalhadas sobre a utilização do cmdlet.
+* [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet para criar uma conta Azure Batch (ou) [portal Azure](../batch/batch-account-create-portal.md) para criar a conta Azure Batch utilizando o portal Azure. Consulte [a Utilização do PowerShell para gerir o artigo da Conta de Lote Azure](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) para obter instruções detalhadas sobre a utilização do cmdlet.
 * [Cmdlet New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar uma piscina Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Serviço ligado a Azure Batch
@@ -102,16 +102,16 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas a e
 
 | Propriedade              | Descrição                              | Obrigatório |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome da atividade no oleoduto     | Yes      |
-| descrição           | Texto descrevendo o que a atividade faz.  | No       |
-| tipo                  | Para atividades personalizadas, o tipo de atividade é **Personalizado.** | Yes      |
-| linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  | Yes      |
-| command               | Comando da aplicação personalizada a executar. Se a aplicação já estiver disponível no Nó de Piscina de Lote Azure, o recursoLinkedService e a pastaPath podem ser ignorados. Por exemplo, pode especificar o comando a ser `cmd /c dir` , que é suportado de forma nativa pelo nó do Pool do Lote do Windows. | Yes      |
+| name                  | Nome da atividade no oleoduto     | Sim      |
+| descrição           | Texto descrevendo o que a atividade faz.  | Não       |
+| tipo                  | Para atividades personalizadas, o tipo de atividade é **Personalizado.** | Sim      |
+| linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  | Sim      |
+| command               | Comando da aplicação personalizada a executar. Se a aplicação já estiver disponível no Nó de Piscina de Lote Azure, o recursoLinkedService e a pastaPath podem ser ignorados. Por exemplo, pode especificar o comando a ser `cmd /c dir` , que é suportado de forma nativa pelo nó do Pool do Lote do Windows. | Sim      |
 | recursoLinkedService | Serviço ligado ao armazenamento Azure à conta de Armazenamento onde a aplicação personalizada é armazenada | Sem &#42;       |
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - isto é, numa estrutura hierárquica de pastas em *modo de pasta* - a estrutura da pasta é atualmente achatada quando os ficheiros são copiados para O Lote de Azure. Ou seja, todos os ficheiros são copiados numa única pasta sem sub-dobras. Para contornar este comportamento, considere comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, desapertá-lo com código personalizado no local pretendido. | Sem &#42;       |
-| referênciaObjects      | Uma série de serviços e conjuntos de dados existentes. Os serviços e conjuntos de dados ligados referenciados são transmitidos à aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar recursos da Data Factory | No       |
-| extensões    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | No       |
-| retençãoTimeInDays | O tempo de retenção para os ficheiros submetidos para atividade personalizada. O valor predefinido é de 30 dias. | No |
+| referênciaObjects      | Uma série de serviços e conjuntos de dados existentes. Os serviços e conjuntos de dados ligados referenciados são transmitidos à aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar recursos da Data Factory | Não       |
+| extensões    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não       |
+| retençãoTimeInDays | O tempo de retenção para os ficheiros submetidos para atividade personalizada. O valor predefinido é de 30 dias. | Não |
 
 &#42; As propriedades `resourceLinkedService` e devem ser `folderPath` especificadas ou ambas omitidas.
 
@@ -356,7 +356,7 @@ Se tiver o código .NET existente escrito para uma atividade dotnet da versão 1
   - O pacote Microsoft.Azure.Management.DataFactories NuGet já não é necessário.
   - Compile o seu código, faça o upload do executável e das suas dependências para o Azure Storage e defina o caminho na `folderPath` propriedade.
 
-Para uma amostra completa de como a amostra de DLL e pipeline de ponta a ponta descrita na versão 1 da Data Factory [Utilize atividades personalizadas num pipeline da Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrito como uma Atividade Personalizada da Fábrica de Dados, consulte a amostra de Atividade Personalizada da Fábrica de [Dados.](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)
+Para uma amostra completa de como a amostra de DLL e pipeline de ponta a ponta descrita na versão 1 da Data Factory [Utilize atividades personalizadas num pipeline da Azure Data Factory](./v1/data-factory-use-custom-activities.md) pode ser reescrito como uma Atividade Personalizada da Fábrica de Dados, consulte a amostra de Atividade Personalizada da Fábrica de [Dados.](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample)
 
 ## <a name="auto-scaling-of-azure-batch"></a>Auto-dimensionamento do Lote Azure
 
@@ -376,7 +376,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Consulte [os nós computacional de escala automática numa piscina do Azure Batch](../batch/batch-automatic-scaling.md) para obter mais detalhes.
 
-Se a piscina estiver a utilizar o [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)predefinido, o serviço Batch pode demorar 15 a 30 minutos a preparar o VM antes de executar a atividade personalizada. Se a piscina estiver a utilizar um autoScaleEvaluationInterval diferente, o serviço Batch pode demorar automaticamente a Reavaliação + 10 minutos.
+Se a piscina estiver a utilizar o [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale)predefinido, o serviço Batch pode demorar 15 a 30 minutos a preparar o VM antes de executar a atividade personalizada. Se a piscina estiver a utilizar um autoScaleEvaluationInterval diferente, o serviço Batch pode demorar automaticamente a Reavaliação + 10 minutos.
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas:

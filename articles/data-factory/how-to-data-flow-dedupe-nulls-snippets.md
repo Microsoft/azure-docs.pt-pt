@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 1c630cdd66fa4f8e609524feb9c3f0bcad9711a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458171"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632452"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Dedupe linhas e encontrar nulos usando cortes de fluxo de dados
 
@@ -25,7 +25,7 @@ Ao utilizar os snippets de código no mapeamento dos fluxos de dados, pode facil
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-1. Selecione **Novo Pipeline**.
+1. Selecione **Novo Pipeline** .
 
 1. Adicione uma atividade de fluxo de dados.
 
@@ -35,9 +35,9 @@ Ao utilizar os snippets de código no mapeamento dos fluxos de dados, pode facil
 
     Os cortes de verificação de dedupe e nulos utilizam padrões genéricos que se aproveitam da deriva do esquema de fluxo de dados. Os snippets funcionam com qualquer esquema do seu conjunto de dados, ou com conjuntos de dados que não têm esquema pré-definido.
 
-1. Na secção "Linha Distinta utilizando todas as colunas" do script de fluxo de [dados (DFS),](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)copie o corte de código para DistinctRows.
+1. Na secção "Linha Distinta utilizando todas as colunas" do script de fluxo de [dados (DFS),](./data-flow-script.md#distinct-row-using-all-columns)copie o corte de código para DistinctRows.
 
-1. Na UI do seu designer de fluxo de dados, selecione o botão **Script** no canto superior direito para abrir o editor de script por trás do gráfico de fluxo de dados.
+1. [Vá à página de documentação do Data Flow Script e copie o corte de código para Linhas Distintas.](./data-flow-script.md#distinct-row-using-all-columns)
 
     ![Screenshot de um corte de fonte.](media/data-flow/snippet-adf-3.png)
 
@@ -55,7 +55,7 @@ Ao utilizar os snippets de código no mapeamento dos fluxos de dados, pode facil
     
 1. Adicione um corte de código para dividir os seus dados num fluxo que contém linhas com nulos e outro fluxo sem nulos. Para tal:
 
-   a. Volte para a [biblioteca de snippets](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns)e, em seguida, copie o código para os cheques nulos.
+1. [Volte para a biblioteca snippet e desta vez copie o código para os cheques NU.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
    b. No seu designer de fluxo de dados, selecione **Script** novamente e, em seguida, cole este novo código de transformação na parte inferior. Esta ação liga o script à sua transformação anterior colocando o nome dessa transformação em frente ao corte colado.
 

@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136053"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632894"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Crie um tempo de integração independente partilhado na Azure Data Factory
 
@@ -55,9 +55,9 @@ Para criar um IR partilhado e auto-hospedado utilizando a Azure PowerShell, pode
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Assinatura Azure**. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+- **Assinatura Azure** . Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções no [Install Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um tempo de integração auto-hospedado que pode ser partilhado com outras fábricas de dados. 
+- **Azure PowerShell** . Siga as instruções no [Install Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/install-az-ps). Você usa o PowerShell para executar um script para criar um tempo de integração auto-hospedado que pode ser partilhado com outras fábricas de dados. 
 
 > [!NOTE]  
 > Para obter uma lista das regiões do Azure em que a Data Factory está atualmente disponível, selecione as regiões que lhe interessam [os produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
@@ -99,7 +99,7 @@ Para criar um IR partilhado e auto-hospedado utilizando a Azure PowerShell, pode
     > [!NOTE]  
     > Este passo é opcional. Se já tem uma fábrica de dados, ignore este passo. 
 
-    Crie um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) utilizando o comando [New-AzResourceGroup.](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo a seguir cria um grupo de recursos nomeado `myResourceGroup` na localização WestEurope: 
+    Crie um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) utilizando o comando [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup) Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo a seguir cria um grupo de recursos nomeado `myResourceGroup` na localização WestEurope: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -155,7 +155,7 @@ A resposta contém a chave de autenticação para este tempo de integração aut
 #### <a name="create-another-data-factory"></a>Criar outra fábrica de dados
 
 > [!NOTE]  
-> Este passo é opcional. Se já tem a fábrica de dados com a que pretende partilhar, ignore este passo. Mas para adicionar ou remover atribuições de funções a outras fábricas de dados, tem de ter `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, como [o Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou o [Proprietário.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+> Este passo é opcional. Se já tem a fábrica de dados com a que pretende partilhar, ignore este passo. Mas para adicionar ou remover atribuições de funções a outras fábricas de dados, tem de ter `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, como [o Administrador de Acesso ao Utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) ou o [Proprietário.](../role-based-access-control/built-in-roles.md#owner)
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -216,6 +216,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="next-steps"></a>Passos seguintes
 
-- Rever [conceitos de tempo de execução de integração na Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)
+- Rever [conceitos de tempo de execução de integração na Azure Data Factory.](./concepts-integration-runtime.md)
 
-- Saiba como [criar um tempo de integração auto-hospedado no portal Azure](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Saiba como [criar um tempo de integração auto-hospedado no portal Azure](./create-self-hosted-integration-runtime.md).

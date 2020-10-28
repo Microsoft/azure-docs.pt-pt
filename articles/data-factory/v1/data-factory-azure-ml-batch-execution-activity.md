@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 6f8a4d3de5fc7c0919b54d037de393c07c0a832d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce3175a015b7a5813f62c639fdadbeea367bbc22
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368847"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631772"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Crie oleodutos preditivos utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory
 
@@ -26,8 +26,8 @@ ms.locfileid: "92368847"
 > * [Atividade mapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
-> * [Azure Machine Learning Studio (clássico) Atividade de execução de lote](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (clássico) Atualização De Recursos Atividade](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Execução em Lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de Recursos de Atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade de U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
@@ -59,7 +59,7 @@ Com o tempo, os modelos preditivos no Estúdio (clássico) experiências de pont
 1. Publique a experiência de formação (não experiência preditiva) como um serviço web. Faz este passo no Studio (clássico) como fez para expor a experiência preditiva como um serviço web no cenário anterior.
 2. Utilize a Atividade de Execução de Lote (clássica) para invocar o serviço web para a experiência de treino. Basicamente, você pode usar a atividade de execução de lote (clássico) para invocar tanto o serviço web de treino como o serviço web de pontuação.
 
-Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte [os modelos de atualização utilizando](data-factory-azure-ml-update-resource-activity.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
+Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** . Consulte [os modelos de atualização utilizando](data-factory-azure-ml-update-resource-activity.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Invocando um serviço web usando a atividade de execução de lotes
 Utiliza a Azure Data Factory para orquestrar o movimento e o processamento de dados e, em seguida, executa a execução do lote utilizando o Studio (clássico). Aqui estão os passos de alto nível:
@@ -78,9 +78,9 @@ Utiliza a Azure Data Factory para orquestrar o movimento e o processamento de da
 Neste cenário, o serviço Web Studio (clássico) faz previsões usando dados de um ficheiro num armazenamento de bolhas Azure e armazena os resultados da previsão no armazenamento de bolhas. O seguinte JSON define um oleoduto de Fábrica de Dados com uma atividade AzureMLBatchExecution. A atividade tem o conjunto de dados **DecisionTreeInputBlob** como entrada e **DecisionTreeResultBlob** como a saída. O **DecisionTreeInputBlob** é passado como uma entrada para o serviço web utilizando a propriedade **webServiceInput** JSON. A **decisãoTreeResultBlob** é transmitida como uma saída para o serviço Web utilizando a propriedade **webServiceOutputs** JSON.
 
 > [!IMPORTANT]
-> Se o serviço web tiver múltiplas entradas, utilize a propriedade **webServiceInputs** em vez de utilizar **o webServiceInput**. Consulte o [serviço Web requer várias entradas](#web-service-requires-multiple-inputs) para um exemplo de utilização da propriedade webServiceInputs.
+> Se o serviço web tiver múltiplas entradas, utilize a propriedade **webServiceInputs** em vez de utilizar **o webServiceInput** . Consulte o [serviço Web requer várias entradas](#web-service-requires-multiple-inputs) para um exemplo de utilização da propriedade webServiceInputs.
 >
-> Os conjuntos de dados **webServiceInput**que são referenciados pelas propriedades / **webServiceInputs** e **webServiceOutputs** (em **typeProperties)** também devem ser **incluídos** nas entradas e **saídas**de Atividade .
+> Os conjuntos de dados **webServiceInput** que são referenciados pelas propriedades / **webServiceInputs** e **webServiceOutputs** (em **typeProperties)** também devem ser **incluídos** nas entradas e **saídas** de Atividade .
 >
 > Na sua experiência studio (clássica), as portas de entrada e saída de serviço web e os parâmetros globais têm nomes padrão ("input1", "input2") que pode personalizar. Os nomes que utiliza para webServiceInputs, webServiceOutputs e configurações globais de Parameters devem corresponder exatamente aos nomes das experiências. Pode ver a carga útil do pedido de amostra na página de Ajuda à Execução do Lote para o seu ponto final do Estúdio (clássico) para verificar o mapeamento esperado.
 >
@@ -137,7 +137,7 @@ Este exemplo utiliza o Azure Storage para conter os dados de entrada e saída.
 
 Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] o tutorial da Data Factory antes de passar por este exemplo. Utilize o Editor de Fábrica de Dados para criar artefactos da Data Factory (serviços ligados, conjuntos de dados, pipeline) neste exemplo.
 
-1. Crie um **serviço ligado** para o seu **Azure Storage**. Se os ficheiros de entrada e saída estiverem em diferentes contas de armazenamento, precisa de dois serviços ligados. Aqui está um exemplo JSON:
+1. Crie um **serviço ligado** para o seu **Azure Storage** . Se os ficheiros de entrada e saída estiverem em diferentes contas de armazenamento, precisa de dois serviços ligados. Aqui está um exemplo JSON:
 
     ```JSON
     {
@@ -150,7 +150,7 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
       }
     }
     ```
-2. Criar o conjunto de **dados**da **Azure** Data Factory . Ao contrário de outros conjuntos de dados da Data Factory, estes conjuntos de dados devem conter tanto **valores de pastaPa** e **nome de ficheiro.** Pode utilizar a partição para fazer com que cada execução do lote (cada fatia de dados) processe ou produza ficheiros de entrada e saída únicos. Pode ser necessário incluir alguma atividade a montante para transformar a entrada no formato de ficheiro CSV e colocá-la na conta de armazenamento de cada fatia. Nesse caso, não incluiria as definições **deData externo** e **externo** mostradas no exemplo seguinte, e o seu DecisionTreeInputBlob seria o conjunto de dados de saída de uma Atividade diferente.
+2. Criar o conjunto de **dados** da **Azure** Data Factory . Ao contrário de outros conjuntos de dados da Data Factory, estes conjuntos de dados devem conter tanto **valores de pastaPa** e **nome de ficheiro.** Pode utilizar a partição para fazer com que cada execução do lote (cada fatia de dados) processe ou produza ficheiros de entrada e saída únicos. Pode ser necessário incluir alguma atividade a montante para transformar a entrada no formato de ficheiro CSV e colocá-la na conta de armazenamento de cada fatia. Nesse caso, não incluiria as definições **deData externo** e **externo** mostradas no exemplo seguinte, e o seu DecisionTreeInputBlob seria o conjunto de dados de saída de uma Atividade diferente.
 
     ```JSON
     {
@@ -182,7 +182,7 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
     }
     ```
 
-    O seu ficheiro csv de entrada deve ter a linha do cabeçalho da coluna. Se estiver a utilizar a **Atividade de Cópia** para criar/mover o csv para o armazenamento do blob, deve definir a propriedade da pia **blobWriterAddHeader** para **ser verdadeira**. Por exemplo:
+    O seu ficheiro csv de entrada deve ter a linha do cabeçalho da coluna. Se estiver a utilizar a **Atividade de Cópia** para criar/mover o csv para o armazenamento do blob, deve definir a propriedade da pia **blobWriterAddHeader** para **ser verdadeira** . Por exemplo:
 
     ```JSON
     sink:
@@ -192,8 +192,8 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
     }
     ```
 
-    Se o ficheiro csv não tiver a linha do cabeçalho, poderá ver o seguinte erro: **Erro na Atividade: Cadeia de leitura de erro. Token inesperado: StartObject. Caminho '', linha 1, posição 1**.
-3. Criar o **conjunto de** **dados**Azure Data Factory de saída . Este exemplo usa a partição para criar um caminho de saída único para cada execução de fatias. Sem a divisão, a atividade substituiria o ficheiro.
+    Se o ficheiro csv não tiver a linha do cabeçalho, poderá ver o seguinte erro: **Erro na Atividade: Cadeia de leitura de erro. Token inesperado: StartObject. Caminho '', linha 1, posição 1** .
+3. Criar o **conjunto de** **dados** Azure Data Factory de saída . Este exemplo usa a partição para criar um caminho de saída único para cada execução de fatias. Sem a divisão, a atividade substituiria o ficheiro.
 
     ```JSON
     {
@@ -301,7 +301,7 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
       }
       ```
 
-      As datas **de início** e **de fim** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **fim do** tempo é opcional. Se não especificar valor para a propriedade **final,** é calculado como "**início + 48 horas ".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
+      As datas **de início** e **de fim** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **fim do** tempo é opcional. Se não especificar valor para a propriedade **final,** é calculado como " **início + 48 horas ".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end** . Veja [Referência de Processamento de Scripts JSON](/previous-versions/azure/dn835050(v=azure.100)) para obter mais detalhes sobre as propriedades de JSON.
 
       > [!NOTE]
       > Especificar a entrada para a atividade AzureMLBatchExecution é opcional.
@@ -309,7 +309,7 @@ Recomendamos que passe pelo [seu primeiro oleoduto com][adf-build-1st-pipeline] 
       >
 
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Cenário: Experiências que utilizam módulos de leitor/escritor para se referir a dados em vários armazenamentos
-Outro cenário comum ao criar experiências de Estúdio (clássico) é usar módulos Reader e Writer. O módulo de leitor é usado para carregar dados numa experiência e o módulo de escritor é para guardar dados das suas experiências. Para mais detalhes sobre os módulos de leitor e escritor, consulte tópicos [de Leitor](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) na Biblioteca MSDN.
+Outro cenário comum ao criar experiências de Estúdio (clássico) é usar módulos Reader e Writer. O módulo de leitor é usado para carregar dados numa experiência e o módulo de escritor é para guardar dados das suas experiências. Para mais detalhes sobre os módulos de leitor e escritor, consulte tópicos [de Leitor](/azure/machine-learning/studio-module-reference/import-data) e [Escritor](/azure/machine-learning/studio-module-reference/export-data) na Biblioteca MSDN.
 
 Ao utilizar os módulos de leitor e escritor, é uma boa prática utilizar um parâmetro de serviço Web para cada propriedade destes módulos de leitor/escritor. Estes parâmetros web permitem configurar os valores durante o tempo de funcionamento. Por exemplo, pode criar uma experiência com um módulo de leitor que utiliza uma Base de Dados Azure SQL: XXX.database.windows.net. Depois de o serviço web ter sido implementado, pretende permitir que os consumidores do serviço web especifiquem outro servidor lógico do SQL chamado YYY.database.windows.net. Pode utilizar um parâmetro de serviço Web para permitir que este valor seja configurado.
 
@@ -347,7 +347,7 @@ Também pode utilizar [funções de fábrica de dados](data-factory-functions-va
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Utilizar um módulo Reader para ler dados de vários ficheiros em Azure Blob
 Grandes oleodutos de dados com atividades como Pig e Hive podem produzir um ou mais ficheiros de saída sem extensões. Por exemplo, quando especificar uma tabela de Colmeia externa, os dados para a tabela de Colmeia externa podem ser armazenados no armazenamento de bolhas Azure com o seguinte nome 000000_0. Pode utilizar o módulo de leitor numa experiência para ler vários ficheiros e usá-los para previsões.
 
-Ao utilizar o módulo de leitor numa experiência studio (clássica), pode especificar Azure Blob como uma entrada. Os ficheiros no armazenamento de blob Azure podem ser os ficheiros de saída (Exemplo: 000000_0) que são produzidos por um script pig and hive em execução em HDInsight. O módulo do leitor permite-lhe ler ficheiros (sem extensões) configurando o **Caminho para o contentor, diretório/bolha**. O **Caminho para** o contentor aponta para o contentor e o **diretório/bolha** aponta para a pasta que contém os ficheiros como mostrado na imagem seguinte. O asterisco que é, \* ) especifica que todos os **ficheiros do recipiente/pasta (isto é, dados/dados agregados/ano=2014/mês-6/ \* )** são lidos como parte da experiência.
+Ao utilizar o módulo de leitor numa experiência studio (clássica), pode especificar Azure Blob como uma entrada. Os ficheiros no armazenamento de blob Azure podem ser os ficheiros de saída (Exemplo: 000000_0) que são produzidos por um script pig and hive em execução em HDInsight. O módulo do leitor permite-lhe ler ficheiros (sem extensões) configurando o **Caminho para o contentor, diretório/bolha** . O **Caminho para** o contentor aponta para o contentor e o **diretório/bolha** aponta para a pasta que contém os ficheiros como mostrado na imagem seguinte. O asterisco que é, \* ) especifica que todos os **ficheiros do recipiente/pasta (isto é, dados/dados agregados/ano=2014/mês-6/ \* )** são lidos como parte da experiência.
 
 ![Propriedades de Azure Blob](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -405,11 +405,11 @@ Ao utilizar o módulo de leitor numa experiência studio (clássica), pode espec
 No exemplo JSON acima:
 
 * O serviço Web do Studio (clássico) implantado utiliza um leitor e um módulo de escritor para ler/escrever dados de/para uma Base de Dados Azure SQL. Este serviço Web expõe os seguintes quatro parâmetros: nome do servidor de base de dados, nome da base de dados, nome da conta do utilizador do servidor e senha de conta de utilizador do Servidor.
-* As datas **de início** e **de fim** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **fim do** tempo é opcional. Se não especificar valor para a propriedade **final,** é calculado como "**início + 48 horas ".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
+* As datas **de início** e **de fim** devem estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **fim do** tempo é opcional. Se não especificar valor para a propriedade **final,** é calculado como " **início + 48 horas ".** Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end** . Veja [Referência de Processamento de Scripts JSON](/previous-versions/azure/dn835050(v=azure.100)) para obter mais detalhes sobre as propriedades de JSON.
 
 ### <a name="other-scenarios"></a>Outros cenários
 #### <a name="web-service-requires-multiple-inputs"></a>O serviço web requer múltiplas entradas
-Se o serviço web tiver múltiplas entradas, utilize a propriedade **webServiceInputs** em vez de utilizar **o webServiceInput**. Os conjuntos de dados que são referenciados pelos **webServiceInputs** também devem ser **incluídos**nas entradas De Atividade .
+Se o serviço web tiver múltiplas entradas, utilize a propriedade **webServiceInputs** em vez de utilizar **o webServiceInput** . Os conjuntos de dados que são referenciados pelos **webServiceInputs** também devem ser **incluídos** nas entradas De Atividade .
 
 Na sua experiência Azure Machine Learning Studio (clássica), as portas de entrada e saída de serviço web e os parâmetros globais têm nomes padrão ("input1", "input2") que pode personalizar. Os nomes que utiliza para webServiceInputs, webServiceOutputs e configurações globais de Parameters devem corresponder exatamente aos nomes das experiências. Pode ver a carga útil do pedido de amostra na página de Ajuda à Execução do Lote para o seu ponto final do Estúdio (clássico) para verificar o mapeamento esperado.
 
@@ -545,12 +545,12 @@ Os **takeaways** são:
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>Atualizar modelos usando a atividade de recursos de atualização
-Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte [os modelos de atualização utilizando](data-factory-azure-ml-update-resource-activity.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
+Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** . Consulte [os modelos de atualização utilizando](data-factory-azure-ml-update-resource-activity.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
 
 ### <a name="reader-and-writer-modules"></a>Módulos de Leitor e Escritor
 Um cenário comum para a utilização de parâmetros de serviço Web é o uso de Leitores e Escritores Azure SQL. O módulo de leitor é usado para carregar dados numa experiência a partir de serviços de gestão de dados fora do Studio (clássico). O módulo de escritor é guardar dados das suas experiências em serviços de gestão de dados fora do Studio (clássico).
 
-Para mais detalhes sobre o leitor/escritor Azure Blob/Azure SQL, consulte tópicos [de Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) e [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) na MsDN Library. O exemplo na secção anterior usou o leitor Azure Blob e o escritor Azure Blob. Esta secção discute a utilização do leitor Azure SQL e do escritor Azure SQL.
+Para mais detalhes sobre o leitor/escritor Azure Blob/Azure SQL, consulte tópicos [de Reader](/azure/machine-learning/studio-module-reference/import-data) e [Writer](/azure/machine-learning/studio-module-reference/export-data) na MsDN Library. O exemplo na secção anterior usou o leitor Azure Blob e o escritor Azure Blob. Esta secção discute a utilização do leitor Azure SQL e do escritor Azure SQL.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 **Q:** Tenho vários ficheiros que são gerados pelos meus grandes oleodutos de dados. Posso utilizar a Atividade AzureMLBatchExecution para trabalhar em todos os ficheiros?

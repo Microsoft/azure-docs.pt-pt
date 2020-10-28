@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: d0dd7f71c21e223203fb0e695ba3139eaea0aa81
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c456c7eb31e1e8e66aa3276a0cb5f6f8b39efa9a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368830"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631755"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning Studio (clássico) usando a atividade de recurso de atualização
 
@@ -26,8 +26,8 @@ ms.locfileid: "92368830"
 > * [Atividade mapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
-> * [Azure Machine Learning Studio (clássico) Atividade de execução de lote](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (clássico) Atualização De Recursos Atividade](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Execução em Lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de Recursos de Atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade de U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
@@ -42,9 +42,9 @@ Este artigo complementa o principal artigo de integração do Azure Machine Lear
 Com o tempo, os modelos preditivos no Azure Machine Learning Studio (clássico) experiências de pontuação precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo ML retreinado. Os passos típicos para permitir a reconversão e atualização dos modelos studio (clássico) através de serviços web são:
 
 1. Crie uma experiência no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
-2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva .**predictive experiment**
+2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva . **predictive experiment**
 
-A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte [os modelos Retrain Azure Machine Learning Studio (clássico) programáticos](../../machine-learning/studio/retrain-machine-learning-model.md) para obter detalhes.
+A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte [os modelos Retrain Azure Machine Learning Studio (clássico) programáticos](../../machine-learning/classic/retrain-machine-learning-model.md) para obter detalhes.
 
 - **Serviço web de formação** - Recebe dados de formação e produz modelos treinados. A saída da reconversão é um ficheiro .ilearner num armazém da Azure Blob. O **ponto final predefinido** é criado automaticamente para si quando publica a experiência de treino como um serviço web. Pode criar mais pontos finais, mas o exemplo utiliza apenas o ponto final predefinido.
 - **Serviço web de pontuação** - Recebe exemplos de dados não rotulados e faz previsões. A saída da previsão pode ter várias formas, como um ficheiro .csv ou linhas na Base de Dados Azure SQL, dependendo da configuração da experiência. O ponto final predefinido é automaticamente criado para si quando publica a experiência preditiva como um serviço web. 
@@ -53,12 +53,12 @@ A imagem que se segue retrata a relação entre o treino e os pontos finais no A
 
 ![Serviços web](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Pode invocar o **serviço web de formação** utilizando o **Azure Machine Learning Studio (clássico) Atividade de Execução de Lotes**. Invocar um serviço web de formação é o mesmo que invocar um serviço web Azure Machine Learning Studio (clássico) (serviço web de pontuação) para a pontuação de dados. As secções anteriores cobrem como invocar um serviço web Azure Machine Learning Studio (clássico) a partir de um oleoduto Azure Data Factory em detalhe. 
+Pode invocar o **serviço web de formação** utilizando o **Azure Machine Learning Studio (clássico) Atividade de Execução de Lotes** . Invocar um serviço web de formação é o mesmo que invocar um serviço web Azure Machine Learning Studio (clássico) (serviço web de pontuação) para a pontuação de dados. As secções anteriores cobrem como invocar um serviço web Azure Machine Learning Studio (clássico) a partir de um oleoduto Azure Data Factory em detalhe. 
 
 Pode invocar o **serviço web de pontuação** utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** para atualizar o serviço web com o modelo recém-treinado. Os seguintes exemplos fornecem definições de serviço ligadas: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>O serviço web de pontuação é um serviço web clássico
-Se o serviço web de pontuação for um **serviço web clássico,** crie o segundo **ponto final não padrão e updatable** utilizando o portal Azure. Consulte o artigo ['Criar pontos finais'.](../../machine-learning/studio/create-endpoint.md) Depois de criar o ponto final não padrão, faça os seguintes passos:
+Se o serviço web de pontuação for um **serviço web clássico,** crie o segundo **ponto final não padrão e updatable** utilizando o portal Azure. Consulte o artigo ['Criar pontos finais'.](../../machine-learning/classic/create-endpoint.md) Depois de criar o ponto final não padrão, faça os seguintes passos:
 
 * Clique **em EXECUÇÃO DE LOTE** para obter o valor URI para a propriedade **mlEndpoint** JSON.
 * Clique no link **RECURSO UPDATE** para obter o valor URI para a propriedade JSON de **atualização.** A tecla API está na própria página do ponto final (no canto inferior direito).
@@ -208,12 +208,12 @@ O seguinte snippet JSON define um serviço ligado studio (clássico) que aponta 
 }
 ```
 
-No **Azure Machine Learning Studio (clássico)**, faça o seguinte para obter valores para **mlEndpoint** e **apiKey**:
+No **Azure Machine Learning Studio (clássico)** , faça o seguinte para obter valores para **mlEndpoint** e **apiKey** :
 
 1. Clique nos **SERVIÇOS WEB** no menu esquerdo.
 2. Clique no **serviço web de formação** na lista de serviços web.
 3. Clique na cópia ao lado da caixa de texto **chave API.** Cole a chave na pasta para o editor JSON da Data Factory.
-4. No **Azure Machine Learning Studio (clássico)**, clique no link **DE EXECUÇÃO BATCH.**
+4. No **Azure Machine Learning Studio (clássico)** , clique no link **DE EXECUÇÃO BATCH.**
 5. Copie o **URI pedido** da secção **Request** e cole-o no editor JSON da Data Factory.   
 
 ### <a name="linked-service-for-studio-classic-updatable-scoring-endpoint"></a>Linked Service for Studio (classic) updatable scoreing endpoint:
@@ -260,7 +260,7 @@ A atividade de Recurso de atualização do Estúdio (clássico) não gera qualqu
 ```
 
 ### <a name="pipeline"></a>Pipeline
-O gasoduto tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource**. A atividade de execução de lote Azure Machine Learning Studio (clássico) toma os dados de formação como entrada e produz um ficheiro iLearner como uma saída. A atividade invoca o serviço web de formação (experiência de formação exposta como um serviço web) com os dados de formação de entrada e recebe o ficheiro ilearner do serviço web. O espaço-reservadoBlob é apenas um conjunto de dados de saída falso que é exigido pelo serviço Azure Data Factory para executar o pipeline.
+O gasoduto tem duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResource** . A atividade de execução de lote Azure Machine Learning Studio (clássico) toma os dados de formação como entrada e produz um ficheiro iLearner como uma saída. A atividade invoca o serviço web de formação (experiência de formação exposta como um serviço web) com os dados de formação de entrada e recebe o ficheiro ilearner do serviço web. O espaço-reservadoBlob é apenas um conjunto de dados de saída falso que é exigido pelo serviço Azure Data Factory para executar o pipeline.
 
 ![diagrama de pipeline](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

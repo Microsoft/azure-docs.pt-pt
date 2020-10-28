@@ -7,15 +7,14 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 4e9ea34317951ecd9d3b6649ce42ffcf2f476d03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149224"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631143"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicações #
- 
 ## <a name="overview"></a>Descrição geral ##
 
 O Ambiente de Serviço de Aplicações do Azure é uma funcionalidade do Serviço de Aplicações do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança as aplicações do Serviço de Aplicações em grande escala. Esta capacidade pode alojar:
@@ -32,7 +31,7 @@ Os ambientes de Serviço de Aplicações (ASEs) são adequados para cargas de tr
 * Isolamento e acesso a uma rede segura.
 * Utilização de memória elevada.
 
-Os clientes podem criar vários ASEs numa única região do Azure ou em várias regiões do Azure. Esta flexibilidade torna os ASEs ideais para dimensionar horizontalmente camadas de aplicações sem monitorização de estado para suportar cargas de trabalho RPS elevadas.
+Os clientes podem criar vários ASEs numa única região do Azure ou em várias regiões do Azure. Esta flexibilidade torna as ASEs ideais para escalar horizontalmente os níveis de aplicação apátridas em apoio de elevados pedidos por segundo (RPS).
 
 AsEs acolhem aplicações de apenas um cliente e fazem-no num dos seus VNets. Os clientes têm um controlo otimizado sobre o tráfego de rede de aplicações de entrada e saída. As aplicações podem estabelecer ligações seguras de alta velocidade em VPNs aos recursos da empresa no local.
 

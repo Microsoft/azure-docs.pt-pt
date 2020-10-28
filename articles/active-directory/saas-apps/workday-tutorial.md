@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4d9ab8b7a3aa95b5283f63753cc9885246b77176
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: de7c1d037ce19f591829c340282facbd70a7258a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520222"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631500"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Azure Ative Directory integração única (SSO) com Workday
 
@@ -49,14 +49,14 @@ Para configurar a integração do Workday em Azure AD, precisa adicionar Workday
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Adicionar a partir da secção **da galeria,** escreva **Workday** na caixa de pesquisa.
 1. Selecione **Workday** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-workday"></a>Configurar e testar Azure AD único sign-on para workday
 
-Configure e teste Azure AD SSO com Workday usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Workday.
+Configure e teste Azure AD SSO com Workday usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Workday.
 
 Para configurar e testar a Azure AD SSO com workday, complete os seguintes blocos de construção:
 
@@ -72,7 +72,7 @@ Para configurar e testar a Azure AD SSO com workday, complete os seguintes bloco
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Workday,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
-1. Na página **de método de inscrição única,** selecione **SAML**.
+1. Na página **de método de inscrição única,** selecione **SAML** .
 1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -89,9 +89,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > Estes valores não são reais. Atualize estes valores com o URL e URL de resposta de assinatura real. A url de resposta deve ter um subdomínio, por exemplo: www. wd2, wd3, wd3-impl, wd5, wd5-impl).
     > Usar algo como `http://www.myworkday.com` obras, mas `http://myworkday.com` não funciona. Contacte [a equipa de suporte do Cliente workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. A sua aplicação Workday espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname**. A aplicação Workday espera que **o identificador** de nomes seja mapeado com **user.mail**, **UPN,** etc., pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
+6. A sua aplicação Workday espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem seguinte mostra a lista de atributos predefinidos, onde como **identificador** de nome é mapeado com **user.userprincipalname** . A aplicação Workday espera que **o identificador** de nomes seja mapeado com **user.mail** , **UPN,** etc., pelo que é necessário editar o mapeamento do atributo clicando no ícone **Editar** e alterar o mapeamento do atributo.
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
     > [!NOTE]
     > Aqui mapeamos o ID de nome com UPN (user.userprincipalname) como padrão. Tem de mapear o ID do nome com o ID do utilizador real na sua conta workday (o seu email, UPN, etc.) para um trabalho bem sucedido de SSO.
@@ -102,11 +102,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Para modificar as opções **de Assinatura** de acordo com o seu requisito, clique em Editar o botão **Editar** para abrir o diálogo **do Certificado de Assinatura SAML.**
 
-    ![image](common/edit-certificate.png) 
+    ![A screenshot mostra a página do Certificado de Assinatura SAML com o ícone de edição selecionado.](common/edit-certificate.png) 
 
-    ![image](./media/workday-tutorial/signing-option.png)
+    ![A screenshot mostra a página do Certificado de Assinatura SAML onde pode selecionar a Opção de Assinatura.](./media/workday-tutorial/signing-option.png)
 
-    a. Selecione **Sign SAML resposta e afirmação** para **a opção de assinatura**.
+    a. Selecione **Sign SAML resposta e afirmação** para **a opção de assinatura** .
 
     b. Clique em **Guardar**
 
@@ -118,21 +118,21 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Workday.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Workday**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Workday** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -156,9 +156,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![URLs de reorientação](./media/workday-tutorial/IC7829581.png "URLs de reorientação")
 
-    a. Clique **em Adicionar Linha**.
+    a. Clique **em Adicionar Linha** .
 
-    b. No **URL de redirecionamento de login**, **URL de redirecionamento de tempo** e caixa de texto URL de **redirecionamento móvel,** cole o **URL de login** que copiou a partir da secção **Configurar** o Dia de Trabalho do portal Azure.
+    b. No **URL de redirecionamento de login** , **URL de redirecionamento de tempo** e caixa de texto URL de **redirecionamento móvel,** cole o **URL de login** que copiou a partir da secção **Configurar** o Dia de Trabalho do portal Azure.
 
     c. Na caixa de texto **url de redirecionamento de logout,** cole o **URL logout** que copiou a partir da secção **Configurar** o Dia de Trabalho do portal Azure.
 
@@ -166,26 +166,26 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
    > [!NOTE]
    > O valor do atributo Ambiente está ligado ao valor do URL do arrendatário:  
-   > -Se o nome de domínio do URL do inquilino do Workday começar com impl, por exemplo: * https://www.myworkday.com/ "inquilino"/login-saml2.htmld),* o atributo **Ambiente** deve ser definido como Implementação.  
+   > -Se o nome de domínio do URL do inquilino do Workday começar com impl, por exemplo: *https://www.myworkday.com/ "inquilino"/login-saml2.htmld),* o atributo **Ambiente** deve ser definido como Implementação.  
    > -Se o nome de domínio começar com outra coisa, tem de contactar a equipa de suporte do [Cliente Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter o valor **ambiente** correspondente.
 
 4. Na secção **configuração SAML,** execute os seguintes passos:
 
     ![Configuração SAML](./media/workday-tutorial/IC782926.png "Configuração SAML")
 
-    a.  Selecione **Ativar a autenticação SAML**.
+    a.  Selecione **Ativar a autenticação SAML** .
 
-    b.  Clique **em Adicionar Linha**.
+    b.  Clique **em Adicionar Linha** .
 
 5. Na secção **Saml Identity Providers,** execute os seguintes passos:
 
-    ![Fornecedores de Identidade SAML](./media/workday-tutorial/IC7829271.png "Fornecedores de Identidade SAML")
+    ![A screenshot mostra a página SAML Identity Providers onde pode executar estes passos.](./media/workday-tutorial/IC7829271.png "Fornecedores de Identidade SAML")
 
     a. Na caixa de texto **Name Provider Identity,** escreva um nome de fornecedor (por exemplo: *SPInitiatedSSO).*
 
     b. No portal Azure, na secção Configurar o **Workday,** copie o valor do **identificador Azure AD** e, em seguida, cole-o na caixa de texto do **Emitente.**
 
-    ![Fornecedores de Identidade SAML](./media/workday-tutorial/IC7829272.png "Fornecedores de Identidade SAML")
+    ![A screenshot mostra onde pode introduzir o valor do Emitente.](./media/workday-tutorial/IC7829272.png "Fornecedores de Identidade SAML")
 
     c. No portal Azure, na secção Configurar o **Dia do Trabalho,** copie o valor **URL logout** e, em seguida, cole-o na caixa de texto **URL de resposta logout.**
 
@@ -193,19 +193,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     e. Na caixa de texto **Usada para Ambientes,** selecione o nome do ambiente.
 
-    f. Clique no **Certificado de Chave Pública do Fornecedor de Identidade**e, em seguida, clique em **Criar**.
+    f. Clique no **Certificado de Chave Pública do Fornecedor de Identidade** e, em seguida, clique em **Criar** .
 
-    ![Criar](./media/workday-tutorial/IC782928.png "Criar")
+    ![A screenshot mostra a ligação Criar.](./media/workday-tutorial/IC782928.png "Criar")
 
     exemplo, Clique **em Criar a chave pública x509.**
 
-    ![Criar](./media/workday-tutorial/IC782929.png "Criar")
+    ![A screenshot mostra a opção de Criar a Chave Pública x509.](./media/workday-tutorial/IC782929.png "Criar")
 
 6. Na secção **Ver x509 Chave Pública,** execute os seguintes passos:
 
     ![Ver chave pública x509](./media/workday-tutorial/IC782930.png "Ver chave pública x509")
 
-    a. Na caixa de texto **Name,** digite um nome para o seu certificado (por exemplo: *PPE \_ SP*).
+    a. Na caixa de texto **Name,** digite um nome para o seu certificado (por exemplo: *PPE \_ SP* ).
 
     b. Na caixa de texto **Válido,** digite o válido do valor do atributo do seu certificado.
 
@@ -220,7 +220,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     e.  Na caixa de texto **do Certificado,** cole o conteúdo da sua área de transferência.
 
-    f.  Clique em **OK**.
+    f.  Clique em **OK** .
 
 7. Efetue os seguintes passos:
 
@@ -228,13 +228,13 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a.  Na caixa de texto **iD do fornecedor de serviços,** escreva **http://www.workday.com** .
 
-    b. **Selecione Não Esvazie o Pedido de Autenticação Iniciado pelo SP**.
+    b. **Selecione Não Esvazie o Pedido de Autenticação Iniciado pelo SP** .
 
-    c. Como **Método de Assinatura pedido de autenticação,** selecione **SHA256**.
+    c. Como **Método de Assinatura pedido de autenticação,** selecione **SHA256** .
 
     ![Método de assinatura de pedido de autenticação](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de assinatura de pedido de autenticação")
 
-    d. Clique em **OK**.
+    d. Clique em **OK** .
 
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 

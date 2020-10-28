@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
-ms.author: metan
-ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: metang
+ms.openlocfilehash: 80da6776412e0df7b5b9ae5759ac770c04673992
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320936"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631075"
 ---
 # <a name="language-support-for-immersive-reader"></a>Suporte linguístico para leitor imersivo
 
@@ -62,7 +62,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Finlandês | fi |
 | Finlandês (Finlândia) | fi-FI |
 | Francês | fr |
@@ -168,7 +168,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Estónio | et |
 | Fijian | fj |
 | Filipino | fil |
@@ -300,7 +300,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Estónio | et |
 | Finlandês | fi |
 | Finlandês (Finlândia) | fi-FI |
@@ -397,7 +397,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Estónio | et |
 | Finlandês | fi |
 | Finlandês (Finlândia) | fi-FI |
@@ -466,7 +466,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Finlandês | fi |
 | Finlandês (Finlândia) | fi-FI |
 | Francês | fr |
@@ -516,7 +516,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Finlandês | fi |
 | Finlandês (Finlândia) | fi-FI |
 | Francês | fr |
@@ -561,7 +561,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Inglês (Irlanda) | en-IE |
 | Inglês (Nova Zelândia) | en-NZ |
 | Inglês (Reino Unido) | en-GB |
-| Inglês (Estados Unidos) | pt-PT |
+| Inglês (Estados Unidos) | en-PT |
 | Francês | fr |
 | Francês (Canadá) | fr-CA |
 | Francês (França) | fr-FR |

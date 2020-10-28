@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0e608e1afae77afd44d7351b7c3f1f269bd8a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2abc04a6a4ad6ee1c3e910db0a6be11b8150d52e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998089"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631925"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala utilizando a Data Factory e o Batch
 > [!NOTE]
@@ -42,7 +42,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 * [Fundamentos do Lote](../../azure-sql/database/sql-database-paas-overview.md)
 * [Descrição geral da funcionalidade do Batch](../../batch/batch-service-workflow-features.md)
 
-Opcionalmente, para saber mais sobre o Lote, consulte [a documentação do Lote.](https://docs.microsoft.com/azure/batch/)
+Opcionalmente, para saber mais sobre o Lote, consulte [a documentação do Lote.](../../batch/index.yml)
 
 ## <a name="why-azure-data-factory"></a>Por que Azure Data Factory?
 Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Pode utilizar a Data Factory para criar oleodutos de dados geridos que movem dados de lojas de dados no local e em nuvem para uma loja de dados centralizada. Um exemplo é o armazenamento Azure Blob. Pode utilizar a Data Factory para processar/transformar dados utilizando serviços como Azure HDInsight e Azure Machine Learning. Também pode agendar os oleodutos de dados para funcionar de forma programada (por exemplo, hora, dia e semanalmente). Pode monitorizar e gerir os oleodutos num ápice para identificar problemas e tomar medidas.
@@ -52,7 +52,7 @@ Data Factory é um serviço de integração de dados baseado na nuvem que orques
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Construa o seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md)   
 
-Opcionalmente, para saber mais sobre a Data Factory, consulte [a documentação da Data Factory.](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory)
+Opcionalmente, para saber mais sobre a Data Factory, consulte [a documentação da Data Factory.](/rest/api/datafactory/v1/data-factory-data-factory)
 
 ## <a name="data-factory-and-batch-together"></a>Fábrica de Dados e Lote juntos
 A Data Factory inclui atividades integradas. Por exemplo, a atividade Copy é usada para copiar/mover dados de uma loja de dados de origem para uma loja de dados de destino. A atividade da Colmeia é usada para processar dados usando clusters Hadoop (HDInsight) em Azure. Para obter uma lista de atividades de transformação apoiadas, consulte [as atividades de transformação de dados.](data-factory-data-transformation-activities.md)
@@ -95,14 +95,14 @@ Se não tiver uma subscrição do Azure, pode criar uma conta de teste gratuita 
 Utilize uma conta de armazenamento para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento.](../../storage/common/storage-account-create.md) A solução de amostra utiliza o armazenamento de bolhas.
 
 #### <a name="azure-batch-account"></a>Conta do Azure Batch
-Criar uma conta Batch utilizando o [portal Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerir uma conta Batch](../../batch/batch-account-create-portal.md). Note o nome da conta batch e a chave da conta. Também pode utilizar o [cmdlet New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) para criar uma conta Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [Começar com cmdlets PowerShell do lote](../../batch/batch-powershell-cmdlets-get-started.md).
+Criar uma conta Batch utilizando o [portal Azure](https://portal.azure.com/). Para obter mais informações, consulte [Criar e gerir uma conta Batch](../../batch/batch-account-create-portal.md). Note o nome da conta batch e a chave da conta. Também pode utilizar o [cmdlet New-AzBatchAccount](/powershell/module/az.batch/new-azbatchaccount) para criar uma conta Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [Começar com cmdlets PowerShell do lote](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de amostra utiliza o Batch (indiretamente através de um oleoduto de fábrica de dados) para processar dados de forma paralela num conjunto de nós computacional (uma recolha gerida de VMs).
 
 #### <a name="azure-batch-pool-of-virtual-machines"></a>Piscina de máquinas virtuais Azure Batch
 Crie uma piscina de lote com pelo menos dois nós computacional.
 
-1. No [portal Azure,](https://portal.azure.com) **selecione Procurar** no menu esquerdo e selecione **Contas de Lote**.
+1. No [portal Azure,](https://portal.azure.com) **selecione Procurar** no menu esquerdo e selecione **Contas de Lote** .
 
 1. Selecione a sua conta Batch para abrir a lâmina **'Conta lote'.**
 
@@ -114,7 +114,7 @@ Crie uma piscina de lote com pelo menos dois nós computacional.
 
    b. Especifique **o Windows Server 2012 R2** para a definição **do Sistema Operativo Família.**
 
-   c. Selecione um **nível de preços de nó**.
+   c. Selecione um **nível de preços de nó** .
 
    d. Introduza **2** como o valor para a definição **dedicada ao Alvo.**
 
@@ -122,7 +122,7 @@ Crie uma piscina de lote com pelo menos dois nós computacional.
 
    f. Selecione **OK** para criar a piscina.
 
-#### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+#### <a name="azure-storage-explorer"></a>Explorador de Armazenamento do Azure
 Utiliza [o Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) ou [o CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (do Software DesajeitadoLeaf) para inspecionar e alterar os dados nos seus projetos de Armazenamento. Também pode inspecionar e alterar os dados nos registos das suas aplicações hospedadas na nuvem.
 
 1. Crie um contentor chamado **mycontainer** com acesso privado (sem acesso anónimo).
@@ -135,13 +135,13 @@ Utiliza [o Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/)
 
    Se utilizar o Storage Explorer, no passo seguinte, faça o upload de ficheiros com os seguintes nomes: `inputfolder/2015-11-16-00/file.txt` , e assim por `inputfolder/2015-11-16-01/file.txt` diante. Este passo cria automaticamente as pastas.
 
-1. Crie um ficheiro de texto **file.txt** na sua máquina com conteúdo que tenha a palavra-chave **Microsoft**. Um exemplo é "testar atividade personalizada Microsoft test personal activity Microsoft.".
+1. Crie um ficheiro de texto **file.txt** na sua máquina com conteúdo que tenha a palavra-chave **Microsoft** . Um exemplo é "testar atividade personalizada Microsoft test personal activity Microsoft.".
 
 1. Faça o upload do ficheiro para as seguintes pastas de entrada no armazenamento de bolhas:
 
    ![Pastas de entrada](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Se utilizar o Storage Explorer, faça o upload do ficheiro **file.txt** para **o mycontainer**. Selecione **Copiar** na barra de ferramentas para criar uma cópia da bolha. Na caixa de diálogo **Copy Blob,** altere o **nome da bolha de destino** para `inputfolder/2015-11-16-00/file.txt` . Repita este passo para `inputfolder/2015-11-16-01/file.txt` `inputfolder/2015-11-16-02/file.txt` criar, `inputfolder/2015-11-16-03/file.txt` e assim por `inputfolder/2015-11-16-04/file.txt` diante. Esta ação cria automaticamente as pastas.
+   Se utilizar o Storage Explorer, faça o upload do ficheiro **file.txt** para **o mycontainer** . Selecione **Copiar** na barra de ferramentas para criar uma cópia da bolha. Na caixa de diálogo **Copy Blob,** altere o **nome da bolha de destino** para `inputfolder/2015-11-16-00/file.txt` . Repita este passo para `inputfolder/2015-11-16-01/file.txt` `inputfolder/2015-11-16-02/file.txt` criar, `inputfolder/2015-11-16-03/file.txt` e assim por `inputfolder/2015-11-16-04/file.txt` diante. Esta ação cria automaticamente as pastas.
 
 1. Criar outro recipiente chamado `customactivitycontainer` . Faça o upload do ficheiro zip da atividade personalizada para este recipiente.
 
@@ -170,10 +170,10 @@ O método tem alguns componentes-chave que precisa de compreender:
 
 * O método tem quatro parâmetros:
 
-  * **linkedServices**. Este parâmetro é uma lista enumerada de serviços ligados que ligam fontes de dados de entrada/saída (por exemplo, armazenamento de bolhas) à fábrica de dados. Nesta amostra, existe apenas um serviço ligado do tipo Azure Storage utilizado tanto para a entrada como para a saída.
-  * **conjuntos de dados**. Este parâmetro é uma lista enumerada de conjuntos de dados. Pode utilizar este parâmetro para obter as localizações e esquemas definidos por conjuntos de dados de entrada e saída.
-  * **atividade**. Este parâmetro representa a entidade computacional atual. Neste caso, é um serviço de Lote.
-  * **madeireiro**. Pode utilizar o madeirão para escrever comentários de depurg que surgem como o registo "Utilizador" para o pipeline.
+  * **linkedServices** . Este parâmetro é uma lista enumerada de serviços ligados que ligam fontes de dados de entrada/saída (por exemplo, armazenamento de bolhas) à fábrica de dados. Nesta amostra, existe apenas um serviço ligado do tipo Azure Storage utilizado tanto para a entrada como para a saída.
+  * **conjuntos de dados** . Este parâmetro é uma lista enumerada de conjuntos de dados. Pode utilizar este parâmetro para obter as localizações e esquemas definidos por conjuntos de dados de entrada e saída.
+  * **atividade** . Este parâmetro representa a entidade computacional atual. Neste caso, é um serviço de Lote.
+  * **madeireiro** . Pode utilizar o madeirão para escrever comentários de depurg que surgem como o registo "Utilizador" para o pipeline.
 * O método devolve um dicionário que pode ser usado para acorrentar atividades personalizadas no futuro. Esta funcionalidade ainda não foi implementada, por isso basta devolver um dicionário vazio do método.
 
 #### <a name="procedure-create-the-custom-activity"></a>Procedimento: Criar a atividade personalizada
@@ -181,19 +181,19 @@ O método tem alguns componentes-chave que precisa de compreender:
 
    a. Iniciar o Visual Studio 2012/2013/2015.
 
-   b. Selecione **o**  >  **novo**  >  **projeto de arquivo**.
+   b. Selecione **o**  >  **novo**  >  **projeto de arquivo** .
 
-   c. Expandir **modelos**e selecionar **Visual C \# **. Nesta passagem, você usa \# C, mas você pode usar qualquer idioma .NET para desenvolver a atividade personalizada.
+   c. Expandir **modelos** e selecionar **Visual C \#** . Nesta passagem, você usa \# C, mas você pode usar qualquer idioma .NET para desenvolver a atividade personalizada.
 
    d. Selecione **a Biblioteca** de Classe da lista de tipos de projeto à direita.
 
-   e. Insira **myDotNetActivity** para o **nome**.
+   e. Insira **myDotNetActivity** para o **nome** .
 
-   f. Selecione **C: \\ ADF** para a **localização**. Crie a pasta **ADF** se não existir.
+   f. Selecione **C: \\ ADF** para a **localização** . Crie a pasta **ADF** se não existir.
 
    exemplo, Selecione **OK** para criar o projeto.
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
+1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola** .
 
 1. Na consola Gestor de Pacotes, execute o seguinte comando para importar Microsoft.Azure.Management.DataFactories:
 
@@ -219,12 +219,12 @@ O método tem alguns componentes-chave que precisa de compreender:
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
-1. Altere o nome do espaço de nomes para **MyDotNetActivityNS**.
+1. Altere o nome do espaço de nomes para **MyDotNetActivityNS** .
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
-1. Altere o nome da classe para **MyDotNetActivity**e o retire da interface **IDotNetActivity** como mostrado:
+1. Altere o nome da classe para **MyDotNetActivity** e o retire da interface **IDotNetActivity** como mostrado:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
@@ -395,11 +395,11 @@ O método tem alguns componentes-chave que precisa de compreender:
 
     O método calcular calcula o número de casos da palavra-chave "Microsoft" nos ficheiros de entrada (bolhas na pasta). O termo de pesquisa "Microsoft" está codificado no código.
 
-1. Compilar o projeto. Selecione **Construir** a partir do menu e, em seguida, selecione **Build Solution**.
+1. Compilar o projeto. Selecione **Construir** a partir do menu e, em seguida, selecione **Build Solution** .
 
-1. Inicie o Windows Explorer e vá para a pasta ** \\ de desbloqueio do caixote** do lixo ou do caixote do **lixo. \\ ** A escolha da pasta depende do tipo de construção.
+1. Inicie o Windows Explorer e vá para a pasta **\\ de desbloqueio do caixote** do lixo ou do caixote do **lixo. \\** A escolha da pasta depende do tipo de construção.
 
-1. Crie um ficheiro zip **MyDotNetActivity.zip** que contenha todos os binários na pasta ** \\ bin \\ Debug.** É melhor incluir o MyDotNetActivity. **ficheiro pdb** para obter detalhes adicionais, como o número de linha no código fonte que causou o problema quando ocorre uma falha.
+1. Crie um ficheiro zip **MyDotNetActivity.zip** que contenha todos os binários na pasta **\\ bin \\ Debug.** É melhor incluir o MyDotNetActivity. **ficheiro pdb** para obter detalhes adicionais, como o número de linha no código fonte que causou o problema quando ocorre uma falha.
 
    ![A lista de pastas bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
@@ -408,7 +408,7 @@ O método tem alguns componentes-chave que precisa de compreender:
 #### <a name="execute-method"></a>Método de execução
 Esta secção fornece mais detalhes sobre o código no método Executar.
 
-1. Os membros para iteração através da coleção de entradas encontram-se no espaço de [nomes Microsoft.WindowsAzure.Storage.Blob.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) Para iterar através da coleção blob, você é obrigado a usar a classe **BlobContinuationToken.** Na sua essência, deve utilizar um laço de "fazer-enquanto" com o token como mecanismo para sair do laço. Para obter mais informações, consulte [o armazenamento da Blob a partir de .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Um ciclo básico é mostrado aqui:
+1. Os membros para iteração através da coleção de entradas encontram-se no espaço de [nomes Microsoft.WindowsAzure.Storage.Blob.](/java/api/com.microsoft.azure.storage.blob) Para iterar através da coleção blob, você é obrigado a usar a classe **BlobContinuationToken.** Na sua essência, deve utilizar um laço de "fazer-enquanto" com o token como mecanismo para sair do laço. Para obter mais informações, consulte [o armazenamento da Blob a partir de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md). Um ciclo básico é mostrado aqui:
 
     ```csharp
     // Initialize the continuation token.
@@ -431,9 +431,9 @@ Esta secção fornece mais detalhes sobre o código no método Executar.
     } while (continuationToken != null);
 
     ```
-   Para mais informações, consulte a documentação para o método [ListBlobsSegmented.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
+   Para mais informações, consulte a documentação para o método [ListBlobsSegmented.](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 
-1. O código para trabalhar através do conjunto de bolhas logicamente vai dentro do ciclo do-while. No método **Executar,** o ciclo do-while passa a lista de bolhas para um método chamado **Calcular**. O método devolve uma variável de cadeia denominada **saída** que é o resultado de ter iterado através de todas as bolhas do segmento.
+1. O código para trabalhar através do conjunto de bolhas logicamente vai dentro do ciclo do-while. No método **Executar,** o ciclo do-while passa a lista de bolhas para um método chamado **Calcular** . O método devolve uma variável de cadeia denominada **saída** que é o resultado de ter iterado através de todas as bolhas do segmento.
 
    Devolve o número de ocorrências do termo de pesquisa "Microsoft" na bolha transmitida ao método **Calcular.**
 
@@ -535,7 +535,7 @@ A seguinte passagem de walkthrough fornece detalhes adicionais.
 
 1. Na nova lâmina de **fábrica de dados,** **introduza a CustomActivityFactory** para o nome. O nome da fábrica de dados tem de ser globalmente exclusivo. Se receber o erro "Data factory name CustomActivityFactory não está disponível", altere o nome da fábrica de dados. Por exemplo, use o seu nome Desemabrico de Atividades e crie novamente a fábrica de dados.
 
-1. Selecione **RESOURCE GROUP NAME**e selecione um grupo de recursos existente ou crie um grupo de recursos.
+1. Selecione **RESOURCE GROUP NAME** e selecione um grupo de recursos existente ou crie um grupo de recursos.
 
 1. Verifique se a subscrição e a região onde pretende que a fábrica de dados seja criada estão corretas.
 
@@ -551,7 +551,7 @@ A seguinte passagem de walkthrough fornece detalhes adicionais.
 Os serviços ligados ligam lojas de dados ou serviços de computação a uma fábrica de dados. Neste passo, ligue a sua conta de armazenamento e a conta Batch à sua fábrica de dados.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
-1. Selecione o **Autor e implante** azulejo na lâmina da fábrica de **dados** para **CustomActivityFactory**. O Editor da Fábrica de Dados aparece.
+1. Selecione o **Autor e implante** azulejo na lâmina da fábrica de **dados** para **CustomActivityFactory** . O Editor da Fábrica de Dados aparece.
 
 1. Selecione **Nova loja de dados** na barra de comando e escolha **o armazenamento Azure.** Aparece o script JSON que utiliza para criar um serviço ligado ao Armazenamento no editor.
 
@@ -561,7 +561,7 @@ Os serviços ligados ligam lojas de dados ou serviços de computação a uma fá
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
-   ![Implementação](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Implementar](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Criar um serviço ligado a Azure Batch
 Neste passo, cria um serviço ligado para a sua conta Batch que é utilizado para executar a atividade personalizada da fábrica de dados.
@@ -662,27 +662,27 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
 
     Você cria um oleoduto mais tarde nesta passagem com a hora de início 2015-11-16T00:00:00Z e o tempo final 2015-11-16T05:00:00Z. Está programado para produzir dados de hora em hora, por isso existem cinco fatias de entrada/saída (entre as 00:00:00 e as **00** \> **05:00:00).**
 
-    A **frequência** **e** intervalo para o conjunto de dados de entrada são definidos para **Hora** e **1**, o que significa que a fatia de entrada está disponível a cada hora.
+    A **frequência** **e** intervalo para o conjunto de dados de entrada são definidos para **Hora** e **1** , o que significa que a fatia de entrada está disponível a cada hora.
 
     A hora de início de cada fatia é representada pela variável do sistema **SliceStart** no corte JSON anterior. Aqui estão os horários de início de cada fatia.
 
     | **Fatia** | **Hora de início**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T**00**00:00:00 |
-    | 2         | 2015-11-16T**01**:00:00 |
-    | 3         | 2015-11-16T**02**02:00:00 |
-    | 4         | 2015-11-16T**03**03:00:00 |
-    | 5         | 2015-11-16T**04**04:00:00 |
+    | 1         | 2015-11-16T **00** 00:00:00 |
+    | 2         | 2015-11-16T **01** :00:00 |
+    | 3         | 2015-11-16T **02** 02:00:00 |
+    | 4         | 2015-11-16T **03** 03:00:00 |
+    | 5         | 2015-11-16T **04** 04:00:00 |
 
     A **pastaApapa** é calculada utilizando a parte do ano, mês, dia e hora da parte inicial da fatia **(SliceStart).** Aqui está como uma pasta de entrada é mapeada para uma fatia.
 
     | **Fatia** | **Hora de início**          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T**00**00:00:00 | 2015-11-16-00**00** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-01**01** |
-    | 3         | 2015-11-16T**02**02:00:00 | 2015-11-16-02**02** |
-    | 4         | 2015-11-16T**03**03:00:00 | 2015-11-16-03**03** |
-    | 5         | 2015-11-16T**04**04:00:00 | 2015-11-16-04**04** |
+    | 1         | 2015-11-16T **00** 00:00:00 | 2015-11-16-00 **00** |
+    | 2         | 2015-11-16T **01** :00:00 | 2015-11-16-01 **01** |
+    | 3         | 2015-11-16T **02** 02:00:00 | 2015-11-16-02 **02** |
+    | 4         | 2015-11-16T **03** 03:00:00 | 2015-11-16-03 **03** |
+    | 5         | 2015-11-16T **04** 04:00:00 | 2015-11-16-04 **04** |
 
 1. Selecione **Implementar** na barra de ferramentas para criar e implementar a tabela **InputDataset.**
 
@@ -725,15 +725,15 @@ Neste passo, cria-se outro conjunto de dados do tipo AzureBlob para representar 
 
     | **Fatia** | **Hora de início**          | **Ficheiro de saída**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**00:00:00 | 2015-11-16-00.txt** ** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-01.txt** ** |
-    | 3         | 2015-11-16T**02**02:00:00 | 2015-11-16-02.txt** ** |
-    | 4         | 2015-11-16T**03**03:00:00 | 2015-11-16-03.txt** ** |
-    | 5         | 2015-11-16T**04**04:00:00 | 2015-11-16-04.txt** ** |
+    | 1         | 2015-11-16T **00** 00:00:00 | 2015-11-16-00.txt  |
+    | 2         | 2015-11-16T **01** :00:00 | 2015-11-16-01.txt  |
+    | 3         | 2015-11-16T **02** 02:00:00 | 2015-11-16-02.txt  |
+    | 4         | 2015-11-16T **03** 03:00:00 | 2015-11-16-03.txt  |
+    | 5         | 2015-11-16T **04** 04:00:00 | 2015-11-16-04.txt  |
 
     Lembre-se que todos os ficheiros de uma pasta de entrada (por exemplo, 2015-11-16-00) fazem parte de uma fatia com a hora de início 2015-11-16-00. Quando esta fatia é processada, a atividade personalizada verifica-se através de cada ficheiro e produz uma linha no ficheiro de saída com o número de ocorrências do termo de pesquisa "Microsoft". Se houver três ficheiros na pasta 2015-11-16-00, existem três linhas no ficheiro de saída 2015-11-16-00.txt.
 
-1. Selecione **Implementar** na barra de ferramentas para criar e implementar o **Conjunto De Dados de Saída**.
+1. Selecione **Implementar** na barra de ferramentas para criar e implementar o **Conjunto De Dados de Saída** .
 
 #### <a name="step-4-create-and-run-the-pipeline-with-a-custom-activity"></a>Passo 4: Criar e executar o gasoduto com uma atividade personalizada
 Neste passo, cria-se um pipeline com uma atividade, a atividade personalizada que criou anteriormente.
@@ -793,10 +793,10 @@ Neste passo, cria-se um pipeline com uma atividade, a atividade personalizada qu
    Tenha em atenção os seguintes pontos:
 
    * Apenas uma atividade está no oleoduto, e é do tipo **DotNetActivity.**
-   * **O nome de montagem** é definido como o nome do ** DLLMyDotNetActivity.dll**.
-   * **O Ponto de Entrada** está definido para **MyDotNetActivityNS.MyDotNetActivity**. É \<namespace\> basicamente.\<classname\> no seu código.
+   * **O nome de montagem** é definido como o nome do **DLLMyDotNetActivity.dll** .
+   * **O Ponto de Entrada** está definido para **MyDotNetActivityNS.MyDotNetActivity** . É \<namespace\> basicamente.\<classname\> no seu código.
    * **O PackageLinkedService** está definido para **StorageLinkedService,** que aponta para o armazenamento de bolhas que contém o ficheiro zip de atividade personalizada. Se utilizar diferentes contas de armazenamento para ficheiros de entrada/saída e o ficheiro zip de atividade personalizada, tem de criar outro serviço ligado ao Armazenamento. Este artigo pressupõe que use a mesma conta de armazenamento.
-   * **O PackageFile** está definido para **o "personalactivitycontainer/MyDotNetActivity.zip**. Está no \<containerforthezip\> / \<nameofthezip.zip\> formato.
+   * **O PackageFile** está definido para **o "personalactivitycontainer/MyDotNetActivity.zip** . Está no \<containerforthezip\> / \<nameofthezip.zip\> formato.
    * A atividade personalizada toma **o InputDataset** como entrada e **OutputDataset** como saída.
    * A propriedade **linkedServiceName** da atividade personalizada aponta para **AzureBatchLinkedService,** que diz à Data Factory que a atividade personalizada precisa de ser executada no Batch.
    * A **regulação da concordância** é importante. Se utilizar o valor predefinido, que é 1, mesmo que tenha dois ou mais nós de cálculo na piscina do Lote, as fatias são processadas uma após a outra. Portanto, não está a aproveitar-se da capacidade de processamento paralela do Batch. Se definir **a concordância** para um valor mais elevado, por exemplo 2, significa que duas fatias (corresponde a duas tarefas em Lote) podem ser processadas ao mesmo tempo. Neste caso, ambos os VMs na piscina lote são utilizados. Desaproprie a propriedade de concordância adequadamente.
@@ -809,11 +809,11 @@ Neste passo, cria-se um pipeline com uma atividade, a atividade personalizada qu
 #### <a name="step-5-test-the-pipeline"></a>Passo 5: Testar o gasoduto
 Neste passo, testa o pipeline deixando cair ficheiros nas pastas de entrada. Comece por testar o gasoduto com um ficheiro para cada pasta de entrada.
 
-1. Na lâmina da **fábrica de dados** no portal Azure, selecione **Diagrama**.
+1. Na lâmina da **fábrica de dados** no portal Azure, selecione **Diagrama** .
 
    ![Diagrama](./media/data-factory-data-processing-using-batch/image10.png)
 
-1. Na vista **diagrama,** clique duas vezes no conjunto de dados de entrada **InputDataset**.
+1. Na vista **diagrama,** clique duas vezes no conjunto de dados de entrada **InputDataset** .
 
    ![Conjunto de Dados de Entrada](./media/data-factory-data-processing-using-batch/image11.png)
 
@@ -821,7 +821,7 @@ Neste passo, testa o pipeline deixando cair ficheiros nas pastas de entrada. Com
 
    ![Início e fim da fatia de entrada](./media/data-factory-data-processing-using-batch/image12.png)
 
-1. Na vista **diagrama,** selecione **OutputDataset**.
+1. Na vista **diagrama,** selecione **OutputDataset** .
 
 1. As cinco fatias de saída aparecem no estado **Ready** se forem produzidas.
 
@@ -842,15 +842,15 @@ Neste passo, testa o pipeline deixando cair ficheiros nas pastas de entrada. Com
 
    ![Diagrama de mapeamento de fatias](./media/data-factory-data-processing-using-batch/image16.png)
 
-1. Agora tente com vários ficheiros numa pasta. Crie os ficheiros **file2.txt**, **file3.txt**, **file4.txt**, e **file5.txt** com o mesmo conteúdo que em file.txt na pasta **2015-11-06-01**.
+1. Agora tente com vários ficheiros numa pasta. Crie os ficheiros **file2.txt** , **file3.txt** , **file4.txt** , e **file5.txt** com o mesmo conteúdo que em file.txt na pasta **2015-11-06-01** .
 
-1. Na pasta de saída, elimine o ficheiro de saída **2015-11-16-01.txt**.
+1. Na pasta de saída, elimine o ficheiro de saída **2015-11-16-01.txt** .
 
-1. Na lâmina **OutputDataset,** clique com o botão direito da fatia com **o TEMPO DE INÍCIO DA FATIA** definido para **11/16/2015 01:00:00 AM**. Selecione **Executar** para reprocessar/reprocessar a fatia. A fatia tem agora cinco ficheiros em vez de um ficheiro.
+1. Na lâmina **OutputDataset,** clique com o botão direito da fatia com **o TEMPO DE INÍCIO DA FATIA** definido para **11/16/2015 01:00:00 AM** . Selecione **Executar** para reprocessar/reprocessar a fatia. A fatia tem agora cinco ficheiros em vez de um ficheiro.
 
     ![Executar](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. Depois de a fatia escassear e o seu estado estiver **pronto,** verifique o conteúdo do ficheiro de saída para esta fatia** (2015-11-16-01.txt**). O ficheiro de saída aparece `mycontainer` no seu armazenamento de `outputfolder` bolhas. Deve haver uma linha para cada ficheiro da fatia.
+1. Depois de a fatia escassear e o seu estado estiver **pronto,** verifique o conteúdo do ficheiro de saída para esta fatia **(2015-11-16-01.txt** ). O ficheiro de saída aparece `mycontainer` no seu armazenamento de `outputfolder` bolhas. Deve haver uma linha para cada ficheiro da fatia.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -893,7 +893,7 @@ Depuração consiste em algumas técnicas básicas.
 
    ![Folhas de datação Dataset e data slice](./media/data-factory-data-processing-using-batch/image18.png)
 
-   Na lista de ficheiros de registo, selecione **user-0.log**. No painel direito, aparecem os resultados da utilização do método **IActivityLogger.Write.**
+   Na lista de ficheiros de registo, selecione **user-0.log** . No painel direito, aparecem os resultados da utilização do método **IActivityLogger.Write.**
 
    ![Lâmina de detalhes de execução de atividade](./media/data-factory-data-processing-using-batch/image19.png)
 
@@ -916,7 +916,7 @@ Depuração consiste em algumas técnicas básicas.
 
 1. Certifique-se de que **o conjuntoName** (MyDotNetActivity.dll), **o ponto de entrada** (MyDotNetActivityNS.MyDotNetActivity), o **packageFile** (customactivitycontainer/MyDotNetActivity.zip) e o **packageLinkedService** (deve apontar para o armazenamento do blob que contém o ficheiro zip) estão definidos para os valores corretos.
 
-1. Se corrigir um erro e quiser reprocessar a fatia, clique com o botão direito na lâmina **do OutputDataset** e selecione **Executar**.
+1. Se corrigir um erro e quiser reprocessar a fatia, clique com o botão direito na lâmina **do OutputDataset** e selecione **Executar** .
 
    ![Saída A opção de execução da lâmina dodataset](./media/data-factory-data-processing-using-batch/image21.png)
 
@@ -953,7 +953,7 @@ Pode estender esta amostra para saber mais sobre as funcionalidades data factory
 
    Para obter mais informações, consulte [os nós computacional](../../batch/batch-automatic-scaling.md)de escala automática numa piscina de Lote .
 
-   Se a piscina utilizar o [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)predefinido, o serviço Batch pode demorar entre 15 a 30 minutos a preparar o VM antes de executar a atividade personalizada. Se a piscina utilizar um autoScaleEvaluationInterval diferente, o serviço Batch poderá demorar automaticamente a Reavaliação de Escala mais 10 minutos.
+   Se a piscina utilizar o [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale)predefinido, o serviço Batch pode demorar entre 15 a 30 minutos a preparar o VM antes de executar a atividade personalizada. Se a piscina utilizar um autoScaleEvaluationInterval diferente, o serviço Batch poderá demorar automaticamente a Reavaliação de Escala mais 10 minutos.
 
 1. Na solução de amostra, o método **Executar** invoca o método Calcular que **processa** uma fatia de dados de entrada para produzir uma fatia de dados de saída. Pode escrever o seu próprio método para processar dados de entrada e substituir a chamada de método **calcular** no método **Executar** por uma chamada para o seu método.
 
@@ -961,7 +961,7 @@ Pode estender esta amostra para saber mais sobre as funcionalidades data factory
 Depois de processar dados, pode consumi-lo com ferramentas online como o Power BI. Aqui estão links para ajudá-lo a entender o Power BI e como usá-lo em Azure:
 
 * [Explore um conjunto de dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Introdução ao Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
+* [Introdução ao Power BI Desktop](/power-bi/fundamentals/desktop-getting-started)
 * [Atualizar dados em Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure e Power BI: Visão geral básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -979,4 +979,4 @@ Depois de processar dados, pode consumi-lo com ferramentas online como o Power B
   * [Começa com a biblioteca de clientes batch para .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: /archive/blogs/windowshpc/azure-batch-explorer-sample-walkthrough

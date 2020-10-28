@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8847768cf4cf1ea85df8646a8848aac02cbd621
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804032"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629260"
 ---
 # <a name="manage-public-ip-addresses"></a>Gerir endereços IP públicos
 
@@ -67,7 +67,7 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
    |Tempo de 20 minutos (minutos)|Não|Quantos minutos para manter aberta uma ligação TCP ou HTTP sem depender dos clientes para enviar mensagens de vida. Se selecionar O IPv6 para **versão IP,** este valor não pode ser alterado. |
    |Etiqueta de nome DNS|Não|Deve ser único dentro da localização Azure em que cria o nome (em todas as subscrições e todos os clientes). O Azure regista automaticamente o nome e o endereço IP no seu DNS para que possa ligar-se a um recurso com o nome. O Azure anexa uma sub-rede predefinida, como *location.cloudapp.azure.com* (onde a localização é a localização selecionada) para o nome que fornece, para criar o nome DNS totalmente qualificado. Se optar por criar ambas as versões de endereço, o mesmo nome DNS é atribuído tanto aos endereços IPv4 como IPv6. O DNS padrão do Azure contém registos de nomes IPv4 A e IPv6 AAAA e responde com ambos os registos quando o nome DNS é procurado. O cliente escolhe qual endereço (IPv4 ou IPv6) para comunicar. Em vez de, ou além de, utilizar a etiqueta de nome DNS com o sufixo predefinido, pode utilizar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que é resolvido para o endereço IP público. Para obter mais informações, veja [Utilizar o DNS do Azure com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
    |Nome (Só visível se selecionar versão IP de **Ambos)**|Sim, se selecionar a versão IP de **Ambos**|O nome deve ser diferente do nome que introduz para o primeiro **nome** desta lista. Se optar por criar um endereço IPv4 e IPv6, o portal cria dois recursos de endereço IP públicos separados, um com cada versão de endereço IP atribuído.|
-   |Atribuição de endereço IP (Apenas visível se selecionar versão IP de **Ambos**)|Sim, se selecionar a versão IP de **Ambos**|Mesmas restrições que a atribuição de endereços IP acima|
+   |Atribuição de endereço IP (Apenas visível se selecionar versão IP de **Ambos** )|Sim, se selecionar a versão IP de **Ambos**|Mesmas restrições que a atribuição de endereços IP acima|
    |Subscrição|Sim|Deve existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual irá associar o IP público.|
    |Grupo de recursos|Sim|Pode existir no mesmo [grupo de recursos,](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou diferente, que o recurso ao qual irá associar o IP público.|
    |Localização|Sim|Deve existir no mesmo [local](https://azure.microsoft.com/regions), também referido como região, como o recurso ao qual irá associar os IP's públicos.|
@@ -75,8 +75,8 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
 
 ## <a name="view-modify-settings-for-or-delete-a-public-ip-address"></a>Ver, modificar as definições para ou eliminar um endereço IP público
 
-   - **Visualização/Lista**: Para rever as definições de um IP público, incluindo o SKU, endereço, qualquer associação aplicável (por exemplo, Virtual Machine NIC, Load Balancer Frontend).
-   - **Modificar:** Modificar as definições utilizando as informações no passo 4 de [criar um endereço IP público](#create-a-public-ip-address), como o tempo limite de marcha lenta, a etiqueta do nome DNS ou o método de atribuição.
+   - **Visualização/Lista** : Para rever as definições de um IP público, incluindo o SKU, endereço, qualquer associação aplicável (por exemplo, Virtual Machine NIC, Load Balancer Frontend).
+   - **Modificar:** Modificar as definições utilizando as informações no passo 4 de [criar um endereço IP público](#create-a-public-ip-address), como o tempo limite de marcha lenta, a etiqueta do nome DNS ou o método de atribuição.  (Para o processo completo de atualização de um SKU IP público de Base para Standard, consulte [endereços IP públicos de upgrade](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade).)
    >[!WARNING]
    >Para alterar a atribuição de um endereço IP público de estática para dinâmica, tem primeiro de dissociar o endereço de quaisquer configurações IP aplicáveis (ver secção **Eliminar).**  Note também que, quando altera o método de atribuição de estática para dinâmica, perde-se o endereço IP que foi atribuído ao endereço IP público. Enquanto os servidores DNS públicos Azure mantêm um mapeamento entre endereços estáticos ou dinâmicos e qualquer etiqueta de nome DNS (se tiver definido um), um endereço IP dinâmico pode mudar quando a máquina virtual é iniciada depois de estar no estado parado (deallocated). Para evitar que o endereço se mude, atribua um endereço IP estático.
    
@@ -86,16 +86,13 @@ Para obter mais detalhes sobre os atributos específicos de um endereço IP púb
 |Lista | Na categoria **de endereços IP públicos** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para recuperar um ou mais objetos de endereço IP públicos e ver as suas definições|[lista de ip públicos da rede az](/cli/azure/network/public-ip#az-network-public-ip-list) para listar endereços IP públicos|
 |Modificar | Para um IP dissociado, selecione **Configuração** para modificar o tempo limite de marcha lenta, etiqueta de nome DNS ou alterar a atribuição de IP básico de Estática para Dinâmica  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para atualizar definições |[atualização de ip público da rede az](/cli/azure/network/public-ip#az-network-public-ip-update) para atualizar |
 
-   - **Excluir**: A eliminação de IPs públicos exige que o objeto IP público não seja associado a qualquer configuração IP ou Nic de Máquina Virtual. Veja a tabela abaixo para mais detalhes.
+   - **Excluir** : A eliminação de IPs públicos exige que o objeto IP público não seja associado a qualquer configuração IP ou Nic de Máquina Virtual. Veja a tabela abaixo para mais detalhes.
 
 |Recurso|Portal do Azure|Azure PowerShell|CLI do Azure|
 |---|---|---|---|
-|[Máquina Virtual](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
+|[Máquina Virtual](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Selecione **Dissociar** para dissociar o endereço IP a partir da configuração NIC e, em seguida, selecione **Delete** .|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) para dissociar o endereço IP da configuração NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar|[a atualização az rede pública-ip --remover](/cli/azure/network/public-ip#az-network-public-ip-update) para dissociar o endereço IP da configuração NIC; [az rede público-ip apagar](/cli/azure/network/public-ip#az-network-public-ip-delete) para eliminar |
 |Frontend de balançador de carga | Navegue para um endereço IP público não utilizado e selecione **Associate** e escolha o Balanceador de Carga com a configuração IP frontal relevante para substituí-lo (em seguida, o ip antigo pode ser eliminado usando o mesmo método que para VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) para associar o novo Frontend IP config com o Balancer de Carga Pública; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) para remover Frontend IP Config se houver mais de um |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) para associar novo Frontend IP config com Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) para eliminar; também pode usar [a az rede lb frontend-ip apagar](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) para remover Frontend IP Config se houver mais de um|
 |Firewall|N/D| [Deallocate()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) para negociar firewall e remover todas as configurações IP | [az firewall ip-config eliminar](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) para remover IP (mas deve usar PowerShell para negociar primeiro)|
-
->[!NOTE]
->Certos recursos não podem ter os seus IPs públicos alterados ou removidos após a criação.  Estes são: Azure NAT Gateway, Azure VPN Gateway, Azure Application Gateway.
 
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 

@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73667658"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631517"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de Dados Azure - Funções e Variáveis do Sistema
 > [!NOTE]
@@ -70,7 +70,7 @@ Na amostra seguinte, a propriedade **sqlReaderQuery** num ficheiro JSON é atrib
 }
 ```
 
-Consulte o tópico de cordas de data e formato de tempo personalizado que descreve [diferentes](https://msdn.microsoft.com/library/8kb3ddd4.aspx) opções de formatação que pode utilizar (por exemplo: ay vs. yyyy). 
+Consulte o tópico de cordas de data e formato de tempo personalizado que descreve [diferentes](/dotnet/standard/base-types/custom-date-and-time-format-strings) opções de formatação que pode utilizar (por exemplo: ay vs. yyyy). 
 
 ### <a name="functions"></a>Funções
 As tabelas a seguir enumeram todas as funções na Azure Data Factory:
@@ -227,5 +227,4 @@ Para ler dados do dia anterior em vez do dia representado pelo SliceStart, utili
 }
 ```
 
-Consulte o tópico de cordas de formato de data e hora personalizado que descreve [diferentes](https://msdn.microsoft.com/library/8kb3ddd4.aspx) opções de formatação que pode utilizar (por exemplo: yy vs. yyyy). 
-
+Consulte o tópico de cordas de formato de data e hora personalizado que descreve [diferentes](/dotnet/standard/base-types/custom-date-and-time-format-strings) opções de formatação que pode utilizar (por exemplo: yy vs. yyyy).

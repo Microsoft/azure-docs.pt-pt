@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634101"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para Azure SQL Database usando PowerShell
 
@@ -42,11 +42,11 @@ Vai executar os seguintes passos neste tutorial:
 ## <a name="overview"></a>Descrição geral
 Eis os passos importantes para criar esta solução: 
 
-1. **Selecionar a coluna de limite de tamanho**.
+1. **Selecionar a coluna de limite de tamanho** .
 
     Selecione uma coluna para cada tabela na loja de dados de origem, que pode identificar os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
-2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.
+2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho** .
 
     Neste tutorial, vai armazenar o valor de marca d'água numa base de dados SQL.
 
@@ -69,14 +69,14 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Sql Server**. Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
-* **Base de Dados Azure SQL**. Utiliza uma base de dados na Base de Dados Azure SQL como loja de dados da pia. Se não tiver uma base de dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma. 
+* **Sql Server** . Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
+* **Base de Dados Azure SQL** . Utiliza uma base de dados na Base de Dados Azure SQL como loja de dados da pia. Se não tiver uma base de dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
-1. Abra [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
+1. Abra [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta** .
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:
 
@@ -113,9 +113,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Crie tabelas de destino na sua Base de Dados Azure SQL
 
-1. Abra [o SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
+1. Abra [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)**, clique à direita na base de dados e escolha **Nova Consulta**.
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta** .
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:  
 
@@ -283,7 +283,7 @@ Tenha em atenção os seguintes pontos:
 
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser membro das funções contribuidor ou proprietário ou administrador da subscrição do Azure.
 
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, SQL Database, SQL Managed Instance, e assim por diante) e computas (Azure HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). As lojas de dados (Azure Storage, SQL Database, SQL Managed Instance, e assim por diante) e computas (Azure HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -812,23 +812,23 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Clique em **Todos os serviços**, pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
+2. Clique em **Todos os serviços** , pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados** . 
 
-3. Pesquise pela sua fábrica de dados na lista de fábricas de dados e selecione-a para abrir a página **Fábrica de dados**. 
+3. Pesquise pela sua fábrica de dados na lista de fábricas de dados e selecione-a para abrir a página **Fábrica de dados** . 
 
 4. Na página da **fábrica de dados,** selecione **Author & Monitor** para lançar a Azure Data Factory num separador.
 
 5. Na página **Let's get start,** selecione **Monitor** no lado esquerdo. 
 ![A screenshot mostra a página Let's get start for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**.
+6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito** . Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros** . Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro** .
 
     ![A screenshot mostra que o gasoduto funciona para uma fábrica de dados, incluindo o seu oleoduto.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Quando selecionar o link na coluna **Ações,** vê toda a atividade a correr para o oleoduto. 
 
-8. Para voltar à vista **Pipeline Runs,** selecione **All Pipeline Runs**. 
+8. Para voltar à vista **Pipeline Runs,** selecione **All Pipeline Runs** . 
 
 ## <a name="review-the-results"></a>Rever os resultados
 
@@ -911,7 +911,7 @@ VALUES
 
 3. Selecione **Atualizar** para atualizar a lista até a execução do pipeline ter êxito. 
 
-4. Opcionalmente, selecione a ligação **Ver Execuções de Atividades**, em **Ações**, para ver todas a execuções de atividades associadas a esta execução de pipeline. 
+4. Opcionalmente, selecione a ligação **Ver Execuções de Atividades** , em **Ações** , para ver todas a execuções de atividades associadas a esta execução de pipeline. 
 
 ## <a name="review-the-final-results"></a>Rever os resultados finais
 
@@ -994,5 +994,3 @@ Avance para o tutorial seguinte para saber como transformar dados através de um
 
 > [!div class="nextstepaction"]
 >[Carregar dados de forma incremental da Base de Dados SQL do Azure para o armazenamento de Blobs do Azure com a tecnologia de Controlo de Alterações](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

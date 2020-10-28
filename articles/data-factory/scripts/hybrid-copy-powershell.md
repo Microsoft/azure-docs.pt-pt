@@ -10,12 +10,12 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194635"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632237"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utilize o PowerShell para criar um pipeline de fábrica de dados para copiar dados do SQL Server para OZure
 
@@ -27,8 +27,8 @@ Esta amostra de script PowerShell cria um pipeline na Azure Data Factory que cop
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Sql Server**. Utiliza uma base de dados SQL Server como uma loja de dados **de origem** nesta amostra.
-- **Conta de Armazenamento Azure**. Utiliza o armazenamento de blob Azure como uma loja de dados **de destino/pia** nesta amostra. se não tiver uma conta de armazenamento Azure, consulte o artigo de [conta de armazenamento Criar um](../../storage/common/storage-account-create.md) artigo de conta de armazenamento para etapas para criar uma.
+- **Sql Server** . Utiliza uma base de dados SQL Server como uma loja de dados **de origem** nesta amostra.
+- **Conta de Armazenamento Azure** . Utiliza o armazenamento de blob Azure como uma loja de dados **de destino/pia** nesta amostra. se não tiver uma conta de armazenamento Azure, consulte o artigo de [conta de armazenamento Criar um](../../storage/common/storage-account-create.md) artigo de conta de armazenamento para etapas para criar uma.
 - **Tempo de integração auto-hospedado.** Descarregue o ficheiro MSI do centro de [descarregamento](https://www.microsoft.com/download/details.aspx?id=39717) e execute-o para instalar um tempo de integração auto-hospedado na sua máquina.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Criar base de dados de amostras no SQL Server
@@ -92,6 +92,6 @@ Este script utiliza os seguintes comandos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 
 Amostras adicionais de scripts powerShell da Fábrica de Dados Azure podem ser encontradas nas [amostras powerShell da Azure Data Factory](../samples-powershell.md).

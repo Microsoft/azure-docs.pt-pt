@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123754"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632809"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -79,7 +79,7 @@ Ligue abaixo da API com secção "identidade" no organismo de pedido:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Órgão de pedido**: adicione "identidade": { "tipo": "SystemAssigned" }.
+**Órgão de pedido** : adicione "identidade": { "tipo": "SystemAssigned" }.
 
 ```json
 {
@@ -201,7 +201,7 @@ Ligue abaixo da API no pedido:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Resposta**: Obterá resposta como mostrada no exemplo abaixo. A secção "identidade" é povoada em conformidade.
+**Resposta** : Obterá resposta como mostrada no exemplo abaixo. A secção "identidade" é povoada em conformidade.
 
 ```json
 {
@@ -252,4 +252,4 @@ Veja os seguintes tópicos que introduzem quando e como utilizar a identidade ge
 - [Credencial de loja em Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiar dados de/para Azure Data Lake Store utilizando identidades geridas para autenticação de recursos Azure](connector-azure-data-lake-store.md)
 
-Consulte [identidades geridas para a Visão Geral dos Recursos Azure](/azure/active-directory/managed-identities-azure-resources/overview) para obter mais informações sobre identidades geridas para recursos Azure, em que a identidade gerida pela fábrica de dados é baseada. 
+Consulte [identidades geridas para a Visão Geral dos Recursos Azure](../active-directory/managed-identities-azure-resources/overview.md) para obter mais informações sobre identidades geridas para recursos Azure, em que a identidade gerida pela fábrica de dados é baseada.

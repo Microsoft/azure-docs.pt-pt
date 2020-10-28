@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426232"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632572"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Problemas de resolução de dados Azure Data Factory UX Problemas
 
@@ -71,7 +71,7 @@ Se não quiser permitir todos os cookies, pode opcionalmente apenas permitir ADF
 
 ## <a name="connection-failed-on-adf-ux"></a>A ligação falhou no ADF UX
 
-Por vezes, veria erros de "Ligação falhada" no ADF UX semelhantes à imagem abaixo depois de clicar em **Test Connection**, **Preview**, etc.
+Por vezes, veria erros de "Ligação falhada" no ADF UX semelhantes à imagem abaixo depois de clicar em **Test Connection** , **Preview** , etc.
 
 ![A ligação falhou](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
@@ -81,7 +81,7 @@ Se ainda não estiver a funcionar, no browser, prima F12 para abrir **ferramenta
 
 ![Pedido falhado](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-Em seguida, encontre o **nome do anfitrião** (neste caso, **dpnortheurope.svc.datafactory.azure.com**) a partir do URL de **pedido** do pedido falhado.
+Em seguida, encontre o **nome do anfitrião** (neste caso, **dpnortheurope.svc.datafactory.azure.com** ) a partir do URL de **pedido** do pedido falhado.
 
 Digite o nome do **anfitrião** diretamente na barra de endereço do seu navegador. Se vir 404 no navegador, isto normalmente significa que o lado do cliente está bem e o problema está no lado do serviço ADF. Arquivar um bilhete de suporte com o **ID** de atividade a partir da mensagem de erro ADF UX.
 
@@ -91,7 +91,7 @@ Se não ou vir um erro semelhante abaixo no navegador, isto geralmente significa
 
 ![Erro do lado do cliente](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Abrir **o comando rápido** e escrever **nslookup dpnortheurope.svc.datafactory.azure.com**. Uma resposta normal deve parecer abaixo:
+Abrir **o comando rápido** e escrever **nslookup dpnortheurope.svc.datafactory.azure.com** . Uma resposta normal deve parecer abaixo:
 
 ![Resposta de comando 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -119,5 +119,5 @@ Para obter mais ajuda para resolver problemas, experimente estes recursos:
 * [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 * [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
-* [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/)
-* [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Vídeos Azure](https://azure.microsoft.com/resources/videos/index/)
+* [Microsoft Q&Uma página de perguntas](/answers/topics/azure-data-factory.html)

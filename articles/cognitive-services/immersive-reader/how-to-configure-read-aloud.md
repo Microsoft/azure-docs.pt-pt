@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: metan
-ms.openlocfilehash: 0705977c04afe742718a96aebbac31e78dc5815f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: 648227521e5e4e8feecd864d3e572a4758e551ca
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85486941"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633268"
 ---
 # <a name="how-to-configure-read-aloud"></a>Como configurar Ler Em Voz
 

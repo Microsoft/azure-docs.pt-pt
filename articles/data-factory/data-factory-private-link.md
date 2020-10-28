@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546675"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632690"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Ligação privada Azure para Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Ao utilizar o Azure Private Link, pode ligar-se a várias plataformas como um serviço (PaaS) implementações em Azure através de um ponto final privado. Um ponto final privado é um endereço IP privado dentro de uma rede virtual específica e sub-rede. Para obter uma lista de implementações paaS que suportam a funcionalidade Private Link, consulte [a documentação private link](https://docs.microsoft.com/azure/private-link/). 
+Ao utilizar o Azure Private Link, pode ligar-se a várias plataformas como um serviço (PaaS) implementações em Azure através de um ponto final privado. Um ponto final privado é um endereço IP privado dentro de uma rede virtual específica e sub-rede. Para obter uma lista de implementações paaS que suportam a funcionalidade Private Link, consulte [a documentação private link](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicação segura entre as redes de clientes e a Azure Data Factory 
 Pode configurar uma rede virtual Azure como uma representação lógica da sua rede na nuvem. Ao fazê-lo, proporciona os seguintes benefícios:
@@ -67,7 +67,7 @@ Ativar o serviço Private Link para cada um dos canais de comunicação anterior
 > Quando criar um serviço ligado, certifique-se de que as suas credenciais estão guardadas num cofre de chaves Azure. Caso contrário, as credenciais não funcionarão quando ativar o Private Link na Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para a fábrica de dados Azure
-Pode criar pontos finais privados utilizando [o portal Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Pode criar pontos finais privados utilizando [o portal Azure](../private-link/create-private-endpoint-portal.md).
 
 Você também pode ir à sua fábrica de dados Azure no portal Azure e criar um ponto final privado, como mostrado aqui:
 
@@ -89,4 +89,3 @@ Se pretender bloquear o acesso público à fábrica de dados Azure e permitir o 
 - [Criar uma fábrica de dados utilizando a UI da Azure Data Factory](quickstart-create-data-factory-portal.md)
 - [Introdução ao Azure Data Factory](introduction.md)
 - [Autoria visual na Azure Data Factory](author-visually.md)
-

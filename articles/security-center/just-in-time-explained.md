@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fe358e35f2d68a3e55e9d9bb4ac57a13f42085e3
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340024"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629243"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Compreensão do acesso just-in-time (JIT) à VM
 
@@ -66,6 +66,10 @@ Quando o Security Center encontra uma máquina que pode beneficiar do JIT, adici
 ## <a name="faq---questions-about-just-in-time-virtual-machine-access"></a>FAQ - Perguntas sobre o acesso de máquina virtual a tempo
 
 ### <a name="what-permissions-are-needed-to-configure-and-use-jit"></a>Que permissões são necessárias para configurar e utilizar o JIT?
+
+O JIT requer [que o Azure Defender seja](defender-for-servers-introduction.md) ativado na subscrição. 
+
+**As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.
 
 Se quiser criar funções personalizadas que possam funcionar com o JIT, precisará dos detalhes da tabela abaixo.
 
