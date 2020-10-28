@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490803"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781962"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
 
@@ -46,7 +46,7 @@ A tabela seguinte compara Ficheiros, Blobs, Discos, Filas e Tabelas, e mostra ce
 | **Ficheiros do Azure** |Oferece partilhas de ficheiros em nuvem totalmente geridas que pode aceder a partir de qualquer lugar através do protocolo padrão do Bloco de Mensagens do Servidor (SMB) da indústria.<br><br>Pode montar partilhas de ficheiros Azure a partir de implementações de Windows, Linux e macOS no local. | Pretende "levantar e deslocar" uma aplicação para a nuvem que já utiliza as APIs do sistema de ficheiros nativo para partilhar dados entre ele e outras aplicações em execução no Azure.<br/><br/>Pretende substituir ou complementar servidores de ficheiros no local ou dispositivos NAS.<br><br> Pretende armazenar ferramentas de desenvolvimento e depuragem que precisam de ser acedidas a partir de muitas máquinas virtuais. |
 | **Blobs do Azure** | Permite que os dados não estruturados sejam armazenados e acedidos a uma escala massiva em blobs de blocos.<br/><br/>Também suporta [a Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluções de análise de big data da empresa. | Pretende que a sua aplicação suporte cenários de streaming e acesso aleatório.<br/><br/>Pretende aceder aos dados da aplicação a partir de qualquer lugar.<br/><br/>Você quer construir um lago de dados da empresa em Azure e realizar grandes análises de dados. |
 | **Discos do Azure** | Permite que os dados sejam armazenados e acedidos persistentemente a partir de um disco rígido virtual anexado. | Pretende -se que "levante e desloque" aplicações que utilizem APIs do sistema de ficheiros nativos para ler e escrever dados para discos persistentes.<br/><br/>Pretende armazenar dados que não sejam necessários para serem acedidos a partir de fora da máquina virtual à qual o disco está ligado. |
-| **Filas do Azure** | Permite a fila de mensagens assíncronos entre os componentes da aplicação. | Pretende dissociar os componentes da aplicação e utilizar mensagens assíncronos para comunicar entre eles.<br><br>Para obter orientações sobre quando usar o armazenamento da fila contra as filas de Service Bus, consulte [as filas de armazenamento e as filas de Service Bus - comparadas e contrastadas](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Filas do Azure** | Permite a fila de mensagens assíncronos entre os componentes da aplicação. | Pretende dissociar os componentes da aplicação e utilizar mensagens assíncronos para comunicar entre eles.<br><br>Para obter orientações sobre quando usar o armazenamento da fila contra as filas de Service Bus, consulte [as filas de armazenamento e as filas de Service Bus - comparadas e contrastadas](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Tabelas do Azure** | Permitir-lhe armazenar dados NoSQL estruturados na nuvem, fornecendo uma loja chave/atributo com um design sem esquemas. | Pretende armazenar conjuntos de dados flexíveis, como dados de utilizador para aplicações web, livros de endereços, informações de dispositivos ou outros tipos de metadados que o seu serviço necessita. <br/><br/>Para obter orientações sobre quando utilizar o armazenamento de mesa contra a API da tabela AZure Cosmos DB, consulte [Desenvolver-se com Azure Cosmos DB Table API e Azure Table storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
@@ -93,7 +93,7 @@ Para obter mais informações sobre o serviço Filas do Azure, veja [Introduçã
 
 ## <a name="table-storage"></a>Table Storage
 
-O armazenamento de Tabelas do Azure faz agora parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Descrição Geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Para além do serviço de armazenamento de Tabelas do Azure já existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que disponibiliza tabelas otimizadas para débito, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, consulte [a Azure Cosmos DB Table API](https://aka.ms/premiumtables).
+O armazenamento de Tabelas do Azure faz agora parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Descrição Geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Para além do serviço de armazenamento de Tabelas do Azure já existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que disponibiliza tabelas otimizadas para débito, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, consulte [a Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md).
 
 Para obter mais informações sobre o Armazenamento de tabelas, veja [Descrição geral do Armazenamento de tabelas do Azure](../tables/table-storage-overview.md).
 
@@ -115,7 +115,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 - **Autorização Azure AD sobre SMB para Ficheiros Azure.** O Azure Files suporta a autorização baseada na identidade sobre o SMB (Server Message Block) através dos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS) ou nos locais Serviços de Domínio do Diretório Ativo (pré-visualização). Os seus VMs windows unidos ao domínio podem aceder a ações de ficheiros Azure usando credenciais Azure AD. Para obter mais informações, consulte [o suporte de autenticação baseado em identidade do Azure Files para aceder](../files/storage-files-active-directory-overview.md) e planear uma [implementação de Ficheiros Azure](../files/storage-files-planning.md#identity).
 - **Autorização com Chave Partilhada.** A Azure Storage Blob, Ficheiros, Fila e Serviços de Tabela apoiam a autorização com Chave Partilhada. Um cliente que utilize a autorização Da Chave Partilhada passa um cabeçalho com cada pedido assinado usando a chave de acesso à conta de armazenamento. Para mais informações, consulte [Autorizar com chave partilhada.](/rest/api/storageservices/authorize-with-shared-key)
 - **Autorização utilizando assinaturas de acesso partilhado (SAS).** Uma assinatura de acesso partilhado (SAS) é uma cadeia que contém um símbolo de segurança que pode ser anexado ao URI para um recurso de armazenamento. O símbolo de segurança encapsula constrangimentos como permissões e o intervalo de acesso. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado (SAS)](storage-sas-overview.md).
-- **Acesso anónimo a contentores e bolhas.** Um recipiente e as suas bolhas podem estar disponíveis ao público. Quando se especifica que um recipiente ou bolha é público, qualquer pessoa pode lê-lo anonimamente; não é necessária autenticação. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Gerir o acesso de leitura anónima a contentores e blobs).
+- **Acesso anónimo a contentores e bolhas.** Um recipiente e as suas bolhas podem estar disponíveis ao público. Quando se especifica que um recipiente ou bolha é público, qualquer pessoa pode lê-lo anonimamente; não é necessária autenticação. Para obter mais informações, veja [Manage anonymous read access to containers and blobs](../blobs/anonymous-read-access-configure.md) (Gerir o acesso de leitura anónima a contentores e blobs).
 
 ## <a name="encryption"></a>Encriptação
 
@@ -131,7 +131,7 @@ As bibliotecas de clientes do Azure Storage fornecem métodos para encriptar dad
 
 ## <a name="redundancy"></a>Redundância
 
-Para garantir que os seus dados são duráveis, o Azure Storage armazena várias cópias dos seus dados. Ao configurar a sua conta de armazenamento, selecione uma opção de redundância. Para obter mais informações, veja [Redundância do Armazenamento do Microsoft Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Para garantir que os seus dados são duráveis, o Azure Storage armazena várias cópias dos seus dados. Ao configurar a sua conta de armazenamento, selecione uma opção de redundância. Para obter mais informações, veja [Redundância do Armazenamento do Microsoft Azure](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transferir dados de e para o Azure Storage
 
@@ -160,7 +160,7 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 
 - [API REST do Fornecedor de Recursos de Armazenamento](/rest/api/storagerp/)
 - [Biblioteca de Clientes do Fornecedor de Recursos do Storage para o .NET](/dotnet/api/overview/azure/storage/management)
-- [API REST da Gestão de Serviços do Storage (Clássica)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [API REST da Gestão de Serviços do Storage (Clássica)](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>API de movimentação do Armazenamento do Azure e referências da biblioteca
 

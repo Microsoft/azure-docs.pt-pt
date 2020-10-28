@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90995987"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782387"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurar encriptação com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure
 
@@ -43,7 +43,7 @@ Para permitir a proteção de purga num cofre de chaves existente, siga estes pa
 
 1. Navegue até ao cofre chave no portal Azure.
 1. Em **Definições,** escolha **Propriedades.**
-1. Na secção **de proteção de purga,** escolha **Ativar a proteção contra a purga**.
+1. Na secção **de proteção de purga,** escolha **Ativar a proteção contra a purga** .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -58,7 +58,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Para aprender a permitir a proteção de purga num cofre de chaves existente com o PowerShell, consulte [Como utilizar o soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
+Para aprender a permitir a proteção de purga num cofre de chaves existente com o PowerShell, consulte [Como utilizar o soft-delete com PowerShell](../../key-vault/general/key-vault-recovery.md).
 
 Em seguida, atribua uma identidade gerida atribuída ao sistema na sua conta de armazenamento. Usará esta identidade gerida para conceder permissão à conta de armazenamento para aceder ao cofre das chaves. Para obter mais informações sobre identidades geridas atribuídas pelo sistema, veja [quais são as identidades geridas para os recursos Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -93,7 +93,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Para aprender a permitir a proteção de purga num cofre de chaves existente com O Azure CLI, consulte [Como utilizar o soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
+Para aprender a permitir a proteção de purga num cofre de chaves existente com O Azure CLI, consulte [Como utilizar o soft-delete com CLI](../../key-vault/general/key-vault-recovery.md).
 
 Em seguida, atribua uma identidade gerida atribuída ao sistema para a conta de armazenamento. Usará esta identidade gerida para conceder permissão à conta de armazenamento para aceder ao cofre das chaves. Para obter mais informações sobre identidades geridas atribuídas pelo sistema, veja [quais são as identidades geridas para os recursos Azure?](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -129,7 +129,7 @@ az keyvault set-policy \
 
 Em seguida, adicione uma chave no cofre da chave.
 
-A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as teclas, consulte [sobre as teclas.](../../key-vault/keys/about-keys.md)
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -175,12 +175,12 @@ O Azure Storage pode atualizar automaticamente a chave gerida pelo cliente que �
 Para configurar as teclas geridas pelo cliente com atualização automática da versão chave no portal Azure, siga estes passos:
 
 1. Navegue até à sua conta de armazenamento.
-1. Na lâmina **Definições** para a conta de armazenamento, clique em **Encriptação**. Selecione a opção **Chaves Geridas pelo Cliente,** como mostra a seguinte imagem.
+1. Na lâmina **Definições** para a conta de armazenamento, clique em **Encriptação** . Selecione a opção **Chaves Geridas pelo Cliente,** como mostra a seguinte imagem.
 
     ![Screenshot do portal mostrando opção de encriptação](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
 1. Escolha a **opção Selecionar a partir da** opção Key Vault.
-1. **Selecione um cofre e uma chave de teclas**.
+1. **Selecione um cofre e uma chave de teclas** .
 1. Selecione o cofre de chaves que contém a chave que pretende utilizar.
 1. Selecione a chave do cofre da chave.
 

@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325169"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782659"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>O que é uma piscina Azure SQL Managed Instance (pré-visualização)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Além disso, os pools de exemplo suportam a integração nativa do VNet para que
 
 Os agrupamentos de instância proporcionam os seguintes benefícios:
 
-1. Capacidade de hospedar instâncias 2-vCore. * \* Apenas por exemplo, nas piscinas de exemplo.*
+1. Capacidade de hospedar instâncias 2-vCore. *\* Apenas por exemplo, nas piscinas de exemplo.*
 2. Tempo de implantação previsível e rápido (até 5 minutos).
 3. Alocação mínima de endereço IP.
 
@@ -59,9 +59,9 @@ A lista que se segue fornece os principais casos de utilização em que devem se
 
 ## <a name="architecture"></a>Arquitetura
 
-As piscinas de exemplo têm uma arquitetura semelhante às instâncias regulares *(únicas)* geridas. Para apoiar [as implementações dentro das redes virtuais Azure](../../virtual-network/virtual-network-for-azure-services.md)   e para proporcionar isolamento e segurança aos clientes, os pools de exemplo também dependem de [clusters virtuais.](connectivity-architecture-overview.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede de rede virtual do cliente.
+As piscinas de exemplo têm uma arquitetura semelhante às instâncias regulares *(únicas)* geridas. Para apoiar [as implementações dentro das redes virtuais Azure](../../virtual-network/virtual-network-for-azure-services.md) e para proporcionar isolamento e segurança aos clientes, os pools de exemplo também dependem de [clusters virtuais.](connectivity-architecture-overview.md#high-level-connectivity-architecture) Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede de rede virtual do cliente.
 
-A principal diferença entre os dois modelos de implementação é que os pools de instância permitem múltiplas implementações de processos SQL Server no mesmo nó de máquina virtual, que são reger-se por recursos usando [objetos de trabalho do Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), enquanto as instâncias individuais estão sempre sozinhas num nó de máquina virtual.
+A principal diferença entre os dois modelos de implementação é que os pools de instância permitem múltiplas implementações de processos SQL Server no mesmo nó de máquina virtual, que são reger-se por recursos usando [objetos de trabalho do Windows](/windows/desktop/ProcThread/job-objects), enquanto as instâncias individuais estão sempre sozinhas num nó de máquina virtual.
 
 O diagrama a seguir mostra uma piscina de exemplo e duas instâncias individuais implantadas na mesma sub-rede e ilustra os principais detalhes arquitetónicos para ambos os modelos de implantação:
 
@@ -137,8 +137,8 @@ vCore preço para uma piscina é cobrado independentemente de quantas instância
 
 Para o preço de cálculo (medido em vCores), estão disponíveis duas opções de preços:
 
-  1. *Licença incluída*: O preço das licenças do SQL Server está incluído. Isto é para os clientes que optam por não aplicar as licenças existentes do SQL Server com a Software Assurance.
-  2. *Azure Hybrid Benefit*: Um preço reduzido que inclui benefício híbrido Azure para o SQL Server. Os clientes podem optar por este preço utilizando as licenças existentes do SQL Server com a Software Assurance. Para obter elegibilidade e outros detalhes, consulte [a Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licença incluída* : O preço das licenças do SQL Server está incluído. Isto é para os clientes que optam por não aplicar as licenças existentes do SQL Server com a Software Assurance.
+  2. *Azure Hybrid Benefit* : Um preço reduzido que inclui benefício híbrido Azure para o SQL Server. Os clientes podem optar por este preço utilizando as licenças existentes do SQL Server com a Software Assurance. Para obter elegibilidade e outros detalhes, consulte [a Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 A definição de diferentes opções de preços não é possível para instâncias individuais numa piscina. Todas as instâncias na piscina dos pais devem ser a preço incluído na licença ou a preço do Benefício Híbrido Azure. O modelo de licença para a piscina pode ser alterado após a criação da piscina.
 

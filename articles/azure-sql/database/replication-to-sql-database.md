@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362134"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780959"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replicação para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "91362134"
 Pode configurar uma Base de Dados Azure SQL como assinante de push numa topologia de replicação transacional ou instantânea de ida.
 
 > [!NOTE]
-> Este artigo descreve a utilização de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) na Base de Dados Azure SQL. Não está relacionado com a [geo-replicação ativa,](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication)uma funcionalidade de Base de Dados Azure SQL que permite criar réplicas legíveis completas de bases de dados individuais.
+> Este artigo descreve a utilização de [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) na Base de Dados Azure SQL. Não está relacionado com a [geo-replicação ativa,](./active-geo-replication-overview.md)uma funcionalidade de Base de Dados Azure SQL que permite criar réplicas legíveis completas de bases de dados individuais.
 
 ## <a name="supported-configurations"></a>Configurações suportadas
   
@@ -50,16 +50,16 @@ Para utilizar todas as funcionalidades da Base de Dados Azure SQL, deve utilizar
 
 ### <a name="types-of-replication"></a>Tipos de replicação
 
-Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+Existem diferentes [tipos de replicação:](/sql/relational-databases/replication/types-of-replication)
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim | 
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
-| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Transação Padrão**](/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim | 
+| [**Instantâneo**](/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
+| [**Fusão de replicação**](/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Ponto a ponto**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
+| [**Bidirecional**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas updatable**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -126,14 +126,14 @@ As seguintes opções não são suportadas para as subscrições da Base de Dado
 
 Crie uma publicação e uma subscrição push. Para obter mais informações, consulte:
   
-- [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma Subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor como assinante (por **exemplo, N'azuresqldbdns.database.windows.net'**) e o nome Azure SQL Database como base de dados de destino (por **exemplo, AdventureWorks).**  
+- [Criar uma Publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Crie uma Subscrição push](/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor como assinante (por **exemplo, N'azuresqldbdns.database.windows.net'** ) e o nome Azure SQL Database como base de dados de destino (por **exemplo, AdventureWorks).**  
 
 ## <a name="see-also"></a>Consulte também  
 
 - [Replicação transacional](../managed-instance/replication-transactional-overview.md)
-- [Criar uma Publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) (Tipos de Replicação)
-- [Monitorização (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma Subscrição](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Criar uma Publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Criar uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Types of Replication](/sql/relational-databases/replication/types-of-replication) (Tipos de Replicação)
+- [Monitorização (Replicação)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma Subscrição](/sql/relational-databases/replication/initialize-a-subscription)

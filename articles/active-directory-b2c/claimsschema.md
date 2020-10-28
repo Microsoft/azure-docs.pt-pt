@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201366"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781724"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -75,7 +75,7 @@ O elemento **DataType** suporta os seguintes valores:
 |número de telefone|Representa um número de telefone. |
 |int| Representa o número entre -2.147.483.648 e 2.147.483.647|
 |long| Representa o número entre -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 |
-|string| Representa o texto como uma sequência de unidades de código UTF-16.|
+|cadeia| Representa o texto como uma sequência de unidades de código UTF-16.|
 |stringCollection|Representa uma coleção `string` de.|
 |userDentity| Representa uma identidade de utilizador.|
 |userIdentityCollection|Representa uma coleção `userIdentity` de.|
@@ -109,7 +109,7 @@ No exemplo seguinte, quando o Quadro de Experiência de Identidade interage com 
 </ClaimType>
 ```
 
-Como resultado, o símbolo JWT emitido por Azure AD B2C, emite o `family_name` apelido em vez do **nome**ClaimType .
+Como resultado, o símbolo JWT emitido por Azure AD B2C, emite o `family_name` apelido em vez do **nome** ClaimType .
 
 ```json
 {
@@ -228,7 +228,7 @@ O exemplo a seguir configura uma reclamação **de e-mail** com validação regu
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -284,7 +284,7 @@ O tipo de entrada do utilizador **Do EmailBox** é utilizado para fornecer um ca
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

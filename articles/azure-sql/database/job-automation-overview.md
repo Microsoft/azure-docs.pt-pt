@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450350"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782948"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -173,13 +173,13 @@ Algumas das funcionalidades do Agente SQL que estão disponíveis no SQL Server 
 - Os proxies não são apoiados.
 - O eventlog não é suportado.
 
-Para obter informações sobre o Agente do Servidor [SQL,](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)consulte o Agente do Servidor SQL .
+Para obter informações sobre o Agente do Servidor [SQL,](/sql/ssms/agent/sql-server-agent)consulte o Agente do Servidor SQL .
 
 ## <a name="elastic-database-jobs-preview"></a>Trabalhos de base de dados elásticos (pré-visualização)
 
 As **Tarefas de Base de Dados Elástica** permitem executar um ou mais scripts T-SQL em paralelo, num grande número de bases de dados, com base num agendamento ou a pedido.
 
-**Executar tarefas em qualquer combinação de bases de dados**: uma ou mais bases de dados individuais, todas as bases de dados num servidor, todas as bases de dados num conjunto elástico, ou shardmap, com a flexibilidade adicional para incluir ou excluir qualquer base de dados específica. **As tarefas podem ser executadas em vários servidores, vários conjuntos e podem até ser executadas em bases de dados em subscrições diferentes.** Os servidores e os conjuntos são dinamicamente enumerados em runtime, para que as tarefas sejam executadas em todas as bases de dados que existem no grupo de destino no momento da execução.
+**Executar tarefas em qualquer combinação de bases de dados** : uma ou mais bases de dados individuais, todas as bases de dados num servidor, todas as bases de dados num conjunto elástico, ou shardmap, com a flexibilidade adicional para incluir ou excluir qualquer base de dados específica. **As tarefas podem ser executadas em vários servidores, vários conjuntos e podem até ser executadas em bases de dados em subscrições diferentes.** Os servidores e os conjuntos são dinamicamente enumerados em runtime, para que as tarefas sejam executadas em todas as bases de dados que existem no grupo de destino no momento da execução.
 
 A imagem seguinte mostra um agente de tarefa a executar tarefas nos diferentes tipos de grupos de destino:
 
@@ -210,11 +210,11 @@ Para a pré-visualização atual, é necessária uma base de dados existente na 
 
 A *base de dados job* não precisa literalmente de ser nova, mas deve ser um objetivo de serviço limpo, vazio, S0 ou superior. O objetivo de serviço recomendado da base de *dados job* é S1 ou superior, mas a escolha ideal depende das necessidades de desempenho do seu(s): o número de passos de emprego, o número de alvos de emprego e a frequência com que os empregos são executados. Por exemplo, uma base de dados S0 pode ser suficiente para um agente de trabalho que gere poucos empregos por hora direcionando menos de dez bases de dados, mas gerir um trabalho a cada minuto pode não ser rápido o suficiente com uma base de dados S0, e um nível de serviço mais elevado pode ser melhor.
 
-Se as operações contra a base de dados de trabalho forem mais lentas do que o esperado, [monitorize](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) o desempenho da base de dados e a utilização do recurso na base de dados de trabalho durante períodos de lentidão utilizando o portal Azure ou o [DMV sys.dm_db_resource_stats.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Se a utilização de um recurso, como CPU, Data IO ou Log Write se aproximar a 100% e se correlacionar com períodos de lentidão, considere aumentar gradualmente a base de dados para objetivos de serviço mais elevados (quer no [modelo DTU,](service-tiers-dtu.md) quer no [modelo vCore)](service-tiers-vcore.md)até que o desempenho da base de dados de emprego seja suficientemente melhorado.
+Se as operações contra a base de dados de trabalho forem mais lentas do que o esperado, [monitorize](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) o desempenho da base de dados e a utilização do recurso na base de dados de trabalho durante períodos de lentidão utilizando o portal Azure ou o [DMV sys.dm_db_resource_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Se a utilização de um recurso, como CPU, Data IO ou Log Write se aproximar a 100% e se correlacionar com períodos de lentidão, considere aumentar gradualmente a base de dados para objetivos de serviço mais elevados (quer no [modelo DTU,](service-tiers-dtu.md) quer no [modelo vCore)](service-tiers-vcore.md)até que o desempenho da base de dados de emprego seja suficientemente melhorado.
 
 ##### <a name="job-database-permissions"></a>Permissões da base de dados da tarefa
 
-Durante a criação do agente de tarefa, um esquema, tabelas e uma função chamada *jobs_reader* são criados na *Base de dados da tarefa*. A função é criada com as seguintes permissões e tem como objetivo dar aos administradores um melhor controlo de acesso para a monitorização de tarefas:
+Durante a criação do agente de tarefa, um esquema, tabelas e uma função chamada *jobs_reader* são criados na *Base de dados da tarefa* . A função é criada com as seguintes permissões e tem como objetivo dar aos administradores um melhor controlo de acesso para a monitorização de tarefas:
 
 |Nome da função |permissões de esquema "jobs" |permissões de esquema "jobs_internal" |
 |---------|---------|---------|
@@ -233,7 +233,7 @@ Um *grupo de destino* define o conjunto de bases de dados onde será executado u
 - **Shardmap** - bases de dados de um shardmap.
 
 > [!TIP]
-> No momento da execução da tarefa, a *enumeração dinâmica* reavalia o conjunto de bases de dados nos grupos de destino que incluem servidores ou conjuntos. A enumeração dinâmica garante que as **tarefas são executadas em todas as bases de dados que existem no servidor ou conjunto no momento da execução da tarefa**. A reavaliação da lista de bases de dados em runtime é especificamente útil para cenários em que a associação do conjunto ou do servidor muda com frequência.
+> No momento da execução da tarefa, a *enumeração dinâmica* reavalia o conjunto de bases de dados nos grupos de destino que incluem servidores ou conjuntos. A enumeração dinâmica garante que as **tarefas são executadas em todas as bases de dados que existem no servidor ou conjunto no momento da execução da tarefa** . A reavaliação da lista de bases de dados em runtime é especificamente útil para cenários em que a associação do conjunto ou do servidor muda com frequência.
 
 Os conjuntos e as bases de dados individuais podem ser especificados como estando incluídos ou excluídos do grupo. Isto permite criar um grupo de destino com qualquer combinação de bases de dados. Por exemplo, pode adicionar um servidor a um grupo de destino, mas excluir bases de dados específicas num conjunto elástico (ou excluir um conjunto completo).
 
@@ -245,8 +245,8 @@ Os seguintes exemplos mostram como as diferentes definições de grupo de destin
 
 O **Exemplo 1** mostra um grupo de destino que consiste numa lista de bases de dados individuais. Quando é executado um passo do trabalho com este grupo de destino, a ação desse passo será executada em cada uma dessas bases de dados.<br>
 **O exemplo 2** mostra um grupo alvo que contém um servidor como alvo. Quando é executado um passo do trabalho com este grupo de destino, o servidor é enumerado dinamicamente para determinar a lista de bases de dados que estão, atualmente, no servidor. A ação desse passo será executada em cada uma dessas bases de dados.<br>
-O **Exemplo 3** mostra um grupo de destino semelhante ao do *Exemplo 2*, mas é excluída especificamente uma base de dados individual. A ação do passo deste trabalho *não* será executada na base de dados excluída.<br>
-O **Exemplo 4** mostra um grupo de destino que contém um conjunto elástico como o destino. Tal como no *Exemplo 2*, o conjunto será enumerado dinamicamente no momento de execução do trabalho para determinar a lista de bases de dados contidas no mesmo.
+O **Exemplo 3** mostra um grupo de destino semelhante ao do *Exemplo 2* , mas é excluída especificamente uma base de dados individual. A ação do passo deste trabalho *não* será executada na base de dados excluída.<br>
+O **Exemplo 4** mostra um grupo de destino que contém um conjunto elástico como o destino. Tal como no *Exemplo 2* , o conjunto será enumerado dinamicamente no momento de execução do trabalho para determinar a lista de bases de dados contidas no mesmo.
 <br><br>
 
 ![Exemplos adicionais do grupo alvo](./media/job-automation-overview/targetgroup-examples2.png)
@@ -260,7 +260,7 @@ O **Exemplo 7** mostra que as partições num mapa de partições também podem 
 
 #### <a name="job"></a>Tarefa
 
-Uma *tarefa* é uma unidade de trabalho que é executada com base num agendamento ou como uma tarefa ocasional. Uma tarefa é composta por um ou mais *passos de tarefa*.
+Uma *tarefa* é uma unidade de trabalho que é executada com base num agendamento ou como uma tarefa ocasional. Uma tarefa é composta por um ou mais *passos de tarefa* .
 
 ##### <a name="job-step"></a>Passo de tarefa
 
@@ -272,7 +272,7 @@ O resultado dos passos de uma tarefa em cada base de dados de destino é regista
 
 #### <a name="job-history"></a>Histórico de tarefas
 
-Histórico de execuções da tarefa é armazenado na *Base de dados da tarefa*. Uma tarefa de limpeza do sistema remove o histórico de execuções com mais de 45 dias. Para remover o histórico com menos de 45 dias, chame o procedimento armazenado **sp_purge_history** na *Base de dados da tarefa*.
+Histórico de execuções da tarefa é armazenado na *Base de dados da tarefa* . Uma tarefa de limpeza do sistema remove o histórico de execuções com mais de 45 dias. Para remover o histórico com menos de 45 dias, chame o procedimento armazenado **sp_purge_history** na *Base de dados da tarefa* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Desempenho, capacidade e limitações do agente
 
@@ -288,7 +288,7 @@ Para garantir que os recursos não são sobrecarregados quando executar tarefas 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o Agente de Servidor SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [O que é o Agente de Servidor SQL](/sql/ssms/agent/sql-server-agent)
 - [Como criar e gerir trabalhos elásticos](elastic-jobs-overview.md)
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

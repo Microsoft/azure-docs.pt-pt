@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069879"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781486"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -90,7 +90,7 @@ Um número selecionado de aplicações, tais como ServiceNow, Box e G Suite, sup
 
 ![Exemplo mostra ServiceNow com objetos do Grupo e do Utilizador a provisionados](./media/customize-application-attributes/24.png)
 
-O provisionamento em grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento de grupo em **Mapeamentos**, e definição **Ativada** à opção desejada no ecrã **de mapeamento** do atributo.
+O provisionamento em grupo pode ser opcionalmente ativado ou desativado selecionando o mapeamento de grupo em **Mapeamentos** , e definição **Ativada** à opção desejada no ecrã **de mapeamento** do atributo.
 
 Os atributos previstos como parte dos objetos do Grupo podem ser personalizados da mesma forma que os objetos do Utilizador, descritos anteriormente. 
 
@@ -107,9 +107,12 @@ As aplicações e sistemas que suportam a personalização da lista de atributos
 
 - Salesforce
 - ServiceNow
-- Workday
+- Dia de trabalho para Diretório Ativo / Dia de Trabalho para Azure Ative Directory
+- SucessoFactors para Diretório Ativo / SuccessFactors para Azure Ative Directory
 - Azure Ative Directy[(São suportados atributos padrão AZURE ADGraph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados)
 - As aplicações que [suportam o SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
+- Para a writeback do Azure Ative Directory para Workday ou SuccessFactors, é suportado para atualizar metadados relevantes para atributos suportados (XPATH e JSONPath), mas não é suportado para adicionar novos atributos Workday ou SuccessFactors para além dos incluídos no esquema padrão
+
 
 > [!NOTE]
 > A edição da lista de atributos suportados é apenas recomendada para administradores que personalizaram o esquema das suas aplicações e sistemas, e têm conhecimento em primeira mão de como os seus atributos personalizados foram definidos. Isto por vezes requer familiaridade com as APIs e ferramentas de desenvolvimento fornecidas por uma aplicação ou sistema.
@@ -133,16 +136,16 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizada a uma aplicação compatível com o SCIM
 O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite extensões ao esquema para atender às necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:
-   1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com), selecione **Aplicações empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning**.
+   1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com), selecione **Aplicações empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning** .
    2. Em **Mapeamentos,** selecione o objeto (utilizador ou grupo) para o qual pretende adicionar um atributo personalizado.
-   3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
-   4. **Selecione a lista de atributos editar para AppName**.
-   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar Atributo**.
+   3. Na parte inferior da página, selecione **Mostrar opções avançadas** .
+   4. **Selecione a lista de atributos editar para AppName** .
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar Atributo** .
 
 Para aplicações SCIM, o nome do atributo deve seguir o padrão indicado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos da sua aplicação, por exemplo:  
  * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
  * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extensão:CustomExtensionName:2.0:User.CustomAttributeName:value
+ * urn:ietf:params:scim:schemas:extensão:CustomExtensionName:2.0:User:CustomAttributeName:value
 
 Estas instruções só são aplicáveis às aplicações ativadas pelo SCIM. Aplicações como ServiceNow e Salesforce não estão integradas com Azure AD usando SCIM, e, portanto, não requerem este espaço de nome específico ao adicionar um atributo personalizado.
 
@@ -174,7 +177,7 @@ Os atributos personalizados não podem ser atributos referenciais ou atributos d
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {

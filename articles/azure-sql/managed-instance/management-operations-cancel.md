@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997243"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782506"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelamento de operações de gestão de instância gerida da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,7 +75,7 @@ Se o pedido de cancelamento falhar ou o botão de cancelamento não estiver ativ
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Se ainda não tiver o Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Se ainda não tiver o Azure PowerShell instalado, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para cancelar uma operação de gestão, tem de especificar o nome da operação de gestão. Por isso, utilize primeiro o comando get para recuperar a lista de operação e, em seguida, cancele a operação específica.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Para obter uma explicação detalhada dos comandos, consulte [a Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) e [a Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Para obter uma explicação detalhada dos comandos, consulte [a Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) e [a Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -110,7 +110,7 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Para obter uma explicação detalhada dos comandos, consulte [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Para obter uma explicação detalhada dos comandos, consulte [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 

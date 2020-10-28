@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441719"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782897"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>O que é um servidor SQL lógico na Base de Dados Azure SQL e Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Um servidor na BASE de Dados SQL e Azure Synapse:
 - É o recurso principal para bases de dados, conjuntos elásticos e armazéns de dados
 - Fornece um espaço de nome para bases de dados, piscinas elásticas e base de dados de armazém de dados
 - É um recipiente lógico com semântica vitalícia forte - elimine um servidor e elimina as suas bases de dados, piscinas elásticas e piscinas SQK
-- Participa no controlo de acesso baseado em [funções Azure (Azure RBAC)](/azure/role-based-access-control/overview) - bases de dados, piscinas elásticas e base de dados de armazém de dados dentro de um servidor herdam direitos de acesso do servidor
+- Participa no controlo de acesso baseado em [funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) - bases de dados, piscinas elásticas e base de dados de armazém de dados dentro de um servidor herdam direitos de acesso do servidor
 - É um elemento de ordem elevada da identidade das bases de dados, piscinas elásticas e base de dados de armazéns de dados para efeitos de gestão de recursos Azure (ver o esquema de URL para bases de dados e piscinas)
 - Coloca recursos numa região
 - Fornece um ponto final de ligação para o acesso à base de dados (`<serverName>`.database.windows.net)
@@ -83,7 +83,7 @@ Para gerir uma base de dados existente, navegue na página **de bases de dados S
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo PowerShell Azure Resource Manager ainda é suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para criar e gerir servidores, bases de dados e firewalls com a Azure PowerShell, utilize os seguintes cmdlets PowerShell. Se precisar de instalar ou atualizar o PowerShell, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir piscinas elásticas, consulte [piscinas elásticas.](elastic-pool-overview.md)
 
@@ -96,7 +96,7 @@ Para criar e gerir servidores, bases de dados e firewalls com a Azure PowerShell
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Cria um grupo de recursos|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Cria um servidor|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Devolve informações sobre servidores|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifica propriedades de um servidor|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifica propriedades de um servidor|
 |[Remover-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Remove um servidor|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Cria uma regra de firewall de nível de servidor |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Obtém regras de firewall para um servidor|
@@ -110,7 +110,7 @@ Para criar e gerir servidores, bases de dados e firewalls com a Azure PowerShell
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Gerir servidores, bases de dados e firewalls utilizando o Azure CLI
 
-Para criar e gerir servidores, bases de dados e firewalls com o [Azure CLI,](/cli/azure)utilize os seguintes comandos [Azure CLI SQL Database.](/cli/azure/sql/db) Utilize o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerir piscinas elásticas, consulte [piscinas elásticas.](elastic-pool-overview.md)
+Para criar e gerir servidores, bases de dados e firewalls com o [Azure CLI,](/cli/azure)utilize os seguintes comandos [Azure CLI SQL Database.](/cli/azure/sql/db) Utilize o [Cloud Shell](../../cloud-shell/overview.md) para executar a CLI no seu browser ou [instale-a](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerir piscinas elásticas, consulte [piscinas elásticas.](elastic-pool-overview.md)
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -150,7 +150,7 @@ Para criar e gerir servidores, bases de dados e firewalls com Transact-SQL, util
 |[CREATE DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Cria uma nova base de dados na Base de Dados Azure SQL. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 |[CRIAR BASE DE DADOS (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Cria uma nova base de dados de armazém de dados em Azure Synapse. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [ALTER DATABASE (Base de dados Azure SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica a base de dados ou piscina elástica. |
-|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica uma base de dados de armazém de dados em Azure Synapse.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica uma base de dados de armazém de dados em Azure Synapse.|
 |[BASE DE DADOS DROP (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objetives (Base de Dados Azure SQL)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve a edição (nível de serviço), o objetivo do serviço (nível de preços) e o nome elástico da piscina, se houver, para uma base de dados. Se for iniciado na base de dados principal de um servidor, retorna a informação em todas as bases de dados. Para a Azure Synapse, deve estar ligado à base de dados principal.|
 |[sys.dm_db_resource_stats (Base de Dados Azure SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devoluções cpu, IO e consumo de memória para uma base de dados na Base de Dados Azure SQL. Existe uma linha por cada 15 segundos, mesmo que não haja atividade na base de dados.|
@@ -173,22 +173,22 @@ Para criar e gerir servidores, bases de dados e firewalls, utilize estes pedidos
 
 | Comando | Descrição |
 | --- | --- |
-|[Servidores - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
-|[Servidores - Eliminar](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina um servidor.|
-|[Servidores - Obter](https://docs.microsoft.com/rest/api/sql/servers/get)|Arranja um servidor.|
-|[Servidores - Lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Devolve uma lista de servidores.|
-|[Servidores - Lista por grupo de recursos](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Devolve uma lista de servidores num grupo de recursos.|
-|[Servidores - Atualização](https://docs.microsoft.com/rest/api/sql/servers/update)|Atualiza um servidor existente.|
-|[Bases de dados - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|
-|[Bases de dados - Eliminar](https://docs.microsoft.com/rest/api/sql/databases/delete)|Elimina uma base de dados.|
-|[Bases de dados - Obter](https://docs.microsoft.com/rest/api/sql/databases/get)|Tem uma base de dados.|
-|[Bases de dados - Lista por piscina elástica](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados numa piscina elástica.|
-|[Bases de dados - Lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bases de dados num servidor.|
-|[Bases de dados - Atualização](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza uma base de dados existente.|
-|[Regras de firewall - Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|
-|[Regras de firewall - Eliminar](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Elimina uma regra de firewall.|
-|[Regras de firewall - Obter](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
-|[Regras de firewall - Lista por servidor](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
+|[Servidores - Criar ou atualizar](/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
+|[Servidores - Eliminar](/rest/api/sql/servers/delete)|Elimina um servidor.|
+|[Servidores - Obter](/rest/api/sql/servers/get)|Arranja um servidor.|
+|[Servidores - Lista](/rest/api/sql/servers/list)|Devolve uma lista de servidores.|
+|[Servidores - Lista por grupo de recursos](/rest/api/sql/servers/listbyresourcegroup)|Devolve uma lista de servidores num grupo de recursos.|
+|[Servidores - Atualização](/rest/api/sql/servers/update)|Atualiza um servidor existente.|
+|[Bases de dados - Criar ou atualizar](/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza uma base de dados existente.|
+|[Bases de dados - Eliminar](/rest/api/sql/databases/delete)|Elimina uma base de dados.|
+|[Bases de dados - Obter](/rest/api/sql/databases/get)|Tem uma base de dados.|
+|[Bases de dados - Lista por piscina elástica](/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados numa piscina elástica.|
+|[Bases de dados - Lista por servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bases de dados num servidor.|
+|[Bases de dados - Atualização](/rest/api/sql/databases/update)|Atualiza uma base de dados existente.|
+|[Regras de firewall - Criar ou atualizar](/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|
+|[Regras de firewall - Eliminar](/rest/api/sql/firewallrules/delete)|Elimina uma regra de firewall.|
+|[Regras de firewall - Obter](/rest/api/sql/firewallrules/get)|Tem uma regra de firewall.|
+|[Regras de firewall - Lista por servidor](/rest/api/sql/firewallrules/listbyserver)|Devolve uma lista de regras de firewall.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

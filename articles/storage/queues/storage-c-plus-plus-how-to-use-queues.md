@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 6a4f8b99be564779b350bff2ab5b37f3c7ccc6f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25858ac3dc78803f59aec7e77e151dc9afcc4950
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87020984"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781673"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como utilizar o Armazenamento de Filas a partir do C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "87020984"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Descrição geral
-Este guia irá mostrar-lhe como executar cenários comuns usando o serviço de armazenamento Azure Queue. Os exemplos são escritos no C++ e utilizam a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abordados incluem **inserir,** **espreitar,** **receber**e **apagar** mensagens de fila, bem como **criar e apagar filas.**
+Este guia irá mostrar-lhe como executar cenários comuns usando o serviço de armazenamento Azure Queue. Os exemplos são escritos no C++ e utilizam a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abordados incluem **inserir,** **espreitar,** **receber** e **apagar** mensagens de fila, bem como **criar e apagar filas.**
 
 > [!NOTE]
 > Este guia destina-se à Biblioteca de Clientes de Armazenamento do Microsoft Azure para C++ versão 1.0.0 e acima. A versão recomendada é Storage Client Library 2.2.0, que está disponível através de [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -57,7 +57,7 @@ Adicione as seguintes declarações ao topo do ficheiro C++ onde pretende utiliz
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de ligação de armazenamento Azure
-Os clientes do Armazenamento do Azure utilizam uma cadeia de ligação de armazenamento para armazenar pontos finais e credenciais para aceder a serviços de gestão de dados. Ao executar uma aplicação de cliente, deve fornecer a cadeia de ligação de armazenamento no seguinte formato, utilizando o nome da sua conta de armazenamento e a chave de acesso ao armazenamento para a conta de armazenamento listada no [portal Azure](https://portal.azure.com) para os valores *DeName* e *AccountKey.* Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [contas de armazenamento Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Este exemplo mostra como pode declarar um campo estático para conter a cadeia de ligação:
+Os clientes do Armazenamento do Azure utilizam uma cadeia de ligação de armazenamento para armazenar pontos finais e credenciais para aceder a serviços de gestão de dados. Ao executar uma aplicação de cliente, deve fornecer a cadeia de ligação de armazenamento no seguinte formato, utilizando o nome da sua conta de armazenamento e a chave de acesso ao armazenamento para a conta de armazenamento listada no [portal Azure](https://portal.azure.com) para os valores *DeName* e *AccountKey.* Para obter informações sobre contas de armazenamento e chaves de acesso, consulte [contas de armazenamento Azure](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json). Este exemplo mostra como pode declarar um campo estático para conter a cadeia de ligação:
 
 ```cpp
 // Define the connection-string with your values.
@@ -76,7 +76,7 @@ Para iniciar a Azurite, consulte [o emulador Azurite para o desenvolvimento loca
 Os exemplos seguintes partem do princípio de que utiliza um destes dois métodos para obter a cadeia de ligação de armazenamento.
 
 ## <a name="retrieve-your-connection-string"></a>Obter a sua cadeia de ligação
-Pode utilizar a classe **cloud_storage_account** para representar as informações da sua Conta de Armazenamento. Para obter as informações da conta de armazenamento da cadeia de ligação de armazenamento, pode utilizar o método **analisar**.
+Pode utilizar a classe **cloud_storage_account** para representar as informações da sua Conta de Armazenamento. Para obter as informações da conta de armazenamento da cadeia de ligação de armazenamento, pode utilizar o método **analisar** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -105,7 +105,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Inserir uma mensagem numa fila
-Para inserir uma mensagem numa fila existente, crie primeiro um novo **cloud_queue_message**. Em seguida, chame o método **add_message.** Um **cloud_queue_message** pode ser criado a partir de uma corda ou de uma matriz **de byte.** Eis o código que cria uma fila (se não existir) e introduz a mensagem "Olá, Mundo":
+Para inserir uma mensagem numa fila existente, crie primeiro um novo **cloud_queue_message** . Em seguida, chame o método **add_message.** Um **cloud_queue_message** pode ser criado a partir de uma corda ou de uma matriz **de byte.** Eis o código que cria uma fila (se não existir) e introduz a mensagem "Olá, Mundo":
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -172,7 +172,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 ```
 
 ## <a name="how-to-de-queue-the-next-message"></a>Como: De-fila a próxima mensagem
-O código remove uma mensagem da fila em dois passos. Quando **ligas para get_message,** recebes a próxima mensagem numa fila. Uma mensagem devolvida **de get_message** torna-se invisível a qualquer outra mensagem de leitura de código desta fila. Para terminar de remover a mensagem da fila, também deve **chamá delete_message**. Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código chama **delete_message** logo após o processo da mensagem.
+O código remove uma mensagem da fila em dois passos. Quando **ligas para get_message,** recebes a próxima mensagem numa fila. Uma mensagem devolvida **de get_message** torna-se invisível a qualquer outra mensagem de leitura de código desta fila. Para terminar de remover a mensagem da fila, também deve **chamá delete_message** . Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código chama **delete_message** logo após o processo da mensagem.
 
 ```cpp
 // Retrieve storage account from connection-string.

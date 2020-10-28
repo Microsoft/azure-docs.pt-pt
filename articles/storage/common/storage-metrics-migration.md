@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490769"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781928"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
@@ -35,7 +35,7 @@ Para a transição para métricas no Azure Monitor, recomendamos a seguinte abor
    > [!NOTE]
    > As métricas no Monitor Azure são ativadas por padrão, por isso não há nada que precise fazer para começar a capturar métricas. No entanto, deve criar gráficos ou dashboards para visualizar essas métricas. 
  
-5. Se criou regras de alerta baseadas em métricas clássicas de armazenamento, então [crie regras](/azure/azure-monitor/platform/alerts-overview) de alerta baseadas em métricas no Azure Monitor. 
+5. Se criou regras de alerta baseadas em métricas clássicas de armazenamento, então [crie regras](../../azure-monitor/platform/alerts-overview.md) de alerta baseadas em métricas no Azure Monitor. 
 
 6. Depois de poder ver todas as suas métricas no Azure Monitor, pode desligar a exploração madeireira clássica. 
 
@@ -53,7 +53,7 @@ No que diz respeito ao suporte de métricas, as métricas clássicas fornecem m�
 
 Se a atividade na sua conta não desencadear uma métrica, as métricas clássicas mostrarão um valor de zero (0) para essa métrica. As métricas no Azure Monitor omitirão completamente os dados, o que leva a relatórios mais limpos. Por exemplo, com métricas clássicas, se não forem reportados erros de tempo do servidor, o `ServerTimeoutError` valor na tabela de métricas é definido para 0. O Azure Monitor não devolve quaisquer dados quando consulta o valor da métrica `Transactions` com dimensão `ResponseType` igual a `ServerTimeoutError` . 
 
-Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 
@@ -70,7 +70,7 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
-> Há também várias novas métricas de capacidade que não estavam disponíveis como métricas clássicas. Para ver a lista completa, consulte [métricas.](../common/monitor-storage-reference.md#metrics)
+> Há também várias novas métricas de capacidade que não estavam disponíveis como métricas clássicas. Para ver a lista completa, consulte [métricas.](../blobs/monitor-blob-storage-reference.md#metrics)
 
 **Métricas de transação**
 
@@ -117,5 +117,4 @@ Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-
+* [Azure Monitor](../../azure-monitor/overview.md)

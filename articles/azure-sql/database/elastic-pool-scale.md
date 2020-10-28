@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330711"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781214"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensione recursos de piscina elástica na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Este artigo descreve como escalar os recursos de computação e armazenamento di
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Alterar recursos computacional (vCores ou DTUs)
 
-Depois de escolher inicialmente o número de vCores ou eDTUs, pode escalar uma piscina elástica para cima ou para baixo dinamicamente com base na experiência real utilizando o [portal Azure](elastic-pool-manage.md#azure-portal), [PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou a [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Depois de escolher inicialmente o número de vCores ou eDTUs, pode escalar uma piscina elástica para cima ou para baixo dinamicamente com base na experiência real utilizando o [portal Azure](elastic-pool-manage.md#azure-portal), [PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou a [API REST](/rest/api/sql/elasticpools/update).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto da alteração do nível de serviço ou do tamanho do cálculo rescalante
 
@@ -57,7 +57,7 @@ A latência estimada para alterar o nível de serviço, escalar o tamanho do cá
 >
 > - No caso de alterar o nível de serviço ou rescalar o cálculo para uma piscina elástica, a soma do espaço utilizado em todas as bases de dados da piscina deve ser utilizada para calcular a estimativa.
 > - No caso de mover uma base de dados de/para uma piscina elástica, apenas o espaço utilizado pela base de dados tem impacto na latência, não no espaço utilizado pela piscina elástica.
-> - Para piscinas elásticas Standard e General Purpose, a latência de mover uma base de dados dentro/fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a piscina elástica estiver a utilizar o armazenamento Premium File Share[(PFS).](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) Para determinar se uma piscina está a utilizar o armazenamento PFS, execute a seguinte consulta no contexto de qualquer base de dados na piscina. Se o valor na coluna AccountType for `PremiumFileStorage` `PremiumFileStorage-ZRS` ou, o pool está a utilizar o armazenamento PFS.
+> - Para piscinas elásticas Standard e General Purpose, a latência de mover uma base de dados dentro/fora de uma piscina elástica ou entre piscinas elásticas será proporcional ao tamanho da base de dados se a piscina elástica estiver a utilizar o armazenamento Premium File Share[(PFS).](../../storage/files/storage-files-introduction.md) Para determinar se uma piscina está a utilizar o armazenamento PFS, execute a seguinte consulta no contexto de qualquer base de dados na piscina. Se o valor na coluna AccountType for `PremiumFileStorage` `PremiumFileStorage-ZRS` ou, o pool está a utilizar o armazenamento PFS.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Para monitorizar as operações em curso, consulte: [Gerir operações utilizando a API DE REST SQL,](https://docs.microsoft.com/rest/api/sql/operations/list) [Gerir operações utilizando operações CLI,](/cli/azure/sql/db/op) [Monitor utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Para monitorizar as operações em curso, consulte: [Gerir operações utilizando a API DE REST SQL,](/rest/api/sql/operations/list) [Gerir operações utilizando operações CLI,](/cli/azure/sql/db/op) [Monitor utilizando o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerações adicionais ao alterar o nível de serviço ou rescalar o tamanho do cálculo
 
@@ -100,7 +100,7 @@ Você é cobrado por cada hora existe uma base de dados usando o nível de servi
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
 - O preço eDTU para uma piscina elástica inclui uma certa quantidade de armazenamento sem custos adicionais. O armazenamento extra para além do montante incluído pode ser previsto para um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB até 1 TB, e depois em incrementos de 256 GB para além de 1 TB. Para quantidades de armazenamento incluídas e limites de tamanho máximo, consulte [piscina elástica: tamanhos de armazenamento e tamanhos de cálculo](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- O armazenamento extra para uma piscina elástica pode ser a provisionado aumentando o seu tamanho máximo utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou o [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- O armazenamento extra para uma piscina elástica pode ser a provisionado aumentando o seu tamanho máximo utilizando o [portal Azure,](elastic-pool-manage.md#azure-portal) [o PowerShell,](/powershell/module/az.sql/Get-AzSqlElasticPool)o [Azure CLI,](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)ou o [REST API](/rest/api/sql/elasticpools/update).
 - O preço de armazenamento extra para uma piscina elástica é a quantidade extra de armazenamento multiplicada pelo preço extra da unidade de armazenamento do nível de serviço. Para mais informações sobre o preço do armazenamento extra, consulte [os preços da Base de Dados SQL.](https://azure.microsoft.com/pricing/details/sql-database/)
 
 > [!IMPORTANT]

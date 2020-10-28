@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 8110b98c055a211203fb937990e860fc8dea74f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8c944e1eb665f3f0bc83e28e1e5469d2da501a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88520467"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781996"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de Importação/Exportação do Azure
 
@@ -35,8 +35,8 @@ Você vê um dos seguintes estatutos de trabalho dependendo de onde a sua unidad
 | Recebido | Depois de todas as unidades serem recebidas no centro de dados, o estado de trabalho está definido para **Recebido.** |
 | A transferir | Uma vez iniciada a transformação de pelo menos uma unidade, o estado de trabalho está definido para **a transferência.** Para mais informações, vá à [Drive States.](#view-drive-status) |
 | Empacotamento | Depois de todas as unidades terem concluído o processamento, o trabalho é colocado no estado **de Embalagem** até que as unidades sejam enviadas de volta para si. |
-| Concluído | Depois de todas as unidades forem enviadas de volta para si, se o trabalho tiver sido concluído sem erros, então o trabalho está definido para **Concluído**. O trabalho é automaticamente eliminado após 90 dias no estado **concluído.** |
-| Fechada | Depois de todas as unidades serem enviadas de volta para si, se houver erros durante o processamento do trabalho, o trabalho está definido para **fechado**. O trabalho é automaticamente apagado após 90 dias no estado **fechado.** |
+| Concluído | Depois de todas as unidades forem enviadas de volta para si, se o trabalho tiver sido concluído sem erros, então o trabalho está definido para **Concluído** . O trabalho é automaticamente eliminado após 90 dias no estado **concluído.** |
+| Fechada | Depois de todas as unidades serem enviadas de volta para si, se houver erros durante o processamento do trabalho, o trabalho está definido para **fechado** . O trabalho é automaticamente apagado após 90 dias no estado **fechado.** |
 
 ## <a name="view-drive-status"></a>Ver estado da unidade
 
@@ -46,7 +46,7 @@ A tabela a seguir descreve cada estado que cada unidade de um trabalho pode pass
 
 | Estado de condução | Descrição |
 |:--- |:--- |
-| Especificado | Para um trabalho de importação, quando o trabalho é criado a partir do portal Azure, o estado inicial para uma unidade é **especificado**. Para um trabalho de exportação, uma vez que não é especificado qualquer unidade quando o trabalho é criado, o estado de unidade inicial é **recebido**. |
+| Especificado | Para um trabalho de importação, quando o trabalho é criado a partir do portal Azure, o estado inicial para uma unidade é **especificado** . Para um trabalho de exportação, uma vez que não é especificado qualquer unidade quando o trabalho é criado, o estado de unidade inicial é **recebido** . |
 | Recebido | A transição de unidade para o estado **recebido** quando o serviço de importação/exportação processou as unidades que foram recebidas da companhia de navegação para um trabalho de importação. Para um trabalho de exportação, o estado de condução inicial é o Estado **Recebido.** |
 | Nunca percebido | A unidade move-se para o estado **NeverReceived** quando o pacote para um trabalho chega, mas o pacote não contém a unidade. Uma unidade também se move para este estado se o datacenter ainda não recebeu o pacote, e o serviço recebeu a informação de envio há pelo menos duas semanas. |
 | A transferir | Uma unidade move-se para o estado **de Transfering** quando o serviço começa a transferir dados da unidade para o Azure Storage. |
@@ -78,5 +78,5 @@ O serviço de importação/exportação não tem um SLA, mas o serviço esforça
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Dados de transferência com utilitário de linha de comando AzCopy](storage-use-azcopy.md)
+* [Dados de transferência com utilitário de linha de comando AzCopy](./storage-use-azcopy-v10.md)
 * [Amostra Azure Import Export REST API](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

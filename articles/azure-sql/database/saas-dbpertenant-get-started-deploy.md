@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618945"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780840"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
 
@@ -40,7 +40,7 @@ Uma [série de tutoriais relacionados](saas-dbpertenant-wingtip-app-overview.md#
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar este tutorial, certifique-se de que o Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Para completar este tutorial, certifique-se de que o Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>Implementar a aplicação Wingtip Tickets SaaS
 
@@ -49,13 +49,13 @@ Para completar este tutorial, certifique-se de que o Azure PowerShell está inst
 Nos passos desta secção, fornece um valor de utilizador que é usado para garantir que os nomes de recursos são globalmente únicos. Também fornece um nome para o grupo de recursos que contém todos os recursos criados por uma implementação da app. Para uma pessoa fictícia chamada Ann Finley, sugerimos:
 
 - **Utilizador:** *af1* é composto por iniciais de Ann Finley mais um dígito. Se implementar a aplicação uma segunda vez, use um valor diferente. Um exemplo é af2.
-- **Grupo de recursos**: *wingtip-dpt-af1* indica que esta é a aplicação base de dados por inquilino. Anexar o nome de utilizador af1 para correlacionar o nome do grupo de recursos com os nomes dos recursos que contém.
+- **Grupo de recursos** : *wingtip-dpt-af1* indica que esta é a aplicação base de dados por inquilino. Anexar o nome de utilizador af1 para correlacionar o nome do grupo de recursos com os nomes dos recursos que contém.
 
 Escolham os vossos nomes agora e escrevam-nos.
 
 ### <a name="steps"></a>Passos
 
-1. Para abrir o modelo de implantação da base de dados saaS por inquilino no portal Azure, selecione **Implementar para Azure**.
+1. Para abrir o modelo de implantação da base de dados saaS por inquilino no portal Azure, selecione **Implementar para Azure** .
 
    [![Imagem mostrando um botão marcado "Implementar para Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
@@ -64,15 +64,15 @@ Escolham os vossos nomes agora e escrevam-nos.
     > [!IMPORTANT]
     > Algumas firewalls de autenticação e servidores estão intencionalmente despromocuradas para fins de demonstração. Recomendamos que crie um novo grupo de recursos. Não utilize grupos de recursos, servidores ou piscinas existentes. Não utilize esta aplicação, scripts ou quaisquer recursos implantados para produção. Elimine este grupo de recursos quando terminar com a aplicação para parar a faturação relacionada.
 
-    - **Grupo de recursos**: Selecione **Criar novo**, e forneça o nome único que escolheu anteriormente para o grupo de recursos.
-    - **Localização**: Selecione uma localização da lista de drop-down.
+    - **Grupo de recursos** : Selecione **Criar novo** , e forneça o nome único que escolheu anteriormente para o grupo de recursos.
+    - **Localização** : Selecione uma localização da lista de drop-down.
     - **Utilizador:** Utilize o valor do nome de utilizador que escolheu anteriormente.
 
 1. Desdobre a aplicação.
 
     a. Selecione para concordar com os termos e condições.
 
-    b. Selecione **Comprar**.
+    b. Selecione **Comprar** .
 
 1. Para monitorizar o estado de implantação, **selecione Notificações** (o ícone da campainha à direita da caixa de pesquisa). A implementação da aplicação Wingtip Tickets SaaS demora aproximadamente cinco minutos.
 
@@ -87,10 +87,10 @@ Enquanto a aplicação é implementada, descarregue os scripts de código fonte 
 
 1. Navegue pelo [wingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
 1. Selecione **Clone or download** (Clonar ou transferir).
-1. Selecione **Baixar ZIP**e, em seguida, guardar o ficheiro.
-1. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-DbPerTenant-master.zip** e, em seguida, selecione **Propriedades**.
-1. No **separador Geral,** selecione **'Desbloquear'**  >  **Aplicar**.
-1. Selecione **OK**, e extraia os ficheiros
+1. Selecione **Baixar ZIP** e, em seguida, guardar o ficheiro.
+1. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-DbPerTenant-master.zip** e, em seguida, selecione **Propriedades** .
+1. No **separador Geral,** selecione **'Desbloquear'**  >  **Aplicar** .
+1. Selecione **OK** , e extraia os ficheiros
 
 Os scripts estão localizados no ... \\ Pasta de módulos de aprendizagem WingtipTicketsSaa-DbPerTenant-master. \\
 
@@ -122,7 +122,7 @@ Uma página central do Centro de **Eventos** fornece uma lista de links para os 
 
 ### <a name="azure-traffic-manager"></a>Gestor de Tráfego do Azure
 
-A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos de entrada. O URL para aceder à página de eventos para um inquilino específico utiliza o seguinte formato:
+A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md) para controlar a distribuição de pedidos de entrada. O URL para aceder à página de eventos para um inquilino específico utiliza o seguinte formato:
 
 - http://events.wingtip-dpt.&lt;user &gt; .trafficmanager.net/fabrikamjazzclub
 
@@ -131,7 +131,7 @@ A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager
     | Parte url        | Descrição       |
     | :-------------- | :---------------- |
     | eventos.wingtip-dpt | Os eventos partes da aplicação Wingtip.<br /><br /> *-dpt* distingue a *implementação de bilhetes* wingtip por base de dados de outros. Exemplos são as implementações *de* uma única aplicação por inquilino *(-sa)* ou *uma base de dados multitenante* *(-mt).* |
-    | . * &lt; utilizador &gt; * | *af1* no exemplo. |
+    | . *&lt; utilizador &gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gestor de tráfego, URL base. |
     | fabrikamjazzclub | Identifica o inquilino chamado Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -142,11 +142,11 @@ A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager
   - O catálogo é implementado utilizando *a gestão de mapas de fragmentos.*
 - O Centro de Eventos utiliza metadados estendidos no catálogo para construir a lista de eventos urLs de página para cada inquilino.
 
-Num ambiente de produção, normalmente cria-se um registo DE DNS CNAME para [*apontar um domínio de internet*](../../traffic-manager/traffic-manager-point-internet-domain.md)da empresa para o nome   DNS do Gestor de Tráfego.
+Num ambiente de produção, normalmente cria-se um registo DE DNS CNAME para [*apontar um domínio de internet*](../../traffic-manager/traffic-manager-point-internet-domain.md) da empresa para o nome DNS do Gestor de Tráfego.
 
 > [!NOTE]
 > Pode não ser imediatamente óbvio qual é o uso do gestor de tráfego neste tutorial. O objetivo desta série de tutoriais é mostrar padrões que possam lidar com a escala de um ambiente de produção complexo. Neste caso, por exemplo, teria várias aplicações web distribuídas por todo o mundo, co-localizadas com bases de dados e precisaria de um gestor de tráfego para fazer a rota entre estes casos.
-Outro conjunto de tutoriais que ilustra o uso do gestor de tráfego são os [tutoriais de geo-restauração](../../sql-database/saas-dbpertenant-dr-geo-restore.md) e [geo-replicação.](../../sql-database/saas-dbpertenant-dr-geo-replication.md) Nestes tutoriais, o gestor de tráfego é usado para ajudar a mudar para uma instância de recuperação da app SaaS em caso de paragem regional.
+Outro conjunto de tutoriais que ilustra o uso do gestor de tráfego são os [tutoriais de geo-restauração](./saas-dbpertenant-dr-geo-restore.md) e [geo-replicação.](./saas-dbpertenant-dr-geo-replication.md) Nestes tutoriais, o gestor de tráfego é usado para ajudar a mudar para uma instância de recuperação da app SaaS em caso de paragem regional.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Começar a gerar carga nas bases de dados de inquilinos
 
@@ -181,9 +181,9 @@ Se quiser controlar e monitorizar os trabalhos de fundo, utilize os seguintes cm
 3. *LoadGenerator.ps1* inicia um trabalho de fundo da PowerShell para cada base de dados de inquilinos:
 
     - Por defeito, os trabalhos de fundo duram 120 minutos.
-    - Cada trabalho causa uma carga baseada em CPU numa base de dados de inquilinos executando *sp_CpuLoadGenerator*. A intensidade e a duração da carga variam consoante `$DemoScenario` .
+    - Cada trabalho causa uma carga baseada em CPU numa base de dados de inquilinos executando *sp_CpuLoadGenerator* . A intensidade e a duração da carga variam consoante `$DemoScenario` .
     - *sp_CpuLoadGenerator* loops em torno de uma declaração SQL SELECT que causa uma alta carga de CPU. O intervalo de tempo entre as questões do SELECT varia de acordo com os valores dos parâmetros para criar uma carga cpu controlável. Os níveis de carga e os intervalos são aleatórios para simular cargas mais realistas.
-    - Este ficheiro .sql é armazenado sob *as medidas wingtipTenantDB \\ dbo \\ StoredProcedures \\ *.
+    - Este ficheiro .sql é armazenado sob *as medidas wingtipTenantDB \\ dbo \\ StoredProcedures \\* .
 
 4. Se, `$OneTime = $false` o gerador de carga iniciar os trabalhos de fundo e, em seguida, continuar a funcionar. A cada 10 segundos, monitoriza todos os novos inquilinos que são a provisionados. Se `$OneTime = $true` definir, o LoadGenerator inicia os trabalhos de fundo e, em seguida, deixa de funcionar em primeiro plano. Para este tutorial, `$OneTime = $false` saia.
 
@@ -200,11 +200,11 @@ Antes de continuar com a próxima secção, deixe o gerador de carga em funciona
 A implantação inicial cria três inquilinos de amostra. Agora cria outro inquilino para ver o impacto na aplicação implementada. Na aplicação Wingtip, o fluxo de trabalho para a provisionação de novos inquilinos é explicado no [Tutorial de Provisão e catálogo.](saas-dbpertenant-provision-and-catalog.md) Nesta fase, cria-se um novo inquilino, que demora menos de um minuto.
 
 1. Abra um novo PowerShell ISE.
-2. Abrir... \\ Módulos de Aprendizagem\Provisão eDemo-ProvisionAndCatalog.ps1de Catálogo \\ * *.
+2. Abrir... \\ Módulos de Aprendizagem\Provisão eDemo-ProvisionAndCatalog.ps1de Catálogo \\  .
 3. Para executar o guião, prima F5. Deixe os valores predefinidos por enquanto.
 
    > [!NOTE]
-   > Muitos scripts Wingtip SaaS usam *$PSScriptRoot* para navegar em pastas para chamar funções em outros scripts. Esta variável só é avaliada quando o script completo é executado pressionando F5.Realçar e executar uma seleção com F8 pode resultar em erros. Para executar os scripts, prima F5.
+   > Muitos scripts Wingtip SaaS usam *$PSScriptRoot* para navegar em pastas para chamar funções em outros scripts. Esta variável só é avaliada quando o script completo é executado pressionando F5. Realçar e executar uma seleção com F8 pode resultar em erros. Para executar os scripts, prima F5.
 
 A nova base de dados dos inquilinos é:
 
@@ -222,14 +222,14 @@ Refresque o Centro de Eventos para fazer o novo inquilino aparecer na lista.
 
 Agora que começou a trabalhar contra a coleção de inquilinos, vamos ver alguns dos recursos que foram mobilizados.
 
-1. No [portal Azure,](https://portal.azure.com)consulte a sua lista de servidores SQL. Em seguida, abra o servidor **user-dpt-do-catálogo. &lt; &gt; **
+1. No [portal Azure,](https://portal.azure.com)consulte a sua lista de servidores SQL. Em seguida, abra o servidor **user-dpt-do-catálogo. &lt; &gt;**
     - O servidor de catálogo contém duas bases de dados, **tenantcatalog** e **basetenantdb** (uma base de dados de modelos copiada para criar novos inquilinos).
 
    ![A screenshot mostra uma página geral do servidor de catálogo com as duas bases de dados.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Volte para a sua lista de servidores SQL.
 
-3. Abra o servidor **user-1-dpt-user &lt; &gt; ** que detém as bases de dados dos inquilinos.
+3. Abra o servidor **user-1-dpt-user &lt; &gt;** que detém as bases de dados dos inquilinos.
 
 4. Consulte os seguintes itens:
 
@@ -242,7 +242,7 @@ Agora que começou a trabalhar contra a coleção de inquilinos, vamos ver algun
 
 Após *LoadGenerator.ps1* de funcionamento por vários minutos, devem estar disponíveis dados suficientes para começar a analisar algumas capacidades de monitorização. Estas capacidades são incorporadas em piscinas e bases de dados.
 
-Navegue pelo utilizador do servidor ** &lt; &gt; 1-dpt-dpt-** e selecione **Pool1** para visualizar a utilização do recurso para a piscina. Nas tabelas seguintes, o gerador de carga funcionou durante uma hora.
+Navegue pelo utilizador do servidor **&lt; &gt; 1-dpt-dpt-** e selecione **Pool1** para visualizar a utilização do recurso para a piscina. Nas tabelas seguintes, o gerador de carga funcionou durante uma hora.
 
    ![Piscina monitor](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -254,9 +254,9 @@ Os dois gráficos ilustram que piscinas elásticas e base de dados SQL são adeq
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - Para mais informações, consulte [tutoriais adicionais que constroem na aplicação Wingtip Tickets SaaS base de dados por inquilino.](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-- Para aprender sobre piscinas elásticas, veja [o que é uma piscina elástica Azure SQL?](elastic-pool-overview.md)
-- Para aprender sobre trabalhos elásticos, consulte [Gerir bases de dados de nuvem escalonadas.](../../sql-database/elastic-jobs-overview.md)
-- Para saber mais sobre aplicações SaaS multitenantes, consulte [padrões de design para aplicações SaaS multitenantes.](saas-tenancy-app-design-patterns.md)
+- Para aprender sobre piscinas elásticas, veja [o que é uma piscina elástica Azure SQL?](elastic-pool-overview.md)
+- Para aprender sobre trabalhos elásticos, consulte [Gerir bases de dados de nuvem escalonadas.](./elastic-jobs-overview.md)
+- Para saber mais sobre aplicações SaaS multitenantes, consulte [padrões de design para aplicações SaaS multitenantes.](saas-tenancy-app-design-patterns.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: d1349ccc5879cf461cd1c6a3c0122173a43e8123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21c0a7a3fe6d5be9d99ea53dbfa74cf72e163272
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619717"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780670"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorize e gere o desempenho da Base de Dados Azure SQL numa aplicação SaaS multi-arrendatário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,8 +37,8 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-* A aplicação Wingtip Tickets SaaS Database Per Tenant é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a aplicação Wingtip Tickets SaaS Database per Tenant](../../sql-database/saas-dbpertenant-get-started-deploy.md)
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* A aplicação Wingtip Tickets SaaS Database Per Tenant é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a aplicação Wingtip Tickets SaaS Database per Tenant](./saas-dbpertenant-get-started-deploy.md)
+* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gestão de desempenho do SaaS
 
@@ -50,14 +50,14 @@ As piscinas e as bases de dados em piscinas devem ser monitorizadas para garanti
 
 ### <a name="performance-management-strategies"></a>Estratégias da gestão do desempenho
 
-* Para evitar ter de monitorizar manualmente o desempenho, é mais eficaz **definir alertas que desencadeiam quando bases de dados ou piscinas se desviam dos intervalos normais**.
-* Para responder às flutuações de curto prazo no tamanho agregado do cálculo de uma piscina, o **nível de eDTU**da piscina pode ser dimensionado para cima ou para baixo . Se esta flutuação ocorrer numa base regular ou previsível, **o dimensionamento do conjunto poderá ser agendado para ocorrer automaticamente**. Por exemplo, reduza verticalmente quando sabe que a carga de trabalho é leve, talvez durante a noite ou durante os fins de semana.
-* Para responder a flutuações de duração mais longa ou alterações no número de bases de dados, **as bases de dados individuais podem ser movidas para outros grupos**.
+* Para evitar ter de monitorizar manualmente o desempenho, é mais eficaz **definir alertas que desencadeiam quando bases de dados ou piscinas se desviam dos intervalos normais** .
+* Para responder às flutuações de curto prazo no tamanho agregado do cálculo de uma piscina, o **nível de eDTU** da piscina pode ser dimensionado para cima ou para baixo . Se esta flutuação ocorrer numa base regular ou previsível, **o dimensionamento do conjunto poderá ser agendado para ocorrer automaticamente** . Por exemplo, reduza verticalmente quando sabe que a carga de trabalho é leve, talvez durante a noite ou durante os fins de semana.
+* Para responder a flutuações de duração mais longa ou alterações no número de bases de dados, **as bases de dados individuais podem ser movidas para outros grupos** .
 * Para responder a aumentos de curto prazo em bases de dados *individuais,* **as bases de dados individuais podem ser retiradas de uma piscina e atribuídas um tamanho de computação individual.** Assim que a carga for reduzida, a base de dados pode ser devolvida ao conjunto. Quando isto é conhecido antecipadamente, as bases de dados podem ser movidas preventivamente para garantir que a base de dados tem sempre os recursos de que necessita e para evitar impactos noutras bases de dados na piscina. Se este requisito for previsível, por exemplo, quando um local tem uma grande procura de bilhetes para um evento popular, este comportamento de gestão poderá ser integrado na aplicação.
 
 O [portal do Azure](https://portal.azure.com) fornece monitorização e alertas incorporados na maior parte dos recursos. A monitorização e alerta estão disponíveis em bases de dados e piscinas. Este monitor incorporado e alerta é específico de recursos, por isso é conveniente usar para um pequeno número de recursos, mas não é muito conveniente quando se trabalha com muitos recursos.
 
-Para cenários de grande volume, onde você está trabalhando com muitos recursos, [os registos do Azure Monitor](../../sql-database/saas-dbpertenant-log-analytics.md) podem ser usados. Este é um serviço Azure separado que fornece análise sobre registos emitidos recolhidos num espaço de trabalho log analytics. Os registos do Azure Monitor podem recolher telemetria de muitos serviços e ser usados para consultar e definir alertas.
+Para cenários de grande volume, onde você está trabalhando com muitos recursos, [os registos do Azure Monitor](./saas-dbpertenant-log-analytics.md) podem ser usados. Este é um serviço Azure separado que fornece análise sobre registos emitidos recolhidos num espaço de trabalho log analytics. Os registos do Azure Monitor podem recolher telemetria de muitos serviços e ser usados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenha os scripts de aplicação de ingressos saas de ponta de asa por inquilino
 
@@ -69,8 +69,8 @@ Apesar de os conjuntos poderem ser económicos com apenas duas bases de dados S3
 
 Se já forte um lote de inquilinos num tutorial anterior, salte para o [uso simulado em todas as bases de dados de inquilinos.](#simulate-usage-on-all-tenant-databases)
 
-1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ * de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
-1. Definir **$DemoScenario**  =  **1**, **Provision um lote de inquilinos**
+1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ *de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1* . Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. Definir **$DemoScenario**  =  **1** , **Provision um lote de inquilinos**
 1. Prima **F5** para executar o script.
 
 O script implementará 17 inquilinos em menos de cinco minutos.
@@ -91,21 +91,21 @@ O *Demo-PerformanceMonitoringAndManagement.ps1* script é fornecido que simula u
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em eDTUs), a duração e os intervalos são diversificados em todas as bases de dados, o que simula a atividade imprevisível do inquilino.
 
-1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ * de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1*. Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
-1. Definir **$DemoScenario**  =  **2**, *Gerar carga de intensidade normal*.
+1. No **PowerShell ISE,** aberto... \\ Módulos de Aprendizagem \\ Monitorização e Gestão \\ *de DesempenhoDemo-PerformanceMonitoringAndManagement.ps1* . Mantenha este script aberto, uma vez que vai executar vários cenários durante este tutorial.
+1. Definir **$DemoScenario**  =  **2** , *Gerar carga de intensidade normal* .
 1. Prima **F5** para aplicar uma carga a todas as bases de dados de inquilinos.
 
 Wingtip Tickets SaaS Database Per Tenant é uma aplicação SaaS, e a carga do mundo real numa aplicação SaaS é tipicamente esporádica e imprevisível. Para simular isto, o gerador de carga produz uma carga aleatória distribuída por todos os inquilinos. São necessários vários minutos para que o padrão de carga emerja, por isso, carregue o gerador de carga durante 3-5 minutos antes de tentar monitorizar a carga nas seguintes secções.
 
 > [!IMPORTANT]
-> O gerador de carga está em execução como uma série de tarefas na sessão local do PowerShell. Mantenha aberto o separador *Demo-PerformanceMonitoringAndManagement.ps1*! Se fechar o separador ou suspender o computador, o gerador de carga será interrompido. O gerador de carga permanece num estado *de invocação de emprego* onde gera carga sobre quaisquer novos inquilinos que sejam a provisionados após o início do gerador. Use *ctrl-C* para parar de invocar novos empregos e sair do guião. O gerador de carga continuará a funcionar, mas apenas com os inquilinos existentes.
+> O gerador de carga está em execução como uma série de tarefas na sessão local do PowerShell. Mantenha aberto o separador *Demo-PerformanceMonitoringAndManagement.ps1* ! Se fechar o separador ou suspender o computador, o gerador de carga será interrompido. O gerador de carga permanece num estado *de invocação de emprego* onde gera carga sobre quaisquer novos inquilinos que sejam a provisionados após o início do gerador. Use *ctrl-C* para parar de invocar novos empregos e sair do guião. O gerador de carga continuará a funcionar, mas apenas com os inquilinos existentes.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Monitorize a utilização de recursos utilizando o portal Azure
 
 Para monitorizar a utilização do recurso que resulta da carga aplicada, abra o portal para a piscina que contém as bases de dados do arrendatário:
 
-1. Abra o [portal Azure](https://portal.azure.com) e navegue para o servidor *user-1-dpt-dos &lt; inquilinos. &gt; *
-1. Desloque-se para baixo, localize os conjuntos elásticos e clique em **Pool1**. Este conjunto contém todas as bases de dados de inquilinos criadas até à data.
+1. Abra o [portal Azure](https://portal.azure.com) e navegue para o servidor *user-1-dpt-dos &lt; inquilinos. &gt;*
+1. Desloque-se para baixo, localize os conjuntos elásticos e clique em **Pool1** . Este conjunto contém todas as bases de dados de inquilinos criadas até à data.
 
 Observe os **gráficos de monitorização da piscina elástica** e os gráficos **de monitorização da base de dados elásticas.**
 
@@ -122,18 +122,18 @@ Como existem bases de dados adicionais na piscina para além das cinco primeiras
 
 Desatenção na piscina que aciona \> 75% de utilização da seguinte forma:
 
-1. Open *Pool1* (no *servidor de inquilinos1-dpt) \<user\> * no portal [Azure](https://portal.azure.com).
-1. Clique em **Regras de Alerta**e, em seguida, clique em **+ Adicionar alerta**:
+1. Open *Pool1* (no *servidor de inquilinos1-dpt) \<user\>* no portal [Azure](https://portal.azure.com).
+1. Clique em **Regras de Alerta** e, em seguida, clique em **+ Adicionar alerta** :
 
    ![adicionar alerta](./media/saas-dbpertenant-performance-monitoring/add-alert.png)
 
-1. Forneça um nome, tal como **DTU elevada**,
+1. Forneça um nome, tal como **DTU elevada** ,
 1. Defina os seguintes valores:
    * **Métrica = percentagem de eDTU**
    * **Condição = maior do que**
    * **Limiar = 75**
    * **Período = Nos últimos 30 minutos**
-1. Adicione um endereço de e-mail à caixa *de e-mails do administrador adicional* e clique em **OK**.
+1. Adicione um endereço de e-mail à caixa *de e-mails do administrador adicional* e clique em **OK** .
 
    ![alerta de definição](./media/saas-dbpertenant-performance-monitoring/alert-rule.png)
 
@@ -148,7 +148,7 @@ Se o nível de carga agregado aumentar num conjunto até ao ponto máximo do con
 
 Pode simular um conjunto ocupado ao aumentar a carga produzida pelo gerador. Fazendo com que as bases de dados rebentem com mais frequência, e por mais tempo, aumentando a carga agregada na piscina sem alterar os requisitos das bases de dados individuais. O aumento vertical do conjunto é feito facilmente no portal ou a partir do PowerShell. Este exercício utiliza o portal.
 
-1. Defina *$DemoScenario*  =  **3**, _Gere a carga com rajadas mais longas e mais frequentes por base_ de dados para aumentar a intensidade da carga agregada na piscina sem alterar a carga máxima exigida por cada base de dados.
+1. Defina *$DemoScenario*  =  **3** , _Gere a carga com rajadas mais longas e mais frequentes por base_ de dados para aumentar a intensidade da carga agregada na piscina sem alterar a carga máxima exigida por cada base de dados.
 1. Prima **F5** para aplicar uma carga a todas as bases de dados de inquilinos.
 
 1. Vá à **Piscina1** no portal Azure.
@@ -156,7 +156,7 @@ Pode simular um conjunto ocupado ao aumentar a carga produzida pelo gerador. Faz
 Monitorize o aumento da utilização do eDTU da piscina no gráfico superior. Leva alguns minutos para que a nova carga superior faça efeito, mas você deve rapidamente ver a piscina começar a atingir a utilização máxima, e à medida que a carga se mantém no novo padrão, ele rapidamente sobrecarrega a piscina.
 
 1. Para escalar a piscina, clique na **piscina Configure** no topo da página **Pool1.**
-1. Ajuste a regulação **do Pool eDTU** para **100**. Alterar a eDTU do conjunto não altera as definições por base de dados (que é ainda o máximo de 50 eDTU por base de dados). Pode ver as definições por base de dados no lado direito da página do **pool Configure.**
+1. Ajuste a regulação **do Pool eDTU** para **100** . Alterar a eDTU do conjunto não altera as definições por base de dados (que é ainda o máximo de 50 eDTU por base de dados). Pode ver as definições por base de dados no lado direito da página do **pool Configure.**
 1. Clique em **Guardar** para submeter o pedido de escala da piscina.
 
 Volte à **Pool1**  >  **Visão Geral da Pool1** para ver os gráficos de monitorização. Monitorize o efeito de fornecer ao pool mais recursos (embora com poucas bases de dados e uma carga aleatória nem sempre seja fácil de ver conclusivamente até correr durante algum tempo). Enquanto estiver a visualizar os gráficos tenha em atenção que 100% no gráfico superior representa agora 100 eDTUs, enquanto no gráfico inferior 100% é ainda 50 eDTUs, uma vez que o máximo por base de dados ainda está em 50 eDTUs.
@@ -167,16 +167,16 @@ As bases de dados permanecem online e estão totalmente disponíveis durante o p
 
 Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mova as bases de dados para o conjunto para balancear a carga entre os dois conjuntos. Para fazê-lo, o novo conjunto tem de ser criado no mesmo servidor do primeiro conjunto.
 
-1. No [portal Azure,](https://portal.azure.com)abra o servidor ** &lt; user-dpt-user &gt; dos inquilinos.**
+1. No [portal Azure,](https://portal.azure.com)abra o servidor **&lt; user-dpt-user &gt; dos inquilinos.**
 1. Clique **+ Nova piscina** para criar uma piscina no servidor atual.
 1. No modelo de **piscina elástica:**
 
-   1. Definir **nome** para *Pool2*.
-   1. Deixe o escalão de preço como **Conjunto Padrão**.
+   1. Definir **nome** para *Pool2* .
+   1. Deixe o escalão de preço como **Conjunto Padrão** .
    1. Clique **na piscina Configure,**
-   1. Definir **Pool eDTU** a *50 eDTU*.
-   1. Clique **em Adicionar bases de dados** para ver uma lista de bases de dados no servidor que podem ser adicionadas ao *Pool2*.
-   1. Selecione 10 bases de dados para movê-las para a nova piscina e, em seguida, clique em **Select**. Se esteve a executar o gerador de carga, o serviço já sabe que o seu perfil de desempenho requer uma piscina maior do que o tamanho padrão de 50 eDTU e recomenda começar com uma definição de 100 eDTU.
+   1. Definir **Pool eDTU** a *50 eDTU* .
+   1. Clique **em Adicionar bases de dados** para ver uma lista de bases de dados no servidor que podem ser adicionadas ao *Pool2* .
+   1. Selecione 10 bases de dados para movê-las para a nova piscina e, em seguida, clique em **Select** . Se esteve a executar o gerador de carga, o serviço já sabe que o seu perfil de desempenho requer uma piscina maior do que o tamanho padrão de 50 eDTU e recomenda começar com uma definição de 100 eDTU.
 
       ![recomendação](./media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
@@ -198,7 +198,7 @@ Este exercício simula o efeito de uma carga elevada em Contoso Concert Hall, qu
 1. No **PowerShell ISE,** abra o ... \\ *Demo-PerformanceMonitoringAndManagement.ps1* guião.
 1. Definir **$DemoScenario = 5, Gerar uma carga normal mais uma carga elevada sobre um único inquilino (aproximadamente 95 DTU).**
 1. Defina **$SingleTenantDatabaseName = contosoconcerthall**
-1. Execute o script com **F5**.
+1. Execute o script com **F5** .
 
 
 1. No [portal Azure,](https://portal.azure.com)consulte a lista de bases de dados no servidor *de \<user\> inquilinos1-dpt.* 
@@ -208,10 +208,10 @@ Este exercício simula o efeito de uma carga elevada em Contoso Concert Hall, qu
 1. Inspecione o gráfico **de monitorização da piscina elástica** e procure o aumento da utilização do eDTU da piscina. Depois de um minuto ou dois, o aumento de carga deve começar a surgir e deve poder ver rapidamente que o conjunto atinge os 100% de utilização.
 2. Inspecione o ecrã **de monitorização da base de dados elástica,** que mostra as bases de dados mais quentes da última hora. A base de *dados contosoconcerthall* deve aparecer em breve como uma das cinco bases de dados mais quentes.
 3. Clique no **gráfico** **de monitorização da base de dados elástica** e abra a página **de Utilização de Recursos de Base de Dados,** onde pode monitorizar qualquer uma das bases de dados. Isto permite isolar o visor para a base *de dados contosoconcerthall.*
-4. Na lista de bases de dados, clique em **contosoconcerthall**.
+4. Na lista de bases de dados, clique em **contosoconcerthall** .
 5. Clique em **Nível de Preços (DTUs de escala)** para abrir a página **de desempenho do Configure,** onde pode definir um tamanho de computação autónomo para a base de dados.
 6. Clique no separador **Padrão** para abrir as opções de dimensionamento na camada Padrão.
-7. Deslize o **deslizador DTU** para a direita para selecionar **100** DTUs. Note que isto corresponde ao objetivo de serviço, **S3**.
+7. Deslize o **deslizador DTU** para a direita para selecionar **100** DTUs. Note que isto corresponde ao objetivo de serviço, **S3** .
 8. Clique **em Aplicar** para tirar a base de dados da piscina e torná-la uma base de dados Standard *S3.*
 9. Uma vez concluído o dimensionamento, monitorize o efeito na base de dados contosoconcerthall e pool1 na piscina elástica e lâminas de base de dados.
 
@@ -247,4 +247,4 @@ Neste tutorial, ficará a saber como:
 * [Tutoriais adicionais que se baseiam na base de dados saass database por inquilino](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Piscinas elásticas SQL](elastic-pool-overview.md)
 * [Automação azul](../../automation/automation-intro.md)
-* [Registos do Monitor Azure](../../sql-database/saas-dbpertenant-log-analytics.md) - Configuração e utilização de registos Azure Monitor
+* [Registos do Monitor Azure](./saas-dbpertenant-log-analytics.md) - Configuração e utilização de registos Azure Monitor

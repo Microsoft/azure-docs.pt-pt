@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054080"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782081"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Criação da Ferramenta de Importação/Exportação Azure v1
 A Ferramenta de Importação/Exportação microsoft Azure é a ferramenta de preparação e reparação de unidades que pode utilizar com o serviço De importação/Exportação do Microsoft Azure. Pode utilizar a ferramenta para as seguintes funções:  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Preparar as unidades de disco rígido para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Pré-visualização do uso do Drive para um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Revisão do estado da tarefa com ficheiros de registo de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparação de uma tarefa de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Reparação de uma tarefa de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Preparar as unidades de disco rígido para uma tarefa de importação](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [Pré-visualização do uso do Drive para um trabalho de exportação](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Revisão do estado da tarefa com ficheiros de registo de cópia](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparação de uma tarefa de importação](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Reparação de uma tarefa de exportação](./storage-import-export-tool-repairing-an-export-job-v1.md)

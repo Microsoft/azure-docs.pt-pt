@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781231"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório através de bases de dados de nuvem escalonadas (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Aqui irá criar um gestor de mapas de fragmentos juntamente com vários fragment
 1. Construa e execute a aplicação de amostra **de ferramentas elastic Database** seguindo os passos na secção de [artigos Descarregue e execute a aplicação da amostra](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Assim que terminar todos os passos, verá o seguinte pedido de comando:
 
     ![comando pronta][1]
-2. Na janela de comando, escreva "1" e prima **Enter**. Isto cria o gestor de mapas de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, escreva "3" e prima **Enter;** repetir a ação quatro vezes. Isto insere linhas de dados de amostra nos seus fragmentos.
+2. Na janela de comando, escreva "1" e prima **Enter** . Isto cria o gestor de mapas de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, escreva "3" e prima **Enter;** repetir a ação quatro vezes. Isto insere linhas de dados de amostra nos seus fragmentos.
 3. O [portal Azure](https://portal.azure.com) deve apresentar três novas bases de dados no seu servidor:
 
    ![Confirmação do Estúdio Visual][2]
@@ -121,19 +121,19 @@ Notará que os agregados de consultas resultam de todos os fragmentos e dão a s
 
 1. Lançamento Excel 2013.
 2. Navegue para a fita **Data.**
-3. Clique **em Outras Fontes** e clique **no SqL Server**.
+3. Clique **em Outras Fontes** e clique **no SqL Server** .
 
    ![Excel importa de outras fontes][5]
-4. No Assistente de Ligação de **Dados** digite o nome do servidor e as credenciais de login. Em seguida, clique em **Seguinte**.
+4. No Assistente de Ligação de **Dados** digite o nome do servidor e as credenciais de login. Em seguida, clique em **Seguinte** .
 5. Na caixa de diálogo **Selecione a base de dados que contém os dados que pretende,** selecione a base de dados **ElasticDBQuery.**
-6. Selecione a tabela **Clientes** na vista da lista e clique em **Seguinte**. Em seguida, clique em **Concluir**.
-7. No formulário **Dados de Importação,** em **Selecione como pretende ver estes dados no seu livro,** selecione **Tabela** e clique **em OK**.
+6. Selecione a tabela **Clientes** na vista da lista e clique em **Seguinte** . Em seguida, clique em **Concluir** .
+7. No formulário **Dados de Importação,** em **Selecione como pretende ver estes dados no seu livro,** selecione **Tabela** e clique **em OK** .
 
 Todas as linhas da tabela **Clientes,** armazenadas em fragmentos diferentes povoam a folha excel.
 
 Agora pode utilizar as poderosas funções de visualização de dados do Excel. Pode utilizar a cadeia de ligação com o nome do servidor, nome da base de dados e credenciais para ligar o seu BI e ferramentas de integração de dados à base de dados de consultas elásticas. Certifique-se de que o SQL Server é suportado como fonte de dados para a sua ferramenta. Pode consultar a base de dados de consultas elásticas e as tabelas externas, tal como qualquer outra base de dados do SQL Server e as tabelas sql Server a que se ligaria à sua ferramenta.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Custo
 Não existe qualquer custo adicional para a utilização da função de consulta de base de dados elástica.
 
 Para obter informações sobre preços consulte [detalhes de preços da base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
@@ -144,7 +144,7 @@ Para obter informações sobre preços consulte [detalhes de preços da base de 
 * Para obter um tutorial de partição vertical, consulte [Começar com consulta de base de dados cruzada (partição vertical)](elastic-query-getting-started-vertical.md).
 * Para consultas de sintaxe e amostra para dados verticalmente divididos, consulte [consulta de dados partidos verticalmente)](elastic-query-vertical-partitioning.md)
 * Para consultas de sintaxe e amostra para dados com divisórias horizontais, consulte [consulta de dados com partição horizontal)](elastic-query-horizontal-partitioning.md)
-* Consulte [o sp executar o controlo \_ \_ remoto](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma declaração Transact-SQL numa única base de dados remota do Azure SQL ou num conjunto de bases de dados que servem de fragmentos num esquema de partição horizontal.
+* Consulte [o sp executar o controlo \_ \_ remoto](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para um procedimento armazenado que execute uma declaração Transact-SQL numa única base de dados remota do Azure SQL ou num conjunto de bases de dados que servem de fragmentos num esquema de partição horizontal.
 
 
 <!--Image references-->

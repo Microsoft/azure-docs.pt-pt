@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676809"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782013"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
 
@@ -27,7 +27,7 @@ Recomendamos que reveja [o Monitor Azure para armazenamento](../../azure-monitor
 >
 > A Azure Files suporta atualmente métricas de Storage Analytics, mas ainda não suporta a registo.
 >
-> As contas de armazenamento de blocos de desempenho premium não suportam métricas analíticas de armazenamento, mas suportam a exploração madeireira. Pode ativar o registo programático através da API REST ou da biblioteca do cliente. Se quiser ver métricas com contas de armazenamento de bolhas de desempenho premium, considere a utilização de [Métricas de Armazenamento Azure no Azure Monitor](storage-metrics-in-azure-monitor.md).
+> As contas de armazenamento de blocos de desempenho premium não suportam métricas analíticas de armazenamento, mas suportam a exploração madeireira. Pode ativar o registo programático através da API REST ou da biblioteca do cliente. Se quiser ver métricas com contas de armazenamento de bolhas de desempenho premium, considere a utilização de [Métricas de Armazenamento Azure no Azure Monitor](../blobs/monitor-blob-storage.md).
 >
 > Para obter um guia aprofundado sobre a utilização de Storage Analytics e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o Armazenamento Azure, consulte [Monitor, diagnóstico e resolução de problemas do Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >

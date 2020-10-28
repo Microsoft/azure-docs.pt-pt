@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330126"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781027"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastres para uma aplicação SaaS multi-arrendatário usando a geo-replicação da base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Este tutorial explora tanto os fluxos de trabalho de failover como os failback. 
 
 Antes de iniciar este tutorial, certifique-se de que os seguintes pré-requisitos estão completos:
 * A base de dados Wingtip Tickets SaaS por app de inquilinos é implementada. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a base de dados de Bilhetes SaaS wingtip por aplicação de inquilino](saas-dbpertenant-get-started-deploy.md)  
-* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Introdução ao padrão de recuperação da geo-replicação
 
@@ -66,11 +66,11 @@ Todas as peças devem ser cuidadosamente consideradas, especialmente se funciona
 
 Neste tutorial, estes desafios são abordados utilizando funcionalidades da Base de Dados Azure SQL e da plataforma Azure:
 
-* [Modelos de Gestor de Recursos Azure,](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)para reservar toda a capacidade necessária o mais rapidamente possível. Os modelos Azure Resource Manager são usados para providenciar uma imagem espelhada dos servidores de produção e piscinas elásticas na região de recuperação.
+* [Modelos de Gestor de Recursos Azure,](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)para reservar toda a capacidade necessária o mais rapidamente possível. Os modelos Azure Resource Manager são usados para providenciar uma imagem espelhada dos servidores de produção e piscinas elásticas na região de recuperação.
 * [Geo-replicação](active-geo-replication-overview.md), para criar assíncronos apenas secundários de leitura replicados para todas as bases de dados. Durante uma paragem, falhas nas réplicas na região de recuperação.  Após a interrupção ser resolvida, falha nas bases de dados da região original sem perda de dados.
-* Operações de failover [assíncronos enviadas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) por ordem de prioridade do inquilino, para minimizar o tempo de insuperância para um grande número de bases de dados.
+* Operações de failover [assíncronos enviadas](../../azure-resource-manager/management/async-operations.md) por ordem de prioridade do inquilino, para minimizar o tempo de insuperância para um grande número de bases de dados.
 * [Funcionalidades de recuperação de gestão de fragmentos,](elastic-database-recovery-manager.md)para alterar as entradas de base de dados no catálogo durante a recuperação e repatriamento. Estas funcionalidades permitem que a aplicação se conecte às bases de dados dos inquilinos, independentemente da localização sem reconfigurar a app.
-* [Pseudónimos DNS do servidor SQL,](../../sql-database/dns-alias-overview.md)para permitir o fornecimento sem emenda de novos inquilinos, independentemente da região em que a aplicação esteja a operar. Os pseudónimos DNS também são usados para permitir que o processo de sincronização do catálogo se conecte ao catálogo ativo, independentemente da sua localização.
+* [Pseudónimos DNS do servidor SQL,](./dns-alias-overview.md)para permitir o fornecimento sem emenda de novos inquilinos, independentemente da região em que a aplicação esteja a operar. Os pseudónimos DNS também são usados para permitir que o processo de sincronização do catálogo se conecte ao catálogo ativo, independentemente da sua localização.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtenha os scripts de recuperação de desastres 
 
@@ -85,7 +85,7 @@ Neste tutorial, utiliza-se pela primeira vez a geo-replicação para criar répl
 Mais tarde, numa etapa separada de repatriamento, falha-se nas bases de dados do catálogo e dos inquilinos da região de recuperação para a região original. A aplicação e as bases de dados permanecem disponíveis durante o repatriamento. Quando concluída, a aplicação está totalmente funcional na região original.
 
 > [!Note]
-> O pedido é recuperado na _região emparelhada_ da região em que a aplicação é implementada. Para mais informações, consulte [as regiões emparelhadas Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+> O pedido é recuperado na _região emparelhada_ da região em que a aplicação é implementada. Para mais informações, consulte [as regiões emparelhadas Azure.](../../best-practices-availability-paired-regions.md)
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Reveja o estado saudável da aplicação
 
@@ -106,12 +106,12 @@ Antes de iniciar o processo de recuperação, reveja o estado normal e saudável
 Nesta tarefa, inicia-se um processo que sincroniza a configuração dos servidores, piscinas elásticas e bases de dados no catálogo do inquilino. O processo mantém esta informação atualizada no catálogo.  O processo funciona com o catálogo ativo, seja na região original ou na região de recuperação. A informação de configuração é usada como parte do processo de recuperação para garantir que o ambiente de recuperação é consistente com o ambiente original, e depois durante o repatriamento para garantir que a região original é feita consistente com quaisquer alterações feitas no ambiente de recuperação. O catálogo também é usado para acompanhar o estado de recuperação dos recursos dos inquilinos
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriamento de longa duração são implementados nestes tutoriais como empregos ou sessões locais da PowerShell que funcionam sob o login do seu cliente. As fichas de autenticação emitidas quando iniciar sessão expirarão após várias horas e os trabalhos falharão. Num cenário de produção, os processos de longo prazo devem ser implementados como serviços fiáveis da Azure de algum tipo, funcionando sob um principal de serviço. Consulte [a Utilização Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriamento de longa duração são implementados nestes tutoriais como empregos ou sessões locais da PowerShell que funcionam sob o login do seu cliente. As fichas de autenticação emitidas quando iniciar sessão expirarão após várias horas e os trabalhos falharão. Num cenário de produção, os processos de longo prazo devem ser implementados como serviços fiáveis da Azure de algum tipo, funcionando sob um principal de serviço. Consulte [a Utilização Azure PowerShell para criar um principal de serviço com um certificado](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 1. No _PowerShell ISE,_ abra o ficheiro ...\Módulos de aprendizagem\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor utilizado quando implementou a aplicação.  Guarde o ficheiro!
 
 2. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastres Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 e definido:
-    * **$DemoScenario = 1**, Inicie um trabalho de fundo que sincroniza o servidor do inquilino e a informação de configuração da piscina no catálogo
+    * **$DemoScenario = 1** , Inicie um trabalho de fundo que sincroniza o servidor do inquilino e a informação de configuração da piscina no catálogo
 
 3. Prima **F5** para executar o script de sincronização. É aberta uma nova sessão PowerShell para sincronizar a configuração dos recursos dos inquilinos.
 ![Screenshot que mostra a nova sessão PowerShell que é aberta para sincronizar a configuração dos recursos dos inquilinos.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
@@ -129,7 +129,7 @@ Nesta tarefa, inicia-se um processo que implementa uma instância de aplicaçõe
 > Este tutorial adiciona proteção de geo-replicação à aplicação de amostra de Bilhetes Wingtip. Num cenário de produção para uma aplicação que utilize a geo-replicação, cada inquilino seria aloque-se com uma base de dados geo-replicada desde o início. Consulte [a conceção de serviços altamente disponíveis utilizando a Base de Dados Azure SQL](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 s e Definir os seguintes valores:
-    * **$DemoScenario = 2**, Criar ambiente de recuperação de imagem espelhada e replicar catálogos e bases de dados de inquilinos
+    * **$DemoScenario = 2** , Criar ambiente de recuperação de imagem espelhada e replicar catálogos e bases de dados de inquilinos
 
 2. Prima **F5** para executar o script. É aberta uma nova sessão PowerShell para criar as réplicas.
 ![Processo de sincronização](./media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
@@ -142,7 +142,7 @@ Neste momento, a aplicação está a funcionar normalmente na região original e
 
 2. Explore os recursos no grupo de recursos de recuperação.  
 
-3. Clique na base de dados Do Salão de Concertos Contoso no servidor _ &lt; de &gt; recuperação do utilizador-utilizadores de 1-dpt._  Clique em Geo-Replication no lado esquerdo. 
+3. Clique na base de dados Do Salão de Concertos Contoso no servidor _&lt; de &gt; recuperação do utilizador-utilizadores de 1-dpt._  Clique em Geo-Replication no lado esquerdo. 
 
     ![Ligação geo-replicação do Concerto Contoso](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -182,11 +182,11 @@ O script de recuperação executa as seguintes tarefas:
 Agora imagine que há uma paragem na região em que a aplicação é implementada e executar o roteiro de recuperação:
 
 1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 s e Definir os seguintes valores:
-    * **$DemoScenario = 3**, Recuperar a app numa região de recuperação falhando em réplicas
+    * **$DemoScenario = 3** , Recuperar a app numa região de recuperação falhando em réplicas
 
 2. Prima **F5** para executar o script.  
     * O script abre numa nova janela PowerShell e, em seguida, inicia uma série de trabalhos PowerShell que funcionam em paralelo. Estes postos de trabalho falham nas bases de dados dos inquilinos para a região de recuperação.
-    * A região de recuperação é a _região emparelhada_ associada à região de Azure em que implementou a aplicação. Para mais informações, consulte [as regiões emparelhadas Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 
+    * A região de recuperação é a _região emparelhada_ associada à região de Azure em que implementou a aplicação. Para mais informações, consulte [as regiões emparelhadas Azure.](../../best-practices-availability-paired-regions.md) 
 
 3. Monitorize o estado do processo de recuperação na janela PowerShell.
     ![processo de failover](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -213,7 +213,7 @@ Enquanto o ponto final da aplicação é desativado no Gestor de Tráfego, a apl
 Mesmo antes de todas as bases de dados de inquilinos existentes terem falhado, você pode providenciar novos inquilinos na região de recuperação.  
 
 1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 s e Definir o seguinte imóvel:
-    * **$DemoScenario = 4**, Provision a novo inquilino na região de recuperação
+    * **$DemoScenario = 4** , Provision a novo inquilino na região de recuperação
 
 2. Pressione **f5** para executar o guião e providenciar o novo inquilino. 
 
@@ -239,11 +239,11 @@ Quando o processo de recuperação estiver concluído, a aplicação e todos os 
    * As versões de recuperação do catálogo e dos inquilinos1 servidores, com sufixo de _recuperação._  As bases de dados restauradas do catálogo e dos inquilinos destes servidores têm os nomes usados na região original.
 
    * Os _inquilinos2-dpt- &lt; utilizador &gt; -recovery_ SQL servidor.  Este servidor é utilizado para o fornecimento de novos inquilinos durante a paralisação.
-   * O Serviço de Aplicações nomeado, _utilizador de região de recuperação de eventos &lt; &gt; - &lt;&gt_,que é a instância de recuperação da aplicação Eventos. 
+   * O Serviço de Aplicações nomeado, _utilizador de região de recuperação de eventos &lt; &gt; - &lt;&gt_ ,que é a instância de recuperação da aplicação Eventos. 
 
      ![Recursos de recuperação do Azure](./media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
-4. Abra o servidor SQL _de recuperação de inquilinos2-dpt- &lt; utilizador. &gt; _  Note que contém a base de dados _hawthornhall_ e a piscina elástica, _Pool1_.  A base de _dados hawthornhall_ é configurada como uma base de dados elástica na piscina elástica _Pool1._
+4. Abra o servidor SQL _de recuperação de inquilinos2-dpt- &lt; utilizador. &gt;_  Note que contém a base de dados _hawthornhall_ e a piscina elástica, _Pool1_ .  A base de _dados hawthornhall_ é configurada como uma base de dados elástica na piscina elástica _Pool1._
 
 5. Volte para o grupo de recursos e clique na base de dados Do Contoso Concert Hall no servidor _de recuperação do &lt; &gt; utilizador-utilizadores._ Clique em Geo-Replication no lado esquerdo.
     
@@ -281,11 +281,11 @@ Agora vamos imaginar que a paralisação está resolvida e executar o roteiro de
 1. No *PowerShell ISE,* no seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
 
 2. Verifique se o processo de Sincronização de Catálogo ainda está em funcionamento na sua instância PowerShell.  Se necessário, reinicie-o definindo:
-    * **$DemoScenario = 1**, Comece a sincronizar informações de configuração do servidor de inquilinos, piscina e base de dados no catálogo
+    * **$DemoScenario = 1** , Comece a sincronizar informações de configuração do servidor de inquilinos, piscina e base de dados no catálogo
     * Prima **F5** para executar o script.
 
 3.  Em seguida, para iniciar o processo de repatriamento, definir:
-    * **$DemoScenario = 6**, Repatriar a app para a sua região original
+    * **$DemoScenario = 6** , Repatriar a app para a sua região original
     * Prima **F5** para executar o script de recuperação numa nova janela PowerShell.  O repatriamento levará vários minutos e pode ser monitorizado na janela PowerShell.
     ![Processo de repatriamento](./media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 

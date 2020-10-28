@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330109"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780891"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilize o geo-restauro para recuperar uma aplicação SaaS multitensante a partir de backups de bases de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Este tutorial explora fluxos de trabalho de restauração e repatriamento. Saiba
 
 Antes de iniciar este tutorial, complete os seguintes pré-requisitos:
 * Implemente a base de dados SaaS de Bilhetes Wingtip por app de inquilinos. Para implementar em menos de cinco minutos, consulte [Implementar e explorar a base de dados De Bilhetes SaaS wingtip por aplicação de inquilino.](saas-dbpertenant-get-started-deploy.md) 
-* Instale o Azure PowerShell. Para mais detalhes, consulte [Começar com a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Instale o Azure PowerShell. Para mais detalhes, consulte [Começar com a Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introdução ao padrão de recuperação de geo-restauro
 
@@ -58,17 +58,17 @@ A recuperação de desastres (DR) é uma consideração importante para muitas a
  * Repatriar bases de dados para a sua região original com o mínimo impacto para os inquilinos quando a paralisação for resolvida.  
 
 > [!NOTE]
-> O pedido é recuperado na região emparelhada da região em que a aplicação é implementada. Para mais informações, consulte [as regiões emparelhadas Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)   
+> O pedido é recuperado na região emparelhada da região em que a aplicação é implementada. Para mais informações, consulte [as regiões emparelhadas Azure.](../../best-practices-availability-paired-regions.md)   
 
 Este tutorial utiliza funcionalidades da Base de Dados Azure SQL e da plataforma Azure para responder a estes desafios:
 
-* [Modelos de Gestor de Recursos Azure,](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)para reservar toda a capacidade necessária o mais rapidamente possível. Os modelos Azure Resource Manager são usados para providenciar uma imagem espelhada dos servidores originais e piscinas elásticas na região de recuperação. Um servidor e piscina separados também são criados para o provisionamento de novos inquilinos.
+* [Modelos de Gestor de Recursos Azure,](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)para reservar toda a capacidade necessária o mais rapidamente possível. Os modelos Azure Resource Manager são usados para providenciar uma imagem espelhada dos servidores originais e piscinas elásticas na região de recuperação. Um servidor e piscina separados também são criados para o provisionamento de novos inquilinos.
 * [Biblioteca de Clientes de Base de Dados Elástica](elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de bases de dados de inquilinos. O catálogo alargado inclui informações de configuração de piscina e base de dados periodicamente renovadas.
 * [Funcionalidades](elastic-database-recovery-manager.md) de recuperação de gestão de fragmentos do EDCL, para manter as entradas de localização da base de dados no catálogo durante a recuperação e repatriamento.  
 * [Geo-restauração,](../../key-vault/general/disaster-recovery-guidance.md)para recuperar as bases de dados do catálogo e dos inquilinos de cópias de segurança geo-redundantes automaticamente mantidas. 
-* [As operações de restauro assíncronos, enviadas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)por ordem de prioridade do arrendatário, são em fila para cada piscina pelo sistema e processadas em lotes para que a piscina não esteja sobrecarregada. Estas operações podem ser canceladas antes ou durante a execução, se necessário.   
+* [As operações de restauro assíncronos, enviadas](../../azure-resource-manager/management/async-operations.md)por ordem de prioridade do arrendatário, são em fila para cada piscina pelo sistema e processadas em lotes para que a piscina não esteja sobrecarregada. Estas operações podem ser canceladas antes ou durante a execução, se necessário.   
 * [Geo-replicação,](active-geo-replication-overview.md)para repatriar bases de dados para a região original após a paragem. Não há perda de dados e impacto mínimo no inquilino quando se utiliza a geo-replicação.
-* [Pseudónimos DNS do servidor SQL,](../../sql-database/dns-alias-overview.md)para permitir que o processo de sincronização do catálogo se conecte ao catálogo ativo independentemente da sua localização.  
+* [Pseudónimos DNS do servidor SQL,](./dns-alias-overview.md)para permitir que o processo de sincronização do catálogo se conecte ao catálogo ativo independentemente da sua localização.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtenha os scripts de recuperação de desastres
 
@@ -104,7 +104,7 @@ Antes de iniciar o processo de recuperação, reveja o estado normal e saudável
 Nesta tarefa, iniciará um processo para sincronizar a configuração dos servidores, piscinas elásticas e bases de dados no catálogo do inquilino. Esta informação é usada mais tarde para configurar um ambiente de imagem espelhada na região de recuperação.
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriamento de longa duração são implementados nestas amostras como empregos ou sessões locais da PowerShell que funcionam sob o login do seu cliente. As fichas de autenticação emitidas quando você entrar expiram após várias horas, e os trabalhos vão então falhar. Num cenário de produção, os processos de longo prazo devem ser implementados como serviços fiáveis da Azure de algum tipo, funcionando sob um principal de serviço. Consulte [a Utilização Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriamento de longa duração são implementados nestas amostras como empregos ou sessões locais da PowerShell que funcionam sob o login do seu cliente. As fichas de autenticação emitidas quando você entrar expiram após várias horas, e os trabalhos vão então falhar. Num cenário de produção, os processos de longo prazo devem ser implementados como serviços fiáveis da Azure de algum tipo, funcionando sob um principal de serviço. Consulte [a Utilização Azure PowerShell para criar um principal de serviço com um certificado](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). 
 
 1. No PowerShell ISE, abra o ficheiro ...\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e `<user>` nas linhas 10 e 11 pelo valor utilizado quando implementou a aplicação. Guarde o ficheiro.
 
@@ -180,7 +180,7 @@ Imagine que há uma paragem na região em que a aplicação é implementada, e e
 
     * O script abre numa nova janela PowerShell e, em seguida, inicia um conjunto de trabalhos PowerShell que funcionam em paralelo. Estes trabalhos restauram servidores, piscinas e bases de dados para a região de recuperação.
 
-    * A região de recuperação é a região emparelhada associada à região de Azure em que implementou a aplicação. Para mais informações, consulte [as regiões emparelhadas Azure.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 
+    * A região de recuperação é a região emparelhada associada à região de Azure em que implementou a aplicação. Para mais informações, consulte [as regiões emparelhadas Azure.](../../best-practices-availability-paired-regions.md) 
 
 3. Monitorize o estado do processo de recuperação na janela PowerShell.
 
@@ -374,7 +374,7 @@ Neste tutorial, ficou a saber como:
 > * Utilize um pseudónimo DNS para permitir que uma aplicação se conecte ao catálogo do inquilino sem reconfiguração.
 > * Utilize a geo-replicação para repatriar bases de dados recuperadas para a sua região original após a solução de uma paragem.
 
-Experimente a [recuperação de desastres para uma aplicação SaaS multitenante usando tutorial de geo-replicação de base de dados](../../sql-database/saas-dbpertenant-dr-geo-replication.md) para aprender a usar a geo-replicação para reduzir drasticamente o tempo necessário para recuperar uma aplicação multitenante em larga escala.
+Experimente a [recuperação de desastres para uma aplicação SaaS multitenante usando tutorial de geo-replicação de base de dados](./saas-dbpertenant-dr-geo-replication.md) para aprender a usar a geo-replicação para reduzir drasticamente o tempo necessário para recuperar uma aplicação multitenante em larga escala.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

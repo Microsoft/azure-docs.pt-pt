@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254060"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782982"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Visão geral do desenvolvimento de aplicações - SQL Database & SQL Managed Instance
 
@@ -27,7 +27,7 @@ Este artigo percorre as considerações básicas que um desenvolvedor deve ter e
 
 Pode utilizar [várias linguagens e plataformas de programação](connect-query-content-reference-guide.md) para conectar e consultar a Base de Dados Azure SQL. Pode encontrar aplicações de amostra que pode utilizar para ligar à base de [dados.](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0)
 
-Pode aproveitar ferramentas de código aberto como [chita,](https://github.com/wunderlist/cheetah) [sql-cli,](https://www.npmjs.com/package/sql-cli) [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Também pode utilizar o portal Azure, PowerShell e REST APIs ajudam-no a ganhar produtividade adicional.
+Pode aproveitar ferramentas de código aberto como [chita,](https://github.com/wunderlist/cheetah) [sql-cli,](https://www.npmjs.com/package/sql-cli) [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). Também pode utilizar o portal Azure, PowerShell e REST APIs ajudam-no a ganhar produtividade adicional.
 
 ## <a name="authentication"></a>Autenticação
 
@@ -39,7 +39,7 @@ Saiba mais sobre [como gerir o acesso à base de dados e fazer login.](logins-cr
 
 Na sua lógica de ligação de cliente, substitua o tempo limite predefinido para 30 segundos. A predefinição de 15 segundos é demasiado curta para ligações que dependem da Internet.
 
-Se estiver a utilizar um [conjunto de ligações](https://msdn.microsoft.com/library/8xx3tyca.aspx), certifique-se de que fecha a ligação assim que o seu programa não estiver a utilizá-la ativamente e não estiver a preparar-se para reutilizá-la.
+Se estiver a utilizar um [conjunto de ligações](/dotnet/framework/data/adonet/sql-server-connection-pooling), certifique-se de que fecha a ligação assim que o seu programa não estiver a utilizá-la ativamente e não estiver a preparar-se para reutilizá-la.
 
 Evite transações de longa duração porque qualquer falha de infraestrutura ou ligação pode reverter a transação. Se possível, divida a transação nas múltiplas transações menores e utilize [o lote para melhorar o desempenho](../performance-improve-use-batching.md).
 

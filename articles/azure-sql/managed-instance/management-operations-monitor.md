@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996840"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782455"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorização das operações de gestão de instâncias geridas Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,9 +62,9 @@ Estas são as APIs:
 
 | Comando | Descrição |
 | --- | --- |
-|[Operações de instância geridas - Obter](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Obtém uma operação de gestão num caso gerido.|
-|[Operações de Ocorrência Gerida - Cancelar](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancela a operação assíncronea sobre a instância gerida.|
-|[Operações de instância geridas - Lista por Instância Gerida](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtém uma lista de operações realizadas na instância gerida.|
+|[Operações de instância geridas - Obter](/rest/api/sql/managedinstanceoperations/get)|Obtém uma operação de gestão num caso gerido.|
+|[Operações de Ocorrência Gerida - Cancelar](/rest/api/sql/managedinstanceoperations/cancel)|Cancela a operação assíncronea sobre a instância gerida.|
+|[Operações de instância geridas - Lista por Instância Gerida](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtém uma lista de operações realizadas na instância gerida.|
 
 > [!NOTE]
 > Utilize a versão API 2020-02-02 para ver a instância gerida criar operação na lista de operações. Esta é a versão padrão utilizada no portal Azure e nos mais recentes pacotes PowerShell e Azure CLI.
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-Para obter uma explicação detalhada [dos comandos, consulte a Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+Para obter uma explicação detalhada [dos comandos, consulte a Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ A lista de ops az sql mi obtém uma lista de operações realizadas na instânci
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-Para obter uma explicação detalhada dos comandos, consulte [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Para obter uma explicação detalhada dos comandos, consulte [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 

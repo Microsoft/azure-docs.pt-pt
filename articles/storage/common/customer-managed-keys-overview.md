@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578228"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782234"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves geridas pelo cliente para encriptação de armazenamento Azure
 
@@ -65,7 +65,7 @@ Para aprender a configurar a encriptação do Armazenamento Azure com chaves ger
 > [!IMPORTANT]
 > As chaves geridas pelo cliente dependem de identidades geridas para os recursos da Azure, uma característica da Azure AD. As identidades geridas não suportam atualmente cenários de diretórios cruzados. Quando configura as chaves geridas pelo cliente no portal Azure, uma identidade gerida é automaticamente atribuída à sua conta de armazenamento sob as capas. Se posteriormente mover a subscrição, o grupo de recursos ou a conta de armazenamento de um diretório AD Azure para outro, a identidade gerida associada à conta de armazenamento não é transferida para o novo inquilino, pelo que as chaves geridas pelo cliente podem deixar de funcionar. Para obter mais informações, consulte **a transferência de uma subscrição entre diretórios AD Azure** em [FAQs e questões conhecidas com identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as chaves, consulte **as chaves do Cofre chave** em chaves [Azure Key Vault, segredos e certificados](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+A encriptação de armazenamento Azure suporta chaves RSA e RSA-HSM dos tamanhos 2048, 3072 e 4096. Para obter mais informações sobre as teclas, consulte [sobre as teclas.](../../key-vault/keys/about-keys.md)
 
 A utilização de um cofre-chave ou de um HSM gerido tem custos associados. Para obter mais informações, consulte [os preços do Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -109,7 +109,7 @@ Para voltar a ligar para estas operações, restabeleça o acesso à chave gerid
 
 Todas as operações de dados que não estejam listadas nesta secção podem prosseguir após a revogação das chaves geridas pelo cliente ou desativação ou desativação de uma chave.
 
-Para revogar o acesso às chaves geridas pelo cliente, utilize [o PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) ou [o Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
+Para revogar o acesso às chaves geridas pelo cliente, utilize [o PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) ou [o Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Chaves geridas pelo cliente para discos geridos pela Azure
 
