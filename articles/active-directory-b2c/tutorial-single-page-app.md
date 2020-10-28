@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e485065588fefa95868df9865f317de54e6ef020
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216536"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628784"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
 
@@ -55,23 +55,23 @@ Para atualizar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a no
 
 #### <a name="app-registrations"></a>[Registos de aplicações](#tab/app-reg-ga/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
-1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
-1. Selecione **registos de Aplicações**, selecione o **separador aplicações Próprias** e, em seguida, selecione a aplicação *webapp1.*
-1. Na **Web**, selecione a ligação **Add URI,** insira `http://localhost:6420` .
-1. Em **Implicit Grant**, selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** se ainda não estiver selecionado e, em seguida, selecione **Save**.
-1. Selecione **Descrição geral**.
+1. No menu esquerdo, selecione **Azure AD B2C** . Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C** .
+1. Selecione **registos de Aplicações** , selecione o **separador aplicações Próprias** e, em seguida, selecione a aplicação *webapp1.*
+1. Na **Web** , selecione a ligação **Add URI,** insira `http://localhost:6420` .
+1. Em **Implicit Grant** , selecione as caixas de verificação para **Tokens de acesso** e **tokens de ID** se ainda não estiver selecionado e, em seguida, selecione **Save** .
+1. Selecione **Descrição geral** .
 1. Grave o **ID da Aplicação (cliente)** para utilização num passo posterior quando atualizar o código na aplicação web de uma página única.
 
 #### <a name="applications-legacy"></a>[Candidaturas (Legado)](#tab/applications-legacy/)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino.
-1. Selecione **Todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+1. Selecione **Todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C** .
 1. Selecione **Aplicações (Legado)** e, em seguida, selecione a aplicação *webapp1.*
-1. Em **URL de resposta**, adicione `http://localhost:6420` .
-1. Selecione **Guardar**.
+1. Em **URL de resposta** , adicione `http://localhost:6420` .
+1. Selecione **Guardar** .
 1. Na página de propriedades, grave o **ID da aplicação.** Utilize o ID da aplicação num passo posterior quando atualiza o código na aplicação web de uma página única.
 
 * * *
@@ -116,6 +116,72 @@ Agora que obteve a amostra, atualize o código com o nome do seu inquilino Azure
       scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
     };
     ```
+
+1. Abra o `authConfig.js` ficheiro dentro da pasta *JavaScriptSPA.*
+1. No `msalConfig` objeto, atualize:
+    * `clientId` com o **ID de Aplicação (cliente)** que gravou num passo anterior
+    * `authority`URI com o seu nome de inquilino Azure AD B2C e o nome do fluxo de utilizador de inscrição/inscrição que criou como parte dos pré-requisitos (por exemplo, *B2C_1_signupsignin1)*
+1. Abra o ficheiro `policies.js`.
+1. Encontre as entradas `names` e `authorities` substitua-as conforme apropriado pelos nomes das políticas que criou no Passo 2. `fabrikamb2c.onmicrosoft.com`Substitua-o pelo nome do seu inquilino Azure AD B2C, por `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` exemplo.
+1. Abra o ficheiro `apiConfig.js`.
+1. Encontre a atribuição para os âmbitos `b2cScopes` e substitua o URL pelo URL de âmbito que criou para a API web, por exemplo `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
+1. Encontre a atribuição para o URL da API `webApi` e substitua o URL atual pelo URL onde implementou a sua API Web no Passo 4, por exemplo `webApi: http://localhost:5000/hello` .
+
+O seu código resultante deve ser o seguinte:
+
+### <a name="authconfigjs"></a>authConfig.js
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    validateAuthority: false
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+### <a name="policiesjs"></a>policies.js
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+        },
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
+        }
+    },
+}
+```
+### <a name="apiconfigjs"></a>apiConfig.js
+
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 

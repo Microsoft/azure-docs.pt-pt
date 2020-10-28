@@ -47,7 +47,7 @@ Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se bene
 * Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros. Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. 
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202862"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628665"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -111,7 +111,7 @@ O exemplo a seguir mostra o **DataUri** da `selfasserted` `1.2.0` versão:
 
 #### <a name="migrating-to-page-layout"></a>Migrando para o layout da página
 
-O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c:elements:**contract**:p age-name:version_. Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a tabela seguinte para migrar para o novo formato.
+O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c:elements: **contract** :p age-name:version_ . Para especificar um layout de página nas suas políticas personalizadas que usam um valor **DataUri** antigo, use a tabela seguinte para migrar para o novo formato.
 
 | Valor DataUri antigo | Novo valor DataUri |
 | ----------------- | ----------------- |
@@ -126,6 +126,39 @@ O formato do valor deve conter a palavra `contract` : _urn:com:microsoft:aad:b2c
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+O exemplo a seguir mostra os identificadores de definição de conteúdo e os **DataUri correspondentes** com contrato de página: 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### <a name="metadata"></a>Metadados
 
@@ -161,7 +194,7 @@ O elemento **LocalresourcesReference** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Idioma | Sim | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
+| Linguagem | Sim | Uma cadeia que contém uma linguagem suportada para a política por RFC 5646 - Tags para identificar línguas. |
 | Resources LocalizadoreferenceId | Sim | O identificador do elemento **Recursos Locais.** |
 
 O exemplo a seguir mostra uma definição de conteúdo de inscrição ou de inscrição com referência à localização para inglês, francês e espanhol:

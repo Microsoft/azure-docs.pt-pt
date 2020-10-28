@@ -59,7 +59,7 @@ Se o seu cluster estiver localizado numa região listada nesta tabela, só preci
 | Country | Region | Etiqueta de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight.AustraliaEast |
-| &nbsp; | Austrália Sudeste | HDInsight.AustraliaSoutheast |
+| &nbsp; | Sudeste da Austrália | HDInsight.AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight.AustraliaCentral |
 | China | China Leste 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China Norte 2 | HDInsight.ChinaNorth2 |
@@ -102,7 +102,7 @@ Por exemplo, se o seu cluster for criado na `East US 2` região, terá de adicio
 | &nbsp; | E.U.A. Central | HDInsight.centralus |
 | &nbsp; | NorteCentral EUA | HDInsight. NorthCentralus |
 | &nbsp; | E.U.A. Centro-Sul | HDInsight.SouthCentralus |
-| &nbsp; | E.U.A Leste | HDInsight.EastUS |
+| &nbsp; | E.U.A. Leste | HDInsight.EastUS |
 | &nbsp; | E.U.A. Oeste | HDInsight.Westus |
 | Japão | Leste do Japão | HDInsight.JapanEast |
 | Europa | Europa do Norte | HDInsight.NorthEurope |

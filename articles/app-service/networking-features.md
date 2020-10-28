@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207065"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628835"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de networking do Serviço de Aplicações
 
@@ -28,7 +28,8 @@ O Azure App Service é um sistema distribuído. As funções que lidam com pedid
 |---------------------|-------------------|
 | Endereço atribuído à app | Ligações Híbridas |
 | Restrições de acesso | Gateway exigia integração VNet |
-| Pontos Finais de Serviço | Integração de VNet |
+| Pontos finais de serviço | Integração de VNet |
+| Pontos finais privados ||
 
 Salvo indicação em contrário, todas as funcionalidades podem ser utilizadas em conjunto. Pode misturar as funcionalidades para resolver os seus vários problemas.
 
@@ -41,9 +42,9 @@ Para qualquer caso de uso, pode haver algumas maneiras de resolver o problema.  
 | Suporte necessidades SSL baseadas em IP para a sua aplicação | endereço atribuído a aplicativo |
 | Endereço de entrada não partilhado e dedicado para a sua aplicação | endereço atribuído a aplicativo |
 | Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos | Restrições de acesso |
-| Restringir o acesso à minha app a partir de recursos numa VNet | Pontos Finais de Serviço </br> ILB ASE </br> Pontos finais privados |
-| Expor a minha aplicação num IP privado no meu VNet | ILB ASE </br> Pontos finais privados </br> IP privado para entrada em um Gateway de aplicação com pontos finais de serviço |
-| Proteja a minha aplicação com uma Firewall de Aplicação Web (WAF) | Gateway de aplicação + ILB ASE </br> Gateway de aplicação com pontos finais privados </br> Gateway de aplicação com pontos finais de serviço </br> Porta frontal Azure com restrições de acesso |
+| Restringir o acesso à minha app a partir de recursos numa VNet | Pontos finais de serviço </br> ILB ASE </br> Pontos finais privados |
+| Expor a minha aplicação num IP privado no meu VNet | ILB ASE </br> Pontos finais privados </br> IP privado para entrada num Gateway de aplicação com pontos finais de serviço |
+| Proteja a minha aplicação com uma Firewall de Aplicação Web (WAF) | Gateway de aplicação + ILB ASE </br> Gateway de aplicação com pontos finais privados </br> Gateway de Aplicação com pontos finais de serviço </br> Porta frontal Azure com restrições de acesso |
 | Carregar o tráfego de equilíbrio para as minhas apps em diferentes regiões | Porta frontal Azure com restrições de acesso | 
 | Tráfego de balanço de carga na mesma região | [Gateway de Aplicação com pontos finais de serviço][appgwserviceendpoints] | 
 
@@ -89,22 +90,25 @@ Pode aprender a definir um endereço na sua aplicação com o tutorial no [Add a
 
 ### <a name="access-restrictions"></a>Restrições de acesso 
 
-A capacidade de Restrições de Acesso permite filtrar pedidos **de entrada** com base no endereço IP originário. A ação de filtragem ocorre nas funções frontais que estão a montante das funções de trabalhador onde as suas aplicações estão a decorrer. Uma vez que as funções frontais são a montante dos trabalhadores, a capacidade de Restrições de Acesso pode ser considerada como proteção ao nível da rede para as suas apps. A funcionalidade permite-lhe construir uma lista de blocos de endereços de permitir e negar que são avaliados por ordem prioritária. É semelhante à funcionalidade Network Security Group (NSG) que existe no Azure Networking.  Você pode usar esta funcionalidade em um ASE ou no serviço multi-inquilino. Quando usado com um ILB ASE, pode restringir o acesso a partir de blocos de endereços privados.
+A capacidade de Restrições de Acesso permite filtrar pedidos **de entrada.** A ação de filtragem ocorre nas funções frontais que estão a montante das funções de trabalhador onde as suas aplicações estão a decorrer. Uma vez que as funções frontais são a montante dos trabalhadores, a capacidade de Restrições de Acesso pode ser considerada como proteção ao nível da rede para as suas apps. A funcionalidade permite-lhe construir uma lista de autorizações e negar regras que são avaliadas por ordem prioritária. É semelhante à funcionalidade Network Security Group (NSG) que existe no Azure Networking.  Você pode usar esta funcionalidade em um ASE ou no serviço multi-inquilino. Quando utilizado com um ILB ASE ou um ponto final privado, pode restringir o acesso a partir de blocos de endereços privados.
+> [!NOTE]
+> Até 512 regras de Restrição de Acesso podem ser configuradas por aplicação. 
 
 ![Restrições de acesso](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Regras de Restrição de Acesso baseadas em IP
 
-A funcionalidade Restrições de Acesso ajuda em cenários onde pretende restringir os endereços IP que podem ser usados para chegar à sua aplicação. Entre os casos de utilização para esta funcionalidade estão:
+A funcionalidade de Restrições de Acesso baseadas em IP ajuda em cenários onde pretende restringir os endereços IP que podem ser usados para chegar à sua aplicação. São suportados IPv4 e IPv6. Entre os casos de utilização para esta funcionalidade estão:
 
 * Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos 
-* Restringir o acesso a um serviço de equilíbrio de carga, como a Porta frontal Azure. Se quiser bloquear o tráfego de entrada até a Porta frontal Azure, crie regras para permitir o tráfego a partir das 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Restringir o acesso através de um serviço de equilíbrio de carga, como a Porta frontal Azure
 
 ![Restrições de acesso com porta da frente](media/networking-features/access-restrictions-afd.png)
 
-Se pretender bloquear o acesso à sua aplicação para que ela só possa ser alcançada a partir de recursos na sua Rede Virtual Azure (VNet), precisa de um endereço público estático em qualquer que seja a sua fonte no seu VNet. Se os recursos não tiverem uma morada pública, deverá utilizar a funcionalidade 'Endpoints' de serviço. Saiba como ativar esta funcionalidade com o tutorial sobre [restrições de acesso configuradas.][iprestrictions]
+Saiba como ativar esta funcionalidade com o tutorial sobre [restrições de acesso configuradas.][iprestrictions]
 
-### <a name="service-endpoints"></a>Pontos finais de serviço
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Regras de restrição de acesso baseadas em ponto final de serviço
 
-Os pontos finais de serviço permitem-lhe bloquear o **acesso** à sua aplicação de modo a que o endereço de origem tenha vindo de um conjunto de sub-redes que seleciona. Esta funcionalidade funciona em conjunto com as Restrições de Acesso IP. Os pontos finais de serviço não são compatíveis com a depuração remota. Para utilizar a depuração remota com a sua aplicação, o seu cliente não pode estar numa sub-rede com pontos finais de Serviço ativados. Os pontos finais de serviço são definidos na mesma experiência do utilizador que as Restrições de Acesso IP. Pode construir uma lista de regras de acesso que incluem endereços públicos, bem como sub-redes nos seus VNets. Esta funcionalidade suporta cenários como:
+Os pontos finais de serviço permitem-lhe bloquear o **acesso** à sua aplicação de modo a que o endereço de origem tenha vindo de um conjunto de sub-redes que seleciona. Esta funcionalidade funciona em conjunto com as Restrições de Acesso IP. Os pontos finais de serviço não são compatíveis com a depuração remota. Para utilizar a depuração remota com a sua aplicação, o seu cliente não pode estar numa sub-rede com pontos finais de serviço ativados. Os pontos finais de serviço são definidos na mesma experiência do utilizador que as Restrições de Acesso IP. Pode construir uma lista de regras de acesso que incluem endereços públicos, bem como sub-redes nos seus VNets. Esta funcionalidade suporta cenários como:
 
 ![pontos finais de serviço](media/networking-features/service-endpoints.png)
 
@@ -113,12 +117,12 @@ Os pontos finais de serviço permitem-lhe bloquear o **acesso** à sua aplicaç�
 
 ![pontos finais de serviço com gateway de aplicação](media/networking-features/service-endpoints-appgw.png)
 
-Pode saber mais sobre configurar pontos finais de serviço com a sua aplicação no tutorial sobre [restrições de acesso ao ponto final do serviço de configuração][serviceendpoints]
+Pode saber mais sobre configurar pontos finais de serviço com a sua aplicação no tutorial sobre [restrições de acesso ao ponto final][serviceendpoints] do serviço De Configuração
 
-### <a name="private-endpoints"></a>Pontos Finais Privados
+### <a name="private-endpoints"></a>Pontos finais privados
 
-Private Endpoint é uma interface de rede que o liga de forma privada e segura à sua Web App por Azure Private Link. O Private Endpoint utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo a Web App para o seu VNet. Esta funcionalidade **destina-se** apenas aos fluxos de entrada para a sua Web App.
-[Utilização de pontos finais privados para app Web Azure][privateendpoints]
+O ponto final privado é uma interface de rede que o liga de forma privada e segura à sua Web App por link privado Azure. O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo a Web App para o seu VNet. Esta funcionalidade **destina-se** apenas aos fluxos de entrada para a sua Web App.
+[Utilização de pontos finais privados para a Azure Web App][privateendpoints]
 
 Os pontos finais privados permitem cenários como:
 
@@ -243,19 +247,19 @@ Utilize pontos finais de serviço para garantir o tráfego de entrada na sua app
 
 As trocas entre as duas técnicas são:
 
-* com os pontos finais de serviço, só tem de garantir o tráfego da sua app API à sub-rede de integração. Isto protege a aplicação API, mas ainda pode ter uma possibilidade de exfiltração de dados da sua aplicação frontal para outras aplicações no Serviço de Aplicações.
+* com os pontos finais de serviço, só tem de garantir o tráfego da sua app API para a sub-rede de integração. Isto protege a aplicação API, mas ainda pode ter uma possibilidade de exfiltração de dados da sua aplicação frontal para outras aplicações no Serviço de Aplicações.
 * com pontos finais privados tem duas sub-redes em jogo. Isto aumenta a complexidade. Além disso, o ponto final privado é um recurso de alto nível e adiciona mais para gerir. O benefício da utilização de pontos finais privados é que não tem uma possibilidade de exfiltração de dados. 
 
 Qualquer uma das técnicas funcionará com várias extremidades frontais. Em pequena escala, os pontos finais de serviço são muito mais fáceis de usar porque simplesmente ativa os pontos finais de serviço para a aplicação API na sub-rede de integração frontal. À medida que adiciona mais aplicações frontais, tem de ajustar todas as aplicações da API para ter pontos finais de serviço com a sub-rede de integração. Com os pontos finais privados, você tem mais complexidade, mas você não precisa mudar nada nas suas aplicações API depois de definir um ponto final privado. 
 
 ### <a name="line-of-business-applications"></a>Aplicações de linha de negócio
 
-As aplicações de linha de negócios (LOB) são aplicações internas que normalmente não estão expostas para acesso a partir da internet. Estas aplicações são chamadas de dentro das redes corporativas onde o acesso pode ser estritamente controlado. Se utilizar um ILB ASE, é fácil hospedar as suas aplicações de linha de negócio. Se utilizar o serviço multi-inquilino, pode utilizar pontos finais privados ou pontos finais de serviço combinados com um Gateway de Aplicação. Existem duas razões para utilizar um Gateway de aplicação com pontos finais de serviço em vez de pontos finais privados:
+As aplicações de linha de negócios (LOB) são aplicações internas que normalmente não estão expostas para acesso a partir da internet. Estas aplicações são chamadas de dentro das redes corporativas onde o acesso pode ser estritamente controlado. Se utilizar um ILB ASE, é fácil hospedar as suas aplicações de linha de negócio. Se utilizar o serviço multi-inquilino, pode utilizar pontos finais privados ou pontos finais de serviço combinados com um Gateway de Aplicação. Existem duas razões para usar um Gateway de aplicação com pontos finais de serviço em vez de pontos finais privados:
 
 * você precisa de proteção WAF nas suas aplicações LOB
 * você quer carregar o equilíbrio para várias instâncias das suas aplicações LOB
 
-Se nenhum dos dois for, é melhor usar pontos finais privados. Com os pontos finais privados disponíveis no Serviço de Aplicações, pode expor as suas aplicações em endereços privados no seu VNet. O ponto final privado que coloca no seu VNet pode ser alcançado através das ligações ExpressRoute e VPN. Configurar os pontos finais privados irá expor as suas aplicações num endereço privado, mas terá de configurar o DNS para chegar a esse endereço a partir do local. Para que isto funcione, terá de encaminhar a zona privada Azure DNS contendo os seus pontos finais privados para os servidores DNS no local. As zonas privadas Azure DNS não suportam o encaminhamento de zonas, mas pode suportar isso usando um servidor DNS para o efeito. Este modelo, [DNS Forwarder,](https://azure.microsoft.com/resources/templates/301-dns-forwarder/)facilita o encaminhamento da sua zona privada Azure DNS para os servidores DNS no local.
+Se nenhum dos dois for, é melhor usar pontos finais privados. Com pontos finais privados disponíveis no Serviço de Aplicações, pode expor as suas aplicações em endereços privados no seu VNet. O ponto final privado que coloca no seu VNet pode ser alcançado através das ligações ExpressRoute e VPN. Configurar os pontos finais privados irá expor as suas aplicações num endereço privado, mas terá de configurar o DNS para chegar a esse endereço a partir do local. Para que isto funcione, terá de encaminhar a zona privada Azure DNS contendo os seus pontos finais privados para os servidores DNS no local. As zonas privadas Azure DNS não suportam o encaminhamento de zonas, mas pode suportar isso usando um servidor DNS para o efeito. Este modelo, [DNS Forwarder,](https://azure.microsoft.com/resources/templates/301-dns-forwarder/)facilita o encaminhamento da sua zona privada Azure DNS para os servidores DNS no local.
 
 ## <a name="app-service-ports"></a>Portas de Serviço de Aplicações
 

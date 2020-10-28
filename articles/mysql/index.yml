@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 03deaa446b7db7790f751f226cb788faf9ebc2a7
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 9ac045aac0587f7080ab7df277522674ca603040
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90903961"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92546301"
 landingContent:
 - title: Sobre a Base de Dados do Azure para MySQL
   linkLists:
@@ -138,7 +138,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/mysql/sample-scripts-azure-cli
+      url: ./sample-scripts-azure-cli.md
     - text: Modelos do Azure Resource Manager
       url: /azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference
@@ -148,4 +148,4 @@ landingContent:
     - text: Referência para programadores da API REST
       url: /rest/api/mysql/
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.mysql
+      url: /powershell/module/az.mysql

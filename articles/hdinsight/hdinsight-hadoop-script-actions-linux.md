@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545995"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629447"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com HDInsight
 
@@ -239,7 +239,7 @@ Os seguintes ajudantes disponíveis para utilização no seu script:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Descarrega um ficheiro da uri de origem para o caminho de ficheiro especificado. Por padrão, não substitui um ficheiro existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um ficheiro de alcatrão (usando) `-xf` para o diretório de destino. |
-| `test_is_headnode` |Se correr num nó de cabeça de cluster, volte 1; caso contrário, 0. |
+| `test_is_headnode` |Se o guião correr num nó de cabeça de cluster, devolva 1; caso contrário, 0. |
 | `test_is_datanode` |Se o nó atual for um nó de dados (trabalhador), devolva um 1; caso contrário, 0. |
 | `test_is_first_datanode` |Se o nó atual for o primeiro nó de dados (trabalhador) (nomeado trabalhador node0) devolva um 1; caso contrário, 0. |
 | `get_headnodes` |Devolva o nome de domínio totalmente qualificado dos cabeçanças no cluster. Os nomes são delimitados. Uma corda vazia é devolvida por engano. |
@@ -268,7 +268,7 @@ A definição de uma variável ambiental é realizada pela seguinte declaração
 VARIABLENAME=value
 ```
 
-Onde O NOME VARIÁVEL é o nome da variável. Para aceder à variável, `$VARIABLENAME` utilize. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável ambiental chamada PASSWORD, utilizaria a seguinte declaração:
+No exemplo anterior, `VARIABLENAME` é o nome da variável. Para aceder à variável, `$VARIABLENAME` utilize. Por exemplo, para atribuir um valor fornecido por um parâmetro posicional como uma variável ambiental chamada PASSWORD, utilizaria a seguinte declaração:
 
 ```bash
 PASSWORD=$1

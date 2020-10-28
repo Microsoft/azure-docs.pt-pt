@@ -40,7 +40,7 @@
     - name: Java Spring
       items:
         - name: Utilizar o Spring Boot Initializer
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
+          href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
     - name: Criar classificações
       href: cache-web-app-cache-aside-leaderboard.md
     - name: Implementar um modelo de machine learning
@@ -67,7 +67,7 @@
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Arquitetura de colocação em cache
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
 - name: Guias de procedimentos
   items:
     - name: Planear
@@ -169,7 +169,7 @@
     - name: CLI do Azure
       href: /cli/azure/redis
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/redis/'
+      href: /rest/api/redis/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Incorporações do Azure Policy
@@ -184,7 +184,7 @@
     - name: Vídeos
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Página de perguntas das Perguntas e Respostas da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'
+      href: /answers/topics/azure-cache-redis.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Desenvolva as suas competências com o Microsoft Learn

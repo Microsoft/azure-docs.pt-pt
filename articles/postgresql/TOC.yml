@@ -399,6 +399,7 @@
             - name: CLI do Azure
               href: flexible-server/quickstart-create-server-cli.md
             - name: Modelo ARM
+              displayName: Resource Manager
               href: flexible-server/quickstart-create-server-arm-template.md
         - name: Ligar e consultar
           items:

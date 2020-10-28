@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c66c37be1d200a73aa04854f946946b69c6b76
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450287"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629141"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a Azure SQL Database retenção de backup a longo prazo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ As secções seguintes mostram-lhe como usar o portal Azure para configurar a re
 
 Pode configurar a Base de Dados SQL para [reter cópias de segurança automatizadas](long-term-retention-overview.md) por um período superior ao período de retenção para o seu nível de serviço.
 
-1. No portal Azure, selecione a sua instância SQL Server e, em seguida, clique em **Gerir Backups**. No **separador políticas de configuração,** selecione a caixa de verificação para a base de dados na qual pretende definir ou modificar políticas de retenção de backup a longo prazo. Se a caixa de verificação ao lado da base de dados não for selecionada, as alterações da política não serão aplicadas a essa base de dados.  
+1. No portal Azure, selecione a sua instância SQL Server e, em seguida, clique em **Gerir Backups** . No **separador políticas de configuração,** selecione a caixa de verificação para a base de dados na qual pretende definir ou modificar políticas de retenção de backup a longo prazo. Se a caixa de verificação ao lado da base de dados não for selecionada, as alterações da política não serão aplicadas a essa base de dados.  
 
    ![gerir ligação de backups](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Pode configurar a Base de Dados SQL para [reter cópias de segurança automatiza
 
    ![configurar políticas](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. Quando estiver concluído, clique **em Aplicar**.
+3. Quando estiver concluído, clique **em Aplicar** .
 
 > [!IMPORTANT]
 > Quando ativar uma política de retenção de backup a longo prazo, pode levar até 7 dias para que a primeira cópia de segurança fique visível e disponível para restaurar. Para obter detalhes sobre o cadance de backup LTR, consulte [a retenção de backup a longo prazo](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Pode configurar a Base de Dados SQL para [reter cópias de segurança automatiza
 
 Veja as cópias de segurança que são mantidas para uma base de dados específica com uma política LTR e restaure a partir dessas cópias de segurança.
 
-1. No portal Azure, selecione o seu servidor e, em seguida, clique em **Gerir Backups**. No separador **de backups disponível,** selecione a base de dados para a qual deseja ver cópias de segurança disponíveis.
+1. No portal Azure, selecione o seu servidor e, em seguida, clique em **Gerir Backups** . No separador **de backups disponível,** selecione a base de dados para a qual deseja ver cópias de segurança disponíveis.
 
    ![selecionar base de dados](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > A partir daqui, pode ligar à base de dados restaurada através do o SQL Server Management Studio para efetuar tarefas necessárias, bem como para extrair alguns dados da base de dados restaurada para copiá-los para a base de dados existente ou para eliminar a base de dados existente e mudar o nome da base de dados restaurada para o nome da base de dados existente. Ver [ponto no tempo restaurar](recovery-using-backups.md#point-in-time-restore).
+
+## <a name="limitations"></a>Limitações
+- Ao restaurar a partir de uma cópia de segurança LTR, a propriedade de escala de leitura é desativada. Para ativar, leia a escala na base de dados restaurada, atualize a base de dados depois de criada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

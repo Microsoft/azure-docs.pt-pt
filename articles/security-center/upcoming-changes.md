@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: bf89135d3b5d33936d0b5d4142e966fa3f8f52b9
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92559047"
+ms.locfileid: "92629158"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -78,7 +78,7 @@ As recomendações de pré-visualização não tornam um recurso insalubre, e n�
 
 Links relacionados:
 
-- [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
+- [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Saiba mais sobre as aplicações AZURE API](../app-service/app-service-web-tutorial-rest-api.md)
 - [Saiba mais sobre aplicações de função Azure](../azure-functions/functions-overview.md)
 - [Saiba mais sobre as aplicações web Azure](../app-service/overview.md)
@@ -88,4 +88,4 @@ Links relacionados:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para todas as alterações recentes ao produto, veja [o que há de novo no Azure Security Center](release-notes.md).
+Para todas as alterações recentes ao produto, veja [o que há de novo no Azure Security Center?](release-notes.md)

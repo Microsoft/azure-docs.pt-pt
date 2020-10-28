@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/20/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 34ecc6339f1ade7fd9f0bc427982b1b322d79f56
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 52e7786ba97d27b48b1a583e68a2a4b47bc6e727
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91710160"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92544720"
 landingContent:
 - title: Acerca do Servidor Único
   linkLists:
@@ -116,7 +116,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/postgresql/sample-scripts-azure-cli
+      url: ../sample-scripts-azure-cli.md
   - linkListType: reference
     links:
     - text: Referência para programadores da CLI do Azure

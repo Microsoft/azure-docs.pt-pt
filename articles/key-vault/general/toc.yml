@@ -62,6 +62,8 @@
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+    - name: Registo do Azure Key Vault
+      href: logging.md
     - name: Notificações
       items:
         - name: Monitorizar com o Azure Event Grid
@@ -122,8 +124,6 @@
           href: alert.md
         - name: Integrar o Azure Key Vault no Azure Policy
           href: azure-policy.md
-        - name: Registo do Azure Key Vault
-          href: logging.md
         - name: Receber notificações através do Azure Event Grid e do Logic Apps
           href: event-grid-logicapps.md
         - name: Receber notificações através do Azure Event Grid e da Automatização do Azure

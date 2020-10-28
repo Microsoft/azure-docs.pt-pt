@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/20/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 796e76c7e7251924865fbea63c2b30ff9aa90ce1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 20bde668fb333b76de44406072a835b8043eb376
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91713083"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92543734"
 landingContent:
 - title: Acerca do Servidor Único
   linkLists:
@@ -130,7 +130,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Scripts da CLI do Azure para tarefas comuns
-      url: /azure/mysql/sample-scripts-azure-cli
+      url: ../sample-scripts-azure-cli.md
     - text: Modelos do Azure Resource Manager
       url: /azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference
@@ -140,4 +140,4 @@ landingContent:
     - text: Referência para programadores da API REST
       url: /rest/api/mysql/
     - text: PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.mysql
+      url: /powershell/module/az.mysql

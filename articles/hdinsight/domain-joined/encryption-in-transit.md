@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 85382ecd627ec8afc63a85de0debd98f94a89849
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544890"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628988"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Encriptação IPSec em trânsito para Azure HDInsight
 
 Este artigo discute a implementação da encriptação em trânsito para a comunicação entre os nós do cluster Azure HDInsight.
 
 > [!Note]
-> A encriptação em trânsito está atualmente ativada para as seguintes regiões: Leste dos EUA, Centro Sul dos EUA, EUA Ocidentais. 
+> A encriptação em trânsito está atualmente ativada para as seguintes regiões: Leste dos EUA, Centro Sul dos EUA, EUA Ocidentais.
 
 ## <a name="background"></a>Fundo
 
@@ -27,7 +27,7 @@ O Azure HDInsight oferece uma variedade de funcionalidades de segurança para ga
 
 A encriptação em repouso é coberta pela encriptação do lado do servidor nas contas de armazenamento Azure, bem como a encriptação de discos nos VMs Azure que fazem parte do seu cluster HDInsight.
 
-A encriptação de dados em trânsito em HDInsight é conseguida com [a Segurança da Camada de Transporte (TLS)](../transport-layer-security.md) para a adaptação dos gateways de cluster e segurança do protocolo de Internet [(IPSec)](https://en.wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente ativado entre todos os nós da cabeça, nós de trabalhadores, nós de borda e nós de zookeeper. Não está ativado para o tráfego entre os nós de gateway ou [de id broker](./identity-broker.md) que são VMs baseados no Windows e outros nós baseados em linux no cluster.
+A encriptação de dados em trânsito em HDInsight é conseguida com a [Segurança da Camada de Transporte (TLS)](../transport-layer-security.md) para aceder aos gateways de cluster e à Segurança do Protocolo de Internet [(IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente ativado entre todos os nós da cabeça, nós de trabalhadores, nós de borda e nós de zookeeper. Não está ativado para o tráfego entre os nós de gateway ou [de id broker](./identity-broker.md) que são VMs baseados no Windows e outros nós baseados em linux no cluster.
 
 ## <a name="enable-encryption-in-transit"></a>Ativar a encriptação em trânsito
 
@@ -40,7 +40,7 @@ Para criar um novo cluster com encriptação em trânsito ativada através do po
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Criar cluster - separador de segurança e rede.":::
 
-1. No separador **Segurança + Rede,** clique na encriptação Enable na caixa de **verificação de trânsito.**
+1. No **separador Segurança + Rede,** selecione a encriptação Ativa na caixa de **verificação de trânsito.**
 
     :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Criar cluster - separador de segurança e rede.":::
 
@@ -54,7 +54,7 @@ Pode [descarregar um modelo de amostra e um ficheiro de parâmetros.](https://gi
 |---|---|
 | `<SUBSCRIPTION_ID>` | O ID da sua assinatura Azure |
 | `<RESOURCE_GROUP>` | O grupo de recursos onde pretende a criação da nova conta de cluster e armazenamento. |
-| `<STORAGEACCOUNTNAME>` | A conta de armazenamento existente que deve ser utilizada com o cluster. O nome deve ser da forma `ACCOUNTNAME.blob.core.windows.net` |
+| `<STORAGEACCOUNTNAME>` | A conta de armazenamento existente que deve ser usada com o cluster. O nome deve ser da forma `ACCOUNTNAME.blob.core.windows.net` |
 | `<CLUSTERNAME>` | O nome do seu cluster HDInsight. |
 | `<PASSWORD>` | A sua senha escolhida para iniciar sessão no cluster utilizando o SSH e o dashboard Ambari. |
 | `<VNET_NAME>` | A rede virtual onde o cluster será implantado. |

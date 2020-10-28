@@ -11,36 +11,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629053"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629430"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar ficheiros de vários contentores com Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Copiar várias pastas com Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo descreve um modelo de solução que pode usar para copiar ficheiros de vários contentores entre lojas de ficheiros. Por exemplo, pode usá-lo para migrar o seu lago de dados de AWS S3 para Azure Data Lake Store. Ou, você poderia usar o modelo para replicar tudo de uma conta de armazenamento Azure Blob para outra.
+Este artigo descreve um modelo de solução que pode utilizar múltiplas atividades de cópia para copiar contentores ou pastas entre lojas baseadas em ficheiros, onde cada atividade de cópia deve copiar um único recipiente ou pasta. 
 
 > [!NOTE]
 > Se pretender copiar ficheiros de um único recipiente, é mais eficiente utilizar a [Ferramenta de Dados de Cópia](copy-data-tool.md) para criar um pipeline com uma única atividade de cópia. O modelo deste artigo é mais do que você precisa para este cenário simples.
 
 ## <a name="about-this-solution-template"></a>Sobre este modelo de solução
 
-Este modelo enumera os recipientes da sua loja de armazenamento de origem. Em seguida, copia esses contentores para a loja de destino.
+Este modelo enumera as pastas de uma determinada pasta dos pais na sua loja de armazenamento de origem. Em seguida, copia cada uma das pastas para a loja de destino.
 
 O modelo contém três atividades:
-- **A GetMetadata** digitaliza o seu armazém de origem e recebe a lista de contentores.
-- **ForEach** obtém a lista de contentores da atividade **GetMetadata** e, em seguida, itera sobre a lista e passa cada recipiente para a atividade Copy.
-- **Copie** cada recipiente da loja de armazenamento de origem para a loja de destino.
+- **A GetMetadata** digitaliza a sua loja de armazenamento de origem e obtém a lista de sub-dobras de uma determinada pasta dos pais.
+- **ForEach** obtém a lista de sub-dobradizas da atividade **GetMetadata** e, em seguida, iterates sobre a lista e passa cada pasta para a atividade Copy.
+- **Copie** cada pasta da loja de armazenamento de origem para a loja de destino.
 
 O modelo define os seguintes parâmetros:
-- *SourceFileFolder* é o caminho da pasta da sua loja de fontes de dados, onde pode obter uma lista dos recipientes. O caminho é o diretório de raiz, que contém várias pastas de recipiente. O valor predefinido deste parâmetro é `sourcefolder` .
-- *SourceFileDirectory* é o caminho subfolder sob o diretório raiz da sua loja de fontes de dados. O valor predefinido deste parâmetro é `subfolder` .
-- *DestinationFileFolder* é o caminho da pasta onde os ficheiros serão copiados na sua loja de destino. O valor predefinido deste parâmetro é `destinationfolder` .
-- *DestinationFileDirectory* é o caminho da sub-dobradeira onde os ficheiros serão copiados na sua loja de destino. O valor predefinido deste parâmetro é `subfolder` .
+- *SourceFileFolder* é parte do caminho da pasta principal da sua loja de fontes de dados: *SourceFileFolder/SourceFileDirectory,* onde pode obter uma lista das sub-dobradeiras. 
+- *SourceFileDirectory* faz parte do caminho da pasta principal da sua loja de fontes de dados: *SourceFileFolder/SourceFileDirectory,* onde pode obter uma lista das sub-dobradeiras. 
+- *DestinationFileFolder* faz parte do caminho da pasta principal: *DestinationFileFolder/DestinationFileDirectory* onde os ficheiros serão copiados para a sua loja de destino. 
+- *DestinationFileDirect é* parte do caminho da pasta principal: *DestinationFileFolder/DestinationFileDirectory* onde os ficheiros serão copiados para a sua loja de destino. 
+
+Se pretender copiar vários recipientes sob pastas de raiz entre armazéns, pode inserir os quatro parâmetros como */* . Ao fazê-lo, irá replicar tudo entre lojas de armazenamento.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
@@ -60,7 +62,7 @@ O modelo define os seguintes parâmetros:
 
     ![Mostrar o oleoduto](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.
+5. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar** .
 
     ![Executar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
