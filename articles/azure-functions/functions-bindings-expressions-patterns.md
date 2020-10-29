@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212614"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927418"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de ligação Azure Functions
 
@@ -41,7 +41,7 @@ Quando uma função está a ser executada localmente, os valores de definição 
 > [!NOTE]
 > A `connection` propriedade de gatilhos e encadernações é um caso especial e resolve automaticamente valores como configurações de aplicações, sem sinais por cento. 
 
-O exemplo a seguir é um gatilho de armazenamento de fila Azure que utiliza uma definição de aplicação `%input-queue-name%` para definir a fila para ativar.
+O exemplo a seguir é um gatilho de armazenamento de fila Azure que utiliza uma definição de aplicação `%input_queue_name%` para definir a fila para ativar.
 
 ```json
 {
@@ -50,7 +50,7 @@ O exemplo a seguir é um gatilho de armazenamento de fila Azure que utiliza uma 
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ Pode utilizar a mesma abordagem nas bibliotecas de classes:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -292,7 +292,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-A `{rand-guid}` expressão de ligação cria um GUID. O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
+A `{rand-guid}` expressão de ligação cria um GUID. O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *50710cb5-84b9-4d87-9d83-a03d6976a682.txt* .
 
 ```json
 {
@@ -305,7 +305,7 @@ A `{rand-guid}` expressão de ligação cria um GUID. O caminho da bolha que se 
 
 ## <a name="current-time"></a>Tempo atual
 
-A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *2018-02-16T17-59-55Z.txt*.
+A expressão vinculativa `DateTime` `DateTime.UtcNow` resolve-se a . O caminho da bolha que se segue num `function.json` ficheiro cria uma bolha com um nome como *2018-02-16T17-59-55Z.txt* .
 
 ```json
 {

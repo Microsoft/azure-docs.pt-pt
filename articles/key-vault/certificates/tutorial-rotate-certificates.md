@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: eeceb1279579055bfff33f0a4413f0798418faed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59b57e292275888140045bf94ff36995f312b6c1
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83201517"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927486"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutorial: Configurar o certificado autorrotação no Cofre de Chaves
 
@@ -73,38 +73,38 @@ Key Vault auto-rota certificados através de parcerias estabelecidas com CAs. Co
 
 ### <a name="update-certificate-lifecycle-attributes-at-the-time-of-creation"></a>Atualizar atributos de ciclo de vida certificado no momento da criação
 
-1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
+1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados** .
 1. **Selecione Gerar/Importar.**
 1. No ecrã de **certificados,** atualize os seguintes valores:
 
-   - **Período de validade**: Insira o valor (em meses). A criação de certificados de curta duração é uma prática de segurança recomendada. Por padrão, o valor de validade de um certificado recém-criado é de 12 meses.
-   - **Tipo de ação vitalícia**: Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize **a percentagem** de vida útil ou **o número de dias antes de expirar**. Por defeito, a renovação automática de um certificado é fixada em 80% da sua vida útil. A partir do menu suspenso, selecione uma das seguintes opções.
+   - **Período de validade** : Insira o valor (em meses). A criação de certificados de curta duração é uma prática de segurança recomendada. Por padrão, o valor de validade de um certificado recém-criado é de 12 meses.
+   - **Tipo de ação vitalícia** : Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize **a percentagem** de vida útil ou **o número de dias antes de expirar** . Por defeito, a renovação automática de um certificado é fixada em 80% da sua vida útil. A partir do menu suspenso, selecione uma das seguintes opções.
 
         |  Renovar automaticamente num dado momento| Envie por e-mail todos os contactos num dado momento |
         |-----------|------|
         |A seleção desta opção *ligará a* autoração. | A seleção desta opção *não* rodará automaticamente, mas apenas alertará os contactos.|
 
-1. Selecione **Criar**.
+1. Selecione **Criar** .
 
 ![Ciclo de vida certificado](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
 
 ### <a name="update-lifecycle-attributes-of-a-stored-certificate"></a>Atualizar atributos de ciclo de vida de um certificado armazenado
 
 1. Selecione o cofre da chave.
-1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
+1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados** .
 1. Selecione o certificado que pretende atualizar. Neste caso, trabalhará num certificado chamado **ExemploCertificado.**
 1. Selecione a Política de **Emissão** da barra de menu superior.
 
-   ![Propriedades de certificados](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Screenshot que realça o botão Demissão Política.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. No ecrã **da Política de Emissão,** atualize os seguintes valores:
 
-   - **Período de validade**: Atualizar o valor (em meses).
-   - **Tipo de Ação vitalícia**: Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize a **percentagem** de vida útil ou **o número de dias antes de expirar**.
+   - **Período de validade** : Atualizar o valor (em meses).
+   - **Tipo de Ação vitalícia** : Selecione a ação de renovação automática e alerta do certificado e, em seguida, atualize a **percentagem** de vida útil ou **o número de dias antes de expirar** .
 
    ![Propriedades de certificados](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 > [!IMPORTANT]
 > Alterar o Tipo de Ação Vitalícia para um certificado registará imediatamente modificações para os certificados existentes.
@@ -136,7 +136,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > 
 Para saber mais sobre os parâmetros, consulte [o certificado az keyvault](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros tutoriais do Key Vault baseiam-se neste tutorial. Se planeia trabalhar com estes tutoriais, talvez queira deixar estes recursos existentes no lugar.
 Quando já não precisar, elimine o grupo de recursos, que elimina o cofre-chave e os recursos conexos.
@@ -144,8 +144,8 @@ Quando já não precisar, elimine o grupo de recursos, que elimina o cofre-chave
 Para eliminar o grupo de recursos utilizando o portal:
 
 1. Insira o nome do seu grupo de recursos na caixa **de Pesquisa** no topo do portal. Quando o grupo de recursos utilizado neste arranque rápido aparecer nos resultados da pesquisa, selecione-o.
-1. Selecione **Eliminar grupo de recursos**.
-1. No **TIPO O NOME DO GRUPO DE RECURSOS:** caixa, digite o nome do grupo de recursos e, em seguida, selecione **Delete**.
+1. Selecione **Eliminar grupo de recursos** .
+1. No **TIPO O NOME DO GRUPO DE RECURSOS:** caixa, digite o nome do grupo de recursos e, em seguida, selecione **Delete** .
 
 
 ## <a name="next-steps"></a>Passos seguintes

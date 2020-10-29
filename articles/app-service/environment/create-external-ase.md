@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164606"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927452"
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de Serviço de Aplicações Externas
 
@@ -59,7 +59,7 @@ O plano de Serviço de Aplicações é um recipiente de aplicações. Quando cri
 
 Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione **Criar um recurso**Web +  >  **Mobile**  >  **Web App**.
+1. No [portal Azure,](https://portal.azure.com/)selecione **Criar um recurso** Web +  >  **Mobile**  >  **Web App** .
 
     ![Screenshot do portal Azure mostrando Web + Mobile selecionado no Azure Marketplace e o ecrã para criar uma nova Web App aberta à direita.][1]
 
@@ -69,17 +69,17 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
 4. Selecione o seu SISTEMA (Windows, Linux ou Docker). 
 
-5. Selecione o plano de Serviço de Aplicações e, em seguida, **selecione Criar Novo**. As aplicações web Linux e as aplicações web do Windows não podem estar no mesmo Plano de Serviço de Aplicações, mas podem estar no mesmo Ambiente de Serviço de Aplicações. 
+5. Selecione o plano de Serviço de Aplicações e, em seguida, **selecione Criar Novo** . As aplicações web Linux e as aplicações web do Windows não podem estar no mesmo Plano de Serviço de Aplicações, mas podem estar no mesmo Ambiente de Serviço de Aplicações. 
 
     ![Screenshot do portal Azure mostrando o painel de aplicações web, o painel de plano de serviço da App e o painel do Novo Plano de Serviço de Aplicações aberto.][2]
 
 6. Na lista de pontos de entrega da **Localização,** selecione a região onde pretende criar o ASE. Se selecionar um ASE existente, não é criado um novo ASE. O plano de Serviço de Aplicações é criado no ASE que selecionou. 
 
-7. Selecione **o nível de preços**, e escolha um dos SKUs de preços **isolados.** Se escolher um cartão SKU **isolado** e um local que não seja um ASE, um novo ASE é criado nesse local. Para iniciar o processo para criar um ASE, **selecione Select**. O SKU **isolado** só está disponível em conjunto com um ASE. Também não pode utilizar qualquer outro SKU de preços num ASE diferente do **Isolado.** 
+7. Selecione **o nível de preços** , e escolha um dos SKUs de preços **isolados.** Se escolher um cartão SKU **isolado** e um local que não seja um ASE, um novo ASE é criado nesse local. Para iniciar o processo para criar um ASE, **selecione Select** . O SKU **isolado** só está disponível em conjunto com um ASE. Também não pode utilizar qualquer outro SKU de preços num ASE diferente do **Isolado.** 
 
     ![Seleção de preços][3]
 
-8. Insira o nome para o seu ASE. Este nome é utilizado no nome endereçada para as suas aplicações. Se o nome do ASE for _appsvcenvdemo,_ o nome de domínio é *.appsvcenvdemo.p.azurewebsites.net*. Se criar uma aplicação chamada *MyTestApp,* é endereçada a mytestapp.appsvcenvdemo.p.azurewebsites.net. Não pode usar espaço branco no nome. Se utilizar caracteres maiúsculas, o nome de domínio é a versão maiúscula total desse nome.
+8. Insira o nome para o seu ASE. Este nome é utilizado no nome endereçada para as suas aplicações. Se o nome do ASE for _appsvcenvdemo,_ o nome de domínio é *.appsvcenvdemo.p.azurewebsites.net* . Se criar uma aplicação chamada *MyTestApp,* é endereçada a mytestapp.appsvcenvdemo.p.azurewebsites.net. Não pode usar espaço branco no nome. Se utilizar caracteres maiúsculas, o nome de domínio é a versão maiúscula total desse nome.
 
     ![Nome do novo plano do novo serviço de aplicações][4]
 
@@ -89,7 +89,7 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
     b. Introduza um novo nome de sub-rede.
 
-    c. Selecione o tamanho da sub-rede. *Lembre-se de selecionar um tamanho suficientemente grande para acomodar o crescimento futuro do seu ASE.* `/24`Recomendamos, que tem 128 endereços e pode manusear um ASE de tamanho máximo. Não `/28` recomendamos, por exemplo, porque apenas 16 endereços estão disponíveis. A infraestrutura utiliza pelo menos sete endereços e a Azure Networking utiliza outros 5. Numa `/28` sub-rede, fica com uma escala máxima de 4 instâncias do plano de aplicações para um ASE Externo e apenas 3 instâncias do plano de Serviço de Aplicações para um ILB ASE.
+    c. Selecione o tamanho da sub-rede. *Lembre-se de selecionar um tamanho suficientemente grande para acomodar o crescimento futuro do seu ASE.* `/24`Recomendamos, que tem 256 endereços e pode manusear um ASE de tamanho máximo. Não `/28` recomendamos, por exemplo, porque apenas 16 endereços estão disponíveis. A infraestrutura utiliza pelo menos sete endereços e a Azure Networking utiliza outros 5. Numa `/28` sub-rede, fica com uma escala máxima de 4 instâncias do plano de aplicações para um ASE Externo e apenas 3 instâncias do plano de Serviço de Aplicações para um ILB ASE.
 
     d. Selecione o intervalo IP da sub-rede.
 
@@ -97,7 +97,7 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Crie uma aplicação web ASE e Linux usando uma imagem personalizada do Docker em conjunto
 
-1. No [portal Azure](https://portal.azure.com/), Crie uma Web **de Recursos**+  >  Aplicação Web**Móvel**  >  **para Contentores.** 
+1. No [portal Azure](https://portal.azure.com/), Crie uma Web **de Recursos** +  >  Aplicação Web **Móvel**  >  **para Contentores.** 
 
     ![Screenshot do portal Azure mostrando Web + Mobile selecionado no Azure Marketplace e o painel web para contentores aberto à direita.][7]
 
@@ -105,17 +105,17 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
 1. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir recursos Azure relacionados como uma unidade. Os grupos de recursos também são úteis quando estabelece as regras Role-Based Controlo de Acesso para as suas apps. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
 
-1. Selecione o plano de Serviço de Aplicações e, em seguida, **selecione Criar Novo**. As aplicações web Linux e as aplicações web do Windows não podem estar no mesmo Plano de Serviço de Aplicações, mas podem estar no mesmo Ambiente de Serviço de Aplicações. 
+1. Selecione o plano de Serviço de Aplicações e, em seguida, **selecione Criar Novo** . As aplicações web Linux e as aplicações web do Windows não podem estar no mesmo Plano de Serviço de Aplicações, mas podem estar no mesmo Ambiente de Serviço de Aplicações. 
 
     ![Screenshot do portal Azure mostrando a aplicação web para o painel de contentores, o painel de plano de serviço da App e o painel do Novo Plano de Serviço de Aplicações abertos.][8]
 
 1. Na lista de pontos de entrega da **Localização,** selecione a região onde pretende criar o ASE. Se selecionar um ASE existente, não é criado um novo ASE. O plano de Serviço de Aplicações é criado no ASE que selecionou. 
 
-1. Selecione **o nível de preços**, e escolha um dos SKUs de preços **isolados.** Se escolher um cartão SKU **isolado** e um local que não seja um ASE, um novo ASE é criado nesse local. Para iniciar o processo para criar um ASE, **selecione Select**. O SKU **isolado** só está disponível em conjunto com um ASE. Também não pode utilizar qualquer outro SKU de preços num ASE diferente do **Isolado.** 
+1. Selecione **o nível de preços** , e escolha um dos SKUs de preços **isolados.** Se escolher um cartão SKU **isolado** e um local que não seja um ASE, um novo ASE é criado nesse local. Para iniciar o processo para criar um ASE, **selecione Select** . O SKU **isolado** só está disponível em conjunto com um ASE. Também não pode utilizar qualquer outro SKU de preços num ASE diferente do **Isolado.** 
 
     ![Seleção de preços][3]
 
-1. Insira o nome para o seu ASE. Este nome é utilizado no nome endereçada para as suas aplicações. Se o nome do ASE for _appsvcenvdemo,_ o nome de domínio é *.appsvcenvdemo.p.azurewebsites.net*. Se criar uma aplicação chamada *MyTestApp,* é endereçada a mytestapp.appsvcenvdemo.p.azurewebsites.net. Não pode usar espaço branco no nome. Se utilizar caracteres maiúsculas, o nome de domínio é a versão maiúscula total desse nome.
+1. Insira o nome para o seu ASE. Este nome é utilizado no nome endereçada para as suas aplicações. Se o nome do ASE for _appsvcenvdemo,_ o nome de domínio é *.appsvcenvdemo.p.azurewebsites.net* . Se criar uma aplicação chamada *MyTestApp,* é endereçada a mytestapp.appsvcenvdemo.p.azurewebsites.net. Não pode usar espaço branco no nome. Se utilizar caracteres maiúsculas, o nome de domínio é a versão maiúscula total desse nome.
 
     ![Nome do novo plano do novo serviço de aplicações][4]
 
@@ -141,9 +141,9 @@ Para criar um ASE enquanto cria um plano de Serviço de Aplicações:
 
 Se criar um AUTÓNOMO ASE, não tem nada. Um ASE vazio ainda incorre numa taxa mensal para a infraestrutura. Siga estes passos para criar um ASE com um ILB ou para criar um ASE no seu próprio grupo de recursos. Depois de criar o seu ASE, pode criar aplicações no mesmo utilizando o processo normal. Selecione o seu novo ASE como a localização.
 
-1. Pesse no Mercado Azure para **o Ambiente de Serviço de Aplicações,** ou selecione Criar um Ambiente de Serviço de Aplicações Web Mobile de **Create a resource**  >  **Web Mobile**  >  **App Service Environment**recursos. 
+1. Pesse no Mercado Azure para **o Ambiente de Serviço de Aplicações,** ou selecione Criar um Ambiente de Serviço de Aplicações Web Mobile de **Create a resource**  >  **Web Mobile**  >  **App Service Environment** recursos. 
 
-1. Insira o nome do seu ASE. Este nome é utilizado para as aplicações criadas na ASE. Se o nome for *mynewdemoase,* o nome do subdomínio é *.mynewdemoase.p.azurewebsites.net*. Se criar uma aplicação chamada *MyTestApp,* é endereçada a mytestapp.mynewdemoase.p.azurewebsites.net. Não pode usar espaço branco no nome. Se utilizar caracteres maiúsculas, o nome de domínio é a versão maiúscula total do nome. Se utilizar um ILB, o seu nome ASE não é usado no seu subdomínio, mas é explicitamente indicado durante a criação da ASE.
+1. Insira o nome do seu ASE. Este nome é utilizado para as aplicações criadas na ASE. Se o nome for *mynewdemoase,* o nome do subdomínio é *.mynewdemoase.p.azurewebsites.net* . Se criar uma aplicação chamada *MyTestApp,* é endereçada a mytestapp.mynewdemoase.p.azurewebsites.net. Não pode usar espaço branco no nome. Se utilizar caracteres maiúsculas, o nome de domínio é a versão maiúscula total do nome. Se utilizar um ILB, o seu nome ASE não é usado no seu subdomínio, mas é explicitamente indicado durante a criação da ASE.
 
     ![Nomeação ASE][5]
 
@@ -167,7 +167,7 @@ Se criar um AUTÓNOMO ASE, não tem nada. Um ASE vazio ainda incorre numa taxa m
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1
 
-Ainda pode criar instâncias da primeira versão do App Service Environment (ASEv1). Para iniciar este processo, pesse o Marketplace for **App Service Environment v1**. Cria-se o ASE da mesma forma que cria o ASE autónomo. Quando estiver terminado, o seu ASEv1 tem duas extremidades dianteiras e dois trabalhadores. Com o ASEv1, tens de gerir as extremidades dianteiras e os trabalhadores. Não são automaticamente adicionados quando cria os seus planos de Serviço de Aplicações. As extremidades dianteiras funcionam como pontos finais HTTP/HTTPS e enviam tráfego para os trabalhadores. Os trabalhadores são os papéis que acolhem as suas apps. Pode ajustar a quantidade de extremidades dianteiras e trabalhadores depois de criar o seu ASE. 
+Ainda pode criar instâncias da primeira versão do App Service Environment (ASEv1). Para iniciar este processo, pesse o Marketplace for **App Service Environment v1** . Cria-se o ASE da mesma forma que cria o ASE autónomo. Quando estiver terminado, o seu ASEv1 tem duas extremidades dianteiras e dois trabalhadores. Com o ASEv1, tens de gerir as extremidades dianteiras e os trabalhadores. Não são automaticamente adicionados quando cria os seus planos de Serviço de Aplicações. As extremidades dianteiras funcionam como pontos finais HTTP/HTTPS e enviam tráfego para os trabalhadores. Os trabalhadores são os papéis que acolhem as suas apps. Pode ajustar a quantidade de extremidades dianteiras e trabalhadores depois de criar o seu ASE. 
 
 Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente de Serviço de Aplicações v1][ASEv1Intro]. Para obter mais informações sobre dimensionamento, gestão e monitorização do ASEv1, consulte [Como configurar um Ambiente de Serviço de Aplicações][ConfigureASEv1].
 

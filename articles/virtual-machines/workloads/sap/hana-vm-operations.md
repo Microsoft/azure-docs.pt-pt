@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978786"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927673"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientações para configurar a infraestrutura Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas do Azure (VMs). O documento também inclui informações de configuração para a escala SAP HANA para o M128s VM SKU. Este documento não se destina a substituir a documentação padrão SAP, que inclui o seguinte conteúdo:
@@ -135,7 +135,7 @@ Para /hana/compartilhado, recomendamos também a utilização de [Ficheiros Azur
 
 Um design básico típico para um único nó numa configuração de escala vai parecer:
 
-![Básicos de escala de um único nó](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagrama que mostra um design básico típico para um único nó numa configuração de escala.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 A configuração básica de um nó VM para a escala SAP HANA parece:
 
@@ -187,7 +187,7 @@ Para além das certificações SAP HANA em VMs da série Azure M, o SAP HANA Dyn
 SAP HANA Dynamic Tiering 2.0 não é suportado por SAP BW ou S4HANA. Os principais casos de uso neste momento são aplicações HANA nativas.
 
 
-### <a name="overview"></a>Overview (Descrição geral)
+### <a name="overview"></a>Descrição Geral
 
 A imagem abaixo dá uma visão geral sobre o suporte DT 2.0 no Microsoft Azure. Existe um conjunto de requisitos obrigatórios, que devem ser seguidos para cumprir a certificação oficial:
 

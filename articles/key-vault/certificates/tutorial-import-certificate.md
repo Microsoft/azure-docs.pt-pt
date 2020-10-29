@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: ebf687716c8898acffb5e081fbf2f6217fe0f943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b58f402766e369894fcf014836ab9f24c231c489
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503128"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927503"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutorial: Importar um certificado no Cofre da Chave Azure
 
@@ -41,22 +41,22 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
-1. A partir do menu do portal Azure, ou na página **Inicial,** selecione **Criar um recurso**.
-2. Na caixa Pesquisar, introduza **Key Vault**.
-3. Na lista de resultados, selecione **Key Vault**.
-4. Na secção Key Vault, selecione **Criar**.
-5. Na secção **Criar cofre de chaves**, forneça as seguintes informações:
-    - **Nome**: é necessário um nome exclusivo. Para este arranque rápido, usamos **o Exemplo-Vault.** 
-    - **Subscrição**: selecione uma subscrição.
+1. A partir do menu do portal Azure, ou na página **Inicial,** selecione **Criar um recurso** .
+2. Na caixa Pesquisar, introduza **Key Vault** .
+3. Na lista de resultados, selecione **Key Vault** .
+4. Na secção Key Vault, selecione **Criar** .
+5. Na secção **Criar cofre de chaves** , forneça as seguintes informações:
+    - **Nome** : é necessário um nome exclusivo. Para este arranque rápido, usamos **o Exemplo-Vault.** 
+    - **Subscrição** : selecione uma subscrição.
     - No **Grupo de Recursos,** escolha **Criar novo** e insira um nome de grupo de recursos.
-    - No menu pendente **Localização**, selecione uma localização.
+    - No menu pendente **Localização** , selecione uma localização.
     - Deixe as outras opções com os valores predefinidos.
-6. Depois de fornecer as informações acima, selecione **Criar**.
+6. Depois de fornecer as informações acima, selecione **Criar** .
 
 Tome nota das duas propriedades listadas abaixo:
 
-* **Nome do cofre**: No exemplo, este é **Exemplo-Vault**. Irá utilizar este nome para outros passos.
-* **URI do Cofre**: no exemplo, isto é https://example-vault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **Nome do cofre** : No exemplo, este é **Exemplo-Vault** . Irá utilizar este nome para outros passos.
+* **URI do Cofre** : no exemplo, isto é https://example-vault.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 Nesta altura, a sua conta do Azure é a única autorizada a realizar as operações neste novo cofre.
 
@@ -71,14 +71,14 @@ Para importar um certificado para o cofre, é necessário ter um ficheiro de cer
 > - O formato de ficheiro .pem contém um ou mais ficheiros de certificadoS X509.
 > - .pfx file format é um formato de arquivo de arquivo para armazenar vários objetos criptográficos num único ficheiro, ou seja, certificado de servidor (emitido para o seu domínio), uma chave privada correspondente, e pode opcionalmente incluir um CA intermédio.  
 
-1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
-2. Clique em **Gerar/Importar**.
+1. Nas páginas das propriedades do Cofre-Chave, selecione **Certificados** .
+2. Clique em **Gerar/Importar** .
 3. No **Ecrã de Certificado escolha** os seguintes valores:
-    - **Método de Criação de Certificados**: Importação.
-    - **Denominação do certificado**: ExemploCertificado.
-    - **Upload Certificate File**: selecione o ficheiro de certificado do disco
+    - **Método de Criação de Certificados** : Importação.
+    - **Denominação do certificado** : ExemploCertificado.
+    - **Upload Certificate File** : selecione o ficheiro de certificado do disco
     - **Senha** : Se estiver a carregar um ficheiro de certificado protegido por palavra-passe, forneça esta palavra-passe aqui. Caso contrário, deixe-o em branco. Uma vez que o ficheiro de certificado é importado com sucesso, o cofre-chave removerá essa palavra-passe.
-4. Clique em **Criar**.
+4. Clique em **Criar** .
 
 ![Propriedades de certificados](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -86,7 +86,7 @@ Ao adicionar um certificado utilizando o método **de importação,** o cofre Az
 
 Assim que receber a mensagem de que o certificado foi importado com sucesso, poderá clicar nele na lista para ver as suas propriedades. 
 
-![Propriedades de certificados](../media/certificates/tutorial-import-cert/current-version-hidden.png)
+![Screenshot que mostra onde ver as propriedades do certificado.](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## <a name="import-a-certificate-using-azure-cli"></a>Importar um certificado utilizando o Azure CLI
 
@@ -138,14 +138,14 @@ Import-AzureKeyVaultCertificate
 Saiba mais sobre os [parâmetros.](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros inícios rápidos e tutoriais do Key Vault têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não for necessário, elimine o grupo de recursos, que elimina o Key Vault e todos os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
-2. Selecione **Eliminar grupo de recursos**.
-3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
+2. Selecione **Eliminar grupo de recursos** .
+3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar** .
 
 
 ## <a name="next-steps"></a>Passos seguintes

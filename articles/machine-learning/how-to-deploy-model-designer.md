@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999014"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927588"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Use o estúdio para implementar modelos treinados no designer
 
@@ -56,7 +56,7 @@ Após a conclusão do pipeline de treino, registe o modelo treinado no seu espa�
 
     ![Screenshot do painel direito do módulo do modelo de comboio](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Introduza um nome para o seu modelo e, em seguida, **selecione Guardar**.
+1. Introduza um nome para o seu modelo e, em seguida, **selecione Guardar** .
 
 Depois de registar o seu modelo, pode encontrá-lo na página de ativos dos **Modelos** no estúdio.
     
@@ -104,7 +104,7 @@ Depois de descarregar os ficheiros necessários, está pronto para implementar o
 
     - Insira um nome para o ponto final.
     - Selecione para implementar o modelo para o [Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md) ou [para a instância do contentor Azure](how-to-deploy-azure-container-instance.md).
-    - Faça o upload do `score.py` ficheiro de script para **entrada**.
+    - Faça o upload do `score.py` ficheiro de script para **entrada** .
     - Faça o upload `conda_env.yml` do **ficheiro de dependências da Conda.** 
 
     >[!TIP]
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Treine um modelo no designer](tutorial-designer-automobile-price-train-score.md)
+* [Implementar modelos com Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)

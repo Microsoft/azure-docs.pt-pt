@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b7b46f2d280577f40f927a0d8eb6fcf2ed33e04a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519678"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927435"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Quickstart: Criar uma função no Azure que responda aos pedidos HTTP
 
@@ -88,7 +88,7 @@ Numa pasta vazia, execute o seguinte comando para gerar o projeto das Funções 
 > + Utilize `-DjavaVersion=11` se quiser que as suas funções funcionem em Java 11. Para saber mais, consulte as [versões Java.](functions-reference-java.md#java-versions) 
 > + A `JAVA_HOME` variável ambiente deve ser definida para a localização de instalação da versão correta do JDK para completar este artigo.
 
-# <a name="bash"></a>[festa](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
 ```
@@ -114,7 +114,7 @@ Fornecer os seguintes valores quando solicitado:
 
 Digite `Y` ou prima Enter para confirmar.
 
-A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_, que neste exemplo é `fabrikam-functions` . 
+A Maven cria os ficheiros do projeto numa nova pasta com o nome de _artifactId_ , que neste exemplo é `fabrikam-functions` . 
 
 ::: zone-end  
 Navegue na pasta do projeto:
@@ -140,7 +140,7 @@ Se desejar, pode saltar para [Executar a função localmente](#run-the-function-
 ::: zone pivot="programming-language-csharp"
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
-*HttpExample.cs* contém um `Run` método que recebe dados de pedido na `req` variável é um [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) que está decorado com o **HttpTriggerAttribute**, que define o comportamento do gatilho. 
+*HttpExample.cs* contém um `Run` método que recebe dados de pedido na `req` variável é um [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) que está decorado com o **HttpTriggerAttribute** , que define o comportamento do gatilho. 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
@@ -170,41 +170,41 @@ O arquétipo também gera um teste de unidade para a sua função. Quando altera
 ::: zone pivot="programming-language-python"
 #### <a name="__init__py"></a>\_\_init \_ \_ .py
 
-* \_ \_ init \_ \_ .py* contém uma `main()` função Python que é desencadeada de acordo com a configuração em *function.jsem*.
+*\_ \_ init \_ \_ .py* contém uma `main()` função Python que é desencadeada de acordo com a configuração em *function.jsem* .
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js* em*. `req` é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=python).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js *em* . `req` é um exemplo da [classe azure.funções.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). O objeto de retorno, definido como `$return` em *function.js,* é um exemplo de [azure.functions.httpResponse class](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 #### <a name="indexjs"></a>index.js
 
-*index.js* exporta uma função que é desencadeada de acordo com a configuração em *function.jsem*.
+*index.js* exporta uma função que é desencadeada de acordo com a configuração em *function.jsem* .
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js* em*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=javascript).
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` tal como definida emfunction.js *em* . O objeto de retorno, definido como `$return` em *function.js,* é a resposta. Para saber mais, consulte [as funções Azure HTTP gatilhos e encadernações](./functions-bindings-http-webhook.md?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
 #### <a name="indexts"></a>index.ts
 
-*index.ts* exporta uma função que é desencadeada de acordo com a configuração em *function.jsem*.
+*index.ts* exporta uma função que é desencadeada de acordo com a configuração em *function.jsem* .
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-Para um gatilho HTTP, a função recebe dados de pedido na variável `req` do tipo **HttpRequest,** tal como definido em *function.jsem*. O objeto de retorno, definido como `$return` em *function.js,* é a resposta. 
+Para um gatilho HTTP, a função recebe dados de pedido na variável `req` do tipo **HttpRequest,** tal como definido em *function.jsem* . O objeto de retorno, definido como `$return` em *function.js,* é a resposta. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 #### <a name="runps1"></a>run.ps1
 
-*run.ps1* define um script de função que é desencadeado de acordo com a configuração em *function.jsem*.
+*run.ps1* define um script de função que é desencadeado de acordo com a configuração em *function.jsem* .
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-Para um gatilho HTTP, a função recebe dados de pedido passados para o `$Request` param definido em *function.jsem*. O objeto de retorno, definido como `Response` em *function.js,* é passado para o `Push-OutputBinding` cmdlet como resposta. 
+Para um gatilho HTTP, a função recebe dados de pedido passados para o `$Request` param definido em *function.jsem* . O objeto de retorno, definido como `Response` em *function.js,* é passado para o `Push-OutputBinding` cmdlet como resposta. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
@@ -371,7 +371,7 @@ Isto cria os seguintes recursos em Azure:
 
 + Grupo de recursos. Nomeado como _grupo java-funções._
 + Conta de armazenamento. Requerido por Funções. O nome é gerado aleatoriamente com base nos requisitos de nome da conta de armazenamento.
-+ Plano de hospedagem. Hospedagem sem servidor para a sua aplicação de função na região _de Westus._ O nome é _java-funções-app-service-plan_.
++ Plano de hospedagem. Hospedagem sem servidor para a sua aplicação de função na região _de Westus._ O nome é _java-funções-app-service-plan_ .
 + App de função. Uma aplicação de função é a unidade de implementação e execução para as suas funções. O nome é gerado aleatoriamente com base no seu _artefactoId,_ anexado com um número gerado aleatoriamente. 
 
 A implementação embala os ficheiros do projeto e implanta-os na nova aplicação de função utilizando a [implementação zip](functions-deployment-technologies.md#zip-deploy). O código é executado a partir do pacote de implantação em Azure.
@@ -404,7 +404,7 @@ Corra [`curl`](https://curl.haxx.se/) com o URL **invocado,** anexando o parâme
 >   func azure functionapp logstream <APP_NAME> --browser
 >   ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se continuar até ao próximo passo, [adicione uma ligação de saída de fila Azure Storage](functions-add-output-binding-storage-queue-cli.md), mantenha todos os seus recursos no lugar, pois irá basear-se no que já fez.
 
