@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459817"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913046"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
 
@@ -38,13 +38,13 @@ Stream Analytics oferece dois tipos de registos:
 
 Os registos de atividade estão ligados por padrão e dão informações de alto nível sobre as operações realizadas pelo seu trabalho stream Analytics. As informações presentes nos registos de atividade podem ajudar a encontrar a causa principal dos problemas que afetam o seu trabalho. Faça os seguintes passos para utilizar registos de atividade no Stream Analytics:
 
-1. Inicie sessão no portal Azure e selecione **O registo de atividades** no âmbito **da visão geral**.
+1. Inicie sessão no portal Azure e selecione **O registo de atividades** no âmbito **da visão geral** .
 
    ![Registo de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
 2. Pode ver uma lista de operações que foram realizadas. Qualquer operação que fez o seu trabalho falhar tem uma bolha de informação vermelha.
 
-3. Clique numa operação para ver a sua visão sumária. A informação aqui é muitas vezes limitada. Para saber mais detalhes sobre a operação, clique em **JSON**.
+3. Clique numa operação para ver a sua visão sumária. A informação aqui é muitas vezes limitada. Para saber mais detalhes sobre a operação, clique em **JSON** .
 
    ![Resumo da operação de registo de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
@@ -62,29 +62,29 @@ Os registos de atividade estão ligados por padrão e dão informações de alto
 
 1.  Crie um espaço de trabalho Log Analytics se ainda não tiver um. Recomenda-se ter o seu espaço de trabalho Log Analytics na mesma região que o seu trabalho stream Analytics.
 
-2.  Inscreva-se no portal Azure e navegue para o seu trabalho stream Analytics. Em **Monitorização**, selecione **registos de diagnóstico .** Em seguida, **selecione Ligue os diagnósticos**.
+2.  Inscreva-se no portal Azure e navegue para o seu trabalho stream Analytics. Em **Monitorização** , selecione **registos de diagnóstico .** Em seguida, **selecione Ligue os diagnósticos** .
 
     ![Navegação de lâminas para registos de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **Nome** no **Nome das definições de Diagnóstico** e verifique as caixas de **execução** e **autoria** sob **registo**, e **AllMetrics** sob **métrica**. Em seguida, **selecione Enviar para registar analítico** e escolher o seu espaço de trabalho. Clique em **Guardar**.
+2.  Forneça um **Nome** no **Nome das definições de Diagnóstico** e verifique as caixas de **execução** e **autoria** sob **registo** , e **AllMetrics** sob **métrica** . Em seguida, **selecione Enviar para registar analítico** e escolher o seu espaço de trabalho. Clique em **Guardar** .
 
     ![Definições para registos de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. Quando o seu trabalho stream Analytics começa, os registos de recursos são encaminhados para o seu espaço de trabalho Log Analytics. Para visualizar registos de recursos para o seu trabalho, selecione **Registos** na secção **De Monitorização.**
 
-   ![Registos de recursos em monitorização](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![A screenshot mostra o menu Geral com Registos selecionados.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. O Stream Analytics fornece consultas pré-definidas que lhe permitem pesquisar facilmente os registos em que está interessado. Pode selecionar quaisquer consultas pré-definidas no painel esquerdo e, em seguida, selecionar **Executar**. Verá os resultados da consulta no painel inferior. 
+4. O Stream Analytics fornece consultas pré-definidas que lhe permitem pesquisar facilmente os registos em que está interessado. Pode selecionar quaisquer consultas pré-definidas no painel esquerdo e, em seguida, selecionar **Executar** . Verá os resultados da consulta no painel inferior. 
 
-   ![Registos de recursos em monitorização](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![A screenshot mostra Registos para um trabalho de Stream Analytics.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Categorias de registo de recursos
 
 A Azure Stream Analytics captura duas categorias de registos de recursos:
 
-* **Autoria**: Captura eventos de registo relacionados com operações de autoria de emprego, tais como criação de emprego, adição e eliminação de entradas e saídas, a adição e atualização da consulta, e o início ou paragem do trabalho.
+* **Autoria** : Captura eventos de registo relacionados com operações de autoria de emprego, tais como criação de emprego, adição e eliminação de entradas e saídas, a adição e atualização da consulta, e o início ou paragem do trabalho.
 
-* **Execução**: Captura eventos que ocorrem durante a execução do trabalho.
+* **Execução** : Captura eventos que ocorrem durante a execução do trabalho.
     * Erros de conectividade
     * Erros de processamento de dados, incluindo:
         * Eventos que não estão em conformidade com a definição de consulta (tipos e valores de campo desajustados, campos em falta, e assim por diante)
@@ -98,11 +98,11 @@ Todos os registos são armazenados no formato JSON. Cada entrada tem os seguinte
 Nome | Descrição
 ------- | -------
 hora | Timetamp (em UTC) do registo.
-resourceId | Identificação do recurso em que a operação teve lugar, em maiúsão. Inclui o ID de assinatura, o grupo de recursos e o nome do trabalho. POR exemplo, **/SUBSCRIÇÕES/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
-categoria | Categoria de registo, **execução** ou **autoria**.
-operationName | Nome da operação que está registada. Por exemplo, **Enviar Eventos: SqL Output escrever falha no mysqloutput**.
-status | Estado da operação. Por exemplo, **Falhado** ou **Bem Sucedido**.
-nível | Nível de registo. Por exemplo, **Erro**, **Aviso**ou **Informação**.
+resourceId | Identificação do recurso em que a operação teve lugar, em maiúsão. Inclui o ID de assinatura, o grupo de recursos e o nome do trabalho. POR exemplo, **/SUBSCRIÇÕES/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB** .
+categoria | Categoria de registo, **execução** ou **autoria** .
+operationName | Nome da operação que está registada. Por exemplo, **Enviar Eventos: SqL Output escrever falha no mysqloutput** .
+status | Estado da operação. Por exemplo, **Falhado** ou **Bem Sucedido** .
+nível | Nível de registo. Por exemplo, **Erro** , **Aviso** ou **Informação** .
 propriedades | Registar detalhes específicos de entrada, serializados como uma corda JSON. Para mais informações, consulte as seguintes secções neste artigo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propriedades de registo de execução
@@ -117,16 +117,16 @@ Nome | Descrição
 ------- | -------
 Origem | Nome da entrada ou saída do trabalho onde ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-Tipo | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError,** ou **ServiceBusPropertyColumnMissingError**.
+Tipo | Tipo de erro. Por exemplo, **DataConversionError** , **CsvParserError,** ou **ServiceBusPropertyColumnMissingError** .
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncação, dependendo do tamanho.
 
 Dependendo do **valor da operaçãoName,** os erros de dados têm o seguinte esquema:
 
 * **Eventos serialize** ocorrem durante as operações de leitura do evento. Ocorrem quando os dados na entrada não satisfazem o esquema de consulta por uma destas razões:
 
-   * *Tipo de incompatibilidade durante o evento (de)serialize*: Identifica o campo que está a causar o erro.
+   * *Tipo de incompatibilidade durante o evento (de)serialize* : Identifica o campo que está a causar o erro.
 
-   * *Não é possível ler um evento, serialização inválida*: Lista informações sobre a localização nos dados de entrada onde ocorreu o erro. Inclui o nome blob para entrada de bolhas, offset e uma amostra dos dados.
+   * *Não é possível ler um evento, serialização inválida* : Lista informações sobre a localização nos dados de entrada onde ocorreu o erro. Inclui o nome blob para entrada de bolhas, offset e uma amostra dos dados.
 
 * **Os eventos de envio** ocorrem durante as operações de escrita. Identificam o evento de streaming que causou o erro.
 
@@ -138,7 +138,7 @@ Nome | Descrição
 -------- | --------
 Erro | (opcional) Informação de erro. Normalmente, esta é uma informação de exceção se estiver disponível.
 Mensagem| Mensagem de registo.
-Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure** .
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -4,12 +4,12 @@ description: Aprenda a processar as suas cargas de trabalho paralelas em piscina
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 9cbf7dcb5b0f6f43b4fc5d69127e817dceea650e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 704b73ab43f40a5542e80ffebc4ab34edfc446dc
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108070"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913794"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisão Linux nómada em piscinas de Lote
 
@@ -23,7 +23,7 @@ Pode utilizar o Azure Batch para executar cargas de trabalho paralelas de comput
 ## <a name="virtual-machine-configuration"></a>Configuração de máquina virtual
 Quando cria um conjunto de nós computacional em Batch, tem duas opções para selecionar o tamanho do nó e o sistema operativo: Configuração de serviços de nuvem e configuração de máquina virtual.
 
-A **Configuração de Serviços Cloud** fornece nós de computação do Windows *apenas*. Os tamanhos dos nóns de computação disponíveis estão listados em [Tamanhos para Serviços em Nuvem,](../cloud-services/cloud-services-sizes-specs.md)e os sistemas operativos disponíveis estão listados nas [versões Azure Guest OS e na matriz de compatibilidade SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria uma piscina que contém nós Azure Cloud Services, especifica o tamanho do nó e a família OS, que são descritas nos artigos anteriormente mencionados. Para piscinas de nós de computação Windows, os Serviços cloud são mais utilizados.
+A **Configuração de Serviços Cloud** fornece nós de computação do Windows *apenas* . Os tamanhos dos nóns de computação disponíveis estão listados em [Tamanhos para Serviços em Nuvem,](../cloud-services/cloud-services-sizes-specs.md)e os sistemas operativos disponíveis estão listados nas [versões Azure Guest OS e na matriz de compatibilidade SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria uma piscina que contém nós Azure Cloud Services, especifica o tamanho do nó e a família OS, que são descritas nos artigos anteriormente mencionados. Para piscinas de nós de computação Windows, os Serviços cloud são mais utilizados.
 
 **A Configuração de Máquinas Virtuais** fornece imagens linux e Windows para nós computacional. Os tamanhos dos nóns de computação disponíveis estão listados em [Tamanhos para máquinas virtuais em Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux) e [tamanhos para máquinas virtuais em Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows). Quando criar uma piscina que contenha nós de configuração de máquina virtual, deve especificar o tamanho dos nós, a referência de imagem da máquina virtual e o agente de nó de lote SKU a ser instalado nos nós.
 
@@ -46,7 +46,8 @@ Ao configurar uma referência de imagem de máquina virtual, especifica as propr
 >
 
 ### <a name="node-agent-sku"></a>Agente de nó SKU
-O agente de nó batch é um programa que funciona em cada nó na piscina e fornece a interface de comando e controlo entre o nó e o serviço Batch. Existem diferentes implementações do agente de nó, conhecido como SKUs, para diferentes sistemas operativos. Essencialmente, quando cria uma Configuração de Máquina Virtual, primeiro especifica a referência de imagem da máquina virtual e, em seguida, especifica o agente de nó para instalar na imagem. Normalmente, cada agente de nó SKU é compatível com múltiplas imagens de máquinas virtuais. Aqui estão alguns exemplos de skus agente de nó:
+
+O [agente de nó batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) é um programa que funciona em cada nó na piscina e fornece a interface de comando e controlo entre o nó e o serviço Batch. Existem diferentes implementações do agente de nó, conhecido como SKUs, para diferentes sistemas operativos. Essencialmente, quando cria uma Configuração de Máquina Virtual, primeiro especifica a referência de imagem da máquina virtual e, em seguida, especifica o agente de nó para instalar na imagem. Normalmente, cada agente de nó SKU é compatível com múltiplas imagens de máquinas virtuais. Aqui estão alguns exemplos de skus agente de nó:
 
 * lote.node.ubuntu 18.04
 * lote.nó.centos 7

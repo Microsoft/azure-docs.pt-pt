@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3fd4dcfa4c01c39e4e6cab4915de807c3d19ae6
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976652"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913862"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
 
@@ -44,7 +44,7 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implementar modelos de machine learning. Liga a sua subscrição e grupo de recursos Azure a um objeto facilmente consumido no serviço. 
 
-Crie um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
+Existem muitas [formas de criar um espaço de trabalho.](how-to-manage-workspace.md) Neste tutorial, cria-se um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -59,7 +59,7 @@ Você completa os seguintes passos de configuração de experiências através d
 
 1. Selecione a sua subscrição e o espaço de trabalho que criou.
 
-1. **Selecione Começar**.
+1. **Selecione Começar** .
 
 1. No painel esquerdo, selecione **ML automatizado** na secção **Autor.**
 
@@ -67,7 +67,7 @@ Você completa os seguintes passos de configuração de experiências através d
 
    ![Página Introdução](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Selecione **+Nova execução ML automatizada**. 
+1. Selecione **+Nova execução ML automatizada** . 
 
 ## <a name="create-and-load-dataset"></a>Criar e carregar conjunto de dados
 
@@ -75,13 +75,13 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
 
 1. Crie um novo conjunto de dados selecionando **ficheiros locais** a partir do **drop-down +Create dataset.** 
 
-    1. No formulário **de informações Básicas,** forneça um nome ao seu conjunto de dados e forneça uma descrição opcional. A interface ML automatizada suporta atualmente apenas OsDatasets Tabular, pelo que o tipo de conjunto de dados deve predefinir-se ao *Tabular*.
+    1. No formulário **de informações Básicas,** forneça um nome ao seu conjunto de dados e forneça uma descrição opcional. A interface ML automatizada suporta atualmente apenas OsDatasets Tabular, pelo que o tipo de conjunto de dados deve predefinir-se ao *Tabular* .
 
     1. **Selecione** Em seguida, no canto inferior esquerdo
 
-    1. No formulário **de datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a criação do seu espaço de **trabalho, workspaceblobstore (Azure Blob Storage)**. É aqui que irá fazer o upload do seu ficheiro de dados para o disponibilizar ao seu espaço de trabalho.
+    1. No formulário **de datastore e seleção de ficheiros,** selecione a loja de dados predefinida que foi configurada automaticamente durante a criação do seu espaço de **trabalho, workspaceblobstore (Azure Blob Storage)** . É aqui que irá fazer o upload do seu ficheiro de dados para o disponibilizar ao seu espaço de trabalho.
 
-    1. Selecione **Procurar**.
+    1. Selecione **Procurar** .
     
     1. Escolha o ficheiro **bankmarketing_train.csv** no seu computador local. Este é o ficheiro que descarregou como [pré-requisito.](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)
 
@@ -91,7 +91,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
     
        Quando o upload estiver concluído, o formulário de definições e pré-visualização é pré-povoado com base no tipo de ficheiro. 
        
-    1. Verifique se as Definições e o formulário **de pré-visualização são** preenchidos da seguinte forma e selecione **Next**.
+    1. Verifique se as Definições e o formulário **de pré-visualização são** preenchidos da seguinte forma e selecione **Next** .
         
         Campo|Descrição| Valor para tutorial
         ---|---|---
@@ -101,7 +101,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
         Saltar filas | Indica quantas, se houver, são ignoradas no conjunto de dados.| Nenhum
 
-    1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternação para a funcionalidade **day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Seguinte**.
+    1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. Para este exemplo, selecione o interruptor de alternação para a funcionalidade **day_of_week,** de modo a não incluí-lo para esta experiência. Selecione **Seguinte** .
 
         ![Configuração do separador de pré-visualização](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -111,9 +111,9 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
     
     1. Selecione o seu conjunto de dados assim que aparecer na lista.
     
-    1. Reveja a **pré-visualização de Dados**  para garantir que não incluiu **day_of_week** então, selecione **OK**.
+    1. Reveja a **pré-visualização de Dados**  para garantir que não incluiu **day_of_week** então, selecione **OK** .
 
-    1. Selecione  **Seguinte**.
+    1. Selecione  **Seguinte** .
 
 ## <a name="configure-experiment-run"></a>Configure a experiência
 
@@ -140,7 +140,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
         1. Após a criação, selecione o seu novo alvo de computação a partir da lista de drop-down.
 
-    1. Selecione **Seguinte**.
+    1. Selecione **Seguinte** .
 
 1. No **formulário 'Tipo de Tarefa' e definições,** preencha a configuração para a sua experiência automatizada de ML especificando as definições de tipo de tarefa e configuração de aprendizagem automática.
     
@@ -157,13 +157,13 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
         Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-dobrar &nbsp; validação cruzada <br> <br> Número de validações: 2
         Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; máximas simultâneas: 5
         
-        Selecione **Guardar**.
+        Selecione **Guardar** .
 
 1. **Selecione Acabamento** para executar a experiência. O ecrã **'Run Detail'**  abre-se com o **estado de Execução** no topo à medida que a preparação da experiência começa.
 
 >[!IMPORTANT]
 > A preparação leva **10 a 15 minutos** para preparar a experiência.
-> Uma vez em funcionamento, demora **mais 2 a 3 minutos para cada iteração**.  
+> Uma vez em funcionamento, demora **mais 2 a 3 minutos para cada iteração** .  
 > Selecione **Refresh** periodicamente para ver o estado da execução à medida que a experiência progride.
 >
 > Na produção, provavelmente afastar-se-ia um pouco. Mas para este tutorial, sugerimos que comece a explorar os algoritmos testados no separador **Modelos** à medida que eles completam enquanto os outros ainda estão em execução. 
@@ -206,15 +206,15 @@ Implementamos este modelo, mas seja avisado, a implantação leva cerca de 20 mi
     
     Para este exemplo, utilizamos os predefinidos fornecidos no menu *Advanced.* 
 
-1. Selecione **Implementar**.  
+1. Selecione **Implementar** .  
 
-    Uma mensagem de sucesso verde aparece na parte superior do ecrã **Run** e no painel de resumo do **Modelo,** uma mensagem de estado aparece sob **o estado de Implementação**. Selecione **Refresh** periodicamente para verificar o estado de implantação.
+    Uma mensagem de sucesso verde aparece na parte superior do ecrã **Run** e no painel de resumo do **Modelo,** uma mensagem de estado aparece sob **o estado de Implementação** . Selecione **Refresh** periodicamente para verificar o estado de implantação.
     
 Agora tem um serviço web operacional para gerar previsões. 
 
 Dirija-se aos [**Próximos Passos**](#next-steps) para saber mais sobre como consumir o seu novo serviço web e teste as suas previsões utilizando o suporte de Power BI construído no suporte Azure Machine Learning.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Os ficheiros de implantação são maiores do que os ficheiros de dados e experiências, pelo que custam mais para armazenar. Elimine apenas os ficheiros de implementação para minimizar os custos da sua conta, ou se pretender manter o seu espaço de trabalho e experimentar ficheiros. Caso contrário, elimine todo o grupo de recursos, se não pretender utilizar nenhum dos ficheiros.  
 
@@ -222,11 +222,11 @@ Os ficheiros de implantação são maiores do que os ficheiros de dados e experi
 
 Elimine apenas a instância de implantação do Azure Machine Learning em https: \/ /ml.azure.com/, se quiser manter o grupo de recursos e espaço de trabalho para outros tutoriais e exploração. 
 
-1. Ir ao [Azure Machine Learning.](https://ml.azure.com/) Navegue para o seu espaço de trabalho e à esquerda sob o painel **De ativos,** selecione **Endpoints**. 
+1. Ir ao [Azure Machine Learning.](https://ml.azure.com/) Navegue para o seu espaço de trabalho e à esquerda sob o painel **De ativos,** selecione **Endpoints** . 
 
-1. Selecione a implementação deseja eliminar e selecione **Eliminar**. 
+1. Selecione a implementação deseja eliminar e selecione **Eliminar** . 
 
-1. **Selecione Proceder**.
+1. **Selecione Proceder** .
 
 ### <a name="delete-the-resource-group"></a>Eliminar o grupo de recursos
 

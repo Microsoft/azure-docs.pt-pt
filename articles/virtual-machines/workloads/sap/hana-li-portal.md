@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085270"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927197"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controlo de Grandes Instâncias do Azure HANA através do portal do Azure
 Este documento cobre a forma como as [Grandes Instâncias da HANA](./hana-overview-architecture.md) são apresentadas no [portal Azure](https://portal.azure.com) e que atividades podem ser realizadas através do portal Azure com unidades de Grande Instância HANA que são implantadas para si. A visibilidade de HANA Large Instances in Azure portal é fornecida através de um fornecedor de recursos Azure para HANA Large Instances, que atualmente está em pré-visualização pública
@@ -54,13 +54,13 @@ Ao submeter um pedido de implantação HANA Large Instance, é-lhe pedido que es
 
 Para encontrar o novo grupo de recursos Azure, lista o grupo de recursos na sua subscrição navegando através do painel de navegação esquerdo do portal Azure
 
-![Painel de navegação no portal Azure](./media/hana-li-portal/portal-resource-group.png)
+![Screenshot que realça a opção Grupos de Recursos.](./media/hana-li-portal/portal-resource-group.png)
 
 Na lista de grupos de recursos, está a ser listado, pode ter de filtrar a subscrição que usou para ter HANA Large Instances implantada
 
 ![Grupos de recursos de filtro no portal Azure](./media/hana-li-portal/portal-filtering-subscription.png)
 
-Depois de filtrar para a subscrição correta, ainda pode ter uma longa lista de grupos de recursos. Procure um com uma pós-correcção de **-Txxx** onde "xxx" são três dígitos, como **-T050**. 
+Depois de filtrar para a subscrição correta, ainda pode ter uma longa lista de grupos de recursos. Procure um com uma pós-correcção de **-Txxx** onde "xxx" são três dígitos, como **-T050** . 
 
 Ao encontrar o grupo de recursos, enuprosse os detalhes. A lista que recebeu pode parecer:
 
@@ -94,7 +94,7 @@ Outra informação muito importante encontra-se no canto inferior direito da vis
 Um campo adicional na coluna direita do cabeçalho informa sobre o estado de potência da unidade HANA Large.
 
 > [!NOTE]
-> O estado de alimentação descreve se a unidade de hardware está ligado ou desligado. Não dá informações sobre o funcionamento do sistema operativo. Ao reiniciar uma unidade HANA Large Instance, irá experimentar um pequeno período em que o estado da unidade muda para **começar a** mover-se para o estado de **Iniciado**. Estar no estado de **Início** significa que o SO está a começar ou que o SO foi completamente iniciado. Como resultado, após um reinício da unidade, não pode esperar iniciar imediatamente o login na unidade assim que o estado mudar para **Iniciar**.
+> O estado de alimentação descreve se a unidade de hardware está ligado ou desligado. Não dá informações sobre o funcionamento do sistema operativo. Ao reiniciar uma unidade HANA Large Instance, irá experimentar um pequeno período em que o estado da unidade muda para **começar a** mover-se para o estado de **Iniciado** . Estar no estado de **Início** significa que o SO está a começar ou que o SO foi completamente iniciado. Como resultado, após um reinício da unidade, não pode esperar iniciar imediatamente o login na unidade assim que o estado mudar para **Iniciar** .
 > 
 
 Se premir 'Ver mais', são apresentadas informações adicionais. Uma informação adicional é exibir a revisão do carimbo HANA Large Instance, a unidade foi implantada. Veja o artigo [O que é SAP HANA em Azure (Grandes Instâncias)](./hana-overview-architecture.md) para as diferentes revisões dos selos HANA Large Instance
@@ -106,7 +106,7 @@ Além de dar uma visão geral das unidades HANA Large Instance, você pode verif
 
 Uma das principais atividades registadas são o recomeço de uma unidade. Os dados listados incluem o estado da atividade, o carimbo de tempo que a atividade foi desencadeada, o ID de subscrição do qual a atividade foi desencadeada e o utilizador Azure que desencadeou a atividade. 
 
-Outra atividade que está a ser registada são as alterações à unidade nos dados de meta do Azure. Além do recomeço iniciado, pode ver a atividade de **Write HANAInstances**. Este tipo de atividade não realiza alterações na própria unidade HANA Large Instance, mas está a documentar alterações nos dados de meta da unidade em Azure. No caso listado, adicionámos e apagamos uma etiqueta (ver secção seguinte).
+Outra atividade que está a ser registada são as alterações à unidade nos dados de meta do Azure. Além do recomeço iniciado, pode ver a atividade de **Write HANAInstances** . Este tipo de atividade não realiza alterações na própria unidade HANA Large Instance, mas está a documentar alterações nos dados de meta da unidade em Azure. No caso listado, adicionámos e apagamos uma etiqueta (ver secção seguinte).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Adicione e elimine uma etiqueta Azure a uma unidade HANA Large Instance
 Outra possibilidade que você tem é adicionar uma [etiqueta](../../../azure-resource-manager/management/tag-resources.md) a uma unidade HANA Large Instance. A forma como as etiquetas estão a ser atribuídas não difere da atribuição de etiquetas a VMs. Tal como acontece com os VMs, as etiquetas existem nos dados metaure do Azure e, para as Grandes Instâncias HANA, têm as mesmas restrições que as etiquetas para os VMs.
@@ -131,7 +131,7 @@ Iniciando um reinício do sistema operativo Linux, houve várias situações em 
 Ao premir o botão de reinício, perguntam-lhe se pretende mesmo reiniciar a unidade. Como confirma premindo o botão "Sim", a unidade reiniciará.
 
 > [!NOTE]
-> No processo de reinício, irá experimentar um pequeno período em que o estado da unidade muda para **Começar a** mover-se para o estado de **Início**. Estar no estado de **Início** significa que o SO está a começar ou que o SO foi completamente iniciado. Como resultado, após um reinício da unidade, não pode esperar iniciar imediatamente o login na unidade assim que o estado mudar para **Iniciar**.
+> No processo de reinício, irá experimentar um pequeno período em que o estado da unidade muda para **Começar a** mover-se para o estado de **Início** . Estar no estado de **Início** significa que o SO está a começar ou que o SO foi completamente iniciado. Como resultado, após um reinício da unidade, não pode esperar iniciar imediatamente o login na unidade assim que o estado mudar para **Iniciar** .
 
 > [!IMPORTANT]
 > Dependente da quantidade de memória na sua unidade HANA Large Instance, um reinício e reinicialização do hardware e do sistema operativo pode demorar até uma hora
@@ -146,7 +146,7 @@ Para obter o serviço de SAP HANA Large Instances listado no ecrã seguinte, pod
 
 ![Selecione todos os serviços no portal Azure](./media/hana-li-portal/portal-create-service-request.png)
 
-Na lista de serviços, pode encontrar o serviço **SAP HANA Large Instance**. Ao escolher este serviço, pode selecionar tipos específicos de problemas como mostrado:
+Na lista de serviços, pode encontrar o serviço **SAP HANA Large Instance** . Ao escolher este serviço, pode selecionar tipos específicos de problemas como mostrado:
 
 
 ![Selecione classe de problemas no portal Azure](./media/hana-li-portal/portal-select-problem-class.png)

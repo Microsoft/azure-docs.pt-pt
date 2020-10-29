@@ -3,12 +3,12 @@ title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371448"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913811"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -68,11 +68,11 @@ Existem dois tipos de configurações de piscina disponíveis no Lote.
 
 A **Configuração da Máquina Virtual** especifica que a piscina é composta por máquinas virtuais Azure. Estas VMs podem ser criadas a partir de imagens do Linux ou do Windows.
 
-Quando cria um agrupamento com base na Configuração de Máquina Virtual, tem de especificar não só o tamanho dos nós e a origem das imagens utilizadas para criá-los, como também a **referência da imagem da máquina virtual** e o **SKU do agente de nó** do Batch a instalar nos nós. Para obter mais informações sobre como especificar estas propriedades dos conjuntos, veja [Provision Linux compute nodes in Azure Batch pools (Aprovisionar nós de computação do Linux em conjuntos do Azure Batch)](batch-linux-nodes.md). Opcionalmente, pode anexar um ou mais discos de dados vazio às VMs do agrupamento criadas a partir de imagens do Marketplace ou incluir os discos de dados em imagens personalizadas utilizadas para criar as VMs. Ao incluir discos de dados, é necessário montar e formatar os discos a partir de um VM para os utilizar.
+O [agente de nó batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) é um programa que funciona em cada nó na piscina e fornece a interface de comando e controlo entre o nó e o serviço Batch. Existem diferentes implementações do agente de nó, conhecido como SKUs, para diferentes sistemas operativos. Quando cria um agrupamento com base na Configuração de Máquina Virtual, tem de especificar não só o tamanho dos nós e a origem das imagens utilizadas para criá-los, como também a **referência da imagem da máquina virtual** e o **SKU do agente de nó** do Batch a instalar nos nós. Para obter mais informações sobre como especificar estas propriedades dos conjuntos, veja [Provision Linux compute nodes in Azure Batch pools (Aprovisionar nós de computação do Linux em conjuntos do Azure Batch)](batch-linux-nodes.md). Opcionalmente, pode anexar um ou mais discos de dados vazio às VMs do agrupamento criadas a partir de imagens do Marketplace ou incluir os discos de dados em imagens personalizadas utilizadas para criar as VMs. Ao incluir discos de dados, é necessário montar e formatar os discos a partir de um VM para os utilizar.
 
 ### <a name="cloud-services-configuration"></a>Configuração de serviços na nuvem
 
-A **Configuração de Serviços cloud** especifica que a piscina é composta por nós Azure Cloud Services. Os Serviços cloud fornecem *apenas*nós de computação do Windows .
+A **Configuração de Serviços cloud** especifica que a piscina é composta por nós Azure Cloud Services. Os Serviços cloud fornecem *apenas* nós de computação do Windows .
 
 Os sistemas operativos disponíveis para os conjuntos de Configuração de Serviços Cloud estão listados em [Azure Guest OS releases and SDK compatibility matrix (Versões de SO Convidado do Azure e matriz de compatibilidade de SDK)](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria uma piscina que contém nós cloud Services, tem de especificar o tamanho do nó e a sua *Família OS* (que determina quais as versões de .NET instaladas com o SISTEMA). Os Serviços Cloud são implantados para Azure mais rapidamente do que máquinas virtuais que executam o Windows. Se quiser agrupamentos de nós de computação do Windows, vai chegar à conclusão de que os Serviços Cloud são mais vantajosos no que diz respeito ao tempo de implementação.
 
@@ -125,9 +125,9 @@ Como exemplo, talvez um trabalho exija que apresente um grande número de tarefa
 
 Uma fórmula de dimensionamento pode basear-se nas métricas seguintes:
 
-- **Métricas de tempo**: baseadas em estatísticas recolhidas a cada cinco minutos no número de horas especificado.
-- **Métricas de recurso**: baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
-- **Métricas de tarefas**: baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
+- **Métricas de tempo** : baseadas em estatísticas recolhidas a cada cinco minutos no número de horas especificado.
+- **Métricas de recurso** : baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
+- **Métricas de tarefas** : baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída* .
 
 Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma [*opção de deallocação de nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que definir a opção de translocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de piscina até que todas as tarefas tenham terminado, ou todos os períodos de retenção de tarefas tenham expirado, respectivamente.
 
@@ -142,7 +142,7 @@ A opção de configuração [máximo de tarefas por nó](batch-parallel-node-tas
 
 A configuração predefinida especifica que uma tarefa seja executada num nó de computação de cada vez, mas existem cenários onde é vantajoso ter duas ou mais tarefas executadas num nó em simultâneo. Veja o [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo [Tarefas de nó simultâneas](batch-parallel-node-tasks.md) para saber como tirar partido de várias tarefas por nó.
 
-Também pode especificar um *tipo de preenchimento*, que determina se o Batch espalha as tarefas uniformemente em todos os nós de uma piscina ou embala cada nó com o número máximo de tarefas antes de atribuir tarefas a outro nó.
+Também pode especificar um *tipo de preenchimento* , que determina se o Batch espalha as tarefas uniformemente em todos os nós de uma piscina ou embala cada nó com o número máximo de tarefas antes de atribuir tarefas a outro nó.
 
 ## <a name="communication-status"></a>Estado da comunicação
 

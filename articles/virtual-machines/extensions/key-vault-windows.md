@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78231fa5cc6e5061ab3e2b26faf97da76da83b32
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427897"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913964"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual key Vault para Windows
 
@@ -81,26 +81,26 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 > Isto porque o `/secrets` caminho devolve o certificado completo, incluindo a chave privada, enquanto o caminho `/certificates` não. Mais informações sobre certificados podem ser encontradas aqui: [Certificados de Cofre Chave](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> A propriedade 'autenticaçõesSettings' só é **necessária** para VMs com **identidades atribuídas pelo utilizador**.
+> A propriedade 'autenticaçõesSettings' só é **necessária** para VMs com **identidades atribuídas pelo utilizador** .
 > Especifica a identidade para a autenticação no Cofre de Chaves.
 
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | string |
-| tipo | KeyVaultForWindows | string |
-| typeHandlerVersion | 1.0 | int |
-| sondagensIntervalInS | 3600 | string |
-| certificadoStoreName | MY | string |
+| publicador | Microsoft.Azure.KeyVault | cadeia |
+| tipo | KeyVaultForWindows | cadeia |
+| typeHandlerVersion | 1,0 | int |
+| sondagensIntervalInS | 3600 | cadeia |
+| certificadoStoreName | MY | cadeia |
 | linkOnRenewal | false | boolean |
-| certificaStoreLocalização  | LocalMachine ou CurrentUser (sensível a casos) | string |
+| certificaStoreLocalização  | LocalMachine ou CurrentUser (sensível a casos) | cadeia |
 | requerinitialSync | true | boolean |
-| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | matriz de cordas
+| msiEndpoint | http://169.254.169.254/metadata/identity | cadeia |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | cadeia |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
@@ -132,7 +132,7 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         }      
       }
       }
@@ -154,7 +154,7 @@ O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre de 
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName =  "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
@@ -174,7 +174,7 @@ O Azure PowerShell pode ser utilizado para implantar a extensão VM do Cofre de 
         { "pollingIntervalInS": "' + <pollingInterval> + 
         '", "certificateStoreName": "' + <certStoreName> + 
         '", "certificateStoreLocation": "' + <certStoreLoc> + 
-        '", "observedCertificates": ["' + <observedCerts> + '"] } }'
+        '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }'
         $extName = "KeyVaultForWindows"
         $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
@@ -200,7 +200,7 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
          --publisher Microsoft.Azure.KeyVault `
          -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 * Para implantar a extensão num conjunto de escala de máquina virtual:
@@ -211,7 +211,7 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
          --publisher Microsoft.Azure.KeyVault `
          -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
-         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
+         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
 Por favor, esteja ciente das seguintes restrições/requisitos:
@@ -221,31 +221,30 @@ Por favor, esteja ciente das seguintes restrições/requisitos:
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
-
-Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure PowerShell.
-
 ### <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
 * Existe um limite para o número de certificados observados que pode configurar?
   Não, a extensão VM do cofre não tem limite no número de Certificados observados.
 
-## <a name="azure-powershell"></a>Azure PowerShell
+### <a name="troubleshoot"></a>Resolução de problemas
+
+Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o Azure PowerShell. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure PowerShell.
+
+**Azure PowerShell**
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+**CLI do Azure**
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-A saída de execução de extensão é registada no seguinte ficheiro:
+#### <a name="logs-and-configuration"></a>Registos e configuração
 
 ```
 %windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
 ```
-
 
 ### <a name="support"></a>Suporte
 

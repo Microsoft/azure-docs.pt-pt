@@ -4,18 +4,18 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172834"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925582"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
 Este artigo responde a perguntas comuns sobre o backup dos VMs Azure com o serviço [Azure Backup.](./backup-overview.md)
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Que imagens VM podem ser ativadas para backup quando as crio?
 
@@ -29,7 +29,7 @@ Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
-Não. Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
+N.º Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para permitir a cópia de segurança para um VM?
 
@@ -49,7 +49,7 @@ Se o cofre dos Serviços de Recuperação e o VM tiverem diferentes grupos de re
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Um trabalho de reserva a pedido usa o mesmo horário de retenção que os backups programados?
 
-Não. Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
+N.º Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
 
@@ -76,6 +76,10 @@ Sim. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não
 Se bloquear o grupo de recursos criado pelo Serviço de Backup Azure, as cópias de segurança começarão a falhar, uma vez que existe um limite máximo de 18 pontos de restauro.
 
 Retire a fechadura e limpe a recolha do ponto de restauro desse grupo de recursos para que as futuras cópias de segurança seja bem sucedida. [Siga estes passos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a recolha do ponto de restauro.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Tenho uma fechadura ao nível do grupo de recursos que contém todos os recursos relacionados com a minha máquina virtual. O meu apoio vai funcionar?
+
+O Azure Backup cria um grupo de recursos separado no formato `AzureBackupRG_<geo>_<number>` para armazenar objetos ResourcePointCollections. Uma vez que este grupo de recursos é propriedade do serviço, bloqueá-lo fará com que as cópias de segurança falhem. Os bloqueios só podem ser aplicados a grupos de recursos criados pelo cliente.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O Azure Backup suporta discos geridos por SSD padrão?
 
@@ -145,7 +149,7 @@ Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e 
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 
-Para VMs Azure de Disco Gerido, restaurar os conjuntos de disponibilidade é ativado fornecendo uma opção no modelo enquanto restaura como discos geridos. Este modelo tem o parâmetro de entrada chamado **Availability sets**.
+Para VMs Azure de Disco Gerido, restaurar os conjuntos de disponibilidade é ativado fornecendo uma opção no modelo enquanto restaura como discos geridos. Este modelo tem o parâmetro de entrada chamado **Availability sets** .
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Como é que vamos obter performances de restauro mais rápidas?
 
@@ -181,7 +185,7 @@ O VM é apoiado utilizando as definições de programação e retenção na pol�
 
    1. Encontre a localização da sua máquina virtual.
    2. Encontre um grupo de recursos com o seguinte padrão de nomeação: `AzureBackupRG_<location of your VM>_1` . Por exemplo, *AzureBackupRG_westus2_1*
-   3. No portal Azure, verifique **os tipos ocultos do Show**.
+   3. No portal Azure, verifique **os tipos ocultos do Show** .
    4. Encontre o recurso com o tipo **Microsoft.Compute/restorePointCollections** que tenha o padrão de nomeação `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Elimine este recurso. Esta operação elimina apenas os pontos de recuperação instantâneos, não os dados de retenção no cofre.
    6. Depois de concluída a operação de eliminação, pode mover a sua máquina virtual.
@@ -199,7 +203,7 @@ Depois de mover o VM para um novo grupo de recursos, pode reprotegir o VM no mes
 
 Os antigos pontos de restauro do VM estarão disponíveis para restauro, se necessário. Se não precisar destes dados de backup, pode parar de proteger os seus antigos VM com dados de eliminação.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Existe um limite para o número de VMs que pode ser associado à mesma política de backup?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>Existe um limite para o número de VMs que pode ser associado à mesma política de backup?
 
 Sim, há um limite de 100 VMs que podem ser associados à mesma política de backup do portal. Recomendamos que para mais de 100 VMs, crie várias políticas de backup com o mesmo horário ou horário diferente.
 

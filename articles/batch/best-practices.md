@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102783"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913233"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -41,7 +41,7 @@ Este artigo discute uma coleção de boas práticas para a utilização do servi
 A vida útil da piscina pode variar dependendo do método de alocação e das opções aplicadas à configuração da piscina. As piscinas podem ter uma vida útil arbitrária e um número variado de nós computacional na piscina em qualquer momento. É da sua responsabilidade gerir os nódinhos de computação na piscina, quer explicitamente, quer através de funcionalidades fornecidas pelo serviço (autoescala ou autopool).
 
 - **Mantenha as piscinas frescas.**
-    Deve redimensionar as suas piscinas para zero a cada poucos meses para garantir que obtém as últimas atualizações de agentes de nó e correções de erros. A sua piscina não receberá atualizações de agentes de nó, a menos que seja recriada ou redimensionada para 0 nós de computação. Antes de recriar ou redimensionar a sua piscina, é aconselhável baixar quaisquer registos de agentes de nó para fins de depuração, conforme discutido na secção [Nodes.](#nodes)
+    Deve redimensionar as suas piscinas para zero a cada poucos meses para garantir que obtém as [últimas atualizações de agentes de nó e correções de erros.](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) A sua piscina não receberá atualizações de agentes de nó, a menos que seja recriada ou redimensionada para 0 nós de computação. Antes de recriar ou redimensionar a sua piscina, é aconselhável baixar quaisquer registos de agentes de nó para fins de depuração, conforme discutido na secção [Nodes.](#nodes)
 
 - **Recriação da piscina** Numa nota semelhante, não é aconselhável apagar e recriar as suas piscinas diariamente. Em vez disso, crie uma nova piscina, atualize os seus empregos existentes para apontar para a nova piscina. Uma vez que todas as tarefas tenham sido transferidas para a nova piscina, em seguida, apagar a piscina antiga.
 
@@ -67,7 +67,7 @@ As piscinas podem ser criadas usando imagens de terceiros publicadas no Azure Ma
 
 ### <a name="azure-region-dependency"></a>Dependência da região de Azure
 
-É aconselhável não depender de uma única região de Azure se tiver uma carga de trabalho sensível ao tempo ou de produção. Embora raras, há problemas que podem afetar toda uma região. Por exemplo, se o seu processamento precisar de começar numa hora específica, considere aumentar a piscina na sua região primária *muito antes da hora de início*. Se a balança da piscina falhar, pode voltar a escalar uma piscina numa região de reserva (ou regiões). Piscinas em várias contas em diferentes regiões fornecem uma cópia de segurança pronta e facilmente acessível se algo correr mal com outra piscina. Para mais informações, consulte [Design a sua aplicação para obter alta disponibilidade.](high-availability-disaster-recovery.md)
+É aconselhável não depender de uma única região de Azure se tiver uma carga de trabalho sensível ao tempo ou de produção. Embora raras, há problemas que podem afetar toda uma região. Por exemplo, se o seu processamento precisar de começar numa hora específica, considere aumentar a piscina na sua região primária *muito antes da hora de início* . Se a balança da piscina falhar, pode voltar a escalar uma piscina numa região de reserva (ou regiões). Piscinas em várias contas em diferentes regiões fornecem uma cópia de segurança pronta e facilmente acessível se algo correr mal com outra piscina. Para mais informações, consulte [Design a sua aplicação para obter alta disponibilidade.](high-availability-disaster-recovery.md)
 
 ## <a name="jobs"></a>Tarefas
 

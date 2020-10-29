@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893691"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913199"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recibo
 
@@ -449,7 +449,7 @@ A saída Recibo também é útil para contabilidade geral para uso comercial ou 
 
 As receitas contêm dados úteis que pode utilizar para analisar o comportamento do consumidor e as tendências de compras.
 
-A API de Receção também alimenta a [funcionalidade de Processamento de Recibos AIBuilder.](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing)
+A API de Receção também alimenta a [funcionalidade de Processamento de Recibos AIBuilder.](/ai-builder/prebuilt-receipt-processing)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -459,4 +459,4 @@ A API de Receção também alimenta a [funcionalidade de Processamento de Recibo
 ## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
-* [REST API referenciar docs](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [REST API referenciar docs](./index.yml)

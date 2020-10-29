@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f4e429d9c5eeee382d59a294a11204f674b1f546
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911516"
+ms.locfileid: "92926041"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key Vault para Linux
 
@@ -85,20 +85,20 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo | Tipo de Dados |
+| Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | cadeia |
-| tipo | KeyVaultForLinux | cadeia |
+| publicador | Microsoft.Azure.KeyVault | string |
+| tipo | KeyVaultForLinux | string |
 | typeHandlerVersion | 1,0 | int |
-| sondagensIntervalInS | 3600 | cadeia |
-| certificadoStoreName | É ignorado em Linux | cadeia |
+| sondagensIntervalInS | 3600 | string |
+| certificadoStoreName | É ignorado em Linux | string |
 | linkOnRenewal | false | boolean |
-| certificaStoreLocalização  | /var/lib/waagent/Microsoft.Azure.KeyVault | cadeia |
+| certificaStoreLocalização  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requerinitialSync | true | boolean |
 | certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | matriz de cordas
-| msiEndpoint | http://169.254.169.254/metadata/identity | cadeia |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | cadeia |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
@@ -216,12 +216,11 @@ Por favor, esteja ciente das seguintes restrições/requisitos:
   - Deve existir no momento da implantação 
   - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Ver [como autenticar para o cofre](../../key-vault/general/authentication.md) de chaves e atribuir uma política de acesso ao cofre de [chaves](../../key-vault/general/assign-access-policy-cli.md).
 
-## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
-
 ### <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
 * Existe um limite para o número de certificados observados que pode configurar?
   Não, a extensão VM do cofre não tem limite no número de Certificados observados.
+
 
 ### <a name="troubleshoot"></a>Resolução de problemas
 
@@ -243,6 +242,14 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### <a name="using-symlink"></a>Utilização do Symlink
+
+Ligações simbólicas ou Symlinks são basicamente atalhos avançados. Para evitar monitorizar a pasta e obter o certificado mais recente automaticamente, pode utilizar este symlink `([VaultName].[CertificateName])` para obter a versão mais recente do certificado no Linux.
+
+### <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
+
+* Existe um limite para o número de certificados observados que pode configurar?
+  Não, a extensão VM do cofre não tem limite no número de Certificados observados.
 
 ### <a name="support"></a>Suporte
 

@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795398"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913250"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Mudar organizações num portal
 
@@ -32,9 +32,9 @@ O comutador de organização está disponível nos seguintes portais:
 
 As organizações de comutação não estão disponíveis para **os Meus Logins,** **Informações** de Segurança ou **Os Meus Grupos.**
 
-## <a name="switch-organizations"></a>Mudar de organização
+## <a name="switch-organizations"></a>Trocar organizações
 
-Eis como mudar para outra organização. Este exemplo utiliza-se no portal **My Account,** mas o ícone e colocação do comutador também são semelhantes noutros portais.
+Eis como mudar para outra organização. Este exemplo utiliza o portal **My Account,** mas o ícone e colocação do comutador também são semelhantes noutros portais.
 
 1. Inscreva-se na sua conta de trabalho ou escola e, em seguida, abra a página [Minha Conta.](https://myaccount.microsoft.com)
 1. Selecione o comutador de organização :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="O ícone para o comutador"::: de organização no topo da página, ao lado da foto da sua conta.

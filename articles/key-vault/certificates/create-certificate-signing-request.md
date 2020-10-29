@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cea061c1fd36bed9fa1e43c874fbca347707f78d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569378"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925872"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
@@ -62,19 +62,19 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
 ### <a name="azure-portal"></a>Portal do Azure
 
 1.  Para gerar CSR para o CA à sua escolha, navegue até ao cofre Key que pretende adicionar o certificado.
-2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
+2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados** .
 3.  **Selecione o separador Gerar/Importar.**
 4.  No **Ecrã de Certificado escolha** os seguintes valores:
     - **Método de Criação de Certificados:** Gerar.
     - **Nome do certificado:** ContosoManualCSRCertificate.
     - **Tipo de Autoridade de Certificados (CA):** Certificado emitido por uma AC não integrada
     - **Objeto:**`"CN=www.contosoHRApp.com"`
-    - Selecione os outros valores conforme desejado. Clique em **Criar**.
+    - Selecione os outros valores conforme desejado. Clique em **Criar** .
 
     ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Verá que o certificado foi agora adicionado na lista de Certificados. Selecione este novo certificado que tinha acabado de criar. O estado atual do certificado seria "desativado", uma vez que ainda não foi emitido pela AC.
-7. Clique no separador **Operação certificado** e selecione **Download CSR**.
- ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/download-csr.png)
+7. Clique no separador **Operação certificado** e selecione **Download CSR** .
+ ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Leve o ficheiro .csr à AC para que o pedido seja assinado.
 9.  Uma vez que o pedido seja assinado pela AC, traga de volta o ficheiro de certificado para **fundir o pedido assinado** no mesmo ecrã de Operação certificado.

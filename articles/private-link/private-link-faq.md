@@ -7,21 +7,21 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757049"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913726"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link frequentemente fez perguntas (FAQ)
 
-## <a name="private-link"></a>Ligação Privada
+## <a name="private-link"></a>Private Link
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>O que é Azure Private Endpoint e Azure Private Link Service?
 
-- **[Azure Private Endpoint](private-endpoint-overview.md)**: Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. Pode utilizar os Pontos Finais Privados para se ligar a um serviço Azure PaaS que suporta o Private Link ou ao seu próprio Serviço de Ligação Privada.
-- **[Azure Private Link Service](private-link-service-overview.md)**: Azure Private Link service é um serviço criado por um prestador de serviços. Atualmente, um serviço de Ligação Privada pode ser anexado à configuração IP frontal de um Balanceador de Carga Padrão. 
+- **[Azure Private Endpoint](private-endpoint-overview.md)** : Azure Private Endpoint é uma interface de rede que o liga de forma privada e segura a um serviço alimentado pela Azure Private Link. Pode utilizar os Pontos Finais Privados para se ligar a um serviço Azure PaaS que suporta o Private Link ou ao seu próprio Serviço de Ligação Privada.
+- **[Azure Private Link Service](private-link-service-overview.md)** : Azure Private Link service é um serviço criado por um prestador de serviços. Atualmente, um serviço de Ligação Privada pode ser anexado à configuração IP frontal de um Balanceador de Carga Padrão. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Como é enviado o tráfego quando se utiliza o Link Privado?
 O tráfego é enviado em privado usando a espinha dorsal da Microsoft. Não atravessa a internet. O Azure Private Link não armazena os dados dos clientes.
@@ -48,6 +48,9 @@ Sim. Os pontos finais privados podem ligar-se aos serviços de Private Link ou A
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>O ponto final privado pode ligar-se aos recursos do Azure PaaS em todas as regiões de Azure?
 Sim. Os pontos finais privados podem ligar-se aos recursos do Azure PaaS em todas as regiões de Azure.
+
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Posso modificar a minha Interface de Rede de Pontos Finais (NIC) ?
+Quando um ponto final privado é criado, um NIC apenas de leitura é atribuído. Isto não pode ser modificado e permanecerá para o ciclo de vida do ponto final privado.
 
 ## <a name="private-link-service"></a>Serviço de Ligação Privada
  

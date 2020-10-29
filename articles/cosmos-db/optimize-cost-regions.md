@@ -5,49 +5,38 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 047e2855949b800a88ca87bcc50e0df06f420aa8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/23/2020
+ms.openlocfilehash: 723a1fbe05919f2e797c7b29715cd3995bf42cad
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475503"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926297"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões no Azure Cosmos DB
 
-Pode adicionar e remover regiões à sua conta Azure Cosmos a qualquer momento. A produção que configura para várias bases de dados e contentores da Azure Cosmos é reservada em cada região associada à sua conta. Se a produção provisida por hora, isto é, a soma de RU/s configurada em todas as bases de dados e contentores para a sua conta Azure Cosmos `T` é e o número de regiões Azure associadas à sua conta de base de dados `N` é, então o total proviscioso para a sua conta Cosmos, por uma hora é igual a:
-
-1. `T x N RU/s` se a sua conta Azure Cosmos estiver configurada com uma única região de escrita. 
-
-1. `T x (N+1) RU/s` se a sua conta Azure Cosmos estiver configurada com todas as regiões capazes de processar escritas. 
+Pode adicionar e remover regiões à sua conta Azure Cosmos a qualquer momento. A produção que configura para várias bases de dados e contentores da Azure Cosmos é reservada em cada região associada à sua conta. Se a produção provisida por hora, isto é, a soma de RU/s configurada em todas as bases de dados e contentores para a sua conta Azure Cosmos `T` é e o número de regiões Azure associadas à sua conta de base de dados é , `N` então o total proviscioso para a sua conta Cosmos, por uma hora é igual a `T x N RU/s` .
 
 O débito aprovisionado numa única região de escrita custa 0,008 $/hora por 100 RU/s e o débito aprovisionado em várias regiões de escrita custa 0,016 $/hora por 100 RU/s. Para saber mais, consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)da Azure Cosmos DB .
 
 ## <a name="costs-for-multiple-write-regions"></a>Custos para várias regiões de escrita
 
-Num sistema de escrita multi-região, as RUs disponíveis para operações de escrita aumentam `N` os tempos em que `N` o número de regiões de escrita é o número de regiões de escrita. Ao contrário das regiões que escrevem, todas as regiões são atualmente conflituosas e devem apoiar a resolução de conflitos. A quantidade de carga de trabalho para os escritores aumentou. Do ponto de vista do planeamento de custos, para executar `M` ru/s de escritas em todo o mundo, você precisará de providenciar M a `RUs` nível de um contentor ou base de dados. Em seguida, pode adicionar quantas regiões quiser e usá-las para escrever para executar `M` ru vale de escritas mundiais. 
+Num sistema de escrita multi-região, as RUs disponíveis para operações de escrita aumentam `N` os tempos em que `N` o número de regiões de escrita é o número de regiões de escrita. Ao contrário das regiões que escrevem, todas as regiões são atualmente conflituosas e apoiam a resolução de conflitos. Do ponto de vista do planeamento de custos, para executar `M` ru/s de escritas em todo o mundo, você precisará de providenciar M a `RUs` nível de um contentor ou base de dados. Em seguida, pode adicionar quantas regiões quiser e usá-las para escrever para executar `M` ru vale de escritas mundiais.
 
 ### <a name="example"></a>Exemplo
 
-Considere que tem um contentor nos EUA ocidental abasteçado com produção 10K RU/s e armazena 1 TB de dados este mês. Vamos supor que você adiciona três regiões - Eua Leste, Norte da Europa e Ásia Oriental, cada uma com o mesmo armazenamento e produção e você quer a capacidade de escrever para os recipientes em todas as quatro regiões a partir da sua app distribuída globalmente. A sua fatura mensal total (assumindo 31 dias) num mês é a seguinte:
+Considere que tem um contentor nos EUA ocidental configurado para escritas de uma região única, a provisionado com produção 10K RU/s e armazena 1 TB de dados este mês. Vamos supor que você adiciona uma região, Leste dos EUA, com o mesmo armazenamento e produção e você quer a capacidade de escrever para os recipientes em ambas as regiões a partir de sua app. A sua fatura mensal total (assumindo 31 dias) num mês é a seguinte:
 
 |**Item**|**Utilização (mensal)**|**Rate** (Taxa)|**Custo Mensal**|
 |----|----|----|----|
-|Conta de produção de contentores nos EUA Ocidentais (várias regiões de escrita) |10K RU/s * 24 * 31 |$0,016 por 100 RU/s por hora |$1.190,40 |
-|Conta de produção para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental (várias regiões de escrita) |(3 + 1) * 10K RU/s * 24 * 31 |$0,016 por 100 RU/s por hora |$4.761,60 |
+|Conta de produção de contentores nos EUA Ocidentais (regiões de escrita única) |10K RU/s * 24 horas * 31 dias |$0.008 por 100 RU/s por hora |$584.06 |
+|Conta de produção de contentores em 2 regiões - Eua Ocidental & Leste dos EUA (várias regiões de escrita) |2 * 10K RU/s * 24 horas * 31 dias|$0,016 por 100 RU/s por hora |$2.336.26 |
 |Conta de armazenamento para contentor no Oeste dos EUA |1 TB (ou 1,024 GB) |$0,25/GB |$256 |
-|Conta de armazenamento para 3 regiões adicionais - Leste dos EUA, Norte da Europa e Ásia Oriental |3 * 1 TB (ou 3,072 GB) |$0,25/GB |$768 |
-|**Total**|||**$6.976** |
+|Conta de armazenamento para 2 regiões - West US & East US |2 * 1 TB (ou 3,072 GB) |$0,25/GB |$768 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Melhorar a utilização da produção por região
 
-Se tiver uma utilização ineficiente, por exemplo, uma ou mais regiões subutilídas ou sobreutilizá-la, pode tomar as seguintes medidas para melhorar a utilização da produção:  
-
-1. Certifique-se de que otimiza a produção (RUs) na região de escrita primeiro e, em seguida, faça o máximo uso das RUs nas regiões de leitura utilizando o feed de mudança da região de leitura, etc. 
-
-2. Várias regiões de escrita lêem e escrevem podem ser dimensionadas em todas as regiões associadas à conta de Azure Cosmos. 
-
-3. Monitorize a atividade nas suas regiões e poderá adicionar e remover regiões a pedido para escalar a sua leitura e escrever.
+Se tiver uma utilização ineficiente, por exemplo, uma ou mais regiões de leitura subutil utilizadas, pode tomar medidas para utilizar ao máximo as RUs nas regiões de leitura, utilizando o feed de mudança da região de leitura ou transferi-lo para outro secundário se for sobreutilizá-lo. Você precisará garantir que otimiza a produção (RUs) na região de escrita em primeiro lugar. As gravações custam mais do que as leituras, a menos que consultas muito grandes, para que manter a utilização até possa ser um desafio. No geral, monitorize a produção consumida nas suas regiões e adicione ou remova regiões a pedido para escalar a sua produção de leitura e escrita, fazendo com que compreenda o impacto da latência para quaisquer aplicações que sejam implementadas na mesma região.
 
 ## <a name="next-steps"></a>Passos seguintes
 

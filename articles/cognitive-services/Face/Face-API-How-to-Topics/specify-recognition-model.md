@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 016b8bf010f597e963e0901d1ec48486f79bbb35
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283042"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913131"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 
@@ -24,7 +24,7 @@ Este guia mostra-lhe como especificar um modelo de reconhecimento facial para de
 
 O serviço Face utiliza modelos de machine learning para realizar operações em rostos humanos em imagens. Continuamos a melhorar a precisão dos nossos modelos com base no feedback dos clientes e nos avanços na investigação, e entregamos estas melhorias como atualizações de modelos. Os desenvolvedores têm a opção de especificar qual a versão do modelo de reconhecimento facial que gostariam de usar; podem escolher o modelo que melhor se adequa ao seu caso de utilização.
 
-O serviço Azure Face tem três modelos de reconhecimento disponíveis. Os modelos _recognition_01_ (publicados em 2017) e _recognition_02_ (publicados em 2019) são continuamente suportados para garantir retrocompatibilidade para clientes que usam FaceLists ou **PersonGroup**criados com estes modelos. Um **FaceList** ou **Persongroup** usará sempre o modelo de reconhecimento com o que foi criado, e novas caras ficarão associadas a este modelo quando forem adicionadas. Isto não pode ser alterado após a criação e os clientes terão de utilizar o modelo de reconhecimento correspondente com o **FaceList** ou **o PersonGroup**correspondentes.
+O serviço Azure Face tem três modelos de reconhecimento disponíveis. Os modelos _recognition_01_ (publicados em 2017) e _recognition_02_ (publicados em 2019) são continuamente suportados para garantir retrocompatibilidade para clientes que usam FaceLists ou **PersonGroup** criados com estes modelos. Um **FaceList** ou **Persongroup** usará sempre o modelo de reconhecimento com o que foi criado, e novas caras ficarão associadas a este modelo quando forem adicionadas. Isto não pode ser alterado após a criação e os clientes terão de utilizar o modelo de reconhecimento correspondente com o **FaceList** ou **o PersonGroup** correspondentes.
 
 Pode mudar-se para modelos de reconhecimento posteriores à sua própria conveniência; no entanto, terá de criar novos FaceLists e PersonGroups com o modelo de reconhecimento à sua escolha.
 
@@ -53,7 +53,7 @@ Ao utilizar o [Face - Detetar] API, atribua a versão do modelo com o `recogniti
 * recognition_03
 
 
-Opcionalmente, pode especificar o _parâmetro ReturnRecognitionModel_ **(falso**predefinido) para indicar se _o modelo de reconhecimento_ deve ser devolvido em resposta. Assim, um URL de pedido para o [Rosto - Detect] REST API será assim:
+Opcionalmente, pode especificar o _parâmetro ReturnRecognitionModel_ **(falso** predefinido) para indicar se _o modelo de reconhecimento_ deve ser devolvido em resposta. Assim, um URL de pedido para o [Rosto - Detect] REST API será assim:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
@@ -66,9 +66,9 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>Identificar rostos com modelo especificado
 
-O serviço Face pode extrair dados faciais de uma imagem e associá-lo a um objeto **pessoa** (através da chamada [API face Add,](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) por exemplo), e vários objetos **pessoais** podem ser armazenados juntos num **PersonGroup**. Em seguida, um novo rosto pode ser comparado com um **PersonGroup** (com a chamada [Face - Identifique),] e a pessoa correspondente dentro desse grupo pode ser identificada.
+O serviço Face pode extrair dados faciais de uma imagem e associá-lo a um objeto **pessoa** (através da chamada [API face Add,](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) por exemplo), e vários objetos **pessoais** podem ser armazenados juntos num **PersonGroup** . Em seguida, um novo rosto pode ser comparado com um **PersonGroup** (com a chamada [Face - Identifique),] e a pessoa correspondente dentro desse grupo pode ser identificada.
 
-Um **PersonGroup** deve ter um modelo de reconhecimento único para todos os **Pessoas,** e pode especiá-lo usando o `recognitionModel` parâmetro quando criar o grupo[(PersonGroup - Criar] ou [LargePersonGroup - Criar]). Se não especificar este parâmetro, o modelo original `recognition_01` é utilizado. Um grupo usará sempre o modelo de reconhecimento com o que foi criado, e novas caras ficarão associadas a este modelo quando forem adicionadas ao mesmo; isto não pode ser alterado após a criação de um grupo. Para ver com que modelo um **PersonGroup** está configurado, utilize o [PersonGroup - Obtenha] API com o _retornadoRecognitionModel_ definido como **verdadeiro**.
+Um **PersonGroup** deve ter um modelo de reconhecimento único para todos os **Pessoas,** e pode especiá-lo usando o `recognitionModel` parâmetro quando criar o grupo [(PersonGroup - Criar] ou [LargePersonGroup - Criar]). Se não especificar este parâmetro, o modelo original `recognition_01` é utilizado. Um grupo usará sempre o modelo de reconhecimento com o que foi criado, e novas caras ficarão associadas a este modelo quando forem adicionadas ao mesmo; isto não pode ser alterado após a criação de um grupo. Para ver com que modelo um **PersonGroup** está configurado, utilize o [PersonGroup - Obtenha] API com o _retornadoRecognitionModel_ definido como **verdadeiro** .
 
 Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 
@@ -86,7 +86,7 @@ Não há alteração no [Rosto - Identificar] API; basta especificar a versão d
 
 ## <a name="find-similar-faces-with-specified-model"></a>Encontre rostos semelhantes com modelo especificado
 
-Também pode especificar um modelo de reconhecimento para pesquisa de semelhança. Pode atribuir a versão do modelo `recognitionModel` ao criar a lista de rostos com [FaceList - Criar] API ou [LargeFaceList - Criar]. Se não especificar este parâmetro, o `recognition_01` modelo é utilizado por predefinição. Uma lista facial usará sempre o modelo de reconhecimento com o que foi criado, e novos rostos ficarão associados a este modelo quando forem adicionados à lista; não podes mudar isto depois da criação. Para ver com que modelo uma lista facial está configurada, utilize o [FaceList - Obtenha] API com o _retornadoRecognitionModel_ definido como **verdadeiro**.
+Também pode especificar um modelo de reconhecimento para pesquisa de semelhança. Pode atribuir a versão do modelo `recognitionModel` ao criar a lista de rostos com [FaceList - Criar] API ou [LargeFaceList - Criar]. Se não especificar este parâmetro, o `recognition_01` modelo é utilizado por predefinição. Uma lista facial usará sempre o modelo de reconhecimento com o que foi criado, e novos rostos ficarão associados a este modelo quando forem adicionados à lista; não podes mudar isto depois da criação. Para ver com que modelo uma lista facial está configurada, utilize o [FaceList - Obtenha] API com o _retornadoRecognitionModel_ definido como **verdadeiro** .
 
 Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 
@@ -94,7 +94,7 @@ Consulte o seguinte exemplo de código para a biblioteca de clientes .NET.
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 ```
 
-Este código cria uma lista de rostos chamada `My face collection` , utilizando o modelo _recognition_03_ para a extração de recursos. Quando procura esta lista de rostos semelhantes a um novo rosto detetado, esse rosto deve ter sido detetado[(Face - Detect]) utilizando o modelo _recognition_03._ Tal como na secção anterior, o modelo tem de ser consistente.
+Este código cria uma lista de rostos chamada `My face collection` , utilizando o modelo _recognition_03_ para a extração de recursos. Quando procura esta lista de rostos semelhantes a um novo rosto detetado, esse rosto deve ter sido detetado [(Face - Detect]) utilizando o modelo _recognition_03._ Tal como na secção anterior, o modelo tem de ser consistente.
 
 Não há alteração no Rosto - Encontre API [similar;] apenas especificar a versão do modelo na deteção.
 
@@ -105,10 +105,10 @@ O [Rosto - Verifique se a] API verifica se duas faces pertencem à mesma pessoa.
 ## <a name="evaluate-different-models"></a>Avaliar diferentes modelos
 
 Se quiser comparar as performances de diferentes modelos de reconhecimento nos seus próprios dados, terá de:
-1. Crie três Grupos pessoais utilizando _recognition_01,_ _recognition_02_e _recognition_03_ respectivamente.
-1. Utilize os seus dados de imagem para detetar rostos e registá-los na **Pessoa**s dentro destes três **PersonGroup**s. 
+1. Crie três Grupos pessoais utilizando _recognition_01,_ _recognition_02_ e _recognition_03_ respectivamente.
+1. Utilize os seus dados de imagem para detetar rostos e registá-los na **Pessoa** s dentro destes três **PersonGroup** s. 
 1. Treine os seus Grupos pessoais utilizando o PersonGroup - Train API.
-1. Teste com Face - Identifique nos três **PersonGroup**s e compare os resultados.
+1. Teste com Face - Identifique nos três **PersonGroup** s e compare os resultados.
 
 
 Se normalmente especificar um limiar de confiança (um valor entre zero e um que determina o quão confiante o modelo deve estar para identificar um rosto), poderá ter de utilizar diferentes limiares para diferentes modelos. Um limiar para um modelo não deve ser partilhado para outro e não produzirá necessariamente os mesmos resultados.
@@ -117,9 +117,9 @@ Se normalmente especificar um limiar de confiança (um valor entre zero e um que
 
 Neste artigo, aprendeu a especificar o modelo de reconhecimento a utilizar com diferentes APIs de serviço Face. Em seguida, siga um quickstart para começar a usar a deteção facial.
 
-* [Face .NET SDK](../Quickstarts/csharp-sdk.md)
-* [Face Python SDK](../Quickstarts/python-sdk.md)
-* [Face Go SDK](../Quickstarts/go-sdk.md)
+* [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
+* [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face Go SDK](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Rosto – Detetar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Rosto - Encontrar Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

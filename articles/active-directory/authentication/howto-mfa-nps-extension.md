@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5095df51fe430990e200b7bc7c3ca03feb0799d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20ae53805d25614e18f17a7d20acd884d31ab7d6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964286"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925718"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integre a sua infraestrutura existente do Network Policy Server (NPS) com a autenticação multi-factor Azure
 
@@ -30,7 +30,7 @@ A extensão NPS funciona como um adaptador entre RADIUS e Azure Multi-Factor Aut
 Quando utiliza a extensão NPS para autenticação multi-factor Azure, o fluxo de autenticação inclui os seguintes componentes:
 
 1. **O SERVIDOR NAS/VPN** recebe pedidos de clientes VPN e converte-os em pedidos RADIUS para servidores NPS.
-2. **O NPS Server** conecta-se aos Serviços de Domínio do Diretório Ativo (DS AD) para realizar a autenticação primária para os pedidos RADIUS e, após o sucesso, passa o pedido a quaisquer extensões instaladas.  
+2. **O NPS Server** conecta-se aos Serviços de Domínio do Diretório Ativo (DS AD) para realizar a autenticação primária para os pedidos RADIUS e, após o sucesso, passa o pedido a quaisquer extensões instaladas.  
 3. **A extensão NPS** desencadeia um pedido de autenticação multi-factor Azure para a autenticação secundária. Uma vez que a extensão recebe a resposta, e se o desafio MFA for bem sucedido, completa o pedido de autenticação fornecendo ao servidor NPS fichas de segurança que incluem uma reclamação de MFA, emitida pela Azure STS.
 4. **A Azure MFA** comunica com o Azure Ative Directory (Azure AD) para recuperar os dados do utilizador e efetua a autenticação secundária utilizando um método de verificação configurado para o utilizador.
 
@@ -98,7 +98,7 @@ Todos os que usam a extensão NPS devem ser sincronizados com Azure AD usando Az
 Quando instalar a extensão, precisa da *identificação* do inquilino e credenciais de administração para o seu inquilino AD Azure. Para obter a iD do inquilino, complete os seguintes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global do inquilino Azure.
-1. Procure e selecione o **Diretório Ativo Azure**.
+1. Procure e selecione o **Diretório Ativo Azure** .
 1. Na página **geral,** é mostrada a informação do *Arrendatário.* Ao lado do ID do *inquilino,* selecione o ícone **Copy,** como mostra o seguinte exemplo de imagem:
 
    ![Obter a ID do Inquilino do portal Azure](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
@@ -125,10 +125,10 @@ Antes de instalar a extensão NPS, prepare-o para lidar com o tráfego de autent
 
 O servidor NPS conecta-se ao AZure AD e autentica os pedidos de MFA. Escolha um servidor para este papel. Recomendamos a escolha de um servidor que não lide com pedidos de outros serviços, porque a extensão NPS lança erros para quaisquer pedidos que não sejam RADIUS. O servidor NPS deve ser configurado como o servidor de autenticação primária e secundária para o seu ambiente. Não pode pedir pedidos de RADIUS a outro servidor.
 
-1. No seu servidor, abra **o Gestor do Servidor**. Selecione **Adicionar Funções e Funcionalidades Assistente** no menu *Quickstart.*
+1. No seu servidor, abra **o Gestor do Servidor** . Selecione **Adicionar Funções e Funcionalidades Assistente** no menu *Quickstart.*
 2. Para o seu tipo de instalação, escolha **instalação baseada em funções ou baseada em recursos.**
 3. Selecione a função de servidor **de Política de Rede e Serviços de Acesso.** Uma janela pode aparecer para informá-lo sobre as funcionalidades adicionais necessárias para executar este papel.
-4. Continue através do assistente até à página *de Confirmação.* Quando estiver pronto, **selecione Instalar**.
+4. Continue através do assistente até à página *de Confirmação.* Quando estiver pronto, **selecione Instalar** .
 
 Pode levar alguns minutos para instalar a função do servidor NPS. Quando terminar, continue com as seguintes secções para configurar este servidor para lidar com os pedidos de RADIUS que chegam a partir da solução VPN.
 
@@ -150,16 +150,16 @@ Se precisar de iniciar uma nova ronda de sincronização, consulte [a sincroniza
 
 Existem dois fatores que afetam os métodos de autenticação disponíveis com uma extensão NPS:
 
-1. O algoritmo de encriptação de palavra-passe utilizado entre o cliente RADIUS (VPN, servidor Netscaler ou outro) e os servidores NPS.
+* O algoritmo de encriptação de palavra-passe utilizado entre o cliente RADIUS (VPN, servidor Netscaler ou outro) e os servidores NPS.
    - **O PAP** suporta todos os métodos de autenticação do Azure Multi-Factor Authentication na nuvem: chamada telefónica, mensagem de texto unidirecionais, notificação de aplicações móveis, fichas de hardware OATH e código de verificação de aplicações móveis.
    - **CHAPV2** e **EAP** suportam chamada telefónica e notificação de aplicativos móveis.
 
-      > [!NOTE]
-      > Quando implementar a extensão NPS, utilize estes fatores para avaliar quais os métodos disponíveis para os seus utilizadores. Se o seu cliente RADIUS suporta PAP, mas o cliente UX não tem campos de entrada para um código de verificação, então a chamada telefónica e a notificação de aplicações móveis são as duas opções suportadas.
-      >
-      > Além disso, se o seu cliente VPN UX suportar campos de entrada e tiver configurado a Política de Acesso à Rede, a autenticação poderá ter sucesso. No entanto, nenhum dos atributos RADIUS configurados na Política de Rede não será aplicado nem ao Dispositivo de Acesso à Rede, como o servidor RRAS, nem ao cliente VPN. Como resultado, o cliente VPN pode ter mais acesso do que o desejado, ou menos sem acesso.
+    > [!NOTE]
+    > Quando implementar a extensão NPS, utilize estes fatores para avaliar quais os métodos disponíveis para os seus utilizadores. Se o seu cliente RADIUS suporta PAP, mas o cliente UX não tem campos de entrada para um código de verificação, então a chamada telefónica e a notificação de aplicações móveis são as duas opções suportadas.
+    >
+    > Além disso, independentemente do protocolo de autenticação utilizado (PAP, CHAP ou EAP), se o seu método MFA for baseado em texto (SMS, código de verificação de aplicações móveis ou token de hardware OATH) e exigir que o utilizador introduza um código ou texto no campo de entrada UI do cliente VPN, a autenticação pode ter sucesso. *Mas* quaisquer atributos RADIUS configurados na Política de Acesso à Rede *não* são encaminhados para o cient RADIUS (o Dispositivo de Acesso à Rede, como o gateway VPN). Como resultado, o cliente VPN pode ter mais acesso do que você quer que tenha, ou menos acesso ou sem acesso.
 
-2. Os métodos de entrada que a aplicação do cliente (VPN, servidor Netscaler, ou outro) podem lidar. Por exemplo, o cliente VPN tem alguns meios para permitir que o utilizador escreva um código de verificação a partir de um texto ou aplicação móvel?
+* Os métodos de entrada que a aplicação do cliente (VPN, servidor Netscaler, ou outro) podem lidar. Por exemplo, o cliente VPN tem alguns meios para permitir que o utilizador escreva um código de verificação a partir de um texto ou aplicação móvel?
 
 Pode [desativar métodos de autenticação não suportados](howto-mfa-mfasettings.md#verification-methods) em Azure.
 
@@ -226,7 +226,7 @@ Para fornecer capacidades de equilíbrio de carga ou para redundância, repita e
 1. Executar o script PowerShell criado pelo instalador.
 
    > [!IMPORTANT]
-   > Para os clientes que usam o Governo Azure ou as nuvens Azure China 21Vianet, edite primeiro os `Connect-MsolService` cmdlets no *AzureMfaNpsExtnConfigSetup.ps1* script para incluir os parâmetros *AzureEnvironment* para a nuvem necessária. Por exemplo, *especificar -AzureEnvironment USGovernment* ou *-AzureEnvironment AzureChinaCloud*.
+   > Para os clientes que usam o Governo Azure ou as nuvens Azure China 21Vianet, edite primeiro os `Connect-MsolService` cmdlets no *AzureMfaNpsExtnConfigSetup.ps1* script para incluir os parâmetros *AzureEnvironment* para a nuvem necessária. Por exemplo, *especificar -AzureEnvironment USGovernment* ou *-AzureEnvironment AzureChinaCloud* .
    >
    > Para obter mais informações, consulte [a referência do parâmetro Connect-MsolService](/powershell/module/msonline/connect-msolservice#parameters).
 
@@ -241,7 +241,7 @@ Para fornecer capacidades de equilíbrio de carga ou para redundância, repita e
 Se o seu certificado de computador anterior tiver expirado e tiver sido gerado um novo certificado, deverá eliminar quaisquer certificados caducados. Ter certificados caducados pode causar problemas com o início da Extensão NPS.
 
 > [!NOTE]
-> Se utilizar os seus próprios certificados em vez de gerar certificados com o script PowerShell, certifique-se de que se alinham com a convenção de nomeação NPS. O nome do assunto deve ser **CN= \<TenantID\> EXTENSÃO OU=Microsoft NPS**.
+> Se utilizar os seus próprios certificados em vez de gerar certificados com o script PowerShell, certifique-se de que se alinham com a convenção de nomeação NPS. O nome do assunto deve ser **CN= \<TenantID\> EXTENSÃO OU=Microsoft NPS** .
 
 ### <a name="microsoft-azure-government-or-azure-china-21vianet-additional-steps"></a>Microsoft Azure Government ou Azure China 21Vianet passos adicionais
 
@@ -301,15 +301,15 @@ Configurar clientes RADIUS que pretende exigir que a MFA envie pedidos para o se
 
 ### <a name="prepare-for-users-that-arent-enrolled-for-mfa"></a>Prepare-se para utilizadores que não estão inscritos para MFA
 
-Se tiver utilizadores que não estão inscritos para MFA, pode determinar o que acontece quando tentam autenticar. Para controlar este comportamento, utilize a definição *REQUIRE_USER_MATCH* na trajetória de registo *HKLM\Software\Microsoft\AzureMFA*. Esta definição tem uma única opção de configuração:
+Se tiver utilizadores que não estão inscritos para MFA, pode determinar o que acontece quando tentam autenticar. Para controlar este comportamento, utilize a definição *REQUIRE_USER_MATCH* na trajetória de registo *HKLM\Software\Microsoft\AzureMFA* . Esta definição tem uma única opção de configuração:
 
 | Chave | Valor | Predefinição |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERDADEIRO/FALSO | Não definido (equivalente a VERDADEIRO) |
 
-Esta definição determina o que fazer quando um utilizador não está matriculado para MFA. Quando a tecla não existe, não está definida, ou está definida para *TRUE*, e o utilizador não está inscrito, a extensão falha o desafio MFA.
+Esta definição determina o que fazer quando um utilizador não está matriculado para MFA. Quando a tecla não existe, não está definida, ou está definida para *TRUE* , e o utilizador não está inscrito, a extensão falha o desafio MFA.
 
-Quando a chave está definida para *FALSE* e o utilizador não está matriculado, a autenticação prossegue sem efetuar MFA. Se um utilizador estiver matriculado em MFA, deve autenticar-se com MFA mesmo *que REQUIRE_USER_MATCH* esteja definido como *FALSE*.
+Quando a chave está definida para *FALSE* e o utilizador não está matriculado, a autenticação prossegue sem efetuar MFA. Se um utilizador estiver matriculado em MFA, deve autenticar-se com MFA mesmo *que REQUIRE_USER_MATCH* esteja definido como *FALSE* .
 
 Pode optar por criar esta tecla e defini-la para *FALSE* enquanto os seus utilizadores estão a bordo, e pode ainda não estar inscrita para autenticação multi-factor Azure. No entanto, uma vez que a definição da chave permite que os utilizadores que não estão inscritos para o MFA se inscrevam, deve remover esta chave antes de ir para a produção.
 
@@ -323,7 +323,7 @@ O seguinte script está disponível para executar etapas básicas de verificaç�
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Como posso verificar se o certificado do cliente está instalado como esperado?
 
-Procure o certificado auto-assinado criado pelo instalador na loja cert, e verifique se a chave privada tem permissões concedidas ao *serviço de rede de utilizador*. O cert tem um nome de **assunto de \<tenantid\> CN, OU = Extensão NPS do Microsoft**
+Procure o certificado auto-assinado criado pelo instalador na loja cert, e verifique se a chave privada tem permissões concedidas ao *serviço de rede de utilizador* . O cert tem um nome de **assunto de \<tenantid\> CN, OU = Extensão NPS do Microsoft**
 
 Os certificados auto-assinados gerados pelo `AzureMfaNpsExtnConfigSetup.ps1` script têm uma vida útil de validade de dois anos. Ao verificar se o certificado está instalado, deve também verificar se o certificado não expirou.
 
@@ -339,7 +339,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 Estes comandos imprimem todos os certificados que associam o seu inquilino à sua instância da extensão NPS na sua sessão PowerShell. Procure o seu certificado exportando o seu certificado de cliente como um ficheiro *X.509 codificado base-64 (.cer)* sem a chave privada, e compare-o com a lista da PowerShell.
 
-O seguinte comando criará um ficheiro denominado *npscertificado* na raiz do seu *C:* unidade em formato *.cer*.
+O seguinte comando criará um ficheiro denominado *npscertificado* na raiz do seu *C:* unidade em formato *.cer* .
 
 ```powershell
 import-module MSOnline

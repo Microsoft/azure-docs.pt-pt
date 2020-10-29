@@ -7,26 +7,26 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fecadf3cd6fd0d654315038680b9aa3fa2b71782
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440795"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913913"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
-Uma característica chave da Azure Digital Twins é a capacidade de definir o seu próprio vocabulário e construir o seu gráfico gémeo nos termos auto-definidos do seu negócio. Esta capacidade é fornecida através de **modelos definidos**pelo utilizador. Podes pensar nas modelos como os substantivos numa descrição do teu mundo. 
+Uma característica chave da Azure Digital Twins é a capacidade de definir o seu próprio vocabulário e construir o seu gráfico gémeo nos termos auto-definidos do seu negócio. Esta capacidade é fornecida através de **modelos definidos** pelo utilizador. Podes pensar nas modelos como os substantivos numa descrição do teu mundo. 
 
 Um modelo é semelhante a uma **classe** numa linguagem de programação orientada a objetos, definindo uma forma de dados para um conceito particular no seu ambiente de trabalho real. Os modelos têm nomes (como *O Ambiente* ou *O Medidor de Temperatura),* e contêm elementos como propriedades, telemetria/eventos e comandos que descrevem o que este tipo de entidade no seu ambiente pode fazer. Mais tarde, utilizará estes modelos para criar [**gémeos digitais**](concepts-twins-graph.md) que representam entidades específicas que cumprem esta descrição do tipo.
 
-Os modelos são escritos utilizando a **Linguagem de Definição Digital DeFins (DTDL)** baseada em JSON-LD.  
+Os modelos Azure Digital Twins estão representados na **Linguagem de Definição Digital DeFins (DTDL)** baseada em JSON-LD.  
 
-## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Linguagem de definição de gémeos digital (DTDL) para modelos de escrita
+## <a name="digital-twin-definition-language-dtdl-for-models"></a>Linguagem de definição de gémeos digital (DTDL) para modelos
 
 Os modelos para Gémeos Digitais Azure são definidos usando a linguagem de definição de gémeos digitais (DTDL). O DTDL baseia-se no JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) 
 
-Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). A utilização da versão DTDL _1_ com a Azure Digital Twins foi agora depreciada.
+Azure Digital Twins usa **a versão DTDL _2_** . Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). A utilização da versão DTDL _1_ com a Azure Digital Twins foi agora depreciada.
 
 > [!NOTE] 
 > Nem todos os serviços que utilizam o DTDL implementam exatamente as mesmas funcionalidades do DTDL. Por exemplo, o IoT Plug and Play não utiliza as funcionalidades DTDL que são para gráficos, enquanto a Azure Digital Twins não implementa atualmente comandos DTDL.
@@ -35,12 +35,12 @@ Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações so
 
 ## <a name="elements-of-a-model"></a>Elementos de um modelo
 
-Dentro de uma definição de modelo, o item de código de nível superior é uma **interface**. Isto encapsula todo o modelo, e o resto do modelo é definido dentro da interface. 
+Dentro de uma definição de modelo, o item de código de nível superior é uma **interface** . Isto encapsula todo o modelo, e o resto do modelo é definido dentro da interface. 
 
 Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos:
 * **Propriedade** - Propriedades são campos de dados que representam o estado de uma entidade (como as propriedades em muitas linguagens de programação orientadas a objetos). As propriedades têm armazenamento de suporte e podem ser lidas a qualquer momento.
 * **Telemetria** - Os campos de telemetria representam medições ou eventos, e são frequentemente utilizados para descrever leituras de sensores de dispositivos. Ao contrário das propriedades, a telemetria não é armazenada num gémeo digital; é uma série de eventos de dados ligados ao tempo que precisam de ser tratados à medida que ocorrem. Para obter mais informações sobre as diferenças entre propriedade e telemetria, consulte a secção [*Propriedades vs. telemetria*](#properties-vs-telemetry) abaixo.
-* **Componente** - Os componentes permitem-lhe construir a interface do seu modelo como conjunto de outras interfaces, se quiser. Um exemplo de um componente é uma interface *frontCamera* (e outra interface de componente *backCamera)* que são usadas na definição de um modelo para um *telefone*. Primeiro deve definir uma interface para *a FrontCamera* como se fosse o seu próprio modelo, e depois pode remundo-a ao definir *o Telefone*.
+* **Componente** - Os componentes permitem-lhe construir a interface do seu modelo como conjunto de outras interfaces, se quiser. Um exemplo de um componente é uma interface *frontCamera* (e outra interface de componente *backCamera)* que são usadas na definição de um modelo para um *telefone* . Primeiro deve definir uma interface para *a FrontCamera* como se fosse o seu próprio modelo, e depois pode remundo-a ao definir *o Telefone* .
 
     Use um componente para descrever algo que é parte integrante da sua solução, mas que não precisa de uma identidade separada, e não precisa de ser criado, eliminado ou reorganizado no gráfico gémeo de forma independente. Se quiser que as entidades tenham existências independentes no gráfico gémeo, represente-as como gémeas digitais separadas de diferentes modelos, ligadas por *relacionamentos* (ver próxima bala).
     
@@ -49,7 +49,7 @@ Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos
 * **Relacionamento** - Relacionamentos permitem-lhe representar como um gémeo digital pode estar envolvido com outros gémeos digitais. As relações podem representar diferentes significados semânticos, tais como *contém* ("chão contém espaço"), *frescos* ("hvac cools room"), *isBilledTo* ("compressor é faturado para o utilizador"), etc. As relações permitem a solução fornecer um gráfico de entidades interrelacionadas.
 
 > [!NOTE]
-> A [especificação para DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) também define Comandos , que são métodos que podem ser **executados**num gémeo digital (como um comando de reset, ou um comando para ligar ou desligar uma ventoinha). No entanto, *os comandos não são atualmente suportados em Azure Digital Twins.*
+> A [especificação para DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) também define Comandos , que são métodos que podem ser **executados** num gémeo digital (como um comando de reset, ou um comando para ligar ou desligar uma ventoinha). No entanto, *os comandos não são atualmente suportados em Azure Digital Twins.*
 
 ### <a name="properties-vs-telemetry"></a>Propriedades vs. telemetria
 
@@ -73,8 +73,8 @@ Também pode publicar um evento de telemetria da Azure Digital Twins API. Tal co
 
 Para que um modelo DTDL seja compatível com a Azure Digital Twins, deve satisfazer estes requisitos.
 
-* Todos os elementos DTDL de nível superior num modelo devem ser de *interface*tipo . Isto porque o modelo Azure Digital Twins APIs pode receber objetos JSON que representam uma interface ou um conjunto de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
-* O DTDL para Azure Digital Twins não deve definir quaisquer *comandos*.
+* Todos os elementos DTDL de nível superior num modelo devem ser de *interface* tipo . Isto porque o modelo Azure Digital Twins APIs pode receber objetos JSON que representam uma interface ou um conjunto de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
+* O DTDL para Azure Digital Twins não deve definir quaisquer *comandos* .
 * O Azure Digital Twins só permite um único nível de nidificação de componentes. Isto significa que uma interface que está a ser usada como um componente não pode ter nenhum componente em si. 
 * As interfaces não podem ser definidas em linha dentro de outras interfaces DTDL; devem ser definidas como entidades de alto nível separadas com as suas próprias identificações. Então, quando outra interface quiser incluir essa interface como componente ou através de herança, pode referenciar o seu ID.
 
@@ -82,7 +82,7 @@ A Azure Digital Twins também não observa o `writable` atributo sobre proprieda
 
 ## <a name="example-model-code"></a>Código modelo exemplo
 
-Modelos de tipo gémeo podem ser escritos em qualquer editor de texto. A língua DTDL segue a sintaxe JSON, pelo que deve armazenar modelos com a extensão *.json*. A utilização da extensão JSON permitirá que muitos editores de texto de programação forneçam a verificação e a realce básicas de sintaxe para os seus documentos DTDL. Há também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Código de Estúdio Visual](https://code.visualstudio.com/).
+Modelos de tipo gémeo podem ser escritos em qualquer editor de texto. A língua DTDL segue a sintaxe JSON, pelo que deve armazenar modelos com a extensão *.json* . A utilização da extensão JSON permitirá que muitos editores de texto de programação forneçam a verificação e a realce básicas de sintaxe para os seus documentos DTDL. Há também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Código de Estúdio Visual](https://code.visualstudio.com/).
 
 Esta secção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve **planetas,** cada um com um nome, uma massa e uma temperatura.
  
@@ -144,10 +144,10 @@ Os campos do modelo são:
 | `@type` | Identifica o tipo de informação que está a ser descrita. Para uma interface, o tipo é *Interface.* |
 | `@context` | Define o [contexto](https://niem.github.io/json/reference/json-ld/context/) para o documento JSON. Os modelos devem ser `dtmi:dtdl:context;2` utilizados. |
 | `displayName` | [opcional] Permite-lhe dar ao modelo um nome amigável, se desejar. |
-| `contents` | Todos os dados restantes da interface são colocados aqui, como uma variedade de definições de atributos. Cada atributo deve fornecer a `@type` (*Propriedade*, *Telemetria,* *Comando,* *Relacionamento,* *Ou Componente*) para identificar o tipo de informação de interface que descreve, e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, e para definir `name` um `schema` *Imóvel).* |
+| `contents` | Todos os dados restantes da interface são colocados aqui, como uma variedade de definições de atributos. Cada atributo deve fornecer a `@type` ( *Propriedade* , *Telemetria,* *Comando,* *Relacionamento,* *Ou Componente* ) para identificar o tipo de informação de interface que descreve, e, em seguida, um conjunto de propriedades que definem o atributo real (por exemplo, e para definir `name` um `schema` *Imóvel).* |
 
 > [!NOTE]
-> Note que a interface do componente *(Cratera* neste exemplo) é definida na mesma matriz que a interface que a utiliza (*Planeta).* Os componentes devem ser definidos desta forma nas chamadas API para que a interface seja encontrada.
+> Note que a interface do componente *(Cratera* neste exemplo) é definida na mesma matriz que a interface que a utiliza ( *Planeta).* Os componentes devem ser definidos desta forma nas chamadas API para que a interface seja encontrada.
 
 ### <a name="possible-schemas"></a>Possíveis esquemas
 
@@ -222,11 +222,17 @@ Neste exemplo, *a CelestialBody* contribui com um nome, uma massa e uma temperat
 
 Uma vez aplicada a herança, a interface de extensão expõe todas as propriedades de toda a cadeia de heranças.
 
-A interface de extensão não pode alterar nenhuma das definições das interfaces-mãe; só pode adicioná-los. Também não pode redefinir uma capacidade já definida em nenhuma das suas interfaces-mãe (mesmo que as capacidades sejam definidas como as mesmas). Por exemplo, se uma interface-mãe define uma `double` *massa*de propriedade, a interface de extensão não pode conter uma declaração de *massa*, mesmo que seja também uma `double` .
+A interface de extensão não pode alterar nenhuma das definições das interfaces-mãe; só pode adicioná-los. Também não pode redefinir uma capacidade já definida em nenhuma das suas interfaces-mãe (mesmo que as capacidades sejam definidas como as mesmas). Por exemplo, se uma interface-mãe define uma `double` *massa* de propriedade, a interface de extensão não pode conter uma declaração de *massa* , mesmo que seja também uma `double` .
 
 ## <a name="validating-models"></a>Modelos de validação
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+
+## <a name="converting-industry-standard-models"></a>Converter modelos padrão da indústria
+
+Se tiver modelos existentes fora da Azure Digital Twins que se baseiem num padrão da indústria, como RDF ou OWL, terá de **os converter em DTDL** para os utilizar com a Azure Digital Twins. A versão DTDL tornar-se-á então a fonte de verdade para o modelo dentro da Azure Digital Twins.
+
+Para mais informações sobre este processo, consulte [*Como-a-: Converter modelos padrão da indústria.*](how-to-convert-models.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

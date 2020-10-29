@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262126"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913641"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver funções de Azure com serviços de mídia
 
@@ -49,13 +49,13 @@ Ao desenvolver funções de Media Services, é útil adicionar variáveis ambien
 
 A função, definida neste artigo, pressupõe que tem as seguintes variáveis ambientais nas definições da sua aplicação:
 
-**AMSAADTenantDomain**: Azure AD tenant endpoint. Para mais informações sobre a ligação à AMS API, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
+**AMSAADTenantDomain** : Azure AD tenant endpoint. Para mais informações sobre a ligação à AMS API, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
 
-**AMSRESTAPIEndpoint**: URI que representa o ponto final REST API. 
+**AMSRESTAPIEndpoint** : URI que representa o ponto final REST API. 
 
-**AMSClientId**: Identificação do cliente de aplicação AD AZure.
+**AMSClientId** : Identificação do cliente de aplicação AD AZure.
 
-**AMSClientSecret**: Azure AD application client secret.
+**AMSClientSecret** : Azure AD application client secret.
 
 **ArmazenamentoConnection:** ligação de armazenamento da conta associada à conta dos Serviços de Mídia. Este valor é utilizado no **function.jsficheiro** e **ficheiro run.csx** (descrito abaixo).
 
@@ -67,19 +67,19 @@ Uma vez implementada a sua aplicação de função, pode encontrá-la entre as F
 2. Escolha o cenário de idioma **C#** e **processamento de dados.**
 3. Escolha o modelo **BlobTrigger.** Esta função é ativada sempre que uma bolha é enviada para o recipiente **de entrada.** O nome **de entrada** é especificado no **Caminho,** no passo seguinte.
 
-    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![A screenshot mostra a caixa de diálogo do modelo escolher com o BlobTrigger selecionado.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Assim que selecionar **BlobTrigger,** aparecem mais alguns controlos na página.
 
-    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![A screenshot mostra o Nome da caixa de diálogo da sua função.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Clique em **Criar**. 
+4. Clique em **Criar** . 
 
 ## <a name="files"></a>Ficheiros
 
 A sua função Azure está associada a ficheiros de código e outros ficheiros descritos nesta secção. Quando utilizar o portal Azure para criar uma função, **function.js** e **executar.csx** são criados para si. Tem de adicionar ou carregar uma **project.jsno** ficheiro. O resto desta secção dá uma breve explicação de cada ficheiro e mostra as suas definições.
 
-![ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![A screenshot mostra os ficheiros json no seu projeto.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -138,7 +138,7 @@ O exemplo definido nesta secção demonstra
 
 No cenário da vida real, é provável que queiras acompanhar o progresso do trabalho e depois publicar o teu ativo codificado. Para obter mais informações, consulte [a Azure WebHooks para monitorizar as notificações de trabalho dos Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Para mais exemplos, consulte [as Funções Azure dos Serviços de Comunicação](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)Social .  
 
-Substitua o conteúdo do ficheiro run.csx existente pelo seguinte código: Uma vez terminada a definição da sua função clique em **Guardar e Executar**.
+Substitua o conteúdo do ficheiro run.csx existente pelo seguinte código: Uma vez terminada a definição da sua função clique em **Guardar e Executar** .
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -336,8 +336,8 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 Para testar a sua função, é necessário enviar um ficheiro MP4 para o recipiente de **entrada** da conta de armazenamento que especificou na cadeia de ligação.  
 
 1. Selecione a conta de armazenamento especificada na variável **ambiente StorageConnection.**
-2. Clique **em Blobs**.
-3. Clique em **+ Contentor**. Nomeie a **entrada**do recipiente .
+2. Clique **em Blobs** .
+3. Clique em **+ Contentor** . Nomeie a **entrada** do recipiente .
 4. Prima **upload** e navegue num ficheiro .mp4 que pretende carregar.
 
 >[!NOTE]

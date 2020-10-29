@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 89ac5645ccbb9c926bc5ff70605dd1e5de14e823
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 342d0aabe2222393f33aa4ce93646da9f29cf1fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427614"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926466"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados da Xero utilizando a Azure Data Factory
 
@@ -53,18 +53,18 @@ As seguintes propriedades são suportadas para o serviço ligado à Xero:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Xero** | Sim |
-| conexõesProperties | Um grupo de propriedades que define como se conectar com Xero. | Sim |
+| tipo | A propriedade tipo deve ser definida para: **Xero** | Yes |
+| conexõesProperties | Um grupo de propriedades que define como se conectar com Xero. | Yes |
 | **_Em: `connectionProperties` __* | | |
-| anfitrião | O ponto final do servidor Xero `api.xero.com` ().  | Sim |
-| authenticationType | Os valores permitidos são `OAuth_2.0` `OAuth_1.0` e. | Sim |
-| consumerKey | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para _*gerar o privatekey.pem com numbits de 512** usando `openssl genrsa -out privatekey.pem 512` , 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| anfitrião | O ponto final do servidor Xero `api.xero.com` ().  | Yes |
+| authenticationType | Os valores permitidos são `OAuth_2.0` `OAuth_1.0` e. | Yes |
+| consumerKey | A chave do consumidor associada à aplicação Xero. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| privateKey | A chave privada do ficheiro .pem que foi gerado para a sua aplicação privada Xero, consulte [Criar um par de chaves público/privado](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key). Nota para _ *gerar o privatekey.pem com numbits de 512* * usando `openssl genrsa -out privatekey.pem 512` , 1024 não é suportado. Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\n), ver amostra abaixo.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
 | inquilinoId | A identificação do inquilino associada à sua aplicação Xero. Aplicável à autenticação OAuth 2.0.<br>Saiba como obter a identificação do inquilino da [Verificação dos inquilinos que você está autorizado a aceder à secção.](https://developer.xero.com/documentation/oauth2/auth-flow) | Sim para autenticação OAuth 2.0 |
-| refreshToken | Aplicável à autenticação OAuth 2.0.<br/>O token de atualização OAuth 2.0 está associado à aplicação Xero e usado para refrescar o token de acesso; o sinal de acesso expira após 30 minutos. Saiba como funciona o fluxo de autorização Xero e como obter o token refresh [deste artigo.](https://developer.xero.com/documentation/oauth2/auth-flow) Para obter um token de atualização, você deve solicitar o [âmbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Saiba limitação**: Note Xero reinicia o token de atualização depois de ser usado para aceder a atualização simbólica. Para uma carga de trabalho operacionalizada, antes de cada atividade de cópia funcionar, é necessário definir um token de atualização válido para a ADF utilizar.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2.0 |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| refreshToken | Aplicável à autenticação OAuth 2.0.<br/>O token de atualização OAuth 2.0 está associado à aplicação Xero e usado para refrescar o token de acesso; o sinal de acesso expira após 30 minutos. Saiba como funciona o fluxo de autorização Xero e como obter o token refresh [deste artigo.](https://developer.xero.com/documentation/oauth2/auth-flow) Para obter um token de atualização, você deve solicitar o [âmbito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Saiba limitação** : Note Xero reinicia o token de atualização depois de ser usado para aceder a atualização simbólica. Para uma carga de trabalho operacionalizada, antes de cada atividade de cópia funcionar, é necessário definir um token de atualização válido para a ADF utilizar.<br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2.0 |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se o nome do anfitrião é necessário no certificado do servidor para corresponder ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo: Autenticação OAuth 2.0**
 
@@ -139,11 +139,11 @@ Inclua todo o texto do ficheiro .pem, incluindo as terminações da linha Unix(\
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta secção fornece uma lista de propriedades suportadas pelo conjunto de dados Xero.
 
-Para copiar dados da Xero, defina a propriedade tipo do conjunto de dados para **XeroObject**. As seguintes propriedades são suportadas:
+Para copiar dados da Xero, defina a propriedade tipo do conjunto de dados para **XeroObject** . As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **XeroObject** | Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **XeroObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -169,11 +169,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="xero-as-source"></a>Xero como fonte
 
-Para copiar dados da Xero, desagrafe o tipo de origem na atividade da cópia para **xeroSource**. As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
+Para copiar dados da Xero, desagrafe o tipo de origem na atividade da cópia para **xeroSource** . As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **XeroSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **XeroSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Contacts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -212,7 +212,7 @@ Note o seguinte ao especificar a consulta Xero:
 
 - As mesas com itens complexos serão divididas em várias mesas. Por exemplo, as transações bancárias têm uma estrutura de dados complexa "LineItems", pelo que os dados de transação bancária são mapeados para tabela `Bank_Transaction` `Bank_Transaction_Line_Items` e, `Bank_Transaction_ID` com como chave estrangeira para os ligar.
 
-- Os dados Xero estão disponíveis através de dois esquemas: `Minimal` (padrão) e `Complete` . O esquema completo contém tabelas de chamadas pré-requisitos, que requerem dados adicionais (por exemplo, coluna de ID) antes de fazer a consulta desejada.
+- Os dados Xero estão disponíveis através de dois esquemas: `Minimal` (padrão) e `Complete` . O esquema completo contém tabelas de chamadas pré-requisitos que requerem dados adicionais (por exemplo, coluna de ID) antes de fazer a consulta desejada.
 
 As tabelas a seguir têm a mesma informação no esquema Minimal and Complete. Para reduzir o número de chamadas API, utilize esquema mínimo (predefinição).
 

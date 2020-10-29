@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171605"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926687"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -17,11 +17,7 @@ Este artigo explica como mover um cofre de Serviços de Recuperação configurad
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O movimento de recursos para o cofre dos Serviços de Recuperação é suportado na Austrália Leste, Austrália Sudeste, Canadá Central, Canadá Leste, Ásia Sudeste, Ásia Oriental, Eua Central, Eua Central Do Norte, Leste dos EUA 2, Central Sul dos EUA, Centro Ocidental DOS EUA 2, West US 2, West US 2, Brasil Sul, Índia Central, Índia Central, Japão Oriental, Japão Ocidental, Coreia Do Sul, Coreia do Sul , Europa do Norte, Europa Ocidental, África do Sul Norte, África do Sul Oeste, Reino Unido Sul e Reino Unido Ocidental.
-
-## <a name="unsupported-regions"></a>Regiões não suportadas
-
-França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa, China Norte, China Norte2, China Leste, China Leste2
+Todas as regiões públicas e regiões soberanas são apoiadas, exceto França Central, França Sul, Alemanha Nordeste, Alemanha Central, China Norte, China Norte2, China Leste e China Leste2.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Pré-requisitos para a mudança do cofre dos Serviços de Recuperação
 
@@ -103,7 +99,7 @@ Você pode mover um cofre de Serviços de Recuperação e seus recursos associad
 
    ![Adicionar Subscrição](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Selecione **Entendo que as ferramentas e scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar novas iDs de recursos** para confirmar e, em seguida, selecione **OK**.
+7. Selecione **Entendo que as ferramentas e scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar novas iDs de recursos** para confirmar e, em seguida, selecione **OK** .
 
 > [!NOTE]
 > A cópia de segurança de subscrição cruzada (cofre RS e VMs protegidos estão em diferentes subscrições) não é um cenário suportado. Além disso, a opção de redundância de armazenamento de armazenamento local (LRS) para armazenamento redundante global (GRS) e vice-versa não pode ser modificada durante a operação de movimento do cofre.
@@ -161,9 +157,9 @@ Para proteger as cargas de trabalho num novo cofre, a proteção atual e os dado
 
 1. Desative a exclusão suave nas propriedades do cofre. Siga [estes passos](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) para desativar a eliminação suave.
 
-2. Pare a proteção e elimine as cópias de segurança do cofre atual. No menu do painel de instrumentos Vault, selecione **Itens de reserva**. Os itens listados aqui que precisam de ser transferidos para o novo cofre devem ser removidos juntamente com os seus dados de reserva. Veja como [eliminar itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [elimine itens protegidos no local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Pare a proteção e elimine as cópias de segurança do cofre atual. No menu do painel de instrumentos Vault, selecione **Itens de reserva** . Os itens listados aqui que precisam de ser transferidos para o novo cofre devem ser removidos juntamente com os seus dados de reserva. Veja como [eliminar itens protegidos na nuvem](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) e [elimine itens protegidos no local](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Se está a planear mover as ações de ficheiros AFS (Azure), os servidores SQL ou os servidores SAP HANA, então também terá de os desregistar. No menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup**. Veja como [desregistritar o servidor SQL,](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance) [não registe uma conta de armazenamento associada às ações de ficheiros Azure,](manage-afs-backup.md#unregister-a-storage-account)e [não registe uma instância SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Se está a planear mover as ações de ficheiros AFS (Azure), os servidores SQL ou os servidores SAP HANA, então também terá de os desregistar. No menu do painel de instrumentos do cofre, selecione **Infraestrutura de backup** . Veja como [desregistritar o servidor SQL,](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance) [não registe uma conta de armazenamento associada às ações de ficheiros Azure,](manage-afs-backup.md#unregister-a-storage-account)e [não registe uma instância SAP HANA](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. Assim que forem removidos do antigo cofre, continuem a configurar os reforços para a sua carga de trabalho no novo cofre.
 

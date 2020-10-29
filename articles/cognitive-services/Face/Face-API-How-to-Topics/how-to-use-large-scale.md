@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332394"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913522"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemplo: Utilize a característica em larga escala
 
@@ -232,7 +232,7 @@ Exemplo de fluxo de trabalho:
 
 Se uma latência relativamente longa for aceitável, não é necessário desencadear a operação train logo após a sua adição de novos dados. Em vez disso, a operação de Treino pode ser separada da lógica principal e acionada regularmente. Esta estratégia é adequada para cenários dinâmicos com latência aceitável. Pode ser aplicado a cenários estáticos para reduzir ainda mais a frequência do comboio.
 
-Suponha que haja uma `TrainLargePersonGroup` função semelhante `TrainLargeFaceList` a. Uma implementação típica do treino autónomo num LargePersonGroup invocando a [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) classe `System.Timers` em:
+Suponha que haja uma `TrainLargePersonGroup` função semelhante `TrainLargeFaceList` a. Uma implementação típica do treino autónomo num LargePersonGroup invocando a [`Timer`](/dotnet/api/system.timers.timer) classe `System.Timers` em:
 
 ```csharp
 private static void Main()

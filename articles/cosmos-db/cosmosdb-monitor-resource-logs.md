@@ -5,14 +5,14 @@ author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 10/28/2020
 ms.author: sngun
-ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319713cd631b87d9f97af0db3d4a7b3af1c580ec
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801423"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926126"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorize os dados do DB da Azure Cosmos utilizando configurações de diagnóstico em Azure
 
@@ -26,47 +26,47 @@ As métricas da plataforma e os registos de Atividade são recolhidos automatica
 
 1. No painel de **definições de Diagnóstico,** preencha o formulário com os seguintes detalhes: 
 
-    * **Nome**: Introduza um nome para os registos a criar.
+    * **Nome** : Introduza um nome para os registos a criar.
 
     * Pode armazenar os registos para **arquivar numa conta de armazenamento,** transmitir para um centro de **eventos** ou **enviar para registar analíticos**
 
 1. Quando cria uma definição de diagnóstico, especifica qual a categoria de registos a recolher. As categorias de registos suportados pela Azure Cosmos DB são listadas abaixo, juntamente com o registo de amostras recolhido por eles:
 
- * **DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end a todas as APIs, que incluem sql, gráfico, MongoDB, Cassandra e contas API de tabela em Azure Cosmos DB. As propriedades-chave a notar são: `Requestcharge` `statusCode` , , e `clientIPaddress` `partitionID` .
+ * **DataPlaneRequests** : Selecione esta opção para registar pedidos de back-end a todas as APIs, que incluem sql, gráfico, MongoDB, Cassandra e contas API de tabela em Azure Cosmos DB. As propriedades-chave a notar são: `Requestcharge` , , , , , e `statusCode` `clientIPaddress` `partitionID` `resourceTokenPermissionId` `resourceTokenPermissionMode` .
 
     ```json
-    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+    { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Selecione esta opção para registar pedidos iniciados pelo utilizador a partir da parte frontal para servir pedidos à API da Azure Cosmos DB para a MongoDB. Este tipo de registo não está disponível para outras contas API. As principais propriedades a notar são: `Requestcharge` `opCode` . . Quando ativar os MongoRequests em registos de diagnóstico, certifique-se de desligar os DataPlaneRequests. Veria um registo de cada pedido feito na API.
+* **MongoRequests** : Selecione esta opção para registar pedidos iniciados pelo utilizador a partir da parte frontal para servir pedidos à API da Azure Cosmos DB para a MongoDB. Este tipo de registo não está disponível para outras contas API. As principais propriedades a notar são: `Requestcharge` `opCode` . . Quando ativar os MongoRequests em registos de diagnóstico, certifique-se de desligar os DataPlaneRequests. Veria um registo de cada pedido feito na API.
 
     ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
-* **CassandraRequests**: Selecione esta opção para registar pedidos iniciados pelo utilizador a partir da parte frontal para servir pedidos à API da Azure Cosmos DB para a Cassandra. Este tipo de registo não está disponível para outras contas API. As principais propriedades a notar `operationName` `requestCharge` são, `piiCommandText` . . Quando ativar cassandraRequests em registos de diagnóstico, certifique-se de desligar os DataPlaneRequests. Veria um registo de cada pedido feito na API.
+* **CassandraRequests** : Selecione esta opção para registar pedidos iniciados pelo utilizador a partir da parte frontal para servir pedidos à API da Azure Cosmos DB para a Cassandra. Este tipo de registo não está disponível para outras contas API. As principais propriedades a notar `operationName` `requestCharge` são, `piiCommandText` . . Quando ativar cassandraRequests em registos de diagnóstico, certifique-se de desligar os DataPlaneRequests. Veria um registo de cada pedido feito na API.
 
    ```json
    { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
    ```
 
-* **QueryRuntimeStatistics**: Selecione esta opção para registar o texto de consulta que foi executado. Este tipo de registo está disponível apenas para contas API SQL.
+* **QueryRuntimeStatistics** : Selecione esta opção para registar o texto de consulta que foi executado. Este tipo de registo está disponível apenas para contas API SQL.
 
     ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
-* **PartitionKeyStatistics**: Selecione esta opção para registar as estatísticas das teclas de partição. Isto está atualmente representado com o tamanho de armazenamento (KB) das teclas de partição. Consulte os [problemas de resolução de problemas utilizando a](#diagnostic-queries) secção de consultas de Diagnóstico Azure deste artigo. Por exemplo, consultas que usam "PartitionKeyStatistics". O registo é emitido contra as três primeiras chaves de partição que ocupam a maioria do armazenamento de dados. Este registo contém dados como ID de subscrição, nome da região, nome da base de dados, nome da recolha, chave de partição e tamanho de armazenamento em KB.
+* **PartitionKeyStatistics** : Selecione esta opção para registar as estatísticas das teclas de partição. Isto está atualmente representado com o tamanho de armazenamento (KB) das teclas de partição. Consulte os [problemas de resolução de problemas utilizando a](#diagnostic-queries) secção de consultas de Diagnóstico Azure deste artigo. Por exemplo, consultas que usam "PartitionKeyStatistics". O registo é emitido contra as três primeiras chaves de partição que ocupam a maioria do armazenamento de dados. Este registo contém dados como ID de subscrição, nome da região, nome da base de dados, nome da recolha, chave de partição e tamanho de armazenamento em KB.
 
     ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
-* **PartitionKeyRUConsumption**: Este registo informa o consumo agregado por segundo de chaves de partição. Atualmente, a Azure Cosmos DB reporta chaves de partição apenas para contas de API SQL e para operações de leitura/escrita de pontos e procedimentos armazenados. outros APIs e tipos de operação não são suportados. Para outras APIs, a coluna da chave de partição na tabela de registo de diagnóstico estará vazia. Este registo contém dados como ID de subscrição, nome da região, nome da base de dados, nome da recolha, chave de partição, tipo de operação e taxa de pedido. Consulte os [problemas de resolução de problemas utilizando a](#diagnostic-queries) secção de consultas de Diagnóstico Azure deste artigo. Por exemplo, consultas que usam "PartitionKeyRUConsumption". 
+* **PartitionKeyRUConsumption** : Este registo informa o consumo agregado por segundo de chaves de partição. Atualmente, a Azure Cosmos DB reporta chaves de partição apenas para contas de API SQL e para operações de leitura/escrita de pontos e procedimentos armazenados. outros APIs e tipos de operação não são suportados. Para outras APIs, a coluna da chave de partição na tabela de registo de diagnóstico estará vazia. Este registo contém dados como ID de subscrição, nome da região, nome da base de dados, nome da recolha, chave de partição, tipo de operação e taxa de pedido. Consulte os [problemas de resolução de problemas utilizando a](#diagnostic-queries) secção de consultas de Diagnóstico Azure deste artigo. Por exemplo, consultas que usam "PartitionKeyRUConsumption". 
 
-* **ControlPlaneRequests**: Este registo contém detalhes sobre operações de plano de controlo como criar uma conta, adicionar ou remover uma região, atualizar as definições de replicação de conta, etc. Este tipo de registo está disponível para todos os tipos de API que incluem SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
+* **ControlPlaneRequests** : Este registo contém detalhes sobre operações de plano de controlo como criar uma conta, adicionar ou remover uma região, atualizar as definições de replicação de conta, etc. Este tipo de registo está disponível para todos os tipos de API que incluem SQL (Core), MongoDB, Gremlin, Cassandra, Table API.
 
-* **Pedidos**: Selecione esta opção para recolher dados métricos da Azure Cosmos DB para os destinos na definição de diagnóstico. Estes são os mesmos dados recolhidos automaticamente em Azure Metrics. Recolher dados métricos com registos de recursos para analisar ambos os tipos de dados em conjunto e enviar dados métricos fora do Azure Monitor.
+* **Pedidos** : Selecione esta opção para recolher dados métricos da Azure Cosmos DB para os destinos na definição de diagnóstico. Estes são os mesmos dados recolhidos automaticamente em Azure Metrics. Recolher dados métricos com registos de recursos para analisar ambos os tipos de dados em conjunto e enviar dados métricos fora do Azure Monitor.
 
 Para obter informações detalhadas sobre como criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em artigo Azure.](../azure-monitor/platform/diagnostic-settings.md)
 
@@ -131,7 +131,7 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
 
-1. Como obter todas as consultas que estão consumindo mais do que 100 RU/s juntas com dados de **DataPlaneRequests** e **QueryRunTimeStatistics**.
+1. Como obter todas as consultas que estão consumindo mais do que 100 RU/s juntas com dados de **DataPlaneRequests** e **QueryRunTimeStatistics** .
 
    ```Kusto
    AzureDiagnostics
@@ -228,7 +228,7 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
    by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
  
-1. Como obter registos do Controlplane?
+1. Como obter registos do ControlPlane?
  
    Lembre-se de ligar a bandeira como descrito no artigo [de acesso de metadados baseado em chave para desativar](audit-control-plane-logs.md#disable-key-based-metadata-write-access) e executar as operações utilizando a Azure PowerShell, o Azure CLI ou O Gestor de Recursos Azure.
  
@@ -237,7 +237,6 @@ Para obter informações detalhadas sobre como criar uma definição de diagnós
    | where Category =="ControlPlaneRequests"
    | summarize by OperationName 
    ```
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

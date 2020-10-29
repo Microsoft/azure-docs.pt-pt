@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357867"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926636"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -47,7 +47,7 @@ Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.c
 O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-lhe ver a frequência das mesmas em operações diferentes para o ajudar a centrar os seus esforços naquelas cujo impacto é mais significativo.  Pode, em seguida, desagregar os detalhes destas falhas para identificar a raiz do problema.   
 
 1. Selecione **Application Insights** e, em seguida, a sua subscrição.  
-2. Para abrir o painel **Falhas**, selecione **Falhas** no menu **Investigar** ou clique no gráfico **Pedidos falhados**.
+2. Para abrir o painel **Falhas** , selecione **Falhas** no menu **Investigar** ou clique no gráfico **Pedidos falhados** .
 
     ![Pedidos com falhas](media/tutorial-runtime-exceptions/failed-requests.png)
 
@@ -74,16 +74,16 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
 ## <a name="identify-failing-code"></a>Identificar o código com falhas
 O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Em seguida, tem a opção de depurar o código fonte, descarregando o instantâneo e abrindo-o no Visual Studio 2019 Enterprise.
 
-1. Nas propriedades da exceção, clique em **Abrir instantâneo de depuração**.
+1. Nas propriedades da exceção, clique em **Abrir instantâneo de depuração** .
 2. O painel **Depurar Instantâneo** é aberto com a pilha de chamadas relativas ao pedido.  Clique num dos métodos disponíveis para ver os valores de todas as variáveis locais no momento do pedido.  Tomando como ponto de partida o método principal neste exemplo, é possível ver variáveis locais que não têm qualquer valor.
 
     ![Depurar o instantâneo](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
 
 3. A primeira chamada com valores válidos é **ValidZipCode** e podemos ver que foi fornecido um código postal com letras que não é possível converter num número inteiro.  Aparentemente, este é o erro no código que precisa de ser corrigido.
 
-    ![Depurar o instantâneo](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Screenshot que mostra um erro no código que precisa de ser corrigido.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-4. Em seguida, tem a opção de transferir esta imagem para o Visual Studio, onde podemos localizar o código real que precisa de ser corrigido. Para tal, clique em **Baixar O Snapshot**.
+4. Em seguida, tem a opção de transferir esta imagem para o Visual Studio, onde podemos localizar o código real que precisa de ser corrigido. Para tal, clique em **Baixar O Snapshot** .
 5. O instantâneo é carregado para o Visual Studio.
 6. Agora pode executar uma sessão de depurar na Visual Studio Enterprise que rapidamente identifica a linha de código que causou a exceção.
 
@@ -103,7 +103,7 @@ Todos os dados recolhidos pelo Application Insights são armazenados no Azure Lo
 Se ligar o Application Insights a um sistema de controlo, como o Azure DevOps ou o GitHub, pode criar um item de trabalho diretamente a partir do Application Insights.
 
 1. Volte ao painel **Propriedades da Exceção** no Application Insights.
-2. Clique em **Novo Item de Trabalho**.
+2. Clique em **Novo Item de Trabalho** .
 3. O painel **Novo Item de Trabalho** é aberto com os detalhes sobre a exceção já povoados.  Pode adicionar as informações adicionais que quiser antes de o guardar.
 
     ![Novo Item de Trabalho](media/tutorial-runtime-exceptions/new-work-item.png)

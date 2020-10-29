@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 2db80cdba778d868d90d5278005791257acb0ed3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548217"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924959"
 ---
 Começa com a biblioteca de clientes Azure Content Moderador para .NET. Siga estes passos para instalar o pacote NuGet e experimente o código de exemplo para tarefas básicas. 
 
@@ -28,7 +28,7 @@ Utilize a biblioteca de clientes Content Moderador para .NET para:
 * [Imagens moderadas](#moderate-images)
 * [Criar uma análise](#create-a-review)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)  |  [Amostras](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
+[Documentação de referência](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)  |  [Amostras](../../samples-dotnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +96,7 @@ Na classe **Programa,** crie variáveis para a chave e ponto final do seu recurs
 > [!IMPORTANT]
 > Aceda ao portal do Azure. Se o recurso de Moderador de Conteúdo que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes** . Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
 >
-> Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
+> Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](../../../cognitive-services-security.md) dos Serviços Cognitivos para obter mais informações.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
 
@@ -118,10 +118,10 @@ As seguintes aulas lidam com algumas das principais características da bibliote
 
 |Nome|Descrição|
 |---|---|
-|[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Esta classe é necessária para todas as funcionalidades do Moderador de Conteúdo. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes.|
-|[Imagem Dedesederação](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Esta classe fornece a funcionalidade de análise de imagens para conteúdo adulto, informações pessoais ou rostos humanos.|
-|[TextModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|Esta classe fornece a funcionalidade de análise de texto para linguagem, profanação, erros e informações pessoais.|
-|[Revisões](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|Esta classe fornece a funcionalidade das APIs de revisão, incluindo os métodos para criar empregos, fluxos de trabalho personalizados e avaliações humanas.|
+|[ContentModeratorClient](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Esta classe é necessária para todas as funcionalidades do Moderador de Conteúdo. Você instantanea-o com as suas informações de subscrição, e você usá-lo para produzir instâncias de outras classes.|
+|[Imagem Dedesederação](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Esta classe fornece a funcionalidade de análise de imagens para conteúdo adulto, informações pessoais ou rostos humanos.|
+|[TextModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|Esta classe fornece a funcionalidade de análise de texto para linguagem, profanação, erros e informações pessoais.|
+|[Revisões](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|Esta classe fornece a funcionalidade das APIs de revisão, incluindo os métodos para criar empregos, fluxos de trabalho personalizados e avaliações humanas.|
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -158,10 +158,10 @@ Em seguida, defina o método de moderação de texto em algum lugar na sua class
 
 ## <a name="moderate-images"></a>Imagens moderadas
 
-O código que se segue utiliza um cliente Moderador de Conteúdo, juntamente com um objeto [ImageModeration,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) para analisar imagens remotas para conteúdo adulto e picante.
+O código que se segue utiliza um cliente Moderador de Conteúdo, juntamente com um objeto [ImageModeration,](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) para analisar imagens remotas para conteúdo adulto e picante.
 
 > [!NOTE]
-> Também pode analisar o conteúdo de uma imagem local. Consulte a [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_) para métodos e operações que funcionam com imagens locais.
+> Também pode analisar o conteúdo de uma imagem local. Consulte a [documentação de referência](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_) para métodos e operações que funcionam com imagens locais.
 
 ### <a name="get-sample-images"></a>Obtenha imagens de amostra
 
@@ -204,7 +204,7 @@ Para obter mais informações sobre os atributos de imagem para os quais o Moder
 
 Pode utilizar a biblioteca de clientes Content Moderador .NET para alimentar conteúdos na [ferramenta 'Revisão',](https://contentmoderator.cognitive.microsoft.com) para que os moderadores humanos possam revê-lo. Para saber mais sobre a ferramenta Review, consulte o guia conceptual da [ferramenta Review.](../../review-tool-user-guide/human-in-the-loop.md)
 
-O método nesta secção utiliza a classe [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) para criar uma revisão, recuperar o seu ID e verificar os seus detalhes depois de receber a entrada humana através do portal web da ferramenta Review. Regista toda esta informação num ficheiro de texto de saída. 
+O método nesta secção utiliza a classe [Reviews](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) para criar uma revisão, recuperar o seu ID e verificar os seus detalhes depois de receber a entrada humana através do portal web da ferramenta Review. Regista toda esta informação num ficheiro de texto de saída. 
 
 ### <a name="get-sample-images"></a>Obtenha imagens de amostra
 
@@ -248,7 +248,7 @@ O objeto devolvido da chamada API conterá valores de ID únicos para cada image
 
 ### <a name="get-review-details"></a>Obter detalhes da avaliação
 
-O seguinte código faz com que o programa aguarde a entrada do utilizador. Quando chegar a este passo no tempo de execução, pode ir à [ferramenta Review,](https://contentmoderator.cognitive.microsoft.com) verificar se a imagem da amostra foi carregada e interagir com ela. Para obter informações sobre como interagir com uma revisão, consulte o [guia de como fazer comentários.](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images) Quando terminar, pode premir qualquer tecla para continuar o programa e recuperar os resultados do processo de revisão.
+O seguinte código faz com que o programa aguarde a entrada do utilizador. Quando chegar a este passo no tempo de execução, pode ir à [ferramenta Review,](https://contentmoderator.cognitive.microsoft.com) verificar se a imagem da amostra foi carregada e interagir com ela. Para obter informações sobre como interagir com uma revisão, consulte o [guia de como fazer comentários.](../../review-tool-user-guide/review-moderated-images.md) Quando terminar, pode premir qualquer tecla para continuar o programa e recuperar os resultados do processo de revisão.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
@@ -284,7 +284,7 @@ dotnet run
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 
@@ -296,7 +296,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 Neste arranque rápido, aprendeu a usar a biblioteca Content Moderator .NET para fazer tarefas de moderação. Em seguida, saiba mais sobre a moderação de imagens ou outros meios de comunicação, lendo um guia conceptual.
 
 > [!div class="nextstepaction"]
-> [Conceitos de moderação de imagem](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
+> [Conceitos de moderação de imagem](../../image-moderation-api.md)
 
 * [O que é o Content Moderator do Azure?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).

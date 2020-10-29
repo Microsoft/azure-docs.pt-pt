@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 81713bf8d424b9f272f6b1bccf3657810160d4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f74fdc9cd30e1dfbd4df6c94842a9dccb435ef4
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73744789"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913658"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exportar ou eliminar dados dos utilizadores no Moderador de Conteúdo
 
-O Content Moderador recolhe dados dos utilizadores para operar o serviço, mas os clientes têm total controlo para visualizar, exportar e eliminar os seus dados utilizando a [ferramenta Review](https://contentmoderator.cognitive.microsoft.com/) e as [APIs de Moderação e Revisão.](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference)
+O Content Moderador recolhe dados dos utilizadores para operar o serviço, mas os clientes têm total controlo para visualizar, exportar e eliminar os seus dados utilizando a [ferramenta Review](https://contentmoderator.cognitive.microsoft.com/) e as [APIs de Moderação e Revisão.](./api-reference.md)
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -33,4 +33,3 @@ Para obter mais informações sobre como exportar e eliminar dados do utilizador
 | Etiquetas | N/D | Utilize o ícone **Eliminar** disponível para cada tag na página 'Ver definições', 'Ver's'. Ou utilize o botão **Eliminar Team** na página de definições de [Equipa UI de revisão.](https://contentmoderator.cognitive.microsoft.com/) |
 | Revisões | Ligue para a [API de revisão de revisão](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) | Utilize o botão **Eliminar Team** na página 'Rever as definições da Equipa [UI'.](https://contentmoderator.cognitive.microsoft.com/)
 | Utilizadores | N/D | Utilize o ícone **Eliminar** disponível para cada utilizador na página de definições [do ''SY's'](https://contentmoderator.cognitive.microsoft.com/) 's'. Ou utilize o botão **Eliminar Team** na página de definições de [Equipa UI de revisão.](https://contentmoderator.cognitive.microsoft.com/) |
-

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543785"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926194"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção right MySQL Server em Azure
 
@@ -55,8 +55,8 @@ As principais diferenças entre estas opções constam do quadro seguinte:
 | Elevada disponibilidade | HA incorporado dentro de uma única zona de disponibilidade| HA incorporado dentro e em todas as zonas de disponibilidade | Gerido sob medida usando clustering, replicação, etc.|
 | Redundância entre zonas | Não suportado | Suportado | Suportado|
 | Cenários híbridos | Suportado com [replicação de dados](./concepts-data-in-replication.md)| Não disponível na pré-visualização | Gerido por utilizadores finais |
-| Réplicas de leitura | Suportado| Suportado | Gerido por utilizadores finais |
-| Cópia de segurança | Automatizado com retenção de 7-35 dias | Automatizado com retenção de 1-35 dias | Gerido por utilizadores finais |
+| Réplicas de leitura | Suportado (até 5 réplicas)| Suportado (até 10 réplicas)| Gerido por utilizadores finais |
+| Backup | Automatizado com retenção de 7-35 dias | Automatizado com retenção de 1-35 dias | Gerido por utilizadores finais |
 | Monitorização das operações de base de dados | Suportado | Suportado | Gerido por utilizadores finais |
 | Recuperação após desastre | Apoiado com armazenamento de backup geo redundante e região transversal ler réplicas | Não suportado na pré-visualização| Personalizado Gerido com tecnologias de replicação |
 | Query Performance Insight | Suportado | Não disponível na pré-visualização| Gerido por utilizadores finais |

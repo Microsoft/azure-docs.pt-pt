@@ -1,5 +1,5 @@
 ---
-title: Encontre e elimine discos geridos e não geridos do Azure desanexados
+title: Azure CLI - Encontre e elimine discos geridos e não geridos não geridos
 description: Como encontrar e eliminar discos Azure não ligados geridos e não geridos (VHDs/blobs de página) utilizando O Azure CLI.
 author: roygara
 ms.service: virtual-machines
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 821ba551dc19f92988a352b8f1bab792ce52207b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c3e8bb2ff6f3313e851a4253a95a5ad923a8f70
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978922"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913947"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Localizar e apagar discos geridos e não geridos pelo Azure utilizando o Azure CLI
 Quando elimina uma máquina virtual (VM) em Azure, por padrão, quaisquer discos que estejam ligados ao VM não são eliminados. Esta funcionalidade ajuda a prevenir a perda de dados devido à eliminação não intencional de VMs. Depois de eliminado um VM, continuará a pagar por discos não ligados. Este artigo mostra-lhe como encontrar e eliminar quaisquer discos não ligados e reduzir custos desnecessários. 
@@ -29,11 +29,9 @@ O seguinte script procura [discos geridos](../managed-disks-overview.md) não li
 >
 
 ```azurecli
-
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 deleteUnattachedDisks=0
-
 unattachedDiskIds=$(az disk list --query '[?managedBy==`null`].[id]' -o tsv)
 for id in ${unattachedDiskIds[@]}
 do
@@ -52,7 +50,7 @@ done
 
 ## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Discos não geridos: Encontrar e apagar discos não ligados 
 
-Os discos não geridos são ficheiros VHD que são armazenados como [bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) nas contas de armazenamento [Azure](../../storage/common/storage-account-overview.md). O seguinte script procura discos não geridos (bolhas de página) examinando o valor da propriedade **LeaseStatus.** Quando um disco não gerido é ligado a um VM, a propriedade **LeaseStatus** está definida para **Bloqueado**. Quando um disco não gerido não é ligado, a propriedade **LeaseStatus** está definida para **Desbloqueado**. O script examina todos os discos não geridos em todas as contas de armazenamento Azure numa subscrição do Azure. Quando o script localiza um disco não gerido com uma propriedade **LeaseStatus** definida para **Desbloqueado,** o script determina que o disco está desapegado.
+Os discos não geridos são ficheiros VHD que são armazenados como [bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) nas contas de armazenamento [Azure](../../storage/common/storage-account-overview.md). O seguinte script procura discos não geridos (bolhas de página) examinando o valor da propriedade **LeaseStatus.** Quando um disco não gerido é ligado a um VM, a propriedade **LeaseStatus** está definida para **Bloqueado** . Quando um disco não gerido não é ligado, a propriedade **LeaseStatus** está definida para **Desbloqueado** . O script examina todos os discos não geridos em todas as contas de armazenamento Azure numa subscrição do Azure. Quando o script localiza um disco não gerido com uma propriedade **LeaseStatus** definida para **Desbloqueado,** o script determina que o disco está desapegado.
 
 >[!IMPORTANT]
 >Em primeiro lugar, executar o script definindo a variável **deleteUnattachedVHDs** para 0. Esta ação permite-lhe encontrar e ver todos os VHDs não geridos desapegados.
@@ -61,13 +59,10 @@ Os discos não geridos são ficheiros VHD que são armazenados como [bolhas de p
 >
 
 ```azurecli
-   
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
 deleteUnattachedVHDs=0
-
 storageAccountIds=$(az storage account list --query [].[id] -o tsv)
-
 for id in ${storageAccountIds[@]}
 do
     connectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)

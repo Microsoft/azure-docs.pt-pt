@@ -3,15 +3,15 @@ title: Autenticar uma aplicação para aceder aos recursos do Azure Event Hubs
 description: Este artigo fornece informações sobre a autenticação de uma aplicação com o Azure Ative Directory para aceder aos recursos do Azure Event Hubs
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359939"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913318"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs
-O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar a Azure AD com Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` (Para os clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` ). A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
+O Microsoft Azure fornece uma gestão integrada do controlo de acessos para recursos e aplicações com base no Azure Ative Directory (Azure AD). Uma vantagem fundamental de usar a Azure AD com Azure Event Hubs é que já não precisa de armazenar as suas credenciais no código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma Microsoft Identity. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` , e é o mesmo para todas as nuvens/inquilinos (Para os clientes Kafka, o recurso para solicitar um token `https://<namespace>.servicebus.windows.net` é). A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve um sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar o pedido aos recursos do Azure Event Hubs.
 
 Quando um papel é atribuído a um diretor de segurança da AZure, a Azure concede acesso a esses recursos para esse diretor de segurança. O acesso pode ser analisado ao nível de subscrição, ao grupo de recursos, ao espaço de nomes do Event Hubs ou a qualquer recurso sob o mesmo. Uma segurança Azure AD pode atribuir funções a um utilizador, a um grupo, a um diretor de serviço de aplicações ou a uma [identidade gerida para os recursos da Azure.](../active-directory/managed-identities-azure-resources/overview.md) 
 
@@ -75,7 +75,7 @@ Depois de registar a aplicação, designa o principal de serviço da aplicação
 
     ![Selecione o seu centro de eventos](./media/authenticate-application/select-event-hub.png)
 1. Selecione **Access Control (IAM)** para exibir as definições de controlo de acesso para o centro de eventos. 
-1. Selecione o **separador funções** para ver a lista de atribuições de funções. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar a atribuição de função**. 
+1. Selecione o **separador funções** para ver a lista de atribuições de funções. Selecione o botão **Adicionar** na barra de ferramentas e, em seguida, selecione **Adicionar a atribuição de função** . 
 
     ![Adicione botão na barra de ferramentas](./media/authenticate-application/role-assignments-add-button.png)
 1. Na página **de atribuição de funções Adicionar,** faça os seguintes passos:

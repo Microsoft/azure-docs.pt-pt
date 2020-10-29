@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963963"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925803"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Resolução de problemas de autosserviço redefiniu a gravação no Azure Ative Directory
 
@@ -51,10 +51,10 @@ Para obter mais informações, consulte os [pré-requisitos de conectividade par
 
 Para resolver problemas de conectividade ou outros problemas transitórios com o serviço, complete os seguintes passos para reiniciar o serviço Azure AD Connect Sync:
 
-1. Como administrador no servidor que executa O Azure AD Connect, selecione **Start**.
-1. Introduza *os serviços.msc* no campo de pesquisa e selecione **Enter**.
+1. Como administrador no servidor que executa O Azure AD Connect, selecione **Start** .
+1. Introduza *os serviços.msc* no campo de pesquisa e selecione **Enter** .
 1. Procure a entrada microsoft *Azure AD Sync.*
-1. Clique com o botão direito na entrada de serviço, **selecione Restart**, e aguarde que a operação termine.
+1. Clique com o botão direito na entrada de serviço, **selecione Restart** , e aguarde que a operação termine.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/service-restart.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
 
@@ -66,13 +66,13 @@ Se reiniciar o serviço Azure AD Connect Sync não resolver o seu problema, tent
 
 Para continuar a resolver problemas, complete os seguintes passos para desativar e, em seguida, reativar a função de desativação da palavra-passe:
 
-1. Como administrador no servidor que executa o Azure AD Connect, abra o **assistente de configuração AD AD Ad**.
+1. Como administrador no servidor que executa o Azure AD Connect, abra o **assistente de configuração AD AD Ad** .
 1. Em **Connect to Azure AD,** insira as suas credenciais de administração global Azure AD.
 1. Em **Connect to AD DS,** insira as suas credenciais de administração de Serviços de Domínio de Diretório Ativo no local.
 1. Na **identificação única dos seus utilizadores,** selecione o botão **Seguinte.**
 1. Nas **funcionalidades opcionais,** limpe a caixa **de verificação de writeback password.**
 1. Selecione **Seguinte** através das páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar.**
-1. Verifique se a **página "Pronto para configurar"** mostra a opção *de writeback password* como *desativada*. Selecione o **botão configurar** verde para cometer as suas alterações.
+1. Verifique se a **página "Pronto para configurar"** mostra a opção *de writeback password* como *desativada* . Selecione o **botão configurar** verde para cometer as suas alterações.
 1. Em **Terminado,** limpe a opção **Synchronize now** e, em seguida, selecione **Finish** para fechar o assistente.
 1. Reabra o **assistente de configuração AD AD Ad.**
 1. Repita os passos 2-8, desta vez selecionando a opção *de writeback password* na página **de funcionalidades opcionais** para voltar a ativar o serviço.
@@ -101,8 +101,8 @@ Se instalar a versão mais recente do servidor Azure AD Connect não resolver o 
 
 O Azure AD Connect requer permissão de **senha de reset** AD DS para efetuar a gravação de palavra-passe. Para verificar se o Azure AD Connect tem a permissão necessária para uma conta de utilizador AD DS no local, utilize a função **de Permisse Eficaz do Windows:**
 
-1. Inicie sedumento no servidor AZure AD Connect e inicie o **Gestor de Serviço de Sincronização** selecionando o Serviço de **Start**  >  **Sincronização Inicial**.
-1. No **separador Conectores,** selecione o conector **ative Directory Domain Services** e, em seguida, selecione **Propriedades**.
+1. Inicie sedumento no servidor AZure AD Connect e inicie o **Gestor de Serviço de Sincronização** selecionando o Serviço de **Start**  >  **Sincronização Inicial** .
+1. No **separador Conectores,** selecione o conector **ative Directory Domain Services** e, em seguida, selecione **Propriedades** .
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
@@ -118,13 +118,13 @@ O Azure AD Connect requer permissão de **senha de reset** AD DS para efetuar a 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
 1. Procure a conta de utilizador da DS AD que pretende verificar. Clique com o botão direito no nome da conta e selecione **Propriedades.**  
-1. Na janela pop-up, vá ao separador **Segurança** e selecione **Advanced**.  
+1. Na janela pop-up, vá ao separador **Segurança** e selecione **Advanced** .  
 1. Nas **Definições avançadas** de segurança para a janela pop-up do administrador, aceda ao **separador Acesso Efetivo.**
-1. Escolha **Selecione um utilizador**, selecione a conta DS AD utilizada pelo Azure AD Connect e, em seguida, selecione Ver acesso **eficaz**.
+1. Escolha **Selecione um utilizador** , selecione a conta DS AD utilizada pelo Azure AD Connect e, em seguida, selecione Ver acesso **eficaz** .
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
   
-1. Desloque-se para baixo e procure **a palavra-passe Reset**. Se a entrada tiver uma marca de verificação, a conta DS AD tem permissão para redefinir a palavra-passe da conta de utilizador do Ative Directory selecionada.  
+1. Desloque-se para baixo e procure **a palavra-passe Reset** . Se a entrada tiver uma marca de verificação, a conta DS AD tem permissão para redefinir a palavra-passe da conta de utilizador do Ative Directory selecionada.  
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI" border="false":::
 
@@ -135,7 +135,7 @@ Podem ocorrer os seguintes problemas mais específicos com a gravação da palav
 | Erro | Solução |
 | --- | --- |
 | O serviço de reset de palavra-passe não começa no local. O erro 6800 aparece no registo de eventos da aplicação da máquina Azure AD Connect. <br> <br> Após o embarque, a autenticação federada, pass-through ou os utilizadores sincronizados com palavras-passe não conseguem redefinir as suas palavras-passe. | Quando a gravação da palavra-passe está ativada, o motor de sincronização chama a biblioteca de writeback para executar a configuração (embarque) comunicando ao serviço de embarque na nuvem. Quaisquer erros encontrados durante o embarque ou durante o início do ponto final da Fundação de Comunicação do Windows (WCF) para a writeback de palavra-passe resulta em erros no registo de eventos, na sua máquina Azure AD Connect. <br> <br> Durante o reinício do serviço Azure AD Sync (ADSync), se a gravação foi configurada, o ponto final do WCF começa. Mas, se o arranque do ponto final falhar, registamos o evento 6800 e deixamos o serviço de sincronização arrancar. A presença deste evento significa que o ponto final de gravação da palavra-passe não foi iniciado. Os detalhes do registo do evento para este evento 6800, juntamente com as entradas de registo de eventos geradas pelo componente PasswordResetService, indicam por que não é possível iniciar o ponto final. Reveja estes erros de registo de eventos e tente reiniciar o Azure AD Connect se a gravação da palavra-passe ainda não estiver a funcionar. Se o problema persistir, tente desativar e, em seguida, reative a gravação de palavra-passe.
-| Quando um utilizador tenta redefinir uma palavra-passe ou desbloquear uma conta com a gravação da palavra-passe ativada, a operação falha. <br> <br> Além disso, vê um evento no registo de eventos Azure AD Connect que contém: "O Motor de Sincronização devolveu um erro hr=800700CE, mensagem=O nome de ficheiro ou extensão é demasiado longo" após a operação de desbloqueio ocorrer. | Encontre a conta ative Directory para Azure AD Connect e reponha a palavra-passe de modo a que não contenha mais de 256 caracteres. Em seguida, abra o Serviço de **Sincronização** a partir do menu **Iniciar.** Navegue pelos **Conectores** e encontre o **Conector ative Directory**. Selecione-o e, em seguida, **selecione Propriedades.** Navegue na página **De Credenciais** e introduza a nova palavra-passe. Selecione **OK** para fechar a página. |
+| Quando um utilizador tenta redefinir uma palavra-passe ou desbloquear uma conta com a gravação da palavra-passe ativada, a operação falha. <br> <br> Além disso, vê um evento no registo de eventos Azure AD Connect que contém: "O Motor de Sincronização devolveu um erro hr=800700CE, mensagem=O nome de ficheiro ou extensão é demasiado longo" após a operação de desbloqueio ocorrer. | Encontre a conta ative Directory para Azure AD Connect e reponha a palavra-passe de modo a que não contenha mais de 256 caracteres. Em seguida, abra o Serviço de **Sincronização** a partir do menu **Iniciar.** Navegue pelos **Conectores** e encontre o **Conector ative Directory** . Selecione-o e, em seguida, **selecione Propriedades.** Navegue na página **De Credenciais** e introduza a nova palavra-passe. Selecione **OK** para fechar a página. |
 | No último passo do processo de instalação Azure AD Connect, vê-se um erro que indica que a gravação da palavra-passe não pôde ser configurada. <br> <br> O registo de eventos da aplicação AZure AD Connect contém erro 32009 com o texto "Erro obter ficha de auth". | Este erro ocorre nos dois seguintes casos: <br><ul><li>Especificou uma palavra-passe incorreta para a conta de administrador global fornecida no início do processo de instalação Azure AD Connect.</li><li>Tentou utilizar um utilizador federado para a conta de administrador global especificada no início do processo de instalação Azure AD Connect.</li></ul> Para corrigir este problema, certifique-se de que não está a utilizar uma conta federada para o administrador global especificado no início do processo de instalação e que a palavra-passe especificada está correta. |
 | O registo de eventos da máquina Azure AD Connect contém o erro 32002 que é lançado executando o PasswordResetService. <br> <br> O erro diz: "Erro de ligação ao ServiceBus. O provedor de fichas não foi capaz de fornecer um símbolo de segurança. | O seu ambiente no local não é capaz de se ligar ao ponto final do Azure Service Bus na nuvem. Este erro é normalmente causado por uma regra de firewall que bloqueia uma ligação de saída a uma determinada porta ou endereço web. Consulte [os pré-requisitos de Conectividade](../hybrid/how-to-connect-install-prerequisites.md) para mais informações. Depois de atualizar estas regras, reinicie o servidor Azure AD Connect e a writeback de palavra-passe deve começar a funcionar novamente. |
 | Depois de trabalhar durante algum tempo, os utilizadores federados, de passagem ou sincronizados com palavras-passe não conseguem redefinir as suas palavras-passe. | Em alguns casos raros, o serviço de writeback de palavra-passe pode não reiniciar quando o Azure AD Connect foi reiniciado. Nestes casos, verifique primeiro se o writeback de palavra-passe está ativado no local. Pode verificar utilizando o assistente Azure AD Connect ou o PowerShell. Se a funcionalidade parecer ativada, tente ativar ou desativar novamente a funcionalidade. Se este passo de resolução de problemas não funcionar, experimente uma desinstalação completa e reinstalar o Azure AD Connect. |
@@ -150,7 +150,7 @@ Uma boa prática quando se desresem problemas com a gravação de passwords é i
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se a origem do evento for a ADSync
 
-| Código | Nome ou mensagem | Descrição |
+| Código | Nome ou mensagem | Description |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "Uma restrição impede que a palavra-passe seja alterada para a atual especificada." | Este evento ocorre quando o serviço de writeback de palavra-passe tenta definir uma palavra-passe no seu diretório local que não satisfaz os requisitos de senha, histórico, complexidade ou filtragem do domínio. <br> <br> Se tiver uma idade mínima de senha e tiver alterado recentemente a palavra-passe dentro dessa janela de tempo, não poderá alterar novamente a palavra-passe até atingir a idade especificada no seu domínio. Para efeitos de teste, a idade mínima deve ser fixada para 0. <br> <br> Se tiver os requisitos de histórico de palavra-passe ativados, então deve selecionar uma palavra-passe que não tenha sido utilizada nos últimos *tempos N,* onde *N* é a definição do histórico de palavra-passe. Se selecionar uma palavra-passe que tenha sido usada nas últimas *vezes N,* verá uma falha neste caso. Para efeitos de teste, o histórico de palavras-passe deve ser definido para 0. <br> <br> Se tiver requisitos de complexidade de palavras-passe, todos eles são aplicados quando o utilizador tenta alterar ou redefinir uma palavra-passe. <br> <br> Se tiver filtros de senha ativados e um utilizador selecionar uma palavra-passe que não satisfaça os critérios de filtragem, então o reset ou a operação de alteração falha. |
 | 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controlo da política de palavra-passe LDAP. | Este problema ocorre se LDAP_SERVER_POLICY_HINTS_OID controlo (1.2.840.113556.1.4.2066) não estiver ativado nos DCs. Para utilizar a função de descodão da palavra-passe, tem de ativar o controlo. Para tal, os DCs devem estar no Windows Server 2008R2 ou posteriormente. |
@@ -158,7 +158,7 @@ Uma boa prática quando se desresem problemas com a gravação de passwords é i
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento for passwordResetService
 
-| Código | Nome ou mensagem | Descrição |
+| Código | Nome ou mensagem | Description |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Este evento indica que o serviço no local detetou um pedido de reset de palavra-passe para uma autenticação federada, pass-through ou utilizador sincronizado com palavra-passe que se origina da nuvem. Este evento é o primeiro evento em cada operação de writeback reset de palavra-passe. |
 | 31002 | PasswordResetSuccess | Este evento indica que um utilizador selecionou uma nova palavra-passe durante uma operação de reset de palavra-passe. Determinámos que esta palavra-passe satisfaz os requisitos de senha corporativa. A palavra-passe foi escrita com sucesso para o ambiente local do Ative Directory. |
@@ -178,6 +178,7 @@ Uma boa prática quando se desresem problemas com a gravação de passwords é i
 | 31016| WriteBackServices coberto| Este evento indica que o serviço de descodão de palavra-passe parou. Quaisquer pedidos de gestão de passwords da nuvem não serão bem sucedidos.|
 | 31017| AuthTokenSuccess| Este evento indica que conseguimos obter com sucesso um sinal de autorização para a administração global especificada durante a configuração Azure AD Connect para iniciar o processo de offboarding ou de embarque.|
 | 31018| KeyPairCreationSuccess| Este evento indica que criámos com sucesso a chave de encriptação da palavra-passe. Esta chave é usada para encriptar palavras-passe da nuvem a serem enviadas para o seu ambiente no local.|
+| 31034| ServiceBusListenerError| Este evento indica que houve um erro de ligação ao ouvinte do Serviço de Serviço do seu inquilino. Se a mensagem de erro incluir "O certificado remoto é inválido", verifique se o seu servidor Azure AD Connect tem todos os CAs raiz necessários, conforme descrito nas alterações do [certificado Azure TLS](../../security/fundamentals/tls-certificate-changes.md). |
 | 32000| DesconhecidoError| Este evento indica que ocorreu um erro desconhecido durante uma operação de gestão de passwords. Veja o texto de exceção no evento para mais detalhes. Se tiver problemas, tente desativar e, em seguida, reativar a gravação da palavra-passe. Se isto não ajudar, inclua uma cópia do seu registo de eventos juntamente com o ID de rastreio especificado quando abre um pedido de suporte.|
 | 32001| ServiceError| Este evento indica que houve um erro de ligação ao serviço de reset da palavra-passe na nuvem. Este erro ocorre geralmente quando o serviço no local não foi capaz de se ligar ao serviço web de redefinição de palavra-passe.|
 | 32002| ServiceBusError| Este evento indica que houve um erro de ligação à instância do autocarro de serviço do seu inquilino. Isto pode acontecer se estiver a bloquear ligações de saída no seu ambiente no local. Verifique a sua firewall para se certificar de que permite ligações sobre o TCP 443 e para https://ssprdedicatedsbprodncu.servicebus.windows.net , e tente novamente. Se ainda tiver problemas, tente desativar e, em seguida, reativar a gravação da palavra-passe.|
@@ -213,21 +214,21 @@ Se não encontrar a resposta para um problema, as nossas equipas de apoio estão
 Para ajudá-lo corretamente, pedimos que forneça o máximo de detalhes possível ao abrir um caso. Estes detalhes incluem os seguintes:
 
 * **Descrição geral do erro:** Qual é o erro? Qual foi o comportamento que foi notado? Como podemos reproduzir o erro? Forneça o máximo de detalhes possível.
-* **Página**: Em que página estava quando reparou no erro? Inclua o URL se for capaz e uma imagem da página.
-* **Código de suporte**: Qual foi o código de suporte que foi gerado quando o utilizador viu o erro?
+* **Página** : Em que página estava quando reparou no erro? Inclua o URL se for capaz e uma imagem da página.
+* **Código de suporte** : Qual foi o código de suporte que foi gerado quando o utilizador viu o erro?
    * Para encontrar este código, reproduza o erro, selecione a ligação **de código de suporte** na parte inferior do ecrã e envie ao engenheiro de suporte o GUIADOr que resulta.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Reinicie o serviço Azure AD Sync utilizando o GUI":::
 
   * Se estiver numa página sem um código de suporte na parte inferior, selecione F12 e procure o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
-* **Data, hora e fuso horário**: Inclua a data e a hora *exatas com o fuso horário* em que ocorreu o erro.
-* **ID do utilizador**: Quem foi o utilizador que viu o erro? Um exemplo é * \@ o contoso.com do utilizador*.
+* **Data, hora e fuso horário** : Inclua a data e a hora *exatas com o fuso horário* em que ocorreu o erro.
+* **ID do utilizador** : Quem foi o utilizador que viu o erro? Um exemplo é *\@ o contoso.com do utilizador* .
    * É um utilizador federado?
    * É um utilizador de autenticação pass-through?
    * É um utilizador sincronizado com palavra-passe?
    * É um utilizador só de nuvens?
-* **Licenciamento**: O utilizador tem uma licença AD Azure atribuída?
-* **Registo do evento**de aplicação : Se estiver a utilizar a gravação de palavra-passe e o erro estiver na sua infraestrutura no local, inclua uma cópia zipped do registo do evento da sua aplicação a partir do servidor Azure AD Connect.
+* **Licenciamento** : O utilizador tem uma licença AD Azure atribuída?
+* **Registo do evento** de aplicação : Se estiver a utilizar a gravação de palavra-passe e o erro estiver na sua infraestrutura no local, inclua uma cópia zipped do registo do evento da sua aplicação a partir do servidor Azure AD Connect.
 
 ## <a name="next-steps"></a>Passos seguintes
 

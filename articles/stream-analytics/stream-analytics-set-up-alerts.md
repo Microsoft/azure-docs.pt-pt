@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35fb02717f706f026862790b7d618036d764c7a8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461041"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92914015"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Azure Stream Analytics
 
@@ -30,15 +30,15 @@ O exemplo a seguir demonstra como configurar alertas para quando o seu trabalho 
 
 2. Na página **'Trabalho',** navegue para a secção **de Monitorização.**  
 
-3. Selecione **Métricas**e, em seguida, **Nova regra de alerta**.
+3. Selecione **Métricas** e, em seguida, **Nova regra de alerta** .
 
    ![Portal Azure Stream Analytics alerta configuração](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. O nome de trabalho stream Analytics deve aparecer automaticamente em **RECURSO**. Clique **em Adicionar a condição**e selecione Todas as **operações administrativas** sob **lógica de sinal de configuração**.
+4. O nome de trabalho stream Analytics deve aparecer automaticamente em **RECURSO** . Clique **em Adicionar a condição** e selecione Todas as **operações administrativas** sob **lógica de sinal de configuração** .
 
    ![Selecione o nome do sinal para alerta stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Na **lógica de sinal de configuração,** altere o **nível de evento** para **todos** e **altere o Estado** para **Falhar**. Leave **Event iniciado por** blank e selecione **Feito**.
+5. Na **lógica de sinal de configuração,** altere o **nível de evento** para **todos** e **altere o Estado** para **Falhar** . Leave **Event iniciado por** blank e selecione **Feito** .
 
    ![Lógica de sinal de configuração para alerta stream analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -46,13 +46,13 @@ O exemplo a seguir demonstra como configurar alertas para quando o seu trabalho 
 
    ![Criação de um alerta para um trabalho da Azure Streaming Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. Os **GRUPOS DE RECURSO,** **CONDIÇÃO**e **AÇÃO** devem ter uma entrada. Note que para que os alertas de incêndio, as condições definidas devem ser cumpridas. Por exemplo, pode medir o valor médio de uma métrica durante os últimos 15 minutos, de cinco em cinco minutos.
+7. Os **GRUPOS DE RECURSO,** **CONDIÇÃO** e **AÇÃO** devem ter uma entrada. Note que para que os alertas de incêndio, as condições definidas devem ser cumpridas. Por exemplo, pode medir o valor médio de uma métrica durante os últimos 15 minutos, de cinco em cinco minutos.
 
-   ![Criar regra de alerta stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![A screenshot mostra a caixa de diálogo de regras Create com RECURSO, CONDIÇÃO e ACTION GROUP.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Adicione um **nome de regra de alerta**, **Descrição**, e o seu **Grupo de Recursos** aos DETALHES DE **ALERTA** e clique em Criar regra **de alerta** para criar a regra para o seu trabalho stream Analytics.
+   Adicione um **nome de regra de alerta** , **Descrição** , e o seu **Grupo de Recursos** aos DETALHES DE **ALERTA** e clique em Criar regra **de alerta** para criar a regra para o seu trabalho stream Analytics.
 
-   ![Criar regra de alerta stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![A screenshot mostra a caixa de diálogo de regras Create com DETALHES DE ALERTA.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>Cenários a monitorizar
 

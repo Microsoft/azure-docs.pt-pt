@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4e85de2fad5c08f296d8089f48fa8614f7f1739
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3aee0497f79b57699a44641488c1f09bbae79960
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88925186"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913148"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar recipientes de reconhecimento de formulários (pré-visualização)
 
@@ -35,13 +35,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Antes de utilizar os recipientes do Form Recogniser, deve cumprir os seguintes requisitos:
 
-| Necessário | Objetivo |
+| Obrigatório | Objetivo |
 |----------|---------|
 | Motor do Docker | Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> No Windows, o Docker também deve ser configurado para suportar recipientes Linux.<br><br> |
 | Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, tais como registos, repositórios, contentores e imagens de contentores, e conhecimento de `docker` comandos básicos. |
-| A CLI do Azure | Instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu anfitrião. |
-| Recurso API de Visão Computacional | Para processar documentos e imagens digitalizados, precisa de um recurso de Visão De Computador. Pode aceder à funcionalidade "Reconhecer texto" como um recurso Azure (a API REST ou SDK) ou um recipiente *de texto de reconhecimento de serviços cognitivos.* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull) As taxas de faturação habituais aplicam-se. <br><br>Passe na chave API e nos pontos finais para o seu recurso de Visão De Computador (nuvem Azure ou recipiente de Serviços Cognitivos). Utilize esta tecla API e o ponto final como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Se utilizar o recipiente *de texto de reconhecimento de serviços cognitivos, certifique-se* de que:<br><br>A tecla de visão de computador para o recipiente Do Reconhecimento de Formulários é a chave especificada no comando visão de computador `docker run` para o recipiente de texto de reconhecimento de *serviços cognitivos.*<br>O seu ponto final de faturação é o ponto final do contentor (por exemplo, `http://localhost:5000` ). Se utilizar o recipiente de Visão De Computador e o Recipiente Do Reconhecimento de Formulários juntos no mesmo hospedeiro, ambos não podem ser iniciados com a porta padrão de *5000*. |
-| Recurso de reconhecimento de formulários | Para utilizar estes recipientes, deve ter:<br><br>Um recurso **Azure Form Recogniser** para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas do portal Azure **Form Recogniser** Overview e Keys, e ambos os valores são necessários para iniciar o recipiente.<br><br>**{FORM_RECOGNIZER_API_KEY}**: Uma das duas teclas de recursos disponíveis na página Keys<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: O ponto final, conforme fornecido na página 'Vista Geral', |
+| A CLI do Azure | Instale o [Azure CLI](/cli/azure/install-azure-cli) no seu anfitrião. |
+| Recurso API de Visão Computacional | Para processar documentos e imagens digitalizados, precisa de um recurso de Visão De Computador. Pode aceder à funcionalidade "Reconhecer texto" como um recurso Azure (a API REST ou SDK) ou um recipiente *de texto de reconhecimento de serviços cognitivos.* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull) As taxas de faturação habituais aplicam-se. <br><br>Passe na chave API e nos pontos finais para o seu recurso de Visão De Computador (nuvem Azure ou recipiente de Serviços Cognitivos). Utilize esta tecla API e o ponto final como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se utilizar o recipiente *de texto de reconhecimento de serviços cognitivos, certifique-se* de que:<br><br>A tecla de visão de computador para o recipiente Do Reconhecimento de Formulários é a chave especificada no comando visão de computador `docker run` para o recipiente de texto de reconhecimento de *serviços cognitivos.*<br>O seu ponto final de faturação é o ponto final do contentor (por exemplo, `http://localhost:5000` ). Se utilizar o recipiente de Visão De Computador e o Recipiente Do Reconhecimento de Formulários juntos no mesmo hospedeiro, ambos não podem ser iniciados com a porta padrão de *5000* . |
+| Recurso de reconhecimento de formulários | Para utilizar estes recipientes, deve ter:<br><br>Um recurso **Azure Form Recogniser** para obter a chave API associada e o ponto final URI. Ambos os valores estão disponíveis nas páginas do portal Azure **Form Recogniser** Overview e Keys, e ambos os valores são necessários para iniciar o recipiente.<br><br>**{FORM_RECOGNIZER_API_KEY}** : Uma das duas teclas de recursos disponíveis na página Keys<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : O ponto final, conforme fornecido na página 'Vista Geral', |
 
 > [!NOTE]
 > O nome do recurso Visão De Computador deve ser uma única palavra, sem hífen `-` ou qualquer outro caracteres especiais. Esta restrição está em vigor para garantir a compatibilidade do recipiente de identificação de formulários e reconhecimento.
@@ -248,7 +248,7 @@ services:
 
 ### <a name="form-recognizer"></a>Reconhecedor de Formato
 
-O recipiente fornece APIs de consulta baseada em websocket, a que acede através da [documentação SDK dos serviços de reconhecimento de formulários.](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)
+O recipiente fornece APIs de consulta baseada em websocket, a que acede através da [documentação SDK dos serviços de reconhecimento de formulários.](./index.yml)
 
 Por padrão, o Form Recogniser SDK utiliza os serviços online. Para utilizar o recipiente, é necessário alterar o método de inicialização. Veja os exemplos abaixo.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: c56f3b561dbced9f00bb2616f5709a51fa02fbcb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3b5cc1dd61b4f01e40c1cc812e93a448855ad92d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481011"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926517"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Gerir recursos API DB Core (SQL) da Azure Cosmos (SQL) utilizando o PowerShell
 
@@ -78,7 +78,7 @@ New-AzCosmosDBAccount `
 * `$resourceGroupName` O grupo de recursos Azure para implantar a conta Cosmos. Já deve existir.
 * `$locations` As regiões para a conta de base de dados, a região com `FailoverPriority 0` é a região de escrita.
 * `$accountName` O nome da conta de Azure Cosmos. Deve ser único, minúsculo, incluir apenas caracteres alfanuméricos e '-', e entre 3 e 31 caracteres de comprimento.
-* `$apiKind` O tipo de conta Cosmos para criar. Para mais informações, consulte [APIs em Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
+* `$apiKind` O tipo de conta Cosmos para criar. Para mais informações, consulte [APIs em Cosmos DB](introduction.md#simplified-application-development).
 * `$consistencyPolicy`, `$maxStalenessInterval` e `$maxStalenessPrefix` o nível de consistência padrão e as configurações da conta Azure Cosmos. Para mais informações, consulte [os Níveis de Consistência em Azure Cosmos DB](consistency-levels.md).
 
 As contas do Azure Cosmos podem ser configuradas com IP Firewall, pontos finais de serviço de rede virtual e pontos finais privados. Para obter informações sobre como configurar a firewall IP para Azure Cosmos DB, consulte [Configure IP Firewall](how-to-configure-firewall.md). Para obter informações sobre como ativar os pontos finais do serviço para Azure Cosmos DB, consulte [o acesso configure a partir de Redes virtuais](how-to-configure-vnet-service-endpoint.md). Para obter informações sobre como permitir pontos finais privados para Azure Cosmos DB, consulte [o acesso de configuração a partir de pontos finais privados](how-to-configure-private-endpoints.md).

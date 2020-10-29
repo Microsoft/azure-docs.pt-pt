@@ -2,13 +2,13 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos Azure que podem ter mais de 800 instâncias num grupo de recursos.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330762"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913505"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -81,6 +81,7 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
+* laboratórios/virtualMachines - Por padrão, limitado a 800 casos. Este limite pode ser aumentado através do contacto com o suporte.
 * horários
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 
 * workspaceCollections - Por padrão, limitado a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+
+* capacidades - Por defeito, limitada a 800 instâncias. Este limite pode ser aumentado através do contacto com o suporte.
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 * espaços de nome
@@ -185,18 +190,21 @@ Para alguns tipos de recursos, é necessário contactar o suporte para que o lim
 
 * espaços de nome
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftsingularity"></a>Microsoft.Singularity
 
-* aplicações
-* grupos de contentores
-* portais
-* redes
-* segredos
-* volumes
+* accounts
+* contas/contaQuotaPolicies
+* contas/grupoPolícias
+* contas/postos de trabalho
+* contas/armazenamentoContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * armazenamento Contas
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servidores/bases de dados
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a06bbeb4946f03b9cb6e5b1400521a0abffdd7f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901609"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913556"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure Synapse Analytics (anteriormente SQL Data Warehouse) utilizando a Azure Data Factory
 
@@ -42,7 +42,7 @@ Para a atividade copy, este conector Azure Synapse Analytics suporta estas funç
 
 - Copie os dados utilizando a autenticação SQL e o Azure Ative Directory (Azure AD) A autenticação de ficha de aplicação com um principal serviço ou identidades geridas para recursos Azure.
 - Como fonte, recupere os dados utilizando uma consulta SQL ou procedimento armazenado. Também pode optar por copiar paralelamente a partir de uma fonte Azure Synapse Analytics, consulte a cópia paralela da secção [Synapse Analytics](#parallel-copy-from-synapse-analytics) para obter mais detalhes.
-- Como pia, carregue os dados utilizando a declaração [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) ou [COPY](#use-copy-statement) (pré-visualização) ou a peça a granel. Recomendamos a declaração PolyBase ou COPY (pré-visualização) para um melhor desempenho da cópia. O conector também suporta automaticamente a criação de uma tabela de destino se não existir com base no esquema de origem.
+- Como pia, carregue os dados utilizando a declaração [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) ou [COPY](#use-copy-statement) ou a partir de cada um. Recomendamos a declaração polyBase ou COPY para um melhor desempenho da cópia. O conector também suporta automaticamente a criação de uma tabela de destino se não existir com base no esquema de origem.
 
 > [!IMPORTANT]
 > Se copiar dados utilizando o tempo de execução da integração da Azure Data Factory, configure uma [regra de firewall ao nível do servidor](../azure-sql/database/firewall-configure.md) para que os serviços Azure possam aceder ao servidor [lógico SQL](../azure-sql/database/logical-servers.md).
@@ -51,7 +51,7 @@ Para a atividade copy, este conector Azure Synapse Analytics suporta estas funç
 ## <a name="get-started"></a>Introdução
 
 > [!TIP]
-> Para obter o melhor desempenho, utilize a PolyBase para carregar dados no Azure Synapse Analytics. A [Utilização polyBase para carregar dados na secção Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) tem detalhes. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](load-azure-sql-data-warehouse.md).
+> Para obter o melhor desempenho, utilize a declaração PolyBase ou COPY para carregar dados no Azure Synapse Analytics. A [Utilização da PolyBase para carregar dados em Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) e usar a declaração COPY para carregar dados nas secções [Azure Synapse Analytics](#use-copy-statement) tem detalhes. Para uma passagem com uma caixa de utilização, consulte [a Carga 1 TB em Azure Synapse Analytics em menos de 15 minutos com a Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -478,7 +478,7 @@ A utilização do [PolyBase](/sql/relational-databases/polybase/polybase-guide) 
 - Se a sua loja de dados de origem e o seu formato não forem originalmente suportados pela PolyBase, utilize a cópia Encenada utilizando a funcionalidade **[PolyBase.](#staged-copy-by-using-polybase)** A funcionalidade de cópia encenada também lhe proporciona uma melhor produção. Converte automaticamente os dados em formato compatível com a PolyBase, armazena os dados no armazenamento Azure Blob e, em seguida, chama a PolyBase para carregar dados em Azure Synapse Analytics.
 
 > [!TIP]
-> Saiba mais sobre [as melhores práticas para a utilização do PolyBase.](#best-practices-for-using-polybase) Ao utilizar a PolyBase com O Tempo de Execução da Integração Azure, as Unidades eficazes de Integração de Dados (DIUs) são sempre 2. A sintonização do DIU não afeta o desempenho, uma vez que os dados de carregamento do armazenamento são alimentados pelo motor Synapse.
+> Saiba mais sobre [as melhores práticas para a utilização do PolyBase.](#best-practices-for-using-polybase) Ao utilizar a PolyBase com O Tempo de Execução da Integração Azure, as unidades eficazes de integração de [dados (DIU)](copy-activity-performance-features.md#data-integration-units) para armazenamento direto ou encenado para sinapse são sempre 2. A sintonização do DIU não afeta o desempenho, uma vez que os dados de carregamento do armazenamento são alimentados pelo motor Synapse.
 
 As seguintes definições de PolyBase são suportadas `polyBaseSettings` na atividade de cópia:
 
@@ -507,7 +507,8 @@ Se os requisitos não forem cumpridos, a Azure Data Factory verifica as definiç
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | Autenticação chave de conta, autenticação de identidade gerida |
 
     >[!IMPORTANT]
-    >Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida - consulte o [Impacto da utilização de Pontos Finais de Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Aprenda as configurações necessárias na Data Factory a partir de [Azure Blob - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 -](connector-azure-data-lake-storage.md#managed-identity) secção de autenticação de identidade gerida respectivamente.
+    >- Quando utilizar a autenticação de identidade gerida para o seu serviço ligado ao armazenamento, aprenda as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+    >- Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. O formato de dados de **origem** é de **Parquet,** **ORC,** ou **texto delimitado,** com as seguintes configurações:
 
@@ -567,7 +568,8 @@ Quando os seus dados de origem não são de forma nativa compatível com a PolyB
 Para utilizar esta funcionalidade, crie um [serviço ligado ao Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou serviço de armazenamento de [dados Azure Data Lake Gen2](connector-azure-data-lake-storage.md#linked-service-properties) com **chave de conta ou autenticação de identidade gerida** que se refere à conta de armazenamento Azure como armazenamento provisório.
 
 >[!IMPORTANT]
->Se a sua encenação Azure Storage estiver configurada com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida - consulte o [Impacto da utilização de Pontos Finais de Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Aprenda as configurações necessárias na Data Factory a partir de [Azure Blob - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 - autenticação de identidade gerida](connector-azure-data-lake-storage.md#managed-identity).
+>- Quando utilizar a autenticação de identidade gerida para o seu serviço ligado à encenação, aprenda as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+>- Se a sua encenação Azure Storage estiver configurada com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ```json
 "activities":[
@@ -673,7 +675,7 @@ A declaração Azure Synapse Analytics [COPY](/sql/t-sql/statements/copy-into-tr
 >Atualmente, a Data Factory apenas suporta cópia a partir de fontes compatíveis com a declaração COPY mencionadas abaixo.
 
 >[!TIP]
->Ao utilizar a declaração COPY com o Tempo de Execução da Integração Azure, as Unidades eficazes de Integração de Dados (DIUs) são sempre 2. A sintonização do DIU não afeta o desempenho, uma vez que os dados de carregamento do armazenamento são alimentados pelo motor Synapse.
+>Ao utilizar a declaração COPY com o Tempo de Execução da Integração Azure, as Unidades eficazes [de Integração de Dados (DIU)](copy-activity-performance-features.md#data-integration-units) são sempre 2. A sintonização do DIU não afeta o desempenho, uma vez que os dados de carregamento do armazenamento são alimentados pelo motor Synapse.
 
 A utilização da declaração COPY suporta a seguinte configuração:
 
@@ -687,7 +689,8 @@ A utilização da declaração COPY suporta a seguinte configuração:
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2) | [Texto delimitado](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticação chave de conta, autenticação principal do serviço, autenticação de identidade gerida |
 
     >[!IMPORTANT]
-    >Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida - consulte o [Impacto da utilização de Pontos Finais de Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Aprenda as configurações necessárias na Data Factory a partir de [Azure Blob - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 -](connector-azure-data-lake-storage.md#managed-identity) secção de autenticação de identidade gerida respectivamente.
+    >- Quando utilizar a autenticação de identidade gerida para o seu serviço ligado ao armazenamento, aprenda as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+    >- Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. As definições do formato são com as seguintes:
 
@@ -769,7 +772,10 @@ As definições específicas do Azure Synapse Analytics estão disponíveis no s
 
 **Entrada** Selecione se aponta a sua fonte para uma mesa (equivalente ```Select * from <table-name>``` a) ou introduza uma consulta SQL personalizada.
 
-**Ativar a encenação** Recomenda-se vivamente que utilize esta opção em cargas de trabalho de produção com fontes DW da Synapse. Quando executa uma atividade de fluxo de dados com fontes synapase a partir de um oleoduto, a ADF irá solicitar-lhe uma conta de armazenamento de localização de localização de localização e irá usá-la para carregamento de dados encenado. É o mecanismo mais rápido para carregar dados da Synapse DW.
+**Ativar a encenação** Recomenda-se vivamente que utilize esta opção em cargas de trabalho de produção com fontes Azure Synapse Analytics. Quando executa uma [atividade de fluxo de dados](control-flow-execute-data-flow-activity.md) com fontes Azure Synapse Analytics a partir de um oleoduto, a ADF irá solicitar-lhe uma conta de armazenamento de localização de localização de localização e irá usá-la para carregamento de dados encenado. É o mecanismo mais rápido para carregar dados da Azure Synapse Analytics.
+
+- Quando utilizar a autenticação de identidade gerida para o seu serviço ligado ao armazenamento, aprenda as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+- Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Consulta** : Se selecionar Consulta no campo de entrada, introduza uma consulta SQL para a sua fonte. Esta definição substitui qualquer tabela que tenha escolhido no conjunto de dados. **As** cláusulas de encomenda por não são suportadas aqui, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela. Esta consulta produzirá uma tabela de origem que pode utilizar no fluxo de dados. Usar consultas também é uma ótima maneira de reduzir linhas para testes ou para procuras.
 
@@ -798,7 +804,10 @@ As definições específicas do Azure Synapse Analytics estão disponíveis no *
 - Recriar: A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.
 - Truncato: Todas as linhas da mesa-alvo serão removidas.
 
-**Ativar a encenação:** Determina se deve ou não utilizar a [PolyBase](/sql/relational-databases/polybase/polybase-guide) ao escrever para a Azure Synapse Analytics
+**Ativar a encenação:** Determina se deve ou não utilizar a [PolyBase](/sql/relational-databases/polybase/polybase-guide) ao escrever para o Azure Synapse Analytics. O armazenamento de encenação está configurado na [atividade executar fluxo de dados](control-flow-execute-data-flow-activity.md). 
+
+- Quando utilizar a autenticação de identidade gerida para o seu serviço ligado ao armazenamento, aprenda as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.
+- Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Tamanho do lote** : Controla quantas linhas estão a ser escritas em cada balde. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados.
 
@@ -851,6 +860,6 @@ Quando copia dados de ou para Azure Synapse Analytics, os seguintes mapeamentos 
 | varbinário                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma lista de lojas de dados suportadas como fontes e sumidouros pela Copy Activity na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

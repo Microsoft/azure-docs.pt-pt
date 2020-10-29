@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539820"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913590"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Ferramenta de Modelação de Ameaças LANÇAMENTO GA 7.1.50911.2 - 9/12/2018
 
@@ -65,13 +65,13 @@ O utilizador pode clicar no texto de mitigação e utilizar o controlo padrão d
 
 A função "Open From OneDrive" do lançamento de pré-visualização foi removida. Os utilizadores com "Modelos Recentemente Abertos" que foram guardados para o OneDrive receberão o seguinte erro.
 
-![Recurso OneDrive removido](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![As imagens mostram um erro: Erro na abertura da referência do objeto de ficheiro não definido para uma instância de um objeto.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>Solução
 
 Os utilizadores do OneDrive são encorajados a utilizar o [OneDrive](https://onedrive.live.com/about/en-us/download/) da Microsoft para o cliente Windows aceder aos seus ficheiros armazenados no OneDrive através do diálogo padrão e "Abrir um modelo".
 
-![Recurso OneDrive removido](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![A screenshot mostra o OneDrive selecionado no Open de uma caixa de diálogo modelo.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>A minha organização usa a versão de 2016 da ferramenta, posso usar o conjunto de stencil Azure?
 

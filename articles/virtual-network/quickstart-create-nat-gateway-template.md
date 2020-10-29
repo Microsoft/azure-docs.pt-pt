@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 6b953c0183943e895c8836f79c1b8e81a22fb31d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 95856db9288e5860dfab47dce506d1e7d6de1ffc
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792281"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913335"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>Quickstart: Criar um portal NAT - modelo ARM
 
@@ -54,26 +54,18 @@ O Ubuntu VM é implantado numa sub-rede que está associada ao recurso de gatewa
 Nove recursos Azure são definidos no modelo:
 
 * **[Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)** : Cria um grupo de segurança de rede.
-
 * **[Microsoft.Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)** : Cria uma regra de segurança.
-
 * **[Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)** : Cria um endereço IP público.
-
 * **[Microsoft.Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)** : Cria um prefixo IP público.
-
 * **[Microsoft.Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)** : Cria uma máquina virtual.
-
 * **[Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)** : Cria uma rede virtual.
-
 * **[Microsoft.Network/natGateways](/azure/templates/microsoft.network/natgateways)** : Cria um recurso de gateway NAT.
-
 * **[Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets)** : Cria uma sub-rede de rede virtual.
-
 * **[Microsoft.Network/networkinterfaces](/azure/templates/microsoft.network/networkinterfaces)** : Cria uma interface de rede.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-### <a name="azure-cli"></a>CLI do Azure
+**CLI do Azure**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -89,7 +81,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
@@ -101,13 +93,13 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-### <a name="azure-portal"></a>Portal do Azure
+**Portal do Azure**
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **grupos** de recursos do painel esquerdo.
 
@@ -117,9 +109,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
     ![Grupo de recursos NAT de rede virtual](./media/quick-create-template/nat-gateway-template-rg.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-### <a name="azure-cli"></a>CLI do Azure
+**CLI do Azure**
 
 Quando já não é necessário, pode utilizar o comando de eliminação do [grupo az](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
@@ -128,7 +120,7 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
     --name myResourceGroupNAT
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 
 Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos contidos no seu interior.
 
@@ -136,7 +128,7 @@ Quando já não é necessário, pode utilizar o comando [Remove-AzResourceGroup]
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-### <a name="azure-portal"></a>Portal do Azure
+**Portal do Azure**
 
 Quando já não for necessário, elimine o grupo de recursos, o gateway NAT e todos os recursos relacionados. Selecione o grupo de recursos **myResourceGroupNAT** que contém o gateway NAT e, em seguida, selecione **Delete** .
 

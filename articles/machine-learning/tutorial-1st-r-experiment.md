@@ -10,19 +10,19 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019380"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913284"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Use R para criar um modelo de aprendizagem automática (pré-visualização)
 
 
 > [!IMPORTANT]
 > O Azure Machine Learning R SDK está atualmente em pré-visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Neste tutorial você usará o Azure Machine Learning R SDK (pré-visualização) para criar um modelo de regressão logística que prevê a probabilidade de uma fatalidade num acidente de carro. Você verá como os recursos em nuvem de aprendizagem da máquina Azure funcionam com R para fornecer um ambiente escalável para treinar e implementar um modelo.  
 
@@ -45,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implementar modelos de machine learning. Liga a sua subscrição e grupo de recursos Azure a um objeto facilmente consumido no serviço. 
 
-Cria um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure. 
+Existem muitas [formas de criar um espaço de trabalho.](how-to-manage-workspace.md) Neste tutorial, cria-se um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -74,7 +74,7 @@ Clone o https://github.com/Azure/azureml-sdk-for-r repositório GitHub para uma 
 
 1. Corre `git clone https://github.com/Azure/azureml-sdk-for-r` no terminal para clonar o repositório.
 
-1. Em RStudio, navegue para a pasta de *vinhetas* da pasta *clonada azureml-sdk-for-r.*  Sob *vinhetas,* selecione o modelo de *comboio e implantação.primeiro. Arquivo RMD* para encontrar vinheta usada neste tutorial. Os ficheiros adicionais utilizados para a vinheta estão localizados na sub-dobradeira *de primeiro modelo de comboio e implantação.* Uma vez aberta a vinheta, desave o diretório de trabalho para a localização do ficheiro através da **Sessão > Definir o Diretório de Trabalho > Para a Localização do Ficheiro Fonte**. 
+1. Em RStudio, navegue para a pasta de *vinhetas* da pasta *clonada azureml-sdk-for-r.*  Sob *vinhetas,* selecione o modelo de *comboio e implantação.primeiro. Arquivo RMD* para encontrar vinheta usada neste tutorial. Os ficheiros adicionais utilizados para a vinheta estão localizados na sub-dobradeira *de primeiro modelo de comboio e implantação.* Uma vez aberta a vinheta, desave o diretório de trabalho para a localização do ficheiro através da **Sessão > Definir o Diretório de Trabalho > Para a Localização do Ficheiro Fonte** . 
 
 > [!Important]
 > O resto deste artigo contém o mesmo conteúdo que se vê no *primeiro modelo de comboio e implantação. Arquivo RMD.* Se tiver experiência com o RMarkdown, sinta-se à vontade para utilizar o código a partir desse ficheiro.  Ou pode copiar/colar os cortes de código de lá, ou deste artigo para um script R ou para a linha de comando. 
@@ -188,7 +188,7 @@ Um roteiro de treino chamado `accidents.R` foi fornecido para si no *diretório 
 
 * O roteiro de formação requer um argumento `-d` para encontrar o diretório que contém os dados de treino. Quando definir e submeter o seu trabalho mais tarde, você aponta para a datastore para este argumento. A Azure ML montará a pasta de armazenamento no cluster remoto para o trabalho de treino.
 * O script de treino regista a precisão final como uma métrica ao registo de execução em Azure ML usando `log_metric_to_run()` . O Azure ML SDK fornece um conjunto de APIs de registo para registar várias métricas durante os treinos. Estas métricas são registadas e persistiu no registo de experiências. As métricas podem então ser acedidas a qualquer momento ou visualizadas na página de detalhes de execução em [estúdio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para o conjunto completo de métodos de registo `log_*()` .
-* O script de treino guarda o seu modelo num diretório chamado **outputs**. A `./outputs` pasta recebe tratamento especial por Azure ML. Durante o treino, os ficheiros escritos `./outputs` são automaticamente enviados para o seu registo de execução pela Azure ML e persistidos como artefactos. Ao guardar o modelo treinado `./outputs` para, poderá aceder e recuperar o seu ficheiro de modelo mesmo depois de terminado o percurso e já não tem acesso ao seu ambiente de treino remoto.
+* O script de treino guarda o seu modelo num diretório chamado **outputs** . A `./outputs` pasta recebe tratamento especial por Azure ML. Durante o treino, os ficheiros escritos `./outputs` são automaticamente enviados para o seu registo de execução pela Azure ML e persistidos como artefactos. Ao guardar o modelo treinado `./outputs` para, poderá aceder e recuperar o seu ficheiro de modelo mesmo depois de terminado o percurso e já não tem acesso ao seu ambiente de treino remoto.
 
 ### <a name="create-an-estimator"></a>Criar simulador
 
@@ -329,7 +329,7 @@ Neste tutorial, irá utilizar o seu serviço para o ACI. Este código prevê um 
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
-Agora implementa o seu modelo como um serviço web. A implantação **pode demorar vários minutos**. 
+Agora implementa o seu modelo como um serviço web. A implantação **pode demorar vários minutos** . 
 
 ```R
 aci_service <- deploy_model(ws, 
@@ -392,7 +392,7 @@ delete_compute(compute)
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
+Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

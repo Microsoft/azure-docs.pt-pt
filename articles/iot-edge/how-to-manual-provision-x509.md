@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048190"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913981"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Configurar um dispositivo Azure IoT Edge com autenticação de certificado X.509
 
@@ -26,11 +26,11 @@ Os passos deste artigo passam por um processo chamado provisionamento manual, on
 
 Para o provisionamento manual, tem duas opções para autenticar dispositivos IoT Edge:
 
-* **Chave simétrica**: Quando cria uma nova identidade do dispositivo no IoT Hub, o serviço cria duas teclas. Coloca-se uma das chaves no dispositivo e apresenta a chave do IoT Hub ao autenticar.
+* **Chave simétrica** : Quando cria uma nova identidade do dispositivo no IoT Hub, o serviço cria duas teclas. Coloca-se uma das chaves no dispositivo e apresenta a chave do IoT Hub ao autenticar.
 
   Este método de autenticação é mais rápido de começar, mas não tão seguro.
 
-* **X.509 auto-assinado**: Cria dois certificados de identidade X.509 e coloca-os no dispositivo. Quando cria uma nova identidade do dispositivo no IoT Hub, fornece impressões digitais de ambos os certificados. Quando o dispositivo autenticar no IoT Hub, apresenta os seus certificados e o IoT Hub pode verificar se correspondem às impressões digitais.
+* **X.509 auto-assinado** : Cria dois certificados de identidade X.509 e coloca-os no dispositivo. Quando cria uma nova identidade do dispositivo no IoT Hub, fornece impressões digitais de ambos os certificados. Quando o dispositivo autenticar no IoT Hub, apresenta os seus certificados e o IoT Hub pode verificar se correspondem às impressões digitais.
 
   Este método de autenticação é mais seguro e recomendado para cenários de produção.
 
@@ -44,9 +44,24 @@ O fornecimento manual com certificados X.509 requer a versão 1.0.10 ou mais rec
 
 ## <a name="create-certificates-and-thumbprints"></a>Criar certificados e impressões digitais
 
+O certificado de identidade do dispositivo é um certificado de folha que se liga através de uma cadeia de certificados de confiança ao certificado superior da Autoridade de Certificados X.509 (CA). O certificado de identidade do dispositivo deve ter o seu nome comum (CN) definido para o ID do dispositivo que pretende que o dispositivo tenha no seu hub IoT.
 
+Os certificados de identidade do dispositivo são utilizados apenas para o fornecimento do dispositivo IoT Edge e para autenticar o dispositivo com o Azure IoT Hub. Não estão a assinar certificados, ao contrário dos certificados de CA que o dispositivo IoT Edge apresenta a módulos ou dispositivos de folha para verificação. Para obter mais informações, consulte [o certificado Azure IoT Edge .](iot-edge-certs.md)
 
-<!-- TODO -->
+Depois de criar o certificado de identidade do dispositivo, deverá ter dois ficheiros: um ficheiro .cer ou .pem que contenha a parte pública do certificado, e um ficheiro .cer ou .pem com a chave privada do certificado.
+
+Precisa dos seguintes ficheiros para provisões manuais com X.509:
+
+* Dois conjuntos de certificados de identidade do dispositivo e certificados-chave privados. Um conjunto de ficheiros certificado/chave é fornecido ao tempo de execução IoT Edge.
+* Impressões digitais tiradas de ambos os certificados de identidade do dispositivo. Os valores da impressão digital são caracteres de 40 hexáxola para hashes SHA-1 ou caracteres de 64 hexáxolas para hashes SHA-256. Ambas as impressões digitais são fornecidas ao IoT Hub no momento do registo do dispositivo.
+
+Se não tiver certificados disponíveis, pode [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md). Siga as instruções nesse artigo para configurar scripts de criação de certificados, criar um certificado de CA raiz e, em seguida, criar dois certificados de identidade do dispositivo IoT Edge.
+
+Uma forma de recuperar a impressão digital de um certificado é com o seguinte comando de abertura:
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>Registar um novo dispositivo
 
@@ -54,7 +69,7 @@ Todos os dispositivos que se ligam a um IoT Hub têm um ID de dispositivo que é
 
 Para a autenticação do certificado X.509, estas informações são fornecidas sob a forma de *impressões digitais retiradas* dos certificados de identidade do seu dispositivo. Estas impressões digitais são dadas ao IoT Hub no momento do registo do dispositivo para que o serviço possa reconhecer o dispositivo quando este se ligar.
 
-Pode utilizar várias ferramentas para registar um novo dispositivo IoT Edge no IoT Hub e carregar as suas impressões digitais de certificado. 
+Pode utilizar várias ferramentas para registar um novo dispositivo IoT Edge no IoT Hub e carregar as suas impressões digitais de certificado.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -68,7 +83,7 @@ No seu Hub IoT no portal Azure, os dispositivos IoT Edge são criados e geridos 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
 
-1. No painel esquerdo, selecione **IoT Edge** no menu e, em seguida, selecione **Adicione um dispositivo IoT Edge**.
+1. No painel esquerdo, selecione **IoT Edge** no menu e, em seguida, selecione **Adicione um dispositivo IoT Edge** .
 
    ![Adicione um dispositivo IoT Edge do portal Azure](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
@@ -78,7 +93,7 @@ No seu Hub IoT no portal Azure, os dispositivos IoT Edge são criados e geridos 
    * Selecione **X.509 Auto-Assinado** como o tipo de autenticação.
    * Forneça as impressões digitais do certificado de identidade primário e secundário. Os valores da impressão digital são caracteres de 40 hexáxola para hashes SHA-1 ou caracteres de 64 hexáxolas para hashes SHA-256.
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 ### <a name="view-iot-edge-devices-in-the-azure-portal"></a>Ver dispositivos IoT Edge no portal Azure
 
@@ -121,7 +136,7 @@ Utilize o comando [da lista de identificação de dispositivos az iot](/cli/azur
 
 Adicione a bandeira `--edge-enabled` ou `--ee` enuseça apenas os dispositivos IoT Edge no seu hub IoT.
 
-Qualquer dispositivo registado como um dispositivo IoT Edge terá as capacidades da **propriedade.iotEdge** definido para **verdadeiro**.
+Qualquer dispositivo registado como um dispositivo IoT Edge terá as capacidades da **propriedade.iotEdge** definido para **verdadeiro** .
 
 --- 
 
@@ -160,10 +175,10 @@ Num dispositivo Linux, fornece esta informação editando um ficheiro config.yam
 
 1. Atualizar os seguintes campos:
 
-   * **iothub_hostname**: Nome de anfitrião do hub IoT a que o dispositivo se ligará. Por exemplo, `{IoT hub name}.azure-devices.net`.
+   * **iothub_hostname** : Nome de anfitrião do hub IoT a que o dispositivo se ligará. Por exemplo, `{IoT hub name}.azure-devices.net`.
    * **device_id:** O ID que forneceu quando registou o dispositivo.
-   * **identity_cert**: URI a um certificado de identidade no dispositivo. Por exemplo, `file:///path/identity_certificate.pem`.
-   * **identity_pk**: URI ao ficheiro de chave privada para o certificado de identidade fornecido. Por exemplo, `file:///path/identity_key.pem`.
+   * **identity_cert** : URI a um certificado de identidade no dispositivo. Por exemplo, `file:///path/identity_certificate.pem`.
+   * **identity_pk** : URI ao ficheiro de chave privada para o certificado de identidade fornecido. Por exemplo, `file:///path/identity_key.pem`.
 
 1. Guarde e feche o ficheiro.
 
@@ -202,10 +217,10 @@ Num dispositivo Linux, fornece esta informação editando um ficheiro config.yam
 
 3. Quando solicitado, forneça as seguintes informações:
 
-   * **IotHubHostName**: Nome de anfitrião do hub IoT a que o dispositivo se ligará. Por exemplo, `{IoT hub name}.azure-devices.net`.
-   * **DeviceId**: O ID que forneceu quando registou o dispositivo.
-   * **X509IdentityCertificate**: Caminho absoluto para um certificado de identidade no dispositivo. Por exemplo, `C:\path\identity_certificate.pem`.
-   * **X509IdentityPrivateKey**: Caminho absoluto para o ficheiro chave privado para o certificado de identidade fornecido. Por exemplo, `C:\path\identity_key.pem`.
+   * **IotHubHostName** : Nome de anfitrião do hub IoT a que o dispositivo se ligará. Por exemplo, `{IoT hub name}.azure-devices.net`.
+   * **DeviceId** : O ID que forneceu quando registou o dispositivo.
+   * **X509IdentityCertificate** : Caminho absoluto para um certificado de identidade no dispositivo. Por exemplo, `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey** : Caminho absoluto para o ficheiro chave privado para o certificado de identidade fornecido. Por exemplo, `C:\path\identity_key.pem`.
 
 Quando fornece um dispositivo manualmente, pode utilizar parâmetros adicionais para modificar o processo, incluindo:
 

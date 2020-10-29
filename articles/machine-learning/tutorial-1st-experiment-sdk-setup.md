@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5e9fd3b3d2d5bceb766651c2758f956b9ef105e0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494959"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913301"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Começa com a Azure Machine Learning em Cadernos Jupyter
 
@@ -36,7 +36,7 @@ Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem
 
 Salte para [Clonar uma pasta de portátil](#clone) se já tiver um espaço de trabalho de Aprendizagem automática Azure.  
 
-Cria um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
+Existem muitas [formas de criar um espaço de trabalho.](how-to-manage-workspace.md)  Neste tutorial, cria-se um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -67,7 +67,7 @@ Você completa a seguinte configuração de experiências e executar passos no e
 
 1. Abra a pasta com um número de versão. Este número representa a versão atual para o Python SDK.
 
-1. Selecione o **botão ...** à direita da pasta **tutoriais** e, em seguida, selecione **Clone**.
+1. Selecione o **botão ...** à direita da pasta **tutoriais** e, em seguida, selecione **Clone** .
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot que mostra a pasta de tutoriais clone.":::
 
@@ -99,11 +99,11 @@ Você completa a seguinte configuração de experiências e executar passos no e
 
     1. Selecione o tamanho VM das opções disponíveis. Para os tutoriais, o VM padrão é uma boa escolha.
 
-    1. Em seguida, selecione **Criar**. Pode levar aproximadamente cinco minutos para configurar o seu VM.
+    1. Em seguida, selecione **Criar** . Pode levar aproximadamente cinco minutos para configurar o seu VM.
 
 1. Quando o VM está disponível, aparece na barra de ferramentas superior. Agora pode executar o caderno utilizando **tudo** na barra de ferramentas ou **Shift+Enter** nas células de código do caderno.
 
-Se tiver widgets personalizados ou preferir usar Jupyter ou JupyterLab, selecione a lista de drop-down **jupyter** na extrema-direita. Em seguida, selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador abre.
+Se tiver widgets personalizados ou preferir usar Jupyter ou JupyterLab, selecione a lista de drop-down **jupyter** na extrema-direita. Em seguida, selecione **Jupyter** ou **JupyterLab** . A nova janela do navegador abre.
 
 ## <a name="next-steps"></a>Passos seguintes
 

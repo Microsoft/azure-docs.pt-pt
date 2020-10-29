@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 28fb3cb02d978c0a64884771727f33d01d8a4ceb
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c2a49e10f4407c59a8e4e2bfbb78d889560c7136
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897709"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924995"
 ---
 > [!IMPORTANT]
 > * O código deste artigo utiliza métodos sincronizados e armazenamento de credenciais não garantidos por razões de simplicidade. Consulte a documentação de referência abaixo. 
 
-[Documentação de referência](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Documentação de referência](../../index.yml)  |  [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  [Pacote (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Amostras](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,7 +94,7 @@ Com o Form Recogniser, pode criar dois tipos de clientes diferentes. O primeiro,
 * Copiar um modelo personalizado de um recurso de Reconhecimento de Formulário para outro.
 
 > [!NOTE]
-> Os modelos também podem ser treinados utilizando uma interface gráfica do utilizador, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários.](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+> Os modelos também podem ser treinados utilizando uma interface gráfica do utilizador, como a [Ferramenta de Rotulagem do Reconhecimento de Formulários.](../../quickstarts/label-tool.md)
 
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -414,7 +414,7 @@ Execute a aplicação com o `node` comando no seu ficheiro quickstart.
 node index.js
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados.
 

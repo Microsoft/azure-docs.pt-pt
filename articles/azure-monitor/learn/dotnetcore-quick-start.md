@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd45284bfea09935ea48445d816f3b91272f68fc
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055486"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925854"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -42,7 +42,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 O Application Insights pode recolher dados telemétricos de qualquer aplicação ligada à Internet, independentemente de estar a ser executado no local ou na cloud. Utilize os passos seguintes para começar a ver estes dados.
 
-1. Selecione **Criar um recurso**Developer  >  **tools**  >  **Application Insights**.
+1. Selecione **Criar um recurso** Developer  >  **tools**  >  **Application Insights** .
 
    > [!NOTE]
    >Se esta for a sua primeira vez a criar um recurso Application Insights, pode aprender mais visitando o Doc [Criar um Recurso de Insights de Aplicação.](../app/create-new-resource.md)
@@ -55,25 +55,25 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
    | **Grupo de Recursos**     | myResourceGroup      | Nome para o novo grupo de recursos para hospedar dados app Insights. Pode criar um novo grupo de recursos ou utilizar um existente. |
    | **Localização** | E.U.A. Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
-2. Clique em **Criar**.
+2. Clique em **Criar** .
 
 
 
 ## <a name="configure-app-insights-sdk"></a>Configurar o SDK do Application Insights
 
-1. Abra o seu **projeto** da Aplicação Web ASP.NET Core no Visual Studio > Clique com o botão direito do rato em AppName no **Explorador de Soluções** > Selecione **Adicionar** > **Telemetria do Application Insights**.
+1. Abra o seu **projeto** da Aplicação Web ASP.NET Core no Visual Studio > Clique com o botão direito do rato em AppName no **Explorador de Soluções** > Selecione **Adicionar** > **Telemetria do Application Insights** .
 
     ![Adicionar Telemetria do Application Insights](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
 2. Clique no botão **Iniciar**
 
-3. Selecione a sua conta e subscrição > Selecione o **recurso existente** criado no portal Azure > **Click Register**.
+3. Selecione a sua conta e subscrição > Selecione o **recurso existente** criado no portal Azure > **Click Register** .
 
 4. Selecione **Project**  >  **Manage NuGet Packages Packages**  >  **Packages: nuget.org**  >  **Atualizar** os pacotes SDK de Insights de Aplicação para a versão mais recente estável.
 
 5. Selecione **Debug**  >  **Start sem Debugging** (Ctrl+F5) para lançar a sua app
 
-    ![Menu de Descrição Geral do Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Screenshot que mostra a opção de menu Start Without Debugging.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Os dados demoram entre três e cinco minutos a aparecer no portal. Se esta aplicação for uma aplicação de teste de tráfego reduzido, tenha em atenção que a maioria das métricas só é capturada quando existem operações ou pedidos ativos.
@@ -88,7 +88,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Mapeamento de Aplicações](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Clique no ícone do mapa de aplicações do ícone **da app Analytics** Ver em ![ ](./media/dotnetcore-quick-start/006.png) **Analytics**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no ícone do mapa de aplicações do ícone **da app Analytics** Ver em ![ ](./media/dotnetcore-quick-start/006.png) **Analytics** . Esta ação abre o **Application Insights Analytics** , que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -106,8 +106,8 @@ Quando terminar os testes, pode eliminar o grupo de recursos e todos os recursos
 > [!NOTE]
 > Se utilizar um grupo de recursos existente, as instruções abaixo não funcionarão e terá de eliminar apenas o recurso Individual Application Insights. Tenha em mente que sempre que eliminar um grupo de recursos todos os recursos subjacentes que são membros desse grupo serão eliminados.
 
-1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
-2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
+1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup** .
+2. Na página do grupo de recursos, clique em **Eliminar** , escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

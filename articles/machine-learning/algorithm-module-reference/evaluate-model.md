@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908056"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926993"
 ---
 # <a name="evaluate-model-module"></a>Avaliar módulo de modelo
 
@@ -34,20 +34,28 @@ Utilize este módulo para medir a precisão de um modelo treinado. Fornece um co
 
 
 ## <a name="how-to-use-evaluate-model"></a>Como utilizar o Modelo de Avaliação
-1. Ligue a saída de conjunto de **dados pontuado** do modelo de [pontuação](./score-model.md) ou saída de conjunto de dados de resultados dos [dados de atribuição aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda do Modelo de **Avaliação**. 
+1. Ligue a saída de conjunto de **dados pontuado** do modelo de [pontuação](./score-model.md) ou saída de conjunto de dados de resultados dos [dados de atribuição aos clusters](./assign-data-to-clusters.md) à porta de entrada esquerda do Modelo de **Avaliação** . 
     > [!NOTE] 
     > Se utilizar módulos como "Selecione Colunas no Conjunto de Dados" para selecionar parte do conjunto de dados de entrada, certifique-se de que a coluna de etiquetas reais (utilizada em treino), a coluna 'Probabilidades Pontuadas' e a coluna 'Etiquetas Pontuadas' existem para calcular métricas como AUC, Precisão para classificação binária/deteção de anomalias.
     > Coluna de etiquetas reais, coluna 'Labels Scored' existe para calcular métricas para classificação/regressão multi-classes.
     > Coluna 'Atribuições', colunas 'DistancesToClusterCenter no. X' (X é índice centroid, que varia de 0, ..., Número de centrosids-1) existem para calcular métricas para o agrupamento.
 
-2. [Opcional] Ligue a saída de conjunto de **dados pontuado** do modelo de [pontuação](./score-model.md) ou saída de conjunto de dados de resultados dos dados de atribuição a clusters para o segundo modelo à porta de entrada **direita** do Modelo de **Avaliação**. Pode facilmente comparar resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, pode comparar pontuações de duas corridas diferentes sobre os mesmos dados com parâmetros diferentes.
+    > [!IMPORTANT]
+    > + Para avaliar os resultados, o conjunto de dados de saída deve conter nomes específicos de colunas de pontuação, que satisfaçam os requisitos do módulo do Modelo de Avaliação.
+    > + A `Labels` coluna será considerada como etiquetas reais.
+    > + Para a tarefa de regressão, o conjunto de dados a avaliar deve ter uma coluna, `Regression Scored Labels` nomeada, que representa rótulos pontuados.
+    > + Para a tarefa de classificação binária, o conjunto de dados a avaliar deve ter duas colunas, `Binary Class Scored Labels` `Binary Class Scored Probabilities` nomeadas, que representam rótulos pontuados e probabilidades, respectivamente.
+    > + Para a tarefa de classificação múltipla, o conjunto de dados a avaliar deve ter uma coluna, `Multi Class Scored Labels` nomeada, que representa rótulos pontuados.
+    > Se as saídas do módulo a montante não tiverem estas colunas, é necessário modificar de acordo com os requisitos acima referidos.
+
+2. [Opcional] Ligue a saída de conjunto de **dados pontuado** do modelo de [pontuação](./score-model.md) ou saída de conjunto de dados de resultados dos dados de atribuição a clusters para o segundo modelo à porta de entrada **direita** do Modelo de **Avaliação** . Pode facilmente comparar resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, pode comparar pontuações de duas corridas diferentes sobre os mesmos dados com parâmetros diferentes.
 
     > [!NOTE]
     > O tipo de algoritmo refere-se a "Classificação de duas classes", "Classificação multi-classes", "Regressão", "Agrupamento" em "Algoritmos de Aprendizagem automática". 
 
 3. Submeta o pipeline para gerar os resultados da avaliação.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Depois de executar **o Modelo de Avaliação,** selecione o módulo para abrir o painel de navegação **do Modelo avaliar** à direita.  Em seguida, escolha o **separador Saídas + Registos** e nesse separador a secção **Saídas de Dados** tem vários ícones. O ícone **do Visualize** tem um ícone de gráfico de barras, e é uma primeira maneira de ver os resultados.
 
@@ -105,7 +113,7 @@ As métricas devolvidas para modelos de regressão são projetadas para estimar 
   
 
   
-- **Coeficiente de determinação**, muitas vezes referido como R<sup>2</sup>, representa o poder preditivo do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada); 1 significa que há um ajuste perfeito. No entanto, deve ser usada cautela na interpretação dos valores R<sup>2,</sup> uma vez que valores baixos podem ser inteiramente normais e valores elevados podem ser suspeitos.
+- **Coeficiente de determinação** , muitas vezes referido como R <sup>2</sup>, representa o poder preditivo do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada); 1 significa que há um ajuste perfeito. No entanto, deve ser usada cautela na interpretação dos valores R<sup>2,</sup> uma vez que valores baixos podem ser inteiramente normais e valores elevados podem ser suspeitos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de agrupamento
 

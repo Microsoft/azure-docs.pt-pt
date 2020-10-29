@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548613"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926262"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorar hub Azure IoT
 
@@ -52,13 +52,16 @@ Consulte [a referência de dados do Monitor Azure IoT Hub](monitor-iot-hub-refer
 
 As métricas da plataforma e o registo de Atividade são recolhidos e armazenados automaticamente, mas podem ser encaminhados para outros locais utilizando uma definição de diagnóstico.
 
-Os Registos de Recursos não são recolhidos e armazenados até criar uma definição de diagnóstico e encaminhá-los para um ou mais locais.
+Os registos de recursos não são recolhidos e armazenados até criar uma definição de diagnóstico e encaminhá-los para um ou mais locais.
 
-As métricas e os registos podem ser encaminhados para um espaço de trabalho log analytics, onde podem ser analisados através de Registos monitores Azure; ao Azure Storage para arquivamento e análise offline; ou para um ponto final do Event Hubs onde podem ser lidos por aplicações externas, por exemplo, ferramentas SIEM de terceiros.
+Métricas e registos podem ser encaminhados para vários locais, incluindo:
+- A loja Azure Monitor Logs através de um espaço de trabalho associado log analytics. Lá podem ser analisados usando o Log Analytics.
+- Armazenamento Azure para arquivamento e análise offline 
+- Um ponto final do Event Hubs onde podem ser lidos por aplicações externas, por exemplo, ferramentas SIEM de terceiros.
 
 No portal Azure, pode selecionar **as definições** de Diagnóstico em **Monitorização** no painel esquerdo do seu hub IoT seguido por **Adicionar a definição** de diagnóstico para criar definições de diagnóstico scopeed para os registos e métricas da plataforma emitidas pelo seu hub IoT.
 
-A imagem que se segue mostra uma definição de diagnóstico para encaminhar operações de ligação em registos de recursos e todas as métricas da plataforma para um espaço de trabalho Log Analytics.
+A imagem que se segue mostra uma definição de diagnóstico para encaminhar as *operações de ligação* do tipo de registo de recursos e todas as métricas da plataforma para um espaço de trabalho Log Analytics.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Gráficos métricos predefinidos na página de visão geral do hub de IoT.":::
 
@@ -86,7 +89,7 @@ Algumas métricas do IoT Hub, como [as métricas de encaminhamento,](monitor-iot
 
 ## <a name="analyzing-logs"></a>Análise de registos
 
-Os dados em Registos monitores Azure são armazenados em tabelas onde cada mesa tem o seu próprio conjunto de propriedades únicas. Para saber mais sobre os Registos do Monitor Azure, consulte a visão geral dos Registos do [Monitor Azure](/azure/azure-monitor/platform/data-platform-logs) na documentação do Azure Monitor. 
+Os dados em Registos monitores Azure são armazenados em tabelas onde cada mesa tem o seu próprio conjunto de propriedades únicas. Os dados nestas tabelas estão associados a um espaço de trabalho Log Analytics e podem ser consultados no Log Analytics. Para saber mais sobre os Registos do Monitor Azure, consulte a visão geral dos Registos do [Monitor Azure](/azure/azure-monitor/platform/data-platform-logs) na documentação do Azure Monitor. 
 
 Para encaminhar dados para Registos do Monitor Azure, tem de criar uma definição de diagnóstico para enviar registos de recursos ou métricas de plataforma para um espaço de trabalho do Log Analytics. Para saber mais, consulte [Coleção e encaminhamento.](#collection-and-routing)
 
