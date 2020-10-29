@@ -2,13 +2,13 @@
 title: Alertas métricos do Monitor Azure para contentores
 description: Este artigo analisa os alertas métricos recomendados do Azure Monitor para contentores em visualização pública.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308648"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927826"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas métricos recomendados (pré-visualização) do Monitor Azure para contentores
 
@@ -24,12 +24,12 @@ Antes de começar, confirme o seguinte:
 
 * As métricas personalizadas só estão disponíveis num subconjunto de regiões de Azure. Uma lista de regiões apoiadas está documentada nas [regiões apoiadas.](../platform/metrics-custom-overview.md#supported-regions)
 
-* Para suportar alertas métricos e a introdução de métricas adicionais, a versão de agente mínimo necessária é **microsoft/oms:ciprod05262020** para AKS e **microsoft/oms:ciprod09252020** para O Arco Azure habilitado cluster Kubernetes.
+* Para suportar alertas métricos e a introdução de métricas adicionais, a versão de agente mínimo necessária é **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** para AKS e **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** para o cluster Kubernetes ativado pelo Arco Azure.
 
     Para verificar se o seu cluster está a executar a versão mais recente do agente, pode:
 
     * Executar o comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . No estado devolvido, note o valor em **Imagem** para omsagent na secção *Contentores* da saída. 
-    * No **separador Nodes,** selecione o nó de cluster e no painel **de propriedades** à direita, observe o valor na Etiqueta de Imagem do **Agente**.
+    * No **separador Nodes,** selecione o nó de cluster e no painel **de propriedades** à direita, observe o valor na Etiqueta de Imagem do **Agente** .
 
     O valor mostrado para aKS deve ser a versão **ciprod05262020** ou posterior. O valor mostrado para o cluster Azure Arc habilitado para Kubernetes deve ser a versão **ciprod09252020** ou mais tarde. Se o seu cluster tiver uma versão mais antiga, consulte [Como atualizar o Azure Monitor para o agente de contentores](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para obter a versão mais recente.
 
@@ -74,7 +74,7 @@ As seguintes métricas baseadas em alerta têm características de comportamento
 
 * a métrica *oomKilledContainerCount* só é enviada quando há contentores mortos da OOM.
 
-* *cpuExceededPercentage*, *memoryRssExceededPercentage*, e *memorySingSetExceedPercentage* são enviados quando o CPU, o Rss de memória e os valores do conjunto de trabalho de memória excedem o limiar configurado (o limiar padrão é de 95%). Estes limiares são exclusivos do limiar de estado de alerta especificado para a regra de alerta correspondente. Ou seja, se quiser recolher estas métricas e analisá-las do [explorador Métricas,](../platform/metrics-getting-started.md)recomendamos que configures o limiar para um valor inferior ao limiar de alerta. A configuração relacionada com as definições de recolha dos seus limiares de utilização de recursos de contentores pode ser ultrapassada no ficheiro ConfigMaps na secção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Consulte a secção [Configurar métricas de alerta ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados com a configuração do seu ficheiro de configuração ConfigMap.
+* *cpuExceededPercentage* , *memoryRssExceededPercentage* , e *memorySingSetExceedPercentage* são enviados quando o CPU, o Rss de memória e os valores do conjunto de trabalho de memória excedem o limiar configurado (o limiar padrão é de 95%). Estes limiares são exclusivos do limiar de estado de alerta especificado para a regra de alerta correspondente. Ou seja, se quiser recolher estas métricas e analisá-las do [explorador Métricas,](../platform/metrics-getting-started.md)recomendamos que configures o limiar para um valor inferior ao limiar de alerta. A configuração relacionada com as definições de recolha dos seus limiares de utilização de recursos de contentores pode ser ultrapassada no ficheiro ConfigMaps na secção `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Consulte a secção [Configurar métricas de alerta ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados com a configuração do seu ficheiro de configuração ConfigMap.
 
 * *pvUsageExceededPercentage* é enviada quando a percentagem de utilização do volume persistente excede o limiar configurado (o limiar de incumprimento é de 60%). Este limiar é exclusivo do limiar de estado de alerta especificado para a regra de alerta correspondente. Ou seja, se quiser recolher estas métricas e analisá-las do [explorador Métricas,](../platform/metrics-getting-started.md)recomendamos que configures o limiar para um valor inferior ao limiar de alerta. A configuração relacionada com as definições de recolha para os limiares de utilização persistente do volume pode ser ultrapassada no ficheiro ConfigMaps na secção `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Consulte a secção [Configurar métricas de alerta ConfigMaps](#configure-alertable-metrics-in-configmaps) para obter detalhes relacionados com a configuração do seu ficheiro de configuração ConfigMap. A recolha de métricas de volume persistentes com reclamações no espaço *de nomes do sistema kube* são excluídas por padrão. Para ativar a recolha neste espaço de nomes, utilize a secção `[metric_collection_settings.collect_kube_system_pv_metrics]` no ficheiro ConfigMap. Consulte [as definições de recolha métrica](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) para mais detalhes.
 
@@ -114,7 +114,7 @@ Esta secção percorre a ativação do Monitor Azure para alerta métrico de con
 
 2. O acesso ao Monitor Azure para alerta de métricas de contentores (pré-visualização) está disponível diretamente a partir de um cluster AKS, selecionando **Insights** a partir do painel esquerdo no portal Azure.
 
-3. A partir da barra de comando, **selecione alertas recomendados**.
+3. A partir da barra de comando, **selecione alertas recomendados** .
 
     ![Opção de alerta recomendado no Monitor Azure para contentores](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
@@ -126,7 +126,7 @@ Esta secção percorre a ativação do Monitor Azure para alerta métrico de con
 
     ![Ativar regra de alerta](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. As regras de alerta não estão associadas a um [grupo de ação](../platform/action-groups.md) para notificar os utilizadores de que foi desencadeado um alerta. Selecione **Nenhum grupo de ação atribuído** e na página **grupos de ação,** especifique um grupo de ação existente ou crie um grupo de ação selecionando **Add** or **Create**.
+5. As regras de alerta não estão associadas a um [grupo de ação](../platform/action-groups.md) para notificar os utilizadores de que foi desencadeado um alerta. Selecione **Nenhum grupo de ação atribuído** e na página **grupos de ação,** especifique um grupo de ação existente ou crie um grupo de ação selecionando **Add** or **Create** .
 
     ![Selecione um grupo de ação](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ Os passos básicos são os seguintes:
 
 2. Para implementar um modelo personalizado através do portal, selecione **Criar um recurso** a partir do portal [Azure](https://portal.azure.com).
 
-3. Procure o **modelo**e, em seguida, selecione **a implementação do modelo**.
+3. Procure o **modelo** e, em seguida, selecione **a implementação do modelo** .
 
-4. Selecione **Criar**.
+4. Selecione **Criar** .
 
 5. Você vê várias opções para criar um modelo, **selecione Construa o seu próprio modelo no editor.**
 
 6. Na página do **modelo editar,** selecione **o ficheiro de carga** e, em seguida, selecione o ficheiro do modelo.
 
-7. Na página do **modelo editar,** selecione **Guardar**.
+7. Na página do **modelo editar,** selecione **Guardar** .
 
 8. Na página **de implementação personalizada,** especifique o seguinte e, em seguida, quando completar a **seleção De compra** para implementar o modelo e criar a regra de alerta.
 
@@ -200,14 +200,14 @@ Os passos básicos são os seguintes:
 
 Pode ver e gerir o Azure Monitor para obter regras de alerta de contentores, para editar o seu limiar ou configurar um [grupo de ação](../platform/action-groups.md) para o seu cluster AKS. Embora possa executar estas ações a partir do portal Azure e do Azure CLI, também pode ser feito diretamente do seu cluster AKS no Azure Monitor para contentores.
 
-1. A partir da barra de comando, **selecione alertas recomendados**.
+1. A partir da barra de comando, **selecione alertas recomendados** .
 
 2. Para modificar o limiar, no painel **de alertas recomendado,** selecione o alerta ativado. Na **regra Editar,** selecione os **critérios de Alerta** que pretende editar.
 
-    * Para modificar o limiar da regra de alerta, selecione a **Condição**.
+    * Para modificar o limiar da regra de alerta, selecione a **Condição** .
     * Para especificar um grupo de ação existente ou criar um grupo de ação, **selecione Adicionar** ou **Criar** no **grupo Action**
 
-Para visualizar os alertas criados para as regras ativadas, no **painel de alertas recomendado** selecione Ver em **alertas**. Você é redirecionado para o menu de alerta para o cluster AKS, onde você pode ver todos os alertas atualmente criados para o seu cluster.
+Para visualizar os alertas criados para as regras ativadas, no **painel de alertas recomendado** selecione Ver em **alertas** . Você é redirecionado para o menu de alerta para o cluster AKS, onde você pode ver todos os alertas atualmente criados para o seu cluster.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configurar métricas alertáveis em ConfigMaps
 

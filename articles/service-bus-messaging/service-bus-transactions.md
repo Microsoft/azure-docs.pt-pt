@@ -2,14 +2,14 @@
 title: Visão geral do processamento de transações no Azure Service Bus
 description: Este artigo dá-lhe uma visão geral do processamento de transações e o envio através de recurso no Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999959"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927792"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações de autocarros de serviço
 
@@ -27,7 +27,7 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 
 As operações que podem ser realizadas dentro de um âmbito de transação são as seguintes:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender,](/dotnet/api/microsoft.azure.servicebus.core.messagesender) [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` `SendBatch` ,`SendBatchAsync`
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender,](/dotnet/api/microsoft.azure.servicebus.core.messagesender) [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : `Send` , `SendAsync` `SendBatch` ,`SendBatchAsync`
 * **[IntermediárioS:](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** `Complete` , , `CompleteAsync` , , , `Abandon` , , , , , , , `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 As operações de receção não estão incluídas, pois presume-se que a aplicação adquire mensagens utilizando o modo [ReceberMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) dentro de alguns loops de receção ou com uma chamada [OnMessage,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) e só então abre uma margem de transação para o processamento da mensagem.
@@ -36,9 +36,9 @@ A disposição da mensagem (completa, abandono, letra morta, adiamento) ocorre e
 
 ## <a name="transfers-and-send-via"></a>Transferências e "enviar via"
 
-Para permitir a transferência transacional de dados de uma fila para um processador e, em seguida, para outra fila, o Service Bus suporta *transferências.* Numa operação de transferência, um remetente envia primeiro uma mensagem para uma *fila de transferências*, e a fila de transferências move imediatamente a mensagem para a fila de destino pretendida usando a mesma implementação de transferência robusta em que a capacidade de auto-plano depende. A mensagem nunca é comprometida com o registo da fila de transferências de uma forma que se torne visível para os consumidores da fila de transferências.
+Para permitir a transferência transacional de dados de uma fila ou tópico para um processador e, em seguida, para outra fila ou tópico, o Service Bus suporta *transferências.* Numa operação de transferência, um remetente envia primeiro uma mensagem para uma *fila de transferência ou tópico* , e a fila de transferência ou tópico move imediatamente a mensagem para a fila de destino pretendida ou tópico usando a mesma implementação de transferência robusta em que a capacidade de autoforward depende. A mensagem nunca é comprometida com a fila de transferência ou o login do tópico de forma a tornar-se visível para a fila de transferências ou para os consumidores do tópico.
 
-A potência desta capacidade transacional torna-se evidente quando a própria fila de transferências é a fonte das mensagens de entrada do remetente. Por outras palavras, o Service Bus pode transferir a mensagem para a fila de destino "via" a fila de transferência, enquanto realiza uma operação completa (ou adiar, ou letra morta) na mensagem de entrada, tudo numa operação atómica. 
+A potência desta capacidade transacional torna-se evidente quando a fila de transferência ou o tópico em si é a fonte das mensagens de entrada do remetente. Por outras palavras, o Service Bus pode transferir a mensagem para a fila de destino ou tópico "via" a fila ou tópico de transferência, enquanto realiza uma operação completa (ou adiar, ou letra morta) na mensagem de entrada, tudo numa operação atómica. 
 
 ### <a name="see-it-in-code"></a>Vê-lo em código
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978208"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927775"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade de SAP HANA dentro de uma região de Azure
 Este artigo descreve vários cenários de disponibilidade dentro de uma região de Azure. Azure tem muitas regiões, espalhadas por todo o mundo. Para a lista das regiões de Azure, consulte as [regiões de Azure.](https://azure.microsoft.com/regions/) Para a implementação do SAP HANA em VMs dentro de uma região de Azure, a Microsoft oferece a implementação de um único VM com uma instância HANA. Para uma maior disponibilidade, pode implementar dois VMs com duas instâncias HANA dentro de um [conjunto de disponibilidades Azure](../../windows/tutorial-availability-sets.md) que utiliza a replicação do sistema HANA para disponibilidade. 
@@ -78,7 +78,7 @@ Uma das configurações mais rudimentares é usar cópias de segurança. Em part
 
 A arquitetura parece:
 
-![Diagrama de dois VMs com replicação de armazenamento](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagrama que mostra a arquitetura de dois VMs com replicação de armazenamento.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Esta configuração não é adequada para alcançar grandes tempos de Objetivo de Ponto de Recuperação (RPO) e Objetivo do Tempo de Recuperação (RTO). Os tempos de RTO seriam especialmente sofridos devido à necessidade de restaurar totalmente a base de dados completa utilizando as cópias de segurança copiadas. No entanto, esta configuração é útil para a recuperação de eliminação de dados não intencionais nos principais casos. Com esta configuração, a qualquer momento, pode restaurar a qualquer ponto no tempo, extrair os dados e importar os dados eliminados no seu caso principal. Por isso, pode fazer sentido utilizar um método de cópia de backup em combinação com outras funcionalidades de alta disponibilidade. 
 

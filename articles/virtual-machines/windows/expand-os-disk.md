@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336008"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927690"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do SO das máquinas virtuais
 
@@ -32,13 +32,14 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 > [!IMPORTANT]
 > Redimensionar um DISCO de DADOS ou Um Disco de Dados de uma Máquina Virtual Azure requer que a máquina virtual seja negociada.
 >
-> Depois de expandir os discos, é necessário [expandir o volume dentro do SISTEMA](#expand-the-volume-within-the-os) para tirar partido do disco maior.
+> A redução de um disco existente não é suportada, e pode potencialmente resultar em perda de dados.
 > 
+> Depois de expandir os discos, é necessário [expandir o volume dentro do SISTEMA](#expand-the-volume-within-the-os) para tirar partido do disco maior.
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Redimensione um disco gerido no portal Azure
 
 1. No [portal Azure,](https://portal.azure.com)vá à máquina virtual na qual pretende expandir o disco. **Selecione Stop** para negociar o VM.
-2. Quando o VM for parado, no menu esquerdo em **Definições**, selecione **Discos**.
+2. Quando o VM for parado, no menu esquerdo em **Definições** , selecione **Discos** .
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot que mostra a opção Discos selecionada na secção Definições do menu.":::
 
@@ -47,11 +48,11 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot que mostra a opção Discos selecionada na secção Definições do menu.":::
 
-4. No menu esquerdo em **Definições**, selecione **Configuração**.
+4. No menu esquerdo em **Definições** , selecione **Configuração** .
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot que mostra a opção Discos selecionada na secção Definições do menu.":::
 
-5. Em **Tamanho (GiB)**, selecione o tamanho do disco que pretende.
+5. Em **Tamanho (GiB)** , selecione o tamanho do disco que pretende.
    
    > [!WARNING]
    > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é de 2.048 GB para discos de SO. (É possível expandir a bolha VHD para além desse tamanho, mas o SO funciona apenas com os primeiros 2.048 GB de espaço.)
@@ -59,7 +60,7 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot que mostra a opção Discos selecionada na secção Definições do menu.":::
 
-6. Selecione **Guardar**.
+6. Selecione **Guardar** .
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot que mostra a opção Discos selecionada na secção Definições do menu.":::
 
@@ -230,11 +231,11 @@ Da mesma forma, pode fazer referência a outros discos de dados anexados ao VM, 
 
 ## <a name="expand-the-volume-within-the-os"></a>Expandir o volume dentro do SISTEMA
 
-Quando expandiu o disco para o VM, é preciso entrar no SO e expandir o volume para abranger o novo espaço. Existem vários métodos para expandir uma partição. Esta secção abrange a ligação do VM utilizando uma ligação RDP para expandir a partição utilizando **o DiskPart**.
+Quando expandiu o disco para o VM, é preciso entrar no SO e expandir o volume para abranger o novo espaço. Existem vários métodos para expandir uma partição. Esta secção abrange a ligação do VM utilizando uma ligação RDP para expandir a partição utilizando **o DiskPart** .
 
 1. Abra uma ligação RDP ao seu VM.
 
-2. Abra uma linha de comando e escreva **a parte do disco**.
+2. Abra uma linha de comando e escreva **a parte do disco** .
 
 3. Na solicitação **DISKPART,** escreva `list volume` . Tome nota do volume que pretende estender.
 

@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043770"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927758"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o Azure Key Vault no Azure Policy
 
@@ -29,9 +29,9 @@ Exemplo de cenários de utilização:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Tipos de efeitos e orientações políticas
 
-**Auditoria**: Quando o efeito de uma política estiver definido para a auditoria, a política não provocará alterações no seu ambiente. Irá apenas alertá-lo para componentes como certificados que não cumpram as definições de política dentro de um âmbito especificado, marcando estes componentes como incompatíveis no painel de conformidade da política. A auditoria é padrão se não for selecionado nenhum efeito de política.
+**Auditoria** : Quando o efeito de uma política estiver definido para a auditoria, a política não provocará alterações no seu ambiente. Irá apenas alertá-lo para componentes como certificados que não cumpram as definições de política dentro de um âmbito especificado, marcando estes componentes como incompatíveis no painel de conformidade da política. A auditoria é padrão se não for selecionado nenhum efeito de política.
 
-**Negar**: Quando o efeito de uma política for desatado, a política bloqueará a criação de novos componentes, tais como certificados, bem como bloqueará novas versões de componentes existentes que não cumpram a definição de política. Os recursos existentes não conformes dentro de um cofre chave não são afetados. As capacidades de auditoria continuarão a funcionar.
+**Negar** : Quando o efeito de uma política for desatado, a política bloqueará a criação de novos componentes, tais como certificados, bem como bloqueará novas versões de componentes existentes que não cumpram a definição de política. Os recursos existentes não conformes dentro de um cofre chave não são afetados. As capacidades de auditoria continuarão a funcionar.
 
 ## <a name="available-built-in-policy-definitions"></a>Definições de política "incorporadas" disponíveis
 
@@ -175,51 +175,51 @@ Gere um cofre usado por várias equipas que contém 100 certificados, e quer ter
 ### <a name="select-a-policy-definition"></a>Selecione uma definição de política
 
 1. Inicie sessão no portal do Azure. 
-1. Procure "Política" na Barra **Policy**de Pesquisa e Selecione.
+1. Procure "Política" na Barra **Policy** de Pesquisa e Selecione.
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img1.png)
+    ![Screenshot que mostra a Barra de Pesquisa.](../media/policy-img1.png)
 
-1. Na janela Política, selecione **Definições**.
+1. Na janela Política, selecione **Definições** .
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img2.png)
+    ![Screenshot que realça a opção Definições.](../media/policy-img2.png)
 
-1. No filtro de categoria, **desescolh-se de tudo** e selecione o Cofre de **Chaves**. 
+1. No filtro de categoria, **desescolh-se de tudo** e selecione o Cofre de **Chaves** . 
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img3.png)
+    ![Screenshot que mostra o Filtro de Categoria e a categoria Key Vault selecionada.](../media/policy-img3.png)
 
 1. Agora você deve ser capaz de ver todas as políticas disponíveis para visualização pública, para Azure Key Vault. Certifique-se de que leu e compreendeu a secção de orientação de política acima e selecione uma política que pretende atribuir a um âmbito.  
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img4.png)
+    ![Screenshot que mostra as políticas que estão disponíveis para visualização pública.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Atribuir uma Política a um Âmbito 
 
 1. Selecione uma política que pretende aplicar, neste exemplo, é apresentada a política do Período de Validade do **Certificado de Gestão.** Clique no botão de atribuição no canto superior esquerdo.
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img5.png)
+    ![Screenshot que mostra a política do Período de Validade do Certificado de Gestão.](../media/policy-img5.png)
   
 1. Selecione a subscrição onde deseja que a apólice seja aplicada. Pode optar por restringir o âmbito a apenas um grupo de recursos dentro de uma subscrição. Se pretender aplicar a política a toda a subscrição e excluir alguns grupos de recursos, também pode configurar uma lista de exclusão. Desacorra o seletor de execução da política para **Ativar** se pretender que o efeito da política (auditoria ou negação) ocorra ou **desative** o efeito (auditoria ou negação). 
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img6.png)
+    ![Screenshot que mostra onde pode optar por restringir o âmbito a apenas um grupo de recursos dentro de uma subscrição.](../media/policy-img6.png)
 
 1. Clique no separador parâmetros na parte superior do ecrã para especificar o período máximo de validade em meses que deseja. Selecione **auditoria** ou **negação** para o efeito da apólice seguindo as orientações nas secções acima. Em seguida, selecione o botão de revisão + criar. 
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img7.png)
+    ![Screenshot que mostra o separador Parâmetros onde pode especificar o período máximo de validade em meses que deseja.](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Ver Resultados de Conformidade
 
 1. Volte para a lâmina 'Política' e selecione o separador de conformidade. Clique na atribuição de política para a visão dos resultados de conformidade.
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img8.png)
+    ![Screenshot que mostra o separador Conformidade onde pode selecionar a atribuição de política para a qual deseja visualizar os resultados de conformidade.](../media/policy-img8.png)
 
 1. A partir desta página pode filtrar os resultados através de cofres compatíveis ou não conformes. Aqui pode ver uma lista de cofres-chave não conformes no âmbito da atribuição de políticas. Um cofre é considerado incompatível se algum dos componentes (certificados) do cofre não for conforme. Pode selecionar um cofre individual para visualizar os componentes individuais não conformes (certificados). 
 
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img9.png)
+    ![Screenshot que mostra uma lista de cofres-chave não conformes no âmbito da atribuição de apólices.](../media/policy-img9.png)
 
 1. Ver o nome dos componentes dentro de um cofre que não são compatíveis
 
 
-    ![Visão geral de como funciona o Azure Key Vault](../media/policy-img10.png)
+    ![Screenshot que mostra onde você pode ver o nome dos componentes dentro de um cofre que não são compatíveis.](../media/policy-img10.png)
 
 1. Se precisar de verificar se os utilizadores estão a ser negados a capacidade de criar recursos dentro do cofre-chave, pode clicar no separador **Eventos componentes (pré-visualização)** para ver um resumo das operações de certificado negadas com o solicitador e os prazos de pedidos. 
 

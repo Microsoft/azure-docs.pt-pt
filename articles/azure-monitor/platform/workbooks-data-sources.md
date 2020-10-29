@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143726"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927911"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de livros do Azure Monitor
 
@@ -77,7 +77,7 @@ Os livros de trabalho apoiam a obtenção da saúde dos recursos Azure e combina
 
 Para fazer um controlo de consulta utilizar esta fonte de dados, utilize o **tipo de consulta** para escolher a saúde Azure e selecione os recursos para o alvo. Utilize as gotas de queda do filtro de saúde para selecionar um subconjunto interessante de problemas de recursos para as suas necessidades analíticas.
 
-![Screenshot da consulta de alertas](./media/workbooks-overview/resource-health.png)
+![Screenshot de consulta de alertas que mostra as listas de filtros de saúde.](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -100,7 +100,7 @@ Para fazer um controlo de consulta utilizar esta fonte de dados, utilize a fonte
 
 Os livros de trabalho suportam obter dados de qualquer fonte externa. Se os seus dados viverem fora do Azure, pode levá-lo aos Livros de Trabalho utilizando este tipo de fonte de dados.
 
-Para então um controlo de consulta utilizar esta fonte de dados, utilize a fonte de _dados_ para escolher o _ponto de finalização personalizado_. Fornecer os parâmetros adequados tais `Http method` `url` `headers` como, `url parameters` e/ou `body` . . Certifique-se de que a sua fonte de dados suporta [o CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) caso contrário, o pedido falhará.
+Para então um controlo de consulta utilizar esta fonte de dados, utilize a fonte de _dados_ para escolher o _ponto de finalização personalizado_ . Fornecer os parâmetros adequados tais `Http method` `url` `headers` como, `url parameters` e/ou `body` . . Certifique-se de que a sua fonte de dados suporta [o CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) caso contrário, o pedido falhará.
 
 Para evitar fazer chamadas automaticamente para anfitriões não confiáveis quando utilizar modelos, o utilizador precisa de marcar os anfitriões usados como confiáveis. Isto pode ser feito clicando no botão _Add como_ trust, ou adicionando-o como um anfitrião de confiança nas definições do Livro de Trabalho. Estas configurações serão guardadas nos navegadores que suportam o IndexDb com os trabalhadores da web, mais informações [aqui.](https://caniuse.com/#feat=indexeddb)
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611525"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927928"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos EFÉMEROS para VMs Azure
 
@@ -34,15 +34,16 @@ Principais diferenças entre discos de OS persistentes e efémeros:
 
 |                             | Disco de SO persistente                          | Disco de SO Efémero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Limite de tamanho para disco de SO**      | 2 TiB                                                                                        | Tamanho da cache para o tamanho VM ou 2TiB, o que for menor. Para o tamanho da **cache em GiB**, ver [DS,](sizes-general.md) [ES,](sizes-memory.md) [M,](sizes-memory.md) [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
+| **Limite de tamanho para disco de SO**      | 2 TiB                                                                                        | Tamanho da cache para o tamanho VM ou 2TiB, o que for menor. Para o tamanho da **cache em GiB** , ver [DS,](sizes-general.md) [ES,](sizes-memory.md) [M,](sizes-memory.md) [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
 | **Tamanhos VM suportados**          | Todos                                                                                          | Tamanhos VM que suportam armazenamento Premium como DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | **Suporte do tipo de disco**           | Disco de OS gerido e não gerido                                                                | Apenas disco de SO gerido                                                               |
 | **Suporte de região**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco de SO escritos no disco OS são armazenados no Azure Storage                                  | Os dados escritos no disco OS são armazenados no armazenamento local de VM e não são persistidos ao Azure Storage. |
 | **Estado stop-deallocated**      | VMs e instâncias definidas em escala podem ser stop-dealloced e reiniciado a partir do estado stop-deallocated | VMs e instâncias definidas em escala não podem ser stop-deallocated                                  |
-| **Suporte especializado em disco de SO** | Sim                                                                                          | Não                                                                                 |
+| **Suporte especializado em disco de SO** | Yes                                                                                          | No                                                                                 |
 | **Redimensionar o disco de OS**              | Suportado durante a criação de VM e depois de VM é stop-deallocated                                | Suportado apenas durante a criação de VM                                                  |
-| **Redimensionamento para um novo tamanho VM**   | Os dados do disco de SO são preservados                                                                    | Os dados do disco de so são eliminados, o SO é re-provisionado                                      |
+| **Redimensionamento para um novo tamanho VM**   | Os dados do disco de SO são preservados                                                                    | Os dados do disco de so são eliminados, o SO é re-provisionado       
+| **Colocação de ficheiro de página**   | Para o Windows, o ficheiro de página é armazenado no disco de recursos                                              | Para o Windows, o ficheiro de página é armazenado no disco OS   |
 
 ## <a name="size-requirements"></a>Requisitos de tamanho
 
@@ -87,13 +88,13 @@ Para conjuntos de escala, utilize o mesmo `--ephemeral-os-disk true` parâmetro 
 
 ## <a name="portal"></a>Portal   
 
-No portal Azure, pode optar por utilizar discos efémeros ao implementar um VM abrindo a secção **Avançada** do separador **Discos.** Para **utilizar o disco EFÉMER OS** selecione **Sim**.
+No portal Azure, pode optar por utilizar discos efémeros ao implementar um VM abrindo a secção **Avançada** do separador **Discos.** Para **utilizar o disco EFÉMER OS** selecione **Sim** .
 
 ![Screenshot mostrando o botão de rádio para escolher usar um disco efémero DE](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
 Se a opção de utilização de um disco efémero estiver acinzentada, pode ter selecionado um tamanho VM que não tenha um tamanho de cache maior do que a imagem de SO ou que não suporte o armazenamento Premium. Volte para a página **Basics** e tente escolher outro tamanho VM.
 
-Também pode criar conjuntos de escala com discos efémeros de OS utilizando o portal. Apenas certifique-se de selecionar um tamanho VM com um tamanho de cache grande o suficiente e, em seguida, em **Utilizar o disco EFÉMER SISTEMA** Selecione **Sim**.
+Também pode criar conjuntos de escala com discos efémeros de OS utilizando o portal. Apenas certifique-se de selecionar um tamanho VM com um tamanho de cache grande o suficiente e, em seguida, em **Utilizar o disco EFÉMER SISTEMA** Selecione **Sim** .
 
 ![Screenshot mostrando o botão de rádio para escolher usar um disco de SO efémero para o seu conjunto de escala](./media/virtual-machines-common-ephemeral/scale-set.png)
 

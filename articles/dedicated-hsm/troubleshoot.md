@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590460"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927843"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Resolução de problemas do serviço Azure Dedicado HSM
 
@@ -71,7 +71,7 @@ Quando um determinado carimbo ou região está a ficar cheio, ou seja, quase tod
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Como vejo os HSMs quando a provisionados?
 Devido ao HSM dedicado ser um serviço whitelist, é considerado um "Tipo Escondido" no portal Azure. Para ver os recursos do HSM, deve verificar a caixa de verificação "Mostrar tipos ocultos", como mostrado abaixo. O recurso NIC segue sempre o HSM e é um bom local para descobrir o endereço IP do HSM antes de utilizar o SSH para se ligar.
 
-![Delegação sub-rede](./media/troubleshoot/hsm-provisioned.png)
+![Screenshot que destaca o show de tipos escondidos verificar](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Recursos de Networking
 
@@ -85,7 +85,7 @@ O HSM dedicado utiliza o ExpressRoute Gateway como um "túnel" para a comunicaç
 
 Os modelos de amostra fornecidos para o HSM dedicado assumem que o IP HSM será automaticamente retirado de uma determinada gama de sub-redes. Pode especificar um endereço IP explícito para o HSM através de um atributo "NetworkInterfaces" no modelo ARM. 
 
-![Delegação sub-rede](./media/troubleshoot/private-ip-address.png)
+![Screenshot que mostra o modelo de amostra para HSM dedicado.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>Inicialização do HSM
 

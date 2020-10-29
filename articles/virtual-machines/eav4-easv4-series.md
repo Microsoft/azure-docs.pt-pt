@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ea746d67b23422243685347d1fe7a7fbaf03a4fe
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637042"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927962"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
@@ -25,7 +25,7 @@ A série Eav4 e a série Easv4 utilizam o processador EPYC<sup>TM</sup> 7452 da 
 [Caching de armazenamento premium](premium-storage-performance.md): Não suportado<br>
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
-[Suporte de geração VM](generation-2.md): Geração 1<br>
+[Suporte de geração VM](generation-2.md): Gerações 1 e 2<br>
 <br>
 
 Os tamanhos da série Eav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar SSD premium. Os tamanhos da série Eav4 são ideais para aplicações empresariais intensivas em memória. O armazenamento de discos de dados são cobrados em separado das máquinas virtuais. Para utilizar o SSD premium, utilize os tamanhos da série Easv4. Os preços e os contadores de faturação para os tamanhos Easv4 são os mesmos que a série Eav3.
@@ -49,7 +49,7 @@ Os tamanhos da série Eav4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</su
 [Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
-[Suporte de geração VM](generation-2.md): Geração 1<br>
+[Suporte de geração VM](generation-2.md): Gerações 1 e 2<br>
 <br>
 
 Os tamanhos da série Easv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</sup> 7452 que pode alcançar uma frequência máxima aumentada de 3,35GHz e utilizar SSD premium. Os tamanhos da série Easv4 são ideais para aplicações empresariais intensivas em memória.
@@ -79,7 +79,7 @@ Os tamanhos da série Easv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 
 Calculadora de preços: [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos : [tipos de discos](./disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos: [tipos de discos](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Passos seguintes
 

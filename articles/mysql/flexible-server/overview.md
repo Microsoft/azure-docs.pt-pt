@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537954"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927979"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -22,7 +22,7 @@ A azure Database for MySQL alimentado pela edição comunitária MySQL está dis
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo flexível de implementação do servidor. Para obter informações sobre como decidir qual a opção de implementação adequada para a sua carga de trabalho, consulte [a escolha da opção de servidor MySQL certa em Azure](./../select-right-deployment-type.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A Azure Database for MySQL Flexible Server é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Em geral, o serviço proporciona mais flexibilidade e personalizações de configuração do servidor com base nos requisitos do utilizador. A arquitetura flexível do servidor permite que os utilizadores optem pela alta disponibilidade dentro de uma única zona de disponibilidade e em várias zonas de disponibilidade. Os servidores flexíveis também fornecem controlos de otimização de custos melhores com a capacidade de parar/iniciar o seu servidor e skus rebentados, ideais para cargas de trabalho que não necessitam de capacidade de computação completa continuamente. O serviço suporta atualmente a versão comunitária do MySQL 5.7. O serviço está atualmente em pré-visualização, disponível hoje em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
@@ -84,6 +84,17 @@ Consulte [conceitos de networking](concepts-networking.md) para saber mais.
 O serviço de servidor flexível está disponível em três níveis SKU: Burstable, General Purpose e Memory Optimized. O nível Burstable é o mais adequado para o desenvolvimento de baixo custo e cargas de trabalho de baixa concordância que não necessitam de capacidade computacional completa continuamente. O Objetivo Geral e a Memória Otimizados são mais adequados para cargas de trabalho de produção que requerem alta concordância, escala e desempenho previsível. Pode construir a sua primeira aplicação numa pequena base de dados por alguns dólares por mês e, em seguida, ajustar a balança de forma perfeita para atender às necessidades da sua solução. O dimensionamento de armazenamento está on-line e suporta o crescimento automático do armazenamento. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Só paga pelos recursos que consome. 
 
 Consulte [os conceitos de Computação e Armazenamento](concepts-compute-storage.md) para saber mais.
+
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>Dimensione a sua carga de trabalho de leitura com até 10 réplicas de leitura
+
+MySQL é um dos motores de base de dados populares para executar aplicações web e móveis à escala da Internet. Muitos dos nossos clientes usam-na para os seus serviços de educação online, serviços de streaming de vídeo, soluções de pagamento digital, plataformas de e-commerce, serviços de jogos, portais de notícias, governo e sites de saúde. Estes serviços são necessários para servir e escalar à medida que o tráfego na web ou aplicação móvel aumenta.
+
+Do lado das aplicações, a aplicação é normalmente desenvolvida em Java ou php e migrada para funcionar em [conjuntos de escala de máquina virtual Azure](/azure/virtual-machine-scale-sets/overview.md)   ou [Azure App Services](/azure/app-service/overview.md)ou são   contentorizadas para funcionar no [Serviço Azure Kubernetes (AKS)](/azure/aks/intro-kubernetes.md). Com o conjunto de escalas de máquinas virtuais, o App Service ou a AKS como infraestrutura subjacente, o dimensionamento de aplicações é simplificado através do fornecimento instantâneo de novos VMs e replicando os componentes apátridas de aplicações para atender aos pedidos, mas muitas vezes, a base de dados acaba por ser um estrangulamento como componente imponente centralizado.
+
+A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para o servidor flexível MySQL para um servidor apenas de leitura. Pode replicar-se a partir do servidor de **origem até 10 réplicas** . As réplicas são atualizadas assíncronamente utilizando a tecnologia de [replicação baseada na posição de ficheiro (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)do motor MySQL. Pode utilizar uma solução de procuração de equilibrador de carga como [o ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para reduzir perfeitamente a carga de trabalho da sua aplicação para ler réplicas sem qualquer custo de refactor de aplicações. 
+
+Consulte [os conceitos de Replica](concepts-read-replicas.md) para saber mais. 
+
 
 ## <a name="stopstart-server-to-optimize-cost"></a>Servidor stop/start para otimizar o custo
 

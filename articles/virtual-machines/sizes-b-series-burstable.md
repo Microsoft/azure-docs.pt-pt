@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968927"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928047"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
-Os VMs da série B são ideais para cargas de trabalho que não necessitam de um desempenho completo do CPU continuamente, como servidores web, provas de conceitos, pequenas bases de dados e ambientes de construção de desenvolvimento. Estas cargas de trabalho normalmente têm requisitos de desempenho rebeníveis. A série B proporciona-lhe a capacidade de adquirir um tamanho VM com desempenho de base e a instância VM acumula créditos quando está a usar menos do que a sua linha de base. Quando o VM tiver crédito acumulado, o VM pode rebentar acima da linha de base usando até 100% do vCPU quando a sua aplicação requer um desempenho de CPU mais elevado.
+Os VMs da série B são ideais para cargas de trabalho que não necessitam de um desempenho completo do CPU continuamente, como servidores web, provas de conceitos, pequenas bases de dados e ambientes de construção de desenvolvimento. Estas cargas de trabalho normalmente têm requisitos de desempenho rebeníveis. A série B proporciona-lhe a capacidade de adquirir um tamanho VM com desempenho de base que pode acumular créditos quando está a usar menos do que a sua linha de base. Quando o VM tiver créditos acumulados, o VM pode rebentar acima da linha de base usando até 100% do vCPU quando a sua aplicação requer um desempenho de CPU mais elevado.
 
 A série B vem nos seguintes tamanhos VM:
 
@@ -93,23 +93,22 @@ Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de $0,
 
 ## <a name="q--a"></a>Perguntas e Respostas
 
-### <a name="q-what-happens-if-the-credits-run-out"></a>P: O que acontece se os créditos se esgotarem?
-**R**: Quando os créditos estão esgotados, o VM volta ao desempenho de base.
+### <a name="q-what-happens-when-my-credits-run-out"></a>P: O que acontece quando os meus créditos se esgotam?
+**R** : Quando os créditos estão esgotados, o VM volta ao desempenho de base.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: Como obtém um desempenho de base de 135% de um VM?
 
-**R**: Os 135% são partilhados entre os 8 vCPU's que compõem o tamanho VM. Por exemplo, se a sua aplicação utilizar 4 dos 8 núcleos que trabalham no processamento de lotes e cada um desses 4 vCPU's estiver em execução a 30% de utilização, a quantidade total de desempenho do CPU VM equivaleria a 120%.  O que significa que o seu VM estaria a construir tempo de crédito baseado no delta de 15% do seu desempenho de base.  Mas também significa que quando tiver créditos disponíveis, esse mesmo VM pode usar 100% de todos os 8 vCPU's dando a esse VM um desempenho DE CPU Max de 800%.
-
+**R** : Os 135% são partilhados entre os 8 vCPU's que compõem o tamanho VM. Por exemplo, se a sua aplicação utilizar 4 dos 8 núcleos que trabalham no processamento de lotes e cada um desses 4 vCPU's estiver em execução a 30% de utilização, a quantidade total de desempenho do CPU VM equivaleria a 120%.  O que significa que o seu VM estaria a construir tempo de crédito baseado no delta de 15% do seu desempenho de base.  Mas também significa que quando tiver créditos disponíveis, esse mesmo VM pode usar 100% de todos os 8 vCPU's dando a esse VM um desempenho DE CPU Max de 800%.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: Como posso monitorizar o meu saldo de crédito e consumo?
 
-**R**: Vamos introduzir 2 novas métricas nas próximas semanas, a métrica de **Crédito** permitir-lhe-á ver quantos créditos o seu VM depositou e a métrica **ConsumirCredit** mostrará quantos créditos cpU o seu VM consumiu do banco.    Poderá ver estas métricas a partir do painel de métricas do portal ou programáticamente através das APIs do Monitor Azure.
+**R** : A métrica **de Crédito** permite-lhe visualizar quantos créditos o seu VM foi depositado e a métrica **ConsumedCredit** mostrará quantos créditos cpU o seu VM consumiu do banco.    Poderá ver estas métricas a partir do painel de métricas do portal ou programáticamente através das APIs do Monitor Azure.
 
 Para obter mais informações sobre como aceder aos dados das métricas para Azure, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: Como são acumulados e consumidos os créditos?
 
-**R**: As taxas de acumulação e de consumo em VM são fixadas de modo a que um VM que esteja a funcionar exatamente ao seu nível de desempenho base não terá nem uma acumulação líquida nem um consumo de créditos de rebentamento.  Um VM terá um aumento líquido de créditos sempre que estiver a correr abaixo do seu nível de desempenho base e terá uma redução líquida de créditos sempre que o VM estiver a utilizar o CPU mais do que o seu nível de desempenho base.
+**R** : As taxas de acumulação e de consumo em VM são fixadas de modo a que um VM que esteja a funcionar exatamente ao seu nível de desempenho base não terá nem uma acumulação líquida nem um consumo de créditos de rebentamento.  Um VM terá um aumento líquido de créditos sempre que estiver a correr abaixo do seu nível de desempenho base e terá uma redução líquida de créditos sempre que o VM estiver a utilizar o CPU mais do que o seu nível de desempenho base.
 
 **Exemplo:** Eu implanto um VM utilizando o tamanho B1ms para a minha aplicação de base de dados de tempo pequeno e de atendimento. Este tamanho permite que a minha aplicação use até 20% de um vCPU como base, que é 0,2 créditos por minuto que posso usar ou banco.
 
@@ -121,7 +120,7 @@ Se pegar nos 120 créditos que ganhei fora do pico e subtrair os 96 créditos qu
 
 ### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P: Como posso calcular créditos acumulados e utilizados?
 
-**A**: Pode utilizar a seguinte fórmula:
+**A** : Pode utilizar a seguinte fórmula:
 
 (CpU base perf de VM - Utilização cpu) / 100 = Banco de créditos ou utilização por minuto
 
@@ -133,7 +132,7 @@ por exemplo, acima de exemplo, a sua linha de base é de 20% e se utilizar 10% d
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>P: Por que o meu crédito restante está definido para 0 após uma recolocação ou uma paragem/arranque?
 
-**R** : Quando um VM é "REDPLOYED" e o VM passa para outro nó, perde-se o crédito acumulado. Se o VM for parado/iniciado, mas permanecer no mesmo nó, o VM mantém o crédito acumulado. Sempre que o VM começa fresco num nó, recebe um crédito inicial, para Standard_B8ms são 240 minutos.
+**R** : Quando um VM é "REDPLOYED" e o VM passa para outro nó, perde-se o crédito acumulado. Se o VM for parado/iniciado, mas permanecer no mesmo nó, o VM mantém o crédito acumulado. Sempre que o VM começa fresco num nó, recebe um crédito inicial, para Standard_B8ms é de 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P: O que acontece se eu colocar uma imagem de SO não suportada em B1ls?
 

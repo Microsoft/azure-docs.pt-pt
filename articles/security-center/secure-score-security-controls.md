@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425395"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928098"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
@@ -88,7 +88,7 @@ O Azure Resource Graph fornece acesso instantâneo à informação de recursos e
 
 Para aceder à pontuação segura para várias subscrições com ARG:
 
-1. A partir do portal Azure, abra **o Azure Resource Graph Explorer**.
+1. A partir do portal Azure, abra **o Azure Resource Graph Explorer** .
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Pontuação máxima segura, como mostrado no portal" :::
 
@@ -112,7 +112,7 @@ Para aceder à pontuação segura para várias subscrições com ARG:
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. Selecione **Consulta de execução**.
+1. Selecione **Consulta de execução** .
 
 ## <a name="how-your-secure-score-is-calculated"></a>Como a sua pontuação segura é calculada 
 
@@ -162,6 +162,14 @@ Outra forma de melhorar a sua pontuação e garantir que os seus utilizadores n�
 
 A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. Para cada controlo, pode ver o número máximo de pontos que pode adicionar à sua pontuação segura se remediar *todas as* recomendações listadas no controlo, para *todos os* seus recursos. 
 
+O conjunto de recomendações de segurança fornecidas ao Centro de Segurança é adaptado aos recursos disponíveis no ambiente de cada organização. As recomendações podem ser ainda mais [personalizadas, desativando políticas](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) e [isentando recursos específicos de uma recomendação.](exempt-resource.md) 
+ 
+Recomendamos que todas as organizações revejam cuidadosamente as suas iniciativas atribuídas à Política Azure. 
+
+> [!TIP]
+> Para mais detalhes sobre a revisão e edição das suas iniciativas, consulte [Trabalhar com políticas de segurança.](tutorial-security-policy.md) 
+
+Embora a iniciativa de segurança padrão do Security Center se baseie nas melhores práticas e padrões da indústria, existem cenários em que as recomendações incorporadas listadas abaixo podem não se adequar completamente à sua organização. Consequentemente, às vezes será necessário ajustar a iniciativa padrão - sem comprometer a segurança - para garantir que está alinhada com as políticas da sua própria organização. padrões da indústria, padrões regulamentares e referências que é obrigado a cumprir.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;tamanho da fonte:14px; transbordamento:escondido;estofamento:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;tamanho da fonte:18px; peso de fonte:normal;transbordar:escondido;estofamento:10px 5px;word-break:normal;} .tg-cly1{text-align:left;vertical-align:middle} .tg-lboi{border-color:herdamento;text-align:left;vertical-align:middle: </style>
@@ -249,7 +257,7 @@ A tabela abaixo lista os controlos de segurança no Centro de Segurança Azure. 
 ## <a name="secure-score-faq"></a>Pontuação segura FAQ
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se eu abordar apenas três de quatro recomendações num controlo de segurança, a minha pontuação segura mudará?
-Não. Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
+N.º Não mudará até que remediar todas as recomendações para um único recurso. Para obter a pontuação máxima para um controlo, você deve remediar todas as recomendações, para todos os recursos.
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim, e eu a desativar na apólice, o meu controlo de segurança será cumprido e a minha pontuação segura atualizada?
 Sim. Recomendamos desativar recomendações quando são inaplicáveis no seu ambiente. Para obter instruções sobre como desativar uma recomendação específica, consulte [as políticas de segurança para desativar](./tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).

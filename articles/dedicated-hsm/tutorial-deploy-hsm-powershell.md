@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: fc67012dff5931fb86452ea95c2ea074a426953c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee431df89128a516e3a1cabeb43b5cbe9e356dae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075681"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927860"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantação de HSMs numa rede virtual existente utilizando o PowerShell
 
@@ -233,7 +233,7 @@ Quando estiver ligado ao dispositivo HSM utilizando o ssh, executar o seguinte c
 
 A saída deve parecer-se com a imagem mostrada abaixo:
 
-![estatuto de prestação](media/tutorial-deploy-hsm-powershell/output.png)
+![Screenshot que mostra a saída do comando do programa hsm.](media/tutorial-deploy-hsm-powershell/output.png)
 
 Neste momento, alocou todos os recursos para uma implantação altamente disponível, duas implantações de HSM e acesso validado e estado operacional. Qualquer outra configuração ou teste envolve mais trabalho com o próprio dispositivo HSM. Para isso, deve seguir as instruções no Guia de Administração da Rede Gemalto Luna HSM 7 capítulo 7 para rubricar o HSM e criar divisórias. Toda a documentação e software estão disponíveis diretamente de Gemalto para download uma vez registado no Portal de Apoio ao Cliente gemalto e tem um ID do Cliente. Baixe a versão 7.2 do Software cliente para obter todos os componentes necessários.
 
@@ -259,7 +259,7 @@ Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGrou
 
 Após completar os passos no tutorial, os recursos dedicados do HSM são a provisionados e disponíveis na sua rede virtual. Está agora em posição de felicitar esta implantação com mais recursos, conforme exigido pela sua arquitetura de implantação preferida. Para obter mais informações sobre como ajudar a planear a sua implantação, consulte os documentos do Concepts. Recomenda-se um desenho com dois HSMs numa região primária que aborde a disponibilidade ao nível da cremalheira, e dois HSMs numa região secundária que aborde a disponibilidade regional. O ficheiro de modelo utilizado neste tutorial pode ser facilmente usado como base para uma implantação de dois HSM, mas precisa de ter os seus parâmetros modificados para satisfazer os seus requisitos.
 
-* [Alta Disponibilidade](high-availability.md)
+* [Elevada Disponibilidade](high-availability.md)
 * [Segurança Física](physical-security.md)
 * [Redes](networking.md)
 * [Monitorização](monitoring.md)

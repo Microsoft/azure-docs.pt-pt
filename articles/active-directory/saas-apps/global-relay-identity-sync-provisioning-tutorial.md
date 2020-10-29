@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900287"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927996"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Global Relay Identity Sync para o fornecimento automático do utilizador
 
@@ -33,6 +33,10 @@ Este tutorial descreve os passos necessários para realizar tanto no Global Rela
 > * Remova os utilizadores no Global Relay Identity Sync quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre Azure AD e Global Relay Identity Sync
 > * Grupos de provisão e membros do grupo no Global Relay Identity Sync
+
+
+> [!NOTE]
+> O conector global de provisão de identidade de retransmissão utiliza um método de autorização SCIM que já não é suportado devido a questões de segurança. Estão em curso esforços com a Global Relay para mudar para um método de autorização mais seguro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

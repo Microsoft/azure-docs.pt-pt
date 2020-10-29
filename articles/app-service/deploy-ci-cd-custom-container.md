@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961861"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928013"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementação contínua com a Aplicação Web para Contentores
 
@@ -35,7 +35,7 @@ Neste tutorial, configura a implementação contínua para uma imagem personaliz
 
 Uma vez ativada a Implementação Contínua, pode visualizar o webhook recém-criado na página webhooks do registo de contentores Azure.
 
-![Screenshot do webhook ACR](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Screenshot que mostra onde você pode ver o webhook recém-criado na sua página de webhooks do Registo de Contentores Azure.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 No registo do seu contentor, clique em Webhooks para ver os webhooks atuais.
 
