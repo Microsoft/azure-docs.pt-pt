@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1efae6563b88f82318f9b8358d255b234c6cb7fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484a44a7a9840409e3f5770c743e5cd62e0cef66
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116211"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910309"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Amostras de código do Azure Ative Directory (ponto final v1.0)
 
@@ -53,19 +53,19 @@ As seguintes amostras ilustram as aplicações web que assinam os utilizadores. 
 
  Plataforma | Apenas sinais nos utilizadores | Chama o Microsoft Graph | Chama outra ASP.NET ou ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------- | -------------------------
-![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(Gráfico AAD) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (Gráfico AAD) |
+![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(Gráfico AAD) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
+![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (Gráfico AAD) |
 ![Esta imagem mostra o logótipo python](media/sample-v2-code/logo-python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
 ![Esta imagem mostra o log de Java](media/sample-v2-code/logo-java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![Esta imagem mostra o logótipo PHP](media/sample-v2-code/logo-php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>Aplicações web que demonstram controlo de acesso baseado em funções (autorização)
 
-As amostras que se seguem mostram como implementar o controlo de acesso baseado em funções (RBAC). O RBAC é utilizado para restringir as permissões de certas funcionalidades numa aplicação web a determinados utilizadores. Os utilizadores são autorizados dependendo se pertencem a um **grupo AD Azure** ou têm uma determinada **função de**aplicação .
+As amostras que se seguem mostram como implementar o controlo de acesso baseado em funções (RBAC). O RBAC é utilizado para restringir as permissões de certas funcionalidades numa aplicação web a determinados utilizadores. Os utilizadores são autorizados dependendo se pertencem a um **grupo AD Azure** ou têm uma determinada **função de** aplicação .
 
 Plataforma | Sample |
  -------- | ------------------- |
-![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Uma aplicação web .NET 4.5 MVC que utiliza **funções** AD Azure para autorização
+![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Uma aplicação web .NET 4.5 MVC que utiliza **funções** AD Azure para autorização
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Aplicações de clientes públicos e desktop e móveis que ligam para o Microsoft Graph ou para uma API Web
 
@@ -92,9 +92,9 @@ As amostras que se seguem mostram aplicações de desktop ou web que acedem ao M
 
 Aplicação ao cliente | Plataforma | Fluxo/Subvenção | Chama uma API web ASP.NET ou ASP.NET Core 2.0
 ------------------ | -------- | ---------- | -------------------- 
-App Daemon (Consola)          | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netframework.png) | Credenciais de cliente com app secret ou certificado | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credencial](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
-App Daemon (Consola)         | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netcore.png) | Credenciais de cliente com certificado| [dotnetcore-daemon-certificate-credencial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
-ASP.NET Web App  | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/logo-netframework.png) | Credenciais de cliente | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
+App Daemon (Consola)          | ![Esta imagem mostra o logótipo .NET Framework](media/sample-v2-code/logo-netframework.png) | Credenciais de cliente com app secret ou certificado | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credencial](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
+App Daemon (Consola)         | ![Esta imagem mostra o logótipo .NET Core](media/sample-v2-code/logo-netcore.png) | Credenciais de cliente com certificado| [dotnetcore-daemon-certificate-credencial](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
+ASP.NET Web App  | ![Esta imagem mostra o logótipo .NET Framework](media/sample-v2-code/logo-netframework.png) | Credenciais de cliente | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
 ## <a name="web-apis"></a>APIs da Web
 
@@ -102,7 +102,7 @@ ASP.NET Web App  | ![Esta imagem mostra o logótipo .NET](media/sample-v2-code/l
 
 A amostra que se segue mostra como proteger uma API web node.js com Azure AD.
 
-Nas secções anteriores deste artigo, também pode encontrar outras amostras que ilustram uma aplicação do cliente **que ASP.NET** ou ASP.NET Core **Web API**. Estas amostras não são mencionadas novamente nesta secção, mas você vai encontrá-las na última coluna das tabelas acima ou abaixo
+Nas secções anteriores deste artigo, também pode encontrar outras amostras que ilustram uma aplicação do cliente **que ASP.NET** ou ASP.NET Core **Web API** . Estas amostras não são mencionadas novamente nesta secção, mas você vai encontrá-las na última coluna das tabelas acima ou abaixo
 
 | Plataforma | Sample |
 |--------|-------------------|
@@ -114,13 +114,13 @@ As seguintes amostras demonstram uma API web que chama outra API web. A segunda 
 
 | Plataforma |  Chama o Microsoft Graph | Chama outra ASP.NET ou ASP.NET Core 2.0 Web API |
 | -------- |  --------------------- | ------------------------- |
-| ![Esta imagem mostra o logótipo ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
+| ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) </p> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |
 
 ## <a name="other-microsoft-graph-samples"></a>Outras amostras do Microsoft Graph
 
 Para amostras e tutoriais que demonstrem diferentes padrões de utilização para a API do Gráfico microsoft, incluindo a autenticação com AZure AD, consulte [as amostras comunitárias do Microsoft Graph & Tutoriais](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Guia do Programador de Diretórios Azure Ative](v1-overview.md)
 - [Bibliotecas de autenticação de diretório ativo Azure](active-directory-authentication-libraries.md)

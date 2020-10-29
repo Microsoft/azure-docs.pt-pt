@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f6b2ed9357acf4dceeb960b1abdf6813987f657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74861df30ba2854c9299e1f779d0cee59abbc5a8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324897"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911210"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar os dados do seu rosto para uma subscrição diferente do Face
 
@@ -28,7 +28,7 @@ Esta mesma estratégia de migração também se aplica a objetos LargePersonGrou
 
 Precisa dos seguintes itens:
 
-- Duas teclas de subscrição Face, uma com os dados existentes e outra para migrar. Para subscrever o serviço Face e obter a sua chave, siga as instruções na [conta Criar um Serviço Cognitivo.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)
+- Duas teclas de subscrição Face, uma com os dados existentes e outra para migrar. Para subscrever o serviço Face e obter a sua chave, siga as instruções na [conta Criar um Serviço Cognitivo.](../../cognitive-services-apis-create-account.md)
 - A cadeia de ID de subscrição Face que corresponde à subscrição-alvo. Para encontrá-lo, **selecione Overview** no portal Azure. 
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
@@ -36,13 +36,13 @@ Precisa dos seguintes itens:
 
 Este guia utiliza uma aplicação de consola simples para executar a migração de dados faciais. Para uma implementação completa, consulte a [amostra de instantâneo Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) no GitHub.
 
-1. No Visual Studio, crie um novo projeto de consola .NET Framework. Nomeie-o **FaceApiSnapshotSample**.
-1. Obtenha os pacotes NuGet necessários. Clique com o botão direito no seu projeto no Solution Explorer e **selecione Gerir pacotes NuGet**. **Selecione** o separador Procurar e selecione **Incluir pré-relançar.** Encontre e instale o seguinte pacote:
+1. No Visual Studio, crie um novo projeto de consola .NET Framework. Nomeie-o **FaceApiSnapshotSample** .
+1. Obtenha os pacotes NuGet necessários. Clique com o botão direito no seu projeto no Solution Explorer e **selecione Gerir pacotes NuGet** . **Selecione** o separador Procurar e selecione **Incluir pré-relançar.** Encontre e instale o seguinte pacote:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-pré-visualização](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="create-face-clients"></a>Criar clientes faciais
 
-No método **Principal** em *Program.cs,* crie dois [exemplos de FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para as suas subscrições de origem e alvo. Este exemplo utiliza uma subscrição face na região da Ásia Oriental como fonte e uma subscrição dos EUA ocidentais como alvo. Este exemplo demonstra como migrar dados de uma região de Azure para outra. 
+No método **Principal** em *Program.cs,* crie dois [exemplos de FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para as suas subscrições de origem e alvo. Este exemplo utiliza uma subscrição face na região da Ásia Oriental como fonte e uma subscrição dos EUA ocidentais como alvo. Este exemplo demonstra como migrar dados de uma região de Azure para outra. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -63,7 +63,7 @@ Preencha os valores-chave de subscrição e URLs de ponto final para as suas sub
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparar um Grupo de Pessoas para a migração
 
-Precisa do ID do PersonGroup na sua subscrição de origem para o migrar para a subscrição-alvo. Utilize o método [PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista dos seus objetos do PersonGroup. Em seguida, obtenha a propriedade [PersonGroup.PersonGroupId.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) Este processo parece diferente com base nos objetos do PersonGroup que tem. Neste guia, o ID do PersonGroup de origem é armazenado em `personGroupId` .
+Precisa do ID do PersonGroup na sua subscrição de origem para o migrar para a subscrição-alvo. Utilize o método [PersonGroupOperationsExtensions.ListAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista dos seus objetos do PersonGroup. Em seguida, obtenha a propriedade [PersonGroup.PersonGroupId.](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) Este processo parece diferente com base nos objetos do PersonGroup que tem. Neste guia, o ID do PersonGroup de origem é armazenado em `personGroupId` .
 
 > [!NOTE]
 > O [código de amostra](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) cria e treina um novo PersonGroup para migrar. Na maioria dos casos, já deve ter um PersonGroup para usar.
@@ -72,7 +72,7 @@ Precisa do ID do PersonGroup na sua subscrição de origem para o migrar para a 
 
 Um instantâneo é armazenamento remoto temporário para certos tipos de dados face. Funciona como uma espécie de clipboard para copiar dados de uma subscrição para outra. Primeiro, tira-se uma fotografia dos dados na subscrição de origem. Em seguida, aplique-o a um novo objeto de dados na subscrição-alvo.
 
-Utilize o exemplo faceClient da subscrição de origem para tirar uma foto do PersonGroup. Use [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) com o ID do PersonGroup e o ID da subscrição-alvo. Se tiver várias subscrições-alvo, adicione-as como entradas de matriz no terceiro parâmetro.
+Utilize o exemplo faceClient da subscrição de origem para tirar uma foto do PersonGroup. Use [TakeAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) com o ID do PersonGroup e o ID da subscrição-alvo. Se tiver várias subscrições-alvo, adicione-as como entradas de matriz no terceiro parâmetro.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -82,7 +82,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> O processo de tomada e aplicação de instantâneos não perturba nenhuma chamada regular para a fonte ou target PersonGroups ou FaceLists. Não faça chamadas simultâneas que alterem o objeto de origem, como [chamadas de gestão FaceList](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) ou a chamada [do PersonGroup Train,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) por exemplo. A operação instantânea pode ser executada antes ou depois dessas operações ou pode encontrar erros.
+> O processo de tomada e aplicação de instantâneos não perturba nenhuma chamada regular para a fonte ou target PersonGroups ou FaceLists. Não faça chamadas simultâneas que alterem o objeto de origem, como [chamadas de gestão FaceList](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) ou a chamada [do PersonGroup Train,](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) por exemplo. A operação instantânea pode ser executada antes ou depois dessas operações ou pode encontrar erros.
 
 ## <a name="retrieve-the-snapshot-id"></a>Recupere a imagem instantânea
 
@@ -221,7 +221,7 @@ Agora pode utilizar o novo PersonGroup na subscrição-alvo.
 
 Para atualizar o PersonGroup alvo novamente no futuro, crie um novo PersonGroup para receber o instantâneo. Para isso, siga os passos deste guia. Um único objeto PersonGroup pode ter uma imagem aplicada apenas uma vez.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de terminar os dados do rosto migratório, elimine manualmente o objeto instantâneo.
 
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 Em seguida, consulte a documentação de referência da API relevante, explore uma aplicação de amostra que utiliza a funcionalidade Snapshot ou siga um guia de como começar a usar as outras operações da API aqui mencionadas:
 
-- [Documentação de referência instantânea (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Documentação de referência instantânea (.NET SDK)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Amostra de instantâneo facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Adicionar rostos](how-to-add-faces.md)
 - [Detetar rostos numa imagem](HowtoDetectFacesinImage.md)

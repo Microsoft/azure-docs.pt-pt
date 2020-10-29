@@ -8,34 +8,43 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d178ae39d3af6b39047501f0bc47acbc6e792f48
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279795"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911499"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Scripts de encriptação de disco Azure para VMs Linux
 
-Este artigo fornece scripts de amostra para preparar VHDs pré-encriptados e outras tarefas.
+Este artigo fornece scripts de amostra para preparar VHDs pré-encriptados e outras tarefas.  
 
- 
+> [!NOTE]
+> Todos os scripts referem-se à versão mais recente, não-AAD da ADE, exceto quando anotado.
 
 ## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Scripts PowerShell de amostra para encriptação do disco Azure 
 
 - **Listar todos os VMs encriptados na sua subscrição**
+  
+  Pode encontrar todos os VMs encriptados a ADE e a versão de extensão, em todos os grupos de recursos presentes numa subscrição, utilizando [este script PowerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
 
-     ```azurepowershell-interactive
-     $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-     $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-     Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
-     ```
+  Em alternativa, estes cmdlets mostrarão todos os VMs encriptados a ADE (mas não a versão de extensão):
+
+   ```azurepowershell-interactive
+   $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+   $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+   Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+   ```
+
+- **Listar todas as instâncias VMSS encriptadas na sua subscrição**
+    
+    Pode encontrar todas as instâncias VMSS encriptadas pela ADE e a versão de extensão, em todos os grupos de recursos presentes numa subscrição, utilizando [este script PowerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
 
 - **Lista todos os segredos de encriptação do disco usados para encriptar VMs em um cofre chave** 
 
-     ```azurepowershell-interactive
-     Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
-     ```
+   ```azurepowershell-interactive
+   Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
+   ```
 
 ### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Utilizando o encriptação do disco Azure pré-requisitos powerShell script
 Se já estiver familiarizado com os pré-requisitos para encriptação do disco Azure, pode utilizar o [script Azure Disk Encryption pré-requisitos powerShell](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para um exemplo de utilização deste script PowerShell, consulte o [Crycrim a VM Quickstart](disk-encryption-powershell-quickstart.md). Pode remover os comentários de uma secção do script, a partir da linha 211, para encriptar todos os discos para VM existentes num grupo de recursos existente. 
@@ -53,14 +62,13 @@ A tabela a seguir mostra quais os parâmetros que podem ser utilizados no script
 |$aadClientSecret|Segredo de cliente da aplicação AZure AD que foi criada anteriormente.|Falso|
 |$keyEncryptionKeyName|Nome da chave de encriptação opcional em KeyVault. Uma nova chave com este nome será criada se não existir.|Falso|
 
-
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografe ou desencriptar VMs sem uma aplicação AD AZure
 
 - [Ativar a encriptação do disco num VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [Desative a encriptação num Linux VM em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - A encriptação incapacitante só é permitida em volumes de dados para VMs Linux.  
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografe ou desencriptar VMs com uma aplicação AD Azure (versão anterior) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografe ou desencriptar VMs com uma aplicação AD Azure (versão anterior)
  
 - [Ativar a encriptação do disco num VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
@@ -71,10 +79,6 @@ A tabela a seguir mostra quais os parâmetros que podem ser utilizados no script
 
 - [Criar um novo disco gerido encriptado a partir de uma bolha VHD/armazenamento pré-encriptado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Cria um novo disco gerido encriptado desde um VHD pré-encriptado e as suas definições de encriptação correspondentes
-
-
-
-
 
 ## <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Encriptando uma unidade de SO em um Linux VM em execução
 
@@ -227,7 +231,7 @@ Configure a encriptação para trabalhar com o Azure, fazendo os seguintes passo
     fi
    ```
 
-2. Altere a cripta config em */etc/crypttab*. Deverá ter o seguinte aspeto:
+2. Altere a cripta config em */etc/crypttab* . Deverá ter o seguinte aspeto:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -254,7 +258,7 @@ Configure a encriptação para trabalhar com o Azure, fazendo os seguintes passo
 
 ### <a name="opensuse-132"></a>openSUSE 13.2
 Para configurar a encriptação durante a instalação de distribuição, faça os seguintes passos:
-1. Ao dividir os discos, **selecione Encrypt Volume Group**e introduza uma palavra-passe. Esta é a senha que vai enviar para o cofre da chave.
+1. Ao dividir os discos, **selecione Encrypt Volume Group** e introduza uma palavra-passe. Esta é a senha que vai enviar para o cofre da chave.
 
    ![openSUSE 13.2 Configuração - Grupo de Volume encriptado](./media/disk-encryption/opensuse-encrypt-fig1.png)
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276951"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911720"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
 
@@ -41,7 +41,7 @@ Siga estas dicas adicionais para otimizar ainda mais o seu conjunto de dados par
 
 ## <a name="upload-your-training-data"></a>Faça upload dos seus dados de formação
 
-Quando tiver reunido o conjunto de documentos de formulário que vai usar para o treino, tem de o enviar para um recipiente de armazenamento de bolhas Azure. Se não souber como criar uma conta de armazenamento Azure com um recipiente, seguindo o [quickstart de Armazenamento Azure para o portal Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Utilize o nível de desempenho padrão.
+Quando tiver reunido o conjunto de documentos de formulário que vai usar para o treino, tem de o enviar para um recipiente de armazenamento de bolhas Azure. Se não souber como criar uma conta de armazenamento Azure com um recipiente, seguindo o [quickstart de Armazenamento Azure para o portal Azure](../../storage/blobs/storage-quickstart-blobs-portal.md). Utilize o nível de desempenho padrão.
 
 Se quiser utilizar dados etiquetados manualmente, também terá de carregar o *.labels.js* e *.ocr.jsem* ficheiros que correspondam aos seus documentos de treino. Pode utilizar a [ferramenta de rotulagem sample](./quickstarts/label-tool.md) (ou a sua própria UI) para gerar estes ficheiros.
 
@@ -78,6 +78,6 @@ Agora que aprendeu a construir um conjunto de dados de treino, siga um quickstar
 * [Treine com etiquetas usando a ferramenta de rotulagem da amostra](./quickstarts/label-tool.md)
 * [Preparar com etiquetas através da API REST e do Python](./quickstarts/python-labeled-data.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

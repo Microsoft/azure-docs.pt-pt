@@ -2,22 +2,22 @@
 title: Configurar registos de diagnóstico - Azure Event Hub / Microsoft Docs
 description: Saiba como configurar registos de atividades e registos de diagnóstico para centros de eventos em Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927736"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912604"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
 Pode ver dois tipos de registos para Azure Event Hubs:
 
-* **[Registos de atividades](../azure-monitor/platform/platform-logs-overview.md)**: Estes registos têm informações sobre operações feitas num trabalho. Os registos estão sempre ativados. Pode ver as entradas de registo de atividade selecionando **o registo de atividade** no painel esquerdo para o seu espaço de nome do centro de eventos no portal Azure. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar o Centro de Eventos".
+* **[Registos de atividades](../azure-monitor/platform/platform-logs-overview.md)** : Estes registos têm informações sobre operações feitas num trabalho. Os registos estão sempre ativados. Pode ver as entradas de registo de atividade selecionando **o registo de atividade** no painel esquerdo para o seu espaço de nome do centro de eventos no portal Azure. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar o Centro de Eventos".
 
     ![Registo de atividades para um espaço de nomes de Centros de Eventos](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)**: Os registos de diagnóstico fornecem informações mais ricas sobre operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão no SDK de língua. 
+* **[Registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : Os registos de diagnóstico fornecem informações mais ricas sobre operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão no SDK de língua. 
     
     A seguinte secção mostra-lhe como ativar registos de diagnóstico para um espaço de nomes de Centros de Eventos.
 
@@ -25,7 +25,7 @@ Pode ver dois tipos de registos para Azure Event Hubs:
 Os registos de diagnóstico são desativado por predefinição. Para ativar registos de diagnóstico, siga estes passos:
 
 1.  No [portal Azure,](https://portal.azure.com)navegue para o seu espaço de nomes Desempaco. 
-2. Selecione **as definições de Diagnóstico** em **Monitorização** no painel esquerdo e, em seguida, selecione **+ Adicione a definição de diagnóstico**. 
+2. Selecione **as definições de Diagnóstico** em **Monitorização** no painel esquerdo e, em seguida, selecione **+ Adicione a definição de diagnóstico** . 
 
     ![Página de definições de diagnóstico - adicione a definição de diagnóstico](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
 4. Na secção de detalhes da **categoria,** selecione os **tipos de registos de diagnóstico** que pretende ativar. Você encontrará detalhes sobre estas categorias mais tarde neste artigo. 
@@ -188,7 +188,6 @@ O registo de erros do utilizador Kafka JSON inclui elementos listados na tabela 
 | `Message` | Mensagem informativa, que fornece detalhes sobre um erro |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Esquema de eventos de ligação de rede virtual Hubs
-
 Evento de ligação de rede virtual (VNet) evento de ligação de rede virtual JSON inclui elementos listados na tabela seguinte:
 
 | Nome | Descrição |
@@ -200,6 +199,8 @@ Evento de ligação de rede virtual (VNet) evento de ligação de rede virtual J
 | `Reason` | Fornece uma razão pela qual a ação foi feita |
 | `Count` | Número de ocorrências para a ação dada |
 | `ResourceId` | Identificação de recursos do Azure Resource Manager. |
+
+Os registos de rede virtuais só são gerados se o espaço de nome permitir o acesso a partir de **redes selecionadas** ou de **endereços IP específicos (regras** de filtro IP). Se não pretender restringir o acesso ao seu espaço de nome usando estas funcionalidades e ainda pretender obter registos de rede virtuais para rastrear endereços IP de clientes que se ligam ao espaço de nomes do Event Hubs, poderá utilizar a seguinte solução alternativa. Ativar a filtragem IP e adicionar a gama total iPv4 endereçada (1.0.0.0/1 - 255.0.0.0/1). O Event Hubs não suporta gamas IPv6. 
 
 ### <a name="example"></a>Exemplo
 

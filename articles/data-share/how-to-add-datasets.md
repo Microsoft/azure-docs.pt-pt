@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513494"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910547"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Como adicionar conjuntos de dados a uma participação existente na Azure Data Share
 
@@ -23,11 +23,11 @@ Para obter informações sobre como adicionar conjuntos de dados à medida que c
 
 Na Azure Data Share, navegue para a sua partilha enviada e selecione o **separador Datasets.** Clique + Adicione o botão **Conjuntos de Dados** para adicionar mais conjuntos de dados.
 
-![Adicionar conjuntos de dados](./media/how-to/how-to-add-datasets/add-datasets.png)
+![A screenshot mostra adicionar conjuntos de dados selecionados.](./media/how-to/how-to-add-datasets/add-datasets.png)
 
-No painel à direita, selecione o tipo de conjunto de dados que pretende adicionar e, em seguida, clique em **Seguinte**. Selecione o grupo de subscrição e recursos dos dados que pretende adicionar. Utilizando as setas de dropdown, encontre e verifique a caixa ao lado dos dados a adicionar.
+No painel à direita, selecione o tipo de conjunto de dados que pretende adicionar e, em seguida, clique em **Seguinte** . Selecione o grupo de subscrição e recursos dos dados que pretende adicionar. Utilizando as setas de dropdown, encontre e verifique a caixa ao lado dos dados a adicionar.
 
-![Adicionar conjuntos de dados](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![A screenshot mostra o painel de armazenamento Add Blob onde pode selecionar dados.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
 Assim que clicar em **Adicionar Conjuntos de Dados,** os conjuntos de dados serão adicionados à sua parte. Nota: Um instantâneo deve ser desencadeado pelos seus consumidores para que estes possam ver os novos conjuntos de dados. Se houver configurações instantâneas configuradas, os consumidores verão os novos conjuntos de dados assim que o próximo instantâneo programado estiver concluído. Sem configurar as definições de instantâneo, o consumidor deve ativar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, consulte [Snapshots](terminology.md).
 

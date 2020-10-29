@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903192"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910156"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Resolução de problemas Saídas Azure Stream Analytics
 
@@ -67,7 +67,7 @@ Durante o funcionamento normal de um trabalho, a saída pode ter períodos de la
 * Se a fonte a montante é estrangulada
 * Se a lógica de processamento na consulta é computacional intensiva
 
-Para ver os detalhes de saída, selecione o trabalho de streaming no portal Azure e, em seguida, selecione **o diagrama de trabalho**. Para cada entrada, há uma métrica de evento por partição. Se a métrica continuar a aumentar, é um indicador de que os recursos do sistema estão limitados. O aumento deve-se potencialmente ao estrangulamento do lavatório de saída ou ao elevado uso do CPU. Para obter mais informações, consulte [a depuração orientada para dados utilizando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
+Para ver os detalhes de saída, selecione o trabalho de streaming no portal Azure e, em seguida, selecione **o diagrama de trabalho** . Para cada entrada, há uma métrica de evento por partição. Se a métrica continuar a aumentar, é um indicador de que os recursos do sistema estão limitados. O aumento deve-se potencialmente ao estrangulamento do lavatório de saída ou ao elevado uso do CPU. Para obter mais informações, consulte [a depuração orientada para dados utilizando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Aviso de violação chave com saída da Base de Dados Azure SQL
 
@@ -81,7 +81,29 @@ Note as seguintes observações ao configurar IGNORE_DUP_KEY para vários tipos 
 
 * Não é possível definir IGNORE_DUP_KEY numa chave primária ou numa restrição única que utiliza o ÍNDICE ALTER. Tens de baixar o índice e recriá-lo.  
 * Pode definir IGNORE_DUP_KEY utilizando o ÍNDICE ALTER para um índice único. Este caso é diferente de uma restrição CHAVE/UNIQUE PRIMÁRIO e é criado utilizando uma definição DE ÍNDICE OU ÍNDICE CREATE.  
-* A opção IGNORE_DUP_KEY não se aplica aos índices de lojas de colunas porque não se pode impor a singularidade neles.  
+* A opção IGNORE_DUP_KEY não se aplica aos índices de lojas de colunas porque não se pode impor a singularidade neles.
+
+## <a name="sql-output-retry-logic"></a>Lógica de relíndi da saída SQL
+
+Quando um trabalho stream Analytics com saída SQL recebe o primeiro lote de eventos, ocorrem os seguintes passos:
+
+1. O trabalho tenta ligar-se ao SQL.
+2. O trabalho vai buscar o esquema da mesa de destino.
+3. O trabalho valida nomes e tipos de colunas contra o esquema da tabela de destino.
+4. O trabalho prepara uma tabela de dados na memória a partir dos registos de saída do lote.
+5. O trabalho escreve a tabela de dados para SQL usando [a BulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1).
+
+Durante estes passos, a saída SQL pode experimentar os seguintes tipos de erros:
+
+* [Erros transitórios](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) que são novamente julgados usando uma estratégia de recuo exponencial. O intervalo mínimo de retagem depende do código de erro individual, mas os intervalos são tipicamente inferiores a 60 segundos. O limite superior pode ser no máximo cinco minutos. 
+
+   [Falhas de login](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) e [problemas de firewall](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) são novamente experimentados pelo menos 5 minutos após a tentativa anterior e são novamente julgados até que tenham sucesso.
+
+* Os erros de dados, tais como erros de casting e violações de restrições de esquemas, são tratados com a política de erro de saída. Estes erros são tratados redando os lotes de divisão binária até que o registo individual que causa o erro seja manuseado por salto ou reagem. A violação da restrição de chave única primária é [sempre tratada.](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)
+
+* Erros não transitórios podem ocorrer quando existem problemas de serviço SQL ou defeitos de código internos. Por exemplo, quando erros como (Código 1132) Piscina Elástica que atingem o seu limite de armazenamento, as retró quaisquer pessoas não resolvem o erro. Nestes cenários, o trabalho stream Analytics experimenta [a degradação.](job-states.md)
+* `BulkCopy` os intervalos podem acontecer durante `BulkCopy` o passo 5. `BulkCopy` pode experimentar intervalos de operação ocasionalmente. O tempo limite mínimo configurado é de cinco minutos e duplica quando atingido consecutivamente.
+Uma vez que o tempo limite seja superior a 15 minutos, o tamanho máximo do lote `BulkCopy` é reduzido para metade até que 100 eventos por lote sejam deixados.
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Os nomes das colunas são minúsculos em Azure Stream Analytics (1.0)
 

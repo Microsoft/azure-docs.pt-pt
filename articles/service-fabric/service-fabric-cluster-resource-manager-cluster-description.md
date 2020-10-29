@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71629ebf1397c00face500f0bfd9c8e92deacc5e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173020"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911771"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descreva um cluster de tecido de serviço utilizando o Cluster Resource Manager
 
@@ -47,9 +47,7 @@ No ambiente Azure, o Service Fabric utiliza as informações de domínio de avar
 
 No gráfico seguinte, coloramos todas as entidades que contribuem para os domínios de falhas e listamos todos os diferentes domínios de falha que resultam. Neste exemplo, temos datacenters ("DC"), racks ("R"), e lâminas ("B"). Se cada lâmina tiver mais do que uma máquina virtual, pode haver outra camada na hierarquia do domínio de avaria.
 
-<center>
 ![Nódes organizados através de domínios de falhas][Image1]
-</center>
 
 Durante o tempo de funcionação, o Service Fabric Cluster Resource Manager considera os domínios de avaria no cluster e planeia layouts. As réplicas imponentes ou os casos apátridas para um serviço são distribuídos por isso estão em domínios de falhas separados. A distribuição do serviço por domínios de avaria garante que a disponibilidade do serviço não seja comprometida quando um domínio de avaria falha em qualquer nível da hierarquia.
 
@@ -62,9 +60,7 @@ O Cluster Resource Manager não se importa com quantas camadas existem na hierar
 
 Como são os domínios desequilibrados? O diagrama seguinte mostra dois layouts de cluster diferentes. No primeiro exemplo, os nós são distribuídos uniformemente pelos domínios de avaria. No segundo exemplo, um domínio de falha tem muitos mais nós do que os outros domínios de falha.
 
-<center>
 ![Dois layouts de cluster diferentes][Image2]
-</center>
 
 Em Azure, a escolha do domínio de avaria que contém um nó é gerida para si. Mas dependendo do número de nós que fornece, ainda pode acabar com domínios de falhas que têm mais nós do que em outros.
 
@@ -78,9 +74,7 @@ Os domínios de upgrade são muito parecidos com domínios de falhas, mas com al
 
 O diagrama seguinte mostra três domínios de atualização listrados em três domínios de avaria. Também mostra uma possível colocação para três réplicas diferentes de um serviço imponente, onde cada um acaba em diferentes domínios de falha e upgrade. Esta colocação permite a perda de um domínio de avaria enquanto está no meio de uma atualização de serviço e ainda tem uma cópia do código e dados.  
 
-<center>
 ![Colocação Com domínios de falha e de upgrade][Image3]
-</center>
 
 Há prós e contras para ter um grande número de domínios de upgrade. Mais domínios de upgrade significam que cada passo da atualização é mais granular e afeta um número menor de nós ou serviços. Menos serviços têm de se mover de cada vez, introduzindo menos agitação no sistema. Isto tende a melhorar a fiabilidade, porque menos do serviço é afetado por qualquer problema introduzido durante a atualização. Mais domínios de upgrade também significam que você precisa de menos tampão disponível em outros nós para lidar com o impacto da atualização.
 
@@ -98,9 +92,7 @@ Não há limite real para o número total de domínios de falha ou upgrade num a
 * Um domínio de upgrade por nó (instância física ou virtual do SO)
 * Um modelo "listrado" ou "matriz" onde os domínios de avaria e os domínios de atualização formam uma matriz com máquinas que normalmente escoram pelas diagonais
 
-<center>
 ![Layouts de domínios de falha e de upgrade][Image4]
-</center>
 
 Não há a melhor resposta para que layout escolher. Cada um tem prós e contras. Por exemplo, o modelo 1FD:1UD é simples de configurar. O modelo de um modelo de upgrade por modelo de nó é mais parecido com o que as pessoas estão habituadas. Durante as atualizações, cada nó é atualizado de forma independente. Isto é semelhante ao modo como pequenos conjuntos de máquinas foram atualizados manualmente no passado.
 
@@ -127,7 +119,7 @@ Por exemplo, digamos que temos um cluster com seis nós, configurado com cinco d
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Agora vamos dizer que criamos um serviço com um **targetReplicaSetSize** (ou, para um serviço apátrida, **InstanceCount**) valor de cinco. As réplicas aterram na N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como este crie. Mas porquê? Vamos ver a diferença entre o layout atual e o que aconteceria se n6 fosse escolhido.
+Agora vamos dizer que criamos um serviço com um **targetReplicaSetSize** (ou, para um serviço apátrida, **InstanceCount** ) valor de cinco. As réplicas aterram na N1-N5. Na verdade, o N6 nunca é usado, não importa quantos serviços como este crie. Mas porquê? Vamos ver a diferença entre o layout atual e o que aconteceria se n6 fosse escolhido.
 
 Aqui está o layout que temos e o número total de réplicas por falha e domínio de upgrade:
 
@@ -359,19 +351,15 @@ A Service Fabric espera que, em alguns casos, determinadas cargas de trabalho po
 
 Para suportar este tipo de configurações, o Service Fabric inclui etiquetas que pode aplicar aos nós. Estas etiquetas são chamadas *propriedades de nó.* *Constrangimentos de colocação* são as declarações anexas a serviços individuais que seleciona para uma ou mais propriedades de nó. Os constrangimentos de colocação definem onde os serviços devem ser executados. O conjunto de constrangimentos é extensível. Qualquer par de chaves/valor pode funcionar.
 
-<center>
 ![Cargas de trabalho diferentes para um layout de cluster][Image5]
-</center>
 
 ### <a name="built-in-node-properties"></a>Propriedades de nó incorporado
 
-O Tecido de Serviço define algumas propriedades de nó padrão que podem ser usadas automaticamente para que não tenha que defini-las. As propriedades predefinidas definidas em cada nó são **NodeType** e **NodeName**.
+O Tecido de Serviço define algumas propriedades de nó padrão que podem ser usadas automaticamente para que não tenha que defini-las. As propriedades predefinidas definidas em cada nó são **NodeType** e **NodeName** .
 
 Por exemplo, pode escrever uma restrição de colocação como `"(NodeType == NodeType03)"` . **NodeType** é uma propriedade comumente usada. É útil porque corresponde 1:1 com um tipo de máquina. Cada tipo de máquina corresponde a um tipo de carga de trabalho numa aplicação tradicional n-tier.
 
-<center>
 ![Restrições de colocação e propriedades de nó][Image6]
-</center>
 
 ## <a name="placement-constraints-and-node-property-syntax"></a>Restrições de colocação e sintaxe de propriedade de nó
 
@@ -485,15 +473,13 @@ Tal como para as restrições de colocação e propriedades de nó, o Service Fa
 
 ## <a name="capacity"></a>Capacidade
 
-Se desliguei todo *o equilíbrio de*recursos, o Service Fabric Cluster Resource Manager ainda garantirá que nenhum nó ultrapassa a sua capacidade. A gestão das superações de capacidade é possível a menos que o cluster esteja demasiado cheio ou a carga de trabalho seja maior do que qualquer nó. A capacidade é outra *restrição* que o Cluster Resource Manager usa para entender a quantidade de um recurso que um nó tem. A capacidade remanescente também é rastreada para o cluster como um todo.
+Se desliguei todo *o equilíbrio de* recursos, o Service Fabric Cluster Resource Manager ainda garantirá que nenhum nó ultrapassa a sua capacidade. A gestão das superações de capacidade é possível a menos que o cluster esteja demasiado cheio ou a carga de trabalho seja maior do que qualquer nó. A capacidade é outra *restrição* que o Cluster Resource Manager usa para entender a quantidade de um recurso que um nó tem. A capacidade remanescente também é rastreada para o cluster como um todo.
 
 Tanto a capacidade como o consumo ao nível do serviço são expressos em termos de métricas. Por exemplo, a métrica pode ser "ClientConnections" e um nó pode ter uma capacidade para "ClientConnections" de 32.768. Outros nós podem ter outros limites. Um serviço em execução nesse nó pode dizer que está a consumir 32.256 das métricas "ClientConnections".
 
 Durante o tempo de funcionação, o Cluster Resource Manager rastreia a capacidade remanescente no cluster e nos nós. Para controlar a capacidade, o Cluster Resource Manager subtrai a utilização de cada serviço a partir da capacidade de um nó onde o serviço funciona. Com esta informação, o Cluster Resource Manager pode descobrir onde colocar ou mover réplicas para que os nós não ultrapassem a capacidade.
 
-<center>
 ![Nódoas de cluster e capacidade][Image7]
-</center>
 
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
@@ -580,7 +566,7 @@ A capacidade de sobrerreserva também pode ser especificada como infinita. Neste
 
 Uma métrica não pode ter tanto a capacidade de tampão de nó como a capacidade de sobrereserva especificadas para ele ao mesmo tempo.
 
-Aqui está um exemplo de como especificar as capacidades de tampão de nó ou sobrerreserva em *ClusterManifest.xml: *
+Aqui está um exemplo de como especificar as capacidades de tampão de nó ou sobrerreserva em *ClusterManifest.xml:*
 
 ```xml
 <Section Name="NodeBufferPercentage">
@@ -592,7 +578,7 @@ Aqui está um exemplo de como especificar as capacidades de tampão de nó ou so
 </Section>
 ```
 
-Aqui está um exemplo de como especificar as capacidades de tampão de nó ou sobrerreserva através * deClusterConfig.js* para implementações autónomas ouTemplate.jspara clusters hospedados * em* Azure:
+Aqui está um exemplo de como especificar as capacidades de tampão de nó ou sobrerreserva através *deClusterConfig.js* para implementações autónomas ouTemplate.jspara clusters hospedados *em* Azure:
 
 ```json
 "fabricSettings": [

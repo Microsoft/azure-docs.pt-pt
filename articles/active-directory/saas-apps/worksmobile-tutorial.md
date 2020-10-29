@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/14/2019
+ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ba7a395c73abe62a02a1d47f35dce0fc59b23a53
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: dbc8d126cabae249db8b5e5be5e311d232395c83
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520171"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integração do Diretório Ativo Azure com OBRAS DE LINHA
 
@@ -26,9 +26,6 @@ Integrar a LINHA WORKS com a Azure AD proporciona-lhe os seguintes benefícios:
 * Pode controlar em Azure AD que tem acesso a LINHA WORKS.
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos na LINE WORKS (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,157 +40,107 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * LINE WORKS suporta **SSO** iniciado SP
 
-
-
-
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
 
 ## <a name="adding-line-works-from-the-gallery"></a>Adicionar OBRAS DE LINHA da galeria
 
 Para configurar a integração de OBRAS DE LINHA em Azure AD, é necessário adicionar obras de linha da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar OBRAS DE LINHA da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
+1. Na secção Adicionar a partir da secção **de galeria,** escreva **LINHAS** na caixa de pesquisa.
+1. Selecione **LINE WORKS** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com LINE WORKS utilizando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em TRABALHOS DE LINHA.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar a Azure AD SSO com a LINE WORKS, execute os seguintes passos:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+2. **[Configure linha WORKS SSO](#configure-line-works-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
+    * **[Create LINE WORKS test user](#create-line-works-test-user)** - ter uma contraparte de Britta Simon em LINE WORKS que está ligada à representação AD AD do utilizador.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, tipo **LINHA WORKS**, selecione LINHA WORKS do painel de **resultados** e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
+1. No portal Azure, na página de integração de aplicações **LINE WORKS,** encontre a secção **Gerir** e selecione **um único sinal de sação** .
+1. Na página de método **de inscrição** única, selecione **SAML** .
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-    ![TRABALHOS DE LINHA na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, configura e testa o Azure AD com line works baseado num utilizador de teste chamado **Britta Simon**.
-Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em TRABALHOS DE LINHA.
-
-Para configurar e testar o Azure AD com line works, é necessário completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure linha funciona apenas sinal -](#configure-line-works-single-sign-on)** para configurar as definições de Sign-On única no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create LINE WORKS test user](#create-line-works-test-user)** - ter uma contraparte de Britta Simon em LINE WORKS que está ligada à representação AD AD do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD com a LINE WORKS, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **LINE WORKS,** selecione **'Único sinal de súb'.**
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    ![LINHA WORKS Domínio e URLs informações únicas de súmis](common/sp-identifier.png)
-
     a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://auth.worksmobile.com/d/login/<domain>/`
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL: `worksmobile.com`
+    b. Na caixa de texto **URL response,** digite um URL utilizando o seguinte padrão: `https://auth.worksmobile.com/acs/ <domain>`
 
-5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Raw)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com URL e URL de resposta Sign-On reais. Contacte [a equipa de suporte da LINE WORKS](https://line.worksmobile.com/jp/en/contactus/) para obter os valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-    ![O link de descarregamento de certificado](common/certificateraw.png)
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+
+    ![O link de descarregamento de certificado](common/certificatebase64.png)
 
 6. Na secção **'Configurar LINHA WORKS',** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    b. Identificador de Azure Ad
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome** , introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar** .
 
-### <a name="configure-line-works-single-sign-on"></a>Configure linha obras únicas Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon utilize o Azure single sign-on, concedendo acesso a LINE WORKS.
+
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **LINE WORKS** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+## <a name="configure-line-works-sso"></a>Configure linha trabalha SSO
 
 Para configurar um único sinal de inscrição no lado **de TRABALHOs** DE LINHA, leia os [documentos SSO da LINHA E](https://developers.worksmobile.com/jp/document/1001080101) configufique uma definição DE TRABALHOS DE LINHA.
 
 > [!NOTE]
 > Tem de converter o ficheiro certificado descarregado de .cert para .pem
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, permite à Britta Simon utilizar o Azure single sign-on, concedendo acesso a LINE WORKS.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **LINHA WORKS**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de candidaturas, selecione **LINE WORKS**.
-
-    ![A linha de trabalhos ligam na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
 ### <a name="create-line-works-test-user"></a>Criar utilizador de teste DE TRABALHOS DE LINHA
 
 Nesta secção, cria-se um utilizador chamado Britta Simon in LINE WORKS. Linha de acesso [FUNCIONA página de administração](https://admin.worksmobile.com) e adicionar os utilizadores na plataforma LINE WORKS.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo DE LINHA WORKS no Painel de Acesso, deverá ser automaticamente inscrito no LINE WORKS para o qual configura SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de início de inscrição de trabalhos de linha, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+2. Vá diretamente para o URL de inscrição de trabalhos de linha e inicie o fluxo de login a partir daí.
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo DE LINHA WORKS no Painel de Acesso, este irá redirecionar para o URL de início de sção de trabalhos de linha. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado LINE WORKS pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+

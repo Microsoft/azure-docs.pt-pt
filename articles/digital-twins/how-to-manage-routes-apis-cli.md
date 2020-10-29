@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 2ea8840a4c66ff05bea22c5c7c063e31d09f9dc8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494813"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911754"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -46,7 +46,7 @@ Para ligar um ponto final à Azure Digital Twins, o tópico da grelha de eventos
 
 O exemplo a seguir mostra como criar um ponto final do tipo de grelha de evento usando o Azure CLI. Pode utilizar [a Azure Cloud Shell,](https://shell.azure.com)ou [instalar o CLI localmente.](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 
-Primeiro, criar um tópico de grelha de eventos. Pode utilizar o seguinte comando ou ver os passos mais detalhadamente visitando [a secção *de tópicos personalizados* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom.*
+Primeiro, criar um tópico de grelha de eventos. Pode utilizar o seguinte comando ou ver os passos mais detalhadamente visitando [a secção *de tópicos personalizados*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) dos eventos Event Grid *Custom.*
 
 ```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
@@ -64,14 +64,14 @@ Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins com o seguinte [c
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos**, que irá criar [mais tarde neste artigo](#create-an-event-route) usando o serviço Azure Digital Twins API.
+Agora, o tópico da grelha de eventos está disponível como ponto final dentro da Azure Digital Twins, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como alvo de uma rota de **eventos** , que irá criar [mais tarde neste artigo](#create-an-event-route) usando o serviço Azure Digital Twins API.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Crie um centro de eventos ou ponto final de ônibus de serviço
 
 O processo de criação de Centros de Eventos ou pontos finais de autocarros de serviço é semelhante ao processo de Grelha de Eventos acima mostrado.
 
 Primeiro, crie os seus recursos que usará como ponto final. Aqui está o que é necessário:
-* Service Bus: _Service Bus namespace_, _Service Bus topic_, Regra de _autorização_
+* Service Bus: _Service Bus namespace_ , _Service Bus topic_ , Regra de _autorização_
 * Centros de eventos: _Espaço de nomes de Centros de Eventos,_ _centro de eventos,_ regra _de autorização_
 
 Em seguida, utilize os seguintes comandos para criar os pontos finais em Azure Digital Twins: 
@@ -156,7 +156,7 @@ Para enviar dados da Azure Digital Twins para um ponto final, terá de definir u
 
 As amostras desta secção utilizam o [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
 
-**Pré-requisito**: É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
+**Pré-requisito** : É necessário criar pontos finais, conforme descrito anteriormente neste artigo, antes de poder passar a criar uma rota. Pode proceder à criação de uma rota de eventos assim que os seus pontos finais terminarem a sua configuração.
 
 >[!NOTE]
 >Se implementou recentemente os seus pontos finais, valide que terminaram de ser implementados **antes** de tentar usá-los para uma nova rota de eventos. Se a implementação da rota falhar porque os pontos finais não estão prontos, aguarde alguns minutos e tente novamente.
@@ -179,27 +179,29 @@ Uma rota deve permitir a seleção de várias notificações e tipos de eventos.
 `CreateEventRoute` é a chamada SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo da sua utilização:
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
+EventRoute er = new EventRoute("<your-endpointName>");
 er.Filter = "true"; //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+await CreateEventRoute(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
 
 ### <a name="event-route-sample-code"></a>Código de amostra de rota de evento
 
-A seguinte amostra de código mostra como criar, listar e eliminar uma rota de eventos:
+O seguinte método de amostra mostra como criar, listar e eliminar uma rota de eventos:
 ```csharp
-try
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
 {
+  try
+  {
     Console.WriteLine("Create a route: testRoute1");
-    EventRoute er = new EventRoute("< your - endpoint - name >");
+            
     // Make a filter that passes everything
     er.Filter = "true";
-    client.CreateEventRoute("< your - route - name >", er);
+    await client.CreateEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable <EventRoute> result = client.GetEventRoutes();
+    Pageable<EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
@@ -210,11 +212,12 @@ try
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
     }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-}
+  }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
+    }
+  }
 ```
 
 ## <a name="filter-events"></a>Filtrar eventos

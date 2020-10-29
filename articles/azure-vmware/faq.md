@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 64b2955b1417d6931172b41f83f05d5f1b560708
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779446"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911890"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -76,7 +76,7 @@ Não, utilize as [instruções fornecidas pela VMware](https://docs.vmware.com/e
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>A VMware HCX é suportada em VPNs?
 Não, por causa dos requisitos de largura de banda e latência.
 
-#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>O Azure Bastion pode ser utilizado para a ligação aos VMs AVS?
+#### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>O Azure Bastion pode ser utilizado para a ligação aos VMs da Solução VMware Azure?
 Azure Bastion é o serviço recomendado para ligar à caixa de salto para evitar expor a Solução Azure VMware à internet. Não é possível utilizar o Azure Bastion para ligar aos VMs da Solução VMware Azure, uma vez que não são objetos Azure IaaS.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Pode ser utilizado um Gateway ExpressRoute existente para ligar à Solução VMware Azure?
@@ -122,7 +122,7 @@ Utilize a política de armazenamento *thin_provision* para o seu modelo VM.  O p
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Os registos de infraestruturas do SNMP são partilhados?
 
-Não.
+N.º
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 
@@ -144,7 +144,7 @@ Os clusters de ensaio são três aglomerados de hospedeiros usados para avaliaç
 
 #### <a name="can-i-use-high-end-hosts-for-trial-clusters"></a>Posso usar hospedeiros de alta qualidade para agrupamentos de ensaios?
 
-Não. Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
+N.º Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
 
 ## <a name="azure-vmware-solution-and-vmware-software"></a>Solução Azure VMware e software VMware
 
@@ -158,7 +158,7 @@ Sim, o NSX-T 2.5 é utilizado para a rede definida pelo software em nuvens priva
 
 #### <a name="can-i-use-vmware-nsx-v-in-a-private-cloud"></a>Posso usar VMware NSX-V numa nuvem privada?
 
-Não. NSX-T é a única versão suportada do NSX.
+N.º NSX-T é a única versão suportada do NSX.
 
 #### <a name="is-nsx-required-in-on-premises-environments-or-networks-that-connect-to-a-private-cloud"></a>O NSX é necessário em ambientes ou redes no local que se ligam a uma nuvem privada?
 
@@ -191,7 +191,7 @@ No portal Azure, permita a conectividade da internet para uma nuvem privada. Com
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Preciso de restringir o acesso da internet a VMs em redes lógicas numa nuvem privada?
 
-Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas não é permitido.
+N.º O tráfego de rede a entrar da internet diretamente para nuvens privadas não é permitido.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 

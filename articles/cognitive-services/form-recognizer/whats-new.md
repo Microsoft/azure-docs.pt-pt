@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970814"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912248"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -28,7 +28,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 
 - **Rest A referência API está disponível** - Ver a [referência v2.1-preview.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Novas línguas apoiadas Para além**do inglês, as [seguintes línguas](language-support.md) são agora apoiadas: para `Layout` e : inglês `Train Custom Model` `en` (simplificado) ( ( holandês ( ( ( ( francês ( ( ( ( ( ( ( ), alemão ( `zh-Hans` ( ( ( ( ( ( ( ( ( ( ( ( ) português `nl` ( ) e espanhol ( `fr` `de` `it` `pt` ). `es`
+- **Novas línguas apoiadas Para além** do inglês, as [seguintes línguas](language-support.md) são agora apoiadas: para `Layout` e : inglês `Train Custom Model` `en` (simplificado) ( ( holandês ( ( ( ( francês ( ( ( ( ( ( ( ), alemão ( `zh-Hans` ( ( ( ( ( ( ( ( ( ( ( ( ) português `nl` ( ) e espanhol ( `fr` `de` `it` `pt` ). `es`
 - **Deteção de marca de verificação / Seleção** – O Reconhecimento de Formulários suporta a deteção e extração de marcas de seleção, tais como caixas de verificação e botões de rádio. As marcas de seleção são extraídas `Layout` e agora também pode rotular e treinar em Comboio com `Train Custom Model`  -  _Etiquetas_ para extrair pares de valores chave para marcas de seleção. 
 - **O Model Compose** permite que vários modelos sejam compostos e chamados com um único modelo ID. Quando um documento é submetido a ser analisado com um ID de modelo composto, uma etapa de classificação é executada pela primeira vez para encaminhá-lo para o modelo personalizado correto. O modelo composição está disponível para `Train Custom Model`  -  _Comboio com etiquetas._
 - **O nome do modelo** adiciona um nome amigável aos seus modelos personalizados para facilitar a gestão e o rastreio.
@@ -53,14 +53,14 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="new-features"></a>Novas funcionalidades
 
-* **v2.0 referência disponível** Ver a [referência v2.0 API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python,](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python) [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
+* **v2.0 referência disponível** Ver a [referência v2.0 API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python,](/python/api/overview/azure/?view=azure-python) [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
 * **Melhoramentos de mesa e extração** incluem melhorias de precisão e melhorias de extrações de mesa, especificamente, a capacidade de aprender cabeçalhos de mesa e estruturas em _comboios personalizados sem etiquetas._ 
 
 * **Suporte cambial** Deteção e extração de símbolos de moeda global.
 * **Azure Gov** O Form Recogniser também está disponível em Azure Gov.
 * **Características de segurança reforçadas:** 
-   * **Traga a sua própria chave**  O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK),](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
-   * **Pontos finais privados** – Permite-lhe aceder de forma segura a [dados por uma Ligação Privada. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
+   * **Traga a sua própria chave**  O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente (CMK), também conhecidas como trazer a sua própria chave (BYOK),](./form-recognizer-encryption-of-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
+   * **Pontos finais privados** – Permite-lhe aceder de forma segura a [dados por uma Ligação Privada.](../../private-link/private-link-overview.md)
 
 
 ## <a name="june-2020"></a>Junho de 2020
@@ -78,10 +78,10 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="new-features"></a>Novas funcionalidades
 * **Suporte SDK para reconhecimento de formulário API v2.0 Visualização pública** Este mês expandimos o nosso suporte de serviço para incluir um SDK de pré-visualização para o lançamento do Reconhecimento de Formulários v2.0 (pré-visualização). Use os links abaixo para começar com o seu idioma de eleição: 
-   * [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [SDK Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [SDK do .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [SDK Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [SDK JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   O novo SDK suporta todas as funcionalidades da API v2.0 REST para o Reconhecimento de Formulários. Por exemplo, pode treinar um modelo com ou sem etiquetas e extrair texto, pares de valor chave e tabelas dos seus formulários, extrair dados de recibos com o serviço de recibos pré-construídos e extrair texto e tabelas com o serviço de layout dos seus documentos. Pode partilhar o seu feedback sobre os SDKs através do [formulário SDK Feedback](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -91,8 +91,8 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="security-improvements"></a>Melhoramentos de segurança
 
-* As Chaves Geridas pelo Cliente estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
-* Utilize identidades geridas para acesso aos recursos Azure com o Azure Ative Directory. Para mais informações, consulte [Autoriza o acesso a identidades geridas.](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities)
+* As Chaves Geridas pelo Cliente estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](./form-recognizer-encryption-of-data-at-rest.md).
+* Utilize identidades geridas para acesso aos recursos Azure com o Azure Ative Directory. Para mais informações, consulte [Autoriza o acesso a identidades geridas.](../authentication.md#authorize-access-to-managed-identities)
 
 ## <a name="march-2020"></a>Março de 2020 
 
@@ -179,6 +179,6 @@ As respostas JSON para todas as chamadas da API têm novos formatos. Algumas cha
 
 Complete um [quickstart da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)

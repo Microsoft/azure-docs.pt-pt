@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262489"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911448"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
@@ -29,12 +29,12 @@ O serviço Azure Face fornece algoritmos de IA que detetam, reconhecem e analisa
 
 O serviço Face fornece várias funções de análise facial diferentes que são descritas nas seguintes secções.
 
-## <a name="face-detection"></a>Deteção facial
+## <a name="face-detection"></a>Deteção de rostos
 
 O serviço Face deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto, tais como pose de cabeça, sexo, idade, emoção, pelos faciais e óculos.
 
 > [!NOTE]
-> A funcionalidade de deteção facial também está disponível através do [serviço de Visão de Computador.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) No entanto, se pretender fazer mais operações com dados faciais, deverá utilizar este serviço.
+> A funcionalidade de deteção facial também está disponível através do [serviço de Visão de Computador.](../computer-vision/overview.md) No entanto, se pretender fazer mais operações com dados faciais, deverá utilizar este serviço.
 
 ![Uma imagem de uma mulher e de um homem, com retângulos desenhados em torno dos seus rostos e idade e género exibidos](./Images/Face.detection.jpg)
 

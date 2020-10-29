@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f7fd40c48f94b4337c5ec342499203f83763299b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279825"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909935"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre produção padrão (manual) e autoescala aussida 
 
@@ -83,7 +83,7 @@ Agora, vamos analisar a história. Suponha que tenhamos a utilização descrita 
 
 Note que na hora 1, quando há 6% de utilização, a autoescala cobrará RU/s por 10% do máximo RU/s, que é o mínimo por hora. Embora o custo da autoescalação possa ser superior ao rendimento manual em determinadas horas, desde que a utilização média seja inferior a 66% em todas as horas, a autoescala será mais barata em geral.
 
-|  | Utilização |Ru/s de autoescala faturada  |Opção 1: Manual 30.000 RU/s  | Opção 2: Autoescala entre 3000 - 30.000 RU/s |
+|Período de tempo  | Utilização |Ru/s de autoescala faturada  |Opção 1: Manual 30.000 RU/s  | Opção 2: Autoescala entre 3000 - 30.000 RU/s |
 |---------|---------|---------|---------|---------|
 |Hora 1  | 6%  |     3.000  |  30.000 * 0.008 / 100 = $2,40        |   3000 * 0,012 / 100 = $0,36      |
 |Hora 2  | 100%  |     30,000    |  30.000 * 0.008 / 100 = $2,40       |  30.000 * 0.012 / 100 = $3,60      |
@@ -102,7 +102,7 @@ Suponha que temos o histórico de utilização como descrito na mesa. A nossa ut
 
 Em geral, se a utilização média em todas as 730 horas num mês for superior a 66%, então pouparemos usando a produção manual. 
 
-|  | Utilização |Ru/s de autoescala faturada  |Opção 1: Manual 30.000 RU/s  | Opção 2: Autoescala entre 3000 - 30.000 RU/s |
+| Período de tempo | Utilização |Ru/s de autoescala faturada  |Opção 1: Manual 30.000 RU/s  | Opção 2: Autoescala entre 3000 - 30.000 RU/s |
 |---------|---------|---------|---------|---------|
 |Hora 1  | 72%  |     21,600   |  30.000 * 0.008 / 100 = $2,40        |   21600 * 0,012 / 100 = $2,59      |
 |Hora 2  | 93%  |     28,000    |  30.000 * 0.008 / 100 = $2,40       |  28.000 * 0.012 / 100 = $3,36       |
@@ -116,18 +116,18 @@ Em geral, se a utilização média em todas as 730 horas num mês for superior a
 Faturas de autoescala para os RU/s mais altos escalados em uma hora. Ao analisar o consumo de RU normalizado ao longo do tempo, é importante utilizar a utilização mais elevada por hora no cálculo da média. 
 
 Para calcular a média da maior utilização em todas as horas:
-1. Coloque a **agregação** na métrica de consumo de RU noramlizada para **Max**.
+1. Coloque a **agregação** na métrica de consumo de RU noramlizada para **Max** .
 1. Selecione a **granularidade tempo** a 1 hora.
-1. Navegue para **opções de gráficos**.
+1. Navegue para **opções de gráficos** .
 1. Selecione a opção de gráfico de barras. 
-1. Under **Share**, selecione a opção **Download para Excel.** A partir da folha de cálculo gerada, calcule a utilização média em todas as horas. 
+1. Under **Share** , selecione a opção **Download para Excel.** A partir da folha de cálculo gerada, calcule a utilização média em todas as horas. 
 
 :::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Carga de trabalho com tráfego variável - consumo ru normalizado entre 6% e 100% para todas as horas":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Meça e monitorize o seu uso
 Ao longo do tempo, depois de ter escolhido o tipo de produção, deve monitorizar a sua aplicação e fazer os ajustes conforme necessário. 
 
-Ao utilizar a autoescala, utilize o Azure Monitor para ver o max RU/s de**autoescala (Autoscale Max Throughput)** e o RU/s para o qual o sistema é atualmente dimensionado para (**Provisioned Throughput**). Abaixo está um exemplo de uma carga de trabalho variável ou imprevisível usando autoescala. Note que quando não há tráfego, o sistema escala o RU/s para o mínimo de 10% do máximo RU/s, que neste caso é 5000 RU/s e 50.000 RU/s, respectivamente. 
+Ao utilizar a autoescala, utilize o Azure Monitor para ver o max RU/s de **autoescala (Autoscale Max Throughput)** e o RU/s para o qual o sistema é atualmente dimensionado para ( **Provisioned Throughput** ). Abaixo está um exemplo de uma carga de trabalho variável ou imprevisível usando autoescala. Note que quando não há tráfego, o sistema escala o RU/s para o mínimo de 10% do máximo RU/s, que neste caso é 5000 RU/s e 50.000 RU/s, respectivamente. 
 
 :::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Carga de trabalho com tráfego variável - consumo ru normalizado entre 6% e 100% para todas as horas":::
 

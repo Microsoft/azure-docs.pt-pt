@@ -13,6 +13,7 @@
     - name: Criar um balanceador de carga público - CLI do Azure
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Criar um balanceador de carga público - Modelo do ARM
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Criar um balanceador de carga interno - Portal
       href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
     - name: Criar um balanceador de carga interno - CLI do Azure
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: Criar um balanceador de carga interno - Modelo do ARM
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutoriais
@@ -53,6 +55,8 @@
       items:
         - name: Sondas do estado de funcionamento
           href: load-balancer-custom-probe-overview.md
+        - name: Informações do Azure Monitor para Balanceador de Carga
+          href: load-balancer-insights.md
         - name: Métricas e diagnósticos do Balanceador de Carga Standard
           href: load-balancer-standard-diagnostics.md
         - name: Registos do Azure Monitor para o Balanceador de Carga Básico

@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: dbe277c7451b02887ec5657b1a183fcd001d134e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148298"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912145"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -43,7 +43,7 @@ Deve ter permissões apropriadas para aceder a qualquer um dos pontos finais do 
 
 Pode conceder permissões das [seguintes](#iot-hub-permissions) formas:
 
-* **Políticas de acesso partilhado ao nível do hub IoT.** As políticas de acesso partilhado podem conceder qualquer combinação de [permissões.](#iot-hub-permissions) Pode definir políticas no [portal Azure](https://portal.azure.com), programáticamente utilizando as [APIs de Recursos de IoT Hub](/rest/api/iothub/iothubresource), ou utilizando a [política az iot hub](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. Um hub IoT recém-criado tem as seguintes políticas padrão:
+* **Políticas de acesso partilhado ao nível do hub IoT.** As políticas de acesso partilhado podem conceder qualquer combinação de [permissões.](#iot-hub-permissions) Pode definir políticas no [portal Azure](https://portal.azure.com), programáticamente utilizando as [APIs de Recursos de IoT Hub](/rest/api/iothub/iothubresource), ou utilizando a [política az iot hub](/cli/azure/iot/hub/policy) CLI. Um hub IoT recém-criado tem as seguintes políticas padrão:
   
   | Política de Acesso Partilhado | Permissões |
   | -------------------- | ----------- |
@@ -99,7 +99,7 @@ HTTPS implementa a autenticação através da inclusão de um token válido no c
 
 Nome de utilizador (DeviceId é sensível a casos): `iothubname.azure-devices.net/DeviceId`
 
-Palavra-passe (Pode gerar um token SAS com o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), ou as [Ferramentas IoT Azure para Código do Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Palavra-passe (Pode gerar um token SAS com o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token), ou as [Ferramentas IoT Azure para Código do Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -116,7 +116,7 @@ Ao utilizar o SASL PLAIN com AMQP, um cliente que se conecta a um hub IoT pode u
 
 ## <a name="scope-iot-hub-level-credentials"></a>Credenciais de nível de hub IoT de âmbito
 
-Você pode estender as políticas de segurança de nível ioT ao criar fichas com um recurso restrito URI. Por exemplo, o ponto final para enviar mensagens dispositivo-a-nuvem a partir de um dispositivo é **/dispositivo/{deviceId}/mensagens/eventos**. Também pode utilizar uma política de acesso partilhado ao nível do hub IoT com permissões **DeviceConnect** para assinar um token cujo recursoURI é **/dispositivos/{deviceId}**. Esta abordagem cria um símbolo que só é utilizável para enviar mensagens em nome do **dispositivo dispositivoId**.
+Você pode estender as políticas de segurança de nível ioT ao criar fichas com um recurso restrito URI. Por exemplo, o ponto final para enviar mensagens dispositivo-a-nuvem a partir de um dispositivo é **/dispositivo/{deviceId}/mensagens/eventos** . Também pode utilizar uma política de acesso partilhado ao nível do hub IoT com permissões **DeviceConnect** para assinar um token cujo recursoURI é **/dispositivos/{deviceId}** . Esta abordagem cria um símbolo que só é utilizável para enviar mensagens em nome do **dispositivo dispositivoId** .
 
 Este mecanismo é semelhante à política de editores do [Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)e permite-lhe implementar métodos de autenticação personalizados.
 
@@ -144,13 +144,13 @@ Aqui estão os valores esperados:
 
 | Valor | Descrição |
 | --- | --- |
-| {assinatura} |Uma sequência de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry` . **Importante**: A chave é descodificada a partir da base64 e usada como chave para executar o cálculo HMAC-SHA256. |
+| {assinatura} |Uma sequência de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry` . **Importante** : A chave é descodificada a partir da base64 e usada como chave para executar o cálculo HMAC-SHA256. |
 | {resourceURI} |Prefixo URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando pelo nome de anfitrião do hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
 | {expiração} |UtF8 strings por número de segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970. |
 | {URL-codificado-recursosURI} |Codificação de URL minúscula do recurso uri de menor caso |
 | {políticaName} |O nome da política de acesso partilhado a que se refere este símbolo. Ausente se o símbolo se refere a credenciais de registo de dispositivos. |
 
-**Nota no prefixo**: O prefixo URI é calculado por segmento e não pelo carácter. Por `/a/b` exemplo, é um prefixo `/a/b/c` para, mas não para `/a/bc` .
+**Nota no prefixo** : O prefixo URI é calculado por segmento e não pelo carácter. Por `/a/b` exemplo, é um prefixo `/a/b/c` para, mas não para `/a/bc` .
 
 O seguinte Node.js snippet mostra uma função chamada **GenerateSasToken** que calcula o token a partir das entradas `resourceUri, signingKey, policyName, expiresInMins` . As secções seguintes detalham como inicializar as diferentes entradas para os diferentes casos de utilização de token.
 
@@ -303,7 +303,7 @@ O resultado, que dá acesso a todas as funcionalidades do dispositivo1, seria:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token SAS com o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), ou as [Ferramentas Azure IoT para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> É possível gerar um token SAS com o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token), ou as [Ferramentas Azure IoT para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Use uma política de acesso compartilhado
 
@@ -379,11 +379,11 @@ Os certificados suportados incluem:
 
 * **Um certificado X.509 existente.** Um dispositivo pode já ter um certificado X.509 associado ao mesmo. O dispositivo pode utilizar este certificado para autenticar com o IoT Hub. Funciona com impressão digital ou autenticação ca. 
 
-* **Certificado X.509 assinado pela CA**. Para identificar um dispositivo e autenticá-lo com o IoT Hub, pode utilizar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA). Funciona com impressão digital ou autenticação ca.
+* **Certificado X.509 assinado pela CA** . Para identificar um dispositivo e autenticá-lo com o IoT Hub, pode utilizar um certificado X.509 gerado e assinado por uma Autoridade de Certificação (CA). Funciona com impressão digital ou autenticação ca.
 
-* **Um certificado X-509 auto-gerado e auto-assinado.** Um fabricante de dispositivos ou um implantador interno podem gerar estes certificados e armazenar a chave privada correspondente (e certificado) no dispositivo. Pode utilizar ferramentas como [o utilitário OpenSSL](https://www.openssl.org/) e [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para este fim. Só funciona com a autenticação de impressão digital. 
+* **Um certificado X-509 auto-gerado e auto-assinado.** Um fabricante de dispositivos ou um implantador interno podem gerar estes certificados e armazenar a chave privada correspondente (e certificado) no dispositivo. Pode utilizar ferramentas como [o utilitário OpenSSL](https://www.openssl.org/) e [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) para este fim. Só funciona com a autenticação de impressão digital.
 
-Um dispositivo pode utilizar um certificado X.509 ou um símbolo de segurança para autenticação, mas não ambos.
+Um dispositivo pode utilizar um certificado X.509 ou um símbolo de segurança para autenticação, mas não ambos. Com a autenticação do certificado X.509, certifique-se de que tem uma estratégia para lidar com a capotagem do certificado quando um certificado existente expirar.
 
 A seguinte funcionalidade não é suportada para dispositivos que utilizem a autenticação X.509 CA:
 
@@ -396,7 +396,7 @@ Para obter mais informações sobre a autenticação utilizando a autoridade do 
 
 O [Serviço Azure IoT SDK para C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (versão 1.0.8+) suporta o registo de um dispositivo que utiliza um certificado X.509 para autenticação. Outras APIs, tais como a importação/exportação de dispositivos, também suportam certificados X.509.
 
-Também pode utilizar o comando de extensão CLI [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) para configurar certificados X.509 para dispositivos.
+Também pode utilizar o comando de extensão CLI [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para configurar certificados X.509 para dispositivos.
 
 ### <a name="c-support"></a>Suporte C \#
 

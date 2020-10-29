@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 90e6c41ad9f6b3d13f29e76d053287395eb88aed
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889906"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912332"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutorial: Criar uma app de processamento de formulários com OI Builder
 
-[O AI Builder](https://docs.microsoft.com/ai-builder/overview) é uma capacidade da Power Platform que permite automatizar processos e prever resultados para melhorar o desempenho do negócio. Pode utilizar o processamento de formulários AI Builder para criar modelos de IA que identifiquem e extraam pares de valores-chave e dados de tabela a partir de documentos de formulário.
+[O AI Builder](/ai-builder/overview) é uma capacidade da Power Platform que permite automatizar processos e prever resultados para melhorar o desempenho do negócio. Pode utilizar o processamento de formulários AI Builder para criar modelos de IA que identifiquem e extraam pares de valores-chave e dados de tabela a partir de documentos de formulário.
 
 > [!NOTE]
-> Este projeto também está disponível como [módulo Microsoft Learn.](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/)
+> Este projeto também está disponível como [módulo Microsoft Learn.](/learn/modules/get-started-with-form-processing/)
 
 Neste tutorial, ficará a saber como:
 
@@ -129,11 +129,11 @@ Se está satisfeito com o seu modelo, **selecione Publicar**  para publicá-lo. 
 > [!div class="mx-imgBorder"]
 > ![publicar página de modelo](./media/tutorial-ai-builder/model-page.png)
 
-Depois de publicar o seu modelo de processamento de formulários, pode usá-lo numa [aplicação](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) de tela power apps ou em [Power Automamate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+Depois de publicar o seu modelo de processamento de formulários, pode usá-lo numa [aplicação](/ai-builder/form-processor-component-in-powerapps) de tela power apps ou em [Power Automamate](/ai-builder/form-processing-model-in-flow).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Siga a documentação do AI Builder para utilizar um modelo de processamento de formulários.
 
-* [Utilize o componente do processador de formulários em Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Utilize um modelo de processamento de formulários em Power Automamate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Utilize o componente do processador de formulários em Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Utilize um modelo de processamento de formulários em Power Automamate](/ai-builder/form-processing-model-in-flow)

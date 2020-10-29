@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511892"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910479"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorizar o Azure Data Share  
 
@@ -42,7 +42,7 @@ Ver o estado das suas subscrições de ações navegando para As Ações Enviada
 
 No **separador Histórico** de uma ação, é possível visualizar quando os dados são copiados do fornecedor de dados para a loja de dados do consumidor. É capaz de monitorizar a frequência, duração e estado de cada instantâneo. 
 
-![História do instantâneo](./media/sent-shares.png "História do instantâneo") 
+![Screenshot mostra ações enviadas no portal Azure.](./media/sent-shares.png "História do instantâneo") 
 
 Pode ver mais detalhes sobre cada instantâneo executado clicando na data de início da execução. Em seguida, clique no estado de cada conjunto de dados para ver a quantidade de dados transferidos, número de ficheiros/registos copiados, duração do instantâneo, número de vCores utilizados e mensagem de erro se houver algum. 
 
@@ -50,9 +50,9 @@ São apresentados até 30 dias de história instantânea. Se precisar de poupar 
 
 ## <a name="diagnostic-setting"></a>Definição de diagnóstico
 
-Pode configurar a definição de diagnóstico para guardar dados ou eventos de registo. Navegue para monitorizar as definições de diagnóstico de > e selecione **Adicionar a definição de diagnóstico**. Selecione os dados de registo ou eventos em que está interessado e para onde pretende armazenar ou enviar. 
+Pode configurar a definição de diagnóstico para guardar dados ou eventos de registo. Navegue para monitorizar as definições de diagnóstico de > e selecione **Adicionar a definição de diagnóstico** . Selecione os dados de registo ou eventos em que está interessado e para onde pretende armazenar ou enviar. 
 
-![História do instantâneo](./media/diagnostic-settings.png "Definições de diagnóstico") 
+![A screenshot mostra a página de definições de Diagnóstico no portal Azure.](./media/diagnostic-settings.png "Definições de diagnóstico") 
 
 ## <a name="next-steps"></a>Passos Seguintes 
 

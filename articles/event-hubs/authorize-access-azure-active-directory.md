@@ -3,12 +3,12 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre a autorização de acesso aos recursos do Event Hubs utilizando o Azure Ative Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332404"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910802"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
 O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (Azure RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -16,7 +16,7 @@ O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) pa
 ## <a name="overview"></a>Descrição geral
 Quando um diretor de segurança (um utilizador ou uma aplicação) tenta aceder a um recurso do Event Hubs, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo em duas etapas. 
 
- 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um token é `https://eventhubs.azure.net/` . Para os clientes kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .
+ 1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome de recurso para solicitar um token é `https://eventhubs.azure.net/` , e é o mesmo para todas as nuvens/inquilinos. Para os clientes kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .
  1. Em seguida, o token é passado como parte de um pedido ao serviço Event Hubs para autorizar o acesso ao recurso especificado.
 
 O passo de autenticação requer que um pedido de candidatura contenha um token de acesso OAuth 2.0 no tempo de execução. Se uma aplicação estiver a ser executada dentro de uma entidade Azure, como um Azure VM, um conjunto de escala de máquina virtual ou uma aplicação Azure Function, pode usar uma identidade gerida para aceder aos recursos. Para aprender a autenticar pedidos feitos por uma identidade gerida ao serviço Event Hubs, consulte [autenticar o acesso aos recursos do Azure Event Hubs com o Azure Ative Directory e identidades geridas para a Azure Resources.](authenticate-managed-identity.md) 
@@ -46,11 +46,11 @@ Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmb
 
 A lista a seguir descreve os níveis em que pode estender o acesso aos recursos do Event Hubs, começando pelo âmbito mais restrito:
 
-- **Grupo de consumidores**: Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de Azure a um diretor de segurança a este nível. 
-- **Centro de eventos**: A atribuição de funções aplica-se à entidade Event Hub e ao grupo de consumidores ao seu abrigo.
-- **Namespace**: A atribuição de funções abrange toda a topologia dos Centros de Eventos sob o espaço de nome e para o grupo de consumidores que lhe está associado.
-- **Grupo de recursos**: A atribuição de funções aplica-se a todos os recursos do Event Hubs no âmbito do grupo de recursos.
-- **Subscrição**: A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos da subscrição.
+- **Grupo de consumidores** : Neste âmbito, a atribuição de funções aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta a atribuição de um papel de Azure a um diretor de segurança a este nível. 
+- **Centro de eventos** : A atribuição de funções aplica-se à entidade Event Hub e ao grupo de consumidores ao seu abrigo.
+- **Namespace** : A atribuição de funções abrange toda a topologia dos Centros de Eventos sob o espaço de nome e para o grupo de consumidores que lhe está associado.
+- **Grupo de recursos** : A atribuição de funções aplica-se a todos os recursos do Event Hubs no âmbito do grupo de recursos.
+- **Subscrição** : A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos da subscrição.
 
 > [!NOTE]
 > - Tenha em mente que as atribuições de funções do Azure podem demorar até cinco minutos a propagar-se. 

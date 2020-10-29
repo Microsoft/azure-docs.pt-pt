@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89503997"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910275"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
 
@@ -32,16 +32,16 @@ Aqui está uma matriz de compatibilidade de versão exemplo. Y indica compatibil
 
 | Tipo de compatibilidade | Versão principal| Versão secundária | Patch |
 | --- | --- | --- | --- |
-| Compatibilidade de fios Client-Server | N | Y | S |
-| Compatibilidade Server-Server | N | Y | S |
-| Compatibilidade do formato de ficheiro | N | Y | S |
-| Compatibilidade da API do Cliente | N | Y | S |
+| Compatibilidade de fios Client-Server | N | Y | Y |
+| Compatibilidade Server-Server | N | Y | Y |
+| Compatibilidade do formato de ficheiro | N | Y | Y |
+| Compatibilidade da API do Cliente | N | Y | Y |
 | Compatibilidade binária do cliente | N | N | Y |
 | **Compatibilidade limitada do lado do servidor** |  |  |  |
-| Estável | N | Y | S |
+| Estável | N | Y | Y |
 | Evoluindo | N | N | Y |
 | Instável | N | N | N |
-| Compatibilidade da dependência | N | Y | S |
+| Compatibilidade da dependência | N | Y | Y |
 | Compatibilidade operacional | N | N | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Upgrade com a mesma versão principal Apache HBase
@@ -52,9 +52,9 @@ Para atualizar o seu cluster Apache HBase no Azure HDInsight, complete os seguin
 
 1. [Configurar um novo cluster de destino HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) utilizando a mesma conta de armazenamento, mas com um nome de recipiente diferente:
 
-    ![Use a mesma conta de Armazenamento, mas crie um recipiente diferente](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+   ![Use a mesma conta de Armazenamento, mas crie um recipiente diferente](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-1. Lave o cluster HBase de origem, que é o cluster que está a atualizar. A HBase escreve dados de entrada numa loja de memórias, chamada _memstore_. Depois de a memstore atingir um determinado tamanho, a HBase coloca-a em disco para armazenamento a longo prazo na conta de armazenamento do cluster. Ao eliminar o antigo cluster, as memstores são recicladas, potencialmente perdendo dados. Para lavar manualmente a memstore para cada mesa para o disco, execute o seguinte script. A versão mais recente deste guião está no [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)da Azure.
+1. Lave o cluster HBase de origem, que é o cluster que está a atualizar. A HBase escreve dados de entrada numa loja de memórias, chamada _memstore_ . Depois de a memstore atingir um determinado tamanho, a HBase coloca-a em disco para armazenamento a longo prazo na conta de armazenamento do cluster. Ao eliminar o antigo cluster, as memstores são recicladas, potencialmente perdendo dados. Para lavar manualmente a memstore para cada mesa para o disco, execute o seguinte script. A versão mais recente deste guião está no [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh)da Azure.
 
     ```bash
     #!/bin/bash
@@ -182,20 +182,50 @@ Para atualizar o seu cluster Apache HBase no Azure HDInsight, complete os seguin
 
     ![Verifique o modo de manutenção turn on para a caixa de verificação HBase e, em seguida, confirme](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-1. Inscreva-se no Ambari no novo cluster HDInsight. Mude a `fs.defaultFS` definição HDFS para indicar o nome do recipiente utilizado pelo cluster original. Esta definição está em **HDFS > Configs > Advanced > Advanced core-site**.
+1. Se não estiver a utilizar clusters HBase com a função Escritas Melhoradas, salte este passo. É necessário apenas para clusters HBase com funcionalidade De Escritas Avançadas.
 
-    ![Em Ambari, clique em Serviços > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+   Faça backup do dir WAL sob o HDFS, correndo abaixo dos comandos a partir de uma sessão de ssh em qualquer um dos nós do zookeeper ou nos nós de trabalhador do cluster original.
+   
+   ```bash
+   hdfs dfs -mkdir /hbase-wal-backup**
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   ```
+    
+1. Inscreva-se no Ambari no novo cluster HDInsight. Mude a `fs.defaultFS` definição HDFS para indicar o nome do recipiente utilizado pelo cluster original. Esta definição está em **HDFS > Configs > Advanced > Advanced core-site** .
 
-    ![Em Ambari, mude o nome do recipiente](./media/apache-hbase-migrate-new-version/change-container-name.png)
+   ![Em Ambari, clique em Serviços > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+
+   ![Em Ambari, mude o nome do recipiente](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
 1. Se não estiver a utilizar clusters HBase com a função Escritas Melhoradas, salte este passo. É necessário apenas para clusters HBase com funcionalidade De Escritas Avançadas.
 
    Mude o `hbase.rootdir` caminho para apontar para o recipiente do aglomerado original.
 
-    ![Em Ambari, mude o nome do recipiente para HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+   ![Em Ambari, mude o nome do recipiente para HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+1. Se não estiver a utilizar clusters HBase com a função Escritas Melhoradas, salte este passo. É necessário apenas para clusters HBase com funcionalidade De Escritas Avançadas, e apenas nos casos em que o seu cluster original era um cluster HBase com funcionalidade de Escritas Avançadas.
 
+   Limpe os dados do zookeeper e do WAL FS para este novo cluster. Emite os seguintes comandos em qualquer um dos nós do zookeeper ou nos nós do trabalhador:
+
+   ```bash
+   hbase zkcli
+   rmr /hbase-unsecure
+   quit
+
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+   ```
+
+1. Se não estiver a utilizar clusters HBase com a função Escritas Melhoradas, salte este passo. É necessário apenas para clusters HBase com funcionalidade De Escritas Avançadas.
+   
+   Restaurar o dir WAL para o HDFS do novo cluster a partir de uma sessão de ssh em qualquer um dos nós do zookeeper ou nós operários do novo cluster.
+   
+   ```bash
+   hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
+   ```
+   
 1. Se estiver a atualizar o HDInsight 3.6 a 4.0, siga os passos abaixo, caso contrário, salte para o passo 10:
-    1. Reinicie todos os serviços necessários em Ambari selecionando **Serviços**  >  **Reiniciar todos os necessários**.
+
+    1. Reinicie todos os serviços necessários em Ambari selecionando **Serviços**  >  **Reiniciar todos os necessários** .
     1. Pare o serviço HBase.
     1. SSH para o nó Zookeeper, e execute o comando [zkCli](https://github.com/go-zkcli/zkcli) `rmr /hbase-unsecure` para remover o znode raiz HBase do Zookeeper.
     1. Reiniciar a Base H.

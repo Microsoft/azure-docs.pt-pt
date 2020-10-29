@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476166"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911822"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configure LVM e RAID em dispositivos encriptados
 
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verificação de que um volume físico foi criado](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->Os nomes /dev/mapper/dispositivo aqui precisam de ser substituídos pelos seus valores reais com base na saída de **Isblk**.
+>Os nomes /dev/mapper/dispositivo aqui precisam de ser substituídos pelos seus valores reais com base na saída de **Isblk** .
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verificar as informações sobre volumes físicos
 ```bash
@@ -368,7 +368,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Informação para sistemas de ficheiros montados](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![A screenshot mostra uma janela de consola com sistemas de ficheiros montados como dados0 e dados1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 Nesta variação de **Isblk,** estamos a listar os dispositivos que mostram as dependências em ordem inversa. Esta opção ajuda a identificar os dispositivos agrupados pelo volume lógico em vez dos nomes originais do dispositivo /dev/sd[disco].
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informações para RAID configurado através do comando mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->Os nomes /dev/mapper/dispositivo aqui precisam de ser substituídos pelos seus valores reais, com base na saída de **Isblk**.
+>Os nomes /dev/mapper/dispositivo aqui precisam de ser substituídos pelos seus valores reais, com base na saída de **Isblk** .
 
 ### <a name="checkmonitor-raid-creation"></a>Criar RAID de verificação/monitor
 ```bash
@@ -437,7 +437,7 @@ Verifique se o novo sistema de ficheiros está montado:
 lsblk -fs
 df -h
 ```
-![Informação para sistemas de ficheiros montados](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![A screenshot mostra uma janela da consola com um sistema de ficheiros montado como raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 É importante certificar-se de que a opção **nofalil** é adicionada às opções de ponto de montagem dos volumes RAID criados em cima de um dispositivo encriptado através da Encriptação do Disco Azure. Evita que o SO fique preso durante o processo de arranque (ou em modo de manutenção).
 

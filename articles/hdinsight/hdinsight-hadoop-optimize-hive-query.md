@@ -1,27 +1,35 @@
 ---
 title: Otimizar consultas de Colmeia em Azure HDInsight
-description: Este artigo descreve como otimizar as suas consultas de Hive Apache para Hadoop em HDInsight.
+description: Este artigo descreve como otimizar as suas consultas de Hive Apache em Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/14/2020
-ms.openlocfilehash: 89c276ffe6059a61323755eaf928d525ab5ea416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 840c481a54451e1f8374aec4799df10b96fb2e4d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085298"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910887"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimize Apache Hive queries in Azure HDInsight (Otimizar as consultas do Apache Hive no Azure HDInsight)
 
-Em Azure HDInsight, existem vários tipos e tecnologias de cluster que podem executar consultas de Hive Apache. Escolha o tipo de cluster adequado para ajudar a otimizar o desempenho para as suas necessidades de carga de trabalho.
+Este artigo descreve algumas das otimizações de desempenho mais comuns que pode usar para melhorar o desempenho das suas consultas de Hive Apache.
 
-Por exemplo, escolha o tipo de cluster **de consulta interativa** para otimizar `ad hoc` consultas interativas. Escolha o tipo de cluster Apache **Hadoop** para otimizar as consultas de Colmeia usadas como um processo de lote. **Os** tipos de cluster Spark e **HBase** também podem executar consultas de Hive. Para obter mais informações sobre a execução de consultas de Hive em vários tipos de cluster HDInsight, consulte [o que é a Hive Apache e a HiveQL em Azure HDInsight?](hadoop/hdinsight-use-hive.md)
+## <a name="cluster-type-selection"></a>Seleção do tipo cluster
 
-Os clusters HDInsight do tipo de cluster Hadoop não são otimizados para o desempenho por padrão. Este artigo descreve alguns dos métodos de otimização de desempenho da Colmeia mais comuns que pode aplicar às suas consultas.
+Em Azure HDInsight, você pode executar consultas apache hive em alguns tipos diferentes de cluster. 
+
+Escolha o tipo de cluster adequado para ajudar a otimizar o desempenho para as suas necessidades de carga de trabalho:
+
+* Escolha o tipo de cluster **de consulta interativa** para otimizar, `ad hoc` consultas interativas. 
+* Escolha o tipo de cluster Apache **Hadoop** para otimizar as consultas de Colmeia usadas como um processo de lote. 
+* **Os** tipos de cluster Spark e **HBase** também podem executar consultas de Hive, e pode ser apropriado se estiver a executar essas cargas de trabalho. 
+
+Para obter mais informações sobre a execução de consultas de Hive em vários tipos de cluster HDInsight, consulte [o que é a Hive Apache e a HiveQL em Azure HDInsight?](hadoop/hdinsight-use-hive.md)
 
 ## <a name="scale-out-worker-nodes"></a>Escalone os nóns dos trabalhadores
 
@@ -45,9 +53,9 @@ Para obter mais informações sobre o escalonamento hdInsight, consulte [cluster
 
 Tez é mais rápido porque:
 
-* **Execute o Gráfico Acíclico Direcionado (DAG) como um único trabalho no motor MapReduce**. O DAG exige que cada conjunto de mappers seja seguido por um conjunto de redutores. Este requisito faz com que vários trabalhos de MapReduce sejam desviados para cada consulta da Colmeia. Tez não tem tal restrição e pode processar o complexo DAG como um trabalho minimizando a sobrecarga de startups de emprego.
+* **Execute o Gráfico Acíclico Direcionado (DAG) como um único trabalho no motor MapReduce** . O DAG exige que cada conjunto de mappers seja seguido por um conjunto de redutores. Este requisito faz com que vários trabalhos de MapReduce sejam desviados para cada consulta da Colmeia. Tez não tem tal restrição e pode processar o complexo DAG como um trabalho minimizando a sobrecarga de startups de emprego.
 * **Evita escritos desnecessários.** Vários trabalhos são usados para processar a mesma consulta de Hive no motor MapReduce. A saída de cada trabalho do MapReduce é escrita para HDFS para dados intermédios. Uma vez que tez minimiza o número de empregos para cada consulta da Colmeia, é capaz de evitar escritos desnecessários.
-* **Minimiza os atrasos de arranque**. O Tez é mais capaz de minimizar o atraso no arranque, reduzindo o número de mappers que precisa de iniciar e melhorando também a otimização ao longo de todo.
+* **Minimiza os atrasos de arranque** . O Tez é mais capaz de minimizar o atraso no arranque, reduzindo o número de mappers que precisa de iniciar e melhorando também a otimização ao longo de todo.
 * **Reutiliza recipientes.** Sempre que possível, a Tez reutilizará os recipientes para garantir que a latência do arranque dos contentores seja reduzida.
 * **Técnicas de otimização contínua.** Tradicionalmente, a otimização foi feita durante a fase de compilação. No entanto, mais informações sobre as entradas estão disponíveis que permitem uma melhor otimização durante o tempo de funcionaamento. O Tez utiliza técnicas de otimização contínua que lhe permitem otimizar o plano ainda mais na fase de tempo de funcionaamento.
 
@@ -63,7 +71,7 @@ set hive.execution.engine=tez;
 
 As operações de I/O são o principal estrangulamento de desempenho para executar consultas de Colmeia. O desempenho pode ser melhorado se a quantidade de dados que precisa de ser lido puder ser reduzida. Por padrão, as consultas de Colmeia sondam todas as tabelas da Colmeia. No entanto, para consultas que apenas precisam de digitalizar uma pequena quantidade de dados (por exemplo, consultas com filtragem), este comportamento cria sobrecargas desnecessárias. A partição de colmeias permite que as consultas de Colmeia tenham acesso apenas à quantidade necessária de dados nas tabelas da Colmeia.
 
-A partição de colmeias é implementada reorganizando os dados brutos em novos diretórios. Cada divisória tem o seu próprio diretório de ficheiros. A partição é definida pelo utilizador. O diagrama seguinte ilustra a partição de uma tabela de colmeias pelo *ano*da coluna . Um novo diretório é criado para cada ano.
+A partição de colmeias é implementada reorganizando os dados brutos em novos diretórios. Cada divisória tem o seu próprio diretório de ficheiros. A partição é definida pelo utilizador. O diagrama seguinte ilustra a partição de uma tabela de colmeias pelo *ano* da coluna . Um novo diretório é criado para cada ano.
 
 ![Partição de Colmeia Apache HDInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
@@ -124,8 +132,8 @@ Para mais informações, consulte [As Tabelas Partitioned.](https://cwiki.apache
 
 A Hive suporta diferentes formatos de ficheiros. Por exemplo:
 
-* **Texto**: o formato de ficheiro predefinido e funciona com a maioria dos cenários.
-* **Avro**: funciona bem para cenários de interoperabilidade.
+* **Texto** : o formato de ficheiro predefinido e funciona com a maioria dos cenários.
+* **Avro** : funciona bem para cenários de interoperabilidade.
 * **ORC/Parquet:** mais adequado para o desempenho.
 
 O formato ORC (Coluna de Linha Otimizada) é uma forma altamente eficiente de armazenar dados da Hive. Em comparação com outros formatos, o ORC tem as seguintes vantagens:
@@ -191,13 +199,12 @@ Existem mais métodos de otimização que pode considerar, por exemplo:
 
 * **Balde de colmeia:** uma técnica que permite agrupar ou segmentar grandes conjuntos de dados para otimizar o desempenho da consulta.
 * **Junte-se à otimização:** otimização do planeamento de execução de consultas da Hive para melhorar a eficiência das juntas e reduzir a necessidade de sugestões do utilizador. Para obter mais informações, consulte [a otimização do Join](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Aumentar os Redutores**.
+* **Aumentar os Redutores** .
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu vários métodos comuns de otimização de consulta de Colmeia. Para saber mais, leia os artigos seguintes:
 
-* [Use a Colmeia Apache em HDInsight](hadoop/hdinsight-use-hive.md)
 * [Otimizar Apache Hive](./optimize-hive-ambari.md)
 * [Analise os dados do atraso de voo utilizando a Consulta Interativa em HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analise os dados do Twitter usando a Hive Apache em HDInsight](hdinsight-analyze-twitter-data-linux.md)

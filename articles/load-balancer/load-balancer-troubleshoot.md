@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 22922972049ec78cc26f4d060fa1981d1f23a3ce
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314819"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912451"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
 
@@ -35,10 +35,10 @@ Quando os clientes externos para os VMs de backend passarem pelo equilibrador de
 
 **Validação e resolução**
 
-Os ILBs standard são **seguros por defeito**. Os ILBs básicos permitiram a ligação à internet através de um endereço IP público *oculto.* Isto não é recombatido para cargas de trabalho de produção, uma vez que o endereço IP não é estático nem bloqueado através de NSGs que possui. Se mudou recentemente de um ILB Básico para um ILB padrão, deve criar um IP público explicitamente através da configuração [outbound](egress-only.md) que bloqueia o IP através de NSGs. 
+Os ILBs standard são **seguros por defeito** . Os ILBs básicos permitiram a ligação à internet através de um endereço IP público *oculto.* Isto não é recombatido para cargas de trabalho de produção, uma vez que o endereço IP não é estático nem bloqueado através de NSGs que possui. Se mudou recentemente de um ILB Básico para um ILB padrão, deve criar um IP público explicitamente através da configuração [outbound](egress-only.md) que bloqueia o IP através de NSGs. Também pode utilizar um [NAT Gateway](../virtual-network/nat-overview.md) na sua sub-rede.
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintoma: VMs por trás do Balanceador de Carga não estão respondendo a sondas de saúde
-Para que os servidores de backend participem no conjunto do balançador de carga, devem passar a verificação da sonda. Para obter mais informações sobre sondas de saúde, consulte [as sondas Understanding Load Balancer](load-balancer-custom-probe-overview.md). 
+Para que os servidores de backend participem no conjunto do balançador de carga, devem passar a verificação da sonda. Para obter mais informações sobre sondas de saúde, consulte [as sondas Understanding Load Balancer](load-balancer-custom-probe-overview.md). 
 
 Os VMs do pool de backend balancer de carga podem não estar a responder às sondas devido a nenhuma das seguintes razões: 
 - Load Balancer backend pool VM não é saudável 
@@ -58,12 +58,12 @@ Se o VM é saudável, mas não está a responder à sonda, então uma razão pos
 **Validação e resolução**
 
 1. Faça login no VM de backend. 
-2. Abra um pedido de comando e execute o seguinte comando para validar que há uma aplicação ouvindo na porta da sonda:   
+2. Abra um pedido de comando e execute o seguinte comando para validar que há uma aplicação ouvindo na porta da sonda:   
             netstat -um
 3. Se o estado do porto não estiver listado como **LISTENING,** configuure a porta adequada. 
-4. Em alternativa, selecione outra porta, que está listada como **LISTENING**, e atualize a configuração do balançador de carga em conformidade.              
+4. Em alternativa, selecione outra porta, que está listada como **LISTENING** , e atualize a configuração do balançador de carga em conformidade.              
 
-### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: Firewall, ou um grupo de segurança de rede está bloqueando a porta no suporte de reserva VMs  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: Firewall, ou um grupo de segurança de rede está bloqueando a porta no suporte de reserva VMs  
 Se a firewall do VM estiver a bloquear a porta da sonda, ou um ou mais grupos de segurança de rede configurados na sub-rede ou no VM, não permitir que a sonda chegue à porta, o VM não consegue responder à sonda de saúde.          
 
 **Validação e resolução**
@@ -71,7 +71,7 @@ Se a firewall do VM estiver a bloquear a porta da sonda, ou um ou mais grupos de
 * Se a firewall estiver ativada, verifique se está configurada para permitir a porta da sonda. Caso contrário, configuure a firewall para permitir o tráfego na porta da sonda e volte a testar. 
 * A partir da lista de grupos de segurança da rede, verifique se o tráfego de entrada ou saída na porta da sonda tem interferência. 
 * Além disso, verifique se um **Deny Todos os** grupos de segurança da rede se pronunciam sobre o NIC do VM ou a sub-rede que tem uma prioridade superior à regra padrão que permite que as sondas LB & tráfego (os grupos de segurança da rede devem permitir o Load Balancer IP de 168.63.129.16). 
-* Se alguma destas regras estiver a bloquear o tráfego da sonda, remova e reconfigure as regras para permitir o tráfego da sonda.  
+* Se alguma destas regras estiver a bloquear o tráfego da sonda, remova e reconfigure as regras para permitir o tráfego da sonda.  
 * Teste se o VM já começou a responder às sondas de saúde. 
 
 ### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>Causa 4: Outras configurações erradas no Balanceador de Carga
@@ -93,7 +93,7 @@ Se todas as causas anteriores parecem ser validadas e resolvidas corretamente, e
 
 Se um pool de backend VM for listado como saudável e responder às sondas de saúde, mas ainda não participar no Equilíbrio de Carga, ou não estiver a responder ao tráfego de dados, pode ser devido a qualquer uma das seguintes razões: 
 * Load Balancer Backend pool VM não está a ouvir na porta de dados 
-* O grupo de segurança da rede está a bloquear a porta na piscina de backend balancer de carga VM  
+* O grupo de segurança da rede está a bloquear a porta na piscina de backend balancer de carga VM  
 * Aceder ao Equilibrador de Carga a partir do mesmo VM e NIC 
 * Aceder ao frontend do Balançador de Carga de Internet a partir do pool de backend balancer de carga participante VM 
 
@@ -103,11 +103,12 @@ Se um VM não responder ao tráfego de dados, pode ser porque ou a porta-alvo n�
 **Validação e resolução**
 
 1. Faça login no VM de backend. 
-2. Abra um pedido de comando e execute o seguinte comando para validar há uma aplicação ouvindo na porta de dados:   netstat -an 
+2. Abra uma pronta de comando e execute o seguinte comando para validar há uma aplicação ouvindo na porta de dados:  
+            netstat -um 
 3. Se o porto não estiver listado com Estado "LISTENING", configuure a porta de escuta adequada 
 4. Se a porta estiver marcada como Escuta, verifique a aplicação-alvo na porta para eventuais problemas.
 
-### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: O grupo de segurança da rede está a bloquear a porta na piscina de backend balancer de carga VM  
+### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: O grupo de segurança da rede está a bloquear a porta na piscina de backend balancer de carga VM  
 
 Se um ou mais grupos de segurança de rede configurados na sub-rede ou no VM estiverem a bloquear o IP ou a porta de origem, então o VM não consegue responder.
 
@@ -117,7 +118,7 @@ Para o balançador de carga pública, o endereço IP dos clientes da Internet se
 1. Da lista de grupos de segurança da rede, verifique se:
     - o tráfego de entrada ou saída na porta de dados tem interferência. 
     - a **Negar Todas as** regras do grupo de segurança da rede sobre o NIC do VM ou a sub-rede que tem uma prioridade maior que a regra padrão que permite as sondas e o tráfego do Balancer de Carga (os grupos de segurança da rede devem permitir o Load Balancer IP de 168.63.129.16, ou seja, a porta da sonda)
-1. Se alguma das regras estiver a bloquear o tráfego, remova e reconfigure essas regras para permitir o tráfego de dados.  
+1. Se alguma das regras estiver a bloquear o tráfego, remova e reconfigure essas regras para permitir o tráfego de dados.  
 1. Teste se o VM já começou a responder às sondas de saúde.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Causa 3: Aceder ao Balanceador de Carga a partir da mesma interface VM e Rede 

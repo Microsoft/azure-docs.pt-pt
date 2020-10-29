@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 05e29278f6b9ce5436979c0533551763e2f90462
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520943"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911040"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -44,8 +44,8 @@ Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geo
 **Aglomerado geográfico** | **Regiões do Azure**
 -- | --
 América | Canadá Leste, Canadá Central, Centro Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, Central EUA, Norte-Americanos do Centro Norte
-Europa | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste, França Central
-Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
+Europe | Reino Unido Oeste, Reino Unido Sul, Europa do Norte, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste, França Central, Suíça Norte
+Asia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Ásia Oriental, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul
 Austrália    | Austrália Leste, Austrália Sudeste, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Alemanha    | Alemanha Central, Alemanha Nordeste
@@ -280,7 +280,7 @@ Equilibrador de carga interna | Suportado | Associe o equilibrador de carga pré
 Endereço IP público | Suportado | Associe um endereço IP público existente com o NIC. Ou, crie um endereço IP público e associe-o ao NIC utilizando um script Azure Automation num plano de recuperação.
 NSG em NIC | Suportado | Associe o NSG ao NIC utilizando um script Azure Automation num plano de recuperação.
 NSG na sub-rede | Suportado | Associe o NSG à sub-rede utilizando um script Azure Automation num plano de recuperação.
-Endereço IP reservado (estático) | Suportado | Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao falhado sobre VM.<br/><br/> Se a sub-rede-alvo não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede está reservado para o VM.<br/><br/> Também pode especificar um endereço IP fixo e sub-rede em **itens replicados**  >  **Definições**  >  **Computação e**  >  **interfaces de rede de**rede .
+Endereço IP reservado (estático) | Suportado | Se o NIC na fonte VM tiver um endereço IP estático, e a sub-rede alvo tiver o mesmo endereço IP disponível, é atribuído ao falhado sobre VM.<br/><br/> Se a sub-rede-alvo não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede está reservado para o VM.<br/><br/> Também pode especificar um endereço IP fixo e sub-rede em **itens replicados**  >  **Definições**  >  **Computação e**  >  **interfaces de rede de** rede .
 Endereço IP dinâmico | Suportado | Se o NIC na fonte tiver um endereço IP dinâmico, o NIC no falhado sobre VM também é dinâmico por padrão.<br/><br/> Pode modificá-lo para um endereço IP fixo, se necessário.
 Vários endereços IP | Não suportado | Quando falha sobre um VM que tem um NIC com vários endereços IP, apenas o endereço IP primário do NIC na região de origem é mantido. Para atribuir vários endereços IP, pode adicionar VMs a um [plano de recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano, ou pode fazer a alteração manualmente ou com um script após a falha.
 Gestor de Tráfego     | Suportado | Pode pré-configurar o Gestor de Tráfego para que o tráfego seja encaminhado regularmente para o ponto final da região de origem e para o ponto final na região alvo em caso de falha.

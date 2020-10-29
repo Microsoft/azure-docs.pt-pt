@@ -23,8 +23,6 @@
   items:
     - name: Modelos personalizados
       href: concepts-models.md
-    - name: Converter modelos padrão da indústria
-      href: concepts-convert-models.md
     - name: Digital Twins e o grafo duplo
       href: concepts-twins-graph.md
     - name: Linguagem da consulta
@@ -63,6 +61,8 @@
       items:
         - name: Gerir modelos personalizados
           href: how-to-manage-model.md
+        - name: Converter modelos padrão da indústria
+          href: how-to-convert-models.md
         - name: Analisar e validar modelos
           href: how-to-parse-models.md
         - name: Adicionar etiquetas
@@ -176,11 +176,15 @@
             - name: SDK de Java - origem
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: SDK de JavaScript - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: SDK de JavaScript - referência
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: SDK de JavaScript - origem
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: SDK de Python - PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: SDK de Python - origem
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: CLI do Digital Twins
       items:
         - name: Referência da CLI do Digital Twins

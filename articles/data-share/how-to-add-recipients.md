@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c446a7f05dce2ea6979e9810e729bdac479ae153
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513473"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910496"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Como adicionar um destinatário a uma partilha de dados existente na Azure Data Share
 
@@ -21,13 +21,13 @@ Para obter informações sobre como adicionar destinatários à medida que cria 
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegue para uma partilha de dados enviada
 
-Em Azure Data Share, navegue para a sua partilha enviada e selecione o **separador Convites.** Aqui estão listados todos os destinatários dos convites para esta partilha de dados. Para adicionar um novo, clique em **Adicionar Destinatário**.
+Em Azure Data Share, navegue para a sua partilha enviada e selecione o **separador Convites.** Aqui estão listados todos os destinatários dos convites para esta partilha de dados. Para adicionar um novo, clique em **Adicionar Destinatário** .
 
-![Adicionar destinatário](./media/how-to/how-to-add-recipients/add-recipient.png)
+![A screenshot mostra adicionar o destinatário selecionado.](./media/how-to/how-to-add-recipients/add-recipient.png)
 
 Um painel sairá do lado direito da página. Clique em **Adicionar Destinatário** e, em seguida, preencha o e-mail do seu novo destinatário na linha em branco. Adicione quantos destinatários quiser.
 
-![Adicionar destinatário](./media/how-to/how-to-add-recipients/add-recipient-side.png)
+![A screenshot mostra o painel Add Recipient onde pode adicionar e enviar convite.](./media/how-to/how-to-add-recipients/add-recipient-side.png)
 
 Clique **em Adicionar e envie convite.** Os novos destinatários serão enviados e-mails de convite para esta partilha de dados.
 

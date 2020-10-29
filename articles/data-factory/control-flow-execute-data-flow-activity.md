@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485042"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910768"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade do Fluxo de Dados na Fábrica de Dados Azure
 
@@ -54,14 +54,14 @@ Utilize a atividade do Fluxo de Dados para transformar e mover dados através de
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 fluxo de dados | A referência ao Fluxo de Dados a ser executado | DataFlowReference | Sim
-integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | Não
-compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | Não
-compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | Não
-staging.linkedService | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, a conta de armazenamento utilizada para a encenação da PolyBase | LinkedServiceReference | Só se o fluxo de dados ler ou escrever para um Azure Synapse Analytics
-staging.folderPath | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de bolhas utilizada para a paragem da PolyBase | Cadeia | Só se o fluxo de dados ler ou escrever para a Azure Synapse Analytics
+integraçãoRuntime | O ambiente computacional em que o fluxo de dados funciona. Se não for especificado, será utilizado o tempo de funcionamento da integração Azure de resolução automática. | IntegraçãoReferiaruntimeReference | No
+compute.coreCount | O número de núcleos usados no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | 8, 16, 32, 48, 80, 144, 272 | No
+compute.computeType | O tipo de computação usada no aglomerado de faíscas. Só pode ser especificado se for utilizado o tempo de funcionamento da integração Azure de resolução automática | "Geral", "ComputeOptimizado", "MemoryOptimed" | No
+staging.linkedService | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, especifique a conta de armazenamento utilizada para a paragem da PolyBase.<br/><br/>Se o seu Azure Storage estiver configurado com o ponto final do serviço VNet, deve utilizar a autenticação de identidade gerida com "permitir um serviço Microsoft confiável" ativado na conta de armazenamento, consulte o [Impacto da utilização de Pontos Finais do Serviço VNet com armazenamento Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Aprenda também as configurações necessárias para [Azure Blob](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#managed-identity) respectivamente.<br/> | LinkedServiceReference | Só se o fluxo de dados ler ou escrever para um Azure Synapse Analytics
+staging.folderPath | Se estiver a utilizar uma fonte ou pia Azure Synapse Analytics, o caminho da pasta na conta de armazenamento de bolhas utilizada para a paragem da PolyBase | String | Só se o fluxo de dados ler ou escrever para a Azure Synapse Analytics
 
 ![Executar fluxo de dados](media/data-flow/activity-data-flow.png "Executar fluxo de dados")
 
@@ -116,7 +116,7 @@ O gasoduto de depuração corre contra o cluster de depuração ativo, não o am
 
 ## <a name="monitoring-the-data-flow-activity"></a>Monitorização da atividade do Fluxo de Dados
 
-A atividade do Data Flow tem uma experiência de monitorização especial onde pode ver a partição, o tempo de estágio e a informação da linhagem de dados. Abra o painel de monitorização através do ícone de óculos em **Ações**. Para obter mais informações, consulte [Monitoring Data Flows](concepts-data-flow-monitoring.md).
+A atividade do Data Flow tem uma experiência de monitorização especial onde pode ver a partição, o tempo de estágio e a informação da linhagem de dados. Abra o painel de monitorização através do ícone de óculos em **Ações** . Para obter mais informações, consulte [Monitoring Data Flows](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>A atividade do Fluxo de Dados resulta numa atividade subsequente
 

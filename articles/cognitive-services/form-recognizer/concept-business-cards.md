@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334553"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909952"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartões de visita
 
@@ -64,7 +64,7 @@ O segundo passo é chamar a operação [Get Analyze Business Card Result.](https
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | string | notStarted: A operação de análise ainda não começou.<br /><br />funcionamento: A operação de análise está em curso.<br /><br />falhou: A operação de análise falhou.<br /><br />conseguiu: A operação de análise foi bem sucedida.|
+|status | cadeia | notStarted: A operação de análise ainda não começou.<br /><br />funcionamento: A operação de análise está em curso.<br /><br />falhou: A operação de análise falhou.<br /><br />conseguiu: A operação de análise foi bem sucedida.|
 
 Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON incluirá o entendimento do cartão de visita e os resultados de reconhecimento de texto opcional, se solicitado. O resultado do entendimento do cartão de visita é organizado como um dicionário de valores de campo nomeados, onde cada valor contém o texto extraído, valor normalizado, caixa de delimitação, confiança e elementos de palavra correspondentes. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com texto, caixa de delimitação e informação de confiança.
 
@@ -385,13 +385,13 @@ Os dados extraídos com a API do Cartão de Visita podem ser utilizados para exe
 * Mantenha-se a saber das pistas de vendas.  
 * Extrair informações de contacto a granel a partir de imagens de cartão de visita existentes. 
 
-A API do Cartão De Visita também alimenta a [funcionalidade de Processamento de Cartões de Visita AIBuilder.](https://docs.microsoft.com/ai-builder/prebuilt-business-card)
+A API do Cartão De Visita também alimenta a [funcionalidade de Processamento de Cartões de Visita AIBuilder.](/ai-builder/prebuilt-business-card)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Siga o [quickstart dos Cartões de Visita API Python](./quickstarts/python-business-cards.md) para começar a reconhecer cartões de visita.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [O que é o Reconhecedor de Formato?](./overview.md)
 * [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
