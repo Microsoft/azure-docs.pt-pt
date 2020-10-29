@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539134"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027164"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas no registo e pré-agregadas no Application Insights
 
@@ -40,6 +40,28 @@ Os novos SDKs[(Application Insights 2.7](https://www.nuget.org/packages/Microsof
 Para os SDKs que não implementam pré-agregação (isto é, versões mais antigas de SDKs application insights ou para instrumentação de navegador) o backend Application Insights ainda povoa as novas métricas agregando os eventos recebidos pelo ponto final de recolha de eventos Application Insights. Isto significa que, embora não beneficie do volume reduzido de dados transmitidos através do fio, ainda pode usar as métricas pré-agregadas e experimentar um melhor desempenho e suporte do alerta dimensional próximo em tempo real com SDKs que não pré-agregam métricas durante a recolha.
 
 Vale a pena referir que o ponto final de recolha pré-agrega eventos antes da amostragem de ingestão, o que significa que a amostragem de [ingestão](./sampling.md) nunca terá impacto na precisão das métricas pré-agregadas, independentemente da versão SDK que utiliza com a sua aplicação.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tabela de métricas pré-agregadas suportadas pela SDK
+
+| SDKs de produção corrente | Métricas Padrão (Pré Agregação SDK) | Métricas personalizadas (sem pré-agregação SDK) | Métricas Personalizadas (com Pré Agregação SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core e .NET Framework | Suportado (V2.13.1+)| Suportado via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Suportado (V2.7.2+) via [GetMetric](get-metric.md) |
+| Java                         | Não suportado       | Suportado via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Não suportado                           |
+| Node.js                      | Não suportado       | Suportado via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Não suportado                           |
+| Python                       | Não suportado       | Suportado                                 | Suportado via [OpenCensus.stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabela de métricas pré-agregadas suportadas sem codeless
+
+| SDKs de produção corrente | Métricas Padrão (Pré Agregação SDK) | Métricas personalizadas (sem pré-agregação SDK) | Métricas Personalizadas (com Pré Agregação SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Apoiado <sup> 1<sup>    | Não suportado                             | Não suportado                           |
+| ASP.NET Core            | Apoiado <sup> 2<sup>    | Não suportado                             | Não suportado                           |
+| Java                    | Não suportado            | Não suportado                             | [Suportado](java-in-process-agent.md#metrics) |
+| Node.js                 | Não suportado            | Não suportado                             | Não suportado                           |
+
+1. ASP.NET anexação codificada no Serviço de Aplicações apenas emite métricas em modo de monitorização "completo". ASP.NET anexação sem código no Serviço de Aplicações, VM/VMSS e No-Premir emite métricas padrão sem dimensões. SDK é necessário para todas as dimensões.
+2. ASP.NET Ligação codificada do Núcleo no Serviço de Aplicações emite métricas padrão sem dimensões. SDK é necessário para todas as dimensões.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Utilização de pré-agregação com métricas personalizadas do Application Insights
 

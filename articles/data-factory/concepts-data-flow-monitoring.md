@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/19/2020
-ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650898"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025838"
 ---
 # <a name="monitor-data-flows"></a>Monitorize fluxos de dados
 
@@ -23,15 +23,15 @@ Depois de ter concluído a construção e depurando o fluxo de dados, pretende a
 
 Quando executa o seu oleoduto, pode monitorizar o gasoduto e todas as atividades contidas no oleoduto, incluindo a atividade do Fluxo de Dados. Clique no ícone do monitor no painel de UI da Fábrica de Dados Azure. Pode ver um ecrã semelhante ao abaixo. Os ícones destacados permitem-lhe perfurar as atividades no oleoduto, incluindo a atividade do Fluxo de Dados.
 
-![Monitorização do fluxo de dados](media/data-flow/mon001.png "Monitorização de Fluxo de Dados")
+![A screenshot mostra ícones para selecionar para os oleodutos para obter mais informações.](media/data-flow/mon001.png "Monitorização de Fluxo de Dados")
 
 Vê-se estatísticas a este nível, incluindo os tempos de execução e o estado. O ID de execução ao nível de atividade é diferente do ID de execução ao nível do gasoduto. O Run ID no nível anterior é para o gasoduto. A seleção dos óculos dá-lhe detalhes profundos sobre a execução do fluxo de dados.
 
-![Monitorização do fluxo de dados](media/data-flow/monitoring-details.png "Monitorização de Fluxo de Dados")
+![A screenshot mostra o ícone dos óculos para ver detalhes da execução do fluxo de dados.](media/data-flow/monitoring-details.png "Monitorização de Fluxo de Dados")
 
 Quando está na vista de monitorização do nó gráfico, pode ver uma versão simplificada apenas do seu gráfico de fluxo de dados.
 
-![Monitorização do fluxo de dados](media/data-flow/mon003.png "Monitorização de Fluxo de Dados")
+![A screenshot mostra a versão apenas visualizada do gráfico.](media/data-flow/mon003.png "Monitorização de Fluxo de Dados")
 
 Aqui está uma visão geral de vídeo do desempenho da monitorização dos seus fluxos de dados a partir do ecrã de monitorização ADF:
 
@@ -41,13 +41,13 @@ Aqui está uma visão geral de vídeo do desempenho da monitorização dos seus 
 
 Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determina caminhos de código ideais com base na totalidade do seu fluxo de dados. Além disso, os caminhos de execução podem ocorrer em diferentes nós de escala e divisórias de dados. Portanto, o gráfico de monitorização representa o design do seu fluxo, tendo em conta o caminho de execução das suas transformações. Quando seleciona nós individuais, pode ver "agrupamentos" que representam código que foi executado em conjunto no cluster. Os timings e contagens que você vê representam esses grupos em oposição aos passos individuais no seu design.
 
-![Monitorização do fluxo de dados](media/data-flow/mon004.png "Monitorização de Fluxo de Dados")
+![A screenshot mostra a página para um fluxo de dados.](media/data-flow/mon004.png "Monitorização de Fluxo de Dados")
 
 * Quando selecionar o espaço aberto na janela de monitorização, as estatísticas no painel inferior mostram o tempo e as contagens de linha para cada Pia e as transformações que levaram aos dados do lavatório para a linhagem de transformação.
 
 * Quando seleciona transformações individuais, recebe feedback adicional no painel da direita que mostra estatísticas de partição, contagem de colunas, distorção (quão uniformemente são os dados distribuídos por divisórias) e kurtose (quão espinhosos são os dados).
 
-* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. A saber:
+* Quando selecionar a Pia na vista do nó, pode ver a linhagem da coluna. Existem três métodos diferentes que as colunas são acumuladas ao longo do seu fluxo de dados para aterrar na Pia. São:
 
   * Computação: Utiliza a coluna para processamento condicional ou dentro de uma expressão no fluxo de dados, mas não a aterra na Pia
   * Derivado: A coluna é uma nova coluna que gerou no seu fluxo, isto é, não estava presente na Fonte
@@ -56,7 +56,7 @@ Quando o seu Fluxo de Dados é executado em Spark, a Azure Data Factory determin
   * Tempo de arranque do cluster: Quantidade de tempo para adquirir o ambiente computacional JIT Spark para a execução do fluxo de dados
   * Número de transformações: Quantos passos de transformação estão a ser executados no seu fluxo
   
-![Monitorização do fluxo de dados](media/data-flow/monitornew.png "Monitorização do fluxo de dados novo")
+![A screenshot mostra a opção Refresh.](media/data-flow/monitornew.png "Monitorização do fluxo de dados novo")
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo total de processamento de pia vs. Tempo de Processamento de Transformação
 
@@ -85,6 +85,6 @@ Quando selecionar um ícone de transformação de pia no seu mapa, o painel de s
 
 Este ícone significa que os dados de transformação já estavam em cache no cluster, por isso os timings e o caminho de execução têm tido isso em conta:
 
-![Monitorização do fluxo de dados](media/data-flow/mon005.png "Monitorização de Fluxo de Dados")
+![A imagem mostra o ícone do disco.](media/data-flow/mon005.png "Monitorização de Fluxo de Dados")
 
 Você também vê ícones do círculo verde na transformação. Representam uma contagem do número de sumidouros em que os dados estão a fluir.

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2ea8840a4c66ff05bea22c5c7c063e31d09f9dc8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f9e770557bc600c6eae084e36ad7c5816ee5ad16
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911754"
+ms.locfileid: "93027504"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerir pontos finais e rotas em Azure Digital Twins (APIs e CLI)
 
@@ -27,7 +27,7 @@ Também podem ser geridos através do [portal Azure.](https://portal.azure.com) 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Você vai precisar de uma **conta Azure** (você pode configurar uma [gratuitamente aqui)](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Você precisará de uma **instância Azure Digital Twins** na sua assinatura Azure. Se ainda não tiver um caso, pode criar um utilizando os passos em [*Como-a-: Configurar um caso e autenticação*](how-to-set-up-instance-portal.md). Ter os seguintes valores da configuração útil para usar mais tarde neste artigo:
+* Você precisará de uma **instância Azure Digital Twins** na sua assinatura Azure. Se ainda não tiver um caso, pode criar um utilizando os passos em [*Como-a-: Configurar um caso e autenticação*](how-to-set-up-instance-cli.md). Ter os seguintes valores da configuração útil para usar mais tarde neste artigo:
     - Nome da instância
     - Grupo de recursos
     

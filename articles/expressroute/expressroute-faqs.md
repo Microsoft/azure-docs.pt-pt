@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631279"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027113"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -36,9 +36,13 @@ Pode selecionar uma transportadora regional e aterrar ligações Ethernet para u
 
 Verifique [os detalhes dos preços](https://azure.microsoft.com/pricing/details/expressroute/) para obter informações sobre preços.
 
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, tenho esta largura de banda atribuída para o tráfego de entradas e saídas separadamente?
+
+Sim, a largura de banda do circuito ExpressRoute é duplex. Por exemplo, se comprar um circuito ExpressRoute de 200 mbps, está a adquirir 200 mbps para tráfego de entrada e 200 mbps para tráfego de saída.
+
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, a ligação VPN que compro ao meu fornecedor de serviços de rede tem de ser a mesma velocidade?
 
-Não. Pode adquirir uma ligação VPN de qualquer velocidade do seu prestador de serviços. No entanto, a sua ligação ao Azure está limitada à largura de banda do circuito ExpressRoute que compra.
+N.º Pode adquirir uma ligação VPN de qualquer velocidade do seu prestador de serviços. No entanto, a sua ligação ao Azure está limitada à largura de banda do circuito ExpressRoute que compra.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, tenho a capacidade de usar mais do que a minha largura de banda?
 
@@ -181,7 +185,7 @@ Se o seu fornecedor de serviços pode estabelecer dois circuitos virtuais Ethern
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Posso estender um dos meus VLANs a Azure usando o ExpressRoute?
 
-Não. Não suportamos extensões de conectividade de camada 2 em Azure.
+N.º Não suportamos extensões de conectividade de camada 2 em Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Posso ter mais do que um circuito ExpressRoute na minha assinatura?
 
@@ -230,7 +234,7 @@ Para obter mais informações, consulte [partilhar um circuito ExpressRoute em v
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>As redes virtuais estão ligadas ao mesmo circuito isoladas umas das outras?
 
-Não. Do ponto de vista do encaminhamento, todas as redes virtuais ligadas ao mesmo circuito ExpressRoute fazem parte do mesmo domínio de encaminhamento e não estão isoladas umas das outras. Se precisar de isolamento de rotas, precisa de criar um circuito ExpressRoute separado.
+N.º Do ponto de vista do encaminhamento, todas as redes virtuais ligadas ao mesmo circuito ExpressRoute fazem parte do mesmo domínio de encaminhamento e não estão isoladas umas das outras. Se precisar de isolamento de rotas, precisa de criar um circuito ExpressRoute separado.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Posso ter uma rede virtual ligada a mais de um circuito ExpressRoute?
 
@@ -321,7 +325,7 @@ Pode desativar o prémio ExpressRoute ligando para o CMDE REST ou PowerShell. Te
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Posso escolher as funcionalidades que quero do conjunto de funcionalidades premium?
 
-Não. Não pode escolher as características. Ativamos todas as funcionalidades quando liga o Prémio ExpressRoute.
+N.º Não pode escolher as características. Ativamos todas as funcionalidades quando liga o Prémio ExpressRoute.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>Quanto custa o Prémio ExpressRoute?
 
@@ -423,4 +427,4 @@ O circuito existente continuará a publicitar os prefixos para o Microsoft 365. 
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>O serviço ExpressRoute armazena os dados do cliente?
 
-Não.
+N.º

@@ -3,12 +3,12 @@ title: Restringir o acesso usando um ponto final de serviço
 description: Restringir o acesso a um registo de contentores Azure utilizando um ponto final de serviço numa rede virtual Azure. O acesso ao ponto final de serviço é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215506"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026229"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registo de contentores utilizando um ponto final de serviço numa rede virtual Azure
 
@@ -53,7 +53,7 @@ Nesta secção, configuure o seu registo de contentores para permitir o acesso a
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Adicione um ponto final de serviço a uma sub-rede
 
-Quando cria um VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual baseia-se no nome da máquina virtual. Por exemplo, se nomear a sua máquina virtual *myDockerVM,* o nome de rede virtual padrão é *myDockerVMVNET,* com uma sub-rede chamada *myDockerVMSubnet*. Verifique-o utilizando o comando da [lista de vnets da rede Az:][az-network-vnet-list]
+Quando cria um VM, o Azure por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual baseia-se no nome da máquina virtual. Por exemplo, se nomear a sua máquina virtual *myDockerVM,* o nome de rede virtual padrão é *myDockerVMVNET,* com uma sub-rede chamada *myDockerVMSubnet* . Verifique-o utilizando o comando da [lista de vnets da rede Az:][az-network-vnet-list]
 
 ```azurecli
 az network vnet list \
@@ -189,7 +189,6 @@ az group delete --name myResourceGroup
 
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

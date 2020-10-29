@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d52e8e0157c891cf8be6c610b7c0185d83ef9f06
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 519447dfffaa660131fa587eaef946c76f66983b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638062"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027334"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: criar uma fábrica de dados através da interface de utilizador do Azure Data Factory 
 
@@ -61,6 +61,8 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 1. Em **Localização** , selecione a localização para a fábrica de dados.
 
    A lista mostra apenas as localizações suportadas pelo Data Factory e onde serão armazenados os seus metadados do Azure Data Factory. As lojas de dados associadas (como a Azure Storage e a Azure SQL Database) e os cálculos (como o Azure HDInsight) que a Data Factory utiliza podem funcionar noutras regiões.
+
+1. Selecione **Seguinte: Configuração git** e, em seguida, selecione **Configure Git mais tarde** .
 
 1. Selecione **Criar** . Depois de concluída a criação, selecione **Ir para o recurso** para navegar para a página data **Factory.** 
 

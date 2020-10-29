@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371529"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025940"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova Iorque
 
@@ -52,7 +52,7 @@ Siga estes passos para criar uma base de dados em branco.
 
 2. Selecione **Bases de Dados** **da** nova página e selecione **Azure Synapse Analytics** em **destaque** na página **Nova.**
 
-    ![criar um armazém de dados](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![O Screenshot mostra o SQL Data Warehouse selecionado a partir de bases de dados no portal Azure.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Preencha o formulário com as informações seguintes:
 
@@ -63,7 +63,7 @@ Siga estes passos para criar uma base de dados em branco.
    | **Grupo de recursos** | myResourceGroup       | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
    | **Selecionar origem**  | Base de dados vazia        | Especifica para criar uma base de dados vazia. Tenha em atenção que um armazém de dados é um tipo de base de dados. |
 
-    ![criar um armazém de dados](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![A screenshot mostra o painel SQL Data Warehouse onde pode introduzir estes valores.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Selecione **Servidor** para criar e configurar um novo servidor para a nova base de dados. Preencha o **Novo formulário de servidor** com as seguintes informações:
 
@@ -76,15 +76,15 @@ Siga estes passos para criar uma base de dados em branco.
 
     ![criar servidor](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. Selecione **Selecionar**.
+5. Selecione **Selecionar** .
 
 6. Selecione **o nível de desempenho** para especificar se o armazém de dados é Gen1 ou Gen2, e o número de unidades de armazém de dados.
 
-7. Para este tutorial, selecione SQL pool **Gen2**. O slider está definido para **DW1000c** por padrão.  Experimente movê-lo para cima e para baixo para ver como funciona.
+7. Para este tutorial, selecione SQL pool **Gen2** . O slider está definido para **DW1000c** por padrão.  Experimente movê-lo para cima e para baixo para ver como funciona.
 
     ![configurar o desempenho](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Selecione **Aplicar**.
+8. Selecione **Aplicar** .
 9. Na lâmina de provisionamento, selecione uma **colagem** para a base de dados em branco. Para este tutorial, utilize o valor predefinido. Para obter mais informações sobre agrupamentos, veja [Agrupamentos](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 10. Agora que preencheu o formulário, **selecione Criar** para a provisionar a base de dados. O aprovisionamento demora alguns minutos.
@@ -110,13 +110,13 @@ Uma firewall ao nível do servidor que impede que aplicações e ferramentas ext
 
     ![definições do servidor](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-4. Selecione **Mostrar definições da firewall**. A página **de definições de Firewall** para o servidor abre.
+4. Selecione **Mostrar definições da firewall** . A página **de definições de Firewall** para o servidor abre.
 
     ![regra de firewall do servidor](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
 5. **Selecione Adicionar** o IP do cliente na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
 
-6. Selecione **Guardar**. Uma regra de firewall ao nível do servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
+6. Selecione **Guardar** . Uma regra de firewall ao nível do servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
 
 7. Selecione **OK** e, em seguida, feche a página **de definições de Firewall.**
 
@@ -131,7 +131,7 @@ Obtenha o nome do servidor totalmente qualificado para o seu servidor no portal 
 
 1. Faça login no [portal Azure](https://portal.azure.com/).
 2. Selecione **Azure Synapse Analytics** a partir do menu da mão esquerda e selecione a sua base de dados na página **Azure Synapse Analytics.**
-3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é mynewserver-20180430.database.windows.net.
+3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor** . Neste exemplo, o nome totalmente qualificado é mynewserver-20180430.database.windows.net.
 
     ![informações da ligação](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -141,7 +141,7 @@ Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-se
 
 1. Abra o SQL Server Management Studio.
 
-2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
+2. Na caixa de dialogo **Ligar ao Servidor** , introduza as seguintes informações:
 
     | Definição        | Valor sugerido                            | Descrição                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
@@ -153,9 +153,9 @@ Esta secção utiliza [o SQL Server Management Studio](/sql/ssms/download-sql-se
 
     ![ligar ao servidor](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-3. Selecione **Ligar**. A janela do Object Explorer é aberta no SSMS.
+3. Selecione **Ligar** . A janela do Object Explorer é aberta no SSMS.
 
-4. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda **mySampleDatabase** para ver os objetos na nova base de dados.
+4. No Object Explorer, expanda **Databases** . Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda **mySampleDatabase** para ver os objetos na nova base de dados.
 
     ![objetos da base de dados](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
 
@@ -165,9 +165,9 @@ A conta de administrador do servidor destina-se a efetuar operações de gestão
 
 É melhor criar um início de sessão e utilizador dedicado para carregar dados. Em seguida, adicione o utilizador de carregamento a uma [classe de recursos](resource-classes-for-workload-management.md) que permita uma alocação de memória máxima adequada.
 
-Uma vez que está atualmente ligado como o administrador do servidor, pode criar inícios de sessão e utilizadores. Utilize estes passos para criar um início de sessão e o utilizador com o nome **LoaderRC20**. Em seguida, atribua o utilizador à classe de recursos **staticrc20**.
+Uma vez que está atualmente ligado como o administrador do servidor, pode criar inícios de sessão e utilizadores. Utilize estes passos para criar um início de sessão e o utilizador com o nome **LoaderRC20** . Em seguida, atribua o utilizador à classe de recursos **staticrc20** .
 
-1. Em SSMS, **o mestre** de seleção à direita para mostrar um menu suspenso e escolher **Nova Consulta**. É aberta uma nova janela de consulta.
+1. Em SSMS, **o mestre** de seleção à direita para mostrar um menu suspenso e escolher **Nova Consulta** . É aberta uma nova janela de consulta.
 
     ![Nova consulta na base de dados mestra](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -180,7 +180,7 @@ Uma vez que está atualmente ligado como o administrador do servidor, pode criar
 
 3. Selecione **Execute** (Executar).
 
-4. Clique com o botão direito do rato em **mySampleDataWarehouse** e escolha **Nova Consulta**. É aberta uma nova janela de consulta.  
+4. Clique com o botão direito do rato em **mySampleDataWarehouse** e escolha **Nova Consulta** . É aberta uma nova janela de consulta.  
 
     ![Nova consulta no armazém de dados de exemplo](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
@@ -198,13 +198,13 @@ Uma vez que está atualmente ligado como o administrador do servidor, pode criar
 
 O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC20.  
 
-1. No Object Explorer, selecione o menu **Desacompor** o menu Desajeição e selecione **o Motor de Base de Dados**. A caixa de diálogo **Ligar ao Servidor** é apresentada.
+1. No Object Explorer, selecione o menu **Desacompor** o menu Desajeição e selecione **o Motor de Base de Dados** . A caixa de diálogo **Ligar ao Servidor** é apresentada.
 
     ![Ligar com início de sessão novo](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
 2. Introduza o nome de servidor completamente qualificado e introduza **LoaderRC20** como o Início de Sessão.  Introduza a palavra-passe para LoaderRC20.
 
-3. Selecione **Ligar**.
+3. Selecione **Ligar** .
 
 4. Quando a ligação estiver pronta, verá duas ligações de servidor no Object Explorer. Uma ligação como ServerAdmin e uma ligação como MedRCLogin.
 
@@ -216,7 +216,7 @@ Está pronto para iniciar o processo de carregamento de dados para o novo armaz�
 
 Execute os seguintes scripts SQL e especifique informações sobre os dados que pretende carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados.
 
-1. Na secção anterior, iniciou sessão no armazém de dados como LoaderRC20. No SSMS, clique com o botão direito do rato na sua ligação LoaderRC20 e selecione **Nova Consulta**.  É apresentada uma nova janela de consulta.
+1. Na secção anterior, iniciou sessão no armazém de dados como LoaderRC20. No SSMS, clique com o botão direito do rato na sua ligação LoaderRC20 e selecione **Nova Consulta** .  É apresentada uma nova janela de consulta.
 
     ![Nova janela de consulta de carregamento](./media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
@@ -492,7 +492,7 @@ Esta secção utiliza a [declaração COPY para carregar](https://docs.microsoft
 
     ![Ver tabelas carregadas](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Estão a ser-lhe cobrados os recursos de computação e os dados que carregou para o armazém de dados. São faturados em separado.
 
@@ -503,15 +503,15 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Faça login no [portal Azure,](https://portal.azure.com)selecione o seu armazém de dados.
 
-    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Para parar o cálculo, selecione o **botão Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar o cálculo, selecione **Start**.
+2. Para parar o cálculo, selecione o **botão Pausa.** Quando o armazém de dados estiver em pausa, verá um botão **Iniciar** .  Para retomar o cálculo, selecione **Start** .
 
-3. Para remover o armazém de dados para que não seja cobrado para computação ou armazenamento, selecione **Delete**.
+3. Para remover o armazém de dados para que não seja cobrado para computação ou armazenamento, selecione **Delete** .
 
-4. Para remover o servidor criado, selecione **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, selecione **Delete**.  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor criado, selecione **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, selecione **Delete** .  Tenha cuidado, uma vez que eliminar o servidor também eliminará todas as bases de dados atribuídas ao mesmo.
 
-5. Para remover o grupo de recursos, selecione **myResourceGroup**e, em seguida, **selecione Delete resource group**.
+5. Para remover o grupo de recursos, selecione **myResourceGroup** e, em seguida, **selecione Delete resource group** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

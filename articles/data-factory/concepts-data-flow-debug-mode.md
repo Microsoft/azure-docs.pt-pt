@@ -8,18 +8,18 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085098"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027011"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O modo de depuração do fluxo de dados da Azure Data Factory permite-lhe ver interativamente a forma de dados transformar-se enquanto constrói e depura os fluxos de dados. A sessão de depuragem pode ser usada tanto em sessões de design de Fluxo de Dados como durante a execução de depurações de fluxos de dados. Para ligar o modo de depuração, utilize o botão "Data Flow Debug" na parte superior da superfície de design.
 
@@ -77,15 +77,15 @@ Quando o teste de unidade se junta, existe ou procura transformações, certifiq
 
 Uma vez que veja a pré-visualização dos dados, pode gerar uma rápida transformação para typecast, remover ou fazer uma modificação numa coluna. Clique no cabeçalho da coluna e, em seguida, selecione uma das opções da barra de ferramentas de pré-visualização de dados.
 
-![Ações rápidas](media/data-flow/quick-actions1.png "Ações rápidas")
+![A screenshot mostra a barra de ferramentas de pré-visualização de dados com opções: Typecast, Modificar, Estatísticas e Remover.](media/data-flow/quick-actions1.png "Ações rápidas")
 
 Uma vez selecionada uma modificação, a pré-visualização dos dados irá imediatamente atualizar.000. Clique em **Confirmar** no canto superior direito para gerar uma nova transformação.
 
-![Ações rápidas](media/data-flow/quick-actions2.png "Ações rápidas")
+![A imagem mostra o botão Confirmar.](media/data-flow/quick-actions2.png "Ações rápidas")
 
 **Typecast** e **Modificar** gerará uma transformação de Coluna Derivada e **remover** gerará uma transformação Select.
 
-![Ações rápidas](media/data-flow/quick-actions3.png "Ações rápidas")
+![A screenshot mostra as definições da Coluna Derivada.](media/data-flow/quick-actions3.png "Ações rápidas")
 
 > [!NOTE]
 > Se editar o fluxo de dados, tem de reencandidinhar a pré-visualização dos dados antes de adicionar uma transformação rápida.

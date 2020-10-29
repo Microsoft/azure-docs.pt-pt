@@ -4,12 +4,12 @@ description: Criar um registo de contentor do Azure, configurar a georreplicaç�
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 804f07762bef596f4631fbc5f694ecc6b308bfad
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739482"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027232"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -42,7 +42,7 @@ Para este tutorial, você precisa de um registo de contentores Azure no nível d
 > [!TIP]
 > Se criou previamente um registo e precisa de atualizar, consulte [níveis de alteração](container-registry-skus.md#changing-tiers). 
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Selecione **Criar um** registo de  >  **contentores de** recursos  >  **Azure Container** .
 
@@ -123,19 +123,19 @@ Se não tiver o `git` instalado, poderá [transferir o arquivo ZIP][acr-hellowor
 
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 
-O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Inicia a partir de uma imagem oficial [aspnetcore][dockerhub-aspnetcore], copia os ficheiros da aplicação para o contentor, instala as dependências, compila a saída com a imagem oficial [aspnetcore-build][dockerhub-aspnetcore-build] e, por fim, cria uma imagem aspnetcore otimizada.
+O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Começa a partir de uma imagem oficial de ASP.NET Core, copia os ficheiros de aplicação no recipiente, instala dependências, compila a saída utilizando a imagem oficial do Núcleo SDK .NET e, finalmente, constrói uma imagem aspnetcore otimizada.
 
 O [Dockerfile][dockerfile] está localizado em `./AcrHelloworld/Dockerfile` na origem clonada.
 
 ```Dockerfile
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
@@ -187,8 +187,8 @@ Várias linhas de saída são apresentadas conforme a imagem do Docker é criada
 
 ```bash
 Sending build context to Docker daemon  523.8kB
-Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
-2.0: Pulling from microsoft/aspnetcore
+Step 1/18 : FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+2.2: Pulling from mcr.microsoft.com/dotnet/core/aspnet
 3e17c6eae66c: Pulling fs layer
 
 [...]
@@ -245,6 +245,4 @@ Avance para o próximo tutorial para implementar o contentor em várias Aplicaç
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
 [aspnet-core]: https://dot.net
-[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
-[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

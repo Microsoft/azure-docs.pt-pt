@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461078"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027555"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -28,7 +28,7 @@ Neste artigo, você usará o [portal Azure](https://portal.azure.com) para **cri
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, **crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** antes de começar.
+Se não tiver uma subscrição do Azure, **crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** antes de começar.
 Inscreva-se no [portal Azure](https://portal.azure.com) com esta conta. 
 
 Também precisa de completar os seguintes itens como parte da configuração pré-requisito. O restante desta secção irá acompanhá-lo através destes passos:
@@ -40,8 +40,8 @@ Também precisa de completar os seguintes itens como parte da configuração pr�
 
 Para ligar uma instância Azure Digital Twins a Logic Apps neste artigo, terá de ter a **instância Azure Digital Twins** já configurada. 
 
-Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
-* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal Azure).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
+Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md).
+* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso [(encontre no portal Azure).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Para autenticar o conector, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
 * Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino) ID (encontre_** [no portal Azure).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
@@ -54,7 +54,7 @@ Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
-Introduza os valores que quiser para Descrição e Expira, e bata *Em Adicionar*.
+Introduza os valores que quiser para Descrição e Expira, e bata *Em Adicionar* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
@@ -74,11 +74,11 @@ Vai precisar da **_identificação de_** um gémeo no seu caso que criou.
 
 Neste passo, irá criar um [conector de Apps Lógicas personalizado](../logic-apps/custom-connector-overview.md) para as APIs de Gémeos Digitais Azure. Depois de o fazer, poderá ligar a Azure Digital Twins ao criar uma aplicação lógica na secção seguinte.
 
-Navegue para a página [de Connector Personalizado de Aplicações Lógicas](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Hit *+ Add*.
+Navegue para a página [de Connector Personalizado de Aplicações Lógicas](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Hit *+ Add* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
-Na página *do Conector Personalizado create Logic Apps* que se segue, selecione o seu grupo de subscrição e recursos e um nome e localização de implementação para o seu novo conector. Hit *Review + criar*. 
+Na página *do Conector Personalizado create Logic Apps* que se segue, selecione o seu grupo de subscrição e recursos e um nome e localização de implementação para o seu novo conector. Hit *Review + criar* . 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
@@ -94,12 +94,12 @@ Em seguida, configurará o conector que criou para chegar às Gémeas Digitais A
 
 Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Descarregue a amostra **personalizada da Azure Digital Twins (Connector De Aplicações Lógicas)** a partir [**deste link,**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) premindo o botão *Download ZIP.* Navegue para a pasta *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* descarregada e desaperte-a. 
 
-O Swagger personalizado para este tutorial está localizado na pasta _**Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_. Esta pasta contém sub-dobradeiras chamadas *estáveis* e *de pré-visualização,* ambas com diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a mais recente cópia do Swagger. Seja qual for a versão que selecionar, o ficheiro Swagger é nomeado _** digitaltwins.jsem**_.
+O Swagger personalizado para este tutorial está localizado na pasta _**Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps **_. Esta pasta contém sub-dobradeiras chamadas *estáveis* e *de pré-visualização,* ambas com diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a mais recente cópia do Swagger. Seja qual for a versão que selecionar, o ficheiro Swagger é nomeado _** digitaltwins.jsem**_.
 
 > [!NOTE]
 > A menos que esteja a trabalhar com uma funcionalidade de pré-visualização, é geralmente recomendado usar a versão mais recente *e estável* do Swagger. No entanto, versões anteriores e versões de pré-visualização do Swagger também são suportadas. 
 
-Em seguida, vá à página geral do seu conector no [portal Azure](https://portal.azure.com) e bata *em Edit*.
+Em seguida, vá à página geral do seu conector no [portal Azure](https://portal.azure.com) e bata *em Edit* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
@@ -107,7 +107,7 @@ Na página de *Conector Personalizado de Aplicações Lógicas* de Edição que 
 * **Conectores personalizados**
     - Ponto final da API: REST (padrão de licença)
     - Modo de importação: Ficheiro OpenAPI (padrão de licença)
-    - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import*, localizar o ficheiro na sua máquina *(Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps \...\digitaltwins.jsligados*) e acertar Em *Open*.
+    - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import* , localizar o ficheiro na sua máquina *(Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps \...\digitaltwins.jsligados* ) e acertar Em *Open* .
 * **Informação geral**
     - Ícone: Faça upload de um ícone que você gosta
     - Cor de fundo do ícone: Introduza o código hexadecimal no formato '#xxxxxx' para a sua cor.
@@ -121,8 +121,8 @@ Em seguida, adiem o botão *de Segurança* na parte inferior da janela para cont
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Na etapa de Segurança, *acerte editar* e configuure esta informação:
-* **Tipo de autenticação**: Oauth 2.0
-* **OAuth 2.0**:
+* **Tipo de autenticação** : Oauth 2.0
+* **OAuth 2.0** :
     - Fornecedor de identidade: Azure Ative Directory
     - ID do cliente: O *ID de aplicação (cliente)* para o seu registo de aplicações AZure AD
     - Segredo do cliente: O *segredo do Cliente* que criou em [*Pré-requisitos*](#prerequisites) para o seu registo de aplicações AD Azure
@@ -132,7 +132,7 @@ Na etapa de Segurança, *acerte editar* e configuure esta informação:
     - Âmbito: Diretório.AccessAsUser.All
     - Url de redirecionamento: (deixar por defeito por enquanto)
 
-Note que o campo URL de redirecionamento diz *Salvar o conector personalizado para gerar o URL de redirecionamento*. Faça isto agora, atingindo o *conector Update* através da parte superior do painel para confirmar as definições do conector.
+Note que o campo URL de redirecionamento diz *Salvar o conector personalizado para gerar o URL de redirecionamento* . Faça isto agora, atingindo o *conector Update* através da parte superior do painel para confirmar as definições do conector.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
@@ -145,7 +145,7 @@ Volte ao campo URL de redirecionamento e copie o valor que foi gerado. Vais usá
 Esta é toda a informação necessária para criar o seu conector (não há necessidade de continuar a ultrapassar a Segurança até ao passo Definição). Pode fechar o painel de *conector personalizado de aplicações lógicas de edição.*
 
 >[!NOTE]
->De volta à página geral do seu conector onde inicialmente atingiu *Edit*, note que bater *novamente* em Edit irá reiniciar todo o processo de inserimento das suas escolhas de configuração. Não irá povoar os seus valores da última vez que passou por ele, por isso, se quiser guardar uma configuração atualizada com quaisquer valores alterados, deve reintroduminar todos os outros valores também para evitar que sejam substituídos por defeitos.
+>De volta à página geral do seu conector onde inicialmente atingiu *Edit* , note que bater *novamente* em Edit irá reiniciar todo o processo de inserimento das suas escolhas de configuração. Não irá povoar os seus valores da última vez que passou por ele, por isso, se quiser guardar uma configuração atualizada com quaisquer valores alterados, deve reintroduminar todos os outros valores também para evitar que sejam substituídos por defeitos.
 
 ### <a name="grant-connector-permissions-in-the-azure-ad-app"></a>Conceder permissões de conector na app AZure AD
 
@@ -181,26 +181,26 @@ Você será levado para a página de implementação para a aplicação lógica.
 
 ### <a name="design-workflow"></a>Fluxo de trabalho de design
 
-No *Logic Apps Designer*, em *Iniciar com um gatilho comum,* selecione _**Recorrência**_.
+No *Logic Apps Designer* , em *Iniciar com um gatilho comum,* selecione _**Recorrência**_ .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
-Na página *De Design de Aplicações Lógicas* que se segue, altere a Frequência **de Recorrência** para *Segundo*, para que o evento seja desencadeado a cada 3 segundos. Isto facilitará a início dos resultados sem ter de esperar muito tempo.
+Na página *De Design de Aplicações Lógicas* que se segue, altere a Frequência **de Recorrência** para *Segundo* , para que o evento seja desencadeado a cada 3 segundos. Isto facilitará a início dos resultados sem ter de esperar muito tempo.
 
-Hit *+ Novo passo*.
+Hit *+ Novo passo* .
 
 Isto abrirá uma caixa *de ação para escolher.* Mude para o *separador Personalizado.* Deve ver o seu conector personalizado mais cedo na caixa de cima.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
-Selecione-o para visualizar a lista de APIs contidas no conector. Utilize a barra de pesquisa ou percorra a lista para selecionar **DigitalTwins_Add**. (Esta é a API utilizada neste artigo, mas também pode selecionar qualquer outra API como uma escolha válida para uma ligação de Apps Lógicas).
+Selecione-o para visualizar a lista de APIs contidas no conector. Utilize a barra de pesquisa ou percorra a lista para selecionar **DigitalTwins_Add** . (Esta é a API utilizada neste artigo, mas também pode selecionar qualquer outra API como uma escolha válida para uma ligação de Apps Lógicas).
 
 Pode ser-lhe pedido que faça sedús com as suas credenciais Azure para se ligar ao conector. Se tiver um *diálogo solicitado permissões,* siga as instruções para conceder o consentimento para a sua app e aceite.
 
 Na nova caixa *DigitalTwinsAdd,* preencha os campos da seguinte forma:
-* _id_: Preencha o *ID Twin* do gémeo digital no seu caso que gostaria que a App Lógica atualizasse.
-* _twin_: Este campo é onde você vai entrar no corpo que o pedido de API escolhido requer. Para *o DigitalTwinsUpdate,* este corpo está na forma do código JSON Patch. Para saber mais sobre a estruturação de um JSON Patch para atualizar o seu gémeo, consulte a [Atualização de uma](how-to-manage-twin.md#update-a-digital-twin) secção digital twin de *How-to: Manage digital twins*.
-* _versão api_: A versão API mais recente. Atualmente, este valor é *2020-10-31*.
+* _id_ : Preencha o *ID Twin* do gémeo digital no seu caso que gostaria que a App Lógica atualizasse.
+* _twin_ : Este campo é onde você vai entrar no corpo que o pedido de API escolhido requer. Para *o DigitalTwinsUpdate,* este corpo está na forma do código JSON Patch. Para saber mais sobre a estruturação de um JSON Patch para atualizar o seu gémeo, consulte a [Atualização de uma](how-to-manage-twin.md#update-a-digital-twin) secção digital twin de *How-to: Manage digital twins* .
+* _versão api_ : A versão API mais recente. Atualmente, este valor é *2020-10-31* .
 
 Hit *Save* in the Logic Apps Designer.
 

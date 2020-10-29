@@ -11,12 +11,12 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211889"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026807"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Como monitorizar a cache da Gen2
 
@@ -26,15 +26,15 @@ A arquitetura de armazenamento Gen2 tiers automaticamente seus segmentos de loja
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Resolução de problemas usando o portal Azure
 
-Pode utilizar o Azure Monitor para visualizar as métricas de cache da Gen2 para resolver problemas de desempenho. Primeiro vá ao portal Azure e clique no **Monitor,** **Métricas** e **+ Selecione um âmbito**:
+Pode utilizar o Azure Monitor para visualizar as métricas de cache da Gen2 para resolver problemas de desempenho. Primeiro vá ao portal Azure e clique no **Monitor,** **Métricas** e **+ Selecione um âmbito** :
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Screenshot mostra Selecionar um âmbito selecionado a partir de Métricas no portal Azure.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
 Use as barras de pesquisa e de entrega para localizar o seu armazém de dados. Em seguida, selecione aplicar.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![A screenshot mostra o painel de âmbito Select, onde pode selecionar o seu armazém de dados.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-As métricas-chave para a resolução de problemas da cache gen2 são a **percentagem de atingidos cache** e **a percentagem utilizada pela Cache.** Selecione **a percentagem de produção de Cache** e, em seguida, utilize o botão **métrico de adicionar** Cache para adicionar a **percentagem utilizada pela Cache**. 
+As métricas-chave para a resolução de problemas da cache gen2 são a **percentagem de atingidos cache** e **a percentagem utilizada pela Cache.** Selecione **a percentagem de produção de Cache** e, em seguida, utilize o botão **métrico de adicionar** Cache para adicionar a **percentagem utilizada pela Cache** . 
 
 ![Métricas de Cache](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

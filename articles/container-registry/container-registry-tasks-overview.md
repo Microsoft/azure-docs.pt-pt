@@ -3,12 +3,12 @@ title: Descrição geral das Tarefas do ACR
 description: Uma introdução ao ACR Tasks, um conjunto de funcionalidades no Registo de Contentores Azure que proporciona uma construção, gestão e remendos de imagem de contentores seguros e automatizados na nuvem.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488648"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027671"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar a imagem do contentor constrói e manutenção com tarefas ACR
 
@@ -58,8 +58,8 @@ A ACR Tasks suporta os seguintes gatilhos quando define um git repo como o conte
 
 | Acionador | Ativado por predefinição |
 | ------- | ------------------ |
-| Consolidação | Sim |
-| Pedido Pull | Não |
+| Consolidação | Yes |
+| Pedido Pull | No |
 
 Para configurar um gatilho de atualização de código fonte, é necessário fornecer à tarefa um token de acesso pessoal (PAT) para definir o webhook no repo do GitHub ou do Azure DevOps.
 
@@ -70,7 +70,7 @@ Aprenda a desencadear as construções do código fonte comprometendo-se no segu
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizar o SISTEMA e a correção de quadros
 
-O poder das Tarefas ACR para melhorar verdadeiramente o fluxo de trabalho de construção de contentores provém da sua capacidade de detetar uma atualização para uma *imagem base*. Uma característica da maioria das imagens do contentor, uma imagem base é uma imagem dos pais na qual uma ou mais imagens de aplicação são baseadas. As imagens base normalmente contêm o sistema operativo, e às vezes as estruturas de aplicação. 
+O poder das Tarefas ACR para melhorar verdadeiramente o fluxo de trabalho de construção de contentores provém da sua capacidade de detetar uma atualização para uma *imagem base* . Uma característica da maioria das imagens do contentor, uma imagem base é uma imagem dos pais na qual uma ou mais imagens de aplicação são baseadas. As imagens base normalmente contêm o sistema operativo, e às vezes as estruturas de aplicação. 
 
 Pode configurar uma tarefa ACR para rastrear uma dependência de uma imagem base quando constrói uma imagem de aplicação. Quando a imagem base atualizada é empurrada para o seu registo, ou uma imagem base é atualizada num repo público, como em Docker Hub, as Tarefas ACR podem automaticamente construir quaisquer imagens de aplicação com base nele.
 Com esta deteção e reconstrução automática, a ACR Tasks poupa-lhe o tempo e esforço normalmente necessários para rastrear e atualizar manualmente cada imagem de aplicação que faz referência à sua imagem base atualizada.
@@ -138,10 +138,6 @@ Quando estiver pronto para automatizar a imagem do contentor e a manutenção na
 Instale opcionalmente a [extensão do Docker para o Código do Estúdio Visual](https://code.visualstudio.com/docs/azure/docker) e a extensão da Conta [Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com os registos dos seus contentores Azure. Puxe e empurre as imagens para um registo de contentores Azure, ou execute tarefas ACR, tudo dentro do Código do Estúdio Visual.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

@@ -8,16 +8,16 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047391"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026501"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
-Se precisa de mover o seu exemplo Azure Digital Twins de uma região para outra, o processo atual é **recriar os seus recursos na nova região**, e depois apagar os recursos originais. No final deste processo, estará a trabalhar com uma nova instância Azure Digital Twins que é idêntica à primeira, com exceção da localização atualizada.
+Se precisa de mover o seu exemplo Azure Digital Twins de uma região para outra, o processo atual é **recriar os seus recursos na nova região** , e depois apagar os recursos originais. No final deste processo, estará a trabalhar com uma nova instância Azure Digital Twins que é idêntica à primeira, com exceção da localização atualizada.
 
 Este artigo fornece orientações sobre como fazer um movimento completo, copiando tudo o que você precisa para fazer a nova instância corresponder ao original.
 
@@ -76,11 +76,13 @@ Se a amostra não for capaz de lidar com o tamanho do seu gráfico, pode exporta
 
 Para prosseguir com o ADT Explorer, primeiro descarregue o código de aplicação da amostra e confita-o para funcionar na sua máquina. 
 
-Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _** comoADT_Explorer.zip**_. Desaperte o ficheiro.
+Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _**comoAzure_Digital_Twins__ADT__explorer.zip**_ . Desaperte o ficheiro.
 
-Em seguida, crie permissões para que o ADT Explorer seja executado na sua máquina. Para isso, siga os passos na secção [*de permissões set ADT Explorer*](quickstart-adt-explorer.md#set-adt-explorer-permissions) do arranque rápido das Gémeas Digitais Azure.
-
-Por fim, corra e configuure o ADT Explorer para ligar à sua instância original do Azure Digital Twins. Siga os passos na [*secção Run e configuure*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) a secção ADT Explorer do arranque rápido.
+Em seguida, configurar e configurar permissões para o ADT Explorer. Para isso, siga as instruções na secção [*Configurar Gémeos Digitais Azure e ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do arranque rápido das Gémeas Digitais Azure. Esta secção acompanha-o através dos seguintes passos:
+1. Configurar uma instância Azure Digital Twins (pode saltar esta parte já que já tem um caso)
+2. Crie um **registo de aplicativo AD Azure** para fornecer acesso ao seu caso
+3. Configurar permissões para o ADT Explorer funcionar na sua máquina
+4. Executar o ADT Explorer e configurá-lo para ligar ao seu caso. Você usará o **nome de anfitrião** da sua instância original Azure Digital Twins que você está movendo, e o **ID** do cliente e **o iD** do inquilino a partir do registo da app.
 
 Agora deve ter a aplicação de amostra do ADT Explorer a funcionar num browser na sua máquina. A amostra deve ser ligada à sua instância original da Azure Digital Twins.
 
@@ -102,10 +104,10 @@ Em seguida, bata no ícone *do gráfico de exportação* na caixa *GRAPH VIEW.*
 
 :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Isto permitirá um link *de descarregamento* no *GRAPH VIEW*. Selecione-o para descarregar uma representação baseada em JSON do resultado da consulta, incluindo os seus modelos, gémeos e relacionamentos. Isto deve descarregar um ficheiro *.json* para a sua máquina.
+Isto permitirá um link *de descarregamento* no *GRAPH VIEW* . Selecione-o para descarregar uma representação baseada em JSON do resultado da consulta, incluindo os seus modelos, gémeos e relacionamentos. Isto deve descarregar um ficheiro *.json* para a sua máquina.
 
 >[!NOTE]
->Se o ficheiro descarregado parecer ter uma extensão de ficheiro diferente, tente editar a extensão diretamente e mudá-la para *.json*.
+>Se o ficheiro descarregado parecer ter uma extensão de ficheiro diferente, tente editar a extensão diretamente e mudá-la para *.json* .
 
 ## <a name="move"></a>Mover
 
@@ -116,9 +118,6 @@ Em seguida, irá completar o "movimento" do seu caso criando um novo caso na reg
 Em primeiro lugar, **crie uma nova instância de Azure Digital Twins na sua região alvo.** Para isso, siga os passos em [*Como-a: Configurar um caso e autenticação,*](how-to-set-up-instance-portal.md)tendo em conta estes ponteiros:
 * Pode manter o mesmo nome para a nova instância **se** estiver num grupo de recursos diferente. Se precisar de utilizar o mesmo grupo de recursos que contém a sua instância original, então a sua nova instância precisará do seu próprio nome distinto.
 * Insira a nova região alvo quando solicitado para um local.
-* Não **é necessário** recriar o registo da aplicação. A sua nova instância pode reutilizar o mesmo registo de aplicações que já tem.
-    - Se utilizar o artigo de configuração [scripted,](how-to-set-up-instance-scripted.md) pode reentrar nos detalhes do seu registo de aplicações existente em vez de introduzir um novo nome quando solicitado.
-    - Se utilizar o [portal](how-to-set-up-instance-portal.md) manual ou os artigos de configuração [do CLI,](how-to-set-up-instance-cli.md) pode parar depois da *instância Criar o Azure Digital Twins* e configurar as *permissões de acesso ao utilizador.* Não há necessidade de continuar através *da Configuração de permissões de acesso para aplicações de clientes.*
 
 Uma vez concluído este facto, necessitará do **nome de anfitrião** da sua nova instância para continuar a conushá-lo com os seus dados. Se não tiver dado nota disto durante a configuração, pode seguir [estas instruções](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) para obtê-lo agora a partir do portal Azure.
 
@@ -138,9 +137,9 @@ Atualmente, o ADT Explorer está ligado à sua instância original do Azure Digi
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Uma vez que está a reutilizar o registo da aplicação, só precisa de substituir o *URL ADT.* Altere este valor para o que lê *https://{new instance hostname}*.
+Pode reutilizar o mesmo registo de aplicações, pelo que só precisa de substituir o *URL ADT* para refletir a sua nova instância. Altere este valor para o que lê *https://{new instance hostname}* .
 
-Hit *Connect*. Pode ser-lhe pedido que faça login novamente com as suas credenciais Azure e/ou conceda este consentimento de pedido para o seu exemplo.
+Hit *Connect* . Pode ser-lhe pedido que faça login novamente com as suas credenciais Azure e/ou conceda este consentimento de pedido para o seu exemplo.
 
 ##### <a name="upload-models-twins-and-graph"></a>Upload modelos, gémeos e gráfico
 
@@ -150,11 +149,11 @@ Para fazer o upload dos seus **modelos, gémeos e gráfico,** acerte o ícone *I
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Na caixa de seletor de ficheiros, navegue para o seu gráfico descarregado. Selecione o ficheiro *gráfico .json* e acerte *em Open*.
+Na caixa de seletor de ficheiros, navegue para o seu gráfico descarregado. Selecione o ficheiro *gráfico .json* e acerte *em Open* .
 
 Após alguns segundos, o ADT Explorer abrirá uma vista *de Importação* exibindo uma pré-visualização do gráfico que vai ser carregado.
 
-Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior direito do *GRAPH VIEW*:
+Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior direito do *GRAPH VIEW* :
 
 :::row:::
     :::column:::
@@ -176,7 +175,7 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
     :::column-end:::
 :::row-end:::
 
-Para verificar se tudo foi carregado com sucesso, carrememe o botão *'Executar consulta'* na caixa *GRAPH EXPLORER* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico. Isto irá também refrescar a lista de modelos no *MODEL VIEW*.
+Para verificar se tudo foi carregado com sucesso, carrememe o botão *'Executar consulta'* na caixa *GRAPH EXPLORER* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico. Isto irá também refrescar a lista de modelos no *MODEL VIEW* .
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -192,7 +191,7 @@ Se tiver **pontos finais e/ou rotas** no seu caso original, terá de recriá-los
 
 Caso contrário, proceda, siga os passos em [*Como-a: Gerir pontos finais e rotas*](how-to-manage-routes-portal.md) utilizando a nova instância, tendo em conta estes ponteiros: 
 * Não **precisa de** recriar o recurso Event Grid, Event Hub ou Service Bus que está a utilizar para o ponto final *(secções pré-requisitos* nas instruções do ponto final). Só precisas de recriar o ponto final na instância Azure Digital Twins.
-* Pode reutilizar **os nomes**de ponta final e rota, uma vez que são telescópios para um caso diferente.
+* Pode reutilizar **os nomes** de ponta final e rota, uma vez que são telescópios para um caso diferente.
 * Lembre-se de adicionar **os filtros necessários** às rotas que criar.
 
 #### <a name="re-link-connected-resources"></a>Religar recursos conectados
@@ -201,7 +200,7 @@ Se tiver outras aplicações ou recursos Azure que estejam ligados à sua instâ
 
 Se não tiver outros recursos ligados à sua instância original ou não quiser movê-los para a nova instância, pode saltar para a [secção seguinte.](#verify)
 
-Caso contrário, para prosseguir, considere os recursos conectados no seu cenário. Não é necessário eliminar e recriar quaisquer recursos ligados; em vez disso, basta editar os pontos em que se ligam a um exemplo de Azure Digital Twins através do seu **nome de anfitrião**, e atualizá-lo para usar o nome de anfitrião do novo exemplo em vez do original.
+Caso contrário, para prosseguir, considere os recursos conectados no seu cenário. Não é necessário eliminar e recriar quaisquer recursos ligados; em vez disso, basta editar os pontos em que se ligam a um exemplo de Azure Digital Twins através do seu **nome de anfitrião** , e atualizá-lo para usar o nome de anfitrião do novo exemplo em vez do original.
 
 Os recursos exatos que precisa de editar dependem do seu cenário, mas aqui estão alguns pontos de integração comuns:
 * Funções Azure. Se tiver uma função Azure cujo código inclui o nome de anfitrião da instância original, deverá atualizar este valor para o nome de anfitrião da nova instância e voltar a publicar a função.
@@ -226,7 +225,7 @@ Também pode tentar executar quaisquer aplicações personalizadas ou fluxos de 
 
 ## <a name="clean-up-source-resources"></a>Limpar recursos de origem
 
-Agora que o seu novo caso é configurado na região alvo com uma cópia dos dados e ligações da instância original, pode **apagar a instância original**.
+Agora que o seu novo caso é configurado na região alvo com uma cópia dos dados e ligações da instância original, pode **apagar a instância original** .
 
 Pode fazê-lo no [portal Azure,](https://portal.azure.com)com o [CLI,](how-to-use-cli.md)ou com as APIs do [avião de controlo.](how-to-use-apis-sdks.md#overview-control-plane-apis)
 

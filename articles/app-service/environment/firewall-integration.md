@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 8acd0a6992c26266f20aaf46dd225a9fff9d6974
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172017"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026365"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente de Serviço de Aplicações
 
@@ -61,11 +61,11 @@ Os passos para bloquear a saída do seu ASE existente com a Azure Firewall são:
    
    ![Adicionar regra de aplicação][1]
    
-1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras nos endereços IP, forneça um nome, selecione um protocolo de **Qualquer**, definido * para endereços de Origem e Destino, e definir as portas para 123. Esta regra permite que o sistema execute sincronização do relógio utilizando NTP. Crie outra regra da mesma forma para o porto 12000 para ajudar a triagem de quaisquer problemas do sistema. 
+1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras nos endereços IP, forneça um nome, selecione um protocolo de **Qualquer** , definido * para endereços de Origem e Destino, e definir as portas para 123. Esta regra permite que o sistema execute sincronização do relógio utilizando NTP. Crie outra regra da mesma forma para o porto 12000 para ajudar a triagem de quaisquer problemas do sistema. 
 
    ![Adicionar regra de rede NTP][3]
    
-1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras ao abrigo das Etiquetas de Serviço, forneça um nome, selecione um protocolo de **Qualquer**, definido * para endereços Source, selecione uma etiqueta de serviço do AzureMonitor e desaver as portas para 80.443. Esta regra permite ao sistema fornecer ao Monitor Azure informações sobre saúde e métricas.
+1. A partir da coleção de regras de > regras > de rede de > de firewall Azure Firewall, selecione Add network rule collection. Forneça um nome, prioridade e definir Permitir. Na secção Regras ao abrigo das Etiquetas de Serviço, forneça um nome, selecione um protocolo de **Qualquer** , definido * para endereços Source, selecione uma etiqueta de serviço do AzureMonitor e desaver as portas para 80.443. Esta regra permite ao sistema fornecer ao Monitor Azure informações sobre saúde e métricas.
 
    ![Adicione regra de rede de tag de serviço NTP][6]
    
@@ -255,6 +255,7 @@ Com uma Firewall Azure, obtém automaticamente tudo abaixo configurado com as ta
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |

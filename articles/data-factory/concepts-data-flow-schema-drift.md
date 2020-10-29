@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324353"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027487"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva de Schema no fluxo de dados de mapeamento
 
@@ -69,11 +69,11 @@ Para obter mais informações sobre como implementar padrões de colunas, consul
 
 Para referenciar explicitamente colunas derivadas, pode gerar rapidamente mapeamentos para estas colunas através de uma ação rápida de pré-visualização de dados. Assim que [o modo de depurar](concepts-data-flow-debug-mode.md) estiver ligado, vá ao separador Des preview de Dados e clique em **Atualizar** para obter uma pré-visualização de dados. Se a fábrica de dados detetar que as colunas derivadas existem, pode clicar em **Map Drifted** e gerar uma coluna derivada que lhe permite fazer referência a todas as colunas derivadas em vistas de esquema a jusante.
 
-![Mapa à deriva](media/data-flow/mapdrifted1.png "Mapa à deriva")
+![A screenshot mostra o separador de pré-visualização de dados com o Mapa à deriva chamado.](media/data-flow/mapdrifted1.png "Mapa à deriva")
 
 Na transformação gerada da Coluna Derivada, cada coluna derivada é mapeada para o seu nome e tipo de dados detetados. Na pré-visualização de dados acima, a coluna 'movieId' é detetada como um inteiro. Depois de **Map Drifted** ser clicado, o movieId é definido na Coluna Derivada como `toInteger(byName('movieId'))` e incluído em vistas de esquema em transformações a jusante.
 
-![Mapa à deriva](media/data-flow/mapdrifted2.png "Mapa à deriva")
+![A screenshot mostra o separador Definições da Coluna Derivada.](media/data-flow/mapdrifted2.png "Mapa à deriva")
 
 ## <a name="next-steps"></a>Passos seguintes
 Na Linguagem de Expressão de [Fluxo de Dados,](data-flow-expression-functions.md)encontrará instalações adicionais para padrões de colunas e deriva de esquema, incluindo "byName" e "byPosition".

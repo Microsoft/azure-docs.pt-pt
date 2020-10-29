@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907181"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027589"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Fluxo de dados como entrada no Stream Analytics
 
@@ -55,7 +55,7 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | **Nome do Hub de Eventos** | O nome do centro de eventos para usar como entrada. |
 | **Nome da política do Hub de Eventos** | A política de acesso partilhado que dá acesso ao Centro de Eventos. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. Esta opção é preenchida automaticamente, a menos que selecione a opção para fornecer manualmente as definições do Centro de Eventos.|
 | **Grupo de consumidores Event Hub** (recomendado) | É altamente recomendado utilizar um grupo de consumidores distinto para cada trabalho stream Analytics. Esta cadeia identifica o grupo de consumidores para usar para ingerir dados do centro de eventos. Se nenhum grupo de consumidores for especificado, o trabalho stream Analytics utiliza o grupo de consumidores $Default.  |
-| **Chave de partição** | Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY nesta propriedade. |
+| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro, ou [Outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhado com a especificação e não inclui a liderança 0 para números decimais. |
 | **Encoding** (Codificação) | UtF-8 é atualmente o único formato de codificação suportado. |
 | **Tipo de compressão de eventos** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, como Nenhum (padrão), GZip ou Deflate. |
@@ -105,7 +105,7 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | **Nome da política de acesso partilhado** | A política de acesso partilhado que dá acesso ao IoT Hub. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
 | **Chave de política de acesso compartilhado** | A chave de acesso partilhada usada para autorizar o acesso ao IoT Hub.  Esta opção é automaticamente preenchida a menos que selecione a opção para fornecer manualmente as definições do Iot Hub. |
 | **Grupo de consumidores** | É altamente recomendável que utilize um grupo de consumidores diferente para cada trabalho stream Analytics. O grupo de consumidores é utilizado para ingerir dados do IoT Hub. O Stream Analytics utiliza o grupo de consumidores $Default, a menos que especifique o contrário.  |
-| **Chave de partição** | Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY nesta propriedade. |
+| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro, ou [Outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhado com a especificação e não inclui a liderança 0 para números decimais. |
 | **Encoding** (Codificação) | UtF-8 é atualmente o único formato de codificação suportado. |
 | **Tipo de compressão de eventos** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, como Nenhum (padrão), GZip ou Deflate. |
@@ -159,7 +159,8 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar as bolhas dentro do recipiente especificado. Se quiser ler bolhas da raiz do recipiente, não descreva um padrão de caminho. Dentro do caminho, pode especificar uma ou mais instâncias das seguintes três variáveis: `{date}` `{time}` , ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` personagem não é um valor permitido para o prefixo do caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">são permitidos caracteres blob Azure</a> válidos. Não inclua nomes de contentores ou nomes de ficheiros. |
 | **Formato de data** (opcional) | Se utilizar a variável de data no caminho, o formato de data em que os ficheiros são organizados. Exemplo: `YYYY/MM/DD` <br/><br/> Quando a entrada blob tem `{date}` ou `{time}` no seu caminho, as pastas são vistas em ordem de tempo ascendente.|
 | **Formato de tempo** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de tempo em que os ficheiros são organizados. Atualmente, o único valor suportado é `HH` de horas. |
-| **Chave de partição** | Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade. As chaves de partição são opcionais e são usadas para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY nesta propriedade. |
+| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
+| **Contagem de divisórias de entrada** | Este campo só está presente quando {partition} está presente no padrão do caminho. O valor desta propriedade é um inteiro >=1. Onde quer que {partition} apareça no pathPattern, será utilizado um número entre 0 e o valor deste campo -1. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro, ou [Outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhado com a especificação e não inclui a liderança 0 para números decimais. |
 | **Encoding** (Codificação) | Para cSV e JSON, UTF-8 é atualmente o único formato de codificação suportado. |
 | **Compressão** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, como Nenhum (padrão), GZip ou Deflate. |

@@ -3,12 +3,12 @@ title: Ver registos de execução de tarefas - Tarefas
 description: Como visualizar e gerir registos de execução gerados por Tarefas ACR.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871937"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027181"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Ver e gerir registos de execução de tarefas
 
@@ -65,14 +65,14 @@ Se uma tarefa for automaticamente ativada, por exemplo através de uma atualiza�
 Para visualizar registos de execução no portal:
 
 1. Navegue para o seu registo de contentores.
-1. Em **Serviços**, selecione **Tasks**  >  **Runs**.
+1. Em **Serviços** , selecione **Tasks**  >  **Runs** .
 1. Selecione um **Run Id** para visualizar o estado de execução e executar registos. O registo contém a mesma informação que um registo transmitido, se um for gerado.
 
 ![Ver portal de login executado por tarefas](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Para visualizar um registo utilizando o CLI Azure, executar [registos de tarefas az acr](/cli/azure/acr/task#az-acr-task-logs) e especificar um ID de execução, um nome de tarefa ou uma imagem específica criar por uma tarefa de construção. Se um nome de tarefa for especificado, o comando mostra o registo para a última execução criada.
 
-O exemplo a seguir sai o log para a execução com iD *cf4*:
+O exemplo a seguir sai o log para a execução com iD *cf4* :
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 Também pode guardar ficheiros de registo local para o Azure Storage. Por exemplo, utilize o [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), o [portal Azure,](../storage/blobs/storage-quickstart-blobs-portal.md)ou outros métodos para enviar ficheiros para uma conta de armazenamento.
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre as [Tarefas de Registo de Contentores do Azure](container-registry-tasks-overview.md)
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

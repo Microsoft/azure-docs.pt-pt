@@ -3,12 +3,12 @@ title: Autenticação de registo cruzado da tarefa ACR
 description: Configure uma Tarefa de Registo de Contentores Azure (Tarefa ACR) para aceder a outro registo privado de contentores Azure utilizando uma identidade gerida para os recursos da Azure
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057365"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026263"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação de registo cruzado numa tarefa de ACR utilizando uma identidade gerida pelo Azure 
 
@@ -39,16 +39,12 @@ Se ainda não tiver os registos necessários dos contentores Azure, consulte [Qu
 
 ## <a name="prepare-base-registry"></a>Preparar registo de base
 
-Primeiro, crie um diretório de trabalho e, em seguida, crie um ficheiro chamado Dockerfile com o seguinte conteúdo. Este exemplo simples constrói uma imagem base Node.js a partir de uma imagem pública em Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+Para fins de demonstração, como uma operação única, executar [az acr import][az-acr-import] para importar uma imagem de Node.js pública de Docker Hub para o seu registo base. Na prática, outra equipa ou processo na organização pode manter imagens no registo base.
 
-No diretório atual, executar o comando [de construção az acr][az-acr-build] para construir e empurrar a imagem base para o registo base. Na prática, outra equipa ou processo na organização pode manter o registo base.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definir passos de tarefa no ficheiro YAML
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Executar o comando [de show-tags de repositório az acr][az-acr-repository-show-tags] para verificar se a imagem foi construída e foi empurrada com sucesso para *o miogristry*:
+Executar o comando [de show-tags de repositório az acr][az-acr-repository-show-tags] para verificar se a imagem foi construída e foi empurrada com sucesso para *o miogristry* :
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

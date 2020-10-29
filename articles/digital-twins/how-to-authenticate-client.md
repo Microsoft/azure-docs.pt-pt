@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495792"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027318"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
@@ -24,7 +24,7 @@ Este artigo descreve como obter credenciais usando a biblioteca do `Azure.Identi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Em primeiro lugar, complete os passos de configuração em [*Como-a: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Isto irá garantir que tem uma instância Azure Digital Twins, o seu utilizador tem permissões de acesso, e criou permissões para aplicações do cliente. Depois de toda esta configuração, está pronto para escrever o código de aplicação do cliente.
+Em primeiro lugar, complete os passos de configuração em [*Como-a: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Isto irá garantir que possui uma instância Azure Digital Twins e que o seu utilizador tem permissões de acesso. Depois dessa configuração, está pronto para escrever o código de aplicação do cliente.
 
 Para prosseguir, você precisará de um projeto de aplicação de cliente no qual você escreve o seu código. Se ainda não tiver um projeto de aplicação de clientes configurado, crie um projeto básico no seu idioma de eleição para usar com este tutorial.
 
@@ -110,8 +110,8 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 O método [InteractiveBrowserCredential destina-se](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) a aplicações interativas e irá criar um navegador web para autenticação. Pode usá-lo em vez de `DefaultAzureCredential` nos casos em que necessita de autenticação interativa.
 
 Para utilizar as credenciais de navegador interativas, você precisará de um **registo de aplicação** que tenha permissões para as APIs de Gémeos Digitais Azure. Para etapas sobre como configurar este registo da aplicação, consulte [*Como fazer: Criar um registo de aplicações.*](how-to-create-app-registration.md) Assim que o registo da aplicação estiver configurado, você precisará...
-* ID de *Inscrição da* aplicação (cliente)[(instruções para encontrar)](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
-* ID do Diretório *(inquilino)* do registo da aplicação[(instruções para encontrar)](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+* ID de *Inscrição da* aplicação (cliente) [(instruções para encontrar)](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+* ID do Diretório *(inquilino)* do registo da aplicação [(instruções para encontrar)](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
 * URL da instância Azure Digital Twins[(instruções para encontrar)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Aqui está um exemplo do código para criar um cliente SDK autenticado usando `InteractiveBrowserCredential` .

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 74656401d7b0ef12cf509674921a6a5153ce992d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282940"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027147"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna no fluxo de dados de mapeamento
 
@@ -27,21 +27,21 @@ Os padrões de coluna estão atualmente disponíveis nas transformações de col
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Padrões de coluna em coluna derivada e agregado
 
-Para adicionar um padrão de coluna numa coluna derivada, agregada ou transformação de janela, clique em **Adicionar** acima da lista de colunas ou do ícone mais ao lado de uma coluna derivada existente. Escolha **Adicionar o padrão da coluna**.
+Para adicionar um padrão de coluna numa coluna derivada, agregada ou transformação de janela, clique em **Adicionar** acima da lista de colunas ou do ícone mais ao lado de uma coluna derivada existente. Escolha **Adicionar o padrão da coluna** .
 
-![padrões de coluna](media/data-flow/add-column-pattern.png "Padrões de Coluna")
+![A screenshot mostra o ícone mais para adicionar o padrão da coluna.](media/data-flow/add-column-pattern.png "Padrões de Coluna")
 
 Utilize o construtor de [expressão](concepts-data-flow-expression-builder.md) para introduzir a condição de correspondência. Crie uma expressão booleana que corresponda às colunas com base no `name` , , e da `type` `stream` `origin` `position` coluna. O padrão afetará qualquer coluna, derivada ou definida, onde a condição retorna verdadeiramente.
 
 As duas caixas de expressão abaixo da condição de correspondência especificam os novos nomes e valores das colunas afetadas. Utilize `$$` para fazer referência ao valor existente do campo combinado. A caixa de expressão esquerda define o nome e a caixa de expressão certa define o valor.
 
-![padrões de coluna](media/data-flow/edit-column-pattern.png "Padrões de Coluna")
+![A screenshot mostra o separador de definições da coluna Derivada.](media/data-flow/edit-column-pattern.png "Padrões de Coluna")
 
 O padrão de coluna acima corresponde a cada coluna do tipo duplo e cria uma coluna derivada por correspondência. Ao indicar `$$` como o campo de nome da coluna, cada coluna correspondeda é atualizada com o mesmo nome. O valor de cada coluna é o valor existente arredondado para dois pontos decimais.
 
 Para verificar se a sua condição de correspondência está correta, pode validar o esquema de saída das colunas definidas no **separador Inspecionar** ou obter uma imagem instantânea dos dados no **separador de pré-visualização de Dados.** 
 
-![padrões de coluna](media/data-flow/columnpattern3.png "Padrões de Coluna")
+![A screenshot mostra o separador de esquema de saída.](media/data-flow/columnpattern3.png "Padrões de Coluna")
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapeamento baseado em regras em selecionar e afundar
 
@@ -49,11 +49,11 @@ Ao mapear colunas na fonte e selecionar transformações, pode adicionar mapeame
 
 Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regras.**
 
-![mapeamento baseado em regras](media/data-flow/rule2.png "Mapeamento baseado em regras")
+![A screenshot mostra mapeamento baseado em regras selecionado a partir do mapeamento Add.](media/data-flow/rule2.png "Mapeamento baseado em regras")
 
 Cada mapeamento baseado em regras requer duas entradas: a condição para combinar e o que nomear cada coluna mapeada. Ambos os valores são introduzidos através do construtor de [expressão.](concepts-data-flow-expression-builder.md) Na caixa de expressão esquerda, insira a sua condição de jogo boolean. Na caixa de expressão certa, especifique para que coluna correspondeda será mapeada.
 
-![mapeamento baseado em regras](media/data-flow/rule-based-mapping.png "Mapeamento baseado em regras")
+![A imagem mostra um mapeamento.](media/data-flow/rule-based-mapping.png "Mapeamento baseado em regras")
 
 Utilize `$$` sintaxe para fazer referência ao nome de entrada de uma coluna compatível. Usando a imagem acima como exemplo, digamos que um utilizador quer combinar em todas as colunas de cordas cujos nomes são mais curtos do que seis caracteres. Se uma coluna recebida for `test` nomeada, a expressão `$$ + '_short'` mudará o nome da coluna `test_short` . Se for o único mapeamento que existe, todas as colunas que não satisfaçam a condição serão retiradas dos dados outputados.
 
@@ -63,7 +63,7 @@ Os padrões combinam com colunas derivadas e definidas. Para ver quais colunas d
 
 Se clicar no ícone chevron descendente, pode especificar uma condição de mapeamento regex. Uma condição de mapeamento regex corresponde a todos os nomes das colunas que correspondem à condição regex especificada. Isto pode ser usado em combinação com mapeamentos padrão baseados em regras.
 
-![mapeamento baseado em regras](media/data-flow/regex-matching.png "Mapeamento baseado em regras")
+![A screenshot mostra a condição de mapeamento regex com nível de hierarquia e correspondências de nome.](media/data-flow/regex-matching.png "Mapeamento baseado em regras")
 
 O exemplo acima coincide com o padrão regex `(r)` ou qualquer nome de coluna que contenha um r de caixa inferior. Semelhante ao mapeamento padrão baseado em regras, todas as colunas correspondidas são alteradas pela condição no direito usando `$$` sintaxe.
 
@@ -71,7 +71,7 @@ O exemplo acima coincide com o padrão regex `(r)` ou qualquer nome de coluna qu
 
 Se a sua projeção definida tiver uma hierarquia, pode usar o mapeamento baseado em regras para mapear os subcolumns das hierarquias. Especifique uma condição correspondente e a coluna complexa cujos subcolumes deseja mapear. Todos os subcolumns combinados serão produzidos utilizando a regra "Nome como" especificada à direita.
 
-![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "Mapeamento baseado em regras")
+![A screenshot mostra um mapeamento baseado em regras usando para uma hierarquia.](media/data-flow/rule-based-hierarchy.png "Mapeamento baseado em regras")
 
 O exemplo acima coincide com todos os subcolumns de coluna `a` complexa. `a` contém dois subcolumns `b` e `c` . O esquema de saída incluirá duas colunas `b` e como é a condição `c` 'Nome `$$` as'.
 

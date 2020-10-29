@@ -4,12 +4,12 @@ description: Utilize comandos de registo de contentores Azure para construir, em
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ea3f1bb86bcf3f6583cc438b2a27429f5b69d14
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91538233"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027691"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Quickstart: Construa e execute uma imagem de contentor usando tarefas de registo de contentores Azure
 
@@ -27,7 +27,7 @@ Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para
 
 Se ainda não tiver um registo de contentores, primeiro crie um grupo de recursos com o [grupo az criar][az-group-create] comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
+O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -46,10 +46,10 @@ Este exemplo cria um registo *básico,* uma opção otimizada para os custos par
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Construa e empurre a imagem de um Dockerfile
 
-Agora use o registo do contentor Azure para construir e empurrar uma imagem. Primeiro, crie um diretório de trabalho local e, em seguida, crie um Dockerfile chamado *Dockerfile* com uma única linha: `FROM hello-world` . Este é um exemplo simples para construir uma imagem de contentor Linux a partir da `hello-world` imagem em Docker Hub. Pode criar o seu próprio Dockerfile padrão e construir imagens para outras plataformas. Se estiver a trabalhar numa concha de pancada, crie o Dockerfile com o seguinte comando:
+Agora use o registo do contentor Azure para construir e empurrar uma imagem. Primeiro, crie um diretório de trabalho local e, em seguida, crie um Dockerfile chamado *Dockerfile* com uma única linha: `FROM mcr.microsoft.com/hello-world` . Este é um exemplo simples para construir uma imagem de contentor Linux a partir da `hello-world` imagem hospedada no Microsoft Container Registry. Pode criar o seu próprio Dockerfile padrão e construir imagens para outras plataformas. Se estiver a trabalhar numa concha de pancada, crie o Dockerfile com o seguinte comando:
 
 ```bash
-echo FROM hello-world > Dockerfile
+echo FROM mcr.microsoft.com/hello-world > Dockerfile
 ```
 
 Executar o comando [de construção az acr,][az-acr-build] que constrói a imagem e, depois de a imagem ser construída com sucesso, empurra-a para o seu registo. O exemplo a seguir constrói e empurra a `sample/hello-world:v1` imagem. O `.` fim do comando define a localização do Dockerfile, neste caso o atual diretório.
@@ -78,8 +78,8 @@ Waiting for agent...
 2019/03/18 21:57:00 Successfully obtained source code and scanned for dependencies
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
-Step 1/1 : FROM hello-world
-latest: Pulling from library/hello-world
+Step 1/1 : FROM mcr.microsoft.com/hello-world
+latest: Pulling from hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
 Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1

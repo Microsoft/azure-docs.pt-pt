@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: cd1342ae5912a9a91f1bd8d1bdacecdb5a2bbdb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaf36cc2690b3c0f8922c05432b3197b4ff30d9a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416517"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026059"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Create Azure Data Factory Data Flow (Criar um Fluxo de Dados do Azure Data Factory)
 
@@ -22,15 +22,15 @@ Mapear fluxos de dados em ADF fornece uma forma de transformar dados em escala s
 
 Começa por criar uma nova Fábrica de Dados V2 a partir do portal Azure. Depois de criar a sua nova fábrica, clique no azulejo "Author & Monitor" para lançar a UI da Fábrica de Dados.
 
-![Opções de Fluxo de Dados](media/data-flow/v2portal.png "fluxo de dados criar")
+![A screenshot mostra o novo painel de fábrica de dados com V2 selecionado para versão.](media/data-flow/v2portal.png "fluxo de dados criar")
 
 Uma vez que esteja na UI da Fábrica de Dados, pode utilizar fluxos de dados de amostra. As amostras estão disponíveis na Galeria de Modelos ADF. Em ADF, crie "Pipeline from Template" e selecione a categoria Data Flow a partir da galeria do modelo.
 
-![Opções de Fluxo de Dados](media/data-flow/template.png "fluxo de dados criar")
+![A screenshot mostra o separador Data Flow com os dados de Transformação utilizando o fluxo de dados selecionado.](media/data-flow/template.png "fluxo de dados criar")
 
 Será solicitado que introduza a sua conta de armazenamento Azure Blob.
 
-![Opções de Fluxo de Dados](media/data-flow/template2.png "fluxo de dados criar 2")
+![A screenshot mostra os dados de Transform usando o painel de fluxo de dados onde pode introduzir entradas do utilizador.](media/data-flow/template2.png "fluxo de dados criar 2")
 
 [Os dados utilizados para estas amostras podem ser consultados aqui.](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata) Descarregue os dados da amostra e guarde os ficheiros nas suas contas de armazenamento Azure Blob para que possa executar as amostras.
 
@@ -38,7 +38,7 @@ Será solicitado que introduza a sua conta de armazenamento Azure Blob.
 
 Utilize o botão "mais sinal" do recurso "plus sign" no UI ADF para criar fluxos de dados.
 
-![Opções de Fluxo de Dados](media/data-flow/newresource.png "Novo Recurso")
+![A screenshot mostra o Fluxo de Dados selecionado a partir do menu Recursos de Fábrica.](media/data-flow/newresource.png "Novo Recurso")
 
 ## <a name="next-steps"></a>Passos seguintes
 

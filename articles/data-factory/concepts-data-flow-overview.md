@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370917"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027606"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeamento de fluxos de dados na Azure Data Factory
 
@@ -27,7 +27,7 @@ Os fluxos de dados de mapeamento proporcionam uma experiência inteiramente visu
 
 ## <a name="getting-started"></a>Introdução
 
-Os fluxos de dados são criados a partir do painel de recursos de fábrica, como oleodutos e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de mais ao lado **dos Recursos de Fábrica**e, em seguida, selecione Data **Flow**. 
+Os fluxos de dados são criados a partir do painel de recursos de fábrica, como oleodutos e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de mais ao lado **dos Recursos de Fábrica** e, em seguida, selecione Data **Flow** . 
 
 ![Novo fluxo de dados](media/data-flow/new-data-flow.png "novo fluxo de dados")
 
@@ -37,13 +37,13 @@ Esta ação leva-o à tela do fluxo de dados, onde pode criar a sua lógica de t
 
 O fluxo de dados de mapeamento tem uma tela de autoria única projetada para tornar a lógica de transformação de construção fácil. A tela de fluxo de dados é separada em três partes: a barra superior, o gráfico e o painel de configuração. 
 
-![Telas](media/data-flow/canvas1.png "Telas")
+![A screenshot mostra a tela de fluxo de dados com barra superior, gráfico e painel de configuração rotulado.](media/data-flow/canvas1.png "Telas")
 
 ### <a name="graph"></a>Graph
 
-O gráfico mostra o fluxo de transformação. Mostra a linhagem de dados de origem à medida que flui para um ou mais sumidouros. Para adicionar uma nova fonte, **selecione Adicionar fonte**. Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerir o gráfico de fluxo de dados.](concepts-data-flow-manage-graph.md)
+O gráfico mostra o fluxo de transformação. Mostra a linhagem de dados de origem à medida que flui para um ou mais sumidouros. Para adicionar uma nova fonte, **selecione Adicionar fonte** . Para adicionar uma nova transformação, selecione o sinal de mais no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerir o gráfico de fluxo de dados.](concepts-data-flow-manage-graph.md)
 
-![Telas](media/data-flow/canvas2.png "Telas")
+![A screenshot mostra a parte do gráfico da tela com uma caixa de texto de pesquisa.](media/data-flow/canvas2.png "Telas")
 
 ### <a name="configuration-panel"></a>Painel de configuração
 
@@ -134,8 +134,8 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 | Europa do Norte  | ✓ |    |
 | Leste da Noruega | | |
 | Oeste da Noruega | | |
-| África do Sul Norte    | ✓ | |
-| África do Sul |  |    |
+| Norte da África do Sul    | ✓ | |
+| Oeste da África do Sul |  |    |
 | E.U.A. Centro-Sul  | | ✓ |
 | Sul da Índia | | |
 | Sudeste Asiático    | ✓ | ✓ |

@@ -3,12 +3,12 @@ title: Atualizações de imagem base - Tarefas
 description: Saiba mais sobre as imagens base para imagens de contentores de aplicação e sobre como uma atualização de imagem base pode desencadear uma tarefa de Registo de Contentores Azure.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85918504"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025770"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre atualizações de imagem base para tarefas ACR
 
@@ -16,15 +16,19 @@ Este artigo fornece informações de fundo sobre atualizações à imagem base d
 
 ## <a name="what-are-base-images"></a>O que são imagens base?
 
-Os ficheiros de estivadores que definem a maioria das imagens do contentor especificam uma imagem-mãe a partir da qual a imagem é baseada, muitas vezes referida como a sua *imagem base*. As imagens de base, normalmente, contêm o sistema operativo, por exemplo [Alpine Linux][base-alpine] ou [Windows Nano Server][base-windows], no qual são aplicadas as restantes camadas do contentor. As imagens de base também podem incluir estruturas de aplicações, tais como [Node.js][base-node] ou [.NET Core][base-dotnet]. Estas imagens base são elas próprias tipicamente baseadas em imagens a montante do público. Várias das suas imagens de aplicação podem partilhar uma imagem base comum.
+Os ficheiros de estivadores que definem a maioria das imagens do contentor especificam uma imagem-mãe a partir da qual a imagem é baseada, muitas vezes referida como a sua *imagem base* . As imagens de base, normalmente, contêm o sistema operativo, por exemplo [Alpine Linux][base-alpine] ou [Windows Nano Server][base-windows], no qual são aplicadas as restantes camadas do contentor. As imagens de base também podem incluir estruturas de aplicações, tais como [Node.js][base-node] ou [.NET Core][base-dotnet]. Estas imagens base são elas próprias tipicamente baseadas em imagens a montante do público. Várias das suas imagens de aplicação podem partilhar uma imagem base comum.
 
 Frequentemente, uma imagem de base é atualizada pelo responsável pela manutenção da imagem para incluir as novas funcionalidades ou os melhoramentos no SO ou na estrutura. Os patches de segurança são outra causa comum para a atualização da imagem de base. Quando estas atualizações a montante ocorrerem, também deve atualizar as suas imagens base para incluir a correção crítica. Cada imagem de aplicação também deve ser reconstruída para incluir estas correções a montante agora incluídas na sua imagem base.
 
 Em alguns casos, como uma equipa de desenvolvimento privado, uma imagem base pode especificar mais do que o SO ou o enquadramento. Por exemplo, uma imagem base pode ser uma imagem de componente de serviço partilhada que precisa de ser rastreada. Os membros de uma equipa podem precisar de rastrear esta imagem base para testes, ou precisam de atualizar regularmente a imagem ao desenvolver imagens de aplicações.
 
+## <a name="maintain-copies-of-base-images"></a>Manter cópias de imagens base
+
+Para qualquer conteúdo nos seus registos que dependa do conteúdo base mantido num registo público, como o Docker Hub, recomendamos que copie o conteúdo para um registo de contentores Azure ou outro registo privado. Em seguida, certifique-se de que constrói as suas imagens de aplicação fazendo referência às imagens base privadas. O Registo de Contentores Azure fornece uma capacidade [de importação de imagem](container-registry-import-images.md) para copiar facilmente conteúdos de registos públicos ou outros registos de contentores Azure. A secção seguinte descreve a utilização de Tarefas ACR para rastrear atualizações de imagem base ao criar atualizações de aplicações. Pode rastrear atualizações de imagem base nos seus próprios registos de contentores Azure e opcionalmente em registos públicos a montante.
+
 ## <a name="track-base-image-updates"></a>Acompanhar atualizações de imagem base
 
-O ACR Tasks permite compilar automaticamente as imagens quando é atualizada a imagem de base de um contentor.
+O ACR Tasks permite compilar automaticamente as imagens quando é atualizada a imagem de base de um contentor. Pode utilizar esta capacidade de manter e atualizar cópias de imagens de base pública nos registos de contentores Azure e, em seguida, reconstruir imagens de aplicações que dependem de imagens base.
 
 ACR Tasks descobre dinamicamente as dependências de imagem base quando constrói uma imagem de contentor. Como resultado, pode detetar quando a imagem base de uma imagem de aplicação é atualizada. Com uma tarefa de construção pré-configurada, as Tarefas ACR podem reconstruir automaticamente todas as imagens de aplicação que referenciam a imagem base. Com esta deteção e reconstrução automática, a ACR Tasks poupa-lhe o tempo e esforço normalmente necessários para rastrear e atualizar manualmente cada imagem de aplicação que faz referência à sua imagem base atualizada.
 
@@ -56,7 +60,7 @@ O tempo entre o momento em que uma imagem base é atualizada e quando a tarefa d
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Gatilho para rastrear as dependências** - Para permitir que uma tarefa de ACR determine e rastreie as dependências de uma imagem de um recipiente -- que incluem a sua imagem base - primeiro deve desencadear a tarefa de construir a imagem **pelo menos uma vez**. Por exemplo, desacione a tarefa manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run]
+* **Gatilho para rastrear as dependências** - Para permitir que uma tarefa de ACR determine e rastreie as dependências de uma imagem de um recipiente -- que incluem a sua imagem base - primeiro deve desencadear a tarefa de construir a imagem **pelo menos uma vez** . Por exemplo, desacione a tarefa manualmente utilizando o comando de execução de [tarefas az acr.][az-acr-task-run]
 
 * **Etiqueta estável para a imagem base** - Para desencadear uma tarefa na atualização da imagem base, a imagem base deve ter uma etiqueta *estável,* tal como `node:9-alpine` . Esta marcação é típica de uma imagem base que é atualizada com os patches de SISTEMA e estrutura para uma versão estável mais recente. Se a imagem base for atualizada com uma nova etiqueta de versão, não desencadeia uma tarefa. Para obter mais informações sobre a marcação de imagens, consulte as [melhores práticas de orientação.](container-registry-image-tag-version.md) 
 

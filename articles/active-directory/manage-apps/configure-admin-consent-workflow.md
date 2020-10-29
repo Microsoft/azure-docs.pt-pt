@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763623"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027249"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configure o fluxo de trabalho de consentimento administrativo (pré-visualização)
 
@@ -35,10 +35,10 @@ Para ativar o fluxo de trabalho de consentimento administrativo e escolher revis
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Clique em **todos os serviços** no topo do menu de navegação à esquerda. Abre **a Extensão do Diretório Ativo Azure.**
-3. Na caixa de pesquisa de filtros, escreva "**Azure Ative Directory**" e selecione o item **Azure Ative Directory.**
+3. Na caixa de pesquisa de filtros, escreva " **Azure Ative Directory** " e selecione o item **Azure Ative Directory.**
 4. A partir do menu de navegação, clique nas **aplicações Da Enterprise.** 
-5. Em **Gestão**, selecione **as definições do Utilizador**.
-6. Nos termos dos pedidos de **consentimento da Administração (Preview)**, **os utilizadores podem solicitar o consentimento administrativo para aplicações que não podem consentir com** **Sim**.
+5. Em **Gestão** , selecione **as definições do Utilizador** .
+6. Nos termos dos pedidos de **consentimento da Administração (Preview)** , **os utilizadores podem solicitar o consentimento administrativo para aplicações que não podem consentir com** **Sim** .
 
    ![Configurar definições de fluxo de trabalho de consentimento administrativo](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -47,9 +47,9 @@ Para ativar o fluxo de trabalho de consentimento administrativo e escolher revis
    * **Selecione os utilizadores para rever os pedidos de consentimento administrativo.** Selecione os revisores para este fluxo de trabalho de um conjunto de utilizadores que têm o administrador global, administrador de aplicação na nuvem e funções de administrador de aplicações.
    * **Os utilizadores selecionados receberão notificações por e-mail para pedidos.** Ativar ou desativar notificações de e-mail para os revisores quando um pedido é feito.  
    * **Os utilizadores selecionados receberão lembretes de expiração do pedido.** Ative ou desative notificações de e-mail de lembrete para os revisores quando um pedido está prestes a expirar.  
-   * **O pedido de consentimento expira após (dias)**. Especifique quanto tempo os pedidos permanecem válidos.
+   * **O pedido de consentimento expira após (dias)** . Especifique quanto tempo os pedidos permanecem válidos.
 
-7. Selecione **Guardar**. Pode levar até uma hora para que a funcionalidade fique ativada.
+7. Selecione **Guardar** . Pode levar até uma hora para que a funcionalidade fique ativada.
 
 > [!NOTE]
 > Pode adicionar ou remover revisores para este fluxo de trabalho modificando a lista **de revisores de pedidos de consentimento de administração Select.** Note que uma limitação atual desta funcionalidade é que os revisores podem manter a capacidade de rever os pedidos que foram feitos enquanto foram designados como revisores.
@@ -62,11 +62,11 @@ Após o fluxo de trabalho de consentimento administrativo ser ativado, os utiliz
 
 2. A **mensagem necessária para a aprovação** aparece. O utilizador escreve uma justificação para necessitar de acesso à app e, em seguida, seleciona **a aprovação do Pedido.**
 
-   ![Pedido e justificação do utilizador de consentimento administrativo](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![A screenshot mostra uma caixa de diálogo necessária para a aprovação da aprovação da Aprovação.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. Um **Pedido enviado** mensagem confirma que o pedido foi submetido à administração. Se o utilizador enviar vários pedidos, apenas o primeiro pedido é submetido à administração.
 
-   ![Pedido e justificação do utilizador de consentimento administrativo](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![A screenshot mostra a confirmação enviada pelo Pedido.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. O utilizador recebe uma notificação por e-mail quando o seu pedido é aprovado, negado ou bloqueado. 
 
@@ -76,9 +76,9 @@ Para rever os pedidos de consentimento administrativo e tomar medidas:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) como um dos revisores registados do fluxo de trabalho de consentimento administrativo.
 2. Selecione **Todos os serviços** no topo do menu de navegação à esquerda. Abre **a Extensão do Diretório Ativo Azure.**
-3. Na caixa de pesquisa de filtros, escreva "**Azure Ative Directory**" e selecione o item **Azure Ative Directory.**
+3. Na caixa de pesquisa de filtros, escreva " **Azure Ative Directory** " e selecione o item **Azure Ative Directory.**
 4. A partir do menu de navegação, clique nas **aplicações Da Enterprise.**
-5. No âmbito **da Atividade**, selecione **pedidos de consentimento de administração (Pré-visualização)**.
+5. No âmbito **da Atividade** , selecione **pedidos de consentimento de administração (Pré-visualização)** .
 
    > [!NOTE]
    > Os revisores só verão pedidos de administração que foram criados depois de terem sido designados como revisores.

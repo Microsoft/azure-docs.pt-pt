@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629158"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026722"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -42,27 +42,19 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
 
-As seguintes 29 novas recomendações serão adicionadas ao Centro de Segurança para aumentar a cobertura do benchmark.
+As seguintes 18 novas recomendações serão adicionadas ao Centro de Segurança para aumentar a cobertura do benchmark.
 
 As recomendações de pré-visualização não tornam um recurso insalubre, e não estão incluídas nos cálculos da sua pontuação segura. Remedia-os sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação. Saiba mais sobre como responder a estas recomendações em [recomendações remedias no Azure Security Center](security-center-remediate-recommendations.md).
 
 - A azure Backup deve ser ativado para máquinas virtuais
-- A retenção de auditoria para servidores SQL deve ser definida para pelo menos 90 dias
-- Os registos de diagnóstico devem ser ativados no Serviço de Aplicações 
 - A ligação SSL da Aplicação deve ser ativada para servidores de base de dados MySQL
 - A ligação SSL da Aplicação deve ser ativada para servidores de base de dados PostgreSQL
-- FTPS deve ser necessário na sua app API
-- FTPS deve ser necessário na sua app de função
-- FTPS deve ser necessário na sua aplicação web
 - Backup geo-redundante deve ser ativado para Azure Database for MariaDB
 - Backup geo-redundante deve ser ativado para Azure Database para MySQL
 - A cópia de segurança geo-redundante deve ser ativada para a Base de Dados Azure para PostgreSQL
 - Java deve ser atualizado para a versão mais recente para a sua aplicação API
 - Java deve ser atualizado para a versão mais recente para a sua aplicação de função
 - Java deve ser atualizado para a versão mais recente para a sua aplicação web
-- A identidade gerida deve ser usada na sua app API
-- A identidade gerida deve ser usada na sua aplicação de função
-- A identidade gerida deve ser usada na sua aplicação web
 - PHP deve ser atualizado para a versão mais recente para a sua aplicação API
 - PHP deve ser atualizado para a versão mais recente para a sua aplicação web
 - O ponto final privado deve ser ativado para servidores MariaDB
@@ -71,9 +63,6 @@ As recomendações de pré-visualização não tornam um recurso insalubre, e n�
 - Python deve ser atualizado para a versão mais recente para a sua aplicação API
 - Python deve ser atualizado para a versão mais recente para a sua aplicação de função
 - Python deve ser atualizado para a versão mais recente para a sua aplicação web
-- TLS deve ser atualizado para a versão mais recente para a sua aplicação API
-- TLS deve ser atualizado para a versão mais recente para a sua aplicação de função
-- TLS deve ser atualizado para a versão mais recente para a sua aplicação web
 - As aplicações web devem solicitar um certificado SSL para todos os pedidos de entrada
 
 Links relacionados:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707987"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026960"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
 
@@ -20,7 +20,7 @@ Este artigo responde a perguntas comumente sobre o mercado comercial.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o mercado comercial da Microsoft?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o marketplace comercial da Microsoft?
 
 O mercado comercial liga agências empresariais e governamentais com soluções construídas pelos nossos parceiros. Os nossos parceiros criam e gerem ofertas no Partner Center, e os clientes podem descobrir e comprar soluções através de experiências no produto, como o Microsoft AppSource, Azure Marketplace, revendedores no programa Cloud Solution Provider e as nossas equipas de vendas através do programa de co-venda.
 
@@ -58,9 +58,9 @@ Para se inscrever para ser um editor de marketplace comercial, vá ao [Partner C
 
 As formas como os clientes podem usar a sua oferta de mercado comercial dependem da forma como cria as ofertas.
 
-- Para soluções que fornece automaticamente, sejam elas pagas, tragam a sua própria licença (BYOL), ou gratuitas, os clientes são instados a *obter agora*.
-- Ofertas que suportam uma unidade de teste (demonstração) solicitam ao cliente para *testar drive*. 
-- O software como um serviço (SaaS) oferece que fornece um teste fora do mercado comercial, *digamos Free Trial*.
+- Para soluções que fornece automaticamente, sejam elas pagas, tragam a sua própria licença (BYOL), ou gratuitas, os clientes são instados a *obter agora* .
+- Ofertas que suportam uma unidade de teste (demonstração) solicitam ao cliente para *testar drive* . 
+- O software como um serviço (SaaS) oferece que fornece um teste fora do mercado comercial, *digamos Free Trial* .
 - As listas simples permitem ao cliente solicitar *contacte-me.*
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como crio ofertas para o mercado comercial?
@@ -99,10 +99,10 @@ Sim, o Azure Government Marketplace está disponível nas regiões do Governo de
 
 Existem quatro funções relevantes que regem o acesso ao Partner Center.
 
-- *Gestor*: Fornece permissões para gerir os utilizadores do Partner Center no diretório e criar e atualizar ofertas.
-- *Desenvolvedor*: Permite que um utilizador crie e atualize ofertas.
-- *Contribuinte Financeiro*: Fornece permissões para visualizar relatórios de pagamento.
-- *Proprietário*: Pode configurar a conta de pagamento e o perfil fiscal. O utilizador que aceitou o Contrato de Editor torna-se o Proprietário por defeito.
+- *Gestor* : Fornece permissões para gerir os utilizadores do Partner Center no diretório e criar e atualizar ofertas.
+- *Desenvolvedor* : Permite que um utilizador crie e atualize ofertas.
+- *Contribuinte Financeiro* : Fornece permissões para visualizar relatórios de pagamento.
+- *Proprietário* : Pode configurar a conta de pagamento e o perfil fiscal. O utilizador que aceitou o Contrato de Editor torna-se o Proprietário por defeito.
 
 Azure Ative Directy (Azure AD) As permissões *globais da Administração* são necessárias para criar novas contas de utilizador ou convidar contas de hóspedes no diretório subjacente. Partner Center aplica Azure AD ao modelo de identidade, e a instância AD Azure de uma organização é frequentemente gerida e controlada pelas suas equipas de TI ou segurança.
 
@@ -303,7 +303,7 @@ Para mais informações, consulte [Configurar a sua conta de pagamento e formul�
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>As devoluções e reembolsos são suportados com o mercado comercial?
 
-Para receber reembolsos, os clientes podem cancelar subscrições dentro de um prazo especificado. Para assinaturas mensais, são 24 horas, e para subscrições anuais, são 14 dias. As ofertas que são faturadas de acordo com o consumo depois de uma solução ter sido utilizada não são elegíveis para reembolsos.
+Os reembolsos estão disponíveis para os clientes sob determinadas condições e para determinados encargos. Os pedidos de reembolso de encargos recorrentes cobrados mensalmente devem ser recebidos no prazo de 24 horas após a compra ou renovação. Do mesmo modo, os pedidos de reembolso de encargos recorrentes faturados anualmente devem ser recebidos no prazo de 14 dias após a compra ou renovação. Este tipo de reembolsos não se aplica aos encargos resultantes da utilização (seja de ofertas de máquinas virtuais ou de faturação medido).
 
 ## <a name="resources"></a>Recursos
 
@@ -311,7 +311,7 @@ Para receber reembolsos, os clientes podem cancelar subscrições dentro de um p
 
 Aqui estão alguns recursos para começar:
 
-- [O que é o mercado comercial da Microsoft?](overview.md)
+- [O que é o marketplace comercial da Microsoft?](overview.md)
 - [Centro de parceiros de marketplace comercial da Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Como posso envolver-me com a Microsoft e outros parceiros?
@@ -323,7 +323,7 @@ Recomendamos estes recursos:
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Onde posso saber mais sobre o Partner Center?
 
-- [Documentação do Centro parceiro](/partner-center/)
+- [Documentação do Centro de Parceiros](/partner-center/)
 - [Bem-vindo ao marketplace comercial](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Onde posso saber mais sobre o Microsoft Admin Center?

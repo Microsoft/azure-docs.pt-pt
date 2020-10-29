@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913777"
+ms.locfileid: "93026144"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -306,7 +306,7 @@ A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas pe
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como usar as APIs para configurar uma instância e autenticação de Gémeos Digitais Azure:
-* [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-portal.md)
+* [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-cli.md)
 
 Ou, caminhe pelos degraus para criar uma aplicação de cliente como a usada neste como:
 * [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

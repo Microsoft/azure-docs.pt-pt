@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494744"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026450"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Dispositivos de gestão automática em Gémeos Digitais Azure utilizando o Serviço de Provisionamento de Dispositivos (DPS)
 
@@ -20,7 +20,7 @@ Neste artigo, você vai aprender a integrar Azure Digital Twins com [o Serviço 
 
 A solução descrita neste artigo permitirá automatizar o processo para **_provisões_** e **_aposentar_** dispositivos IoT Hub em Azure Digital Twins, utilizando o Serviço de Provisionamento de Dispositivos. 
 
-Para obter mais informações sobre as fases _de fornecimento_ e _aposentação,_ e para melhor compreender o conjunto de etapas gerais de gestão de dispositivos que são comuns a todos os projetos IoT da empresa, consulte a secção de ciclo de vida do [ *Dispositivo* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) da documentação de gestão de dispositivos do IoT Hub.
+Para obter mais informações sobre as fases _de fornecimento_ e _aposentação,_ e para melhor compreender o conjunto de etapas gerais de gestão de dispositivos que são comuns a todos os projetos IoT da empresa, consulte a secção de ciclo de vida do [ *Dispositivo*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) da documentação de gestão de dispositivos do IoT Hub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,12 +29,12 @@ Antes de configurar o provisionamento, precisa de ter uma **instância Azure Dig
 Se ainda não tiver esta configuração, pode criá-la seguindo o Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). O tutorial irá acompanhar-te pela criação de um exemplo de Azure Digital Twins com modelos e gémeos, um [Azure IoT Hub](../iot-hub/about-iot-hub.md)conectado, e várias [funções Azure](../azure-functions/functions-overview.md) para propagar o fluxo de dados.
 
 Vai precisar dos seguintes valores mais tarde neste artigo a partir do momento em que configurar o seu caso. Se precisar de voltar a recolher estes valores, utilize os links abaixo para obter instruções.
-* Nome **_de anfitrião_** de exemplo de Azure Digital Twins[(encontre no portal)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
-* Cadeia de **_ligação_** Azure Event Hubs[(encontre no portal)](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal)
+* Nome **_de anfitrião_** de exemplo de Azure Digital Twins [(encontre no portal)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
+* Cadeia de **_ligação_** Azure Event Hubs [(encontre no portal)](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal)
 
 Esta amostra também utiliza um **simulador de dispositivo** que inclui o provisionamento utilizando o Serviço de Provisionamento de Dispositivos. O simulador do dispositivo está localizado aqui: [Azure Digital Twins e IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Obtenha o projeto de amostra na sua máquina navegando para o link de amostra e selecionando o botão *Download ZIP* por baixo do título. Desaperte a pasta descarregada.
 
-O simulador do dispositivo baseia-se ** emNode.js**, versão 10.0.x ou posterior. [*Prepare o seu ambiente de desenvolvimento*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descreve como instalar Node.js para este tutorial no Windows ou linux.
+O simulador do dispositivo baseia-se **emNode.js** , versão 10.0.x ou posterior. [*Prepare o seu ambiente de desenvolvimento*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descreve como instalar Node.js para este tutorial no Windows ou linux.
 
 ## <a name="solution-architecture"></a>Arquitetura de soluções
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, irá criar uma função acionada por pedidos HTTP dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta[*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)ou a sua própria.
+Em seguida, irá criar uma função acionada por pedidos HTTP dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)ou a sua própria.
 
 Esta função será utilizada pelo Serviço de Provisionamento de Dispositivos numa [Política de Atribuição Personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) para a disponibilização de um novo dispositivo. Para obter mais informações sobre a utilização de pedidos HTTP com funções Azure, consulte [*Azure Http solicite o gatilho para funções Azure*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -233,7 +233,7 @@ Guarde o ficheiro e, em seguida, re-publique a sua aplicação de função. Para
 
 ### <a name="configure-your-function"></a>Configure a sua função
 
-Em seguida, terá de definir variáveis ambientais na sua aplicação de função anteriormente, contendo a referência à instância Azure Digital Twins que criou. Se utilizar o tutorial de ponta a ponta[*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)a definição já estará configurada.
+Em seguida, terá de definir variáveis ambientais na sua aplicação de função anteriormente, contendo a referência à instância Azure Digital Twins que criou. Se utilizar o tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)a definição já estará configurada.
 
 Adicione a definição com este comando Azure CLI:
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Certifique-se de que as permissões e a atribuição de funções de identidade gerida estão configuradas corretamente para a aplicação de função, conforme descrito na secção [*Atribua permissões à aplicação*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) de função no tutorial de ponta a ponta.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Criar inscrição no Provisionamento de Dispositivos
 
-Em seguida, você precisará criar uma inscrição no Serviço de Provisionamento de Dispositivos usando uma **função de atribuição personalizada**. Siga as instruções para o fazer na [*Secção de Inscrição*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) e [*Obtém secções únicas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) de chaves de dispositivo do artigo serviços de fornecimento de dispositivos sobre políticas de atribuição personalizada.
+Em seguida, você precisará criar uma inscrição no Serviço de Provisionamento de Dispositivos usando uma **função de atribuição personalizada** . Siga as instruções para o fazer na [*Secção de Inscrição*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) e [*Obtém secções únicas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) de chaves de dispositivo do artigo serviços de fornecimento de dispositivos sobre políticas de atribuição personalizada.
 
-Ao passar por esse fluxo, irá ligar a inscrição à função que acabou de criar selecionando a sua função durante o passo para **Selecionar como pretende atribuir dispositivos aos hubs**. Após a criação da inscrição, o nome de inscrição e a chave SAS primária ou secundária serão usadas mais tarde para configurar o simulador do dispositivo para este artigo.
+Ao passar por esse fluxo, irá ligar a inscrição à função que acabou de criar selecionando a sua função durante o passo para **Selecionar como pretende atribuir dispositivos aos hubs** . Após a criação da inscrição, o nome de inscrição e a chave SAS primária ou secundária serão usadas mais tarde para configurar o simulador do dispositivo para este artigo.
 
 ### <a name="set-up-the-device-simulator"></a>Configurar o simulador de dispositivo
 
@@ -266,7 +259,7 @@ Abra uma janela de comando e navegue na pasta descarregada e, em seguida, no dir
 npm install
 ```
 
-Em seguida, copie o ficheiro *.env.template* para um novo ficheiro chamado *.env*, e preencha estas definições:
+Em seguida, copie o ficheiro *.env.template* para um novo ficheiro chamado *.env* , e preencha estas definições:
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -318,18 +311,18 @@ As secções seguintes percorrem os degraus para configurar este fluxo de dispos
 Você precisa agora criar um centro de [eventos](../event-hubs/event-hubs-about.md)Azure , que será usado para receber os eventos do ciclo de vida IoT Hub. 
 
 Ver os passos descritos no [*Centro de Eventos um*](../event-hubs/event-hubs-create.md) quickstart do centro de eventos, utilizando as seguintes informações:
-* Se estiver a utilizar o tutorial de ponta a ponta[*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)pode reutilizar o grupo de recursos que criou para o tutorial de ponta a ponta.
+* Se estiver a utilizar o tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)pode reutilizar o grupo de recursos que criou para o tutorial de ponta a ponta.
 * Nomeie os seus eventos de ciclo de vida hub de *eventos,* ou outra coisa à sua escolha, e lembre-se do espaço de nome que criou. Utilizará estes quando configurar a função de ciclo de vida e a rota IoT Hub nas secções seguintes.
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, irá criar uma função desencadeada por Event Hubs dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta[*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)ou a sua própria. 
+Em seguida, irá criar uma função desencadeada por Event Hubs dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)ou a sua própria. 
 
-Nomeie o seu centro de eventos para desencadear *eventos de ciclo de vida*e ligue o gatilho do centro de eventos ao centro de eventos que criou no passo anterior. Se usou um nome de hub de evento diferente, altere-o para corresponder ao nome do gatilho abaixo.
+Nomeie o seu centro de eventos para desencadear *eventos de ciclo de vida* e ligue o gatilho do centro de eventos ao centro de eventos que criou no passo anterior. Se usou um nome de hub de evento diferente, altere-o para corresponder ao nome do gatilho abaixo.
 
 Esta função utilizará o evento de ciclo de vida do dispositivo IoT Hub para retirar um dispositivo existente. Para mais informações sobre eventos de ciclo de vida, consulte [*eventos ioT Hub Non-telemetria*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Para obter mais informações sobre a utilização de Centros de Eventos com funções Azure, consulte [*o gatilho Azure Event Hubs para Funções Azure*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Dentro da sua aplicação de função publicada, adicione uma nova classe de função do tipo *Event Hub Trigger*, e cole no código abaixo.
+Dentro da sua aplicação de função publicada, adicione uma nova classe de função do tipo *Event Hub Trigger* , e cole no código abaixo.
 
 ```C#
 using System;
@@ -445,7 +438,7 @@ Guarde o projeto e, em seguida, publique novamente a aplicação de função. Pa
 
 ### <a name="configure-your-function"></a>Configure a sua função
 
-Em seguida, terá de definir variáveis ambientais na sua app de função anteriormente, contendo a referência à instância Azure Digital Twins que criou e ao centro de eventos. Se utilizar o tutorial de ponta a ponta[*(Tutorial: Conecte uma solução de ponta a ponta),*](./tutorial-end-to-end.md)a primeira definição já estará configurada.
+Em seguida, terá de definir variáveis ambientais na sua app de função anteriormente, contendo a referência à instância Azure Digital Twins que criou e ao centro de eventos. Se utilizar o tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](./tutorial-end-to-end.md)a primeira definição já estará configurada.
 
 Adicione a definição com este comando Azure CLI. O comando pode ser executado em [Cloud Shell,](https://shell.azure.com)ou localmente se tiver o CLI Azure [instalado na sua máquina](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
@@ -493,7 +486,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 Deve ver que o gémeo do dispositivo já não pode ser encontrado no caso Azure Digital Twins.
 :::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Uma visão de um dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de &quot;Atribuição&quot;. Os dados de uma ação manual de &quot;Eliminar dispositivo&quot; fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não necessitar dos recursos criados neste artigo, siga estes passos para os eliminar.
 

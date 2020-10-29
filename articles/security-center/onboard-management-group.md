@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950623"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027572"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Ativar o Centro de Segurança em todas as subscrições de um grupo de gestão
 
@@ -25,7 +25,7 @@ Pode utilizar a Azure Policy para ativar o Azure Security Center em todas as sub
 
 Para bordo de um grupo de gestão e todas as suas subscrições:
 
-1. Como utilizador com permissões **de Administração** de Segurança, abra a Política Azure e procure a definição **Enable Azure Security Center na sua subscrição**.
+1. Como utilizador com permissões **de Administração** de Segurança, abra a Política Azure e procure a definição **Enable Azure Security Center na sua subscrição** .
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="A definição de Política Azure Enable Azure Security Center na sua subscrição":::
 
@@ -43,7 +43,7 @@ Para bordo de um grupo de gestão e todas as suas subscrições:
     A tarefa de remediação permitirá então ao Centro de Segurança, gratuitamente, as subscrições não conformes.
 
 > [!IMPORTANT]
-> A definição de política só permitirá ao Centro de Segurança as subscrições **existentes.** Para registar subscrições recém-criadas, para registar subscrições recém-criadas, abra o separador de conformidade, selecione as subscrições não conformes relevantes e crie uma tarefa de reparação. Repita este passo quando tiver uma ou mais novas subscrições que pretende monitorizar com o Centro de Segurança.
+> A definição de política só permitirá ao Centro de Segurança as subscrições **existentes.** Para registar subscrições recém-criadas, abra o separador de conformidade, selecione as subscrições não conformes relevantes e crie uma tarefa de remediação. Repita este passo quando tiver uma ou mais novas subscrições que pretende monitorizar com o Centro de Segurança.
 
 ## <a name="optional-modifications"></a>Modificações opcionais
 
