@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: CLI do Azure
-      href: functions-cli-samples.md
+      items:
+        - name: Índice de exemplos de CLI
+          href: functions-cli-samples.md
+        - name: Criar a aplicação de funções
+          items:
+            - name: Aplicação de funções sem servidor
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Aplicação Python sem servidor
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Aplicação de plano Premium dimensionável
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Aplicação de plano Dedicado (Serviço de Aplicações)
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrar serviços
+          items:
+            - name: Ligar Armazenamento do Azure
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Ligar Azure Cosmos DB
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Partilha de ficheiros de montagem do Python
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Implementação contínua
+          items:
+            - name: Implementação GitHub
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: Implementação DevOps
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Conceitos
   items:
     - name: Comparar versões de runtime

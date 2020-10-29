@@ -112,7 +112,7 @@
         - name: Políticas de rede do Kubernetes
           href: kubernetes-network-policies.md
         - name: Proteção contra DDoS
-          href: ddos-protection-overview.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
         - name: TAP de rede virtual
           href: virtual-network-tap-overview.md
         - name: Controlos de segurança do Azure Policy
@@ -299,9 +299,9 @@
                 - name: CLI do Azure
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Gerir proteção contra DDoS
-          href: manage-ddos-protection.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
         - name: Parceiros de integração do DDoS Protection Standard
-          href: ddos-protection-partner-onboarding.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
         - name: Gerir grupos de segurança de rede
           href: manage-network-security-group.md
         - name: Cenários de segurança

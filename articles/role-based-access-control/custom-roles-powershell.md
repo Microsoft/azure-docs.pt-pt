@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790216"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909595"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Criar ou atualizar funções personalizadas Azure usando Azure PowerShell
 
 > [!IMPORTANT]
 > A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando a Azure PowerShell.
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 O exemplo a seguir lista apenas as funções personalizadas que estão disponíveis para atribuição na subscrição selecionada.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Quando utilizar o PowerShell para criar um papel personalizado, pode utilizar uma das [funções incorporadas](built-in-roles.md) como ponto de partida ou pode começar do zero. O primeiro exemplo nesta secção começa com um papel incorporado e depois personaliza-o com mais permissões. Edite os atributos para adicionar o `Actions` `NotActions` , ou que `AssignableScopes` deseja, e depois guarde as alterações como um novo papel.
 
-O exemplo a seguir começa com o papel [integrado do Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) para criar uma função personalizada chamada Operador de Máquina *Virtual.* A nova função concede acesso a todas as operações de leitura do *Microsoft.Compute,* *Microsoft.Storage*e *Microsoft.Network* fornecedores de recursos e concede acesso a máquinas virtuais de arranque, reinício e monitorização. O papel personalizado pode ser usado em duas subscrições.
+O exemplo a seguir começa com o papel [integrado do Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) para criar uma função personalizada chamada Operador de Máquina *Virtual.* A nova função concede acesso a todas as operações de leitura do *Microsoft.Compute,* *Microsoft.Storage* e *Microsoft.Network* fornecedores de recursos e concede acesso a máquinas virtuais de arranque, reinício e monitorização. O papel personalizado pode ser usado em duas subscrições.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"

@@ -65,7 +65,7 @@
       href: disaster-recovery.md
 - name: Guias de procedimentos
   items:
-    - name: Preparar uma aplicação Java Spring para a implementação
+    - name: Preparar uma aplicação para implementação
       href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Iniciar aplicação Java a partir do código fonte
       href: spring-cloud-howto-launch-from-source.md

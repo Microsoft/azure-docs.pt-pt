@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Documentação do Azure DDoS Protection Standard
+summary: Saiba como o Azure DDoS Protection Standard, quando combinado com as melhores práticas de estrutura de dispositivos, fornece proteção contra ataques DDoS.
+metadata:
+  description: Saiba como o Azure DDoS Protection Standard, quando combinado com as melhores práticas de estrutura de dispositivos, fornece proteção contra ataques DDoS.
+  keywords: azure ddos protection standard
+  author: yitoh
+  ms.author: yitoh
+  ms.date: 09/04/2019
+  ms.service: ddos-protection
+  ms.topic: landing-page
+  ms.custom: azure-ddos-protection
+  ms.openlocfilehash: cfc0a8c4856711c4f011805322e2b28942866573
+  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92904725"
+landingContent:
+- title: Saiba mais sobre o Azure DDoS Protection Standard
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure DDoS Protection Standard?
+      url: ddos-protection-overview.md
+  - linkListType: architecture
+    links:
+    - text: Funcionalidades do Azure DDoS Protection Standard
+      url: ddos-protection-standard-features.md
+    - text: Arquiteturas de referência
+      url: ddos-protection-reference-architectures.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um Plano de Proteção contra DDoS - Portal
+      url: manage-ddos-protection.md
+- title: Configurar análises de ataques
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Ver e configurar telemetria de proteção contra DDoS
+      url: telemetry-monitoring-alerting.md
+    - text: Configurar registos de fluxos e relatórios de mitigação de ataques de DDoS
+      url: reports-and-flow-logs.md
+- title: Responder a ataques de DDoS
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Tipos de ataques
+      url: types-of-attacks.md
+    - text: Melhores práticas fundamentais
+      url: fundamental-best-practices.md
+    - text: Componentes de uma estratégia de resposta a DDoS
+      url: ddos-response-strategy.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ativar uma Resposta Rápida a DDoS (DRR)
+      url: ddos-rapid-response.md

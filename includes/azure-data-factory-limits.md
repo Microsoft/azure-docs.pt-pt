@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/28/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: a5ea95e0ea958c495e28eaa1fee72e34362157a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cbe179d015c71094e6813666a6fd0cee3e5e3c2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859597"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92909049"
 ---
 A Azure Data Factory é um serviço multitenant que tem os seguintes limites padrão em vigor para garantir que as subscrições do cliente estão protegidas das cargas de trabalho uns dos outros. Para elevar os limites até ao máximo para a sua subscrição, contacte o suporte.
 
@@ -25,10 +25,10 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 | Número total de entidades, tais como oleodutos, conjuntos de dados, gatilhos, serviços ligados, Pontos Finais Privados e tempos de integração, dentro de uma fábrica de dados | 5000 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Núcleos totais do CPU para Runtimes de Integração Azure-SSIS sob uma subscrição | 256 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Gasoduto simultâneo funciona por fábrica de dados que é partilhado entre todos os oleodutos da fábrica | 10,000  | 10,000 |
-| Atividade externa simultânea funciona por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>As atividades externas são geridas em tempo de integração, mas executadas em serviços ligados, incluindo Databricks, procedimento armazenado, HDInsights, Web, entre outros.</small> | 3.000 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Atividade do Pipeline simultâneo é executada por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>As atividades de pipeline executam em tempo de integração, incluindo Lookup, GetMetadata e Delete. </small>| 1,000 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Operações de autoria simultânea por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Incluindo a ligação de teste, a lista de pastas de navegação e a lista de tabelas, dados de pré-visualização. | 200 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Unidades de Integração de Dados Simultâneas<sup>1</sup> consumo por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo regional<sup>12</sup>: 6.000<br>Grupo regional<sup>2 2</sup>: 3.000<br>Grupo regional 3<sup>2</sup>: 1.500 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Atividade externa simultânea funciona por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>As atividades externas são geridas em tempo de integração, mas executadas em serviços ligados, incluindo Databricks, procedimento armazenado, HDInsights, Web, entre outros. Este limite não se aplica ao IR auto-alojado.</small> | 3.000 | 3.000 |
+| Atividade do Pipeline simultâneo é executada por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>As atividades de pipeline executam em tempo de integração, incluindo Lookup, GetMetadata e Delete. Este limite não se aplica ao IR auto-alojado.</small> | 1,000 | 1,000                                                        |
+| Operações de autoria simultânea por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Incluindo a ligação de teste, a lista de pastas de navegação e a lista de tabelas, dados de pré-visualização. Este limite não se aplica ao IR auto-alojado.</small> | 200 | 200                                                          |
+| Unidades de Integração de Dados Simultâneas<sup>1</sup> consumo por subscrição por [região de runtime de integração Azure](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo regional<sup>12</sup>: 6.000<br>Grupo regional<sup>2 2</sup>: 3.000<br>Grupo regional 3<sup>2</sup>: 1.500 | Grupo regional<sup>12</sup>: 6.000<br/>Grupo regional<sup>2 2</sup>: 3.000<br/>Grupo regional 3<sup>2</sup>: 1.500 |
 | Atividades máximas por gasoduto, que incluem atividades interiores para contentores | 40 | 40 |
 | Número máximo de tempos de integração ligados que podem ser criados contra um único tempo de integração auto-hospedado | 100 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Parâmetros máximos por gasoduto | 50 | 50 |
@@ -40,7 +40,7 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 | Prazo máximo para a atividade do gasoduto | 7 dias | 7 dias |
 | Bytes por objeto para objetos de gasoduto<sup>3</sup> | 200 KB | 200 KB |
 | Bytes por objeto para conjunto de dados e objetos de serviço ligados<sup>3</sup> | 100 KB | 2.000 KB |
-| Unidades de Integração de Dados<sup>1</sup> por função de cópia executadas | 256 | [Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Unidades de Integração de Dados<sup>1</sup> por função de cópia executadas | 256 | 256 |
 | Escreva chamadas API | 1.200/h | 1.200/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não pela Azure Data Factory. |
 | Leia chamadas de API | 12.500/h | 12.500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não pela Azure Data Factory. |
 | Consultas de monitorização por minuto | 1,000 | 1,000 |
@@ -53,7 +53,7 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 
 <sup>2</sup> O Tempo de [Execução da Integração Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) está [globalmente disponível](https://azure.microsoft.com/global-infrastructure/services/) para garantir a conformidade, eficiência e custos reduzidos de saída de rede. 
 
-| Grupo regional | Regiões | 
+| Grupo regional | Regiões |
 | -------- | ------ |
 | Região grupo 1 | Central EUA, Leste dos EUA, Leste DOS EUA, Norte da Europa, Europa Ocidental, Eua Ocidental, Oeste dos EUA 2 |
 | Grupo regional 2 | Austrália Leste, Austrália Sudeste, Brasil Sul, Índia Central, Japão Leste, Norte-Americano norte-americano, Sudeste Asiático, Centro-Oeste dos EUA |
@@ -71,7 +71,7 @@ A Azure Data Factory é um serviço multitenant que tem os seguintes limites pad
 | Bytes por objeto para objetos de gasoduto<sup>1</sup> |200 KB |200 KB |
 | Bytes por objeto para conjunto de dados e objetos de serviço ligados<sup>1</sup> |100 KB |2.000 KB |
 | Núcleos de cluster a pedido do Azure HDInsight dentro de uma subscrição<sup>2</sup> |60 |[Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Unidades de movimento de dados em nuvem por atividade de cópia executam<sup>3</sup> |32 |[Suporte de contacto](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Unidades de movimento de dados em nuvem por atividade de cópia executam<sup>3</sup> |32 |32 |
 | Contagem de repetições para a atividade do gasoduto corre |1,000 |Maxint (32 bit) |
 
 <sup>1</sup> Pipeline, conjunto de dados e objetos de serviço ligados representam um agrupamento lógico da sua carga de trabalho. Os limites para estes objetos não se relacionam com a quantidade de dados que pode mover e processar com a Azure Data Factory. A Data Factory foi concebida para escalar para lidar com petabytes de dados.
