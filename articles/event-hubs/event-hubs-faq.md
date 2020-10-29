@@ -3,12 +3,12 @@ title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789374"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909714"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -119,6 +119,9 @@ Em seguida, Ative os registos de diagnóstico para [eventos de ligação de rede
     "Category": "EventHubVNetConnectionEvent"
 }
 ```
+
+> [!IMPORTANT]
+> Os registos de rede virtuais só são gerados se o espaço de nome permitir o acesso a partir de **endereços IP específicos (regras** de filtro IP). Se não quiser restringir o acesso ao seu espaço de identificação utilizando estas funcionalidades e ainda pretender obter registos de rede virtuais para rastrear endereços IP de clientes que se ligam ao espaço de nomes dos Centros de Eventos, poderá utilizar a seguinte solução: Ativar a filtragem IP e adicionar a gama total iPv4 endereçada (1.0.0/1 - 255.0.0.0/1). O Event Hubs não suporta intervalos de endereços IPv6. 
 
 ## <a name="apache-kafka-integration"></a>Integração Apache Kafka
 
