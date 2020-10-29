@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 10/29/2020
 ms.locfileid: "92544771"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar cache Azure para Redis
