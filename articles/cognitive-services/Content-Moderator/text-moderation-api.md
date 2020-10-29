@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85800096"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912910"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
 
@@ -34,7 +34,7 @@ A resposta do serviço inclui as seguintes informações:
 
 ## <a name="profanity"></a>Palavras ofensivas
 
-Se a API detetar quaisquer termos profanos em qualquer uma das [línguas suportadas,](Text-Moderation-API-Languages.md)esses termos estão incluídos na resposta. A resposta também contém a sua localização `Index` () no texto original. Na `ListId` amostra seguinte, jSON refere-se aos termos encontrados em [listas de prazos personalizados,](try-terms-list-api.md) se disponível.
+Se a API detetar quaisquer termos profanos em qualquer uma das [línguas suportadas,](./language-support.md)esses termos estão incluídos na resposta. A resposta também contém a sua localização `Index` () no texto original. Na `ListId` amostra seguinte, jSON refere-se aos termos encontrados em [listas de prazos personalizados,](try-terms-list-api.md) se disponível.
 
 ```json
 "Terms": [
@@ -53,7 +53,7 @@ Se a API detetar quaisquer termos profanos em qualquer uma das [línguas suporta
 
 ## <a name="classification"></a>Classificação
 
-A funcionalidade de **classificação** de texto assistida por máquinas do Moderador suporta **apenas o inglês**e ajuda a detetar conteúdo potencialmente não-domado. O conteúdo sinalizado pode ser avaliado como inadequado em função do contexto. Transmite a probabilidade de cada categoria e pode recomendar uma revisão humana. A funcionalidade utiliza um modelo treinado para identificar possíveis linguagens abusivas, depreciativas ou discriminatórias. Isto inclui gíria, palavras abreviadas, ofensivas e intencionalmente escritas palavras para revisão. 
+A funcionalidade de **classificação** de texto assistida por máquinas do Moderador suporta **apenas o inglês** e ajuda a detetar conteúdo potencialmente não-domado. O conteúdo sinalizado pode ser avaliado como inadequado em função do contexto. Transmite a probabilidade de cada categoria e pode recomendar uma revisão humana. A funcionalidade utiliza um modelo treinado para identificar possíveis linguagens abusivas, depreciativas ou discriminatórias. Isto inclui gíria, palavras abreviadas, ofensivas e intencionalmente escritas palavras para revisão. 
 
 O seguinte extrato no extrato JSON mostra uma saída de exemplo:
 
@@ -142,7 +142,7 @@ Se pedir uma correção automática, a resposta contém a versão corrigida do t
 Embora o padrão, a lista global de termos funcione muito bem para a maioria dos casos, você pode querer ser exibido contra termos específicos das necessidades do seu negócio. Por exemplo, é melhor filtrar quaisquer marcas competitivas de publicações por parte dos utilizadores.
 
 > [!NOTE]
-> Existe um limite máximo de **5 listas de termos**, sendo que cada lista **não pode exceder 10 000 termos**.
+> Existe um limite máximo de **5 listas de termos** , sendo que cada lista **não pode exceder 10 000 termos** .
 >
 
 O exemplo a seguir mostra o ID da lista correspondente:

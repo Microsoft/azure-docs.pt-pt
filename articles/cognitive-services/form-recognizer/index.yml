@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: c6bb89a5153df399a0215fb258fbb74b0adcef36
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 5f0893f53c18bfeead5135a7ffdbc3d9d806bc79
+  ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92368405"
+  ms.lasthandoff: 10/29/2020
+  ms.locfileid: "92913012"
 landingContent:
 - title: Sobre o Reconhecedor de Formato
   linkLists:
@@ -131,17 +131,17 @@ landingContent:
     - text: API do Reconhecedor de Formato v2.0
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+      url: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - text: SDK Python
-      url: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
+      url: /python/api/azure-ai-formrecognizer/?view=azure-python
     - text: SDK Java
-      url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+      url: /java/api/overview/azure/ai-formrecognizer-readme
     - text: SDK JavaScript
-      url: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
+      url: /javascript/api/overview/azure/ai-form-recognizer-readme
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list
+      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

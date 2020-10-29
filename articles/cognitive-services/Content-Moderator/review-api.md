@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872056"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912961"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Avaliações de moderação de conteúdos, fluxos de trabalho e empregos
 
@@ -35,7 +35,7 @@ Um fluxo de trabalho é um filtro personalizado à base de nuvem para conteúdo.
 
 ### <a name="view-workflows"></a>Ver fluxos de trabalho
 
-Para visualizar os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione **Definições**  >  **Fluxos de Trabalho**.
+Para visualizar os fluxos de trabalho existentes, vá à [ferramenta 'Rever'](https://contentmoderator.cognitive.microsoft.com/) e selecione **Definições**  >  **Fluxos de Trabalho** .
 
 ![Fluxo de trabalho predefinido](images/default-workflow-listed.PNG)
 
@@ -75,5 +75,5 @@ Consulte o [guia da API REST](./try-review-api-job.md) para começar a usar empr
 ## <a name="next-steps"></a>Passos seguintes
 
 * Teste a [consola Job API](try-review-api-job.md)e utilize as amostras de código REST API. Se você está familiarizado com Visual Studio e C#, também confira o [quickstart Jobs .NET](moderation-jobs-quickstart-dotnet.md). 
-* Para comentários, inicie com a [consola API de revisão](try-review-api-review.md)e use as amostras de código REST API. Em seguida, consulte a secção de comentários do [arranque rápido .NET](dotnet-sdk-quickstart.md).
+* Para comentários, inicie com a [consola API de revisão](try-review-api-review.md)e use as amostras de código REST API. Em seguida, consulte a secção de comentários do [arranque rápido .NET](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 * Para análises de vídeo, use o [quickstart](video-reviews-quickstart-dotnet.md)da revisão de vídeo e aprenda a [adicionar transcrições à revisão de vídeo](video-transcript-reviews-quickstart-dotnet.md).

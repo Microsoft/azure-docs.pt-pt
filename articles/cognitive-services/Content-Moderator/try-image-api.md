@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75448249"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912944"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Imagens moderadas da consola API
 
@@ -40,7 +40,7 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
 4. Na caixa **corporal Request,** utilize a imagem da amostra predefinida ou especifique uma imagem para digitalizar. Pode submeter a imagem em si como dados binários de bits ou especificar um URL acessível ao público para uma imagem. 
 
-   Para este exemplo, utilize o caminho previsto na caixa **corporal Request** e, em seguida, selecione **Enviar**. 
+   Para este exemplo, utilize o caminho previsto na caixa **corporal Request** e, em seguida, selecione **Enviar** . 
 
    ![Tente imagem - Avalie o corpo do pedido da consola](images/try-image-api-2.PNG)
 
@@ -50,15 +50,15 @@ Antes de poder testar a API na consola online, precisa da sua chave de subscriç
 
 5. Selecione **Send** (Enviar).
 
-6. A API devolve uma pontuação de probabilidade para cada classificação. Também devolve a determinação de se a imagem satisfaz as condições (**verdadeiras** ou **falsas).** 
+6. A API devolve uma pontuação de probabilidade para cada classificação. Também devolve a determinação de se a imagem satisfaz as condições ( **verdadeiras** ou **falsas).** 
 
    ![Tente imagem - Avalie a pontuação da probabilidade da consola e a determinação da condição](images/try-image-api-3.PNG)
 
-## <a name="face-detection"></a>Deteção facial
+## <a name="face-detection"></a>Deteção de rostos
 
 Pode utilizar a API de Moderação de Imagem para localizar rostos numa imagem. Esta opção pode ser útil quando tem preocupações de privacidade e pretende evitar que um rosto específico seja publicado na sua plataforma. 
 
-1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **Find Faces**. 
+1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **Find Faces** . 
 
    A página **Image - Find Faces** abre.
 
@@ -82,7 +82,7 @@ Pode utilizar a API de Moderação de Imagem para localizar rostos numa imagem. 
 
 Pode utilizar a capacidade de OCR do Moderador de Conteúdo para detetar texto em imagens.
 
-1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **OCR**. 
+1. Na [referência API de Moderação de Imagem,](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)no menu esquerdo, em **Imagem,** selecione **OCR** . 
 
    A **página Imagem - OCR** abre.
 
@@ -102,4 +102,4 @@ Pode utilizar a capacidade de OCR do Moderador de Conteúdo para detetar texto e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize a API REST no seu código ou siga o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para adicionar moderação de imagem à sua aplicação.
+Utilize a API REST no seu código ou siga o [quickstart .NET SDK](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para adicionar moderação de imagem à sua aplicação.

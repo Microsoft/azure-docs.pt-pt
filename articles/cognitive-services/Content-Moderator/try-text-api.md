@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272598"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912876"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado da consola API
 
@@ -43,14 +43,14 @@ Para **a consola de testes API Aberta,** selecione a região que mais descreve a
 
 ### <a name="parameters"></a>Parâmetros
 
-Selecione os parâmetros de consulta que pretende utilizar no seu ecrã de texto. Para este exemplo, utilize o valor predefinido para **a linguagem**. Também pode deixá-lo em branco porque a operação irá detetar automaticamente o idioma provável como parte da sua execução.
+Selecione os parâmetros de consulta que pretende utilizar no seu ecrã de texto. Para este exemplo, utilize o valor predefinido para **a linguagem** . Também pode deixá-lo em branco porque a operação irá detetar automaticamente o idioma provável como parte da sua execução.
 
 > [!NOTE]
 > Para o parâmetro do **idioma,** `eng` atribua-o ou deixe-o vazio para ver a resposta de **classificação** assistida por máquina (função de pré-visualização). **Esta funcionalidade suporta apenas inglês.**
 >
 > Para deteção **de termos de profanação,** utilize o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) das línguas suportadas listadas neste artigo ou deixe-o vazio.
 
-Para **corrigir automaticamente,** **PII,** e **classificar (pré-visualização)**, selecione **true**. Deixe o campo **ListId** vazio.
+Para **corrigir automaticamente,** **PII,** e **classificar (pré-visualização)** , selecione **true** . Deixe o campo **ListId** vazio.
 
   ![Texto - Parâmetros de consulta da consola de ecrã](images/text-api-console-inputs.PNG)
 
@@ -137,4 +137,4 @@ Para obter uma explicação detalhada de todas as secções na resposta JSON, co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize a API REST no seu código ou siga o [quickstart .NET SDK](dotnet-sdk-quickstart.md) para integrar-se com a sua aplicação.
+Utilize a API REST no seu código ou siga o [quickstart .NET SDK](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) para integrar-se com a sua aplicação.

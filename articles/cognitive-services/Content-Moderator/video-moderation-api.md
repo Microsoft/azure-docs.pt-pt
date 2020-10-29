@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919357"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912859"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analisar conteúdo de vídeo para material censurável em C #
 
@@ -33,17 +33,17 @@ A capacidade de moderação de vídeo do Moderador de Conteúdo está disponíve
 
 ### <a name="create-an-azure-media-services-account"></a>Criar uma conta dos Media Services do Azure
 
-Siga as instruções na [Criar uma conta Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) para subscrever a AMS e criar uma conta de armazenamento Azure associada. Nessa conta de armazenamento, crie um novo recipiente de armazenamento Blob.
+Siga as instruções na [Criar uma conta Azure Media Services](../../media-services/previous/media-services-portal-create-account.md) para subscrever a AMS e criar uma conta de armazenamento Azure associada. Nessa conta de armazenamento, crie um novo recipiente de armazenamento Blob.
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação de Diretório Ativo Azure
 
-Navegue para a sua nova subscrição AMS no portal Azure e selecione **o acesso a API** a partir do menu lateral. Selecione **Connect to Azure Media Services com o principal serviço**. Note o valor no campo de ponto final da **API REST;** Vai precisar disto mais tarde.
+Navegue para a sua nova subscrição AMS no portal Azure e selecione **o acesso a API** a partir do menu lateral. Selecione **Connect to Azure Media Services com o principal serviço** . Note o valor no campo de ponto final da **API REST;** Vai precisar disto mais tarde.
 
 Na secção de **aplicações AD Azure,** selecione **Create New** e nomeie o seu novo registo de aplicações AZure AD (por exemplo, "VideoModADApp"). Clique **em Guardar** e aguarde alguns minutos enquanto a aplicação está configurada. Em seguida, deverá ver o seu novo registo de aplicações na secção de **aplicações AD AZure** da página.
 
-Selecione o registo da sua aplicação e clique no botão **de aplicação Gerir** abaixo. Note o valor no campo ID da **aplicação;** Vai precisar disto mais tarde. Selecione **As Teclas de Definições**  >  **Keys**e introduza uma descrição para uma nova chave (como "VideoModKey"). Clique **em Guardar**e, em seguida, note o novo valor da chave. Copie esta corda e guarde-a em algum lugar seguro.
+Selecione o registo da sua aplicação e clique no botão **de aplicação Gerir** abaixo. Note o valor no campo ID da **aplicação;** Vai precisar disto mais tarde. Selecione **As Teclas de Definições**  >  **Keys** e introduza uma descrição para uma nova chave (como "VideoModKey"). Clique **em Guardar** e, em seguida, note o novo valor da chave. Copie esta corda e guarde-a em algum lugar seguro.
 
-Para uma passagem mais completa do processo acima, consulte começar com a [autenticação AD AZure.](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)
+Para uma passagem mais completa do processo acima, consulte começar com a [autenticação AD AZure.](../../media-services/previous/media-services-portal-get-started-with-aad.md)
 
 Depois de o fazeres, podes usar o processador de mídia de moderação de vídeo de duas maneiras diferentes.
 
@@ -55,7 +55,7 @@ O Azure Media Services Explorer é um frontend fácil de utilizar para a AMS. Ut
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
-1. No Visual Studio, crie um novo projeto **de aplicação para consolas (.NET Framework)** e nomeie-o **VideoModeration**. 
+1. No Visual Studio, crie um novo projeto **de aplicação para consolas (.NET Framework)** e nomeie-o **VideoModeration** . 
 1. Se houver outros projetos na sua solução, selecione esta como o único projeto de arranque.
 1. Obtenha os pacotes NuGet necessários. Clique com o botão direito do rato no seu projeto no Explorador de Soluções e selecione **Manage NuGet Packages** (Gerir Pacotes NuGet); em seguida, localize e instale os pacotes seguintes:
     - windowsazure.mediaservices
@@ -67,7 +67,7 @@ Depois, vai copiar e colar o código neste guia no projeto, para implementar um 
 
 ### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de utilização do programa
 
-Adicione as declarações `using` seguintes à parte superior do ficheiro _Program.cs_.
+Adicione as declarações `using` seguintes à parte superior do ficheiro _Program.cs_ .
 
 ```csharp
 using System;
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Configurar referências de recursos
 
-Adicione os seguintes campos estáticos à classe **Program** em _Program.cs_. Estes campos possuem as informações necessárias para a ligação à sua subscrição AMS. Preencha-os com os valores que tem nos degraus acima. Note que `CLIENT_ID` é o valor de ID da aplicação AD da **aplicação** AD Azure, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
+Adicione os seguintes campos estáticos à classe **Program** em _Program.cs_ . Estes campos possuem as informações necessárias para a ligação à sua subscrição AMS. Preencha-os com os valores que tem nos degraus acima. Note que `CLIENT_ID` é o valor de ID da aplicação AD da **aplicação** AD Azure, e `CLIENT_SECRET` é o valor do "VideoModKey" que criou para essa aplicação.
 
 ```csharp
 // declare constants and globals
@@ -159,7 +159,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Criar um contexto de mídia Azure
 
-Adicione o seguinte método à classe **Programa**. Isto utiliza as suas credenciais AMS para permitir a comunicação com a AMS.
+Adicione o seguinte método à classe **Programa** . Isto utiliza as suas credenciais AMS para permitir a comunicação com a AMS.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -180,7 +180,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Adicione o código para criar um contexto de armazenamento Azure
 
-Adicione o seguinte método à classe **Programa**. Utiliza o Contexto de Armazenamento, criado a partir das suas credenciais de armazenamento, para aceder ao seu armazenamento de bolhas.
+Adicione o seguinte método à classe **Programa** . Utiliza o Contexto de Armazenamento, criado a partir das suas credenciais de armazenamento, para aceder ao seu armazenamento de bolhas.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Após o trabalho de Moderação de Conteúdo estar concluído, analise a resposta JSON. Consiste nestes elementos:
 
 - Resumo da informação de vídeo
-- **Tiros** como "**fragmentos**"
-- **Quadros-chave** como "**eventos**" com uma **críticaRecomprimiada" (= verdadeira ou falsa)"** bandeira baseada em pontuações **de Adulto** e **Racy**
-- **início**, **duração,** **totalduração,** e **carimbo de tempo** estão em "tiques". Divida por **escala de tempo** para obter o número em segundos.
+- **Tiros** como " **fragmentos** "
+- **Quadros-chave** como " **eventos** " com uma **críticaRecomprimiada" (= verdadeira ou falsa)"** bandeira baseada em pontuações **de Adulto** e **Racy**
+- **início** , **duração,** **totalduração,** e **carimbo de tempo** estão em "tiques". Divida por **escala de tempo** para obter o número em segundos.
  
 > [!NOTE]
 > - `adultScore` representa a pontuação potencial de presença e previsão de conteúdos que podem ser considerados sexualmente explícitos ou adultos em determinadas situações.

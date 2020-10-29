@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919295"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912842"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
@@ -35,7 +35,7 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Inscreva-se no web site da [ferramenta Content Moderator Review](https://contentmoderator.cognitive.microsoft.com/) e crie tags personalizadas. Consulte [as etiquetas de utilização](Review-Tool-User-Guide/tags.md) se precisar de ajuda com este passo.
+- Inscreva-se no web site da [ferramenta Content Moderator Review](https://contentmoderator.cognitive.microsoft.com/) e crie tags personalizadas. Consulte [as etiquetas de utilização](./review-tool-user-guide/configure.md#tags) se precisar de ajuda com este passo.
 
     ![screenshot de etiquetas personalizadas de moderação de vídeo](images/video-tutorial-custom-tags.png)
 - Para executar a aplicação da amostra, precisa de uma conta Azure, um recurso Azure Media Services, um recurso Azure Content Moderador e credenciais de Diretório Azure Ative. Para obter instruções sobre como obter estes recursos, consulte o guia [da API de Moderação de Vídeo.](video-moderation-api.md)
@@ -83,7 +83,7 @@ A classe `Program` em `Program.cs` é o principal ponto de entrada da aplicaçã
 Se não estiver presente nenhum argumento de linha de comandos, `Main()` chamará `GetUserInputs()`. Este método pede ao utilizador para introduzir o caminho para um único ficheiro de vídeo e para especificar se deve ser gerada uma transcrição de texto.
 
 > [!NOTE]
-> A aplicação da consola utiliza a API do [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
+> A aplicação da consola utiliza a API do [Azure Media Indexer](../../media-services/previous/legacy-components.md) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Métodos Initialize e ProcessVideo
 
@@ -224,7 +224,7 @@ O resultado da tarefa de moderação de vídeos (veja [o guia de início rápido
 Também é produzida uma transcrição de áudio a partir do vídeo quando o sinalizador `GenerateVTT` é definido.
 
 > [!NOTE]
-> A aplicação da consola utiliza a API do [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
+> A aplicação da consola utiliza a API do [Azure Media Indexer](../../media-services/previous/legacy-components.md) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre este formato, veja [Formato de Faixas de Texto de Vídeo Web](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Criar uma revisão humana
 
@@ -249,7 +249,7 @@ O seguinte ecrã mostra os resultados dos passos anteriores.
 
 ## <a name="process-the-transcript"></a>Processar a transcrição
 
-Até agora, o código apresentado neste tutorial incidiu nos conteúdos visuais. A revisão dos conteúdos de voz é um processo separado e opcional que, conforme mencionado anteriormente, utiliza uma transcrição gerada a partir do áudio. Agora é altura de ver como é que as transcrições de texto são criadas e utilizadas no processo de revisão. É o serviço do [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) que realiza a tarefa de geração da transcrição.
+Até agora, o código apresentado neste tutorial incidiu nos conteúdos visuais. A revisão dos conteúdos de voz é um processo separado e opcional que, conforme mencionado anteriormente, utiliza uma transcrição gerada a partir do áudio. Agora é altura de ver como é que as transcrições de texto são criadas e utilizadas no processo de revisão. É o serviço do [Azure Media Indexer](../../media-services/previous/media-services-index-content.md) que realiza a tarefa de geração da transcrição.
 
 A aplicação realiza as seguintes tarefas:
 

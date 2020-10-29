@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 37c729258885bd979cf0b3b2ba2f7d3a11b79d57
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 0edc567695c95b7cf0a93a12724d9e21e1839c51
+  ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92372111"
+  ms.lasthandoff: 10/29/2020
+  ms.locfileid: "92912978"
 landingContent:
 - title: Acerca do Content Moderator
   linkLists:
@@ -57,7 +57,7 @@ landingContent:
     - text: Utilizar o SDK .NET
       url: image-lists-quickstart-dotnet.md
     - text: Utilizar o SDK Python
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Utilizar a consola da API
@@ -71,9 +71,9 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Utilizar o SDK .NET
-      url: dotnet-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
     - text: Utilizar o SDK Python
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Utilizar a consola da API
@@ -85,7 +85,7 @@ landingContent:
     - text: Utilizar o SDK .NET
       url: term-lists-quickstart-dotnet.md
     - text: Utilizar o SDK Python
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Utilizar a consola da API
@@ -115,7 +115,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Criar revisões com o SDK Python
-      url: python-sdk-quickstart.md
+      url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
   - linkListType: how-to-guide
     links:
     - text: Definir e utilizar revisões (Ferramenta de revisão)
@@ -129,21 +129,21 @@ landingContent:
   - linkListType: reference
     links:
     - text: API do Content Moderator
-      url: https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference
+      url: ./api-reference.md
     - text: SDK .NET
-      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
     - text: SDK Python
-      url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
+      url: /python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
     - text: SDK Java
-      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      url: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
     - text: SDK Node.js
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator
+      url: /javascript/api/@azure/cognitiveservices-contentmoderator
     - text: SDK Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+      url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+      url: /cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Ajuda e comentários
   linkLists:
   - linkListType: reference

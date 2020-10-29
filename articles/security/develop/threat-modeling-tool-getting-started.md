@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980473"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913029"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Começar com a ferramenta de modelação de ameaças
 
@@ -87,7 +87,7 @@ O que o Ricardo acabou de mostrar à Cristina é um DFD, abreviatura **[de Data 
 
 ## <a name="analyzing-threats"></a>Analisar ameaças
 
-Assim que clica na visão de análise da seleção do menu do ícone (ficheiro com lupa), ele é levado para uma lista de ameaças geradas a Ferramenta de Modelação de Ameaças encontrada com base no modelo padrão, que utiliza a abordagem SDL chamada **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. A ideia é que o software esteja sob um conjunto previsível de ameaças, que podem ser encontradas usando estas 6 categorias.
+Assim que clica na visão de análise da seleção do menu do ícone (ficheiro com lupa), ele é levado para uma lista de ameaças geradas a Ferramenta de Modelação de Ameaças encontrada com base no modelo padrão, que utiliza a abordagem SDL chamada **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))** . A ideia é que o software esteja sob um conjunto previsível de ameaças, que podem ser encontradas usando estas 6 categorias.
 
 Esta abordagem é como proteger a sua casa garantindo que cada porta e janela tem um mecanismo de bloqueio no lugar antes de adicionar um sistema de alarme ou perseguir o ladrão.
 
@@ -101,7 +101,7 @@ Primeiro, a interação entre os dois stencils é melhorada
 
 Em segundo lugar, informações adicionais sobre a ameaça aparecem na janela Propriedades de Ameaça
 
-![Informação de Interação](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![A screenshot mostra a janela Propriedades de Ameaça, que contém Título, Categoria, Descrição, Interação e Prioridade.](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 A ameaça gerada ajuda-o a compreender potenciais falhas de design. A categorização do STRIDE dá-lhe uma ideia sobre potenciais vetores de ataque, enquanto a descrição adicional diz-lhe exatamente o que está errado, juntamente com possíveis formas de mitigar. Ele pode usar campos editáveis para escrever notas nos detalhes da justificação ou alterar classificações prioritárias dependendo da barra de erros da sua organização.
 
@@ -118,7 +118,7 @@ As ameaças não aplicáveis ao desenho devido a mitigações ou garantias de se
 
 Assim que Ricardo analisar a lista com Cristina e adicionar notas importantes, mitigações/justificações, alterações de prioridade e de estado, seleciona Relatórios -> Criar Relatório Completo -> Save Report, que publica um relatório agradável para que ele vá em frente com os colegas para garantir que o trabalho de segurança adequado é implementado.
 
-![Informação de Interação](./media/threat-modeling-tool-feature-overview/report.png)
+![A screenshot mostra um relatório representativo de modelação de ameaças.](./media/threat-modeling-tool-feature-overview/report.png)
 
 Se o Ricardo quiser partilhar o ficheiro, pode facilmente fazê-lo economizando na conta OneDrive da sua organização. Assim que o fizer, pode copiar o link do documento e partilhá-lo com os seus colegas. 
 

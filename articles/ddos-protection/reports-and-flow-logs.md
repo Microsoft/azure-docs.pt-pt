@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 2c4349662b06ff281ef028c833c6c43dd2707051
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 5a6fc8e9b316f7c4740ee27fe72c5f056f071d73
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905298"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912720"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Configure relatórios de mitigação de ataques DDoS e registos de fluxo 
 
@@ -91,6 +91,22 @@ Os registos de fluxo terão os seguintes campos:
 ![Livro de Proteção dDos](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 
 A análise de ataque só funcionará se a Norma de Proteção DDoS estiver ativada na rede virtual do endereço IP público. 
+
+## <a name="sample-log-outputs"></a>Saídas de registo de amostras
+
+As seguintes imagens são saídas de registo de exemplo:
+
+### <a name="ddosmitigationflowlogs"></a>DDoSMitigationFlowLogs
+
+![DDoS Protection DDoSMitigationFlowLogs](./media/ddos-attack-telemetry/ddos-mitigation-flow-logs.png)
+
+### <a name="ddosprotectionnotifications"></a>DDoSProtectionNotificações
+
+![Proteção DDoSProtectionNotificações](./media/ddos-attack-telemetry/ddos-protection-notifications.png)
+
+### <a name="ddosmitigationreports"></a>DDoSMitigationReports
+
+![DDoS Protection DDoSMitigationReports](./media/ddos-attack-telemetry/ddos-mitigation-reports.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

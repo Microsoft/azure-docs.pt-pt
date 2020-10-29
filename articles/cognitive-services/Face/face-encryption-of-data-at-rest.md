@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: eab90fc2cb30ae8e9f1c19bdbefc6fbc88c32f76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c6f4f7db312355b719deb434bf6a46fa55eec9d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079273"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912791"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Encriptação do serviço facial de dados em repouso
 
@@ -30,5 +30,5 @@ O serviço Face encripta automaticamente os seus dados quando os persiste na nuv
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma lista completa de serviços que suportam a CMK, consulte [chaves geridas pelo cliente para serviços cognitivos](../encryption/cognitive-services-encryption-keys-portal.md)
-* [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [O que é Azure Key Vault?](../../key-vault/general/overview.md)
 * [Formulário de pedido chave de Customer-Managed serviços cognitivos](https://aka.ms/cogsvc-cmk)
