@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 96c47ed59fd904f1523347d9f0ef7bc00edb866f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745664"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899889"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
@@ -150,7 +150,7 @@ Para conceder o acesso correto para o cluster AKS usar a rede virtual, crie uma 
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
 Coloca-se um cluster AKS na sub-rede AKS criada num passo anterior. Obtenha a ID desta sub-rede utilizando [o programa de sub-redes da rede Az:][az-network-vnet-subnet-show]
 
@@ -231,7 +231,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:
@@ -339,7 +339,7 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 

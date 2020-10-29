@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 68a892768e5cfa5be7fe6f9ad99fc4cded68b02d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071817"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900885"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize os controladores da Interface de Armazenamento de Contentores de Disco Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
 O controlador Azure Disk Container Storage Interface (CSI) é um controlador de [especificações CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)utilizado pelo Azure Kubernetes Service (AKS) para gerir o ciclo de vida dos discos Azure.
@@ -101,7 +101,7 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>Instantâneos de volume
 
-O controlador CSI do disco Azure suporta a criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desta capacidade, o controlador pode executar instantâneos *completos* ou [ *incrementais* ](../virtual-machines/windows/disks-incremental-snapshots.md) dependendo do valor definido no `incremental` parâmetro (por padrão, é verdade).
+O controlador CSI do disco Azure suporta a criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desta capacidade, o controlador pode executar instantâneos *completos* ou [ *incrementais*](../virtual-machines/windows/disks-incremental-snapshots.md) dependendo do valor definido no `incremental` parâmetro (por padrão, é verdade).
 
 Para obter detalhes sobre todos os parâmetros, consulte os [parâmetros da classe snapshot de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
 
@@ -339,7 +339,7 @@ spec:
     spec:
       containers:
         - name: deployment-azuredisk
-          image: nginx
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
           volumeDevices:
             - name: azuredisk
               devicePath: /dev/sdx
@@ -360,11 +360,10 @@ deployment/deployment-azuredisk created
 Finalmente, vamos verificar o dispositivo de bloqueio dentro da cápsula:
 
 ```console
-# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp bash
-root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=1024k count=100
+# kubectl exec -it deployment-sharedisk-7454978bc6-xh7jp sh
+/ # dd if=/dev/zero of=/dev/sdx bs=1024k count=100
 100+0 records in
-100+0 records out
-104857600 bytes (105 MB, 100 MiB) copied, 0.0502999 s, 2.1 GB/s
+100+0 records out/s
 ```
 
 ## <a name="windows-containers"></a>Contentores do Windows
@@ -391,7 +390,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 (...)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Para aprender a utilizar controladores CSI para ficheiros Azure, consulte [Use Azure Files com controladores CSI](azure-files-csi.md).
 - Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes.][operator-best-practices-storage]

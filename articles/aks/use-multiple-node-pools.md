@@ -4,12 +4,12 @@ description: Saiba como criar e gerir várias piscinas de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074520"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900081"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerir múltiplos conjuntos de nós para um cluster no Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS que suporta
 * Todas as piscinas de nódis devem residir na mesma rede virtual.
 * Ao criar várias piscinas de nó no cluster criar tempo, todas as versões Kubernetes utilizadas por piscinas de nó devem corresponder ao conjunto de versão definida para o plano de controlo. Isto pode ser atualizado depois de o cluster ter sido a provisionado utilizando operações de piscina por nó.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
@@ -93,7 +93,7 @@ Para ver o estado das suas piscinas de nó, use o comando [da lista de números 
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-A saída de exemplo a seguir mostra que *a mynodepool* foi criada com sucesso com três nós na piscina de nós. Quando o cluster AKS foi criado no passo anterior, um *nodepool1* padrão foi criado com uma contagem de nó de *2*.
+A saída de exemplo a seguir mostra que *a mynodepool* foi criada com sucesso com três nós na piscina de nós. Quando o cluster AKS foi criado no passo anterior, um *nodepool1* padrão foi criado com uma contagem de nó de *2* .
 
 ```output
 [
@@ -214,7 +214,7 @@ Como uma boa prática, você deve atualizar todas as piscinas de nós em um clus
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Atualize um plano de controlo de cluster com várias piscinas de nó
 
 > [!NOTE]
-> Kubernetes usa o esquema padrão de versão [semântica.](https://semver.org/) O número da versão é expresso em *x.y.z*, onde *x* é a versão principal, *y* é a versão menor, e *z* é a versão patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão menor, e 6 é a versão patch. A versão Kubernetes do plano de controlo e a piscina inicial do nó são definidas durante a criação do cluster. Todas as piscinas de nó adicionais têm a sua versão Kubernetes definida quando são adicionadas ao cluster. As versões Kubernetes podem diferir entre piscinas de nós, bem como entre uma piscina de nó e o plano de controlo.
+> Kubernetes usa o esquema padrão de versão [semântica.](https://semver.org/) O número da versão é expresso em *x.y.z* , onde *x* é a versão principal, *y* é a versão menor, e *z* é a versão patch. Por exemplo, na versão *1.12.6* , 1 é a versão principal, 12 é a versão menor, e 6 é a versão patch. A versão Kubernetes do plano de controlo e a piscina inicial do nó são definidas durante a criação do cluster. Todas as piscinas de nó adicionais têm a sua versão Kubernetes definida quando são adicionadas ao cluster. As versões Kubernetes podem diferir entre piscinas de nós, bem como entre uma piscina de nó e o plano de controlo.
 
 Um cluster AKS tem dois objetos de recursos de cluster com versões Kubernetes associadas.
 
@@ -249,7 +249,7 @@ Como a carga de trabalho da sua aplicação exige alterações, poderá ter de e
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Para escalar o número de nós numa piscina de nó, utilize o comando [de balança de balança de node az aks.][az-aks-nodepool-scale] O exemplo a seguir escala o número de nós na *mynodepool* para *5*:
+Para escalar o número de nós numa piscina de nó, utilize o comando [de balança de balança de node az aks.][az-aks-nodepool-scale] O exemplo a seguir escala o número de nós na *mynodepool* para *5* :
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -351,11 +351,11 @@ Leva alguns minutos para apagar os nós e a piscina de nós.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Especificar um tamanho VM para uma piscina de nó
 
-Nos exemplos anteriores para criar uma piscina de nó, foi utilizado um tamanho VM padrão para os nós criados no cluster. Um cenário mais comum é criar piscinas de nó com diferentes tamanhos e capacidades de VM. Por exemplo, você pode criar uma piscina de nós que contém nós com grandes quantidades de CPU ou memória, ou um conjunto de nós que fornece suporte GPU. No passo seguinte, [você usa manchas e tolerações](#schedule-pods-using-taints-and-tolerations) para dizer ao programador Kubernetes como limitar o acesso a cápsulas que podem funcionar nestes nós.
+Nos exemplos anteriores para criar uma piscina de nó, foi utilizado um tamanho VM padrão para os nós criados no cluster. Um cenário mais comum é criar piscinas de nó com diferentes tamanhos e capacidades de VM. Por exemplo, você pode criar uma piscina de nós que contém nós com grandes quantidades de CPU ou memória, ou um conjunto de nós que fornece suporte GPU. No passo seguinte, [você usa manchas e tolerações](#setting-nodepool-taints) para dizer ao programador Kubernetes como limitar o acesso a cápsulas que podem funcionar nestes nós.
 
 No exemplo seguinte, crie uma piscina de nó à base de GPU que utilize o *tamanho Standard_NC6* VM. Estes VMs são alimentados pelo cartão NVIDIA Tesla K80. Para obter informações sobre os tamanhos VM disponíveis, consulte [tamanhos para máquinas virtuais Linux em Azure][vm-sizes].
 
-Crie uma piscina de nó usando o [número az aks node adicionar][az-aks-nodepool-add] comando novamente. Desta vez, especifique o nome *gpunodepool*, e use o `--node-vm-size` parâmetro para especificar o tamanho *Standard_NC6:*
+Crie uma piscina de nó usando o [número az aks node adicionar][az-aks-nodepool-add] comando novamente. Desta vez, especifique o nome *gpunodepool* , e use o `--node-vm-size` parâmetro para especificar o tamanho *Standard_NC6:*
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-A saída de exemplo a partir do comando da lista de [piscinas de nó aks az aks][az-aks-nodepool-list] mostra que *a gpunodepool* está *a criar* nosdes com o *VmSize*especificado:
+A saída de exemplo a partir do comando da lista de [piscinas de nó aks az aks][az-aks-nodepool-list] mostra que *a gpunodepool* está *a criar* nosdes com o *VmSize* especificado:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -404,89 +404,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Leva alguns minutos para que o *gpunodepool* seja criado com sucesso.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Agendar cápsulas usando manchas e tolerâncias
-
-Você agora tem duas piscinas de nó no seu cluster - a piscina de nó padrão inicialmente criada, e o conjunto de nós baseado em GPU. Utilize o [comando de gêmis kubectl][kubectl-get] para ver os nós no seu cluster. A saída de exemplo a seguir mostra os nóleiros:
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-O programador Kubernetes pode usar manchas e tolerâncias para restringir que cargas de trabalho podem funcionar em nós.
-
-* Uma **mancha** é aplicada a um nó que indica que apenas podem ser programadas cápsulas específicas neles.
-* Uma **tolerância** é então aplicada a uma vagem que lhes permite *tolerar* a mancha de um nó.
-
-Para obter mais informações sobre como utilizar funcionalidades avançadas de Kubernetes [programadas, consulte as melhores práticas para funcionalidades avançadas do programador em AKS][taints-tolerations]
-
-Neste exemplo, aplique uma mancha no nó baseado na GPU usando o comando --nó-taints. Especifique o nome do seu nó baseado na GPU a partir da saída do `kubectl get nodes` comando anterior. A mancha é aplicada como um par *chave=valor* e, em seguida, uma opção de agendamento. O exemplo a seguir utiliza o par *sku=gpu* e define as cápsulas de outra forma têm a capacidade *NoSchedule:*
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-O exemplo básico seguinte YAML manifesto usa uma tolerância para permitir que o programador Kubernetes execute uma cápsula NGINX no nó baseado em GPU. Para obter um exemplo mais adequado, mas intensivo, para executar um trabalho de tensorflow contra o conjunto de dados MNIST, consulte [use GPUs para cargas de trabalho computacional intensivas em AKS][gpu-cluster].
-
-Crie um ficheiro nomeado `gpu-toleration.yaml` e copie no seguinte exemplo YAML:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-Agende a cápsula utilizando o `kubectl apply -f gpu-toleration.yaml` comando:
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-Leva alguns segundos para agendar a cápsula e puxar a imagem NGINX. Utilize o comando do [pod de descrever kubectl][kubectl-describe] para visualizar o estado do pod. A seguinte saída de exemplo condensada mostra que a tolerância *sku=gpu:NoSchedule* é aplicada. Na secção de eventos, o programador atribuiu a cápsula ao nó *aks-gpunodepool-28993262-vmss0000000* gPU- nó baseado em GPU:
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-Apenas as cápsulas que têm esta tolerância aplicada podem ser programadas em nós em *gpunodepool*. Qualquer outra cápsula seria agendada na piscina de *nóndes1.* Se criar piscinas de nó adicionais, pode usar manchas adicionais e tolerâncias para limitar que cápsulas podem ser programadas nesses recursos de nó.
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especifique uma mancha, etiqueta ou etiqueta para uma piscina de nó
 
 ### <a name="setting-nodepool-taints"></a>Definição de manchas de nodepool
@@ -508,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Uma mancha só pode ser definida para piscinas de nó durante a criação da piscina de nó.
 
-A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *taintnp* está *criando* nódes com os *nóns especificados*:
+A saída de exemplo a seguir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *taintnp* está *criando* nódes com os *nóns especificados* :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -532,7 +449,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-A informação de mancha é visível em Kubernetes para lidar com regras de agendamento de nós.
+A informação de mancha é visível em Kubernetes para lidar com regras de agendamento de nós. O programador Kubernetes pode usar manchas e tolerâncias para restringir que cargas de trabalho podem funcionar em nós.
+
+* Uma **mancha** é aplicada a um nó que indica que apenas podem ser programadas cápsulas específicas neles.
+* Uma **tolerância** é então aplicada a uma vagem que lhes permite *tolerar* a mancha de um nó.
+
+Para obter mais informações sobre como utilizar funcionalidades avançadas de Kubernetes [programadas, consulte as melhores práticas para funcionalidades avançadas do programador em AKS][taints-tolerations]
+
+No passo anterior, você aplicou a mancha *sku=gpu:NoSchedule* quando criou a sua piscina de nó. O exemplo básico seguinte YAML manifesto usa uma tolerância para permitir que o programador Kubernetes execute uma cápsula NGINX em um nó nesse conjunto de nós.
+
+Crie um ficheiro nomeado `nginx-toleration.yaml` e copie no seguinte exemplo YAML:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+Agende a cápsula utilizando o `kubectl apply -f nginx-toleration.yaml` comando:
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+Leva alguns segundos para agendar a cápsula e puxar a imagem NGINX. Utilize o comando do [pod de descrever kubectl][kubectl-describe] para visualizar o estado do pod. A seguinte saída de exemplo condensada mostra que a tolerância *sku=gpu:NoSchedule* é aplicada. Na secção de eventos, o programador atribuiu a cápsula ao nó *aks-taintnp-28993262-vmss0000000:*
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+Apenas as cápsulas que têm esta tolerância aplicada podem ser programadas em nós em *taintnp* . Qualquer outra cápsula seria agendada na piscina de *nóndes1.* Se criar piscinas de nó adicionais, pode usar manchas adicionais e tolerâncias para limitar que cápsulas podem ser programadas nesses recursos de nó.
 
 ### <a name="setting-nodepool-labels"></a>Definição de etiquetas de nodepool
 
@@ -599,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Também pode utilizar o parâmetro quando utilizar o `--tags` comando [de atualização az aks nodepool,][az-aks-nodepool-update] bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a etiqueta à piscina inicial do nó criado com o cluster. Todos os nomes de identificação devem aderir às limitações nas [etiquetas de utilização para organizar os seus recursos Azure.][tag-limitation] A atualização de um conjunto de nós com o `--tags` parâmetro atualiza quaisquer valores de etiqueta existentes e anexa quaisquer novas etiquetas. Por exemplo, se o seu node pool tivesse *dept=IT* e *costcenter=9999* para tags e o atualizasse com *team=dev* e *costcenter=111* para tags, você nodepool teria *dept=IT,* *costcenter=111*, e *team=dev* para tags.
+> Também pode utilizar o parâmetro quando utilizar o `--tags` comando [de atualização az aks nodepool,][az-aks-nodepool-update] bem como durante a criação do cluster. Durante a criação do cluster, o `--tags` parâmetro aplica a etiqueta à piscina inicial do nó criado com o cluster. Todos os nomes de identificação devem aderir às limitações nas [etiquetas de utilização para organizar os seus recursos Azure.][tag-limitation] A atualização de um conjunto de nós com o `--tags` parâmetro atualiza quaisquer valores de etiqueta existentes e anexa quaisquer novas etiquetas. Por exemplo, se o seu node pool tivesse *dept=IT* e *costcenter=9999* para tags e o atualizasse com *team=dev* e *costcenter=111* para tags, você nodepool teria *dept=IT,* *costcenter=111* , e *team=dev* para tags.
 
-A saída de exemplo a partir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *o tagnodepool* está *a criar* nosdes com a *etiqueta*especificada:
+A saída de exemplo a partir do comando da [lista de nodepool az aks][az-aks-nodepool-list] mostra que *o tagnodepool* está *a criar* nosdes com a *etiqueta* especificada:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -635,8 +613,8 @@ Quando utiliza um modelo de Gestor de Recursos Azure para criar e gerir recursos
 Crie um modelo como `aks-agentpools.json` e cole o manifesto de exemplo a seguir. Este modelo de exemplo configura as seguintes definições:
 
 * Atualiza a piscina de nóleiros *Linux* chamada *myagentpool* para executar três nós.
-* Define os nós na piscina de nós para executar a versão *1.15.7*de Kubernetes .
-* Define o tamanho do nó como *Standard_DS2_v2*.
+* Define os nós na piscina de nós para executar a versão *1.15.7* de Kubernetes .
+* Define o tamanho do nó como *Standard_DS2_v2* .
 
 Edite estes valores conforme necessário para atualizar, adicionar ou eliminar piscinas de nó, se necessário:
 
@@ -796,9 +774,9 @@ Pode localizar os IPs públicos para os seus nóns de várias formas:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool*, ou todo o cluster AKS.
+Neste artigo, criou um cluster AKS que inclui nós baseados em GPU. Para reduzir custos desnecessários, pode querer eliminar o *gpunodepool* , ou todo o cluster AKS.
 
 Para eliminar o conjunto de nó baseado em GPU, utilize o comando [de exclusão de nodepool az aks,][az-aks-nodepool-delete] como mostrado no exemplo seguinte:
 
@@ -818,7 +796,7 @@ Também pode eliminar o cluster adicional que criou para o cenário de piscinas 
 az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [piscinas de nó de sistema.][use-system-pool]
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7ea990c22614dca00a9983e5c544103d09b9e6a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891687"
+ms.locfileid: "92900236"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -536,7 +536,7 @@ As novas recomendações são:
 - **A proteção avançada de ameaças deve ser ativada nas contas de armazenamento do Azure**
 - **A proteção avançada de ameaças deve ser ativada em máquinas virtuais**
 
-Estas novas recomendações pertencem ao controlo de segurança **de proteção de ameaças avançadas.**
+Estas novas recomendações pertencem ao controlo de segurança **Enable Azure Defender.**
 
 As recomendações também incluem a capacidade de correção rápida. 
 

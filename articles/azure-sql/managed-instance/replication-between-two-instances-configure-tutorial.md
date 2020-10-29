@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790870"
+ms.locfileid: "92900467"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
 
@@ -27,12 +27,12 @@ A replicação transacional permite replicar dados de uma base de dados para out
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
 > - Configure um caso gerido como editor e distribuidor de replicação.
-> - Configure um caso gerido como distribuidor de replicação.
+> - Configurar um caso gerido como assinante de replicação.
 
 ![Replicar entre dois casos geridos](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
@@ -44,7 +44,7 @@ Este tutorial destina-se a um público experiente e assume que o utilizador est�
 
 
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Configurar a SQL Managed Instance para funcionar como editor e/ou distribuidor requer:
 
@@ -324,6 +324,6 @@ GO
 
 Pode limpar os seus recursos Azure [eliminando os recursos da SQL Managed Instance do grupo de recursos](../../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida, eliminando o grupo de recursos `SQLMI-Repl` . 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Também pode aprender mais informações sobre [a replicação transacional com a Azure SQL Managed Instance](replication-transactional-overview.md) ou aprender a configurar a replicação entre um [editor/distribuidor sql Managed Instance e um SQL no assinante Azure VM.](replication-two-instances-and-sql-server-configure-tutorial.md)

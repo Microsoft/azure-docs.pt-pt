@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 72420019ead1ae47054ae62197d8cc310063a6b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5ea5e352084e379632b88194fd13011879041fd3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969777"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899444"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Quickstart: Extrair informações de texto e layout usando a API do Reconhecimento de Formulários REST com Python
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para completar este arranque rápido, você deve ter:
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar a amostra localmente).
-- Um documento de formulário. Pode descarregar uma imagem a partir do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip) *para este arranque rápido.
+- Um documento de formulário. Pode descarregar uma imagem a partir do conjunto de [dados](https://go.microsoft.com/fwlink/?linkid=2090451) da amostra (descarregar e extrair *sample_data.zip)* para este arranque rápido.
 
 > [!NOTE]
 > Este quickstart utiliza um documento armazenado localmente. Para utilizar a utilização de ficheiros remotos acedidos por URL, consulte a [documentação de referência](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
@@ -61,7 +61,8 @@ Para começar a analisar o layout, você chama a **[API de Layout de Análise](h
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -94,7 +95,8 @@ Para começar a analisar o layout, você chama a **[API de Layout de Análise](h
     
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        # Change Content-Type as appropriate
+        'Content-Type': 'application/pdf',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -404,7 +406,7 @@ Consulte a seguinte imagem de fatura e a respetiva saída JSON. A saída foi enc
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste arranque rápido, você usou o Formulário Reconhecedor REST API com Python para extrair o layout de texto de uma fatura. Em seguida, consulte a documentação de referência para explorar mais aprofundadamente a API do Reconhecimento de Formulários.
 

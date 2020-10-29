@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a0851e9d032d4d1bf9751d63061141839e95d510
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491296"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900276"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -39,6 +39,9 @@ A segurança e a privacidade estão entre as principais prioridades para os clie
 
 Leste dos EUA, Leste dos EUA 2, Central EUA, Central Norte-Americano, Oeste dos EUA 2, Europa Ocidental, Norte da Europa, Reino Unido Sul, Sudeste Asiático e Austrália Oriental.
 
+### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Os dados dos clientes são armazenados fora da região especificada?
+
+Azure Spring Cloud é um serviço regional. Todos os dados dos clientes em Azure Spring Cloud são armazenados em várias regiões dentro do mesmo geo da região especificada para redundância. Para saber mais sobre geo e região, consulte [a residência de Dados em Azure.](https://azure.microsoft.com/global-infrastructure/data-residency/)
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Quais são as limitações conhecidas de Azure Spring Cloud?
 
@@ -72,7 +75,7 @@ Azure Spring Cloud suporta Java 8 e 11. Ver [versões java runtime e OS](#java-r
 
 Encontre métricas no separador Visão Geral da App e no [separador Azure Monitor.](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics)
 
-A Azure Spring Cloud suporta a exportação de registos e métricas de aplicações da Spring Cloud para Azure Storage, EventHub e [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). O nome da tabela no Log Analytics é *AppPlatformLogsforSpring*. Para aprender a capacitá-lo, consulte [os serviços de Diagnóstico.](diagnostic-services.md)
+A Azure Spring Cloud suporta a exportação de registos e métricas de aplicações da Spring Cloud para Azure Storage, EventHub e [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). O nome da tabela no Log Analytics é *AppPlatformLogsforSpring* . Para aprender a capacitá-lo, consulte [os serviços de Diagnóstico.](diagnostic-services.md)
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud suporta o rastreio distribuído?
 
@@ -155,7 +158,7 @@ Sim. Para obter mais informações, consulte [Configurar um ambiente de prepara�
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Posso aceder a Kubernetes para manipular os meus recipientes de aplicação?
 
-Não.  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, permitindo-lhe concentrar-se no código de aplicação e na lógica de negócio.
+N.º  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, permitindo-lhe concentrar-se no código de aplicação e na lógica de negócio.
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>A Azure Spring Cloud suporta contentores de construção de fonte?
 
@@ -206,6 +209,6 @@ Não deve haver impactos na experiência do utilizador, o cliente eureka tem sim
 Vamos melhorar esta parte e evitar este erro das aplicações dos utilizadores num futuro curto.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Se tiver mais perguntas, consulte o [guia de resolução de problemas da Nuvem de primavera de Azure](spring-cloud-troubleshoot.md).

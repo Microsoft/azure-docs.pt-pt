@@ -4,12 +4,12 @@ description: Saiba as diferentes formas de implantar código para as Funções A
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641964"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900181"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação em Funções Azure
 
@@ -128,7 +128,7 @@ Pode implantar uma imagem de recipiente Linux que contém a sua aplicação de f
 
 >__Como usá-lo:__ Crie uma aplicação de função Linux no plano Premium ou Dedicado e especifique qual a imagem do recipiente a ser executada. Pode fazê-lo de duas formas:
 >
->* Crie uma aplicação de função Linux num plano de Serviço de Aplicações Azure no portal Azure. Para **publicar**, selecione **Docker Image**, e, em seguida, configurar o recipiente. Entre no local onde a imagem está hospedada.
+>* Crie uma aplicação de função Linux num plano de Serviço de Aplicações Azure no portal Azure. Para **publicar** , selecione **Docker Image** , e, em seguida, configurar o recipiente. Entre no local onde a imagem está hospedada.
 >* Crie uma aplicação de função Linux num plano de Serviço de Aplicações utilizando o CLI Azure. Para aprender como, consulte [Criar uma função no Linux utilizando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Para implementar numa aplicação existente utilizando um recipiente personalizado, em [Ferramentas Principais de Funções Azure,](functions-run-local.md)utilize o [`func deploy`](functions-run-local.md#publish) comando.
@@ -212,9 +212,9 @@ Se precisar de mais controlo sobre esta transição, deve utilizar slots de impl
 
 ## <a name="deployment-slots"></a>Blocos de implementação
 
-Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](../app-service/deploy-staging-slots.md) para obter mais detalhes.
+Quando implementar a sua aplicação de função para Azure, pode implementar para uma ranhura de implementação separada em vez de diretamente para a produção. Para obter mais informações sobre slots de implementação, consulte a documentação das [ranhuras de implantação de funções Azure](functions-deployment-slots.md) para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Leia estes artigos para saber mais sobre a implementação das suas aplicações de função:
 

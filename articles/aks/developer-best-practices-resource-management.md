@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986782"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900353"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Melhores práticas para os desenvolvedores de aplicações gerir recursos no Serviço Azure Kubernetes (AKS)
 
@@ -60,7 +60,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -100,7 +100,7 @@ A ferramenta kube-advisor pode reportar sobre o pedido de recursos e os limites 
 
 Num cluster AKS que acolhe muitas equipas e aplicações de desenvolvimento, pode ser difícil rastrear cápsulas sem estes pedidos de recursos e limites definidos. Como uma boa prática, corra regularmente `kube-advisor` nos seus clusters AKS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo de boas práticas focado em como executar o seu cluster e cargas de trabalho a partir de uma perspetiva de cluster operator. Para obter informações sobre as melhores práticas administrativas, consulte as [melhores práticas do operador cluster para isolamento e gestão de recursos no Serviço Azure Kubernetes (AKS)][operator-best-practices-isolation].
 

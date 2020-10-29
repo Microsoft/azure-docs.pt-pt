@@ -4,12 +4,12 @@ description: Saiba como ativar e configurar Discos Ultra num cluster Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900034"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utilize discos ultra Azure no Serviço Azure Kubernetes (pré-visualização)
 
@@ -168,7 +168,7 @@ metadata:
 spec:
   containers:
   - name: nginx-ultra
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -219,7 +219,7 @@ Events:
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre discos ultra, consulte [o Uso de discos ultra Azure](../virtual-machines/disks-enable-ultra-ssd.md).
 - Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes (AKS)][operator-best-practices-storage]

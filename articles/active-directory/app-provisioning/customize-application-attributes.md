@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781486"
+ms.locfileid: "92899183"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -142,10 +142,7 @@ O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que
    4. **Selecione a lista de atributos editar para AppName** .
    5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar Atributo** .
 
-Para aplicações SCIM, o nome do atributo deve seguir o padrão indicado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos da sua aplicação, por exemplo:  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn:ietf:params:scim:schemas:extensão:CustomExtensionName:2.0:User:CustomAttributeName:value
+Para aplicações SCIM, o nome do atributo deve seguir o padrão indicado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos da sua aplicação, por exemplo: urna:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 Estas instruções só são aplicáveis às aplicações ativadas pelo SCIM. Aplicações como ServiceNow e Salesforce não estão integradas com Azure AD usando SCIM, e, portanto, não requerem este espaço de nome específico ao adicionar um atributo personalizado.
 
@@ -321,7 +318,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 - O atributo de função normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para obter mais detalhes sobre o mapeamento de funções. 
 - Embora possa desativar grupos dos seus mapeamentos, os utilizadores incapacitados não são suportados. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
 - [Expressãos de escrita para atributos-mapeamentos](functions-for-customizing-application-data.md)

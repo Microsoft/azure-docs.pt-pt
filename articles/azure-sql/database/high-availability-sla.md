@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
-ms.date: 08/12/2020
-ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 10/28/2020
+ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791788"
+ms.locfileid: "92901307"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -116,7 +116,7 @@ Para obter mais informações sobre a elevada disponibilidade em Hiperescala, co
 
 ## <a name="testing-application-fault-resiliency"></a>Teste de resiliência da falha da aplicação
 
-A elevada disponibilidade é uma parte fundamental da plataforma SQL Managed Instance e da Base de Dados SQL que funcionam de forma transparente na aplicação de base de dados. No entanto, reconhecemos que possa querer testar de que forma as operações de ativação pós-falha automáticas e iniciadas durante eventos planeados ou não planeados afetam a aplicação antes de a implementar para produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados, uma piscina elástica ou uma instância gerida. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada base de dados, piscina elástica ou instância gerida.
+A elevada disponibilidade é uma parte fundamental da plataforma SQL Managed Instance e da Base de Dados SQL que funcionam de forma transparente na aplicação de base de dados. No entanto, reconhecemos que possa querer testar de que forma as operações de ativação pós-falha automáticas e iniciadas durante eventos planeados ou não planeados afetam a aplicação antes de a implementar para produção. Pode desencadear manualmente uma falha, chamando uma API especial para reiniciar uma base de dados, uma piscina elástica ou uma instância gerida. No caso de uma base de dados redundante ou piscina elástica, a chamada da API resultaria na reorientação das ligações dos clientes para a nova primária numa Zona de Disponibilidade diferente da Zona de Disponibilidade da antiga primária. Assim, além de testar como o failover impacta as sessões de base de dados existentes, também pode verificar se altera o desempenho de ponta a ponta devido a alterações na latência da rede. Como a operação de reinício é intrusiva e um grande número deles pode stressar a plataforma, apenas uma chamada de failover é permitida a cada 15 minutos para cada base de dados, piscina elástica ou instância gerida.
 
 Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
@@ -133,7 +133,7 @@ Uma falha pode ser iniciada usando PowerShell, REST API ou Azure CLI:
 
 A Azure SQL Database e Azure SQL Managed Instance apresentam uma solução de alta disponibilidade incorporada, que está profundamente integrada com a plataforma Azure. Depende do Tecido de Serviço para deteção e recuperação de falhas, no armazenamento de Azure Blob para proteção de dados, e em Zonas de Disponibilidade para maior tolerância a falhas (como mencionado anteriormente no documento ainda não aplicável ao Azure SQL Managed Instance). Além disso, a SQL Database e a SQL Managed Instance aproveitam a tecnologia de grupo de disponibilidade Always On a partir da instância sql Server para replicação e failover. A combinação destas tecnologias permite que as aplicações percebam plenamente os benefícios de um modelo de armazenamento misto e suportem os SLAs mais exigentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [as Zonas de Disponibilidade Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre [o Tecido de Serviço](../../service-fabric/service-fabric-overview.md)

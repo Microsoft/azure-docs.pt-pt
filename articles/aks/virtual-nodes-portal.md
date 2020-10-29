@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: aaada79855b07e390ce3d30a20cd08dc484481c9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 21bbe15a37e95df297f580064beb63ebd5debe57
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745471"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899904"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
@@ -74,7 +74,7 @@ A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de func
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
 
 No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviço kubernetes de** recurso .
 
@@ -146,7 +146,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:
@@ -212,7 +212,7 @@ A aplicação de demonstração é apresentada, como mostra a seguinte saída de
 
 Feche a sessão de terminais à sua cápsula de teste com `exit` . Quando a sessão terminar, a cápsula é apagada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 

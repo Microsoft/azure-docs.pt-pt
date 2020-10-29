@@ -5,12 +5,12 @@ description: Saiba como criar manualmente um volume com ficheiros Azure para uti
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: e7f013d16b899418a5262f23dfcc595a1e270616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227b592a2384d82fde78258a97ede9d318aaaf40
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281213"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900426"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e utilizar manualmente um volume com a partilha de Ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -22,11 +22,11 @@ Para obter mais informações sobre volumes kubernetes, consulte [as opções de
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 
-Antes de poder utilizar os Ficheiros Azure como volume de Kubernetes, tem de criar uma conta de Armazenamento Azure e a partilha de ficheiros. Os seguintes comandos criam um grupo de recursos chamado *myAKSShare*, uma conta de armazenamento, e uma partilha de Ficheiros chamada *aksshare*:
+Antes de poder utilizar os Ficheiros Azure como volume de Kubernetes, tem de criar uma conta de Armazenamento Azure e a partilha de ficheiros. Os seguintes comandos criam um grupo de recursos chamado *myAKSShare* , uma conta de armazenamento, e uma partilha de Ficheiros chamada *aksshare* :
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Monte a partilha de ficheiros como um volume
 
-Para montar os Ficheiros Azure partilhem na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-files-pod.yaml` o seguinte conteúdo. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto*. Se desejar, atualize o `mountPath` , que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
+Para montar os Ficheiros Azure partilhem na sua cápsula, configuure o volume na especificação do recipiente. Crie um novo ficheiro com `azure-files-pod.yaml` o seguinte conteúdo. Se alterar o nome da partilha de Ficheiros ou nome secreto, atualize o *nome de partilha* e o nome *secreto* . Se desejar, atualize o `mountPath` , que é o caminho onde a partilha de Ficheiros é montada na cápsula. Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -78,7 +78,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: nginx:1.15.5
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
     resources:
       requests:
@@ -104,7 +104,7 @@ Use o `kubectl` comando para criar a cápsula.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Tem agora uma cápsula de corrida com uma partilha de Ficheiros Azure montada em */mnt/azure*. Pode utilizar `kubectl describe pod mypod` para verificar se a parte está montada com sucesso. A seguinte saída de exemplo condensada mostra o volume montado no recipiente:
+Tem agora uma cápsula de corrida com uma partilha de Ficheiros Azure montada em */mnt/azure* . Pode utilizar `kubectl describe pod mypod` para verificar se a parte está montada com sucesso. A seguinte saída de exemplo condensada mostra o volume montado no recipiente:
 
 ```
 Containers:
@@ -159,9 +159,9 @@ spec:
   - nobrl
 ```
 
-Se utilizar um conjunto da versão 1.8.0 - 1.8.4, pode especificar-se um contexto de segurança com o valor *do runAsUser* definido para *0*. Para obter mais informações sobre o contexto de segurança do Pod, consulte [Configurar um Contexto de Segurança.][kubernetes-security-context]
+Se utilizar um conjunto da versão 1.8.0 - 1.8.4, pode especificar-se um contexto de segurança com o valor *do runAsUser* definido para *0* . Para obter mais informações sobre o contexto de segurança do Pod, consulte [Configurar um Contexto de Segurança.][kubernetes-security-context]
 
-Para atualizar as suas opções de montagem, crie um ficheiro *azurefile-mount-options-pv.yaml* com um *PersistentVolume*. Por exemplo:
+Para atualizar as suas opções de montagem, crie um ficheiro *azurefile-mount-options-pv.yaml* com um *PersistentVolume* . Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-Crie um ficheiro *azurefile-mount-options-pvc.yaml* com um *PersistenteVolumeClaim* que utiliza o *PersistenteVolume*. Por exemplo:
+Crie um ficheiro *azurefile-mount-options-pvc.yaml* com um *PersistenteVolumeClaim* que utiliza o *PersistenteVolume* . Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -203,14 +203,14 @@ spec:
       storage: 5Gi
 ```
 
-Utilize os `kubectl` comandos para criar o *PersistentVolume* e *PersistentVolumeClaim*.
+Utilize os `kubectl` comandos para criar o *PersistentVolume* e *PersistentVolumeClaim* .
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml
 kubectl apply -f azurefile-mount-options-pvc.yaml
 ```
 
-Verifique se o seu *PersistenteVolumeClaim* foi criado e ligado ao *PersistenteVolume*.
+Verifique se o seu *PersistenteVolumeClaim* foi criado e ligado ao *PersistenteVolume* .
 
 ```console
 $ kubectl get pvc azurefile
@@ -229,7 +229,7 @@ Atualize a especificação do seu recipiente para fazer referência ao seu *Pers
       claimName: azurefile
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 

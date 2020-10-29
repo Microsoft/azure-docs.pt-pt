@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: 805b6ed649a3ce301a3246ce1f672475ed47b9ea
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c532758ce29646ba32530269233759551117968b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636464"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901640"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure SQL Managed Instance usando Azure Data Factory
 
@@ -65,7 +65,7 @@ As seguintes propriedades são suportadas para o serviço ligado à SQL Managed 
 | servicePrincipalId | Especifique a identificação do cliente da aplicação. | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
 | servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como **SecureString** para armazená-lo de forma segura na Azure Data Factory ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
 | inquilino | Especifique as informações do inquilino, como o nome de domínio ou iD do inquilino, sob o qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim, quando se usa a autenticação AD AZure com um diretor de serviço |
-| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AD AZure está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany** . Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | Não |
+| AzureCloudType | Para a autenticação principal do serviço, especifique o tipo de ambiente em nuvem Azure para o qual a sua aplicação AD AZure está registada. <br/> Os valores permitidos são **AzurePublic,** **AzureChina,** **AzureUsGovernment,** e **AzureGermany** . Por padrão, o ambiente em nuvem da fábrica de dados é utilizado. | No |
 | connectVia | Este [tempo de integração](concepts-integration-runtime.md) é utilizado para se ligar à loja de dados. Você pode usar um tempo de integração auto-hospedado ou um tempo de integração Azure se o seu caso gerido tiver um ponto final público e permitir que a Azure Data Factory aceda a ele. Se não for especificado, utiliza-se o tempo de execução da integração Azure predefinido. |Sim |
 
 Para diferentes tipos de autenticação, consulte as seguintes secções sobre pré-requisitos e amostras JSON, respectivamente:
@@ -270,16 +270,16 @@ Para copiar dados da SQL Managed Instance, as seguintes propriedades são suport
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como **SqlMISource** . | Sim |
-| sqlReaderQuery |Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |Não |
-| parametrómetros de reserva armazenados |Estes parâmetros são para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |Não |
-| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable** , **Snapshot** . Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](/dotnet/api/system.data.isolationlevel) para mais detalhes. | Não |
-| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados a partir do SQL MI. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange** .<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados do SQL MI é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Não |
-| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | Não |
+| sqlReaderQuery |Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |No |
+| sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última declaração SQL deve ser uma declaração SELECT no procedimento armazenado. |No |
+| parametrómetros de reserva armazenados |Estes parâmetros são para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes ou valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. |No |
+| isolamentoLevel | Especifica o comportamento de bloqueio de transação para a fonte SQL. Os valores permitidos são: **ReadCommitted,** **ReadUncommitted,** **RepeatableRead,** **Serializable** , **Snapshot** . Se não for especificado, é utilizado o nível de isolamento predefinido da base de dados. Consulte [este doc](/dotnet/api/system.data.isolationlevel) para mais detalhes. | No |
+| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados a partir do SQL MI. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange** .<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados do SQL MI é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | No |
+| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | No |
 | **_Em: `partitionSettings` __* | | |
-| partitionColumnName | Especificar o nome da coluna de origem _ *no tipo inteiro ou data/data* * que será utilizado por divisórias de alcance para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-mi) | Não |
-| partitionUpperBound | O valor máximo da coluna de partição para a divisão do intervalo de partição. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.  <br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-mi) | Não |
-| partitionLowerBound | O valor mínimo da coluna de partição para a divisão do intervalo de divisão. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-mi) | Não |
+| partitionColumnName | Especificar o nome da coluna de origem _ *no tipo inteiro ou data/data* * * ( , , , , , `int` , , , , , ou ) que será `smallint` utilizado por `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` divisórias de alcance para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela é detetado automaticamente e utilizado como coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfDynamicRangePartitionCondition ` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-mi) | No |
+| partitionUpperBound | O valor máximo da coluna de partição para a divisão do intervalo de partição. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.  <br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-mi) | No |
+| partitionLowerBound | O valor mínimo da coluna de partição para a divisão do intervalo de divisão. Este valor é usado para decidir o passo de partição, não para filtrar as linhas na mesa. Todas as linhas da tabela ou resultado de consulta serão divididas e copiadas. Se não for especificado, a atividade de cópia deteta o valor.<br>Aplicar quando a opção de partição for `DynamicRange` . Por exemplo, consulte a cópia paralela da secção [de base de dados SQL.](#parallel-copy-from-sql-mi) | No |
 
 **Tenha em atenção os seguintes pontos:**
 
@@ -383,14 +383,14 @@ Para copiar dados para a SQL Managed Instance, as seguintes propriedades são su
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida como **SqlMISink** . | Sim |
-| preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia a executar antes de escrever dados em SQL Managed Instance. É invocado apenas uma vez por cópia. Pode utilizar esta propriedade para limpar dados pré-carregados. |Não |
-| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. A criação de tabela automática não é suportada quando a pia especifica o procedimento armazenado. Os valores permitidos são: `none` (padrão), `autoCreate` . |Não |
-| sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote* . Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade.<br>Veja o exemplo de [Invocar um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Não |
-| nome de parametrómetro de computador |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |Não |
-| SqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |Não |
-| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes e valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | Não |
-| escreverBatchSize |Número de linhas para inserir na tabela SQL *por lote* .<br/>Os valores permitidos são inteiros para o número de linhas. Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha.  |Não |
-| escreverBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção do lote ser concluída antes do tempo de esmutar.<br/>Os valores permitidos são para o tempo. Um exemplo é "00:30:00", que é 30 minutos. |Não |
+| preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia a executar antes de escrever dados em SQL Managed Instance. É invocado apenas uma vez por cópia. Pode utilizar esta propriedade para limpar dados pré-carregados. |No |
+| mesaOption | Especifica se deve [criar automaticamente a tabela do lavatório](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. A criação de tabela automática não é suportada quando a pia especifica o procedimento armazenado. Os valores permitidos são: `none` (padrão), `autoCreate` . |No |
+| sqlWriterStorEdProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem numa tabela-alvo. <br/>Este procedimento armazenado é *invocado por lote* . Para operações que funcionam apenas uma vez e não têm nada a ver com dados de origem, por exemplo, apagar ou truncar, utilize a `preCopyScript` propriedade.<br>Veja o exemplo de [Invocar um procedimento armazenado a partir de um lavatório SQL](#invoke-a-stored-procedure-from-a-sql-sink). | No |
+| nome de parametrómetro de computador |O nome do parâmetro do tipo de tabela especificado no procedimento armazenado.  |No |
+| SqlWriterTableType |O nome do tipo de mesa a utilizar no procedimento armazenado. A atividade de cópia torna os dados disponíveis numa tabela temporária com este tipo de tabela. O código de procedimento armazenado pode então fundir os dados que estão a ser copiados com os dados existentes. |No |
+| parametrómetros de reserva armazenados |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são pares de nomes e valores. Os nomes e o invólucro dos parâmetros devem corresponder aos nomes e invólucros dos parâmetros de procedimento armazenados. | No |
+| escreverBatchSize |Número de linhas para inserir na tabela SQL *por lote* .<br/>Os valores permitidos são inteiros para o número de linhas. Por predefinição, a Azure Data Factory determina dinamicamente o tamanho apropriado do lote com base no tamanho da linha.  |No |
+| escreverBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção do lote ser concluída antes do tempo de esmutar.<br/>Os valores permitidos são para o tempo. Um exemplo é "00:30:00", que é 30 minutos. |No |
 
 **Exemplo 1: Dados do apêndice**
 
@@ -485,7 +485,7 @@ Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente q
 Melhores práticas para carregar dados com opção de partição:
 
 1. Escolha uma coluna distinta como coluna de partição (como chave primária ou chave única) para evitar distorções de dados. 
-2. Se a mesa tiver partição incorporada, utilize a opção de partição "Divisórias físicas da mesa" para obter um melhor desempenho.  
+2. Se a mesa tiver partição incorporada, utilize a opção de partição "Divisórias físicas da mesa" para obter um melhor desempenho.    
 3. Se utilizar o tempo de execução da integração do Azure para copiar dados, pode definir "[Unidades de Integração de Dados (DIU)](copy-activity-performance-features.md#data-integration-units)" (>4) para utilizar mais recursos informáticos. Verifique os cenários aplicáveis.
 4. "[Grau de paralelismo de cópia](copy-activity-performance-features.md#parallel-copy)" controla os números de partição, definindo este número demasiado grande em algum momento prejudica o desempenho, recomendando definir este número como (DIU ou número de nós de IR auto-hospedados) * (2 a 4).
 
@@ -650,10 +650,10 @@ A tabela abaixo lista as propriedades suportadas pela fonte de Instância Gerida
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Tabela | Se selecionar tabela como entrada, o fluxo de dados recolhe todos os dados da tabela especificada no conjunto de dados. | Não | - |- |
+| Tabela | Se selecionar tabela como entrada, o fluxo de dados recolhe todos os dados da tabela especificada no conjunto de dados. | No | - |- |
 | Consulta | Se selecionar a Consulta como entrada, especifique uma consulta SQL para obter dados da fonte, que substitui qualquer tabela que especifique no conjunto de dados. Usar consultas é uma ótima maneira de reduzir linhas para testes ou análises.<br><br>**A** cláusula Por cláusula não é suportada, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela que pode usar no fluxo de dados.<br>Exemplo de consulta: `Select * from MyTable where customerId > 1000 and customerId < 2000`| Não | String | consulta |
-| Tamanho do lote | Especifique o tamanho do lote para colar dados grandes em leituras. | Não | Número inteiro | batchSize |
-| Nível de Isolamento | Escolha um dos seguintes níveis de isolamento:<br>- Ler Comprometido<br>- Ler Não Comprometido (padrão)<br>- Leitura Repetível<br>- Serializável<br>- Nenhum (ignorar o nível de isolamento) | Não | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZÁVEL<br/>NENHUMA</small> |isolamentoLevel |
+| Tamanho do lote | Especifique o tamanho do lote para colar dados grandes em leituras. | No | Número inteiro | batchSize |
+| Nível de Isolamento | Escolha um dos seguintes níveis de isolamento:<br>- Ler Comprometido<br>- Ler Não Comprometido (padrão)<br>- Leitura Repetível<br>- Serializável<br>- Nenhum (ignorar o nível de isolamento) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZÁVEL<br/>NENHUMA</small> |isolamentoLevel |
 
 #### <a name="azure-sql-managed-instance-source-script-example"></a>Exemplo de script de origem de origem de exemplo de origem de exemplo de origem Azure SQL
 
@@ -674,10 +674,10 @@ A tabela abaixo lista as propriedades suportadas por Azure SQL Managed Instance 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Método de atualização | Especifique quais as operações permitidas no seu destino de base de dados. O padrão é apenas permitir inserções.<br>Para atualizar, intensificar ou apagar linhas, é necessária uma [transformação de linha Alter](data-flow-alter-row.md) para marcar linhas para essas ações. | Sim | `true` ou `false` | deletable <br/>inserível <br/>atualizável <br/>upsertable |
-| Colunas-chave | Para atualizações, atualizações e eliminações, as colunas-chave devem ser definidas para determinar qual a linha a alterar.<br>O nome da coluna que escolher como chave será utilizado como parte da atualização subsequente, atualizar, eliminar. Portanto, deve escolher uma coluna que exista no mapeamento da Pia. | Não | Matriz | keys |
-| Salte a escrita de colunas-chave | Se não pretender não escrever o valor na coluna-chave, selecione "Salte as colunas-chave de escrita". | Não | `true` ou `false` | skipKeyWrites |
-| Ação de mesa |Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato** : Todas as linhas da mesa-alvo serão removidas. | Não | `true` ou `false` | recriar<br/>truncato |
-| Tamanho do lote | Especifique quantas linhas estão a ser escritas em cada lote. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados. | Não | Número inteiro | batchSize |
+| Colunas-chave | Para atualizações, atualizações e eliminações, as colunas-chave devem ser definidas para determinar qual a linha a alterar.<br>O nome da coluna que escolher como chave será utilizado como parte da atualização subsequente, atualizar, eliminar. Portanto, deve escolher uma coluna que exista no mapeamento da Pia. | No | Matriz | keys |
+| Salte a escrita de colunas-chave | Se não pretender não escrever o valor na coluna-chave, selecione "Salte as colunas-chave de escrita". | No | `true` ou `false` | skipKeyWrites |
+| Ação de mesa |Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato** : Todas as linhas da mesa-alvo serão removidas. | No | `true` ou `false` | recriar<br/>truncato |
+| Tamanho do lote | Especifique quantas linhas estão a ser escritas em cada lote. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados. | No | Número inteiro | batchSize |
 | Scripts pré e post SQL | Especifique scripts SQL de várias linhas que serão executados antes (pré-processamento) e depois (pós-processamento) os dados são escritos na sua base de dados de Sink. | Não | String | pré-QLs<br>postSQLs |
 
 #### <a name="azure-sql-managed-instance-sink-script-example"></a>Exemplo de script de pia de instância gerida Azure SQL
@@ -776,5 +776,5 @@ Mais especificamente:
 
 4. Crie conjunto de dados e copie a atividade com o tipo ODBC em conformidade. Saiba mais a partir do artigo do [conector ODBC.](connector-odbc.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte [lojas de dados suportadas](copy-activity-overview.md#supported-data-stores-and-formats).

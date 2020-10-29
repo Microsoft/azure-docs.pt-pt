@@ -4,18 +4,18 @@ description: Aprenda os componentes básicos de cluster e carga de trabalho de K
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251863"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901295"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
 À medida que o desenvolvimento de aplicações avança para uma abordagem baseada em contentores, a necessidade de orquestrar e gerir recursos é importante. A Kubernetes é a plataforma líder que fornece a capacidade de fornecer agendamento fiável de cargas de carga de aplicação tolerantes a falhas. O Azure Kubernetes Service (AKS) é um Kubernetes gerido que oferece que simplifica ainda mais a implementação e gestão de aplicações baseadas em contentores.
 
-Este artigo introduz os componentes de infraestrutura de Kubernetes fundamentais, tais como o *plano de controlo,* *nós*e *piscinas de nó.* São também introduzidos recursos de carga de trabalho como *cápsulas,* implantações e *conjuntos,* juntamente com a forma de agrupar recursos em espaços de *nome.* *sets*
+Este artigo introduz os componentes de infraestrutura de Kubernetes fundamentais, tais como o *plano de controlo,* *nós* e *piscinas de nó.* São também introduzidos recursos de carga de trabalho como *cápsulas,* implantações e *conjuntos,* juntamente com a forma de agrupar recursos em espaços de *nome.* *sets*
 
 ## <a name="what-is-kubernetes"></a>O que é o Kubernetes?
 
@@ -57,7 +57,7 @@ Para as melhores práticas associadas, consulte [as melhores práticas para a se
 
 ## <a name="nodes-and-node-pools"></a>Nosdes e piscinas de nó
 
-Para executar as suas aplicações e serviços de apoio, precisa de um *nó*Kubernetes. Um cluster AKS tem um ou mais nós, que é uma máquina virtual Azure (VM) que executa os componentes do nó de Kubernetes e o tempo de execução do recipiente:
+Para executar as suas aplicações e serviços de apoio, precisa de um *nó* Kubernetes. Um cluster AKS tem um ou mais nós, que é uma máquina virtual Azure (VM) que executa os componentes do nó de Kubernetes e o tempo de execução do recipiente:
 
 - É `kubelet` o agente Kubernetes que processa os pedidos de orquestração do avião de controlo e o agendamento de executar os contentores solicitados.
 - A rede virtual é tratada pelo *kube-proxy* em cada nó. A procuração liga o tráfego da rede e gere o endereço IP para serviços e cápsulas.
@@ -94,7 +94,7 @@ Para manter o desempenho e funcionalidade do nó, os recursos são reservados em
 
 - **Memória** - a memória utilizada pela AKS inclui a soma de dois valores.
 
-1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi*, o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta ação é desencadeada uma vez que a memória disponível diminui para além do limiar de 750Mi.
+1. O daemon kubelet está instalado em todos os nós de agente Kubernetes para gerir a criação e rescisão de contentores. Por defeito na AKS, este daemon tem a seguinte regra de despejo: *memory.disponível<750Mi* , o que significa que um nó deve sempre ter pelo menos 750 Mi atribuível em todos os momentos.  Quando um hospedeiro estiver abaixo desse limiar de memória disponível, o kubelet terminará uma das cápsulas de funcionamento para libertar a memória na máquina hospedeira e protegê-la-á. Esta ação é desencadeada uma vez que a memória disponível diminui para além do limiar de 750Mi.
 
 2. O segundo valor é uma taxa regressiva de reservas de memória para o daemon kubelet funcionar corretamente (kube-reserved).
     - 25% dos primeiros 4 GB de memória
@@ -115,7 +115,7 @@ Para as melhores práticas associadas, consulte [as melhores práticas para func
 
 ### <a name="node-pools"></a>Conjuntos de nós
 
-Os nós da mesma configuração são agrupados em *piscinas de nó.* Um cluster Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho é definido quando cria um cluster AKS, que cria uma *piscina de nós predefinidos*. Este conjunto de nós predefinidos em AKS contém os VMs subjacentes que executam os nós do seu agente.
+Os nós da mesma configuração são agrupados em *piscinas de nó.* Um cluster Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho é definido quando cria um cluster AKS, que cria uma *piscina de nós predefinidos* . Este conjunto de nós predefinidos em AKS contém os VMs subjacentes que executam os nós do seu agente.
 
 > [!NOTE]
 > Para garantir que o seu cluster funciona de forma fiável, deve executar pelo menos 2 (dois) nós na piscina de nós predefinidos.
@@ -128,7 +128,7 @@ Para obter mais informações sobre como usar várias piscinas de nó em AKS, co
 
 Num cluster AKS que contém várias piscinas de nós, você pode precisar dizer ao Programador Kubernetes qual o conjunto de nós para usar para um determinado recurso. Por exemplo, os controladores de entrada não devem funcionar nos nós do Windows Server. Os seletores de nó permitem definir vários parâmetros, como o nó OS, para controlar onde deve ser programado um casulo.
 
-O exemplo básico a seguir programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux*:
+O exemplo básico a seguir programa uma instância NGINX num nó Linux utilizando o seletor de nó *"beta.kubernetes.io/os": linux* :
 
 ```yaml
 kind: Pod
@@ -138,7 +138,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -153,7 +153,7 @@ Quando cria uma cápsula, pode definir *pedidos* de recursos para solicitar uma 
 
 Para obter mais informações, consulte [as cápsulas Kubernetes][kubernetes-pods] e [o ciclo de vida do casulo Kubernetes.][kubernetes-pod-lifecycle]
 
-Uma cápsula é um recurso lógico, mas os contentores(s) são onde as cargas de trabalho da aplicação são executadas. Os pods são tipicamente efémeros, recursos descartáveis, e as cápsulas programadas individualmente perdem algumas das funcionalidades de alta disponibilidade e redundância que kubernetes fornece. Em vez disso, as cápsulas são implantadas e geridas por *controladores*Kubernetes , como o Controlador de Implementação.
+Uma cápsula é um recurso lógico, mas os contentores(s) são onde as cargas de trabalho da aplicação são executadas. Os pods são tipicamente efémeros, recursos descartáveis, e as cápsulas programadas individualmente perdem algumas das funcionalidades de alta disponibilidade e redundância que kubernetes fornece. Em vez disso, as cápsulas são implantadas e geridas por *controladores* Kubernetes , como o Controlador de Implementação.
 
 ## <a name="deployments-and-yaml-manifests"></a>Implementações e manifestos YAML
 
@@ -184,7 +184,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:
@@ -252,7 +252,7 @@ Quando cria um cluster AKS, os seguintes espaços de nome estão disponíveis:
 
 Para mais informações, consulte [os espaços de nomes de Kubernetes.][kubernetes-namespaces]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo cobre alguns dos componentes de Kubernetes e como se aplicam aos clusters AKS. Para obter mais informações sobre os conceitos core Kubernetes e AKS, consulte os seguintes artigos:
 

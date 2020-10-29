@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: dede52b751b25a1990cf110fea083f9aebc4ddbb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ea4f8c33a906bff96ea93f9a7aea3e6f625556cb
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900898"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters Apache Hadoop a pedido em HDInsight usando Azure Data Factory
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste tutorial, aprende-se a criar um cluster [Apache Hadoop,](./hadoop/apache-hadoop-introduction.md) a pedido, em Azure HDInsight usando a Azure Data Factory. Em seguida, utiliza-se oleodutos de dados na Azure Data Factory para executar trabalhos de Colmeia e eliminar o cluster. No final deste tutorial, aprende-se a fazer um grande trabalho de dados onde a `operationalize` criação de clusters, a corrida ao emprego e a eliminação de clusters são feitas em horário.
+Neste tutorial, aprende-se a criar um cluster [Apache Hadoop,](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) a pedido, em Azure HDInsight usando a Azure Data Factory. Em seguida, utiliza-se oleodutos de dados na Azure Data Factory para executar trabalhos de Colmeia e eliminar o cluster. No final deste tutorial, aprende-se a fazer um grande trabalho de dados onde a `operationalize` criação de clusters, a corrida ao emprego e a eliminação de clusters são feitas em horário.
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -363,7 +363,7 @@ Ou pode eliminar todo o grupo de recursos que criou para este tutorial. Este pro
 
 1. Introduza o nome do grupo de recursos para confirmar a eliminação e, em seguida, **selecione Delete** .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, aprendeu a usar a Azure Data Factory para criar um cluster HDInsight a pedido e executar empregos apache Hive. Avance para o próximo artigo para aprender a criar clusters HDInsight com configuração personalizada.
 

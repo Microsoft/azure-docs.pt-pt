@@ -1,5 +1,5 @@
 ---
-title: Ligue-se ao Power BI Professional
+title: Conecte-se ao SQL synapse com power BI Professional
 description: Neste tutorial, vamos passar por etapas como ligar o desktop Power BI ao SQL on demand (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288703"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899120"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conecte-se ao SQL synapse com power BI Professional
 
@@ -35,7 +35,7 @@ Precisa das seguintes ferramentas para emitir consultas:
 - Cliente SQL à sua escolha:
 
   - Azure Data Studio
-  - O SQL Server Management Studio
+  - SQL Server Management Studio
 
 - Power BI desktop instalado
 
@@ -98,7 +98,7 @@ Abra a aplicação de ambiente de trabalho Power BI e selecione a opção **Obte
 
 ### <a name="step-1---select-data-source"></a>Passo 1 - Selecione fonte de dados
 
-Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
+Selecione **Azure** no menu e, em seguida, **Azure SQL Database** .
 ![Selecione fonte de dados.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Passo 2 - Selecione base de dados
@@ -106,7 +106,7 @@ Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
 Escreva o URL para a base de dados e o nome da base de dados onde a vista reside.
 ![Selecione base de dados no ponto final.](./media/get-started-power-bi-professional/step-2-db.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Avance para [consultar ficheiros de armazenamento](get-started-azure-data-studio.md) para aprender a ligar-se ao SQL on demand usando o Azure Data Studio.
  

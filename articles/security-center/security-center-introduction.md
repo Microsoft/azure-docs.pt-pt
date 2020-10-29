@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332013"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901544"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -37,11 +37,11 @@ O Centro de Segurança do Azure aborda os três desafios de segurança mais urge
 
 Para o ajudar a proteger-se contra estes desafios, o Centro de Segurança fornece as ferramentas para:
 
--   **Fortaleça a postura de segurança**: O Centro de Segurança avalia o seu ambiente e permite-lhe compreender o estado dos seus recursos e se estão seguros.
+-   **Fortaleça a postura de segurança** : O Centro de Segurança avalia o seu ambiente e permite-lhe compreender o estado dos seus recursos e se estão seguros.
 
--   **Proteja contra ameaças**: O Centro de Segurança avalia as suas cargas de trabalho e eleva as recomendações de prevenção de ameaças e alertas de segurança.
+-   **Proteja contra ameaças** : O Centro de Segurança avalia as suas cargas de trabalho e eleva as recomendações de prevenção de ameaças e alertas de segurança.
 
--   **Proteger-se rapidamente**: no Centro de Segurança, tudo é feito à velocidade da cloud. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
+-   **Proteger-se rapidamente** : no Centro de Segurança, tudo é feito à velocidade da cloud. Como é integrada nativamente, a implementação do Centro de Segurança é fácil, fornecendo aprovisionamento automático e proteção com serviços do Azure.
 
 > [!NOTE]
 > Este serviço suporta [o Azure Lighthouse,](../lighthouse/overview.md)que permite que os prestadores de serviços inscrevam-se no seu próprio inquilino para gerir subscrições e grupos de recursos que os clientes delegaram. Para cenários do Azure Security Center, uma subscrição deve ser delegada em vez de grupos de recursos individuais.
@@ -74,7 +74,7 @@ O Security Center ajuda-o a **identificar subscrições de TI shadow.** Ao olhar
 
 O Security Center descobre continuamente novos recursos que estão a ser implementados através das suas cargas de trabalho e avalia se estão configurados de acordo com as melhores práticas de segurança, se não, estão sinalizados e obtém uma lista prioritária de recomendações para o que precisa de corrigir para proteger as suas máquinas.
 
-Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança**.
+Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança** .
 
 :::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página de gestão de políticas":::
 
@@ -103,9 +103,9 @@ A proteção contra ameaças do Security Center inclui análises de cadeia de mo
 
 :::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página de gestão de políticas":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração com o Microsoft Defender Proteção avançada de ameaças
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integração com o Microsoft Defender para Endpoint
 
-O Security Center inclui integração automática e nativa com a Proteção avançada de ameaças do Microsoft Defender. Isto significa que, sem qualquer configuração, as suas máquinas Windows e Linux estão totalmente integradas com as recomendações e avaliações do Security Center.
+O Security Center inclui integração automática e nativa com o Microsoft Defender para o Endpoint. Isto significa que, sem qualquer configuração, as suas máquinas Windows e Linux estão totalmente integradas com as recomendações e avaliações do Security Center.
 
 Além disso, o Security Center permite automatizar as políticas de controlo de aplicações em ambientes de servidores. Os controlos de aplicações adaptativos no Security Center permitem a listagem de aprovação de aplicações de ponta a ponta nos servidores do Windows. Não precisas de criar as regras e verificar violações, é tudo feito automaticamente para ti.
 
@@ -123,7 +123,7 @@ O Security Center inclui capacidades que o ajudam a executar a classificação a
 
 ## <a name="get-secure-faster"></a>Fique seguro mais rápido
 
-A integração nativa do Azure (incluindo registos Azure Policy e Azure Monitor) combinada com uma integração perfeita com outras soluções de segurança da Microsoft, como a Microsoft Cloud App Security e a Windows Defender Advanced Threat Protection ajudam a garantir que a sua solução de segurança é abrangente, bem como simples de embarcar e rolar.
+A integração nativa do Azure (incluindo registos Azure Policy e Azure Monitor) combinada com uma integração perfeita com outras soluções de segurança da Microsoft, como a Microsoft Cloud App Security e o Microsoft Defender for Endpoint ajudam a garantir que a sua solução de segurança é abrangente, bem como simples de embarcar e lançar.
 
 Além disso, pode estender a solução completa para além do Azure até cargas de trabalho que correm noutras nuvens e em centros de dados no local.
 
@@ -133,7 +133,7 @@ O Security Center proporciona uma integração nativa perfeita com os recursos A
 
 Extensa recolha de registos - os registos do Windows e do Linux são todos alavancados no motor de análise de segurança e utilizados para criar recomendações e alertas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 

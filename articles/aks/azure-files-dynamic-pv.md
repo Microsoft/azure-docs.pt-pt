@@ -5,12 +5,12 @@ description: Aprenda a criar dinamicamente um volume persistente com ficheiros A
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad252118a56402386691d1cdf7d975ef69ec45ad
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299274"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900442"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar dinamicamente um volume persistente com ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -22,7 +22,7 @@ Para obter mais informações sobre volumes kubernetes, consulte [as opções de
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Criar uma classe de armazenamento
 
@@ -86,7 +86,7 @@ spec:
 ```
 
 > [!NOTE]
-> Se utilizar a *Premium_LRS* sku para a sua classe de armazenamento, o valor mínimo para *armazenamento* deve ser *100Gi*.
+> Se utilizar a *Premium_LRS* sku para a sua classe de armazenamento, o valor mínimo para *armazenamento* deve ser *100Gi* .
 
 Crie a reivindicação de volume persistente com o comando [de aplicação de kubectl:][kubectl-apply]
 
@@ -105,7 +105,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>Use o volume persistente
 
-O YAML seguinte cria uma cápsula que utiliza o volume persistente que reclama *o meu-azurefile* para montar a partilha de ficheiros Azure no caminho */mnt/azure.* Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'*.
+O YAML seguinte cria uma cápsula que utiliza o volume persistente que reclama *o meu-azurefile* para montar a partilha de ficheiros Azure no caminho */mnt/azure.* Para os recipientes do Windows Server, especifique um *mountPath* utilizando a convenção do caminho do Windows, como *'D:'* .
 
 Crie um ficheiro nomeado `azure-pvc-files.yaml` , e copie no seguinte YAML. Certifique-se de que o *nome de reclamação* corresponde ao PVC criado no último passo.
 
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -184,7 +184,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 

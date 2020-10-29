@@ -3,12 +3,12 @@ title: Azure Service Bus frequentemente fez perguntas (FAQ) Microsoft Docs
 description: Este artigo fornece respostas a algumas das perguntas frequentes (FAQ) sobre a Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518760"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899525"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Perguntas frequentes (FAQ)
 
@@ -41,17 +41,28 @@ A Azure Service Bus armazena os dados dos clientes. Estes dados são automaticam
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso para abrir na firewall? 
 Pode utilizar os seguintes protocolos com a Azure Service Bus para enviar e receber mensagens:
 
-- Avançadas Message Queuing Protocol (AMQP)
-- Protocolo de mensagens de autocarro de serviço (SBMP)
-- HTTP
+- Protocolo avançado de fila de mensagens 1.0 (AMQP)
+- Protocolo de Transferência de Hipertexto 1.1 com TLS (HTTPS)
 
-Consulte a tabela seguinte para as portas de saída que precisa de abrir para utilizar estes protocolos para comunicar com os Azure Event Hubs. 
+Consulte a tabela seguinte para as portas TCP de saída que precisa de abrir para utilizar estes protocolos para comunicar com a Azure Service Bus:
 
-| Protocolo | Portas | Detalhes | 
+| Protocolo | Porta | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte o [guia de protocolo amQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 a 9354 | Ver [modo conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP com TLS. Consulte o [guia de protocolo amQP](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | Esta porta é utilizada para a API HTTP/REST e para amqp-over-WebSockets |
+
+A porta HTTPS é geralmente necessária para comunicação de saída também quando amQP é usado sobre o porto 5671, porque várias operações de gestão realizadas pelos SDKs cliente e a aquisição de tokens da Azure Ative Directy (quando usado) atropelam HTTPS. 
+
+Os Azure SDKs oficiais geralmente usam o protocolo AMQP para o envio e receção de mensagens da Service Bus. A opção de protocolo AMQP-over-WebSockets passa por cima do porto TCP 443 tal como a API HTTP, mas é de outra forma funcionalmente idêntica com AMQP simples. Esta opção tem maior latência inicial de ligação devido a veleiros extra e um pouco mais de sobrecarga como compensação pela partilha da porta HTTPS. Se este modo for selecionado, a porta TCP 443 é suficiente para a comunicação. As seguintes opções permitem selecionar o modo amQP simples ou amqp WebSockets:
+
+| Idioma | Opção   |
+| -------- | ----- |
+| .NET     | [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) propriedade com [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) ou [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
+| Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) com [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) ou [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
+| Nó  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) tem um `webSocket` argumento de construtor. |
+| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) com [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) ou [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+
+O antigo pacote WindowsAzure.ServiceBus para o Quadro .NET tem a opção de usar o legado "Service Bus Messaging Protocol" (SBMP), também referido como "NetMessaging". Este protocolo utiliza as portas TCP 9350-9354. O modo predefinido para este pacote é detetar automaticamente se essas portas estão disponíveis para comunicação e mudarão para WebSockets com TLS sobre a porta 443, se não for esse o caso. Pode anular esta definição e forçar este modo definindo o `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) na [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) definição, que se aplica globalmente à aplicação.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Que endereços IP preciso de adicionar para permitir a lista?
 Para encontrar os endereços IP certos para adicionar para permitir a lista para as suas ligações, siga estes passos:
@@ -113,7 +124,7 @@ Para obter informações completas sobre os preços do Service Bus, consulte [os
 Qualquer transferência de dados dentro de uma determinada região de Azure é fornecida gratuitamente, bem como qualquer transferência de dados de entrada. A transferência de dados para fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui.](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Service Bus cobra pelo armazenamento?
-Não. A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
+N.º A Service Bus não cobra pelo armazenamento. No entanto, há uma quota que limita a quantidade máxima de dados que podem ser persistidos por fila/tópico. Veja as próximas FAQ.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um espaço de nomes padrão de autocarro de serviço. Por que vejo acusações no âmbito do grupo de recursos "$system"?
 A Azure Service Bus atualizou recentemente os componentes de faturação. Devido a esta alteração, se tiver um espaço de nomes Service Bus Standard, poderá ver itens de linha para o recurso '/subscrições/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.
@@ -163,7 +174,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a Service Bus, consulte os seguintes artigos:
 
 * [Apresentando Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

@@ -4,12 +4,12 @@ description: Saiba mais sobre o armazenamento no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ed38625703397c9ba5021e84cd3118f30fa83c7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421157"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900939"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicações no Serviço Azure Kubernetes (AKS)
 
@@ -36,7 +36,7 @@ Os volumes tradicionais para armazenar e recuperar dados são criados como recur
 Em Kubernetes, os volumes podem representar mais do que apenas um disco tradicional onde a informação pode ser armazenada e recuperada. Os volumes de Kubernetes também podem ser usados como forma de injetar dados numa cápsula para utilização pelos contentores. Os tipos de volume adicionais comuns em Kubernetes incluem:
 
 - *emptyDir* - Este volume é comumente usado como espaço temporário para uma vagem. Todos os recipientes dentro de uma cápsula podem aceder aos dados sobre o volume. Os dados escritos a este tipo de volume persistem apenas durante o tempo de vida útil da cápsula - quando a cápsula é eliminada, o volume é eliminado. Este volume normalmente utiliza o armazenamento do disco de nó local subjacente, embora também possa existir apenas na memória do nó.
-- *segredo* - Este volume é usado para injetar dados sensíveis em cápsulas, como palavras-passe. Primeiro cria-se um Segredo usando a API de Kubernetes. Quando define o seu casulo ou implantação, pode ser solicitado um Segredo específico. Os segredos são fornecidos apenas a nós que têm uma cápsula programada que o requer, e o Segredo é armazenado em *tmpfs*, não escritos para o disco. Quando a última cápsula de um nó que requer um Segredo é apagada, o Segredo é apagado dos tmpfs do nó. Os segredos são armazenados dentro de um determinado espaço de nome e só podem ser acedidos por cápsulas dentro do mesmo espaço de nome.
+- *segredo* - Este volume é usado para injetar dados sensíveis em cápsulas, como palavras-passe. Primeiro cria-se um Segredo usando a API de Kubernetes. Quando define o seu casulo ou implantação, pode ser solicitado um Segredo específico. Os segredos são fornecidos apenas a nós que têm uma cápsula programada que o requer, e o Segredo é armazenado em *tmpfs* , não escritos para o disco. Quando a última cápsula de um nó que requer um Segredo é apagada, o Segredo é apagado dos tmpfs do nó. Os segredos são armazenados dentro de um determinado espaço de nome e só podem ser acedidos por cápsulas dentro do mesmo espaço de nome.
 - *configMap* - Este tipo de volume é usado para injetar propriedades de pares de valor-chave em cápsulas, tais como informações de configuração de aplicações. Em vez de definir informações de configuração de aplicações dentro de uma imagem de recipiente, pode defini-la como um recurso Kubernetes que pode ser facilmente atualizado e aplicado a novas instâncias de pods à medida que são implementadas. Tal como usar um Segredo, cria-se primeiro um ConfigMap utilizando a API de Kubernetes. Este ConfigMap pode então ser solicitado quando define uma cápsula ou implantação. ConfigMaps são armazenados dentro de um dado espaço de nome e só podem ser acedidos por cápsulas dentro do mesmo espaço de nome.
 
 ## <a name="persistent-volumes"></a>Volumes persistentes
@@ -51,7 +51,7 @@ Um PersistentVolume pode ser *criado estáticamente* por um administrador de clu
 
 ## <a name="storage-classes"></a>Aulas de armazenamento
 
-Para definir diferentes níveis de armazenamento, como Premium e Standard, pode criar uma *StorageClass*. O StorageClass também define a *recuperação da Política.* Esta recuperação A Política controla o comportamento do recurso de armazenamento Azure subjacente quando a cápsula é eliminada e o volume persistente pode deixar de ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com uma futura cápsula.
+Para definir diferentes níveis de armazenamento, como Premium e Standard, pode criar uma *StorageClass* . O StorageClass também define a *recuperação da Política.* Esta recuperação A Política controla o comportamento do recurso de armazenamento Azure subjacente quando a cápsula é eliminada e o volume persistente pode deixar de ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com uma futura cápsula.
 
 Em AKS, são criados quatro iniciais `StorageClasses` para o cluster utilizando os plugins de armazenamento na árvore:
 
@@ -107,7 +107,7 @@ spec:
       storage: 5Gi
 ```
 
-Quando se cria uma definição de pod, a reivindicação de volume persistente é especificada para solicitar o armazenamento pretendido. Em seguida, especifica também o *volumeMount* para as suas aplicações para ler e escrever dados. O manifesto yaml do exemplo que se segue mostra como a alegação de volume persistente anterior pode ser utilizada para montar um volume a */mnt/azure*:
+Quando se cria uma definição de pod, a reivindicação de volume persistente é especificada para solicitar o armazenamento pretendido. Em seguida, especifica também o *volumeMount* para as suas aplicações para ler e escrever dados. O manifesto yaml do exemplo que se segue mostra como a alegação de volume persistente anterior pode ser utilizada para montar um volume a */mnt/azure* :
 
 ```yaml
 kind: Pod
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume
@@ -127,7 +127,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 

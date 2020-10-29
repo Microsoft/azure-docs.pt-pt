@@ -1,5 +1,5 @@
 ---
-title: Segurança empresarial
+title: Segurança e governação empresariais
 titleSuffix: Azure Machine Learning
 description: 'Utilize de forma segura o Azure Machine Learning: autenticação, autorização, segurança da rede, encriptação de dados e monitorização.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637093"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899331"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
 
 Neste artigo, você vai aprender sobre as funcionalidades de segurança disponíveis para Azure Machine Learning.
 
-Quando se utiliza um serviço de cloud, a melhor prática é restringir o acesso apenas aos utilizadores que dele necessitem. Comece por compreender o modelo de autenticação e autorização utilizado pelo serviço. Também pode querer restringir o acesso à rede ou juntar recursos de forma segura na sua rede no local com a nuvem. A encriptação de dados também é vital, tanto em repouso como enquanto os dados se movem entre os serviços. Finalmente, é necessário ser capaz de monitorizar o serviço e produzir um registo de auditoria de toda a atividade.
+Quando se utiliza um serviço de cloud, a melhor prática é restringir o acesso apenas aos utilizadores que dele necessitem. Comece por compreender o modelo de autenticação e autorização utilizado pelo serviço. Também pode querer restringir o acesso à rede ou juntar recursos de forma segura na sua rede no local com a nuvem. A encriptação de dados também é vital, tanto em repouso como enquanto os dados se movem entre os serviços. Também pode querer criar polícias para impor determinadas configurações ou registar-se quando são criadas configurações não conformes. Finalmente, é necessário ser capaz de monitorizar o serviço e produzir um registo de auditoria de toda a atividade.
 
 > [!NOTE]
 > A informação neste artigo funciona com a versão 1.0.83.1 ou superior da Azure Machine Learning Python.
@@ -377,7 +377,7 @@ Para obter mais informações sobre as políticas específicas do Azure Machine 
 
 [!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 * [Serviços web secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

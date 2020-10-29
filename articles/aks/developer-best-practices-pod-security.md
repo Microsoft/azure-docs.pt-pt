@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022280"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900826"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para a segurança do pod no Serviço Azure Kubernetes (AKS)
 
@@ -29,13 +29,13 @@ Também pode ler as melhores práticas para [a segurança][best-practices-cluste
 
 **Orientação de boas práticas** - Para funcionar como um utilizador ou grupo diferente e limitar o acesso aos processos e serviços do nó subjacente, defina as definições de contexto de segurança do pod. Atribua o menor número de privilégios necessários.
 
-Para que as suas aplicações sejam executadas corretamente, as cápsulas devem funcionar como um utilizador ou grupo definido e não como *raiz*. O `securityContext` para uma cápsula ou recipiente permite definir configurações como *runAsUser* ou *fsGroup* para assumir as permissões apropriadas. Apenas atribua as permissões necessárias ao utilizador ou grupo, e não utilize o contexto de segurança como meio para assumir permissões adicionais. As *configurações de runAsUser,* privilege, e outras definições de capacidades Linux só estão disponíveis em nós e pods Linux.
+Para que as suas aplicações sejam executadas corretamente, as cápsulas devem funcionar como um utilizador ou grupo definido e não como *raiz* . O `securityContext` para uma cápsula ou recipiente permite definir configurações como *runAsUser* ou *fsGroup* para assumir as permissões apropriadas. Apenas atribua as permissões necessárias ao utilizador ou grupo, e não utilize o contexto de segurança como meio para assumir permissões adicionais. As *configurações de runAsUser,* privilege, e outras definições de capacidades Linux só estão disponíveis em nós e pods Linux.
 
 Quando funciona como utilizador não-raiz, os contentores não podem ligar-se às portas privilegiadas abaixo de 1024. Neste cenário, os Serviços Kubernetes podem ser utilizados para disfarçar o facto de uma aplicação estar a funcionar numa determinada porta.
 
 Um contexto de segurança do pod também pode definir capacidades ou permissões adicionais para aceder a processos e serviços. Podem ser definidas as seguintes definições de contexto de segurança comuns:
 
-* **permitir que a MelhorvilegeEscalation** defina se a cápsula pode assumir privilégios *de raiz.* Desenhe as suas aplicações de modo a que esta definição seja sempre definida como *falsa*.
+* **permitir que a MelhorvilegeEscalation** defina se a cápsula pode assumir privilégios *de raiz.* Desenhe as suas aplicações de modo a que esta definição seja sempre definida como *falsa* .
 * **As capacidades do Linux** permitem ao pod aceder aos processos subjacentes ao nó. Cuide de atribuir estas capacidades. Atribua o menor número de privilégios necessários. Para mais informações, consulte [as capacidades do Linux.][linux-capabilities]
 * **As etiquetas SELinux** são um módulo de segurança do kernel Linux que permite definir políticas de acesso para serviços, processos e acesso ao sistema de ficheiros. Mais uma vez, atribua o menor número de privilégios necessários. Para mais informações, consulte [as opções SELinux em Kubernetes][selinux-labels]
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false
@@ -103,7 +103,7 @@ Com o Key Vault, armazena e gira regularmente segredos como credenciais, chaves 
 
 Azure Key Vault com Secrets Store CSI Driver pode ser usado para nós e cápsulas Linux que requerem uma versão Kubernetes de 1.16 ou maior. Para os nós e cápsulas windows é necessária uma versão Kubernetes de 1.18 ou superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Este artigo focou-se em como proteger as suas cápsulas. Para implementar algumas destas áreas, consulte os seguintes artigos:
 

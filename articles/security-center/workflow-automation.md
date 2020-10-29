@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895227"
+ms.locfileid: "92900832"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizar respostas aos gatilhos do Centro de Segurança
 
@@ -66,7 +66,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 1. Na sua nova aplicação lógica, pode escolher entre modelos incorporados e predefinidos da categoria de segurança. Ou pode definir um fluxo personalizado de eventos que ocorram quando este processo é desencadeado.
 
     > [!TIP]
-    > Por vezes, numa aplicação lógica, os parâmetros são incluídos no conector como parte de uma corda e não no seu próprio campo. Para obter um exemplo de como extrair parâmetros, consulte o passo #14 de [trabalhar com parâmetros de aplicações lógicas enquanto constrói automatizações de fluxo de trabalho do Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
+    > Por vezes, numa aplicação lógica, os parâmetros são incluídos no conector como parte de uma corda e não no seu próprio campo. Para um exemplo de como extrair parâmetros, consulte passo #14 de [trabalhar com parâmetros de aplicações lógicas enquanto constrói automatizações de fluxo de trabalho do Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
 
     O designer de aplicativos de lógica suporta estes gatilhos do Security Center:
 
@@ -151,7 +151,7 @@ Para cada automatização ativa, recomendamos que crie uma automatização idên
 
 Saiba mais sobre [a continuidade do Negócio e recuperação de desastres para a Azure Logic Apps.](../logic-apps/business-continuity-disaster-recovery-guidance.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, aprendeu a criar Aplicações Lógicas, automatizando a sua execução no Centro de Segurança e executando-as manualmente. 
 

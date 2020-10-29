@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: dd4a7537e01c9e97997be64bb478e86a64f4325b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792264"
+ms.locfileid: "92900397"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Proteções adicionais de ameaças no Centro de Segurança Azure
 Além das [proteções incorporadas do Azure Defender,](azure-defender.md)o Azure Security Center também oferece as seguintes capacidades de proteção contra ameaças.
@@ -32,7 +32,6 @@ A análise da camada de rede do Security Center baseia-se em [dados IPFIX](https
 Algumas configurações de rede podem restringir o Centro de Segurança de gerar alertas sobre atividades suspeitas de rede. Para que o Centro de Segurança gere alertas de rede, certifique-se de que:
 - A sua máquina virtual tem um endereço IP público (ou está num equilibrador de carga com um endereço IP público).
 - O tráfego de saída de rede da sua máquina virtual não está bloqueado por uma solução de IDS externa.
-- A sua máquina virtual foi atribuída ao mesmo endereço IP durante toda a hora durante a qual ocorreu a comunicação suspeita. Isto também se aplica aos VMs criados como parte de um serviço gerido (por exemplo, AKS, Databricks).
 
 Para obter uma lista dos alertas da camada de rede Azure, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azurenetlayer).
 
@@ -68,7 +67,7 @@ Os alertas DB do Azure Cosmos são gerados por tentativas incomuns e potencialme
 
 Para obter mais informações, consulte:
 
-* [Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
+* [Proteção avançada de ameaças para Azure Cosmos DB (Preview)](../cosmos-db/cosmos-db-advanced-threat-protection.md)
 * [A lista de alertas de proteção contra ameaças para Azure Cosmos DB (Preview)](alerts-reference.md#alerts-azurecosmos)
 
 
@@ -95,7 +94,7 @@ Para se defender dos ataques do DDoS, compre uma licença para a Azure DDoS Prot
 Para obter uma lista dos alertas de Proteção DDoS Azure, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-azureddos).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os alertas de segurança destes recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas do Centro de Segurança Azure](alerts-reference.md)
