@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: redis-cache
 author: wesmc7777
 ms.service: cache
@@ -9,17 +9,17 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/29/2020
 ms.locfileid: "67184829"
 ---
-Se não tiver afixado a sua cache ao dashboard, encontre a sua cache no [Portal do Azure](https://portal.azure.com) ao utilizar **Todos os serviços**.
+Se não tiver afixado a sua cache ao dashboard, encontre a sua cache no [Portal do Azure](https://portal.azure.com) ao utilizar **Todos os serviços** .
 
 ![Cache Azure para Redis Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
 
-Para ver os seus caches, clique em **Todos os serviços** e procure **a Azure Cache para Redis**. 
+Para ver os seus caches, clique em **Todos os serviços** e procure **a Azure Cache para Redis** . 
 
 Selecione a cache pretendida para ver e configurar as definições dessa cache.
 
