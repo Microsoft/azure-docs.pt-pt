@@ -107,7 +107,7 @@
           href: how-to-integrate-maps.md
         - name: Integrar com o Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
-    - name: Resolução de problemas
+    - name: Monitorizar e resolver problemas
       items:
         - name: Ver métricas no Azure Monitor
           href: troubleshoot-metrics.md
@@ -115,6 +115,8 @@
           href: troubleshoot-diagnostics.md
         - name: Ativar alertas
           href: troubleshoot-alerts.md
+        - name: Compreender o estado de funcionamento dos recursos
+          href: troubleshoot-resource-health.md
         - name: Problemas conhecidos
           href: troubleshoot-known-issues.md
         - name: Resolução do problema
@@ -144,7 +146,7 @@
             - name: SDK de Java - referência
               href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
             - name: SDK de Java - origem
-              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
             - name: SDK JavaScript
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: SDK de JavaScript - origem
@@ -152,9 +154,11 @@
             - name: SDK Python
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: SDK de Python - origem
-              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: SDK Go
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+            - name: Go - origem
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
         - name: Plano de dados
           items:
             - name: Swagger
