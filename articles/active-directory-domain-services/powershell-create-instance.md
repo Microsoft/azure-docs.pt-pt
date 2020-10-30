@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 10/02/2020
 ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041960"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar os serviços de domínio do diretório ativo Azure utilizando o PowerShell
 
@@ -44,15 +44,15 @@ Para completar este artigo, precisa dos seguintes recursos:
 
 A Azure AD DS requer um diretor de serviço e um grupo AZure AD. Estes recursos permitem que o Azure AD DS geriu dados sincronizados e definir quais os utilizadores que têm permissões administrativas no domínio gerido.
 
-Em primeiro lugar, crie um principal de serviço Azure AD para a Azure AD DS comunicar e autenticar-se. Um ID de aplicação específico é usado chamado *Serviços de Controlador* de Domínio com um ID de *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Não mude esta identificação da aplicação.
+Em primeiro lugar, crie um principal de serviço Azure AD para a Azure AD DS comunicar e autenticar-se. Um ID de aplicação específico é usado chamado *Serviços de Controlador* de Domínio com um ID de *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Não mude esta identificação da aplicação.
 
 Criar um diretor de serviço AZure AD utilizando o [cmdlet New-AzureADServicePrincipal:][New-AzureADServicePrincipal]
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
-Agora crie um grupo AZure AD chamado *AAD DC Administrators*. Os utilizadores adicionados a este grupo são então autorizados a executar tarefas de administração no domínio gerido.
+Agora crie um grupo AZure AD chamado *AAD DC Administrators* . Os utilizadores adicionados a este grupo são então autorizados a executar tarefas de administração no domínio gerido.
 
 Em primeiro lugar, obtenha o ID do grupo *de administradores AAD DC* utilizando o cmdlet [Get-AzureADGroup.][Get-AzureADGroup] Se o grupo não existir, crie-o com o grupo *de administradores AAD DC* utilizando o cmdlet [New-AzureADGroup:][New-AzureADGroup]
 
@@ -109,7 +109,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 ```
 
-Crie a rede virtual e sub-redes para serviços de domínio Azure AD. São criadas duas sub-redes - uma para *Os Serviços de Domínios*e outra para *Cargas de Trabalho*. O Azure AD DS está implantado na sub-rede dedicada *do DomainServices.* Não coloque outras aplicações ou cargas de trabalho nesta sub-rede. Utilize as *cargas de trabalho separadas* ou outras sub-redes para o resto dos seus VMs.
+Crie a rede virtual e sub-redes para serviços de domínio Azure AD. São criadas duas sub-redes - uma para *Os Serviços de Domínios* e outra para *Cargas de Trabalho* . O Azure AD DS está implantado na sub-rede dedicada *do DomainServices.* Não coloque outras aplicações ou cargas de trabalho nesta sub-rede. Utilize as *cargas de trabalho separadas* ou outras sub-redes para o resto dos seus VMs.
 
 Crie as sub-redes utilizando o cmdlet [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] e, em seguida, crie a rede virtual utilizando a cmdlet [New-AzVirtualNetwork.][New-AzVirtualNetwork]
 
@@ -200,7 +200,7 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="create-a-managed-domain"></a>Criar um domínio gerido
 
-Agora vamos criar um domínio gerido. Desconfie o iD de subscrição do Azure e, em seguida, forneça um nome para o domínio gerido, como *aaddscontoso.com*. Pode obter o seu ID de subscrição utilizando o cmdlet [Get-AzSubscription.][Get-AzSubscription]
+Agora vamos criar um domínio gerido. Desconfie o iD de subscrição do Azure e, em seguida, forneça um nome para o domínio gerido, como *aaddscontoso.com* . Pode obter o seu ID de subscrição utilizando o cmdlet [Get-AzSubscription.][Get-AzSubscription]
 
 Se escolher uma região que suporte Zonas de Disponibilidade, os recursos Azure AD DS são distribuídos por zonas para redundância adicional.
 
@@ -252,7 +252,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `

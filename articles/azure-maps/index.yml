@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 4a8d05c05f0c6dc357ac8ea8623ab10cae1e4335
-  ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+  ms.openlocfilehash: 30606a38660e3113c6dfce4607333ef77584040f
+  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92895363"
+  ms.lasthandoff: 10/29/2020
+  ms.locfileid: "92927469"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -226,6 +226,10 @@ landingContent:
     links:
     - text: Analisar dados meteorológicos com o Azure Notebooks (Python)
       url: weather-service-tutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: Pedir dados meteorológicos em tempo real e previstos
+      url: how-to-request-weather-data.md
   - linkListType: reference
     links:
     - text: Serviço de Meteorologia

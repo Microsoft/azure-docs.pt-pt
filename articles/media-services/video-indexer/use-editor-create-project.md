@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28186a7dcced47a42b3249f1f74b13e969b41978
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970081"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041361"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Use o editor do Índice de Vídeo para criar projetos
 
@@ -35,7 +35,7 @@ Este artigo mostra como criar um projeto de raiz e também como criar um projeto
 1. Selecione o **separador Projetos.** Se já criou projetos antes, verá todos os seus outros projetos aqui.
 1. Clique **em Criar novo projeto.**  
 
-    ![Novo projeto](./media/video-indexer-view-edit/new-project.png)
+    ![Screenshot que mostra a página "Índice de Vídeo" com o separador "Projetos" selecionado.](./media/video-indexer-view-edit/new-project.png)
 1. Dê um nome ao seu projeto clicando no ícone do lápis. Substitua o texto que diz "Projeto Sem Título" pelo nome do seu projeto e clique na verificação.
 
     ![Novo projeto](./media/video-indexer-view-edit/new-project3.png)
@@ -45,7 +45,7 @@ Este artigo mostra como criar um projeto de raiz e também como criar um projeto
 > [!NOTE]
 > Atualmente, os projetos só podem conter vídeos indexados no mesmo idioma. Uma vez que selecione um vídeo num idioma, não pode adicionar os vídeos na sua conta que estão num idioma diferente.
 
-1. Adicione vídeos com os quais pretende trabalhar neste projeto selecionando **Vídeos Add**.
+1. Adicione vídeos com os quais pretende trabalhar neste projeto selecionando **Vídeos Add** .
 
     Verá todos os vídeos na sua conta e uma caixa de pesquisa que diz "Procure texto, palavras-chave ou conteúdo visual". Para procurar vídeos que tenham uma pessoa especificada, etiqueta, marca, palavra-chave ou ocorrência na transcrição e OCR.
     
@@ -53,19 +53,19 @@ Este artigo mostra como criar um projeto de raiz e também como criar um projeto
     
     ![A screenshot mostra a procura de vídeos que mencionem GitHub com dois resultados.](./media/video-indexer-view-edit/github.png)
 
-    Pode filtrar ainda mais os seus resultados selecionando **os resultados do Filtro.** Pode filtrar para mostrar vídeos que tenham uma determinada pessoa ou especificar que só pretende ver resultados de vídeo que são de uma determinada língua ou têm um proprietário específico. <br/> Também pode especificar o âmbito da sua consulta. Por exemplo, se pretender pesquisar "GitHub" no OCR, selecione **Texto Visual**.
+    Pode filtrar ainda mais os seus resultados selecionando **os resultados do Filtro.** Pode filtrar para mostrar vídeos que tenham uma determinada pessoa ou especificar que só pretende ver resultados de vídeo que são de uma determinada língua ou têm um proprietário específico. <br/> Também pode especificar o âmbito da sua consulta. Por exemplo, se pretender pesquisar "GitHub" no OCR, selecione **Texto Visual** .
 
-    ![Filtrar](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtro](./media/video-indexer-view-edit/visual-text.png)
 
     Pode colocar vários filtros em camadas na sua consulta. Utilize os **+** / **-** botões para adicionar/remover filtros. Utilize **filtros limpos** para remover todos os filtros.
-1. Para adicionar vídeos, selecione-os e, em seguida, **selecione Adicionar**.
+1. Para adicionar vídeos, selecione-os e, em seguida, **selecione Adicionar** .
 1. Agora, vais ver todos os vídeos que escolheste. Estes são os vídeos a partir dos quais vai selecionar clips para o seu projeto.
 
-    Pode reorganizar a ordem dos vídeos arrastando e baixando ou selecionando o botão do menu da lista e selecionando **Move down** ou **Move up**. A partir do menu da lista, poderá também remover o vídeo deste projeto. 
+    Pode reorganizar a ordem dos vídeos arrastando e baixando ou selecionando o botão do menu da lista e selecionando **Move down** ou **Move up** . A partir do menu da lista, poderá também remover o vídeo deste projeto. 
 
     ![O Screenshot mostra o Video Indexer com um menu contextual para um dos vídeos remover, limpar a seleção ou descer.](./media/video-indexer-view-edit/rearrange.png)
     
-    Tem a opção de adicionar mais vídeos a este projeto a qualquer momento, selecionando **Vídeos Add**. Também pode adicionar várias ocorrências do mesmo vídeo ao seu projeto. É melhor fazer isto se quiser mostrar um clip de um vídeo e depois um clip de outro e depois outro clip do primeiro vídeo. 
+    Tem a opção de adicionar mais vídeos a este projeto a qualquer momento, selecionando **Vídeos Add** . Também pode adicionar várias ocorrências do mesmo vídeo ao seu projeto. É melhor fazer isto se quiser mostrar um clip de um vídeo e depois um clip de outro e depois outro clip do primeiro vídeo. 
 
 ### <a name="select-clips-to-use-in-your-project"></a>Selecione clips para usar no seu projeto
 
@@ -75,7 +75,7 @@ Se clicar na seta descendente no lado direito de cada vídeo, abrirá as ideias 
 
     ![Ver informações](./media/video-indexer-view-edit/insights.png)
 1. Para criar consultas para clips específicos, utilize a caixa de pesquisa que diz "Pesquisa na transcrição, texto visual, pessoas e etiquetas".
-1. Adicione filtros para especificar mais detalhes sobre as cenas que procura selecionando **opções de Filtro**.
+1. Adicione filtros para especificar mais detalhes sobre as cenas que procura selecionando **opções de Filtro** .
 
     ![Opções de filtragem](./media/video-indexer-view-edit/filter-options.png)
 
@@ -87,7 +87,7 @@ Se clicar na seta descendente no lado direito de cada vídeo, abrirá as ideias 
 
 1. Adicione um clip ao seu projeto selecionando o segmento que pretende adicionar. Pode desmarcar este clipe clicando novamente no segmento.
     
-    Adicione todos os segmentos de um vídeo clicando na opção do menu da lista ao lado do vídeo e selecione **Selecione todos os segmentos**. 
+    Adicione todos os segmentos de um vídeo clicando na opção do menu da lista ao lado do vídeo e selecione **Selecione todos os segmentos** . 
 
     ![Adicionar tudo](./media/video-indexer-view-edit/add-all.png)
 
@@ -98,14 +98,14 @@ Se clicar na seta descendente no lado direito de cada vídeo, abrirá as ideias 
 
 ![A screenshot mostra o Video Indexer com a pré-visualização de um vídeo no lado direito da janela.](./media/video-indexer-view-edit/preview.png)
 
-Lembre-se de guardar o seu projeto quando escoar alterações selecionando **o projeto Save**. 
+Lembre-se de guardar o seu projeto quando escoar alterações selecionando **o projeto Save** . 
 
 ### <a name="render-and-download-the-project"></a>Rendereia e descarregue o projeto
 
 > [!NOTE]
 > Para contas pagas por Video Indexer, renderizar o seu projeto tem custos de codificação. As contas de ensaio do Indexer de Vídeo estão limitadas a 5 horas de renderização.
 
-1. Uma vez feito, certifique-se de que o seu projeto foi salvo. Agora pode fazer este projeto. Selecione **Render e Download**. 
+1. Uma vez feito, certifique-se de que o seu projeto foi salvo. Agora pode fazer este projeto. Selecione **Render e Download** . 
 
     ![O Screenshot mostra o Video Indexer com a opção de renderizar e descarregar o seu projeto.](./media/video-indexer-view-edit/save.png)
 
@@ -130,7 +130,7 @@ Pode criar um novo projeto diretamente a partir de um vídeo na sua conta.
 
     Isto leva-o à mesma página que usou para criar um novo projeto. Ao contrário do novo projeto, vê-se os segmentos de insights com tempos do vídeo, que tinha começado a editar anteriormente.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c89bd01cb2e6947df5ed192d66e0dbae08cf66d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6c9d49d8d4d1951542268d35e22822ab62449278
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260636"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041228"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma piscina SQL Synapse (pré-visualização) utilizando o portal Azure
 
@@ -56,16 +56,16 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
     > [!IMPORTANT]
     > Note que existem limitações específicas para os nomes que as piscinas SQL podem usar. Os nomes não podem conter caracteres especiais, devem ter 15 ou menos caracteres, não conter palavras reservadas e ser únicos no espaço de trabalho.
 
-3. Selecione **Seguinte: Definições adicionais**.
+3. Selecione **Seguinte: Definições adicionais** .
 4. Selecione **Nenhum** para providenciar o pool SQL sem dados. Deixe a colagem predefinida selecionada.
 ![Piscina SQL cria fluxo - separador de configurações adicionais.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
-5. Selecione **Rever + criar**.
-6. Certifique-se de que os detalhes parecem corretos com base no que foi previamente introduzido. Selecione **Criar**.
+5. Selecione **Rever + criar** .
+6. Certifique-se de que os detalhes parecem corretos com base no que foi previamente introduzido. Selecione **Criar** .
 ![Piscina SQL cria fluxo - separador de definições de revisão.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. Neste momento, o fluxo de fornecimento de recursos começará.
- ![Piscina SQL cria fluxo - fornecimento de recursos.](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
+ ![Screenshot que mostra a página "A sua implementação está completa".](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
 
 8. Após o a provisionamento concluído, navegar de volta para o espaço de trabalho mostrará uma nova entrada para a recém-criada piscina SQL.
  ![Piscina SQL cria fluxo - fornecimento de recursos.](media/quickstart-create-sql-pool/create-sql-pool-portal-07.png)

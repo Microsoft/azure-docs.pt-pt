@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar um Azure DB para o modelo MySQL - ARM'
 description: Neste Quickstart, aprenda a criar uma Base de Dados Azure para servidor MySQL com integração de rede virtual, utilizando um modelo de Gestor de Recursos Azure.
-author: mgblythe
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896161"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041200"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para o servidor MySQL
 
@@ -20,7 +20,7 @@ A azure Database for MySQL é um serviço gerido que utiliza para executar, geri
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
@@ -70,34 +70,34 @@ Selecione o seguinte link para implementar o modelo de servidor Azure Database p
 
 Na **Base de Dados de Azure de implementação para o MySQL com** a página VNet:
 
-1. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+1. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK** .
 
 2. Se criou um novo grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
-3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador**e **Palavra-passe de Login do Administrador**.
+3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador** e **Palavra-passe de Login do Administrador** .
 
     :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Desdobre-se para Azure":::
 
 4. Altere as outras definições predefinidos se quiser:
 
-    * **Subscrição**: a subscrição Azure que pretende utilizar para o servidor.
-    * **Capacidade Sku**: capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32*, ou *64*.
-    * **Nome Sku**: o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1*, *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
-    * **Tamanho Sku MB**: o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MySQL *(padrão 5120*).
-    * **Sku Tier**: o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
-    * **Família Sku**: *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
-    * **Versão Mysql**: a versão do servidor MySQL a ser implantada, tal como *5.6* ou *5.7* (o padrão).
-    * **Dias de Retenção de Cópia de Segurança**: o período desejado para a retenção de backup geo-redundante, em dias (padrão *7*).
-    * **Cópia de segurança geo redundante**: *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
-    * **Nome da rede virtual**: o nome da rede virtual *(azure_mysql_vnet*padrão).
-    * **Nome da sub-rede**: o nome da sub-rede *(azure_mysql_subnet*predefinidos ).
-    * **Nome da regra da rede virtual**: o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
-    * **Prefixo do endereço Vnet**: o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16*).
-    * **Prefixo do sub-rede**: o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16*).
+    * **Subscrição** : a subscrição Azure que pretende utilizar para o servidor.
+    * **Capacidade Sku** : capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32* , ou *64* .
+    * **Nome Sku** : o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1* , *GP_Gen5_2* (o padrão), ou *MO_Gen5_32* .
+    * **Tamanho Sku MB** : o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MySQL *(padrão 5120* ).
+    * **Sku Tier** : o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed* .
+    * **Família Sku** : *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
+    * **Versão Mysql** : a versão do servidor MySQL a ser implantada, tal como *5.6* ou *5.7* (o padrão).
+    * **Dias de Retenção de Cópia de Segurança** : o período desejado para a retenção de backup geo-redundante, em dias (padrão *7* ).
+    * **Cópia de segurança geo redundante** : *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
+    * **Nome da rede virtual** : o nome da rede virtual *(azure_mysql_vnet* padrão).
+    * **Nome da sub-rede** : o nome da sub-rede *(azure_mysql_subnet* predefinidos ).
+    * **Nome da regra da rede virtual** : o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
+    * **Prefixo do endereço Vnet** : o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16* ).
+    * **Prefixo do sub-rede** : o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16* ).
 
-5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados**.
+5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados** .
 
-6. Selecione **Comprar**.
+6. Selecione **Comprar** .
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -153,7 +153,7 @@ echo "Press [ENTER] to continue ..."
 
 Siga estes passos para ver uma visão geral da sua nova Base de Dados Azure para o servidor MySQL:
 
-1. No [portal Azure,](https://portal.azure.com)procure e selecione **Azure Database para servidores MySQL**.
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Azure Database para servidores MySQL** .
 
 2. Na lista de bases de dados, selecione o seu novo servidor. Aparece a página **'Visão Geral'** do seu novo servidor Azure Database para o servidor MySQL.
 
@@ -191,9 +191,9 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina os rec
 
 2. Na lista de grupos de recursos, escolha o nome do seu grupo de recursos.
 
-3. Na página **geral** do seu grupo de recursos, selecione **Delete resource group**.
+3. Na página **geral** do seu grupo de recursos, selecione **Delete resource group** .
 
-4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Delete**.
+4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Delete** .
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

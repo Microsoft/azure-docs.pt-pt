@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827904"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040504"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
 ## <a name="dismiss-user-risk-known-issues"></a>Descartar problemas conhecidos do risco do utilizador
 
-**Descartar o risco do utilizador** na clássica Proteção de Identidade define o ator no histórico de risco do utilizador na Proteção de Identidade para **Azure AD**.
+**Descartar o risco do utilizador** na clássica Proteção de Identidade define o ator no histórico de risco do utilizador na Proteção de Identidade para **Azure AD** .
 
 **Descartar o risco de utilização** na Proteção de Identidade define o ator no histórico de risco do utilizador na Proteção de Identidade para **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
@@ -34,17 +34,23 @@ As consultas no campo do nome de **utilizador** são sensíveis a casos, enquant
 
 Toggling **Show datas como** oculta a coluna RISK LAST **UPDATE.** Para ler a coluna clique em **Colunas** na parte superior da lâmina do Utilizadores Arriscados.
 
-**Dispensar todos os eventos** na clássica Proteção de Identidade define o estado das deteções de risco para **Fechado (resolvido)**.
+**Dispensar todos os eventos** na clássica Proteção de Identidade define o estado das deteções de risco para **Fechado (resolvido)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Relatório de entradas de risco conhecidos
 
-**A resolução** de uma deteção de risco define o estado para **os Utilizadores aprovados em MFA impulsionados pela política baseada no risco**.
+**A resolução** de uma deteção de risco define o estado para **os Utilizadores aprovados em MFA impulsionados pela política baseada no risco** .
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="why-is-a-user-is-at-risk"></a>Por que um utilizador está em risco?
 
 Se for um cliente Azure AD Identity Protection, vá ao ponto de vista [dos utilizadores arriscados](howto-identity-protection-investigate-risk.md#risky-users) e clique num utilizador em risco. Na gaveta de baixo, o separador 'Histórico de risco' mostrará todos os eventos que levaram a uma mudança de risco do utilizador. Para ver todos os insus máximos de segurança para o utilizador, clique em 'Ins de risco do utilizador'. Para ver todas as deteções de risco para este utilizador, clique em "Deteções de risco do utilizador".
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Porque é que a minha inscrição estava bloqueada, mas a Proteção de Identidade não gerou uma deteção de risco?
+As inscrições podem ser bloqueadas por várias razões. É importante notar que a Proteção de Identidade só gera deteções de risco quando são utilizadas credenciais corretas no pedido de autenticação. Se um utilizador utilizar credenciais incorretas, não será sinalizado pela Proteção de Identidade, uma vez que não existe risco de compromisso credencial, a menos que um mau ator utilize as credenciais corretas. Algumas razões pelas quais um utilizador pode ser impedido de assinar que não gerará uma deteção de Proteção de Identidade incluem:
+* O **IP pode ser bloqueado** devido a atividades maliciosas a partir do endereço IP. A mensagem bloqueada ip não diferencia se as credenciais estavam corretas ou não. Se o IP estiver bloqueado e não forem utilizadas credenciais corretas, não gerará uma deteção de Proteção de Identidade
+* **[Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** pode bloquear a inscrição da conta após várias tentativas falhadas
+* Uma **política de acesso condicional** pode ser aplicada que usa condições que não o nível de risco para bloquear um pedido de autenticação
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Como posso obter um relatório de deteções de um tipo específico?
 
@@ -81,7 +87,7 @@ Todas as deteções de risco estão documentadas no artigo [O que é o risco](co
 - Além disso, fornecemos a informação aos nossos sistemas de aprendizagem automática para futuras melhorias na avaliação de riscos.
 
     > [!NOTE]
-    > Se o utilizador já estiver remediado, não clique em **Confirmar comprometido** porque move o estado de entrada e risco do utilizador para **confirmado comprometido** e nível de risco para **Alto**.
+    > Se o utilizador já estiver remediado, não clique em **Confirmar comprometido** porque move o estado de entrada e risco do utilizador para **confirmado comprometido** e nível de risco para **Alto** .
 
 **Confirmar segurança** (em sinal de entrada) – Informa a Azure AD Identity Protection que a inscrição foi realizada pelo titular da identidade e não indica um compromisso.
 

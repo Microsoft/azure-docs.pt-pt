@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212156"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040942"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Ligação de saída de ônibus Azure Service para funções Azure
 
 Utilize a ligação de saída do Azure Service Bus para enviar mensagens de fila ou tópicos.
 
-Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -175,7 +175,7 @@ Uma definição de ligação de serviço bus é definida em *function.jsno* loca
 }
 ```
 
-Init * _ \_ _ \_ .py,* pode escrever uma mensagem para a fila, passando um valor para o `set` método.
+Init *_\__ \_ .py,* pode escrever uma mensagem para a fila, passando um valor para o `set` método.
 
 ```python
 import azure.functions as func
@@ -280,7 +280,7 @@ As `ServiceBusQueueOutput` `ServiceBusTopicOutput` anotações e anotações est
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `ServiceBus` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para "serviceBus". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "fora". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -384,7 +384,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 Se `isSessionsEnabled` tiver pronto `true` para, o será `sessionHandlerOptions` honrado.  Se `isSessionsEnabled` tiver pronto `false` para, o será `messageHandlerOptions` honrado.
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |prefetchCount|0|Recebe ou define o número de mensagens que o recetor de mensagens pode simultaneamente solicitar.|
 |maxAutoRenewDuration|00:05:00|A duração máxima dentro da qual o bloqueio de mensagem será renovado automaticamente.|

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7578ca12c46ec6de626eeb1340ce680eda6bbb92
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260874"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041308"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark utilizando o portal Azure
 
@@ -62,18 +62,18 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
     > Note que existem limitações específicas para os nomes que as piscinas Apache Spark podem usar. Os nomes devem conter apenas letras ou números, devem ter 15 ou menos caracteres, devem começar com uma letra, não conter palavras reservadas, e ser únicos no espaço de trabalho.
 
 3. Selecione **Seguinte: definições adicionais** e reveja as definições predefinidos. Não modifique quaisquer definições predefinições.
-    ![A piscina Apache Spark cria fluxo - separador de configurações adicionais.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Screenshot que mostra a página "Create Apache Spark pool" com o separador "Definições adicionais" selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Selecione **Seguinte: tags**. Não adicione etiquetas.
+4. Selecione **Seguinte: tags** . Não adicione etiquetas.
     ![A piscina Apache Spark cria fluxo - separador de configurações adicionais.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Selecione **Rever + criar**.
+5. Selecione **Rever + criar** .
 
-6. Certifique-se de que os detalhes parecem corretos com base no que foi previamente introduzido e selecione **Criar**.
+6. Certifique-se de que os detalhes parecem corretos com base no que foi previamente introduzido e selecione **Criar** .
     ![A piscina Apache Spark cria fluxo - separador de definições de revisão.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. Neste ponto, o fluxo de fornecimento de recursos começará, indicando uma vez que esteja completo.
-    ![A piscina Apache Spark cria fluxo - fornecimento de recursos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Screenshot que mostra a página "Visão Geral" com uma mensagem "A sua implementação está completa" exibida.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. Após o a provisionamento concluído, navegar de volta ao espaço de trabalho mostrará uma nova entrada para a recém-criada piscina Apache Spark.
     ![A piscina Apache Spark cria fluxo - fornecimento de recursos.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -90,7 +90,7 @@ Se pretender eliminar a piscina Apache Spark, faça o seguinte:
 
 1. Navegue até à lâmina das piscinas Apache Spark no espaço de trabalho.
 2. Selecione a piscina Apache Spark a eliminar (neste caso, **contosospark).**
-3. Prima **para apagar**.
+3. Prima **para apagar** .
  ![Listagem de piscinas Apache Spark, com a piscina recentemente criada selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirme a eliminação e prima O botão **Eliminar.**
  ![Diálogo de confirmação para eliminar a piscina Apache Spark selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)

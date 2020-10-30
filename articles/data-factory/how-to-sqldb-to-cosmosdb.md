@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691889"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041627"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Migrar o esquema da base de dados normalizada da Base de Dados SQL do Azure para um contentor desnormalizado do Azure CosmosDB
 
@@ -50,7 +50,7 @@ O recipiente CosmosDB resultante incorporará a consulta interna num único docu
 
 2. Adicione uma atividade de fluxo de dados
 
-3. Na atividade de fluxo de dados, selecione **Novo fluxo de dados de mapeamento**.
+3. Na atividade de fluxo de dados, selecione **Novo fluxo de dados de mapeamento** .
 
 4. Vamos construir este gráfico de fluxo de dados abaixo
 
@@ -96,11 +96,11 @@ O recipiente CosmosDB resultante incorporará a consulta interna num único docu
 
 19. Nas Definições de Sink, Chave de partição ```\SalesOrderID``` e ação de recolha para "recriar". Certifique-se de que o separador de mapeamento é assim:
 
-![Configurações do lavatório](media/data-flow/cosmosb7.png)
+![A imagem mostra o separador Mapping.](media/data-flow/cosmosb7.png)
 
 20. Clique na pré-visualização de dados para se certificar de que está a ver estas 32 linhas definidas para inserir como novos documentos no seu novo recipiente:
 
-![Configurações do lavatório](media/data-flow/cosmosb8.png)
+![A screenshot mostra o separador de pré-visualização de dados.](media/data-flow/cosmosb8.png)
 
 Se tudo estiver bem, está agora pronto para criar um novo oleoduto, adicione esta atividade de fluxo de dados a esse oleoduto e execute-o. Pode executar a partir de depurado ou uma corrida desencadeada. Após alguns minutos, deverá ter um novo recipiente de encomendas desnormalizado chamado "encomendas" na sua base de dados CosmosDB.
 

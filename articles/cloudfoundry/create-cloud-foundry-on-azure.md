@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161772"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040800"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Crie um cluster de base de nuvens em Azure
 
@@ -36,13 +36,13 @@ Existem várias formas de gerar uma chave de concha (SSH) segura do público usa
 ssh-keygen -t rsa -b 2048
 ```
 
-Para obter mais informações, consulte [as teclas SSH com Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+Para obter mais informações, consulte [as teclas SSH com Windows on Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 > [!NOTE]
 >
-> Para criar um principal de serviço, precisa de permissão de conta do proprietário. Também pode escrever um script para automatizar a criação do principal de serviço. Por exemplo, você pode usar o Azure CLI [ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Para criar um principal de serviço, precisa de permissão de conta do proprietário. Também pode escrever um script para automatizar a criação do principal de serviço. Por exemplo, você pode usar o Azure CLI [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Inicie sessão na sua conta do Azure.
 
@@ -50,7 +50,7 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](htt
 
     ![Login do Azure CLI](media/deploy/az-login-output.png )
  
-    Copie o valor "id" como **iD da**sua assinatura, e copie o valor "tenantId" para usar mais tarde.
+    Copie o valor "id" como **iD da** sua assinatura, e copie o valor "tenantId" para usar mais tarde.
 
 2. Defina a sua subscrição predefinida para esta configuração.
 
@@ -84,7 +84,7 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](htt
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Crie um ficheiro .json no seguinte formato. Utilize o **ID de assinatura,** **tenantID,** **clientID**e **clienteSssa** valores que copiou anteriormente. Guarde o ficheiro.
+7. Crie um ficheiro .json no seguinte formato. Utilize o **ID de assinatura,** **tenantID,** **clientID** e **clienteSssa** valores que copiou anteriormente. Guarde o ficheiro.
 
     ```json
     {
@@ -98,7 +98,7 @@ Para obter mais informações, consulte [as teclas SSH com Windows on Azure](htt
 ## <a name="get-the-pivotal-network-token"></a>Obtenha o token da Rede Pivotal
 
 1. Registe-se ou inscreva-se na sua conta [Rede Pivotal.](https://network.pivotal.io)
-2. Selecione o nome do seu perfil no canto superior direito da página. Selecione **perfil de edição**.
+2. Selecione o nome do seu perfil no canto superior direito da página. Selecione **perfil de edição** .
 3. Percorra a parte inferior da página e copie o valor **TOKEN DA API LEGACY.** Este valor é o seu valor **Pivotal Network Token** que utiliza mais tarde.
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Provisionar o seu cluster Cloud Foundry em Azure
@@ -128,4 +128,3 @@ Introduza os parâmetros e crie o seu cluster PCF.
 5. O seu PcF Ops Manager exibe as instâncias Azure implementadas. Agora pode implementar e gerir as suas aplicações aqui.
                
     ![Exemplo de Azure implantado na Pivotal](media/deploy/ops-mgr.png )
- 

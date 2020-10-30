@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018887"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040085"
 ---
 # <a name="animated-character-detection-preview"></a>Deteção de carateres animados (pré-visualização)
 
@@ -75,10 +75,10 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
     > [!NOTE]
     > Para fornecer todas as chaves precisa de ter dois recursos separados na Visão Personalizada, um para treinar e outro para previsão.
 1. Navegue e inscreva-se no [Índice de Vídeo](https://vi.microsoft.com/).
-1. Clique no ponto de interrogação no canto superior direito da página e escolha **referência API**.
+1. Clique no ponto de interrogação no canto superior direito da página e escolha **referência API** .
 1. Certifique-se de que está subscrito na Gestão da API clicando no separador **Produtos.** Se tiver uma API ligada, pode continuar até ao passo seguinte, caso contrário, subscreva. 
 1. No portal do desenvolvedor, clique na **Referência API Completa** e navegue para **Operações.**  
-1. Selecione **Conecte a Conta de Visão Personalizada (PREVIEW)** e clique em **Experimentá-la**.
+1. Selecione **Conecte a Conta de Visão Personalizada (PREVIEW)** e clique em **Experimentá-la** .
 1. Preencha os campos necessários, bem como o token de acesso e clique em **Enviar.** 
 
     Para obter mais informações sobre como obter o token de acesso do Indexer de Vídeo aceda ao portal do [desenvolvedor,](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)e consulte a [documentação relevante](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
@@ -96,9 +96,9 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
 1. Aceda ao site do [Video Indexer](https://vi.microsoft.com/) e inicie sessão.
 1. Clique no botão de personalização do modelo de conteúdo no canto superior direito da página.
 
-    ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization.png)
+    ![Screenshot que mostra a página "Índice de Vídeo" com o botão "personalização do modelo de conteúdo" selecionado no canto superior direito.](./media/animated-characters-recognition/content-model-customization.png)
 1. Aceda ao separador **caracteres animados** na secção de personalização do modelo.
-1. Clique no **modelo Adicionar**.
+1. Clique no **modelo Adicionar** .
 1. Nomeie-o modelo e clique em introduzir para guardar o nome.
 
 > [!NOTE]
@@ -129,7 +129,7 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
 
         Abra a página de personalização e clique no separador **caracteres Animados** e, em seguida, clique no botão **Train** para treinar o seu modelo.
          
-        Se tiver uma conta paga, pode clicar **nos modelos 'Gerir' no** link Visão do Cliente (como mostrado abaixo). Em seguida, será reencaminhado para a página do modelo em **Visão Personalizada**.
+        Se tiver uma conta paga, pode clicar **nos modelos 'Gerir' no** link Visão do Cliente (como mostrado abaixo). Em seguida, será reencaminhado para a página do modelo em **Visão Personalizada** .
  
         ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization-tab.png)
 

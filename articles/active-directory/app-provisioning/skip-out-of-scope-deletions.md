@@ -11,22 +11,21 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 719258933dfadf34b8678bf03ee07ee6cc76e331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f459a804b4c375eea17cbc22ded2f41f808c1b82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84789910"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041172"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a eliminação das contas de utilizador que ficam fora de alcance
 
 Por predefinição, o motor de provisionamento Azure AD elimina ou desativa os utilizadores que ficam fora de alcance. No entanto, para certos cenários como o Workday to AD User Inbound Provisioning, este comportamento pode não ser o esperado e poderá querer anular este comportamento padrão.  
 
-Este artigo descreve como usar a API do Microsoft Graph e o explorador API do Microsoft Graph para definir a bandeira ***SkipOutOfScopeDeletions*** que controla o processamento de contas que ficam fora de alcance. 
-* Se ***o SkipOutOfScopeDeletions*** estiver definido para 0 (falso), as contas que ficam fora de alcance serão desativadas no alvo.
-* Se ***o SkipOutOfScopeDeletions*** estiver definido para 1 (verdadeiro), as contas que ficam fora de alcance não serão desativadas no alvo. Esta bandeira é definida ao nível da *App de Provisioning* e pode ser configurada usando a API do gráfico. 
+Este artigo descreve como utilizar a API do Microsoft Graph e o explorador API do Microsoft Graph para definir a bandeira * **SkipOutOfScopeDeletions** _ que controla o processamento de contas que ficam fora de alcance. _ Se * **SkipOutOfScopeDeletions** _ estiver definido para 0 (falso), as contas que ficam fora de alcance serão desativadas no alvo.
+_ Se * **SkipOutOfScopeDeletions** _ estiver definido para 1 (verdadeiro), as contas que ficam fora de alcance não serão desativadas no alvo. Esta bandeira é definida ao nível _Provisioning App* e pode ser configurada usando a API do gráfico. 
 
-Uma vez que esta configuração é amplamente utilizada com a *aplicação de provisionamento do utilizador do Workday to Ative Directory,* os seguintes passos incluem imagens da aplicação Workday. No entanto, a configuração também pode ser utilizada com *todas as outras aplicações*– como o ServiceNow, Salesforce e Dropbox.
+Uma vez que esta configuração é amplamente utilizada com a *aplicação de provisionamento do utilizador do Workday to Ative Directory,* os seguintes passos incluem imagens da aplicação Workday. No entanto, a configuração também pode ser utilizada com *todas as outras aplicações* – como o ServiceNow, Salesforce e Dropbox.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passo 1: Recuperar o ID principal do serviço de aplicações de provisionamento (ID do objeto)
 
@@ -69,9 +68,9 @@ Aqui está o bloco JSON para adicionar ao mapeamento.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Passo 4: Atualizar o ponto final dos segredos com a bandeira skipOutOfScopeDeletions
 
-No Graph Explorer, execute o comando abaixo para atualizar o ponto final dos segredos com a bandeira ***SkipOutOfScopeDeletions.*** 
+No Graph Explorer, executar o comando abaixo para atualizar o ponto final dos segredos com a bandeira * *_SkipOutOfScopeDeletions_* _. 
 
-No URL abaixo substitua [servicePrincipalId] pelo **ServicePrincipalId** extraído do [Passo 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+No URL abaixo substitua [servicePrincipalId] pelo _ *ServicePrincipalId* * extraído do [Passo 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
@@ -90,7 +89,7 @@ Deve obter a saída como "Sucesso – Código de Estado 204".
 
 Pode testar esta bandeira resulta em comportamento esperado atualizando as suas regras de deteção para saltar um utilizador específico. No exemplo abaixo, estamos excluindo o empregado com iD 21173 (que estava no âmbito anterior) adicionando uma nova regra de digitalização: 
 
-   ![Exemplo de escoar](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Screenshot que mostra a secção "Adicionar filtro de escotagem" com um utilizador de exemplo realçado.](./media/skip-out-of-scope-deletions/skip-07.png)
 
 No próximo ciclo de provisionamento, o serviço de prestação de Ad Azure identificará que o utilizador 21173 ficou fora de alcance e se a propriedade SkipOutOfScopeDeletions estiver ativada, então a regra de sincronização para esse utilizador apresentará uma mensagem como mostrado abaixo: 
 

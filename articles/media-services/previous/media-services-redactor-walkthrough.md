@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1a106874277f64a006584f9deb98fb9729263b1b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016676"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040721"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redact enfrenta com Azure Media Analytics walkthrough
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 **O Azure Media Redator** é um processador de media [Azure Media Analytics](./legacy-components.md) (MP) que oferece uma redação facial escalável na nuvem. A redação facial permite-lhe modificar o seu vídeo de modo a desfocar rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação facial em cenários de segurança pública e media de notícias. Alguns minutos de imagens que contêm múltiplas faces podem demorar horas a redigir manualmente, mas com este serviço o processo de redação facial requer apenas alguns passos simples. Para mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
@@ -47,7 +47,7 @@ A maneira mais fácil de começar com o Redator é usar a ferramenta AMSE de có
 
     Para obter o nome de conta e as informações da chave, aceda ao [portal do Azure](https://portal.azure.com/) e selecione a sua conta AMS. Em seguida, selecione Definições > Teclas. A janela Gerir chaves mostra o nome da conta e as chaves primária e secundária são apresentadas. Copie os valores do nome da conta e a chave primária.
 
-![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
+![O Screenshot mostra o Microsoft Azure Media Services onde pode introduzir o nome e a chave da sua conta.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
 ### <a name="first-pass--analyze-mode"></a>Primeiro passe – modo de análise
 
@@ -55,32 +55,32 @@ A maneira mais fácil de começar com o Redator é usar a ferramenta AMSE de có
 1. Clique e processe o seu ficheiro de media utilizando o media Analytics (> Azure Media Redator - > Modo de Análise. 
 
 
-![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
+![O Screenshot mostra um menu com o (s) Process Asset(s) com o Azure Media Redator.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
-![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
+![Screenshot mostra Azure Media Redator com Primeiro Passe: Modo de análise selecionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
 A saída incluirá um ficheiro json de anotações com dados de localização facial, bem como um jpg de cada face detetada. 
 
-![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
+![A imagem mostra a saída da análise.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
 ### <a name="second-pass--redact-mode"></a>Segundo passe – modo de redação
 
 1. Faça o upload do seu ativo de vídeo original para a saída a partir do primeiro passe e definido como um ativo primário. 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
+    ![A screenshot mostra o upload e o conjunto como botões primários.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
 2. (Opcional) Faça o upload de um ficheiro 'Dance_idlist.txt' que inclui uma nova lista delimitada dos IDs que pretende redigir. 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
+    ![A screenshot mostra a opção de carregar o ficheiro de texto.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (Opcional) Faça quaisquer edições para o annotations.jsem ficheiros como aumentar os limites da caixa de delimitação. 
 4. Clique no ativo de saída a partir do primeiro passe, selecione o Redator e corra com o modo **Redact.** 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
+    ![A screenshot mostra Azure Media Redator com Second Pass: Modo Redact selecionado.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Faça o download ou partilhe o ativo de saída redigido final. 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
+    ![A screenshot mostra o botão Descarregar.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
 ## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Ferramenta de código open source do Azure Media Redator
 
@@ -94,12 +94,12 @@ Se for um desenvolvedor a tentar analisar os dados de anotação JSON, procure d
 
 1.  Descarregue e construa toda a solução. 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
+    ![Screenshot mostra Build Solution selecionado a partir do menu.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
 2.  Faça o download do FFMPEG a partir [daqui.](https://ffmpeg.org/download.html) Este projeto foi originalmente desenvolvido com a versão be1d324 (2016-10-04) com ligação estática. 
 3.  Copie ffmpeg.exe e ffprobe.exe na mesma pasta de saída que AzureMediaRedactor.exe. 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
+    ![A screenshot mostra o conteúdo da pasta, incluindo ffmpeg e ffprobe.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
 4. Corre AzureMediaRedactor.exe. 
 
@@ -109,11 +109,11 @@ Se for um desenvolvedor a tentar analisar os dados de anotação JSON, procure d
 2. Descarregue tanto o ficheiro de vídeo original como a saída do trabalho Redaction - Analisar. 
 3. Executar a aplicação de visualizador e escolher os ficheiros acima. 
 
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
+    ![A screenshot mostra ficheiros de upload do Azure Media Redator.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
 4. Pré-visualizar o seu ficheiro. Selecione quais os rostos que gostaria de borrar através da barra lateral à direita. 
     
-    ![Redação de rostos](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
+    ![O Screenshot mostra o Azure Media Redator onde pode visualizar e selecionar rostos para desfocar.](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.  O campo de texto inferior atualizar-se-á com os IDs do rosto. Crie um ficheiro chamado "idlist.txt" com estes IDs como uma nova lista delimitada. 
 

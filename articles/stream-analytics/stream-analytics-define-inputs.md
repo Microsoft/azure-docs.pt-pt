@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027589"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042441"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Fluxo de dados como entrada no Stream Analytics
 
@@ -21,6 +21,7 @@ O Stream Analytics tem integração de primeira classe com fluxos de dados Azure
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Armazenamento do Azure Data Lake Gen2) 
 
 Estes recursos de entrada podem viver na mesma subscrição Azure que o seu trabalho Stream Analytics ou uma subscrição diferente.
 
@@ -125,18 +126,18 @@ Quando utiliza dados de fluxo a partir de um Hub IoT, tem acesso aos seguintes c
 | **IoTHub.EnqueuedTime** | O momento em que a mensagem foi recebida pelo IoT Hub. |
 
 
-## <a name="stream-data-from-blob-storage"></a>Dados de fluxo do armazenamento blob
-Para cenários com grandes quantidades de dados não estruturados para armazenar na nuvem, o armazenamento Azure Blob oferece uma solução rentável e escalável. Os dados relativos ao armazenamento blob são geralmente considerados dados em repouso; no entanto, os dados blob podem ser tratados como um fluxo de dados pelo Stream Analytics. 
+## <a name="stream-data-from-blob-storage-or-data-lake-storage-gen2"></a>Dados de fluxo do armazenamento blob ou data lake storage gen2
+Para cenários com grandes quantidades de dados não estruturados para armazenar na nuvem, o armazenamento Azure Blob ou o Azure Data Lake Storage Gen2 (ADLS Gen2) oferece uma solução rentável e escalável. Os dados relativos ao armazenamento blob ou à ADLS Gen2 são geralmente considerados dados em repouso; no entanto, estes dados podem ser tratados como um fluxo de dados pelo Stream Analytics. 
 
-O processamento de registos é um cenário comumente utilizado para a utilização de entradas de armazenamento Blob com Stream Analytics. Neste cenário, os ficheiros de dados de telemetria foram capturados a partir de um sistema e precisam de ser analisados e processados para extrair dados significativos.
+O processamento de registos é um cenário comumente utilizado para a utilização de tais entradas com Stream Analytics. Neste cenário, os ficheiros de dados de telemetria foram capturados a partir de um sistema e precisam de ser analisados e processados para extrair dados significativos.
 
-O tempo de tempo padrão dos eventos de armazenamento Blob em Stream Analytics é o tempotampido que a bolha foi modificada pela última vez, que é `BlobLastModifiedUtcTime` . Se uma bolha for enviada para uma conta de armazenamento às 13:00, e o trabalho do Azure Stream Analytics for iniciado usando a opção *Agora* às 13:01, a bolha não será levantada à medida que o seu tempo modificado cai fora do período de funcionamento do trabalho.
+O tempo de tempo padrão de um armazenamento Blob ou evento ADLS Gen2 em Stream Analytics é o tempo que foi modificado pela última vez, que é `BlobLastModifiedUtcTime` . Se uma bolha for enviada para uma conta de armazenamento às 13:00, e o trabalho do Azure Stream Analytics for iniciado usando a opção *Agora* às 13:01, não será recolhido à medida que o seu tempo modificado cai fora do período de funcionamento do trabalho.
 
 Se uma bolha for enviada para um recipiente de conta de armazenamento às 13:00, e o trabalho do Azure Stream Analytics for iniciado usando *o Tempo Personalizado* às 13:00 ou mais cedo, a bolha será recolhida à medida que o seu tempo modificado cai dentro do período de funcionamento do trabalho.
 
 Se um trabalho do Azure Stream Analytics for iniciado a ser utilizado *agora* às 13:00, e uma bolha for enviada para o contentor da conta de armazenamento às 13:01, o Azure Stream Analytics irá recolher a bolha. O tempotabo atribuído a cada bolha baseia-se apenas `BlobLastModifiedTime` em . A pasta em que se encontra a bolha não tem qualquer relação com o tempotando atribuído. Por exemplo, se houver uma bolha *2019/10-01/b1.txt* com um `BlobLastModifiedTime` de 2019-11-11, então o tempotando atribuído a esta bolha é 2019-11-11.
 
-Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) Um trabalho stream Analytics retira dados da entrada de armazenamento Azure Blob a cada segundo se o ficheiro blob estiver disponível. Se o ficheiro blob não estiver disponível, existe um recuo exponencial com um atraso máximo de 90 segundos.
+Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) Um trabalho stream Analytics retira dados do armazenamento Azure Blob ou da entrada ADLS Gen2 a cada segundo se o ficheiro blob estiver disponível. Se o ficheiro blob não estiver disponível, existe um recuo exponencial com um atraso máximo de 90 segundos.
 
 As entradas formatadas por CSV requerem uma linha de cabeçalho para definir campos para o conjunto de dados, e todos os campos de linha de cabeçalho devem ser únicos.
 
@@ -152,10 +153,10 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | Propriedade | Descrição |
 | --- | --- |
 | **Inserir pseudónimo** | Um nome amigável que usa na consulta do trabalho para fazer referência a esta entrada. |
-| **Subscrição** | Escolha a subscrição em que existe o recurso IoT Hub. | 
+| **Subscrição** | Escolha a subscrição em que o recurso de armazenamento existe. | 
 | **Conta de armazenamento** | O nome da conta de armazenamento onde estão os ficheiros blob. |
-| **Chave da conta de armazenamento** | A chave secreta associada à conta de armazenamento. Esta opção é automaticamente preenchida a menos que selecione a opção de fornecer manualmente as definições de armazenamento Blob. |
-| **Container** (Contentor) | O recipiente para a entrada do blob. Os recipientes fornecem um agrupamento lógico para bolhas armazenadas no serviço Microsoft Azure Blob. Quando fizer o upload de uma bolha para o serviço de armazenamento Azure Blob, deve especificar um recipiente para essa bolha. Pode escolher o recipiente **existente** ou  **criar um novo** recipiente para criar um novo recipiente.|
+| **Chave da conta de armazenamento** | A chave secreta associada à conta de armazenamento. Esta opção é preenchida automaticamente a menos que selecione a opção de fornecer as definições manualmente. |
+| **Container** (Contentor) | Os recipientes fornecem um agrupamento lógico para bolhas. Pode escolher o recipiente **existente** ou  **criar um novo** recipiente para criar um novo recipiente.|
 | **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar as bolhas dentro do recipiente especificado. Se quiser ler bolhas da raiz do recipiente, não descreva um padrão de caminho. Dentro do caminho, pode especificar uma ou mais instâncias das seguintes três variáveis: `{date}` `{time}` , ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` personagem não é um valor permitido para o prefixo do caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">são permitidos caracteres blob Azure</a> válidos. Não inclua nomes de contentores ou nomes de ficheiros. |
 | **Formato de data** (opcional) | Se utilizar a variável de data no caminho, o formato de data em que os ficheiros são organizados. Exemplo: `YYYY/MM/DD` <br/><br/> Quando a entrada blob tem `{date}` ou `{time}` no seu caminho, as pastas são vistas em ordem de tempo ascendente.|
 | **Formato de tempo** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de tempo em que os ficheiros são organizados. Atualmente, o único valor suportado é `HH` de horas. |

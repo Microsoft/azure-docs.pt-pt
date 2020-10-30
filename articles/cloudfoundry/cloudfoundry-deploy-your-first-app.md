@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84754505"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040037"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implemente a sua primeira aplicação para Cloud Foundry no Microsoft Azure
 
@@ -95,7 +95,7 @@ Pode implementar a maioria das aplicações para Cloud Foundry utilizando o `pus
 cf push
 ```
 
-Ao *empurrar* uma aplicação, a Cloud Foundry deteta o tipo de aplicação (neste caso, uma aplicação Java) e identifica as suas dependências (neste caso, o quadro da primavera). Em seguida, embala tudo o que é necessário para encaixar o seu código numa imagem de recipiente autónomo, conhecida como *uma gota*. Finalmente, o Cloud Foundry agenda a aplicação numa das máquinas disponíveis no seu ambiente e cria um URL onde pode alcançá-la, que está disponível na saída do comando.
+Ao *empurrar* uma aplicação, a Cloud Foundry deteta o tipo de aplicação (neste caso, uma aplicação Java) e identifica as suas dependências (neste caso, o quadro da primavera). Em seguida, embala tudo o que é necessário para encaixar o seu código numa imagem de recipiente autónomo, conhecida como *uma gota* . Finalmente, o Cloud Foundry agenda a aplicação numa das máquinas disponíveis no seu ambiente e cria um URL onde pode alcançá-la, que está disponível na saída do comando.
 
 ![Saída do comando de push cf][cf-push-output]
 
@@ -114,7 +114,7 @@ Pode utilizar o CLI cloud foundry para visualizar registos para uma aplicação 
 cf logs hello-spring-cloud
 ```
 
-Por predefinição, o comando de registos utiliza *cauda*, que mostra novos registos à medida que são escritos. Para ver novos registos, atualize a aplicação hello-spring-cloud no navegador.
+Por predefinição, o comando de registos utiliza *cauda* , que mostra novos registos à medida que são escritos. Para ver novos registos, atualize a aplicação hello-spring-cloud no navegador.
 
 Para ver registos que já foram escritos, adicione o `recent` interruptor:
 
@@ -146,7 +146,7 @@ Executar o `cf app` comando na aplicação mostra que cloud Foundry está a cria
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780402"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040748"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrizar os fluxos de dados de mapeamento
 
@@ -28,7 +28,7 @@ Utilize esta capacidade para tornar os seus dados fluídos de uso geral, flexív
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Criar parâmetros num fluxo de dados de mapeamento
 
-Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela de fluxo de dados para ver as propriedades gerais. No painel de definições, verá um separador chamado **Parâmetro**. Selecione **Novo** para gerar um novo parâmetro. Para cada parâmetro, deve atribuir um nome, selecionar um tipo e definir opcionalmente um valor predefinido.
+Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela de fluxo de dados para ver as propriedades gerais. No painel de definições, verá um separador chamado **Parâmetro** . Selecione **Novo** para gerar um novo parâmetro. Para cada parâmetro, deve atribuir um nome, selecionar um tipo e definir opcionalmente um valor predefinido.
 
 ![Criar parâmetros de fluxo de dados](media/data-flow/create-params.png "Criar parâmetros de fluxo de dados")
 
@@ -36,11 +36,11 @@ Para adicionar parâmetros ao fluxo de dados, clique na parte em branco da tela 
 
 Os parâmetros podem ser referenciados em qualquer expressão de fluxo de dados. Os parâmetros começam com $e são imutáveis. Encontrará a lista de parâmetros disponíveis no interior do Porta-voz do Construtor de Expressão no **separador Parâmetros.**
 
-![Expressão do parâmetro do fluxo de dados](media/data-flow/parameter-expression.png "Expressão do parâmetro do fluxo de dados")
+![A screenshot mostra os parâmetros disponíveis no separador Parâmetros.](media/data-flow/parameter-expression.png "Expressão do parâmetro do fluxo de dados")
 
 Pode adicionar rapidamente parâmetros adicionais selecionando **novo parâmetro** e especificando o nome e o tipo.
 
-![Expressão do parâmetro do fluxo de dados](media/data-flow/new-parameter-expression.png "Expressão do parâmetro do fluxo de dados")
+![A screenshot mostra os parâmetros no separador Parâmetros com novos parâmetros adicionados.](media/data-flow/new-parameter-expression.png "Expressão do parâmetro do fluxo de dados")
 
 ## <a name="assign-parameter-values-from-a-pipeline"></a>Atribuir valores de parâmetros a partir de um oleoduto
 
@@ -48,13 +48,13 @@ Uma vez criado um fluxo de dados com parâmetros, pode executá-lo a partir de u
 
 Ao atribuir valores de parâmetros, pode utilizar a linguagem de expressão do [gasoduto](control-flow-expression-language-functions.md) ou a linguagem de expressão do [fluxo de dados](data-flow-expression-functions.md) com base em tipos de faíscas. Cada fluxo de dados de mapeamento pode ter qualquer combinação de parâmetros de expressão de pipeline e fluxo de dados.
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/parameter-assign.png "Definição de um parâmetro de fluxo de dados")
+![O screenshot mostra o separador Parâmetros com a expressão Data Flow selecionada para o valor do myparam.](media/data-flow/parameter-assign.png "Definição de um parâmetro de fluxo de dados")
 
 ### <a name="pipeline-expression-parameters"></a>Parâmetros de expressão do gasoduto
 
 Os parâmetros de expressão do gasoduto permitem-lhe referenciar variáveis, funções, parâmetros de pipeline e variáveis semelhantes a outras atividades de pipeline. Ao clicar na **expressão Pipeline,** abre-se um navegador lateral que lhe permite introduzir uma expressão utilizando o construtor de expressão.
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline.png "Definição de um parâmetro de fluxo de dados")
+![A screenshot mostra o painel de construtores de expressão.](media/data-flow/parameter-pipeline.png "Definição de um parâmetro de fluxo de dados")
 
 Quando referenciados, os parâmetros do pipeline são avaliados e, em seguida, o seu valor é usado na linguagem de expressão do fluxo de dados. O tipo de expressão do gasoduto não precisa de corresponder ao tipo de parâmetro de fluxo de dados. 
 
@@ -62,7 +62,7 @@ Quando referenciados, os parâmetros do pipeline são avaliados e, em seguida, o
 
 Ao atribuir um parâmetro de expressão de pipeline de cadeia tipo, por padrão serão adicionados as cotações e o valor será avaliado como literal. Para ler o valor do parâmetro como uma expressão de fluxo de dados, verifique a caixa de expressão ao lado do parâmetro.
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/string-parameter.png "Definição de um parâmetro de fluxo de dados")
+![A screenshot mostra o painel de parâmetros de fluxo de dados Expressão selecionada para um parâmetro.](media/data-flow/string-parameter.png "Definição de um parâmetro de fluxo de dados")
 
 Se o parâmetro de fluxo de `stringParam` dados referenciar um parâmetro de pipeline com valor `upper(column1)` . 
 
@@ -73,7 +73,7 @@ Se o parâmetro de fluxo de `stringParam` dados referenciar um parâmetro de pip
 
 Na linguagem de expressão do gasoduto, variáveis do sistema tais como `pipeline().TriggerTime` e funções como `utcNow()` os timetamps de retorno como cordas em formato 'yyyy-MM-dd \' T \' HH:mm:mms. Sssssz' Para convertê-los em parâmetros de fluxo de dados de tempos de tempo tipo, utilize a interpolação de cordas para incluir o tempotamp desejado numa `toTimestamp()` função. Por exemplo, para converter o tempo de disparo do gasoduto num parâmetro de fluxo de dados, pode utilizar `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/parameter-timestamp.png "Definição de um parâmetro de fluxo de dados")
+![A screenshot mostra o separador Parâmetros onde pode introduzir um tempo de gatilho.](media/data-flow/parameter-timestamp.png "Definição de um parâmetro de fluxo de dados")
 
 > [!NOTE]
 > Os Fluxos de Dados só podem suportar até 3 milissegundos. A `left()` função é utilizada para cortar dígitos adicionais.
@@ -82,15 +82,15 @@ Na linguagem de expressão do gasoduto, variáveis do sistema tais como `pipelin
 
 Digamos que tem um parâmetro inteiro `intParam` que faz referência a um parâmetro de pipeline do tipo String, `@pipeline.parameters.pipelineParam` . 
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-2.png "Definição de um parâmetro de fluxo de dados")
+![A screenshot mostra o separador Parâmetros com parâmetros chamados stringParam e intParam.](media/data-flow/parameter-pipeline-2.png "Definição de um parâmetro de fluxo de dados")
 
 `@pipeline.parameters.pipelineParam` é atribuído um valor de tempo de `abs(1)` execução.
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-4.png "Definição de um parâmetro de fluxo de dados")
+![A screenshot mostra o separador Parâmetros com o valor de um b s (1) selecionado.](media/data-flow/parameter-pipeline-4.png "Definição de um parâmetro de fluxo de dados")
 
 Quando `$intParam` é referenciado numa expressão como uma coluna derivada, avaliará `abs(1)` o retorno `1` . 
 
-![Definição de um parâmetro de fluxo de dados](media/data-flow/parameter-pipeline-3.png "Definição de um parâmetro de fluxo de dados")
+![A imagem mostra o valor das colunas.](media/data-flow/parameter-pipeline-3.png "Definição de um parâmetro de fluxo de dados")
 
 ### <a name="data-flow-expression-parameters"></a>Parâmetros de expressão de fluxo de dados
 

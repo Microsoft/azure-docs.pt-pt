@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/20/2019
-ms.openlocfilehash: 08aaec23b0edc0e797d26d4b51081f6daa5b5c19
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/29/2020
+ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671226"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040162"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Importe um ficheiro BACPAC para uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,9 +62,11 @@ Para migrar uma base de dados para uma [Instância Gerida Azure SQL](../managed-
 
 ## <a name="using-sqlpackage"></a>Usando SqlPackage
 
-Para importar uma base de dados SQL Server utilizando o utilitário de linha de comando [SqlPackage,](/sql/tools/sqlpackage) consulte [parâmetros e propriedades de importação](/sql/tools/sqlpackage#import-parameters-and-properties). [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e [as Ferramentas de Dados do Servidor SQL para Estúdio Visual](/sql/ssdt/download-sql-server-data-tools-ssdt) incluem SqlPackage. Também pode baixar o mais recente [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) do centro de descarregamento da Microsoft.
+Para importar uma base de dados SQL Server utilizando o utilitário de linha de comando [SqlPackage,](/sql/tools/sqlpackage) consulte [parâmetros e propriedades de importação](/sql/tools/sqlpackage#import-parameters-and-properties). [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e [as Ferramentas de Dados do Servidor SQL para Estúdio Visual](/sql/ssdt/download-sql-server-data-tools-ssdt) incluem SqlPackage. Também pode baixar o mais recente [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) do centro de descarregamento da Microsoft. 
 
 Para escala e desempenho, recomendamos a utilização do SqlPackage na maioria dos ambientes de produção em vez de utilizar o portal Azure. Para um blog da SqL Server Customer Advisory Team sobre migração através `BACPAC` de ficheiros, consulte [migrar do SQL Server para a Azure SQL Database utilizando ficheiros BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
+
+O modelo de provisionamento baseado em DTU suporta valores de tamanho máximo de base de dados selecionados para cada nível. Ao importar uma base de dados [utilize um destes valores suportados.](/sql/t-sql/statements/create-database-transact-sql) 
 
 O seguinte comando SqlPackage importa a base de dados **AdventureWorks2008R2** do armazenamento local para um servidor lógico SQL nomeado **mynewserver20170403** . Cria uma nova base de dados chamada **myMigratedDatabase** com um nível de serviço **Premium** e um Objetivo de Serviço **P6.** Altere estes valores conforme apropriado para o seu ambiente.
 
@@ -81,7 +83,7 @@ Este exemplo mostra como importar uma base de dados usando SqlPackage com Autent
 sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="using-powershell"></a>Com o PowerShell
+## <a name="using-powershell"></a>Utilizar o PowerShell
 
 > [!NOTE]
 > [Uma SqL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) não suporta atualmente a migração de uma base de dados para uma base de dados de casos a partir de um ficheiro BACPAC utilizando a Azure PowerShell. Para importar para uma SQL Managed Instance, use o SQL Server Management Studio ou o SQLPackage.
@@ -94,7 +96,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager (RM) ainda está suportado, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará a receber correções de erros até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre a sua compatibilidade, consulte [a introdução do novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
 
-Utilize o [cmdlet New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) para apresentar um pedido de base de dados de importação à Azure. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a ser concluída.
+Utilize o [cmdlet New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) para apresentar um pedido de base de dados de importação à Azure. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a ser concluída. O modelo de provisionamento baseado em DTU suporta valores de tamanho máximo de base de dados selecionados para cada nível. Ao importar uma base de dados [utilize um destes valores suportados.](/sql/t-sql/statements/create-database-transact-sql) 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -126,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Utilize o comando [de importação az-sql-db](/cli/azure/sql/db#az-sql-db-import) para apresentar um pedido de base de dados de importação à Azure. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a ser concluída.
+Utilize o comando [de importação az-sql-db](/cli/azure/sql/db#az-sql-db-import) para apresentar um pedido de base de dados de importação à Azure. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a ser concluída. O modelo de provisionamento baseado em DTU suporta valores de tamanho máximo de base de dados selecionados para cada nível. Ao importar uma base de dados [utilize um destes valores suportados.](/sql/t-sql/statements/create-database-transact-sql) 
 
 ```azurecli
 # get the storage account key

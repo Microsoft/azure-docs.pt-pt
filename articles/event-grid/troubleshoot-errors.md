@@ -3,25 +3,25 @@ title: Azure Event Grid - Guia de resolução de problemas
 description: Este artigo fornece uma lista de códigos de erro, mensagens de erro, descrições e ações recomendadas.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119043"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041396"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Resolução de problemas Erros da Grelha de Eventos do Azure
 Este guia de resolução de problemas fornece-lhe uma lista de códigos de erro da Grelha de Eventos Azure, mensagens de erro, suas descrições e ações recomendadas que deve tomar quando receber estes erros. 
 
 ## <a name="error-code-400"></a>Código de erro: 400
-| Código de erro | Mensagem de erro | Descrição | Recomendação |
+| Código de erro | Mensagem de erro | Description | Recomendação |
 | ---------- | ------------- | ----------- | -------------- | 
-| HttpStatusCode.BadRequest<br/>400 | O nome tópico deve ter entre 3 e 50 caracteres de comprimento. | O comprimento do nome do tópico personalizado deve ter entre 3 e 50 caracteres de comprimento. Apenas letras alfanuméricas, dígitos e o caráter '-' são permitidos no nome do tópico. Além disso, o nome não deve começar com as seguintes palavras reservadas: <ul><li>Microsoft</li><li>EventGrid</li><li>Sistema</li></ul> | Escolha um nome de tópico diferente que adere aos requisitos de nome tópico. |
-| HttpStatusCode.BadRequest<br/>400 | O nome de domínio deve ter entre 3 e 50 caracteres de comprimento. | O comprimento do nome de domínio deve ter entre 3 e 50 caracteres de comprimento. Apenas letras alfanuméricas, dígitos e o caráter '-' são permitidos no nome do tópico. Além disso, o nome não deve começar com as seguintes palavras reservadas:<ul><li>Microsoft</li><li>EventGrid</li><li>Sistema</li> | Escolha um nome de domínio diferente que adere aos requisitos do nome de domínio. |
+| HttpStatusCode.BadRequest<br/>400 | O nome tópico deve ter entre 3 e 50 caracteres de comprimento. | O comprimento do nome do tópico personalizado deve ter entre 3 e 50 caracteres de comprimento. Apenas letras alfanuméricas, dígitos e o caráter '-' são permitidos no nome do tópico. Além disso, o nome não deve começar com as seguintes palavras reservadas: <ul><li>Microsoft...</li><li>EventGrid-</li><li>Sistema...</li></ul> | Escolha um nome de tópico diferente que adere aos requisitos de nome tópico. |
+| HttpStatusCode.BadRequest<br/>400 | O nome de domínio deve ter entre 3 e 50 caracteres de comprimento. | O comprimento do nome de domínio deve ter entre 3 e 50 caracteres de comprimento. Apenas letras alfanuméricas, dígitos e o caráter '-' são permitidos no nome de domínio. Além disso, o nome não deve começar com as seguintes palavras reservadas:<ul><li>Microsoft...</li><li>EventGrid-</li><li>Sistema...</li> | Escolha um nome de domínio diferente que adere aos requisitos do nome de domínio. |
 | HttpStatusCode.BadRequest<br/>400 | Tempo de validade inválido. | O tempo de validade da subscrição do evento determina quando a subscrição do evento se aposentará. Este valor deverá ser um valor de DataTime válido no futuro.| Certifique-se de que o tempo de validade da subscrição do evento num formato de DateTime válido está definido para ser no futuro. |
 
 ## <a name="error-code-409"></a>Código de erro: 409
-| Código de erro | Mensagem de erro | Descrição | Ação recomendada |
+| Código de erro | Mensagem de erro | Description | Ação recomendada |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode.Conflict <br/>409 | Tema com o nome especificado já existe. Escolha um nome de tópico diferente.   | O nome de tópico personalizado deve ser único numa única região de Azure, a fim de garantir uma correta operação de publicação. O mesmo nome pode ser usado em diferentes regiões de Azure. | Escolha um nome diferente para o tópico. |
 | HttpStatusCode.Conflict <br/> 409 | Domínio com o especificado já existe. Escolha um nome de domínio diferente. | O nome de domínio deve ser único numa única região de Azure, a fim de garantir um correto funcionamento editorial. O mesmo nome pode ser usado em diferentes regiões de Azure. | Escolha um nome diferente para o domínio. |
@@ -29,7 +29,7 @@ Este guia de resolução de problemas fornece-lhe uma lista de códigos de erro 
 
 ## <a name="error-code-403"></a>Código de erro: 403
 
-| Código de erro | Mensagem de erro | Descrição | Ação recomendada |
+| Código de erro | Mensagem de erro | Description | Ação recomendada |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode.Proibido <br/>403 | A publicação para {Topic/Domain} pelo cliente {IpAddress} é rejeitada devido às regras de filtragem do IpAddress. | O tópico ou domínio tem regras de firewall IP configuradas e o acesso é restrito apenas a endereços IP configurados. | Adicione o endereço IP às regras de firewall IP, consulte [firewall IP configurar](configure-firewall.md) |
 | HttpStatusCode.Proibido <br/> 403 | A publicação para {Topic/Domain} pelo cliente é rejeitada como pedido veio do Private Endpoint e nenhuma ligação de ponto final privado correspondente encontrada para o recurso. | O tópico ou domínio tem private endpoints configurados e o pedido de publicação veio de um ponto final privado que não é configurado/aprovado. | Configure um ponto final privado para o tópico/domínio. [Configurar pontos finais privados](configure-private-endpoints.md) |

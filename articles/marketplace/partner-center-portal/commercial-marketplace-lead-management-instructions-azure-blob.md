@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121916"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042380"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento Azure Blob para gerir os leads de marketplace comercial
 
@@ -51,9 +51,9 @@ ms.locfileid: "86121916"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Chave de armazenamento azul](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Screenshot que mostra a página "Teclas de acesso" com a caixa de texto "Connection string" realçada.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Na sua página de conta de armazenamento, selecione **Blobs**.
+6. Na sua página de conta de armazenamento, selecione **Blobs** .
 
    ![Chave de armazenamento azul](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "86121916"
 
     Guarde este valor pois este é o valor *do Nome do Contentor* que precisa de fornecer no portal de publicação para receber pistas para a sua oferta de mercado.
 
-9. Desavista o nível de acesso público ao contentor como **Privado (sem acesso anónimo)**.
+9. Desavista o nível de acesso público ao contentor como **Privado (sem acesso anónimo)** .
 
 10. Selecione **OK** para criar o contentor.
 
@@ -74,7 +74,7 @@ ms.locfileid: "86121916"
 Quando estiver pronto para configurar as informações de gestão de chumbo para a sua oferta no portal de publicação, siga os passos abaixo:
 
 1. Navegue na página **de configuração da Oferta** para a sua oferta.
-2. Na secção **de comandos do Cliente,** selecione **Connect**.
+2. Na secção **de comandos do Cliente,** selecione **Connect** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Ligações ao cliente":::
 
@@ -87,7 +87,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
     * Exemplo do nome do recipiente: `marketplaceleadcontainer`
     * Exemplo de cadeia de ligação de conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ Detalhe de conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Selecione **Guardar**.
+5. Selecione **Guardar** .
 
     > [!NOTE]
     > Tem de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.

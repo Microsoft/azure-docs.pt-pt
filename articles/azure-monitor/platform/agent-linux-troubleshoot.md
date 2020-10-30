@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460874"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042404"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
 
@@ -55,6 +55,15 @@ Para mais detalhes, consulte a nossa [documentação do Github.](https://github.
  >[!NOTE]
  >Por favor, execute a ferramenta Log Collector quando tiver um problema. Ter os registos inicialmente ajudará muito a nossa equipa de suporte a resolver o seu problema mais rapidamente.
 
+## <a name="purge-and-re-install-the-linux-agent"></a>Purgar e Re-Install o Agente Linux
+
+Vimos que uma reinstalação limpa do agente resolverá a maioria dos problemas. Na verdade, esta pode ser a primeira sugestão do Apoio para colocar o Agente num estado não acorrido da nossa equipa de apoio. Executar o resolução de problemas, registar recolha e tentar uma reinstalação limpa ajudará a resolver os problemas mais rapidamente.
+
+1. Descarregue o script de purga:
+- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+2. Executar o script de purga (com permissões de sudo):
+- `$ sudo sh purge_omsagent.sh`
+
 ## <a name="important-log-locations-and-log-collector-tool"></a>Localizações importantes do registo e ferramenta de colecionador de registos
 
  Ficheiro | Caminho
@@ -83,9 +92,9 @@ Para mais detalhes, consulte a nossa [documentação do Github.](https://github.
 | NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plugin auditado auoms não será instalado | A instalação de auoms falhou, instalou pacote auditado. |
 | 2 | Opção inválida fornecida ao pacote de conchas. Correr `sudo sh ./omsagent-*.universal*.sh --help` para uso |
 | 3 | Nenhuma opção fornecida ao pacote de conchas. Corra `sudo sh ./omsagent-*.universal*.sh --help` para uso. |
-| 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; os pacotes omsagent-rpm .sh só podem ser instalados em sistemas baseados em RPM, e os pacotes omsagent-deb .sh só podem ser instalados em sistemas baseados em Debian.*rpm**deb* Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
+| 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; os pacotes omsagent-rpm .sh só podem ser instalados em sistemas baseados em RPM, e os pacotes omsagent-deb .sh só podem ser instalados em sistemas baseados em Debian. *rpm**deb* Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
 | 5 | O feixe de concha deve ser executado como raiz OU houve 403 erros devolvidos durante o embarque. Executar o seu comando utilizando `sudo` . |
-| 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os*pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e*os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
+| 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os *pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e* os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
 | 17 | A instalação do pacote OMS falhou. Procurem através da saída de comando para a falha da raiz. |
 | 19 | A instalação do pacote OMI falhou. Procurem através da saída de comando para a falha da raiz. |
 | 20 | A instalação do pacote SCX falhou. Procurem através da saída de comando para a falha da raiz. |

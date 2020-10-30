@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044161"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041377"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o seu ambiente de desenvolvimento e teste para ioT Edge
 
@@ -83,7 +83,7 @@ Apenas o tempo de execução IoT Edge é suportado para implementações de prod
 | Ferramenta | Também conhecido como | Plataformas suportadas | Melhor para |
 | ---- | ------------- | ------------------- | --------- |
 | Ferramenta ioT EdgeHub dev  | iotedgehubdev | Windows, Linux, macOS | Simular um dispositivo para depurar módulos. |
-| Recipiente IoT Edge dev | microsoft/iotedgedev | Windows, Linux, macOS | Desenvolver sem instalar dependências. |
+| Recipiente IoT Edge dev | iotedgedev | Windows, Linux, macOS | Desenvolver sem instalar dependências. |
 | Tempo de execução IoT Edge em um recipiente | iotedgec | Windows, Linux, macOS, ARM | Testes num dispositivo que pode não suportar o tempo de funcionaamento. |
 | Recipiente de dispositivo IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Testar um cenário com muitos dispositivos IoT Edge em escala. |
 
@@ -99,7 +99,7 @@ Para mais informações e instalar, consulte [a ferramenta dev Azure IoT EdgeHub
 
 O recipiente Azure IoT Edge dev é um recipiente Docker que tem todas as dependências necessárias para o desenvolvimento do IoT Edge. Este recipiente facilita o início com qualquer idioma que queira desenvolver, incluindo C#, Python, Node.js e Java. Tudo o que precisa de instalar é um motor de contentores, como o Docker ou o Moby, para puxar o contentor para a sua máquina de desenvolvimento.
 
-Para mais informações, consulte [o recipiente Azure IoT Edge dev](https://hub.docker.com/r/microsoft/iotedgedev/).
+Para mais informações, consulte [o recipiente Azure IoT Edge dev](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
 
 ### <a name="iot-edge-runtime-in-a-container"></a>Tempo de execução IoT Edge em um recipiente
 

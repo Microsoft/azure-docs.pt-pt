@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259641"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040459"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as reclamações em Azure Ative Directory B2C políticas personalizadas
 
 As [políticas personalizadas](custom-policy-overview.md) de reclamação em Azure Ative Directory B2C (Azure AD B2C) fornecem informações de contexto sobre um pedido de autorização, tais como o nome da apólice, solicitar iD de correlação, linguagem de interface de utilizador, e muito mais.
 
-Para utilizar uma reclamação de resposta numa reclamação de entrada ou saída, define um **String ClaimType**, sob o elemento [ClaimsSchema,](claimsschema.md) e, em seguida, define o **DefaultValue** para a reclamação no elemento de reivindicação ou de entrada ou saída. Azure AD B2C lê o valor da reclamação e utiliza o valor no perfil técnico.
+Para utilizar uma reclamação de resposta numa reclamação de entrada ou saída, define um **String ClaimType** , sob o elemento [ClaimsSchema,](claimsschema.md) e, em seguida, define o **DefaultValue** para a reclamação no elemento de reivindicação ou de entrada ou saída. Azure AD B2C lê o valor da reclamação e utiliza o valor no perfil técnico.
 
 No exemplo seguinte, um tipo de reclamação nomeado `correlationId` é definido com um **DataType** de `string` .
 
@@ -51,7 +51,7 @@ A lista de secções seguintes disponível.
 | {Cultura:Nome de língua} | O código ISO de duas letras para a língua. | en |
 | {Cultura:LCID}   | O LCID do código linguístico. | 1033 |
 | {Cultura:Região Nome} | O código ISO de duas letras para a região. | EUA |
-| {Cultura:RFC5646} | O código linguístico RFC5646. | pt-PT |
+| {Cultura:RFC5646} | O código linguístico RFC5646. | en-PT |
 
 ### <a name="policy"></a>Política
 
@@ -127,6 +127,7 @@ Qualquer nome de parâmetro incluído como parte de um pedido OIDC ou OAuth2 pod
 | {SAML:ForceAuthn} | O `ForceAuthN` valor do atributo, a partir do elemento `AuthnRequest` do pedido SAML. | Verdadeiro |
 | {SAML:ProviderName} | O `ProviderName` valor do atributo, a partir do elemento `AuthnRequest` do pedido SAML.| Contoso.com |
 | {SAML:RelayState} | O `RelayState` parâmetro da corda de consulta.| 
+| {SAML:Assunto} | Do `Subject` elemento NameId do pedido SAML AuthN.| 
 
 ## <a name="using-claim-resolvers"></a>Utilização de resolverções de reclamações
 

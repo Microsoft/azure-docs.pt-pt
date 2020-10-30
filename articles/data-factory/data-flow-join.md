@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042644"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Junte-se à transformação no fluxo de dados de mapeamento
 
@@ -59,7 +59,7 @@ Se quiser produzir explicitamente um produto cartesiano completo, utilize a tran
 
 1. Escolha o fluxo de dados com o qual se junta na entrega do **fluxo certo.**
 1. Selecione o **seu tipo de Junção**
-1. Escolha quais as colunas-chave que pretende combinar para que se junte à condição. Por predefinição, o fluxo de dados procura a igualdade entre uma coluna em cada fluxo. Para comparar através de um valor calculado, paire sobre a coluna dropdown e **selecione coluna Computada**.
+1. Escolha quais as colunas-chave que pretende combinar para que se junte à condição. Por predefinição, o fluxo de dados procura a igualdade entre uma coluna em cada fluxo. Para comparar através de um valor calculado, paire sobre a coluna dropdown e **selecione coluna Computada** .
 
 ![Junte-se à Transformação](media/data-flow/join.png "Associar")
 
@@ -75,13 +75,13 @@ Ao contrário da fusão em ferramentas como a SSIS, a transformação de junçã
 
 ![Junte-se à transformação otimizar](media/data-flow/joinoptimize.png "Junte-se à otimização")
 
-Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo**.
+Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo** .
 
 Não é aconselhável desativar a transmissão através da opção **Off,** a menos que as suas junções estejam a ter erros de tempo.
 
 ## <a name="self-join"></a>Self-Join
 
-Para se juntar a um fluxo de dados consigo mesmo, pseudónimo de um fluxo existente com uma transformação selecionada. Crie um novo ramo clicando no ícone plus ao lado de uma transformação e selecione **Novo ramo**. Adicione uma transformação selecionada ao pseudónimo do fluxo original. Adicione uma transformação de união e escolha o fluxo original como **o fluxo esquerdo** e a transformação selecionada como o fluxo **direito**.
+Para se juntar a um fluxo de dados consigo mesmo, pseudónimo de um fluxo existente com uma transformação selecionada. Crie um novo ramo clicando no ícone plus ao lado de uma transformação e selecione **Novo ramo** . Adicione uma transformação selecionada ao pseudónimo do fluxo original. Adicione uma transformação de união e escolha o fluxo original como **o fluxo esquerdo** e a transformação selecionada como o fluxo **direito** .
 
 ![União de auto-unir-se](media/data-flow/selfjoin.png "União de auto-unir-se")
 
@@ -108,7 +108,7 @@ O exemplo abaixo é uma transformação de união nomeada `JoinMatchedData` que 
 
 No Data Factory UX, esta transformação parece a imagem abaixo:
 
-![Junte-se ao exemplo](media/data-flow/join-script1.png "Junte-se ao exemplo")
+![O screenshot mostra a transformação com o separador 'Configurações de Junção' selecionado e um tipo de 'Unir'.](media/data-flow/join-script1.png "Junte-se ao exemplo")
 
 O roteiro do fluxo de dados para esta transformação está no snippet abaixo:
 
@@ -130,7 +130,7 @@ O exemplo abaixo é uma transformação de união nomeada `JoiningColumns` que t
 
 No Data Factory UX, esta transformação parece a imagem abaixo:
 
-![Junte-se ao exemplo](media/data-flow/join-script2.png "Junte-se ao exemplo")
+![O screenshot mostra a transformação com o separador 'Configurações de Junção' selecionado e um tipo de 'Unir') (cruz).](media/data-flow/join-script2.png "Junte-se ao exemplo")
 
 O roteiro do fluxo de dados para esta transformação está no snippet abaixo:
 

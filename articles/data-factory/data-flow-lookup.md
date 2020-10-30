@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187599"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040194"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de procura no fluxo de dados de mapeamento
 
@@ -27,7 +27,7 @@ Uma transformação de procura é semelhante a uma união exterior esquerda. Tod
 
 ## <a name="configuration"></a>Configuração
 
-![Transformação de Procura](media/data-flow/lookup1.png "Pesquisa")
+![A screenshot mostra o separador definições de Configuração do Lookup com as etiquetas descritas no texto seguinte.](media/data-flow/lookup1.png "Pesquisa")
 
 **Fluxo primário:** O fluxo de dados que chega. Este fluxo é equivalente ao lado esquerdo de uma junta.
 
@@ -65,7 +65,7 @@ Ao testar a transformação de procura com pré-visualização de dados no modo 
 
 ![Transmissão Aderir](media/data-flow/broadcast.png "Transmissão Aderir")
 
-Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo**.
+Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo** .
 
 Não é aconselhável desativar a transmissão através da opção **Off,** a menos que as suas junções estejam a ter erros de tempo.
 
@@ -85,7 +85,7 @@ Não é aconselhável desativar a transmissão através da opção **Off,** a me
 ```
 ### <a name="example"></a>Exemplo
 
-![Transformação de Procura](media/data-flow/lookup-dsl-example.png "Pesquisa")
+![A screenshot mostra o separador definições de Configuração do Lookup para o seguinte código.](media/data-flow/lookup-dsl-example.png "Pesquisa")
 
 O script de fluxo de dados para a configuração de procura acima está no corte de código abaixo.
 

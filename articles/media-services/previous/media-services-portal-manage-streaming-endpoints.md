@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7ea61a1f09a9340661f333e452f70c5ad8cf877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266651"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041970"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal (Gerir os pontos finais de transmissão em fluxo com o portal do Azure)
 
@@ -38,9 +38,9 @@ Para obter informações sobre como escalar o ponto final de streaming, consulte
 Para começar a gerir os pontos finais de streaming para a sua conta, faça o seguinte.
 
 1. No [portal do Azure](https://portal.azure.com/) selecione a sua conta de Serviços de Multimédia do Azure.
-2. Na lâmina **Definições,** selecione **pontos finais de streaming**.
+2. Na lâmina **Definições,** selecione **pontos finais de streaming** .
    
-    ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![Screenshot que mostra a página "Serviços de mídia" com "Streaming endpoints" selecionados a partir da lâmina "Definições".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > Só é cobrado quando o seu Streaming Endpoint está em funcionamento.
@@ -59,7 +59,7 @@ Para adicionar/eliminar o ponto final de streaming utilizando o portal Azure, fa
 2. Para eliminar um ponto final de streaming, prima **Eliminar** o botão.      
 3. Clique no botão **Iniciar** para iniciar o ponto final de streaming.
    
-    ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![Screenshot que mostra a ação "Endpoint" selecionada e o painel "Streaming Endpoint Details" exibido.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configurar o ponto final de streaming
@@ -77,11 +77,11 @@ Para obter informações detalhadas sobre estas propriedades, consulte [Streamin
 Pode configurar o ponto final de streaming fazendo o seguinte:
 
 1. Selecione o ponto final de streaming que pretende configurar.
-2. Clique em **Definições**.
+2. Clique em **Definições** .
 
 Segue-se uma breve descrição dos campos.
 
-![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Screenshot que mostra a ação "Definições" selecionada para o ponto final de streaming.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Política máxima de cache: usada para configurar a vida útil da cache para os ativos servidos através deste ponto final de streaming. Se não for definido qualquer valor, o padrão é utilizado. Os valores predefinidos também podem ser definidos diretamente no armazenamento do Azure. Se o Azure CDN estiver ativado para o ponto final de streaming, não deverá definir o valor da política de cache em menos de 600 segundos.  
 2. Endereços IP permitidos: usados para especificar endereços IP que seriam autorizados a ligar-se ao ponto final de streaming publicado. Se nenhum endereço IP especificado, qualquer endereço IP poderá ser conectado. Os endereços IP podem ser especificados como um único endereço IP (por exemplo, '10.0.0.1'), uma gama IP utilizando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, «10.0.0.1/22»), ou uma gama IP utilizando o endereço IP e uma máscara de sub-rede decimal pontilhada (por exemplo, '10.0.0.1(255.255.255.0)»).
@@ -99,10 +99,10 @@ Se mais tarde pretender desativar/ativar o CDN, o seu ponto final de streaming d
 
 A integração da CDN está ativada em todos os centros de dados do Azure, exceto na China e nas regiões do Governo Federal.
 
-Uma vez ativado, o **Access Control**, o nome de anfitrião **e a configuração **de autenticação Da Assinatura Akamai** são desativados.
+Uma vez ativado, o **Access Control** , o nome de anfitrião **e a configuração **de autenticação Da Assinatura Akamai** são desativados.
  
 > [!IMPORTANT]
-> A integração do Azure Media Services com a Azure CDN é implementada na **Azure CDN da Verizon** para os pontos finais de streaming padrão. Os pontos finais de streaming premium podem ser configurados utilizando todos os **níveis e fornecedores de preços da Azure CDN**. Para obter mais informações sobre as funcionalidades do Azure CDN, consulte a [visão geral](../../cdn/cdn-overview.md)do CDN .
+> A integração do Azure Media Services com a Azure CDN é implementada na **Azure CDN da Verizon** para os pontos finais de streaming padrão. Os pontos finais de streaming premium podem ser configurados utilizando todos os **níveis e fornecedores de preços da Azure CDN** . Para obter mais informações sobre as funcionalidades do Azure CDN, consulte a [visão geral](../../cdn/cdn-overview.md)do CDN .
  
 ### <a name="additional-considerations"></a>Considerações adicionais
 

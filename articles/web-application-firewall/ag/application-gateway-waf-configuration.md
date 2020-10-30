@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84752478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040247"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho e listas de exclusão de pedidos de Web Application Firewall
 
@@ -38,11 +38,11 @@ Pode especificar um cabeçalho de pedido exato, corpo, cookie ou combinação de
 
 Seguem-se os operadores de critérios de correspondência suportados:
 
-- **Igual**: Este operador é utilizado para uma correspondência exata. Como exemplo, para selecionar um cabeçalho denominado **BearerToken,** utilize o operador de iguales com o seletor definido como **bearerToken**.
+- **Igual** : Este operador é utilizado para uma correspondência exata. Como exemplo, para selecionar um cabeçalho denominado **BearerToken,** utilize o operador de iguales com o seletor definido como **bearerToken** .
 - **Começa por:** Este operador corresponde a todos os campos que começam com o valor do seletor especificado.
 - **Termina com:** Este operador corresponde a todos os campos de pedido que terminam com o valor do seletor especificado.
-- **Contém**: Este operador corresponde a todos os campos de pedido que contêm o valor do seletor especificado.
-- **É igual a qualquer**: Este operador corresponde a todos os campos de pedido. * será o valor do seletor.
+- **Contém** : Este operador corresponde a todos os campos de pedido que contêm o valor do seletor especificado.
+- **É igual a qualquer** : Este operador corresponde a todos os campos de pedido. * será o valor do seletor.
 
 Em todos os casos, a correspondência é caso insensível e a expressão regular não é permitida como selecionadores.
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Assim, se o URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passado para a WAF, não avaliará a cadeia **fdafdasfda,** mas ainda avaliará o nome do parâmetro **281%29**. 
+Assim, se o URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passado para a WAF, não avaliará a cadeia **fdafdasfda,** mas ainda avaliará o nome do parâmetro **281%29** . 
 
 ## <a name="waf-request-size-limits"></a>Limites de tamanho do pedido waf
 
@@ -89,7 +89,7 @@ Assim, se o URL `http://www.contoso.com/?user%281%29=fdafdasfda` for passado par
 
 O Firewall de Aplicação Web permite-lhe configurar limites de tamanho de pedido dentro dos limites inferior e superior. Estão disponíveis as seguintes configurações de limites de tamanho:
 
-- O campo de tamanho do corpo de pedido máximo é especificado em quilobytes e controla o limite geral do tamanho do pedido, excluindo quaisquer uploads de ficheiros. Este campo pode variar entre o valor máximo de 1-KB e o valor máximo de 128 KB. O valor padrão para o tamanho do corpo de pedido é de 128 KB.
+- O campo de tamanho do corpo de pedido máximo é especificado em quilobytes e controla o limite geral do tamanho do pedido, excluindo quaisquer uploads de ficheiros. Este campo tem um valor mínimo de 1 KB e um valor máximo de 128 KB. O valor padrão para o tamanho do corpo de pedido é de 128 KB.
 - O campo limite de upload de ficheiros é especificado em MB e rege o tamanho máximo permitido de upload de ficheiros. Este campo pode ter um valor mínimo de 1 MB e os seguintes máximos:
 
    - 100 MB para gateways v1 Waf Médio

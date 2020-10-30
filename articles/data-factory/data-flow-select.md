@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040237"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selecione a transformação no fluxo de dados de mapeamento
 
@@ -46,11 +46,11 @@ Se desejar mapear muitas colunas ao mesmo tempo ou passar colunas derivadas a ju
 
 Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regras.**
 
-![mapeamento baseado em regras](media/data-flow/rule2.png "Mapeamento baseado em regras")
+![A screenshot mostra mapeamento baseado em regras selecionado a partir do mapeamento Add.](media/data-flow/rule2.png "Mapeamento baseado em regras")
 
 Cada mapeamento baseado em regras requer duas entradas: a condição para combinar e o que nomear cada coluna mapeada. Ambos os valores são introduzidos através do construtor de [expressão.](concepts-data-flow-expression-builder.md) Na caixa de expressão esquerda, insira a sua condição de jogo boolean. Na caixa de expressão certa, especifique para que coluna correspondeda será mapeada.
 
-![mapeamento baseado em regras](media/data-flow/rule-based-mapping.png "Mapeamento baseado em regras")
+![A imagem mostra um mapeamento.](media/data-flow/rule-based-mapping.png "Mapeamento baseado em regras")
 
 Utilize `$$` sintaxe para fazer referência ao nome de entrada de uma coluna compatível. Usando a imagem acima como exemplo, digamos que um utilizador quer combinar em todas as colunas de cordas cujos nomes são mais curtos do que seis caracteres. Se uma coluna recebida for `test` nomeada, a expressão `$$ + '_short'` mudará o nome da coluna `test_short` . Se for o único mapeamento que existe, todas as colunas que não satisfaçam a condição serão retiradas dos dados outputados.
 
@@ -60,7 +60,7 @@ Os padrões combinam com colunas derivadas e definidas. Para ver quais colunas d
 
 Se clicar no ícone chevron descendente, pode especificar uma condição de mapeamento regex. Uma condição de mapeamento regex corresponde a todos os nomes das colunas que correspondem à condição regex especificada. Isto pode ser usado em combinação com mapeamentos padrão baseados em regras.
 
-![mapeamento baseado em regras](media/data-flow/regex-matching.png "Mapeamento baseado em regras")
+![A screenshot mostra a condição de mapeamento regex com nível de hierarquia e correspondências de nome.](media/data-flow/regex-matching.png "Mapeamento baseado em regras")
 
 O exemplo acima coincide com o padrão regex `(r)` ou qualquer nome de coluna que contenha um r de caixa inferior. Semelhante ao mapeamento padrão baseado em regras, todas as colunas correspondidas são alteradas pela condição no direito usando `$$` sintaxe.
 
@@ -70,7 +70,7 @@ Se tiver várias partidas regex no nome da sua coluna, pode consultar `$n` fósf
 
 Se a sua projeção definida tiver uma hierarquia, pode usar o mapeamento baseado em regras para mapear os subcolumns das hierarquias. Especifique uma condição correspondente e a coluna complexa cujos subcolumes deseja mapear. Todos os subcolumns combinados serão produzidos utilizando a regra "Nome como" especificada à direita.
 
-![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "Mapeamento baseado em regras")
+![A screenshot mostra um mapeamento baseado em regras usando para uma hierarquia.](media/data-flow/rule-based-hierarchy.png "Mapeamento baseado em regras")
 
 O exemplo acima coincide com todos os subcolumns de coluna `a` complexa. `a` contém dois subcolumns `b` e `c` . O esquema de saída incluirá duas colunas `b` e como é a condição `c` 'Nome `$$` as'.
 

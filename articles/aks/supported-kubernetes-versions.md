@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735060"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042124"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -131,16 +131,18 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendário de lançamento de AKS Kubernetes
 
-Para a história do lançamento passado, veja [aqui.](https://en.wikipedia.org/wiki/Kubernetes#History)
+Para a história do lançamento passado, consulte [Kubernetes.](https://en.wikipedia.org/wiki/Kubernetes#History)
 
-|  Versão K8s | Liberação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da Vida |
+|  Versão K8s | Libertação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da vida |
 |--------------|-------------------|--------------|---------|-------------|
 | 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | Jan 2021* | 
 | 1.17  | Dez-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
 | 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
-| 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA | 
-\* Devido à época de férias, a AKS prolonga a vida útil de 1,16 de novembro de 2020 até janeiro de 2021. Leia mais [aqui](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+| 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA |
+
+\* Devido à época de férias, a AKS prolonga a vida útil de 1,16 de novembro de 2020 até janeiro de 2021. [Leia mais.](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+
 
 ## <a name="faq"></a>FAQ
 

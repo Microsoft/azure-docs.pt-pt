@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363696"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041116"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planear uma implementação de aprovisionamento automático de utilizadores
 
@@ -36,13 +36,13 @@ Os principais benefícios de permitir o fornecimento automático de utilizadores
 
 * **Aumento da produtividade.** Pode gerir as identidades dos utilizadores através das aplicações SaaS com uma única interface de gestão de fornecimento de utilizador. Esta interface tem um único conjunto de políticas de provisionamento.
 
-* **Gerir o risco**. Pode aumentar a segurança automatizando alterações com base no estado dos colaboradores ou membros do grupo que definem funções e/ou acesso.
+* **Gerir o risco** . Pode aumentar a segurança automatizando alterações com base no estado dos colaboradores ou membros do grupo que definem funções e/ou acesso.
 
 * **Abordar a conformidade e a governação.** A Azure AD suporta registos de auditoria nativos para cada pedido de provisionamento do utilizador. Os pedidos são executados tanto nos sistemas de origem como nos sistemas-alvo. Isto permite-lhe rastrear quem tem acesso a aplicações a partir de um único ecrã.
 
 * **Reduzir o custo.** O fornecimento automático de utilizadores reduz os custos evitando ineficiências e erros humanos associados ao fornecimento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida, scripts e registos de auditoria.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licensing
 
 A Azure AD proporciona integração de autosserviço de qualquer aplicação usando modelos fornecidos no menu da galeria de aplicações. Para obter uma lista completa dos requisitos de licença, consulte [a página de licenciamento da Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -99,7 +99,7 @@ Neste exemplo, os utilizadores e ou grupos são criados numa base de dados de RH
 
 Neste exemplo, a criação de utilizadores ocorre em Azure AD e o serviço de fornecimento AZure AD gere o fornecimento automático de utilizadores às aplicações-alvo (SaaS).
 
-![Imagem 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagrama que mostra o processo de criação do utilizador/grupo a partir de uma aplicação H R no local através do Serviço de Provisionamento Azure A D para as aplicações S a S alvo.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Descrição do fluxo de trabalho:**
 
