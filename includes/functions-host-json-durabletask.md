@@ -1,47 +1,23 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6e253604c57d73c2a89ccfa5cff7efe9e572d11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24dc2cad8d299d150adddc03de5e9006fc831fc6
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89094199"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061645"
 ---
 Definições de configuração para [funções duradouras](../articles/azure-functions/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Funções duradouras 1.x
-
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub",
-    "controlQueueBatchSize": 32,
-    "partitionCount": 4,
-    "controlQueueVisibilityTimeout": "00:05:00",
-    "workItemQueueVisibilityTimeout": "00:05:00",
-    "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
-    "maxQueuePollingInterval": "00:00:30",
-    "azureStorageConnectionStringName": "AzureWebJobsStorage",
-    "trackingStoreConnectionStringName": "TrackingStorage",
-    "trackingStoreNamePrefix": "DurableTask",
-    "traceInputsAndOutputs": false,
-    "logReplayEvents": false,
-    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "eventGridKeySettingName":  "EventGridKey",
-    "eventGridPublishRetryCount": 3,
-    "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
-  }
-}
-```
+> [!NOTE]
+> Todas as principais versões de Funções Duradouras são suportadas em todas as versões do tempo de funcionamento das Funções Azure. No entanto, o esquema do host.jsna configuração é ligeiramente diferente dependendo da versão do tempo de funcionamento das Funções Azure e da versão de extensão de Funções Duráveis que utiliza. Os exemplos a seguir são para utilização com as Funções Azure 2.0 e 3.0. Em ambos os exemplos, se estiver a utilizar as Funções Azure 1.0, as definições disponíveis são as mesmas, mas a secção "DurableTask" do host.jsem diante deve ir na raiz do host.jsna configuração em vez de como um campo em "extensões".
 
 ### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Funções duradouras 2.x
 
@@ -92,9 +68,38 @@ Definições de configuração para [funções duradouras](../articles/azure-fun
 
 ```
 
-Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, o nome do centro de tarefas predefinido para uma aplicação de função é **DurableFunctionsHub**. Para obter mais informações, consulte [os centros de tarefas.](../articles/azure-functions/durable-functions-task-hubs.md)
+### <a name="durable-functions-1x"></a>Funções duradouras 1.x
 
-|Propriedade  |Predefinição | Descrição |
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10,
+      "maxQueuePollingInterval": "00:00:30",
+      "azureStorageConnectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask",
+      "traceInputsAndOutputs": false,
+      "logReplayEvents": false,
+      "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+      "eventGridKeySettingName":  "EventGridKey",
+      "eventGridPublishRetryCount": 3,
+      "eventGridPublishRetryInterval": "00:00:30",
+      "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+    }
+  }
+}
+```
+
+Os nomes dos centros de tarefa devem começar com uma letra e consistir apenas em letras e números. Se não for especificado, o nome do centro de tarefas predefinido para uma aplicação de função é **DurableFunctionsHub** . Para obter mais informações, consulte [os centros de tarefas.](../articles/azure-functions/durable-functions-task-hubs.md)
+
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |nome hub|DurableFunctionsHub|Nomes de [centros de tarefas](../articles/azure-functions/durable-functions-task-hubs.md) alternativos podem ser usados para isolar várias aplicações de Funções Duráveis umas das outras, mesmo que estejam a usar o mesmo backend de armazenamento.|
 |controlQueueBatchSize|32|O número de mensagens a retirar da fila de controlo de cada vez.|

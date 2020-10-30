@@ -1,26 +1,28 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/19/2020
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8e3df77df53b887c4367e46b05d8a7ea4eed2f6
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80059947"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061644"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Criar um certificado de raiz auto-assinado
 
 Utilize o cmdlet New-SelfSignedCertificate para criar um certificado de raiz auto-assinado. Para obter informações adicionais [sobre parâmetros, consulte o Certificado New-Self-SelfSigned](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. A partir de um computador que executa o Windows 10 ou o Windows Server 2016, abra uma consola Windows PowerShell com privilégios elevados. Estes exemplos não funcionam na Azure Cloud Shell "Try It". Deve executar estes exemplos localmente.
-2. Utilize o seguinte exemplo para criar o certificado de raiz auto-assinado. O exemplo a seguir cria um certificado de raiz auto-assinado denominado 'P2SRootCert' que é automaticamente instalado em 'Certificados-Utilizador Corrente\Personal\Certificates'. Pode ver o certificado abrindo *certmgr.msc,* ou *Gerir os Certificados de Utilizador.*
+1. Utilize o seguinte exemplo para criar o certificado de raiz auto-assinado. O exemplo a seguir cria um certificado de raiz auto-assinado denominado 'P2SRootCert' que é automaticamente instalado em 'Certificados-Utilizador Corrente\Personal\Certificates'. Pode ver o certificado abrindo *certmgr.msc,* ou *Gerir os Certificados de Utilizador.*
+
+   Inscreva-se com o `Connect-AzAccount` cmdlet. Em seguida, corra o seguinte exemplo com as modificações necessárias.
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -28,7 +30,8 @@ Utilize o cmdlet New-SelfSignedCertificate para criar um certificado de raiz aut
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. Deixe a consola PowerShell aberta se pretender criar um certificado de cliente logo após a criação deste certificado de raiz.
+
+1. Deixe a consola PowerShell aberta e proceda aos próximos passos para gerar certificados de cliente.
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Gerar um certificado de cliente
 
@@ -61,7 +64,8 @@ Se estiver a criar certificados de cliente adicionais, ou não estiver a utiliza
    ```powershell
    Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
-2. Localize o nome do sujeito na lista de devoluções e, em seguida, copie a impressão digital que está localizada ao lado dela num ficheiro de texto. No exemplo seguinte, existem dois certificados. O nome CN é o nome do certificado de raiz auto-assinado a partir do qual pretende gerar um certificado para criança. Neste caso, 'P2SRootCert'.
+
+1. Localize o nome do sujeito na lista de devoluções e, em seguida, copie a impressão digital que está localizada ao lado dela num ficheiro de texto. No exemplo seguinte, existem dois certificados. O nome CN é o nome do certificado de raiz auto-assinado a partir do qual pretende gerar um certificado para criança. Neste caso, 'P2SRootCert'.
 
    ```
    Thumbprint                                Subject
@@ -69,7 +73,8 @@ Se estiver a criar certificados de cliente adicionais, ou não estiver a utiliza
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
-3. Declare uma variável para o certificado de raiz utilizando a impressão digital do passo anterior. Substitua a impressão digital por impressão digital do certificado de raiz a partir do qual pretende gerar um certificado para criança.
+
+1. Declare uma variável para o certificado de raiz utilizando a impressão digital do passo anterior. Substitua a impressão digital por impressão digital do certificado de raiz a partir do qual pretende gerar um certificado para criança.
 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
@@ -80,7 +85,8 @@ Se estiver a criar certificados de cliente adicionais, ou não estiver a utiliza
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
    ```
-4. Modifique e corra o exemplo para gerar um certificado de cliente. Se executar o exemplo seguinte sem modificá-lo, o resultado é um certificado de cliente denominado 'P2SChildCert'. Se quiser nomear o certificado da criança outra coisa, modifique o valor CN. Não altere a extensão de texto ao executar este exemplo. O certificado de cliente que gera está automaticamente instalado em 'Certificados - Utilizador Atual\Personal\Certificates' no seu computador.
+
+1. Modifique e corra o exemplo para gerar um certificado de cliente. Se executar o exemplo seguinte sem modificá-lo, o resultado é um certificado de cliente denominado 'P2SChildCert'. Se quiser nomear o certificado da criança outra coisa, modifique o valor CN. Não altere a extensão de texto ao executar este exemplo. O certificado de cliente que gera está automaticamente instalado em 'Certificados - Utilizador Atual\Personal\Certificates' no seu computador.
 
    ```powershell
    New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
