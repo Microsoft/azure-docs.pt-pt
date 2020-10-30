@@ -679,6 +679,8 @@
           href: data-lake-storage-best-practices.md
         - name: Aceleração de consultas
           href: data-lake-storage-query-acceleration.md
+        - name: Escalão Premium do Data Lake Storage
+          href: premium-tier-for-data-lake-storage.md
         - name: Arquitetura
           items:
             - name: Controlador do Sistema de Ficheiros de Blobs do Azure para o Hadoop

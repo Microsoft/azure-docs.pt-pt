@@ -48,7 +48,7 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Synapse Analytics
+            - name: Conjunto de SQL Azure Synapse Analytics
               href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Blockchain
           items:
@@ -158,6 +158,10 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Rede de Entrega de Conteúdos
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: DNS
+              href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: ExpressRoute
+              href: ../../expressroute/quickstart-create-expressroute-vnet-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall - Zonas de disponibilidade
               href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall - Grupos de IPs
@@ -166,20 +170,26 @@
               href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall Manager
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Load balancer
+            - name: Balanceador de carga - público
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: NAT Gateway
+              href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Ponto Final Privado
               href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Serviço Private Link
               href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Gestor de Tráfego
+              href: ../../traffic-manager/quickstart-create-traffic-manager-profile-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall de Aplicação Web
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Segurança
           items:
             - name: Atestado
               href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Cofre de Chaves
+            - name: Key Vault - segredo
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Centro de Segurança
+              href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Armazenamento
           items:
             - name: Data Share
@@ -188,6 +198,8 @@
               href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Web
           items:
+            - name: Gestão de API
+              href: ../../api-management/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Serviço de Aplicações
               href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Hubs de Notificação
@@ -343,36 +355,42 @@
             - name: Saídas
               displayName: 'iteration,copy'
               href: copy-outputs.md
-    - name: Detetar as propriedades do modelo
-      items:
-        - name: Exportar modelo
-          href: export-template-portal.md
-        - name: Detetar recursos
-          href: view-resources.md
-    - name: Validar modelos
-      items:
-        - name: Implementação de Hipóteses
-          href: template-deploy-what-if.md
-        - name: Conjunto de ferramentas de teste
-          href: test-toolkit.md
-        - name: Casos de teste
-          href: test-cases.md
     - name: Implementar modelos
       items:
-        - name: Implementar - portal
-          displayName: deployment
-          href: deploy-portal.md
-        - name: Implementar - CLI
-          displayName: deployment
-          href: deploy-cli.md
-        - name: Implementar - PowerShell
-          displayName: deployment
-          href: deploy-powershell.md
-        - name: Implementar - API REST
-          displayName: deployment
-          href: deploy-rest.md
-        - name: Implementar a partir do GitHub
-          href: deploy-to-azure-button.md
+        - name: Operações de implementação
+          items:
+            - name: Implementar - portal
+              displayName: deployment
+              href: deploy-portal.md
+            - name: Implementar - CLI
+              displayName: deployment
+              href: deploy-cli.md
+            - name: Implementar - PowerShell
+              displayName: deployment
+              href: deploy-powershell.md
+            - name: Implementar - API REST
+              displayName: deployment
+              href: deploy-rest.md
+            - name: Implementar - GitHub
+              href: deploy-to-azure-button.md
+            - name: Implementar - Cloud Shell
+              href: deploy-cloud-shell.md
+        - name: Âmbitos
+          items:
+            - name: Grupo de recursos
+              href: deploy-to-resource-group.md
+            - name: Subscrição
+              href: deploy-to-subscription.md
+            - name: Grupo de gestão
+              href: deploy-to-management-group.md
+            - name: Inquilino
+              href: deploy-to-tenant.md
+            - name: Recursos de extensão
+              href: scope-extension-resources.md
+            - name: Funções entre âmbitos
+              href: scope-functions.md
+        - name: Implementação de Hipóteses
+          href: template-deploy-what-if.md
         - name: Implementar novamente depois do erro
           displayName: rollback
           href: rollback-on-error.md
@@ -380,16 +398,6 @@
           href: secure-template-with-sas-token.md
         - name: Ver histórico de implementações
           href: deployment-history.md
-    - name: Implementações no âmbito
-      items:
-        - name: Subscrição
-          href: deploy-to-subscription.md
-        - name: Grupo de gestão
-          href: deploy-to-management-group.md
-        - name: Inquilino
-          href: deploy-to-tenant.md
-        - name: Implementações entre âmbitos
-          href: cross-scope-deployment.md
     - name: Fornecer parâmetros
       items:
         - name: Criar ficheiro de parâmetros
@@ -397,12 +405,24 @@
         - name: Transmitir valores confidenciais
           displayname: key vault
           href: key-vault-parameter.md
+    - name: Modelos de teste
+      items:
+        - name: Conjunto de ferramentas de teste
+          href: test-toolkit.md
+        - name: Casos de teste
+          href: test-cases.md
     - name: CI/CD
       items:
         - name: Modelos do ARM com pipelines
           href: add-template-to-azure-pipelines.md
         - name: Implementar - GitHub Actions
           href: deploy-github-actions.md
+    - name: Detetar as propriedades do modelo
+      items:
+        - name: Exportar modelo
+          href: export-template-portal.md
+        - name: Detetar recursos
+          href: view-resources.md
     - name: Usar ferramentas de criação
       items:
         - name: Visual Studio

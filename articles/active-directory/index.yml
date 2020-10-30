@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 10/22/2020
-  ms.openlocfilehash: 6b7ed9160cc256d2b52bd69730017db08ca479fa
-  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+  ms.openlocfilehash: e0b1c8946c1bdd8acfe1c7a21458fee456b2b84f
+  ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92670466"
+  ms.lasthandoff: 10/29/2020
+  ms.locfileid: "92926823"
 highlightedContent:
   items:
   - title: O que é o Azure AD?
@@ -40,17 +40,6 @@ highlightedContent:
     url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
 conceptualContent:
   items:
-  - title: Suporte para aplicações de parceiros
-    links:
-    - url: ./saas-apps/tutorial-list.md
-      itemType: tutorial
-      text: Siga estes tutoriais para integrar as suas aplicações SaaS preparadas para a cloud no Azure AD
-    - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
-      itemType: get-started
-      text: Submeta o seu pedido de aplicação para ser integrado na Galeria do Azure AD
-    footerLink:
-      url: ./manage-apps/index.yml
-      text: Ver mais
   - title: Gestão de aplicações
     links:
     - url: ./manage-apps/what-is-application-management.md
@@ -289,6 +278,20 @@ conceptualContent:
     footerLink:
       url: ./roles/index.yml
       text: Ver mais
+  - title: Aplicações de terceiros
+    links:
+    - url: ./saas-apps/amazon-web-service-tutorial.md
+      itemType: tutorial
+      text: Integração do início de sessão único do Azure AD com o Amazon Web Services
+    - url: ./saas-apps/workday-inbound-tutorial.md
+      itemType: tutorial
+      text: 'Configure Workday for automatic user provisioning (Tutorial: Configurar o Workday para o aprovisionamento automático de utilizadores)'
+    - url: ./develop/v2-howto-app-gallery-listing.md
+      itemType: get-started
+      text: Pedido para adicionar a sua aplicação à Galeria
+    footerLink:
+      url: ./saas-apps/tutorial-list.md
+      text: Veja mais aplicações
 additionalContent:
   sections:
   - items:
