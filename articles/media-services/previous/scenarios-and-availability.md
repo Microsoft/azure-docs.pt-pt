@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 58ecca6251e4c428ae5f834379e8b45059b0efc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042763"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -41,9 +41,9 @@ Para começar a utilizar os Media Services do Azure, deve ter o seguinte:
 
 * Uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com).
 * Uma conta de Media Services do Azure Para obter mais informações, consulte [Criar Conta](media-services-portal-create-account.md).
-* O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
+* O ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução** .
 
-    Quando a sua conta AMS é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo em fluxo e tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo tem de estar no estado **Em execução**.
+    Quando a sua conta AMS é criada, um ponto final de streaming **predefinido** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo em fluxo e tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo tem de estar no estado **Em execução** .
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Objetos utilizados normalmente no desenvolvimento com o modelo OData do AMS
 
@@ -121,9 +121,9 @@ Ao realizar a transmissão em fluxo em direto, pode escolher uma das rotas segui
 
 ### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhar com canais que recebem transmissões em fluxo em direto com velocidade de transmissão múltipla a partir de codificadores no local (pass-through)
 
-O diagrama seguinte mostra as principais partes da plataforma de AMS envolvidas no fluxo de trabalho de **pass-through**.
+O diagrama seguinte mostra as principais partes da plataforma de AMS envolvidas no fluxo de trabalho de **pass-through** .
 
-![Fluxo de trabalho em direto](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagrama que mostra as principais partes da plataforma A M S envolvidas no fluxo de trabalho "pass-through".](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Para obter mais informações, consulte [Trabalhar com Canais que recebem transmissões em Fluxo em Direto de Múltipla Velocidade de Transmissão a partir de Codificadores no Local](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -149,11 +149,11 @@ Os Media Services suportam a integração com a CDN do Azure. Para obter mais in
 
 Os clientes do AMS podem dimensionar pontos finais de transmissões, o processamento de multimédia e o armazenamento nas respetivas contas do AMS.
 
-* Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium**. O ponto final de transmissão em fluxo **Standard** é ideal para a maioria das cargas de trabalho de transmissão em fluxo. Inclui as mesmas funcionalidades dos pontos finais **Premium** e dimensiona a largura de banda de saída automaticamente. 
+* Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium** . O ponto final de transmissão em fluxo **Standard** é ideal para a maioria das cargas de trabalho de transmissão em fluxo. Inclui as mesmas funcionalidades dos pontos finais **Premium** e dimensiona a largura de banda de saída automaticamente. 
 
     Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Por predefinição, os clientes que têm os pontos finais de transmissão em fluxo **Premium** recebem uma unidade de transmissão em fluxo (SU). O ponto final de transmissão em fluxo pode ser dimensionado mediante a adição de mais SUs. Cada SU fornece capacidade de largura de banda adicional à aplicação. Para obter mais informações sobre o dimensionamento de pontos finais de transmissões em fluxo **Premium** veja o tópico [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Dimensionar pontos finais de transmissões em fluxo).
 
-* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2**ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
+* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher entre os seguintes tipos de unidade reservada: **S1,** **S2** ou **S3** . Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1** .
 
     Além de especificar o tipo de unidade reservada, pode especificar a disponibilização da sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
 
@@ -175,11 +175,11 @@ Utilize [produtos Azure por Região](https://azure.microsoft.com/global-infrastr
 
 ### <a name="streaming-endpoints"></a>Pontos finais de transmissões em fluxo 
 
-Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium**. Para obter mais informações, veja a secção [Dimensionamento](#scaling).
+Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium** . Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 
 #### <a name="availability"></a>Disponibilidade
 
-|Nome|Estado|Datacenters
+|Name|Estado|Datacenters
 |---|---|---|
 |Standard|GA|Todos|
 |Premium|GA|Todos|
@@ -192,7 +192,7 @@ Disponível em todos os dataenters, exceto Alemanha, Sul do Brasil, Oeste da Ín
 
 ### <a name="encoding-media-processors"></a>Processadores de multimédia de codificação
 
-O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Media Encoder Premium Workflow**. Para obter mais informações, veja [Overview and comparison of Azure on-demand media encoders](media-services-encode-asset.md) (Descrição geral e comparação dos codificadores de multimédia a pedido). 
+O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Media Encoder Premium Workflow** . Para obter mais informações, veja [Overview and comparison of Azure on-demand media encoders](media-services-encode-asset.md) (Descrição geral e comparação dos codificadores de multimédia a pedido). 
 
 #### <a name="availability"></a>Disponibilidade
 

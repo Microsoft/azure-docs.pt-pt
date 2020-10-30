@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164827"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043111"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -107,13 +107,13 @@ No JavaScript, [as ligações](functions-triggers-bindings.md) são configuradas
 
 ### <a name="inputs"></a>Entradas
 A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do gatilho e a outra é a entrada adicional. O gatilho e outras ligações de entrada (encadernações `direction === "in"` de) podem ser lidos por uma função de três maneiras:
- - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem*. A `name` propriedade definida emfunction.js* não* precisa de corresponder ao nome do seu parâmetro, embora deva.
+ - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem* . A `name` propriedade definida emfunction.js *não* precisa de corresponder ao nome do seu parâmetro, embora deva.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js* em*.
+ - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js *em* .
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ As saídas (encadernações `direction === "out"` de) podem ser escritas por uma
 
 Pode atribuir dados a encadernações de saída de uma das seguintes formas (não combine estes métodos):
 
-- **_[Recomendado para múltiplas saídas]_ Devolvendo um objeto.** Se estiver a utilizar uma função de retorno assínc/Promessa, pode devolver um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são denominada "httpResponse" e "queueOutput" em *function.jsem*.
+- **_[Recomendado para múltiplas saídas]_ Devolvendo um objeto.** Se estiver a utilizar uma função de retorno assínc/Promessa, pode devolver um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são denominada "httpResponse" e "queueOutput" em *function.jsem* .
 
   ```javascript
   module.exports = async function(context) {
@@ -154,7 +154,7 @@ Pode atribuir dados a encadernações de saída de uma das seguintes formas (nã
 
   Se estiver a utilizar uma função sincronizada, pode devolver este objeto utilizando [`context.done`](#contextdone-method) (ver exemplo).
 - **_[Recomendado para uma única saída]_ Devolvendo um valor diretamente e usando o nome de ligação $return.** Isto só funciona para funções de retorno assync/Promise. Veja o exemplo na [exportação de uma função assídua](#exporting-an-async-function). 
-- **Atribuindo valores a `context.bindings` ** Pode atribuir valores diretamente a contexto.encadernações.
+- **Atribuindo valores a `context.bindings`** Pode atribuir valores diretamente a contexto.encadernações.
 
   ```javascript
   module.exports = async function(context) {
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 O contexto passado para a sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
 
-| Nome da propriedade  | Tipo  | Descrição |
+| Nome da propriedade  | Tipo  | Description |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador único para a invocação de funções específicas. |
 | `functionName` | String | Fornece o nome da função de execução |
@@ -317,7 +317,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> Não use `console.log` para escrever vestígios de saídas. Como a saída `console.log` é capturada ao nível da aplicação de função, não está ligada a uma invocação de função específica e não é exibida nos registos de uma função específica. Além disso, a versão 1.x do tempo de execução de Funções não suporta usar `console.log` para escrever para a consola.
+> Não `console.log` escreva vestígios. Como a saída `console.log` é capturada ao nível da aplicação de função, não está ligada a uma invocação de função específica e não é exibida nos registos de uma função específica. Além disso, a versão 1.x do tempo de execução de Funções não suporta usar `console.log` para escrever para a consola.
 
 ### <a name="trace-levels"></a>Níveis de vestígios
 
@@ -328,7 +328,7 @@ Além do nível predefinido, estão disponíveis os seguintes métodos de regist
 | **erro _(mensagem)_**   | Escreve um evento de nível de erro nos registos.   |
 | **alertar _(mensagem)_**    | Escreve um evento de nível de aviso para os registos. |
 | **informação _(mensagem)_**    | Escreve para registo de nível de informação ou menor.    |
-| **verbose (_mensagem)_** | Escreve para a gravação de nível verboso.           |
+| **verbose ( _mensagem)_** | Escreve para a gravação de nível verboso.           |
 
 O exemplo a seguir escreve o mesmo registo ao nível dos rastreios de aviso, em vez do nível de informação:
 
@@ -358,7 +358,7 @@ Para definir o limiar para todos os vestígios escritos para registos e consola,
 }  
 ```
 
-Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_. Para obter mais informações, consulte [host.jsna referência v1.x](functions-host-json-v1.md).
+Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_ . Para obter mais informações, consulte [host.jsna referência v1.x](functions-host-json-v1.md).
 
 ---
 
@@ -545,12 +545,12 @@ Existem duas formas de instalar pacotes na sua App de Função:
 ### <a name="using-kudu"></a>Usando Kudu
 1. Aceda a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Clique **em Debug Console**  >  **CMD**.
+2. Clique **em Debug Console**  >  **CMD** .
 
 3. Vá para `D:\home\site\wwwroot` , e em seguida, arraste o seu package.jsno ficheiro para a pasta **wwwroot** na metade superior da página.  
     Também pode fazer o upload de ficheiros para a sua aplicação de função de outras formas. Para obter mais informações, consulte [Como atualizar ficheiros de aplicações de função.](functions-reference.md#fileupdate) 
 
-4. Depois de o package.jsno ficheiro ser carregado, executa o `npm install` comando na consola de **execução remota kudu**.  
+4. Depois de o package.jsno ficheiro ser carregado, executa o `npm install` comando na consola de **execução remota kudu** .  
     Esta ação descarrega os pacotes indicados no package.jsno ficheiro e reinicia a aplicação de função.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente

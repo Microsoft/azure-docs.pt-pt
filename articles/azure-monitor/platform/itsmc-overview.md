@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745701"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043313"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
 
@@ -57,7 +57,7 @@ Antes de poder criar uma ligação, tem de adicionar a Solução de Conector ITS
 3. Na secção **espaço de trabalho OMS,** selecione o espaço de trabalho Azure Log Analytics onde pretende instalar a solução.
    >[!NOTE]
    > * Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como espaços de trabalho Log Analytics.
-   > * O CONECTOR ITSM só pode ser instalado em espaços de trabalho log Analytics nas seguintes regiões: East US, West US2, South Central US, West Central US, Fairfax, Central Canada, West Europe, South UK, Southeast Asia, East Japan, Central India, Southeast Australia.
+   > * O CONECTOR ITSM só pode ser instalado em espaços de trabalho log Analytics nas seguintes regiões: East US, West US2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Central Canada, West Europe, South UK, Southeast Asia, East Japan, Central India, Southeast Australia.
 
 4. Na secção Definições do **Espaço de Trabalho OMS,** selecione o Grupo de Recursos onde pretende criar o recurso de solução.
 
@@ -204,7 +204,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Criada Por
 - Resolvido por
 - Fechado por
-- Fonte
+- Origem
 - Atribuído a
 - Categoria
 - Título
@@ -225,7 +225,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - ID de serviço
 - Criada Por
 - Fechado por
-- Fonte
+- Origem
 - Atribuído a
 - Título
 - Tipo
@@ -246,7 +246,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Descrição
+- Description
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
@@ -293,7 +293,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Descrição |
+| Description_s | Description |
 | Computador  | Item de configuração |
 
 

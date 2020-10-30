@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043390"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
@@ -28,11 +28,11 @@ Os alertas são agora automaticamente ativados por padrão, mas para configurar 
 
 1. Depois de guardar o teste de disponibilidade, no separador detalhes clique na elipse pelo teste que acabou de escamá-la. Clique em "editar alerta".
 
-   ![Editar após salvar](./media/availability-alerts/edit-alert.png)
+   ![A screenshot mostra o alerta editar selecionado do menu.](./media/availability-alerts/edit-alert.png)
 
 2. Desa estacie o nível de gravidade pretendido, a descrição das regras e, mais importante, o grupo de ação que tem as preferências de notificação que gostaria de utilizar para esta regra de alerta.
 
-   ![Editar após salvar](./media/availability-alerts/set-action-group.png)
+   ![A screenshot mostra a página de gestão de regras onde pode editar a regra.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Os alertas de disponibilidade criados através desta experiência são baseados no Estado. Isto significa que quando os critérios de alerta são cumpridos, um único alerta é gerado quando o site é detetado como indisponível. Se o site ainda estiver em baixo da próxima vez que os critérios de alerta forem avaliados, isso não gerará um novo alerta. Portanto, se o seu site estivesse em baixo durante uma hora e tivesse configurado um alerta de e-mail, só receberia um e-mail quando o site foi avariou, e um e-mail subsequente quando o site estava de volta. Não receberia alertas contínuos lembrando que o site ainda não estava disponível.

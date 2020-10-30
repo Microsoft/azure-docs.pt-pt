@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar um Azure DB para modelo PostgreSQL - ARM'
 description: Neste artigo, aprenda a criar uma Base de Dados Azure para servidor único PostgreSQL utilizando um modelo de Gestor de Recursos Azure.
-author: mgblythe
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf53b6673da57428b648c0043a1454560f64e4bb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906444"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042919"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para PostgreSQL - servidor único
 
@@ -20,7 +20,7 @@ A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
@@ -70,34 +70,34 @@ Selecione o seguinte link para implementar o modelo de servidor Azure Database p
 
 Na **Base de Dados de Azure de implementação para postgreSQL com página VNet:**
 
-1. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+1. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK** .
 
 2. Se criou um novo grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
-3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador**e **Palavra-passe de Login do Administrador**.
+3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador** e **Palavra-passe de Login do Administrador** .
 
     :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Desdobre-se para Azure":::
 
 4. Altere as outras definições predefinidos se quiser:
 
-    * **Subscrição**: a subscrição Azure que pretende utilizar para o servidor.
-    * **Capacidade Sku**: capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32*, ou *64*.
-    * **Nome Sku**: o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1*, *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
-    * **Tamanho Sku MB**: o tamanho de armazenamento, em megabytes, da Base de Dados Azure para servidor PostgreSQL *(padrão 51200).*
-    * **Sku Tier**: o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
-    * **Família Sku**: *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
-    * **Versão pós-quadrado**: a versão do servidor PostgreSQL a ser implantada, tal como *9.5*, *9.6*, *10*ou *11* (o padrão).
-    * **Dias de Retenção de Cópia de Segurança**: o período desejado para a retenção de backup geo-redundante, em dias (padrão *7*).
-    * **Cópia de segurança geo redundante**: *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
-    * **Nome da rede virtual**: o nome da rede virtual *(azure_postgresql_vnet*padrão).
-    * **Nome da sub-rede**: o nome da sub-rede *(azure_postgresql_subnet*predefinidos ).
-    * **Nome da regra da rede virtual**: o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
-    * **Prefixo do endereço Vnet**: o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16*).
-    * **Prefixo do sub-rede**: o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16*).
+    * **Subscrição** : a subscrição Azure que pretende utilizar para o servidor.
+    * **Capacidade Sku** : capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32* , ou *64* .
+    * **Nome Sku** : o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1* , *GP_Gen5_2* (o padrão), ou *MO_Gen5_32* .
+    * **Tamanho Sku MB** : o tamanho de armazenamento, em megabytes, da Base de Dados Azure para servidor PostgreSQL *(padrão 51200).*
+    * **Sku Tier** : o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed* .
+    * **Família Sku** : *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
+    * **Versão pós-quadrado** : a versão do servidor PostgreSQL a ser implantada, tal como *9.5* , *9.6* , *10* ou *11* (o padrão).
+    * **Dias de Retenção de Cópia de Segurança** : o período desejado para a retenção de backup geo-redundante, em dias (padrão *7* ).
+    * **Cópia de segurança geo redundante** : *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
+    * **Nome da rede virtual** : o nome da rede virtual *(azure_postgresql_vnet* padrão).
+    * **Nome da sub-rede** : o nome da sub-rede *(azure_postgresql_subnet* predefinidos ).
+    * **Nome da regra da rede virtual** : o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
+    * **Prefixo do endereço Vnet** : o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16* ).
+    * **Prefixo do sub-rede** : o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16* ).
 
-5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados**.
+5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados** .
 
-6. Selecione **Comprar**.
+6. Selecione **Comprar** .
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -148,7 +148,7 @@ read -p "Press [ENTER] to continue: "
 
 Siga estes passos para ver uma visão geral da sua nova Base de Dados Azure para o servidor PostgreSQL:
 
-1. No [portal Azure,](https://portal.azure.com)procure e selecione **Azure Database para servidores PostgreSQL**.
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Azure Database para servidores PostgreSQL** .
 
 2. Na lista de bases de dados, selecione o seu novo servidor. Aparece a página **'Visão Geral'** do seu novo servidor PostgreSQL.
 
@@ -185,9 +185,9 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina os rec
 
 2. Na lista de grupos de recursos, escolha o nome do seu grupo de recursos.
 
-3. Na página **geral** do seu grupo de recursos, selecione **Delete resource group**.
+3. Na página **geral** do seu grupo de recursos, selecione **Delete resource group** .
 
-4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Delete**.
+4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Delete** .
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

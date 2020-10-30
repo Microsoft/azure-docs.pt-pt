@@ -5,18 +5,18 @@ description: Uma descrição das restrições e limitações no formato URI (RES
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: marsma, lenalepa, manrath
+ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030315"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042907"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
 
@@ -24,7 +24,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local onde o servidor de au
 
  Aplicam-se as seguintes restrições ao redirecionamento de IUR:
 
-* O URI de redireccionamento deve começar com o regime `https` .
+* O URI de redireccionamento deve começar com o regime `https` . Existem [algumas exceções para](#localhost-exceptions) os MOS de redirecionamento local.
 
 * O URI de redirecionamento é sensível a casos. O seu caso deve coincidir com o caso do caminho URL da sua aplicação de execução. Por exemplo, se a sua aplicação incluir como parte do seu `.../abc/response-oidc` caminho, não especifique `.../ABC/response-oidc` no URI de redirecionamento. Como o navegador da Web trata os caminhos como sensíveis a casos, os cookies associados `.../abc/response-oidc` podem ser excluídos se forem redirecionados para o URL desajustado do `.../ABC/response-oidc` caso.
 
@@ -32,7 +32,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local onde o servidor de au
 
 Esta tabela mostra o número máximo de URIs de redirecionamento que pode adicionar a um registo de aplicações na plataforma de identidade da Microsoft.
 
-| Contas a serem assinadas | Número máximo de URIs de redirecionamento | Descrição |
+| Contas a serem assinadas | Número máximo de URIs de redirecionamento | Description |
 |--------------------------|---------------------------------|-------------|
 | Trabalho da Microsoft ou contas escolares em qualquer inquilino do Azure Ative Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADMyOrg* ou *AzureADMultipleOrgs* |
 | Contas pessoais da Microsoft e contas de trabalho e escola | 100 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADandPersonalMicrosoftAccount* |
@@ -64,11 +64,10 @@ Do ponto de vista do desenvolvimento, isto significa algumas coisas:
 
 * Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja `web` -, `native` ou `spa` -type redirect).
 * Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não `http://127.0.0.1/MyNativeApp` corresponde.
-* Por orientação RFC, não deve ser utilizado `localhost` no URI de redirecionamento. Em vez disso, utilize o endereço IP de retorno real, `127.0.0.1` . Isto impede que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas.
+* O endereço de backback IPv6 `[::1]` não está atualmente suportado.
+* Para evitar que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas, utilize o endereço IP literal `127.0.0.1` loopback no seu URI de redirecionamento em vez de `localhost` .
 
-    Para utilizar o `http` esquema com o endereço loopback (127.0.0.1) em vez de local, deve editar o manifesto de [aplicação](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
-
-    O endereço de backback IPv6 `[::1]` não está atualmente suportado.
+    Para utilizar o `http` esquema com o endereço ip literal loopback, deve `127.0.0.1` atualmente modificar o atributo [ResponseUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) no manifesto de [aplicação](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrições em wildcards em URIs de redirecionamento
 
@@ -78,9 +77,9 @@ Os URIs wildcard não são atualmente suportados em registos de aplicações con
 
 Para adicionar URIs redirecionando com wildcards para registos de aplicações que assinam em contas de trabalho ou escola, você precisa usar o editor manifesto de aplicação nas [inscrições](https://go.microsoft.com/fwlink/?linkid=2083908) da App no portal Azure. Embora seja possível definir um URI redirecionado com um wildcard usando o editor manifesto, recomendamos *vivamente* que adera à [secção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e use apenas URIs absolutos.
 
-Se o seu cenário requer mais URIs de redirecionamento do que o limite máximo permitido, considere a [seguinte abordagem](#use-a-state-parameter) em vez de adicionar um URI de redirecionamento wildcard.
+Se o seu cenário requer mais URIs de redirecionamento do que o limite máximo permitido, considere a [seguinte abordagem](#use-a-state-parameter) de parâmetro de estado em vez de adicionar um URI de redirecionamento wildcard.
 
-### <a name="use-a-state-parameter"></a>Use um parâmetro de estado
+#### <a name="use-a-state-parameter"></a>Use um parâmetro de estado
 
 Se tiver vários subdomínios e o seu cenário requer que, após a autenticação bem sucedida, redirecione os utilizadores para a mesma página a partir da qual começaram, usando um parâmetro de estado pode ser útil.
 

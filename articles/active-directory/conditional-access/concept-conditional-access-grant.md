@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042798"
 ---
 # <a name="conditional-access-grant"></a>Acesso Condicional: Concessão
 
@@ -70,7 +70,7 @@ Ao utilizar o [fluxo OAuth do código do dispositivo,](../develop/v2-oauth2-devi
 
 As organizações podem exigir que uma tentativa de acesso às aplicações de nuvem selecionadas tenha de ser feita a partir de uma aplicação de cliente aprovada. Estas aplicações de clientes aprovadas suportam políticas de proteção de [aplicações Intune](/intune/app-protection-policy) independentes de qualquer solução de gestão de dispositivos móveis (MDM).
 
-Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de mediador pode ser o Microsoft Authenticator para iOS ou o Portal da Empresa da Microsoft para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a loja de aplicações para instalar a aplicação do corretor.
+Para alavancar este controlo de subvenção, o Conditional Access exige que o dispositivo seja registado no Azure Ative Directory, o que requer a utilização de uma aplicação de corretor. A aplicação de corretor pode ser o Microsoft Authenticator para iOS, ou o portal Microsoft Authenticator ou Microsoft Company para dispositivos Android. Se uma aplicação de corretor não for instalada no dispositivo quando o utilizador tentar autenticar, o utilizador é redirecionado para a app/play store apropriada para instalar a aplicação de corretagem necessária.
 
 Esta definição aplica-se às seguintes aplicações iOS e Android:
 

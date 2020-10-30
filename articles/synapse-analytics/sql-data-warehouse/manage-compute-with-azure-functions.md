@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259956"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043362"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utilize funções Azure para gerir recursos computativos na piscina SQL Azure Synapse Analytics
 
@@ -44,15 +44,15 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 ## <a name="change-the-compute-level"></a>Alterar o nível de cálculo
 
-1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
+1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations* . Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
 
    ![Funções que são implementadas com o modelo](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione Integrate.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* , dependendo se quer alterar a hora de aumento ou redução vertical. No menu suspenso, selecione Integrate.
 
    ![Selecionar Integrate para a função](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%*. Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, pode ignorar este valor e alterar o horário para o seu tempo preferido com base nos próximos passos.
+3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%* . Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, pode ignorar este valor e alterar o horário para o seu tempo preferido com base nos próximos passos.
 
 4. Na área de programação, adicione o tempo que a expressão CRON deseja refletir com que frequência deseja que o Azure Synapse Analytics seja aumentado.
 
@@ -68,9 +68,9 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Alterar o tempo da operação de escala
 
-1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
+1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations* . Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger*, dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js*.
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* , dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js* .
 
    ![Alterar o nível de computação do acionador de função](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Utilizar a pausa ou a retoma em vez do dimensionamento
 
-Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e *DWScaleUpTrigger*. Em alternativa, se pretender utilizar a funcionalidade de pausa e retoma, pode ativar *DWPauseTrigger* ou *DWResumeTrigger*.
+Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e *DWScaleUpTrigger* . Em alternativa, se pretender utilizar a funcionalidade de pausa e retoma, pode ativar *DWPauseTrigger* ou *DWResumeTrigger* .
 
 1. Navegue para o painel Functions.
 
@@ -97,9 +97,9 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas 
 
 1. Crie uma função em branco nova. Selecione o *+* botão perto da localização das funções para mostrar o painel do modelo de função.
 
-   ![Criar função nova](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Screenshot que mostra o menu "Apps de função" com o ícone "Plus" ao lado de "Funções" selecionadas.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. A partir do idioma, selecione *JavaScript*e, em seguida, selecione *TimerTrigger*.
+2. A partir do idioma, selecione *JavaScript* e, em seguida, selecione *TimerTrigger* .
 
    ![Criar função nova](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 

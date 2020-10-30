@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8cace120dc823f42f2b2e01e4234ea8d5ace7a69
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926330"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042944"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Referência de dados do Azure IoT Hub
 
@@ -60,9 +60,9 @@ Para a maioria das métricas, todos os tipos de agregação são válidos; no en
 |Nome de exibição métrica|Métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Mensagens C2D Expiradas (pré-visualização)|C2DMessagesExpired|de palavras|Total|Número de mensagens de nuvem-para-dispositivo expiradas|Nenhum|
-|Entregas de mensagens C2D concluídas|c2d.commands.egress.<br>completo.sucesso|de palavras|Total|Número de entregas de mensagens nuvem-para-dispositivo concluídas com sucesso pelo dispositivo|Nenhum|
-|Mensagens C2D abandonadas|c2d.commands.egress.<br>abandonar.sucesso|de palavras|Total|Número de mensagens cloud-to-device abandonadas pelo dispositivo|Nenhum|
-|Mensagens C2D rejeitadas|c2d.commands.egress.<br>rejeitar.sucesso|de palavras|Total|Número de mensagens nuvem-dispositivo rejeitadas pelo dispositivo|Nenhum|
+|Entregas de mensagens C2D concluídas|c2d.commands.egress.complete.success|de palavras|Total|Número de entregas de mensagens nuvem-para-dispositivo concluídas com sucesso pelo dispositivo|Nenhum|
+|Mensagens C2D abandonadas|c2d.commands.egress.abandon.success|de palavras|Total|Número de mensagens cloud-to-device abandonadas pelo dispositivo|Nenhum|
+|Mensagens C2D rejeitadas|c2d.commands.egress.reject.success|de palavras|Total|Número de mensagens nuvem-dispositivo rejeitadas pelo dispositivo|Nenhum|
 
 Para métricas com valor **unitário** de **Conde,** apenas a agregação total (soma) é válida. Agregações mínimas, máximas e médias regressam sempre 1. Para obter mais informações, consulte [agregações suportadas.](#supported-aggregations)
 
@@ -113,7 +113,7 @@ Para *o número total de mensagens utilizadas* , apenas são suportadas agregaç
 |Nome de exibição métrica|Métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |Total de dispositivos (precotados)|dispositivos.totalDevices|de palavras|Total|Número de dispositivos registados no seu hub IoT|Nenhum|
-|Dispositivos ligados (precotados) |dispositivos.connectedDevices.<br>allProtocol|de palavras|Total|Número de dispositivos ligados ao seu hub IoT|Nenhum|
+|Dispositivos ligados (precotados) |dispositivos.connectedDevices.allProtocol|de palavras|Total|Número de dispositivos ligados ao seu hub IoT|Nenhum|
 |Total de dispositivos (pré-visualização)|totalDeviceCount|de palavras|Média|Número de dispositivos registados no seu hub IoT|Nenhum|
 |Dispositivos conectados (pré-visualização)|connectedDeviceCount|de palavras|Média|Número de dispositivos ligados ao seu hub IoT|Nenhum|
 
@@ -127,9 +127,9 @@ Para *dispositivos totais (pré-visualização)* e *dispositivos Ligados (pré-v
 
 |Nome de exibição métrica|Métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|
-|Número de erros de estrangulamento|d2c.telemetria.ingress.<br>sendThrottle|de palavras|Total|Número de erros de estrangulamento devido aos aceleradores de produção do dispositivo|Nenhum|
-|Mensagem de telemetria envia tentativas|d2c.telemetria.ingress.<br>allProtocol|de palavras|Total|Número de mensagens de telemetria dispositivo-nuvem tentadas de ser enviadas para o seu hub IoT|Nenhum|
-|Mensagens de telemetria enviadas|d2c.telemetria.ingress.<br>exito|de palavras|Total|Número de mensagens de telemetria dispositivo-nuvem enviadas com sucesso para o seu hub IoT|Nenhum|
+|Número de erros de estrangulamento|d2c.telemetria.ingress.sendThrottle|de palavras|Total|Número de erros de estrangulamento devido aos aceleradores de produção do dispositivo|Nenhum|
+|Mensagem de telemetria envia tentativas|d2c.telemetria.ingress.allProtocol|de palavras|Total|Número de mensagens de telemetria dispositivo-nuvem tentadas de ser enviadas para o seu hub IoT|Nenhum|
+|Mensagens de telemetria enviadas|d2c.telemetria.ingress.success|de palavras|Total|Número de mensagens de telemetria dispositivo-nuvem enviadas com sucesso para o seu hub IoT|Nenhum|
 
 Para métricas com valor **unitário** de **Conde,** apenas a agregação total (soma) é válida. Agregações mínimas, máximas e médias regressam sempre 1. Para obter mais informações, consulte [agregações suportadas.](#supported-aggregations)
 
@@ -161,13 +161,13 @@ Para métricas com valor **unitário** de **Conde,** apenas a agregação total 
 |---|---|---|---|---|---|
 |Trabalhos concluídos|empregos.concluídos|de palavras|Total|A contagem de todos os trabalhos concluídos.|Nenhum|
 |Chamadas falhadas para listar empregos|empregos.listJobs.fracasso|de palavras|Total|A contagem de todas as chamadas falhadas para listar empregos.|Nenhum|
-|Criações falhadas de trabalhos de invocação de métodos|jobs.createDirectMethodJob.<br>falha|de palavras|Total|A contagem de todos os trabalhos falhados de invocação de métodos diretos.|Nenhum|
-|Criações falhadas de trabalhos de atualização dupla|jobs.createTwinUpdateJob.<br>falha|de palavras|Total|A contagem de todos os trabalhos falhados de atualização dupla.|Nenhum|
+|Criações falhadas de trabalhos de invocação de métodos|jobs.createDirectMethodJob.fail|de palavras|Total|A contagem de todos os trabalhos falhados de invocação de métodos diretos.|Nenhum|
+|Criações falhadas de trabalhos de atualização dupla|jobs.createTwinUpdateJob.failure|de palavras|Total|A contagem de todos os trabalhos falhados de atualização dupla.|Nenhum|
 |Cancelamentos de empregos falhados|jobs.cancelJob.failure|de palavras|Total|A contagem de todas as chamadas falhadas para cancelar um emprego.|Nenhum|
 |Consultas de trabalho falhadas|jobs.consultaJobs.falha|de palavras|Total|A contagem de todas as chamadas falhadas para consultas.|Nenhum|
 |Empregos falhados|empregos.falhou|de palavras|Total|A contagem de todos os trabalhos falhados.|Nenhum|
 |Chamadas bem-sucedidas para listar empregos|jobs.listJobs.sucesso|de palavras|Total|A contagem de todas as chamadas bem sucedidas para listar empregos.|Nenhum|
-|Criações bem sucedidas de trabalhos de invocação de métodos|jobs.createDirectMethodJob.<br>exito|de palavras|Total|A contagem de todos os trabalhos bem sucedidos de criação de trabalhos de invocação de métodos diretos.|Nenhum|
+|Criações bem sucedidas de trabalhos de invocação de métodos|jobs.createDirectMethodJob.success|de palavras|Total|A contagem de todos os trabalhos bem sucedidos de criação de trabalhos de invocação de métodos diretos.|Nenhum|
 |Criações bem sucedidas de trabalhos de atualização dupla|jobs.createTwinUpdateJob.<br>exito|de palavras|Total|A contagem de todos os trabalhos bem sucedidos de criação de trabalhos de atualização dupla.|Nenhum|
 |Cancelamentos de emprego bem-sucedidos|jobs.cancelJob.sucesso|de palavras|Total|A contagem de todas as chamadas bem sucedidas para cancelar um emprego.|Nenhum|
 |Consultas de trabalho bem sucedidas|jobs.queryJobs.sucesso|de palavras|Total|A contagem de todas as chamadas bem sucedidas para trabalhos de consulta.|Nenhum|
@@ -181,23 +181,23 @@ Para métricas com valor **unitário** de **Conde,** apenas a agregação total 
 | Tentativas de entrega de encaminhamento (pré-visualização) |RoteamentoDelivas | de palavras | Total |Esta é a métrica de entrega de encaminhamento. Utilize as dimensões para identificar o estado de entrega de um ponto final específico ou para uma fonte de encaminhamento específica.| Resultado:<br>RoutingSource,<br>EndpointType,<br>FalhaReasonCategoria,<br>Nome de ponto final<br>*Para obter mais informações, consulte [as dimensões métricas.](#metric-dimensions)* |
 | Tamanho dos dados de entrega de encaminhamento em bytes (pré-visualização)|EncaminhamentoDataSizeInBytesDelivered| Bytes | Total |O número total de bytes encaminhados pelo IoT Hub para o ponto final personalizado e o ponto final incorporado. Utilize as dimensões para identificar o tamanho dos dados encaminhados para um ponto final específico ou para uma fonte de encaminhamento específica.| RoutingSource,<br>Tipo de ponto final<br>Nome de ponto final<br>*Para obter mais informações, consulte [as dimensões métricas.](#metric-dimensions)*|
 | Encaminhamento de Latência (pré-visualização) |EncaminhamentoDeliveryLatency| Milissegundos | Média |Esta é a métrica de latência de entrega de encaminhamento. Utilize as dimensões para identificar a latência de um ponto final específico ou para uma fonte de encaminhamento específica.| RoutingSource,<br>EndpointType,<br>Nome de ponto final<br>*Para obter mais informações, consulte [as dimensões métricas.](#metric-dimensions)*|
-|Encaminhamento: bolhas entregues ao armazenamento|d2c.endpoints.egress.<br>storage.blobs|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou bolhas nos pontos finais de armazenamento.|Nenhum|
-|Encaminhamento: dados entregues ao armazenamento|d2c.endpoints.egress.<br>armazenamento.bytes|Bytes|Total|A quantidade de dados (bytes) IoT Hub de encaminhamento entregue nos pontos finais de armazenamento.|Nenhum|
-|Encaminhamento: latência da mensagem para o Centro de Eventos|d2c.endpoints.latência.<br>eventHubs|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens em pontos finais personalizados do tipo Event Hub. Isto não inclui as rotas de mensagens para o ponto final incorporado (eventos).|Nenhum|
-|Encaminhamento: latência da mensagem para a fila do autocarro de serviço|d2c.endpoints.latência.<br>serviceBusQueues|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens num ponto final de fila de autocarros de serviço.|Nenhum|
-|Encaminhamento: latência de mensagem para o tópico do autocarro de serviço|d2c.endpoints.latência.<br>serviceBusTopics|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens num ponto final de ônibus de serviço.|Nenhum|
-|Encaminhamento: latência da mensagem para mensagens/eventos|d2c.endpoints.latência.<br>builtIn.eventos|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens no ponto final incorporado (mensagens/eventos) e a rota de recuo.|Nenhum|
-|Encaminhamento: latência da mensagem para armazenamento|d2c.endpoints.latência.<br>storage|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens num ponto final de armazenamento.|Nenhum|
-|Encaminhamento: mensagens entregues no Centro de Eventos|d2c.endpoints.egress.<br>eventHubs|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso a pontos finais personalizados do tipo Event Hub. Isto não inclui as rotas de mensagens para o ponto final incorporado (eventos).|Nenhum|
-|Encaminhamento: mensagens entregues na Fila de Autocarros de Serviço|d2c.endpoints.egress.<br>serviceBusQueues|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais da fila do Service Bus.|Nenhum|
-|Encaminhamento: mensagens entregues no Service Bus Topic|d2c.endpoints.egress.<br>serviceBusTopics|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais do tópico do Service Bus.|Nenhum|
-|Encaminhamento: mensagens entregues para recuo|d2c.telemetria.egress.<br>fallback|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens ao ponto final associado à rota de retorno.|Nenhum|
-|Encaminhamento: mensagens entregues a mensagens/eventos|d2c.endpoints.egress.<br>builtIn.eventos|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso ao ponto final incorporado (mensagens/eventos) e à rota de retorno.|Nenhum|
-|Encaminhamento: mensagens entregues no armazenamento|d2c.endpoints.egress.<br>storage|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais de armazenamento.|Nenhum|
-|Encaminhamento: mensagens de telemetria entregues|d2c.telemetria.egress.<br>exito|de palavras|Total|O número de vezes que as mensagens foram entregues com sucesso em todos os pontos finais utilizando o encaminhamento IoT Hub. Se uma mensagem for encaminhada para vários pontos finais, este valor aumenta um para cada entrega bem sucedida. Se uma mensagem for entregue no mesmo ponto final várias vezes, este valor aumenta um para cada entrega bem sucedida.|Nenhum|
-|Encaminhamento: mensagens de telemetria caídas |d2c.telemetria.egress.<br>caiu|de palavras|Total|O número de vezes que as mensagens foram deixadas pelo itinerário do IoT Hub devido a pontos sem saída. Este valor não conta as mensagens entregues para a rota de retorno, uma vez que as mensagens deixadas não são entregues lá.|Nenhum|
-|Encaminhamento: mensagens de telemetria incompatíveis|d2c.telemetria.egress.<br>Inválido|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub não conseguiu entregar mensagens devido a uma incompatibilidade com o ponto final. Uma mensagem é incompatível com um ponto final quando o Iot Hub tenta entregar a mensagem a um ponto final e falha com um erro não transitório. As mensagens inválidas não são novamente experimentadas. Este valor não inclui retrações.|Nenhum|
-|Encaminhamento: mensagens de telemetria órfãs |d2c.telemetria.egress.<br>órfão|de palavras|Total|O número de vezes que as mensagens foram órfãs pelo encaminhamento do IoT Hub porque não correspondem a qualquer consulta de encaminhamento, quando a rota de retorno é desativada.|Nenhum|
+|Encaminhamento: bolhas entregues ao armazenamento|d2c.endpoints.egress.storage.blobs|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou bolhas nos pontos finais de armazenamento.|Nenhum|
+|Encaminhamento: dados entregues ao armazenamento|d2c.endpoints.egress.storage.bytes|Bytes|Total|A quantidade de dados (bytes) IoT Hub de encaminhamento entregue nos pontos finais de armazenamento.|Nenhum|
+|Encaminhamento: latência da mensagem para o Centro de Eventos|d2c.endpoints.latncy.eventHubs|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens em pontos finais personalizados do tipo Event Hub. Isto não inclui as rotas de mensagens para o ponto final incorporado (eventos).|Nenhum|
+|Encaminhamento: latência da mensagem para a fila do autocarro de serviço|d2c.endpoints.latncy.serviceBusQueues|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens num ponto final de fila de autocarros de serviço.|Nenhum|
+|Encaminhamento: latência de mensagem para o tópico do autocarro de serviço|d2c.endpoints.latncy.serviceBusTopics|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens num ponto final de ônibus de serviço.|Nenhum|
+|Encaminhamento: latência da mensagem para mensagens/eventos|d2c.endpoints.latncy.builtIn.events|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens no ponto final incorporado (mensagens/eventos) e a rota de recuo.|Nenhum|
+|Encaminhamento: latência da mensagem para armazenamento|d2c.endpoints.latncy.storage|Milissegundos|Média|A latência média (milissegundos) entre a entrada de mensagens para o IoT Hub e a entrada de mensagens num ponto final de armazenamento.|Nenhum|
+|Encaminhamento: mensagens entregues no Centro de Eventos|d2c.endpoints.egress.eventHubs|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso a pontos finais personalizados do tipo Event Hub. Isto não inclui as rotas de mensagens para o ponto final incorporado (eventos).|Nenhum|
+|Encaminhamento: mensagens entregues na Fila de Autocarros de Serviço|d2c.endpoints.egress.serviceBusQueues|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais da fila do Service Bus.|Nenhum|
+|Encaminhamento: mensagens entregues no Service Bus Topic|d2c.endpoints.egress.serviceBusTopics|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais do tópico do Service Bus.|Nenhum|
+|Encaminhamento: mensagens entregues para recuo|d2c.telemetria.egress.fallback|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens ao ponto final associado à rota de retorno.|Nenhum|
+|Encaminhamento: mensagens entregues a mensagens/eventos|d2c.endpoints.egress.builtIn.events|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso ao ponto final incorporado (mensagens/eventos) e à rota de retorno.|Nenhum|
+|Encaminhamento: mensagens entregues no armazenamento|d2c.endpoints.egress.storage|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub entregou mensagens com sucesso aos pontos finais de armazenamento.|Nenhum|
+|Encaminhamento: mensagens de telemetria entregues|d2c.telemetria.egress.sucesso|de palavras|Total|O número de vezes que as mensagens foram entregues com sucesso em todos os pontos finais utilizando o encaminhamento IoT Hub. Se uma mensagem for encaminhada para vários pontos finais, este valor aumenta um para cada entrega bem sucedida. Se uma mensagem for entregue no mesmo ponto final várias vezes, este valor aumenta um para cada entrega bem sucedida.|Nenhum|
+|Encaminhamento: mensagens de telemetria caídas |d2c.telemetria.egress.drop|de palavras|Total|O número de vezes que as mensagens foram deixadas pelo itinerário do IoT Hub devido a pontos sem saída. Este valor não conta as mensagens entregues para a rota de retorno, uma vez que as mensagens deixadas não são entregues lá.|Nenhum|
+|Encaminhamento: mensagens de telemetria incompatíveis|d2c.telemetria.egress.inválido|de palavras|Total|O número de vezes que o encaminhamento do IoT Hub não conseguiu entregar mensagens devido a uma incompatibilidade com o ponto final. Uma mensagem é incompatível com um ponto final quando o Iot Hub tenta entregar a mensagem a um ponto final e falha com um erro não transitório. As mensagens inválidas não são novamente experimentadas. Este valor não inclui retrações.|Nenhum|
+|Encaminhamento: mensagens de telemetria órfãs |d2c.telemetria.egress.órfão|de palavras|Total|O número de vezes que as mensagens foram órfãs pelo encaminhamento do IoT Hub porque não correspondem a qualquer consulta de encaminhamento, quando a rota de retorno é desativada.|Nenhum|
 
 Para métricas com valor **unitário** de **Conde,** apenas a agregação total (soma) é válida. Agregações mínimas, máximas e médias regressam sempre 1. Para obter mais informações, consulte [agregações suportadas.](#supported-aggregations)
 

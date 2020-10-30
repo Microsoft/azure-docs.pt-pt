@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165776"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043234"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -226,6 +226,14 @@ Apenas para consumo & Planos Premium. Cadeia de ligação para conta de armazena
 |Chave|Valor da amostra|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|PredefiniçãoendpointsProtocol=https; ContaName=[nome]; AccountKey=[chave]|
+
+## <a name="website_contentovervnet"></a>\_CONTENTOVERVNET DO SITE
+
+Apenas para planos Premium. Um valor `1` que permite que a sua aplicação de função se dimensione quando tem a sua conta de armazenamento restrita a uma rede virtual. Deve ativar esta definição ao restringir a sua conta de armazenamento a uma rede virtual. Para saber mais, consulte [Restringir a sua conta de armazenamento a uma rede virtual.](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview) 
+
+|Chave|Valor da amostra|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>\_PARTILHA DE CONTEÚDOS DO SITE
 

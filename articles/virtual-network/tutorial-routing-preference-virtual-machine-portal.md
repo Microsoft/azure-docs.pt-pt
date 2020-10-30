@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042821"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configure a preferência de encaminhamento para um VM utilizando o portal Azure
 
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como criar uma máquina virtual com um IP público que es
 
 > [!IMPORTANT]
 > A preferência de encaminhamento está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-feature-for-your-subscription"></a>Registe a funcionalidade da sua subscrição
 A função 'Preferência de encaminhamento' está atualmente em pré-visualização. Tem de registar a funcionalidade da sua subscrição utilizando o Azure PowerShell da seguinte forma:
@@ -41,9 +41,9 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do portal do Azure.
-2. **Selecione Compute**, e, em seguida, selecione **O Windows Server 2016 VM**, ou outro sistema operativo à sua escolha.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK**:
+1. Selecione **+ Criar um recurso** , disponível no canto superior esquerdo do portal do Azure.
+2. **Selecione Compute** , e, em seguida, selecione **O Windows Server 2016 VM** , ou outro sistema operativo à sua escolha.
+3. Introduza ou selecione as seguintes informações, aceite as predefinições para as definições restantes e, em seguida, selecione **OK** :
 
     |Definição|Valor|
     |---|---|
@@ -51,12 +51,12 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
-    |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup** .|
+    |Localização| Selecione **E.U.A. Leste** .|
 
-4. Escolha um tamanho para a VM e selecione **Selecionar**.
+4. Escolha um tamanho para a VM e selecione **Selecionar** .
 5. No **separador 'Rede',** clique em **Criar novo** endereço IP **público.**
-6. Insira *myPublicIpAddress*, selecione sku como **Standard**, e, em seguida, selecione a preferência de encaminhamento **Internet** e, em seguida, bata **ok**, como mostrado na seguinte imagem:
+6. Insira *myPublicIpAddress* , selecione sku como **Standard** , e, em seguida, selecione a preferência de encaminhamento **Internet** e, em seguida, bata **ok** , como mostrado na seguinte imagem:
 
    ![Selecione estática](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
 
@@ -64,23 +64,24 @@ Inicie sessão no [portal do Azure](https://preview.portal.azure.com/).
 
    ![Selecione uma porta](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
 
-7. Aceite as definições predefinitivas restantes e selecione **OK**.
-8. Na página **Resumo**, selecione **Criar**. A máquina virtual demora alguns minutos a ser implantada.
+7. Aceite as definições predefinitivas restantes e selecione **OK** .
+8. Na página **Resumo** , selecione **Criar** . A máquina virtual demora alguns minutos a ser implantada.
 9. Assim que a máquina virtual for implantada, insira o *myPublicIpAddress* na caixa de pesquisa no topo do portal. Quando **o meuPublicIpAddress** aparecer nos resultados da pesquisa, selecione-o.
 10. Pode visualizar o endereço IP público que é atribuído e que o endereço é atribuído à máquina virtual **myVM,** como mostra a seguinte imagem:
 
-    ![Ver endereço IP público](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![A screenshot mostra o NIC Public I P para a interface de interface de rede mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
-11. Selecione **Networking**, em seguida, clique em nic **minica** e, em seguida, selecione o endereço ip público para confirmar que a preferência de encaminhamento é atribuída como **Internet**.
-    ![Ver endereço IP público](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+11. Selecione **Networking** , em seguida, clique em nic **minica** e, em seguida, selecione o endereço ip público para confirmar que a preferência de encaminhamento é atribuída como **Internet** .
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+    ![A screenshot mostra o endereço I P e a preferência de encaminhamento para um endereço Público I P.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 
-1. Introduza *myResourceGroup* na caixa **Pesquisar**, na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
-2. Selecione **Eliminar grupo de recursos**.
-3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
+1. Introduza *myResourceGroup* na caixa **Pesquisar** , na parte superior do portal. Quando vir o **myResourceGroup** nos resultados da pesquisa, selecione-o.
+2. Selecione **Eliminar grupo de recursos** .
+3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar** .
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [IP público com preferência por encaminhamento](routing-preference-overview.md).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281070"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042970"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com REST
 
@@ -72,7 +72,7 @@ Para obter etapas sobre como configurar o Carteiro para este tutorial, consulte 
 
     Para obter valores para as primeiras cinco variáveis, consulte [Aceda à API dos Serviços de Media Azure com autenticação AD Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Screenshot que mostra o ícone "Cog" selecionado a partir do topo-direito, e as cinco primeiras variáveis selecionadas a partir do separador "Ambientes de Gestão".](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Especifique o valor para a variável **ambiente MediaFileName.**
 
     Especifique o nome do ficheiro dos meios de comunicação que está a planear enviar. Neste exemplo, vamos carregar o BigBuckBunny.mp4. 
@@ -94,17 +94,17 @@ Para obter etapas sobre como configurar o Carteiro para este tutorial, consulte 
 
     A porção de URL é preenchida com a variável ambiente **AzureADSTSEndpoint** (anteriormente no tutorial, você define os valores das variáveis ambientais que suportam a coleção).
 
-    ![Carregar um ficheiro](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Screenshot que mostra "1. Obtenha um token A D Auth - Obtenha A Azure A D Token para o principal de serviço" selecionado a partir da janela "Carteiro" e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. Prima **Enviar**.
+5. Prima **Enviar** .
 
     Pode ver a resposta que contém "access_token". O script "test" toma este valor e define a variável ambiente **AccessToken** (como descrito acima). Se examinar as variáveis ambientais, verá que esta variável contém agora o valor de token de acesso (token ao portador) que é usado no resto das operações. 
 
-    Se o token expirar, passe pelo passo "Get Azure AD Token for Service Principal" novamente. 
+    Se o token expirar, passe pelo passo "Get Azure AD Token for Service Principal" novamente. 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Criar uma política de acesso com permissão de escrita
 
-### <a name="overview"></a>Descrição geral 
+### <a name="overview"></a>Descrição Geral 
 
 >[!NOTE]
 >Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
@@ -113,20 +113,20 @@ Antes de enviar quaisquer ficheiros para o armazenamento de bolhas, descreva os 
 
 ### <a name="create-an-access-policy"></a>Criar uma política de acesso
 
-1. Selecione **AccessPolicy**  ->  **Create AccessPolicy for Upload**.
-2. Prima **Enviar**.
+1. Selecione **AccessPolicy**  ->  **Create AccessPolicy for Upload** .
+2. Prima **Enviar** .
 
-    ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Screenshot que mostra "AccessPolicy - Create AccessPolicy for Upload" selecionado a partir do menu do lado esquerdo, e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     O script "test" obtém o Id AccessPolicy e define a variável ambiente apropriada.
 
 ## <a name="create-an-asset"></a>Criar um recurso
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Um [ativo](/rest/api/media/operations/asset) é um recipiente para vários tipos ou conjuntos de objetos em Serviços de Mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e ficheiros de legendas fechados. Na API REST, a criação de um Ativo requer o envio de um pedido de CORREIO aos Serviços de Comunicação Social e a colocação de qualquer informação de propriedade sobre o seu ativo no organismo de pedido.
 
-Uma das propriedades que pode adicionar ao criar um ativo são **opções.** Pode especificar uma das seguintes opções de encriptação: **Nenhuma** (padrão, nenhuma encriptação é utilizada), **StorageEncrypted** (para conteúdos pré-encriptados com encriptação de armazenamento do lado do cliente), **CommonEncrypationProtegado,** ou **EnvelopeEncrypationProtetado**. Quando se tem um ativo encriptado, é necessário configurar uma política de entrega. Para obter mais informações, consulte [as políticas de entrega de ativos configuradas.](media-services-rest-configure-asset-delivery-policy.md)
+Uma das propriedades que pode adicionar ao criar um ativo são **opções.** Pode especificar uma das seguintes opções de encriptação: **Nenhuma** (padrão, nenhuma encriptação é utilizada), **StorageEncrypted** (para conteúdos pré-encriptados com encriptação de armazenamento do lado do cliente), **CommonEncrypationProtegado,** ou **EnvelopeEncrypationProtetado** . Quando se tem um ativo encriptado, é necessário configurar uma política de entrega. Para obter mais informações, consulte [as políticas de entrega de ativos configuradas.](media-services-rest-configure-asset-delivery-policy.md)
 
 Se o seu ativo estiver encriptado, tem de criar um **ContentKey** e ligá-lo ao seu ativo, conforme descrito no seguinte artigo: [Como criar um ContentKey](media-services-rest-create-contentkey.md). Depois de fazer o upload dos ficheiros para o ativo, tem de atualizar as propriedades de encriptação na entidade **AssetFile** com os valores que obteve durante a encriptação **do Ativo.** Faça-o utilizando o pedido **MERGE** HTTP. 
 
@@ -134,16 +134,16 @@ Neste exemplo, estamos a criar um ativo não encriptado.
 
 ### <a name="create-an-asset"></a>Criar um recurso
 
-1. Selecione **Ativos**  ->  **Criar Ativo**.
-2. Prima **Enviar**.
+1. Selecione **Ativos**  ->  **Criar Ativo** .
+2. Prima **Enviar** .
 
-    ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Screenshot que mostra "Ativos - Criar Ativo" selecionado a partir do menu "Coleções" e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     O script "test" recebe o ID do Ativo e define a variável ambiente apropriada.
 
 ## <a name="create-a-sas-locator-and-create-the-upload-url"></a>Crie um localizador SAS e crie o URL de upload
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Uma vez definido o conjunto AccessPolicy e Localizador, o ficheiro real é enviado para um recipiente de armazenamento Azure Blob usando as APIs de ARMAZENAMENTO Azure Storage REST. Tens de carregar os ficheiros como blocos. As bolhas de página não são suportadas pela Azure Media Services.  
 
@@ -166,17 +166,17 @@ São aplicáveis algumas considerações:
 ### <a name="create-a-sas-locator"></a>Criar um localizador SAS
 
 1. **Selecione localizador**  ->  **criar localizador SAS.**
-2. Prima **Enviar**.
+2. Prima **Enviar** .
 
     O script "test" cria o "UPLOAD URL" com base no nome de ficheiro de mídia especificado e informações de localizador SAS e define a variável ambiente apropriada.
 
-    ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Screenshot que mostra "Localizador - Criar S A S Localizador" selecionado a partir do menu "Coleções" e o botão "Enviar" selecionado.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Faça o upload de um ficheiro para o armazenamento de blob usando o URL de upload
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
-Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os artigos seguintes:
+Agora que tem o URL de upload, precisa de escrever algum código utilizando as APIs Azure Blob diretamente para fazer o upload do seu ficheiro para o contentor SAS. Para obter mais informações, veja os seguintes artigos:
 
 - [Utilizar a API REST do Armazenamento do Azure](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](/rest/api/storageservices/put-blob)
@@ -192,19 +192,19 @@ Criar e configurar um novo pedido:
 1. Pressione **+** , para criar um novo separador de pedidos.
 2. Selecione a operação **PUT** e cole **{{UploadURL}}** no URL.
 2. Deixe o separador **de autorização** como está (não o coloque no **Token do Portador).**
-3. No **separador Cabeçalhos,** especifique: **Tecla**: "x-ms-blob-type" e **Valor**: "BlockBlob".
+3. No **separador Cabeçalhos,** especifique: **Tecla** : "x-ms-blob-type" e **Valor** : "BlockBlob".
 2. No **separador Corpo,** clique **em binário.**
 4. Escolha o ficheiro com o nome especificado na variável **ambiente MediaFileName.**
-5. Prima **Enviar**.
+5. Prima **Enviar** .
 
-    ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Screenshot que mostra o separador "(UploadU R L)" selecionado.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Criar metadados no ativo
 
 Uma vez que o ficheiro tenha sido carregado, precisa de criar um metadados no ativo para o ficheiro de mídia que carregou no armazenamento de bolhas associado ao seu ativo.
 
-1. Selecione **ActivosFiles**  ->  **CreateFileInfos**.
-2. Prima **Enviar**.
+1. Selecione **ActivosFiles**  ->  **CreateFileInfos** .
+2. Prima **Enviar** .
 
     ![Carregar um ficheiro](./media/media-services-rest-upload-files/postman-create-file-info.png)
 

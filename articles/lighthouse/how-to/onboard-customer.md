@@ -3,12 +3,12 @@ title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426343"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042860"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -38,7 +38,7 @@ Se ainda não tiver estes valores de identificação, pode recuperá-los de uma 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-A identificação do seu inquilino pode ser vista pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch**. Para selecionar e copiar o ID do seu inquilino, procure "Azure Ative Directory" dentro do portal, em seguida, selecione **Propriedades** e copie o valor indicado no campo ID do **Diretório.** Para encontrar o ID de uma subscrição no inquilino do cliente, procure por "Subscrições" e, em seguida, selecione o ID de subscrição apropriado.
+A identificação do seu inquilino pode ser vista pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch** . Para selecionar e copiar o ID do seu inquilino, procure "Azure Ative Directory" dentro do portal, em seguida, selecione **Propriedades** e copie o valor indicado no campo ID do **Diretório.** Para encontrar o ID de uma subscrição no inquilino do cliente, procure por "Subscrições" e, em seguida, selecione o ID de subscrição apropriado.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -66,10 +66,10 @@ Como prestador de serviços, poderá querer executar múltiplas tarefas para um 
 
 Para facilitar a gestão, recomendamos a utilização de grupos de utilizadores Azure AD para cada função. Isto dá-lhe a flexibilidade para adicionar ou remover utilizadores individuais ao grupo que tem acesso, para que não tenha que repetir o processo de embarque para fazer alterações no utilizador. Pode atribuir funções a um diretor de serviço, o que pode ser útil para cenários de automação.
 
-Ao definir as suas autorizações, certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para obter orientações e informações sobre funções [apoiadas, consulte Inquilinos, utilizadores e funções em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
-
 > [!IMPORTANT]
-> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança** . Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+Ao definir as suas autorizações, certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho. Para obter orientações e informações sobre funções [apoiadas, consulte Inquilinos, utilizadores e funções em cenários do Farol Azure.](../concepts/tenants-users-roles.md)
 
 Para definir as autorizações, você precisará saber os valores de ID para cada utilizador, grupo de utilizadores ou principal de serviço no inquilino do prestador de serviços a que deseja conceder acesso. Também vai precisar da definição de papel ID para cada papel incorporado que pretende atribuir. Se ainda não os tiver, pode recuperá-los executando os comandos abaixo a partir do inquilino do prestador de serviços.
 
@@ -128,7 +128,7 @@ O processo de embarque requer um modelo de Gestor de Recursos Azure (fornecido n
 > [!IMPORTANT]
 > O processo aqui descrito requer uma implementação separada para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa única implementação.
 >
-> São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente**.
+> São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente** .
 
 O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira, num grupo de recursos ou em vários grupos de recursos dentro de uma subscrição. Também fornecemos um modelo que pode ser usado para clientes que compraram uma oferta de serviço gerida que publicou no Azure Marketplace, se preferir embarcar nas suas subscrições desta forma.
 
@@ -142,7 +142,7 @@ O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira
 > [!TIP]
 > Embora não possa embarcar um grupo inteiro de gestão numa só implantação, pode [implementar uma política ao nível do grupo de gestão.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups) A apólice verificará se cada subscrição dentro do grupo de gestão foi delegada ao inquilino de gestão especificado, e se não, criará a atribuição com base nos valores que fornece.
 
-O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada ** no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
+O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada **no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
 
 ```json
 {
@@ -211,8 +211,8 @@ A implementação pode ser feita no portal Azure, utilizando o PowerShell, ou ut
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. No nosso [repo GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), selecione o botão **Implementar para Azure** mostrado ao lado do modelo que pretende utilizar. O modelo será aberto no portal do Azure.
-1. Insira os seus valores para **Msp Offer Name**, Msp Offer **Description**, **Managed by Tenant Id**, and **Authorizations**. Se preferir, pode **selecionar parâmetros de edição** para introduzir valores para `mspOfferName` , , e `mspOfferDescription` `managedbyTenantId` `authorizations` diretamente no ficheiro do parâmetro. Certifique-se de atualizar estes valores em vez de utilizar os valores predefinidos do modelo.
-1. Selecione **Rever e criar,** em seguida, selecione **Criar**.
+1. Insira os seus valores para **Msp Offer Name** , Msp Offer **Description** , **Managed by Tenant Id** , and **Authorizations** . Se preferir, pode **selecionar parâmetros de edição** para introduzir valores para `mspOfferName` , , e `mspOfferDescription` `managedbyTenantId` `authorizations` diretamente no ficheiro do parâmetro. Certifique-se de atualizar estes valores em vez de utilizar os valores predefinidos do modelo.
+1. Selecione **Rever e criar,** em seguida, selecione **Criar** .
 
 Após alguns minutos, deverá ver uma notificação de que a implementação foi concluída.
 
@@ -265,7 +265,7 @@ Quando uma subscrição do cliente tiver sido acedida com sucesso ao Farol de Az
 No arrendatário do prestador de serviços:
 
 1. Navegue para a [página dos meus clientes.](view-manage-customers.md)
-2. Selecione **Clientes**.
+2. Selecione **Clientes** .
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!IMPORTANT]
@@ -274,7 +274,7 @@ No arrendatário do prestador de serviços:
 No inquilino do cliente:
 
 1. Navegue para a [página de fornecedores de serviços.](view-manage-service-providers.md)
-2. Selecione **Ofertas de fornecedores de serviços**.
+2. Selecione **Ofertas de fornecedores de serviços** .
 3. Confirme que pode ver a subscrição(s) com o nome de oferta que forneceu no modelo de Gestor de Recursos.
 
 > [!NOTE]

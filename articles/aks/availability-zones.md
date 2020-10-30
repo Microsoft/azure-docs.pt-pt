@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745811"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043019"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster Azure Kubernetes Service (AKS) que utiliza zonas de disponibilidade
 
@@ -52,7 +52,7 @@ Aplicam-se as seguintes limitações quando cria um cluster AKS utilizando zonas
 
 Os volumes que utilizam discos geridos a Azure não são atualmente recursos redundantes em zonas. Os volumes não podem ser fixados em zonas e devem ser co-localizados na mesma zona que um dado nó que alberga a cápsula-alvo.
 
-Se tiver de executar cargas de trabalho imponentes, use manchas de piscina de nó e tolerâncias nas especificações do pod para agendar pods em grupo na mesma zona que os seus discos. Em alternativa, utilize o armazenamento baseado em rede, como os Ficheiros Azure, que podem anexar-se a cápsulas à medida que estão programados entre zonas.
+Kubernetes está ciente das zonas de disponibilidade do Azure desde a versão 1.12. Pode implementar um objeto PersistenteVolumeClaim referenciando um Disco Gerido Azure num cluster AKS de várias zonas e [kubernetes cuidará de agendar](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) qualquer cápsula que adua este PVC na zona de disponibilidade correta.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Visão geral das zonas de disponibilidade para clusters AKS
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 Ao adicionar nós adicionais a um conjunto de agentes, a plataforma Azure distribui automaticamente os VMs subjacentes pelas zonas de disponibilidade especificadas.
 
-Note que nas versões mais recentes de Kubernetes (1.17.0 e posterior), a AKS está a utilizar a etiqueta mais recente `topology.kubernetes.io/zone` para além da depreciada `failure-domain.beta.kubernetes.io/zone` .
+Note que nas versões mais recentes de Kubernetes (1.17.0 e posterior), a AKS está a utilizar a etiqueta mais recente `topology.kubernetes.io/zone` para além da depreciada `failure-domain.beta.kubernetes.io/zone` . Pode obter o mesmo resultado acima, executando o seguinte script:
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+O que lhe dará uma saída mais sucinta:
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>Verificar distribuição de cápsulas em zonas
 

@@ -1,16 +1,16 @@
 ---
-title: Inquilinos, papéis e utilizadores em cenários do Farol de Azure
+title: Inquilinos, utilizadores e papéis em cenários do Farol de Azure
 description: Compreenda os conceitos de inquilinos, utilizadores e funções do Azure Ative Directory, bem como como podem ser usados em cenários do Farol Azure.
-ms.date: 07/03/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424121"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043044"
 ---
-# <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Inquilinos, papéis e utilizadores em cenários do Farol de Azure
+# <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Inquilinos, utilizadores e papéis em cenários do Farol de Azure
 
 Antes de embarcar clientes para [o Azure Lighthouse,](../overview.md)é importante entender como os inquilinos, utilizadores e funções da Azure Ative Directory (Azure AD) funcionam, bem como como podem ser usados em cenários do Farol Azure.
 
@@ -19,6 +19,18 @@ Um *inquilino* é um caso dedicado e de confiança da Azure AD. Normalmente, cad
 Para conseguir esta projeção lógica, uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição) no arrendatário do cliente deve ser *a bordo* do Farol de Azure. Este processo de embarque pode ser feito [através de modelos Azure Resource Manager](../how-to/onboard-customer.md) ou através da publicação de uma oferta pública ou privada ao [Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 
 Seja qual for o método de embarque que escolher, terá de definir *autorizações.* Cada autorização especifica uma conta de utilizador no inquilino gerente que terá acesso aos recursos delegados, e uma função incorporada que define as permissões que cada um destes utilizadores terá para estes recursos.
+
+## <a name="best-practices-for-defining-users-and-roles"></a>Melhores práticas para definir utilizadores e funções
+
+Ao criar as suas autorizações, recomendamos as seguintes boas práticas:
+
+- Na maioria dos casos, irá querer atribuir permissões a um grupo de utilizadores ou ao serviço principal da Azure, em vez de uma série de contas individuais de utilizador. Isto permite-lhe adicionar ou remover o acesso a utilizadores individuais sem ter de atualizar e reeditar o plano quando os seus requisitos de acesso mudarem.
+- Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho, ajudando a reduzir a chance de erros inadvertidos. Para mais informações, consulte [as práticas de segurança recomendadas.](../concepts/recommended-security-practices.md)
+- Inclua um utilizador com a [Função de Registo de Registo de Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que possa [remover o acesso à delegação](../how-to/remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no arrendatário do cliente.
+- Certifique-se de que qualquer utilizador que precise de ver a [página dos meus clientes no portal Azure](../how-to/view-manage-customers.md) tem a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Reader).
+
+> [!IMPORTANT]
+> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança** . Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="role-support-for-azure-lighthouse"></a>Apoio de função para o Farol de Azure
 
@@ -32,18 +44,6 @@ Todas as [funções incorporadas](../../role-based-access-control/built-in-roles
 
 > [!NOTE]
 > Uma vez que uma nova função incorporada aplicável é adicionada ao Azure, pode ser atribuída ao [embarcar um cliente usando modelos de Gestor de Recursos Azure](../how-to/onboard-customer.md). Pode haver um atraso antes de o papel recém-adicionado ficar disponível no Partner Center ao [publicar uma oferta de serviço gerida](../how-to/publish-managed-services-offers.md).
-
-## <a name="best-practices-for-defining-users-and-roles"></a>Melhores práticas para definir utilizadores e funções
-
-Ao criar as suas autorizações, recomendamos as seguintes boas práticas:
-
-- Na maioria dos casos, irá querer atribuir permissões a um grupo de utilizadores ou ao serviço principal da Azure, em vez de uma série de contas individuais de utilizador. Isto permite-lhe adicionar ou remover o acesso a utilizadores individuais sem ter de atualizar e reeditar o plano quando os seus requisitos de acesso mudarem.
-- Certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho, ajudando a reduzir a chance de erros inadvertidos. Para mais informações, consulte [as práticas de segurança recomendadas.](../concepts/recommended-security-practices.md)
-- Inclua um utilizador com a [Função de Registo de Registo de Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) para que possa [remover o acesso à delegação](../how-to/remove-delegation.md) mais tarde, se necessário. Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no arrendatário do cliente.
-- Certifique-se de que qualquer utilizador que precise de ver a [página dos meus clientes no portal Azure](../how-to/view-manage-customers.md) tem a função [Reader](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclui o acesso ao Reader).
-
-> [!IMPORTANT]
-> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

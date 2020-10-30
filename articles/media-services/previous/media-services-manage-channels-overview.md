@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042988"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Visão geral do Live Streaming usando serviços de mídia
 
@@ -28,7 +28,7 @@ ms.locfileid: "89265973"
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Ao entregar eventos de streaming ao vivo com a Azure Media Services, os seguintes componentes estão geralmente envolvidos:
 
@@ -53,11 +53,11 @@ Com os Media Services, pode usufruir de [embalagens dinâmicas,](media-services-
 
 ## <a name="streaming-endpoints-channels-programs"></a>Streaming Endpoints, Canais, Programas
 
-Nos Media Services do Azure, os **Canais**, **Programas** e **Pontos Finais de Transmissão em Fluxo** lidam com todas as funcionalidades de transmissão em fluxo em direto, incluindo inserção, formatação, DVR, segurança, escalabilidade e redundância.
+Nos Media Services do Azure, os **Canais** , **Programas** e **Pontos Finais de Transmissão em Fluxo** lidam com todas as funcionalidades de transmissão em fluxo em direto, incluindo inserção, formatação, DVR, segurança, escalabilidade e redundância.
 
 Um **Canal** representa um pipeline de processamento de conteúdos de transmissão em fluxo em direto. Um Canal pode receber transmissões em fluxo de entrada em direto das seguintes formas:
 
-* Um codificador em direto no local envia um **RTMP** ou uma **Transmissão em Fluxo Uniforme** com velocidade de transmissão múltipla (MP4 fragmentado) para o Canal configurado para distribuição **pass-through**. A distribuição **pass-through** ocorre quando as transmissões em fluxo inseridas passam pelos **Canais** sem qualquer processamento adicional. Pode utilizar os seguintes codificadores ao vivo que produzem streaming suave multi-bitrate: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo produção RTMP: Telestream Wirecast, Haivision, Teradek transcoders.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia um **RTMP** ou uma **Transmissão em Fluxo Uniforme** com velocidade de transmissão múltipla (MP4 fragmentado) para o Canal configurado para distribuição **pass-through** . A distribuição **pass-through** ocorre quando as transmissões em fluxo inseridas passam pelos **Canais** sem qualquer processamento adicional. Pode utilizar os seguintes codificadores ao vivo que produzem streaming suave multi-bitrate: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo produção RTMP: Telestream Wirecast, Haivision, Teradek transcoders.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
   > A utilização de um método pass-through é a forma mais económica de realizar uma transmissão em fluxo em direto quando estiver a realizar vários eventos durante um longo período de tempo e já investiu em codificadores no local. Consulte os detalhes dos [preços](https://azure.microsoft.com/pricing/details/media-services/).
@@ -74,25 +74,25 @@ Começando com a versão Media Services 2.10, quando cria um Canal, pode especif
 
 A tabela seguinte fornece um guia para comparar os dois tipos de Canal suportados nos Serviços de Media
 
-| Funcionalidade | Canal de passagem | Canal Standard |
+| Destaque | Canal de passagem | Canal Standard |
 | --- | --- | --- |
-| A entrada bitrate única é codificada em vários bitrates na nuvem |Não |Sim |
+| A entrada bitrate única é codificada em vários bitrates na nuvem |No |Yes |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Streaming Suave |RTMP, Streaming Suave |
 | Preço |Veja [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Live Video" |Consulte [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo máximo de execução |24x7 |8 horas |
-| Suporte para inserção de ardósias |Não |Sim |
-| Suporte para sinalização de anúncios |Não |Sim |
-| Pass-through CEA 608/708 legendas |Sim |Sim |
-| Suporte para GOPs de entrada não uniforme |Sim |Não – a entrada deve ser fixada 2sec GOPs |
-| Suporte para entrada de taxa de fotogramas variáveis |Sim |Não – a entrada deve ser fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificadores não pode cair para 10 fotogramas/seg. |
-| Desligação automática dos canais quando o feed de entrada é perdido |Não |Depois de 12 horas, se não houver programa em execução |
+| Suporte para inserção de ardósias |No |Yes |
+| Suporte para sinalização de anúncios |No |Yes |
+| Pass-through CEA 608/708 legendas |Yes |Yes |
+| Suporte para GOPs de entrada não uniforme |Yes |Não – a entrada deve ser fixada 2sec GOPs |
+| Suporte para entrada de taxa de fotogramas variáveis |Yes |Não – a entrada deve ser fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o codificadores não pode cair para 10 fotogramas/seg. |
+| Desligação automática dos canais quando o feed de entrada é perdido |No |Depois de 12 horas, se não houver programa em execução |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Trabalhar com Canais que recebem transmissões em fluxo em direto com velocidade de transmissão múltipla a partir de codificadores no local (pass-through)
 
-O diagrama seguinte mostra as principais partes da plataforma de AMS envolvidas no fluxo de trabalho de **pass-through**.
+O diagrama seguinte mostra as principais partes da plataforma de AMS envolvidas no fluxo de trabalho de **pass-through** .
 
-![Fluxo de trabalho em direto](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagrama que mostra as principais partes da plataforma A M S para o fluxo de trabalho "pass-through".](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Para obter mais informações, consulte [Trabalhar com Canais que recebem transmissões em Fluxo em Direto de Múltipla Velocidade de Transmissão a partir de Codificadores no Local](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -143,7 +143,7 @@ Para impedir que o Canal o faturar ainda mais, tem de parar o Canal através da 
 O estado atual de um Canal. Valores possíveis incluem:
 
 * **Parado.** Este é o estado inicial do Canal após a sua criação (a menos que o autostart tenha sido selecionado no portal.) Não há faturação neste estado. Neste estado, as propriedades do Canal podem ser atualizadas, mas o streaming não é permitido.
-* **A partir de**. O Canal está a começar. Não há faturação neste estado. Não são permitidas atualizações ou streamings durante este estado. Se ocorrer um erro, o Canal regressa ao estado Stop.
+* **A partir de** . O Canal está a começar. Não há faturação neste estado. Não são permitidas atualizações ou streamings durante este estado. Se ocorrer um erro, o Canal regressa ao estado Stop.
 * **A correr.** O Canal é capaz de processar transmissões ao vivo. Está agora a cobrar o uso. Tens de parar o canal para evitar mais faturações.
 * **Parar.** O Canal está a ser detido. Nenhuma faturação ocorre neste estado transitório. Não são permitidas atualizações ou streamings durante este estado.
 * **Apagar.** O Canal está a ser apagado. Nenhuma faturação ocorre neste estado transitório. Não são permitidas atualizações ou streamings durante este estado.
@@ -155,7 +155,7 @@ A tabela que se segue mostra como o Channel afirma o mapa para o modo de fatura�
 | A iniciar |A iniciar |Não (estado transitório) |
 | Em Execução |Pronto (sem programas de execução)<br/>ou<br/>Streaming (pelo menos um programa em execução) |SIM |
 | A parar |A parar |Não (estado transitório) |
-| Parada |Parada |Não |
+| Parada |Parada |No |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

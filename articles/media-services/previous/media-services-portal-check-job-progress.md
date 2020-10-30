@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 879b9f965a5ee76131a65bf3151be5c6114cd20c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ba8ccf3534cbb4a93983f81095b4ef2c20d6498
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042787"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorar o progresso do trabalho com o portal Azure
 
@@ -28,13 +28,13 @@ ms.locfileid: "89260888"
 > [!NOTE]
 > Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Confira a versão mais recente, [Media Services v3](../latest/index.yml). Além disso, consulte [a orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando se gere empregos, muitas vezes é preciso uma forma de acompanhar o progresso do emprego. 
 
-Para monitorizar o progresso da tarefa de codificação, clique em **Definições** (na parte superior da página) e, em seguida, selecione **Tarefas**.
+Para monitorizar o progresso da tarefa de codificação, clique em **Definições** (na parte superior da página) e, em seguida, selecione **Tarefas** .
 
-![Tarefas](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Screenshot que mostra "Jobs" selecionados a partir do menu "Definições".](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 Pode clicar no trabalho para ver mais detalhes.
 

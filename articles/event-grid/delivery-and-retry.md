@@ -2,13 +2,13 @@
 title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042960"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -80,12 +80,14 @@ O objetivo funcional da entrega atrasada é proteger pontos finais pouco saudáv
 ## <a name="dead-letter-events"></a>Eventos de cartas mortas
 Quando a Grade de Eventos não consegue entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um certo número de vezes, pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como **letra morta.** Event Grid dead-letters um evento quando **uma das seguintes** condições é cumprida. 
 
-- Evento não é entregue dentro do período de tempo a viver
-- O número de tentativas para entregar o evento excedeu o limite
+- O evento não é entregue dentro do período **de vida.** 
+- O **número de tentativas** para entregar o evento excedeu o limite.
 
 Se uma das condições for cumprida, o evento é abandonado ou sem carta.  Por defeito, a Grade de Eventos não liga letras mortas. Para o ativar, tem de especificar uma conta de armazenamento para realizar eventos não entregues ao criar a subscrição do evento. Você puxa eventos desta conta de armazenamento para resolver entregas.
 
 A Grade de Eventos envia um evento para o local da carta morta quando tentou todas as suas tentativas de repetição. Se a Grade de Evento receber um código de resposta de 400 (Mau Pedido) ou 413 (Entidade de Pedido Demasiado Grande), envia imediatamente o evento para o ponto final da letra morta. Estes códigos de resposta indicam que a entrega do evento nunca será bem sucedida.
+
+A expiração do tempo de vida é verificada apenas na próxima tentativa de entrega programada. Portanto, mesmo que o tempo de vida expire antes da próxima tentativa de entrega agendada, o prazo de validade do evento é verificado apenas no momento da próxima entrega e, em seguida, letra morta. 
 
 Há um atraso de cinco minutos entre a última tentativa de entrega de um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento blob. Se o local da carta morta não estiver disponível durante quatro horas, o evento será retirado.
 
