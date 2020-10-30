@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14b361ae2163636864b37d2a063ad10886a9e3c8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018486"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029502"
 ---
 Começa com a biblioteca de clientes do Detetor de Anomalias para .NET. Siga estes passos para instalar o pacote comece a usar os algoritmos fornecidos pelo serviço. O serviço Detetor de Anomalias permite-lhe encontrar anomalias nos dados da sua série de tempo utilizando automaticamente os modelos mais adequados, independentemente da indústria, cenário ou volume de dados.
 
@@ -39,7 +39,7 @@ Utilize a biblioteca do cliente do Detetor de Anomalias para .NET para:
 
 ### <a name="create-a-new-net-core-application"></a>Criar uma nova aplicação .NET Core
 
-Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `anomaly-detector-quickstart` . Este comando cria um projeto simples "Hello World" com um único ficheiro de origem C#: *Program.cs*.
+Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `anomaly-detector-quickstart` . Este comando cria um projeto simples "Hello World" com um único ficheiro de origem C#: *Program.cs* .
 
 ```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
@@ -66,7 +66,7 @@ Build succeeded.
 Dentro do diretório de aplicações, instale a biblioteca cliente do Detetor de Anomalias para .NET com o seguinte comando:
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector
 ```
 
 A partir do diretório do projeto, abra o ficheiro *program.cs* e adicione o seguinte `directives` utilizando:
@@ -105,7 +105,7 @@ Num novo método, instantaneamente um cliente com o seu ponto final e chave. Cri
 
 Descarregue os dados de exemplo para este arranque rápido do [GitHub:](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv)
 1. No seu navegador, clique com o botão direito **Raw.**
-2. Clique **em Guardar link como**.
+2. Clique **em Guardar link como** .
 3. Guarde o ficheiro para o seu diretório de candidaturas, como ficheiro .csv.
 
 Estes dados da série de tempo são formatados como um ficheiro .csv, e serão enviados para a API do Detetor de Anomalias.
