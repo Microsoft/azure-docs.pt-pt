@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748859"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127098"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação java Spring
 
@@ -51,7 +51,7 @@ Neste tutorial, ficará a saber como:
 
 1. Selecione a opção **de recurso Criar** no canto superior esquerdo do portal Azure:
 
-    ![Saída após criação de cofre chave está completa](./media/quickstarts/search-services.png)
+    ![A screenshot mostra a opção de recurso Criar no portal Azure.](./media/quickstarts/search-services.png)
 1. Na caixa de pesquisa, introduza **o Cofre de Chaves.**
 1. Na lista de resultados, selecione **cofres chave** à esquerda.
 1. Em **cofres chave** , selecione **Add** .
@@ -65,7 +65,7 @@ Neste tutorial, ficará a saber como:
 
 Neste momento, a sua conta Azure é a única autorizada a aceder a este novo cofre.
 
-![Saída após criação de cofre chave está completa](./media/quickstarts/vault-properties.png)
+![A imagem mostra o cofre da chave.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
@@ -82,7 +82,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Adicione uma referência do Cofre de Chaves à Configuração de Aplicações
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **todos os recursos** e, em seguida, selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **todos os recursos** e, em seguida, selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
 1. Selecione **O Explorador de Configuração** .
 
@@ -260,7 +260,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações. Também vê a mensagem que introduziu no Cofre de Chaves.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

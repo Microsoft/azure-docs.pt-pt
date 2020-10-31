@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364121"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127064"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco passos para garantir a sua infraestrutura de identidade
 
@@ -145,7 +145,7 @@ O Azure Ative Directory tem muitas capacidades que intercetam automaticamente at
 
 O risco do utilizador indica a probabilidade de a identidade de um utilizador ter sido comprometida e é calculada com base nas deteções de risco do utilizador que estão [associadas](../../active-directory/identity-protection/overview.md) à identidade de um utilizador. Uma política de risco do utilizador é uma política de acesso condicional que avalia o nível de risco para um utilizador ou grupo específico. Com base em Baixo, Médio, Alto nível de risco, uma política pode ser configurada para bloquear o acesso ou exigir uma mudança segura de palavra-passe usando a autenticação de vários fatores. A recomendação da Microsoft é exigir uma alteração segura da palavra-passe para os utilizadores de alto risco.
 
-![Utilizadores marcados em risco](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![A screenshot mostra os utilizadores sinalizados para o risco, com um utilizador selecionado.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementar a política de risco de inscrição utilizando a proteção de identidade Azure AD
 
@@ -175,7 +175,7 @@ A Azure AD Identity Protection fornece dois relatórios importantes que deve mon
 1. Relatórios de inscrição arriscados irão emergir atividades de inscrição do utilizador que você deve investigar, o proprietário legítimo pode não ter realizado a inscrição.
 2. Relatórios de utilizador arriscados irão surgir contas de utilizadores que possam ter sido comprometidas, como credenciais vazadas que foram detetadas ou o utilizador assinado em diferentes locais causando um evento de viagem impossível.
 
-![Utilizadores marcados em risco](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![A screenshot mostra o painel de proteção de identidade Azure A D com os utilizadores e os seus níveis de risco.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Aplicações de auditoria e permissões consentidas
 

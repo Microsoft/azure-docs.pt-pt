@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 7b91cf3d49d88501fb908d157892ec3eb24bee6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1c89887117c10ca77ec4c04b3adbe3e2d9923479
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284534"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126843"
 ---
 # <a name="virtual-machine-sas-failure-messages"></a>Mensagens de falha da máquina virtual SAS
 
@@ -29,7 +29,7 @@ Seguem-se questões comuns encontradas ao trabalhar com assinaturas de acesso pa
 | Os parâmetros SAS URI "st" e "se" não têm especificação completa da data | `Failure: Copying Images. Not able to download blob due to incorrect SAS Uri.` | Os parâmetros **sas** uri data de início e **data de fim** `st` (e `se` sublamentos) devem ter formato de data completa, tais como `11-02-2017T00:00:00Z` . As versões encurtadas são inválidas (alguns comandos no CLI Azure podem gerar valores encurtados por padrão). |
 |  |  |  |
 
-Para mais informações, consulte [a utilização de assinaturas de acesso partilhado (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+Para mais informações, consulte [a utilização de assinaturas de acesso partilhado (SAS)](../storage/common/storage-sas-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

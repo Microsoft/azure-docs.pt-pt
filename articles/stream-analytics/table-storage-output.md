@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891962"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127353"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Saída de armazenamento de mesa da Azure Stream Analytics
 
@@ -20,7 +20,7 @@ ms.locfileid: "90891962"
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de tabela.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para este armazenamento de mesa. |
 | Conta de armazenamento |O nome da conta de armazenamento para onde está a enviar a sua produção. |
@@ -28,7 +28,7 @@ A tabela que se segue lista os nomes dos imóveis e as suas descrições para a 
 | Nome da tabela |O nome da mesa. A mesa é criada se não existir. |
 | Chave de partição |O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador único para a partição dentro de uma tabela que forma a primeira parte da chave primária de uma entidade. É um valor de corda que pode ser até 1 KB de tamanho. |
 | Chave de linha |O nome da coluna de saída que contém a tecla de linha. A chave da linha é um identificador único para uma entidade dentro de uma divisória. É a segunda parte da chave primária de uma entidade. A tecla de linha é um valor de corda que pode ser até 1 KB de tamanho. |
-| Tamanho do lote |O número de registos de uma operação de lote. O incumprimento (100) é suficiente para a maioria dos postos de trabalho. Consulte a especificação de [funcionamento do lote de mesa](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) para obter mais detalhes sobre a modificação desta definição. |
+| Tamanho do lote |O número de registos de uma operação de lote. O incumprimento (100) é suficiente para a maioria dos postos de trabalho. Consulte a especificação de [funcionamento do lote de mesa](/java/api/com.microsoft.azure.storage.table.tablebatchoperation) para obter mais detalhes sobre a modificação desta definição. |
 
 ## <a name="partitioning"></a>Criação de partições
 

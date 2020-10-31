@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 52fd4867532832e0304a27317b21950bf131de79
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f631f8ee022f501cb30af4aae5cf48294b9ca3c2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900793"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125840"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilize GPUs para cargas de trabalho computacionalmente intensivas no Serviço Azure Kubernetes (AKS)
 
@@ -272,7 +272,7 @@ spec:
     spec:
       containers:
       - name: samples-tf-mnist-demo
-        image: microsoft/samples-tf-mnist-demo:gpu
+        image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
         args: ["--max_steps", "500"]
         imagePullPolicy: IfNotPresent
         resources:
@@ -386,7 +386,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover os objetos Kubernetes associados criados neste artigo, utilize o comando [de trabalho de eliminação de kubectl][kubectl delete] da seguinte forma:
 
@@ -394,7 +394,7 @@ Para remover os objetos Kubernetes associados criados neste artigo, utilize o co
 kubectl delete jobs samples-tf-mnist-demo
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para gerir os empregos da Apache Spark, consulte [os trabalhos da Run Apache Spark na AKS.][aks-spark]
 

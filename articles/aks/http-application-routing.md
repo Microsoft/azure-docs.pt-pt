@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbedb20d9e5c75fd49c08950bbf5d459130206ce
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495153"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125874"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
@@ -26,8 +26,8 @@ Quando o addon está ativado, cria uma Zona DNS na sua subscrição. Para obter 
 
 O addon implementa dois componentes: um [controlador Kubernetes Ingress][ingress] e um controlador [external-DNS.][external-dns]
 
-- **Controlador ingress**: O controlador Ingress está exposto à internet utilizando um serviço Kubernetes do tipo LoadBalancer. O controlador Ingress observa e implementa [os recursos da Kubernetes Ingress,][ingress-resource]que cria rotas para os pontos finais de aplicação.
-- **Controlador externo-DNS**: Observa os recursos da Kubernetes Ingress e cria registos DNS A na zona de DNS específica do cluster.
+- **Controlador ingress** : O controlador Ingress está exposto à internet utilizando um serviço Kubernetes do tipo LoadBalancer. O controlador Ingress observa e implementa [os recursos da Kubernetes Ingress,][ingress-resource]que cria rotas para os pontos finais de aplicação.
+- **Controlador externo-DNS** : Observa os recursos da Kubernetes Ingress e cria registos DNS A na zona de DNS específica do cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Implementar encaminhamento HTTP: CLI
 
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -163,7 +163,7 @@ service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
 ```
 
-Abra um navegador web para *aks-helloworld \<CLUSTER_SPECIFIC_DNS_ZONE\> * *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io.* O pedido pode demorar alguns minutos a aparecer.
+Abra um navegador web para *aks-helloworld \<CLUSTER_SPECIFIC_DNS_ZONE\>* *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io.* O pedido pode demorar alguns minutos a aparecer.
 
 ## <a name="remove-http-routing"></a>Remover encaminhamento HTTP
 
@@ -173,7 +173,7 @@ A solução de encaminhamento HTTP pode ser removida utilizando o Azure CLI. Par
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-Quando o addon de encaminhamento de aplicações HTTP é desativado, alguns recursos kubernetes podem permanecer no cluster. Estes recursos incluem *configMaps* e *segredos*, e são criados no *espaço de nomes do sistema kube.* Para manter um aglomerado limpo, é melhor remover estes recursos.
+Quando o addon de encaminhamento de aplicações HTTP é desativado, alguns recursos kubernetes podem permanecer no cluster. Estes recursos incluem *configMaps* e *segredos* , e são criados no *espaço de nomes do sistema kube.* Para manter um aglomerado limpo, é melhor remover estes recursos.
 
 Procure recursos *de encaminhamento de aplicações addon-http utilizando* os seguintes [comandos kubectl:][kubectl-get]
 

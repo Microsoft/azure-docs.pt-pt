@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 11fde4480f4e2ed9feda00fa2af0e5937a77b9ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986883"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127183"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalar Micro Focus Enterprise Server 5.0 e Enterprise Developer 5.0 em Azure
 
@@ -47,7 +47,7 @@ Antes de começar, confira estes pré-requisitos:
 
 ## <a name="install-enterprise-server"></a>Instalar o Enterprise Server
 
-1.  Para uma melhor segurança e gerenciabilidade, considere criar um novo grupo de recursos apenas para este projeto - por exemplo, **RGMicroFocusEntServer**. Utilize a primeira parte do nome em Azure para escolher o tipo de recurso para facilitar a sua posição numa lista.
+1.  Para uma melhor segurança e gerenciabilidade, considere criar um novo grupo de recursos apenas para este projeto - por exemplo, **RGMicroFocusEntServer** . Utilize a primeira parte do nome em Azure para escolher o tipo de recurso para facilitar a sua posição numa lista.
 
 2.  Cria uma máquina virtual. A partir do Azure Marketplace, selecione a máquina virtual e o sistema operativo que pretende. Aqui está uma configuração recomendada:
 
@@ -73,11 +73,11 @@ Antes de começar, confira estes pré-requisitos:
 
 9.  Clique duas vezes no ficheiro para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença do utilizador final.
 
-    ![Micro Focus Enterprise Server Setup Screen](media/install-image-1.png)
+    ![A screenshot mostra a caixa de diálogo do Micro Focus Enterprise Server onde pode iniciar a instalação.](media/install-image-1.png)
 
     Quando a configuração estiver concluída, aparece a seguinte mensagem:
 
-    ![Micro Focus Enterprise Server Setup Screen](media/install-image-2.png)
+    ![A screenshot mostra uma mensagem de sucesso na caixa de diálogo do Micro Focus Enterprise Server.](media/install-image-2.png)
 
  ### <a name="check-for-updates"></a>Procurar atualizações
 
@@ -87,9 +87,9 @@ Após a instalação, certifique-se de verificar se existem atualizações adici
 
 1.  Inicie a Micro Focus License Administration.
 
-2.  Selecione **Iniciar** \> **Micro Focus License Manager** License \> **Administration**e, em seguida, clique no separador **Instalar.** Escolha o tipo de formato de licença para carregar: um ficheiro de licença ou um código de licença de 16 caracteres. Por exemplo, para um ficheiro, no **ficheiro Licença,** navegue para o ficheiro * `mflic` carregado previamente para o VM e selecione **Licenças de Instalação**.
+2.  Selecione **Iniciar** \> **Micro Focus License Manager** License \> **Administration** e, em seguida, clique no separador **Instalar.** Escolha o tipo de formato de licença para carregar: um ficheiro de licença ou um código de licença de 16 caracteres. Por exemplo, para um ficheiro, no **ficheiro Licença,** navegue para o ficheiro * `mflic` carregado previamente para o VM e selecione **Licenças de Instalação** .
 
-    ![Caixa de diálogo de administração de licença de micro foco](media/install-image-3.png)
+    ![A screenshot mostra a caixa de diálogo de administração da licença micro focus onde pode selecionar Licenças de Instalação.](media/install-image-3.png)
 
 3.  Verifique se o Servidor da Empresa está carregado. Tente lançar o site Enterprise Server Administration a partir de um navegador utilizando este URL: `http://localhost:86/` . A página de Administração do Servidor da Empresa é apresentada como mostrado.
 
@@ -99,7 +99,7 @@ Após a instalação, certifique-se de verificar se existem atualizações adici
 
 1.  Selecione o grupo de recursos criado anteriormente (por exemplo, **RGMicroFocusEntServer),** em seguida, selecione a imagem do desenvolvedor.
 
-2.  Para iniciar sôms na máquina virtual, vá à secção **'Vista Geral'** e selecione **Connect**. Este início de sessão lança uma sessão de PDR. Inscreva-se usando as credenciais que criou para o VM.
+2.  Para iniciar sôms na máquina virtual, vá à secção **'Vista Geral'** e selecione **Connect** . Este início de sessão lança uma sessão de PDR. Inscreva-se usando as credenciais que criou para o VM.
 
 3.  A partir da sessão RDP, carregue os dois ficheiros seguintes (arraste e deixe cair se quiser):
 
@@ -115,9 +115,9 @@ Após a instalação, certifique-se de verificar se existem atualizações adici
 
     ![Configurar mensagem de sucesso](media/install-image-6.png)
 
-6.  Inicie o Gestor de Licenças Micro Focus tal como fez para o Enterprise Server. Escolha **Iniciar** \> **Micro Focus Licença Manager** Licença \> **Administração**, e clique no **separador Instalar.**
+6.  Inicie o Gestor de Licenças Micro Focus tal como fez para o Enterprise Server. Escolha **Iniciar** \> **Micro Focus Licença Manager** Licença \> **Administração** , e clique no **separador Instalar.**
 
-7.  Escolha o tipo de formato de licença para carregar: um ficheiro de licença ou um código de licença de 16 caracteres. Por exemplo, para um ficheiro, no **ficheiro Licença,** navegue no `mflic` ficheiro carregado previamente para o VM e selecione  **Licenças de Instalação**.
+7.  Escolha o tipo de formato de licença para carregar: um ficheiro de licença ou um código de licença de 16 caracteres. Por exemplo, para um ficheiro, no **ficheiro Licença,** navegue no `mflic` ficheiro carregado previamente para o VM e selecione  **Licenças de Instalação** .
 
     ![Caixa de diálogo de administração de licença de micro foco](media/install-image-7.png)
 

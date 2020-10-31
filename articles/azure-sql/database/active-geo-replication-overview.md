@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672977"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125347"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Por predefinição, a redundância de armazenamento de backup do secundário é 
 > A taxa de registo de transações no primário pode ser acelerada por razões não relacionadas com o tamanho do cálculo mais baixo num secundário. Este tipo de estrangulamento pode ocorrer mesmo que o secundário tenha o mesmo tamanho de computação ou maior do que o primário. Para mais detalhes, incluindo tipos de espera para diferentes tipos de taxa de registo, consulte a [governação da taxa de registo de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível apenas na região do Sudeste Asiático Azure. Quando a base de dados de origem é criada com redundância de armazenamento de backup de segurança redundante local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não é suportada. 
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública no Brasil Sul e geralmente disponível apenas na região do Sudeste Asiático Azure. Quando a base de dados de origem é criada com redundância de armazenamento de backup de segurança redundante local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não é suportada. 
 
 Para obter mais informações sobre os tamanhos de cálculo da Base de Dados [SQL, consulte quais são os Níveis de Serviço de Base de Dados SQL](purchasing-models.md).
 

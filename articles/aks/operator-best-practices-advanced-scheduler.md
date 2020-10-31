@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador do cluster para utilizar 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87530066"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125636"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Melhores práticas para funcionalidades avançadas do agendador no Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -79,15 +79,15 @@ Quando atualiza uma piscina de nó em AKS, as manchas e as tolerâncias seguem u
 
 - **Clusters predefinidos que usam conjuntos de escala de máquina virtual**
   - Você pode [manchar um nodepool][taint-node-pool] da AKS API, para ter os nós recém-dimensionados receber manchas de nó especificados API.
-  - Vamos supor que tem um aglomerado de dois nós - *nó1* e *nó2*. Você melhora a piscina de nós.
+  - Vamos supor que tem um aglomerado de dois nós - *nó1* e *nó2* . Você melhora a piscina de nós.
   - São criados dois nós adicionais, *nó3* e *nó4,* e as manchas são transmitidas respectivamente.
   - O *nó 1* e *o nó 2* originais são apagados.
 
 - **Clusters sem suporte de conjunto de escala de máquina virtual**
-  - Mais uma vez, vamos supor que você tem um aglomerado de dois nós - *nó1* e *nó2*. Ao atualizar, é criado um nó adicional *(nó3).*
+  - Mais uma vez, vamos supor que você tem um aglomerado de dois nós - *nó1* e *nó2* . Ao atualizar, é criado um nó adicional *(nó3).*
   - As manchas do *nó1* são aplicadas ao *nó3,* em *seguida, o nó1* é então apagado.
-  - Outro novo nó é criado (denominado *node1*, uma vez que o *nó anterior foi* eliminado), e os *nó2* taints são aplicados ao novo *nó1*. Em seguida, *o nó2* é apagado.
-  - Na *essência, o nó 1* torna-se *node3,* e *o nó2* torna-se *node1*.
+  - Outro novo nó é criado (denominado *node1* , uma vez que o *nó anterior foi* eliminado), e os *nó2* taints são aplicados ao novo *nó1* . Em seguida, *o nó2* é apagado.
+  - Na *essência, o nó 1* torna-se *node3,* e *o nó2* torna-se *node1* .
 
 Quando escala uma piscina de nó em AKS, manchas e tolerações não são transportados por design.
 
@@ -113,7 +113,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -133,7 +133,7 @@ Para obter mais informações sobre a utilização de seletores de nó, consulte
 
 Um seletor de nó é uma forma básica de atribuir cápsulas a um dado nó. Mais flexibilidade está disponível usando *afinidade do nó.* Com a afinidade do nó, você define o que acontece se a vagem não pode ser combinado com um nó. Você pode *exigir* que o programador Kubernetes corresponda a um casulo com um anfitrião rotulado. Ou, você pode *preferir* um jogo, mas permitir que o pod seja agendado em um anfitrião diferente se não corresponder está disponível.
 
-O exemplo a seguir define a afinidade do nó para *o necessárioDuringSchedulingIgnoredDuringExecution*. Esta afinidade requer que o calendário de Kubernetes utilize um nó com uma etiqueta correspondente. Se não houver nó disponível, a cápsula tem de esperar que o agendamento continue. Para permitir que a cápsula seja programada num nó diferente, pode, em vez disso, definir o valor para *o preferidaDingSchedulingIgnoreDuringExecution*:
+O exemplo a seguir define a afinidade do nó para *o necessárioDuringSchedulingIgnoredDuringExecution* . Esta afinidade requer que o calendário de Kubernetes utilize um nó com uma etiqueta correspondente. Se não houver nó disponível, a cápsula tem de esperar que o agendamento continue. Para permitir que a cápsula seja programada num nó diferente, pode, em vez disso, definir o valor para *o preferidaDingSchedulingIgnoreDuringExecution* :
 
 ```yaml
 kind: Pod
@@ -143,7 +143,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 6ef4d63e30aeceec9cba3ae97f69afa1c299ec65
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 37cbd1b05249c694aaaa4ff5196a3b6328ccda7f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742738"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126265"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI
 
@@ -77,7 +77,7 @@ Os seguintes blocos de código Azure CLI são comandos que preparam os dados de 
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    Uma vez criado o hub IoT, obtenha a cadeia de ligação IoT Hub utilizando o comando [az iot hub show-connection-string.](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) Copie toda a cadeia de ligação e guarde-a para quando adicionar o Hub IoT como entrada no seu trabalho stream Analytics.
+    Uma vez criado o hub IoT, obtenha a cadeia de ligação IoT Hub utilizando o comando [az iot hub show-connection-string.](/cli/azure/iot/hub?view=azure-cli-latest) Copie toda a cadeia de ligação e guarde-a para quando adicionar o Hub IoT como entrada no seu trabalho stream Analytics.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -124,7 +124,7 @@ Os blocos de código Azure CLI seguintes criam uma conta de armazenamento de bol
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container). Utilize a chave da conta de armazenamento para autorizar a operação para criar o recipiente. Para obter mais informações sobre a autorização de operações de dados com o Azure CLI, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](/azure/storage/common/authorize-data-operations-cli).
+3. Crie um contentor para armazenar blobs com o comando [az storage container create](/cli/azure/storage/container). Utilize a chave da conta de armazenamento para autorizar a operação para criar o recipiente. Para obter mais informações sobre a autorização de operações de dados com o Azure CLI, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../storage/common/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \
@@ -266,7 +266,7 @@ az stream-analytics job start
     --output-start-mode JobStartTime
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 

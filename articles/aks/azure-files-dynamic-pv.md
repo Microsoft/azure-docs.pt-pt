@@ -5,12 +5,12 @@ description: Aprenda a criar dinamicamente um volume persistente com ficheiros A
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: ad252118a56402386691d1cdf7d975ef69ec45ad
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 08752f8aaa76d83e13eeea86db3048a6d29a4d99
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900442"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126401"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Criar e utilizar dinamicamente um volume persistente com ficheiros Azure no Serviço Azure Kubernetes (AKS)
 
@@ -146,7 +146,7 @@ Tem agora uma cápsula de corrida com a sua partilha Azure Files montada no dire
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Fri, 01 Mar 2019 23:56:16 +0000
@@ -184,7 +184,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para as melhores práticas associadas, consulte [as melhores práticas de armazenamento e backups em AKS][operator-best-practices-storage].
 

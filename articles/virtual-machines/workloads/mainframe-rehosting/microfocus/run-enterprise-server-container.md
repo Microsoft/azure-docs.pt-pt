@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34767c160c8229eb5b63806924926a46ea00cc2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127200"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Executar Micro Focus Enterprise Server 5.0 em um recipiente Docker em Azure
 
@@ -25,7 +25,7 @@ Pode executar o Micro Focus Enterprise Server 5.0 num contentor Docker em Azure.
 
 Docker adiciona portabilidade e isolamento às aplicações. Por exemplo, pode exportar uma imagem docker de uma máquina virtual Do Windows (VM) para funcionar noutra, ou de um repositório para um servidor windows com Docker. A imagem do Docker é executado na nova localização com a mesma configuração - sem ter de instalar o Enterprise Server. É parte da imagem. As considerações de licenciamento ainda se aplicam.
 
-Este tutorial instala o **Datacenter Windows 2016 com contentores** VM do Azure Marketplace. Este VM inclui **Docker 18.09.0**. Os passos que se seguem mostram-lhe como colocar o recipiente, executá-lo e, em seguida, ligá-lo a ele com um emulador 3270.
+Este tutorial instala o **Datacenter Windows 2016 com contentores** VM do Azure Marketplace. Este VM inclui **Docker 18.09.0** . Os passos que se seguem mostram-lhe como colocar o recipiente, executá-lo e, em seguida, ligá-lo a ele com um emulador 3270.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,7 +44,7 @@ Antes de começar, confira estes pré-requisitos:
 
 1.  Proteja os meios de comunicação do \_ estivador do servidor \_ de \_ 5.0 \_windows.zip ficheiro. Fixe o ficheiro de licenciamento ES-Docker-Prod-XXXXXXX.mflic (necessário para construir as imagens Docker).
 
-2.  Criar o VM. Para isso, abra o portal Azure, **selecione Criar um recurso** a partir do menu superior esquerdo e filtrar pelo sistema operativo do servidor *windows*. Nos resultados, selecione **Windows Server.** No ecrã seguinte, selecione **O Centro de Dados do Windows Server 2016 - com recipientes**.
+2.  Criar o VM. Para isso, abra o portal Azure, **selecione Criar um recurso** a partir do menu superior esquerdo e filtrar pelo sistema operativo do servidor *windows* . Nos resultados, selecione **Windows Server.** No ecrã seguinte, selecione **O Centro de Dados do Windows Server 2016 - com recipientes** .
 
     ![Screenshot dos resultados da pesquisa do portal Azure](./media/run-image-1.png)
 
@@ -58,7 +58,7 @@ Antes de começar, confira estes pré-requisitos:
 
     4.  Para **o nome de utilizador,** digite a conta de administrador que pretende utilizar e a palavra-passe.
 
-    5.  Certifique-se de que a **porta 3389 RDP** está aberta. Só esta porta precisa de ser exposta publicamente, para que possa inscrever-se no VM. Em seguida, aceite todos os valores predefinidos e clique em **Rever + criar**.
+    5.  Certifique-se de que a **porta 3389 RDP** está aberta. Só esta porta precisa de ser exposta publicamente, para que possa inscrever-se no VM. Em seguida, aceite todos os valores predefinidos e clique em **Rever + criar** .
 
     ![Screenshot de Criar um painel de máquina virtual](./media/run-image-2.png)
 
@@ -66,7 +66,7 @@ Antes de começar, confira estes pré-requisitos:
 
 5.  Selecione **Ir ao Recurso** para ir à lâmina de **visão geral** para o seu VM.
 
-6.  À direita, selecione **Connect**. As opções **de ligar à máquina virtual** aparecem à direita.
+6.  À direita, selecione **Connect** . As opções **de ligar à máquina virtual** aparecem à direita.
 
 7.  Selecione o botão **Download RDP File** para descarregar o ficheiro de protocolo remoto de ambiente de trabalho (RDP) que lhe permite anexar ao VM.
 
@@ -75,17 +75,17 @@ Antes de começar, confira estes pré-requisitos:
     > [!Note]    
     > Não utilize as suas credenciais corporativas para iniciar snu. (O cliente RDP assume que pode querer usá-los. Não tem.)
 
-9.  Selecione **Mais Escolhas**e, em seguida, selecione as suas credenciais VM.
+9.  Selecione **Mais Escolhas** e, em seguida, selecione as suas credenciais VM.
 
 Neste momento, o VM está a funcionar e a ser anexado via RDP. Está inscrito e pronto para o próximo passo.
 
 ## <a name="create-a-sandbox-directory-and-upload-the-zip-file"></a>Crie um diretório de caixa de areia e carrehe o ficheiro zip
 
-1.  Crie um diretório no VM onde pode fazer o upload da demonstração e dos ficheiros de licença. Por exemplo, **C: \\ Caixa de areia**.
+1.  Crie um diretório no VM onde pode fazer o upload da demonstração e dos ficheiros de licença. Por exemplo, **C: \\ Caixa de areia** .
 
-2.  O ** \_ estivador de servidor de entfilés \_ \_ 5.0 \_windows.zip** e o ficheiro **ES-Docker-Prod-XXXXXXX.mflic** para o diretório que criou.
+2.  O **\_ estivador de servidor de entfilés \_ \_ 5.0 \_windows.zip** e o ficheiro **ES-Docker-Prod-XXXXXXX.mflic** para o diretório que criou.
 
-3.  Extrair o conteúdo do ficheiro zip para o **estivador do servidor de entfiliza \_ \_ \_ 5.0 \_ o** diretório de janelas criado pelo processo de extração. Este diretório inclui um ficheiro readme (como.html e .txt file) e duas subdiretórios, **EnterpriseServer** e **Exemplos**.
+3.  Extrair o conteúdo do ficheiro zip para o **estivador do servidor de entfiliza \_ \_ \_ 5.0 \_ o** diretório de janelas criado pelo processo de extração. Este diretório inclui um ficheiro readme (como.html e .txt file) e duas subdiretórios, **EnterpriseServer** e **Exemplos** .
 
 4.  Copiar **ES-Docker-Prod-XXXXXXX.mflic** para o C: \\ \\ Estivador de servidor de sandbox entfile \_ \_ \_ 5.0 \_ windows \\ EnterpriseServer e C: \\ Sandbox \\ ent server \_ \_ dockerfiles \_ 5.0 \_ windows \\ Exemplos \\ CICS diretórios.  
       
@@ -103,15 +103,15 @@ Neste momento, o VM está a funcionar e a ser anexado via RDP. Está inscrito e 
     Por exemplo, a versão era de 18.09.0 quando esta foi escrita.
 
 3.  Para alterar o diretório, escreva:  
-    **cd \\ Estivador de servidor de \\ \_ sandbox \_ \_ entfiles 5.0 \_ windows \\ EnterpriseServer**.
+    **cd \\ Estivador de servidor de \\ \_ sandbox \_ \_ entfiles 5.0 \_ windows \\ EnterpriseServer** .
 
 4.  Tipo **bld.bat IacceptEULA** para iniciar o processo de construção para a imagem base inicial. Espere alguns minutos para que este processo desemisse. Nos resultados, note as duas imagens que foram criadas — uma para x64 e outra para x86:
 
     ![Janela de comando mostrando imagens](./media/run-image-3.png)
 
-5.  Para criar a imagem final para a demonstração do CICS, mude para o diretório CICS digitando **o servidor de cd \\ Sandbox \\ ent \_ \_ estiva \_ 5.0 \_ \\ janelas Exemplos \\ CICS**.
+5.  Para criar a imagem final para a demonstração do CICS, mude para o diretório CICS digitando **o servidor de cd \\ Sandbox \\ ent \_ \_ estiva \_ 5.0 \_ \\ janelas Exemplos \\ CICS** .
 
-6.  Para criar a imagem, escreva **bld.bat x64**. Espere alguns minutos para que o processo seja executado e a mensagem dizendo que a imagem foi criada.
+6.  Para criar a imagem, escreva **bld.bat x64** . Espere alguns minutos para que o processo seja executado e a mensagem dizendo que a imagem foi criada.
 
 7.  Digite imagens de **estivador** para exibir uma lista de todas as imagens docker instaladas no VM. Certifique-se de que **o microfocus/es-acctdemo** é um deles.
 
@@ -147,7 +147,7 @@ Neste momento, o VM está a funcionar e a ser anexado via RDP. Está inscrito e 
 
     ![Screenshot da janela do comando mostrando o endereço IP](./media/run-image-5.png)
 
-5. Monte a imagem utilizando o emulador. Configure o emulador para utilizar o endereço da imagem acctdemo e da porta 9040. Aqui, é **172.19.202.52:9040**. O seu será semelhante. O sinal no ecrã **CICS** abre.
+5. Monte a imagem utilizando o emulador. Configure o emulador para utilizar o endereço da imagem acctdemo e da porta 9040. Aqui, é **172.19.202.52:9040** . O seu será semelhante. O sinal no ecrã **CICS** abre.
 
     ![Screenshot de Signon para o CICS](./media/run-image-6.png)
 
@@ -155,19 +155,19 @@ Neste momento, o VM está a funcionar e a ser anexado via RDP. Está inscrito e 
 
 7. Limpe o ecrã utilizando o mapa de chaves do emulador. Para x3270, selecione a opção **menu Keymap.**
 
-8. Para lançar a aplicação acctdemo, escreva **ACCT**. O ecrã inicial da aplicação é apresentado.
+8. Para lançar a aplicação acctdemo, escreva **ACCT** . O ecrã inicial da aplicação é apresentado.
 
-     ![Screenshot da demonstração de conta](./media/run-image-7.png)
+     ![A imagem mostra uma janela da consola que mostra a aplicação.](./media/run-image-7.png)
 
-9. Experimente com tipos de conta de exibição. Por exemplo, tipo **D** para o Pedido e **11111** para a **conta**. Outros números de conta para tentar são 22222, 33333, e assim por diante.
+9. Experimente com tipos de conta de exibição. Por exemplo, tipo **D** para o Pedido e **11111** para a **conta** . Outros números de conta para tentar são 22222, 33333, e assim por diante.
 
-    ![Screenshot da demonstração de conta](./media/run-image-8.png)
+    ![A screenshot mostra a edição de diferentes valores na aplicação.](./media/run-image-8.png)
 
-10. Para exibir a consola Enterprise Server Administration, aceda ao pedido de comando e **escreva http:172.19.202.52:86**.
+10. Para exibir a consola Enterprise Server Administration, aceda ao pedido de comando e **escreva http:172.19.202.52:86** .
 
     ![Consola de administração de servidores empresariais](media/run-image-9.png)
 
-Já está. Agora estás a gerir e a gerir uma aplicação do CICS num contentor do Docker.
+Já está! Agora estás a gerir e a gerir uma aplicação do CICS num contentor do Docker.
 
 ## <a name="next-steps"></a>Passos seguintes
 

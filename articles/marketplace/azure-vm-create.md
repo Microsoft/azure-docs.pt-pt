@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: bfd67688ce30b62002e26cea9f7be4df1cb6e622
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331265"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126452"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Como criar uma oferta de máquina virtual no Azure Marketplace
 
@@ -27,19 +27,19 @@ Se ainda não o fez, reveja [a oferta de uma máquina virtual](marketplace-virtu
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No painel esquerdo, selecione **Commercial Marketplace**  >  **Overview**.
-3. Na página **'Vista Geral',** selecione **Nova oferta**  >  **Azure Virtual Machine**.
+2. No painel esquerdo, selecione **Commercial Marketplace**  >  **Overview** .
+3. Na página **'Vista Geral',** selecione **Nova oferta**  >  **Azure Virtual Machine** .
 
     ![Screenshot mostrando as opções do menu do painel esquerdo e o botão "Nova oferta".](./media/create-vm/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > Após a publicação da sua oferta, quaisquer edições que faça no Partner Center só aparecem no Azure Marketplace depois de republicar a oferta. Certifique-se de que vai sempre reeditar uma oferta depois de fazer alterações.
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta do Azure Marketplace e na Azure PowerShell e no Azure CLI, se aplicável.
 - Utilize apenas letras minúsculas e números. O ID pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Insira **um pseudónimo de Oferta.** O pseudónimo da oferta é o nome que é usado para a oferta no Partner Center.
 
@@ -47,13 +47,13 @@ Insira **um pseudónimo de Oferta.** O pseudónimo da oferta é o nome que é us
 
 ## <a name="enable-a-test-drive-optional"></a>Ativar uma unidade de teste (opcional)
 
-Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes acesso a um ambiente pré-configurado por um número fixo de horas. Oferecer uma unidade de teste resulta numa taxa de conversão aumentada e gera cabos altamente qualificados. Para saber mais sobre test drives, veja [o que é um test drive?](partner-center-portal/test-drive.md)
+Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais clientes, dando-lhes acesso a um ambiente pré-configurado por um número fixo de horas. Oferecer uma unidade de teste resulta numa taxa de conversão aumentada e gera cabos altamente qualificados. Para saber mais sobre test drives, veja [o que é um test drive?](./what-is-test-drive.md)
 
 > [!TIP]
 > Um test drive é diferente de um teste gratuito. Pode oferecer um test drive, teste gratuito, ou ambos. Ambos fornecem aos clientes a sua solução para um período de tempo fixo. Mas, um test drive também inclui uma visita prática e auto-guiada às principais características e benefícios do seu produto sendo demonstrados num cenário de implementação real.
 
 **Para ativar uma unidade de teste**
-1.  No **test drive**, selecione a caixa de **verificação de acionamento de teste.**
+1.  No **test drive** , selecione a caixa de **verificação de acionamento de teste.**
 1.  Selecione o tipo de unidade de teste da lista que aparece.
 
 ## <a name="configure-lead-management"></a>Configurar a gestão de oportunidades potenciais
@@ -71,7 +71,7 @@ Ao publicar a sua oferta no mercado comercial com o Partner Center, conecte-a ao
    - [Configure a sua oferta de envio leva à Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. Para validar a configuração fornecida, selecione o link **Validate.**
-1. Para fechar a caixa de diálogo, selecione **OK**.
+1. Para fechar a caixa de diálogo, selecione **OK** .
 
 ## <a name="resell-through-csps"></a>Revender através de CSPs
 

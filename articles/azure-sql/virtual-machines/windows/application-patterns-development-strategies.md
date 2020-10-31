@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126656"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Padrões de aplicação e estratégias de desenvolvimento para O SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Pode desenvolver muitos tipos de aplicações n-tier separando os componentes da
 
 Uma aplicação típica *de n-tier* inclui o nível de apresentação, o nível de negócio e o nível de dados:
 
-| Escalão de serviço | Descrição |
+| Escalão de serviço | Description |
 | --- | --- |
 | **Apresentação** |O *nível de apresentação* (nível web, nível frontal) é a camada em que os utilizadores interagem com uma aplicação. |
 | **Empresa** |O *nível de negócio* (nível médio) é a camada que o nível de apresentação e o nível de dados usam para comunicar uns com os outros e inclui a funcionalidade central do sistema. |
@@ -191,11 +191,11 @@ O diagrama seguinte demonstra um cenário no local e a sua solução ativada pel
 
 Como visto no diagrama, o Azure Load Balancer distribui o tráfego por várias máquinas virtuais e também determina a que servidor web ou servidor de aplicações se deve ligar. Ter múltiplas instâncias dos servidores web e de aplicações por trás de um balanceador de carga garante a alta disponibilidade do nível de apresentação e do nível de negócio. Para obter mais informações, consulte [as melhores práticas para padrões de aplicação que requerem HADR SQL](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Padrões de aplicação com serviços em nuvem](./media/application-patterns-development-strategies/IC728013.png)
+![O diagrama mostra no local máquinas físicas ou virtuais ligadas a instâncias de função web numa rede virtual Azure através de um equilibrador de carga Azure.](./media/application-patterns-development-strategies/IC728013.png)
 
 Outra abordagem para implementar este padrão de aplicação é usar uma função web consolidada que contenha componentes de nível de apresentação e de nível de negócio, como mostrado no diagrama seguinte. Este padrão de aplicação é útil para aplicações que requerem design imponente. Uma vez que a Azure fornece nós de computação apátridas nas funções web e trabalhadora, recomendamos que implemente uma lógica para armazenar o estado da sessão utilizando uma das seguintes tecnologias: [Azure Caching,](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/) [Azure Table Storage](../../../cosmos-db/tutorial-develop-table-dotnet.md) ou [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Padrões de aplicação com serviços em nuvem](./media/application-patterns-development-strategies/IC728014.png)
+![O diagrama mostra no local máquinas físicas ou virtuais ligadas a instâncias consolidadas de funções web/trabalhador numa rede virtual Azure.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Padrão com máquinas virtuais Azure, Base de Dados Azure SQL e Serviço de Aplicações Azure (Web Apps)
 O objetivo principal deste padrão de aplicação é mostrar-lhe como combinar a infraestrutura Azure como componentes de serviço (IaaS) com componentes de plataforma-as-a-service (PaaS) da Azure na sua solução. Este padrão está focado na Base de Dados Azure SQL para armazenamento relacional de dados. Não inclui o SQL Server numa máquina virtual Azure, que faz parte da infraestrutura Azure como uma oferta de serviços.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892626"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125687"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica da versão de teste
 
@@ -50,7 +50,7 @@ Este tipo de test drive não é hospedado pela Microsoft. Use-o para se conectar
 
 - **Duração do test drive** (obrigatório) – Introduza o tempo de duração em que a Unidade de Teste se mantenha ativa, em 4 de horas. A unidade de teste termina automaticamente após o fim deste período de tempo.
 
-- **Nome do grupo de recursos Azure** (obrigatório) – Introduza o [grupo de recursos Azure](../azure-resource-manager/resource-group-overview.md#resource-groups)) nome onde o seu test drive da Logic App é guardado.
+- **Nome do grupo de recursos Azure** (obrigatório) – Introduza o [grupo de recursos Azure](../azure-resource-manager/management/overview.md#resource-groups)) nome onde o seu test drive da Logic App é guardado.
 
 - **Nome da aplicação lógica Azure** (obrigatório) – Introduza o nome da aplicação Logic que atribui a unidade de teste ao utilizador. Esta aplicação Logic deve ser guardada no grupo de recursos Azure acima.
 
@@ -60,7 +60,7 @@ Este tipo de test drive não é hospedado pela Microsoft. Use-o para se conectar
 
 Os produtos que pretendam demonstrar um power bi visual interativo podem usar um link incorporado para partilhar um dashboard personalizado como o seu test drive, sem necessidade de mais configurações técnicas. Tudo o que precisa fazer aqui é carregar o seu URL de POWER BI incorporado.
 
-Para obter mais informações sobre a criação de aplicações Power BI, veja [o que são aplicações Power BI?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+Para obter mais informações sobre a criação de aplicações Power BI, veja [o que são aplicações Power BI?](/power-bi/service-template-apps-overview)
 
 ## <a name="deployment-subscription-details"></a>Detalhes da subscrição de implementação
 

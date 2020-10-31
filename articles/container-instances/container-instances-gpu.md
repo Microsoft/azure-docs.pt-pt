@@ -3,16 +3,16 @@ title: Implementar a instância do contentor ativada pela GPU
 description: Saiba como implantar instâncias de contentores Azure para executar aplicações de contentores intensivos com computação utilizando recursos gpu.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387099"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127013"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizem recursos da GPU
 
-Para executar determinadas cargas de trabalho computacional intensivas em Instâncias de Contentores Azure, coloque os seus [grupos de contentores](container-instances-container-groups.md) com *recursos de GPU*. As instâncias de contentores do grupo podem aceder a um ou mais GPUs da NVIDIA Tesla enquanto executam cargas de trabalho de contentores, tais como CUDA e aplicações de aprendizagem profunda.
+Para executar determinadas cargas de trabalho computacional intensivas em Instâncias de Contentores Azure, coloque os seus [grupos de contentores](container-instances-container-groups.md) com *recursos de GPU* . As instâncias de contentores do grupo podem aceder a um ou mais GPUs da NVIDIA Tesla enquanto executam cargas de trabalho de contentores, tais como CUDA e aplicações de aprendizagem profunda.
 
 Este artigo mostra como adicionar recursos de GPU quando implanta um grupo de contentores utilizando um [modelo de ficheiro YAML](container-instances-multi-container-yaml.md) ou [gestor de recursos](container-instances-multi-container-group.md). Também pode especificar os recursos da GPU quando implementar uma instância de contentor utilizando o portal Azure.
 
@@ -27,9 +27,9 @@ Na pré-visualização, aplicam-se as seguintes limitações quando se utilizam 
 
 Será acrescentado apoio a regiões adicionais ao longo do tempo.
 
-**Tipos de SO suportados**: Apenas Linux
+**Tipos de SO suportados** : Apenas Linux
 
-**Limitações adicionais**: Os recursos da GPU não podem ser utilizados quando se implanta um grupo de contentores numa [rede virtual](container-instances-vnet.md).
+**Limitações adicionais** : Os recursos da GPU não podem ser utilizados quando se implanta um grupo de contentores numa [rede virtual](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos da GPU
 
@@ -37,8 +37,8 @@ Será acrescentado apoio a regiões adicionais ao longo do tempo.
 
 Para utilizar gpus em uma instância de contentor, especifique um *recurso GPU* com as seguintes informações:
 
-* **Contagem** - Número de GPUs: **1,** **2**, ou **4**.
-* **SKU** - GPU SKU: **K80,** **P100,** ou **V100**. Cada SKU mapeia para o GPU NVIDIA Tesla em uma das seguintes famílias VM via Azure GPU:
+* **Contagem** - Número de GPUs: **1,** **2** , ou **4** .
+* **SKU** - GPU SKU: **K80,** **P100,** ou **V100** . Cada SKU mapeia para o GPU NVIDIA Tesla em uma das seguintes famílias VM via Azure GPU:
 
   | SKU | Família VM |
   | --- | --- |
@@ -55,7 +55,7 @@ Ao utilizar recursos de GPU, desementa os recursos de CPU e memória adequados �
 
 ### <a name="things-to-know"></a>Aspetos importantes
 
-* **Tempo de implantação** - A criação de um grupo de contentores que contenha recursos de GPU demora até **8-10 minutos**. Isto deve-se ao tempo adicional de provisão e configuração de um VM GPU em Azure. 
+* **Tempo de implantação** - A criação de um grupo de contentores que contenha recursos de GPU demora até **8-10 minutos** . Isto deve-se ao tempo adicional de provisão e configuração de um VM GPU em Azure. 
 
 * **Preços** - À semelhança dos grupos de contentores sem recursos de GPU, as faturas do Azure para os recursos consumidos durante a *duração* de um grupo de contentores com recursos de GPU. A duração é calculada a partir do momento em que se puxa a imagem do primeiro recipiente até que o grupo de contentores termine. Não inclui o momento de implantação do grupo de contentores.
 
@@ -133,7 +133,7 @@ Outra forma de implantar um grupo de contentores com recursos GPU é utilizando 
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {
@@ -207,7 +207,7 @@ Accuracy at step 990: 0.969
 Adding run metadata for 999
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Porque a utilização de recursos gpu pode ser dispendiosa, certifique-se de que os seus recipientes não funcionam inesperadamente por longos períodos. Monitorize os seus recipientes no portal Azure ou verifique o estado de um grupo de contentores com o comando de demonstração do [contentor az.][az-container-show] Por exemplo:
 

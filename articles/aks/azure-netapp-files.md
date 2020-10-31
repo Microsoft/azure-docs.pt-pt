@@ -4,12 +4,12 @@ description: Saiba como integrar ficheiros Azure NetApp com o Serviço Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126258"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar ficheiros Azure NetApp com o Serviço Azure Kubernetes
 
@@ -29,7 +29,6 @@ Aplicam-se as seguintes limitações quando utiliza ficheiros Azure NetApp:
 
 * O Azure NetApp Files só está disponível [nas regiões de Azure selecionadas.][anf-regions]
 * Antes de poder utilizar ficheiros Azure NetApp, tem de ter acesso ao serviço Azure NetApp Files. Para se candidatar ao acesso, pode utilizar o formulário de submissão da [lista de espera Azure NetApp Files][anf-waitlist]. Não pode aceder ao serviço Azure NetApp Files até receber o e-mail oficial de confirmação da equipa do Azure NetApp Files.
-* O seu serviço Azure NetApp Files deve ser criado na mesma rede virtual que o seu cluster AKS.
 * Após a implantação inicial de um cluster AKS, apenas é suportado o fornecimento estático para ficheiros Azure NetApp.
 * Para utilizar o provisionamento dinâmico com os Ficheiros Azure NetApp, instale e configuure a versão 19.07 do [NetApp Trident](https://netapp-trident.readthedocs.io/) ou posterior.
 
@@ -258,7 +257,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 ...
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre ficheiros Azure NetApp, consulte [o que é Azure NetApp Files][anf]. Para obter mais informações sobre a utilização de NFS com AKS, consulte [manualmente criar e utilizar um volume de servidor Linux NFS (Sistema de Ficheiros de Rede) com o Serviço Azure Kubernetes (AKS)][aks-nfs].
 
