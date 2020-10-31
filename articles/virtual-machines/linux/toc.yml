@@ -328,7 +328,7 @@
         - name: Conceber para desempenho elevado
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Expansão do disco
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Destinos de escalabilidade para discos
           href: disk-scalability-targets.md
         - name: Cópia de Segurança e recuperação após desastre para discos

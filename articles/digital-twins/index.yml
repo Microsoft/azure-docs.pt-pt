@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentação de Pré-visualização do Azure Digital Twins
+title: Documentação do Azure Digital Twins
 summary: Aprenda a usar u Azure Digital Twins para criar uma representação digital dos seus recursos, ambientes e sistemas empresariais para criar soluções IoT de próxima geração que modelem o mundo real.
 metadata:
-  title: Documentação de Pré-visualização do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs
+  title: Documentação do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs
   description: Saiba como Utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial.
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: b9d6067fe8c5c81024f6fa211d32e0ecc92f5a47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92358988"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099101"
 landingContent:
 - title: Acerca do Azure Digital Twins
   linkLists:
